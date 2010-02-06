@@ -1,0 +1,500 @@
+# Hungarian translation for dcplusplus
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the dcplusplus package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dcplusplus\n"
+"Report-Msgid-Bugs-To: dcplusplus-devel@lists.sourceforge.net\n"
+"POT-Creation-Date: 2009-03-04 22:42+0100\n"
+"PO-Revision-Date: 2009-02-21 21:06+0000\n"
+"Last-Translator: eMTee <Unknown>\n"
+"Language-Team: Hungarian <hu@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: dcpp/Util.cpp:487
+#, c-format, boost-format
+msgid "%'lld B"
+msgstr "%'lld B"
+
+#: dcpp/Util.cpp:449
+#, c-format, boost-format
+msgid "%.02f GiB"
+msgstr "%.02f GiB"
+
+#: dcpp/Util.cpp:445
+#, c-format, boost-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
+
+#: dcpp/Util.cpp:447
+#, c-format, boost-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
+
+#: dcpp/Util.cpp:453
+#, c-format, boost-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: dcpp/Util.cpp:451
+#, c-format, boost-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: dcpp/AdcHub.cpp:141
+#, boost-format
+msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+msgstr "%1% (%2%) CID-je {%3%} ugyanaz, mint %4% (%5%)-é, kihagyva"
+
+#: dcpp/NmdcHub.cpp:282
+#, boost-format
+msgid "%1% (Nick unknown)"
+msgstr "%1% (Nick ismeretlen)"
+
+#: dcpp/HashManager.cpp:769
+#, boost-format
+msgid ""
+"%1% not shared; calculated CRC32 does not match the one found in SFV file."
+msgstr ""
+"%1% nincs megosztva. A kiszámított CRC32 nem egyezik az SFV fájlban lévővel."
+
+#: dcpp/QueueManager.cpp:330
+#, boost-format
+msgid "%1% renamed to %2%"
+msgstr "%1% átnevezve a következőre: %2%"
+
+#: dcpp/AdcHub.cpp:287
+#, boost-format
+msgid "%1% was kicked by %2%: %3%"
+msgstr "%1%-t kirúgta %2%: %3%"
+
+#: dcpp/AdcHub.cpp:290
+#, boost-format
+msgid "%1% was kicked: %2%"
+msgstr "%1% kirúgva: %2%"
+
+#: dcpp/AdcHub.cpp:177
+#, boost-format
+msgid "%1%/s"
+msgstr "%1%/s"
+
+#: dcpp/DownloadManager.cpp:538
+#, boost-format
+msgid "%1%: File not available"
+msgstr "%1%: A fájl nem elérhető"
+
+#: dcpp/Util.cpp:443
+#, c-format, boost-format
+msgid "%d B"
+msgstr "%d B"
+
+#: dcpp/Util.cpp:483
+#, c-format, boost-format
+msgid "%s B"
+msgstr "%s B"
+
+#: dcpp/ADLSearch.h:48
+msgid "<Enter string>"
+msgstr "<Kulcsszava(k)>"
+
+#: dcpp/QueueManager.cpp:678
+msgid "A file of equal or larger size already exists at the target location"
+msgstr "Egy megegyező vagy nagyobb méretű fájl már létezik a megadott helyen"
+
+#: dcpp/QueueManager.cpp:614
+msgid "A file with a different size already exists in the queue"
+msgstr "Egy különböző mérettel rendelkező fájl már van a sorban"
+
+#: dcpp/QueueManager.cpp:617
+msgid "A file with different tth root already exists in the queue"
+msgstr "Egy különböző TTH gyökerű fájl már van a sorban"
+
+#: dcpp/QueueManager.cpp:579
+msgid "A file with the same hash already exists in your share"
+msgstr "A megosztásodban már van egy fájl ugyanezzel a hash-hel"
+
+#: dcpp/ConnectionManager.cpp:176
+msgid "All download slots taken"
+msgstr "Összes letöltési szál foglalt"
+
+#: dcpp/DownloadManager.cpp:382 dcpp/DownloadManager.cpp:384
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr "CRC32 inkonzisztencia (SFV-Ellenőrzéskor)"
+
+#: dcpp/BufferedSocket.cpp:165 dcpp/SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Kapcsolat lezárva"
+
+#: dcpp/Socket.cpp:154 dcpp/ConnectionManager.cpp:182
+#: dcpp/BufferedSocket.cpp:130 dcpp/BufferedSocket.cpp:150
+msgid "Connection timeout"
+msgstr "Időtúllépés"
+
+#: dcpp/ConnectionManager.cpp:250
+#, boost-format
+msgid "Connectivity error: %1%"
+msgstr "Kapcsolódási hiba: %1%"
+
+#: dcpp/ConnectionManager.cpp:243
+msgid "Connectivity restored"
+msgstr "Kapcsolódás lehetősége visszaállítva"
+
+#: dcpp/DownloadManager.cpp:234
+#, boost-format
+msgid "Could not open target file: %1%"
+msgstr "Nem sikerült megnyitni a célfájlt a következő miatt: %1%"
+
+#: dcpp/ShareManager.cpp:422
+msgid "Directory already shared"
+msgstr "A könyvtár már meg van osztva"
+
+#: dcpp/DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Hiányzik a könyvtár név attribútuma"
+
+#: dcpp/ADLSearch.h:277
+msgid "Discard"
+msgstr "Eldob"
+
+#: dcpp/BufferedSocket.cpp:422
+msgid "Disconnected"
+msgstr "Szétkapcsolva"
+
+#: dcpp/UploadManager.cpp:453
+#, boost-format
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
+
+#: dcpp/DCPlusPlus.cpp:107
+msgid "Download Queue"
+msgstr "Letöltési Sor"
+
+#: dcpp/ShareManager.cpp:797
+#, boost-format
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: %"
+"3%"
+msgstr ""
+"Többször meglévő fájl nem lesz megosztva: %1% (Méret: %2% B) Megegyezik "
+"ezzel: %3%"
+
+#: dcpp/QueueManager.cpp:688 dcpp/QueueManager.cpp:692
+#, boost-format
+msgid "Duplicate source: %1%"
+msgstr "Dupla forrás: %1%"
+
+#: dcpp/HashManager.cpp:456
+#, boost-format
+msgid "Error creating hash data file: %1%"
+msgstr "Hiba a hash adatfájl létrehozásakor: %1%"
+
+#: dcpp/ZUtils.cpp:33 dcpp/ZUtils.cpp:54 dcpp/ZUtils.cpp:76 dcpp/ZUtils.cpp:86
+#: dcpp/BZUtils.cpp:31 dcpp/BZUtils.cpp:52 dcpp/BZUtils.cpp:60
+msgid "Error during compression"
+msgstr "Hiba a tömörítéskor"
+
+#: dcpp/ZUtils.cpp:100 dcpp/ZUtils.cpp:123 dcpp/BZUtils.cpp:72
+#: dcpp/BZUtils.cpp:94 dcpp/BZUtils.cpp:97 dcpp/CryptoManager.cpp:344
+#: dcpp/CryptoManager.cpp:363 dcpp/CryptoManager.cpp:377
+msgid "Error during decompression"
+msgstr "Hiba a kicsomagoláskor"
+
+#: dcpp/CryptoManager.cpp:154
+msgid "Error generating certificate"
+msgstr "Hiba a tanúsítvány készítésekor"
+
+#: dcpp/HashManager.cpp:774
+#, boost-format
+msgid "Error hashing %1%: %2%"
+msgstr "Hiba a következő hashelésekor: %1%: %2%"
+
+#: dcpp/HashManager.cpp:111 dcpp/HashManager.cpp:325
+#, boost-format
+msgid "Error saving hash data: %1%"
+msgstr "Hiba a hash adatok mentésekor: %1%"
+
+#: dcpp/CryptoManager.cpp:228 dcpp/CryptoManager.cpp:232
+#: dcpp/CryptoManager.cpp:237 dcpp/CryptoManager.cpp:241
+msgid "Failed to load certificate file"
+msgstr "Nem sikerült betölteni a tanúsítvány fájlt"
+
+#: dcpp/CryptoManager.cpp:246 dcpp/CryptoManager.cpp:250
+#: dcpp/CryptoManager.cpp:255 dcpp/CryptoManager.cpp:259
+msgid "Failed to load private key"
+msgstr "Nem sikerült betölteni a pirvát kulcsot"
+
+#: dcpp/AdcHub.cpp:212
+msgid "Failed to negotiate base protocol"
+msgstr "Az alap protokoll egyeztetése sikertelen"
+
+#: dcpp/Socket.cpp:402
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+"A socks kiszolgáló beállítása az UDP port továbbításra nem sikerült "
+"(ellenőrizd a kiszolgáló címét és a portot)"
+
+#: dcpp/ShareManager.cpp:832
+#, boost-format
+msgid "File list refresh failed: %1%"
+msgstr "Hiba a fájl-lista frissítésekor: %1%"
+
+#: dcpp/ShareManager.cpp:876
+msgid "File list refresh finished"
+msgstr "A fájl-lista frissítése befejeződött"
+
+#: dcpp/ShareManager.cpp:812
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, "
+"mielőtt újra frissíteni próbálnál!"
+
+#: dcpp/ShareManager.cpp:853
+msgid "File list refresh initiated"
+msgstr "A fájl-lista frissítése elkezdődött"
+
+#: dcpp/DirectoryListing.cpp:102
+msgid "File not available"
+msgstr "A fájl nem elérhető"
+
+#: dcpp/HashManager.cpp:82
+#, boost-format
+msgid "Finished hashing: %1%"
+msgstr "Indexelés befejezve: %1%"
+
+#: dcpp/HashManager.cpp:80
+#, boost-format
+msgid "Finished hashing: %1% (%2%/s)"
+msgstr "Indexelés befejezve: %1% (%2%/s)"
+
+#: dcpp/DownloadManager.cpp:313
+msgid "Full tree does not match TTH root"
+msgstr "A teljes fa nem megfelelő a TTH gyökérhez"
+
+#: dcpp/CryptoManager.cpp:221
+msgid "Generated new TLS certificate"
+msgstr "Új TLS tanúsítvány generálva"
+
+#: dcpp/DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr "Nagyobb mint a maximális fájl-lista méret"
+
+#: dcpp/DCPlusPlus.cpp:101
+msgid "Hash database"
+msgstr "Hash adatbázis"
+
+#: dcpp/HashManager.cpp:678
+msgid "Hash database rebuilt"
+msgstr "A hash adatbázis újraépítve"
+
+#: dcpp/HashManager.cpp:73 dcpp/HashManager.cpp:269
+#, boost-format
+msgid "Hashing failed: %1%"
+msgstr "Sikertelen indexelés: %1%"
+
+#: dcpp/AdcHub.cpp:218
+msgid ""
+"Hub probably uses an old version of ADC, please encourage the owner to "
+"upgrade"
+msgstr ""
+"A hub vélhetően régi verziójú ADC protokollt használ, kérlek szólj a "
+"tulajnak, hogy frissítsen"
+
+#: dcpp/DownloadManager.cpp:222
+msgid "Invalid size"
+msgstr "Érvénytelen méret"
+
+#: dcpp/QueueManager.cpp:661 dcpp/QueueManager.cpp:669
+msgid ""
+"Invalid target file (missing directory, check default download directory "
+"setting)"
+msgstr ""
+"Érvénytelen célfájl (hiányzó könyvtár, ellenőrizd az alapértelmezett "
+"letöltési könyvtár beállításait)"
+
+#: dcpp/FavoriteManager.cpp:438
+msgid "Kick user(s)"
+msgstr "Felhasználó(k) kirúgása"
+
+#: dcpp/BufferedSocket.cpp:254
+msgid "Maximum command length exceeded"
+msgstr "A maximális parancs hossz túllépve"
+
+#: dcpp/Streams.h:140
+msgid "More bytes written than requested"
+msgstr "A kértnél több byte írása történt"
+
+#: dcpp/CryptoManager.cpp:143
+msgid "No certificate file chosen"
+msgstr "Nincs kiválasztva tanúsítvány fájl"
+
+#: dcpp/ShareManager.cpp:409
+msgid "No directory specified"
+msgstr "Nincs könyvtár megadva"
+
+#: dcpp/CryptoManager.cpp:140
+msgid "No private key file chosen"
+msgstr "Nincs kiválasztva privát kulcs fájl"
+
+#: dcpp/DownloadManager.cpp:427
+msgid "No slots available"
+msgstr "Nincs szabad slot"
+
+#: dcpp/AdcHub.cpp:579
+#, boost-format
+msgid "Not listening for connections - please restart %1%"
+msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
+
+#: dcpp/Transfer.cpp:82 dcpp/Transfer.cpp:86 dcpp/ClientManager.cpp:120
+#: dcpp/SearchManager.cpp:237 dcpp/SearchManager.cpp:299
+#: dcpp/SearchManager.cpp:301
+msgid "Offline"
+msgstr "Kilépett"
+
+#: dcpp/FavoriteManager.cpp:442
+msgid "Redirect user(s)"
+msgstr "Felhasználó(k) átirányítása"
+
+#: dcpp/ShareManager.cpp:425
+msgid "Remove all subdirectories before adding this one"
+msgstr "Távolíts el minden alkönyvtárat, mielőtt ezt felveszed"
+
+#: dcpp/BitInputStream.h:40
+msgid "Request to seek beyond the end of data"
+msgstr "Kérés az adatsor vége utáni pozícionálásra"
+
+#: dcpp/DownloadManager.cpp:227
+msgid "Response does not match request"
+msgstr "A válasz nem felel meg a kérésnek"
+
+#: dcpp/SSLSocket.cpp:160
+#, boost-format
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "SSL Hiba: %1% (%2%, %3%)"
+
+#: dcpp/SearchManager.cpp:135
+#, boost-format
+msgid "Search disabled: %1%"
+msgstr "Keresés tiltva:%1%"
+
+#: dcpp/SearchManager.cpp:128
+msgid "Search enabled again"
+msgstr "Keresés ismét engedélyezve"
+
+#: dcpp/DCPlusPlus.cpp:104
+msgid "Shared Files"
+msgstr "Megosztott fájlok"
+
+#: dcpp/Socket.cpp:263 dcpp/Socket.cpp:267
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr ""
+"A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói név/"
+"jelszó?)"
+
+#: dcpp/CryptoManager.cpp:223
+#, boost-format
+msgid "TLS disabled, failed to generate certificate: %1%"
+msgstr "TLS letiltva, a tanúsítvány fájl generálása sikertelen: %1%"
+
+#: dcpp/CryptoManager.cpp:213
+msgid "TLS disabled, no certificate file set"
+msgstr "TLS letiltva, nincs tanúsítvány fájl beállítva"
+
+#: dcpp/MerkleCheckOutputStream.h:53 dcpp/MerkleCheckOutputStream.h:113
+msgid "TTH inconsistency"
+msgstr "TTH inkonzisztencia"
+
+#: dcpp/QueueManager.cpp:965
+msgid "Target file is missing or wrong size"
+msgstr "A cél fájl hiányzik vagy nem megfelelő méretű"
+
+#: dcpp/QueueManager.cpp:656 dcpp/QueueManager.cpp:665
+msgid "Target filename too long"
+msgstr "A cél fájlneve túl hosszú"
+
+#: dcpp/QueueManager.cpp:957
+msgid "Target removed"
+msgstr "Cél eltávolítva"
+
+#: dcpp/Socket.cpp:249
+msgid "The socks server doesn't support login / password authentication"
+msgstr ""
+"A socks kiszolgáló nem támogatja a bejelentkezési név / jelszó hitelesítést"
+
+#: dcpp/Socket.cpp:162 dcpp/Socket.cpp:170 dcpp/Socket.cpp:203
+#: dcpp/Socket.cpp:207 dcpp/Socket.cpp:231 dcpp/Socket.cpp:246
+msgid "The socks server failed establish a connection"
+msgstr "Nem sikerült a socks kiszolgálóhoz kapcsolódni"
+
+#: dcpp/Socket.cpp:235
+msgid "The socks server requires authentication"
+msgstr "A socks kiszolgáló hitelesítést igényel"
+
+#: dcpp/ShareManager.cpp:413
+msgid "The temporary download directory cannot be shared"
+msgstr "Az ideiglenes letöltési könyvtár nem megosztható"
+
+#: dcpp/QueueManager.cpp:606
+msgid "This file is already queued"
+msgstr "A fájl már a sorban van"
+
+#: dcpp/Thread.cpp:34 dcpp/Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "A szál léterhozása sikertelen"
+
+#: dcpp/QueueManager.cpp:1175
+#, boost-format
+msgid "Unable to open filelist: %1%"
+msgstr "Nem sikerült megnyitni a fájl-listát: %1%"
+
+#: dcpp/HashManager.cpp:124
+msgid "Unable to read hash data file"
+msgstr "A hash adatfájl beolvasása nem lehetséges"
+
+#: dcpp/QueueManager.cpp:332
+#, boost-format
+msgid "Unable to rename %1%: %2%"
+msgstr "A fájl átnevezése sikertelen: %1%: %2%"
+
+#: dcpp/UploadManager.cpp:149
+#, boost-format
+msgid "Unable to send file %1%: %2%"
+msgstr "A fájl küldése sikertelen: %1%: %2%"
+
+#: dcpp/Socket.cpp:54
+#, c-format, boost-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Ismeretlen hiba: 0x%1$x"
+
+#: dcpp/QueueManager.cpp:573
+msgid "You're trying to download from yourself!"
+msgstr "Saját magadtól próbálsz meg letölteni!"
+
+#: dcpp/SettingsManager.cpp:167
+msgid "downloaded from"
+msgstr "letöltve innen:"
+
+#: dcpp/SettingsManager.cpp:168
+msgid "uploaded to"
+msgstr "feltöltve ide:"
+
+#~ msgid "Certificate not trusted, unable to connect"
+#~ msgstr "A tanúsítvány nem megbízható, a kapcsolódás nem lehetséges"
+
+#~ msgid "More data was sent than was expected"
+#~ msgstr "A vártnál több adat lett küldve"
+
+#~ msgid "Unknown error: 0x%1%"
+#~ msgstr "Ismeretlen hiba: 0x%1%"
+
+#~ msgid "Virtual directory name already exists"
+#~ msgstr "A virtuális könyvtárnév már létezik"

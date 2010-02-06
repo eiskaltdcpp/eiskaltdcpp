@@ -1,0 +1,709 @@
+#include "MainWindow.h"
+
+#include <stdlib.h>
+#include <string>
+#include <iostream>
+
+#include <QPushButton>
+#include <QSize>
+#include <QModelIndex>
+#include <QItemSelectionModel>
+#include <QtDebug>
+#include <QTextCodec>
+#include <QMessageBox>
+
+#include "HubFrame.h"
+#include "TransferView.h"
+#include "ShareBrowser.h"
+#include "QuickConnect.h"
+#include "SearchFrame.h"
+#include "Settings.h"
+#include "FavoriteHubs.h"
+#include "DownloadQueue.h"
+#include "FinishedTransfers.h"
+#include "AntiSpamFrame.h"
+#include "IPFilterFrame.h"
+#include "ToolBar.h"
+
+#include "UPnPMapper.h"
+#include "WulforSettings.h"
+#include "WulforUtil.h"
+
+#include "Version.h"
+
+using namespace std;
+
+MainWindow::MainWindow (QWidget *parent):
+        QMainWindow(parent),
+        statusLabel(NULL)
+{
+    arenaMap.clear();
+    arenaWidgets.clear();
+
+    init();
+
+    retranslateUi();
+
+    LogManager::getInstance()->addListener(this);
+    TimerManager::getInstance()->addListener(this);
+    QueueManager::getInstance()->addListener(this);
+
+    startSocket();
+
+    //autoconnect();
+
+    setStatusMessage(tr("Ready"));
+
+    TransferView::newInstance();
+
+    transfer_dock->setWidget(TransferView::getInstance());
+}
+
+MainWindow::~MainWindow(){
+    LogManager::getInstance()->removeListener(this);
+    TimerManager::getInstance()->removeListener(this);
+    QueueManager::getInstance()->removeListener(this);
+
+    TransferView::getInstance()->close();
+    TransferView::deleteInstance();
+
+    if (FavoriteHubs::getInstance()){
+        FavoriteHubs::getInstance()->setUnload(true);
+        FavoriteHubs::getInstance()->close();
+    }
+
+    FavoriteHubs::deleteInstance();
+
+    if (FinishedDownloads::getInstance()){
+        FinishedDownloads::getInstance()->setUnload(true);
+        FinishedDownloads::getInstance()->close();
+    }
+
+    if (FinishedUploads::getInstance()){
+        FinishedUploads::getInstance()->setUnload(true);
+        FinishedUploads::getInstance()->close();
+    }
+
+    arena->setWidget(NULL);
+
+    QMap< ArenaWidget*, QWidget* >::iterator it = arenaMap.begin();
+
+    for(; it != arenaMap.end(); ++it)
+        it.value()->close();
+
+    arenaMap.clear();
+    arenaWidgets.clear();
+
+    delete arena;
+
+    delete fBar;
+    delete tBar;
+    //delete toolView;
+
+    /*foreach (ArenaWidget *a, arenaWidgets)
+		a->getWidget()->close();*/
+
+    qDeleteAll(fileMenuActions);
+}
+
+void MainWindow::closeEvent(QCloseEvent *c_e){
+    saveSettings();
+
+    QWidget *wgt = arena->widget();
+
+    if (wgt){//prevent crashing on exit
+        arena->setWidget(NULL);
+        wgt->close();
+    }
+
+    c_e->accept();
+}
+
+void MainWindow::customEvent(QEvent *e){
+    if (e->type() == MainWindowCustomEvent::Event){
+        MainWindowCustomEvent *c_e = reinterpret_cast<MainWindowCustomEvent*>(e);
+
+        c_e->func()->call();
+    }
+
+    e->accept();
+}
+
+void MainWindow::init(){
+    arena = new QDockWidget();
+    arena->setFloating(false);
+    arena->setAllowedAreas(Qt::RightDockWidgetArea);
+    arena->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    arena->setTitleBarWidget(new QWidget(arena));
+
+    transfer_dock = new QDockWidget();
+    transfer_dock->setFloating(false);
+    transfer_dock->setAllowedAreas(Qt::BottomDockWidgetArea);
+    transfer_dock->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    transfer_dock->setTitleBarWidget(new QWidget(transfer_dock));
+
+    addDockWidget(Qt::RightDockWidgetArea, arena);
+    addDockWidget(Qt::BottomDockWidgetArea, transfer_dock);
+
+    transfer_dock->hide();
+
+    history.setSize(30);
+
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+
+    setWindowIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiICON_APPL));
+
+    setWindowTitle(QString("%1").arg(EISKALTDCPP_WND_TITLE));
+
+    initActions();
+
+    initMenuBar();
+
+    initStatusBar();
+
+    initToolbar();
+
+    loadSettings();
+}
+
+void MainWindow::loadSettings(){
+    WulforSettings *WS = WulforSettings::getInstance();
+
+    bool showMax = WS->getBool(WB_MAINWINDOW_MAXIMIZED);
+    int w = WS->getInt(WI_MAINWINDOW_WIDTH);
+    int h = WS->getInt(WI_MAINWINDOW_HEIGHT);
+    int xPos = WS->getInt(WI_MAINWINDOW_X);
+    int yPos = WS->getInt(WI_MAINWINDOW_Y);
+    int tx = WIGET(WI_MAINWINDOW_TBAR_X), ty = WIGET(WI_MAINWINDOW_TBAR_Y);
+    int fx = WIGET(WI_MAINWINDOW_FBAR_X), fy = WIGET(WI_MAINWINDOW_FBAR_Y);
+
+    if ((tx >= 0) && (ty >= 0))
+        tBar->move(tx, ty);
+
+    if ((fx >= 0) && (fy >= 0))
+        fBar->move(fx, fy);
+
+    QPoint p(xPos, yPos);
+    QSize  sz(w, h);
+
+    if (p.x() >= 0 || p.y() >= 0)
+        this->move(p);
+
+    if (sz.width() > 0 || sz.height() > 0)
+        this->resize(sz);
+
+    if (showMax)
+        this->showMaximized();
+}
+
+void MainWindow::saveSettings(){
+    WISET(WI_MAINWINDOW_HEIGHT, height());
+    WISET(WI_MAINWINDOW_WIDTH, width());
+    WISET(WI_MAINWINDOW_X, x());
+    WISET(WI_MAINWINDOW_Y, y());
+
+    WBSET(WB_MAINWINDOW_MAXIMIZED, isMaximized());
+
+    WISET(WI_MAINWINDOW_TBAR_X, tBar->x());
+    WISET(WI_MAINWINDOW_TBAR_Y, tBar->y());
+    WISET(WI_MAINWINDOW_FBAR_X, fBar->x());
+    WISET(WI_MAINWINDOW_FBAR_Y, fBar->y());
+}
+
+void MainWindow::initActions(){
+    {
+        WulforUtil *WU = WulforUtil::getInstance();
+
+        fileOptions = new QAction("", this);
+        fileOptions->setShortcut(tr("Ctrl+O"));
+        fileOptions->setIcon(WU->getPixmap(WulforUtil::eiCONFIGURE));
+        connect(fileOptions, SIGNAL(triggered()), this, SLOT(slotFileSettings()));
+
+        fileFileListBrowserLocal = new QAction("", this);
+        fileFileListBrowserLocal->setShortcut(tr("Ctrl+L"));
+        fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+        connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
+
+        fileFileListRefresh = new QAction("", this);
+        fileFileListRefresh->setShortcut(tr("Ctrl+R"));
+        fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiRELOAD));
+
+        //TODO: implement detecting current hub
+        fileHubReconnect = new QAction("", this);
+        fileHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
+
+        fileQuickConnect = new QAction("", this);
+        fileQuickConnect->setShortcut(tr("Ctrl+H"));
+        fileQuickConnect->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
+        connect(fileQuickConnect, SIGNAL(triggered()), this, SLOT(slotQC()));
+
+        fileTransfers = new QAction("", this);
+        fileTransfers->setIcon(WU->getPixmap(WulforUtil::eiTRANSFER));
+        fileTransfers->setCheckable(true);
+        connect(fileTransfers, SIGNAL(toggled(bool)), this, SLOT(slotFileTransfer(bool)));
+        //transfer_dock->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+
+        fileDownloadQueue = new QAction("", this);
+        fileDownloadQueue->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
+        connect(fileDownloadQueue, SIGNAL(triggered()), this, SLOT(slotFileDownloadQueue()));
+
+        fileFinishedDownloads = new QAction("", this);
+        fileFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
+        connect(fileFinishedDownloads, SIGNAL(triggered()), this, SLOT(slotFileFinishedDownloads()));
+
+        fileFinishedUploads = new QAction("", this);
+        fileFinishedUploads->setIcon(WU->getPixmap(WulforUtil::eiUP));
+        connect(fileFinishedUploads, SIGNAL(triggered()), this, SLOT(slotFileFinishedUploads()));
+
+        fileFavoriteHubs = new QAction("", this);
+        fileFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
+        connect(fileFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotFileFavoriteHubs()));
+
+        fileAntiSpam = new QAction("", this);
+        fileAntiSpam->setIcon(WU->getPixmap(WulforUtil::eiSPAM));
+        connect(fileAntiSpam, SIGNAL(triggered()), this, SLOT(slotFileAntiSpam()));
+
+        fileIPFilter = new QAction("", this);
+        fileIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
+        connect(fileIPFilter, SIGNAL(triggered()), this, SLOT(slotFileIPFilter()));
+
+        fileSearch = new QAction("", this);
+        fileSearch->setShortcut(tr("Ctrl+S"));
+        fileSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
+        connect(fileSearch, SIGNAL(triggered()), this, SLOT(slotFileSearch()));
+
+        fileQuit = new QAction("", this);
+        fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
+        connect(fileQuit, SIGNAL(triggered()), this, SLOT(close()));
+
+        QAction *separator0 = new QAction("", this);
+        separator0->setSeparator(true);
+        QAction *separator1 = new QAction("", this);
+        separator1->setSeparator(true);
+        QAction *separator2 = new QAction("", this);
+        separator2->setSeparator(true);
+        QAction *separator3 = new QAction("", this);
+        separator3->setSeparator(true);
+        QAction *separator4 = new QAction("", this);
+        separator4->setSeparator(true);
+
+        fileMenuActions << fileOptions
+                << separator1
+                << fileFileListBrowserLocal
+                << fileFileListRefresh
+                << separator2
+                << fileHubReconnect
+                << fileQuickConnect
+                << separator0
+                << fileTransfers
+                << fileDownloadQueue
+                << fileFinishedDownloads
+                << fileFinishedUploads
+                << fileFavoriteHubs
+                << fileSearch
+                << separator3
+                << fileAntiSpam
+                << fileIPFilter
+                << separator4
+                << fileQuit;
+    }
+    {
+        aboutClient = new QAction("", this);
+        connect(aboutClient, SIGNAL(triggered()), this, SLOT(slotAboutClient()));
+
+        aboutQt = new QAction("", this);
+        connect(aboutQt, SIGNAL(triggered()), this, SLOT(slotAboutQt()));
+    }
+}
+
+void MainWindow::initMenuBar(){
+    {
+        menuFile = new QMenu("", this);
+
+        menuFile->addActions(fileMenuActions);
+    }
+    {
+        menuAbout = new QMenu("", this);
+
+        menuAbout->addAction(aboutClient);
+        menuAbout->addAction(aboutQt);
+    }
+
+    menuBar()->addMenu(menuFile);
+    menuBar()->addMenu(menuAbout);
+}
+
+void MainWindow::initStatusBar(){
+    statusLabel = new QLabel(statusBar());
+    statusLabel->setFrameShadow(QFrame::Plain);
+    statusLabel->setFrameShape(QFrame::Panel);
+
+    statusBar()->addPermanentWidget(statusLabel);
+}
+
+void MainWindow::retranslateUi(){
+    //Retranslate menu actions
+    {
+        menuFile->setTitle(tr("&File"));
+
+        fileOptions->setText(tr("Options"));
+
+        fileFileListBrowserLocal->setText(tr("Open own filelist"));
+
+        fileFileListRefresh->setText(tr("Recreate share"));
+
+        fileHubReconnect->setText(tr("Reconnect to Hub"));
+
+        fileTransfers->setText(tr("Transfers"));
+
+        fileDownloadQueue->setText(tr("Download queue"));
+
+        fileFinishedDownloads->setText(tr("Finished downloads"));
+
+        fileFinishedUploads->setText(tr("Finished uploads"));
+
+        fileAntiSpam->setText(tr("AntiSpam module"));
+
+        fileIPFilter->setText(tr("IPFilter module"));
+
+        fileFavoriteHubs->setText(tr("Favorite hubs"));
+
+        fileSearch->setText(tr("Search"));
+
+        fileQuickConnect->setText(tr("Quick connect"));
+
+        fileQuit->setText(tr("Quit"));
+
+        menuAbout->setTitle(tr("About"));
+
+        aboutClient->setText(tr("About EiskaltDC++"));
+
+        aboutQt->setText(tr("About Qt"));
+    }
+    {
+        arena->setWindowTitle(tr("Main layout"));
+    }
+}
+
+void MainWindow::initToolbar(){
+    fBar = new ToolBar(NULL);
+    fBar->addActions(fileMenuActions);
+    fBar->setContextMenuPolicy(Qt::CustomContextMenu);
+    fBar->setMovable(true);
+    fBar->setAllowedAreas(Qt::AllToolBarAreas);
+
+    tBar = new ToolBar(NULL);
+    tBar->initTabs();
+    tBar->setContextMenuPolicy(Qt::CustomContextMenu);
+    tBar->setMovable(true);
+    tBar->setAllowedAreas(Qt::AllToolBarAreas);
+
+    addToolBar(Qt::TopToolBarArea, fBar);
+    addToolBar(Qt::BottomToolBarArea, tBar);
+}
+
+void MainWindow::newHubFrame(QString address, QString enc){
+    //TODO: check if frame for address already exists
+    if (address.isEmpty())
+        return;
+
+    HubFrame *fr = new HubFrame(NULL, address, enc);
+    fr->setAttribute(Qt::WA_DeleteOnClose);
+
+    addArenaWidget(fr);
+    mapWidgetOnArena(fr);
+
+    addArenaWidgetOnToolbar(fr);
+}
+
+void MainWindow::updateStatus(QMap<QString, QString> map){
+    if (!statusLabel)
+        return;
+
+    QString stat = QString(tr("%1 : %2 | %4 : %5 | %3")).arg(map["DOWN"])
+                                                        .arg(map["UP"])
+                                                        .arg(map["STATS"])
+                                                        .arg(map["DSPEED"])
+                                                        .arg(map["USPEED"]);
+    statusLabel->setText(stat);
+}
+
+void MainWindow::setStatusMessage(QString msg){
+    statusBar()->showMessage(msg, 2);
+}
+
+void MainWindow::autoconnect(){
+    const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
+
+    for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
+        FavoriteHubEntry* entry = *i;
+
+        if (entry->getConnect()) {
+            if (entry->getNick().empty() && SETTING(NICK).empty())
+                continue;
+
+            QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry->getEncoding()));
+
+            newHubFrame(QString::fromStdString(entry->getServer()), encoding);
+        }
+    }
+}
+
+void MainWindow::browseOwnFiles(){
+    slotFileBrowseOwnFilelist();
+}
+
+void MainWindow::redrawToolPanel(){
+    tBar->redraw();
+}
+
+void MainWindow::addArenaWidget(ArenaWidget *wgt){
+    if (!arenaWidgets.contains(wgt) && wgt && wgt->getWidget()){
+        arenaWidgets.push_back(wgt);
+        arenaMap[wgt] = wgt->getWidget();
+    }
+}
+
+void MainWindow::remArenaWidget(ArenaWidget *awgt){
+    if (arenaWidgets.contains(awgt)){
+        arenaWidgets.removeAt(arenaWidgets.indexOf(awgt));
+        arenaMap.erase(arenaMap.find(awgt));
+
+        if (arena->widget() == awgt->getWidget())
+            arena->setWidget(NULL);
+    }
+}
+
+void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
+    if (!arenaWidgets.contains(awgt))
+        return;
+
+    if (arena->widget())
+        arena->widget()->hide();
+
+    arena->setWidget(arenaMap[awgt]);
+
+    setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
+
+    tBar->mapped(awgt);
+}
+
+void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
+    if (!arenaWidgets.contains(awgt))
+        return;
+
+    if (arena->widget() == awgt->getWidget())
+        arena->widget()->hide();
+}
+
+void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt){
+    if (!arenaWidgets.contains(awgt))
+        return;
+
+    tBar->insertWidget(awgt);
+}
+
+void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
+    tBar->removeWidget(awgt);
+}
+
+void MainWindow::startSocket(){
+    SearchManager::getInstance()->disconnect();
+    ConnectionManager::getInstance()->disconnect();
+
+    if (ClientManager::getInstance()->isActive()) {
+        QString msg = "";
+        try {
+            ConnectionManager::getInstance()->listen();
+        } catch(const Exception &e) {
+            msg = tr("Cannot listen socket because: \n") + QString::fromStdString(e.getError()) + tr("\n\nPlease check your connection settings");
+
+            QMessageBox::warning(this, tr("Connection Manager: Warning"), msg, QMessageBox::Ok);
+        }
+        try {
+            SearchManager::getInstance()->listen();
+        } catch(const Exception &e) {
+            msg = tr("Cannot listen socket because: \n") + QString::fromStdString(e.getError()) + tr("\n\nPlease check your connection settings");
+
+            QMessageBox::warning(this, tr("Search Manager: Warning"), msg, QMessageBox::Ok);
+        }
+    }
+
+    UPnPMapper::getInstance()->forward();
+}
+
+void MainWindow::showShareBrowser(dcpp::UserPtr usr, QString file, QString jump_to){
+    ShareBrowser *sb = new ShareBrowser(usr, file, jump_to);
+}
+
+void MainWindow::slotFileBrowseOwnFilelist(){
+    UserPtr user = ClientManager::getInstance()->getMe();
+    QString file = QString::fromStdString(ShareManager::getInstance()->getOwnListFile());
+
+    typedef Func3<MainWindow, dcpp::UserPtr, QString, QString> FUNC;
+    FUNC *func = new FUNC(this, &MainWindow::showShareBrowser, user, file, "");
+
+    QApplication::postEvent(this, new MainWindowCustomEvent(func));
+}
+
+void MainWindow::slotFileSearch(){
+    SearchFrame *sf = new SearchFrame();
+
+    sf->setAttribute(Qt::WA_DeleteOnClose);
+}
+
+void MainWindow::slotFileDownloadQueue(){
+    if (!DownloadQueue::getInstance())
+        DownloadQueue::newInstance();
+
+    if (tBar->hasWidget(DownloadQueue::getInstance())){
+        tBar->removeWidget(DownloadQueue::getInstance());
+        remWidgetFromArena(DownloadQueue::getInstance());
+    }
+    else {
+        tBar->insertWidget(DownloadQueue::getInstance());
+        mapWidgetOnArena(DownloadQueue::getInstance());
+    }
+}
+
+void MainWindow::slotFileFinishedDownloads(){
+    if (!FinishedDownloads::getInstance())
+        FinishedDownloads::newInstance();
+
+    if (tBar->hasWidget(FinishedDownloads::getInstance())){
+        tBar->removeWidget(FinishedDownloads::getInstance());
+        remWidgetFromArena(FinishedDownloads::getInstance());
+    }
+    else {
+        tBar->insertWidget(FinishedDownloads::getInstance());
+        mapWidgetOnArena(FinishedDownloads::getInstance());
+    }
+}
+
+void MainWindow::slotFileFinishedUploads(){
+    if (!FinishedUploads::getInstance())
+        FinishedUploads::newInstance();
+
+    if (tBar->hasWidget(FinishedUploads::getInstance())){
+        tBar->removeWidget(FinishedUploads::getInstance());
+        remWidgetFromArena(FinishedUploads::getInstance());
+    }
+    else {
+        tBar->insertWidget(FinishedUploads::getInstance());
+        mapWidgetOnArena(FinishedUploads::getInstance());
+    }
+}
+
+void MainWindow::slotFileAntiSpam(){
+    AntiSpamFrame fr(this);
+
+    fr.exec();
+}
+
+void MainWindow::slotFileIPFilter(){
+    IPFilterFrame fr(this);
+
+    fr.exec();
+}
+
+void MainWindow::slotFileFavoriteHubs(){
+    if (!FavoriteHubs::getInstance())
+        FavoriteHubs::newInstance();
+
+    if (tBar->hasWidget(FavoriteHubs::getInstance())){
+        tBar->removeWidget(FavoriteHubs::getInstance());
+        remWidgetFromArena(FavoriteHubs::getInstance());
+    }
+    else {
+        tBar->insertWidget(FavoriteHubs::getInstance());
+        mapWidgetOnArena(FavoriteHubs::getInstance());
+    }
+}
+
+void MainWindow::slotFileSettings(){
+    Settings s;
+
+    s.exec();
+}
+
+void MainWindow::slotFileTransfer(bool toggled){
+    if (toggled){
+        transfer_dock->setVisible(true);
+        transfer_dock->setWidget(TransferView::getInstance());
+    }
+    else {
+        transfer_dock->setWidget(NULL);
+        transfer_dock->setVisible(false);
+    }
+}
+
+void MainWindow::slotQC(){
+    QuickConnect qc;
+
+    qc.exec();
+}
+
+void MainWindow::slotAboutClient(){
+}
+
+void MainWindow::slotAboutQt(){
+    QMessageBox::aboutQt(this);
+}
+
+void MainWindow::on(dcpp::LogManagerListener::Message, time_t t, const std::string& m) throw(){
+    QTextCodec *codec = QTextCodec::codecForLocale();
+
+    typedef Func1<MainWindow, QString> FUNC;
+    FUNC *func = new FUNC(this, &MainWindow::setStatusMessage, codec->toUnicode(m.c_str()));
+
+    QApplication::postEvent(this, new MainWindowCustomEvent(func));
+}
+
+void MainWindow::on(dcpp::QueueManagerListener::Finished, QueueItem *item, const std::string &dir, int64_t) throw(){
+    if (item->isSet(QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_USER_LIST)){
+        UserPtr user = item->getDownloads()[0]->getUser();
+        QString listName = QString::fromStdString(item->getListName());
+
+        typedef Func3<MainWindow, UserPtr, QString, QString> FUNC;
+        FUNC *func = new FUNC(this, &MainWindow::showShareBrowser, user, listName, QString::fromStdString(dir));
+
+        QApplication::postEvent(this, new MainWindowCustomEvent(func));
+    }
+}
+
+void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
+    static quint32 lastUpdate = 0;
+    static quint64 lastUp = 0, lastDown = 0;
+
+    quint64 now = GET_TICK();
+
+    quint64 diff = now - lastUpdate;
+    quint64 downBytes = 0;
+    quint64 upBytes = 0;
+
+    if (diff < 100U)
+        diff = 1U;
+
+    quint64 downDiff = Socket::getTotalDown() - lastDown;
+    quint64 upDiff = Socket::getTotalUp() - lastUp;
+
+    downBytes = (downDiff * 1000) / diff;
+    upBytes = (upDiff * 1000) / diff;
+
+    QMap<QString, QString> map;
+
+    map["STATS"]    = _q(Client::getCounts());
+    map["DSPEED"]   = _q(Util::formatBytes(downBytes)) + tr("/s");
+    map["DOWN"]     = _q(Util::formatBytes(Socket::getTotalDown()));
+    map["USPEED"]   = _q(Util::formatBytes(upBytes)) + tr("/s");
+    map["UP"]       = _q(Util::formatBytes(Socket::getTotalUp()));
+
+    lastUpdate = ticks;
+    lastUp = Socket::getTotalUp();
+    lastDown = Socket::getTotalDown();
+
+    typedef Func1<MainWindow, QMap<QString, QString> > FUNC;
+    FUNC *func = new FUNC(this, &MainWindow::updateStatus, map);
+
+    QApplication::postEvent(this, new MainWindowCustomEvent(func));
+}

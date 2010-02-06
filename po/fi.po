@@ -1,0 +1,488 @@
+# Finnish translations for the DC++ package.
+# Copyright (C) 2008 The translators
+# This file is distributed under the same license as the DC++ package.
+#  <maksis@adrenaline-network.com>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dcpp\n"
+"Report-Msgid-Bugs-To: dcplusplus-devel@lists.sourceforge.net\n"
+"POT-Creation-Date: 2009-03-04 22:42+0100\n"
+"PO-Revision-Date: 2009-02-26 20:55+0000\n"
+"Last-Translator: maksis <maksis@adrenaline-network.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: dcpp/Util.cpp:487
+#, c-format, boost-format
+msgid "%'lld B"
+msgstr "%'lld t"
+
+#: dcpp/Util.cpp:449
+#, c-format, boost-format
+msgid "%.02f GiB"
+msgstr "%.02f Gt"
+
+#: dcpp/Util.cpp:445
+#, c-format, boost-format
+msgid "%.02f KiB"
+msgstr "%.02f Kt"
+
+#: dcpp/Util.cpp:447
+#, c-format, boost-format
+msgid "%.02f MiB"
+msgstr "%.02f Mt"
+
+#: dcpp/Util.cpp:453
+#, c-format, boost-format
+msgid "%.02f PiB"
+msgstr "%.02f Pt"
+
+#: dcpp/Util.cpp:451
+#, c-format, boost-format
+msgid "%.02f TiB"
+msgstr "%.02f Tt"
+
+#: dcpp/AdcHub.cpp:141
+#, boost-format
+msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+msgstr ""
+"Käyttäjällä %1% (%2%) on sama CID {%3%} kuin käyttäjällä %4% (%5%), hylätään"
+
+#: dcpp/NmdcHub.cpp:282
+#, boost-format
+msgid "%1% (Nick unknown)"
+msgstr "%1% (nimimerkki tuntematon)"
+
+#: dcpp/HashManager.cpp:769
+#, boost-format
+msgid ""
+"%1% not shared; calculated CRC32 does not match the one found in SFV file."
+msgstr ""
+"Tiedostoa %1% ei jaeta; laskettu CRC32 ei vastaa SFV-tiedostossa olevaa "
+"arvoa."
+
+#: dcpp/QueueManager.cpp:330
+#, boost-format
+msgid "%1% renamed to %2%"
+msgstr "%1% uudelleennimettiin tiedostoksi %2%"
+
+#: dcpp/AdcHub.cpp:287
+#, boost-format
+msgid "%1% was kicked by %2%: %3%"
+msgstr "%2% potkaisi käyttäjän %1%: %3%"
+
+#: dcpp/AdcHub.cpp:290
+#, boost-format
+msgid "%1% was kicked: %2%"
+msgstr "%1% potkaistiin: %2%"
+
+#: dcpp/AdcHub.cpp:177
+#, boost-format
+msgid "%1%/s"
+msgstr "%1%/s"
+
+#: dcpp/DownloadManager.cpp:538
+#, boost-format
+msgid "%1%: File not available"
+msgstr "%1%: Tiedosto ei ole saatavilla"
+
+#: dcpp/Util.cpp:443
+#, c-format, boost-format
+msgid "%d B"
+msgstr "%d t"
+
+#: dcpp/Util.cpp:483
+#, c-format, boost-format
+msgid "%s B"
+msgstr "%s t"
+
+#: dcpp/ADLSearch.h:48
+msgid "<Enter string>"
+msgstr "<Syötä nimi>"
+
+#: dcpp/QueueManager.cpp:678
+msgid "A file of equal or larger size already exists at the target location"
+msgstr "Kohdehakemistossa on jo samankokoinen tai suurempi tiedosto."
+
+#: dcpp/QueueManager.cpp:614
+msgid "A file with a different size already exists in the queue"
+msgstr "Jonossa on jo samanniminen mutta erikokoinen tiedosto"
+
+#: dcpp/QueueManager.cpp:617
+msgid "A file with different tth root already exists in the queue"
+msgstr "Latausjonossa on jo samanniminen tiedosto, jonka TTH-tarkiste on eri."
+
+#: dcpp/QueueManager.cpp:579
+msgid "A file with the same hash already exists in your share"
+msgstr "Jaossa on jo tiedosto, jolla on sama TTH-tarkiste"
+
+#: dcpp/ConnectionManager.cpp:176
+msgid "All download slots taken"
+msgstr "Kaikki latauspaikat ovat käytössä"
+
+#: dcpp/DownloadManager.cpp:382 dcpp/DownloadManager.cpp:384
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr "Laskettu CRC32-tarkistussumma ei ollut sama kuin SFV-tiedostossa"
+
+#: dcpp/BufferedSocket.cpp:165 dcpp/SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Yhteys suljettu"
+
+#: dcpp/Socket.cpp:154 dcpp/ConnectionManager.cpp:182
+#: dcpp/BufferedSocket.cpp:130 dcpp/BufferedSocket.cpp:150
+msgid "Connection timeout"
+msgstr "Yhteys aikakatkaistu"
+
+#: dcpp/ConnectionManager.cpp:250
+#, boost-format
+msgid "Connectivity error: %1%"
+msgstr "Yhteysvirhe: %1%"
+
+#: dcpp/ConnectionManager.cpp:243
+msgid "Connectivity restored"
+msgstr "Yhdistettävyys palautunut"
+
+#: dcpp/DownloadManager.cpp:234
+#, boost-format
+msgid "Could not open target file: %1%"
+msgstr "Kohdetiedostoa %1% ei voi avata."
+
+#: dcpp/ShareManager.cpp:422
+msgid "Directory already shared"
+msgstr "Hakemisto on jo jaettu"
+
+#: dcpp/DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Kansiolta puuttuu nimiattribuutti"
+
+#: dcpp/ADLSearch.h:277
+msgid "Discard"
+msgstr "Hylkää"
+
+#: dcpp/BufferedSocket.cpp:422
+msgid "Disconnected"
+msgstr "Yhteys katkaistu"
+
+#: dcpp/UploadManager.cpp:453
+#, boost-format
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Katkaistiin yhteys hubista lähteneeseen käyttäjään %1%"
+
+#: dcpp/DCPlusPlus.cpp:107
+msgid "Download Queue"
+msgstr "Latausjono"
+
+#: dcpp/ShareManager.cpp:797
+#, boost-format
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: %"
+"3%"
+msgstr "Kaksoiskappaleita ei jaeta: %1% (koko: %2% t) vastaa tiedostoa: %3%"
+
+#: dcpp/QueueManager.cpp:688 dcpp/QueueManager.cpp:692
+#, boost-format
+msgid "Duplicate source: %1%"
+msgstr "Sama lähde: %1%"
+
+#: dcpp/HashManager.cpp:456
+#, boost-format
+msgid "Error creating hash data file: %1%"
+msgstr "Virhe tarkistussummatiedoston luonnissa: %1%"
+
+#: dcpp/ZUtils.cpp:33 dcpp/ZUtils.cpp:54 dcpp/ZUtils.cpp:76 dcpp/ZUtils.cpp:86
+#: dcpp/BZUtils.cpp:31 dcpp/BZUtils.cpp:52 dcpp/BZUtils.cpp:60
+msgid "Error during compression"
+msgstr "Virhe pakkaamisessa"
+
+#: dcpp/ZUtils.cpp:100 dcpp/ZUtils.cpp:123 dcpp/BZUtils.cpp:72
+#: dcpp/BZUtils.cpp:94 dcpp/BZUtils.cpp:97 dcpp/CryptoManager.cpp:344
+#: dcpp/CryptoManager.cpp:363 dcpp/CryptoManager.cpp:377
+msgid "Error during decompression"
+msgstr "Virhe purkamisessa"
+
+#: dcpp/CryptoManager.cpp:154
+msgid "Error generating certificate"
+msgstr "Sertifikaatin luominen epäonnistui"
+
+#: dcpp/HashManager.cpp:774
+#, boost-format
+msgid "Error hashing %1%: %2%"
+msgstr "Virhe tarkistussumman luonnissa tiedostolle %1%: %2%"
+
+#: dcpp/HashManager.cpp:111 dcpp/HashManager.cpp:325
+#, boost-format
+msgid "Error saving hash data: %1%"
+msgstr "Virhe tallennettaessa tarkistussummaa: %1%"
+
+#: dcpp/CryptoManager.cpp:228 dcpp/CryptoManager.cpp:232
+#: dcpp/CryptoManager.cpp:237 dcpp/CryptoManager.cpp:241
+msgid "Failed to load certificate file"
+msgstr "Sertifikaattitiedoston lataaminen epäonnistui"
+
+#: dcpp/CryptoManager.cpp:246 dcpp/CryptoManager.cpp:250
+#: dcpp/CryptoManager.cpp:255 dcpp/CryptoManager.cpp:259
+msgid "Failed to load private key"
+msgstr "Yksityisavaimen lataaminen epäonnistui"
+
+#: dcpp/AdcHub.cpp:212
+msgid "Failed to negotiate base protocol"
+msgstr "Perusprotokollan neuvottelu epäonnistui"
+
+#: dcpp/Socket.cpp:402
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+"SOCKS-palvelimelle ei voitu määrittää UDP-ohjausta (tarkista SOCKS-"
+"palvelimen osoite ja portti)"
+
+#: dcpp/ShareManager.cpp:832
+#, boost-format
+msgid "File list refresh failed: %1%"
+msgstr "Tiedostolistan päivitys epäonnistui: %1%"
+
+#: dcpp/ShareManager.cpp:876
+msgid "File list refresh finished"
+msgstr "Tiedostolistan päivitys valmis"
+
+#: dcpp/ShareManager.cpp:812
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Tiedostolistan päivitys on jo meneillään, odota että se valmistuu ennen kuin "
+"yrität päivitystä uudelleen"
+
+#: dcpp/ShareManager.cpp:853
+msgid "File list refresh initiated"
+msgstr "Tiedostolistan päivitys aloitettiin"
+
+#: dcpp/DirectoryListing.cpp:102
+msgid "File not available"
+msgstr "Tiedosto ei ole saatavilla"
+
+#: dcpp/HashManager.cpp:82
+#, boost-format
+msgid "Finished hashing: %1%"
+msgstr "Tarkistussumman laskeminen valmistui tiedostolle %1%"
+
+#: dcpp/HashManager.cpp:80
+#, boost-format
+msgid "Finished hashing: %1% (%2%/s)"
+msgstr "Tarkistussumman laskeminen valmistui tiedostolle %1% (nopeus %2%/s)"
+
+#: dcpp/DownloadManager.cpp:313
+msgid "Full tree does not match TTH root"
+msgstr "Laskettu TTH-puu ei vastaa TTH-tarkistussummaa"
+
+#: dcpp/CryptoManager.cpp:221
+msgid "Generated new TLS certificate"
+msgstr "Uusi TLS-serfifikaatti luotu"
+
+#: dcpp/DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr "Suurempi kuin tiedostolistan maksimikoko"
+
+#: dcpp/DCPlusPlus.cpp:101
+msgid "Hash database"
+msgstr "Tarkistussummatietokanta"
+
+#: dcpp/HashManager.cpp:678
+msgid "Hash database rebuilt"
+msgstr "Tarkistussummatietokanta luotiin uudelleen"
+
+#: dcpp/HashManager.cpp:73 dcpp/HashManager.cpp:269
+#, boost-format
+msgid "Hashing failed: %1%"
+msgstr "Tarkistussumman laskenta epäonnistui: %1%"
+
+#: dcpp/AdcHub.cpp:218
+msgid ""
+"Hub probably uses an old version of ADC, please encourage the owner to "
+"upgrade"
+msgstr ""
+"Hubi käyttää todennäköisesti vanhaa ADC-versiota, kehota sen omistajaa "
+"päivittämään"
+
+#: dcpp/DownloadManager.cpp:222
+msgid "Invalid size"
+msgstr "Virheellinen koko"
+
+#: dcpp/QueueManager.cpp:661 dcpp/QueueManager.cpp:669
+msgid ""
+"Invalid target file (missing directory, check default download directory "
+"setting)"
+msgstr ""
+"Kohdetiedosto ei kelpaa (hakemistoa ei ole, tarkista lataushakemisto "
+"asetuksista)"
+
+#: dcpp/FavoriteManager.cpp:438
+msgid "Kick user(s)"
+msgstr "Potkaise käyttäjä(t)"
+
+#: dcpp/BufferedSocket.cpp:254
+msgid "Maximum command length exceeded"
+msgstr "Suurin komennon pituus ylitettiin"
+
+#: dcpp/Streams.h:140
+msgid "More bytes written than requested"
+msgstr "Kirjoitettiin enemmän tavuja kuin pyydettiin"
+
+#: dcpp/CryptoManager.cpp:143
+msgid "No certificate file chosen"
+msgstr "Sertifikaattitiedostoa ei ole valittu"
+
+#: dcpp/ShareManager.cpp:409
+msgid "No directory specified"
+msgstr "Hakemistoa ei ole määritetty"
+
+#: dcpp/CryptoManager.cpp:140
+msgid "No private key file chosen"
+msgstr "Yksityisavaintiedostoa ei ole valittu"
+
+#: dcpp/DownloadManager.cpp:427
+msgid "No slots available"
+msgstr "Ei vapaita latauspaikkoja"
+
+#: dcpp/AdcHub.cpp:579
+#, boost-format
+msgid "Not listening for connections - please restart %1%"
+msgstr "Yhteyksien kuunteleminen epäonnistui, %1% on käynnistettävä uudestaan"
+
+#: dcpp/Transfer.cpp:82 dcpp/Transfer.cpp:86 dcpp/ClientManager.cpp:120
+#: dcpp/SearchManager.cpp:237 dcpp/SearchManager.cpp:299
+#: dcpp/SearchManager.cpp:301
+msgid "Offline"
+msgstr "Tavoittamattomissa"
+
+#: dcpp/FavoriteManager.cpp:442
+msgid "Redirect user(s)"
+msgstr "Uudelleenohjaa käyttäjä(t)"
+
+#: dcpp/ShareManager.cpp:425
+msgid "Remove all subdirectories before adding this one"
+msgstr "Poista kaikki tämän hakemiston alihakemistot ennen sen lisäämistä"
+
+#: dcpp/BitInputStream.h:40
+msgid "Request to seek beyond the end of data"
+msgstr "Pyydettiin tietoa tiedoston lopun jälkeen"
+
+#: dcpp/DownloadManager.cpp:227
+msgid "Response does not match request"
+msgstr "Vastaus ei täsmää pyyntöön"
+
+#: dcpp/SSLSocket.cpp:160
+#, boost-format
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "SSL-virhe: %1% (%2%, %3%)"
+
+#: dcpp/SearchManager.cpp:135
+#, boost-format
+msgid "Search disabled: %1%"
+msgstr "Haku poissa käytöstä: %1%"
+
+#: dcpp/SearchManager.cpp:128
+msgid "Search enabled again"
+msgstr "Haku jälleen käytössä"
+
+#: dcpp/DCPlusPlus.cpp:104
+msgid "Shared Files"
+msgstr "Jaetut tiedostot"
+
+#: dcpp/Socket.cpp:263 dcpp/Socket.cpp:267
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr ""
+"SOCKS-palvelimelle kirjautuminen epäonnistui (väärä käyttäjätunnus tai "
+"salasana?)"
+
+#: dcpp/CryptoManager.cpp:223
+#, boost-format
+msgid "TLS disabled, failed to generate certificate: %1%"
+msgstr "TLS poissa käytöstä koska sertifikaatin luonti epäonnistui: %1%"
+
+#: dcpp/CryptoManager.cpp:213
+msgid "TLS disabled, no certificate file set"
+msgstr "TLS ei käytössä, sertifikaattitiedostoja ei ole asetettu"
+
+#: dcpp/MerkleCheckOutputStream.h:53 dcpp/MerkleCheckOutputStream.h:113
+msgid "TTH inconsistency"
+msgstr "TTH-tarkistussummat eivät täsmää"
+
+#: dcpp/QueueManager.cpp:965
+msgid "Target file is missing or wrong size"
+msgstr "Kohdetiedosto puuttuu tai on väärän kokoinen"
+
+#: dcpp/QueueManager.cpp:656 dcpp/QueueManager.cpp:665
+msgid "Target filename too long"
+msgstr "Kohdetiedoston nimi on liian pitkä"
+
+#: dcpp/QueueManager.cpp:957
+msgid "Target removed"
+msgstr "Kohde on poistettu"
+
+#: dcpp/Socket.cpp:249
+msgid "The socks server doesn't support login / password authentication"
+msgstr ""
+"SOCKS-palvelin ei tue tunnistautumista käyttäjätunnuksella ja salasanalla"
+
+#: dcpp/Socket.cpp:162 dcpp/Socket.cpp:170 dcpp/Socket.cpp:203
+#: dcpp/Socket.cpp:207 dcpp/Socket.cpp:231 dcpp/Socket.cpp:246
+msgid "The socks server failed establish a connection"
+msgstr "SOCKS-palvelin ei voinut avata yhteyttä"
+
+#: dcpp/Socket.cpp:235
+msgid "The socks server requires authentication"
+msgstr "SOCKS-palvelin vaatii kirjautumisen"
+
+#: dcpp/ShareManager.cpp:413
+msgid "The temporary download directory cannot be shared"
+msgstr "Keskeneräisten tiedostojen hakemistoa ei voi jakaa"
+
+#: dcpp/QueueManager.cpp:606
+msgid "This file is already queued"
+msgstr "Tämä tiedosto on jo latausjonossa"
+
+#: dcpp/Thread.cpp:34 dcpp/Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "Säikeen luonti epäonnistui"
+
+#: dcpp/QueueManager.cpp:1175
+#, boost-format
+msgid "Unable to open filelist: %1%"
+msgstr "Tiedostolistan avaus epäonnistui: %1%"
+
+#: dcpp/HashManager.cpp:124
+msgid "Unable to read hash data file"
+msgstr "TTH-tietokantatiedostoa ei voi lukea."
+
+#: dcpp/QueueManager.cpp:332
+#, boost-format
+msgid "Unable to rename %1%: %2%"
+msgstr "Tiedoston %1% uudelleennimeäminen epäonnistui: %2%"
+
+#: dcpp/UploadManager.cpp:149
+#, boost-format
+msgid "Unable to send file %1%: %2%"
+msgstr "Tiedoston %1% lähettäminen epäonnistui: %2%"
+
+#: dcpp/Socket.cpp:54
+#, c-format, boost-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Tuntematon virhe: 0x%1$x"
+
+#: dcpp/QueueManager.cpp:573
+msgid "You're trying to download from yourself!"
+msgstr "Yrität ladata itseltäsi!"
+
+#: dcpp/SettingsManager.cpp:167
+msgid "downloaded from"
+msgstr "ladattu käyttäjältä"
+
+#: dcpp/SettingsManager.cpp:168
+msgid "uploaded to"
+msgstr "lähetetty käyttäjälle"
