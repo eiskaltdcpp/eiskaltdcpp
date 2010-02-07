@@ -568,7 +568,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
     getParams(params, dl);
 
     params["STAT"]  = tr("Download complete...");
-    params["SPEED"] = -1;
+    params["SPEED"] = 0;
 
     qint64 pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();
 
@@ -588,7 +588,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl,
     getParams(params, dl);
 
     params["STAT"]  = _q(reason);
-    params["SPEED"] = -1;
+    params["SPEED"] = 0;
     params["FAIL"]  = true;
     params["TLEFT"] = -1;
 
@@ -648,7 +648,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQ
 
     params["STAT"] = _q(reason);
     params["FAIL"] = true;
-    params["SPEED"] = (qlonglong)-1;
+    params["SPEED"] = (qlonglong)0;
     params["TLEFT"] = -1;
 
     typedef Func1<TransferViewModel, VarMap> FUNC;

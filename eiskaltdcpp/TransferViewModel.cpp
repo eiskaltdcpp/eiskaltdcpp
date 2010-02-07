@@ -472,23 +472,16 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     QList<QString> hubs;
     int active = 0;
     double speed = 0.0;
-    qint64 position = 0;
     qint64 totalSize = 0;
     qint64 timeLeft = 0;
     double progress = 0.0;
 
-    position = p->dpos;
     totalSize = vlng(p->data(COLUMN_TRANSFER_SIZE));
 
     foreach (TransferViewItem *i, p->childItems){
         if (!i->fail){
             active++;
-
-            if (vdbl(i->data(COLUMN_TRANSFER_SPEED)) >= 0)
-                speed += vdbl(i->data(COLUMN_TRANSFER_SPEED));
-
-            if (i->dpos >= 0)
-                position += i->dpos;
+            speed += vdbl(i->data(COLUMN_TRANSFER_SPEED));
         }
 
         if (!users.isEmpty())
@@ -501,16 +494,16 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     }
 
     if (totalSize > 0)
-        progress = (double)(position * 100.0) / totalSize;
+        progress = (double)(p->dpos * 100.0) / totalSize;
     if (speed > 0)
-        timeLeft = (totalSize - position) / speed;
+        timeLeft = (totalSize - p->dpos) / speed;
 
     if (active)
         p->updateColumn(COLUMN_TRANSFER_STATS, tr("Downloaded "));
     else
         p->updateColumn(COLUMN_TRANSFER_STATS, tr("Waiting for slot "));
 
-    QString stat = vstr(p->data(COLUMN_TRANSFER_STATS)) + _q(Util::formatBytes(position))
+    QString stat = vstr(p->data(COLUMN_TRANSFER_STATS)) + _q(Util::formatBytes(p->dpos))
                    + QString(" (%1%)").arg(progress, 0, 'f', 1)  + QString(tr(" from %1/%2 user(s)")).arg(active).arg(p->childCount());
 
     QString hubs_str = "";
@@ -518,9 +511,12 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     foreach(QString s, hubs)
         hubs += s + " ";
 
-    if (vstr(p->data(COLUMN_TRANSFER_FNAME)).startsWith(tr("TTH: ")))
-        p->updateColumn(COLUMN_TRANSFER_FNAME, vstr(p->data(COLUMN_TRANSFER_FNAME)).right(tr("TTH: ").length()));
+    if (vstr(p->data(COLUMN_TRANSFER_FNAME)).startsWith(tr("TTH: "))){
+        QString name = vstr(p->data(COLUMN_TRANSFER_FNAME));
+        name.remove(0, tr("TTH: ").length());
 
+        p->updateColumn(COLUMN_TRANSFER_FNAME, name);
+    }
 
     p->updateColumn(COLUMN_TRANSFER_USERS, users);
     p->updateColumn(COLUMN_TRANSFER_TLEFT, timeLeft);
@@ -555,9 +551,11 @@ void TransferViewModel::finishParent(VarMap params){
         return;
 
     p->updateColumn(COLUMN_TRANSFER_STATS, tr("Finished"));
+    p->percent = 100.0;
 
     foreach (TransferViewItem *i, p->childItems){
         i->updateColumn(COLUMN_TRANSFER_STATS, tr("Finished"));
+        i->percent = 100.0;
     }
 
     emit layoutChanged();
