@@ -269,13 +269,10 @@ void UserListModel::removeUser(const UserPtr &ptr) {
 
     rootItem->childItems.removeAt(index);
     pool.destroy(item);
-    //delete item;
 
     users.erase(iter);
 
     endRemoveRows();
-
-    emit listUpdated();
 }
 
 void UserListModel::addUser(const UserMap &map, const UserPtr &ptr){

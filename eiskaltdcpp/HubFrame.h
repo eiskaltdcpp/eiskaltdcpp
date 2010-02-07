@@ -232,6 +232,8 @@ private:
     virtual void on(ClientListener::NickTaken, Client*) throw();
     virtual void on(ClientListener::SearchFlood, Client*, const string&) throw();
 
+    QTimer *updater;
+
     QMenu *arenaMenu;
 
     Client *client;

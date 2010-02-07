@@ -135,9 +135,6 @@ public:
 
     void repaint() { emit layoutChanged(); }
 
-signals:
-    void listUpdated();
-
 private:
     UserListItem *rootItem;
 

@@ -431,6 +431,8 @@ HubFrame::~HubFrame(){
 
     delete model;
 
+    delete updater;
+
 #if HAVE_MALLOC_TRIM
     malloc_trim(0);
 #endif
@@ -491,6 +493,8 @@ void HubFrame::closeEvent(QCloseEvent *e){
     client->disconnect(true);
     ClientManager::getInstance()->putClient(client);
 
+    updater->stop();
+
     save();
 
     PMMap::iterator it = pm.begin();
@@ -515,6 +519,10 @@ void HubFrame::closeEvent(QCloseEvent *e){
 }
 
 void HubFrame::init(){
+    updater = new QTimer();
+    updater->setInterval(3000);
+    updater->setSingleShot(false);
+
     model = new UserListModel(this);
 
     treeView_USERS->setModel(model);
@@ -529,7 +537,7 @@ void HubFrame::init(){
 
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
-    connect(model, SIGNAL(listUpdated()), this, SLOT(slotUsersUpdated()));
+    connect(updater, SIGNAL(timeout()), this, SLOT(slotUsersUpdated()));
     connect(textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
 
     plainTextEdit_INPUT->installEventFilter(this);
@@ -537,6 +545,8 @@ void HubFrame::init(){
     initMenu();
 
     load();
+
+    updater->start();
 }
 
 void HubFrame::initMenu(){
@@ -1045,7 +1055,7 @@ void HubFrame::follow(string redirect){
 }
 
 void HubFrame::slotUsersUpdated(){
-    label_USERSTATE->setText(QString(tr("Users count: %1 | Total share: %2")).arg(model->rowCount()).arg(_q(Util::formatBytes(total_shared).c_str())));
+    label_USERSTATE->setText(QString(tr("Users count: %1 | Total share: %2")).arg(model->rowCount()).arg(_q(Util::formatBytes(total_shared))));
 }
 
 void HubFrame::slotReconnect(){
