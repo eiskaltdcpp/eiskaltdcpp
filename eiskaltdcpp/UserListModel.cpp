@@ -36,9 +36,6 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
 
 
 UserListModel::~UserListModel() {
-    users.clear();
-    nicks.clear();
-
     foreach(UserListItem *i, rootItem->childItems)
         pool.destroy(i);
 
@@ -342,11 +339,10 @@ void UserListModel::addUser(const QString& nick,
     const int pos = it - rootItem->childItems.begin();
 
     beginInsertRows(QModelIndex(), pos, pos);
+
     rootItem->childItems.insert(it, item);
 
     endInsertRows();
-
-    emit layoutChanged();;
 }
 
 UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){

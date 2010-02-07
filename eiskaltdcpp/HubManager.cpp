@@ -1,7 +1,6 @@
 #include "HubManager.h"
 #include "HubFrame.h"
 
-#include <QtDebug>
 
 HubManager::HubManager(){
 }
@@ -16,8 +15,6 @@ void HubManager::registerHubUrl(const QString &url, HubFrame *hub){
         return;
 
     hubs.insert(url, hub);
-
-    qDebug() << QString("Registerd new hub: %1 <-> %2").arg(url).arg((unsigned long)hub);
 }
 
 void HubManager::unregisterHubUrl(const QString &url){
@@ -25,8 +22,6 @@ void HubManager::unregisterHubUrl(const QString &url){
 
     if (it != hubs.constEnd())
         hubs.erase(it);
-
-    qDebug() << QString("Unregisterd hub: %1").arg(url);
 }
 
 HubFrame *HubManager::getHub(const QString &url){

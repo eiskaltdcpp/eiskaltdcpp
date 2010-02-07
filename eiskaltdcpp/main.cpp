@@ -63,8 +63,6 @@ int main(int argc, char *argv[])
 
         ret = app.exec();
 
-        HubManager::deleteInstance();
-
         WulforSettings::getInstance()->save();
         WulforManager::getInstance()->stop();
 
@@ -73,6 +71,9 @@ int main(int argc, char *argv[])
         UPnP::deleteInstance();
 
         MainWindow::deleteInstance();
+
+        HubManager::deleteInstance();
+
         WulforManager::deleteInstance();
         WulforUtil::deleteInstance();
         WulforSettings::deleteInstance();
