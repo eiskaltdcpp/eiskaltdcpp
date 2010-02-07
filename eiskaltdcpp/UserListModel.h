@@ -73,11 +73,8 @@ public:
     QList<UserListItem*> childItems;
 
     bool isOp;
-    bool isAway;
-    QString speed;
     QString cid;
     QPixmap *px;
-    bool px_loaded;
     UserPtr ptr;
 private:
 

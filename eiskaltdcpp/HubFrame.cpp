@@ -766,6 +766,8 @@ void HubFrame::getParams(QMap<QString, QVariant> &map, const Identity &id){
 }
 
 void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, bool join){
+    static WulforUtil *WU = WulforUtil::getInstance();
+
     if (!model)
         return;
 
@@ -781,10 +783,7 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
         item->updateColumn(COLUMN_IP, map["IP"]);
         item->updateColumn(COLUMN_SHARE, map["SHARE"]);
         item->updateColumn(COLUMN_TAG, map["TAG"]);
-        item->isOp = map["ISOP"].toBool();
-        item->isAway = map["AWAY"].toBool();
-        item->speed = map["SPEED"].toString();
-        item->px_loaded = false; //reload user icon
+        item->px = WU->getUserIcon(user, map["AWAY"].toBool(), map["ISOP"].toBool(), map["SPEED"].toString());
     }
     else{
         model->addUser(map, user);

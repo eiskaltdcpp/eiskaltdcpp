@@ -79,10 +79,10 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
             if (index.column() != COLUMN_NICK)
                 break;
             
-            if (!item->px || !item->px_loaded)
-                item->px = WU->getUserIcon(item->ptr, item->isAway, item->isOp, item->speed);
+            if (item->px)
+                return (*item->px);
 
-            return (*item->px);
+            break;
         }
     }
 
@@ -312,10 +312,9 @@ void UserListModel::addUser(const QString& nick,
 
     item = pool.construct(rootData, rootItem);
 
+    item->px = WU->getUserIcon(ptr, isAway, isOp, speed);
     item->isOp = isOp;
     item->cid = cid;
-    item->isAway = isAway;
-    item->speed = speed;
     item->ptr = ptr;
 
     users.insert(ptr, item);
@@ -407,7 +406,7 @@ QStringList UserListModel::matchNicksStartingWith(const QString & part, bool str
 }
 
 UserListItem::UserListItem(const QList<QVariant> &data, UserListItem *parent) :
-    itemData(data), parentItem(parent), isOp(false), cid(""), px(NULL), px_loaded(false)
+    itemData(data), parentItem(parent), isOp(false), cid(""), px(NULL)
 {
 }
 
@@ -416,14 +415,12 @@ UserListItem::UserListItem(const UserListItem &item){
     isOp = item.isOp;
     cid = item.cid;
     px = item.px;
-    px_loaded = item.px_loaded;
 }
 void UserListItem::operator=(const UserListItem &item){
     itemData = item.itemData;
     isOp = item.isOp;
     cid = item.cid;
     px = item.px;
-    px_loaded = item.px_loaded;
 }
 
 UserListItem::~UserListItem()
