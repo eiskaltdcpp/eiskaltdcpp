@@ -15,6 +15,7 @@ using namespace std;
 #include "WulforSettings.h"
 #include "UPnP.h"
 #include "UPnPMapper.h"
+#include "HubManager.h"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -53,12 +54,16 @@ int main(int argc, char *argv[])
         UPnP::newInstance();
         UPnP::getInstance()->start();
         UPnPMapper::newInstance();
+
+        HubManager::newInstance();
 	
         MainWindow::newInstance();
         MainWindow::getInstance()->autoconnect();
         MainWindow::getInstance()->show();
 
         ret = app.exec();
+
+        HubManager::deleteInstance();
 
         WulforSettings::getInstance()->save();
         WulforManager::getInstance()->stop();

@@ -25,19 +25,19 @@
 
 #include <boost/pool/object_pool.hpp>
 
-#define COLUMN_COUNT            0
-#define COLUMN_FILENAME         1
-#define COLUMN_EXTENSION        2
-#define COLUMN_SIZE             3
-#define COLUMN_ESIZE            4
-#define COLUMN_TTH              5
-#define COLUMN_PATH             6
-#define COLUMN_NICK             7
-#define COLUMN_FREESLOTS        8
-#define COLUMN_ALLSLOTS         9
-#define COLUMN_IP               10
-#define COLUMN_HUB              11
-#define COLUMN_HOST             12
+#define COLUMN_SF_COUNT            0
+#define COLUMN_SF_FILENAME         1
+#define COLUMN_SF_EXTENSION        2
+#define COLUMN_SF_SIZE             3
+#define COLUMN_SF_ESIZE            4
+#define COLUMN_SF_TTH              5
+#define COLUMN_SF_PATH             6
+#define COLUMN_SF_NICK             7
+#define COLUMN_SF_FREESLOTS        8
+#define COLUMN_SF_ALLSLOTS         9
+#define COLUMN_SF_IP               10
+#define COLUMN_SF_HUB              11
+#define COLUMN_SF_HOST             12
 
 class SearchListException{
     public:

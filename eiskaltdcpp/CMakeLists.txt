@@ -18,6 +18,7 @@ set (SRCS   Antispam.cpp
             FinishedTransfersModel.cpp
             HashProgress.cpp
             HubFrame.cpp
+            HubManager.cpp
             IPFilter.cpp
             IPFilterFrame.cpp
             IPFilterModel.cpp
@@ -53,6 +54,7 @@ set (MOC_HDRS Antispam.h
             FinishedTransfersModel.h
             HashProgress.h
             HubFrame.h
+            HubManager.h
             IPFilter.h
             IPFilterFrame.h
             IPFilterModel.h

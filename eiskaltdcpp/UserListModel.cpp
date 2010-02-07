@@ -360,7 +360,7 @@ QString UserListModel::CIDforNick(const QString &nick){
         QHash<QString, UserPtr>::const_iterator it = nicks.find(nick);
 
         if (it != nicks.constEnd())
-            return it.value()->getCID().toBase32().c_str();
+            return _q(it.value()->getCID().toBase32());
     }
 
     return "";

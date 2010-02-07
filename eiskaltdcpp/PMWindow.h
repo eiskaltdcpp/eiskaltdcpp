@@ -27,6 +27,10 @@ public:
     QWidget *getWidget();
     QMenu   *getMenu();
 
+private slots:
+    void slotHub();
+    void slotShare();
+
 signals:
     void privateMessageClosed(QString);
 

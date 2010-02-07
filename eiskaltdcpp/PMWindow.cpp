@@ -1,10 +1,13 @@
 #include "PMWindow.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
+#include "HubManager.h"
+#include "MainWindow.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/ClientManager.h"
+#include "dcpp/QueueManager.h"
 #include "dcpp/User.h"
 
 #include <QKeyEvent>
@@ -33,6 +36,8 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     arena_menu->addAction(close_wnd);
 
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
+    connect(pushButton_HUB, SIGNAL(clicked()), this, SLOT(slotHub()));
+    connect(pushButton_SHARE, SIGNAL(clicked()), this, SLOT(slotShare()));
 }
 
 PMWindow::~PMWindow(){
@@ -66,6 +71,9 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
 
 void PMWindow::closeEvent(QCloseEvent *c_e){
     emit privateMessageClosed(cid);
+
+    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+    MainWindow::getInstance()->remArenaWidget(this);
 
     c_e->accept();
 }
@@ -117,3 +125,27 @@ void PMWindow::sendMessage(QString msg, bool stripNewLines){
     }
 }
 
+void PMWindow::slotHub(){
+    HubFrame *fr = HubManager::getInstance()->getHub(hubUrl);
+
+    if (fr)
+        MainWindow::getInstance()->mapWidgetOnArena(fr);
+}
+
+void PMWindow::slotShare(){
+    string cid = this->cid.toStdString();
+
+    if (!cid.empty()){
+        try{
+            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+
+            if (user){
+                if (user == ClientManager::getInstance()->getMe())
+                    MainWindow::getInstance()->browseOwnFiles();
+                else
+                    QueueManager::getInstance()->addList(user, _tq(hubUrl), QueueItem::FLAG_CLIENT_VIEW);
+            }
+        }
+        catch (const Exception &e){}
+    }
+}

@@ -156,6 +156,9 @@ public:
     ~HubFrame();
 
     void addStatus(QString);
+    void createPMWindow(const QString&);
+    void createPMWindow(const dcpp::CID&);
+    bool hasCID(const dcpp::CID &, const QString &);
 
     // Arena Widget interface
     QWidget *getWidget();

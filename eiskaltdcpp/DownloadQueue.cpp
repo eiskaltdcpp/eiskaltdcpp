@@ -10,6 +10,8 @@
 #include "DownloadQueueModel.h"
 #include "MainWindow.h"
 #include "SearchFrame.h"
+#include "HubFrame.h"
+#include "HubManager.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 
@@ -490,6 +492,20 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         }
         case Menu::SendPM:
         {
+            rmap = arg.toMap();
+            VarMap::const_iterator it = rmap.constBegin();
+            dcpp::CID cid(_tq(getCID(rmap)));
+            QString nick = ((++it).key());
+            QList<HubFrame*> list = HubManager::getInstance()->getHubs();
+
+            foreach (HubFrame *fr, list){
+                if (fr->hasCID(cid, nick)){
+                    fr->createPMWindow(cid);
+
+                    break;
+                }
+            }
+
             break;
         }
         case Menu::RemoveSource:

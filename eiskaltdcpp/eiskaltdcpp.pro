@@ -129,7 +129,8 @@ HEADERS = MainWindow.h \
     FinishedTransfersModel.h \
     AntiSpamFrame.h \
     IPFilterFrame.h \
-    IPFilterModel.h
+    IPFilterModel.h \
+    HubManager.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -218,7 +219,8 @@ SOURCES = main.cpp \
     FinishedTransfersModel.cpp \
     AntiSpamFrame.cpp \
     IPFilterModel.cpp \
-    IPFilterFrame.cpp
+    IPFilterFrame.cpp \
+    HubManager.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \

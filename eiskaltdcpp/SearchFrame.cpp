@@ -10,10 +10,13 @@
 
 #include "SearchFrame.h"
 #include "MainWindow.h"
+#include "HubFrame.h"
+#include "HubManager.h"
 #include "SearchModel.h"
 #include "WulforUtil.h"
 #include "Func.h"
 
+#include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/StringTokenizer.h"
 #include "dcpp/SettingsManager.h"
@@ -427,7 +430,13 @@ void SearchFrame::onHubRemoved(SearchFrame::HubInfo* info){
 
     if (it != hub_list.constEnd()){
         listWidget_HUBS->removeItemWidget(info->item);
+
+        hub_items.remove(info->item);
+        hub_list.remove(info->client);
+
         delete info;
+
+        listWidget_HUBS->repaint();
     }
 }
 
@@ -471,10 +480,10 @@ bool SearchFrame::getDownloadParams(SearchFrame::VarMap &params, SearchItem *ite
     params.clear();
 
     params["CID"]   = item->cid;
-    params["FNAME"] = item->data(COLUMN_PATH).toString() + item->data(COLUMN_FILENAME).toString();
-    params["ESIZE"] = item->data(COLUMN_ESIZE);
-    params["TTH"]   = item->data(COLUMN_TTH);
-    params["HOST"]  = item->data(COLUMN_HOST);
+    params["FNAME"] = item->data(COLUMN_SF_PATH).toString() + item->data(COLUMN_SF_FILENAME).toString();
+    params["ESIZE"] = item->data(COLUMN_SF_ESIZE);
+    params["TTH"]   = item->data(COLUMN_SF_TTH);
+    params["HOST"]  = item->data(COLUMN_SF_HOST);
     params["TARGET"]= _q(SETTING(DOWNLOAD_DIRECTORY));
 
     return true;
@@ -489,13 +498,13 @@ bool SearchFrame::getWholeDirParams(SearchFrame::VarMap &params, SearchItem *ite
     params["CID"]   = item->cid;
 
     if (item->isDir)
-        params["FNAME"] = item->data(COLUMN_PATH).toString() + item->data(COLUMN_FILENAME).toString();
+        params["FNAME"] = item->data(COLUMN_SF_PATH).toString() + item->data(COLUMN_SF_FILENAME).toString();
     else
-        params["FNAME"] = item->data(COLUMN_PATH).toString();//Download directory that containing a file
+        params["FNAME"] = item->data(COLUMN_SF_PATH).toString();//Download directory that containing a file
 
     params["ESIZE"] = 0;
     params["TTH"]   = "";
-    params["HOST"]  = item->data(COLUMN_HOST);
+    params["HOST"]  = item->data(COLUMN_SF_HOST);
     params["TARGET"]= _q(SETTING(DOWNLOAD_DIRECTORY));
 
     return true;
@@ -750,7 +759,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 if (!item->isDir){//only one file
                     SearchFrame *sf = new SearchFrame();
 
-                    sf->searchAlternates(item->data(COLUMN_TTH).toString());
+                    sf->searchAlternates(item->data(COLUMN_SF_TTH).toString());
 
                     break;
                 }
@@ -767,9 +776,9 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only files
-                    qlonglong size = item->data(COLUMN_ESIZE).toLongLong();
-                    QString tth = item->data(COLUMN_TTH).toString();
-                    QString name = item->data(COLUMN_FILENAME).toString();
+                    qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
+                    QString tth = item->data(COLUMN_SF_TTH).toString();
+                    QString name = item->data(COLUMN_SF_FILENAME).toString();
 
                     QString magnet = WU->makeMagnet(name, size, tth);
 
@@ -794,6 +803,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 if (getWholeDirParams(params, item))
                     getFileList(params, false);
             }
+            
+            break;
         }
         case Menu::MatchQueue:
         {
@@ -806,15 +817,31 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     getFileList(params, true);
                 }
             }
+            
+            break;
         }
         case Menu::SendPM:
         {
-#warning "Implement sending private messages"
+            HubFrame *fr = NULL;
+            HubManager *hm = HubManager::getInstance();
+            
+            foreach (QModelIndex i, list){
+                SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+
+                QString hubUrl = item->data(COLUMN_SF_HOST).toString();
+                dcpp::CID cid(_tq(item->cid));
+
+                fr = hm->getHub(hubUrl);
+
+                if (fr)
+                    fr->createPMWindow(cid);
+            }            
+
             break;
         }
         case Menu::AddToFav:
         {
-             foreach (QModelIndex i, list){
+            foreach (QModelIndex i, list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -822,6 +849,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     addToFav(params["CID"].toString());
 
             }
+            
+            break;          
         }
         case Menu::GrantExtraSlot:
         {
@@ -833,6 +862,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     grant(params);
 
             }
+             
+            break;
         }
         case Menu::RemoveFromQueue:
         {
@@ -843,7 +874,9 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 if (getDownloadParams(params, item))
                     removeSource(params);
 
-            }
+             }
+             
+             break;
         }
         case Menu::Remove:
         {
@@ -856,6 +889,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
                 model->repaint();
             }
+             
+            break;
         }
         default:
         {

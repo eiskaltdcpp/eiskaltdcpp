@@ -5,6 +5,8 @@
 #include "WulforSettings.h"
 #include "Func.h"
 #include "IPFilter.h"
+#include "HubFrame.h"
+#include "HubManager.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/User.h"
@@ -440,7 +442,18 @@ void TransferView::slotContextMenu(const QPoint &){
     }
     case Menu::SendPM:
     {
-#warning "Implement sending PMs"
+        HubFrame *fr = NULL;
+
+        foreach(TransferViewItem *i, items){
+            dcpp::CID cid(_tq(i->cid));
+            QString hubUrl = i->data(COLUMN_TRANSFER_HOST).toString();
+
+            fr = HubManager::getInstance()->getHub(hubUrl);
+
+            if (fr)
+                fr->createPMWindow(cid);
+        }
+
         break;
     }
     default:

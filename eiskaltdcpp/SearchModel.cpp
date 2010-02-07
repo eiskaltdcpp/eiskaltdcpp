@@ -39,7 +39,7 @@ using namespace dcpp;
 
 SearchModel::SearchModel(QObject *parent):
         QAbstractItemModel(parent),
-        sortColumn(COLUMN_ESIZE),
+        sortColumn(COLUMN_SF_ESIZE),
         sortOrder(Qt::DescendingOrder),
         filterRole(SearchFrame::None)
 {
@@ -82,9 +82,9 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     switch(role) {
         case Qt::DecorationRole: // icon
         {
-            if (index.column() == COLUMN_FILENAME && !item->isDir)
-                return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_FILENAME).toString());
-            else if (index.column() == COLUMN_FILENAME && item->isDir)
+            if (index.column() == COLUMN_SF_FILENAME && !item->isDir)
+                return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_SF_FILENAME).toString());
+            else if (index.column() == COLUMN_SF_FILENAME && item->isDir)
                 return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE);
             break;
         }
@@ -93,9 +93,9 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         case Qt::TextAlignmentRole:
         {
             const int i_column = index.column();
-            bool align_center = (i_column == COLUMN_ALLSLOTS) || (i_column == COLUMN_EXTENSION) ||
-                                (i_column == COLUMN_FREESLOTS);
-            bool align_right  = (i_column == COLUMN_ESIZE) || (i_column == COLUMN_SIZE ) || (i_column == COLUMN_COUNT);
+            bool align_center = (i_column == COLUMN_SF_ALLSLOTS) || (i_column == COLUMN_SF_EXTENSION) ||
+                                (i_column == COLUMN_SF_FREESLOTS);
+            bool align_right  = (i_column == COLUMN_SF_ESIZE) || (i_column == COLUMN_SF_SIZE ) || (i_column == COLUMN_SF_COUNT);
 
             if (align_center)
                 return Qt::AlignCenter;
@@ -107,7 +107,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         case Qt::ForegroundRole:
         {
             if (filterRole == static_cast<int>(SearchFrame::Highlight)){
-                TTHValue t(_tq(item->data(COLUMN_TTH).toString()));
+                TTHValue t(_tq(item->data(COLUMN_SF_TTH).toString()));
 
                 if (ShareManager::getInstance()->isTTHShared(t))
                     return QColor(0x1F, 0x8F, 0x1F);
@@ -212,10 +212,10 @@ QModelIndex SearchModel::createIndexForItem(SearchItem *item){
     while (!stack.empty()){
         SearchItem *el = stack.pop();
 
-        parent = index(el->row(), COLUMN_FILENAME, parent);
+        parent = index(el->row(), COLUMN_SF_FILENAME, parent);
     }
 
-    return index(item->row(), COLUMN_FILENAME, parent);
+    return index(item->row(), COLUMN_SF_FILENAME, parent);
 }
 
 namespace {
@@ -238,32 +238,32 @@ struct Compare {
         typedef bool (*AttrComp)(const SearchItem * l, const SearchItem * r);
         AttrComp static getAttrComp(int column) {
             switch (column){
-                case COLUMN_FILENAME:
-                    return AttrCmp<COLUMN_FILENAME>;
-                case COLUMN_EXTENSION:
-                    return AttrCmp<COLUMN_EXTENSION>;
-                case COLUMN_TTH:
-                    return AttrCmp<COLUMN_TTH>;
-                case COLUMN_PATH:
-                    return AttrCmp<COLUMN_PATH>;
-                case COLUMN_NICK:
-                    return AttrCmp<COLUMN_NICK>;
-                case COLUMN_IP:
-                    return AttrCmp<COLUMN_IP>;
-                case COLUMN_HUB:
-                    return AttrCmp<COLUMN_HUB>;
-                case COLUMN_HOST:
-                    return AttrCmp<COLUMN_HOST>;
-                case COLUMN_SIZE:
-                    return NumCmp<COLUMN_ESIZE>;
-                case COLUMN_ESIZE:
-                    return NumCmp<COLUMN_ESIZE>;
-                case COLUMN_COUNT:
-                    return NumCmp<COLUMN_COUNT>;
-                case COLUMN_FREESLOTS:
-                    return NumCmp<COLUMN_FREESLOTS>;
-                case COLUMN_ALLSLOTS:
-                    return NumCmp<COLUMN_ALLSLOTS>;
+                case COLUMN_SF_FILENAME:
+                    return AttrCmp<COLUMN_SF_FILENAME>;
+                case COLUMN_SF_EXTENSION:
+                    return AttrCmp<COLUMN_SF_EXTENSION>;
+                case COLUMN_SF_TTH:
+                    return AttrCmp<COLUMN_SF_TTH>;
+                case COLUMN_SF_PATH:
+                    return AttrCmp<COLUMN_SF_PATH>;
+                case COLUMN_SF_NICK:
+                    return AttrCmp<COLUMN_SF_NICK>;
+                case COLUMN_SF_IP:
+                    return AttrCmp<COLUMN_SF_IP>;
+                case COLUMN_SF_HUB:
+                    return AttrCmp<COLUMN_SF_HUB>;
+                case COLUMN_SF_HOST:
+                    return AttrCmp<COLUMN_SF_HOST>;
+                case COLUMN_SF_SIZE:
+                    return NumCmp<COLUMN_SF_ESIZE>;
+                case COLUMN_SF_ESIZE:
+                    return NumCmp<COLUMN_SF_ESIZE>;
+                case COLUMN_SF_COUNT:
+                    return NumCmp<COLUMN_SF_COUNT>;
+                case COLUMN_SF_FREESLOTS:
+                    return NumCmp<COLUMN_SF_FREESLOTS>;
+                case COLUMN_SF_ALLSLOTS:
+                    return NumCmp<COLUMN_SF_ALLSLOTS>;
             }
 
             throw SearchListException(QString("%1:%2 invalid sort column: %3").arg(__func__).arg(__LINE__).arg(column), SearchListException::Sort);
@@ -313,7 +313,7 @@ void SearchModel::sort(int column, Qt::SortOrder order) {
             Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
     }
     catch (SearchListException &e){
-        sort(COLUMN_FILENAME, order);
+        sort(COLUMN_SF_FILENAME, order);
     }
 
     emit layoutChanged();
@@ -450,8 +450,8 @@ void SearchModel::removeItem(const SearchItem *item){
     SearchItem *p = const_cast<SearchItem*>(item->parent());
     p->childItems.removeAt(item->row());
 
-    if (tths[item->data(COLUMN_TTH).toString()] == item)
-        tths.remove(item->data(COLUMN_TTH).toString());
+    if (tths[item->data(COLUMN_SF_TTH).toString()] == item)
+        tths.remove(item->data(COLUMN_SF_TTH).toString());
 
     endRemoveRows();
 
@@ -469,7 +469,7 @@ bool SearchModel::okToFind(const SearchItem *item){
         return false;
 
     if (!rootItem->childItems.contains(const_cast<SearchItem*>(item))){
-        QString tth = item->data(COLUMN_TTH).toString();
+        QString tth = item->data(COLUMN_SF_TTH).toString();
 
         SearchItem *tth_root = tths.value(tth);//try to find item by tth
 
@@ -514,7 +514,7 @@ int SearchItem::columnCount() const {
 }
 
 QVariant SearchItem::data(int column) const {
-    if (column == COLUMN_COUNT && childItems.size() > 0 && parentItem != 0)
+    if (column == COLUMN_SF_COUNT && childItems.size() > 0 && parentItem != 0)
         return childItems.size()+1;
 
     return itemData.value(column);

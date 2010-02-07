@@ -5,6 +5,7 @@
 #include "WulforManager.h"
 #include "WulforUtil.h"
 #include "Antispam.h"
+#include "HubManager.h"
 
 #include "UserListModel.h"
 
@@ -489,7 +490,13 @@ void HubFrame::customEvent(QEvent *e){
 }
 
 void HubFrame::closeEvent(QCloseEvent *e){
+    MainWindow *MW = MainWindow::getInstance();
+
+    MW->remArenaWidgetFromToolbar(this);
+    MW->remArenaWidget(this);
+
     client->removeListener(this);
+    HubManager::getInstance()->unregisterHubUrl(_q(client->getHubUrl()));
     client->disconnect(true);
     ClientManager::getInstance()->putClient(client);
 
@@ -497,10 +504,13 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     save();
 
-    PMMap::iterator it = pm.begin();
+    blockSignals(true);
 
-    for (; it != pm.begin(); ++it){
-        PMWindow *w = it.value();
+    PMMap::const_iterator it = pm.constBegin();
+
+    for (; it != pm.constEnd(); ++it){
+        PMWindow *w = const_cast<PMWindow*>(it.value());
+
         disconnect(w, SIGNAL(privateMessageClosed(QString)), this, SLOT(slotPMClosed(QString)));
 
         w->close();
@@ -508,10 +518,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     pm.clear();
 
-    MainWindow *MW = MainWindow::getInstance();
-
-    MW->remArenaWidgetFromToolbar(this);
-    MW->remArenaWidget(this);
+    blockSignals(false);
 
     setAttribute(Qt::WA_DeleteOnClose);
 
@@ -793,7 +800,8 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
         item->updateColumn(COLUMN_IP, map["IP"]);
         item->updateColumn(COLUMN_SHARE, map["SHARE"]);
         item->updateColumn(COLUMN_TAG, map["TAG"]);
-        item->px = WU->getUserIcon(user, map["AWAY"].toBool(), map["ISOP"].toBool(), map["SPEED"].toString());
+        item->isOp = map["ISOP"].toBool();
+        item->px = WU->getUserIcon(user, map["AWAY"].toBool(), item->isOp, map["SPEED"].toString());
     }
     else{
         model->addUser(map, user);
@@ -811,15 +819,12 @@ void HubFrame::browseUserFiles(const QString& id, bool match){
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
 
             if (user){
-                if (user == ClientManager::getInstance()->getMe()){
-                    MainWindow::getInstance()->browseOwnFiles();
-                }
-                else if (match){
+                if (user == ClientManager::getInstance()->getMe())
+                    MainWindow::getInstance()->browseOwnFiles();                
+                else if (match)
                     QueueManager::getInstance()->addList(user, client->getHubUrl(), QueueItem::FLAG_MATCH_QUEUE);
-                }
-                else{
+                else
                     QueueManager::getInstance()->addList(user, client->getHubUrl(), QueueItem::FLAG_CLIENT_VIEW);
-                }
             }
             else {
                 message = QString(tr("User not found")).toStdString();
@@ -967,6 +972,18 @@ void HubFrame::newPm(VarMap map){
     addPM(map["CID"].toString(), full_message);
 }
 
+void HubFrame::createPMWindow(const QString &nick){
+    createPMWindow(CID(_tq(model->CIDforNick(nick))));
+}
+
+void HubFrame::createPMWindow(const dcpp::CID &cid){
+    addPM(_q(cid.toBase32()), "");
+}
+
+bool HubFrame::hasCID(const dcpp::CID &cid, const QString &nick){
+    return (model->CIDforNick(nick) == _q(cid.toBase32()));
+}
+
 void HubFrame::clearUsers(){
     if (model){
         model->blockSignals(true);
@@ -1046,6 +1063,7 @@ void HubFrame::follow(string redirect){
 
         // the client is dead, long live the client!
         client->removeListener(this);
+        HubManager::getInstance()->unregisterHubUrl(_q(client->getHubUrl()));
         ClientManager::getInstance()->putClient(client);
         clearUsers();
         client = ClientManager::getInstance()->getClient(url);
@@ -1081,12 +1099,8 @@ void HubFrame::slotClose(){
 void HubFrame::slotPMClosed(QString cid){
     PMMap::iterator it = pm.find(cid);
 
-    if (it != pm.end()){
-        MainWindow::getInstance()->remArenaWidget(it.value());
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(it.value());
-
+    if (it != pm.end())
         pm.erase(it);
-    }
 }
 
 void HubFrame::slotUserListMenu(const QPoint&){
@@ -1186,6 +1200,8 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 if (item)
                     grantSlot(item->cid);
             }
+
+            break;
         }
         case Menu::RemoveQueue:
         {
@@ -1195,6 +1211,8 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 if (item)
                     delUserFromQueue(item->cid);
             }
+
+            break;
         }
         default:
         {
@@ -1406,6 +1424,8 @@ void HubFrame::on(ClientListener::Connected, Client*) throw(){
     FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
 
     QApplication::postEvent(this, new UserCustomEvent(func));
+
+    HubManager::getInstance()->registerHubUrl(_q(client->getHubUrl()), this);
 }
 
 void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) throw(){
@@ -1460,6 +1480,8 @@ void HubFrame::on(ClientListener::Failed, Client*, const string &msg) throw(){
     FUNC0 *f = new FUNC0(this, &HubFrame::clearUsers);
 
     QApplication::postEvent(this, new UserCustomEvent(f));
+
+    HubManager::getInstance()->unregisterHubUrl(_q(client->getHubUrl()));
 }
 
 void HubFrame::on(GetPassword, Client*) throw(){
