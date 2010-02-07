@@ -98,9 +98,12 @@ set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/ts")
 set (CLIENT_SOUNDS_DEST "${CLIENT_DATA_DIR}/sounds")
 set (CLIENT_ICONS_DEST "${CLIENT_DATA_DIR}/icons")
 
-add_definitions (-pipe -I. -fno-builtin -D_FILE_OFFSET_BITS=64
+add_definitions (-pipe -O2 -I. -fno-builtin -D_FILE_OFFSET_BITS=64
                  -D_REENTRANT -D_DATADIR="${_DATADIR}"
                  -DNDEBUG -DBUILDING_DCPP)
+
+set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -O3")
+set(CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3")
 
 add_subdirectory (dcpp)
 add_subdirectory (eiskaltdcpp)
