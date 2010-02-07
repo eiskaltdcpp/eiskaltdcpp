@@ -55,9 +55,7 @@ typedef QMap<QString, QVariant> UserMap;
 class UserListItem{
 
 public:
-    UserListItem(const QList<QVariant> &data, UserListItem *parent = 0);
-    UserListItem(const UserListItem&);
-    void operator=(const UserListItem&);
+    UserListItem(UserListItem* = NULL);
     virtual ~UserListItem();
 
     void appendChild(UserListItem *child);
@@ -65,22 +63,23 @@ public:
     UserListItem *child(int row);
     int childCount() const;
     int columnCount() const;
-    QVariant data(int column) const;
     int row() const;
     UserListItem *parent();
-    void updateColumn(int, QVariant);
-
     QList<UserListItem*> childItems;
 
     bool isOp;
+    QString nick;
+    qulonglong share;
+    QString comm;
+    QString tag;
+    QString conn;
+    QString ip;
+    QString email;
     QString cid;
     QPixmap *px;
     UserPtr ptr;
 private:
-
-    QList<QVariant> itemData;
     UserListItem *parentItem;
-
 };
 
 class UserListModel : public QAbstractItemModel {
@@ -134,6 +133,7 @@ public:
     QStringList matchNicksStartingWith(const QString & part, bool stripTags = false) const;
 
     void repaint() { emit layoutChanged(); }
+    void repaintData(const QModelIndex &left, const QModelIndex &right){ emit dataChanged(left, right); }
 
 private:
     UserListItem *rootItem;

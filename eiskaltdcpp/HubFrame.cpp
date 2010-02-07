@@ -791,17 +791,22 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
     UserListItem *item = model->itemForPtr(user);
 
     if (item){
-        total_shared -= item->data(COLUMN_SHARE).toULongLong();
+        total_shared -= item->share;
 
-        item->updateColumn(COLUMN_NICK, map["NICK"]);
-        item->updateColumn(COLUMN_COMMENT, map["COMM"]);
-        item->updateColumn(COLUMN_CONN, map["CONN"]);
-        item->updateColumn(COLUMN_EMAIL, map["EMAIL"]);
-        item->updateColumn(COLUMN_IP, map["IP"]);
-        item->updateColumn(COLUMN_SHARE, map["SHARE"]);
-        item->updateColumn(COLUMN_TAG, map["TAG"]);
+        item->nick = map["NICK"].toString();
+        item->comm = map["COMM"].toString();
+        item->conn = map["CONN"].toString();
+        item->email= map["EMAIL"].toString();
+        item->ip   = map["IP"].toString();
+        item->share= map["SHARE"].toULongLong();
+        item->tag  = map["TAG"].toString();
         item->isOp = map["ISOP"].toBool();
         item->px = WU->getUserIcon(user, map["AWAY"].toBool(), item->isOp, map["SPEED"].toString());
+
+        QModelIndex left = model->index(item->row(), COLUMN_NICK);
+        QModelIndex right= model->index(item->row(), COLUMN_EMAIL);
+
+        model->repaintData(left, right);
     }
     else{
         model->addUser(map, user);
@@ -1152,7 +1157,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                     ret += "\n";
 
                 if (item)
-                    ret += item->data(COLUMN_NICK).toString();
+                    ret += item->nick;
             }
 
             QApplication::clipboard()->setText(ret, QClipboard::Clipboard);

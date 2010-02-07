@@ -24,12 +24,7 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
     stripper.setPattern("\\[.*\\]");
     stripper.setMinimal(true);
 
-    QList<QVariant> rootData;
-
-    rootData << tr("Nick") << tr("Share") << tr("Comment")
-             << tr("Tag") << tr("Connection") << tr("IP") << tr("E-Mail");
-
-    rootItem = new UserListItem(rootData);
+    rootItem = pool.construct(reinterpret_cast<UserListItem*>(NULL));
 
     WU = WulforUtil::getInstance();
 }
@@ -41,7 +36,7 @@ UserListModel::~UserListModel() {
 
     rootItem->childItems.clear();
 
-    delete rootItem;
+    pool.destroy(rootItem);
 }
 
 
@@ -51,7 +46,7 @@ int UserListModel::rowCount(const QModelIndex & ) const {
 
 
 int UserListModel::columnCount(const QModelIndex & ) const {
-    return rootItem->columnCount();
+    return 7;
 }
 
 
@@ -67,9 +62,17 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
     switch (role){
         case Qt::DisplayRole:
         {
-            if (index.column() == COLUMN_SHARE)
-                return QString::fromStdString(dcpp::Util::formatBytes(item->data(COLUMN_SHARE).toULongLong()));
-            return item->data(index.column());
+            switch (index.column()) {
+                case COLUMN_NICK: return item->nick;
+                case COLUMN_COMMENT: return item->comm;
+                case COLUMN_TAG: return item->tag;
+                case COLUMN_CONN: return item->conn;
+                case COLUMN_EMAIL: return item->email;
+                case COLUMN_SHARE: return QString::fromStdString(dcpp::Util::formatBytes(item->share));
+                case COLUMN_IP: return item->ip;
+            }
+
+            break;
         }
         case Qt::DecorationRole:
         {
@@ -81,6 +84,20 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
 
             break;
         }
+        case Qt::ToolTipRole:
+        {
+            if (index.column() == COLUMN_SHARE)
+                return QString::number(item->share);
+
+            break;
+        }
+        case Qt::TextAlignmentRole:
+        {
+            if (index.column() == COLUMN_SHARE)
+                return Qt::AlignRight;
+
+            break;
+        }
     }
 
     return QVariant();
@@ -89,7 +106,15 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
 
 QVariant UserListModel::headerData(int section, Qt::Orientation orientation, int role) const {
     if ((orientation == Qt::Horizontal) && (role == Qt::DisplayRole)) {
-        return rootItem->data(section);
+        switch (section) {
+            case COLUMN_NICK: return tr("Nick");
+            case COLUMN_COMMENT: return tr("Comment");
+            case COLUMN_TAG: return tr("Tag");
+            case COLUMN_CONN: return tr("Connection");
+            case COLUMN_EMAIL: return tr("Email");
+            case COLUMN_SHARE: return tr("Share");
+            case COLUMN_IP: return tr("IP");
+        }
     }
 
     return QVariant();
@@ -111,40 +136,45 @@ struct Compare {
         typedef bool (*AttrComp)(const UserListItem* l, const UserListItem* r);
         AttrComp static getAttrComp(int column) {
             switch (column) {
-                case COLUMN_IP:
-                {
-                    return IPCmp;
-                }
-                case COLUMN_COMMENT:
-                    return AttrCmp<COLUMN_COMMENT>;
-                case COLUMN_CONN:
-                    return AttrCmp<COLUMN_CONN>;
-                case COLUMN_EMAIL:
-                    return AttrCmp<COLUMN_EMAIL>;
                 case COLUMN_NICK:
-                    return AttrCmp<COLUMN_NICK>;
-                case COLUMN_SHARE:
-                    return NumCmp<COLUMN_SHARE>;
+                    return AttrCmp<QString, &UserListItem::nick>;
+                    break;
+                case COLUMN_COMMENT:
+                    return AttrCmp<QString, &UserListItem::comm>;
+                    break;
                 case COLUMN_TAG:
-                    return AttrCmp<COLUMN_TAG>;
+                    return AttrCmp<QString, &UserListItem::tag>;
+                    break;
+                case COLUMN_CONN:
+                    return AttrCmp<QString, &UserListItem::conn>;
+                    break;
+                case COLUMN_EMAIL:
+                    return AttrCmp<QString, &UserListItem::email>;
+                    break;
+                case COLUMN_SHARE:
+                    return AttrCmp<qulonglong, &UserListItem::share>;
+                    break;
+                case COLUMN_IP:
+                    return IPCmp;
+                    break;
             }
-
             Q_ASSERT_X(false, "getAttrComp", QString("Unknown column %1").arg(column).toLocal8Bit().constData());
             return 0;
         }
-
-        template <int column>
-        bool static NumCmp(const UserListItem * l, const UserListItem * r) {
+        template <typename T, T (UserListItem::*attr)>
+        bool static AttrCmp(const UserListItem * l, const UserListItem * r) {
             if (l->isOp != r->isOp)
                 return l->isOp;
-
-            return Cmp(l->data(column).toULongLong(), r->data(column).toULongLong());
-       }
+            else
+                return Cmp(l->*attr, r->*attr);;
+        }
 
         bool static IPCmp(const UserListItem * l, const UserListItem * r){
-            if (l->isOp == r->isOp){
-                QString ip1 = l->data(COLUMN_IP).toString();
-                QString ip2 = r->data(COLUMN_IP).toString();
+            if (l->isOp != r->isOp)
+                return l->isOp;
+            else {
+                QString ip1 = l->ip;
+                QString ip2 = r->ip;
 
                 quint32 l_ip = ip1.section('.',0,0).toULong();
                 l_ip <<= 8;
@@ -164,16 +194,6 @@ struct Compare {
 
                 return Cmp(l_ip, r_ip);
             }
-            else
-                return l->isOp;
-        }
-
-        template <int i>
-        bool static AttrCmp(const UserListItem * l, const UserListItem * r) {
-            if (l->isOp != r->isOp)
-                return l->isOp;
-                
-            return Cmp(l->data(i).toString(), r->data(i).toString());
         }
 
         template <typename T>
@@ -300,13 +320,16 @@ void UserListModel::addUser(const QString& nick,
 
     UserListItem *item;
 
-    QList<QVariant> rootData;
-
-    rootData << nick << share << comment << tag << conn << ip << email;
-
-    item = pool.construct(rootData, rootItem);
+    item = pool.construct(rootItem);
 
     item->px = WU->getUserIcon(ptr, isAway, isOp, speed);
+    item->nick = nick;
+    item->share = share;
+    item->comm = comment;
+    item->tag = tag;
+    item->conn = conn;
+    item->ip = ip;
+    item->email = email;
     item->isOp = isOp;
     item->cid = cid;
     item->ptr = ptr;
@@ -324,10 +347,6 @@ void UserListModel::addUser(const QString& nick,
 
         return;
     }
-
-#ifdef _DEBUG_MODEL_
-    qDebug() << "Inserting new user item";
-#endif
 
     QList<UserListItem*>::iterator it = rootItem->childItems.end();
 
@@ -370,10 +389,10 @@ QStringList UserListModel::matchNicksContaining(const QString & part, bool strip
     }
 
     for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
-        QString nick_lc = (*it)->data(COLUMN_NICK).toString().toLower();
+        QString nick_lc = (*it)->nick.toLower();
 
         if (nick_lc.contains(part)) {
-                matches << (*it)->data(COLUMN_NICK).toString();
+                matches << (*it)->nick;
         }
     }
 
@@ -388,41 +407,28 @@ QStringList UserListModel::matchNicksStartingWith(const QString & part, bool str
     }
 
     for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
-        QString nick_lc = (*it)->data(COLUMN_NICK).toString().toLower();
+        QString nick_lc = (*it)->nick.toLower();
 
         if (nick_lc.startsWith(part)) {
-            matches << (*it)->data(COLUMN_NICK).toString();
+            matches << (*it)->nick;
         }
     }
 
     return matches;
 }
 
-UserListItem::UserListItem(const QList<QVariant> &data, UserListItem *parent) :
-    itemData(data), parentItem(parent), isOp(false), cid(""), px(NULL)
+UserListItem::UserListItem(UserListItem *parent) :
+    isOp(false), cid(""), px(NULL), parentItem(parent)
 {
-}
-
-UserListItem::UserListItem(const UserListItem &item){
-    itemData = item.itemData;
-    isOp = item.isOp;
-    cid = item.cid;
-    px = item.px;
-}
-void UserListItem::operator=(const UserListItem &item){
-    itemData = item.itemData;
-    isOp = item.isOp;
-    cid = item.cid;
-    px = item.px;
 }
 
 UserListItem::~UserListItem()
 {
-    if (childItems.size() > 0)
-        qDeleteAll(childItems);
+    qDeleteAll(childItems);
 }
 
 void UserListItem::appendChild(UserListItem *item) {
+    item->parentItem = this;
     childItems.append(item);
 }
 
@@ -435,13 +441,8 @@ int UserListItem::childCount() const {
 }
 
 int UserListItem::columnCount() const {
-    return itemData.count();
+    return 7;
 }
-
-QVariant UserListItem::data(int column) const {
-    return itemData.value(column);
-}
-
 UserListItem *UserListItem::parent() {
     return parentItem;
 }
@@ -452,11 +453,3 @@ int UserListItem::row() const {
 
     return 0;
 }
-
-void UserListItem::updateColumn(int column, QVariant var){
-    if (column > (itemData.size()-1))
-        return;
-
-    itemData[column] = var;
-}
-
