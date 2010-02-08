@@ -11,6 +11,7 @@
 #include <QtDebug>
 #include <QTextCodec>
 #include <QMessageBox>
+#include <QKeyEvent>
 
 #include "HubFrame.h"
 #include "TransferView.h"
@@ -107,6 +108,13 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
+    if (!isUnload){
+        hide();
+        c_e->ignore();
+
+        return;
+    }
+
     saveSettings();
 
     QWidget *wgt = arena->widget();
@@ -129,7 +137,20 @@ void MainWindow::customEvent(QEvent *e){
     e->accept();
 }
 
+bool MainWindow::eventFilter(QObject *obj, QEvent *e){
+    if (e->type() == QEvent::KeyRelease){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if (k_e->key() == Qt::Key_Escape && !isUnload)
+            hide();
+    }
+
+    return QMainWindow::eventFilter(obj, e);
+}
+
 void MainWindow::init(){
+    installEventFilter(this);
+
     arena = new QDockWidget();
     arena->setFloating(false);
     arena->setAllowedAreas(Qt::RightDockWidgetArea);
@@ -274,7 +295,7 @@ void MainWindow::initActions(){
 
         fileQuit = new QAction("", this);
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
-        connect(fileQuit, SIGNAL(triggered()), this, SLOT(close()));
+        connect(fileQuit, SIGNAL(triggered()), this, SLOT(slotExit()));
 
         QAction *separator0 = new QAction("", this);
         separator0->setSeparator(true);
@@ -641,6 +662,12 @@ void MainWindow::slotQC(){
     QuickConnect qc;
 
     qc.exec();
+}
+
+void MainWindow::slotExit(){
+    setUnload(true);
+
+    close();
 }
 
 void MainWindow::slotAboutClient(){

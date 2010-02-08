@@ -5,6 +5,7 @@ set (HDRS   ArenaWidget.h
             Func.h
             HistoryInterface.h
             PMWindow.h
+            PoolAlloc.h
             Version.h)
 set (SRCS   Antispam.cpp
             AntiSpamFrame.cpp
@@ -24,6 +25,7 @@ set (SRCS   Antispam.cpp
             IPFilterModel.cpp
             Magnet.cpp
             MainWindow.cpp
+            Notification.cpp
             PMWindow.cpp
             QuickConnect.cpp
             SearchFrame.cpp
@@ -60,6 +62,7 @@ set (MOC_HDRS Antispam.h
             IPFilterModel.h
             Magnet.h
             MainWindow.h
+            Notification.h
             PMWindow.h
             Settings.h
             SettingsConnection.h

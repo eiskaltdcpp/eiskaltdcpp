@@ -7,6 +7,7 @@
 #include <QMap>
 #include <QMenu>
 #include <QAction>
+#include <QHash>
 
 #include "ui_HubFrame.h"
 
@@ -32,7 +33,7 @@ class UserUpdatedEvent: public QEvent{
 public:
     static const QEvent::Type Event = static_cast<QEvent::Type>(1200);
 
-    UserUpdatedEvent(const QMap<QString, QVariant> &map, const dcpp::UserPtr &ptr, bool join):
+    UserUpdatedEvent(const QHash<QString, QVariant> &map, const dcpp::UserPtr &ptr, bool join):
             QEvent(Event),
             ptr(ptr),
             join(join),
@@ -43,12 +44,12 @@ public:
 
     const dcpp::UserPtr &getUser() const { return ptr; }
     bool getJoin() const {return join; }
-    QMap<QString, QVariant> &getMap() { return map; }
+    QHash<QString, QVariant> &getMap() { return map; }
 
 private:
     dcpp::UserPtr ptr;
     bool join;
-    QMap<QString, QVariant> map;
+    QHash<QString, QVariant> map;
 };
 
 class UserRemovedEvent: public QEvent{
@@ -150,7 +151,7 @@ class HubFrame :
 
 public:
     typedef QMap<QString, PMWindow*> PMMap;
-    typedef QMap<QString, QVariant > VarMap;
+    typedef QHash<QString, QVariant > VarMap;
 
     HubFrame(QWidget *parent, QString, QString);
     ~HubFrame();

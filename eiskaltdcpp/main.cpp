@@ -16,6 +16,7 @@ using namespace std;
 #include "UPnP.h"
 #include "UPnPMapper.h"
 #include "HubManager.h"
+#include "Notification.h"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -56,8 +57,13 @@ int main(int argc, char *argv[])
         UPnPMapper::newInstance();
 
         HubManager::newInstance();
-	
+
         MainWindow::newInstance();
+        MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
+
+        Notification::newInstance();
+        Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
+
         MainWindow::getInstance()->autoconnect();
         MainWindow::getInstance()->show();
 
@@ -69,6 +75,8 @@ int main(int argc, char *argv[])
         UPnPMapper::deleteInstance();
         UPnP::getInstance()->stop();
         UPnP::deleteInstance();
+
+        Notification::deleteInstance();
 
         MainWindow::deleteInstance();
 

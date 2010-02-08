@@ -766,7 +766,7 @@ void HubFrame::addPM(QString cid, QString output){
     }
 }
 
-void HubFrame::getParams(QMap<QString, QVariant> &map, const Identity &id){
+void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
     map["NICK"] = _q(id.getNick());
     map["SHARE"] = qlonglong(id.getBytesShared());
     map["COMM"] = _q(id.getDescription());

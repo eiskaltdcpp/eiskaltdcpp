@@ -31,12 +31,7 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
 
 
 UserListModel::~UserListModel() {
-    foreach(UserListItem *i, rootItem->childItems)
-        pool.destroy(i);
-
     rootItem->childItems.clear();
-
-    pool.destroy(rootItem);
 }
 
 

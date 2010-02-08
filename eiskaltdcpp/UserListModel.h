@@ -50,7 +50,7 @@ namespace dcpp{
 #define COLUMN_IP       5
 #define COLUMN_EMAIL    6
 
-typedef QMap<QString, QVariant> UserMap;
+typedef QHash<QString, QVariant> UserMap;
 
 class UserListItem{
 

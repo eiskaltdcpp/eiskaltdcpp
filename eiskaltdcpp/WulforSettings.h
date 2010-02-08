@@ -36,6 +36,7 @@
 #define WB_ANTISPAM_ENABLED         "antispam-enabled"
 #define WB_ANTISPAM_AS_FILTER       "antispam-as-filter"
 #define WB_IPFILTER_ENABLED         "ipfilter-enabled"
+#define WB_TRAY_ENABLED             "systemtray-enabled"
 #define WI_CHAT_MAXPARAGRAPHS       "chat-max-paragraph"
 #define WI_CHAT_WIDTH               "chat-width"
 #define WI_CHAT_USERLIST_WIDTH      "chat-userlist-width"

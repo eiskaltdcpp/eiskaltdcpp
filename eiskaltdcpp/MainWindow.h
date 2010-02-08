@@ -100,9 +100,13 @@ friend class dcpp::Singleton<MainWindow>;
         /** */
         void autoconnect();
 
+        /** */
+        void setUnload(bool b){ isUnload = b; }
+
     protected:
         virtual void closeEvent(QCloseEvent*);
         virtual void customEvent(QEvent *);
+        virtual bool eventFilter(QObject *, QEvent *);
 
     private slots:
         void slotFileBrowseOwnFilelist();
@@ -116,6 +120,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotFileSettings();
         void slotFileTransfer(bool);
         void slotQC();
+        void slotExit();
 
         void slotAboutClient();
         void slotAboutQt();
@@ -145,6 +150,8 @@ friend class dcpp::Singleton<MainWindow>;
         void initToolbar();
 
         void updateStatus(QMap<QString,QString>);
+
+        bool isUnload;
 
         // Widgets
         QDockWidget *arena;

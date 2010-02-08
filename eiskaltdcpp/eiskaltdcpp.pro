@@ -130,7 +130,9 @@ HEADERS = MainWindow.h \
     AntiSpamFrame.h \
     IPFilterFrame.h \
     IPFilterModel.h \
-    HubManager.h
+    HubManager.h \
+    PoolAlloc.h \
+    Notification.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -220,7 +222,8 @@ SOURCES = main.cpp \
     AntiSpamFrame.cpp \
     IPFilterModel.cpp \
     IPFilterFrame.cpp \
-    HubManager.cpp
+    HubManager.cpp \
+    Notification.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \
