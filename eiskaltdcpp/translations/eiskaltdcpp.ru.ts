@@ -51,128 +51,68 @@
         <source>Download Queue</source>
         <translation>Менеджер закачек</translation>
     </message>
-    <message>
-        <source>Search for alternates</source>
-        <translation type="obsolete">Поиск альтернатив</translation>
-    </message>
-    <message>
-        <source>Copy magnet</source>
-        <translation type="obsolete">Скопировать Magnet-ссылку</translation>
-    </message>
-    <message>
-        <source>Rename/Move</source>
-        <translation type="obsolete">Переименовать/Переместить</translation>
-    </message>
-    <message>
-        <source>Set priority</source>
-        <translation type="obsolete">Установить приоритет</translation>
-    </message>
-    <message>
-        <source>Paused</source>
-        <translation type="obsolete">Приостановленно</translation>
-    </message>
-    <message>
-        <source>Lowest</source>
-        <translation type="obsolete">Низший</translation>
-    </message>
-    <message>
-        <source>Low</source>
-        <translation type="obsolete">Низкий</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation type="obsolete">Нормальный</translation>
-    </message>
-    <message>
-        <source>High</source>
-        <translation type="obsolete">Высокий</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation type="obsolete">Наивысший</translation>
-    </message>
-    <message>
-        <source>Browse files</source>
-        <translation type="obsolete">Получить список файлов</translation>
-    </message>
-    <message>
-        <source>Send private message</source>
-        <translation type="obsolete">Послать личное сообщение</translation>
-    </message>
-    <message>
-        <source>Remove source</source>
-        <translation type="obsolete">Удалить источник</translation>
-    </message>
-    <message>
-        <source>Remove user</source>
-        <translation type="obsolete">Удалить пользователя</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Удалить</translation>
-    </message>
 </context>
 <context>
     <name>DownloadQueue::Menu</name>
     <message>
         <source>Search for alternates</source>
-        <translation type="unfinished">Поиск альтернатив</translation>
+        <translation>Поиск альтернатив</translation>
     </message>
     <message>
         <source>Copy magnet</source>
-        <translation type="unfinished">Скопировать Magnet-ссылку</translation>
+        <translation>Скопировать Magnet-ссылку</translation>
     </message>
     <message>
         <source>Rename/Move</source>
-        <translation type="unfinished">Переименовать/Переместить</translation>
+        <translation>Переименовать/Переместить</translation>
     </message>
     <message>
         <source>Set priority</source>
-        <translation type="unfinished">Установить приоритет</translation>
+        <translation>Установить приоритет</translation>
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished">Приостановленно</translation>
+        <translation>Приостановленно</translation>
     </message>
     <message>
         <source>Lowest</source>
-        <translation type="unfinished">Низший</translation>
+        <translation>Низший</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished">Низкий</translation>
+        <translation>Низкий</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished">Нормальный</translation>
+        <translation>Нормальный</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished">Высокий</translation>
+        <translation>Высокий</translation>
     </message>
     <message>
         <source>Highest</source>
-        <translation type="unfinished">Наивысший</translation>
+        <translation>Наивысший</translation>
     </message>
     <message>
         <source>Browse files</source>
-        <translation type="unfinished">Получить список файлов</translation>
+        <translation>Получить список файлов</translation>
     </message>
     <message>
         <source>Send private message</source>
-        <translation type="unfinished">Послать личное сообщение</translation>
+        <translation>Послать личное сообщение</translation>
     </message>
     <message>
         <source>Remove source</source>
-        <translation type="unfinished">Удалить источник</translation>
+        <translation>Удалить источник</translation>
     </message>
     <message>
         <source>Remove user</source>
-        <translation type="unfinished">Удалить пользователя</translation>
+        <translation>Удалить пользователя</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
@@ -465,127 +405,71 @@
         <translation>Хаб уже есть в списке избранных.</translation>
     </message>
     <message>
-        <source>Copy nick</source>
-        <translation type="obsolete">Копировать ник</translation>
-    </message>
-    <message>
-        <source>Browse files</source>
-        <translation type="obsolete">Получить список файлов</translation>
-    </message>
-    <message>
-        <source>Match Queue</source>
-        <translation type="obsolete">Соответствие очереди</translation>
-    </message>
-    <message>
-        <source>Private Message</source>
-        <translation type="obsolete">Личное сообщение</translation>
-    </message>
-    <message>
-        <source>Add to Favorites</source>
-        <translation type="obsolete">Добавить в избранные</translation>
-    </message>
-    <message>
-        <source>Remove from Favorites</source>
-        <translation type="obsolete">Удалить из избранных</translation>
-    </message>
-    <message>
-        <source>Grant slot</source>
-        <translation type="obsolete">Выдать слот</translation>
-    </message>
-    <message>
-        <source>Remove from Queue</source>
-        <translation type="obsolete">Удалить из очереди</translation>
-    </message>
-    <message>
-        <source>Clear chat</source>
-        <translation type="obsolete">Очистить чат</translation>
-    </message>
-    <message>
-        <source>Disable/Enable chat</source>
-        <translation type="obsolete">Включить/Выключить чат</translation>
-    </message>
-    <message>
-        <source>Select all</source>
-        <translation type="obsolete">Выделить всё</translation>
-    </message>
-    <message>
-        <source>Zoom In</source>
-        <translation type="obsolete">Увеличить</translation>
-    </message>
-    <message>
-        <source>Zoom Out</source>
-        <translation type="obsolete">Уменьшить</translation>
-    </message>
-    <message>
-        <source>User commands</source>
-        <translation type="obsolete">Команды пользователя</translation>
-    </message>
-    <message>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получено перенаправление к уже подключенному хабу</translation>
     </message>
     <message>
         <source>Stored password sent...</source>
-        <translation>Отправлен сохраненный пароль</translation>
+        <translation>Отправлен сохраненный пароль...</translation>
     </message>
 </context>
 <context>
     <name>HubFrame::Menu</name>
     <message>
         <source>Copy nick</source>
-        <translation type="unfinished">Копировать ник</translation>
+        <translation>Копировать ник</translation>
     </message>
     <message>
         <source>Browse files</source>
-        <translation type="unfinished">Получить список файлов</translation>
+        <translation>Получить список файлов</translation>
     </message>
     <message>
         <source>Match Queue</source>
-        <translation type="unfinished">Соответствие очереди</translation>
+        <translation>Согласовать очередь</translation>
     </message>
     <message>
         <source>Private Message</source>
-        <translation type="unfinished">Личное сообщение</translation>
+        <translation>Личное сообщение</translation>
     </message>
     <message>
         <source>Add to Favorites</source>
-        <translation type="unfinished">Добавить в избранные</translation>
+        <translation>Добавить в избранные</translation>
     </message>
     <message>
         <source>Remove from Favorites</source>
-        <translation type="unfinished">Удалить из избранных</translation>
+        <translation>Удалить из избранных</translation>
     </message>
     <message>
         <source>Grant slot</source>
-        <translation type="unfinished">Выдать слот</translation>
+        <translation>Выдать слот</translation>
     </message>
     <message>
         <source>Remove from Queue</source>
-        <translation type="unfinished">Удалить из очереди</translation>
+        <translation>Удалить из очереди</translation>
     </message>
     <message>
         <source>Clear chat</source>
-        <translation type="unfinished">Очистить чат</translation>
+        <translation>Очистить чат</translation>
     </message>
     <message>
         <source>Disable/Enable chat</source>
-        <translation type="unfinished">Включить/Выключить чат</translation>
+        <translation>Включить/Выключить чат</translation>
     </message>
     <message>
         <source>Select all</source>
-        <translation type="unfinished">Выделить всё</translation>
+        <translation>Выделить всё</translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation type="unfinished">Увеличить</translation>
+        <translation>Увеличить</translation>
     </message>
     <message>
         <source>Zoom Out</source>
-        <translation type="unfinished">Уменьшить</translation>
+        <translation>Уменьшить</translation>
     </message>
     <message>
         <source>User commands</source>
-        <translation type="unfinished">Команды пользователя</translation>
+        <translation>Команды пользователя</translation>
     </message>
 </context>
 <context>
@@ -638,16 +522,8 @@
         <translation>Настройки</translation>
     </message>
     <message>
-        <source>Opens options ialog</source>
-        <translation type="obsolete">Открывает диалог настроек</translation>
-    </message>
-    <message>
         <source>Open own filelist</source>
         <translation>Открыть свой список файлов</translation>
-    </message>
-    <message>
-        <source>Opens filebrowser with own filelist</source>
-        <translation type="obsolete">Открыть свой список в браузере файлов</translation>
     </message>
     <message>
         <source>Recreate share</source>
@@ -658,32 +534,16 @@
         <translation>Переподключиться к хабу</translation>
     </message>
     <message>
-        <source>Reconect to the current Hub</source>
-        <translation type="obsolete">Переподключиться к текущему хабу</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Поиск</translation>
-    </message>
-    <message>
-        <source>Open search window</source>
-        <translation type="obsolete">Открыть окно поиска</translation>
     </message>
     <message>
         <source>Quick connect</source>
         <translation>Быстрое соединение</translation>
     </message>
     <message>
-        <source>Opens quick connect dialog</source>
-        <translation type="obsolete">Открывает диалог быстрого подключения</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Выход</translation>
-    </message>
-    <message>
-        <source>Exits the application</source>
-        <translation type="obsolete">Выйти из приложения</translation>
     </message>
     <message>
         <source>Main layout</source>
@@ -716,16 +576,8 @@ Please check your connection settings</source>
         <translation>Передачи</translation>
     </message>
     <message>
-        <source>Shows active transfers</source>
-        <translation type="obsolete">Показывает активные передачи</translation>
-    </message>
-    <message>
         <source>Download queue</source>
         <translation>Менеджер закачек</translation>
-    </message>
-    <message>
-        <source>Show download queue</source>
-        <translation type="obsolete">Показать менеджер закачек</translation>
     </message>
     <message>
         <source>About</source>
@@ -748,24 +600,28 @@ Please check your connection settings</source>
         <translation>Избранные хабы</translation>
     </message>
     <message>
-        <source>Show favorite hub entry</source>
-        <translation type="obsolete">Показать запись активного хаба</translation>
-    </message>
-    <message>
         <source>Ready</source>
         <translation>Готов</translation>
     </message>
     <message>
         <source>%1 : %2 | %4 : %5 | %3</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 : %2 | %4 : %5 | %3</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Список скачанного</translation>
     </message>
     <message>
         <source>Finished uploads</source>
-        <translation type="unfinished"></translation>
+        <translation>Список отданного</translation>
+    </message>
+    <message>
+        <source>AntiSpam module</source>
+        <translation>АнтиСпам модуль</translation>
+    </message>
+    <message>
+        <source>IPFilter module</source>
+        <translation>IP-Фильтр</translation>
     </message>
 </context>
 <context>
@@ -925,112 +781,60 @@ Please check your connection settings</source>
         <source>Do nothing</source>
         <translation>Ничего не делать</translation>
     </message>
-    <message>
-        <source>Download</source>
-        <translation type="obsolete">Загрузить</translation>
-    </message>
-    <message>
-        <source>Download to</source>
-        <translation type="obsolete">Загрузить в</translation>
-    </message>
-    <message>
-        <source>Download Whole Directory</source>
-        <translation type="obsolete">Загрузить всю директорию</translation>
-    </message>
-    <message>
-        <source>Download Whole Directory to</source>
-        <translation type="obsolete">Загрузить всю директорию в</translation>
-    </message>
-    <message>
-        <source>Search TTH</source>
-        <translation type="obsolete">Поиск по TTH</translation>
-    </message>
-    <message>
-        <source>Copy magnet</source>
-        <translation type="obsolete">Скопировать Magnet-ссылку</translation>
-    </message>
-    <message>
-        <source>Browse files</source>
-        <translation type="obsolete">Получить список файлов</translation>
-    </message>
-    <message>
-        <source>Match Queue</source>
-        <translation type="obsolete">Соответствие очереди</translation>
-    </message>
-    <message>
-        <source>Send Private Message</source>
-        <translation type="obsolete">Послать личное сообщение</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation type="obsolete">Добавить в избранные</translation>
-    </message>
-    <message>
-        <source>Grant extra slot</source>
-        <translation type="obsolete">Выдать дополнительный слот</translation>
-    </message>
-    <message>
-        <source>Remove from Queue</source>
-        <translation type="obsolete">Удалить из очереди</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Удалить</translation>
-    </message>
 </context>
 <context>
     <name>SearchFrame::Menu</name>
     <message>
         <source>Download</source>
-        <translation type="unfinished">Загрузить</translation>
+        <translation>Загрузить</translation>
     </message>
     <message>
         <source>Download to</source>
-        <translation type="unfinished">Загрузить в</translation>
+        <translation>Загрузить в</translation>
     </message>
     <message>
         <source>Download Whole Directory</source>
-        <translation type="unfinished">Загрузить всю директорию</translation>
+        <translation>Загрузить всю директорию</translation>
     </message>
     <message>
         <source>Download Whole Directory to</source>
-        <translation type="unfinished">Загрузить всю директорию в</translation>
+        <translation>Загрузить всю директорию в</translation>
     </message>
     <message>
         <source>Search TTH</source>
-        <translation type="unfinished">Поиск по TTH</translation>
+        <translation>Поиск по TTH</translation>
     </message>
     <message>
         <source>Copy magnet</source>
-        <translation type="unfinished">Скопировать Magnet-ссылку</translation>
+        <translation>Скопировать Magnet-ссылку</translation>
     </message>
     <message>
         <source>Browse files</source>
-        <translation type="unfinished">Получить список файлов</translation>
+        <translation>Получить список файлов</translation>
     </message>
     <message>
         <source>Match Queue</source>
-        <translation type="unfinished">Соответствие очереди</translation>
+        <translation>Согласовать очередь</translation>
     </message>
     <message>
         <source>Send Private Message</source>
-        <translation type="unfinished">Послать личное сообщение</translation>
+        <translation>Послать личное сообщение</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished">Добавить в избранные</translation>
+        <translation>Добавить в избранные</translation>
     </message>
     <message>
         <source>Grant extra slot</source>
-        <translation type="unfinished">Выдать дополнительный слот</translation>
+        <translation>Выдать дополнительный слот</translation>
     </message>
     <message>
         <source>Remove from Queue</source>
-        <translation type="unfinished">Удалить из очереди</translation>
+        <translation>Удалить из очереди</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
@@ -1238,47 +1042,31 @@ Please check your connection settings</source>
         <translation>Выбрать директорию</translation>
     </message>
     <message>
-        <source>Download</source>
-        <translation type="obsolete">Загрузить</translation>
-    </message>
-    <message>
-        <source>Download to</source>
-        <translation type="obsolete">Загрузить в</translation>
-    </message>
-    <message>
-        <source>Search for alternates</source>
-        <translation type="obsolete">Поиск альтернатив</translation>
-    </message>
-    <message>
-        <source>Copy magnet</source>
-        <translation type="obsolete">Скопировать Magnet-ссылку</translation>
-    </message>
-    <message>
         <source>Choose file to open</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбирите файл</translation>
     </message>
     <message>
         <source>All files (*,*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Все файлы (*.*)</translation>
     </message>
 </context>
 <context>
     <name>ShareBrowser::Menu</name>
     <message>
         <source>Download</source>
-        <translation type="unfinished">Загрузить</translation>
+        <translation>Загрузить</translation>
     </message>
     <message>
         <source>Download to</source>
-        <translation type="unfinished">Загрузить в</translation>
+        <translation>Загрузить в</translation>
     </message>
     <message>
         <source>Search for alternates</source>
-        <translation type="unfinished">Поиск альтернатив</translation>
+        <translation>Поиск альтернатив</translation>
     </message>
     <message>
         <source>Copy magnet</source>
-        <translation type="unfinished">Скопировать Magnet-ссылку</translation>
+        <translation>Скопировать Magnet-ссылку</translation>
     </message>
 </context>
 <context>
@@ -1367,80 +1155,44 @@ Please check your connection settings</source>
         <source>Upload failed</source>
         <translation>Отдача не удалась</translation>
     </message>
-    <message>
-        <source>Browse files</source>
-        <translation type="obsolete">Получить список файлов</translation>
-    </message>
-    <message>
-        <source>Match Queue</source>
-        <translation type="obsolete">Соответствие очереди</translation>
-    </message>
-    <message>
-        <source>Send Private Message</source>
-        <translation type="obsolete">Послать личное сообщение</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation type="obsolete">Добавить в избранные</translation>
-    </message>
-    <message>
-        <source>Grant extra slot</source>
-        <translation type="obsolete">Выдать дополнительный слот</translation>
-    </message>
-    <message>
-        <source>Remove from Queue</source>
-        <translation type="obsolete">Удалить из очереди</translation>
-    </message>
-    <message>
-        <source>User command</source>
-        <translation type="obsolete">Команда пользователя</translation>
-    </message>
-    <message>
-        <source>Force attempt</source>
-        <translation type="obsolete">Принудительная попытка</translation>
-    </message>
-    <message>
-        <source>Close connection(s)</source>
-        <translation type="obsolete">Закрыть соединение(я)</translation>
-    </message>
 </context>
 <context>
     <name>TransferView::Menu</name>
     <message>
         <source>Browse files</source>
-        <translation type="unfinished">Получить список файлов</translation>
+        <translation>Получить список файлов</translation>
     </message>
     <message>
         <source>Match Queue</source>
-        <translation type="unfinished">Соответствие очереди</translation>
+        <translation>Согласовать очередь</translation>
     </message>
     <message>
         <source>Send Private Message</source>
-        <translation type="unfinished">Послать личное сообщение</translation>
+        <translation>Послать личное сообщение</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished">Добавить в избранные</translation>
+        <translation>Добавить в избранные</translation>
     </message>
     <message>
         <source>Grant extra slot</source>
-        <translation type="unfinished">Выдать дополнительный слот</translation>
+        <translation>Выдать дополнительный слот</translation>
     </message>
     <message>
         <source>Remove from Queue</source>
-        <translation type="unfinished">Удалить из очереди</translation>
+        <translation>Удалить из очереди</translation>
     </message>
     <message>
         <source>User command</source>
-        <translation type="unfinished">Команда пользователя</translation>
+        <translation>Команда пользователя</translation>
     </message>
     <message>
         <source>Force attempt</source>
-        <translation type="unfinished">Принудительная попытка</translation>
+        <translation>Принудительная попытка</translation>
     </message>
     <message>
         <source>Close connection(s)</source>
-        <translation type="unfinished">Закрыть соединение(я)</translation>
+        <translation>Закрыть соединение(я)</translation>
     </message>
 </context>
 <context>
@@ -1496,6 +1248,14 @@ Please check your connection settings</source>
     <message>
         <source>Finished</source>
         <translation>Завершено</translation>
+    </message>
+    <message>
+        <source>File list</source>
+        <translation>Список файлов</translation>
+    </message>
+    <message>
+        <source>TTH: </source>
+        <translation>TTH: </translation>
     </message>
 </context>
 <context>
@@ -2015,8 +1775,8 @@ Please check your connection settings</source>
         <translation>IP</translation>
     </message>
     <message>
-        <source>E-Mail</source>
-        <translation>Эл. почта</translation>
+        <source>Email</source>
+        <translation>E-Mail</translation>
     </message>
 </context>
 <context>

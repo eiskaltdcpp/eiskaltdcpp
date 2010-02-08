@@ -612,6 +612,14 @@ Please check your connection settings</source>
         <source>Finished uploads</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>AntiSpam module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPFilter module</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PMWindow</name>
@@ -1238,6 +1246,14 @@ Please check your connection settings</source>
         <source>Finished</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>File list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TTH: </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIDownloadQueue</name>
@@ -1755,7 +1771,7 @@ Please check your connection settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>E-Mail</source>
+        <source>Email</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -264,9 +264,8 @@ void TransferViewModel::initTransfer(VarMap params){
 
     TransferViewItem *item, *to;
 
-    if (!findTransfer(vstr(params["CID"]), vbol(params["DOWN"]), &item)){
+    if (!findTransfer(vstr(params["CID"]), vbol(params["DOWN"]), &item))
         return;
-    }
 
     bool needParent = (vstr(params["FNAME"]) != tr("File list"));
 
@@ -370,15 +369,13 @@ void TransferViewModel::removeTransfer(VarMap params){
             TransferViewItem *p = item->parent();
 
             if (p != rootItem)
-                beginRemoveRows(QModelIndex(), p->row(), p->row());
+                beginRemoveRows(createIndex(p->row(), 0, p), item->row(), item->row());
             else
                 beginRemoveRows(QModelIndex(), item->row(), item->row());
 
             p->childItems.removeAt(item->row());
 
             endRemoveRows();
-
-            emit layoutChanged();
 
             transfer_hash.erase(i);
 

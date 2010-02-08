@@ -419,21 +419,15 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
     if (!target)
         return false;
 
-    emit layoutAboutToBeChanged();
-    //emit rowRemoved(createIndexForItem(item));
     beginRemoveRows(createIndexForItem(item), target->row(), target->row());
     {
         int r = target->row();
 
         item->childItems.removeAt(r);
 
-        emit rowRemoved(createIndexForItem(item));
-
         delete target;
     }
     endRemoveRows();
-
-    reset();
 
     if (item->childCount() == 0){
         DownloadQueueItem *p = NULL;
@@ -442,19 +436,12 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
             item = item->parent();
         }
 
-        emit layoutAboutToBeChanged();
-        //emit rowRemoved(createIndexForItem(item));
         beginRemoveRows(createIndexForItem(item), p->row(), p->row());
         {
             item->childItems.removeAt(p->row());
             delete p;
         }
         endRemoveRows();
-
-        reset();
-#if _DEBUG_
-        printRoot(rootItem, "+");
-#endif
     }
 
     return true;
