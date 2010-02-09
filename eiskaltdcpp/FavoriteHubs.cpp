@@ -264,7 +264,8 @@ void FavoriteHubs::slotContexMenu(const QPoint &){
             FavoriteManager::getInstance()->removeFavorite(entry);
         }
         else if (res == conn && entry){
-           MainWindow::getInstance()->newHubFrame(address, QString::fromStdString(entry->getEncoding()));
+            QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry->getEncoding()));
+           MainWindow::getInstance()->newHubFrame(address, encoding);
         }
         else if (res == add_new){
             FavoriteHubEditor editor;
