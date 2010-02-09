@@ -272,8 +272,6 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
     if (!item)
         return;
 
-    params.clear();
-
     params["FNAME"]     = _q(item->getTargetFileName());
     params["PATH"]      = _q(Util::getFilePath(item->getTarget()));
     params["TARGET"]    = _q(item->getTarget());

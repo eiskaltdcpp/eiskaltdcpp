@@ -33,11 +33,10 @@ class UserUpdatedEvent: public QEvent{
 public:
     static const QEvent::Type Event = static_cast<QEvent::Type>(1200);
 
-    UserUpdatedEvent(const QHash<QString, QVariant> &map, const dcpp::UserPtr &ptr, bool join):
+    UserUpdatedEvent(const dcpp::UserPtr &ptr, bool join):
             QEvent(Event),
             ptr(ptr),
-            join(join),
-            map(map)
+            join(join)
     {}
     virtual ~UserUpdatedEvent()
     {}

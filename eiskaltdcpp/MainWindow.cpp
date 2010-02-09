@@ -20,6 +20,7 @@
 #include "SearchFrame.h"
 #include "Settings.h"
 #include "FavoriteHubs.h"
+#include "FavoriteUsers.h"
 #include "DownloadQueue.h"
 #include "FinishedTransfers.h"
 #include "AntiSpamFrame.h"
@@ -83,6 +84,11 @@ MainWindow::~MainWindow(){
     if (FinishedUploads::getInstance()){
         FinishedUploads::getInstance()->setUnload(true);
         FinishedUploads::getInstance()->close();
+    }
+
+    if (FavoriteUsers::getInstance()){
+        FavoriteUsers::getInstance()->setUnload(true);
+        FavoriteUsers::getInstance()->close();
     }
 
     arena->setWidget(NULL);
@@ -280,6 +286,10 @@ void MainWindow::initActions(){
         fileFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
         connect(fileFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotFileFavoriteHubs()));
 
+        fileFavoriteUsers = new QAction("", this);
+        fileFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiUSERS_32x32));
+        connect(fileFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotFileFavoriteUsers()));
+
         fileAntiSpam = new QAction("", this);
         fileAntiSpam->setIcon(WU->getPixmap(WulforUtil::eiSPAM));
         connect(fileAntiSpam, SIGNAL(triggered()), this, SLOT(slotFileAntiSpam()));
@@ -321,6 +331,7 @@ void MainWindow::initActions(){
                 << fileFinishedDownloads
                 << fileFinishedUploads
                 << fileFavoriteHubs
+                << fileFavoriteUsers
                 << fileSearch
                 << separator3
                 << fileAntiSpam
@@ -388,6 +399,8 @@ void MainWindow::retranslateUi(){
         fileIPFilter->setText(tr("IPFilter module"));
 
         fileFavoriteHubs->setText(tr("Favorite hubs"));
+
+        fileFavoriteUsers->setText(tr("Favorite Users"));
 
         fileSearch->setText(tr("Search"));
 
@@ -528,6 +541,20 @@ void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
     tBar->removeWidget(awgt);
 }
 
+void MainWindow::toggleSingletonWidget(ArenaWidget *a){
+    if (!a)
+        return;
+
+    if (tBar->hasWidget(a)){
+        tBar->removeWidget(a);
+        remWidgetFromArena(a);
+    }
+    else {
+        tBar->insertWidget(a);
+        mapWidgetOnArena(a);
+    }
+}
+
 void MainWindow::startSocket(){
     SearchManager::getInstance()->disconnect();
     ConnectionManager::getInstance()->disconnect();
@@ -577,42 +604,21 @@ void MainWindow::slotFileDownloadQueue(){
     if (!DownloadQueue::getInstance())
         DownloadQueue::newInstance();
 
-    if (tBar->hasWidget(DownloadQueue::getInstance())){
-        tBar->removeWidget(DownloadQueue::getInstance());
-        remWidgetFromArena(DownloadQueue::getInstance());
-    }
-    else {
-        tBar->insertWidget(DownloadQueue::getInstance());
-        mapWidgetOnArena(DownloadQueue::getInstance());
-    }
+    toggleSingletonWidget(DownloadQueue::getInstance());
 }
 
 void MainWindow::slotFileFinishedDownloads(){
     if (!FinishedDownloads::getInstance())
         FinishedDownloads::newInstance();
 
-    if (tBar->hasWidget(FinishedDownloads::getInstance())){
-        tBar->removeWidget(FinishedDownloads::getInstance());
-        remWidgetFromArena(FinishedDownloads::getInstance());
-    }
-    else {
-        tBar->insertWidget(FinishedDownloads::getInstance());
-        mapWidgetOnArena(FinishedDownloads::getInstance());
-    }
+    toggleSingletonWidget(FinishedDownloads::getInstance());
 }
 
 void MainWindow::slotFileFinishedUploads(){
     if (!FinishedUploads::getInstance())
         FinishedUploads::newInstance();
 
-    if (tBar->hasWidget(FinishedUploads::getInstance())){
-        tBar->removeWidget(FinishedUploads::getInstance());
-        remWidgetFromArena(FinishedUploads::getInstance());
-    }
-    else {
-        tBar->insertWidget(FinishedUploads::getInstance());
-        mapWidgetOnArena(FinishedUploads::getInstance());
-    }
+    toggleSingletonWidget(FinishedUploads::getInstance());
 }
 
 void MainWindow::slotFileAntiSpam(){
@@ -631,14 +637,14 @@ void MainWindow::slotFileFavoriteHubs(){
     if (!FavoriteHubs::getInstance())
         FavoriteHubs::newInstance();
 
-    if (tBar->hasWidget(FavoriteHubs::getInstance())){
-        tBar->removeWidget(FavoriteHubs::getInstance());
-        remWidgetFromArena(FavoriteHubs::getInstance());
-    }
-    else {
-        tBar->insertWidget(FavoriteHubs::getInstance());
-        mapWidgetOnArena(FavoriteHubs::getInstance());
-    }
+    toggleSingletonWidget(FavoriteHubs::getInstance());
+}
+
+void MainWindow::slotFileFavoriteUsers(){
+    if (!FavoriteUsers::getInstance())
+        FavoriteUsers::newInstance();
+
+    toggleSingletonWidget(FavoriteUsers::getInstance());
 }
 
 void MainWindow::slotFileSettings(){

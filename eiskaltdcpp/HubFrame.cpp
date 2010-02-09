@@ -1434,20 +1434,22 @@ void HubFrame::on(ClientListener::Connected, Client*) throw(){
 }
 
 void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) throw(){
-    VarMap map;
+    UserUpdatedEvent *u_e = new UserUpdatedEvent(user, true);
 
-    getParams(map, user.getIdentity());
+    getParams(u_e->getMap(), user.getIdentity());
 
-    QApplication::postEvent(this, new UserUpdatedEvent(map, user, true));
+    QApplication::postEvent(this, u_e);
 }
 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) throw(){
-    VarMap map;
+    UserUpdatedEvent *u_e = NULL;
 
     for (OnlineUserList::const_iterator it = list.begin(); it != list.end(); ++it){
-        getParams(map, (*(*it)).getIdentity());
+        u_e = new UserUpdatedEvent((*(*it)), true);
 
-        QApplication::postEvent(this, new UserUpdatedEvent(map, *(*it), false));
+        getParams(u_e->getMap(), (*(*it)).getIdentity());
+
+        QApplication::postEvent(this, u_e);
     }
 }
 

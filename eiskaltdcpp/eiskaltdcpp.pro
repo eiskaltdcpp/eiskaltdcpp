@@ -132,7 +132,8 @@ HEADERS = MainWindow.h \
     IPFilterModel.h \
     HubManager.h \
     PoolAlloc.h \
-    Notification.h
+    Notification.h \
+    FavoriteUsers.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -223,7 +224,8 @@ SOURCES = main.cpp \
     IPFilterModel.cpp \
     IPFilterFrame.cpp \
     HubManager.cpp \
-    Notification.cpp
+    Notification.cpp \
+    FavoriteUsers.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \
@@ -243,4 +245,5 @@ FORMS = ui/HubFrame.ui \
     ui/UIMagnet.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIAntiSpam.ui \
-    ui/UIIPFilter.ui
+    ui/UIIPFilter.ui \
+    ui/UIFavoriteUsers.ui

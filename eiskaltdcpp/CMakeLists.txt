@@ -14,6 +14,7 @@ set (SRCS   Antispam.cpp
             DownloadQueueModel.cpp
             FavoriteHubModel.cpp
             FavoriteHubs.cpp
+            FavoriteUsers.cpp
             FileBrowserModel.cpp
             FinishedTransfers.cpp
             FinishedTransfersModel.cpp
@@ -51,6 +52,7 @@ set (MOC_HDRS Antispam.h
             DownloadQueueModel.h
             FavoriteHubModel.h
             FavoriteHubs.h
+            FavoriteUsers.h
             FileBrowserModel.h
             FinishedTransfers.h
             FinishedTransfersModel.h
@@ -88,6 +90,7 @@ set (UI_FORMS ui/UIAntiSpam.ui
             ui/UIDownloadQueue.ui
             ui/UIFavoriteHubs.ui
             ui/UIFavoriteHubEditor.ui
+            ui/UIFavoriteUsers.ui
             ui/UIFinishedTransfers.ui
             ui/UIHashProgressDialog.ui
             ui/UIIPFilter.ui

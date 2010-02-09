@@ -308,8 +308,6 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Connectio
     const dcpp::UserPtr &user = item->getUser();
     WulforUtil *WU = WulforUtil::getInstance();
 
-    params.clear();
-
     params["CID"]   = _q(user->getCID().toBase32());
     params["USER"]  = WU->getNicks(user->getCID());
     params["HUB"]   = WU->getHubNames(user);

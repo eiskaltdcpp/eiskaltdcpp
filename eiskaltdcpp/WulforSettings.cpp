@@ -48,7 +48,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_CHAT_MSG_COLOR, qApp->palette().text().color().name());
         strmap.insert(WS_CHAT_USERLIST_COL_WIDTH, "");
         strmap.insert(WS_QCONNECT_HISTORY, "");
-        strmap.insert(WS_DEFAULT_LOCALE, QTextCodec::codecForLocale()->name());
+        strmap.insert(WS_DEFAULT_LOCALE, "UTF-8");
         strmap.insert(WS_DQUEUE_COLUMN_WIDTHS, "");
         strmap.insert(WS_SEARCH_COLUMN_WIDTHS, "");
         strmap.insert(WS_TRANSLATION_FILE, "");

@@ -9,6 +9,8 @@ using namespace std;
 
 #include "dcpp/forward.h"
 #include "dcpp/QueueManager.h"
+#include "dcpp/HashManager.h"
+#include "dcpp/Thread.h"
 
 #include "WulforManager.h"
 #include "WulforUtil.h"
@@ -35,6 +37,8 @@ int main(int argc, char *argv[])
 
 	dcpp::startup(callBack, NULL);
         dcpp::TimerManager::getInstance()->start();
+
+        HashManager::getInstance()->setPriority(Thread::IDLE);
 
         WulforManager::newInstance();
         WulforManager::getInstance()->start();

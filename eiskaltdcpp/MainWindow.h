@@ -111,6 +111,7 @@ friend class dcpp::Singleton<MainWindow>;
     private slots:
         void slotFileBrowseOwnFilelist();
         void slotFileFavoriteHubs();
+        void slotFileFavoriteUsers();
         void slotFileDownloadQueue();
         void slotFileFinishedDownloads();
         void slotFileFinishedUploads();
@@ -149,6 +150,8 @@ friend class dcpp::Singleton<MainWindow>;
         void initStatusBar();
         void initToolbar();
 
+        void toggleSingletonWidget(ArenaWidget *a);
+
         void updateStatus(QMap<QString,QString>);
 
         bool isUnload;
@@ -169,6 +172,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileFileListBrowserLocal;
         QAction *fileFileListRefresh;
         QAction *fileFavoriteHubs;
+        QAction *fileFavoriteUsers;
         QAction *fileTransfers;
         QAction *fileDownloadQueue;
         QAction *fileFinishedDownloads;
