@@ -155,6 +155,32 @@ DownloadQueue::Menu::Action DownloadQueue::Menu::exec(const DownloadQueue::Sourc
     return None;
 }
 
+DownloadQueue::Menu::Action DownloadQueue::Menu::execForDir(){
+    QMenu *m = new QMenu();
+    m->setAttribute(Qt::WA_DeleteOnClose);
+
+    QAction *rem = new QAction(tr("Remove"), m);
+    rem->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE));
+
+    m->addAction(rem);
+    m->addMenu(set_prio);
+
+    arg = QVariant();
+
+    QAction *ret = m->exec(QCursor::pos());
+
+    if (set_prio->actions().contains(ret)){
+        arg = ret->data();
+        set_prio->setParent(menu);
+
+        return SetPriority;
+    }
+    else if (ret == rem)
+        return Remove;
+    else
+        return None;
+}
+
 QVariant DownloadQueue::Menu::getArg(){
     return arg;
 }
@@ -402,6 +428,86 @@ QString DownloadQueue::getCID(const VarMap &map){
     return ((++it).value()).toString();
 }
 
+void DownloadQueue::menuForDir(DownloadQueueItem *item){
+    if (!item || item->childCount() < 1)
+        return;
+
+    Menu::Action act = menu->execForDir();
+
+    switch (act){
+        case Menu::None:
+        {
+            break;
+        }
+        case Menu::Remove:
+        {
+            foreach(DownloadQueueItem *i, item->childItems)
+                removeFromDir(i);
+
+            break;
+        }
+        case Menu::SetPriority:
+        {
+            int prio = menu->getArg().toInt();
+
+            foreach(DownloadQueueItem *i, item->childItems)
+                setPrioDir(i, prio);
+
+            break;
+        }
+    }
+}
+
+void DownloadQueue::getChilds(DownloadQueueItem *i, QList<DownloadQueueItem *> &list){
+    if (!i || i->childCount() < 1)
+        return;
+
+    foreach(DownloadQueueItem *ii, i->childItems){
+        if (ii->dir)
+            getChilds(ii, list);
+        else
+            list.push_front(ii);
+    }
+}
+
+void DownloadQueue::removeFromDir(DownloadQueueItem *i){
+    if (!i)
+        return;
+
+    QList<DownloadQueueItem*> list;
+
+    getChilds(i, list);
+
+    foreach(DownloadQueueItem *ii, list){
+        QString target = ii->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + ii->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
+
+        if (target.isEmpty())
+            return;
+
+        QueueManager *QM = QueueManager::getInstance();
+        QM->remove(_tq(target));
+    }
+}
+
+void DownloadQueue::setPrioDir(DownloadQueueItem *i, int prio){
+    if (!i)
+        return;
+
+    if (i->childCount() == 0){
+        QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
+
+        if (target.isEmpty())
+            return;
+
+        QueueManager *QM = QueueManager::getInstance();
+        QM->setPriority(target.toStdString(), static_cast<QueueItem::Priority>(prio));
+    }
+    else {
+        foreach(DownloadQueueItem *ii, i->childItems)
+            setPrioDir(ii, prio);;
+    }
+}
+
 void DownloadQueue::slotContextMenu(const QPoint &){
     QModelIndexList list = treeView_TARGET->selectionModel()->selectedRows(0);
 
@@ -412,6 +518,12 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
     if (!item)
         return;
+
+    if (item->childCount() > 0){
+        menuForDir(item);
+
+        return;
+    }
 
     DownloadQueueItem *par = item->parent();
 

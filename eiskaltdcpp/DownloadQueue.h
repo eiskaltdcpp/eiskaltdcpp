@@ -71,6 +71,7 @@ public:
     virtual ~Menu();
 
     Action exec(const SourceMap&, const QString&);
+    Action execForDir();
     QVariant getArg();
 
 private:
@@ -120,6 +121,11 @@ private:
     void addFile(VarMap);
     void remFile(VarMap);
     void updateFile(VarMap);
+
+    void menuForDir(DownloadQueueItem *);
+    void removeFromDir(DownloadQueueItem*);
+    void getChilds(DownloadQueueItem *i, QList<DownloadQueueItem*>&);
+    void setPrioDir(DownloadQueueItem*, int);
 
     QString getCID(const VarMap&);
 

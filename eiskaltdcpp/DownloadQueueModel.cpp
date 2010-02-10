@@ -419,29 +419,31 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
     if (!target)
         return false;
 
-    beginRemoveRows(createIndexForItem(item), target->row(), target->row());
-    {
-        int r = target->row();
+    if (!item->childCount() == 1){
+        beginRemoveRows(createIndexForItem(item), target->row(), target->row());
+        {
+            int r = target->row();
 
-        item->childItems.removeAt(r);
+            item->childItems.removeAt(r);
 
-        delete target;
+            delete target;
+        }
     }
-    endRemoveRows();
-
-    if (item->childCount() == 0){
-        DownloadQueueItem *p = NULL;
-        while (item != rootItem && item->childCount() <= 1 && item->parent()){
-            p = item;
-            item = item->parent();
+    else {
+        DownloadQueueItem *p = item->parent();
+        while (p != rootItem && p->childCount() <= 1 && p->parent()){
+            item = p;
+            p = p->parent();
         }
 
-        beginRemoveRows(createIndexForItem(item), p->row(), p->row());
+        beginRemoveRows(createIndexForItem(p), item->row(), item->row());
         {
-            item->childItems.removeAt(p->row());
-            delete p;
+            p->childItems.removeAt(item->row());
+            delete item;
         }
         endRemoveRows();
+
+        reset();
     }
 
     return true;
