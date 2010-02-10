@@ -12,8 +12,7 @@
 using namespace dcpp;
 
 SettingsPersonal::SettingsPersonal(QWidget *parent):
-        QWidget(parent),
-        dirty(false)
+        QWidget(parent)
 {
     setupUi(this);
 
@@ -27,9 +26,6 @@ SettingsPersonal::~SettingsPersonal(){
 void SettingsPersonal::ok(){
     SettingsManager *SM = SettingsManager::getInstance();
 
-    if (!dirty)
-        return;
-
     SM->set(SettingsManager::NICK, lineEdit_NICK->text().toStdString());
     SM->set(SettingsManager::EMAIL, lineEdit_EMAIL->text().toStdString());
     SM->set(SettingsManager::DESCRIPTION, lineEdit_DESC->text().toStdString());
@@ -40,13 +36,6 @@ void SettingsPersonal::ok(){
     SM->save();
 
     WulforSettings::getInstance()->save();
-}
-
-bool SettingsPersonal::eventFilter(QObject *obj, QEvent *e){
-    if ((e->type() == QEvent::KeyRelease) || (e->type() == QEvent::MouseButtonRelease))//May be some settings has been changed
-        dirty = true;
-
-    return QWidget::eventFilter(obj, e);
 }
 
 void SettingsPersonal::init(){

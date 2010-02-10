@@ -2,9 +2,6 @@
 #define SETTINGSPERSONAL_H
 
 #include <QWidget>
-#include <QEvent>
-#include <QKeyEvent>
-#include <QMouseEvent>
 
 #include "ui_UISettingsPersonal.h"
 #include "SettingsInterface.h"
@@ -22,13 +19,8 @@ public:
 public slots:
     void ok();
 
-protected:
-    virtual bool eventFilter(QObject*, QEvent*);
-
 private:
     void init();
-
-    bool dirty;
 };
 
 #endif // SETTINGSPERSONAL_H
