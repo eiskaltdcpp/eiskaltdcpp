@@ -1732,7 +1732,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Unfinished downloads directory</source>
-        <translation>Директория незапершённых загрузок</translation>
+        <translation>Директория незавершённых загрузок</translation>
     </message>
     <message>
         <source>Browse...</source>

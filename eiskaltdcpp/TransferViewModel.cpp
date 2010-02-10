@@ -102,6 +102,9 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
         }
         case Qt::TextAlignmentRole:
         {
+            if (index.column() == COLUMN_TRANSFER_SPEED || index.column() == COLUMN_TRANSFER_SIZE)
+                return Qt::AlignRight;
+
             break;
         }
         case Qt::ForegroundRole:
@@ -290,8 +293,6 @@ void TransferViewModel::initTransfer(VarMap params){
     }
 
     updateTransfer(params);
-
-    repaint();
 }
 
 void TransferViewModel::addConnection(VarMap params){
@@ -347,7 +348,7 @@ void TransferViewModel::updateTransfer(VarMap params){
             rootItem->appendChild(item);
     }
 
-    if (item->parent() != rootItem){
+    if (item->parent() != rootItem && rootItem->childItems.contains(item->parent())){
         if (params.contains("FPOS"))
             item->parent()->dpos = vlng(params["FPOS"]);
 
@@ -650,9 +651,8 @@ TransferViewItem::~TransferViewItem()
 }
 
 void TransferViewItem::appendChild(TransferViewItem *item) {
-    childItems.append(item);
-
     item->parentItem = this;
+    childItems.append(item);
 }
 
 TransferViewItem *TransferViewItem::child(int row) {

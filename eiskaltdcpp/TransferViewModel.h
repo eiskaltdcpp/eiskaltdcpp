@@ -56,9 +56,10 @@ public:
     QString target;
     qlonglong dpos;
     double percent;
+    QList<QVariant> itemData;
+
 private:
 
-    QList<QVariant> itemData;
     TransferViewItem *parentItem;
 };
 

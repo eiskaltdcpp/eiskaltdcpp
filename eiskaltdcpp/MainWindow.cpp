@@ -425,12 +425,14 @@ void MainWindow::initToolbar(){
     fBar->addActions(fileMenuActions);
     fBar->setContextMenuPolicy(Qt::CustomContextMenu);
     fBar->setMovable(true);
+    fBar->setFloatable(true);
     fBar->setAllowedAreas(Qt::AllToolBarAreas);
 
     tBar = new ToolBar(NULL);
     tBar->initTabs();
     tBar->setContextMenuPolicy(Qt::CustomContextMenu);
     tBar->setMovable(true);
+    tBar->setFloatable(true);
     tBar->setAllowedAreas(Qt::AllToolBarAreas);
 
     addToolBar(Qt::TopToolBarArea, fBar);
