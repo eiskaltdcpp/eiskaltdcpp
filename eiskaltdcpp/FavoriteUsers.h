@@ -57,14 +57,23 @@ public:
 protected:
     virtual void closeEvent(QCloseEvent *);
     virtual void customEvent(QEvent *);
+    virtual bool eventFilter(QObject *, QEvent *);
 
     virtual void on(UserAdded, const dcpp::FavoriteUser& aUser) throw();
     virtual void on(UserRemoved, const dcpp::FavoriteUser& aUser) throw();
     virtual void on(StatusChanged, const dcpp::UserPtr& aUser) throw();
 
+private slots:
+    void slotContextMenu();
+
 private:
     FavoriteUsers(QWidget *parent = 0);
     virtual ~FavoriteUsers();
+
+    void handleRemove(QTreeWidgetItem*);
+    void handleDesc(QTreeWidgetItem*);
+
+    QString cidForItem(QTreeWidgetItem *);
 
     void getParams(VarMap &map, const dcpp::FavoriteUser &);
     void updItem(const QString&, QTreeWidgetItem *);

@@ -2,6 +2,11 @@
 #include "MainWindow.h"
 #include "WulforUtil.h"
 
+#include <QMenu>
+#include <QInputDialog>
+#include <QKeyEvent>
+
+#include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
 #include "dcpp/Util.h"
@@ -14,6 +19,10 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     setupUi(this);
 
     setUnload(false);
+
+    treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeWidget->installEventFilter(this);
+    connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
 
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
     VarMap params;
@@ -70,6 +79,29 @@ void FavoriteUsers::customEvent(QEvent *e){
     e->accept();
 }
 
+bool FavoriteUsers::eventFilter(QObject *obj, QEvent *e){
+    if (e->type() == QEvent::KeyRelease){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if (k_e->key() == Qt::Key_Delete){
+            if (treeWidget == reinterpret_cast<QTreeWidget*>(obj)){
+                QList<QTreeWidgetItem*> items = treeWidget->selectedItems();
+
+                foreach (QTreeWidgetItem *i, items)
+                    handleRemove(i);
+            }
+        }
+        else if (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return){
+            if (treeWidget == reinterpret_cast<QTreeWidget*>(obj)){
+                QList<QTreeWidgetItem*> items = treeWidget->selectedItems();
+
+                foreach (QTreeWidgetItem *i, items)
+                    handleDesc(i);
+            }
+        }
+    }
+}
+
 void FavoriteUsers::getParams(VarMap &params, const FavoriteUser &user){
     const UserPtr &u = user.getUser();
 
@@ -124,6 +156,84 @@ void FavoriteUsers::remUser(const QString &cid){
     hash.remove(cid);
 
     treeWidget->repaint();
+}
+
+void FavoriteUsers::handleRemove(QTreeWidgetItem *item){
+    QString _cid = cidForItem(item);
+
+    if (_cid.isEmpty())
+        return;
+
+    dcpp::CID cid(_tq(_cid));
+    const dcpp::UserPtr &user = ClientManager::getInstance()->findUser(cid);
+
+    if (user)
+        FavoriteManager::getInstance()->removeFavoriteUser(user);
+}
+
+void FavoriteUsers::handleDesc(QTreeWidgetItem *item){
+    QString _cid = cidForItem(item);
+
+    if (_cid.isEmpty())
+        return;
+
+    dcpp::CID cid(_tq(_cid));
+    const dcpp::UserPtr &user = ClientManager::getInstance()->findUser(cid);
+
+    if (user){
+        QString desc = QInputDialog::getText(this, item->text(0), tr("Description"));
+
+        if (!desc.isEmpty()){
+            item->setText(3, desc);
+            FavoriteManager::getInstance()->setUserDescription(user, _tq(desc));
+        }
+    }
+}
+
+QString FavoriteUsers::cidForItem(QTreeWidgetItem *item){
+    if (!item)
+        return "";
+
+    QHash<QString, QTreeWidgetItem*>::const_iterator it = hash.constBegin();
+
+    for (; it != hash.constEnd(); ++it){
+        if (it.value() == item)
+            return it.key();
+    }
+
+    return "";
+}
+
+void FavoriteUsers::slotContextMenu(){
+    QList<QTreeWidgetItem*> items = treeWidget->selectedItems();
+
+    if (items.size() < 1)
+        return;
+
+    QMenu *menu = new QMenu(this);
+    menu->setAttribute(Qt::WA_DeleteOnClose, true);
+
+    QAction *remove = new QAction(tr("Remove"), menu);
+    remove->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE));
+
+    QAction *desc   = new QAction(tr("Description"), menu);
+    desc->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDIT));
+
+    menu->addActions(QList<QAction*>() << desc << remove);
+
+    QAction *ret = menu->exec(QCursor::pos());
+
+    if (!ret)
+        return;
+
+    if (ret == remove){
+        foreach(QTreeWidgetItem *i, items)
+            handleRemove(i);
+    }
+    else {
+        foreach(QTreeWidgetItem *i, items)
+            handleDesc(i);
+    }
 }
 
 void FavoriteUsers::on(UserAdded, const FavoriteUser& aUser) throw() {

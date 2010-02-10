@@ -478,7 +478,6 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     foreach (TransferViewItem *i, p->childItems){
         if (!i->fail){
             active++;
-            p->dpos += i->dpos;
             speed += vdbl(i->data(COLUMN_TRANSFER_SPEED));
         }
 
