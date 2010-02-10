@@ -51,9 +51,6 @@
         <source>Download Queue</source>
         <translation>Менеджер закачек</translation>
     </message>
-</context>
-<context>
-    <name>DownloadQueue::Menu</name>
     <message>
         <source>Search for alternates</source>
         <translation>Поиск альтернатив</translation>
@@ -113,6 +110,69 @@
     <message>
         <source>Remove</source>
         <translation>Удалить</translation>
+    </message>
+</context>
+<context>
+    <name>DownloadQueue::Menu</name>
+    <message>
+        <source>Search for alternates</source>
+        <translation type="obsolete">Поиск альтернатив</translation>
+    </message>
+    <message>
+        <source>Copy magnet</source>
+        <translation type="obsolete">Скопировать Magnet-ссылку</translation>
+    </message>
+    <message>
+        <source>Rename/Move</source>
+        <translation type="obsolete">Переименовать/Переместить</translation>
+    </message>
+    <message>
+        <source>Set priority</source>
+        <translation type="obsolete">Установить приоритет</translation>
+    </message>
+    <message>
+        <source>Paused</source>
+        <translation type="obsolete">Приостановленно</translation>
+    </message>
+    <message>
+        <source>Lowest</source>
+        <translation type="obsolete">Низший</translation>
+    </message>
+    <message>
+        <source>Low</source>
+        <translation type="obsolete">Низкий</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="obsolete">Нормальный</translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation type="obsolete">Высокий</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation type="obsolete">Наивысший</translation>
+    </message>
+    <message>
+        <source>Browse files</source>
+        <translation type="obsolete">Получить список файлов</translation>
+    </message>
+    <message>
+        <source>Send private message</source>
+        <translation type="obsolete">Послать личное сообщение</translation>
+    </message>
+    <message>
+        <source>Remove source</source>
+        <translation type="obsolete">Удалить источник</translation>
+    </message>
+    <message>
+        <source>Remove user</source>
+        <translation type="obsolete">Удалить пользователя</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="obsolete">Удалить</translation>
     </message>
 </context>
 <context>
@@ -412,9 +472,6 @@
         <source>Stored password sent...</source>
         <translation>Отправлен сохраненный пароль...</translation>
     </message>
-</context>
-<context>
-    <name>HubFrame::Menu</name>
     <message>
         <source>Copy nick</source>
         <translation>Копировать ник</translation>
@@ -470,6 +527,65 @@
     <message>
         <source>User commands</source>
         <translation>Команды пользователя</translation>
+    </message>
+</context>
+<context>
+    <name>HubFrame::Menu</name>
+    <message>
+        <source>Copy nick</source>
+        <translation type="obsolete">Копировать ник</translation>
+    </message>
+    <message>
+        <source>Browse files</source>
+        <translation type="obsolete">Получить список файлов</translation>
+    </message>
+    <message>
+        <source>Match Queue</source>
+        <translation type="obsolete">Согласовать очередь</translation>
+    </message>
+    <message>
+        <source>Private Message</source>
+        <translation type="obsolete">Личное сообщение</translation>
+    </message>
+    <message>
+        <source>Add to Favorites</source>
+        <translation type="obsolete">Добавить в избранные</translation>
+    </message>
+    <message>
+        <source>Remove from Favorites</source>
+        <translation type="obsolete">Удалить из избранных</translation>
+    </message>
+    <message>
+        <source>Grant slot</source>
+        <translation type="obsolete">Выдать слот</translation>
+    </message>
+    <message>
+        <source>Remove from Queue</source>
+        <translation type="obsolete">Удалить из очереди</translation>
+    </message>
+    <message>
+        <source>Clear chat</source>
+        <translation type="obsolete">Очистить чат</translation>
+    </message>
+    <message>
+        <source>Disable/Enable chat</source>
+        <translation type="obsolete">Включить/Выключить чат</translation>
+    </message>
+    <message>
+        <source>Select all</source>
+        <translation type="obsolete">Выделить всё</translation>
+    </message>
+    <message>
+        <source>Zoom In</source>
+        <translation type="obsolete">Увеличить</translation>
+    </message>
+    <message>
+        <source>Zoom Out</source>
+        <translation type="obsolete">Уменьшить</translation>
+    </message>
+    <message>
+        <source>User commands</source>
+        <translation type="obsolete">Команды пользователя</translation>
     </message>
 </context>
 <context>
@@ -622,6 +738,10 @@ Please check your connection settings</source>
     <message>
         <source>IPFilter module</source>
         <translation>IP-Фильтр</translation>
+    </message>
+    <message>
+        <source>Favorite Users</source>
+        <translation>Избранные пользователи</translation>
     </message>
 </context>
 <context>
@@ -781,9 +901,6 @@ Please check your connection settings</source>
         <source>Do nothing</source>
         <translation>Ничего не делать</translation>
     </message>
-</context>
-<context>
-    <name>SearchFrame::Menu</name>
     <message>
         <source>Download</source>
         <translation>Загрузить</translation>
@@ -835,6 +952,61 @@ Please check your connection settings</source>
     <message>
         <source>Remove</source>
         <translation>Удалить</translation>
+    </message>
+</context>
+<context>
+    <name>SearchFrame::Menu</name>
+    <message>
+        <source>Download</source>
+        <translation type="obsolete">Загрузить</translation>
+    </message>
+    <message>
+        <source>Download to</source>
+        <translation type="obsolete">Загрузить в</translation>
+    </message>
+    <message>
+        <source>Download Whole Directory</source>
+        <translation type="obsolete">Загрузить всю директорию</translation>
+    </message>
+    <message>
+        <source>Download Whole Directory to</source>
+        <translation type="obsolete">Загрузить всю директорию в</translation>
+    </message>
+    <message>
+        <source>Search TTH</source>
+        <translation type="obsolete">Поиск по TTH</translation>
+    </message>
+    <message>
+        <source>Copy magnet</source>
+        <translation type="obsolete">Скопировать Magnet-ссылку</translation>
+    </message>
+    <message>
+        <source>Browse files</source>
+        <translation type="obsolete">Получить список файлов</translation>
+    </message>
+    <message>
+        <source>Match Queue</source>
+        <translation type="obsolete">Согласовать очередь</translation>
+    </message>
+    <message>
+        <source>Send Private Message</source>
+        <translation type="obsolete">Послать личное сообщение</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="obsolete">Добавить в избранные</translation>
+    </message>
+    <message>
+        <source>Grant extra slot</source>
+        <translation type="obsolete">Выдать дополнительный слот</translation>
+    </message>
+    <message>
+        <source>Remove from Queue</source>
+        <translation type="obsolete">Удалить из очереди</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="obsolete">Удалить</translation>
     </message>
 </context>
 <context>
@@ -1049,9 +1221,6 @@ Please check your connection settings</source>
         <source>All files (*,*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
-</context>
-<context>
-    <name>ShareBrowser::Menu</name>
     <message>
         <source>Download</source>
         <translation>Загрузить</translation>
@@ -1067,6 +1236,25 @@ Please check your connection settings</source>
     <message>
         <source>Copy magnet</source>
         <translation>Скопировать Magnet-ссылку</translation>
+    </message>
+</context>
+<context>
+    <name>ShareBrowser::Menu</name>
+    <message>
+        <source>Download</source>
+        <translation type="obsolete">Загрузить</translation>
+    </message>
+    <message>
+        <source>Download to</source>
+        <translation type="obsolete">Загрузить в</translation>
+    </message>
+    <message>
+        <source>Search for alternates</source>
+        <translation type="obsolete">Поиск альтернатив</translation>
+    </message>
+    <message>
+        <source>Copy magnet</source>
+        <translation type="obsolete">Скопировать Magnet-ссылку</translation>
     </message>
 </context>
 <context>
@@ -1155,9 +1343,6 @@ Please check your connection settings</source>
         <source>Upload failed</source>
         <translation>Отдача не удалась</translation>
     </message>
-</context>
-<context>
-    <name>TransferView::Menu</name>
     <message>
         <source>Browse files</source>
         <translation>Получить список файлов</translation>
@@ -1193,6 +1378,45 @@ Please check your connection settings</source>
     <message>
         <source>Close connection(s)</source>
         <translation>Закрыть соединение(я)</translation>
+    </message>
+</context>
+<context>
+    <name>TransferView::Menu</name>
+    <message>
+        <source>Browse files</source>
+        <translation type="obsolete">Получить список файлов</translation>
+    </message>
+    <message>
+        <source>Match Queue</source>
+        <translation type="obsolete">Согласовать очередь</translation>
+    </message>
+    <message>
+        <source>Send Private Message</source>
+        <translation type="obsolete">Послать личное сообщение</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="obsolete">Добавить в избранные</translation>
+    </message>
+    <message>
+        <source>Grant extra slot</source>
+        <translation type="obsolete">Выдать дополнительный слот</translation>
+    </message>
+    <message>
+        <source>Remove from Queue</source>
+        <translation type="obsolete">Удалить из очереди</translation>
+    </message>
+    <message>
+        <source>User command</source>
+        <translation type="obsolete">Команда пользователя</translation>
+    </message>
+    <message>
+        <source>Force attempt</source>
+        <translation type="obsolete">Принудительная попытка</translation>
+    </message>
+    <message>
+        <source>Close connection(s)</source>
+        <translation type="obsolete">Закрыть соединение(я)</translation>
     </message>
 </context>
 <context>
@@ -1739,7 +1963,6 @@ Please check your connection settings</source>
     <name>UPnPMapper</name>
     <message>
         <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <extracomment>-( Looks like we have to rely on the user setting the external IP manually</extracomment>
         <translatorcomment>-( Кажется, придется ставить IP в настройках руками :)</translatorcomment>
         <translation>Невозможно получить внешний IP с помощью UPnP. Пожалуйста, укажите его вручную.</translation>
     </message>

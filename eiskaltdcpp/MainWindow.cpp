@@ -169,7 +169,8 @@ void MainWindow::init(){
     transfer_dock->setFeatures(QDockWidget::NoDockWidgetFeatures);
     transfer_dock->setTitleBarWidget(new QWidget(transfer_dock));
 
-    addDockWidget(Qt::RightDockWidgetArea, arena);
+    setCentralWidget(arena);
+    //addDockWidget(Qt::RightDockWidgetArea, arena);
     addDockWidget(Qt::BottomDockWidgetArea, transfer_dock);
 
     transfer_dock->hide();

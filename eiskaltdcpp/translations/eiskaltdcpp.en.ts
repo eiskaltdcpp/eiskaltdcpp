@@ -51,9 +51,6 @@
         <source>Download Queue</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>DownloadQueue::Menu</name>
     <message>
         <source>Search for alternates</source>
         <translation type="unfinished"></translation>
@@ -412,9 +409,6 @@
         <source>Stored password sent...</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>HubFrame::Menu</name>
     <message>
         <source>Copy nick</source>
         <translation type="unfinished"></translation>
@@ -620,6 +614,10 @@ Please check your connection settings</source>
         <source>IPFilter module</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Favorite Users</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PMWindow</name>
@@ -778,9 +776,6 @@ Please check your connection settings</source>
         <source>Do nothing</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>SearchFrame::Menu</name>
     <message>
         <source>Download</source>
         <translation type="unfinished"></translation>
@@ -1046,9 +1041,6 @@ Please check your connection settings</source>
         <source>All files (*,*)</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>ShareBrowser::Menu</name>
     <message>
         <source>Download</source>
         <translation type="unfinished"></translation>
@@ -1152,9 +1144,6 @@ Please check your connection settings</source>
         <source>Upload failed</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>TransferView::Menu</name>
     <message>
         <source>Browse files</source>
         <translation type="unfinished"></translation>
@@ -1736,7 +1725,6 @@ Please check your connection settings</source>
     <name>UPnPMapper</name>
     <message>
         <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <extracomment>-( Looks like we have to rely on the user setting the external IP manually</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
