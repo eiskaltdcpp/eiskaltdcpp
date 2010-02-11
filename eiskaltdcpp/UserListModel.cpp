@@ -237,16 +237,11 @@ void UserListModel::sort(int column, Qt::SortOrder order) {
     emit layoutChanged();
 }
 
-QModelIndex UserListModel::index(int row, int column, const QModelIndex & parent) const {
-    if (!hasIndex(row, column, parent))
+QModelIndex UserListModel::index(int row, int column, const QModelIndex &) const {
+    if (row > (rootItem->childCount() - 1) || row < 0)
         return QModelIndex();
 
-    UserListItem *childItem = rootItem->child(row);
-
-    if (childItem)
-        return createIndex(row, column, childItem);
-    else
-        return QModelIndex();
+    return createIndex(row, column, rootItem->child(row));
 }
 
 QModelIndex UserListModel::parent(const QModelIndex & ) const {
@@ -413,7 +408,7 @@ QStringList UserListModel::matchNicksStartingWith(const QString & part, bool str
 }
 
 UserListItem::UserListItem(UserListItem *parent) :
-    isOp(false), cid(""), px(NULL), parentItem(parent)
+    isOp(false), px(NULL), parentItem(parent)
 {
 }
 
