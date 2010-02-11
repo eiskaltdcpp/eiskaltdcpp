@@ -141,7 +141,7 @@ set (dcpp_srcs
             stdinc.cpp
             version.cpp)
 if (HAVE_ADDRS_H EQUAL 1)
-  add_definitions (-DHAVE_IF_ADDRS_H)
+  add_definitions (-DHAVE_IFADDRS_H)
 endif (HAVE_ADDRS_H EQUAL 1)
 #add_definitions (-DBUILDING_DCPP)
 include_directories (${Boost_INCLUDE_DIRS} ${BZip2_INCLUDE_DIRS} ${ZLIB_INCLUDE_DIRS} ${OpenSSL_INCLUDE_DIRS})
