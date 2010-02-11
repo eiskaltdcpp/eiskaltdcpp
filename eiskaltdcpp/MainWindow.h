@@ -110,6 +110,7 @@ friend class dcpp::Singleton<MainWindow>;
 
     private slots:
         void slotFileBrowseOwnFilelist();
+        void slotFileReconnect();
         void slotFileFavoriteHubs();
         void slotFileFavoriteUsers();
         void slotFileDownloadQueue();

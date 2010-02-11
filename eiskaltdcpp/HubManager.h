@@ -22,6 +22,7 @@ typedef QHash<QString, HubFrame*> HubHash;
 public:
     HubFrame *getHub(const QString &);
     QList<HubFrame*> getHubs() const;
+    HubFrame *activeHub() const;
 
 private:
     explicit HubManager();
@@ -29,8 +30,10 @@ private:
 
     void registerHubUrl(const QString &, HubFrame *);
     void unregisterHubUrl(const QString &);
+    void setActiveHub(HubFrame*);
 
     HubHash hubs;
+    HubFrame *active;
 };
 
 #endif // HUBMANAGER_H

@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QEvent>
 #include <QKeyEvent>
+#include <QShowEvent>
+#include <QHideEvent>
 #include <QMap>
 #include <QMenu>
 #include <QAction>
@@ -159,6 +161,7 @@ public:
     void createPMWindow(const QString&);
     void createPMWindow(const dcpp::CID&);
     bool hasCID(const dcpp::CID &, const QString &);
+    inline void reconnect() { slotReconnect(); }
 
     // Arena Widget interface
     QWidget *getWidget();
@@ -169,6 +172,9 @@ protected:
     virtual bool eventFilter(QObject *, QEvent *);
     virtual void closeEvent(QCloseEvent*);
     virtual void customEvent(QEvent *);
+    virtual void showEvent(QShowEvent *);
+    virtual void hideEvent(QHideEvent *);
+
     virtual void sendChat(QString, bool, bool);
     virtual void save();
     virtual void load();

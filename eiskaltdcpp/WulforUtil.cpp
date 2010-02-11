@@ -639,7 +639,7 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
 QStringList WulforUtil::getLocalIPs(){
     QStringList addresses;
 
-#ifdef HAVE_IFADDRS_H
+#if defined(HAVE_IFADDRS_H) || defined(HAVE_IF_ADDRS_H)
     struct ifaddrs *ifap;
 
     if (getifaddrs(&ifap) == 0){

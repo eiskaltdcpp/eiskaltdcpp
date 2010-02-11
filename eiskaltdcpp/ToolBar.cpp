@@ -145,6 +145,9 @@ void ToolBar::mapped(ArenaWidget *awgt){
     blockSignals(true);
     if (map.contains(awgt))
         tabbar->setCurrentIndex(map[awgt]);
+
+    redraw();
+
     blockSignals(false);
 }
 

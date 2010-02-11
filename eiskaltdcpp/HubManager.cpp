@@ -24,6 +24,10 @@ void HubManager::unregisterHubUrl(const QString &url){
         hubs.erase(it);
 }
 
+void HubManager::setActiveHub(HubFrame *f){
+    active = f;
+}
+
 HubFrame *HubManager::getHub(const QString &url){
     HubHash::const_iterator it = hubs.find(url);
 
@@ -42,4 +46,8 @@ QList<HubFrame*> HubManager::getHubs() const {
         list << const_cast<HubFrame*>(it.value());
 
     return list;
+}
+
+HubFrame *HubManager::activeHub() const {
+    return active;
 }

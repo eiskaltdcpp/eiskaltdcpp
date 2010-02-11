@@ -14,6 +14,7 @@
 #include <QKeyEvent>
 
 #include "HubFrame.h"
+#include "HubManager.h"
 #include "TransferView.h"
 #include "ShareBrowser.h"
 #include "QuickConnect.h"
@@ -256,9 +257,9 @@ void MainWindow::initActions(){
         fileFileListRefresh->setShortcut(tr("Ctrl+R"));
         fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiRELOAD));
 
-        //TODO: implement detecting current hub
         fileHubReconnect = new QAction("", this);
         fileHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
+        connect(fileHubReconnect, SIGNAL(triggered()), this, SLOT(slotFileReconnect()));
 
         fileQuickConnect = new QAction("", this);
         fileQuickConnect->setShortcut(tr("Ctrl+H"));
@@ -595,6 +596,13 @@ void MainWindow::slotFileBrowseOwnFilelist(){
     FUNC *func = new FUNC(this, &MainWindow::showShareBrowser, user, file, "");
 
     QApplication::postEvent(this, new MainWindowCustomEvent(func));
+}
+
+void MainWindow::slotFileReconnect(){
+    HubFrame *fr = HubManager::getInstance()->activeHub();
+
+    if (fr)
+        fr->reconnect();
 }
 
 void MainWindow::slotFileSearch(){

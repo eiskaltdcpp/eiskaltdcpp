@@ -525,6 +525,20 @@ void HubFrame::closeEvent(QCloseEvent *e){
     e->accept();
 }
 
+void HubFrame::showEvent(QShowEvent *e){
+    e->accept();
+
+    if (isVisible())
+        HubManager::getInstance()->setActiveHub(this);
+}
+
+void HubFrame::hideEvent(QHideEvent *e){
+    e->accept();
+
+    if (!isVisible())
+        HubManager::getInstance()->setActiveHub(NULL);
+}
+
 void HubFrame::init(){
     updater = new QTimer();
     updater->setInterval(3000);
