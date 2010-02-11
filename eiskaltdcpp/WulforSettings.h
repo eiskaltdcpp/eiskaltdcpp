@@ -2,7 +2,7 @@
 #define WULFORSETTINGS_H
 
 #include <QObject>
-#include <QMap>
+#include <QHash>
 #include <QTranslator>
 
 #include "dcpp/stdinc.h"
@@ -37,6 +37,7 @@
 #define WB_ANTISPAM_AS_FILTER       "antispam-as-filter"
 #define WB_IPFILTER_ENABLED         "ipfilter-enabled"
 #define WB_TRAY_ENABLED             "systemtray-enabled"
+#define WB_SHOW_HIDDEN_USERS        "show-hidden-users"
 #define WI_CHAT_MAXPARAGRAPHS       "chat-max-paragraph"
 #define WI_CHAT_WIDTH               "chat-width"
 #define WI_CHAT_USERLIST_WIDTH      "chat-userlist-width"
@@ -66,8 +67,8 @@ class WulforSettings :
 {
     Q_OBJECT
 
-    typedef QMap<QString, int> WIntMap;
-    typedef QMap<QString, QString> WStrMap;
+    typedef QHash<QString, int> WIntMap;
+    typedef QHash<QString, QString> WStrMap;
 
 friend class dcpp::Singleton<WulforSettings>;
 

@@ -1448,6 +1448,9 @@ void HubFrame::on(ClientListener::Connected, Client*) throw(){
 }
 
 void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) throw(){
+    if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
+        return;
+
     UserUpdatedEvent *u_e = new UserUpdatedEvent(user, true);
 
     getParams(u_e->getMap(), user.getIdentity());
@@ -1457,8 +1460,12 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) throw(){
     UserUpdatedEvent *u_e = NULL;
+    bool showHidden = WBGET(WB_SHOW_HIDDEN_USERS);
 
     for (OnlineUserList::const_iterator it = list.begin(); it != list.end(); ++it){
+        if ((*(*it)).getIdentity().isHidden() && !showHidden)
+            break;
+
         u_e = new UserUpdatedEvent((*(*it)), true);
 
         getParams(u_e->getMap(), (*(*it)).getIdentity());
@@ -1468,6 +1475,9 @@ void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList 
 }
 
 void HubFrame::on(ClientListener::UserRemoved, Client*, const OnlineUser &user) throw(){
+    if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
+        return;
+
     QApplication::postEvent(this, new UserRemovedEvent(user.getUser(), user.getIdentity().getBytesShared()));
 }
 

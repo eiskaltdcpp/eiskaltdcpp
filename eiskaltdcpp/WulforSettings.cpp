@@ -64,6 +64,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_ANTISPAM_AS_FILTER, (int)false);
         intmap.insert(WB_IPFILTER_ENABLED, (int)false);
         intmap.insert(WB_TRAY_ENABLED, (int)true);
+        intmap.insert(WB_SHOW_HIDDEN_USERS, (int)false);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS, 300);
         intmap.insert(WI_CHAT_USERLIST_COL_BITMAP, 0x7F);
         intmap.insert(WI_CHAT_WIDTH, -1);
@@ -181,8 +182,6 @@ void WulforSettings::loadTranslation(){
         if (!QFile::exists(file))
             return;
     }
-
-    printf("Loading translation: %s\n", file.toAscii().constData());
 
     tor.load(file);
 
