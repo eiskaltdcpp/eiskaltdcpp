@@ -10,7 +10,6 @@
 #include <QMenu>
 #include <QAction>
 #include <QHash>
-#include <QMutex>
 
 #include "ui_HubFrame.h"
 
@@ -152,7 +151,6 @@ class HubFrame :
 public:
     typedef QMap<QString, PMWindow*> PMMap;
     typedef QHash<QString, QVariant > VarMap;
-    typedef QHash<dcpp::UserPtr, UserUpdatedEvent*> EventHash;
 
     HubFrame(QWidget *parent, QString, QString);
     ~HubFrame();
@@ -189,7 +187,6 @@ private slots:
     void slotChatMenu(const QPoint&);
     void slotHeaderMenu(const QPoint&);
     void slotShowWnd();
-    void slotProcessUpdates();
 
 private:
     // Chat functions
@@ -257,9 +254,6 @@ private:
     bool chatDisabled;
 
     PMMap pm;
-
-    EventHash upd_events;
-    QMutex upd_mutex;
 
     // Userlist data and some helpful functions
     UserListModel *model;

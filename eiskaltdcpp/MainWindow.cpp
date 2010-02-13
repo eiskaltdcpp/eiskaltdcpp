@@ -15,6 +15,7 @@
 
 #include "HubFrame.h"
 #include "HubManager.h"
+#include "HashProgress.h"
 #include "TransferView.h"
 #include "ShareBrowser.h"
 #include "QuickConnect.h"
@@ -256,6 +257,7 @@ void MainWindow::initActions(){
         fileFileListRefresh = new QAction("", this);
         fileFileListRefresh->setShortcut(tr("Ctrl+R"));
         fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiRELOAD));
+        connect(fileFileListRefresh, SIGNAL(triggered()), this, SLOT(slotFileRefreshShare()));
 
         fileHubReconnect = new QAction("", this);
         fileHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
@@ -596,6 +598,17 @@ void MainWindow::slotFileBrowseOwnFilelist(){
     FUNC *func = new FUNC(this, &MainWindow::showShareBrowser, user, file, "");
 
     QApplication::postEvent(this, new MainWindowCustomEvent(func));
+}
+
+void MainWindow::slotFileRefreshShare(){
+    ShareManager *SM = ShareManager::getInstance();
+
+    SM->setDirty();
+    SM->refresh(true);
+
+    HashProgress progress(this);
+
+    progress.exec();
 }
 
 void MainWindow::slotFileReconnect(){

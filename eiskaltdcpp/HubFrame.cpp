@@ -559,7 +559,6 @@ void HubFrame::init(){
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(updater, SIGNAL(timeout()), this, SLOT(slotUsersUpdated()));
-    connect(updater, SIGNAL(timeout()), this, SLOT(slotProcessUpdates()));
     connect(textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
 
     plainTextEdit_INPUT->installEventFilter(this);
@@ -1441,19 +1440,6 @@ void HubFrame::slotShowWnd(){
    MW->mapWidgetOnArena(this);
 }
 
-void HubFrame::slotProcessUpdates(){
-    upd_mutex.lock();
-
-    EventHash::const_iterator it = upd_events.constBegin();
-
-    for (; it != upd_events.constEnd(); ++it)
-        QApplication::postEvent(this, it.value());
-
-    upd_events.clear();
-
-    upd_mutex.unlock();
-}
-
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
     QString status = QString("Connecting to %1...").arg(QString::fromStdString(client->getHubUrl()));
 
@@ -1482,21 +1468,7 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
 
     getParams(u_e->getMap(), user.getIdentity());
 
-    upd_mutex.lock();
-
-    EventHash::iterator it = upd_events.find(user);
-
-    if (it != upd_events.end()){
-        delete it.value();
-
-        upd_events.erase(it);
-    }
-
-    upd_events.insert(user, u_e);
-
-    upd_mutex.unlock();
-
-    //QApplication::postEvent(this, u_e);
+    QApplication::postEvent(this, u_e);
 }
 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) throw(){
