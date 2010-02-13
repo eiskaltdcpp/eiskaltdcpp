@@ -541,7 +541,7 @@ void HubFrame::hideEvent(QHideEvent *e){
 
 void HubFrame::init(){
     updater = new QTimer();
-    updater->setInterval(3000);
+    updater->setInterval(1000);
     updater->setSingleShot(false);
 
     model = new UserListModel(this);
@@ -559,6 +559,7 @@ void HubFrame::init(){
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(updater, SIGNAL(timeout()), this, SLOT(slotUsersUpdated()));
+    connect(updater, SIGNAL(timeout()), this, SLOT(slotProcessUpdates()));
     connect(textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
 
     plainTextEdit_INPUT->installEventFilter(this);
@@ -724,6 +725,15 @@ bool HubFrame::parseForCmd(QString line){
     else if (cmd == "/grant" && !emptyParam){
         grantSlot(model->CIDforNick(param));
     }
+    else if (cmd == "/me" && !emptyParam){
+        if (param.endsWith("\n"))//remove extra \n char
+            param = param.left(param.lastIndexOf("\n"));
+
+        sendChat(param, true, false);
+    }
+    else if (cmd == "/pm" && !emptyParam){
+        addPM(model->CIDforNick(param), "");
+    }
     else
         return false;
 
@@ -798,6 +808,7 @@ void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
 
 void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, bool join){
     static WulforUtil *WU = WulforUtil::getInstance();
+    static WulforSettings *WS = WulforSettings::getInstance();
 
     if (!model)
         return;
@@ -823,6 +834,9 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
         model->repaintData(left, right);
     }
     else{
+        if (join && WS->getBool(WB_SHOW_JOINS))
+            addStatus(map["NICK"].toString() + tr(" joins the chat"));
+
         model->addUser(map, user);
     }
 
@@ -1427,6 +1441,19 @@ void HubFrame::slotShowWnd(){
    MW->mapWidgetOnArena(this);
 }
 
+void HubFrame::slotProcessUpdates(){
+    upd_mutex.lock();
+
+    EventHash::const_iterator it = upd_events.constBegin();
+
+    for (; it != upd_events.constEnd(); ++it)
+        QApplication::postEvent(this, it.value());
+
+    upd_events.clear();
+
+    upd_mutex.unlock();
+}
+
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
     QString status = QString("Connecting to %1...").arg(QString::fromStdString(client->getHubUrl()));
 
@@ -1455,7 +1482,21 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
 
     getParams(u_e->getMap(), user.getIdentity());
 
-    QApplication::postEvent(this, u_e);
+    upd_mutex.lock();
+
+    EventHash::iterator it = upd_events.find(user);
+
+    if (it != upd_events.end()){
+        delete it.value();
+
+        upd_events.erase(it);
+    }
+
+    upd_events.insert(user, u_e);
+
+    upd_mutex.unlock();
+
+    //QApplication::postEvent(this, u_e);
 }
 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) throw(){

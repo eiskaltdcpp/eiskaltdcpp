@@ -34,6 +34,7 @@ set (SRCS   Antispam.cpp
             Settings.cpp
             SettingsConnection.cpp
             SettingsDownloads.cpp
+            SettingsGUI.cpp
             SettingsPersonal.cpp
             SettingsSharing.cpp
             ShareBrowser.cpp
@@ -69,6 +70,7 @@ set (MOC_HDRS Antispam.h
             Settings.h
             SettingsConnection.h
             SettingsDownloads.h
+            SettingsGUI.h
             SettingsPersonal.h
             SettingsSharing.h
             QuickConnect.h
@@ -100,6 +102,7 @@ set (UI_FORMS ui/UIAntiSpam.ui
             ui/UISettings.ui
             ui/UISettingsConnection.ui
             ui/UISettingsDownloads.ui
+            ui/UISettingsGUI.ui
             ui/UISettingsPersonal.ui
             ui/UISettingsSharing.ui
             ui/UIShareBrowser.ui

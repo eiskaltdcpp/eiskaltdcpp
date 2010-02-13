@@ -38,6 +38,7 @@
 #define WB_IPFILTER_ENABLED         "ipfilter-enabled"
 #define WB_TRAY_ENABLED             "systemtray-enabled"
 #define WB_SHOW_HIDDEN_USERS        "show-hidden-users"
+#define WB_SHOW_JOINS               "show-joins"
 #define WI_CHAT_MAXPARAGRAPHS       "chat-max-paragraph"
 #define WI_CHAT_WIDTH               "chat-width"
 #define WI_CHAT_USERLIST_WIDTH      "chat-userlist-width"

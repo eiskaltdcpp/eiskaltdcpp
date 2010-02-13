@@ -3,6 +3,7 @@
 #include "SettingsConnection.h"
 #include "SettingsDownloads.h"
 #include "SettingsSharing.h"
+#include "SettingsGUI.h"
 
 #include "WulforUtil.h"
 
@@ -41,10 +42,16 @@ void Settings::init(){
     connect(this, SIGNAL(accepted()), sharing, SLOT(ok()));
     widgets.insert(item, 3);
 
+    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiGUI), tr("GUI"), listWidget);
+    SettingsGUI *gui = new SettingsGUI(this);
+    connect(this, SIGNAL(accepted()), gui, SLOT(ok()));
+    widgets.insert(item, 4);
+
     stackedWidget->insertWidget(0, personal);
     stackedWidget->insertWidget(1, connection);
     stackedWidget->insertWidget(2, downloads);
     stackedWidget->insertWidget(3, sharing);
+    stackedWidget->insertWidget(4, gui);
 
     stackedWidget->setCurrentIndex(0);
 
