@@ -8,6 +8,57 @@ include (CheckIncludeFile)
 include (CheckIncludeFiles)
 include (CheckFunctionExists)
 include (FindPkgConfig)
+include(CheckCXXSourceCompiles)
+
+if (ICONV_INCLUDE_DIR AND ICONV_LIBRARIES)
+  # Already in cache, be silent
+  set(ICONV_FIND_QUIETLY TRUE)
+endif (ICONV_INCLUDE_DIR AND ICONV_LIBRARIES)
+
+find_path(ICONV_INCLUDE_DIR iconv.h) 
+ 
+find_library(ICONV_LIBRARIES NAMES iconv libiconv libiconv-2 c)
+ 
+if (ICONV_INCLUDE_DIR AND ICONV_LIBRARIES) 
+   set (ICONV_FOUND TRUE) 
+endif (ICONV_INCLUDE_DIR AND ICONV_LIBRARIES) 
+
+set(CMAKE_REQUIRED_INCLUDES ${ICONV_INCLUDE_DIR})
+set(CMAKE_REQUIRED_LIBRARIES ${ICONV_LIBRARIES})
+
+if (ICONV_FOUND)
+  check_cxx_source_compiles("
+  #include <iconv.h>
+  int main(){
+    iconv_t conv = 0;
+    const char* in = 0;
+    size_t ilen = 0;
+    char* out = 0;
+    size_t olen = 0;
+    iconv(conv, &in, &ilen, &out, &olen);
+    return 0;
+  }
+" ICONV_SECOND_ARGUMENT_IS_CONST )
+endif (ICONV_FOUND)
+
+set (CMAKE_REQUIRED_INCLUDES)
+set (CMAKE_REQUIRED_LIBRARIES)
+
+if (ICONV_FOUND) 
+  if (NOT ICONV_FIND_QUIETLY) 
+    message (STATUS "Found Iconv: ${ICONV_LIBRARIES}") 
+  endif (NOT ICONV_FIND_QUIETLY) 
+else (ICONV_FOUND) 
+  if (Iconv_FIND_REQUIRED) 
+    message (FATAL_ERROR "Could not find Iconv") 
+  endif (Iconv_FIND_REQUIRED) 
+endif (ICONV_FOUND) 
+
+MARK_AS_ADVANCED(
+  ICONV_INCLUDE_DIR
+  ICONV_LIBRARIES
+  ICONV_SECOND_ARGUMENT_IS_CONST
+)
 
 CHECK_INCLUDE_FILE (malloc.h HAVE_MALLOC_H)
 CHECK_INCLUDE_FILE (dlfcn.h HAVE_DLFCN_H)
@@ -102,7 +153,11 @@ add_definitions (-pipe -O2 -I. -fno-builtin -D_FILE_OFFSET_BITS=64
                  -D_REENTRANT -D_DATADIR="${_DATADIR}"
                  -DNDEBUG -DBUILDING_DCPP)
 
-set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -O3")
+if (ICONV_SECOND_ARGUMENT_IS_CONST)
+  add_definitions (-DICONV_CONST=const)
+endif (ICONV_SECOND_ARGUMENT_IS_CONST)
+
+set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -O3 -fomit-frame-pointer")
 set(CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3")
 
 add_subdirectory (dcpp)
