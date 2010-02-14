@@ -1596,16 +1596,16 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 
     QString nick =  _q(from.getIdentity().getNick());
 
-    /*if (AntiSpam::getInstance() && nick != _q(client->getMyNick())){
+    if (AntiSpam::getInstance() && nick != _q(client->getMyNick())){
         if (AntiSpam::getInstance()->isInBlack(nick))
             return;
-        else if (!AntiSpam::getInstance()->isInAny(nick)){
+        /*else if (!AntiSpam::getInstance()->isInAny(nick)){
             AntiSpam::getInstance()->checkUser(_q(id.toBase32()), _q(msg), _q(client->getHubUrl()));
 
             if (AntiSpam::getInstance()->isInBlack(nick) || !AntiSpam::getInstance()->isInAny(nick))
                 return;
-        }
-    }*/
+        }*/
+    }
 
 
     map["NICK"]  = nick;
