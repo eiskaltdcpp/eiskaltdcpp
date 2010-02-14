@@ -141,6 +141,7 @@ private slots:
     void slotResultDoubleClicked(const QModelIndex&);
     void slotContextMenu(const QPoint&);
     void slotHeaderMenu(const QPoint&);
+    void slotToggleSidePanel();
 
 private:
     void init();
@@ -183,6 +184,7 @@ private:
     SearchModel *model;
 
     bool isHash;
+    int left_pane_old_size;
 
     // SearchManagerListener
     virtual void on(SearchManagerListener::SR, const SearchResultPtr& aResult) throw();

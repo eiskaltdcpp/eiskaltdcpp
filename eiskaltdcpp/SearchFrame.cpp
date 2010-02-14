@@ -188,6 +188,8 @@ void SearchFrame::customEvent(QEvent *e){
 }
 
 void SearchFrame::init(){
+    left_pane_old_size = 0;
+
     timer1 = new QTimer(this);
     timer1->setInterval(1000);
 
@@ -208,6 +210,7 @@ void SearchFrame::init(){
     connect(treeView_RESULTS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_RESULTS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(timer1, SIGNAL(timeout()), this, SLOT(slotTimer()));
+    connect(pushButton_SIDEPANEL, SIGNAL(clicked()), this, SLOT(slotToggleSidePanel()));
 
     MainWindow *mwnd = MainWindow::getInstance();
 
@@ -627,6 +630,8 @@ void SearchFrame::slotStartSearch(){
         QList<int> panes = splitter->sizes();
 
         panes[1] = panes[0] + panes[1];
+        left_pane_old_size = panes[0];
+
         panes[0] = 0;
 
         splitter->setSizes(panes);
@@ -941,6 +946,22 @@ void SearchFrame::slotTimer(){
 
         status->setText(text);
     }
+}
+
+void SearchFrame::slotToggleSidePanel(){
+    QList<int> panes = splitter->sizes();
+
+    if (panes[0] < 15){//left pane can't have width less than 15px
+        panes[0] = left_pane_old_size;
+        panes[1] = panes[1]-left_pane_old_size;
+    }
+    else {
+        panes[1] = panes[0] + panes[1];
+        left_pane_old_size = panes[0];
+        panes[0] = 0;
+    }
+
+    splitter->setSizes(panes);
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) throw() {

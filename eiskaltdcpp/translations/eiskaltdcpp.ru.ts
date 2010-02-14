@@ -960,7 +960,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="185"/>
         <source>Only users with free slots</source>
-        <translation>Только пользователи со свободными слотами</translation>
+        <translation>Только со свободными слотами</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="178"/>

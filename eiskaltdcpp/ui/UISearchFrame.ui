@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>498</width>
-    <height>464</height>
+    <width>553</width>
+    <height>460</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -128,6 +128,13 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="13">
+       <widget class="QPushButton" name="pushButton_SIDEPANEL">
+        <property name="text">
+         <string>Show/Hide side panel</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -151,7 +158,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>220</width>
+        <width>290</width>
         <height>16777215</height>
        </size>
       </property>

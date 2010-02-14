@@ -31,6 +31,8 @@ HashProgress::~HashProgress(){
     timer->stop();//really need?
 
     delete timer;
+
+    HashManager::getInstance()->setPriority(Thread::LOW);
 }
 
 void HashProgress::timerTick(){

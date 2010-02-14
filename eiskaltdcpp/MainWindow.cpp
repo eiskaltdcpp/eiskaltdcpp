@@ -591,13 +591,18 @@ void MainWindow::showShareBrowser(dcpp::UserPtr usr, QString file, QString jump_
 }
 
 void MainWindow::slotFileBrowseOwnFilelist(){
+    static ShareBrowser *local_share = NULL;
+
+    if (arenaWidgets.contains(local_share)){
+        mapWidgetOnArena(local_share);
+
+        return;
+    }
+
     UserPtr user = ClientManager::getInstance()->getMe();
     QString file = QString::fromStdString(ShareManager::getInstance()->getOwnListFile());
 
-    typedef Func3<MainWindow, dcpp::UserPtr, QString, QString> FUNC;
-    FUNC *func = new FUNC(this, &MainWindow::showShareBrowser, user, file, "");
-
-    QApplication::postEvent(this, new MainWindowCustomEvent(func));
+    local_share = new ShareBrowser(user, file, "");
 }
 
 void MainWindow::slotFileRefreshShare(){
