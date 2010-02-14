@@ -352,23 +352,23 @@
         <location filename="../FavoriteUsers.cpp" line="111"/>
         <location filename="../FavoriteUsers.cpp" line="255"/>
         <source>Online</source>
-        <translation type="unfinished"></translation>
+        <translation>В сети</translation>
     </message>
     <message>
         <location filename="../FavoriteUsers.cpp" line="184"/>
         <location filename="../FavoriteUsers.cpp" line="219"/>
         <source>Description</source>
-        <translation type="unfinished">Описание</translation>
+        <translation>Описание</translation>
     </message>
     <message>
         <location filename="../FavoriteUsers.cpp" line="216"/>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../FavoriteUsers.h" line="54"/>
         <source>Favorite Users</source>
-        <translation type="unfinished">Избранные пользователи</translation>
+        <translation>Избранные пользователи</translation>
     </message>
 </context>
 <context>
@@ -483,7 +483,7 @@
     <message>
         <location filename="../HubFrame.cpp" line="837"/>
         <source> joins the chat</source>
-        <translation type="unfinished"></translation>
+        <translation> входит в чат</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="862"/>
@@ -644,22 +644,22 @@
     <message>
         <location filename="../IPFilter.cpp" line="454"/>
         <source>Nothing to export.</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет ничего для экспорта.</translation>
     </message>
     <message>
         <location filename="../IPFilter.cpp" line="466"/>
         <source>Unable to export settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно экспортировать настройки.</translation>
     </message>
     <message>
         <location filename="../IPFilter.cpp" line="482"/>
         <source>Nothing to import.</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет ничего для импорта.</translation>
     </message>
     <message>
         <location filename="../IPFilter.cpp" line="506"/>
         <source>Invalid signature.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неверная подпись.</translation>
     </message>
 </context>
 <context>
@@ -667,43 +667,43 @@
     <message>
         <location filename="../IPFilterFrame.cpp" line="182"/>
         <source>Change rule direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить направление правила</translation>
     </message>
     <message>
         <location filename="../IPFilterFrame.cpp" line="190"/>
         <source>Change IP/Mask</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить IP/маску</translation>
     </message>
     <message>
         <location filename="../IPFilterFrame.cpp" line="191"/>
         <source>Delete rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить правило</translation>
     </message>
     <message>
         <location filename="../IPFilterFrame.cpp" line="223"/>
         <source>Enter new rule</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите новое правило</translation>
     </message>
     <message>
         <location filename="../IPFilterFrame.cpp" line="223"/>
         <source>Rule:</source>
-        <translation type="unfinished"></translation>
+        <translation>Правило:</translation>
     </message>
     <message>
         <location filename="../IPFilterFrame.cpp" line="313"/>
         <source>Import list</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт списка</translation>
     </message>
     <message>
         <location filename="../IPFilterFrame.cpp" line="314"/>
         <location filename="../IPFilterFrame.cpp" line="366"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Все файлы (*.*)</translation>
     </message>
     <message>
         <location filename="../IPFilterFrame.cpp" line="365"/>
         <source>Export list</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспорт списка</translation>
     </message>
 </context>
 <context>
@@ -711,12 +711,12 @@
     <message>
         <location filename="../IPFilterModel.cpp" line="17"/>
         <source>IP/Mask</source>
-        <translation type="unfinished"></translation>
+        <translation>IP/маска</translation>
     </message>
     <message>
         <location filename="../IPFilterModel.cpp" line="17"/>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Направление</translation>
     </message>
 </context>
 <context>
@@ -975,7 +975,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="134"/>
         <source>Show/Hide side panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать/скрыть боковую панель</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="199"/>
@@ -1277,7 +1277,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../Settings.cpp" line="45"/>
         <source>GUI</source>
-        <translation type="unfinished"></translation>
+        <translation>Интерфейс</translation>
     </message>
     <message>
         <location filename="../Settings.cpp" line="16"/>
@@ -1533,7 +1533,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../TransferView.cpp" line="551"/>
         <source> (%1%)</source>
-        <translation type="unfinished"></translation>
+        <translation> (%1%)</translation>
     </message>
     <message>
         <source> (%1%) in </source>
@@ -1724,117 +1724,117 @@ Please check your connection settings</source>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="14"/>
         <source>AntiSpam configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки антиспама</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="20"/>
         <source>AntiSpam</source>
-        <translation type="unfinished"></translation>
+        <translation>Антиспам</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="46"/>
         <source>Phrase</source>
-        <translation type="unfinished"></translation>
+        <translation>Фраза</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="59"/>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Ответ</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="85"/>
         <source>Attempts</source>
-        <translation type="unfinished"></translation>
+        <translation>Попыток</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="95"/>
         <source>Enable AntiSpam</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить антиспам</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="102"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>ОК</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="109"/>
         <source>Work as filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Работать как фильтр</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="116"/>
         <source>Black list</source>
-        <translation type="unfinished"></translation>
+        <translation>Чёрный список</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="131"/>
         <location filename="../ui/UIAntiSpam.ui" line="197"/>
         <location filename="../ui/UIAntiSpam.ui" line="263"/>
         <source>+</source>
-        <translation type="unfinished"></translation>
+        <translation>+</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="144"/>
         <location filename="../ui/UIAntiSpam.ui" line="210"/>
         <location filename="../ui/UIAntiSpam.ui" line="276"/>
         <source>-</source>
-        <translation type="unfinished"></translation>
+        <translation>–</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="157"/>
         <location filename="../ui/UIAntiSpam.ui" line="223"/>
         <location filename="../ui/UIAntiSpam.ui" line="289"/>
         <source>C</source>
-        <translation type="unfinished"></translation>
+        <translation>C</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="171"/>
         <location filename="../ui/UIAntiSpam.ui" line="237"/>
         <location filename="../ui/UIAntiSpam.ui" line="303"/>
         <source>Users</source>
-        <translation type="unfinished">Пользователи</translation>
+        <translation>Пользователи</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="182"/>
         <source>Gray List</source>
-        <translation type="unfinished"></translation>
+        <translation>Серый список</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="248"/>
         <source>White list</source>
-        <translation type="unfinished"></translation>
+        <translation>Белый список</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="314"/>
         <location filename="../ui/UIAntiSpam.ui" line="369"/>
         <source>Move user to &quot;White&quot; list</source>
-        <translation type="unfinished"></translation>
+        <translation>Переместить пользователя в белый список</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="317"/>
         <location filename="../ui/UIAntiSpam.ui" line="330"/>
         <location filename="../ui/UIAntiSpam.ui" line="385"/>
         <source>&gt;&gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;&gt;&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
         <location filename="../ui/UIAntiSpam.ui" line="340"/>
         <source>Move user to &quot;Gray&quot; list</source>
-        <translation type="unfinished"></translation>
+        <translation>Переместить пользователя в серый список</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="343"/>
         <location filename="../ui/UIAntiSpam.ui" line="356"/>
         <location filename="../ui/UIAntiSpam.ui" line="372"/>
         <source>&lt;&lt;&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
         <location filename="../ui/UIAntiSpam.ui" line="382"/>
         <source>Move user to &quot;Black&quot; list</source>
-        <translation type="unfinished"></translation>
+        <translation>Переместить пользователя в чёрный список</translation>
     </message>
 </context>
 <context>
@@ -1916,27 +1916,27 @@ Please check your connection settings</source>
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="36"/>
         <source>Nick</source>
-        <translation type="unfinished">Ник</translation>
+        <translation>Ник</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="41"/>
         <source>Hub</source>
-        <translation type="unfinished">Хаб</translation>
+        <translation>Хаб</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="46"/>
         <source>Last seen</source>
-        <translation type="unfinished"></translation>
+        <translation>Был замечен</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="51"/>
         <source>Description</source>
-        <translation type="unfinished">Описание</translation>
+        <translation>Описание</translation>
     </message>
 </context>
 <context>
@@ -1944,27 +1944,27 @@ Please check your connection settings</source>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="24"/>
         <source>Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="29"/>
         <source>Users</source>
-        <translation type="unfinished">Пользователи</translation>
+        <translation>Пользователи</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="37"/>
         <source>Show</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="57"/>
         <source>Clear</source>
-        <translation type="unfinished">Очистить</translation>
+        <translation>Очистить</translation>
     </message>
 </context>
 <context>
@@ -1993,62 +1993,62 @@ Please check your connection settings</source>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="29"/>
         <source>IP Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>IP-фильтр</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="41"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>ОК</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="98"/>
         <source>Add</source>
-        <translation type="unfinished">Добавить</translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="105"/>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Экспорт</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="112"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Импорт</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="119"/>
         <source>UP</source>
-        <translation type="unfinished"></translation>
+        <translation>Вверх</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="126"/>
         <source>DOWN</source>
-        <translation type="unfinished"></translation>
+        <translation>Вниз</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="133"/>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Направление</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="139"/>
         <source>BOTH</source>
-        <translation type="unfinished"></translation>
+        <translation>Оба</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="146"/>
         <source>IN</source>
-        <translation type="unfinished"></translation>
+        <translation>Вх.</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="153"/>
         <source>OUT</source>
-        <translation type="unfinished"></translation>
+        <translation>Исх.</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="166"/>
         <source>Enable IPFilter</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить IP-фильтр</translation>
     </message>
 </context>
 <context>
