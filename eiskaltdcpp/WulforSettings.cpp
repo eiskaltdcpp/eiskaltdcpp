@@ -70,6 +70,8 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_CHAT_USERLIST_COL_BITMAP, 0x7F);
         intmap.insert(WI_CHAT_WIDTH, -1);
         intmap.insert(WI_CHAT_USERLIST_WIDTH, -1);
+        intmap.insert(WI_CHAT_SORT_COLUMN, 0);
+        intmap.insert(WI_CHAT_SORT_ORDER, 0);
         intmap.insert(WI_MAINWINDOW_HEIGHT, -1);
         intmap.insert(WI_MAINWINDOW_WIDTH, -1);
         intmap.insert(WI_MAINWINDOW_X, -1);

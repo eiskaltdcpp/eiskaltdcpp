@@ -228,7 +228,7 @@ void UserListModel::sort(int column, Qt::SortOrder order) {
     sortColumn = column;
     sortOrder = order;
 
-    if (column == -1) // sorting disabled
+    if (column < 0) // sorting disabled
     {
         return;
     }

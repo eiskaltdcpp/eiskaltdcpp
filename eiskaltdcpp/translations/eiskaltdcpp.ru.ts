@@ -2592,7 +2592,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../UserListModel.cpp" line="115"/>
         <source>Email</source>
-        <translation>Адрес электронной почты</translation>
+        <translation>E-Mail</translation>
     </message>
 </context>
 <context>

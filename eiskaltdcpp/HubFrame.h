@@ -10,6 +10,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QHash>
+#include <QSortFilterProxyModel>
 
 #include "ui_HubFrame.h"
 
@@ -257,6 +258,7 @@ private:
 
     // Userlist data and some helpful functions
     UserListModel *model;
+    QSortFilterProxyModel *proxy;
 };
 
 #endif // HUBFRAME_H

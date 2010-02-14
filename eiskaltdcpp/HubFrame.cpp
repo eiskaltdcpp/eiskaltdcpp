@@ -431,6 +431,7 @@ HubFrame::~HubFrame(){
         Menu::deleteInstance();
 
     delete model;
+    delete proxy;
 
     delete updater;
 
@@ -449,6 +450,22 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             plainTextEdit_INPUT->setPlainText("");
 
             return false;
+        }
+        else if (static_cast<QLineEdit*>(obj) == lineEdit_FILTER){
+            bool ret = QWidget::eventFilter(obj, e);
+            QString filter_text = lineEdit_FILTER->text();
+
+            if (!filter_text.isEmpty()){
+                proxy->setFilterFixedString(filter_text);
+                proxy->setFilterKeyColumn(comboBox_COLUMNS->currentIndex());
+
+                if (treeView_USERS->model() != proxy)
+                    treeView_USERS->setModel(proxy);
+            }
+            else if (treeView_USERS->model() != model)
+                treeView_USERS->setModel(model);
+
+            return ret;
         }
     }
     else if (e->type() == QEvent::MouseButtonPress){
@@ -545,16 +562,27 @@ void HubFrame::init(){
     updater->setSingleShot(false);
 
     model = new UserListModel(this);
+    proxy = new QSortFilterProxyModel(this);
+    proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    proxy->setDynamicSortFilter(true);
+    proxy->setSortRole(Qt::DisplayRole);
+    proxy->setSourceModel(model);
 
     treeView_USERS->setModel(model);
+    treeView_USERS->setSortingEnabled(true);
     treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    lineEdit_FILTER->installEventFilter(this);
 
     textEdit_CHAT->document()->setMaximumBlockCount(WIGET(WI_CHAT_MAXPARAGRAPHS));
     textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
     textEdit_CHAT->setReadOnly(true);
     textEdit_CHAT->setAutoFormatting(QTextEdit::AutoNone);
     textEdit_CHAT->viewport()->installEventFilter(this);//QTextEdit don't receive all mouse events
+
+    for (int i = 0; i < model->columnCount(); i++)
+        comboBox_COLUMNS->addItem(model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
 
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
@@ -608,6 +636,8 @@ void HubFrame::save(){
     WISET(WI_CHAT_USERLIST_COL_BITMAP, static_cast<int>(columnMap));
     WISET(WI_CHAT_WIDTH, textEdit_CHAT->width());
     WISET(WI_CHAT_USERLIST_WIDTH, treeView_USERS->width());
+    WISET(WI_CHAT_SORT_COLUMN, model->getSortColumn());
+    WISET(WI_CHAT_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(model->getSortOrder()));
 }
 
 void HubFrame::load(){
@@ -630,6 +660,8 @@ void HubFrame::load(){
 
         splitter_2->setSizes(frames);
     }
+
+    treeView_USERS->sortByColumn(WIGET(WI_CHAT_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_CHAT_SORT_ORDER)));
 }
 
 QWidget *HubFrame::getWidget(){
@@ -815,6 +847,9 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
     UserListItem *item = model->itemForPtr(user);
 
     if (item){
+        bool needresort = false;
+        bool isOp = map["ISOP"].toBool();
+
         total_shared -= item->share;
 
         item->nick = map["NICK"].toString();
@@ -824,13 +859,20 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
         item->ip   = map["IP"].toString();
         item->share= map["SHARE"].toULongLong();
         item->tag  = map["TAG"].toString();
-        item->isOp = map["ISOP"].toBool();
+
+        if (item->isOp != isOp)
+            needresort = true;
+
+        item->isOp = isOp;
         item->px = WU->getUserIcon(user, map["AWAY"].toBool(), item->isOp, map["SPEED"].toString());
 
         QModelIndex left = model->index(item->row(), COLUMN_NICK);
         QModelIndex right= model->index(item->row(), COLUMN_EMAIL);
 
         model->repaintData(left, right);
+
+        if (needresort)
+            model->sort(model->getSortColumn(), model->getSortOrder());
     }
     else{
         if (join && WS->getBool(WB_SHOW_JOINS))
@@ -1137,10 +1179,15 @@ void HubFrame::slotPMClosed(QString cid){
 
 void HubFrame::slotUserListMenu(const QPoint&){
     QItemSelectionModel *selection_model = treeView_USERS->selectionModel();
-    QModelIndexList list = selection_model->selectedRows(0);
+    QModelIndexList proxy_list = selection_model->selectedRows(0);
 
-    if (list.size() < 1)
+    if (proxy_list.size() < 1)
         return;
+
+    QModelIndexList list;
+
+    foreach(QModelIndex i, proxy_list)
+        list.push_back(proxy->mapToSource(i));
 
     QString cid = (reinterpret_cast<UserListItem*>(list.at(0).internalPointer()))->cid;
     Menu::Action action = Menu::getInstance()->execUserMenu(client, cid);

@@ -43,6 +43,8 @@
 #define WI_CHAT_WIDTH               "chat-width"
 #define WI_CHAT_USERLIST_WIDTH      "chat-userlist-width"
 #define WI_CHAT_USERLIST_COL_BITMAP "chat-userlist-bitmap"
+#define WI_CHAT_SORT_COLUMN         "chat-userlist-sort-column"
+#define WI_CHAT_SORT_ORDER          "chat-userlist-sort-order"
 #define WI_DQUEUE_COL_BITMAP        "dqueue-column-bitmap"
 #define WI_SEARCH_COL_BITMAP        "search-column-bitmap"
 #define WI_SEARCH_SORT_COLUMN       "search-sort-column"
