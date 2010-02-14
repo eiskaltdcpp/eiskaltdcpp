@@ -39,11 +39,17 @@ int UserListModel::rowCount(const QModelIndex & ) const {
     return rootItem->childCount();
 }
 
-
 int UserListModel::columnCount(const QModelIndex & ) const {
     return 7;
 }
 
+bool UserListModel::hasChildren(const QModelIndex &parent) const{
+    return (!parent.isValid());
+}
+
+bool UserListModel::canFetchMore(const QModelIndex &parent) const{
+    return false;
+}
 
 QVariant UserListModel::data(const QModelIndex & index, int role) const {
     if (!index.isValid())

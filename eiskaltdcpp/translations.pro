@@ -1,5 +1,12 @@
 HEADERS = HEADERS = MainWindow.h \
+    Antispam.h \
+    AntiSpamFrame.h \
+    IPFilter.h \
+    IPFilterFrame.h \
+    IPFilterModel.h \
+    FavoriteUsers.h \
     Func.h \
+    FavoriteUsers.h \
     WulforManager.h \
     HubFrame.h \
     UserListModel.h \
@@ -32,6 +39,12 @@ HEADERS = HEADERS = MainWindow.h \
     TransferViewModel.h \
     Magnet.h
 SOURCES = main.cpp \
+    Antispam.cpp \
+    AntiSpamFrame.cpp \
+    IPFilter.cpp \
+    IPFilterFrame.cpp \
+    IPFilterModel.cpp \
+    FavoriteUsers.cpp \
     MainWindow.cpp \
     HubFrame.cpp \
     WulforManager.cpp \
@@ -62,8 +75,12 @@ SOURCES = main.cpp \
     ToolBar.cpp \
     TransferViewModel.cpp \
     Magnet.cpp
-FORMS = ui/HubFrame.ui \
+FORMS = ui/UIAntiSpam.ui \
+    ui/UIFinishedTransfers.ui \
+    ui/UIFavoriteUsers.ui \
+    ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
+    ui/UIIPFilter.ui \
     ui/PrivateMessage.ui \
     ui/UITransferView.ui \
     ui/UIShareBrowser.ui \

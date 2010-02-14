@@ -96,6 +96,8 @@ public:
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
     virtual QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const;
     virtual QModelIndex parent(const QModelIndex & parent) const;
+    virtual bool hasChildren(const QModelIndex &parent) const;
+    virtual bool canFetchMore(const QModelIndex &parent) const;
 
     void clear();
     void removeUser(const UserPtr&);
