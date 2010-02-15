@@ -1186,8 +1186,12 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
     QModelIndexList list;
 
-    foreach(QModelIndex i, proxy_list)
-        list.push_back(proxy->mapToSource(i));
+    if (treeView_USERS->model() != model){
+        foreach(QModelIndex i, proxy_list)
+            list.push_back(proxy->mapToSource(i));
+    }
+    else
+        list = proxy_list;
 
     QString cid = (reinterpret_cast<UserListItem*>(list.at(0).internalPointer()))->cid;
     Menu::Action action = Menu::getInstance()->execUserMenu(client, cid);
