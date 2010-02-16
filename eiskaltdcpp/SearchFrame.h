@@ -131,6 +131,7 @@ public:
 
 protected:
     virtual void closeEvent(QCloseEvent*);
+    virtual bool eventFilter(QObject *, QEvent *);
     virtual void customEvent(QEvent *);
 
 private slots:

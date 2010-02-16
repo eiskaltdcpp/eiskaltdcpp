@@ -353,6 +353,9 @@ void SearchModel::addResult
         const bool isDir
         )
 {
+    if (file.isEmpty() || file.isNull())
+        return;
+
     SearchItem *item;
 
     QFileInfo file_info(QDir::toNativeSeparators(file));

@@ -7,6 +7,8 @@
 #include <QFileDialog>
 #include <QClipboard>
 #include <QHeaderView>
+#include <QKeyEvent>
+#include <QMessageBox>
 
 #include "SearchFrame.h"
 #include "MainWindow.h"
@@ -187,6 +189,19 @@ void SearchFrame::customEvent(QEvent *e){
     e->accept();
 }
 
+bool SearchFrame::eventFilter(QObject *obj, QEvent *e){
+    if (e->type() == QEvent::KeyRelease){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+        int key = k_e->key();
+
+        if (static_cast<QComboBox*>(obj) == comboBox_SEARCHSTR && (key == Qt::Key_Enter || key == Qt::Key_Return))
+            slotStartSearch();
+
+    }
+
+    return QWidget::eventFilter(obj, e);
+}
+
 void SearchFrame::init(){
     left_pane_old_size = 0;
 
@@ -214,6 +229,7 @@ void SearchFrame::init(){
 
     MainWindow *mwnd = MainWindow::getInstance();
 
+    comboBox_SEARCHSTR->installEventFilter(this);
     comboBox_SEARCHSTR->setFocus();
 
     load();
@@ -936,7 +952,16 @@ void SearchFrame::slotHeaderMenu(const QPoint&){
 
 void SearchFrame::slotTimer(){
     if (dropped == results && dropped == 0){
-        status->hide();
+
+        if (currentSearch.empty())
+            status->hide();
+        else {
+            status->show();
+
+            QString text = QString(tr("<b>No results</b>"));
+
+            status->setText(text);
+        }
     }
     else {
         if (!status->isVisible())
