@@ -146,8 +146,7 @@ void ShareBrowser::init(){
     treeView_RPANE->setModel(list_model);
     treeView_RPANE->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(_q(Util::formatBytes(share_size)))
-                                                                       .arg(itemsCount));
+    label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(_q(Util::formatBytes(share_size))).arg(itemsCount));
 
     arena_menu = new QMenu(tr("Filebrowser"));
 
@@ -427,7 +426,11 @@ void ShareBrowser::slotSave(){
 }
 
 void ShareBrowser::slotOpen(){
-    QString new_name = QFileDialog::getOpenFileName(this, tr("Choose file to open"), QDir::homePath(), tr("All files (*,*)"));
+    #warning "не обновляется имя дерева(имя таба тоже) и статус строка слева, к старому древу присоединяется дерево с открытого файл-листа"
+    QString new_name = QFileDialog::getOpenFileName(this, tr("Choose file to open"), QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
+            tr("Modern XML Filelists") + " (*.xml.bz2);;" +
+            tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
+            tr("All files") + " (*)");
 
     if (!new_name.isEmpty() && QFile::exists(new_name)){
         file = new_name;

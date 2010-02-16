@@ -12,6 +12,7 @@
 #include <QTextCodec>
 #include <QMessageBox>
 #include <QKeyEvent>
+#include <QFileDialog>
 
 #include "HubFrame.h"
 #include "HubManager.h"
@@ -114,7 +115,7 @@ MainWindow::~MainWindow(){
     //delete toolView;
 
     /*foreach (ArenaWidget *a, arenaWidgets)
-		a->getWidget()->close();*/
+        a->getWidget()->close();*/
 
     qDeleteAll(fileMenuActions);
 }
@@ -250,8 +251,13 @@ void MainWindow::initActions(){
 
         fileFileListBrowserLocal = new QAction("", this);
         fileFileListBrowserLocal->setShortcut(tr("Ctrl+L"));
-        fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+        fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_RED));
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
+
+        fileFileListBrowser = new QAction("", this);
+        //fileFileListBrowserLocal->setShortcut(tr("Ctrl+L"));
+        fileFileListBrowser->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+        connect(fileFileListBrowser, SIGNAL(triggered()), this, SLOT(slotFileBrowseFilelist()));
 
         fileFileListRefresh = new QAction("", this);
         fileFileListRefresh->setShortcut(tr("Ctrl+R"));
@@ -327,6 +333,7 @@ void MainWindow::initActions(){
 
         fileMenuActions << fileOptions
                 << separator1
+                << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
@@ -389,6 +396,8 @@ void MainWindow::retranslateUi(){
         fileOptions->setText(tr("Options"));
 
         fileFileListBrowserLocal->setText(tr("Open own filelist"));
+
+        fileFileListBrowser->setText(tr("Open filelist..."));
 
         fileFileListRefresh->setText(tr("Recreate share"));
 
@@ -611,6 +620,17 @@ void MainWindow::slotFileBrowseOwnFilelist(){
     local_share = new ShareBrowser(user, file, "");
 }
 
+void MainWindow::slotFileBrowseFilelist(){
+    static ShareBrowser *local_share = NULL;
+
+    UserPtr user = ClientManager::getInstance()->getMe();
+    QString file = QFileDialog::getOpenFileName(this, tr("Choose file to open"), QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
+            tr("Modern XML Filelists") + " (*.xml.bz2);;" +
+            tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
+            tr("All files") + " (*)");
+
+    local_share = new ShareBrowser(user, file, "");
+}
 void MainWindow::slotFileRefreshShare(){
     ShareManager *SM = ShareManager::getInstance();
 
