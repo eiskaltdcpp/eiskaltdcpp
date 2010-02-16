@@ -32,7 +32,7 @@ namespace dcpp {
 #ifdef DCPP_REVISION
 const string fullVersionString(APPNAME " V:" DCPP_REVISION );
 #else
-const string fullVersionString(APPNAME " V:" VERSIONFLOAT );
+const string fullVersionString(APPNAME " V:" VERSIONSTRING );
 #endif
 }
 
