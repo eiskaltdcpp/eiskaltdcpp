@@ -55,6 +55,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_TRANSFERS_COLUMN_WIDTHS, "");
         strmap.insert(WS_SHARE_LPANE_COL_WIDTHS, "");
         strmap.insert(WS_SHARE_RPANE_COL_WIDTHS, "");
+        strmap.insert(WS_MAINWINDOW_STATE, "");
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_CHAT_SHOW_JOINS, (int)true);
@@ -76,10 +77,6 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_MAINWINDOW_WIDTH, -1);
         intmap.insert(WI_MAINWINDOW_X, -1);
         intmap.insert(WI_MAINWINDOW_Y, -1);
-        intmap.insert(WI_MAINWINDOW_TBAR_X, -1);
-        intmap.insert(WI_MAINWINDOW_TBAR_Y, -1);
-        intmap.insert(WI_MAINWINDOW_FBAR_X, -1);
-        intmap.insert(WI_MAINWINDOW_FBAR_Y, -1);
         intmap.insert(WI_DQUEUE_COL_BITMAP, 0x433);//0b10000110011
         intmap.insert(WI_SEARCH_COL_BITMAP, 0x1FFF);
         intmap.insert(WI_SEARCH_SORT_COLUMN, 1);

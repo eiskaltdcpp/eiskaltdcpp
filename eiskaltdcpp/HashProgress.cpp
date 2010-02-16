@@ -86,7 +86,14 @@ void HashProgress::timerTick(){
         file->setText(tr("Done"));
     }
     else {
-        file->setText(QString::fromStdString(Text::toT(path)));
+        QString fname = QString::fromStdString(Text::toT(path));
+
+        file->setToolTip(fname);
+
+        if (fname.length() > 30)
+            fname = "..." + fname.right(27);
+
+        file->setText(fname);
     }
 
     if(startFiles == 0 || startBytes == 0) {

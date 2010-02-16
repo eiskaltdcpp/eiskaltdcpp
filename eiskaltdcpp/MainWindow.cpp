@@ -61,6 +61,10 @@ MainWindow::MainWindow (QWidget *parent):
     TransferView::newInstance();
 
     transfer_dock->setWidget(TransferView::getInstance());
+
+    blockSignals(true);
+    fileTransfers->setChecked(transfer_dock->isVisible());
+    blockSignals(false);
 }
 
 MainWindow::~MainWindow(){
@@ -125,12 +129,12 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
     saveSettings();
 
-    QWidget *wgt = arena->widget();
+    /*QWidget *wgt = arena->widget();
 
     if (wgt){//prevent crashing on exit
         arena->setWidget(NULL);
         wgt->close();
-    }
+    }*/
 
     c_e->accept();
 }
@@ -165,7 +169,8 @@ void MainWindow::init(){
     arena->setFeatures(QDockWidget::NoDockWidgetFeatures);
     arena->setTitleBarWidget(new QWidget(arena));
 
-    transfer_dock = new QDockWidget();
+    transfer_dock = new QDockWidget(this);
+    transfer_dock->setObjectName("transfer_dock");
     transfer_dock->setFloating(false);
     transfer_dock->setAllowedAreas(Qt::BottomDockWidgetArea);
     transfer_dock->setFeatures(QDockWidget::NoDockWidgetFeatures);
@@ -204,14 +209,6 @@ void MainWindow::loadSettings(){
     int h = WS->getInt(WI_MAINWINDOW_HEIGHT);
     int xPos = WS->getInt(WI_MAINWINDOW_X);
     int yPos = WS->getInt(WI_MAINWINDOW_Y);
-    int tx = WIGET(WI_MAINWINDOW_TBAR_X), ty = WIGET(WI_MAINWINDOW_TBAR_Y);
-    int fx = WIGET(WI_MAINWINDOW_FBAR_X), fy = WIGET(WI_MAINWINDOW_FBAR_Y);
-
-    if ((tx >= 0) && (ty >= 0))
-        tBar->move(tx, ty);
-
-    if ((fx >= 0) && (fy >= 0))
-        fBar->move(fx, fy);
 
     QPoint p(xPos, yPos);
     QSize  sz(w, h);
@@ -224,6 +221,11 @@ void MainWindow::loadSettings(){
 
     if (showMax)
         this->showMaximized();
+
+    QString wstate = WSGET(WS_MAINWINDOW_STATE);
+
+    if (!wstate.isEmpty())
+        this->restoreState(QByteArray::fromBase64(wstate.toAscii()));
 }
 
 void MainWindow::saveSettings(){
@@ -234,10 +236,7 @@ void MainWindow::saveSettings(){
 
     WBSET(WB_MAINWINDOW_MAXIMIZED, isMaximized());
 
-    WISET(WI_MAINWINDOW_TBAR_X, tBar->x());
-    WISET(WI_MAINWINDOW_TBAR_Y, tBar->y());
-    WISET(WI_MAINWINDOW_FBAR_X, fBar->x());
-    WISET(WI_MAINWINDOW_FBAR_Y, fBar->y());
+    WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
 }
 
 void MainWindow::initActions(){
@@ -262,6 +261,10 @@ void MainWindow::initActions(){
         fileHubReconnect = new QAction("", this);
         fileHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
         connect(fileHubReconnect, SIGNAL(triggered()), this, SLOT(slotFileReconnect()));
+
+        fileHashProgress = new QAction("", this);
+        fileHashProgress->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE_OPEN));
+        connect(fileHashProgress, SIGNAL(triggered()), this, SLOT(slotFileHashProgress()));
 
         fileQuickConnect = new QAction("", this);
         fileQuickConnect->setShortcut(tr("Ctrl+H"));
@@ -326,6 +329,7 @@ void MainWindow::initActions(){
                 << separator1
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
+                << fileHashProgress
                 << separator2
                 << fileHubReconnect
                 << fileQuickConnect
@@ -388,6 +392,8 @@ void MainWindow::retranslateUi(){
 
         fileFileListRefresh->setText(tr("Recreate share"));
 
+        fileHashProgress->setText(tr("Hash progress"));
+
         fileHubReconnect->setText(tr("Reconnect to Hub"));
 
         fileTransfers->setText(tr("Transfers"));
@@ -438,8 +444,8 @@ void MainWindow::initToolbar(){
     tBar->setFloatable(true);
     tBar->setAllowedAreas(Qt::AllToolBarAreas);
 
-    addToolBar(Qt::TopToolBarArea, fBar);
-    addToolBar(Qt::BottomToolBarArea, tBar);
+    addToolBar(fBar);
+    addToolBar(tBar);
 }
 
 void MainWindow::newHubFrame(QString address, QString enc){
@@ -611,6 +617,12 @@ void MainWindow::slotFileRefreshShare(){
     SM->setDirty();
     SM->refresh(true);
 
+    HashProgress progress(this);
+
+    progress.exec();
+}
+
+void MainWindow::slotFileHashProgress(){
     HashProgress progress(this);
 
     progress.exec();
