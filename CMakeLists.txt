@@ -167,11 +167,8 @@ if (NOT DEFINED SVNVERSION)
                 OUTPUT_VARIABLE SVNVERSION
                 OUTPUT_STRIP_TRAILING_WHITESPACE)
         message (STATUS "Build svn revision: ${SVNVERSION}")
-        add_definitions(-DDCPP_REVISION=r${SVNVERSION})
+        add_definitions(-DDCPP_REVISION="\(r""${SVNVERSION}""\)")
 endif (NOT DEFINED SVNVERSION)
-if (NOT SVNVERSION)
-    set (SVNVERSION "release")
-endif (NOT SVNVERSION)
 
 if (CMAKE_SYSTEM_NAME STREQUAL Linux)
 add_definitions (-D_GNU_SOURCE -D_LARGEFILE_SOURCE)

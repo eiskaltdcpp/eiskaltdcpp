@@ -29,6 +29,10 @@
 #define strver(s) #s
 
 namespace dcpp {
-const string fullVersionString(APPNAME " v" VERSIONSTRING " (" xstrver(DCPP_REVISION) ")");
+#ifdef DCPP_REVISION
+const string fullVersionString(APPNAME " V:" DCPP_REVISION );
+#else
+const string fullVersionString(APPNAME " V:" VERSIONFLOAT );
+#endif
 }
 
