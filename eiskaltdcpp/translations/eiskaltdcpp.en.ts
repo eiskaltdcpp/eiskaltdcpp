@@ -510,131 +510,131 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="576"/>
+        <location filename="../HubFrame.cpp" line="604"/>
         <source>Hub menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="578"/>
+        <location filename="../HubFrame.cpp" line="606"/>
         <source>Reconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="579"/>
+        <location filename="../HubFrame.cpp" line="607"/>
         <source>Show window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="582"/>
+        <location filename="../HubFrame.cpp" line="610"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="640"/>
+        <location filename="../HubFrame.cpp" line="672"/>
         <source>Not connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="695"/>
-        <location filename="../HubFrame.cpp" line="708"/>
+        <location filename="../HubFrame.cpp" line="727"/>
+        <location filename="../HubFrame.cpp" line="740"/>
         <source>Away mode off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="702"/>
+        <location filename="../HubFrame.cpp" line="734"/>
         <source>Away mode on: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="713"/>
+        <location filename="../HubFrame.cpp" line="745"/>
         <source>Chat has been cleared</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="837"/>
+        <location filename="../HubFrame.cpp" line="879"/>
         <source> joins the chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="862"/>
-        <location filename="../HubFrame.cpp" line="874"/>
+        <location filename="../HubFrame.cpp" line="904"/>
+        <location filename="../HubFrame.cpp" line="916"/>
         <source>User not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="881"/>
+        <location filename="../HubFrame.cpp" line="923"/>
         <source>Slot granted to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="892"/>
-        <location filename="../HubFrame.cpp" line="912"/>
+        <location filename="../HubFrame.cpp" line="934"/>
+        <location filename="../HubFrame.cpp" line="954"/>
         <source>User not found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="901"/>
+        <location filename="../HubFrame.cpp" line="943"/>
         <source> has been added to favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="921"/>
+        <location filename="../HubFrame.cpp" line="963"/>
         <source> has been removed from favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="953"/>
+        <location filename="../HubFrame.cpp" line="995"/>
         <source>Favorite hub added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="956"/>
+        <location filename="../HubFrame.cpp" line="998"/>
         <source>Favorite hub already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1036"/>
+        <location filename="../HubFrame.cpp" line="1078"/>
         <source>User offline.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1072"/>
+        <location filename="../HubFrame.cpp" line="1114"/>
         <source>Stored password sent...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1075"/>
+        <location filename="../HubFrame.cpp" line="1117"/>
         <source>Enter password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1075"/>
+        <location filename="../HubFrame.cpp" line="1117"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1090"/>
-        <location filename="../HubFrame.cpp" line="1500"/>
+        <location filename="../HubFrame.cpp" line="1132"/>
+        <location filename="../HubFrame.cpp" line="1551"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1108"/>
+        <location filename="../HubFrame.cpp" line="1150"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1359"/>
+        <location filename="../HubFrame.cpp" line="1410"/>
         <source>Chat cleared.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1370"/>
+        <location filename="../HubFrame.cpp" line="1421"/>
         <source>Chat disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1372"/>
+        <location filename="../HubFrame.cpp" line="1423"/>
         <source>Chat enabled.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -396,9 +396,6 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
 
     Menu::counter++;
 
-    if (hub.indexOf("://") > 0)
-        hub.remove(0, hub.indexOf("://")+3);
-
     client = ClientManager::getInstance()->getClient(hub.toStdString());
     client->addListener(this);
 
@@ -773,7 +770,7 @@ bool HubFrame::parseForCmd(QString line){
 
 void HubFrame::addStatus(QString msg){
     QString status = "";
-    QString nick    = " * DC-CORE";
+    QString nick    = " * ";
 
     WulforUtil::getInstance()->textToHtml(msg);
     WulforUtil::getInstance()->textToHtml(nick);
