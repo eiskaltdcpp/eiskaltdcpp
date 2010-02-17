@@ -153,9 +153,6 @@ void ShareBrowser::init(){
     QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
-    toolButton_OPEN->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiOPEN));
-    toolButton_SAVE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiSAVE));
-
     connect(treeView_LPANE, SIGNAL(clicked(const QModelIndex&)), this, SLOT(slotLeftPaneClicked(QModelIndex)));
     connect(treeView_LPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
 
@@ -164,9 +161,6 @@ void ShareBrowser::init(){
     connect(treeView_RPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
     connect(treeView_RPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
-
-    connect(toolButton_SAVE, SIGNAL(clicked()), this, SLOT(slotSave()));
-    connect(toolButton_OPEN, SIGNAL(clicked()), this, SLOT(slotOpen()));
 
     setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -373,43 +367,6 @@ void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection&, const QItemSele
         status += QString(tr("; Selected: %1")).arg(_q(Util::formatBytes(selected_size)));
 
     label_RIGHT->setText(status);
-}
-
-void ShareBrowser::slotSave(){
-    if (!QFile::exists(file)){
-        QMessageBox::critical(this, tr("Error"), tr("Original file not found."));
-
-        return;
-    }
-
-    QString name = QFileInfo(file).fileName();
-    QString new_name = QFileDialog::getSaveFileName(this, tr("Choose a filename to save under"), QDir::homePath());
-
-    if (!new_name.isEmpty()){
-        QFile f(file);
-
-        if (!f.copy(new_name))
-            QMessageBox::critical(this, tr("Error"), tr("Cannot save to this file."));
-    }
-}
-
-void ShareBrowser::slotOpen(){
-    QString new_name = QFileDialog::getOpenFileName(this, tr("Choose file to open"), QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
-            tr("Modern XML Filelists") + " (*.xml.bz2);;" +
-            tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
-            tr("All files") + " (*)");
-
-    if (!new_name.isEmpty() && QFile::exists(new_name)){
-        file = new_name;
-
-        nick = tr("Custom filelist");
-        title = nick;
-
-        tree_model->clear();
-        list_model->clear();
-
-        buildList();
-    }
 }
 
 void ShareBrowser::slotCustomContextMenu(const QPoint &){

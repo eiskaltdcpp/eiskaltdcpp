@@ -110,7 +110,6 @@ friend class dcpp::Singleton<MainWindow>;
 
     private slots:
         void slotFileBrowseOwnFilelist();
-        void slotFileBrowseFilelist();
         void slotFileReconnect();
         void slotFileRefreshShare();
         void slotFileHashProgress();
@@ -174,7 +173,6 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileQuickConnect;
         QAction *fileHubReconnect;
         QAction *fileFileListBrowserLocal;
-        QAction *fileFileListBrowser;
         QAction *fileFileListRefresh;
         QAction *fileHashProgress;
         QAction *fileFavoriteHubs;

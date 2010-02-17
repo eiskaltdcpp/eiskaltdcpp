@@ -90,9 +90,6 @@ private slots:
 
     void slotLoaderFinish();
 
-    void slotSave();
-    void slotOpen();
-
 private:
 
     void init();
