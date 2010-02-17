@@ -46,16 +46,19 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_CHAT_USER_COLOR, "#ac0000");
         strmap.insert(WS_CHAT_TIME_COLOR, qApp->palette().text().color().name());
         strmap.insert(WS_CHAT_MSG_COLOR, qApp->palette().text().color().name());
-        strmap.insert(WS_CHAT_USERLIST_COL_WIDTH, "");
+        strmap.insert(WS_CHAT_USERLIST_STATE, "");
         strmap.insert(WS_QCONNECT_HISTORY, "");
         strmap.insert(WS_DEFAULT_LOCALE, "UTF-8");
-        strmap.insert(WS_DQUEUE_COLUMN_WIDTHS, "");
-        strmap.insert(WS_SEARCH_COLUMN_WIDTHS, "");
+        strmap.insert(WS_DQUEUE_STATE, "");
+        strmap.insert(WS_SEARCH_STATE, "");
         strmap.insert(WS_TRANSLATION_FILE, "");
-        strmap.insert(WS_TRANSFERS_COLUMN_WIDTHS, "");
-        strmap.insert(WS_SHARE_LPANE_COL_WIDTHS, "");
-        strmap.insert(WS_SHARE_RPANE_COL_WIDTHS, "");
+        strmap.insert(WS_TRANSFERS_STATE, "");
+        strmap.insert(WS_SHARE_LPANE_STATE, "");
+        strmap.insert(WS_SHARE_RPANE_STATE, "");
         strmap.insert(WS_MAINWINDOW_STATE, "");
+        strmap.insert(WS_FTRANSFERS_FILES_STATE, "");
+        strmap.insert(WS_FTRANSFERS_USERS_STATE, "");
+        strmap.insert(WS_FAV_HUBS_STATE, "");
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_CHAT_SHOW_JOINS, (int)true);
@@ -68,7 +71,6 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_SHOW_HIDDEN_USERS, (int)false);
         intmap.insert(WB_SHOW_JOINS, (int)false);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS, 300);
-        intmap.insert(WI_CHAT_USERLIST_COL_BITMAP, 0x7F);
         intmap.insert(WI_CHAT_WIDTH, -1);
         intmap.insert(WI_CHAT_USERLIST_WIDTH, -1);
         intmap.insert(WI_CHAT_SORT_COLUMN, 0);
@@ -77,14 +79,10 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_MAINWINDOW_WIDTH, -1);
         intmap.insert(WI_MAINWINDOW_X, -1);
         intmap.insert(WI_MAINWINDOW_Y, -1);
-        intmap.insert(WI_DQUEUE_COL_BITMAP, 0x433);//0b10000110011
-        intmap.insert(WI_SEARCH_COL_BITMAP, 0x1FFF);
         intmap.insert(WI_SEARCH_SORT_COLUMN, 1);
         intmap.insert(WI_SEARCH_SORT_ORDER, 0);
         intmap.insert(WI_SEARCH_SHARED_ACTION, 0);
-        intmap.insert(WI_TRANSFER_COL_BITMAP, 0xFF);
         intmap.insert(WI_TRANSFER_HEIGHT, -1);
-        intmap.insert(WI_SHARE_RPANE_COL_BITMAP, 0x0F);
         intmap.insert(WI_SHARE_RPANE_WIDTH, -1);
         intmap.insert(WI_SHARE_WIDTH, -1);
     }

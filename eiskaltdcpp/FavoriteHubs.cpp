@@ -39,6 +39,8 @@ void FavoriteHubs::closeEvent(QCloseEvent *e){
     MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
     MainWindow::getInstance()->remWidgetFromArena(this);
 
+    save();
+
     if (!unload)
         e->ignore();
     else
@@ -55,6 +57,14 @@ QString FavoriteHubs::getArenaTitle(){
 
 QMenu *FavoriteHubs::getMenu(){
     return NULL;
+}
+
+void FavoriteHubs::load(){
+    treeView->header()->restoreState(WSGET(WS_FAV_HUBS_STATE).toAscii());
+}
+
+void FavoriteHubs::save(){
+    WSSET(WS_FAV_HUBS_STATE, treeView->header()->saveState().toBase64());
 }
 
 void FavoriteHubs::init(){
@@ -85,6 +95,8 @@ void FavoriteHubs::init(){
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
 
     MainWindow::getInstance()->addArenaWidget(this);
+
+    load();
 
     connect(treeView, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(slotContexMenu(const QPoint&)));
     connect(treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(slotClicked(QModelIndex)));

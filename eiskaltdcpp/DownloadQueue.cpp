@@ -200,9 +200,6 @@ DownloadQueue::DownloadQueue(QWidget *parent):
 DownloadQueue::~DownloadQueue(){
     QueueManager::getInstance()->removeListener(this);
 
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-    MainWindow::getInstance()->remArenaWidget(this);
-
     delete menu;
 }
 
@@ -246,7 +243,10 @@ void DownloadQueue::init(){
     treeView_TARGET->setItemsExpandable(true);
     treeView_TARGET->setRootIsDecorated(true);
     treeView_TARGET->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeView_TARGET->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+
     connect(treeView_TARGET, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
+    connect(treeView_TARGET->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(queue_model, SIGNAL(rowRemoved(QModelIndex)), this, SLOT(slotCollapseRow(QModelIndex)));
 
     menu = new Menu();
@@ -263,31 +263,15 @@ void DownloadQueue::init(){
 }
 
 void DownloadQueue::load(){
-    unsigned columnMap = static_cast<unsigned>(WIGET(WI_DQUEUE_COL_BITMAP));
-    QStringList columnWidths = WSGET(WS_DQUEUE_COLUMN_WIDTHS).split(",", QString::SkipEmptyParts);
-    bool hasWidth = (columnWidths.size() == queue_model->columnCount());
-
-    for (unsigned i =0; i < queue_model->columnCount(); i++){
-        treeView_TARGET->setColumnHidden(i, (columnMap & (1 << i)) == 0);
-
-        if (hasWidth)
-            treeView_TARGET->setColumnWidth(i, columnWidths.at(i).toInt());
-    }
+    treeView_TARGET->header()->restoreState(QByteArray::fromBase64(WSGET(WS_DQUEUE_STATE).toAscii()));
 }
 
 void DownloadQueue::save(){
-    unsigned columnMap = 0;
-    QString columnWidths;
+    QString ustate = treeView_TARGET->header()->saveState().toBase64();
 
-    for (unsigned i = 0; i < queue_model->columnCount(); i++){
-        if (!treeView_TARGET->isColumnHidden(i))
-            columnMap |= (1 << i);
+    printf("State: %s\n", ustate.toAscii().constData());
 
-        columnWidths += QString().setNum(treeView_TARGET->columnWidth(i)) + ",";
-    }
-
-    WSSET(WS_DQUEUE_COLUMN_WIDTHS, columnWidths);
-    WISET(WI_DQUEUE_COL_BITMAP, static_cast<int>(columnMap));
+    WSSET(WS_DQUEUE_STATE, ustate);
 }
 
 void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *item){
@@ -671,6 +655,34 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 void DownloadQueue::slotCollapseRow(const QModelIndex &parent){
     if (parent.isValid())
         treeView_TARGET->collapse(parent);
+}
+
+void DownloadQueue::slotHeaderMenu(const QPoint&){
+    QMenu * mcols = new QMenu(this);
+    QAction * column;
+    int index;
+
+    for (int i = 0; i < queue_model->columnCount(); ++i) {
+        index = treeView_TARGET->header()->logicalIndex(i);
+        column = mcols->addAction(queue_model->headerData(index, Qt::Horizontal).toString());
+        column->setCheckable(true);
+
+        column->setChecked(!treeView_TARGET->header()->isSectionHidden(index));
+        column->setData(index);
+    }
+
+    QAction * chosen = mcols->exec(QCursor::pos());
+
+    if (chosen) {
+        index = chosen->data().toInt();
+
+        if (treeView_TARGET->header()->isSectionHidden(index))
+            treeView_TARGET->header()->showSection(index);
+        else
+            treeView_TARGET->header()->hideSection(index);
+    }
+
+    delete mcols;
 }
 
 void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw(){

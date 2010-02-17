@@ -242,16 +242,7 @@ void SearchFrame::init(){
 }
 
 void SearchFrame::load(){
-    unsigned columnMap = static_cast<unsigned>(WIGET(WI_SEARCH_COL_BITMAP));
-    QStringList columnWidths = WSGET(WS_SEARCH_COLUMN_WIDTHS).split(",", QString::SkipEmptyParts);
-    bool hasWidth = (columnWidths.size() == model->columnCount());
-
-    for (unsigned i =0; i < model->columnCount(); i++){
-        treeView_RESULTS->setColumnHidden(i, (columnMap & (1 << i)) == 0);
-
-        if (hasWidth)
-            treeView_RESULTS->setColumnWidth(i, columnWidths.at(i).toInt());
-    }
+    treeView_RESULTS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SEARCH_STATE).toAscii()));
 
     filterShared = static_cast<SearchFrame::AlreadySharedAction>(WIGET(WI_SEARCH_SHARED_ACTION));
 
@@ -266,18 +257,7 @@ void SearchFrame::load(){
 }
 
 void SearchFrame::save(){
-    unsigned columnMap = 0;
-    QString columnWidths;
-
-    for (unsigned i = 0; i < model->columnCount(); i++){
-        if (!treeView_RESULTS->isColumnHidden(i))
-            columnMap |= (1 << i);
-
-        columnWidths += QString().setNum(treeView_RESULTS->columnWidth(i)) + ",";
-    }
-
-    WSSET(WS_SEARCH_COLUMN_WIDTHS, columnWidths);
-    WISET(WI_SEARCH_COL_BITMAP, static_cast<int>(columnMap));
+    WSSET(WS_SEARCH_STATE, treeView_RESULTS->header()->saveState().toBase64());
     WISET(WI_SEARCH_SORT_COLUMN, model->getSortColumn());
     WISET(WI_SEARCH_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(model->getSortOrder()));
     WISET(WI_SEARCH_SHARED_ACTION, static_cast<int>(filterShared));

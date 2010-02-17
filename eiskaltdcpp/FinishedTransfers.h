@@ -85,6 +85,11 @@ protected:
 
             setAttribute(Qt::WA_DeleteOnClose);
 
+            QString key = (comboBox->currentIndex() == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
+            QString state = treeView->header()->saveState().toBase64();
+
+            WSSET(key, state);
+
             e->accept();
         }
         else {
@@ -114,6 +119,8 @@ private:
 
         QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
         QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
+
+        slotTypeChanged(0);
     }
 
     ~FinishedTransfers(){
@@ -183,7 +190,15 @@ private:
     }
 
     void slotTypeChanged(int index){
+        QString from_key = (index == 0)? WS_FTRANSFERS_USERS_STATE : WS_FTRANSFERS_FILES_STATE;
+        QString to_key = (index == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
+        QString old_state = treeView->header()->saveState().toBase64();
+
+        WSSET(from_key, old_state);
+
         model->switchViewType(static_cast<FinishedTransfersModel::ViewType>(index));
+
+        treeView->header()->restoreState(QByteArray::fromBase64(WSGET(to_key).toAscii()));
     }
 
     void slotClear(){

@@ -106,6 +106,7 @@ protected:
 private slots:
     void slotContextMenu(const QPoint&);
     void slotCollapseRow(const QModelIndex &);
+    void slotHeaderMenu(const QPoint&);
 
 private:
     DownloadQueue(QWidget* = NULL);

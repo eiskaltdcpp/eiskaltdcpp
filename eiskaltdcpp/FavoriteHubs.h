@@ -62,6 +62,9 @@ private:
     FavoriteHubs(QWidget* = NULL);
     virtual ~FavoriteHubs();
 
+    void load();
+    void save();
+
     void init();
     void initHubEditor(FavoriteHubEditor &);
     void initHubEditor(FavoriteHubEditor &, StrMap&);

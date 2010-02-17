@@ -73,31 +73,6 @@ MainWindow::~MainWindow(){
     TimerManager::getInstance()->removeListener(this);
     QueueManager::getInstance()->removeListener(this);
 
-    TransferView::getInstance()->close();
-    TransferView::deleteInstance();
-
-    if (FavoriteHubs::getInstance()){
-        FavoriteHubs::getInstance()->setUnload(true);
-        FavoriteHubs::getInstance()->close();
-    }
-
-    FavoriteHubs::deleteInstance();
-
-    if (FinishedDownloads::getInstance()){
-        FinishedDownloads::getInstance()->setUnload(true);
-        FinishedDownloads::getInstance()->close();
-    }
-
-    if (FinishedUploads::getInstance()){
-        FinishedUploads::getInstance()->setUnload(true);
-        FinishedUploads::getInstance()->close();
-    }
-
-    if (FavoriteUsers::getInstance()){
-        FavoriteUsers::getInstance()->setUnload(true);
-        FavoriteUsers::getInstance()->close();
-    }
-
     arena->setWidget(NULL);
 
     QMap< ArenaWidget*, QWidget* >::iterator it = arenaMap.begin();
@@ -130,12 +105,35 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
     saveSettings();
 
-    /*QWidget *wgt = arena->widget();
+    TransferView::getInstance()->close();
+    TransferView::deleteInstance();
 
-    if (wgt){//prevent crashing on exit
-        arena->setWidget(NULL);
-        wgt->close();
-    }*/
+    if (FavoriteHubs::getInstance()){
+        FavoriteHubs::getInstance()->setUnload(true);
+        FavoriteHubs::getInstance()->close();
+    }
+
+    FavoriteHubs::deleteInstance();
+
+    if (FinishedDownloads::getInstance()){
+        FinishedDownloads::getInstance()->setUnload(true);
+        FinishedDownloads::getInstance()->close();
+    }
+
+    if (FinishedUploads::getInstance()){
+        FinishedUploads::getInstance()->setUnload(true);
+        FinishedUploads::getInstance()->close();
+    }
+
+    if (FavoriteUsers::getInstance()){
+        FavoriteUsers::getInstance()->setUnload(true);
+        FavoriteUsers::getInstance()->close();
+    }
+
+    if (DownloadQueue::getInstance()){
+        DownloadQueue::getInstance()->setUnload(true);
+        DownloadQueue::getInstance()->close();
+    }
 
     c_e->accept();
 }
@@ -440,6 +438,7 @@ void MainWindow::retranslateUi(){
 
 void MainWindow::initToolbar(){
     fBar = new ToolBar(NULL);
+    fBar->setObjectName("fBar");
     fBar->addActions(fileMenuActions);
     fBar->setContextMenuPolicy(Qt::CustomContextMenu);
     fBar->setMovable(true);
@@ -447,6 +446,7 @@ void MainWindow::initToolbar(){
     fBar->setAllowedAreas(Qt::AllToolBarAreas);
 
     tBar = new ToolBar(NULL);
+    tBar->setObjectName("tBar");
     tBar->initTabs();
     tBar->setContextMenuPolicy(Qt::CustomContextMenu);
     tBar->setMovable(true);

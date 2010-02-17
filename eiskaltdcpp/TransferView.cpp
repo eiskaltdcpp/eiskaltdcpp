@@ -155,37 +155,16 @@ void TransferView::customEvent(QEvent *e){
 }
 
 void TransferView::save(){
-    unsigned columnMap = 0;
-    QString columnWidths;
-
-    for (unsigned i = 0; i < model->columnCount(); i++){
-        if (!treeView_TRANSFERS->isColumnHidden(i))
-            columnMap |= (1 << i);
-
-        columnWidths += QString().setNum(treeView_TRANSFERS->columnWidth(i)) + ",";
-    }
-
-    WSSET(WS_TRANSFERS_COLUMN_WIDTHS, columnWidths);
-    WISET(WI_TRANSFER_COL_BITMAP, columnMap);
+    WSSET(WS_TRANSFERS_STATE, treeView_TRANSFERS->header()->saveState().toBase64());
 }
 
 void TransferView::load(){
-    unsigned columnMap = static_cast<unsigned>(WIGET(WI_TRANSFER_COL_BITMAP));
     int h = WIGET(WI_TRANSFER_HEIGHT);
-
-    QStringList columnWidths = WSGET(WS_TRANSFERS_COLUMN_WIDTHS).split(",", QString::SkipEmptyParts);
-    bool hasWidth = (columnWidths.size() == model->columnCount());
-
-    for (unsigned i =0; i < model->columnCount(); i++){
-        treeView_TRANSFERS->setColumnHidden(i, (columnMap & (1 << i)) == 0);
-
-        if (hasWidth)
-            treeView_TRANSFERS->setColumnWidth(i, columnWidths.at(i).toInt());
-    }
 
     if (h >= 0)
         resize(this->width(), h);
 
+    treeView_TRANSFERS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_TRANSFERS_STATE).toAscii()));
 }
 
 QSize TransferView::sizeHint() const{

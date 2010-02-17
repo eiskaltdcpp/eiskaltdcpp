@@ -172,27 +172,8 @@ void ShareBrowser::init(){
 }
 
 void ShareBrowser::load(){
-    unsigned columnMap = static_cast<unsigned>(WIGET(WI_SHARE_RPANE_COL_BITMAP));
     int w = WIGET(WI_SHARE_WIDTH);
     int wr= WIGET(WI_SHARE_RPANE_WIDTH);
-
-    QStringList columnWidths = WSGET(WS_SHARE_RPANE_COL_WIDTHS).split(",", QString::SkipEmptyParts);
-    bool hasWidth = (columnWidths.size() == list_model->columnCount());
-
-    for (unsigned i =0; i < list_model->columnCount(); i++){
-        treeView_RPANE->setColumnHidden(i, (columnMap & (1 << i)) == 0);
-
-        if (hasWidth)
-            treeView_RPANE->setColumnWidth(i, columnWidths.at(i).toInt());
-    }
-
-    columnWidths = WSGET(WS_SHARE_LPANE_COL_WIDTHS).split(",", QString::SkipEmptyParts);
-    hasWidth = (columnWidths.size() == tree_model->columnCount());
-
-    for (unsigned i =0; i < tree_model->columnCount(); i++){
-        if (hasWidth)
-            treeView_LPANE->setColumnWidth(i, columnWidths.at(i).toInt());
-    }
 
     if (w >= 0 && wr >= 0){
         QList<int> frames;
@@ -201,28 +182,15 @@ void ShareBrowser::load(){
 
         splitter->setSizes(frames);
     }
+
+    treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toAscii()));
+    treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toAscii()));
 }
 
 void ShareBrowser::save(){
-    unsigned columnMap = 0;
-    QString columnWidths;
+    WSSET(WS_SHARE_LPANE_STATE, treeView_LPANE->header()->saveState().toBase64());
+    WSSET(WS_SHARE_RPANE_STATE, treeView_RPANE->header()->saveState().toBase64());
 
-    for (unsigned i = 0; i < list_model->columnCount(); i++){
-        if (!treeView_RPANE->isColumnHidden(i))
-            columnMap |= (1 << i);
-
-        columnWidths += QString().setNum(treeView_RPANE->columnWidth(i)) + ",";
-    }
-
-    WSSET(WS_SHARE_RPANE_COL_WIDTHS, columnWidths);
-    WISET(WI_SHARE_RPANE_COL_BITMAP, columnMap);
-
-    columnWidths = "";
-
-    for (unsigned i = 0; i < tree_model->columnCount(); i++)
-        columnWidths += QString().setNum(treeView_LPANE->columnWidth(i)) + ",";
-
-    WSSET(WS_SHARE_LPANE_COL_WIDTHS, columnWidths);
     WISET(WI_SHARE_RPANE_WIDTH, treeView_RPANE->width());
     WISET(WI_SHARE_WIDTH, width());
 }
@@ -426,7 +394,6 @@ void ShareBrowser::slotSave(){
 }
 
 void ShareBrowser::slotOpen(){
-    #warning "не обновляется имя дерева(имя таба тоже) и статус строка слева, к старому древу присоединяется дерево с открытого файл-листа"
     QString new_name = QFileDialog::getOpenFileName(this, tr("Choose file to open"), QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
             tr("Modern XML Filelists") + " (*.xml.bz2);;" +
             tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
@@ -434,6 +401,9 @@ void ShareBrowser::slotOpen(){
 
     if (!new_name.isEmpty() && QFile::exists(new_name)){
         file = new_name;
+
+        nick = tr("Custom filelist");
+        title = nick;
 
         tree_model->clear();
         list_model->clear();
@@ -548,8 +518,6 @@ void ShareBrowser::slotLoaderFinish(){
 
     loader->exit(0);
     loader->terminate();
-
-    loader->wait(300);
 
     treeView_LPANE->blockSignals(false);
     treeView_RPANE->blockSignals(false);

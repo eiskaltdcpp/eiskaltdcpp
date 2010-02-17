@@ -68,8 +68,10 @@ void Notification::slotShowHide(){
 
     if (MW->isVisible())
         MW->hide();
-    else
+    else{
         MW->show();
+        MW->raise();
+    }
 }
 
 void Notification::slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason r){

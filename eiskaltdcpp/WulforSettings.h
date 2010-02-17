@@ -2,64 +2,62 @@
 #define WULFORSETTINGS_H
 
 #include <QObject>
-#include <QHash>
+#include <QMap>
 #include <QTranslator>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
-#define WS_CHAT_OP_COLOR            "chat-op-color"
-#define WS_CHAT_USER_COLOR          "chat-us-color"
-#define WS_CHAT_CORE_COLOR          "chat-co-color"
-#define WS_CHAT_BOT_COLOR           "chat-bt-color"
-#define WS_CHAT_LOCAL_COLOR         "chat-lc-color"
-#define WS_CHAT_STAT_COLOR          "chat-st-color"
-#define WS_CHAT_TIME_COLOR          "chat-ts-color"
-#define WS_CHAT_MSG_COLOR           "chat-msg-color"
-#define WS_CHAT_PRIV_USER_COLOR     "chat-pr-us-color"
-#define WS_CHAT_PRIV_LOCAL_COLOR    "chat-pr-lc-color"
-#define WS_CHAT_SAY_NICK            "chat-say-mynick"
-#define WS_CHAT_USERLIST_COL_WIDTH  "chat-userlist-col-width"
-#define WS_QCONNECT_HISTORY         "qc-history"
-#define WS_DEFAULT_LOCALE           "default_locale"
-#define WS_DQUEUE_COLUMN_WIDTHS     "dqueue-column-widths"
-#define WS_SEARCH_COLUMN_WIDTHS     "search-column-widths"
-#define WS_TRANSLATION_FILE         "translation-file"
-#define WS_TRANSFERS_COLUMN_WIDTHS  "transfer-col-widths"
-#define WS_SHARE_LPANE_COL_WIDTHS   "sharebrowser-lp-col-widths"
-#define WS_SHARE_RPANE_COL_WIDTHS   "sharebrowser-rp-col-widths"
-#define WS_MAINWINDOW_STATE         "mainwindow-state"
-#define WB_CHAT_SHOW_TIMESTAMP      "chat-show-timestamp"
-#define WB_CHAT_SHOW_JOINS          "chat-show-joins"
-#define WB_MAINWINDOW_MAXIMIZED     "mainwindow-maximized"
-#define WB_SEARCHFILTER_NOFREE      "search-filter-nofree"
-#define WB_ANTISPAM_ENABLED         "antispam-enabled"
-#define WB_ANTISPAM_AS_FILTER       "antispam-as-filter"
-#define WB_IPFILTER_ENABLED         "ipfilter-enabled"
-#define WB_TRAY_ENABLED             "systemtray-enabled"
-#define WB_SHOW_HIDDEN_USERS        "show-hidden-users"
-#define WB_SHOW_JOINS               "show-joins"
-#define WI_CHAT_MAXPARAGRAPHS       "chat-max-paragraph"
-#define WI_CHAT_WIDTH               "chat-width"
-#define WI_CHAT_USERLIST_WIDTH      "chat-userlist-width"
-#define WI_CHAT_USERLIST_COL_BITMAP "chat-userlist-bitmap"
-#define WI_CHAT_SORT_COLUMN         "chat-userlist-sort-column"
-#define WI_CHAT_SORT_ORDER          "chat-userlist-sort-order"
-#define WI_DQUEUE_COL_BITMAP        "dqueue-column-bitmap"
-#define WI_SEARCH_COL_BITMAP        "search-column-bitmap"
-#define WI_SEARCH_SORT_COLUMN       "search-sort-column"
-#define WI_SEARCH_SORT_ORDER        "search-sort-order"
-#define WI_SEARCH_SHARED_ACTION     "search-shared-action"
-#define WI_TRANSFER_COL_BITMAP      "transferlumn-bitmap"
-#define WI_TRANSFER_HEIGHT          "transfer-height"
-#define WI_MAINWINDOW_WIDTH         "mainwindow-width"
-#define WI_MAINWINDOW_HEIGHT        "mainwindow-height"
-#define WI_MAINWINDOW_X             "mainwindow-x"
-#define WI_MAINWINDOW_Y             "mainwindow-y"
-#define WI_SHARE_RPANE_COL_BITMAP   "sharebrowser-rp-col-bitmap"
-#define WI_SHARE_RPANE_WIDTH        "sharebrowser-rp-width"
-#define WI_SHARE_WIDTH              "sharebrowser-width"
+const char * const WS_CHAT_OP_COLOR           = "chat-op-color";
+const char * const WS_CHAT_USER_COLOR         = "chat-us-color";
+const char * const WS_CHAT_CORE_COLOR         = "chat-co-color";
+const char * const WS_CHAT_BOT_COLOR          = "chat-bt-color";
+const char * const WS_CHAT_LOCAL_COLOR        = "chat-lc-color";
+const char * const WS_CHAT_STAT_COLOR         = "chat-st-color";
+const char * const WS_CHAT_TIME_COLOR         = "chat-ts-color";
+const char * const WS_CHAT_MSG_COLOR          = "chat-msg-color";
+const char * const WS_CHAT_PRIV_USER_COLOR    = "chat-pr-us-color";
+const char * const WS_CHAT_PRIV_LOCAL_COLOR   = "chat-pr-lc-color";
+const char * const WS_CHAT_SAY_NICK           = "chat-say-mynick";
+const char * const WS_CHAT_USERLIST_STATE     = "chat-userlist-saved-state";
+const char * const WS_QCONNECT_HISTORY        = "qc-history";
+const char * const WS_DEFAULT_LOCALE          = "default_locale";
+const char * const WS_DQUEUE_STATE            = "dqueue-state";
+const char * const WS_SEARCH_STATE            = "search-state";
+const char * const WS_TRANSLATION_FILE        = "translation-file";
+const char * const WS_TRANSFERS_STATE         = "transfer-state";
+const char * const WS_MAINWINDOW_STATE        = "mainwindow-state";
+const char * const WS_SHARE_LPANE_STATE       = "share-lpane-state";
+const char * const WS_SHARE_RPANE_STATE       = "share-rpane-state";
+const char * const WS_FTRANSFERS_USERS_STATE  = "finished-u-state";
+const char * const WS_FTRANSFERS_FILES_STATE  = "finished-f-state";
+const char * const WS_FAV_HUBS_STATE          = "fav-hubs-state";
+const char * const WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";
+const char * const WB_CHAT_SHOW_JOINS         = "chat-show-joins";
+const char * const WB_MAINWINDOW_MAXIMIZED    = "mainwindow-maximized";
+const char * const WB_SEARCHFILTER_NOFREE     = "search-filter-nofree";
+const char * const WB_ANTISPAM_ENABLED        = "antispam-enabled";
+const char * const WB_ANTISPAM_AS_FILTER      = "antispam-as-filter";
+const char * const WB_IPFILTER_ENABLED        = "ipfilter-enabled";
+const char * const WB_TRAY_ENABLED            = "systemtray-enabled";
+const char * const WB_SHOW_HIDDEN_USERS       = "show-hidden-users";
+const char * const WB_SHOW_JOINS              = "show-joins";
+const char * const WI_CHAT_MAXPARAGRAPHS      = "chat-max-paragraph";
+const char * const WI_CHAT_WIDTH              = "chat-width";
+const char * const WI_CHAT_USERLIST_WIDTH     = "chat-userlist-width";
+const char * const WI_CHAT_SORT_COLUMN        = "chat-userlist-sort-column";
+const char * const WI_CHAT_SORT_ORDER         = "chat-userlist-sort-order";
+const char * const WI_SEARCH_SORT_COLUMN      = "search-sort-column";
+const char * const WI_SEARCH_SORT_ORDER       = "search-sort-order";
+const char * const WI_SEARCH_SHARED_ACTION    = "search-shared-action";
+const char * const WI_TRANSFER_HEIGHT         = "transfer-height";
+const char * const WI_MAINWINDOW_WIDTH        = "mainwindow-width";
+const char * const WI_MAINWINDOW_HEIGHT       = "mainwindow-height";
+const char * const WI_MAINWINDOW_X            = "mainwindow-x";
+const char * const WI_MAINWINDOW_Y            = "mainwindow-y";
+const char * const WI_SHARE_RPANE_WIDTH       = "sharebrowser-rp-width";
+const char * const WI_SHARE_WIDTH             = "sharebrowser-width";
 
 class WulforSettings :
         public QObject,
@@ -67,8 +65,8 @@ class WulforSettings :
 {
     Q_OBJECT
 
-    typedef QHash<QString, int> WIntMap;
-    typedef QHash<QString, QString> WStrMap;
+    typedef QMap<QString, int> WIntMap;
+    typedef QMap<QString, QString> WStrMap;
 
 friend class dcpp::Singleton<WulforSettings>;
 

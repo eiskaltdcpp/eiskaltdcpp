@@ -453,6 +453,14 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             QString filter_text = lineEdit_FILTER->text();
 
             if (!filter_text.isEmpty()){
+                if (!proxy){
+                    proxy = new QSortFilterProxyModel(this);
+                    proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+                    proxy->setDynamicSortFilter(true);
+                    proxy->setSortRole(Qt::DisplayRole);
+                    proxy->setSourceModel(model);
+                }
+
                 proxy->setFilterFixedString(filter_text);
                 proxy->setFilterKeyColumn(comboBox_COLUMNS->currentIndex());
 
@@ -559,11 +567,7 @@ void HubFrame::init(){
     updater->setSingleShot(false);
 
     model = new UserListModel(this);
-    proxy = new QSortFilterProxyModel(this);
-    proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
-    proxy->setDynamicSortFilter(true);
-    proxy->setSortRole(Qt::DisplayRole);
-    proxy->setSourceModel(model);
+    proxy = NULL;
 
     treeView_USERS->setModel(model);
     treeView_USERS->setSortingEnabled(true);
@@ -619,18 +623,7 @@ void HubFrame::initMenu(){
 
 
 void HubFrame::save(){
-    unsigned columnMap = 0;
-    QString columnWidths;
-
-    for (unsigned i = 0; i < model->columnCount(); i++){
-        if (!treeView_USERS->isColumnHidden(i))
-            columnMap |= (1 << i);
-
-        columnWidths += QString().setNum(treeView_USERS->columnWidth(i)) + ",";
-    }
-
-    WSSET(WS_CHAT_USERLIST_COL_WIDTH, columnWidths);
-    WISET(WI_CHAT_USERLIST_COL_BITMAP, static_cast<int>(columnMap));
+    WSSET(WS_CHAT_USERLIST_STATE, treeView_USERS->header()->saveState().toBase64());
     WISET(WI_CHAT_WIDTH, textEdit_CHAT->width());
     WISET(WI_CHAT_USERLIST_WIDTH, treeView_USERS->width());
     WISET(WI_CHAT_SORT_COLUMN, model->getSortColumn());
@@ -638,17 +631,12 @@ void HubFrame::save(){
 }
 
 void HubFrame::load(){
-    unsigned columnMap = static_cast<unsigned>(WIGET(WI_CHAT_USERLIST_COL_BITMAP));
     int w_chat = WIGET(WI_CHAT_WIDTH), w_ulist = WIGET(WI_CHAT_USERLIST_WIDTH);
-    QStringList columnWidths = WSGET(WS_CHAT_USERLIST_COL_WIDTH).split(",", QString::SkipEmptyParts);
-    bool hasWidth = (columnWidths.size() == model->columnCount());
 
-    for (unsigned i =0; i < model->columnCount(); i++){
-        treeView_USERS->setColumnHidden(i, (columnMap & (1 << i)) == 0);
+    QString ustate = WSGET(WS_CHAT_USERLIST_STATE);
 
-        if (hasWidth)
-            treeView_USERS->setColumnWidth(i, columnWidths.at(i).toInt());
-    }
+    if (!ustate.isEmpty())
+        treeView_USERS->header()->restoreState(QByteArray::fromBase64(ustate.toAscii()));
 
     if (w_chat >= 0 && w_ulist >= 0){
         QList<int> frames;
