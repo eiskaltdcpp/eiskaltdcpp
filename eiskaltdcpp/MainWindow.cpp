@@ -55,8 +55,6 @@ MainWindow::MainWindow (QWidget *parent):
 
     startSocket();
 
-    //autoconnect();
-
     setStatusMessage(tr("Ready"));
 
     TransferView::newInstance();
@@ -73,24 +71,10 @@ MainWindow::~MainWindow(){
     TimerManager::getInstance()->removeListener(this);
     QueueManager::getInstance()->removeListener(this);
 
-    arena->setWidget(NULL);
-
-    QMap< ArenaWidget*, QWidget* >::iterator it = arenaMap.begin();
-
-    for(; it != arenaMap.end(); ++it)
-        it.value()->close();
-
-    arenaMap.clear();
-    arenaWidgets.clear();
-
     delete arena;
 
     delete fBar;
     delete tBar;
-    //delete toolView;
-
-    /*foreach (ArenaWidget *a, arenaWidgets)
-        a->getWidget()->close();*/
 
     qDeleteAll(fileMenuActions);
 }
@@ -102,6 +86,8 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
         return;
     }
+
+    blockSignals(true);
 
     saveSettings();
 
@@ -133,6 +119,14 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     if (DownloadQueue::getInstance()){
         DownloadQueue::getInstance()->setUnload(true);
         DownloadQueue::getInstance()->close();
+    }
+
+    QMap< ArenaWidget*, QWidget* > map = arenaMap;
+    QMap< ArenaWidget*, QWidget* >::iterator it = map.begin();
+
+    for(; it != map.end(); ++it){
+        if (arenaMap.contains(it.key()))//some widgets can autodelete itself from arena widgets
+            it.value()->close();
     }
 
     c_e->accept();

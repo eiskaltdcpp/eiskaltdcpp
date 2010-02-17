@@ -355,7 +355,7 @@ QString WulforUtil::getNicks(const CID &cid){
 
 void WulforUtil::textToHtml(QString &str, bool print){
     if (print){
-        str.replace(";", "&#59");
+        str.replace(";", "&#59;");
         str.replace("<", "&lt;");
         str.replace(">", "&gt;");
     }

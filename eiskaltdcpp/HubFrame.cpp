@@ -515,6 +515,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
     MainWindow *MW = MainWindow::getInstance();
 
     MW->remArenaWidgetFromToolbar(this);
+    MW->remWidgetFromArena(this);
     MW->remArenaWidget(this);
 
     client->removeListener(this);
