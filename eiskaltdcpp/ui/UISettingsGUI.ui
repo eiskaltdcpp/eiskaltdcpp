@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
-    <height>300</height>
+    <width>358</width>
+    <height>298</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,11 @@
         </spacer>
        </item>
        <item row="3" column="3">
-        <widget class="QSpinBox" name="spinBox_PARAGRAPHS"/>
+        <widget class="QSpinBox" name="spinBox_PARAGRAPHS">
+         <property name="maximum">
+          <number>1000</number>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

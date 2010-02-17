@@ -16,6 +16,9 @@ public:
 private:
     void init();
 
+private slots:
+    void slotChatColorItemClicked(QListWidgetItem *);
+
 public slots:
     void ok();
 };

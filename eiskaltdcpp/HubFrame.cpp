@@ -992,6 +992,10 @@ void HubFrame::newMsg(VarMap map){
     QString message = map["MSG"].toString();
     QString time = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";;
     QString color = map["CLR"].toString();
+    QString msg_color = WS_CHAT_MSG_COLOR;
+
+    if (message.indexOf(_q(client->getMyNick())) >= 0)
+        msg_color = WS_CHAT_SAY_NICK;
 
     nick = map["3RD"].toBool()? ("* " + nick + " ") : ("<" + nick + "> ");
 
@@ -1000,7 +1004,7 @@ void HubFrame::newMsg(VarMap map){
 
     message = LinkParser::parseForLinks(message);
 
-    message = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
+    message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
     output  = time + "<font color=\"" + WSGET(color) + "\"><b>" + nick + "</b> </font>";
     output  += message;
 
@@ -1516,7 +1520,7 @@ void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList 
         if ((*(*it)).getIdentity().isHidden() && !showHidden)
             break;
 
-        u_e = new UserUpdatedEvent((*(*it)), true);
+        u_e = new UserUpdatedEvent((*(*it)), false);
 
         getParams(u_e->getMap(), (*(*it)).getIdentity());
 
