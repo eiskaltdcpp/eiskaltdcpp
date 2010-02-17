@@ -75,12 +75,131 @@
   <variable>buildconfiguration-Debug-buildstep0</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-9D5Bpg7tDe,guid=0665f0e2f45fec96ff2fdc434b7bd7fa</value>
+    <value type="QString">DERBY_HOME=/opt/java/db</value>
+    <value type="QString">DESKTOP_SESSION=default</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-megM4H/S.gpg-agent:1896:1</value>
+    <value type="QString">GS_LIB=/home/negativ/.fonts</value>
+    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/negativ/.gtkrc-2.0:/home/negativ/.gtkrc-2.0-kde4:/home/negativ/.kde4/share/config/gtkrc-2.0</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/negativ/.gtkrc::/home/negativ/.kde4/share/config/gtkrc</value>
+    <value type="QString">G_BROKEN_FILENAMES=1</value>
+    <value type="QString">HG=/usr/bin/hg</value>
+    <value type="QString">HISTCONTROL=erasedups</value>
+    <value type="QString">HISTSIZE=1000</value>
+    <value type="QString">HOME=/home/negativ</value>
+    <value type="QString">INPUTRC=/etc/inputrc</value>
+    <value type="QString">J2SDKDIR=/opt/java</value>
+    <value type="QString">JAVA_HOME=/opt/java</value>
+    <value type="QString">KDE_FULL_SESSION=true</value>
+    <value type="QString">KDE_MULTIHEAD=false</value>
+    <value type="QString">KDE_SESSION_UID=1000</value>
+    <value type="QString">KDE_SESSION_VERSION=4</value>
+    <value type="QString">LANG=ru_RU.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LESS=-R</value>
+    <value type="QString">LOGNAME=negativ</value>
+    <value type="QString">MOZ_PLUGIN_PATH=/usr/lib/mozilla/plugins</value>
+    <value type="QString">OOO_FORCE_DESKTOP=gnome</value>
+    <value type="QString">PATH=/usr/bin:/bin:/usr/bin:/sbin:/usr/sbin:/opt/java/bin:/opt/java/jre/bin:/usr/bin/perlbin/site:/usr/bin/perlbin/vendor:/usr/bin/perlbin/core</value>
+    <value type="QString">PKG_CONFIG_PATH=/usr/lib/pkgconfig</value>
+    <value type="QString">PS3=> </value>
+    <value type="QString">PS4=+ </value>
+    <value type="QString">PWD=/home/negativ</value>
+    <value type="QString">QTDIR=/usr/share/qt</value>
+    <value type="QString">QT_PLUGIN_PATH=/home/negativ/.kde4/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
+    <value type="QString">SESSION_MANAGER=local/negativ.zet:@/tmp/.ICE-unix/1931,unix/negativ.zet:/tmp/.ICE-unix/1931</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SHLVL=1</value>
+    <value type="QString">SSH_AGENT_PID=1899</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-EUqYjb1898/agent.1898</value>
+    <value type="QString">USER=negativ</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XCURSOR_THEME=Oxygen_Black</value>
+    <value type="QString">XDG_CACHE_HOME=/home/negativ/.cache</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg</value>
+    <value type="QString">XDG_CONFIG_HOME=/home/negativ/.config</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/local/share</value>
+    <value type="QString">XDG_DATA_HOME=/home/negativ/.local/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=ac4a031932c2736c9a5510c94b17a3d7-1266407417.223754-1509549234</value>
+    <value type="QString">XDM_MANAGED=method=classic</value>
+   </valuelist>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">/home/negativ/Desktop/eiskaltdcpp/eiskaltdcpp/eiskaltdcpp.pro</value>
+    <value type="QString">-spec</value>
+    <value type="QString">linux-g++-64</value>
+    <value type="QString">-r</value>
+    <value type="QString">CONFIG+=debug</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/qmake</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/negativ/Desktop/eiskaltdcpp/eiskaltdcpp</value>
   </valuemap>
  </data>
  <data>
   <variable>buildconfiguration-Debug-buildstep1</variable>
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-9D5Bpg7tDe,guid=0665f0e2f45fec96ff2fdc434b7bd7fa</value>
+    <value type="QString">DERBY_HOME=/opt/java/db</value>
+    <value type="QString">DESKTOP_SESSION=default</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-megM4H/S.gpg-agent:1896:1</value>
+    <value type="QString">GS_LIB=/home/negativ/.fonts</value>
+    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/negativ/.gtkrc-2.0:/home/negativ/.gtkrc-2.0-kde4:/home/negativ/.kde4/share/config/gtkrc-2.0</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/negativ/.gtkrc::/home/negativ/.kde4/share/config/gtkrc</value>
+    <value type="QString">G_BROKEN_FILENAMES=1</value>
+    <value type="QString">HG=/usr/bin/hg</value>
+    <value type="QString">HISTCONTROL=erasedups</value>
+    <value type="QString">HISTSIZE=1000</value>
+    <value type="QString">HOME=/home/negativ</value>
+    <value type="QString">INPUTRC=/etc/inputrc</value>
+    <value type="QString">J2SDKDIR=/opt/java</value>
+    <value type="QString">JAVA_HOME=/opt/java</value>
+    <value type="QString">KDE_FULL_SESSION=true</value>
+    <value type="QString">KDE_MULTIHEAD=false</value>
+    <value type="QString">KDE_SESSION_UID=1000</value>
+    <value type="QString">KDE_SESSION_VERSION=4</value>
+    <value type="QString">LANG=ru_RU.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
+    <value type="QString">LESS=-R</value>
+    <value type="QString">LOGNAME=negativ</value>
+    <value type="QString">MOZ_PLUGIN_PATH=/usr/lib/mozilla/plugins</value>
+    <value type="QString">OOO_FORCE_DESKTOP=gnome</value>
+    <value type="QString">PATH=/usr/bin:/bin:/usr/bin:/sbin:/usr/sbin:/opt/java/bin:/opt/java/jre/bin:/usr/bin/perlbin/site:/usr/bin/perlbin/vendor:/usr/bin/perlbin/core</value>
+    <value type="QString">PKG_CONFIG_PATH=/usr/lib/pkgconfig</value>
+    <value type="QString">PS3=> </value>
+    <value type="QString">PS4=+ </value>
+    <value type="QString">PWD=/home/negativ</value>
+    <value type="QString">QTDIR=/usr/share/qt</value>
+    <value type="QString">QT_PLUGIN_PATH=/home/negativ/.kde4/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
+    <value type="QString">SESSION_MANAGER=local/negativ.zet:@/tmp/.ICE-unix/1931,unix/negativ.zet:/tmp/.ICE-unix/1931</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SHLVL=1</value>
+    <value type="QString">SSH_AGENT_PID=1899</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-EUqYjb1898/agent.1898</value>
+    <value type="QString">USER=negativ</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XCURSOR_THEME=Oxygen_Black</value>
+    <value type="QString">XDG_CACHE_HOME=/home/negativ/.cache</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg</value>
+    <value type="QString">XDG_CONFIG_HOME=/home/negativ/.config</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/local/share</value>
+    <value type="QString">XDG_DATA_HOME=/home/negativ/.local/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=ac4a031932c2736c9a5510c94b17a3d7-1266407417.223754-1509549234</value>
+    <value type="QString">XDM_MANAGED=method=classic</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/negativ/Desktop/eiskaltdcpp/eiskaltdcpp</value>
   </valuemap>
  </data>
  <data>
