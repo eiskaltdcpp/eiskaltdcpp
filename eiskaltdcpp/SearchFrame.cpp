@@ -309,6 +309,7 @@ void SearchFrame::download(const SearchFrame::VarMap &params){
             QueueManager::getInstance()->add(target + subdir, size, TTHValue(params["TTH"].toString().toStdString()), user, hubUrl);
         }
         else{
+            printf("%s %s %s\n", filename.c_str(), hubUrl.c_str(), target.c_str());
             QueueManager::getInstance()->addDirectory(filename, user, hubUrl, target);
         }
     }

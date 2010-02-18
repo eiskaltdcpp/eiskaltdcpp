@@ -419,7 +419,7 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
     if (!target)
         return false;
 
-    if (!item->childCount() == 1){
+    if (item->childCount() != 1){
         beginRemoveRows(createIndexForItem(item), target->row(), target->row());
         {
             int r = target->row();
@@ -428,22 +428,29 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
 
             delete target;
         }
+        endRemoveRows();
     }
     else {
-        DownloadQueueItem *p = item->parent();
-        while (p != rootItem && p->childCount() <= 1 && p->parent()){
-            item = p;
+
+        DownloadQueueItem *p = item;
+        DownloadQueueItem *_t = NULL;
+
+        while (true){
+            if ((p == rootItem) || (p->childCount() > 1) || !p->parent())
+                break;
+
+            beginRemoveRows(createIndexForItem(p->parent()), p->row(), p->row());
+            {
+                printRoot(p, "-");
+                p->parent()->childItems.removeAt(p->row());
+                _t = p;
+            }
+            endRemoveRows();
+
             p = p->parent();
-        }
 
-        beginRemoveRows(createIndexForItem(p), item->row(), item->row());
-        {
-            p->childItems.removeAt(item->row());
-            delete item;
+            delete _t;
         }
-        endRemoveRows();
-
-        reset();
     }
 
     return true;
@@ -492,7 +499,7 @@ void DownloadQueueModel::setSortOrder(Qt::SortOrder o) {
 }
 
 QModelIndex DownloadQueueModel::createIndexForItem(DownloadQueueItem *item){
-    if (!rootItem || !item)
+    if (!rootItem || !item || item == rootItem)
         return QModelIndex();
 
     QStack<DownloadQueueItem*> stack;

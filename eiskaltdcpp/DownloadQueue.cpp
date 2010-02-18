@@ -269,8 +269,6 @@ void DownloadQueue::load(){
 void DownloadQueue::save(){
     QString ustate = treeView_TARGET->header()->saveState().toBase64();
 
-    printf("State: %s\n", ustate.toAscii().constData());
-
     WSSET(WS_DQUEUE_STATE, ustate);
 }
 
@@ -652,9 +650,9 @@ void DownloadQueue::slotContextMenu(const QPoint &){
     }
 }
 
-void DownloadQueue::slotCollapseRow(const QModelIndex &parent){
-    if (parent.isValid())
-        treeView_TARGET->collapse(parent);
+void DownloadQueue::slotCollapseRow(const QModelIndex &row){
+    if (row.isValid())
+        treeView_TARGET->collapse(row);
 }
 
 void DownloadQueue::slotHeaderMenu(const QPoint&){
