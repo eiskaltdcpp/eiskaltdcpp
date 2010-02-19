@@ -683,6 +683,9 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
     if (stripNewLines)
         msg.replace("\n", "");
 
+    if (msg.trimmed().isEmpty())
+        return;
+
     if (!parseForCmd(msg))
         client->hubMessage(Text::toUtf8(msg.toStdString()), thirdPerson);
 }

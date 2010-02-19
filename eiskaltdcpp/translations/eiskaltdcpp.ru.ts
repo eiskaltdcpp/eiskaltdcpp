@@ -808,7 +808,7 @@
     <message>
         <location filename="../MainWindow.cpp" line="389"/>
         <source>Hash progress</source>
-        <translation type="unfinished">Хэширование</translation>
+        <translation>Хэширование</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="391"/>
@@ -1116,7 +1116,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../SearchFrame.cpp" line="1095"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Результаты отсутствуют&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="1104"/>
@@ -1216,7 +1216,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../SearchFrame.cpp" line="164"/>
         <source>User commands</source>
-        <translation type="unfinished">Команды пользователя</translation>
+        <translation>Команды пользователя</translation>
     </message>
 </context>
 <context>
@@ -1752,12 +1752,12 @@ Please check your connection settings</source>
     <message>
         <location filename="../ui/UIAbout.ui" line="14"/>
         <source>About EiskaltDC++</source>
-        <translation type="unfinished">Об EiskaltDC++</translation>
+        <translation>Об EiskaltDC++</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="24"/>
         <source>Authors</source>
-        <translation type="unfinished"></translation>
+        <translation>Авторы</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="30"/>
@@ -1776,7 +1776,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAbout.ui" line="47"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Лицензия</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="53"/>
@@ -2416,7 +2416,7 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3108,7 +3108,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="404"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
-        <translation>Не удалять источник при автоvfnbxtcrjv сбросе, а только отключаться</translation>
+        <translation>Не удалять источник при авто-сбросе, а только отключаться</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="415"/>
