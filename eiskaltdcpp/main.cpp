@@ -70,6 +70,7 @@ int main(int argc, char *argv[])
 
         MainWindow::getInstance()->autoconnect();
         MainWindow::getInstance()->show();
+        MainWindow::getInstance()->parseCmdLine();
 
         ret = app.exec();
 

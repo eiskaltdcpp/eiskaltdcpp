@@ -18,7 +18,8 @@
 using namespace dcpp;
 
 Magnet::Magnet(QWidget *parent) :
-    QDialog(parent)
+    QDialog(parent),
+    t(NULL)
 {
     setupUi(this);
 
@@ -29,6 +30,8 @@ Magnet::Magnet(QWidget *parent) :
 
 Magnet::~Magnet(){
     SearchManager::getInstance()->removeListener(this);
+
+    delete t;
 }
 
 void Magnet::customEvent(QEvent *e){
@@ -133,9 +136,16 @@ void Magnet::download(){
         pushButton_DOWNLOAD->setEnabled(false);
         pushButton_CANCEL->setEnabled(false);
 
+        t = new QTimer();
+        t->setSingleShot(true);
+        t->setInterval(5000);
+        connect(t, SIGNAL(timeout()), this, SLOT(timeout()));
+
         setWindowTitle(tr("Please, wait..."));
 
         SearchManager::getInstance()->addListener(this);
+
+        t->start();
 
         SearchManager::getInstance()->search(client_list, _tq(tth), 0, ftype, sizeMode, token);
     }
@@ -144,6 +154,12 @@ void Magnet::download(){
 
         accept();
     }
+}
+
+void Magnet::timeout(){
+    QMessageBox::information(this, tr(""), tr("Search Manager not ready. Please, try again later."));
+
+    accept();
 }
 
 void Magnet::on(SearchManagerListener::SR, const dcpp::SearchResultPtr &result) throw(){

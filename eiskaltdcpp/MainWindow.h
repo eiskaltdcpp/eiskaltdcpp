@@ -32,6 +32,8 @@
 #include "HistoryInterface.h"
 #include "Func.h"
 
+#include "ui_UIAbout.h"
+
 using namespace dcpp;
 
 class FavoriteHubs;
@@ -49,6 +51,16 @@ public:
     FuncBase *func() { return f; }
 private:
     FuncBase *f;
+};
+
+class About:
+        public QDialog,
+        private Ui::UIAbout
+{
+Q_OBJECT
+
+public:
+    About(QWidget *parent): QDialog(parent){ setupUi(this); }
 };
 
 class MainWindow:
@@ -99,6 +111,9 @@ friend class dcpp::Singleton<MainWindow>;
 
         /** */
         void autoconnect();
+
+        /** */
+        void parseCmdLine();
 
         /** */
         void setUnload(bool b){ isUnload = b; }

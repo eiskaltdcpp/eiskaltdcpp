@@ -249,4 +249,5 @@ FORMS = ui/HubFrame.ui \
     ui/UIAntiSpam.ui \
     ui/UIIPFilter.ui \
     ui/UIFavoriteUsers.ui \
-    ui/UISettingsGUI.ui
+    ui/UISettingsGUI.ui \
+    ui/UIAbout.ui

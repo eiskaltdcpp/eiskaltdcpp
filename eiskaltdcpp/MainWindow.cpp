@@ -29,6 +29,7 @@
 #include "AntiSpamFrame.h"
 #include "IPFilterFrame.h"
 #include "ToolBar.h"
+#include "Magnet.h"
 
 #include "UPnPMapper.h"
 #include "WulforSettings.h"
@@ -444,11 +445,18 @@ void MainWindow::initToolbar(){
 }
 
 void MainWindow::newHubFrame(QString address, QString enc){
-    //TODO: check if frame for address already exists
     if (address.isEmpty())
         return;
 
-    HubFrame *fr = new HubFrame(NULL, address, enc);
+    HubFrame *fr = NULL;
+
+    if (fr = HubManager::getInstance()->getHub(address)){
+        mapWidgetOnArena(fr);
+
+        return;
+    }
+
+    fr = new HubFrame(NULL, address, enc);
     fr->setAttribute(Qt::WA_DeleteOnClose);
 
     addArenaWidget(fr);
@@ -486,6 +494,25 @@ void MainWindow::autoconnect(){
             QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry->getEncoding()));
 
             newHubFrame(QString::fromStdString(entry->getServer()), encoding);
+        }
+    }
+}
+
+void MainWindow::parseCmdLine(){
+    QStringList args = qApp->arguments();
+
+    foreach (QString arg, args){
+        if (arg.startsWith("magnet:?xt=urn:tree:tiger:")){
+            Magnet m(this);
+            m.setLink(arg);
+
+            m.exec();
+        }
+        else if (arg.startsWith("dchub://")){
+            newHubFrame(arg, "");
+        }
+        else if (arg.startsWith("adc://") || arg.startsWith("adcs://")){
+            newHubFrame(arg, "UTF-8");
         }
     }
 }
@@ -713,6 +740,9 @@ void MainWindow::slotExit(){
 }
 
 void MainWindow::slotAboutClient(){
+    About a(this);
+
+    a.exec();
 }
 
 void MainWindow::slotAboutQt(){

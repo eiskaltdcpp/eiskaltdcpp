@@ -86,7 +86,8 @@ set (MOC_HDRS Antispam.h
             WulforManager.h
             WulforSettings.h
             WulforUtil.h )
-set (UI_FORMS ui/UIAntiSpam.ui
+set (UI_FORMS ui/UIAbout.ui
+            ui/UIAntiSpam.ui
             ui/HubFrame.ui
             ui/PrivateMessage.ui
             ui/UIDownloadQueue.ui
