@@ -715,7 +715,10 @@ bool HubFrame::parseForCmd(QString line){
         else {
             Util::setAway(true);
             Util::setManualAway(true);
-            Util::setAwayMessage(param.toStdString());
+
+            line.remove(0, 6);
+
+            Util::setAwayMessage(line.toStdString());
 
             addStatus(tr("Away mode on: ") + QString::fromStdString(Util::getAwayMessage()));
         }
@@ -743,13 +746,30 @@ bool HubFrame::parseForCmd(QString line){
         grantSlot(model->CIDforNick(param));
     }
     else if (cmd == "/me" && !emptyParam){
-        if (param.endsWith("\n"))//remove extra \n char
-            param = param.left(param.lastIndexOf("\n"));
+        if (line.endsWith("\n"))//remove extra \n char
+            line = line.left(line.lastIndexOf("\n"));
 
-        sendChat(param, true, false);
+        line.remove(0, 4);
+
+        sendChat(line, true, false);
     }
     else if (cmd == "/pm" && !emptyParam){
         addPM(model->CIDforNick(param), "");
+    }
+    else if (cmd == "/help" || cmd == "/?" || cmd == "/h"){
+        QString out = "\n" +
+                      tr("/away - set away-mode on/off\n"
+                         "/back - set away-mode off\n"
+                         "/browse <nick> - browse user files\n"
+                         "/clear - clear chat window\n"
+                         "/close - close this hub\n"
+                         "/fav - add this hub to favorites\n"
+                         "/grant <nick> - grant extra slot to user\n"
+                         "/help, /?, /h - show this help\n"
+                         "/me - say a third person\n"
+                         "/pm <nick> - begin private chat with user\n");
+
+        addStatus(out);
     }
     else
         return false;
@@ -997,7 +1017,9 @@ void HubFrame::newMsg(VarMap map){
     if (message.indexOf(_q(client->getMyNick())) >= 0)
         msg_color = WS_CHAT_SAY_NICK;
 
-    nick = map["3RD"].toBool()? ("* " + nick + " ") : ("<" + nick + "> ");
+    bool third = map["3RD"].toBool();
+
+    nick = third? ("* " + nick + " ") : ("<" + nick + "> ");
 
     WulforUtil::getInstance()->textToHtml(message);
     WulforUtil::getInstance()->textToHtml(nick);

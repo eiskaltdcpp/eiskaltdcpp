@@ -1,6 +1,7 @@
 #include "ToolBar.h"
 
 #include <QMenu>
+#include <QMouseEvent>
 
 #include "ArenaWidget.h"
 #include "MainWindow.h"
@@ -14,12 +15,30 @@ ToolBar::ToolBar(QWidget *parent):
 ToolBar::~ToolBar(){
 }
 
+bool ToolBar::eventFilter(QObject *obj, QEvent *e){
+    if (e->type() == QEvent::MouseButtonRelease){
+        QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
+
+        if (reinterpret_cast<QTabBar*>(obj) == tabbar && m_e->button() == Qt::MidButton){
+            QPoint p = tabbar->mapFromGlobal(QCursor::pos());
+            int index = tabbar->tabAt(p);
+
+            if (index >= 0)
+                slotClose(index);
+        }
+    }
+
+    return QToolBar::eventFilter(obj, e);
+}
+
 void ToolBar::initTabs(){
     tabbar = new QTabBar(this);
     tabbar->setTabsClosable(true);
     tabbar->setMovable(false);
     tabbar->setContextMenuPolicy(Qt::CustomContextMenu);
     tabbar->setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
+
+    tabbar->installEventFilter(this);
 
     connect(tabbar, SIGNAL(currentChanged(int)), this, SLOT(slotIndexChanged(int)));
     connect(tabbar, SIGNAL(tabCloseRequested(int)), this, SLOT(slotClose(int)));

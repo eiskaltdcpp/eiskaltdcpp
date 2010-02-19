@@ -3,6 +3,7 @@
 
 #include <QToolBar>
 #include <QTabBar>
+#include <QEvent>
 
 #include "ArenaWidget.h"
 
@@ -27,6 +28,9 @@ public:
 
     bool hasWidget(ArenaWidget*);
     void mapWidget(ArenaWidget*);
+
+protected:
+    virtual bool eventFilter(QObject *, QEvent *);
 
 public Q_SLOTS:
     void mapped(ArenaWidget*);

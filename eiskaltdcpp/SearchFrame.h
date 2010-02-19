@@ -71,20 +71,25 @@ class SearchFrame : public QWidget,
             GrantExtraSlot,
             RemoveFromQueue,
             Remove,
+            UserCommands,
             None
         };
 
-        Action exec();
+        Action exec(QStringList);
+        QMenu *buildUserCmdMenu(QList<QString> hubs);
+        QMap<QString, QString> ucParams;
 
     private:
         Menu();
         virtual ~Menu();
 
         QMap<QAction*, Action> actions;
+        QList<QAction*> action_list;
+
         QMenu *menu;
     };
 
-    class HubInfo : public FastAlloc<HubInfo> {
+    class HubInfo{
 
     public:
         HubInfo(Client* client, QListWidget *list):

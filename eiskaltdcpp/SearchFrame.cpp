@@ -20,9 +20,11 @@
 
 #include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
+#include "dcpp/FavoriteManager.h"
 #include "dcpp/StringTokenizer.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Encoder.h"
+#include "dcpp/UserCommand.h"
 
 #include <QtDebug>
 
@@ -33,47 +35,47 @@ SearchFrame::Menu::Menu(){
 
     menu = new QMenu();
 
-    QAction *down       = new QAction(tr("Download"), menu);
+    QAction *down       = new QAction(tr("Download"), NULL);
     down->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
-    QAction *down_to    = new QAction(tr("Download to"), menu);
+    QAction *down_to    = new QAction(tr("Download to"), NULL);
     down_to->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD_AS));
 
-    QAction *down_wh    = new QAction(tr("Download Whole Directory"), menu);
+    QAction *down_wh    = new QAction(tr("Download Whole Directory"), NULL);
     down_wh->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
-    QAction *down_wh_to = new QAction(tr("Download Whole Directory to"), menu);
+    QAction *down_wh_to = new QAction(tr("Download Whole Directory to"), NULL);
     down_wh_to->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD_AS));
 
     QAction *sep        = new QAction(menu);
     sep->setSeparator(true);
 
-    QAction *find_tth   = new QAction(tr("Search TTH"), menu);
+    QAction *find_tth   = new QAction(tr("Search TTH"), NULL);
     find_tth->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
 
-    QAction *magnet     = new QAction(tr("Copy magnet"), menu);
+    QAction *magnet     = new QAction(tr("Copy magnet"), NULL);
     magnet->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
 
-    QAction *browse     = new QAction(tr("Browse files"), menu);
+    QAction *browse     = new QAction(tr("Browse files"), NULL);
     browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE_OPEN));
 
-    QAction *match      = new QAction(tr("Match Queue"), menu);
+    QAction *match      = new QAction(tr("Match Queue"), NULL);
 
-    QAction *send_pm    = new QAction(tr("Send Private Message"), menu);
+    QAction *send_pm    = new QAction(tr("Send Private Message"), NULL);
     send_pm->setIcon(WU->getPixmap(WulforUtil::eiMESSAGE));
 
-    QAction *add_to_fav = new QAction(tr("Add to favorites"), menu);
+    QAction *add_to_fav = new QAction(tr("Add to favorites"), NULL);
     add_to_fav->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
 
-    QAction *grant      = new QAction(tr("Grant extra slot"), menu);
+    QAction *grant      = new QAction(tr("Grant extra slot"), NULL);
 
     QAction *sep1       = new QAction(menu);
     sep1->setSeparator(true);
 
-    QAction *rem_queue  = new QAction(tr("Remove from Queue"), menu);
+    QAction *rem_queue  = new QAction(tr("Remove from Queue"), NULL);
     rem_queue->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
-    QAction *rem        = new QAction(tr("Remove"), menu);
+    QAction *rem        = new QAction(tr("Remove"), NULL);
     rem->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
     actions.insert(down, Download);
@@ -90,35 +92,135 @@ SearchFrame::Menu::Menu(){
     actions.insert(rem_queue, RemoveFromQueue);
     actions.insert(rem, Remove);
 
-    menu->addActions(QList<QAction*>() << down
-                                       << down_to
-                                       << down_wh
-                                       << down_wh_to
-                                       << sep
-                                       << find_tth
-                                       << magnet
-                                       << browse
-                                       << match
-                                       << send_pm
-                                       << add_to_fav
-                                       << grant
-                                       << sep1
-                                       << rem_queue
-                                       << rem
-                                       );
+    action_list   << down
+                  << down_to
+                  << down_wh
+                  << down_wh_to
+                  << sep
+                  << find_tth
+                  << magnet
+                  << browse
+                  << match
+                  << send_pm
+                  << add_to_fav
+                  << grant
+                  << sep1
+                  << rem_queue
+                  << rem;
 }
 
 SearchFrame::Menu::~Menu(){
+    qDeleteAll(action_list);
+
     delete menu;
 }
 
-SearchFrame::Menu::Action SearchFrame::Menu::exec(){
+SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList()){
+    foreach(QAction *a, action_list)
+        a->setParent(NULL);
+
+    menu->clear();
+
+    menu->addActions(action_list);
+
+    QMenu *userm = buildUserCmdMenu(list);
+
+    if (userm)
+        menu->addMenu(userm);
+
     QAction *ret = menu->exec(QCursor::pos());
 
-    if (actions.contains(ret))
+    if (actions.contains(ret)){
+        delete userm;
+
         return actions.value(ret);
-    else
+    }
+    else if (ret){
+        ucParams["LAST"] = ret->toolTip();
+        ucParams["NAME"] = ret->statusTip();
+        ucParams["HOST"] =  ret->data().toString();
+
+        delete userm;
+
+        return UserCommands;
+    }
+    else{
+        delete userm;
+
         return None;
+    }
+}
+
+QMenu *SearchFrame::Menu::buildUserCmdMenu(QList<QString> hub_list){
+    if (hub_list.empty())
+        return NULL;
+
+    dcpp::StringList hubs;
+    QMap<QString, QMenu*> registered_menus;
+
+    foreach (QString s, hub_list)
+        hubs.push_back(s.toStdString());
+
+    QMenu *usr_menu = new QMenu(tr("User commands"));
+    UserCommand::List commands = FavoriteManager::getInstance()->getUserCommands(UserCommand::CONTEXT_SEARCH, hubs);
+    bool separator = false;
+
+    for (UserCommand::List::iterator i = commands.begin(); i != commands.end(); ++i){
+        UserCommand& uc = *i;
+
+        // Add line separator only if it's not a duplicate
+        if (uc.getType() == UserCommand::TYPE_SEPARATOR && !separator){
+            QAction *sep = new QAction(usr_menu);
+            sep->setSeparator(true);
+
+            usr_menu->addAction(sep);
+
+            separator = true;
+        }
+        else if (uc.getType() == UserCommand::TYPE_RAW || uc.getType() == UserCommand::TYPE_RAW_ONCE){
+            separator = false;
+
+            QString raw_name = _q(uc.getName());
+            QAction *action = NULL;
+
+            if (raw_name.contains("\\")){
+                QStringList submenus = raw_name.split("\\", QString::SkipEmptyParts);
+                QString name = submenus.takeLast();
+                QString key = "";
+                QMenu *parent = usr_menu;
+                QMenu *submenu;
+
+                foreach (QString s, submenus){
+                    key += s + "\\";
+
+                    if (registered_menus.contains(key))
+                        parent = registered_menus[key];
+                    else {
+                        submenu = new QMenu(s, parent);
+                        parent->addMenu(submenu);
+
+                        registered_menus.insert(key, submenu);
+
+                        parent = submenu;
+                    }
+                }
+
+                action = new QAction(name, parent);
+                parent->addAction(action);
+            }
+            else{
+                action = new QAction(_q(uc.getName()), usr_menu);
+                usr_menu->addAction(action);
+            }
+
+            action->setToolTip(_q(uc.getCommand()));
+            action->setStatusTip(_q(uc.getName()));
+            action->setData(_q(uc.getHub()));
+
+        }
+    }
+
+    return usr_menu;
 }
 
 SearchFrame::SearchFrame(QWidget *parent):
@@ -678,7 +780,17 @@ void SearchFrame::slotContextMenu(const QPoint &){
     if (!Menu::getInstance())
         Menu::newInstance();
 
-    Menu::Action act = Menu::getInstance()->exec();
+    QStringList hubs;
+
+    foreach (QModelIndex i, list){
+        SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+        QString host = item->data(COLUMN_SF_HOST).toString();
+
+        if (!hubs.contains(host))
+            hubs.push_back(host);
+    }
+
+    Menu::Action act = Menu::getInstance()->exec(hubs);
 
     switch (act){
         case Menu::None:
@@ -892,6 +1004,47 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 model->repaint();
             }
              
+            break;
+        }
+        case Menu::UserCommands:
+        {
+            foreach (QModelIndex i, list){
+               SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+               QString cmd_name = Menu::getInstance()->ucParams["NAME"];
+               QString hub      = Menu::getInstance()->ucParams["HOST"];
+               QString last_user_cmd = Menu::getInstance()->ucParams["LAST"];
+
+               int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
+               UserCommand uc;
+
+               if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
+                   break;
+
+               StringMap params;
+
+               if (WulforUtil::getInstance()->getUserCommandParams(last_user_cmd, params)){
+                   UserPtr user = ClientManager::getInstance()->findUser(CID(item->cid.toStdString()));
+
+                   if (user && user->isOnline()){
+                       params["fileFN"]     = _tq(item->data(COLUMN_SF_PATH).toString() + item->data(COLUMN_SF_FILENAME).toString());
+                       params["fileSI"]     = _tq(item->data(COLUMN_SF_ESIZE).toString());
+                       params["fileSIshort"]= _tq(item->data(COLUMN_SF_SIZE).toString());
+
+                       if(!item->isDir)
+                           params["fileTR"] = _tq(item->data(COLUMN_SF_TTH).toString());
+
+                       // compatibility with 0.674 and earlier
+                       params["file"] = params["fileFN"];
+                       params["filesize"] = params["fileSI"];
+                       params["filesizeshort"] = params["fileSIshort"];
+                       params["tth"] = params["fileTR"];
+
+                       ClientManager::getInstance()->userCommand(user, uc, params, true);
+                   }
+
+                }
+            }
+
             break;
         }
         default:
