@@ -220,7 +220,7 @@ bool SettingsConnection::validateIp(QString &ip){
     if (l.size() != 4)
         return false;
 
-    QIntValidator v(1, 255, this);
+    QIntValidator v(0, 255, this);
 
     bool valid = true;
     int pos = 0;

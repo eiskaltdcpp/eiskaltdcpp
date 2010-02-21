@@ -56,7 +56,7 @@ public:
     GETSET(int, maxHubs, MaxHubs);
     GETSET(int, maxUsers, MaxUsers);
 };
-const string DEF_FAKE_ID = "FakeDC V:1.0";
+const string DEF_FAKE_ID = "EiskaltDC++ V:2.0";
 class FavoriteHubEntry {
 public:
     FavoriteHubEntry() throw() : connect(false), encoding(Text::systemCharset), overrideId(0), clientId(DEF_FAKE_ID) { }
@@ -64,7 +64,9 @@ public:
     description(rhs.getDescription()), connect(false), encoding(Text::systemCharset), overrideId(0), clientId(DEF_FAKE_ID) { }
     FavoriteHubEntry(const FavoriteHubEntry& rhs) throw() : userdescription(rhs.userdescription), name(rhs.getName()),
     server(rhs.getServer()), description(rhs.getDescription()), password(rhs.getPassword()),
-    connect(rhs.getConnect()), encoding(rhs.getEncoding()), nick(rhs.nick), overrideId(rhs.overrideId), clientId(rhs.clientId){ }
+    connect(rhs.getConnect()), encoding(rhs.getEncoding()), nick(rhs.nick), overrideId(rhs.overrideId), clientId(rhs.clientId),
+    externalIP("")
+    { }
     ~FavoriteHubEntry() throw() { }
 
     const string& getNick(bool useDefault = true) const {
@@ -82,6 +84,7 @@ public:
     GETSET(string, encoding, Encoding);
     GETSET(string, clientId, ClientId);
     GETSET(bool, overrideId, OverrideId);
+    GETSET(string, externalIP, ExternalIP);
 private:
     string nick;
 };

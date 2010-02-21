@@ -34,13 +34,14 @@ bool ToolBar::eventFilter(QObject *obj, QEvent *e){
 void ToolBar::initTabs(){
     tabbar = new QTabBar(this);
     tabbar->setTabsClosable(true);
-    tabbar->setMovable(false);
+    tabbar->setMovable(true);
     tabbar->setContextMenuPolicy(Qt::CustomContextMenu);
     tabbar->setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
 
     tabbar->installEventFilter(this);
 
     connect(tabbar, SIGNAL(currentChanged(int)), this, SLOT(slotIndexChanged(int)));
+    connect(tabbar, SIGNAL(tabMoved(int,int)), this, SLOT(slotTabMoved(int,int)));
     connect(tabbar, SIGNAL(tabCloseRequested(int)), this, SLOT(slotClose(int)));
     connect(tabbar, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
 
@@ -91,6 +92,30 @@ void ToolBar::slotIndexChanged(int index){
         return;
 
     MainWindow::getInstance()->mapWidgetOnArena(awgt);
+}
+
+void ToolBar::slotTabMoved(int from, int to){
+    ArenaWidget *from_wgt = NULL;
+    ArenaWidget *to_wgt   = NULL;
+
+    WidgetMap::iterator it = map.begin();
+
+    for (; it != map.end(); ++it){
+        if (it.value() == from){
+            from_wgt = it.key();
+        }
+        else if (it.value() == to)
+            to_wgt = it.key();
+
+        if (to_wgt && from_wgt){
+            map[to_wgt] = from;
+            map[from_wgt] = to;
+
+            slotIndexChanged(tabbar->currentIndex());
+
+            return;
+        }
+    }
 }
 
 void ToolBar::slotClose(int index){

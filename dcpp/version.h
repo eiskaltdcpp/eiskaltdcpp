@@ -16,7 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#define APPNAME "EiskaltDC"
+#define APPNAME "EiskaltDC++"
 #define VERSIONSTRING "1.90-alpha"
 #define VERSIONFLOAT 1.90
 #define DCVERSIONSTRING "0.75"

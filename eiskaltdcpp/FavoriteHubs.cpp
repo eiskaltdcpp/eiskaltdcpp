@@ -80,13 +80,13 @@ void FavoriteHubs::init(){
         QList<QVariant> data;
 
         data << entry->getConnect()
-             << QString::fromStdString(entry->getName())
-             << QString::fromStdString(entry->getDescription())
-             << QString::fromStdString(entry->getServer())
-             << QString::fromStdString(entry->getNick())
-             << QString::fromStdString(entry->getPassword())
-             << QString::fromStdString(entry->getUserDescription())
-             << WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry->getEncoding()));
+             << _q(entry->getName())
+             << _q(entry->getDescription())
+             << _q(entry->getServer())
+             << _q(entry->getNick())
+             << _q(entry->getPassword())
+             << _q(entry->getUserDescription())
+             << WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
 
         model->addResult(data);
     }
@@ -107,6 +107,22 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor){
     editor.comboBox_ENC->addItems(WulforUtil::getInstance()->encodings());
 }
 
+static bool isValidIP(const QString &ip){
+    if (ip.isEmpty())
+        return false;
+
+    QStringList l = ip.split(".", QString::SkipEmptyParts);
+    QIntValidator v(0, 255, NULL);
+
+    bool valid = true;
+    int pos = 0;
+
+    foreach (QString s, l)
+        valid = valid && (v.validate(s, pos) == QValidator::Acceptable);
+
+    return valid;
+}
+
 void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     initHubEditor(editor);
 
@@ -125,20 +141,39 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     editor.lineEdit_NICK->setText(map["NICK"].toString());
     editor.lineEdit_PASSWORD->setText(map["PASS"].toString());
     editor.lineEdit_USERDESC->setText(map["UDESC"].toString());
+    editor.lineEdit_IP->setText(map["IP"].toString());
+
+    editor.checkBox_IP->setChecked(isValidIP(map["IP"].toString()));
+
+    QString tag = map["TAG"].toString();
+    QStringList tags;
+    for (int i = 0; i < editor.comboBox_CID->count(); i++)
+        tags.push_back(editor.comboBox_CID->itemText(i));
+
+    if (!tag.isEmpty() || tags.indexOf(tag) > 0){
+        editor.checkBox_CID->setChecked(true);
+        editor.comboBox_CID->setCurrentIndex(tags.indexOf(tag));
+    }
+    else {
+        editor.checkBox_CID->setChecked(false);
+        editor.comboBox_CID->setCurrentIndex(0);
+    }
 }
 
 void FavoriteHubs::getParams(const FavoriteHubEntry *entry, StrMap &map){
     if (!entry)
         return;
 
-    map["NAME"]     = QString::fromStdString(entry->getName());
-    map["ADDR"]     = QString::fromStdString(entry->getServer());
-    map["DESC"]     = QString::fromStdString(entry->getDescription());
+    map["NAME"]     = _q(entry->getName());
+    map["ADDR"]     = _q(entry->getServer());
+    map["DESC"]     = _q(entry->getDescription());
     map["AUTO"]     = entry->getConnect();
-    map["NICK"]     = QString::fromStdString(entry->getNick());
-    map["PASS"]     = QString::fromStdString(entry->getPassword());
-    map["ENC"]      = WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry->getEncoding()));
-    map["UDESC"]    = QString::fromStdString(entry->getUserDescription());
+    map["NICK"]     = _q(entry->getNick());
+    map["PASS"]     = _q(entry->getPassword());
+    map["ENC"]      = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
+    map["UDESC"]    = _q(entry->getUserDescription());
+    map["TAG"]      = _q(entry->getClientId());
+    map["IP"]       = _q(entry->getExternalIP());
 }
 
 void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
@@ -150,6 +185,16 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
     map["AUTO"]     = editor.checkBox_AUTOCONNECT->isChecked();
     map["NICK"]     = editor.lineEdit_NICK->text();
     map["PASS"]     = editor.lineEdit_PASSWORD->text();
+
+    if (isValidIP(editor.lineEdit_IP->text()) && editor.checkBox_IP->isChecked())
+        map["IP"] = editor.lineEdit_IP->text();
+    else
+        map["IP"] = "";
+
+    if (editor.comboBox_CID->currentIndex() != 0 && editor.checkBox_CID->isChecked())
+        map["TAG"] = editor.comboBox_CID->currentText();
+    else
+        map["TAG"] = editor.comboBox_CID->itemText(0);
 
     if (editor.comboBox_ENC->currentText() != tr("System default")){
         QString enc = WU->qtEnc2DcEnc(editor.comboBox_ENC->currentText());
@@ -172,6 +217,9 @@ void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
     entry.setPassword(map["PASS"].toString().toStdString());
     entry.setUserDescription(map["UDESC"].toString().toStdString());
     entry.setDescription(map["DESC"].toString().toStdString());
+    entry.setExternalIP(map["IP"].toString().toStdString());
+    entry.setClientId(map["TAG"].toString().toStdString());
+    entry.setOverrideId(map["TAG"].toString() != "EiskaltDC++ V:2.0");
 }
 
 void FavoriteHubs::updateItem(FavoriteHubItem *item, StrMap &map){
@@ -276,7 +324,7 @@ void FavoriteHubs::slotContexMenu(const QPoint &){
             FavoriteManager::getInstance()->removeFavorite(entry);
         }
         else if (res == conn && entry){
-            QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry->getEncoding()));
+            QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
            MainWindow::getInstance()->newHubFrame(address, encoding);
         }
         else if (res == add_new){
@@ -324,19 +372,19 @@ void FavoriteHubs::on(FavoriteAdded, const FavoriteHubEntryPtr entry) throw(){
     WulforUtil *WU = WulforUtil::getInstance();
 
     data << entry->getConnect()
-         << QString::fromStdString(entry->getName())
-         << QString::fromStdString(entry->getDescription())
-         << QString::fromStdString(entry->getServer())
-         << QString::fromStdString(entry->getNick())
-         << QString::fromStdString(entry->getPassword())
-         << QString::fromStdString(entry->getUserDescription())
-         << WU->dcEnc2QtEnc(QString::fromStdString(entry->getEncoding()));
+         << _q(entry->getName())
+         << _q(entry->getDescription())
+         << _q(entry->getServer())
+         << _q(entry->getNick())
+         << _q(entry->getPassword())
+         << _q(entry->getUserDescription())
+         << WU->dcEnc2QtEnc(_q(entry->getEncoding()));
 
    model->addResult(data);
 }
 
 void FavoriteHubs::on(FavoriteRemoved, const FavoriteHubEntryPtr entry) throw(){
-    QString server = QString::fromStdString(entry->getServer());
+    QString server = _q(entry->getServer());
     FavoriteHubItem *item = NULL;
 
     QList<FavoriteHubItem*> list = model->getItems();

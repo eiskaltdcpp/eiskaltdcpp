@@ -6,6 +6,8 @@
 #include <QCloseEvent>
 #include <QDir>
 #include <QComboBox>
+#include <QItemSelectionModel>
+#include <QDesktopServices>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -47,6 +49,7 @@ public:
 public slots:
     virtual void slotTypeChanged(int) = 0;
     virtual void slotClear() = 0;
+    virtual void slotContextMenu() = 0;
 };
 
 template <bool isUpload>
@@ -117,8 +120,11 @@ private:
 
         setUnload(false);
 
+        treeView->setContextMenuPolicy(Qt::CustomContextMenu);
+
         QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
         QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
+        QObject::connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
 
         slotTypeChanged(0);
     }
@@ -204,6 +210,78 @@ private:
     void slotClear(){
         model->clearModel();
         FinishedManager::getInstance()->removeAll(isUpload);
+    }
+
+    void slotContextMenu(){
+        static WulforUtil *WU = WulforUtil::getInstance();
+
+        QItemSelectionModel *s_model = treeView->selectionModel();
+        QModelIndexList indexes = s_model->selectedRows(0);
+
+        if (indexes.size() < 1)
+            return;
+
+        QStringList files;
+
+        if (comboBox->currentIndex() == 0){
+            FinishedTransfersItem *item = NULL;
+            QString file;
+
+            foreach (QModelIndex i, indexes){
+                item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
+                file = item->data(COLUMN_FINISHED_TARGET).toString();
+
+                if (!file.isEmpty())
+                    files.push_back(file);
+            }
+        }
+        else {
+            FinishedTransfersItem *item = NULL;
+            QString file_list;
+
+            foreach (QModelIndex i, indexes){
+                item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
+                file_list = item->data(COLUMN_FINISHED_PATH).toString();
+
+                if (!file_list.isEmpty())
+                    files.append(file_list.split("; ", QString::SkipEmptyParts));
+            }
+        }
+
+        QMenu *m = new QMenu();
+        QAction *open_f   = new QAction(tr("Open file"), m);
+        QAction *open_dir = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE_OPEN), tr("Open directory"), m);
+
+        m->addAction(open_f);
+        m->addAction(open_dir);
+
+        QAction *ret = m->exec(QCursor::pos());
+
+        delete m;
+
+        if (ret == open_f){
+            foreach (QString f, files){
+                if (f.startsWith("/"))
+                    f = "file://" + f;
+                else
+                    f = "file:///" + f;
+
+                QDesktopServices::openUrl(f);
+            }
+        }
+        else if (ret == open_dir){
+            foreach (QString f, files){
+                f = f.left(f.lastIndexOf(QDir::separator()));
+
+                if (f.startsWith("/"))
+                    f = "file://" + f;
+                else
+                    f = "file:///" + f;
+
+                QDesktopServices::openUrl(f);
+            }
+        }
+
     }
 
     void on(FinishedManagerListener::AddedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) throw(){

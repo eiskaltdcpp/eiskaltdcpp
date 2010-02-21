@@ -167,6 +167,7 @@ private:
     string ip;
     string localIp;
     uint16_t port;
+    string externalIP;
     char separator;
     bool secure;
     CountType countType;

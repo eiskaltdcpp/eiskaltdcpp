@@ -37,6 +37,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void slotIndexChanged(int);
+    void slotTabMoved(int, int);
     void slotClose(int);
     void slotContextMenu(const QPoint&);
 

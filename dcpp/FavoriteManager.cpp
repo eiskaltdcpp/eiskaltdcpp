@@ -377,6 +377,7 @@ void FavoriteManager::save() {
             xml.addChildAttrib("UserDescription", (*i)->getUserDescription());
             xml.addChildAttrib("Encoding", (*i)->getEncoding());
             xml.addChildAttrib("ClientId", (*i)->getClientId()); // not tested feature
+            xml.addChildAttrib("ExternalIP", (*i)->getExternalIP()); // not tested feature
             //xml.addChildAttrib("StealthMode", (*i)->getStealth());// not tested feature
             xml.addChildAttrib("OverrideId", Util::toString((*i)->getOverrideId()));// not tested feature
         }
@@ -475,6 +476,7 @@ void FavoriteManager::load(SimpleXML& aXml) {
             e->setServer(aXml.getChildAttrib("Server"));
             e->setUserDescription(aXml.getChildAttrib("UserDescription"));
             e->setEncoding(aXml.getChildAttrib("Encoding"));
+            e->setExternalIP(aXml.getChildAttrib("ExternalIP"));
             e->setClientId(aXml.getChildAttrib("ClientId")); // not tested feature
             //e->setStealth(aXml.getBoolChildAttrib("StealthMode")); // not tested feature
             e->setOverrideId(Util::toInt(aXml.getChildAttrib("OverrideId")) != 0); // not tested feature

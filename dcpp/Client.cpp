@@ -82,10 +82,13 @@ void Client::reloadSettings(bool updateNick) {
         } else {
             setCurrentDescription(SETTING(DESCRIPTION));
         }
+
         if(!hub->getPassword().empty())
             setPassword(hub->getPassword());
         if (hub->getOverrideId())
             ClientId = hub->getClientId(); // not tested feature
+        if (!hub->getExternalIP().empty())
+            externalIP = hub->getExternalIP();
     } else {
         if(updateNick) {
             setCurrentNick(checkNick(SETTING(NICK)));
@@ -195,6 +198,11 @@ void Client::updateCounts(bool aRemove) {
 }
 
 string Client::getLocalIp() const {
+    printf("%s\n", externalIP.c_str());
+
+    if (!externalIP.empty())
+        return Socket::resolve(externalIP);
+
     // Best case - the server detected it
     if((!BOOLSETTING(NO_IP_OVERRIDE) || SETTING(EXTERNAL_IP).empty()) && !getMyIdentity().getIp().empty()) {
         return getMyIdentity().getIp();
