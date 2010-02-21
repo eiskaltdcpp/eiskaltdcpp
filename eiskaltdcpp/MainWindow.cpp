@@ -288,7 +288,7 @@ void MainWindow::initActions(){
         connect(fileFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotFileFavoriteHubs()));
 
         fileFavoriteUsers = new QAction("", this);
-        fileFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiUSERS_32x32));
+        fileFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
         connect(fileFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotFileFavoriteUsers()));
 
         fileAntiSpam = new QAction("", this);

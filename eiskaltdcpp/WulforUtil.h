@@ -54,13 +54,6 @@ public:
         eiEXIT,
         eiFILECLOSE,
         eiFILEFIND,
-        eiFILETYPE_APPLICATION,
-        eiFILETYPE_ARCHIVE,
-        eiFILETYPE_DOCUMENT,
-        eiFILETYPE_MP3,
-        eiFILETYPE_PICTURE,
-        eiFILETYPE_UNKNOWN,
-        eiFILETYPE_VIDEO,
         eiFILTER,
         eiFOLDER_BLUE,
         eiFOLDER_BLUE_OPEN,
@@ -77,9 +70,19 @@ public:
         eiTRANSFER,
         eiUP,
         eiUSERS,
-        eiUSERS_32x32,
         eiZOOM_IN,
-        eiZOOM_OUT
+        eiZOOM_OUT,
+
+        eiFILETYPE_APPLICATION,
+        eiFILETYPE_ARCHIVE,
+        eiFILETYPE_DOCUMENT,
+        eiFILETYPE_MP3,
+        eiFILETYPE_PICTURE,
+        eiFILETYPE_UNKNOWN,
+        eiFILETYPE_VIDEO,
+
+        eiFLAG_GB,
+        eiFLAG_RU
     };
 
     typedef QMap<enum Icons, QPixmap> PixmapMap;

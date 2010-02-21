@@ -238,7 +238,6 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiTRANSFER] = loadPixmap("transfer.png");
     m_PixmapMap[eiUP] = loadPixmap("up.png");
     m_PixmapMap[eiUSERS] = loadPixmap("users.png");
-    m_PixmapMap[eiUSERS_32x32] = loadPixmap("users_32x32.png");
     m_PixmapMap[eiZOOM_IN] = loadPixmap("zoom-in.png");
     m_PixmapMap[eiZOOM_OUT] = loadPixmap("zoom-out.png");
 
@@ -249,6 +248,9 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiFILETYPE_PICTURE] = loadPixmap("filetype-picture.png");
     m_PixmapMap[eiFILETYPE_UNKNOWN] = loadPixmap("filetype-unknown.png");
     m_PixmapMap[eiFILETYPE_VIDEO] = loadPixmap("filetype-video.png");
+
+    m_PixmapMap[eiFLAG_GB] = loadPixmap("flag_gb.png");
+    m_PixmapMap[eiFLAG_RU] = loadPixmap("flag_ru.png");
 
     return !m_bError;
 }
