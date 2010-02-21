@@ -79,9 +79,9 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
                 break;
 
             if (item->download)
-                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWN);
+                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWN).scaled(18, 18);
             else
-                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUP);
+                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUP).scaled(18, 18);
         }
         case Qt::DisplayRole:
         {

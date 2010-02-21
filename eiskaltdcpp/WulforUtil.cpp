@@ -265,7 +265,7 @@ QPixmap WulforUtil::loadPixmap(const QString &file){
     if (p.load(f))
         return p;
 
-    printf("DCIconLoader::LoadPixmap: Can't load '%s'\n", file.toAscii().constData());
+    printf("IconLoader::LoadPixmap: Can't load '%s'\n", file.toAscii().constData());
 
     m_bError = true;
 
