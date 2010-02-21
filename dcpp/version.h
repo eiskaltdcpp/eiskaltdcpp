@@ -19,6 +19,7 @@
 #define APPNAME "EiskaltDC"
 #define VERSIONSTRING "1.90-alpha"
 #define VERSIONFLOAT 1.90
+#define DCVERSIONSTRING "0.75"
 
 namespace dcpp {
 extern const string fullVersionString;

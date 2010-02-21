@@ -23,64 +23,67 @@ namespace dcpp {
 
 class HubEntry {
 public:
-	HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers) throw() :
-	name(aName), server(aServer), description(aDescription), country(Util::emptyString),
-	rating(Util::emptyString), reliability(0.0), shared(0), minShare(0), users(Util::toInt(aUsers)), minSlots(0), maxHubs(0), maxUsers(0) { }
+    HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers) throw() :
+    name(aName), server(aServer), description(aDescription), country(Util::emptyString),
+    rating(Util::emptyString), reliability(0.0), shared(0), minShare(0), users(Util::toInt(aUsers)), minSlots(0), maxHubs(0), maxUsers(0) { }
 
-	HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers, const string& aCountry,
-		const string& aShared, const string& aMinShare, const string& aMinSlots, const string& aMaxHubs, const string& aMaxUsers,
-		const string& aReliability, const string& aRating) : name(aName), server(aServer), description(aDescription), country(aCountry),
-		rating(aRating), reliability((float)(Util::toFloat(aReliability) / 100.0)), shared(Util::toInt64(aShared)), minShare(Util::toInt64(aMinShare)),
-		users(Util::toInt(aUsers)), minSlots(Util::toInt(aMinSlots)), maxHubs(Util::toInt(aMaxHubs)), maxUsers(Util::toInt(aMaxUsers))
-	{
+    HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers, const string& aCountry,
+        const string& aShared, const string& aMinShare, const string& aMinSlots, const string& aMaxHubs, const string& aMaxUsers,
+        const string& aReliability, const string& aRating) : name(aName), server(aServer), description(aDescription), country(aCountry),
+        rating(aRating), reliability((float)(Util::toFloat(aReliability) / 100.0)), shared(Util::toInt64(aShared)), minShare(Util::toInt64(aMinShare)),
+        users(Util::toInt(aUsers)), minSlots(Util::toInt(aMinSlots)), maxHubs(Util::toInt(aMaxHubs)), maxUsers(Util::toInt(aMaxUsers))
+    {
 
-	}
+    }
 
-	HubEntry() throw() { }
-	HubEntry(const HubEntry& rhs) throw() : name(rhs.name), server(rhs.server), description(rhs.description), country(rhs.country),
-		rating(rhs.rating), reliability(rhs.reliability), shared(rhs.shared), minShare(rhs.minShare), users(rhs.users), minSlots(rhs.minSlots),
-		maxHubs(rhs.maxHubs), maxUsers(rhs.maxUsers) { }
+    HubEntry() throw() { }
+    HubEntry(const HubEntry& rhs) throw() : name(rhs.name), server(rhs.server), description(rhs.description), country(rhs.country),
+        rating(rhs.rating), reliability(rhs.reliability), shared(rhs.shared), minShare(rhs.minShare), users(rhs.users), minSlots(rhs.minSlots),
+        maxHubs(rhs.maxHubs), maxUsers(rhs.maxUsers) { }
 
-	~HubEntry() throw() { }
+    ~HubEntry() throw() { }
 
-	GETSET(string, name, Name);
-	GETSET(string, server, Server);
-	GETSET(string, description, Description);
-	GETSET(string, country, Country);
-	GETSET(string, rating, Rating);
-	GETSET(float, reliability, Reliability);
-	GETSET(int64_t, shared, Shared);
-	GETSET(int64_t, minShare, MinShare);
-	GETSET(int, users, Users);
-	GETSET(int, minSlots, MinSlots);
-	GETSET(int, maxHubs, MaxHubs);
-	GETSET(int, maxUsers, MaxUsers);
+    GETSET(string, name, Name);
+    GETSET(string, server, Server);
+    GETSET(string, description, Description);
+    GETSET(string, country, Country);
+    GETSET(string, rating, Rating);
+    GETSET(float, reliability, Reliability);
+    GETSET(int64_t, shared, Shared);
+    GETSET(int64_t, minShare, MinShare);
+    GETSET(int, users, Users);
+    GETSET(int, minSlots, MinSlots);
+    GETSET(int, maxHubs, MaxHubs);
+    GETSET(int, maxUsers, MaxUsers);
 };
-
+const string DEF_FAKE_ID = "FakeDC V:1.0";
 class FavoriteHubEntry {
 public:
-	FavoriteHubEntry() throw() : connect(false), encoding(Text::systemCharset) { }
-	FavoriteHubEntry(const HubEntry& rhs) throw() : name(rhs.getName()), server(rhs.getServer()), description(rhs.getDescription()), connect(false), encoding(Text::systemCharset) { }
-	FavoriteHubEntry(const FavoriteHubEntry& rhs) throw() : userdescription(rhs.userdescription), name(rhs.getName()), server(rhs.getServer()), description(rhs.getDescription()),
-		password(rhs.getPassword()), connect(rhs.getConnect()), encoding(rhs.getEncoding()), nick(rhs.nick){ }
-	~FavoriteHubEntry() throw() { }
+    FavoriteHubEntry() throw() : connect(false), encoding(Text::systemCharset), overrideId(0), clientId(DEF_FAKE_ID) { }
+    FavoriteHubEntry(const HubEntry& rhs) throw() : name(rhs.getName()), server(rhs.getServer()),
+    description(rhs.getDescription()), connect(false), encoding(Text::systemCharset), overrideId(0), clientId(DEF_FAKE_ID) { }
+    FavoriteHubEntry(const FavoriteHubEntry& rhs) throw() : userdescription(rhs.userdescription), name(rhs.getName()),
+    server(rhs.getServer()), description(rhs.getDescription()), password(rhs.getPassword()),
+    connect(rhs.getConnect()), encoding(rhs.getEncoding()), nick(rhs.nick), overrideId(rhs.overrideId), clientId(rhs.clientId){ }
+    ~FavoriteHubEntry() throw() { }
 
-	const string& getNick(bool useDefault = true) const {
-		return (!nick.empty() || !useDefault) ? nick : SETTING(NICK);
-	}
+    const string& getNick(bool useDefault = true) const {
+        return (!nick.empty() || !useDefault) ? nick : SETTING(NICK);
+    }
 
-	void setNick(const string& aNick) { nick = aNick; }
+    void setNick(const string& aNick) { nick = aNick; }
 
-	GETSET(string, userdescription, UserDescription);
-	GETSET(string, name, Name);
-	GETSET(string, server, Server);
-	GETSET(string, description, Description);
-	GETSET(string, password, Password);
-	GETSET(bool, connect, Connect);
-	GETSET(string, encoding, Encoding);
-
+    GETSET(string, userdescription, UserDescription);
+    GETSET(string, name, Name);
+    GETSET(string, server, Server);
+    GETSET(string, description, Description);
+    GETSET(string, password, Password);
+    GETSET(bool, connect, Connect);
+    GETSET(string, encoding, Encoding);
+    GETSET(string, clientId, ClientId);
+    GETSET(bool, overrideId, OverrideId);
 private:
-	string nick;
+    string nick;
 };
 
 }

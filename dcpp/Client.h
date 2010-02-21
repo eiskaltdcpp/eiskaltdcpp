@@ -32,144 +32,144 @@ namespace dcpp {
 /** Yes, this should probably be called a Hub */
 class Client : public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener {
 public:
-	typedef Client* Ptr;
-	typedef list<Ptr> List;
-	typedef List::iterator Iter;
+    typedef Client* Ptr;
+    typedef list<Ptr> List;
+    typedef List::iterator Iter;
 
-	virtual void connect();
-	virtual void disconnect(bool graceless);
+    virtual void connect();
+    virtual void disconnect(bool graceless);
 
-	virtual void connect(const OnlineUser& user, const string& token) = 0;
-	virtual void hubMessage(const string& aMessage, bool thirdPerson = false) = 0;
-	virtual void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false) = 0;
-	virtual void sendUserCmd(const string& aUserCmd) = 0;
-	virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken) = 0;
-	virtual void password(const string& pwd) = 0;
-	virtual void info(bool force) = 0;
+    virtual void connect(const OnlineUser& user, const string& token) = 0;
+    virtual void hubMessage(const string& aMessage, bool thirdPerson = false) = 0;
+    virtual void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false) = 0;
+    virtual void sendUserCmd(const string& aUserCmd) = 0;
+    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken) = 0;
+    virtual void password(const string& pwd) = 0;
+    virtual void info(bool force) = 0;
 
-	virtual size_t getUserCount() const = 0;
-	virtual int64_t getAvailable() const = 0;
+    virtual size_t getUserCount() const = 0;
+    virtual int64_t getAvailable() const = 0;
 
-	virtual void send(const AdcCommand& command) = 0;
+    virtual void send(const AdcCommand& command) = 0;
 
-	virtual string escape(string const& str) const { return str; }
+    virtual string escape(string const& str) const { return str; }
 
-	bool isConnected() const { return state != STATE_DISCONNECTED; }
-	bool isSecure() const;
-	bool isTrusted() const;
-	std::string getCipherName() const;
+    bool isConnected() const { return state != STATE_DISCONNECTED; }
+    bool isSecure() const;
+    bool isTrusted() const;
+    std::string getCipherName() const;
 
-	bool isOp() const { return getMyIdentity().isOp(); }
+    bool isOp() const { return getMyIdentity().isOp(); }
 
-	uint16_t getPort() const { return port; }
-	const string& getAddress() const { return address; }
+    uint16_t getPort() const { return port; }
+    const string& getAddress() const { return address; }
 
-	const string& getIp() const { return ip; }
-	string getIpPort() const { return getIp() + ':' + Util::toString(port); }
-	string getLocalIp() const;
+    const string& getIp() const { return ip; }
+    string getIpPort() const { return getIp() + ':' + Util::toString(port); }
+    string getLocalIp() const;
 
-	void updated(const OnlineUser& aUser) { fire(ClientListener::UserUpdated(), this, aUser); }
+    void updated(const OnlineUser& aUser) { fire(ClientListener::UserUpdated(), this, aUser); }
 
-	static string getCounts() {
-		char buf[128];
-		return string(buf, snprintf(buf, sizeof(buf), "%ld/%ld/%ld", counts.normal, counts.registered, counts.op));
-	}
+    static string getCounts() {
+        char buf[128];
+        return string(buf, snprintf(buf, sizeof(buf), "%ld/%ld/%ld", counts.normal, counts.registered, counts.op));
+    }
 
-	StringMap& escapeParams(StringMap& sm) {
-		for(StringMapIter i = sm.begin(); i != sm.end(); ++i) {
-			i->second = escape(i->second);
-		}
-		return sm;
-	}
+    StringMap& escapeParams(StringMap& sm) {
+        for(StringMapIter i = sm.begin(); i != sm.end(); ++i) {
+            i->second = escape(i->second);
+        }
+        return sm;
+    }
 
-	void reconnect();
-	void shutdown();
+    void reconnect();
+    void shutdown();
 
-	void send(const string& aMessage) { send(aMessage.c_str(), aMessage.length()); }
-	void send(const char* aMessage, size_t aLen);
+    void send(const string& aMessage) { send(aMessage.c_str(), aMessage.length()); }
+    void send(const char* aMessage, size_t aLen);
 
-	string getMyNick() const { return getMyIdentity().getNick(); }
-	string getHubName() const { return getHubIdentity().getNick().empty() ? getHubUrl() : getHubIdentity().getNick(); }
-	string getHubDescription() const { return getHubIdentity().getDescription(); }
+    string getMyNick() const { return getMyIdentity().getNick(); }
+    string getHubName() const { return getHubIdentity().getNick().empty() ? getHubUrl() : getHubIdentity().getNick(); }
+    string getHubDescription() const { return getHubIdentity().getDescription(); }
 
-	Identity& getHubIdentity() { return hubIdentity; }
+    Identity& getHubIdentity() { return hubIdentity; }
 
-	const string& getHubUrl() const { return hubUrl; }
+    const string& getHubUrl() const { return hubUrl; }
 
-	GETSET(Identity, myIdentity, MyIdentity);
-	GETSET(Identity, hubIdentity, HubIdentity);
+    GETSET(Identity, myIdentity, MyIdentity);
+    GETSET(Identity, hubIdentity, HubIdentity);
 
-	GETSET(string, defpassword, Password);
-	GETSET(uint32_t, reconnDelay, ReconnDelay);
-	GETSET(uint64_t, lastActivity, LastActivity);
-	GETSET(bool, registered, Registered);
-	GETSET(bool, autoReconnect, AutoReconnect);
-	GETSET(string, encoding, Encoding);
-
-	GETSET(string, currentNick, CurrentNick);
-	GETSET(string, currentDescription, CurrentDescription);
+    GETSET(string, defpassword, Password);
+    GETSET(uint32_t, reconnDelay, ReconnDelay);
+    GETSET(uint64_t, lastActivity, LastActivity);
+    GETSET(bool, registered, Registered);
+    GETSET(bool, autoReconnect, AutoReconnect);
+    GETSET(string, encoding, Encoding);
+    GETSET(string, clientId, ClientId);
+    GETSET(string, currentNick, CurrentNick);
+    GETSET(string, currentDescription, CurrentDescription);
 protected:
-	friend class ClientManager;
-	Client(const string& hubURL, char separator, bool secure_);
-	virtual ~Client() throw();
-	struct Counts {
-		Counts(long n = 0, long r = 0, long o = 0) : normal(n), registered(r), op(o) { }
-		volatile long normal;
-		volatile long registered;
-		volatile long op;
-		bool operator !=(const Counts& rhs) { return normal != rhs.normal || registered != rhs.registered || op != rhs.op; }
-	};
+    friend class ClientManager;
+    Client(const string& hubURL, char separator, bool secure_);
+    virtual ~Client() throw();
+    struct Counts {
+        Counts(long n = 0, long r = 0, long o = 0) : normal(n), registered(r), op(o) { }
+        volatile long normal;
+        volatile long registered;
+        volatile long op;
+        bool operator !=(const Counts& rhs) { return normal != rhs.normal || registered != rhs.registered || op != rhs.op; }
+    };
 
-	enum States {
-		STATE_CONNECTING,	///< Waiting for socket to connect
-		STATE_PROTOCOL,		///< Protocol setup
-		STATE_IDENTIFY,		///< Nick setup
-		STATE_VERIFY,		///< Checking password
-		STATE_NORMAL,		///< Running
-		STATE_DISCONNECTED,	///< Nothing in particular
-	} state;
+    enum States {
+        STATE_CONNECTING,   ///< Waiting for socket to connect
+        STATE_PROTOCOL,     ///< Protocol setup
+        STATE_IDENTIFY,     ///< Nick setup
+        STATE_VERIFY,       ///< Checking password
+        STATE_NORMAL,       ///< Running
+        STATE_DISCONNECTED, ///< Nothing in particular
+    } state;
 
-	BufferedSocket* sock;
+    BufferedSocket* sock;
 
-	static Counts counts;
-	Counts lastCounts;
+    static Counts counts;
+    Counts lastCounts;
 
-	void updateCounts(bool aRemove);
-	void updateActivity() { lastActivity = GET_TICK(); }
+    void updateCounts(bool aRemove);
+    void updateActivity() { lastActivity = GET_TICK(); }
 
-	/** Reload details from favmanager or settings */
-	void reloadSettings(bool updateNick);
+    /** Reload details from favmanager or settings */
+    void reloadSettings(bool updateNick);
 
-	virtual string checkNick(const string& nick) = 0;
+    virtual string checkNick(const string& nick) = 0;
 
-	// TimerManagerListener
-	virtual void on(Second, uint32_t aTick) throw();
-	// BufferedSocketListener
-	virtual void on(Connecting) throw() { fire(ClientListener::Connecting(), this); }
-	virtual void on(Connected) throw();
-	virtual void on(Line, const string& aLine) throw();
-	virtual void on(Failed, const string&) throw();
+    // TimerManagerListener
+    virtual void on(Second, uint32_t aTick) throw();
+    // BufferedSocketListener
+    virtual void on(Connecting) throw() { fire(ClientListener::Connecting(), this); }
+    virtual void on(Connected) throw();
+    virtual void on(Line, const string& aLine) throw();
+    virtual void on(Failed, const string&) throw();
 
 private:
 
-	enum CountType {
-		COUNT_UNCOUNTED,
-		COUNT_NORMAL,
-		COUNT_REGISTERED,
-		COUNT_OP
-	};
+    enum CountType {
+        COUNT_UNCOUNTED,
+        COUNT_NORMAL,
+        COUNT_REGISTERED,
+        COUNT_OP
+    };
 
-	Client(const Client&);
-	Client& operator=(const Client&);
+    Client(const Client&);
+    Client& operator=(const Client&);
 
-	string hubUrl;
-	string address;
-	string ip;
-	string localIp;
-	uint16_t port;
-	char separator;
-	bool secure;
-	CountType countType;
+    string hubUrl;
+    string address;
+    string ip;
+    string localIp;
+    uint16_t port;
+    char separator;
+    bool secure;
+    CountType countType;
 };
 
 } // namespace dcpp

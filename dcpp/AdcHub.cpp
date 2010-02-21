@@ -699,7 +699,8 @@ void AdcHub::info(bool /*alwaysSend*/) {
     addParam(lastInfoMap, c, "HN", Util::toString(counts.normal));
     addParam(lastInfoMap, c, "HR", Util::toString(counts.registered));
     addParam(lastInfoMap, c, "HO", Util::toString(counts.op));
-    addParam(lastInfoMap, c, "VE", fullVersionString /*"EiskaltDC " VERSIONSTRING*/);
+    addParam(lastInfoMap, c, "VE", getClientId().c_str());
+
     addParam(lastInfoMap, c, "US", Util::toString((long)(Util::toDouble(SETTING(UPLOAD_SPEED))*1024*1024/8)));
     addParam(lastInfoMap, c, "AW", Util::getAway() ? "1" : Util::emptyString);
 
