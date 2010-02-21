@@ -419,7 +419,7 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
     if (!target)
         return false;
 
-    if (item->childCount() != 1){
+    if (item->childCount() > 1){
         beginRemoveRows(createIndexForItem(item), target->row(), target->row());
         {
             int r = target->row();
@@ -441,7 +441,6 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
 
             beginRemoveRows(createIndexForItem(p->parent()), p->row(), p->row());
             {
-                printRoot(p, "-");
                 p->parent()->childItems.removeAt(p->row());
                 _t = p;
             }

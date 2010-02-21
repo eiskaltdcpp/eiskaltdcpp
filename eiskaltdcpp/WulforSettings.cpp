@@ -28,8 +28,6 @@ WulforSettings::WulforSettings():
         configFile(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml"),
         tor(0)
 {
-    //Load Qt tranlator
-    QTranslator qtTranslator;
     qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
     qApp->installTranslator(&qtTranslator);
 

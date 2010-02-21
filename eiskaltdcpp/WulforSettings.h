@@ -97,6 +97,7 @@ private:
     WStrMap strmap;
 
     QTranslator tor;
+    QTranslator qtTranslator;
 };
 
 #define WSGET(k)    (WulforSettings::getInstance()->getStr(k))
