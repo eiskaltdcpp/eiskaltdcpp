@@ -173,7 +173,7 @@ void Util::initialize() {
     // @todo paths[PATH_RESOURCES] = <replace from sconscript?>;
     // @todo paths[PATH_LOCALE] = <replace from sconscript?>;
 
-    paths[PATH_DOWNLOADS] = home + "Downloads/";
+    paths[PATH_DOWNLOADS] = home + "/Downloads/";
 #endif
 
     paths[PATH_FILE_LISTS] = paths[PATH_USER_LOCAL] + "FileLists" PATH_SEPARATOR_STR;

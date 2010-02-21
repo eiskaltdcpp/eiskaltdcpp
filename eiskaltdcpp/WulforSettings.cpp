@@ -16,6 +16,8 @@
 #include <QLibraryInfo>
 #include <QPalette>
 #include <QColor>
+#include <QFont>
+#include <QStyle>
 #include <QBrush>
 
 #ifndef CLIENT_TRANSLATIONS_DIR
@@ -57,6 +59,8 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_FTRANSFERS_FILES_STATE, "");
         strmap.insert(WS_FTRANSFERS_USERS_STATE, "");
         strmap.insert(WS_FAV_HUBS_STATE, "");
+        strmap.insert(WS_APP_THEME, "");
+        strmap.insert(WS_APP_FONT, "");
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_CHAT_SHOW_JOINS, (int)true);
@@ -124,6 +128,14 @@ void WulforSettings::load(){
     }
     catch (Exception ex){
     }
+
+    QFont f;
+
+    if (!getStr(WS_APP_FONT).isEmpty() && f.fromString(getStr(WS_APP_FONT)))
+        qApp->setFont(f);
+
+    if (!getStr(WS_APP_THEME).isEmpty())
+        qApp->setStyle(getStr(WS_APP_THEME));
 }
 
 void WulforSettings::save(){
@@ -179,9 +191,10 @@ void WulforSettings::loadTranslation(){
             return;
     }
 
-    tor.load(file);
-
-    qApp->installTranslator(&tor);
+    if (tor.load(file))
+        qApp->installTranslator(&tor);
+    else
+        WSSET(WS_TRANSLATION_FILE, "");
 }
 
 QString WulforSettings::getStr(QString key) throw (WulforSettings::BadKey){

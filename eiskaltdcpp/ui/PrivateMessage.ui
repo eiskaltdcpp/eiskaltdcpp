@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>423</width>
-    <height>370</height>
+    <width>421</width>
+    <height>368</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,11 @@
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <widget class="QTextEdit" name="textEdit_CHAT"/>
+     <widget class="QTextEdit" name="textEdit_CHAT">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
      <widget class="QTextEdit" name="textEdit_INPUT">
       <property name="maximumSize">
        <size>

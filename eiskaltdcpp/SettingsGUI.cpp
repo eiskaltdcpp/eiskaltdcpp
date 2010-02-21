@@ -1,13 +1,19 @@
 #include "SettingsGUI.h"
 #include "WulforSettings.h"
+#include "WulforUtil.h"
+#include "MainWindow.h"
 
 #include <QListWidgetItem>
 #include <QPixmap>
 #include <QColor>
 #include <QColorDialog>
+#include <QStyleFactory>
+#include <QFontDialog>
+#include <QFileDialog>
 
 SettingsGUI::SettingsGUI(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent),
+    custom_style(false)
 {
     setupUi(this);
 
@@ -19,6 +25,28 @@ SettingsGUI::~SettingsGUI(){
 }
 
 void SettingsGUI::init(){
+    {//Basic tab
+        WulforUtil *WU = WulforUtil::getInstance();
+        QStringList styles = QStyleFactory::keys();
+
+        foreach (QString k, styles)
+            comboBox_THEMES->addItem(k);
+
+        if (styles.indexOf(WSGET(WS_APP_THEME)) >= 0)
+            comboBox_THEMES->setCurrentIndex(styles.indexOf(WSGET(WS_APP_THEME)));
+
+        if (WSGET(WS_APP_FONT).isEmpty()){
+            lineEdit_APPFONT->setText(qApp->font().toString());
+            WSSET(WS_APP_FONT, qApp->font().toString());
+        }
+        else
+            lineEdit_APPFONT->setText(WSGET(WS_APP_FONT));
+
+        lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
+
+        toolButton_APPFONTBROWSE->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+        toolButton_LANGBROWSE->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+    }
     {//Chat tab
         spinBox_PARAGRAPHS->setValue(WIGET(WI_CHAT_MAXPARAGRAPHS));
 
@@ -74,10 +102,22 @@ void SettingsGUI::init(){
 
     }
 
+    connect(pushButton_TEST, SIGNAL(clicked()), this, SLOT(slotTestAppTheme()));
+    connect(comboBox_THEMES, SIGNAL(activated(int)), this, SLOT(slotThemeChanged()));
     connect(listWidget_CHATCOLOR, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotChatColorItemClicked(QListWidgetItem*)));
+    connect(toolButton_APPFONTBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseFont()));
+    connect(toolButton_LANGBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseLng()));
 }
 
 void SettingsGUI::ok(){
+    {//Basic tab
+        if (custom_style)
+            WSSET(WS_APP_THEME, comboBox_THEMES->currentText());
+        if (!lineEdit_APPFONT->text().isEmpty())
+            WSSET(WS_APP_FONT, lineEdit_APPFONT->text());
+        if (!lineEdit_LANGFILE->text().isEmpty())
+            WSSET(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
+    }
     {//Chat tab
         WISET(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());
 
@@ -110,5 +150,39 @@ void SettingsGUI::slotChatColorItemClicked(QListWidgetItem *item){
     if (color.isValid()) {
         p.fill(color);
         item->setIcon(p);
+    }
+}
+
+void SettingsGUI::slotTestAppTheme(){
+    custom_style = true;
+
+    qApp->setStyle(comboBox_THEMES->currentText());
+}
+
+void SettingsGUI::slotThemeChanged(){
+    custom_style = true;
+}
+
+void SettingsGUI::slotBrowseFont(){
+    bool ok = false;
+
+    QFont f = QFontDialog::getFont(&ok, this);
+
+    if (ok){
+        qApp->setFont(f);
+        WSSET(WS_APP_FONT, f.toString());
+    }
+}
+
+void SettingsGUI::slotBrowseLng(){
+    QString file = QFileDialog::getOpenFileName(this, tr("Select translation"), QString(CLIENT_TRANSLATIONS_DIR), tr("Translation (*.qm)"));
+
+    if (!file.isEmpty()){
+        WSSET(WS_TRANSLATION_FILE, file);
+
+        WulforSettings::getInstance()->loadTranslation();
+        MainWindow::getInstance()->retranslateUi();
+
+        lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
     }
 }

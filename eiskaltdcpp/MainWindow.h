@@ -116,6 +116,9 @@ friend class dcpp::Singleton<MainWindow>;
         void parseCmdLine();
 
         /** */
+        void retranslateUi();
+
+        /** */
         void setUnload(bool b){ isUnload = b; }
 
     protected:
@@ -159,7 +162,6 @@ friend class dcpp::Singleton<MainWindow>;
 
         // Interface setup functions
         void init();
-        void retranslateUi();
         void loadSettings();
         void saveSettings();
 

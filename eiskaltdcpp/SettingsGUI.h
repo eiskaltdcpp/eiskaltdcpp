@@ -18,9 +18,16 @@ private:
 
 private slots:
     void slotChatColorItemClicked(QListWidgetItem *);
+    void slotTestAppTheme();
+    void slotThemeChanged();
+    void slotBrowseFont();
+    void slotBrowseLng();
 
 public slots:
     void ok();
+
+private:
+    bool custom_style;
 };
 
 #endif // SETTINGSGUI_H

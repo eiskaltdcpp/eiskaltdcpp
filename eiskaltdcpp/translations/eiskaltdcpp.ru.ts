@@ -3254,7 +3254,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="69"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Автоматически открывать дополнительный слот, если скорость ниже (КиБ/с, 0 = без ограничений)</translation>
+        <translation type="unfinished">Дать дополнительный слот, если скорость ниже (КиБ/с, 0 = неогр.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="79"/>

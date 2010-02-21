@@ -95,6 +95,7 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UISettingsDownloads.ui \
     ui/UISettingsSharing.ui \
     ui/UIDownloadQueue.ui \
+    ui/UISettingsGUI.ui \
     ui/UIMagnet.ui \
     ui/UIAbout.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
