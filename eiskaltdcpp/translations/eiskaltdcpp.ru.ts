@@ -493,7 +493,17 @@
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/away - переключить режим &quot;Отошёл&quot;
+/back - выключить режим &quot;Отошёл&quot;
+/browse &lt;nick&gt; - открыть список файлов пользователя
+/clear - очистить окно чата
+/close - закрыть текущий хаб
+/fav - добавить текущий хаб в избранные
+/grant &lt;nick&gt; - выдать дополнительный слот пользователю
+/help, /?, /h - показать эту справку
+/me - сказать от третьего лица
+/pm &lt;nick&gt; - начать личный чат с пользователем
+</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="885"/>
