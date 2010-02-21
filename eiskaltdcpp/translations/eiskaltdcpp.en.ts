@@ -319,29 +319,29 @@
     </message>
     <message>
         <location filename="../FavoriteHubs.cpp" line="106"/>
-        <location filename="../FavoriteHubs.cpp" line="117"/>
-        <location filename="../FavoriteHubs.cpp" line="154"/>
+        <location filename="../FavoriteHubs.cpp" line="133"/>
+        <location filename="../FavoriteHubs.cpp" line="199"/>
         <source>System default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="205"/>
-        <location filename="../FavoriteHubs.cpp" line="235"/>
+        <location filename="../FavoriteHubs.cpp" line="253"/>
+        <location filename="../FavoriteHubs.cpp" line="283"/>
         <source>Add new</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="236"/>
+        <location filename="../FavoriteHubs.cpp" line="284"/>
         <source>Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="237"/>
+        <location filename="../FavoriteHubs.cpp" line="285"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="238"/>
+        <location filename="../FavoriteHubs.cpp" line="286"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -535,23 +535,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="713"/>
-        <location filename="../HubFrame.cpp" line="729"/>
+        <location filename="../HubFrame.cpp" line="716"/>
+        <location filename="../HubFrame.cpp" line="732"/>
         <source>Away mode off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="723"/>
+        <location filename="../HubFrame.cpp" line="726"/>
         <source>Away mode on: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="734"/>
+        <location filename="../HubFrame.cpp" line="737"/>
         <source>Chat has been cleared</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="761"/>
+        <location filename="../HubFrame.cpp" line="764"/>
         <source>/away - set away-mode on/off
 /back - set away-mode off
 /browse &lt;nick&gt; - browse user files
@@ -566,90 +566,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="885"/>
+        <location filename="../HubFrame.cpp" line="888"/>
         <source> joins the chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="910"/>
-        <location filename="../HubFrame.cpp" line="922"/>
+        <location filename="../HubFrame.cpp" line="913"/>
+        <location filename="../HubFrame.cpp" line="925"/>
         <source>User not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="929"/>
+        <location filename="../HubFrame.cpp" line="932"/>
         <source>Slot granted to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="940"/>
-        <location filename="../HubFrame.cpp" line="960"/>
+        <location filename="../HubFrame.cpp" line="943"/>
+        <location filename="../HubFrame.cpp" line="963"/>
         <source>User not found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="949"/>
+        <location filename="../HubFrame.cpp" line="952"/>
         <source> has been added to favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="969"/>
+        <location filename="../HubFrame.cpp" line="972"/>
         <source> has been removed from favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1001"/>
+        <location filename="../HubFrame.cpp" line="1004"/>
         <source>Favorite hub added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1004"/>
+        <location filename="../HubFrame.cpp" line="1007"/>
         <source>Favorite hub already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1090"/>
+        <location filename="../HubFrame.cpp" line="1093"/>
         <source>User offline.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1126"/>
+        <location filename="../HubFrame.cpp" line="1129"/>
         <source>Stored password sent...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1129"/>
+        <location filename="../HubFrame.cpp" line="1132"/>
         <source>Enter password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1129"/>
+        <location filename="../HubFrame.cpp" line="1132"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1144"/>
-        <location filename="../HubFrame.cpp" line="1563"/>
+        <location filename="../HubFrame.cpp" line="1147"/>
+        <location filename="../HubFrame.cpp" line="1566"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1162"/>
+        <location filename="../HubFrame.cpp" line="1165"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1422"/>
+        <location filename="../HubFrame.cpp" line="1425"/>
         <source>Chat cleared.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1433"/>
+        <location filename="../HubFrame.cpp" line="1436"/>
         <source>Chat disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1435"/>
+        <location filename="../HubFrame.cpp" line="1438"/>
         <source>Chat enabled.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2544,22 +2544,67 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="76"/>
-        <source>Identification</source>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="73"/>
+        <source>Client ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="99"/>
-        <source>Nick</source>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="80"/>
+        <source>External IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="91"/>
+        <source>EiskaltDC++ V:2.0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="96"/>
+        <source>++ V:0.75 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="101"/>
+        <source>StrgDC++ V:2.30</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="106"/>
+        <source>ApexDC++ V: 1.2.2 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="111"/>
+        <source>FlylinkDC++ V:(r500) </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="116"/>
+        <source>HomeDC++ V:2.22 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="127"/>
+        <source>000.000.000.000; </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="137"/>
+        <source>Identification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="160"/>
+        <source>Nick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="167"/>
         <source>User description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="113"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="174"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3258,17 +3303,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../WulforUtil.cpp" line="549"/>
+        <location filename="../WulforUtil.cpp" line="482"/>
         <source>System default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="616"/>
+        <location filename="../WulforUtil.cpp" line="549"/>
         <source>Enter parameter value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="710"/>
+        <location filename="../WulforUtil.cpp" line="643"/>
         <source>Offline</source>
         <translation type="unfinished"></translation>
     </message>

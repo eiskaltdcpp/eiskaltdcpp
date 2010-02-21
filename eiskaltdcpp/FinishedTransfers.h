@@ -250,7 +250,7 @@ private:
 
         QMenu *m = new QMenu();
         QAction *open_f   = new QAction(tr("Open file"), m);
-        QAction *open_dir = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE_OPEN), tr("Open directory"), m);
+        QAction *open_dir = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Open directory"), m);
 
         m->addAction(open_f);
         m->addAction(open_dir);
