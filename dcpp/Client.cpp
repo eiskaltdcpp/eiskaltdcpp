@@ -198,8 +198,6 @@ void Client::updateCounts(bool aRemove) {
 }
 
 string Client::getLocalIp() const {
-    printf("%s\n", externalIP.c_str());
-
     if (!externalIP.empty())
         return Socket::resolve(externalIP);
 
