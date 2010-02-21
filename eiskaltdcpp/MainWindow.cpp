@@ -244,7 +244,7 @@ void MainWindow::initActions(){
 
         fileFileListBrowserLocal = new QAction("", this);
         fileFileListBrowserLocal->setShortcut(tr("Ctrl+L"));
-        fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_RED));
+        fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
 
         fileFileListRefresh = new QAction("", this);
@@ -257,7 +257,7 @@ void MainWindow::initActions(){
         connect(fileHubReconnect, SIGNAL(triggered()), this, SLOT(slotFileReconnect()));
 
         fileHashProgress = new QAction("", this);
-        fileHashProgress->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE_OPEN));
+        fileHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         connect(fileHashProgress, SIGNAL(triggered()), this, SLOT(slotFileHashProgress()));
 
         fileQuickConnect = new QAction("", this);

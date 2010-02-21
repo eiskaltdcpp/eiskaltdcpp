@@ -224,12 +224,12 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiFILEFIND] = loadPixmap("filefind.png");
     m_PixmapMap[eiFILTER] = loadPixmap("filter.png");
     m_PixmapMap[eiFOLDER_BLUE] = loadPixmap("folder_blue.png");
-    m_PixmapMap[eiFOLDER_BLUE_OPEN] = loadPixmap("folder_blue_open.png");
-    m_PixmapMap[eiFOLDER_RED] = loadPixmap("folder_red.png");
     m_PixmapMap[eiGUI] = loadPixmap("gui.png");
     m_PixmapMap[eiGV] = QPixmap(gv_xpm);
+    m_PixmapMap[eiHASHING] = loadPixmap("hashing.png");
     m_PixmapMap[eiICON_APPL] = loadPixmap("icon_appl.png");
     m_PixmapMap[eiMESSAGE] = loadPixmap("message.png");
+    m_PixmapMap[eiOWN_FILELIST] = loadPixmap("own_filelist.png");
     m_PixmapMap[eiRECONNECT] = loadPixmap("reconnect.png");
     m_PixmapMap[eiRELOAD] = loadPixmap("reload.png");
     m_PixmapMap[eiSERVER] = loadPixmap("server.png");

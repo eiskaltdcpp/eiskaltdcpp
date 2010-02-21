@@ -29,7 +29,7 @@ TransferView::Menu::Menu():
     menu = new QMenu();
 
     QAction *browse     = new QAction(tr("Browse files"), menu);
-    browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE_OPEN));
+    browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
     QAction *match      = new QAction(tr("Match Queue"), menu);
 

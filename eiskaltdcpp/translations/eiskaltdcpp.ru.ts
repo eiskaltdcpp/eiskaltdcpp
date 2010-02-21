@@ -808,7 +808,7 @@
     <message>
         <location filename="../MainWindow.cpp" line="385"/>
         <source>Open own filelist</source>
-        <translation>Открыть свой список файлов</translation>
+        <translation>Cвой список файлов</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="387"/>
@@ -818,7 +818,7 @@
     <message>
         <location filename="../MainWindow.cpp" line="389"/>
         <source>Hash progress</source>
-        <translation>Хэширование</translation>
+        <translation>Прогресс хэширования</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="391"/>
@@ -876,7 +876,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="393"/>
         <source>Transfers</source>
-        <translation>Передачи</translation>
+        <translation>Список передач</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="395"/>
@@ -886,7 +886,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="415"/>
         <source>About</source>
-        <translation>Справка</translation>
+        <translation>&amp;Справка</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="417"/>
@@ -2682,7 +2682,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="20"/>
         <source>Hash progress</source>
-        <translation>Хэширование</translation>
+        <translation>Прогресс хэширования</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="104"/>

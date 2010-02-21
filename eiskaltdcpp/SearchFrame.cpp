@@ -57,7 +57,7 @@ SearchFrame::Menu::Menu(){
     magnet->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
 
     QAction *browse     = new QAction(tr("Browse files"), NULL);
-    browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE_OPEN));
+    browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
     QAction *match      = new QAction(tr("Match Queue"), NULL);
 
