@@ -442,9 +442,13 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
             beginRemoveRows(createIndexForItem(p->parent()), p->row(), p->row());
             {
                 p->parent()->childItems.removeAt(p->row());
+
                 _t = p;
             }
             endRemoveRows();
+
+            if (p->parent()->childCount() > 0)
+                break;
 
             p = p->parent();
 

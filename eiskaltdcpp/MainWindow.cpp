@@ -147,7 +147,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
     if (e->type() == QEvent::KeyRelease){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if (k_e->key() == Qt::Key_Escape && !isUnload)
+        if ((k_e->key() == Qt::Key_Escape) && !isUnload && (k_e->modifiers() == Qt::NoModifier))
             hide();
     }
 
