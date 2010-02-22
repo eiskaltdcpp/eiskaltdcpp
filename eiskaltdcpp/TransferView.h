@@ -125,6 +125,8 @@ private:
     void load();
     void save();
 
+    void downloadComplete(QString);
+
     inline QString      vstr(const QVariant &var) { return var.toString(); }
     inline int          vint(const QVariant &var) { return var.toInt(); }
     inline double       vdbl(const QVariant &var) { return var.toDouble(); }

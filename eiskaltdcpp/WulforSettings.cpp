@@ -72,6 +72,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_TRAY_ENABLED, (int)true);
         intmap.insert(WB_SHOW_HIDDEN_USERS, (int)false);
         intmap.insert(WB_SHOW_JOINS, (int)false);
+        intmap.insert(WB_NOTIFY_ENABLED, (int)true);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS, 300);
         intmap.insert(WI_CHAT_WIDTH, -1);
         intmap.insert(WI_CHAT_USERLIST_WIDTH, -1);
@@ -87,6 +88,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_TRANSFER_HEIGHT, -1);
         intmap.insert(WI_SHARE_RPANE_WIDTH, -1);
         intmap.insert(WI_SHARE_WIDTH, -1);
+        intmap.insert(WI_NOTIFY_EVENTMAP, 0x0F);// 0b00001111, all events
     }
 }
 

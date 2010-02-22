@@ -29,6 +29,7 @@ HEADERS = HEADERS = MainWindow.h \
     FavoriteHubs.h \
     SettingsDownloads.h \
     SettingsSharing.h \
+    SettingsNotification.h \
     HashProgress.h \
     HistoryInterface.h \
     UPnP.h \
@@ -67,6 +68,7 @@ SOURCES = main.cpp \
     FavoriteHubs.cpp \
     SettingsDownloads.cpp \
     SettingsSharing.cpp \
+    SettingsNotification.cpp \
     HashProgress.cpp \
     UPnP.cpp \
     UPnPMapper.cpp \
@@ -97,6 +99,7 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UIDownloadQueue.ui \
     ui/UISettingsGUI.ui \
     ui/UIMagnet.ui \
-    ui/UIAbout.ui
+    ui/UIAbout.ui \
+    ui/UISettingsNotification.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.ru.ts

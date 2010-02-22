@@ -191,6 +191,15 @@ endif (ICONV_SECOND_ARGUMENT_IS_CONST)
 set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -O3 -fomit-frame-pointer")
 set(CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3")
 
+include_directories(${eiskaltdcpp_BINARY_DIR}
+   ${eiskaltdcpp_BINARY_DIR}/dcpp
+   ${eiskaltdcpp_SOURCE_DIR}/dcpp
+   ${eiskaltdcpp_BINARY_DIR}/eiskaltdcpp
+   ${eiskaltdcpp_SOURCE_DIR}/eiskaltdcpp
+   ${eiskaltdcpp_SOURCE_DIR}
+   ${GMP_INCLUDE_DIR}
+   )
+
 add_subdirectory (dcpp)
 add_subdirectory (eiskaltdcpp)
 CONFIGURE_FILE(

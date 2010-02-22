@@ -16,8 +16,16 @@ Q_OBJECT
 friend class dcpp::Singleton<Notification>;
 
 public:
+
+enum Type{
+    NICKSAY=1,
+    PM=2,
+    TRANSFER=4,
+    ANY=8
+};
+
     void enableTray(bool);
-    void showMessage(const QString&, const QString&);
+    void showMessage(Type t, const QString&, const QString&);
 
 private slots:
     void slotExit();

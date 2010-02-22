@@ -58,11 +58,14 @@ void Notification::enableTray(bool enable){
     }
 }
 
-void Notification::showMessage(const QString &title, const QString &msg){
+void Notification::showMessage(Notification::Type t, const QString &title, const QString &msg){
     if (MainWindow::getInstance()->isActiveWindow())
         return;
 
-    if (title.isEmpty() || msg.isEmpty() || !tray)
+    if (title.isEmpty() || msg.isEmpty() || !tray || !WBGET(WB_NOTIFY_ENABLED))
+        return;
+
+    if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
         return;
 
     tray->showMessage(title, msg, QSystemTrayIcon::Information, 5000);

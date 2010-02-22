@@ -1034,7 +1034,7 @@ void HubFrame::newMsg(VarMap map){
     if (message.indexOf(_q(client->getMyNick())) >= 0){
         msg_color = WS_CHAT_SAY_NICK;
 
-        Notification::getInstance()->showMessage(getArenaTitle().left(20), nick + ": " + message);
+        Notification::getInstance()->showMessage(Notification::NICKSAY, getArenaTitle().left(20), nick + ": " + message);
     }
 
     bool third = map["3RD"].toBool();
@@ -1067,7 +1067,7 @@ void HubFrame::newPm(VarMap map){
     QString color = map["CLR"].toString();
     QString full_message = "";
 
-    Notification::getInstance()->showMessage(nick, message);
+    Notification::getInstance()->showMessage(Notification::PM, nick, message);
 
     nick = map["3RD"].toBool()? ("* " + nick + " ") : ("<" + nick + "> ");
 

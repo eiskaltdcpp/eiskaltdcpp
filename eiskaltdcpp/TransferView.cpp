@@ -7,6 +7,7 @@
 #include "IPFilter.h"
 #include "HubFrame.h"
 #include "HubManager.h"
+#include "Notification.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/User.h"
@@ -283,6 +284,10 @@ void TransferView::closeConection(const QString &cid, bool download){
     catch (const Exception&){}
 }
 
+void TransferView::downloadComplete(QString target){
+    Notification::getInstance()->showMessage(Notification::TRANSFER, tr("Download complete"), target);
+}
+
 void TransferView::getParams(TransferView::VarMap &params, const dcpp::ConnectionQueueItem *item){
     const dcpp::UserPtr &user = item->getUser();
     WulforUtil *WU = WulforUtil::getInstance();
@@ -554,8 +559,12 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
     typedef Func2<TransferViewModel, VarMap, qint64> FUNC1;
     FUNC1 *f1= new FUNC1(model, &TransferViewModel::updateTransferPos, params, pos);
 
+    typedef Func1<TransferView, QString> FUNC2;
+    FUNC2 *f2 = new FUNC2(this, &TransferView::downloadComplete, params["FNAME"].toString());
+
     QApplication::postEvent(this, new TransferViewCustomEvent(f));
     QApplication::postEvent(this, new TransferViewCustomEvent(f1));
+    QApplication::postEvent(this, new TransferViewCustomEvent(f2));
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw(){

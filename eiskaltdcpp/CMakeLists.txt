@@ -1,5 +1,8 @@
 project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6)
+
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
 include (${QT_USE_FILE})
 set (HDRS   ArenaWidget.h
             Func.h
@@ -35,6 +38,7 @@ set (SRCS   Antispam.cpp
             SettingsConnection.cpp
             SettingsDownloads.cpp
             SettingsGUI.cpp
+            SettingsNotification.cpp
             SettingsPersonal.cpp
             SettingsSharing.cpp
             ShareBrowser.cpp
@@ -72,6 +76,7 @@ set (MOC_HDRS Antispam.h
             SettingsConnection.h
             SettingsDownloads.h
             SettingsGUI.h
+            SettingsNotification.h
             SettingsPersonal.h
             SettingsSharing.h
             SingleInstanceRunner.h
@@ -106,6 +111,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsConnection.ui
             ui/UISettingsDownloads.ui
             ui/UISettingsGUI.ui
+            ui/UISettingsNotification.ui
             ui/UISettingsPersonal.ui
             ui/UISettingsSharing.ui
             ui/UIShareBrowser.ui

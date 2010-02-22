@@ -1,4 +1,7 @@
 project (dcpp)
+
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
 cmake_minimum_required (VERSION 2.6)
 set (dcpp_hdrs
             ADLSearch.h

@@ -4,6 +4,7 @@
 #include "SettingsDownloads.h"
 #include "SettingsSharing.h"
 #include "SettingsGUI.h"
+#include "SettingsNotification.h"
 
 #include "WulforUtil.h"
 
@@ -47,11 +48,17 @@ void Settings::init(){
     connect(this, SIGNAL(accepted()), gui, SLOT(ok()));
     widgets.insert(item, 4);
 
+    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiOWN_FILELIST), tr("Notifications"), listWidget);
+    SettingsNotification *notify = new SettingsNotification(this);
+    connect(this, SIGNAL(accepted()), notify, SLOT(ok()));
+    widgets.insert(item, 5);
+
     stackedWidget->insertWidget(0, personal);
     stackedWidget->insertWidget(1, connection);
     stackedWidget->insertWidget(2, downloads);
     stackedWidget->insertWidget(3, sharing);
     stackedWidget->insertWidget(4, gui);
+    stackedWidget->insertWidget(5, notify);
 
     stackedWidget->setCurrentIndex(0);
 

@@ -45,6 +45,7 @@ const char * const WB_IPFILTER_ENABLED        = "ipfilter-enabled";
 const char * const WB_TRAY_ENABLED            = "systemtray-enabled";
 const char * const WB_SHOW_HIDDEN_USERS       = "show-hidden-users";
 const char * const WB_SHOW_JOINS              = "show-joins";
+const char * const WB_NOTIFY_ENABLED          = "notify-enabled";
 const char * const WI_CHAT_MAXPARAGRAPHS      = "chat-max-paragraph";
 const char * const WI_CHAT_WIDTH              = "chat-width";
 const char * const WI_CHAT_USERLIST_WIDTH     = "chat-userlist-width";
@@ -60,6 +61,7 @@ const char * const WI_MAINWINDOW_X            = "mainwindow-x";
 const char * const WI_MAINWINDOW_Y            = "mainwindow-y";
 const char * const WI_SHARE_RPANE_WIDTH       = "sharebrowser-rp-width";
 const char * const WI_SHARE_WIDTH             = "sharebrowser-width";
+const char * const WI_NOTIFY_EVENTMAP         = "notify-event-map";
 
 class WulforSettings :
         public QObject,
