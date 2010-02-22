@@ -104,7 +104,7 @@ find_package (ZLIB REQUIRED)
 find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
-find_package (Qt4 4.5 COMPONENTS QtCore QtGui QtXml REQUIRED )
+find_package (Qt4 4.5 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED )
 find_package (PkgConfig)
 
 pkg_check_modules (PC_UPNP libupnp)

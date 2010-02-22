@@ -19,6 +19,7 @@ using namespace std;
 #include "UPnPMapper.h"
 #include "HubManager.h"
 #include "Notification.h"
+#include "SingleInstanceRunner.h"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -34,6 +35,11 @@ int main(int argc, char *argv[])
 {
         QApplication app(argc, argv);
         int ret = 0;
+
+        SingleInstanceRunner runner;
+
+        if (runner.isServerRunning(qApp->arguments()))
+            return 0;
 
 	dcpp::startup(callBack, NULL);
         dcpp::TimerManager::getInstance()->start();
@@ -92,6 +98,11 @@ int main(int argc, char *argv[])
         WulforSettings::deleteInstance();
 
         dcpp::shutdown();
+
+        runner.servStop();
+        runner.exit(0);
+
+        runner.terminate();
 
         return ret;
 }

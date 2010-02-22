@@ -517,6 +517,25 @@ void MainWindow::parseCmdLine(){
     }
 }
 
+void MainWindow::parseInstanceLine(QString data){
+    QStringList args = data.split("\n", QString::SkipEmptyParts);
+
+    foreach (QString arg, args){
+        if (arg.startsWith("magnet:?xt=urn:tree:tiger:")){
+            Magnet m(this);
+            m.setLink(arg);
+
+            m.exec();
+        }
+        else if (arg.startsWith("dchub://")){
+            newHubFrame(arg, "");
+        }
+        else if (arg.startsWith("adc://") || arg.startsWith("adcs://")){
+            newHubFrame(arg, "UTF-8");
+        }
+    }
+}
+
 void MainWindow::browseOwnFiles(){
     slotFileBrowseOwnFilelist();
 }

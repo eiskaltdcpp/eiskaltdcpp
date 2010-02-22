@@ -38,6 +38,7 @@ set (SRCS   Antispam.cpp
             SettingsPersonal.cpp
             SettingsSharing.cpp
             ShareBrowser.cpp
+            SingleInstanceRunner.cpp
             ToolBar.cpp
             TransferView.cpp
             TransferViewModel.cpp
@@ -73,6 +74,7 @@ set (MOC_HDRS Antispam.h
             SettingsGUI.h
             SettingsPersonal.h
             SettingsSharing.h
+            SingleInstanceRunner.h
             QuickConnect.h
             SearchFrame.h
             SearchModel.h

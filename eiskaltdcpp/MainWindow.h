@@ -114,6 +114,8 @@ friend class dcpp::Singleton<MainWindow>;
 
         /** */
         void parseCmdLine();
+        /** */
+        void parseInstanceLine(QString);
 
         /** */
         void retranslateUi();
