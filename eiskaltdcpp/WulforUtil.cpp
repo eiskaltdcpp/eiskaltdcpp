@@ -274,7 +274,7 @@ QPixmap WulforUtil::loadPixmap(const QString &file){
     return p;
 }
 
-QPixmap &WulforUtil::getPixmap(enum WulforUtil::Icons e){
+const QPixmap &WulforUtil::getPixmap(enum WulforUtil::Icons e){
     return m_PixmapMap[e];
 }
 

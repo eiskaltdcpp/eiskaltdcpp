@@ -8,6 +8,7 @@
 #include "ui_UIFavoriteHubs.h"
 #include "ui_UIFavoriteHubEditor.h"
 #include "ArenaWidget.h"
+#include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -48,6 +49,7 @@ public:
     QWidget *getWidget();
     QString getArenaTitle();
     QMenu *getMenu();
+    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER); }
 
     void setUnload(bool b) { unload = b; }
 

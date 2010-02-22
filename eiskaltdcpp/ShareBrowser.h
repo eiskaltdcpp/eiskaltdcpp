@@ -11,6 +11,7 @@
 
 #include "ArenaWidget.h"
 #include "Func.h"
+#include "WulforUtil.h"
 #include "ui_UIShareBrowser.h"
 
 #include "dcpp/stdinc.h"
@@ -79,6 +80,7 @@ public:
     QString  getArenaTitle();
     QWidget *getWidget();
     QMenu   *getMenu();
+    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiOWN_FILELIST); }
 
 protected:
     virtual void closeEvent(QCloseEvent *);

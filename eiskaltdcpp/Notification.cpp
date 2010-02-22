@@ -58,6 +58,16 @@ void Notification::enableTray(bool enable){
     }
 }
 
+void Notification::showMessage(const QString &title, const QString &msg){
+    if (MainWindow::getInstance()->isActiveWindow())
+        return;
+
+    if (title.isEmpty() || msg.isEmpty() || !tray)
+        return;
+
+    tray->showMessage(title, msg, QSystemTrayIcon::Information, 5000);
+}
+
 void Notification::slotExit(){
     MainWindow::getInstance()->setUnload(true);
     MainWindow::getInstance()->close();

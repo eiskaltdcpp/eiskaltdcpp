@@ -17,6 +17,7 @@ friend class dcpp::Singleton<Notification>;
 
 public:
     void enableTray(bool);
+    void showMessage(const QString&, const QString&);
 
 private slots:
     void slotExit();

@@ -131,6 +131,7 @@ public:
     QWidget *getWidget();
     QString  getArenaTitle();
     QMenu   *getMenu();
+    const QPixmap &getPixmap();
 
     void searchAlternates(const QString &);
 

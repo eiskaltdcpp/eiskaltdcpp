@@ -10,6 +10,7 @@ class QEvent;
 class QObject;
 class QCloseEvent;
 class QMenu;
+class QShowEvent;
 
 class PMWindow: public QWidget,
                 private Ui::UIPrivateMessage,
@@ -26,6 +27,7 @@ public:
     QString  getArenaTitle();
     QWidget *getWidget();
     QMenu   *getMenu();
+    const QPixmap &getPixmap();
 
 private slots:
     void slotHub();
@@ -37,11 +39,14 @@ signals:
 protected:
     virtual bool eventFilter(QObject*, QEvent*);
     virtual void closeEvent(QCloseEvent *);
+    virtual void showEvent(QShowEvent *);
 
 private:
     void sendMessage(QString,bool = true);
     void addStatusMessage(QString);
     void addOutput(QString);
+
+    bool hasMessages;
 
     QString cid;
     QString hubUrl;

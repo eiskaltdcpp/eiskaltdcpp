@@ -14,6 +14,7 @@
 
 #include "ArenaWidget.h"
 #include "Func.h"
+#include "WulforUtil.h"
 
 #include "ui_UIFavoriteUsers.h"
 
@@ -53,6 +54,7 @@ public:
     virtual QWidget *getWidget() { return this; }
     virtual QString getArenaTitle() { return tr("Favorite Users"); }
     virtual QMenu *getMenu() { return NULL; }
+    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUSERS); }
 
 protected:
     virtual void closeEvent(QCloseEvent *);

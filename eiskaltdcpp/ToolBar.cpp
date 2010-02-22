@@ -52,7 +52,7 @@ void ToolBar::insertWidget(ArenaWidget *awgt){
     if (!awgt || !awgt->getWidget() || map.contains(awgt))
         return;
 
-    int index = tabbar->addTab(awgt->getArenaTitle().left(22)+"...");
+    int index = tabbar->addTab(awgt->getPixmap(), awgt->getArenaTitle().left(22)+"...");
 
     if (index >= 0){
         map.insert(awgt, index);
@@ -164,8 +164,10 @@ ArenaWidget *ToolBar::findWidgetForIndex(int index){
 void ToolBar::redraw(){
     WidgetMap::const_iterator it = map.begin();
 
-    for (; it != map.end(); ++it)
+    for (; it != map.end(); ++it){
         tabbar->setTabText(it.value(), it.key()->getArenaTitle().left(22)+"...");
+        tabbar->setTabIcon(it.value(), it.key()->getPixmap());
+    }
 
     ArenaWidget *awgt = findWidgetForIndex(tabbar->currentIndex());
 

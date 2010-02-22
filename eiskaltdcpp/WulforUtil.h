@@ -91,7 +91,7 @@ public:
     bool loadIcons();
 
     QPixmap *getUserIcon(const UserPtr&, bool, bool, const QString&);
-    QPixmap &getPixmap(Icons);
+    const QPixmap &getPixmap(Icons);
 
     QString getNicks(const QString&);
     QString getNicks(const CID &cid);

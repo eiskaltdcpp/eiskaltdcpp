@@ -166,6 +166,7 @@ public:
     QWidget *getWidget();
     QString getArenaTitle();
     QMenu *getMenu();
+    const QPixmap &getPixmap();
 
 protected:
     virtual bool eventFilter(QObject *, QEvent *);
@@ -253,6 +254,7 @@ private:
     QString hub_title;
 
     bool chatDisabled;
+    bool hasMessages;
 
     PMMap pm;
 

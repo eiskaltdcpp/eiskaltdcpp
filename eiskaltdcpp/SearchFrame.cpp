@@ -390,6 +390,10 @@ QMenu *SearchFrame::getMenu(){
     return arena_menu;
 }
 
+const QPixmap &SearchFrame::getPixmap(){
+    return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILEFIND);
+}
+
 void SearchFrame::download(const SearchFrame::VarMap &params){
     string target, cid, filename, hubUrl;
     int64_t size;

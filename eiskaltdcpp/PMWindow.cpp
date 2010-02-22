@@ -22,7 +22,8 @@ using namespace dcpp;
 PMWindow::PMWindow(QString cid, QString hubUrl):
         cid(cid),
         hubUrl(hubUrl),
-        arena_menu(NULL)
+        arena_menu(NULL),
+        hasMessages(false)
 {
     setupUi(this);
 
@@ -78,6 +79,15 @@ void PMWindow::closeEvent(QCloseEvent *c_e){
     c_e->accept();
 }
 
+void PMWindow::showEvent(QShowEvent *e){
+    e->accept();
+
+    if (isVisible()){
+        hasMessages = false;
+        MainWindow::getInstance()->redrawToolPanel();
+    }
+}
+
 QString PMWindow::getArenaTitle(){
     return WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) + "@" + hubUrl;
 }
@@ -88,6 +98,13 @@ QWidget *PMWindow::getWidget(){
 
 QMenu *PMWindow::getMenu(){
     return arena_menu;
+}
+
+const QPixmap &PMWindow::getPixmap(){
+    if (hasMessages)
+        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE);
+    else
+        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER);
 }
 
 void PMWindow::addStatusMessage(QString msg){
@@ -105,6 +122,11 @@ void PMWindow::addStatusMessage(QString msg){
 
 void PMWindow::addOutput(QString msg){
     textEdit_CHAT->append(msg);
+
+    if (!isVisible()){
+        hasMessages = true;
+        MainWindow::getInstance()->redrawToolPanel();
+    }
 }
 
 void PMWindow::sendMessage(QString msg, bool stripNewLines){

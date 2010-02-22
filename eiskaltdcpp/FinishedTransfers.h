@@ -68,6 +68,12 @@ public:
     QWidget *getWidget() { return this;}
     QString getArenaTitle(){ return (isUpload? tr("Finished uploads"):tr("Finished downloads")); }
     QMenu *getMenu() { return NULL; }
+    const QPixmap &getPixmap(){
+        if (isUpload)
+            return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUP);
+        else
+            return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWN);
+    }
 
 protected:
     virtual void customEvent(QEvent *e){

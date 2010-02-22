@@ -15,6 +15,7 @@
 
 #include "ArenaWidget.h"
 #include "Func.h"
+#include "WulforUtil.h"
 
 #include "ui_UIDownloadQueue.h"
 
@@ -92,6 +93,7 @@ public:
     QString  getArenaTitle(){ return tr("Download Queue"); }
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return NULL; }
+    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWNLOAD); }
 
 protected:
     virtual void closeEvent(QCloseEvent*);

@@ -6,6 +6,7 @@
 #include "WulforUtil.h"
 #include "Antispam.h"
 #include "HubManager.h"
+#include "Notification.h"
 
 #include "UserListModel.h"
 
@@ -343,8 +344,6 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
 
                         if (url.hasQueryItem("xl"))
                             toshow += " (" + QString::fromStdString(Util::formatBytes(url.queryItemValue("xl").toULongLong())) + ")";
-
-                        toshow.prepend("magnet://");
                     }
                 }
 
@@ -387,7 +386,8 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
         total_shared(0),
         arenaMenu(NULL),
         codec(NULL),
-        chatDisabled(false)
+        chatDisabled(false),
+        hasMessages(false)
 {
     setupUi(this);
 
@@ -554,8 +554,12 @@ void HubFrame::closeEvent(QCloseEvent *e){
 void HubFrame::showEvent(QShowEvent *e){
     e->accept();
 
-    if (isVisible())
+    if (isVisible()){
         HubManager::getInstance()->setActiveHub(this);
+
+        hasMessages = false;
+        MainWindow::getInstance()->redrawToolPanel();
+    }
 }
 
 void HubFrame::hideEvent(QHideEvent *e){
@@ -677,6 +681,13 @@ QString HubFrame::getArenaTitle(){
 
 QMenu *HubFrame::getMenu(){
     return arenaMenu;
+}
+
+const QPixmap &HubFrame::getPixmap(){
+    if (hasMessages)
+        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE);
+    else
+        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER);
 }
 
 void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
@@ -1020,8 +1031,11 @@ void HubFrame::newMsg(VarMap map){
     QString color = map["CLR"].toString();
     QString msg_color = WS_CHAT_MSG_COLOR;
 
-    if (message.indexOf(_q(client->getMyNick())) >= 0)
+    if (message.indexOf(_q(client->getMyNick())) >= 0){
         msg_color = WS_CHAT_SAY_NICK;
+
+        Notification::getInstance()->showMessage(getArenaTitle().left(20), nick + ": " + message);
+    }
 
     bool third = map["3RD"].toBool();
 
@@ -1039,6 +1053,11 @@ void HubFrame::newMsg(VarMap map){
     //WulforUtil::getInstance()->textToHtml(output, false);
 
     addOutput(output);
+
+    if (!isVisible()){
+        hasMessages = true;
+        MainWindow::getInstance()->redrawToolPanel();
+    }
 }
 
 void HubFrame::newPm(VarMap map){
@@ -1047,6 +1066,8 @@ void HubFrame::newPm(VarMap map){
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";
     QString color = map["CLR"].toString();
     QString full_message = "";
+
+    Notification::getInstance()->showMessage(nick, message);
 
     nick = map["3RD"].toBool()? ("* " + nick + " ") : ("<" + nick + "> ");
 
