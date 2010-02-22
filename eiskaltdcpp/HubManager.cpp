@@ -2,7 +2,9 @@
 #include "HubFrame.h"
 
 
-HubManager::HubManager(){
+HubManager::HubManager():
+        active(NULL)
+{
 }
 
 HubManager::~HubManager(){

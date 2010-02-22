@@ -543,6 +543,9 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     blockSignals(false);
 
+    if (isVisible())
+        HubManager::getInstance()->setActiveHub(NULL);
+
     setAttribute(Qt::WA_DeleteOnClose);
 
     e->accept();
