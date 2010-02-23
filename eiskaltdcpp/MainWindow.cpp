@@ -65,6 +65,12 @@ MainWindow::MainWindow (QWidget *parent):
     blockSignals(true);
     fileTransfers->setChecked(transfer_dock->isVisible());
     blockSignals(false);
+
+    if (WBGET(WB_ANTISPAM_ENABLED))
+        AntiSpam::newInstance();
+
+    if (WBGET(WB_IPFILTER_ENABLED))
+        IPFilter::newInstance();
 }
 
 MainWindow::~MainWindow(){

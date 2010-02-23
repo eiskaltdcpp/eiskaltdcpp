@@ -42,6 +42,7 @@ set (SRCS   Antispam.cpp
             SettingsPersonal.cpp
             SettingsSharing.cpp
             ShareBrowser.cpp
+            ShellCommandRunner.cpp
             SingleInstanceRunner.cpp
             ToolBar.cpp
             TransferView.cpp
@@ -84,6 +85,7 @@ set (MOC_HDRS Antispam.h
             SearchFrame.h
             SearchModel.h
             ShareBrowser.h
+            ShellCommandRunner.h
             ToolBar.h
             TransferView.h
             TransferViewModel.h

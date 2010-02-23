@@ -28,6 +28,7 @@
 #include "ArenaWidget.h"
 #include "Func.h"
 
+class ShellCommandRunner;
 class PMWindow;
 
 using namespace dcpp;
@@ -152,6 +153,7 @@ class HubFrame :
 public:
     typedef QMap<QString, PMWindow*> PMMap;
     typedef QHash<QString, QVariant > VarMap;
+    typedef QList<ShellCommandRunner*> ShellList;
 
     HubFrame(QWidget *parent, QString, QString);
     ~HubFrame();
@@ -190,6 +192,7 @@ private slots:
     void slotChatMenu(const QPoint&);
     void slotHeaderMenu(const QPoint&);
     void slotShowWnd();
+    void slotShellFinished(bool, QString);
 
 private:
     // Chat functions
@@ -258,6 +261,7 @@ private:
     bool hasMessages;
 
     PMMap pm;
+    ShellList shell_list;
 
     // Userlist data and some helpful functions
     UserListModel *model;

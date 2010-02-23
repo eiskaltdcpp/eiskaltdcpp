@@ -7,6 +7,7 @@
 #include "Antispam.h"
 #include "HubManager.h"
 #include "Notification.h"
+#include "ShellCommandRunner.h"
 
 #include "UserListModel.h"
 
@@ -544,6 +545,18 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     pm.clear();
 
+    foreach (ShellCommandRunner *r, shell_list){
+        r->cancel();
+        r->exit(0);
+
+        r->wait(100);
+
+        if (r->isRunning())
+            r->terminate();
+
+        delete r;
+    }
+
     blockSignals(false);
 
     if (isVisible())
@@ -803,9 +816,23 @@ bool HubFrame::parseForCmd(QString line){
                          "/grant <nick> - grant extra slot to user\n"
                          "/help, /?, /h - show this help\n"
                          "/me - say a third person\n"
-                         "/pm <nick> - begin private chat with user\n");
+                         "/pm <nick> - begin private chat with user\n"
+                         "/sh <command> - start command and redirect output to the chat");
 
         addStatus(out);
+    }
+    else if (cmd == "/sh" && !emptyParam){
+        if (line.endsWith("\n"))//remove extra \n char
+            line = line.left(line.lastIndexOf("\n"));
+
+        line = line.remove(0, 4);
+
+        ShellCommandRunner *sh = new ShellCommandRunner(line, this);
+        connect(sh, SIGNAL(finished(bool,QString)), this, SLOT(slotShellFinished(bool,QString)));
+
+        shell_list.append(sh);
+
+        sh->start();
     }
     else
         return false;
@@ -1547,6 +1574,25 @@ void HubFrame::slotShowWnd(){
    MainWindow *MW = MainWindow::getInstance();
 
    MW->mapWidgetOnArena(this);
+}
+
+void HubFrame::slotShellFinished(bool ok, QString output){
+    if (ok)
+        addStatus("\n" + output);
+
+    ShellCommandRunner *runner = reinterpret_cast<ShellCommandRunner*>(sender());
+
+    runner->cancel();
+    runner->exit(0);
+    runner->wait(100);
+
+    if (runner->isRunning())
+        runner->terminate();
+
+    if (shell_list.indexOf(runner) >= 0)
+        shell_list.removeAt(shell_list.indexOf(runner));
+
+    delete runner;
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
