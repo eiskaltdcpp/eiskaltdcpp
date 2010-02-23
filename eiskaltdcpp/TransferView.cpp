@@ -559,12 +559,15 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
     typedef Func2<TransferViewModel, VarMap, qint64> FUNC1;
     FUNC1 *f1= new FUNC1(model, &TransferViewModel::updateTransferPos, params, pos);
 
-    typedef Func1<TransferView, QString> FUNC2;
-    FUNC2 *f2 = new FUNC2(this, &TransferView::downloadComplete, params["FNAME"].toString());
-
     QApplication::postEvent(this, new TransferViewCustomEvent(f));
     QApplication::postEvent(this, new TransferViewCustomEvent(f1));
-    QApplication::postEvent(this, new TransferViewCustomEvent(f2));
+
+    if (vstr(params["FNAME"]) != tr("File list")){
+        typedef Func1<TransferView, QString> FUNC2;
+        FUNC2 *f2 = new FUNC2(this, &TransferView::downloadComplete, vstr(params["FNAME"]));
+
+        QApplication::postEvent(this, new TransferViewCustomEvent(f2));
+    }
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw(){

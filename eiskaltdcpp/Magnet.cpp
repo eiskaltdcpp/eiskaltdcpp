@@ -13,6 +13,7 @@
 #include "WulforUtil.h"
 #include "WulforManager.h"
 #include "SearchFrame.h"
+#include "MainWindow.h"
 #include "Func.h"
 
 using namespace dcpp;
@@ -78,6 +79,11 @@ void Magnet::setLink(const QString &link){
     lineEdit_LINK->setText(link);
 
     setWindowTitle(lineEdit_FNAME->text());
+
+    if (!MainWindow::getInstance()->isVisible()){
+        MainWindow::getInstance()->show();
+        MainWindow::getInstance()->raise();
+    }
 }
 
 void Magnet::search(){

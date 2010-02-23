@@ -3,28 +3,18 @@
 #include "WulforManager.h"
 #include "Func.h"
 
-SingleInstanceRunner::SingleInstanceRunner(QObject *parent) :
-    QThread(parent),
-    serv(NULL)
+SingleInstanceRunner::SingleInstanceRunner()
 {
-}
-
-void SingleInstanceRunner::run(){
-    serv = new QTcpServer(NULL);
-
-    connect(serv, SIGNAL(newConnection()), this, SLOT(slotNewConnection()));
-    serv->listen(QHostAddress("127.0.0.1"), EISKALTPORT);
-
-    QThread::exec();
 }
 
 bool SingleInstanceRunner::isServerRunning(const QStringList &list){
     QTcpSocket sock(NULL);
 
-    sock.connectToHost(QHostAddress("127.0.0.1"), EISKALTPORT, QIODevice::WriteOnly);
+    sock.connectToHost(QHostAddress("127.0.0.1"), EISKALTPORT, QIODevice::ReadWrite);
 
     if (!sock.waitForConnected(1000)){
-        start();
+        connect(&serv, SIGNAL(newConnection()), this, SLOT(slotNewConnection()));
+        serv.listen(QHostAddress("127.0.0.1"), EISKALTPORT);
 
         return false;
     }
@@ -44,7 +34,8 @@ bool SingleInstanceRunner::isServerRunning(const QStringList &list){
         return true;
     }
     else {
-        start();
+        connect(&serv, SIGNAL(newConnection()), this, SLOT(slotNewConnection()));
+        serv.listen(QHostAddress("127.0.0.1"), EISKALTPORT);
 
         return false;
     }
@@ -53,19 +44,17 @@ bool SingleInstanceRunner::isServerRunning(const QStringList &list){
 void SingleInstanceRunner::slotNewConnection(){
     QTcpSocket *sock = NULL;
 
-    while (serv->hasPendingConnections()){
-        sock = serv->nextPendingConnection();
-
-        QString data = sock->readAll();
-
-        if (!data.isEmpty()){
-            Func1<MainWindow, QString> *f = new Func1<MainWindow, QString>(MainWindow::getInstance(), &MainWindow::parseInstanceLine, data);
-
-            MainWindowCustomEvent *e = new MainWindowCustomEvent(f);
-
-            QApplication::postEvent(MainWindow::getInstance(), e);
-        }
-
-        sock->close();
+    while (serv.hasPendingConnections()){
+        sock = serv.nextPendingConnection();
+        connect(sock, SIGNAL(readyRead()), this, SLOT(slotReadyRead()));
     }
+}
+
+void SingleInstanceRunner::slotReadyRead(){
+    QTcpSocket *sock = reinterpret_cast<QTcpSocket*>(sender());
+
+    QString data = sock->readAll();
+
+    if (!data.isEmpty())
+        MainWindow::getInstance()->parseInstanceLine(data);
 }

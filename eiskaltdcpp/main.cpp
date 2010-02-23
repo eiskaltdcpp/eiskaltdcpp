@@ -106,10 +106,6 @@ int main(int argc, char *argv[])
         dcpp::shutdown();
 
         runner.servStop();
-        runner.exit(0);
-        runner.wait();
-
-        runner.terminate();
 
         return ret;
 }

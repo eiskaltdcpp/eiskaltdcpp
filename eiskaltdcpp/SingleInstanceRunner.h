@@ -7,22 +7,22 @@
 
 const int EISKALTPORT = 33561;
 
-class SingleInstanceRunner : public QThread
+class SingleInstanceRunner: public QObject
 {
 Q_OBJECT
 public:
-    explicit SingleInstanceRunner(QObject *parent = 0);
-    ~SingleInstanceRunner() { serv->close(); delete serv;}
+    explicit SingleInstanceRunner();
+    ~SingleInstanceRunner() {}
 
     bool isServerRunning(const QStringList&);
-    virtual void run();
-    void servStop() { serv->close(); }
+    void servStop() { serv.close(); }
 
 private slots:
     void slotNewConnection();
+    void slotReadyRead();
 
 private:
-    QTcpServer *serv;
+    QTcpServer serv;
 };
 
 #endif // SINGLEINSTANCERUNNER_H
