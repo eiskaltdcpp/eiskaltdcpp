@@ -441,8 +441,11 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
     if (e->type() == QEvent::KeyRelease){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return)){
-            sendChat(plainTextEdit_INPUT->toPlainText(), false, true);
+        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
+            (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
+            (k_e->modifiers() == Qt::NoModifier))
+        {
+            sendChat(plainTextEdit_INPUT->toPlainText(), false, false);
 
             plainTextEdit_INPUT->setPlainText("");
 
@@ -712,6 +715,9 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
 
     if (msg.trimmed().isEmpty())
         return;
+
+    if (msg.endsWith("\n"))
+        msg = msg.left(msg.lastIndexOf("\n"));
 
     if (!parseForCmd(msg))
         client->hubMessage(Text::toUtf8(msg.toStdString()), thirdPerson);
