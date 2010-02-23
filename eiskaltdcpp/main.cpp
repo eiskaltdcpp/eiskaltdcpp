@@ -20,6 +20,7 @@ using namespace std;
 #include "HubManager.h"
 #include "Notification.h"
 #include "SingleInstanceRunner.h"
+#include "Version.h"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -31,10 +32,14 @@ void callBack(void* x, const std::string& a)
 	std::cout << "Loading: " << a << std::endl;
 }
 
+void parseCmdLine(const QStringList &);
+
 int main(int argc, char *argv[])
 {
         QApplication app(argc, argv);
         int ret = 0;
+
+        parseCmdLine(qApp->arguments());
 
         SingleInstanceRunner runner;
 
@@ -105,4 +110,29 @@ int main(int argc, char *argv[])
         runner.terminate();
 
         return ret;
+}
+
+void parseCmdLine(const QStringList &args){
+    foreach (QString arg, args){
+        if (arg == "-h" || arg == "--help"){
+            QString msg = QApplication::tr("Using:\n"
+                            "  eiskaltdcpp <magnet link> <dchub://link> <adc(s)://link>\n"
+                            "  eiskaltdcpp <Key>\n"
+                            "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
+                            "\n"
+                            "Keys:\n"
+                            "  -h, --help\t Show this message\n"
+                            "  -v, --version\t Show version string"
+                            );
+
+            printf("%s\n", msg.toAscii().constData());
+
+            exit(0);
+        }
+        else if (arg == "-v" || arg == "--version"){
+            printf("%s\n", EISKALTDCPP_VERSION);
+
+            exit(0);
+        }
+    }
 }

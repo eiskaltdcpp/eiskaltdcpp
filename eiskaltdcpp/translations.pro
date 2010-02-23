@@ -76,6 +76,7 @@ SOURCES = main.cpp \
     DownloadQueue.cpp \
     ToolBar.cpp \
     TransferViewModel.cpp \
+    main.cpp \
     Magnet.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
