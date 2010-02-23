@@ -53,6 +53,7 @@ public:
 
     virtual QWidget *getWidget() { return this; }
     virtual QString getArenaTitle() { return tr("Favorite Users"); }
+    virtual QString getArenaShortTitle() { return getArenaTitle(); }
     virtual QMenu *getMenu() { return NULL; }
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUSERS); }
 

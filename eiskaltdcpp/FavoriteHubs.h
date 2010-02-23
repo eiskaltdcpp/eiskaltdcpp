@@ -48,6 +48,7 @@ class FavoriteHubs :
 public:
     QWidget *getWidget();
     QString getArenaTitle();
+    QString getArenaShortTitle();
     QMenu *getMenu();
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER); }
 

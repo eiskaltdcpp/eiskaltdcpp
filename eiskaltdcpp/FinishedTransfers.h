@@ -67,6 +67,7 @@ friend class dcpp::Singleton< FinishedTransfers<isUpload> >;
 public:
     QWidget *getWidget() { return this;}
     QString getArenaTitle(){ return (isUpload? tr("Finished uploads"):tr("Finished downloads")); }
+    QString getArenaShortTitle(){ return getArenaTitle(); }
     QMenu *getMenu() { return NULL; }
     const QPixmap &getPixmap(){
         if (isUpload)

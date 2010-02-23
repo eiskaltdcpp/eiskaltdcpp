@@ -91,6 +91,7 @@ private:
 
 public:
     QString  getArenaTitle(){ return tr("Download Queue"); }
+    QString  getArenaShortTitle(){ return getArenaTitle(); }
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return NULL; }
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWNLOAD); }

@@ -78,6 +78,7 @@ public:
     virtual ~ShareBrowser();
 
     QString  getArenaTitle();
+    QString  getArenaShortTitle();
     QWidget *getWidget();
     QMenu   *getMenu();
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiOWN_FILELIST); }

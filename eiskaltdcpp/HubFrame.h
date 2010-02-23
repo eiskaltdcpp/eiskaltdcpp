@@ -165,6 +165,7 @@ public:
     // Arena Widget interface
     QWidget *getWidget();
     QString getArenaTitle();
+    QString getArenaShortTitle();
     QMenu *getMenu();
     const QPixmap &getPixmap();
 

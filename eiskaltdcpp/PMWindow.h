@@ -25,6 +25,7 @@ public:
     virtual ~PMWindow();
 
     QString  getArenaTitle();
+    QString  getArenaShortTitle();
     QWidget *getWidget();
     QMenu   *getMenu();
     const QPixmap &getPixmap();

@@ -193,6 +193,10 @@ QString ShareBrowser::getArenaTitle(){
     return title;
 }
 
+QString ShareBrowser::getArenaShortTitle(){
+    return getArenaTitle();
+}
+
 QWidget *ShareBrowser::getWidget(){
     return this;
 }

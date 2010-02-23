@@ -14,6 +14,7 @@ public:
 
     virtual QWidget *getWidget() = 0;
     virtual QString getArenaTitle() = 0;
+    virtual QString getArenaShortTitle() = 0;
     virtual QMenu *getMenu() = 0;
     virtual const QPixmap &getPixmap(){ return _pxmap; }
 

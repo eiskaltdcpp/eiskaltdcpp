@@ -55,6 +55,10 @@ QString FavoriteHubs::getArenaTitle(){
     return tr("Favorite hubs");
 }
 
+QString FavoriteHubs::getArenaShortTitle(){
+    return getArenaTitle();
+}
+
 QMenu *FavoriteHubs::getMenu(){
     return NULL;
 }

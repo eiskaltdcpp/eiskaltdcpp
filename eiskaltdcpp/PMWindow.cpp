@@ -89,7 +89,11 @@ void PMWindow::showEvent(QShowEvent *e){
 }
 
 QString PMWindow::getArenaTitle(){
-    return WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) + "@" + hubUrl;
+    return WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) + tr(" on hub ") + hubUrl;
+}
+
+QString PMWindow::getArenaShortTitle(){
+    return WulforUtil::getInstance()->getNicks(CID(cid.toStdString()));
 }
 
 QWidget *PMWindow::getWidget(){

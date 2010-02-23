@@ -185,9 +185,9 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 
     menu->addActions(actions);
     menu->addActions(chat_actions);
-    
+
     QMenu *user_menu = NULL;
-    
+
     if (!cid.isEmpty()){
         user_menu = buildUserCmdMenu(_q(client->getAddress()), cid);
         menu->addMenu(user_menu);
@@ -201,7 +201,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     }
     else if (chat_actions_map.contains(res)){
         delete user_menu;
-        
+
         return chat_actions_map[res];
     }
     else if (res && !res->toolTip().isEmpty()){//User command
@@ -230,7 +230,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         else
             return None;
     }
-    else{ 
+    else{
         delete user_menu;
         return None;
     }
@@ -665,12 +665,25 @@ QString HubFrame::getArenaTitle(){
     QString ret = tr("Not connected");
 
     if (client && client->isConnected()){
-        ret  = QString("%1 - %2 [%3]").arg(QString(client->getHubUrl().c_str()))
+		ret  = QString("%1 - %2 [%3]").arg(QString(client->getHubName().c_str()))
                                       .arg(QString(client->getHubDescription().c_str()).left(70))
                                       .arg(QString(client->getIp().c_str()));
         QString prefix = QString("[+%1] ").arg(client->isSecure()? ("S") : (client->isTrusted()? ("T"): ("")));
 
         ret.prepend(prefix);
+    }
+    else if (client){
+        ret = QString("[-] %1").arg(client->getHubUrl().c_str());
+    }
+
+    return ret;
+}
+
+QString HubFrame::getArenaShortTitle(){
+    QString ret = tr("Not connected");
+
+    if (client && client->isConnected()){
+                ret  = QString("%1").arg(QString(client->getHubName().c_str()));
     }
     else if (client){
         ret = QString("[-] %1").arg(client->getHubUrl().c_str());
@@ -917,7 +930,7 @@ void HubFrame::browseUserFiles(const QString& id, bool match){
 
             if (user){
                 if (user == ClientManager::getInstance()->getMe())
-                    MainWindow::getInstance()->browseOwnFiles();                
+                    MainWindow::getInstance()->browseOwnFiles();
                 else if (match)
                     QueueManager::getInstance()->addList(user, client->getHubUrl(), QueueItem::FLAG_MATCH_QUEUE);
                 else

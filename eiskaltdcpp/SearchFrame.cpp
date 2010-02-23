@@ -386,6 +386,10 @@ QString SearchFrame::getArenaTitle(){
     return arena_title;
 }
 
+QString SearchFrame::getArenaShortTitle(){
+    return getArenaTitle();
+}
+
 QMenu *SearchFrame::getMenu(){
     return arena_menu;
 }
