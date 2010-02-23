@@ -8,12 +8,14 @@
 #include "MainWindow.h"
 
 Notification::Notification(QObject *parent) :
-    QObject(parent), tray(NULL)
+    QObject(parent), tray(NULL), notify(NULL)
 {
+    switchModule(static_cast<unsigned>(WIGET(WI_NOTIFY_MODULE)));
 }
 
 Notification::~Notification(){
     enableTray(false);
+    delete notify;
 }
 
 void Notification::enableTray(bool enable){
@@ -58,17 +60,29 @@ void Notification::enableTray(bool enable){
     }
 }
 
+void Notification::switchModule(int m){
+    Module t = static_cast<Module>(m);
+
+    delete notify;
+
+    if (t == QtNotify)
+        notify = new QtNotifyModule();
+    else
+        notify = new DBusNotifyModule();
+}
+
 void Notification::showMessage(Notification::Type t, const QString &title, const QString &msg){
     if (MainWindow::getInstance()->isActiveWindow())
         return;
 
-    if (title.isEmpty() || msg.isEmpty() || !tray || !WBGET(WB_NOTIFY_ENABLED))
+    if (title.isEmpty() || msg.isEmpty() || !WBGET(WB_NOTIFY_ENABLED))
         return;
 
     if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
         return;
 
-    tray->showMessage(title, msg, QSystemTrayIcon::Information, 5000);
+    if (notify)
+        notify->showMessage(title, msg, tray);
 }
 
 void Notification::slotExit(){

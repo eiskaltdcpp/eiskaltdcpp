@@ -478,6 +478,7 @@ void ShareBrowser::slotLoaderFinish(){
         return;
 
     loader->exit(0);
+    loader->wait();
     loader->terminate();
 
     treeView_LPANE->blockSignals(false);

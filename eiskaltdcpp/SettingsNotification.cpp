@@ -21,6 +21,8 @@ void SettingsNotification::init(){
         checkBox_ANY->setChecked(emap & Notification::ANY);
         checkBox_PM->setChecked(emap & Notification::PM);
         checkBox_TRDONE->setChecked(emap & Notification::TRANSFER);
+
+        comboBox->setCurrentIndex(WIGET(WI_NOTIFY_MODULE));
     }
 }
 
@@ -43,6 +45,9 @@ void SettingsNotification::ok(){
             emap |= Notification::PM;
 
         WISET(WI_NOTIFY_EVENTMAP, emap);
+        WISET(WI_NOTIFY_MODULE, comboBox->currentIndex());
+
+        Notification::getInstance()->switchModule(comboBox->currentIndex());
     }
 
     WulforSettings::getInstance()->save();

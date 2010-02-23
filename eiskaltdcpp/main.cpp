@@ -24,6 +24,7 @@ using namespace std;
 
 #include <QApplication>
 #include <QMainWindow>
+#include <QtDBus>
 
 #include "MainWindow.h"
 
@@ -106,6 +107,7 @@ int main(int argc, char *argv[])
 
         runner.servStop();
         runner.exit(0);
+        runner.wait();
 
         runner.terminate();
 

@@ -4,16 +4,16 @@
 #include "Func.h"
 
 SingleInstanceRunner::SingleInstanceRunner(QObject *parent) :
-    QThread(parent)
+    QThread(parent),
+    serv(NULL)
 {
 }
 
 void SingleInstanceRunner::run(){
-    serv.moveToThread(this);
-    serv.setParent(this);
+    serv = new QTcpServer(NULL);
 
-    connect(&serv, SIGNAL(newConnection()), this, SLOT(slotNewConnection()));
-    serv.listen(QHostAddress("127.0.0.1"), EISKALTPORT);
+    connect(serv, SIGNAL(newConnection()), this, SLOT(slotNewConnection()));
+    serv->listen(QHostAddress("127.0.0.1"), EISKALTPORT);
 
     QThread::exec();
 }
@@ -53,8 +53,8 @@ bool SingleInstanceRunner::isServerRunning(const QStringList &list){
 void SingleInstanceRunner::slotNewConnection(){
     QTcpSocket *sock = NULL;
 
-    while (serv.hasPendingConnections()){
-        sock = serv.nextPendingConnection();
+    while (serv->hasPendingConnections()){
+        sock = serv->nextPendingConnection();
 
         QString data = sock->readAll();
 

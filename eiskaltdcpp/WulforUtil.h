@@ -96,6 +96,8 @@ public:
     QString getNicks(const QString&);
     QString getNicks(const CID &cid);
 
+    const QString &getIconsPath() { return app_icons_path; }
+
     QPixmap getPixmapForFile(const QString&);
 
     void textToHtml(QString&,bool=true);

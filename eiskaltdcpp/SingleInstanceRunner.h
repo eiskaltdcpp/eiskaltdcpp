@@ -12,17 +12,17 @@ class SingleInstanceRunner : public QThread
 Q_OBJECT
 public:
     explicit SingleInstanceRunner(QObject *parent = 0);
-    ~SingleInstanceRunner() { serv.close(); }
+    ~SingleInstanceRunner() { serv->close(); delete serv;}
 
     bool isServerRunning(const QStringList&);
     virtual void run();
-    void servStop() { serv.close(); }
+    void servStop() { serv->close(); }
 
 private slots:
     void slotNewConnection();
 
 private:
-    QTcpServer serv;
+    QTcpServer *serv;
 };
 
 #endif // SINGLEINSTANCERUNNER_H

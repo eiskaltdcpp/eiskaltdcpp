@@ -35,6 +35,7 @@ const char * const WS_FTRANSFERS_FILES_STATE  = "finished-f-state";
 const char * const WS_FAV_HUBS_STATE          = "fav-hubs-state";
 const char * const WS_APP_THEME               = "app-theme-name";
 const char * const WS_APP_FONT                = "app-font-name";
+const char * const WS_NOTIFY_SOUNDS           = "notify-sound-files";
 const char * const WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";
 const char * const WB_CHAT_SHOW_JOINS         = "chat-show-joins";
 const char * const WB_MAINWINDOW_MAXIMIZED    = "mainwindow-maximized";
@@ -46,6 +47,7 @@ const char * const WB_TRAY_ENABLED            = "systemtray-enabled";
 const char * const WB_SHOW_HIDDEN_USERS       = "show-hidden-users";
 const char * const WB_SHOW_JOINS              = "show-joins";
 const char * const WB_NOTIFY_ENABLED          = "notify-enabled";
+const char * const WB_NOTIFY_SND_ENABLED      = "notify-sound-enabled";
 const char * const WI_CHAT_MAXPARAGRAPHS      = "chat-max-paragraph";
 const char * const WI_CHAT_WIDTH              = "chat-width";
 const char * const WI_CHAT_USERLIST_WIDTH     = "chat-userlist-width";
@@ -62,6 +64,7 @@ const char * const WI_MAINWINDOW_Y            = "mainwindow-y";
 const char * const WI_SHARE_RPANE_WIDTH       = "sharebrowser-rp-width";
 const char * const WI_SHARE_WIDTH             = "sharebrowser-width";
 const char * const WI_NOTIFY_EVENTMAP         = "notify-event-map";
+const char * const WI_NOTIFY_MODULE           = "notify-module";
 
 class WulforSettings :
         public QObject,
