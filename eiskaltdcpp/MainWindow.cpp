@@ -394,11 +394,11 @@ void MainWindow::retranslateUi(){
 
         fileFileListBrowserLocal->setText(tr("Open own filelist"));
 
-        fileFileListRefresh->setText(tr("Recreate share"));
+        fileFileListRefresh->setText(tr("Refresh share"));
 
         fileHashProgress->setText(tr("Hash progress"));
 
-        fileHubReconnect->setText(tr("Reconnect to Hub"));
+        fileHubReconnect->setText(tr("Reconnect to hub"));
 
         fileTransfers->setText(tr("Transfers"));
 
@@ -412,9 +412,9 @@ void MainWindow::retranslateUi(){
 
         fileIPFilter->setText(tr("IPFilter module"));
 
-        fileFavoriteHubs->setText(tr("Favorite hubs"));
+        fileFavoriteHubs->setText(tr("Favourite hubs"));
 
-        fileFavoriteUsers->setText(tr("Favorite Users"));
+        fileFavoriteUsers->setText(tr("Favourite users"));
 
         fileSearch->setText(tr("Search"));
 
@@ -422,7 +422,7 @@ void MainWindow::retranslateUi(){
 
         fileQuit->setText(tr("Quit"));
 
-        menuAbout->setTitle(tr("About"));
+        menuAbout->setTitle(tr("&Help"));
 
         aboutClient->setText(tr("About EiskaltDC++"));
 
