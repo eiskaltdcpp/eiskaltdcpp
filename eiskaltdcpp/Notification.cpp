@@ -95,6 +95,9 @@ void Notification::showMessage(Notification::Type t, const QString &title, const
     if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
         return;
 
+    if (tray && t == PM && !MainWindow::getInstance()->isVisible())
+        tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE));
+
     if (notify)
         notify->showMessage(title, msg, tray);
 
@@ -144,6 +147,9 @@ void Notification::slotShowHide(){
     else{
         MW->show();
         MW->raise();
+
+        if (tray)
+            tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiICON_APPL));
     }
 }
 
