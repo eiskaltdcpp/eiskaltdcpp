@@ -14,6 +14,7 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
+#include "dcpp/FavoriteManager.h"
 #include "dcpp/Util.h"
 
 #include "WulforUtil.h"
@@ -89,6 +90,27 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
         {
             if (index.column() == COLUMN_SHARE)
                 return QString::number(item->share);
+            else {
+                QString ttip = "";
+
+                ttip = "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->nick + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->comm + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->email + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->ip + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + QString::fromStdString(dcpp::Util::formatBytes(item->share)) + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->tag + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->conn + "<br/>";
+
+                if (item->isOp)
+                    ttip += tr("<b>Hub role</b>: Operator");
+                else
+                    ttip += tr("<b>Hub role</b>: User");
+
+                if (FavoriteManager::getInstance()->isFavoriteUser(item->ptr))
+                    ttip += tr("<br/><b>Favorite user</b>");
+
+                return ttip;
+            }
 
             break;
         }

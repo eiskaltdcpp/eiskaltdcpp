@@ -120,9 +120,9 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
             if (errors.isEmpty())
                 errors = tr("No errors");
 
-            QString tooltip = QString("<b>Added: </b> %1\n"
-                                      "<b>Path: </b> %2\n"
-                                      "<b>Errors: </b> %3\n").arg(added).arg(path).arg(errors);
+            QString tooltip = QString(tr("<b>Added: </b> %1\n"
+                                         "<b>Path: </b> %2\n"
+                                         "<b>Errors: </b> %3\n")).arg(added).arg(path).arg(errors);
 
             return tooltip;
         }

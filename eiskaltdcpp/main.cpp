@@ -84,6 +84,9 @@ int main(int argc, char *argv[])
         MainWindow::getInstance()->show();
         MainWindow::getInstance()->parseCmdLine();
 
+        if (WBGET(WB_MAINWINDOW_HIDE))
+            MainWindow::getInstance()->hide();
+
         ret = app.exec();
 
         WulforSettings::getInstance()->save();

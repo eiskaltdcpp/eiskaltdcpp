@@ -239,6 +239,7 @@ void MainWindow::saveSettings(){
     WISET(WI_MAINWINDOW_Y, y());
 
     WBSET(WB_MAINWINDOW_MAXIMIZED, isMaximized());
+    WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
     WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
 }

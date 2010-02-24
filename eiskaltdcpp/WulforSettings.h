@@ -40,6 +40,7 @@ const char * const WS_NOTIFY_SND_CMD          = "notify-sound-cmd";
 const char * const WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";
 const char * const WB_CHAT_SHOW_JOINS         = "chat-show-joins";
 const char * const WB_MAINWINDOW_MAXIMIZED    = "mainwindow-maximized";
+const char * const WB_MAINWINDOW_HIDE         = "mainwindow-autohide";
 const char * const WB_SEARCHFILTER_NOFREE     = "search-filter-nofree";
 const char * const WB_ANTISPAM_ENABLED        = "antispam-enabled";
 const char * const WB_ANTISPAM_AS_FILTER      = "antispam-as-filter";

@@ -1184,30 +1184,25 @@ void HubFrame::pmUserEvent(QString cid, QString e){
 void HubFrame::getPassword(){
     MainWindow *MW = MainWindow::getInstance();
 
-    if (!MW->isVisible()){
-        typedef BFunc0<MainWindow> BFUNC;
-        typedef Func0 <HubFrame> FUNC;
+    if (!MW->isVisible() && !(client->getPassword().size() > 0)){
+        MW->show();
+        MW->raise();
 
-        BFUNC *bfunc = new BFUNC(MW, &MainWindow::isVisible);
-        FUNC  *func  = new FUNC(this, &HubFrame::getPassword);
-
-        WulforManager::getInstance()->dispatchConditionFunc(bfunc, func);//wait when MainWindow becomes visible
     }
-    else {
-        if(client && client->getPassword().size() > 0) {
-            client->password(client->getPassword());
-            addStatus(tr("Stored password sent..."));
-        }
-        else if (client && client->isConnected()){
-            QString pass = QInputDialog::getText(this, tr("Enter password"), tr("Password"), QLineEdit::Password);
 
-            if (!pass.isEmpty()){
-                client->setPassword(pass.toStdString());
-                client->password(pass.toStdString());
-            }
-            else
-                client->disconnect(true);
+    if(client && client->getPassword().size() > 0) {
+        client->password(client->getPassword());
+        addStatus(tr("Stored password sent..."));
+    }
+    else if (client && client->isConnected()){
+        QString pass = QInputDialog::getText(this, tr("Enter password"), tr("Password"), QLineEdit::Password);
+
+        if (!pass.isEmpty()){
+            client->setPassword(pass.toStdString());
+            client->password(pass.toStdString());
         }
+        else
+            client->disconnect(true);
     }
 }
 
