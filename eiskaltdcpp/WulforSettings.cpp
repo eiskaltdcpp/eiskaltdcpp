@@ -62,6 +62,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_APP_THEME, "");
         strmap.insert(WS_APP_FONT, "");
         strmap.insert(WS_NOTIFY_SOUNDS, "");
+        strmap.insert(WS_NOTIFY_SND_CMD, "");
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_CHAT_SHOW_JOINS, (int)true);
@@ -75,6 +76,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_SHOW_JOINS, (int)false);
         intmap.insert(WB_NOTIFY_ENABLED, (int)true);
         intmap.insert(WB_NOTIFY_SND_ENABLED, (int)false);
+        intmap.insert(WB_NOTIFY_SND_EXTERNAL, (int)false);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS, 300);
         intmap.insert(WI_CHAT_WIDTH, -1);
         intmap.insert(WI_CHAT_USERLIST_WIDTH, -1);

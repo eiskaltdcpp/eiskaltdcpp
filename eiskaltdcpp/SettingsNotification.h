@@ -15,10 +15,16 @@ public:
 
 private:
     void init();
+    void playFile(const QString &);
 
 public slots:
     void ok();
 
+private slots:
+    void slotBrowseFile();
+    void slotTest();
+    void slotToggleSndCmd(bool);
+    void slotCmdFinished(bool,QString);
 };
 
 #endif // SETTINGSNOTIFICATION_H

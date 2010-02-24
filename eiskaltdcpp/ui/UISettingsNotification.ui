@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>398</width>
-    <height>336</height>
+    <width>396</width>
+    <height>334</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -202,7 +202,7 @@
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="2" column="0">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -214,6 +214,21 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_SNDCMD">
+         <property name="title">
+          <string>Use external command</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0">
+           <widget class="QLineEdit" name="lineEdit_SNDCMD"/>
+          </item>
+         </layout>
+        </widget>
        </item>
       </layout>
      </widget>

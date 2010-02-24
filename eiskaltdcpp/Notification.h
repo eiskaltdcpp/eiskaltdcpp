@@ -68,6 +68,7 @@ enum Type{
 
     void enableTray(bool);
     void showMessage(Type t, const QString&, const QString&);
+    void reloadSounds();
 
 public slots:
     void switchModule(int);
@@ -76,10 +77,13 @@ private slots:
     void slotExit();
     void slotShowHide();
     void slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason);
+    void slotCmdFinished(bool, QString);
 
 private:
     explicit Notification(QObject *parent = 0);
     virtual ~Notification();
+
+    QStringList sounds;
 
     QSystemTrayIcon *tray;
     NotifyModule *notify;
