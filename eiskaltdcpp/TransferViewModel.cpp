@@ -369,6 +369,9 @@ void TransferViewModel::removeTransfer(VarMap params){
             TransferViewItem *item = i.value();
             TransferViewItem *p = item->parent();
 
+            if (p != rootItem && !rootItem->childItems.contains(p))
+                return;
+
             if (p != rootItem)
                 beginRemoveRows(createIndex(p->row(), 0, p), item->row(), item->row());
             else

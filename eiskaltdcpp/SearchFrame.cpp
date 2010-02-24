@@ -305,8 +305,6 @@ bool SearchFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void SearchFrame::init(){
-    left_pane_old_size = 0;
-
     timer1 = new QTimer(this);
     timer1->setInterval(1000);
 
@@ -339,6 +337,9 @@ void SearchFrame::init(){
     mwnd->addArenaWidget(this);
     mwnd->addArenaWidgetOnToolbar(this);
     mwnd->mapWidgetOnArena(this);
+
+    QList<int> panes = splitter->sizes();
+    left_pane_old_size = panes[0];
 
     timer1->start();
 }
@@ -737,7 +738,8 @@ void SearchFrame::slotStartSearch(){
         QList<int> panes = splitter->sizes();
 
         panes[1] = panes[0] + panes[1];
-        left_pane_old_size = panes[0];
+
+        left_pane_old_size = panes[0] > 15 ? panes[0] : left_pane_old_size;
 
         panes[0] = 0;
 
@@ -774,8 +776,21 @@ void SearchFrame::slotResultDoubleClicked(const QModelIndex &index){
     SearchItem *item = reinterpret_cast<SearchItem*>(index.internalPointer());
     VarMap params;
 
-    if (getDownloadParams(params, item))
+    if (getDownloadParams(params, item)){
         download(params);
+
+        if (item->childCount() > 0){//download all child items
+            QString fname = params["FNAME"].toString();
+
+            foreach (SearchItem *i, item->childItems){
+                if (getDownloadParams(params, i)){
+                    params["FNAME"] = fname;
+
+                    download(params);
+                }
+            }
+        }
+    }
 }
 
 void SearchFrame::slotContextMenu(const QPoint &){
@@ -811,8 +826,21 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
-                if (getDownloadParams(params, item))
+                if (getDownloadParams(params, item)){
                     download(params);
+
+                    if (item->childCount() > 0){//download all child items
+                        QString fname = params["FNAME"].toString();
+
+                        foreach (SearchItem *i, item->childItems){
+                            if (getDownloadParams(params, i)){
+                                params["FNAME"] = fname;
+
+                                download(params);
+                            }
+                        }
+                    }
+                }
             }
 
             break;
@@ -834,6 +862,19 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 if (getDownloadParams(params, item)){
                     params["TARGET"] = target;
                     download(params);
+
+                    if (item->childCount() > 0){//download all child items
+                        QString fname = params["FNAME"].toString();
+
+                        foreach (SearchItem *i, item->childItems){
+                            if (getDownloadParams(params, i)){
+                                params["FNAME"]  = fname;
+                                params["TARGET"] = target;
+
+                                download(params);
+                            }
+                        }
+                    }
                 }
             }
 
