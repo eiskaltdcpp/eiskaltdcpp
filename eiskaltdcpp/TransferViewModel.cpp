@@ -224,6 +224,9 @@ QModelIndex TransferViewModel::parent(const QModelIndex &index) const
     if (parentItem == rootItem || !parentItem)
         return QModelIndex();
 
+    if (parentItem != rootItem && !rootItem->childItems.contains(parentItem))
+        return QModelIndex();
+
     return createIndex(parentItem->row(), 0, parentItem);
 }
 
@@ -280,15 +283,16 @@ void TransferViewModel::initTransfer(VarMap params){
 
         TransferViewItem *p = item->parent();
 
-        moveTransfer(item, p, to);
+        if (p && p != rootItem){
+            moveTransfer(item, p, to);
 
-        if (p != rootItem){
-            beginRemoveRows(QModelIndex(), p->row(), p->row());
-
-            rootItem->childItems.removeAt(p->row());
-            delete p;
-
+            beginRemoveRows(createIndexForItem(p->parent()), p->row(), p->row());
+            {
+                p->parent()->childItems.removeAt(p->row());
+            }
             endRemoveRows();
+
+            delete p;
         }
     }
 
@@ -461,8 +465,17 @@ void TransferViewModel::moveTransfer(TransferViewItem *item, TransferViewItem *f
     if (!(item && from && to) || !from->childItems.contains(item))
         return;
 
-    from->childItems.removeAt(item->row());
-    to->appendChild(item);
+    beginRemoveRows(createIndexForItem(from), item->row(), item->row());
+    {
+        from->childItems.removeAt(item->row());
+    }
+    endRemoveRows();
+
+    beginInsertColumns(createIndexForItem(to), to->childCount(), to->childCount());
+    {
+        to->appendChild(item);
+    }
+    endInsertColumns();
 }
 
 void TransferViewModel::updateParent(TransferViewItem *p){
@@ -651,6 +664,8 @@ TransferViewItem::~TransferViewItem()
 {
     if (childItems.size() > 0)
         qDeleteAll(childItems);
+
+    parentItem = NULL;
 }
 
 void TransferViewItem::appendChild(TransferViewItem *item) {
@@ -682,7 +697,7 @@ int TransferViewItem::row() const {
     if (parentItem)
         return parentItem->childItems.indexOf(const_cast<TransferViewItem*>(this));
 
-    return 0;
+    return -1;
 }
 
 void TransferViewItem::updateColumn(int column, QVariant var){
