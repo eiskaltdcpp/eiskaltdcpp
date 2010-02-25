@@ -386,6 +386,7 @@ void MainWindow::initStatusBar(){
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
     msgLabel->setFrameShape(QFrame::NoFrame);
+    msgLabel->setAlignment(Qt::AlignRight);
 
     statusBar()->addPermanentWidget(msgLabel);
     statusBar()->addPermanentWidget(statusLabel);

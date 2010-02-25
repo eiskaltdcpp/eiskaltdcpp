@@ -779,7 +779,7 @@ void SearchFrame::slotResultDoubleClicked(const QModelIndex &index){
     if (getDownloadParams(params, item)){
         download(params);
 
-        if (item->childCount() > 0){//download all child items
+        if (item->childCount() > 0 && !SETTING(DONT_DL_ALREADY_QUEUED)){//download all child items
             QString fname = params["FNAME"].toString();
 
             foreach (SearchItem *i, item->childItems){
@@ -829,7 +829,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 if (getDownloadParams(params, item)){
                     download(params);
 
-                    if (item->childCount() > 0){//download all child items
+                    if (item->childCount() > 0 && !SETTING(DONT_DL_ALREADY_QUEUED)){//download all child items
                         QString fname = params["FNAME"].toString();
 
                         foreach (SearchItem *i, item->childItems){
@@ -863,7 +863,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     params["TARGET"] = target;
                     download(params);
 
-                    if (item->childCount() > 0){//download all child items
+                    if (item->childCount() > 0 && !SETTING(DONT_DL_ALREADY_QUEUED)){//download all child items
                         QString fname = params["FNAME"].toString();
 
                         foreach (SearchItem *i, item->childItems){

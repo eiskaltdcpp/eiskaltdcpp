@@ -103,9 +103,9 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
         case Qt::TextAlignmentRole:
         {
             if (index.column() == COLUMN_TRANSFER_SPEED || index.column() == COLUMN_TRANSFER_SIZE)
-                return Qt::AlignRight;
-
-            break;
+                return static_cast<int>(Qt::AlignRight | Qt::AlignVCenter);
+            else
+                return static_cast<int>(Qt::AlignLeft | Qt::AlignVCenter);
         }
         case Qt::ForegroundRole:
         {
@@ -524,7 +524,7 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     p->updateColumn(COLUMN_TRANSFER_HOST, hubs_str);
     p->updateColumn(COLUMN_TRANSFER_SPEED, speed);
     p->updateColumn(COLUMN_TRANSFER_STATS, stat);
-    p->percent = progress;
+    p->percent = p->percent == 100.0? 100.0 : progress;
 }
 
 void TransferViewModel::updateTransferPos(VarMap params, qint64 pos){

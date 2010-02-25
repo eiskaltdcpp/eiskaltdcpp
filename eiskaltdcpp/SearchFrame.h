@@ -21,6 +21,7 @@
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/SearchResult.h"
 #include "dcpp/SearchManager.h"
+#include "dcpp/SettingsManager.h"
 #include "dcpp/ClientManagerListener.h"
 #include "dcpp/Singleton.h"
 
