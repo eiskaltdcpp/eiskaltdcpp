@@ -675,6 +675,7 @@ void MainWindow::slotFileRefreshShare(){
     SM->refresh(true);
 
     HashProgress progress(this);
+    progress.slotAutoClose(true);
 
     progress.exec();
 }

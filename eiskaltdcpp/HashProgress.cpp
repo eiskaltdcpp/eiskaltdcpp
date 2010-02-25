@@ -3,13 +3,14 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/HashManager.h"
+#include "dcpp/ShareManager.h"
 #include "dcpp/TimerManager.h"
 
 using namespace dcpp;
 
 HashProgress::HashProgress(QWidget *parent):
         QDialog(parent),
-        autoClose(true),
+        autoClose(false),
         startBytes(0),
         startFiles(0),
         startTime(0)
@@ -23,6 +24,8 @@ HashProgress::HashProgress(QWidget *parent):
     timer->setSingleShot(true);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(timerTick()));
+    connect(pushButton_START, SIGNAL(clicked()), this, SLOT(slotStart()));
+    connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(slotAutoClose(bool)));
 
     timer->start();
 }
@@ -104,4 +107,19 @@ void HashProgress::timerTick(){
     }
 
     timer->start();
+}
+
+void HashProgress::slotStart(){
+    ShareManager *SM = ShareManager::getInstance();
+
+    SM->setDirty();
+    SM->refresh(true);
+}
+
+void HashProgress::slotAutoClose(bool b){
+    autoClose = b;
+
+    blockSignals(true);
+    checkBox->setChecked(b);
+    blockSignals(false);
 }

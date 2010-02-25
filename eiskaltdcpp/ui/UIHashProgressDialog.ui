@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
-    <height>106</height>
+    <width>518</width>
+    <height>129</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -23,7 +23,7 @@
    <bool>true</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="0" rowspan="2" colspan="4">
+   <item row="2" column="0" rowspan="2" colspan="5">
     <widget class="QFrame" name="frame_3">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -64,13 +64,6 @@
      </layout>
     </widget>
    </item>
-   <item row="4" column="0" colspan="3">
-    <widget class="QLabel" name="file">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="1">
     <widget class="QLabel" name="speed">
      <property name="text">
@@ -85,7 +78,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2" colspan="2">
+   <item row="0" column="2" colspan="3">
     <spacer name="horizontalSpacer_2">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -98,10 +91,31 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="3">
+   <item row="5" column="4">
     <widget class="QPushButton" name="pushButton_HIDE">
      <property name="text">
       <string>Hide</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="3">
+    <widget class="QPushButton" name="pushButton_START">
+     <property name="text">
+      <string>Start</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="5">
+    <widget class="QLabel" name="file">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="3">
+    <widget class="QCheckBox" name="checkBox">
+     <property name="text">
+      <string>Close on finish</string>
      </property>
     </widget>
    </item>

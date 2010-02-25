@@ -17,8 +17,12 @@ public:
     HashProgress(QWidget* = NULL);
     virtual ~HashProgress();
 
+public slots:
+    void slotAutoClose(bool);
+
 private slots:
     void timerTick();
+    void slotStart();
 
 private:
     QTimer *timer;
