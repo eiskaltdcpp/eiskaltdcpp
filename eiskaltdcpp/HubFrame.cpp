@@ -31,6 +31,7 @@
 #include <QUrl>
 #include <QCloseEvent>
 #include <QThread>
+#include <QRegExp>
 
 #include <QDebug>
 
@@ -452,6 +453,13 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
             return false;
         }
+        else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab){
+            nickCompletion();
+
+            e->accept();
+
+            return true;
+        }
         else if (static_cast<QLineEdit*>(obj) == lineEdit_FILTER){
             bool ret = QWidget::eventFilter(obj, e);
             QString filter_text = lineEdit_FILTER->text();
@@ -476,6 +484,45 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
             return ret;
         }
+        else if (static_cast<QLineEdit*>(obj) == lineEdit_FIND){
+             bool ret = QWidget::eventFilter(obj, e);
+
+            if (lineEdit_FIND->text().isEmpty())
+                return ret;
+
+            if (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return){
+                slotFindForward();
+
+                return ret;
+            }
+
+            QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text());
+
+            textEdit_CHAT->setTextCursor(c);
+
+            return ret;
+        }
+
+        if (k_e->modifiers() == Qt::ControlModifier && k_e->key() == Qt::Key_F){
+            frame->setVisible(!frame->isVisible());
+
+            if (frame->isVisible()){
+                QString stext = textEdit_CHAT->textCursor().selectedText();
+
+                if (!stext.isEmpty()){
+                    lineEdit_FIND->setText(stext);
+                    lineEdit_FIND->selectAll();
+                }
+
+                lineEdit_FIND->setFocus();
+            }
+        }
+    }
+    else if (e->type() == QEvent::KeyPress){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab)
+            return true;
     }
     else if (e->type() == QEvent::MouseButtonPress){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
@@ -598,13 +645,17 @@ void HubFrame::init(){
     treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    installEventFilter(this);
     lineEdit_FILTER->installEventFilter(this);
+    lineEdit_FIND->installEventFilter(this);
 
     textEdit_CHAT->document()->setMaximumBlockCount(WIGET(WI_CHAT_MAXPARAGRAPHS));
     textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
     textEdit_CHAT->setReadOnly(true);
     textEdit_CHAT->setAutoFormatting(QTextEdit::AutoNone);
     textEdit_CHAT->viewport()->installEventFilter(this);//QTextEdit don't receive all mouse events
+
+    frame->setVisible(false);
 
     for (int i = 0; i < model->columnCount(); i++)
         comboBox_COLUMNS->addItem(model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
@@ -613,6 +664,8 @@ void HubFrame::init(){
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(updater, SIGNAL(timeout()), this, SLOT(slotUsersUpdated()));
     connect(textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
+    connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
+    connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
 
     plainTextEdit_INPUT->installEventFilter(this);
 
@@ -1223,6 +1276,65 @@ void HubFrame::follow(string redirect){
         client = ClientManager::getInstance()->getClient(url);
         client->addListener(this);
         client->connect();
+    }
+}
+
+void HubFrame::findText(const QString &str, QTextDocument::FindFlags flag){
+    static QTextCursor c = QTextCursor();
+
+    if (str.isEmpty())
+        return;
+
+    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
+
+    textEdit_CHAT->setTextCursor(c);
+}
+
+
+#include <QtDebug>
+
+void HubFrame::nickCompletion() {
+    int cpos =  plainTextEdit_INPUT->textCursor().position();
+    QString input = plainTextEdit_INPUT->textCursor().block().text().left(cpos);
+
+    if (cpos == 0 || cpos == input.lastIndexOf(QRegExp("\\s")))
+        return;
+
+    int from = input.lastIndexOf(QRegExp("\\s"));
+
+    if (from < 0)
+        from = 0;
+
+    QString matchExp = input.mid(from, cpos - from);
+    matchExp = matchExp.trimmed();
+
+    if (matchExp.isEmpty())
+        return;
+
+    QStringList nicks = model->matchNicksStartingWith(matchExp.toLower());
+
+    if (nicks.size() == 1){
+        QString nick = nicks.at(0);
+        QString insertion = nick.right(nick.length()-matchExp.length()) + ": ";
+
+        plainTextEdit_INPUT->textCursor().insertText(insertion);
+    }
+    else if (!nicks.isEmpty() && nicks.size() < 15){
+        QMenu *m = new QMenu();
+
+        foreach (QString nick, nicks)
+            m->addAction(nick);
+
+        QAction *ret = m->exec(plainTextEdit_INPUT->cursor().pos());
+
+        if (ret){
+            QString nick = ret->text();
+            QString insertion = nick.right(nick.length()-matchExp.length()) + ": ";
+
+            plainTextEdit_INPUT->textCursor().insertText(insertion);
+        }
+
+        delete m;
     }
 }
 

@@ -381,8 +381,13 @@ void MainWindow::initMenuBar(){
 void MainWindow::initStatusBar(){
     statusLabel = new QLabel(statusBar());
     statusLabel->setFrameShadow(QFrame::Plain);
-    statusLabel->setFrameShape(QFrame::Panel);
+    statusLabel->setFrameShape(QFrame::NoFrame);
 
+    msgLabel = new QLabel(statusBar());
+    msgLabel->setFrameShadow(QFrame::Plain);
+    msgLabel->setFrameShape(QFrame::NoFrame);
+
+    statusBar()->addPermanentWidget(msgLabel);
     statusBar()->addPermanentWidget(statusLabel);
 }
 
@@ -480,7 +485,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     if (!statusLabel)
         return;
 
-    QString stat = QString(tr("%1 : %2 | %4 : %5 | %3")).arg(map["DOWN"])
+    QString stat = QString(tr("<b>%1 : %2  %4 : %5  %3</b>")).arg(map["DOWN"])
                                                         .arg(map["UP"])
                                                         .arg(map["STATS"])
                                                         .arg(map["DSPEED"])
@@ -489,7 +494,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
 }
 
 void MainWindow::setStatusMessage(QString msg){
-    statusBar()->showMessage(msg, 2);
+    msgLabel->setText(msg);
 }
 
 void MainWindow::autoconnect(){

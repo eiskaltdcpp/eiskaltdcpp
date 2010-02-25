@@ -186,6 +186,7 @@ friend class dcpp::Singleton<MainWindow>;
         ToolBar *fBar;//for actions
 
         QLabel *statusLabel;
+        QLabel *msgLabel;
 
         QMenu   *menuFile;
         QAction *fileOptions;
