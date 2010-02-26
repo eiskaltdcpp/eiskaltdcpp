@@ -76,6 +76,7 @@ HubFrame::Menu::Menu(){
     //Chat actions
     QAction *sep1        = new QAction(NULL);
     QAction *clear_chat  = new QAction(WU->getPixmap(WulforUtil::eiCLEAR), tr("Clear chat"), NULL);
+    QAction *find_in_chat= new QAction(QPixmap(), tr("Find in chat"), NULL);
     QAction *dis_chat    = new QAction(WU->getPixmap(WulforUtil::eiFILECLOSE), tr("Disable/Enable chat"), NULL);
     QAction *sep2        = new QAction(NULL);
     QAction *select_all  = new QAction(tr("Select all"), NULL);
@@ -96,6 +97,7 @@ HubFrame::Menu::Menu(){
 
     chat_actions << sep1
                  << clear_chat
+                 << find_in_chat
                  << dis_chat
                  << sep2
                  << select_all
@@ -104,6 +106,7 @@ HubFrame::Menu::Menu(){
                  << zoom_out;
 
     chat_actions_map.insert(clear_chat, ClearChat);
+    chat_actions_map.insert(find_in_chat, FindInChat);
     chat_actions_map.insert(dis_chat, DisableChat);
     chat_actions_map.insert(select_all, SelectAllChat);
     chat_actions_map.insert(zoom_in, ZoomInChat);
@@ -504,17 +507,20 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         }
 
         if (k_e->modifiers() == Qt::ControlModifier && k_e->key() == Qt::Key_F){
-            frame->setVisible(!frame->isVisible());
+            slotHideFindFrame();
+        }
 
+        if (k_e->modifiers() == Qt::ShiftModifier && k_e->key() == Qt::Key_F3){
+            slotFindBackward();
+        }
+        else if (k_e->key() == Qt::Key_F3){
+            slotFindForward();
+        }
+
+        if (k_e->key() == Qt::Key_Escape){
             if (frame->isVisible()){
-                QString stext = textEdit_CHAT->textCursor().selectedText();
-
-                if (!stext.isEmpty()){
-                    lineEdit_FIND->setText(stext);
-                    lineEdit_FIND->selectAll();
-                }
-
-                lineEdit_FIND->setFocus();
+                slotHideFindFrame();
+                return true;
             }
         }
     }
@@ -1607,6 +1613,12 @@ void HubFrame::slotChatMenu(const QPoint &){
 
             break;
         }
+        case Menu::FindInChat:
+        {
+            slotHideFindFrame();
+
+            break;
+        }
         case Menu::DisableChat:
         {
             chatDisabled = !chatDisabled;
@@ -1704,6 +1716,21 @@ void HubFrame::slotShellFinished(bool ok, QString output){
         shell_list.removeAt(shell_list.indexOf(runner));
 
     delete runner;
+}
+
+void HubFrame::slotHideFindFrame(){
+    frame->setVisible(!frame->isVisible());
+
+    if (frame->isVisible()){
+        QString stext = textEdit_CHAT->textCursor().selectedText();
+
+        if (!stext.isEmpty()){
+            lineEdit_FIND->setText(stext);
+            lineEdit_FIND->selectAll();
+        }
+
+        lineEdit_FIND->setFocus();
+    }
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){

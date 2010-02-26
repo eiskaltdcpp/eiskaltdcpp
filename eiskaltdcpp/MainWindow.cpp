@@ -389,7 +389,7 @@ void MainWindow::initStatusBar(){
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
     msgLabel->setFrameShape(QFrame::NoFrame);
-    msgLabel->setAlignment(Qt::AlignRight);
+    msgLabel->setAlignment(Qt::AlignLeft);
 
     statusBar()->addPermanentWidget(msgLabel);
     statusBar()->addPermanentWidget(statusLabel);
@@ -593,6 +593,8 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
 
     tBar->mapped(awgt);
+
+    arenaMap[awgt]->setFocus();
 }
 
 void MainWindow::remWidgetFromArena(ArenaWidget *awgt){

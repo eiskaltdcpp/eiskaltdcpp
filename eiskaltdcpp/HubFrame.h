@@ -111,6 +111,7 @@ class HubFrame :
 
             /** Additional actions for chat */
             ClearChat,
+            FindInChat,
             DisableChat,
             SelectAllChat,
             ZoomInChat,
@@ -195,7 +196,7 @@ private slots:
     void slotShellFinished(bool, QString);
     void slotFindForward(){ findText(lineEdit_FIND->text(), 0); }
     void slotFindBackward(){ findText(lineEdit_FIND->text(), QTextDocument::FindBackward); }
-    void slotHideFindFrame(){ frame->setVisible(false); }
+    void slotHideFindFrame();
 
 private:
     // Chat functions
