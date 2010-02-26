@@ -666,6 +666,7 @@ void HubFrame::init(){
     connect(textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
+    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
 
     plainTextEdit_INPUT->installEventFilter(this);
 
