@@ -329,6 +329,8 @@ void MainWindow::initActions(){
         separator3->setSeparator(true);
         QAction *separator4 = new QAction("", this);
         separator4->setSeparator(true);
+        QAction *separator5 = new QAction("", this);
+        separator5->setSeparator(true);
 
         fileMenuActions << fileOptions
                 << separator1
@@ -343,13 +345,14 @@ void MainWindow::initActions(){
                 << fileDownloadQueue
                 << fileFinishedDownloads
                 << fileFinishedUploads
+                << separator4
                 << fileFavoriteHubs
                 << fileFavoriteUsers
                 << fileSearch
                 << separator3
                 << fileAntiSpam
                 << fileIPFilter
-                << separator4
+                << separator5
                 << fileQuit;
     }
     {

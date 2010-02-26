@@ -24,7 +24,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QTextEdit" name="textEdit_INPUT">
+     <widget class="QPlainTextEdit" name="plainTextEdit_INPUT">
       <property name="maximumSize">
        <size>
         <width>16777215</width>

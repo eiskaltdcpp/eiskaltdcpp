@@ -29,7 +29,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
 
     setAttribute(Qt::WA_DeleteOnClose);
 
-    textEdit_INPUT->installEventFilter(this);
+    plainTextEdit_INPUT->installEventFilter(this);
     textEdit_CHAT->viewport()->installEventFilter(this);
 
     arena_menu = new QMenu(tr("Private message"));
@@ -49,10 +49,12 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
     if (e->type() == QEvent::KeyRelease){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if ((static_cast<QTextEdit*>(obj) == textEdit_INPUT) && (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return)){
-            sendMessage(textEdit_INPUT->toPlainText());
+        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
+            (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
+            (k_e->modifiers() == Qt::NoModifier)){
+            sendMessage(plainTextEdit_INPUT->toPlainText());
 
-            textEdit_INPUT->setPlainText("");
+            plainTextEdit_INPUT->setPlainText("");
 
             return false;
         }
@@ -125,6 +127,12 @@ void PMWindow::addStatusMessage(QString msg){
 }
 
 void PMWindow::addOutput(QString msg){
+
+    /* This is temporary block. Later we must make it more wise. */
+    msg.replace("\r", "");
+    msg.replace("\n", "\n<br>");
+    msg.replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
+
     textEdit_CHAT->append(msg);
 
     if (!isVisible()){

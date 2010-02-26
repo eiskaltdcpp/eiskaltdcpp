@@ -43,7 +43,7 @@ protected:
     virtual void showEvent(QShowEvent *);
 
 private:
-    void sendMessage(QString,bool = true);
+    void sendMessage(QString,bool = false);
     void addStatusMessage(QString);
     void addOutput(QString);
 
