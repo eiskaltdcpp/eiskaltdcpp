@@ -1584,8 +1584,14 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     QString cid = model->CIDforNick(nick);
 
-    if (cid.isEmpty())
+    if (cid.isEmpty()){
+        QMenu *m = textEdit_CHAT->createStandardContextMenu(QCursor::pos());
+        m->exec(QCursor::pos());
+
+        delete m;
+
         return;
+    }
 
     Menu::Action action = Menu::getInstance()->execChatMenu(client, cid);
 
@@ -1906,6 +1912,15 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
     FUNC *func = new FUNC(this, &HubFrame::newMsg, map);
 
     QApplication::postEvent(this, new UserCustomEvent(func));
+
+    if (BOOLSETTING(LOG_MAIN_CHAT)){
+        StringMap params;
+        params["message"] = msg;
+        client->getHubIdentity().getParams(params, "hub", false);
+        params["hubURL"] = client->getHubUrl();
+        client->getMyIdentity().getParams(params, "my", true);
+        LOG(LogManager::CHAT, params);
+    }
 }
 
 void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int) throw(){
@@ -1915,6 +1930,15 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
     FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
 
     QApplication::postEvent(this, new UserCustomEvent(func));
+
+    if (BOOLSETTING(LOG_STATUS_MESSAGES)){
+        StringMap params;
+        client->getHubIdentity().getParams(params, "hub", FALSE);
+        params["hubURL"] = client->getHubUrl();
+        client->getMyIdentity().getParams(params, "my", TRUE);
+        params["message"] = msg;
+        LOG(LogManager::STATUS, params);
+    }
 }
 
 void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &from, const OnlineUser &to, const OnlineUser &replyTo,
@@ -1954,12 +1978,23 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
     typedef Func1<HubFrame, VarMap> FUNC;
     FUNC *func = NULL;
 
-    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS))
+    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && user.getIdentity().isBot())
         func = new FUNC(this, &HubFrame::newMsg, map);
     else
         func = new FUNC(this, &HubFrame::newPm, map);
 
     QApplication::postEvent(this, new UserCustomEvent(func));
+
+    if (BOOLSETTING(LOG_PRIVATE_CHAT)){
+        StringMap params;
+        params["message"] = msg;
+        params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
+        params["hubURL"] = Util::toString(ClientManager::getInstance()->getHubs(id));
+        params["userCID"] = id.toBase32();
+        params["userNI"] = ClientManager::getInstance()->getNicks(id)[0];
+        params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
+        LOG(LogManager::PM, params);
+    }
 }
 
 void HubFrame::on(ClientListener::NickTaken, Client*) throw(){

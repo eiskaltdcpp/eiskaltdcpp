@@ -650,11 +650,37 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
         return;
 
     if (tBar->hasWidget(a)){
+        QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
+        for (; it != menuWidgetsHash.end(); ++it){
+            if (it.value() == a){
+                menuWidgetsActions.removeAt(menuWidgetsActions.indexOf(it.key()));
+                menuWidgetsHash.erase(it);
+
+                menuWidgets->clear();
+
+                menuWidgets->addActions(menuWidgetsActions);
+
+                break;
+            }
+        }
+
         tBar->removeWidget(a);
         remWidgetFromArena(a);
     }
     else {
         tBar->insertWidget(a);
+
+        QAction *act = new QAction(a->getArenaShortTitle(), this);
+        act->setIcon(a->getPixmap());
+
+        connect(act, SIGNAL(triggered()), this, SLOT(slotWidgetsToggle()));
+
+        menuWidgetsActions.push_back(act);
+        menuWidgetsHash.insert(act, a);
+
+        menuWidgets->clear();
+        menuWidgets->addActions(menuWidgetsActions);
+
         mapWidgetOnArena(a);
     }
 }

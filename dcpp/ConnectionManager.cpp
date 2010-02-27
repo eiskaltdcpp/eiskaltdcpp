@@ -153,7 +153,7 @@ void ConnectionManager::on(TimerManagerListener::Second, uint32_t aTick) throw()
 					continue;
 				}
 
-				if(cqi->getLastAttempt() == 0 || (((cqi->getLastAttempt() + 60*1000) < aTick) && !attemptDone)) {
+                                if(cqi->getLastAttempt() == 0 || (((cqi->getLastAttempt() + 20*1000) < aTick) && !attemptDone)) {
 					cqi->setLastAttempt(aTick);
 
 					QueueItem::Priority prio = QueueManager::getInstance()->hasDownload(cqi->getUser());
@@ -178,7 +178,7 @@ void ConnectionManager::on(TimerManagerListener::Second, uint32_t aTick) throw()
 					} else if(cqi->getState() == ConnectionQueueItem::NO_DOWNLOAD_SLOTS && startDown) {
 						cqi->setState(ConnectionQueueItem::WAITING);
 					}
-				} else if(((cqi->getLastAttempt() + 50*1000) < aTick) && (cqi->getState() == ConnectionQueueItem::CONNECTING)) {
+                                } else if(((cqi->getLastAttempt() + 40*1000) < aTick) && (cqi->getState() == ConnectionQueueItem::CONNECTING)) {
 					fire(ConnectionManagerListener::Failed(), cqi, _("Connection timeout"));
 					cqi->setState(ConnectionQueueItem::WAITING);
 				}
@@ -200,7 +200,7 @@ void ConnectionManager::on(TimerManagerListener::Minute, uint32_t aTick) throw()
 	Lock l(cs);
 
 	for(UserConnectionList::iterator j = userConnections.begin(); j != userConnections.end(); ++j) {
-		if(((*j)->getLastActivity() + 180*1000) < aTick) {
+                if(((*j)->getLastActivity() + 60*1000) < aTick) {
 			(*j)->disconnect(true);
 		}
 	}

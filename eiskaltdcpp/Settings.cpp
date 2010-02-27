@@ -5,6 +5,7 @@
 #include "SettingsSharing.h"
 #include "SettingsGUI.h"
 #include "SettingsNotification.h"
+#include "SettingsLog.h"
 
 #include "WulforUtil.h"
 
@@ -53,12 +54,18 @@ void Settings::init(){
     connect(this, SIGNAL(accepted()), notify, SLOT(ok()));
     widgets.insert(item, 5);
 
+    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiOWN_FILELIST), tr("Logs"), listWidget);
+    SettingsLog *logs = new SettingsLog(this);
+    connect(this, SIGNAL(accepted()), logs, SLOT(ok()));
+    widgets.insert(item, 6);
+
     stackedWidget->insertWidget(0, personal);
     stackedWidget->insertWidget(1, connection);
     stackedWidget->insertWidget(2, downloads);
     stackedWidget->insertWidget(3, sharing);
     stackedWidget->insertWidget(4, gui);
     stackedWidget->insertWidget(5, notify);
+    stackedWidget->insertWidget(6, logs);
 
     stackedWidget->setCurrentIndex(0);
 

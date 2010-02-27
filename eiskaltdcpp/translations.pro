@@ -39,6 +39,7 @@ HEADERS = HEADERS = MainWindow.h \
     DownloadQueue.h \
     ToolBar.h \
     TransferViewModel.h \
+    SettingsLog.h \
     Magnet.h
 SOURCES = main.cpp \
     Antispam.cpp \
@@ -80,6 +81,7 @@ SOURCES = main.cpp \
     TransferViewModel.cpp \
     main.cpp \
     Magnet.cpp \
+    SettingsLog \
     FavoriteUsersModel.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
@@ -104,6 +106,7 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UISettingsGUI.ui \
     ui/UIMagnet.ui \
     ui/UIAbout.ui \
-    ui/UISettingsNotification.ui
+    ui/UISettingsNotification.ui \
+    ui/UISettingsLog.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.ru.ts
