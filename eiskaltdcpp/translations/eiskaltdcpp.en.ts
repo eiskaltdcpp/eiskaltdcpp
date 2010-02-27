@@ -692,7 +692,7 @@
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1314"/>
-        <location filename="../HubFrame.cpp" line="1831"/>
+        <location filename="../HubFrame.cpp" line="1837"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -702,17 +702,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1650"/>
+        <location filename="../HubFrame.cpp" line="1656"/>
         <source>Chat cleared.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1667"/>
+        <location filename="../HubFrame.cpp" line="1673"/>
         <source>Chat disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1669"/>
+        <location filename="../HubFrame.cpp" line="1675"/>
         <source>Chat enabled.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -969,33 +969,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="671"/>
-        <location filename="../MainWindow.cpp" line="678"/>
+        <location filename="../MainWindow.cpp" line="697"/>
+        <location filename="../MainWindow.cpp" line="704"/>
         <source>Cannot listen socket because: 
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="671"/>
-        <location filename="../MainWindow.cpp" line="678"/>
+        <location filename="../MainWindow.cpp" line="697"/>
+        <location filename="../MainWindow.cpp" line="704"/>
         <source>
 
 Please check your connection settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="673"/>
+        <location filename="../MainWindow.cpp" line="699"/>
         <source>Connection Manager: Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="680"/>
+        <location filename="../MainWindow.cpp" line="706"/>
         <source>Search Manager: Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="876"/>
-        <location filename="../MainWindow.cpp" line="878"/>
+        <location filename="../MainWindow.cpp" line="902"/>
+        <location filename="../MainWindow.cpp" line="904"/>
         <source>/s</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1371,38 +1371,43 @@ Keys:
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../Settings.cpp" line="17"/>
+        <location filename="../Settings.cpp" line="18"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="26"/>
+        <location filename="../Settings.cpp" line="27"/>
         <source>Personal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="31"/>
+        <location filename="../Settings.cpp" line="32"/>
         <source>Connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="36"/>
+        <location filename="../Settings.cpp" line="37"/>
         <source>Downloads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="41"/>
+        <location filename="../Settings.cpp" line="42"/>
         <source>Sharing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="46"/>
+        <location filename="../Settings.cpp" line="47"/>
         <source>GUI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="51"/>
+        <location filename="../Settings.cpp" line="52"/>
         <source>Notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../Settings.cpp" line="57"/>
+        <source>Logs</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3342,6 +3347,54 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsLog.ui" line="14"/>
         <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="20"/>
+        <source>Private messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="29"/>
+        <location filename="../ui/UISettingsLog.ui" line="51"/>
+        <location filename="../ui/UISettingsLog.ui" line="73"/>
+        <location filename="../ui/UISettingsLog.ui" line="95"/>
+        <source>Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="42"/>
+        <source>Main chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="64"/>
+        <source>Downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="86"/>
+        <source>Uploads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="108"/>
+        <source>Log directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="127"/>
+        <source>Own filelist uploads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="134"/>
+        <source>System messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="141"/>
+        <source>Status messages</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
