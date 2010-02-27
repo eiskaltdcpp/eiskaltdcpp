@@ -322,6 +322,7 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
     switch (prio){
         case QueueItem::PAUSED:
             prio_str = tr("Paused");
+            break;
         case QueueItem::LOWEST:
             prio_str = tr("Lowest");
             break;

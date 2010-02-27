@@ -108,7 +108,7 @@ public:
     QString dcEnc2QtEnc(QString);
     QStringList encodings();
 
-    void openUrl(const QString&);
+    bool openUrl(const QString&);
     
     bool getUserCommandParams(QString, dcpp::StringMap &);
 

@@ -450,11 +450,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
             (k_e->modifiers() == Qt::NoModifier))
         {
-            sendChat(plainTextEdit_INPUT->toPlainText(), false, false);
-
-            plainTextEdit_INPUT->setPlainText("");
-
-            return false;
+            return true;
         }
         else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab){
             nickCompletion();
@@ -527,7 +523,17 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
     else if (e->type() == QEvent::KeyPress){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab)
+        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
+            (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
+            (k_e->modifiers() == Qt::NoModifier))
+        {
+            sendChat(plainTextEdit_INPUT->toPlainText(), false, false);
+
+            plainTextEdit_INPUT->setPlainText("");
+
+            return true;
+        }
+        else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab)
             return true;
     }
     else if (e->type() == QEvent::MouseButtonPress){
@@ -537,6 +543,39 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             QString pressedParagraph = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
 
             WulforUtil::getInstance()->openUrl(pressedParagraph);
+        }
+        else if (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport() && m_e->button() == Qt::MidButton){
+            QTextCursor cursor = textEdit_CHAT->textCursor();
+            QString pressedParagraph = cursor.block().text();
+
+            int l = pressedParagraph.indexOf("<");
+            int r = pressedParagraph.indexOf(">");
+
+            if (l < r){
+                QString nick = pressedParagraph.mid(l+1, r-l-1);
+                QString cid = model->CIDforNick(nick);
+
+                if (!cid.isEmpty())
+                    browseUserFiles(cid, false);
+            }
+        }
+    }
+    else if (e->type() == QEvent::MouseButtonDblClick){
+        if (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport()){
+            QTextCursor cursor = textEdit_CHAT->textCursor();
+            QString pressedParagraph = cursor.block().text();
+
+            int l = pressedParagraph.indexOf("<");
+            int r = pressedParagraph.indexOf(">");
+            int c = cursor.position()-cursor.block().position();
+
+            if (c > l && c < r){
+                QString nick = pressedParagraph.mid(l+1, r-l-1);
+                QString cid = model->CIDforNick(nick);
+
+                if (!cid.isEmpty())
+                    plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+            }
         }
     }
 
@@ -1523,7 +1562,6 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     // sanity check
     if ((nickStart == 0) || (nickLen < 0)) {
-#warning "We need to check timestamp mode"
         nickStart = QString("[hh.mm.ss] ").length();
 
         nickLen = pressedParagraph.indexOf(" ", nickStart) - nickStart;
@@ -1882,9 +1920,15 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
 void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &from, const OnlineUser &to, const OnlineUser &replyTo,
                   const string &msg, bool thirdPerson) throw()
 {
+    const OnlineUser& user = (replyTo.getUser() == ClientManager::getInstance()->getMe()) ? to : replyTo;
+
+    if (user.getIdentity().isHub() && BOOLSETTING(IGNORE_HUB_PMS))
+        return;
+    else if (user.getIdentity().isBot() && BOOLSETTING(IGNORE_BOT_PMS))
+        return;
+
     VarMap map;
 
-    const OnlineUser& user = (replyTo.getUser() == ClientManager::getInstance()->getMe()) ? to : replyTo;
     CID id = user.getUser()->getCID();
 
     QString nick =  _q(from.getIdentity().getNick());
@@ -1892,14 +1936,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
     if (AntiSpam::getInstance() && nick != _q(client->getMyNick())){
         if (AntiSpam::getInstance()->isInBlack(nick))
             return;
-        /*else if (!AntiSpam::getInstance()->isInAny(nick)){
-            AntiSpam::getInstance()->checkUser(_q(id.toBase32()), _q(msg), _q(client->getHubUrl()));
-
-            if (AntiSpam::getInstance()->isInBlack(nick) || !AntiSpam::getInstance()->isInAny(nick))
-                return;
-        }*/
     }
-
 
     map["NICK"]  = nick;
     map["MSG"]   = _q(msg);
@@ -1915,7 +1952,12 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
     map["CID"] = _q(id.toBase32());
 
     typedef Func1<HubFrame, VarMap> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::newPm, map);
+    FUNC *func = NULL;
+
+    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS))
+        func = new FUNC(this, &HubFrame::newMsg, map);
+    else
+        func = new FUNC(this, &HubFrame::newPm, map);
 
     QApplication::postEvent(this, new UserCustomEvent(func));
 }

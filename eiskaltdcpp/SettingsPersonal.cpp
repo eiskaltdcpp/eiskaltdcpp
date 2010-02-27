@@ -30,6 +30,7 @@ void SettingsPersonal::ok(){
     SM->set(SettingsManager::EMAIL, lineEdit_EMAIL->text().toStdString());
     SM->set(SettingsManager::DESCRIPTION, lineEdit_DESC->text().toStdString());
     SM->set(SettingsManager::UPLOAD_SPEED, SettingsManager::connectionSpeeds[comboBox_SPEED->currentIndex()]);
+    SM->set(SettingsManager::DEFAULT_AWAY_MESSAGE, lineEdit_AWAYMSG->text().toStdString());
 
     WSSET(WS_DEFAULT_LOCALE, comboBox_ENC->currentText());
 

@@ -66,6 +66,7 @@ WulforSettings::WulforSettings():
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_CHAT_SHOW_JOINS, (int)true);
+        intmap.insert(WB_CHAT_REDIRECT_BOT_PMS, (int)true);
         intmap.insert(WB_MAINWINDOW_MAXIMIZED, (int)true);
         intmap.insert(WB_MAINWINDOW_HIDE, (int)false);
         intmap.insert(WB_SEARCHFILTER_NOFREE, (int)false);

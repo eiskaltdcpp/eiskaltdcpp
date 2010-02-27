@@ -93,8 +93,8 @@ void HashProgress::timerTick(){
 
         file->setToolTip(fname);
 
-        if (fname.length() > 30)
-            fname = "..." + fname.right(27);
+        if (fname.length() > 45)
+            fname = "..." + fname.right(42);
 
         file->setText(fname);
     }

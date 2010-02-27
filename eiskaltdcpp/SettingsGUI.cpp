@@ -52,6 +52,9 @@ void SettingsGUI::init(){
 
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
         checkBox_CHATHIDDEN->setChecked(WBGET(WB_SHOW_HIDDEN_USERS));
+        checkBox_IGNOREPMHUB->setChecked(BOOLSETTING(IGNORE_HUB_PMS));
+        checkBox_IGNOREPMBOT->setChecked(BOOLSETTING(IGNORE_BOT_PMS));
+        checkBox_REDIRECTPMBOT->setChecked(WBGET(WB_CHAT_REDIRECT_BOT_PMS));
 
         QColor c;
         QPixmap p(10, 10);
@@ -110,6 +113,7 @@ void SettingsGUI::init(){
 }
 
 void SettingsGUI::ok(){
+    SettingsManager *SM = SettingsManager::getInstance();
     {//Basic tab
         if (custom_style)
             WSSET(WS_APP_THEME, comboBox_THEMES->currentText());
@@ -123,6 +127,7 @@ void SettingsGUI::ok(){
 
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
+        WBSET(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());
 
         int i = 0;
 
@@ -137,6 +142,11 @@ void SettingsGUI::ok(){
         WSSET(WS_CHAT_USER_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_TIME_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_MSG_COLOR,        QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+
+        SM->set(SettingsManager::IGNORE_BOT_PMS, checkBox_IGNOREPMBOT->isChecked());
+        SM->set(SettingsManager::IGNORE_HUB_PMS, checkBox_IGNOREPMHUB->isChecked());
+
+        SM->save();
     }
 
     WulforSettings::getInstance()->save();

@@ -281,19 +281,7 @@ void TransferViewModel::initTransfer(VarMap params){
         if (item->parent() == to)
             return;
 
-        TransferViewItem *p = item->parent();
-
-        if (p && p != rootItem){
-            moveTransfer(item, p, to);
-
-            beginRemoveRows(createIndexForItem(p->parent()), p->row(), p->row());
-            {
-                p->parent()->childItems.removeAt(p->row());
-            }
-            endRemoveRows();
-
-            delete p;
-        }
+        moveTransfer(item, item->parent(), to);
     }
 
     updateTransfer(params);

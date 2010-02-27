@@ -89,6 +89,7 @@ void SettingsConnection::ok(){
         SM->set(SettingsManager::SOCKS_USER, lineEdit_SUSR->text().toStdString());
         SM->set(SettingsManager::SOCKS_PASSWORD, lineEdit_SPSWD->text().toStdString());
         SM->set(SettingsManager::SOCKS_RESOLVE, checkBox_RESOLVE->checkState() == Qt::Checked);
+        SM->set(SettingsManager::OUTGOING_CONNECTIONS, SettingsManager::OUTGOING_SOCKS5);
 
         if (port > 0 && port <= 65535)
             SM->set(SettingsManager::SOCKS_PORT, port);
@@ -155,13 +156,13 @@ void SettingsConnection::init(){
     switch (SETTING(OUTGOING_CONNECTIONS)){
         case SettingsManager::OUTGOING_DIRECT:
         {
-            radioButton_DC->setChecked(true);
+            radioButton_DC->toggle();
 
             break;
         }
         case SettingsManager::OUTGOING_SOCKS5:
         {
-            radioButton_SOCKS->setChecked(true);
+            radioButton_SOCKS->toggle();
 
             break;
         }

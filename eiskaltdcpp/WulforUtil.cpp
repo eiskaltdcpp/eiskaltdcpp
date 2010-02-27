@@ -500,7 +500,7 @@ QTextCodec *WulforUtil::codecForEncoding(QString name){
     return QTextCodec::codecForName(name.toAscii());
 }
 
-void WulforUtil::openUrl(const QString &url){
+bool WulforUtil::openUrl(const QString &url){
     if (url.startsWith("http://") || url.startsWith("www.") || url.startsWith(("ftp://"))){
         QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
     }
@@ -522,6 +522,10 @@ void WulforUtil::openUrl(const QString &url){
 
         delete m;
     }
+    else
+        return false;
+
+    return true;
 }
 
 bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams){
