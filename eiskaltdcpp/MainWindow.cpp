@@ -256,6 +256,11 @@ void MainWindow::initActions(){
         fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
 
+        fileFileListBrowser = new QAction("", this);
+        fileFileListBrowser->setShortcut(tr("Shift+L"));
+        fileFileListBrowser->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+        connect(fileFileListBrowser, SIGNAL(triggered()), this, SLOT(slotFileBrowseFilelist()));
+
         fileFileListRefresh = new QAction("", this);
         fileFileListRefresh->setShortcut(tr("Ctrl+R"));
         fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiRELOAD));
@@ -332,6 +337,7 @@ void MainWindow::initActions(){
 
         fileMenuActions << fileOptions
                 << separator1
+                << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
@@ -404,6 +410,8 @@ void MainWindow::retranslateUi(){
         menuFile->setTitle(tr("&File"));
 
         fileOptions->setText(tr("Options"));
+
+        fileFileListBrowser->setText(tr("Open filelist..."));
 
         fileFileListBrowserLocal->setText(tr("Open own filelist"));
 
@@ -563,6 +571,20 @@ void MainWindow::parseInstanceLine(QString data){
 
 void MainWindow::browseOwnFiles(){
     slotFileBrowseOwnFilelist();
+}
+
+void MainWindow::slotFileBrowseFilelist(){
+    static ShareBrowser *local_share = NULL;
+    QString file = QFileDialog::getOpenFileName(this, tr("Choose file to open"), QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
+            tr("Modern XML Filelists") + " (*.xml.bz2);;" +
+            tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
+            tr("All files") + " (*)");
+    UserPtr user = DirectoryListing::getUserFromFilename(_tq(file));
+    if (user) {
+        local_share = new ShareBrowser(user, file, "");
+    } else {
+        setStatusMessage(tr("Unable to load file list: Invalid file list name"));
+    }
 }
 
 void MainWindow::redrawToolPanel(){

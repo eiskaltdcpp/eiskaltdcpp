@@ -130,6 +130,7 @@ friend class dcpp::Singleton<MainWindow>;
         virtual bool eventFilter(QObject *, QEvent *);
 
     private slots:
+        void slotFileBrowseFilelist();
         void slotFileBrowseOwnFilelist();
         void slotFileReconnect();
         void slotFileRefreshShare();
@@ -194,6 +195,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileOptions;
         QAction *fileQuickConnect;
         QAction *fileHubReconnect;
+        QAction *fileFileListBrowser;
         QAction *fileFileListBrowserLocal;
         QAction *fileFileListRefresh;
         QAction *fileHashProgress;
