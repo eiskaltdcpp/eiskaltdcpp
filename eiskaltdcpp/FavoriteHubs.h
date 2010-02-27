@@ -52,8 +52,6 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER); }
 
-    void setUnload(bool b) { unload = b; }
-
 protected:
     virtual void closeEvent(QCloseEvent *);
 
@@ -82,8 +80,6 @@ private:
 
     virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) throw();
     virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) throw();
-
-    bool unload;
 };
 
 #endif // FAVORITEHUBS_H

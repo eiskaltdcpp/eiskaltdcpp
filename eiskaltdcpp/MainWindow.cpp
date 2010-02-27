@@ -106,8 +106,6 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
         FavoriteHubs::getInstance()->close();
     }
 
-    FavoriteHubs::deleteInstance();
-
     if (FinishedDownloads::getInstance()){
         FinishedDownloads::getInstance()->setUnload(true);
         FinishedDownloads::getInstance()->close();

@@ -17,8 +17,7 @@ using namespace dcpp;
 
 FavoriteHubs::FavoriteHubs(QWidget *parent):
         QWidget(parent),
-        model(NULL),
-        unload(false)
+        model(NULL)
 {
     setupUi(this);
 
@@ -36,15 +35,23 @@ FavoriteHubs::~FavoriteHubs(){
 }
 
 void FavoriteHubs::closeEvent(QCloseEvent *e){
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-    MainWindow::getInstance()->remWidgetFromArena(this);
+    if (isUnload()){
+        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+        MainWindow::getInstance()->remWidgetFromArena(this);
+        MainWindow::getInstance()->remArenaWidget(this);
 
-    save();
+        save();
 
-    if (!unload)
-        e->ignore();
-    else
+        setAttribute(Qt::WA_DeleteOnClose);
+
         e->accept();
+    }
+    else {
+        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+        MainWindow::getInstance()->remWidgetFromArena(this);
+
+        e->ignore();
+    }
 }
 
 QWidget *FavoriteHubs::getWidget(){
@@ -64,7 +71,7 @@ QMenu *FavoriteHubs::getMenu(){
 }
 
 void FavoriteHubs::load(){
-    treeView->header()->restoreState(WSGET(WS_FAV_HUBS_STATE).toAscii());
+    treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_FAV_HUBS_STATE).toAscii()));
 }
 
 void FavoriteHubs::save(){
@@ -73,6 +80,7 @@ void FavoriteHubs::save(){
 
 void FavoriteHubs::init(){
     model = new FavoriteHubModel();
+    setUnload(false);
 
     treeView->setModel(model);
 

@@ -10,6 +10,8 @@
 #include <QStyleFactory>
 #include <QFontDialog>
 #include <QFileDialog>
+#include <QDir>
+#include <QFile>
 
 SettingsGUI::SettingsGUI(QWidget *parent) :
     QWidget(parent),
@@ -41,6 +43,26 @@ void SettingsGUI::init(){
         }
         else
             lineEdit_APPFONT->setText(WSGET(WS_APP_FONT));
+
+        int i = 0;
+        foreach (QString f, QDir(QString(CLIENT_TRANSLATIONS_DIR)).entryList(QDir::Files | QDir::NoSymLinks)){
+            QString full_path = QString(CLIENT_TRANSLATIONS_DIR) + QDir::separator() + f;
+            QString lang = "";
+
+            if (f == "eiskaltdcpp.en.qm")
+                lang = tr("English");
+            else if (f == "eiskaltdcpp.ru.qm")
+                lang = tr("Russian");
+
+            if (!lang.isEmpty()){
+                comboBox_LANGS->addItem(lang, full_path);
+
+                if (full_path == WSGET(WS_TRANSLATION_FILE))
+                    comboBox_LANGS->setCurrentIndex(i);
+
+                i++;
+            }
+        }
 
         lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
 
@@ -110,6 +132,7 @@ void SettingsGUI::init(){
     connect(listWidget_CHATCOLOR, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotChatColorItemClicked(QListWidgetItem*)));
     connect(toolButton_APPFONTBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseFont()));
     connect(toolButton_LANGBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseLng()));
+    connect(comboBox_LANGS, SIGNAL(activated(int)), this, SLOT(slotLngIndexChanged(int)));
 }
 
 void SettingsGUI::ok(){
@@ -195,4 +218,15 @@ void SettingsGUI::slotBrowseLng(){
 
         lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
     }
+}
+
+void SettingsGUI::slotLngIndexChanged(int index){
+    QString file = comboBox_LANGS->itemData(index).toString();
+
+    WSSET(WS_TRANSLATION_FILE, file);
+
+    WulforSettings::getInstance()->loadTranslation();
+    MainWindow::getInstance()->retranslateUi();
+
+    lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
 }
