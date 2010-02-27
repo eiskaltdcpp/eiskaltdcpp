@@ -44,6 +44,7 @@ const char * const WB_CHAT_REDIRECT_BOT_PMS   = "chat-redirect-pms-from-bot";
 const char * const WB_MAINWINDOW_MAXIMIZED    = "mainwindow-maximized";
 const char * const WB_MAINWINDOW_HIDE         = "mainwindow-autohide";
 const char * const WB_SEARCHFILTER_NOFREE     = "search-filter-nofree";
+const char * const WB_SEARCH_DONTHIDEPANEL    = "search-panel-dont-hide";
 const char * const WB_ANTISPAM_ENABLED        = "antispam-enabled";
 const char * const WB_ANTISPAM_AS_FILTER      = "antispam-as-filter";
 const char * const WB_IPFILTER_ENABLED        = "ipfilter-enabled";
@@ -58,6 +59,8 @@ const char * const WI_CHAT_WIDTH              = "chat-width";
 const char * const WI_CHAT_USERLIST_WIDTH     = "chat-userlist-width";
 const char * const WI_CHAT_SORT_COLUMN        = "chat-userlist-sort-column";
 const char * const WI_CHAT_SORT_ORDER         = "chat-userlist-sort-order";
+const char * const WI_CHAT_DBLCLICK_ACT       = "chat-dbl-click-action";// 0 - nick in chat, 1 - browse files
+const char * const WI_CHAT_MDLCLICK_ACT       = "chat-mdl-click-action";//see WI_CHAT_DBLCLICK_ACT
 const char * const WI_SEARCH_SORT_COLUMN      = "search-sort-column";
 const char * const WI_SEARCH_SORT_ORDER       = "search-sort-order";
 const char * const WI_SEARCH_SHARED_ACTION    = "search-shared-action";
@@ -99,6 +102,8 @@ public:
     void    setInt (QString, int) throw(BadKey);
     void    setBool(QString, bool)throw(BadKey);
 
+    void    parseCmd(const QString &);
+
 private:
     WulforSettings();
     virtual ~WulforSettings();
@@ -118,5 +123,6 @@ private:
 #define WISET(k, y) (WulforSettings::getInstance()->setInt(k, y))
 #define WBGET(k)    (WulforSettings::getInstance()->getBool(k))
 #define WBSET(k, y) (WulforSettings::getInstance()->setBool(k, y))
+#define WSCMD(k)    (WulforSettings::getInstance()->parseCmd(k))
 
 #endif // WULFORSETTINGS_H

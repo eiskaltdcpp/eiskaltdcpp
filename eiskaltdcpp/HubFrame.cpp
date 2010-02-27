@@ -555,8 +555,12 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 QString nick = pressedParagraph.mid(l+1, r-l-1);
                 QString cid = model->CIDforNick(nick);
 
-                if (!cid.isEmpty())
-                    browseUserFiles(cid, false);
+                if (!cid.isEmpty()){
+                    if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0)
+                        plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                    else
+                        browseUserFiles(cid, false);
+                }
             }
         }
     }
@@ -573,8 +577,12 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 QString nick = pressedParagraph.mid(l+1, r-l-1);
                 QString cid = model->CIDforNick(nick);
 
-                if (!cid.isEmpty())
-                    plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                if (!cid.isEmpty()){
+                    if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1)
+                        browseUserFiles(cid, false);
+                    else
+                        plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                }
             }
         }
     }
@@ -932,6 +940,12 @@ bool HubFrame::parseForCmd(QString line){
         shell_list.append(sh);
 
         sh->start();
+    }
+    else if (cmd == "/ws" && !emptyParam){
+        line = line.remove(0, 4);
+        line.replace("\n", "");
+
+        WSCMD(line);
     }
     else
         return false;

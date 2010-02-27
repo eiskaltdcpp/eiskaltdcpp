@@ -71,6 +71,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_MAINWINDOW_MAXIMIZED, (int)true);
         intmap.insert(WB_MAINWINDOW_HIDE, (int)false);
         intmap.insert(WB_SEARCHFILTER_NOFREE, (int)false);
+        intmap.insert(WB_SEARCH_DONTHIDEPANEL, (int)false);
         intmap.insert(WB_ANTISPAM_ENABLED, (int)false);
         intmap.insert(WB_ANTISPAM_AS_FILTER, (int)false);
         intmap.insert(WB_IPFILTER_ENABLED, (int)false);
@@ -85,6 +86,8 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_CHAT_USERLIST_WIDTH, -1);
         intmap.insert(WI_CHAT_SORT_COLUMN, 0);
         intmap.insert(WI_CHAT_SORT_ORDER, 0);
+        intmap.insert(WI_CHAT_DBLCLICK_ACT, 0);//nick in chat
+        intmap.insert(WI_CHAT_MDLCLICK_ACT, 1);//browse files
         intmap.insert(WI_MAINWINDOW_HEIGHT, -1);
         intmap.insert(WI_MAINWINDOW_WIDTH, -1);
         intmap.insert(WI_MAINWINDOW_X, -1);
@@ -185,6 +188,28 @@ void WulforSettings::save(){
         File::renameFile(configFile.toStdString() + ".tmp", configFile.toStdString());
     }
     catch (const FileException &){}
+}
+
+void WulforSettings::parseCmd(const QString &cmd){
+    QStringList args = cmd.split(" ", QString::SkipEmptyParts);
+
+    if (args.size() != 2)
+        return;
+
+    QString sname   = args.at(0);
+    QString svalue  = args.at(1);
+
+    if (intmap.contains(sname)){
+        bool ok = false;
+
+        int val = svalue.toInt(&ok);
+
+        if (ok)
+            intmap[sname] = val;
+    }
+    else if (strmap.contains(sname)){
+        strmap[sname] = svalue;
+    }
 }
 
 void WulforSettings::loadTranslation(){

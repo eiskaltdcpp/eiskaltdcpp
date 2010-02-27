@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>553</width>
-    <height>460</height>
+    <width>551</width>
+    <height>458</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -283,6 +283,13 @@
            </widget>
           </item>
          </layout>
+        </widget>
+       </item>
+       <item row="6" column="0" colspan="3">
+        <widget class="QCheckBox" name="checkBox_HIDEPANEL">
+         <property name="text">
+          <string>Don't hide this panel when search</string>
+         </property>
         </widget>
        </item>
       </layout>

@@ -394,6 +394,7 @@ void MainWindow::initStatusBar(){
     statusLabel->setFrameShadow(QFrame::Plain);
     statusLabel->setFrameShape(QFrame::NoFrame);
     statusLabel->setAlignment(Qt::AlignRight);
+    statusLabel->setToolTip(tr("Downloaded/Uploaded :: Download speed/Upload speed (per sec.) :: Counts"));
 
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
@@ -502,7 +503,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     if (!statusLabel)
         return;
 
-    QString stat = QString(tr("<b>%1 : %2  %4 : %5  %3</b>")).arg(map["DOWN"])
+    QString stat = QString(tr("%1/%2 :: %4/%5 :: %3")).arg(map["DOWN"])
                                                         .arg(map["UP"])
                                                         .arg(map["STATS"])
                                                         .arg(map["DSPEED"])
@@ -922,9 +923,9 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
     QMap<QString, QString> map;
 
     map["STATS"]    = _q(Client::getCounts());
-    map["DSPEED"]   = _q(Util::formatBytes(downBytes)) + tr("/s");
+    map["DSPEED"]   = _q(Util::formatBytes(downBytes));
     map["DOWN"]     = _q(Util::formatBytes(Socket::getTotalDown()));
-    map["USPEED"]   = _q(Util::formatBytes(upBytes)) + tr("/s");
+    map["USPEED"]   = _q(Util::formatBytes(upBytes));
     map["UP"]       = _q(Util::formatBytes(Socket::getTotalUp()));
 
     lastUpdate = ticks;

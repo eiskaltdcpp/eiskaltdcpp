@@ -282,6 +282,8 @@ void TransferViewModel::initTransfer(VarMap params){
             return;
 
         moveTransfer(item, item->parent(), to);
+
+        sort(sortColumn, sortOrder);
     }
 
     updateTransfer(params);

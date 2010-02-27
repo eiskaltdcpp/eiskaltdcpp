@@ -355,6 +355,7 @@ void SearchFrame::load(){
         radioButton_SHAREDHIGHLIGHT->setChecked(true);
 
     checkBox_FILTERSLOTS->setChecked(WBGET(WB_SEARCHFILTER_NOFREE));
+    checkBox_HIDEPANEL->setChecked(WBGET(WB_SEARCH_DONTHIDEPANEL));
 
     treeView_RESULTS->sortByColumn(WIGET(WI_SEARCH_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_SEARCH_SORT_ORDER)));
 }
@@ -365,6 +366,7 @@ void SearchFrame::save(){
     WISET(WI_SEARCH_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(model->getSortOrder()));
     WISET(WI_SEARCH_SHARED_ACTION, static_cast<int>(filterShared));
     WBSET(WB_SEARCHFILTER_NOFREE, checkBox_FILTERSLOTS->isChecked());
+    WBSET(WB_SEARCH_DONTHIDEPANEL, checkBox_HIDEPANEL->isChecked());
 }
 
 void SearchFrame::initSecond(){
@@ -735,15 +737,17 @@ void SearchFrame::slotStartSearch(){
         SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype,
                                              searchMode, token.toStdString());
 
-        QList<int> panes = splitter->sizes();
+        if (!checkBox_HIDEPANEL->isChecked()){
+            QList<int> panes = splitter->sizes();
 
-        panes[1] = panes[0] + panes[1];
+            panes[1] = panes[0] + panes[1];
 
-        left_pane_old_size = panes[0] > 15 ? panes[0] : left_pane_old_size;
+            left_pane_old_size = panes[0] > 15 ? panes[0] : left_pane_old_size;
 
-        panes[0] = 0;
+            panes[0] = 0;
 
-        splitter->setSizes(panes);
+            splitter->setSizes(panes);
+        }
 
         arena_title = tr("Search - %1").arg(s);
 
