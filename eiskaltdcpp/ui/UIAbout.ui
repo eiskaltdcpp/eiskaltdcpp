@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
-    <height>232</height>
+    <width>358</width>
+    <height>230</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,6 +35,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;Andrey Karlov&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (developer 0.4.10 and later)&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Boris Pek&lt;br /&gt; (developer 1.89.0 and later)&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Eugene Petrov&lt;br /&gt; (developer 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;br /&gt; (version 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Splash Screen Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Translators&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Russian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely (for 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>

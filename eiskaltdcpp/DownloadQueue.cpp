@@ -464,7 +464,7 @@ void DownloadQueue::removeFromDir(DownloadQueueItem *i){
         QString target = ii->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + ii->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
 
         if (target.isEmpty())
-            return;
+            continue;
 
         QueueManager *QM = QueueManager::getInstance();
         QM->remove(_tq(target));

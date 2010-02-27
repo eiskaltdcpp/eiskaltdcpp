@@ -387,13 +387,14 @@ void MainWindow::initStatusBar(){
     statusLabel = new QLabel(statusBar());
     statusLabel->setFrameShadow(QFrame::Plain);
     statusLabel->setFrameShape(QFrame::NoFrame);
+    statusLabel->setAlignment(Qt::AlignRight);
 
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
     msgLabel->setFrameShape(QFrame::NoFrame);
     msgLabel->setAlignment(Qt::AlignLeft);
 
-    statusBar()->addPermanentWidget(msgLabel);
+    statusBar()->addWidget(msgLabel);
     statusBar()->addPermanentWidget(statusLabel);
 }
 
