@@ -51,12 +51,23 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
 
         if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
             (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
-            (k_e->modifiers() == Qt::NoModifier)){
+            (k_e->modifiers() == Qt::NoModifier))
+        {
+            return true;
+        }
+    }
+    else if (e->type() == QEvent::KeyPress){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
+            (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
+            (k_e->modifiers() == Qt::NoModifier))
+        {
             sendMessage(plainTextEdit_INPUT->toPlainText());
 
             plainTextEdit_INPUT->setPlainText("");
 
-            return false;
+            return true;
         }
     }
     else if (e->type() == QEvent::MouseButtonRelease){
