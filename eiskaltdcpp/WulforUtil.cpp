@@ -71,7 +71,7 @@ WulforUtil::WulforUtil()
     QtEnc2DCEnc["KOI8-R"]       = "KOI8-R (Cyrillic)";
     QtEnc2DCEnc["UTF-8"]        = "UTF-8 (Unicode)";
     QtEnc2DCEnc["TIS-620"]      = "TIS-620 (Thai)";
-    QtEnc2DCEnc["WINDOWS-1250"] = "CP1252 (Central Europe)";
+    QtEnc2DCEnc["WINDOWS-1250"] = "CP1250 (Central Europe)";
     QtEnc2DCEnc["WINDOWS-1251"] = "CP1251 (Cyrillic)";
     QtEnc2DCEnc["WINDOWS-1252"] = "CP1252 (Western Europe)";
     QtEnc2DCEnc["WINDOWS-1256"] = "CP1256 (Arabic)";
