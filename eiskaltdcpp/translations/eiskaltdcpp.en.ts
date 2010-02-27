@@ -430,40 +430,66 @@
     </message>
 </context>
 <context>
+    <name>FinishedTransferProxy</name>
+    <message>
+        <location filename="../FinishedTransfers.cpp" line="3"/>
+        <source>Finished uploads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfers.cpp" line="4"/>
+        <source>Finished downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FinishedTransfers</name>
+    <message>
+        <location filename="../FinishedTransfers.h" line="261"/>
+        <source>Open file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfers.h" line="262"/>
+        <source>Open directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>HashProgress</name>
     <message>
-        <location filename="../HashProgress.cpp" line="64"/>
+        <location filename="../HashProgress.cpp" line="65"/>
         <source>-.-- files/h, %1 files left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="65"/>
+        <location filename="../HashProgress.cpp" line="66"/>
         <source>-.-- B/s, %1 left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="66"/>
-        <location filename="../HashProgress.cpp" line="78"/>
+        <location filename="../HashProgress.cpp" line="67"/>
+        <location filename="../HashProgress.cpp" line="79"/>
         <source>-:--:-- left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="73"/>
+        <location filename="../HashProgress.cpp" line="74"/>
         <source>%1 files/h, %2 files left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="74"/>
+        <location filename="../HashProgress.cpp" line="75"/>
         <source>%1/s, %2 left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="84"/>
+        <location filename="../HashProgress.cpp" line="85"/>
         <source>%1 left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="89"/>
+        <location filename="../HashProgress.cpp" line="90"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
@@ -828,143 +854,148 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="401"/>
+        <location filename="../MainWindow.cpp" line="405"/>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="403"/>
+        <location filename="../MainWindow.cpp" line="407"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="405"/>
+        <location filename="../MainWindow.cpp" line="409"/>
         <source>Open own filelist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="407"/>
+        <location filename="../MainWindow.cpp" line="411"/>
         <source>Refresh share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="409"/>
+        <location filename="../MainWindow.cpp" line="413"/>
         <source>Hash progress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="413"/>
+        <location filename="../MainWindow.cpp" line="417"/>
         <source>Transfers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="415"/>
+        <location filename="../MainWindow.cpp" line="419"/>
         <source>Download queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="417"/>
+        <location filename="../MainWindow.cpp" line="421"/>
         <source>Finished downloads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="419"/>
+        <location filename="../MainWindow.cpp" line="423"/>
         <source>Finished uploads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="421"/>
+        <location filename="../MainWindow.cpp" line="425"/>
         <source>AntiSpam module</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="423"/>
+        <location filename="../MainWindow.cpp" line="427"/>
         <source>IPFilter module</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="492"/>
+        <location filename="../MainWindow.cpp" line="439"/>
+        <source>&amp;Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="498"/>
         <source>&lt;b&gt;%1 : %2  %4 : %5  %3&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="411"/>
+        <location filename="../MainWindow.cpp" line="415"/>
         <source>Reconnect to hub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="425"/>
+        <location filename="../MainWindow.cpp" line="429"/>
         <source>Favourite hubs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="427"/>
+        <location filename="../MainWindow.cpp" line="431"/>
         <source>Favourite users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="429"/>
+        <location filename="../MainWindow.cpp" line="433"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="431"/>
+        <location filename="../MainWindow.cpp" line="435"/>
         <source>Quick connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="433"/>
+        <location filename="../MainWindow.cpp" line="437"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="435"/>
+        <location filename="../MainWindow.cpp" line="441"/>
         <source>&amp;Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="437"/>
+        <location filename="../MainWindow.cpp" line="443"/>
         <source>About EiskaltDC++</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="439"/>
+        <location filename="../MainWindow.cpp" line="445"/>
         <source>About Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="442"/>
+        <location filename="../MainWindow.cpp" line="448"/>
         <source>Main layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="642"/>
-        <location filename="../MainWindow.cpp" line="649"/>
+        <location filename="../MainWindow.cpp" line="673"/>
+        <location filename="../MainWindow.cpp" line="680"/>
         <source>Cannot listen socket because: 
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="642"/>
-        <location filename="../MainWindow.cpp" line="649"/>
+        <location filename="../MainWindow.cpp" line="673"/>
+        <location filename="../MainWindow.cpp" line="680"/>
         <source>
 
 Please check your connection settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="644"/>
+        <location filename="../MainWindow.cpp" line="675"/>
         <source>Connection Manager: Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="651"/>
+        <location filename="../MainWindow.cpp" line="682"/>
         <source>Search Manager: Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="837"/>
-        <location filename="../MainWindow.cpp" line="839"/>
+        <location filename="../MainWindow.cpp" line="878"/>
+        <location filename="../MainWindow.cpp" line="880"/>
         <source>/s</source>
         <translation type="unfinished"></translation>
     </message>

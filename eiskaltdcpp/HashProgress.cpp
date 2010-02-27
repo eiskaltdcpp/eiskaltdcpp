@@ -1,4 +1,5 @@
 #include "HashProgress.h"
+#include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -62,7 +63,7 @@ void HashProgress::timerTick(){
 
     if(diff < 1000 || files == 0 || bytes == 0) {
         stat->setText(QString(tr("-.-- files/h, %1 files left")).arg((uint32_t)files));
-        speed->setText(QString(tr("-.-- B/s, %1 left").arg(QString::fromStdString(Text::toT(Util::formatBytes(bytes))))));
+        speed->setText(QString(tr("-.-- B/s, %1 left").arg(_q(Text::toT(Util::formatBytes(bytes))))));
         left->setText(tr("-:--:-- left"));
         progress->setValue(0);
     }
@@ -71,8 +72,8 @@ void HashProgress::timerTick(){
         double speedStat = (((double)(startBytes - bytes)) * 1000) / diff;
 
         stat->setText(QString(tr("%1 files/h, %2 files left").arg(filestat).arg((uint32_t)files)));
-        speed->setText(QString(tr("%1/s, %2 left").arg(QString::fromStdString(Text::toT(Util::formatBytes((int64_t)speedStat))))
-                                                  .arg(QString::fromStdString(Text::toT(Util::formatBytes(bytes))))));
+        speed->setText(QString(tr("%1/s, %2 left").arg(_q(Text::toT(Util::formatBytes((int64_t)speedStat))))
+                                                  .arg(_q(Text::toT(Util::formatBytes(bytes))))));
 
         if(filestat == 0 || speedStat == 0) {
             left->setText(tr("-:--:-- left"));

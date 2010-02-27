@@ -14,6 +14,7 @@
 #include <QCloseEvent>
 #include <QTabBar>
 #include <QToolBar>
+#include <QHash>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -143,6 +144,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotFileSearch();
         void slotFileSettings();
         void slotFileTransfer(bool);
+        void slotWidgetsToggle();
         void slotQC();
         void slotExit();
 
@@ -205,6 +207,10 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileIPFilter;
         QAction *fileSearch;
         QAction *fileQuit;
+
+        QMenu *menuWidgets;
+        QList<QAction*> menuWidgetsActions;
+        QHash<QAction*, ArenaWidget*> menuWidgetsHash;
 
         QMenu   *menuAbout;
         QAction *aboutClient;

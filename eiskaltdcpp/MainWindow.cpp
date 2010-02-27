@@ -356,6 +356,9 @@ void MainWindow::initActions(){
                 << fileQuit;
     }
     {
+        menuWidgets = new QMenu("", this);
+    }
+    {
         aboutClient = new QAction("", this);
         connect(aboutClient, SIGNAL(triggered()), this, SLOT(slotAboutClient()));
 
@@ -378,6 +381,7 @@ void MainWindow::initMenuBar(){
     }
 
     menuBar()->addMenu(menuFile);
+    menuBar()->addMenu(menuWidgets);
     menuBar()->addMenu(menuAbout);
 }
 
@@ -431,6 +435,8 @@ void MainWindow::retranslateUi(){
         fileQuickConnect->setText(tr("Quick connect"));
 
         fileQuit->setText(tr("Quit"));
+
+        menuWidgets->setTitle(tr("&Widgets"));
 
         menuAbout->setTitle(tr("&Help"));
 
@@ -609,10 +615,35 @@ void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt){
     if (!arenaWidgets.contains(awgt))
         return;
 
+    QAction *act = new QAction(awgt->getArenaShortTitle(), this);
+    act->setIcon(awgt->getPixmap());
+
+    connect(act, SIGNAL(triggered()), this, SLOT(slotWidgetsToggle()));
+
+    menuWidgetsActions.push_back(act);
+    menuWidgetsHash.insert(act, awgt);
+
+    menuWidgets->clear();
+    menuWidgets->addActions(menuWidgetsActions);
+
     tBar->insertWidget(awgt);
 }
 
 void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
+    QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
+    for (; it != menuWidgetsHash.end(); ++it){
+        if (it.value() == awgt){
+            menuWidgetsActions.removeAt(menuWidgetsActions.indexOf(it.key()));
+            menuWidgetsHash.erase(it);
+
+            menuWidgets->clear();
+
+            menuWidgets->addActions(menuWidgetsActions);
+
+            break;
+        }
+    }
+
     tBar->removeWidget(awgt);
 }
 
@@ -767,6 +798,16 @@ void MainWindow::slotFileTransfer(bool toggled){
         transfer_dock->setWidget(NULL);
         transfer_dock->setVisible(false);
     }
+}
+
+void MainWindow::slotWidgetsToggle(){
+    QAction *act = reinterpret_cast<QAction*>(sender());
+    QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.find(act);
+
+    if (it == menuWidgetsHash.end())
+        return;
+
+    mapWidgetOnArena(it.value());
 }
 
 void MainWindow::slotQC(){

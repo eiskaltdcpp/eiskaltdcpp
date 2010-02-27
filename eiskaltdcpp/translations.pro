@@ -27,6 +27,7 @@ HEADERS = HEADERS = MainWindow.h \
     SettingsInterface.h \
     FavoriteHubModel.h \
     FavoriteHubs.h \
+    FinishedTransfers.h \
     SettingsDownloads.h \
     SettingsSharing.h \
     SettingsNotification.h \
@@ -66,6 +67,7 @@ SOURCES = main.cpp \
     SettingsConnection.cpp \
     FavoriteHubModel.cpp \
     FavoriteHubs.cpp \
+    FinishedTransfers.cpp \
     SettingsDownloads.cpp \
     SettingsSharing.cpp \
     SettingsNotification.cpp \

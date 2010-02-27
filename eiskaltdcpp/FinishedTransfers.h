@@ -46,6 +46,8 @@ public:
     FinishedTransferProxy(QWidget *parent):QWidget(parent){}
     ~FinishedTransferProxy(){}
 
+    QString uploadTitle();
+    QString downloadTitle();
 public slots:
     virtual void slotTypeChanged(int) = 0;
     virtual void slotClear() = 0;
@@ -66,7 +68,7 @@ friend class dcpp::Singleton< FinishedTransfers<isUpload> >;
 
 public:
     QWidget *getWidget() { return this;}
-    QString getArenaTitle(){ return (isUpload? tr("Finished uploads"):tr("Finished downloads")); }
+    QString getArenaTitle(){ return (isUpload? uploadTitle() : downloadTitle()); }
     QString getArenaShortTitle(){ return getArenaTitle(); }
     QMenu *getMenu() { return NULL; }
     const QPixmap &getPixmap(){
