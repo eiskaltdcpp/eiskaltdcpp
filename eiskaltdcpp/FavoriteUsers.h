@@ -18,6 +18,8 @@
 
 #include "ui_UIFavoriteUsers.h"
 
+class FavoriteUsersModel;
+
 class FavoriteUsers :
         public QWidget,
         public dcpp::Singleton<FavoriteUsers>,
@@ -70,22 +72,19 @@ private slots:
     void slotContextMenu();
 
 private:
-    FavoriteUsers(QWidget *parent = 0);
+    FavoriteUsers(QWidget *parent = NULL);
     virtual ~FavoriteUsers();
 
-    void handleRemove(QTreeWidgetItem*);
-    void handleDesc(QTreeWidgetItem*);
-
-    QString cidForItem(QTreeWidgetItem *);
+    void handleRemove(const QString &);
+    void handleDesc(const QString &);
 
     void getParams(VarMap &map, const dcpp::FavoriteUser &);
-    void updItem(const QString&, QTreeWidgetItem *);
 
     void addUser(const VarMap &);
     void updateUser(const QString &, const QString &);
     void remUser(const QString &);
 
-    QHash<QString, QTreeWidgetItem*> hash;//CID -> Item
+    FavoriteUsersModel *model;
 };
 
 #endif // FAVORITEUSERS_H

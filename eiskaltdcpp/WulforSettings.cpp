@@ -63,6 +63,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_APP_FONT, "");
         strmap.insert(WS_NOTIFY_SOUNDS, "");
         strmap.insert(WS_NOTIFY_SND_CMD, "");
+        strmap.insert(WS_FAVUSERS_STATE, "");
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_CHAT_SHOW_JOINS, (int)true);

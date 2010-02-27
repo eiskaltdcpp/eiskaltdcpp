@@ -77,7 +77,8 @@ SOURCES = main.cpp \
     ToolBar.cpp \
     TransferViewModel.cpp \
     main.cpp \
-    Magnet.cpp
+    Magnet.cpp \
+    FavoriteUsersModel.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \

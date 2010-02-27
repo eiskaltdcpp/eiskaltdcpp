@@ -18,6 +18,7 @@ set (SRCS   Antispam.cpp
             FavoriteHubModel.cpp
             FavoriteHubs.cpp
             FavoriteUsers.cpp
+            FavoriteUsersModel.cpp
             FileBrowserModel.cpp
             FinishedTransfers.cpp
             FinishedTransfersModel.cpp
@@ -60,6 +61,7 @@ set (MOC_HDRS Antispam.h
             FavoriteHubModel.h
             FavoriteHubs.h
             FavoriteUsers.h
+            FavoriteUsersModel.h
             FileBrowserModel.h
             FinishedTransfers.h
             FinishedTransfersModel.h
