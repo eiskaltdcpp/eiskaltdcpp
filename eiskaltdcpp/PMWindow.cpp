@@ -3,6 +3,7 @@
 #include "WulforUtil.h"
 #include "HubManager.h"
 #include "MainWindow.h"
+#include "Notification.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -18,6 +19,8 @@
 #include <QAction>
 
 using namespace dcpp;
+
+int PMWindow::unread = 0;
 
 PMWindow::PMWindow(QString cid, QString hubUrl):
         cid(cid),
@@ -96,8 +99,14 @@ void PMWindow::showEvent(QShowEvent *e){
     e->accept();
 
     if (isVisible()){
+        if (hasMessages)
+            unread--;
+
         hasMessages = false;
         MainWindow::getInstance()->redrawToolPanel();
+
+        if (unread == 0)
+            Notify->resetTrayIcon();
     }
 }
 
@@ -148,6 +157,7 @@ void PMWindow::addOutput(QString msg){
 
     if (!isVisible()){
         hasMessages = true;
+        unread++;
         MainWindow::getInstance()->redrawToolPanel();
     }
 }

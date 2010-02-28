@@ -21,7 +21,7 @@ public:
     ToolBar(QWidget* = NULL);
     virtual ~ToolBar();
 
-    void insertWidget(ArenaWidget*);
+    void insertWidget(ArenaWidget*, bool keepFocus = false);
     void removeWidget(ArenaWidget*);
     void redraw();
     void initTabs();

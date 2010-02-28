@@ -86,7 +86,8 @@ void Notification::switchModule(int m){
 }
 
 void Notification::showMessage(Notification::Type t, const QString &title, const QString &msg){
-    if (MainWindow::getInstance()->isActiveWindow())
+    if ((MainWindow::getInstance()->isActiveWindow() || MainWindow::getInstance()->isVisible() ) &&
+        !WBGET(WB_NOTIFY_SHOW_ON_ACTIVE))
         return;
 
     if (title.isEmpty() || msg.isEmpty() || !WBGET(WB_NOTIFY_ENABLED))
@@ -95,7 +96,7 @@ void Notification::showMessage(Notification::Type t, const QString &title, const
     if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
         return;
 
-    if (tray && t == PM && !MainWindow::getInstance()->isVisible())
+    if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS)))
         tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE));
 
     if (notify)

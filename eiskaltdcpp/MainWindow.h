@@ -97,7 +97,7 @@ friend class dcpp::Singleton<MainWindow>;
         void newHubFrame(QString, QString);
 
         /** */
-        void addArenaWidgetOnToolbar(ArenaWidget*);
+        void addArenaWidgetOnToolbar(ArenaWidget*, bool keepFocus = false);
         /** */
         void remArenaWidgetFromToolbar(ArenaWidget*);
 

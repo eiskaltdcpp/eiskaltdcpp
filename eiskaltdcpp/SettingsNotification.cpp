@@ -28,6 +28,8 @@ void SettingsNotification::init(){
         checkBox_ANY->setChecked(emap & Notification::ANY);
         checkBox_PM->setChecked(emap & Notification::PM);
         checkBox_TRDONE->setChecked(emap & Notification::TRANSFER);
+        checkBox_MWACTIVE->setChecked(WBGET(WB_NOTIFY_SHOW_ON_ACTIVE));
+        checkBox_MWVISIBLE->setChecked(WBGET(WB_NOTIFY_CH_ICON_ALWAYS));
 
         comboBox->setCurrentIndex(WIGET(WI_NOTIFY_MODULE));
     }
@@ -87,6 +89,8 @@ void SettingsNotification::playFile(const QString &file){
 void SettingsNotification::ok(){
     {//Text
         WBSET(WB_NOTIFY_ENABLED, groupBox->isChecked());
+        WBSET(WB_NOTIFY_CH_ICON_ALWAYS, checkBox_MWVISIBLE->isChecked());
+        WBSET(WB_NOTIFY_SHOW_ON_ACTIVE, checkBox_MWACTIVE->isChecked());
 
         unsigned emap = 0;
 

@@ -549,8 +549,10 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 QString cid = model->CIDforNick(nick);
 
                 if (!cid.isEmpty()){
-                    if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0)
+                    if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0){
                         plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                        plainTextEdit_INPUT->setFocus();
+                    }
                     else
                         browseUserFiles(cid, false);
                 }
@@ -573,8 +575,10 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 if (!cid.isEmpty()){
                     if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1)
                         browseUserFiles(cid, false);
-                    else
+                    else{
                         plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                        plainTextEdit_INPUT->setFocus();
+                    }
                 }
             }
         }
@@ -983,8 +987,10 @@ void HubFrame::addPM(QString cid, QString output){
         connect(p->textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
 
         MainWindow::getInstance()->addArenaWidget(p);
-        MainWindow::getInstance()->addArenaWidgetOnToolbar(p);
-        MainWindow::getInstance()->mapWidgetOnArena(p);
+        MainWindow::getInstance()->addArenaWidgetOnToolbar(p, WBGET(WB_CHAT_KEEPFOCUS));
+
+        if (!WBGET(WB_CHAT_KEEPFOCUS))
+            MainWindow::getInstance()->mapWidgetOnArena(p);
 
         p->addOutput(output);
 
@@ -1330,6 +1336,7 @@ void HubFrame::follow(string redirect){
         ClientManager::getInstance()->putClient(client);
         clearUsers();
         client = ClientManager::getInstance()->getClient(url);
+
         client->addListener(this);
         client->connect();
     }
@@ -1905,6 +1912,18 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
     if (AntiSpam::getInstance()){
         if (AntiSpam::getInstance()->isInBlack(_q(user.getIdentity().getNick())))
             return;
+    }
+
+    if (_q(msg).startsWith("/me ")){
+        QString m = _q(msg);
+        m.remove(0, 4);
+
+        typedef Func1<HubFrame, QString> FUNC;
+        FUNC *func = new FUNC(this, &HubFrame::addStatus, _q(user.getIdentity().getNick()) + " " + m);
+
+        QApplication::postEvent(this, new UserCustomEvent(func));
+
+        return;
     }
 
     map["NICK"] = _q(user.getIdentity().getNick());

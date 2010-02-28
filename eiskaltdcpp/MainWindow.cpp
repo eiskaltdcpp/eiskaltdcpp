@@ -626,7 +626,7 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
         arena->widget()->hide();
 }
 
-void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt){
+void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){
     if (!arenaWidgets.contains(awgt))
         return;
 
@@ -641,7 +641,7 @@ void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt){
     menuWidgets->clear();
     menuWidgets->addActions(menuWidgetsActions);
 
-    tBar->insertWidget(awgt);
+    tBar->insertWidget(awgt, keepFocus);
 }
 
 void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){

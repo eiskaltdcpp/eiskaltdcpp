@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>419</width>
-    <height>348</height>
+    <width>417</width>
+    <height>346</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -122,7 +122,7 @@
          </layout>
         </widget>
        </item>
-       <item row="1" column="0" colspan="4">
+       <item row="1" column="0" colspan="2">
         <widget class="QCheckBox" name="checkBox_CHATJOINS">
          <property name="text">
           <string>Show joins</string>
@@ -181,6 +181,13 @@
         <widget class="QCheckBox" name="checkBox_REDIRECTPMBOT">
          <property name="text">
           <string>Redirect messages from Bot to the main chat</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="4">
+        <widget class="QCheckBox" name="checkBox_KEEPFOCUS">
+         <property name="text">
+          <string>Do not change focus on new private message</string>
          </property>
         </widget>
        </item>

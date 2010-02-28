@@ -48,7 +48,7 @@ void ToolBar::initTabs(){
     addWidget(tabbar);
 }
 
-void ToolBar::insertWidget(ArenaWidget *awgt){
+void ToolBar::insertWidget(ArenaWidget *awgt, bool keepFocus){
     if (!awgt || !awgt->getWidget() || map.contains(awgt))
         return;
 
@@ -60,7 +60,8 @@ void ToolBar::insertWidget(ArenaWidget *awgt){
         if (tabbar->isHidden())
             tabbar->show();
 
-        tabbar->setCurrentIndex(index);
+        if (!keepFocus)
+            tabbar->setCurrentIndex(index);
     }
 }
 

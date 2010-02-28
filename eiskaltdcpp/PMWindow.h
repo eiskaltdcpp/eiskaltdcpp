@@ -49,6 +49,8 @@ private:
 
     bool hasMessages;
 
+    static int unread;
+
     QString cid;
     QString hubUrl;
     QMenu *arena_menu;
