@@ -247,6 +247,7 @@ void DownloadQueue::init(){
 
     connect(treeView_TARGET, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_TARGET->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
+    connect(queue_model, SIGNAL(needExpand(QModelIndex)), treeView_TARGET, SLOT(expand(QModelIndex)));
     connect(queue_model, SIGNAL(rowRemoved(QModelIndex)), this, SLOT(slotCollapseRow(QModelIndex)));
 
     menu = new Menu();

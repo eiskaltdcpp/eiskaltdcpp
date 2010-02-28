@@ -133,6 +133,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void rowRemoved(const QModelIndex &parent);
+    void needExpand(const QModelIndex &item);
 
 private:
     DownloadQueueItem *findTarget(const DownloadQueueItem*, const QString&);

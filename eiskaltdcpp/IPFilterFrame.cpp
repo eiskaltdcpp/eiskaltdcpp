@@ -310,8 +310,7 @@ void IPFilterFrame::slotImport() {
     if (!IPFilter::getInstance() || !model)
         return;
 
-    QString fname = QFileDialog::getOpenFileName(this, tr("Import list"), QDir::homePath(),
-            tr("All Files (*)"));
+    QString fname = QFileDialog::getOpenFileName(this, tr("Import list"), QDir::homePath());
 
     if (fname != ""){
         model->clearModel();
