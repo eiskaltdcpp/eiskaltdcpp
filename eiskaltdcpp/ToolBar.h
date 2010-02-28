@@ -41,6 +41,8 @@ private Q_SLOTS:
     void slotClose(int);
     void slotContextMenu(const QPoint&);
 
+    QString compactToolTipText(QString text);
+
 private:
     ArenaWidget *findWidgetForIndex(int);
     void rebuildIndexes(int);

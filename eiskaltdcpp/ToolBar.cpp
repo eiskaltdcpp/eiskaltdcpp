@@ -167,7 +167,7 @@ void ToolBar::redraw(){
 
     for (; it != map.end(); ++it){
         tabbar->setTabText(it.value(), it.key()->getArenaShortTitle().left(32));
-        tabbar->setTabToolTip(it.value(), it.key()->getArenaTitle());
+        tabbar->setTabToolTip(it.value(), compactToolTipText(it.key()->getArenaTitle()));
         tabbar->setTabIcon(it.value(), it.key()->getPixmap());
     }
 
@@ -175,6 +175,36 @@ void ToolBar::redraw(){
 
     if (awgt)
         MainWindow::getInstance()->setWindowTitle(awgt->getArenaTitle());
+}
+
+QString ToolBar::compactToolTipText(QString text)
+{
+    int maxlen = 60;
+
+    int len = text.size();
+
+    if (len <= maxlen)
+        return text;
+
+    int n = 0;
+    int k = maxlen;
+
+    while((len-k) > 0){
+        if(text.at(k) == ' ' || (k == n))
+        {
+            if(k == n)
+                k += maxlen;
+
+            text.insert(k+1,'\n');
+
+            len++;
+            k += maxlen + 1;
+            n += maxlen + 1;
+        }
+        else k--;
+    }
+
+    return text;
 }
 
 void ToolBar::rebuildIndexes(int removed){

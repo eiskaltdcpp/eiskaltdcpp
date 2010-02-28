@@ -102,6 +102,7 @@ MainWindow::~MainWindow(){
     delete tBar;
 
     qDeleteAll(fileMenuActions);
+    qDeleteAll(toolBarActions);
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
@@ -366,6 +367,30 @@ void MainWindow::initActions(){
                 << separator5
                 << fileHideWindow
                 << fileQuit;
+
+        toolBarActions << fileOptions
+                << separator1
+                << fileFileListBrowser
+                << fileFileListBrowserLocal
+                << fileFileListRefresh
+                << fileHashProgress
+                << separator2
+                << fileHubReconnect
+                << fileQuickConnect
+                << separator0
+                << fileTransfers
+                << fileDownloadQueue
+                << fileFinishedDownloads
+                << fileFinishedUploads
+                << separator4
+                << fileFavoriteHubs
+                << fileFavoriteUsers
+                << fileSearch
+                << separator3
+                << fileAntiSpam
+                << fileIPFilter
+                << separator5
+                << fileQuit;
     }
     {
         menuWidgets = new QMenu("", this);
@@ -466,12 +491,9 @@ void MainWindow::retranslateUi(){
 }
 
 void MainWindow::initToolbar(){
-    if (fileMenuActions.indexOf(fileHideWindow) != -1)
-        fileMenuActions.removeAt(fileMenuActions.indexOf(fileHideWindow));
-
     fBar = new ToolBar(NULL);
     fBar->setObjectName("fBar");
-    fBar->addActions(fileMenuActions);
+    fBar->addActions(toolBarActions);
     fBar->setContextMenuPolicy(Qt::CustomContextMenu);
     fBar->setMovable(true);
     fBar->setFloatable(true);

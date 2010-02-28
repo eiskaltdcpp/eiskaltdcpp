@@ -219,6 +219,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *aboutClient;
         QAction *aboutQt;
 
+        ActionList toolBarActions;
         ActionList fileMenuActions;
         ArenaWidgetList arenaWidgets;
         ArenaWidgetMap arenaMap;
