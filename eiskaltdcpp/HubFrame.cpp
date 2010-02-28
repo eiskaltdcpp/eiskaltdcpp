@@ -830,7 +830,7 @@ QString HubFrame::getArenaTitle(){
 
     if (client && client->isConnected()){
 		ret  = QString("%1 - %2 [%3]").arg(QString(client->getHubName().c_str()))
-                                      .arg(QString(client->getHubDescription().c_str()).left(70))
+                                      .arg(QString(client->getHubDescription().c_str()))
                                       .arg(QString(client->getIp().c_str()));
         QString prefix = QString("[+%1] ").arg(client->isSecure()? ("S") : (client->isTrusted()? ("T"): ("")));
 
