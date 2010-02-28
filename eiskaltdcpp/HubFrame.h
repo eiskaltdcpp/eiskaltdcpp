@@ -194,8 +194,8 @@ private slots:
     void slotHeaderMenu(const QPoint&);
     void slotShowWnd();
     void slotShellFinished(bool, QString);
-    void slotFindForward(){ findText(lineEdit_FIND->text(), 0); }
-    void slotFindBackward(){ findText(lineEdit_FIND->text(), QTextDocument::FindBackward); }
+    void slotFindForward() { findText(0); }
+    void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotHideFindFrame();
 
 private:
@@ -226,7 +226,7 @@ private:
 
     void follow(string);
 
-    void findText(const QString &, QTextDocument::FindFlags );
+    void findText(QTextDocument::FindFlags );
     void nickCompletion();
 
     /** Extracts data from user identity */

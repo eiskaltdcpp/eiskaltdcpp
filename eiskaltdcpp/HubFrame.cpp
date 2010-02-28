@@ -512,13 +512,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         else if (k_e->key() == Qt::Key_F3){
             slotFindForward();
         }
-
-        if (k_e->key() == Qt::Key_Escape){
-            if (frame->isVisible()){
-                slotHideFindFrame();
-                return true;
-            }
-        }
     }
     else if (e->type() == QEvent::KeyPress){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
@@ -1342,11 +1335,21 @@ void HubFrame::follow(string redirect){
     }
 }
 
-void HubFrame::findText(const QString &str, QTextDocument::FindFlags flag){
+void HubFrame::findText(QTextDocument::FindFlags flag){
+
+    if (lineEdit_FIND->text().isEmpty())
+        return;
+
     static QTextCursor c = QTextCursor();
 
-    if (str.isEmpty())
-        return;
+    textEdit_CHAT->setTextCursor(c);
+
+    bool ok = textEdit_CHAT->find(lineEdit_FIND->text(), flag);
+
+    if (flag == QTextDocument::FindBackward && !ok)
+        c.movePosition(QTextCursor::End,QTextCursor::MoveAnchor,1);
+    else if (flag == 0 && !ok)
+        c.movePosition(QTextCursor::Start,QTextCursor::MoveAnchor,1);
 
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
 
