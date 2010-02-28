@@ -66,17 +66,35 @@ MainWindow::MainWindow (QWidget *parent):
     fileTransfers->setChecked(transfer_dock->isVisible());
     blockSignals(false);
 
-    if (WBGET(WB_ANTISPAM_ENABLED))
+    if (WBGET(WB_ANTISPAM_ENABLED)){
         AntiSpam::newInstance();
 
-    if (WBGET(WB_IPFILTER_ENABLED))
+        AntiSpam::getInstance()->loadLists();
+        AntiSpam::getInstance()->loadSettings();
+    }
+
+    if (WBGET(WB_IPFILTER_ENABLED)){
         IPFilter::newInstance();
+
+        IPFilter::getInstance()->loadList();
+    }
 }
 
 MainWindow::~MainWindow(){
     LogManager::getInstance()->removeListener(this);
     TimerManager::getInstance()->removeListener(this);
     QueueManager::getInstance()->removeListener(this);
+
+    if (AntiSpam::getInstance()){
+        AntiSpam::getInstance()->saveLists();
+        AntiSpam::getInstance()->saveSettings();
+        AntiSpam::deleteInstance();
+    }
+
+    if (IPFilter::getInstance()){
+        IPFilter::getInstance()->saveList();
+        IPFilter::deleteInstance();
+    }
 
     delete arena;
 

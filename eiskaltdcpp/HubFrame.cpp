@@ -33,7 +33,7 @@
 #include <QThread>
 #include <QRegExp>
 
-#include <QDebug>
+#include <QtDebug>
 
 #include <exception>
 
@@ -539,53 +539,89 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
     else if (e->type() == QEvent::MouseButtonPress){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
 
-        if ((static_cast<QWidget*>(obj) == textEdit_CHAT->viewport()) && (m_e->button() == Qt::LeftButton)){
+        bool isChat = (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport());
+        bool isUserList = (static_cast<QWidget*>(obj) == treeView_USERS->viewport());
+
+        if (isChat && (m_e->button() == Qt::LeftButton)){
             QString pressedParagraph = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
 
             WulforUtil::getInstance()->openUrl(pressedParagraph);
         }
-        else if (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport() && m_e->button() == Qt::MidButton){
-            QTextCursor cursor = textEdit_CHAT->textCursor();
-            QString pressedParagraph = cursor.block().text();
+        else if ((isChat || isUserList) && m_e->button() == Qt::MidButton)
+        {
+            QString nick = "";
+            QString cid = "";
 
-            int l = pressedParagraph.indexOf("<");
-            int r = pressedParagraph.indexOf(">");
+            if (isChat){
+                QTextCursor cursor = textEdit_CHAT->textCursor();
+                QString pressedParagraph = cursor.block().text();
 
-            if (l < r){
-                QString nick = pressedParagraph.mid(l+1, r-l-1);
-                QString cid = model->CIDforNick(nick);
+                int l = pressedParagraph.indexOf("<");
+                int r = pressedParagraph.indexOf(">");
 
-                if (!cid.isEmpty()){
-                    if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0){
-                        plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
-                        plainTextEdit_INPUT->setFocus();
-                    }
-                    else
-                        browseUserFiles(cid, false);
+                if (l < r){
+                    nick = pressedParagraph.mid(l+1, r-l-1);
+                    cid = model->CIDforNick(nick);
                 }
+            }
+            else if (isUserList){
+                QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
+
+                if (index.isValid()){
+                    UserListItem *i = reinterpret_cast<UserListItem*>(index.internalPointer());
+
+                    nick = i->nick;
+                    cid = i->cid;
+                }
+            }
+
+            if (!cid.isEmpty()){
+                if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0){
+                    plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                    plainTextEdit_INPUT->setFocus();
+                }
+                else
+                    browseUserFiles(cid, false);
             }
         }
     }
     else if (e->type() == QEvent::MouseButtonDblClick){
-        if (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport()){
-            QTextCursor cursor = textEdit_CHAT->textCursor();
-            QString pressedParagraph = cursor.block().text();
+        bool isChat = (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport());
+        bool isUserList = (static_cast<QWidget*>(obj) == treeView_USERS->viewport());
 
-            int l = pressedParagraph.indexOf("<");
-            int r = pressedParagraph.indexOf(">");
-            int c = cursor.position()-cursor.block().position();
+        if (isChat || isUserList){
+            QString nick = "";
+            QString cid = "";
 
-            if (c > l && c < r){
-                QString nick = pressedParagraph.mid(l+1, r-l-1);
-                QString cid = model->CIDforNick(nick);
+            if (isChat){
+                QTextCursor cursor = textEdit_CHAT->textCursor();
+                QString pressedParagraph = cursor.block().text();
 
-                if (!cid.isEmpty()){
-                    if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1)
-                        browseUserFiles(cid, false);
-                    else{
-                        plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
-                        plainTextEdit_INPUT->setFocus();
-                    }
+                int l = pressedParagraph.indexOf("<");
+                int r = pressedParagraph.indexOf(">");
+
+                if (l < r){
+                    nick = pressedParagraph.mid(l+1, r-l-1);
+                    cid = model->CIDforNick(nick);
+                }
+            }
+            else if (isUserList){
+                QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
+
+                if (index.isValid()){
+                    UserListItem *i = reinterpret_cast<UserListItem*>(index.internalPointer());
+
+                    nick = i->nick;
+                    cid = i->cid;
+                }
+            }
+
+            if (!cid.isEmpty()){
+                if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1)
+                    browseUserFiles(cid, false);
+                else{
+                    plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                    plainTextEdit_INPUT->setFocus();
                 }
             }
         }
@@ -701,6 +737,7 @@ void HubFrame::init(){
     treeView_USERS->setSortingEnabled(true);
     treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeView_USERS->viewport()->installEventFilter(this);
 
     installEventFilter(this);
     lineEdit_FILTER->installEventFilter(this);
@@ -1369,9 +1406,6 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
 
     textEdit_CHAT->setTextCursor(c);
 }
-
-
-#include <QtDebug>
 
 void HubFrame::nickCompletion() {
     int cpos =  plainTextEdit_INPUT->textCursor().position();

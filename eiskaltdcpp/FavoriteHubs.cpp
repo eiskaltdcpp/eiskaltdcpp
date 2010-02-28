@@ -215,7 +215,7 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
         map["ENC"] = enc;
     }
     else
-        map["ENC"] = WSGET(WS_DEFAULT_LOCALE);
+        map["ENC"] = WU->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE));
 
     map["UDESC"]    = editor.lineEdit_USERDESC->text();
 }

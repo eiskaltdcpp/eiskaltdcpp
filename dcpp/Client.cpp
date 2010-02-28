@@ -89,8 +89,9 @@ void Client::reloadSettings(bool updateNick) {
             ClientId = hub->getClientId(); // not tested feature
         if (!hub->getExternalIP().empty())
             externalIP = hub->getExternalIP();
-        if (!hub->getEncoding().empty())
+        if (!hub->getEncoding().empty()){
             setEncoding(hub->getEncoding());
+        }
     } else {
         if(updateNick) {
             setCurrentNick(checkNick(SETTING(NICK)));
