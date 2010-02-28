@@ -147,21 +147,6 @@ void MainWindow::customEvent(QEvent *e){
     e->accept();
 }
 
-bool MainWindow::eventFilter(QObject *obj, QEvent *e){
-    if (e->type() == QEvent::KeyRelease){
-        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
-
-        if ((k_e->key() == Qt::Key_Escape) && !isUnload &&
-            (k_e->modifiers() == Qt::NoModifier) && isActiveWindow()
-           )
-           {
-                hide();
-           }
-    }
-
-    return QMainWindow::eventFilter(obj, e);
-}
-
 void MainWindow::init(){
     installEventFilter(this);
 
@@ -318,6 +303,10 @@ void MainWindow::initActions(){
         fileSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
         connect(fileSearch, SIGNAL(triggered()), this, SLOT(slotFileSearch()));
 
+        fileHideWindow = new QAction(tr("Hide window"), this);
+        fileHideWindow->setShortcut(tr("Esc"));
+        connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
+
         fileQuit = new QAction("", this);
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
         connect(fileQuit, SIGNAL(triggered()), this, SLOT(slotExit()));
@@ -357,6 +346,7 @@ void MainWindow::initActions(){
                 << fileAntiSpam
                 << fileIPFilter
                 << separator5
+                << fileHideWindow
                 << fileQuit;
     }
     {
@@ -458,6 +448,9 @@ void MainWindow::retranslateUi(){
 }
 
 void MainWindow::initToolbar(){
+    if (fileMenuActions.indexOf(fileHideWindow) != -1)
+        fileMenuActions.removeAt(fileMenuActions.indexOf(fileHideWindow));
+
     fBar = new ToolBar(NULL);
     fBar->setObjectName("fBar");
     fBar->addActions(fileMenuActions);
@@ -862,6 +855,13 @@ void MainWindow::slotQC(){
     QuickConnect qc;
 
     qc.exec();
+}
+
+void MainWindow::slotHideWindow(){
+    if (!isUnload && isActiveWindow())
+    {
+        hide();
+    }
 }
 
 void MainWindow::slotExit(){

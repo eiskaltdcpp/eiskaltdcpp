@@ -127,7 +127,6 @@ friend class dcpp::Singleton<MainWindow>;
     protected:
         virtual void closeEvent(QCloseEvent*);
         virtual void customEvent(QEvent *);
-        virtual bool eventFilter(QObject *, QEvent *);
 
     private slots:
         void slotFileBrowseFilelist();
@@ -147,6 +146,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotFileTransfer(bool);
         void slotWidgetsToggle();
         void slotQC();
+        void slotHideWindow();
         void slotExit();
 
         void slotAboutClient();
@@ -208,6 +208,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileAntiSpam;
         QAction *fileIPFilter;
         QAction *fileSearch;
+        QAction *fileHideWindow;
         QAction *fileQuit;
 
         QMenu *menuWidgets;
