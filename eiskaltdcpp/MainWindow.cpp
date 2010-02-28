@@ -102,7 +102,6 @@ MainWindow::~MainWindow(){
     delete tBar;
 
     qDeleteAll(fileMenuActions);
-    qDeleteAll(toolBarActions);
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
