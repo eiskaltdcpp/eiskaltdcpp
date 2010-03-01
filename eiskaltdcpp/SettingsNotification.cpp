@@ -78,7 +78,7 @@ void SettingsNotification::playFile(const QString &file){
             if (cmd.isEmpty())
                 return;
 
-            ShellCommandRunner *r = new ShellCommandRunner(cmd + " " + file, this);
+            ShellCommandRunner *r = new ShellCommandRunner(cmd, QStringList() << file, this);
             connect(r, SIGNAL(finished(bool,QString)), this, SLOT(slotCmdFinished(bool,QString)));
 
             r->start();
@@ -122,6 +122,9 @@ void SettingsNotification::ok(){
         WBSET(WB_NOTIFY_SND_ENABLED, groupBox_SND->isChecked());
 
         Notification::getInstance()->reloadSounds();
+
+        if (WBGET(WB_NOTIFY_SND_EXTERNAL))
+            WSSET(WS_NOTIFY_SND_CMD, lineEdit_SNDCMD->text());
     }
 
     WulforSettings::getInstance()->save();
@@ -156,7 +159,6 @@ void SettingsNotification::slotTest(){
 
 void SettingsNotification::slotToggleSndCmd(bool checked){
     WBSET(WB_NOTIFY_SND_EXTERNAL, checked);
-    WSSET(WS_NOTIFY_SND_CMD, lineEdit_SNDCMD->text());
 }
 
 void SettingsNotification::slotCmdFinished(bool, QString){

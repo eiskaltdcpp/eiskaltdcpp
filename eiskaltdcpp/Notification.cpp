@@ -119,7 +119,7 @@ void Notification::showMessage(Notification::Type t, const QString &title, const
                 if (cmd.isEmpty())
                     return;
 
-                ShellCommandRunner *r = new ShellCommandRunner(cmd + " " + sound, this);
+                ShellCommandRunner *r = new ShellCommandRunner(cmd, QStringList() << sound, this);
                 connect(r, SIGNAL(finished(bool,QString)), this, SLOT(slotCmdFinished(bool,QString)));
 
                 r->start();

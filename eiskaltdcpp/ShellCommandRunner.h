@@ -19,6 +19,8 @@
 
 #include <QThread>
 #include <QString>
+#include <QList>
+#include <QStringList>
 
 class ShellCommandRunner : public QThread {
     Q_OBJECT
@@ -26,6 +28,7 @@ class ShellCommandRunner : public QThread {
 public:
     /** constructor */
     ShellCommandRunner(QString args, QObject * parent = 0);
+    ShellCommandRunner(QString cmd, QStringList args, QObject * parent = 0);
     /** destructor */
     virtual ~ShellCommandRunner();
 
@@ -42,8 +45,12 @@ signals:
 private:
     /** used to cancel the thread */
     bool stop;
+    /** */
+    bool useArgList;
     /** the program to run and its arguments */
     QString args;
+    QStringList argList;
+    QString cmd;
 };
 
 #endif // ShellCommandRunner_U

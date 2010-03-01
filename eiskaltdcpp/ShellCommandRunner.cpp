@@ -16,6 +16,14 @@
 ShellCommandRunner::ShellCommandRunner(QString a, QObject * parent) : QThread(parent) {
     args = a;
     stop = false;
+    useArgList = false;
+}
+
+ShellCommandRunner::ShellCommandRunner(QString cmd, QStringList argList, QObject * parent) : QThread(parent) {
+    this->argList = argList;
+    this->cmd = cmd;
+    useArgList = true;
+    stop = false;
 }
 
 /** */
@@ -32,7 +40,12 @@ void ShellCommandRunner::run() {
     QString output;
     bool succeeded = false;
     QProcess process;
-    process.start(args);
+
+    if (useArgList)
+        process.start(cmd, argList);
+    else
+        process.start(args);
+
     process.closeWriteChannel();
     process.waitForFinished(100);
 
