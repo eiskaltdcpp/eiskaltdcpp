@@ -164,12 +164,12 @@ SettingsManager::SettingsManager()
 	setDefault(USE_OEM_MONOFONT, false);
 	setDefault(POPUP_PMS, true);
 	setDefault(MIN_UPLOAD_SPEED, 0);
-	setDefault(LOG_FORMAT_POST_DOWNLOAD, "%Y-%m-%d %H:%M: %[target] " + string(_("downloaded from")) + " %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
-	setDefault(LOG_FORMAT_POST_UPLOAD, "%Y-%m-%d %H:%M: %[source] " + string(_("uploaded to")) + " %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
-	setDefault(LOG_FORMAT_MAIN_CHAT, "[%Y-%m-%d %H:%M] %[message]");
-	setDefault(LOG_FORMAT_PRIVATE_CHAT, "[%Y-%m-%d %H:%M] %[message]");
-	setDefault(LOG_FORMAT_STATUS, "[%Y-%m-%d %H:%M] %[message]");
-	setDefault(LOG_FORMAT_SYSTEM, "[%Y-%m-%d %H:%M] %[message]");
+        setDefault(LOG_FORMAT_POST_DOWNLOAD, "%H:%M:%S: %[target] " + string(_("downloaded from")) + " %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
+        setDefault(LOG_FORMAT_POST_UPLOAD, "%H:%M:%S: %[source] " + string(_("uploaded to")) + " %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
+        setDefault(LOG_FORMAT_MAIN_CHAT, "[%H:%M:%S] %[message]");
+        setDefault(LOG_FORMAT_PRIVATE_CHAT, "[%H:%M:%S] %[message]");
+        setDefault(LOG_FORMAT_STATUS, "[%H:%M:%S] %[message]");
+        setDefault(LOG_FORMAT_SYSTEM, "[%H:%M:%S] %[message]");
         setDefault(LOG_FILE_MAIN_CHAT, "%Y-%m-%d chat on hub %[hubURL] (%[hubNI]).log");
         setDefault(LOG_FILE_STATUS, "%Y-%m-%d status %[hubURL].log");
         setDefault(LOG_FILE_PRIVATE_CHAT, "%Y-%m-%d chat with %[userNI] (%[userCID]).log");

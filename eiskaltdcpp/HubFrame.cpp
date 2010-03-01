@@ -502,22 +502,17 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 return ret;
             }
 
-            QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text());
+            if (k_e->key() != Qt::Key_F3){
+                QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text());
 
-            textEdit_CHAT->setTextCursor(c);
+                textEdit_CHAT->setTextCursor(c);
 
-            return ret;
+                return ret;
+            }
         }
 
         if (k_e->modifiers() == Qt::ControlModifier && k_e->key() == Qt::Key_F){
             slotHideFindFrame();
-        }
-
-        if (k_e->modifiers() == Qt::ShiftModifier && k_e->key() == Qt::Key_F3){
-            slotFindBackward();
-        }
-        else if (k_e->key() == Qt::Key_F3){
-            slotFindForward();
         }
     }
     else if (e->type() == QEvent::KeyPress){
@@ -1444,7 +1439,7 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
     if (lineEdit_FIND->text().isEmpty())
         return;
 
-    static QTextCursor c = QTextCursor();
+    static QTextCursor c = textEdit_CHAT->textCursor();
 
     textEdit_CHAT->setTextCursor(c);
 
@@ -1892,6 +1887,13 @@ void HubFrame::slotHideFindFrame(){
         }
 
         lineEdit_FIND->setFocus();
+    }
+    else{
+        static QTextCursor c = QTextCursor();
+
+        c.movePosition(QTextCursor::End,QTextCursor::MoveAnchor,1);
+
+        textEdit_CHAT->setTextCursor(c);
     }
 }
 
