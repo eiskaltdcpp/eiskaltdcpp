@@ -91,6 +91,8 @@ private:
 
     FavoriteHubItem *rootItem;
 
+    int sortColumn;
+    Qt::SortOrder sortOrder;
 };
 
 #endif // FavoriteHubModel_H

@@ -13,7 +13,7 @@
 #include <QStringList>
 
 FavoriteHubModel::FavoriteHubModel(QObject *parent)
-    : QAbstractItemModel(parent)
+    : QAbstractItemModel(parent), sortColumn(-1), sortOrder(Qt::AscendingOrder)
 {
     QList<QVariant> rootData;
     rootData << tr("Autoconnect") << tr("Name") << tr("Description")
@@ -145,8 +145,84 @@ int FavoriteHubModel::rowCount(const QModelIndex &parent) const
     return parentItem->childCount();
 }
 
+namespace {
+
+template <Qt::SortOrder order>
+struct Compare {
+    void static sort(int col, QList<FavoriteHubItem*>& items) {
+        qStableSort(items.begin(), items.end(), getAttrComp(col));
+    }
+
+    void static insertSorted(int col, QList<FavoriteHubItem*>& items, FavoriteHubItem* item) {
+        QList<FavoriteHubItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        items.insert(it, item);
+    }
+
+    private:
+        typedef bool (*AttrComp)(const FavoriteHubItem * l, const FavoriteHubItem * r);
+        AttrComp static getAttrComp(int column) {
+            switch (column){
+                 case COLUMN_HUB_AUTOCONNECT:
+                     return NumCmp<COLUMN_HUB_AUTOCONNECT>;
+                 case COLUMN_HUB_ADDRESS:
+                     return AttrCmp<COLUMN_HUB_ADDRESS>;
+                 case COLUMN_HUB_DESC:
+                     return AttrCmp<COLUMN_HUB_DESC>;
+                 case COLUMN_HUB_ENCODING:
+                     return AttrCmp<COLUMN_HUB_ENCODING>;
+                 case COLUMN_HUB_NAME:
+                     return AttrCmp<COLUMN_HUB_NAME>;
+                 case COLUMN_HUB_NICK:
+                     return AttrCmp<COLUMN_HUB_NICK>;
+                 case COLUMN_HUB_PASSWORD:
+                     return AttrCmp<COLUMN_HUB_PASSWORD>;
+                 default:
+                     return AttrCmp<COLUMN_HUB_USERDESC>;
+            }
+
+            return 0;
+        }
+        template <int i>
+        bool static AttrCmp(const FavoriteHubItem * l, const FavoriteHubItem * r) {
+            return Cmp(QString::localeAwareCompare(l->data(i).toString(), r->data(i).toString()), 0);
+        }
+        template <int column>
+        bool static NumCmp(const FavoriteHubItem * l, const FavoriteHubItem * r) {
+            return Cmp(l->data(column).toULongLong(), r->data(column).toULongLong());
+       }
+        template <typename T>
+        bool static Cmp(const T& l, const T& r);
+};
+
+template <> template <typename T>
+bool inline Compare<Qt::AscendingOrder>::Cmp(const T& l, const T& r) {
+    return l < r;
+}
+
+template <> template <typename T>
+bool inline Compare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
+    return l > r;
+}
+}
+
 void FavoriteHubModel::sort(int column, Qt::SortOrder order) {
-    return;
+    sortColumn = column;
+    sortOrder = order;
+
+    if (!rootItem || rootItem->childItems.empty())
+        return;
+
+    if (column == -1)
+        return;
+
+    emit layoutAboutToBeChanged();
+
+    if (order == Qt::AscendingOrder)
+        Compare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
+    else if (order == Qt::DescendingOrder)
+        Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
+
+    emit layoutChanged();
 }
 
 void FavoriteHubModel::clearModel(){
