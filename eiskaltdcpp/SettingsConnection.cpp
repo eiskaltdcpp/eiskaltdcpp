@@ -55,9 +55,16 @@ void SettingsConnection::ok(){
         else
             SM->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);
 
+        if (spinBox_TCP->value() > 1023 && spinBox_UDP->value() > 1023 && spinBox_TLS->value() > 1023) {
         SM->set(SettingsManager::TCP_PORT, spinBox_TCP->value());
         SM->set(SettingsManager::UDP_PORT, spinBox_UDP->value());
         SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
+        } else {
+            SM->set(SettingsManager::TCP_PORT, 3030);
+            SM->set(SettingsManager::UDP_PORT, 3030);
+            SM->set(SettingsManager::TLS_PORT, 3031);
+            showMsg(tr("You enter ports with number < 1024, ports numbers set to default."));
+        }
 
         ip.replace(" ", "");
         ip = ip.trimmed();
@@ -112,10 +119,11 @@ void SettingsConnection::ok(){
 
 void SettingsConnection::init(){
     lineEdit_WANIP->setText(QString::fromStdString(SETTING(EXTERNAL_IP)));
-
+    if (SETTING(TCP_PORT) > 1023 && SETTING(UDP_PORT) > 1023 && SETTING(TLS_PORT) > 1023) {
     spinBox_TCP->setValue(old_tcp = SETTING(TCP_PORT));
     spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));
     spinBox_TLS->setValue(old_tls = SETTING(TLS_PORT));
+    }
 
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
 
