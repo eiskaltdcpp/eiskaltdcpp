@@ -107,6 +107,8 @@ private:
     void download(dcpp::DirectoryListing::Directory*, const QString &);
     void download(dcpp::DirectoryListing::File*, const QString &);
 
+    void changeRoot(dcpp::DirectoryListing::Directory*);
+
     ShareBrowserLoader::LoaderFunc *loader_func;
 
     QMenu *arena_menu;

@@ -86,23 +86,28 @@ void Notification::switchModule(int m){
 }
 
 void Notification::showMessage(Notification::Type t, const QString &title, const QString &msg){
-    if ((MainWindow::getInstance()->isActiveWindow() || MainWindow::getInstance()->isVisible() ) &&
-        !WBGET(WB_NOTIFY_SHOW_ON_ACTIVE))
-        return;
+    if (WBGET(WB_NOTIFY_ENABLED)){
+        if (title.isEmpty() || msg.isEmpty())
+            return;
 
-    if (title.isEmpty() || msg.isEmpty() || !WBGET(WB_NOTIFY_ENABLED))
-        return;
+        if ((MainWindow::getInstance()->isActiveWindow() || MainWindow::getInstance()->isVisible() ) &&
+            !WBGET(WB_NOTIFY_SHOW_ON_ACTIVE))
+            return;
 
-    if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
-        return;
+        if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
+            return;
 
-    if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS)))
-        tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE));
+        if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS)))
+            tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE));
 
-    if (notify)
-        notify->showMessage(title, msg, tray);
+        if (notify)
+            notify->showMessage(title, msg, tray);
+    }
 
     if (WBGET(WB_NOTIFY_SND_ENABLED)){
+        if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_SNDMAP)) & static_cast<unsigned>(t)))
+            return;
+
         int sound_pos = getBitPos(static_cast<unsigned>(t));
 
         if (sound_pos >= 0 && sound_pos < sounds.size()){

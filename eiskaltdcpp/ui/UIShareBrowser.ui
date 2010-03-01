@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>419</width>
-    <height>331</height>
+    <width>417</width>
+    <height>329</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -86,8 +86,20 @@
        </item>
        <item row="0" column="0">
         <widget class="QTreeView" name="treeView_RPANE">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="showDropIndicator" stdset="0">
+          <bool>false</bool>
+         </property>
          <property name="selectionMode">
           <enum>QAbstractItemView::ExtendedSelection</enum>
+         </property>
+         <property name="rootIsDecorated">
+          <bool>false</bool>
+         </property>
+         <property name="itemsExpandable">
+          <bool>false</bool>
          </property>
         </widget>
        </item>

@@ -48,6 +48,12 @@ void SettingsNotification::init(){
         groupBox_SNDCMD->setChecked(WBGET(WB_NOTIFY_SND_EXTERNAL));
 
         lineEdit_SNDCMD->setText(WSGET(WS_NOTIFY_SND_CMD));
+
+        unsigned emap = static_cast<unsigned>(WIGET(WI_NOTIFY_SNDMAP));
+
+        groupBox_NICK->setChecked(emap & Notification::NICKSAY);
+        groupBox_PM->setChecked(emap & Notification::PM);
+        groupBox_TR->setChecked(emap & Notification::TRANSFER);
     }
 
     toolButton_BRWNICK->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
@@ -125,16 +131,33 @@ void SettingsNotification::ok(){
 
         if (WBGET(WB_NOTIFY_SND_EXTERNAL))
             WSSET(WS_NOTIFY_SND_CMD, lineEdit_SNDCMD->text());
+
+        unsigned emap = 0;
+
+        if (groupBox_TR->isChecked())
+            emap |= Notification::TRANSFER;
+
+        if (groupBox_NICK->isChecked())
+            emap |= Notification::NICKSAY;
+
+        if (groupBox_PM->isChecked())
+            emap |= Notification::PM;
+
+        WISET(WI_NOTIFY_SNDMAP, emap);
     }
 
     WulforSettings::getInstance()->save();
 }
 
 void SettingsNotification::slotBrowseFile(){
-    QString f = QFileDialog::getOpenFileName(this, tr("Select file"), QDir::homePath(), tr("All files (*.*)"));
+    static QString defaultPath = QDir::homePath();
+
+    QString f = QFileDialog::getOpenFileName(this, tr("Select file"), defaultPath, tr("All files (*.*)"));
 
     if (f.isEmpty())
         return;
+
+    defaultPath = f.left(f.lastIndexOf(QDir::separator()));
 
     QToolButton *btn = reinterpret_cast<QToolButton*>(sender());
 

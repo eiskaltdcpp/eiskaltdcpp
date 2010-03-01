@@ -75,6 +75,7 @@ const char * const WI_MAINWINDOW_Y            = "mainwindow-y";
 const char * const WI_SHARE_RPANE_WIDTH       = "sharebrowser-rp-width";
 const char * const WI_SHARE_WIDTH             = "sharebrowser-width";
 const char * const WI_NOTIFY_EVENTMAP         = "notify-event-map";
+const char * const WI_NOTIFY_SNDMAP           = "notify-snd-map";
 const char * const WI_NOTIFY_MODULE           = "notify-module";
 
 class WulforSettings :

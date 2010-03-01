@@ -161,6 +161,7 @@ void ShareBrowser::init(){
     connect(treeView_RPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
     connect(treeView_RPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
+    //connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotLeftPaneClicked(QModelIndex)));
 
     setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -305,12 +306,18 @@ void ShareBrowser::slotLeftPaneClicked(const QModelIndex &index){
     if (!(item && item->dir))
         return;
 
+    changeRoot(item->dir);
+}
+
+void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *dir){
+    if (!dir)
+        return;
+
     treeView_RPANE->selectionModel()->clear();
     list_model->clear();
 
     current_size = 0;
 
-    DirectoryListing::Directory *dir = item->dir;
     DirectoryListing::Directory::Iter it;
 
     for (it = dir->directories.begin(); it != dir->directories.end(); ++it){

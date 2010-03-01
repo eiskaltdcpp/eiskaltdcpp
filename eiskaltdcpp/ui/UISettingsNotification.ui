@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>394</width>
-    <height>287</height>
+    <width>392</width>
+    <height>317</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -157,76 +157,91 @@
           <bool>true</bool>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
-          <item row="1" column="0">
-           <widget class="QLineEdit" name="lineEdit_SNDNICKSAY"/>
-          </item>
-          <item row="1" column="1">
-           <widget class="QPushButton" name="pushButton_TESTNICKSAY">
-            <property name="text">
-             <string>Test</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QToolButton" name="toolButton_BRWNICK">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLineEdit" name="lineEdit_SNDPM"/>
-          </item>
-          <item row="3" column="1">
-           <widget class="QPushButton" name="pushButton_TESTPM">
-            <property name="text">
-             <string>Test</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QToolButton" name="toolButton_BRWPM">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLineEdit" name="lineEdit_SNDTRDONE"/>
-          </item>
-          <item row="5" column="1">
-           <widget class="QPushButton" name="pushButton_TESTTR">
-            <property name="text">
-             <string>Test</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="2">
-           <widget class="QToolButton" name="toolButton_BRWTR">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0" colspan="3">
-           <widget class="QLabel" name="label">
-            <property name="text">
+          <item row="0" column="0" rowspan="2" colspan="3">
+           <widget class="QGroupBox" name="groupBox_NICK">
+            <property name="title">
              <string>Your nick is mentioned in main chat</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_7">
+             <item row="0" column="0">
+              <widget class="QLineEdit" name="lineEdit_SNDNICKSAY"/>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="pushButton_TESTNICKSAY">
+               <property name="text">
+                <string>Test</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QToolButton" name="toolButton_BRWNICK">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_2">
-            <property name="text">
+          <item row="3" column="0" colspan="3">
+           <widget class="QGroupBox" name="groupBox_PM">
+            <property name="title">
              <string>Private message</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_8">
+             <item row="0" column="0">
+              <widget class="QLineEdit" name="lineEdit_SNDPM"/>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="pushButton_TESTPM">
+               <property name="text">
+                <string>Test</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QToolButton" name="toolButton_BRWPM">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
+          <item row="4" column="0" colspan="3">
+           <widget class="QGroupBox" name="groupBox_TR">
+            <property name="title">
              <string>Transfer done</string>
             </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_9">
+             <item row="0" column="0">
+              <widget class="QLineEdit" name="lineEdit_SNDTRDONE"/>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="pushButton_TESTTR">
+               <property name="text">
+                <string>Test</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QToolButton" name="toolButton_BRWTR">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
