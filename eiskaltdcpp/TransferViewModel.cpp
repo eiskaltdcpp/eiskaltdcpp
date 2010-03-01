@@ -277,11 +277,22 @@ void TransferViewModel::initTransfer(VarMap params){
 
     if (needParent){
         to = getParent(vstr(params["TARGET"]), params);
+        TransferViewItem *p = item->parent();
 
-        if (item->parent() == to)
+        if (p == to)
             return;
 
-        moveTransfer(item, item->parent(), to);
+        moveTransfer(item, p, to);
+
+        if (p != rootItem && p->childCount() == 0 && rootItem->childItems.contains(p)){
+            beginRemoveRows(QModelIndex(), p->row(), p->row());
+            {
+                rootItem->childItems.removeAt(p->row());
+
+                delete p;
+            }
+            endRemoveRows();
+        }
 
         sort(sortColumn, sortOrder);
     }
@@ -363,21 +374,14 @@ void TransferViewModel::removeTransfer(VarMap params){
             TransferViewItem *item = i.value();
             TransferViewItem *p = item->parent();
 
-            if (p != rootItem && !rootItem->childItems.contains(p))
-                return;
-
-            if (p != rootItem)
-                beginRemoveRows(createIndex(p->row(), 0, p), item->row(), item->row());
-            else
-                beginRemoveRows(QModelIndex(), item->row(), item->row());
-
-            p->childItems.removeAt(item->row());
-
+            beginRemoveRows(createIndexForItem(p), item->row(), item->row());
+            {
+                p->childItems.removeAt(item->row());
+                delete item;
+            }
             endRemoveRows();
 
             transfer_hash.erase(i);
-
-            delete item;
 
             if (p != rootItem && p->childCount() == 0){
                 beginRemoveRows(QModelIndex(), p->row(), p->row());
