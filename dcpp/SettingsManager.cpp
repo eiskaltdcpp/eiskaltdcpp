@@ -170,12 +170,12 @@ SettingsManager::SettingsManager()
 	setDefault(LOG_FORMAT_PRIVATE_CHAT, "[%Y-%m-%d %H:%M] %[message]");
 	setDefault(LOG_FORMAT_STATUS, "[%Y-%m-%d %H:%M] %[message]");
 	setDefault(LOG_FORMAT_SYSTEM, "[%Y-%m-%d %H:%M] %[message]");
-	setDefault(LOG_FILE_MAIN_CHAT, "%[hubURL].log");
-	setDefault(LOG_FILE_STATUS, "%[hubURL]_status.log");
-	setDefault(LOG_FILE_PRIVATE_CHAT, "%[userNI].%[userCID].log");
-	setDefault(LOG_FILE_UPLOAD, "Uploads.log");
-	setDefault(LOG_FILE_DOWNLOAD, "Downloads.log");
-	setDefault(LOG_FILE_SYSTEM, "system.log");
+        setDefault(LOG_FILE_MAIN_CHAT, "%Y-%m-%d chat on hub %[hubURL] (%[hubNI]).log");
+        setDefault(LOG_FILE_STATUS, "%Y-%m-%d status %[hubURL].log");
+        setDefault(LOG_FILE_PRIVATE_CHAT, "%Y-%m-%d chat with %[userNI] (%[userCID]).log");
+        setDefault(LOG_FILE_UPLOAD, "%Y-%m-%d uploads.log");
+        setDefault(LOG_FILE_DOWNLOAD, "%Y-%m-%d downloads.log");
+        setDefault(LOG_FILE_SYSTEM, "%Y-%m-%d system.log");
 	setDefault(GET_USER_INFO, true);
 	setDefault(URL_HANDLER, false);
 	setDefault(AUTO_AWAY, false);
