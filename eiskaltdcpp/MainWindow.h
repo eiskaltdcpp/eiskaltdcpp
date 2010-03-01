@@ -56,7 +56,7 @@ private:
 
 class About:
         public QDialog,
-        private Ui::UIAbout
+        public Ui::UIAbout
 {
 Q_OBJECT
 
