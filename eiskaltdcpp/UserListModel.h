@@ -119,6 +119,7 @@ public:
                 );
 
     UserListItem *itemForPtr(const UserPtr&);
+    UserListItem *itemForNick(const QString&);
 
     int getSortColumn() const {
         return sortColumn;

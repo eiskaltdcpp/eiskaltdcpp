@@ -388,6 +388,22 @@ UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){
     return item;
 }
 
+UserListItem *UserListModel::itemForNick(const QString &nick){
+    if (!nick.isEmpty()){
+        QHash<QString, UserPtr>::const_iterator it = nicks.find(nick);
+
+        if (it == nicks.constEnd())
+            return NULL;
+
+        USRMap::const_iterator ut = users.find(it.value());
+
+        if (ut != users.constEnd())
+            return ut.value();
+    }
+
+    return NULL;
+}
+
 QString UserListModel::CIDforNick(const QString &nick){
     if (!nick.isEmpty()){
         QHash<QString, UserPtr>::const_iterator it = nicks.find(nick);

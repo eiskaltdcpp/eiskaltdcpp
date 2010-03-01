@@ -414,7 +414,7 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     QString enc = WulforUtil::getInstance()->qtEnc2DcEnc(encoding);
 
     if (enc.isEmpty())
-        enc = WulforSettings::getInstance()->getStr(WS_DEFAULT_LOCALE);
+        enc = WulforUtil::getInstance()->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE));
 
     if (enc.indexOf(" ") > 0){
         enc = enc.left(enc.indexOf(" "));
@@ -545,7 +545,34 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         if (isChat && (m_e->button() == Qt::LeftButton)){
             QString pressedParagraph = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
 
-            WulforUtil::getInstance()->openUrl(pressedParagraph);
+            if (!WulforUtil::getInstance()->openUrl(pressedParagraph)){
+                QString nick = "";
+
+                QTextCursor cursor = textEdit_CHAT->cursorForPosition(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
+                QString pressedParagraph = cursor.block().text();
+
+                int l = pressedParagraph.indexOf("<");
+                int r = pressedParagraph.indexOf(">");
+
+                if (l < r)
+                    nick = pressedParagraph.mid(l+1, r-l-1);
+
+                UserListItem *item = model->itemForNick(nick);
+
+                if (item){
+                    QModelIndex index = QModelIndex();
+
+                    treeView_USERS->clearSelection();
+
+                    for (int i = 0; i < model->columnCount(); i++){
+                        index = model->index(item->row(), i, QModelIndex());
+
+                        treeView_USERS->selectionModel()->select(index, QItemSelectionModel::Select);
+                    }
+
+                    treeView_USERS->scrollTo(index, QAbstractItemView::PositionAtCenter);
+                }
+            }
         }
         else if ((isChat || isUserList) && m_e->button() == Qt::MidButton)
         {
@@ -942,6 +969,31 @@ bool HubFrame::parseForCmd(QString line){
     else if (cmd == "/grant" && !emptyParam){
         grantSlot(model->CIDforNick(param));
     }
+    else if (cmd == "/info" && !emptyParam){
+        UserListItem *item = model->itemForNick(param);
+
+        if (item){
+            QString ttip = "\n";
+
+            ttip += model->headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->nick + "\n";
+            ttip += model->headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->comm + "\n";
+            ttip += model->headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->email + "\n";
+            ttip += model->headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->ip + "\n";
+            ttip += model->headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + QString::fromStdString(dcpp::Util::formatBytes(item->share)) + "\n";
+            ttip += model->headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->tag + "\n";
+            ttip += model->headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->conn + "\n";
+
+            if (item->isOp)
+                ttip += tr("Hub role: Operator");
+            else
+                ttip += tr("Hub role>: User");
+
+            if (FavoriteManager::getInstance()->isFavoriteUser(item->ptr))
+                ttip += tr("\nFavorite user");
+
+            addStatus(ttip);
+        }
+    }
     else if (cmd == "/me" && !emptyParam){
         if (line.endsWith("\n"))//remove extra \n char
             line = line.left(line.lastIndexOf("\n"));
@@ -963,6 +1015,7 @@ bool HubFrame::parseForCmd(QString line){
                          "/fav - add this hub to favorites\n"
                          "/grant <nick> - grant extra slot to user\n"
                          "/help, /?, /h - show this help\n"
+                         "/info <nick> - show info about user\n"
                          "/me - say a third person\n"
                          "/pm <nick> - begin private chat with user\n"
                          "/sh <command> - start command and redirect output to the chat");
