@@ -491,10 +491,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             return ret;
         }
         else if (static_cast<QLineEdit*>(obj) == lineEdit_FIND){
-             bool ret = QWidget::eventFilter(obj, e);
-
-            if (lineEdit_FIND->text().isEmpty())
-                return ret;
+            bool ret = QWidget::eventFilter(obj, e);
 
             if (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return){
                 slotFindForward();
@@ -502,13 +499,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 return ret;
             }
 
-            if (k_e->key() != Qt::Key_F3){
-                QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text());
-
-                textEdit_CHAT->setTextCursor(c);
-
-                return ret;
-            }
+            return ret;
         }
 
         if (k_e->modifiers() == Qt::ControlModifier && k_e->key() == Qt::Key_F){
@@ -780,6 +771,7 @@ void HubFrame::init(){
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
     connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
+    connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
 
     plainTextEdit_INPUT->installEventFilter(this);
 
@@ -1432,13 +1424,10 @@ void HubFrame::follow(string redirect){
 }
 
 void HubFrame::findText(QTextDocument::FindFlags flag){
-
     if (lineEdit_FIND->text().isEmpty())
         return;
 
-    static QTextCursor c = textEdit_CHAT->textCursor();
-
-    textEdit_CHAT->setTextCursor(c);
+    QTextCursor c = textEdit_CHAT->textCursor();
 
     bool ok = textEdit_CHAT->find(lineEdit_FIND->text(), flag);
 
@@ -1886,12 +1875,24 @@ void HubFrame::slotHideFindFrame(){
         lineEdit_FIND->setFocus();
     }
     else{
-        static QTextCursor c = QTextCursor();
+        static QTextCursor c = textEdit_CHAT->textCursor();
 
-        c.movePosition(QTextCursor::End,QTextCursor::MoveAnchor,1);
+        c.movePosition(QTextCursor::StartOfBlock,QTextCursor::MoveAnchor,1);
 
         textEdit_CHAT->setTextCursor(c);
     }
+}
+
+void HubFrame::slotFindTextEdited(const QString & text){
+    if (lineEdit_FIND->text().isEmpty())
+        return;
+
+    QTextCursor c = textEdit_CHAT->textCursor();
+
+    c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
+    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
+
+    textEdit_CHAT->setTextCursor(c);
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){

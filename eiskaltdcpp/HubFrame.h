@@ -197,6 +197,7 @@ private slots:
     void slotFindForward() { findText(0); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotHideFindFrame();
+    void slotFindTextEdited(const QString & text);
 
 private:
     // Chat functions
