@@ -545,25 +545,22 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
                 QTextCursor cursor = textEdit_CHAT->cursorForPosition(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
                 QString pressedParagraph = cursor.block().text();
+                int cpos = cursor.position()-cursor.block().position();
 
                 int l = pressedParagraph.indexOf("<");
                 int r = pressedParagraph.indexOf(">");
 
-                if (l < r)
+                if ((l <= cpos) && (cpos <= r))
                     nick = pressedParagraph.mid(l+1, r-l-1);
 
                 UserListItem *item = model->itemForNick(nick);
 
                 if (item){
-                    QModelIndex index = QModelIndex();
+                    QModelIndex index = model->index(item->row(), 0, QModelIndex());
 
                     treeView_USERS->clearSelection();
 
-                    for (int i = 0; i < model->columnCount(); i++){
-                        index = model->index(item->row(), i, QModelIndex());
-
-                        treeView_USERS->selectionModel()->select(index, QItemSelectionModel::Select);
-                    }
+                    treeView_USERS->selectionModel()->select(index, QItemSelectionModel::Select | QItemSelectionModel::Rows);
 
                     treeView_USERS->scrollTo(index, QAbstractItemView::PositionAtCenter);
                 }
