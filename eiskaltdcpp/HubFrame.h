@@ -99,7 +99,8 @@ class HubFrame :
 
         enum Action{
             /** Actions for userlist */
-            CopyNick=0,
+            CopyText=0,
+            CopyNick=1,
             BrowseFilelist,
             MatchQueue,
             PrivateMessage,
@@ -171,6 +172,8 @@ public:
     QString getArenaShortTitle();
     QMenu *getMenu();
     const QPixmap &getPixmap();
+
+    QString getUserInfo(UserListItem *item);
 
 protected:
     virtual bool eventFilter(QObject *, QEvent *);

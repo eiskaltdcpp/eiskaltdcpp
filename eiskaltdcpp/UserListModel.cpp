@@ -93,11 +93,12 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
             else {
                 QString ttip = "";
 
-                ttip = "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->nick + "<br/>";
+                ttip =  "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->nick + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->comm + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->email + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->ip + "<br/>";
-                ttip += "<b>" + headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + QString::fromStdString(dcpp::Util::formatBytes(item->share)) + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " +
+                        QString::fromStdString(dcpp::Util::formatBytes(item->share)) + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->tag + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->conn + "<br/>";
 

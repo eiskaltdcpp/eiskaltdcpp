@@ -64,6 +64,7 @@ HubFrame::Menu::Menu(){
     last_user_cmd = "";
 
     //Userlist actions
+    QAction *copy_text   = new QAction(QPixmap(), tr("Copy text"), NULL);
     QAction *copy_nick   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy nick"), NULL);
     QAction *browse      = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse files"), NULL);
     QAction *match_queue = new QAction(QPixmap(), tr("Match Queue"), NULL);
@@ -86,7 +87,8 @@ HubFrame::Menu::Menu(){
 
     sep1->setSeparator(true), sep2->setSeparator(true), sep3->setSeparator(true);
 
-    actions << copy_nick
+    actions << copy_text
+            << copy_nick
             << browse
             << match_queue
             << private_msg
@@ -878,6 +880,29 @@ const QPixmap &HubFrame::getPixmap(){
         return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER);
 }
 
+QString HubFrame::getUserInfo(UserListItem *item){
+    QString ttip = "";
+
+    ttip += model->headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->nick + "\n";
+    ttip += model->headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->comm + "\n";
+    ttip += model->headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->email + "\n";
+    ttip += model->headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->ip + "\n";
+    ttip += model->headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + ": " +
+            QString::fromStdString(dcpp::Util::formatBytes(item->share)) + "\n";
+    ttip += model->headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->tag + "\n";
+    ttip += model->headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->conn + "\n";
+
+    if (item->isOp)
+        ttip += tr("Hub role: Operator");
+    else
+        ttip += tr("Hub role: User");
+
+    if (FavoriteManager::getInstance()->isFavoriteUser(item->ptr))
+        ttip += tr("\nFavorite user");
+
+    return ttip;
+}
+
 void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
     if (!client || !client->isConnected() || msg.isEmpty() || msg.isNull())
         return;
@@ -957,23 +982,7 @@ bool HubFrame::parseForCmd(QString line){
         UserListItem *item = model->itemForNick(param);
 
         if (item){
-            QString ttip = "\n";
-
-            ttip += model->headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->nick + "\n";
-            ttip += model->headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->comm + "\n";
-            ttip += model->headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->email + "\n";
-            ttip += model->headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->ip + "\n";
-            ttip += model->headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + QString::fromStdString(dcpp::Util::formatBytes(item->share)) + "\n";
-            ttip += model->headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->tag + "\n";
-            ttip += model->headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->conn + "\n";
-
-            if (item->isOp)
-                ttip += tr("Hub role: Operator");
-            else
-                ttip += tr("Hub role: User");
-
-            if (FavoriteManager::getInstance()->isFavoriteUser(item->ptr))
-                ttip += tr("\nFavorite user");
+            QString ttip = "\n" + getUserInfo(item);
 
             addStatus(ttip);
         }
@@ -1564,6 +1573,22 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
             break;
         }
+        case Menu::CopyText:
+        {
+            QString ttip = "";
+
+            foreach(QModelIndex i, list){
+                item = reinterpret_cast<UserListItem*>(i.internalPointer());
+
+                if (item)
+                    ttip = getUserInfo(item);
+            }
+
+            if (!ttip.isEmpty())
+                QApplication::clipboard()->setText(ttip, QClipboard::Clipboard);
+
+            break;
+        }
         case Menu::CopyNick:
         {
             QString ret = "";
@@ -1695,6 +1720,15 @@ void HubFrame::slotChatMenu(const QPoint &){
     Menu::Action action = Menu::getInstance()->execChatMenu(client, cid);
 
     switch (action){
+        case Menu::CopyText:
+        {
+            QString ret = textEdit_CHAT->textCursor().selectedText();
+
+            if (!ret.isEmpty())
+                QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+
+            break;
+        }
         case Menu::CopyNick:
         {
             qApp->clipboard()->setText(nick, QClipboard::Clipboard);
