@@ -220,7 +220,10 @@
 &lt;b&gt;Path: &lt;/b&gt; %2
 &lt;b&gt;Errors: &lt;/b&gt; %3
 </source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Добавлено: &lt;/b&gt; %1
+&lt;b&gt;Путь: &lt;/b&gt; %2
+&lt;b&gt;Ошибки: &lt;/b&gt; %3
+</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="316"/>
@@ -384,22 +387,22 @@
     <message>
         <location filename="../FavoriteUsersModel.cpp" line="10"/>
         <source>Nick</source>
-        <translation type="unfinished">Ник</translation>
+        <translation>Ник</translation>
     </message>
     <message>
         <location filename="../FavoriteUsersModel.cpp" line="10"/>
         <source>Hub</source>
-        <translation type="unfinished">Хаб</translation>
+        <translation>Хаб</translation>
     </message>
     <message>
         <location filename="../FavoriteUsersModel.cpp" line="10"/>
         <source>Last seen</source>
-        <translation type="unfinished">Был замечен</translation>
+        <translation>Был замечен</translation>
     </message>
     <message>
         <location filename="../FavoriteUsersModel.cpp" line="10"/>
         <source>Description</source>
-        <translation type="unfinished">Описание</translation>
+        <translation>Описание</translation>
     </message>
 </context>
 <context>
@@ -434,12 +437,12 @@
     <message>
         <location filename="../FinishedTransfers.cpp" line="3"/>
         <source>Finished uploads</source>
-        <translation type="unfinished">Список отданного</translation>
+        <translation>Список отданного</translation>
     </message>
     <message>
         <location filename="../FinishedTransfers.cpp" line="4"/>
         <source>Finished downloads</source>
-        <translation type="unfinished">Список загруженного</translation>
+        <translation>Список загруженного</translation>
     </message>
 </context>
 <context>
@@ -447,12 +450,12 @@
     <message>
         <location filename="../FinishedTransfers.h" line="261"/>
         <source>Open file</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть файл</translation>
     </message>
     <message>
         <location filename="../FinishedTransfers.h" line="262"/>
         <source>Open directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть каталог</translation>
     </message>
 </context>
 <context>
@@ -541,18 +544,19 @@
     <message>
         <location filename="../HubFrame.cpp" line="971"/>
         <source>Hub role: Operator</source>
-        <translation type="unfinished"></translation>
+        <translation>Роль на хабе: Оператор</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="973"/>
-        <source>Hub role&gt;: User</source>
-        <translation type="unfinished"></translation>
+        <source>Hub role: User</source>
+        <translation>Роль на хабе: Пользователь</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="976"/>
         <source>
 Favorite user</source>
-        <translation type="unfinished"></translation>
+        <translation>
+Избранный пользователь</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="994"/>
@@ -568,7 +572,18 @@ Favorite user</source>
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>/away - включить/выключить режим &quot;Отошёл&quot;
+/back - отключить режим &quot;Отошёл&quot;
+/browse &lt;nick&gt; - открыть список файлов пользователя
+/clear - очистить окно чата
+/close - закрыть текущий хаб
+/fav - добавить текущий хаб в избранные
+/grant &lt;nick&gt; - выдалить дополнительный слот пользователю
+/help, /?, /h - показать эту справку
+/info &lt;nick&gt; - показать информацию о пользователе
+/me - сказать от третьего лица
+/pm &lt;nick&gt; - начать личный чат с пользователем
+/sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1144"/>
@@ -730,7 +745,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="79"/>
         <source>Find in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Найти в чате</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="80"/>
@@ -876,7 +891,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="263"/>
         <source>Shift+L</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift+L</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="268"/>
@@ -896,17 +911,17 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="324"/>
         <source>Hide window</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрыть окно</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="325"/>
         <source>Esc</source>
-        <translation type="unfinished"></translation>
+        <translation>Esc</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="429"/>
         <source>Downloaded/Uploaded :: Download speed/Upload speed (per sec.) :: Counts</source>
-        <translation type="unfinished"></translation>
+        <translation>Загружено/Отдано :: Скорость загрузки/Скорость отдачи (в сек.) :: Счётчик</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="443"/>
@@ -921,7 +936,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="447"/>
         <source>Open filelist...</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть список файлов...</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="449"/>
@@ -951,7 +966,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="479"/>
         <source>&amp;Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Виджеты</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="481"/>
@@ -966,32 +981,32 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="538"/>
         <source>%1/%2 :: %4/%5 :: %3</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/%2 :: %4/%5 :: %3</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="611"/>
         <source>Choose file to open</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбор файла для открывания</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="612"/>
         <source>Modern XML Filelists</source>
-        <translation type="unfinished"></translation>
+        <translation>Современные XML-списки пользователей</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="613"/>
         <source>Modern XML Filelists uncompressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Современные несжатые XML-списки пользователей</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="614"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Все файлы</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="619"/>
         <source>Unable to load file list: Invalid file list name</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось загрузить список файлов: Недопустимое имя файла</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="753"/>
@@ -1183,7 +1198,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../ui/UISearchFrame.ui" line="134"/>
         <source>Show/Hide side panel</source>
-        <translation>Показать/скрыть боковую панель</translation>
+        <translation>Боковая панель</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="199"/>
@@ -1278,7 +1293,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../ui/UISearchFrame.ui" line="291"/>
         <source>Don&apos;t hide this panel when search</source>
-        <translation type="unfinished"></translation>
+        <translation>Не прятать эту панель при поиске</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="41"/>
@@ -1510,7 +1525,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../Settings.cpp" line="57"/>
         <source>Logs</source>
-        <translation type="unfinished"></translation>
+        <translation>Отчёты</translation>
     </message>
     <message>
         <location filename="../Settings.cpp" line="18"/>
@@ -1523,7 +1538,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../SettingsConnection.cpp" line="66"/>
         <source>You enter ports with number &lt; 1024, ports numbers set to default.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы указали порты с номером &lt; 1024, установлены значения по умолчанию.</translation>
     </message>
     <message>
         <location filename="../SettingsConnection.cpp" line="88"/>
@@ -2914,12 +2929,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="104"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Старт</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="118"/>
         <source>Close on finish</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть по окончании</translation>
     </message>
 </context>
 <context>
@@ -2932,32 +2947,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="71"/>
         <source>Find: </source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск: </translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="85"/>
         <source>&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="88"/>
         <source>Shift+F3</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="95"/>
         <source>&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="98"/>
         <source>F3</source>
-        <translation type="unfinished"></translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="105"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
 </context>
 <context>
@@ -3468,22 +3483,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="169"/>
         <source>Ignore private messages from Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Игнорировать личные сообщения от хаба</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="176"/>
         <source>Ignore private messages from Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>Игнорировать приватные сообщения от бота</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="183"/>
         <source>Redirect messages from Bot to the main chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Перенаправлять сообщения от бота в основной чат</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="190"/>
         <source>Do not change focus on new private message</source>
-        <translation type="unfinished"></translation>
+        <translation>Не переводить фокус на новое личное сообщение</translation>
     </message>
 </context>
 <context>
@@ -3491,12 +3506,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsLog.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
         <source>Private messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Личные сообщения</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="29"/>
@@ -3504,42 +3519,42 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsLog.ui" line="73"/>
         <location filename="../ui/UISettingsLog.ui" line="95"/>
         <source>Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Формат</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="42"/>
         <source>Main chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Основной чат</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="64"/>
         <source>Downloads</source>
-        <translation type="unfinished">Загрузки</translation>
+        <translation>Загрузки</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="86"/>
         <source>Uploads</source>
-        <translation type="unfinished"></translation>
+        <translation>Отдачи</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="108"/>
         <source>Log directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталог для отчётов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="127"/>
         <source>Own filelist uploads</source>
-        <translation type="unfinished"></translation>
+        <translation>Отдачи своего списка файлов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="134"/>
         <source>System messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Системные сообщения</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="141"/>
         <source>Status messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Статусные сообщения</translation>
     </message>
 </context>
 <context>
@@ -3600,12 +3615,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="101"/>
         <source>Change icon when main window is visible</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменять иконку при видимом главном окне</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="124"/>
         <source>Enable notifications with visible main window</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить уведомления при видимом главном окне</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="148"/>
@@ -3771,17 +3786,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../UserListModel.cpp" line="105"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: Operator</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Роль на хабе&lt;/b&gt;: Operator</translation>
     </message>
     <message>
         <location filename="../UserListModel.cpp" line="107"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: User</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Роль на хабе&lt;/b&gt;: Пользователь</translation>
     </message>
     <message>
         <location filename="../UserListModel.cpp" line="110"/>
         <source>&lt;br/&gt;&lt;b&gt;Favorite user&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&lt;b&gt;Избранный пользователь&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../UserListModel.cpp" line="135"/>

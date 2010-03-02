@@ -970,7 +970,7 @@ bool HubFrame::parseForCmd(QString line){
             if (item->isOp)
                 ttip += tr("Hub role: Operator");
             else
-                ttip += tr("Hub role>: User");
+                ttip += tr("Hub role: User");
 
             if (FavoriteManager::getInstance()->isFavoriteUser(item->ptr))
                 ttip += tr("\nFavorite user");
