@@ -61,6 +61,7 @@ public:
         eiHASHING,
         eiICON_APPL,
         eiMESSAGE,
+        eiMESSAGE_TRAY_ICON,
         eiOWN_FILELIST,
         eiRECONNECT,
         eiRELOAD,

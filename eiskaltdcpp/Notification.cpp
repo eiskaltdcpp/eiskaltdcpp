@@ -98,7 +98,7 @@ void Notification::showMessage(Notification::Type t, const QString &title, const
             return;
 
         if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS)))
-            tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE));
+            tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE_TRAY_ICON));
 
         if (notify)
             notify->showMessage(title, msg, tray);
