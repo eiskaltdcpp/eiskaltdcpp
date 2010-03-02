@@ -1875,9 +1875,9 @@ void HubFrame::slotHideFindFrame(){
         lineEdit_FIND->setFocus();
     }
     else{
-        static QTextCursor c = textEdit_CHAT->textCursor();
+        QTextCursor c = textEdit_CHAT->textCursor();
 
-        c.movePosition(QTextCursor::StartOfBlock,QTextCursor::MoveAnchor,1);
+        c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
 
         textEdit_CHAT->setTextCursor(c);
     }
