@@ -89,6 +89,8 @@ int main(int argc, char *argv[])
 
         ret = app.exec();
 
+        std::cout << "Shutting down..." << std::endl;
+
         WulforSettings::getInstance()->save();
         WulforManager::getInstance()->stop();
 
