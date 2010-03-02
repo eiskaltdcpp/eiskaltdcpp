@@ -911,10 +911,19 @@ void MainWindow::slotExit(){
 
 void MainWindow::slotAboutClient(){
     About a(this);
+
+#ifndef DCPP_REVISION
     a.label->setText(QString("<b>%1</b> %2 (%3)")
                      .arg(EISKALTDCPP_WND_TITLE)
                      .arg(EISKALTDCPP_VERSION)
                      .arg(EISKALTDCPP_VERSION_SFX));
+#else
+    a.label->setText(QString("<b>%1</b> %2 - %3 %4")
+                     .arg(EISKALTDCPP_WND_TITLE)
+                     .arg(EISKALTDCPP_VERSION)
+                     .arg(EISKALTDCPP_VERSION_SFX)
+                     .arg(DCPP_REVISION));
+#endif
 
     a.exec();
 }
