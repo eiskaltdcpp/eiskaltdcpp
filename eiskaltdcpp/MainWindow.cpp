@@ -558,7 +558,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     statusLabel->setText(stat);
 
     boost::filesystem::space_info info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
-    float total = info.available+info.free;
+    float total = info.capacity;
     float percent = 100.0f*info.free/total;
 
     QString format = QString("%1 of %2 (%p%)").arg(_q(dcpp::Util::formatBytes(info.free)))
