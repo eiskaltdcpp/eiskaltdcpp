@@ -95,7 +95,7 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
         }
         case Qt::TextAlignmentRole:
         {
-            if (index.column() == COLUMN_DOWNLOADQUEUE_SIZE || index.column())
+            if (index.column() == COLUMN_DOWNLOADQUEUE_SIZE || index.column() == COLUMN_DOWNLOADQUEUE_SIZE || index.column() == COLUMN_DOWNLOADQUEUE_ESIZE)
                 return static_cast<int>(Qt::AlignRight | Qt::AlignVCenter);
             else
                 return static_cast<int>(Qt::AlignLeft | Qt::AlignVCenter);
@@ -727,7 +727,6 @@ void DownloadQueueDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
         return;
     }
 
-    QString size_str = item->data(COLUMN_DOWNLOADQUEUE_SIZE).toString();
     QString down_str = item->data(COLUMN_DOWNLOADQUEUE_DOWN).toString();
     QString temp = down_str;
 
@@ -739,7 +738,7 @@ void DownloadQueueDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
 
     double percent = temp.toDouble();
 
-    QString status = QString("%1% (%2 of %3)").arg(temp).arg(down_str).arg(size_str);
+    QString status = QString("%1%").arg(temp);
 
     progressBarOption.text = status;
     progressBarOption.progress = static_cast<int>(percent);
