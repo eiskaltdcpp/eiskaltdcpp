@@ -30,6 +30,7 @@ HEADERS = HEADERS = MainWindow.h \
     FinishedTransfers.h \
     SettingsDownloads.h \
     SettingsSharing.h \
+    SettingsGUI.h \
     SettingsNotification.h \
     HashProgress.h \
     HistoryInterface.h \
@@ -66,6 +67,7 @@ SOURCES = main.cpp \
     Settings.cpp \
     SettingsPersonal.cpp \
     SettingsConnection.cpp \
+    SettingsGUI.cpp \
     FavoriteHubModel.cpp \
     FavoriteHubs.cpp \
     FinishedTransfers.cpp \
@@ -107,6 +109,7 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UIMagnet.ui \
     ui/UIAbout.ui \
     ui/UISettingsNotification.ui \
-    ui/UISettingsLog.ui
+    ui/UISettingsLog.ui \
+    ui/UISettingsGUI.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.ru.ts

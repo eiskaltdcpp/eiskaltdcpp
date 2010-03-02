@@ -159,8 +159,8 @@ add_custom_command (
         TARGET translations_qt
         COMMAND ${QT_LRELEASE_EXECUTABLE} ${TRANSLATIONS})
 
-include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/..)
-set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY})
+include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
+set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES})
 add_executable (eiskaltdcpp WIN32 main.cpp
                 ${M_SRCS}
                 ${U_SRCS}

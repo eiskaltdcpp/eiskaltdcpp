@@ -99,7 +99,7 @@ CHECK_INCLUDE_FILE (net/if.h HAVE_NET_IF_H)
 CHECK_INCLUDE_FILES ("sys/socket.h;net/if.h;ifaddrs.h;sys/types.h" HAVE_ADDRS_H)
 
 find_package (BZip2 REQUIRED)
-find_package (Boost REQUIRED)
+find_package (Boost COMPONENTS date_time filesystem system REQUIRED)
 find_package (ZLIB REQUIRED)
 find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)

@@ -41,6 +41,8 @@ class FavoriteHubs;
 class DownloadQueue;
 class ToolBar;
 
+class QProgressBar;
+
 class MainWindowCustomEvent: public QEvent{
 public:
     static const QEvent::Type Event = static_cast<QEvent::Type>(1210);
@@ -190,6 +192,7 @@ friend class dcpp::Singleton<MainWindow>;
 
         QLabel *statusLabel;
         QLabel *msgLabel;
+        QProgressBar *progressSpace;
 
         QMenu   *menuFile;
         QAction *fileOptions;

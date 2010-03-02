@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 
+#include <boost/filesystem.hpp>
+
 #include <QPushButton>
 #include <QSize>
 #include <QModelIndex>
@@ -13,6 +15,7 @@
 #include <QMessageBox>
 #include <QKeyEvent>
 #include <QFileDialog>
+#include <QProgressBar>
 
 #include "HubFrame.h"
 #include "HubManager.h"
@@ -283,12 +286,14 @@ void MainWindow::initActions(){
         connect(fileQuickConnect, SIGNAL(triggered()), this, SLOT(slotQC()));
 
         fileTransfers = new QAction("", this);
+        fileTransfers->setShortcut(tr("Ctrl+T"));
         fileTransfers->setIcon(WU->getPixmap(WulforUtil::eiTRANSFER));
         fileTransfers->setCheckable(true);
         connect(fileTransfers, SIGNAL(toggled(bool)), this, SLOT(slotFileTransfer(bool)));
         //transfer_dock->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
 
         fileDownloadQueue = new QAction("", this);
+        fileDownloadQueue->setShortcut(tr("Ctrl+D"));
         fileDownloadQueue->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
         connect(fileDownloadQueue, SIGNAL(triggered()), this, SLOT(slotFileDownloadQueue()));
 
@@ -326,6 +331,7 @@ void MainWindow::initActions(){
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
         fileQuit = new QAction("", this);
+        fileQuit->setShortcut(tr("Ctrl+Q"));
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
         connect(fileQuit, SIGNAL(triggered()), this, SLOT(slotExit()));
 
@@ -433,8 +439,17 @@ void MainWindow::initStatusBar(){
     msgLabel->setFrameShape(QFrame::NoFrame);
     msgLabel->setAlignment(Qt::AlignLeft);
 
+    progressSpace = new QProgressBar(this);
+    progressSpace->setMaximum(100);
+    progressSpace->setMinimum(0);
+    progressSpace->setMinimumWidth(100);
+    progressSpace->setMaximumWidth(250);
+    progressSpace->setFixedHeight(18);
+    progressSpace->setToolTip(tr("Space free"));
+
     statusBar()->addWidget(msgLabel);
     statusBar()->addPermanentWidget(statusLabel);
+    statusBar()->addPermanentWidget(progressSpace);
 }
 
 void MainWindow::retranslateUi(){
@@ -541,6 +556,16 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
                                                         .arg(map["DSPEED"])
                                                         .arg(map["USPEED"]);
     statusLabel->setText(stat);
+
+    boost::filesystem::space_info info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
+    float total = info.available+info.free;
+    float percent = 100.0f*info.free/total;
+
+    QString format = QString("%1 of %2 (%p%)").arg(_q(dcpp::Util::formatBytes(info.free)))
+                                              .arg(_q(dcpp::Util::formatBytes(total)));
+
+    progressSpace->setFormat(format);
+    progressSpace->setValue(static_cast<unsigned>(percent));
 }
 
 void MainWindow::setStatusMessage(QString msg){
