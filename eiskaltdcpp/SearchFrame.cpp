@@ -643,6 +643,17 @@ void SearchFrame::searchAlternates(const QString &tth){
     slotStartSearch();
 }
 
+void SearchFrame::searchFile(const QString &file){
+    if (file.isEmpty())
+        return;
+
+    comboBox_SEARCHSTR->setEditText(file);
+    comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_ANY);
+    lineEdit_SIZE->setText("");
+
+    slotStartSearch();
+}
+
 void SearchFrame::slotStartSearch(){
     MainWindow *MW = MainWindow::getInstance();
     QString s = comboBox_SEARCHSTR->currentText();

@@ -42,7 +42,8 @@ HEADERS = HEADERS = MainWindow.h \
     TransferViewModel.h \
     SettingsLog.h \
     Magnet.h \
-    SpyFrame.h
+    SpyFrame.h \
+    SpyModel.h
 SOURCES = main.cpp \
     Antispam.cpp \
     AntiSpamFrame.cpp \
@@ -86,7 +87,8 @@ SOURCES = main.cpp \
     Magnet.cpp \
     SettingsLog \
     FavoriteUsersModel.cpp \
-    SpyFrame.cpp
+    SpyFrame.cpp \
+    SpyModel.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \

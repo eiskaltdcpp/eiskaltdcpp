@@ -140,7 +140,8 @@ HEADERS = MainWindow.h \
     ShellCommandRunner.h \
     FavoriteUsersModel.h \
     SettingsLog.h \
-    SpyFrame.h
+    SpyFrame.h \
+    SpyModel.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -239,7 +240,8 @@ SOURCES = main.cpp \
     ShellCommandRunner.cpp \
     FavoriteUsersModel.cpp \
     SettingsLog.cpp \
-    SpyFrame.cpp
+    SpyFrame.cpp \
+    SpyModel.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \

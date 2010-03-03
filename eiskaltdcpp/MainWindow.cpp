@@ -33,6 +33,7 @@
 #include "IPFilterFrame.h"
 #include "ToolBar.h"
 #include "Magnet.h"
+#include "SpyFrame.h"
 
 #include "UPnPMapper.h"
 #include "WulforSettings.h"
@@ -145,6 +146,11 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     if (DownloadQueue::getInstance()){
         DownloadQueue::getInstance()->setUnload(true);
         DownloadQueue::getInstance()->close();
+    }
+
+    if (SpyFrame::getInstance()){
+        SpyFrame::getInstance()->setUnload(true);
+        SpyFrame::getInstance()->close();
     }
 
     QMap< ArenaWidget*, QWidget* > map = arenaMap;
@@ -313,6 +319,9 @@ void MainWindow::initActions(){
         fileFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
         connect(fileFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotFileFavoriteUsers()));
 
+        fileSpy = new QAction("", this);
+        connect(fileSpy, SIGNAL(triggered()), this, SLOT(slotFileSpy()));
+
         fileAntiSpam = new QAction("", this);
         fileAntiSpam->setIcon(WU->getPixmap(WulforUtil::eiSPAM));
         connect(fileAntiSpam, SIGNAL(triggered()), this, SLOT(slotFileAntiSpam()));
@@ -367,6 +376,7 @@ void MainWindow::initActions(){
                 << fileFavoriteUsers
                 << fileSearch
                 << separator3
+                << fileSpy
                 << fileAntiSpam
                 << fileIPFilter
                 << separator5
@@ -476,6 +486,8 @@ void MainWindow::retranslateUi(){
         fileFinishedDownloads->setText(tr("Finished downloads"));
 
         fileFinishedUploads->setText(tr("Finished uploads"));
+
+        fileSpy->setText(tr("Search Spy"));
 
         fileAntiSpam->setText(tr("AntiSpam module"));
 
@@ -860,6 +872,13 @@ void MainWindow::slotFileFinishedUploads(){
         FinishedUploads::newInstance();
 
     toggleSingletonWidget(FinishedUploads::getInstance());
+}
+
+void MainWindow::slotFileSpy(){
+    if (!SpyFrame::getInstance())
+        SpyFrame::newInstance();
+
+    toggleSingletonWidget(SpyFrame::getInstance());
 }
 
 void MainWindow::slotFileAntiSpam(){

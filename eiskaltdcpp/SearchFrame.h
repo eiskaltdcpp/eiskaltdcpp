@@ -136,6 +136,7 @@ public:
     const QPixmap &getPixmap();
 
     void searchAlternates(const QString &);
+    void searchFile(const QString &);
 
 protected:
     virtual void closeEvent(QCloseEvent*);

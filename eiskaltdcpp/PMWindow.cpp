@@ -92,6 +92,15 @@ void PMWindow::closeEvent(QCloseEvent *c_e){
     MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
     MainWindow::getInstance()->remArenaWidget(this);
 
+    if (hasMessages)
+        unread--;
+
+    hasMessages = false;
+    MainWindow::getInstance()->redrawToolPanel();
+
+    if (unread == 0)
+        Notify->resetTrayIcon();
+
     c_e->accept();
 }
 
