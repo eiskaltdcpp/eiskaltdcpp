@@ -571,16 +571,17 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
                                                         .arg(map["USPEED"]);
     statusLabel->setText(stat);
 
-    if ( boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY))) {
-    boost::filesystem::space_info info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
-    float total = info.capacity;
-    float percent = 100.0f*info.available/total;
+    if (boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY))) {
+        boost::filesystem::space_info info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
+        float total = info.capacity;
+        float percent = 100.0f*(total-info.available)/total;
 
-    QString format = QString("%1 of %2 (%p%)").arg(_q(dcpp::Util::formatBytes(info.available)))
-                                              .arg(_q(dcpp::Util::formatBytes(total)));
+        QString format = tr("free %1 of %2")
+                         .arg(_q(dcpp::Util::formatBytes(info.available)))
+                         .arg(_q(dcpp::Util::formatBytes(total)));
 
-    progressSpace->setFormat(format);
-    progressSpace->setValue(static_cast<unsigned>(percent));
+        progressSpace->setFormat(format);
+        progressSpace->setValue(static_cast<unsigned>(percent));
     }
 }
 
