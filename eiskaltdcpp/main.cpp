@@ -133,8 +133,11 @@ void parseCmdLine(const QStringList &args){
             exit(0);
         }
         else if (arg == "-v" || arg == "--version"){
-            printf("%s\n", EISKALTDCPP_VERSION);
-
+#ifndef DCPP_REVISION
+            printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+#else
+            printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
+#endif
             exit(0);
         }
     }
