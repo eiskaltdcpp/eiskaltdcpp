@@ -46,6 +46,7 @@ set (SRCS   Antispam.cpp
             ShareBrowser.cpp
             ShellCommandRunner.cpp
             SingleInstanceRunner.cpp
+            SpyFrame.cpp
             ToolBar.cpp
             TransferView.cpp
             TransferViewModel.cpp
@@ -90,6 +91,7 @@ set (MOC_HDRS Antispam.h
             SearchModel.h
             ShareBrowser.h
             ShellCommandRunner.h
+            SpyFrame.h
             ToolBar.h
             TransferView.h
             TransferViewModel.h
@@ -122,6 +124,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsPersonal.ui
             ui/UISettingsSharing.ui
             ui/UIShareBrowser.ui
+            ui/UISpy.ui
             ui/UITransferView.ui)
 set (LANGUAGES en
                ru)

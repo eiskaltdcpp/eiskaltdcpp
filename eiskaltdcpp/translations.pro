@@ -41,7 +41,8 @@ HEADERS = HEADERS = MainWindow.h \
     ToolBar.h \
     TransferViewModel.h \
     SettingsLog.h \
-    Magnet.h
+    Magnet.h \
+    SpyFrame.h
 SOURCES = main.cpp \
     Antispam.cpp \
     AntiSpamFrame.cpp \
@@ -84,7 +85,8 @@ SOURCES = main.cpp \
     main.cpp \
     Magnet.cpp \
     SettingsLog \
-    FavoriteUsersModel.cpp
+    FavoriteUsersModel.cpp \
+    SpyFrame.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \
@@ -110,6 +112,7 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UIAbout.ui \
     ui/UISettingsNotification.ui \
     ui/UISettingsLog.ui \
-    ui/UISettingsGUI.ui
+    ui/UISettingsGUI.ui \
+    ui/UISpy.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.ru.ts

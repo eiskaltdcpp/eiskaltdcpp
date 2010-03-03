@@ -214,6 +214,8 @@ private:
         model->switchViewType(static_cast<FinishedTransfersModel::ViewType>(index));
 
         treeView->header()->restoreState(QByteArray::fromBase64(WSGET(to_key).toAscii()));
+
+        treeView->setSortingEnabled(true);
     }
 
     void slotClear(){

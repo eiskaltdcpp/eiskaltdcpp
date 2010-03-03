@@ -139,7 +139,8 @@ HEADERS = MainWindow.h \
     SettingsNotification.h \
     ShellCommandRunner.h \
     FavoriteUsersModel.h \
-    SettingsLog.h
+    SettingsLog.h \
+    SpyFrame.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -237,7 +238,8 @@ SOURCES = main.cpp \
     SettingsNotification.cpp \
     ShellCommandRunner.cpp \
     FavoriteUsersModel.cpp \
-    SettingsLog.cpp
+    SettingsLog.cpp \
+    SpyFrame.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \
@@ -262,4 +264,5 @@ FORMS = ui/HubFrame.ui \
     ui/UISettingsGUI.ui \
     ui/UIAbout.ui \
     ui/UISettingsNotification.ui \
-    ui/UISettingsLog.ui
+    ui/UISettingsLog.ui \
+    ui/UISpy.ui
