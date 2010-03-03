@@ -17,8 +17,8 @@
  */
 
 #define APPNAME "EiskaltDC++"
-#define VERSIONSTRING "1.90-alpha"
-#define VERSIONFLOAT 1.90
+#define VERSIONSTRING "1.98-beta2"
+#define VERSIONFLOAT 1.98
 #define DCVERSIONSTRING "0.75"
 
 namespace dcpp {
