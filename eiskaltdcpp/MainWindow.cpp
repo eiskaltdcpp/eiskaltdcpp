@@ -571,6 +571,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
                                                         .arg(map["USPEED"]);
     statusLabel->setText(stat);
 
+    if ( boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY))) {
     boost::filesystem::space_info info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
     float total = info.capacity;
     float percent = 100.0f*info.available/total;
@@ -580,6 +581,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
 
     progressSpace->setFormat(format);
     progressSpace->setValue(static_cast<unsigned>(percent));
+    }
 }
 
 void MainWindow::setStatusMessage(QString msg){
