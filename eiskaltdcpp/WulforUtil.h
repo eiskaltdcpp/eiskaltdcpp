@@ -67,6 +67,7 @@ public:
         eiRELOAD,
         eiSERVER,
         eiSPAM,
+        eiSPY,
         eiSPLASH,
         eiTRANSFER,
         eiUP,

@@ -320,6 +320,7 @@ void MainWindow::initActions(){
         connect(fileFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotFileFavoriteUsers()));
 
         fileSpy = new QAction("", this);
+        fileSpy->setIcon(WU->getPixmap(WulforUtil::eiSPY));
         connect(fileSpy, SIGNAL(triggered()), this, SLOT(slotFileSpy()));
 
         fileAntiSpam = new QAction("", this);
@@ -402,6 +403,7 @@ void MainWindow::initActions(){
                 << fileFavoriteUsers
                 << fileSearch
                 << separator3
+                << fileSpy
                 << fileAntiSpam
                 << fileIPFilter
                 << separator5
