@@ -104,17 +104,9 @@ bool FavoriteUsers::eventFilter(QObject *obj, QEvent *e){
 
                 foreach (FavoriteUserItem *i, items)
                     handleRemove(i->cid);
+
+                return true;
             }
-        }
-        else if (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return){
-            QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
-            QList<FavoriteUserItem*> items;
-
-            foreach(QModelIndex i, indexes)
-                items.push_back(reinterpret_cast<FavoriteUserItem*>(i.internalPointer()));
-
-            foreach (FavoriteUserItem *i, items)
-                handleDesc(i->cid);
         }
     }
 
