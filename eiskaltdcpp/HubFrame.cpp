@@ -64,7 +64,7 @@ HubFrame::Menu::Menu(){
     last_user_cmd = "";
 
     //Userlist actions
-    QAction *copy_text   = new QAction(QPixmap(), tr("Copy text"), NULL);
+    QAction *copy_text   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy text"), NULL);
     QAction *copy_nick   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy nick"), NULL);
     QAction *browse      = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse files"), NULL);
     QAction *match_queue = new QAction(QPixmap(), tr("Match Queue"), NULL);
@@ -360,9 +360,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
                 QString html_link = "";
 
                 if (linktype != "magnet:")
-                    html_link = QString("<a href=\"%1\" title=\"%1\">%1</a>").arg(toshow);
+                    html_link = QString("<a href=\"%1\" title=\"%1\" style=\"cursor: hand\">%1</a>").arg(toshow);
                 else
-                    html_link = QString("<a href=\"%1\" title=\"%2\">%2</a>").arg(link).arg(toshow);
+                    html_link = QString("<a href=\"%1\" title=\"%2\" style=\"cursor: hand\">%2</a>").arg(link).arg(toshow);
 
                 output += html_link;
                 input.remove(0, l_pos);
@@ -1855,7 +1855,7 @@ void HubFrame::slotShowWnd(){
 
 void HubFrame::slotShellFinished(bool ok, QString output){
     if (ok)
-        addStatus("\n" + output);
+        sendChat("\n" + output, false, false);
 
     ShellCommandRunner *runner = reinterpret_cast<ShellCommandRunner*>(sender());
 

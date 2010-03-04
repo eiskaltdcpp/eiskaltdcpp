@@ -670,6 +670,12 @@ void MainWindow::slotFileBrowseFilelist(){
 
 void MainWindow::redrawToolPanel(){
     tBar->redraw();
+
+    QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
+    QHash<QAction*, ArenaWidget*>::iterator end = menuWidgetsHash.end();
+
+    for(; it != end; ++it)
+        it.key()->setText(it.value()->getArenaShortTitle());//also redraw all widget menu items
 }
 
 void MainWindow::addArenaWidget(ArenaWidget *wgt){

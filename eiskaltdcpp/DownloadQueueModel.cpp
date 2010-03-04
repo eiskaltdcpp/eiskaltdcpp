@@ -101,10 +101,12 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
         }
         case Qt::TextAlignmentRole:
         {
-            if (index.column() == COLUMN_DOWNLOADQUEUE_SIZE || index.column() == COLUMN_DOWNLOADQUEUE_SIZE || index.column() == COLUMN_DOWNLOADQUEUE_ESIZE)
+            if (index.column() == COLUMN_DOWNLOADQUEUE_SIZE ||
+                index.column() == COLUMN_DOWNLOADQUEUE_ESIZE ||
+                index.column() == COLUMN_DOWNLOADQUEUE_DOWN)
                 return static_cast<int>(Qt::AlignRight | Qt::AlignVCenter);
             else
-                return static_cast<int>(Qt::AlignLeft | Qt::AlignVCenter);
+                return static_cast<int>(Qt::AlignLeft);
         }
         case Qt::ForegroundRole:
         {
