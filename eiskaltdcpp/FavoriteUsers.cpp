@@ -28,6 +28,7 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     treeView->installEventFilter(this);
     treeView->setModel(model);
     treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_FAVUSERS_STATE).toAscii()));
+    treeView->setSortingEnabled(true);
 
     connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
 

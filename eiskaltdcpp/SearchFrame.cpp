@@ -346,6 +346,7 @@ void SearchFrame::init(){
 
 void SearchFrame::load(){
     treeView_RESULTS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SEARCH_STATE).toAscii()));
+    treeView_RESULTS->setSortingEnabled(true);
 
     filterShared = static_cast<SearchFrame::AlreadySharedAction>(WIGET(WI_SEARCH_SHARED_ACTION));
 

@@ -144,10 +144,6 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void FinishedTransfersModel::repaint(){
-    emit layoutChanged();
-}
-
 Qt::ItemFlags FinishedTransfersModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
@@ -309,7 +305,7 @@ void FinishedTransfersModel::addFile(QMap<QString, QVariant> params){
     if (!item)
         return;
 
-    for (int i = 0; i < columnCount(); i++)
+    for (int i = 0; i < fileItem->columnCount(); i++)
         item->updateColumn(i, params[file_header_table[i]]);
 
     emit layoutChanged();
@@ -321,7 +317,7 @@ void FinishedTransfersModel::addUser(QMap<QString, QVariant>params){
     if (!item)
         return;
 
-    for (int i = 0; i < columnCount(); i++)
+    for (int i = 0; i < userItem->columnCount(); i++)
         item->updateColumn(i, params[user_header_table[i]]);
 
     emit layoutChanged();
@@ -415,6 +411,10 @@ FinishedTransfersItem *FinishedTransfersModel::findUser(const QString &cid){
     user_hash.insert(cid, item);
 
     return item;
+}
+
+void FinishedTransfersModel::repaint(){
+    emit layoutChanged();
 }
 
 FinishedTransfersItem::FinishedTransfersItem(const QList<QVariant> &data, FinishedTransfersItem *parent) :

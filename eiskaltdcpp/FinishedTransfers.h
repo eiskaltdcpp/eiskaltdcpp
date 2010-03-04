@@ -195,7 +195,7 @@ private:
         params["NICK"]  = WulforUtil::getInstance()->getNicks(user->getCID());
 
         for (StringList::const_iterator it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
-                files += _q(*it) + "; ";
+                files += _q(*it) + " ";
 
         params["FILES"] = files;
         params["TR"]    = (qlonglong)item->getTransferred();
@@ -211,11 +211,10 @@ private:
 
         WSSET(from_key, old_state);
 
-        model->switchViewType(static_cast<FinishedTransfersModel::ViewType>(index));
-
         treeView->header()->restoreState(QByteArray::fromBase64(WSGET(to_key).toAscii()));
-
         treeView->setSortingEnabled(true);
+
+        model->switchViewType(static_cast<FinishedTransfersModel::ViewType>(index));
     }
 
     void slotClear(){

@@ -180,6 +180,9 @@ void ShareBrowser::load(){
 
     treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toAscii()));
     treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toAscii()));
+
+    treeView_LPANE->setSortingEnabled(true);
+    treeView_RPANE->setSortingEnabled(true);
 }
 
 void ShareBrowser::save(){

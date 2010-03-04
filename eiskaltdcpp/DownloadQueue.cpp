@@ -265,6 +265,7 @@ void DownloadQueue::init(){
 
 void DownloadQueue::load(){
     treeView_TARGET->header()->restoreState(QByteArray::fromBase64(WSGET(WS_DQUEUE_STATE).toAscii()));
+    treeView_TARGET->setSortingEnabled(true);
 }
 
 void DownloadQueue::save(){

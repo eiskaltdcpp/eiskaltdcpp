@@ -91,6 +91,12 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
         }
         case Qt::DisplayRole:
         {
+            if (index.column() == COLUMN_DOWNLOADQUEUE_DOWN){
+                QString ret = item->data(COLUMN_DOWNLOADQUEUE_DOWN).toString();
+
+                return ret.left(ret.indexOf("(")).trimmed();
+            }
+
             return item->data(index.column());
         }
         case Qt::TextAlignmentRole:
