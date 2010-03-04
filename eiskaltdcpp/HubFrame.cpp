@@ -1487,7 +1487,7 @@ void HubFrame::slotReconnect(){
     clearUsers();
 
     if (client)
-        client->connect();
+        client->reconnect();
 }
 
 void HubFrame::slotMapOnArena(){

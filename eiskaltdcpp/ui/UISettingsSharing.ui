@@ -6,36 +6,36 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>490</width>
-    <height>322</height>
+    <width>488</width>
+    <height>320</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="2">
+   <item row="3" column="2">
     <widget class="QCheckBox" name="checkBox_SHAREHIDDEN">
      <property name="text">
       <string>Share hidden files</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="3">
+   <item row="3" column="3">
     <widget class="QCheckBox" name="checkBox_FOLLOW">
      <property name="text">
       <string>Follow symlinks</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="4">
+   <item row="3" column="4">
     <widget class="QToolButton" name="toolButton_RECREATE">
      <property name="text">
       <string/>
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="3" column="1">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -48,7 +48,7 @@
      </property>
     </spacer>
    </item>
-   <item row="3" column="1" colspan="4">
+   <item row="4" column="1" colspan="4">
     <widget class="QFrame" name="frame">
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -86,52 +86,15 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="1" colspan="4">
-    <widget class="QTreeWidget" name="treeWidget">
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
-     <property name="showDropIndicator" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="rootIsDecorated">
-      <bool>false</bool>
-     </property>
-     <property name="itemsExpandable">
-      <bool>false</bool>
-     </property>
-     <property name="expandsOnDoubleClick">
-      <bool>false</bool>
-     </property>
-     <property name="columnCount">
-      <number>3</number>
-     </property>
-     <attribute name="headerDefaultSectionSize">
-      <number>200</number>
-     </attribute>
-     <column>
-      <property name="text">
-       <string>Path</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Name</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Size</string>
-      </property>
-     </column>
-    </widget>
-   </item>
    <item row="0" column="3" colspan="2">
     <widget class="QLabel" name="label_TOTALSHARED">
      <property name="text">
       <string>Total shared: %1</string>
      </property>
     </widget>
+   </item>
+   <item row="1" column="1" colspan="4">
+    <widget class="QTreeView" name="treeView"/>
    </item>
   </layout>
  </widget>

@@ -2,9 +2,29 @@
 #define SETTINGSSHARING_H
 
 #include <QWidget>
-#include <QTreeWidgetItem>
+#include <QDirModel>
 
 #include "ui_UISettingsSharing.h"
+
+class ShareDirModel: public QDirModel{
+    Q_OBJECT
+public:
+
+    ShareDirModel(QObject* = NULL);
+    virtual ~ShareDirModel();
+
+    Qt::ItemFlags flags(const QModelIndex& index) const;
+    QVariant data(const QModelIndex& index, int role) const;
+    bool setData(const QModelIndex& index, const QVariant& value, int role);
+
+    void setAlias(const QModelIndex&, const QString &);
+
+Q_SIGNALS:
+    void getName(QModelIndex);
+    void expandMe(QModelIndex);
+private:
+    QSet<QString> checked;
+};
 
 class SettingsSharing :
         public QWidget,
@@ -19,12 +39,14 @@ public slots:
 
 private slots:
     void slotRecreateShare();
-    void slotContextMenu(const QPoint&);
     void slotShareHidden(bool);
+    void slotGetName(QModelIndex);
 
 private:
     void init();
     void updateShareView();
+
+    ShareDirModel *model;
 };
 
 #endif // SETTINGSSHARING_H
