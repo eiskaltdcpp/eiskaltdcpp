@@ -444,16 +444,19 @@ void MainWindow::initStatusBar(){
     statusLabel->setFrameShadow(QFrame::Plain);
     statusLabel->setFrameShape(QFrame::NoFrame);
     statusLabel->setAlignment(Qt::AlignRight);
+    statusLabel->setToolTip(tr("Counts"));
 
     statusSPLabel = new QLabel(statusBar());
     statusSPLabel->setFrameShadow(QFrame::Plain);
     statusSPLabel->setFrameShape(QFrame::NoFrame);
     statusSPLabel->setAlignment(Qt::AlignRight);
+    statusSPLabel->setToolTip(tr("Download speed/Upload speed (per sec.)"));
 
     statusTRLabel = new QLabel(statusBar());
     statusTRLabel->setFrameShadow(QFrame::Plain);
     statusTRLabel->setFrameShape(QFrame::NoFrame);
     statusTRLabel->setAlignment(Qt::AlignRight);
+    statusTRLabel->setToolTip(tr("Downloaded/Uploaded"));
 
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
