@@ -444,7 +444,16 @@ void MainWindow::initStatusBar(){
     statusLabel->setFrameShadow(QFrame::Plain);
     statusLabel->setFrameShape(QFrame::NoFrame);
     statusLabel->setAlignment(Qt::AlignRight);
-    statusLabel->setToolTip(tr("Downloaded/Uploaded :: Download speed/Upload speed (per sec.) :: Counts"));
+
+    statusSPLabel = new QLabel(statusBar());
+    statusSPLabel->setFrameShadow(QFrame::Plain);
+    statusSPLabel->setFrameShape(QFrame::NoFrame);
+    statusSPLabel->setAlignment(Qt::AlignRight);
+
+    statusTRLabel = new QLabel(statusBar());
+    statusTRLabel->setFrameShadow(QFrame::Plain);
+    statusTRLabel->setFrameShape(QFrame::NoFrame);
+    statusTRLabel->setAlignment(Qt::AlignRight);
 
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
@@ -460,6 +469,8 @@ void MainWindow::initStatusBar(){
     progressSpace->setToolTip(tr("Space free"));
 
     statusBar()->addWidget(msgLabel);
+    statusBar()->addPermanentWidget(statusTRLabel);
+    statusBar()->addPermanentWidget(statusSPLabel);
     statusBar()->addPermanentWidget(statusLabel);
     statusBar()->addPermanentWidget(progressSpace);
 }
@@ -564,20 +575,25 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     if (!statusLabel)
         return;
 
-    QString stat = QString(tr("%1/%2 :: %4/%5 :: %3")).arg(map["DOWN"])
-                                                        .arg(map["UP"])
-                                                        .arg(map["STATS"])
-                                                        .arg(map["DSPEED"])
-                                                        .arg(map["USPEED"]);
-    statusLabel->setText(stat);
+    statusLabel->setText(map["STATS"]);
+    statusSPLabel->setText(QString("%1/%2").arg(map["DSPEED"])
+                                           .arg(map["USPEED"]));
+    statusTRLabel->setText(QString("%1/%2").arg(map["DOWN"])
+                                           .arg(map["UP"]));
+
+    QFontMetrics metrics(font());
+    int trLabelWidth = metrics.width(statusTRLabel->text()) > statusTRLabel->width()? metrics.width(statusTRLabel->text()) : statusTRLabel->width();
+    int spLabelWidth = metrics.width(statusSPLabel->text()) > statusSPLabel->width()? metrics.width(statusSPLabel->text()) : statusSPLabel->width();
+
+    statusSPLabel->setFixedWidth(spLabelWidth);
+    statusTRLabel->setFixedWidth(trLabelWidth);
 
     boost::filesystem::space_info info;
-    if (boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY))){
-    info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
-    }
-    else if (boost::filesystem::exists(Util::getPath(Util::PATH_USER_CONFIG))) {
-    info = boost::filesystem::space(boost::filesystem::path(Util::getPath(Util::PATH_USER_CONFIG)));
-    }
+    if (boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY)))
+        info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
+    else if (boost::filesystem::exists(Util::getPath(Util::PATH_USER_CONFIG)))
+        info = boost::filesystem::space(boost::filesystem::path(Util::getPath(Util::PATH_USER_CONFIG)));
+
     if (info.capacity) {
         float total = info.capacity;
         float percent = 100.0f*(total-info.available)/total;

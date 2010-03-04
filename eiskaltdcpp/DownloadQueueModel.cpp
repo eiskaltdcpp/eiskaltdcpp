@@ -277,6 +277,19 @@ int DownloadQueueModel::rowCount(const QModelIndex &parent) const
     return parentItem->childCount();
 }
 
+static void sortRecursive(int column, Qt::SortOrder order, DownloadQueueItem *i){
+    if (column == -1 || !i || i->childCount() == 0)
+        return;
+
+    if (order == Qt::AscendingOrder)
+        Compare<Qt::AscendingOrder>().sort(column, i->childItems);
+    else if (order == Qt::DescendingOrder)
+        Compare<Qt::DescendingOrder>().sort(column, i->childItems);
+
+    foreach(DownloadQueueItem *ii, i->childItems)
+        sortRecursive(column, order, ii);
+}
+
 void DownloadQueueModel::sort(int column, Qt::SortOrder order) {
     sortColumn = column;
     sortOrder = order;
@@ -289,10 +302,7 @@ void DownloadQueueModel::sort(int column, Qt::SortOrder order) {
 
     emit layoutAboutToBeChanged();
 
-    if (order == Qt::AscendingOrder)
-        Compare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
-    else if (order == Qt::DescendingOrder)
-        Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
+    sortRecursive(column, order, rootItem);
 
     emit layoutChanged();
 }

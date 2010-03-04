@@ -614,6 +614,12 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             }
         }
     }
+    else if (e->type() == QEvent::MouseMove && (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport())){
+        if (!textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).isEmpty())
+            textEdit_CHAT->viewport()->setCursor(Qt::PointingHandCursor);
+        else
+            textEdit_CHAT->viewport()->setCursor(Qt::IBeamCursor);
+    }
 
     return QWidget::eventFilter(obj, e);
 }
@@ -736,6 +742,7 @@ void HubFrame::init(){
     textEdit_CHAT->setReadOnly(true);
     textEdit_CHAT->setAutoFormatting(QTextEdit::AutoNone);
     textEdit_CHAT->viewport()->installEventFilter(this);//QTextEdit don't receive all mouse events
+    textEdit_CHAT->setMouseTracking(true);
 
     frame->setVisible(false);
 
@@ -1855,7 +1862,7 @@ void HubFrame::slotShowWnd(){
 
 void HubFrame::slotShellFinished(bool ok, QString output){
     if (ok)
-        sendChat("\n" + output, false, false);
+        sendChat(output, false, false);
 
     ShellCommandRunner *runner = reinterpret_cast<ShellCommandRunner*>(sender());
 
