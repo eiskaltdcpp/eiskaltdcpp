@@ -197,6 +197,7 @@ private slots:
     void slotHeaderMenu(const QPoint&);
     void slotShowWnd();
     void slotShellFinished(bool, QString);
+    void slotFilterTextChanged(const QString & text);
     void slotFindForward() { findText(0); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotHideFindFrame();

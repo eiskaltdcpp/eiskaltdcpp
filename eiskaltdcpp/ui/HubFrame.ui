@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QSplitter" name="splitter_2">
      <property name="sizePolicy">
@@ -120,15 +120,9 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="0">
-        <widget class="QComboBox" name="comboBox_COLUMNS"/>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEdit_FILTER"/>
-       </item>
-       <item row="0" column="0" colspan="2">
+     <widget class="QWidget" name="">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
         <widget class="QTreeView" name="treeView_USERS">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -156,6 +150,26 @@
          </property>
         </widget>
        </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QComboBox" name="comboBox_COLUMNS"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_FILTER"/>
+         </item>
+         <item>
+          <widget class="QToolButton" name="toolButton_CLEAR_FILTER">
+           <property name="toolTip">
+            <string>Clear filter</string>
+           </property>
+           <property name="text">
+            <string>c</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
       </layout>
      </widget>
     </widget>
@@ -179,5 +193,22 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>toolButton_CLEAR_FILTER</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_FILTER</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>515</x>
+     <y>413</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>428</x>
+     <y>413</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

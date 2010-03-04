@@ -468,30 +468,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
             return true;
         }
-        else if (static_cast<QLineEdit*>(obj) == lineEdit_FILTER){
-            bool ret = QWidget::eventFilter(obj, e);
-            QString filter_text = lineEdit_FILTER->text();
-
-            if (!filter_text.isEmpty()){
-                if (!proxy){
-                    proxy = new QSortFilterProxyModel(this);
-                    proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
-                    proxy->setDynamicSortFilter(true);
-                    proxy->setSortRole(Qt::DisplayRole);
-                    proxy->setSourceModel(model);
-                }
-
-                proxy->setFilterFixedString(filter_text);
-                proxy->setFilterKeyColumn(comboBox_COLUMNS->currentIndex());
-
-                if (treeView_USERS->model() != proxy)
-                    treeView_USERS->setModel(proxy);
-            }
-            else if (treeView_USERS->model() != model)
-                treeView_USERS->setModel(model);
-
-            return ret;
-        }
         else if (static_cast<QLineEdit*>(obj) == lineEdit_FIND){
             bool ret = QWidget::eventFilter(obj, e);
 
@@ -774,6 +750,7 @@ void HubFrame::init(){
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
     connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
     connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
+    connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged(QString)));
 
     plainTextEdit_INPUT->installEventFilter(this);
 
@@ -1917,8 +1894,28 @@ void HubFrame::slotHideFindFrame(){
     }
 }
 
+void HubFrame::slotFilterTextChanged(const QString & text){
+    if (!text.isEmpty()){
+        if (!proxy){
+            proxy = new QSortFilterProxyModel(this);
+            proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+            proxy->setDynamicSortFilter(true);
+            proxy->setSortRole(Qt::DisplayRole);
+            proxy->setSourceModel(model);
+        }
+
+        proxy->setFilterFixedString(text);
+        proxy->setFilterKeyColumn(comboBox_COLUMNS->currentIndex());
+
+        if (treeView_USERS->model() != proxy)
+            treeView_USERS->setModel(proxy);
+    }
+    else if (treeView_USERS->model() != model)
+        treeView_USERS->setModel(model);
+}
+
 void HubFrame::slotFindTextEdited(const QString & text){
-    if (lineEdit_FIND->text().isEmpty())
+    if (text.isEmpty())
         return;
 
     QTextCursor c = textEdit_CHAT->textCursor();
