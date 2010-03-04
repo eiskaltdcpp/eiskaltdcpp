@@ -390,7 +390,11 @@ void SearchModel::addResult
     else {
         parent->appendChild(item);
 
-        emit layoutChanged();
+        if (sortColumn != COLUMN_SF_COUNT){
+            emit layoutChanged();
+        }
+        else
+            sort(sortColumn, sortOrder);
 
         return;
     }
