@@ -136,7 +136,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        user_menu = buildUserCmdMenu(_q(client->getAddress()), cid);
+        user_menu = buildUserCmdMenu(_q(client->getHubUrl()), cid);
         menu->addMenu(user_menu);
     }
 
@@ -196,7 +196,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        user_menu = buildUserCmdMenu(_q(client->getAddress()), cid);
+        user_menu = buildUserCmdMenu(_q(client->getHubUrl()), cid);
         menu->addMenu(user_menu);
     }
 
@@ -273,6 +273,8 @@ QMenu *HubFrame::Menu::buildUserCmdMenu(const QString &hub, const QString &cid){
 
             QString raw_name = _q(uc.getName());
             QAction *action = NULL;
+
+            printf("%s - %s\n", uc.getName().c_str(), uc.getCommand().c_str());
 
             if (raw_name.contains("\\")){
                 QStringList submenus = raw_name.split("\\", QString::SkipEmptyParts);

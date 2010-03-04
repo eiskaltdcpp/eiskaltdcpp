@@ -48,12 +48,6 @@ TransferView::Menu::Menu():
     QAction *rem_queue  = new QAction(tr("Remove from Queue"), menu);
     rem_queue->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
-    QAction *sep2       = new QAction(menu);
-    sep2->setSeparator(true);
-
-    QAction *u_c        = new QAction(tr("User command"), menu);
-    u_c->setEnabled(false);
-
     QAction *sep3       = new QAction(menu);
     sep3->setSeparator(true);
 
@@ -69,7 +63,6 @@ TransferView::Menu::Menu():
     actions.insert(add_to_fav, AddToFav);
     actions.insert(grant, GrantExtraSlot);
     actions.insert(rem_queue, RemoveFromQueue);
-    actions.insert(u_c, UserCommand);
     actions.insert(force, Force);
     actions.insert(close, Close);
 
@@ -80,8 +73,6 @@ TransferView::Menu::Menu():
                                        << grant
                                        << sep1
                                        << rem_queue
-                                       << sep2
-                                       << u_c
                                        << sep3
                                        << force
                                        << close
@@ -415,11 +406,6 @@ void TransferView::slotContextMenu(const QPoint &){
         foreach(TransferViewItem *i, items)
             closeConection(i->cid, i->download);
 
-        break;
-    }
-    case Menu::UserCommand:
-    {
-#warning "Implement user commands"
         break;
     }
     case Menu::SendPM:

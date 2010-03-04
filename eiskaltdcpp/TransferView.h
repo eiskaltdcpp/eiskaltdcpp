@@ -61,7 +61,6 @@ public:
         AddToFav,
         GrantExtraSlot,
         RemoveFromQueue,
-        UserCommand,//Not emplemented yet.
         Force,
         Close,
         None
