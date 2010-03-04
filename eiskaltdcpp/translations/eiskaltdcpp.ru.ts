@@ -539,7 +539,7 @@
     <message>
         <location filename="../HubFrame.cpp" line="967"/>
         <source>Chat has been cleared</source>
-        <translation>Окно чата очищено</translation>
+        <translation>Чат очищен</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="896"/>
@@ -580,7 +580,7 @@ Favorite user</source>
         <translation>/away - включить/выключить режим &quot;Отошёл&quot;
 /back - отключить режим &quot;Отошёл&quot;
 /browse &lt;nick&gt; - открыть список файлов пользователя
-/clear - очистить окно чата
+/clear - очистить чат
 /close - закрыть текущий хаб
 /fav - добавить текущий хаб в избранные
 /grant &lt;nick&gt; - выдалить дополнительный слот пользователю
@@ -645,7 +645,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="1789"/>
         <source>Chat cleared.</source>
-        <translation>Окно чата очищено.</translation>
+        <translation>Чат очищен.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1806"/>
@@ -677,7 +677,7 @@ Favorite user</source>
         <translation type="obsolete">/away - включить/выключить режим &quot;Отошёл&quot;
 /back - отключить режим &quot;Отошёл&quot;
 /browse &lt;nick&gt; - открыть список файлов пользователя
-/clear - очистить окно чата
+/clear - очистить чат
 /close - закрыть текущий хаб
 /fav - добавить текущий хаб в избранные
 /grant &lt;nick&gt; - выдалить дополнительный слот пользователю
@@ -745,7 +745,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="79"/>
         <source>Clear chat</source>
-        <translation>Очистить окно чата</translation>
+        <translation>Очистить чат</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="80"/>
@@ -1190,7 +1190,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../SearchFrame.cpp" line="227"/>
         <source>Search window</source>
-        <translation>Окно поиска</translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="318"/>
@@ -2118,7 +2118,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;Andrey Karlov&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (developer 0.4.10 and later)&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Boris Pek&lt;br /&gt; (developer 1.89.0 and later)&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Boris Pek&lt;br /&gt; (developer 1.89.0 and later)&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Eugene Petrov&lt;br /&gt; (developer 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;br /&gt; (version 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Splash Screen Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Translators&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Russian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely (for 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
