@@ -164,6 +164,15 @@ add_custom_command (
         TARGET translations_qt
         COMMAND ${QT_LRELEASE_EXECUTABLE} ${TRANSLATIONS})
 
+if (UNIX)
+  FIND_PROGRAM (GZIP_CMD gzip)
+  EXECUTE_PROCESS (
+                OUTPUT_FILE eiskaltdcpp.1.gz
+                COMMAND "${GZIP_CMD}" -9
+                INPUT_FILE eiskaltdcpp.1
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+endif (UNIX)
+
 include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES})
 add_executable (eiskaltdcpp WIN32 main.cpp
@@ -192,3 +201,4 @@ target_link_libraries (eiskaltdcpp ${LIBS} dcpp)
   install (FILES icons/icon_128x128.png DESTINATION share/pixmaps/ RENAME eiskaltdcpp.png)
   install (FILES ../eiskaltdcpp.desktop DESTINATION share/applications)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
+  INSTALL (FILES eiskaltdcpp.1.gz DESTINATION share/man/man1)
