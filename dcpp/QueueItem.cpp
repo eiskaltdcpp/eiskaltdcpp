@@ -27,183 +27,183 @@
 namespace dcpp {
 
 namespace {
-	const string TEMP_EXTENSION = ".dctmp";
+    const string TEMP_EXTENSION = ".dctmp";
 
-	string getTempName(const string& aFileName, const TTHValue& aRoot) {
-		string tmp(aFileName);
-		tmp += "." + aRoot.toBase32();
-		tmp += TEMP_EXTENSION;
-		return tmp;
-	}
+    string getTempName(const string& aFileName, const TTHValue& aRoot) {
+        string tmp(aFileName);
+        tmp += "." + aRoot.toBase32();
+        tmp += TEMP_EXTENSION;
+        return tmp;
+    }
 }
 
 int QueueItem::countOnlineUsers() const {
-	int n = 0;
-	SourceConstIter i = sources.begin();
-	for(; i != sources.end(); ++i) {
-		if(i->getUser()->isOnline())
-			n++;
-	}
-	return n;
+    int n = 0;
+    SourceConstIter i = sources.begin();
+    for(; i != sources.end(); ++i) {
+        if(i->getUser()->isOnline())
+            n++;
+    }
+    return n;
 }
 
 void QueueItem::addSource(const UserPtr& aUser) {
-	dcassert(!isSource(aUser));
-	SourceIter i = getBadSource(aUser);
-	if(i != badSources.end()) {
-		sources.push_back(*i);
-		badSources.erase(i);
-	} else {
-		sources.push_back(Source(aUser));
-	}
+    dcassert(!isSource(aUser));
+    SourceIter i = getBadSource(aUser);
+    if(i != badSources.end()) {
+        sources.push_back(*i);
+        badSources.erase(i);
+    } else {
+        sources.push_back(Source(aUser));
+    }
 }
 
 void QueueItem::removeSource(const UserPtr& aUser, int reason) {
-	SourceIter i = getSource(aUser);
-	dcassert(i != sources.end());
-	i->setFlag(reason);
-	badSources.push_back(*i);
-	sources.erase(i);
+    SourceIter i = getSource(aUser);
+    dcassert(i != sources.end());
+    i->setFlag(reason);
+    badSources.push_back(*i);
+    sources.erase(i);
 }
 
 const string& QueueItem::getTempTarget() {
-	if(!isSet(QueueItem::FLAG_USER_LIST) && tempTarget.empty()) {
-		if(!SETTING(TEMP_DOWNLOAD_DIRECTORY).empty() && (File::getSize(getTarget()) == -1)) {
+    if(!isSet(QueueItem::FLAG_USER_LIST) && tempTarget.empty()) {
+        if(!SETTING(TEMP_DOWNLOAD_DIRECTORY).empty() && (File::getSize(getTarget()) == -1)) {
 #ifdef _WIN32
-			dcpp::StringMap sm;
-			if(target.length() >= 3 && target[1] == ':' && target[2] == '\\')
-				sm["targetdrive"] = target.substr(0, 3);
-			else
-				sm["targetdrive"] = Util::getPath(Util::PATH_USER_LOCAL).substr(0, 3);
-			setTempTarget(Util::formatParams(SETTING(TEMP_DOWNLOAD_DIRECTORY), sm, false) + getTempName(getTargetFileName(), getTTH()));
+            dcpp::StringMap sm;
+            if(target.length() >= 3 && target[1] == ':' && target[2] == '\\')
+                sm["targetdrive"] = target.substr(0, 3);
+            else
+                sm["targetdrive"] = Util::getPath(Util::PATH_USER_LOCAL).substr(0, 3);
+            setTempTarget(Util::formatParams(SETTING(TEMP_DOWNLOAD_DIRECTORY), sm, false) + getTempName(getTargetFileName(), getTTH()));
 #else //_WIN32
-			setTempTarget(SETTING(TEMP_DOWNLOAD_DIRECTORY) + getTempName(getTargetFileName(), getTTH()));
+            setTempTarget(SETTING(TEMP_DOWNLOAD_DIRECTORY) + getTempName(getTargetFileName(), getTTH()));
 #endif //_WIN32
-		}
-	}
-	return tempTarget;
+        }
+    }
+    return tempTarget;
 }
 
 namespace {
 
 inline int64_t roundDown(int64_t size, int64_t blockSize) {
-	return ((size + blockSize / 2) / blockSize) * blockSize;
+    return ((size + blockSize / 2) / blockSize) * blockSize;
 }
 inline int64_t roundUp(int64_t size, int64_t blockSize) {
-	return ((size + blockSize - 1) / blockSize) * blockSize;
+    return ((size + blockSize - 1) / blockSize) * blockSize;
 }
 
 }
 
 Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize) const {
-	if(getSize() == -1 || blockSize == 0) {
-		return Segment(0, -1);
-	}
+    if(getSize() == -1 || blockSize == 0) {
+        return Segment(0, -1);
+    }
 
-	if(!BOOLSETTING(SEGMENTED_DL)) {
-		if(!downloads.empty()) {
-			return Segment(0, 0);
-		}
+    if(!BOOLSETTING(SEGMENTED_DL)) {
+        if(!downloads.empty()) {
+            return Segment(0, 0);
+        }
 
-		int64_t start = 0;
-		int64_t end = getSize();
+        int64_t start = 0;
+        int64_t end = getSize();
 
-		if(!done.empty()) {
-			const Segment& first = *done.begin();
+        if(!done.empty()) {
+            const Segment& first = *done.begin();
 
-			if(first.getStart() > 0) {
-				end = roundUp(first.getStart(), blockSize);
-			} else {
-				start = roundDown(first.getEnd(), blockSize);
+            if(first.getStart() > 0) {
+                end = roundUp(first.getStart(), blockSize);
+            } else {
+                start = roundDown(first.getEnd(), blockSize);
 
-				if(done.size() > 1) {
-					const Segment& second = *(++done.begin());
-					end = roundUp(second.getStart(), blockSize);
-				}
-			}
-		}
+                if(done.size() > 1) {
+                    const Segment& second = *(++done.begin());
+                    end = roundUp(second.getStart(), blockSize);
+                }
+            }
+        }
 
-		return Segment(start, std::min(getSize(), end) - start);
-	}
+        return Segment(start, std::min(getSize(), end) - start);
+    }
 
-	double donePart = static_cast<double>(getDownloadedBytes()) / getSize();
+    double donePart = static_cast<double>(getDownloadedBytes()) / getSize();
 
-	// We want smaller blocks at the end of the transfer, squaring gives a nice curve...
-	int64_t targetSize = wantedSize * std::max(0.25, (1. - (donePart * donePart)));
+    // We want smaller blocks at the end of the transfer, squaring gives a nice curve...
+    int64_t targetSize = wantedSize * std::max(0.25, (1. - (donePart * donePart)));
 
-	if(targetSize > blockSize) {
-		// Round off to nearest block size
-		targetSize = roundDown(targetSize, blockSize);
-	} else {
-		targetSize = blockSize;
-	}
+    if(targetSize > blockSize) {
+        // Round off to nearest block size
+        targetSize = roundDown(targetSize, blockSize);
+    } else {
+        targetSize = blockSize;
+    }
 
-	int64_t start = 0;
-	int64_t curSize = targetSize;
+    int64_t start = 0;
+    int64_t curSize = targetSize;
 
-	while(start < getSize()) {
-		int64_t end = std::min(getSize(), start + curSize);
-		Segment block(start, end - start);
-		bool overlaps = false;
-		for(SegmentConstIter i = done.begin(); !overlaps && i != done.end(); ++i) {
-			if(curSize <= blockSize) {
-				int64_t dstart = i->getStart();
-				int64_t dend = i->getEnd();
-				// We accept partial overlaps, only consider the block done if it is fully consumed by the done block
-				if(dstart <= start && dend >= end) {
-					overlaps = true;
-				}
-			} else {
-				overlaps = block.overlaps(*i);
-			}
-		}
+    while(start < getSize()) {
+        int64_t end = std::min(getSize(), start + curSize);
+        Segment block(start, end - start);
+        bool overlaps = false;
+        for(SegmentConstIter i = done.begin(); !overlaps && i != done.end(); ++i) {
+            if(curSize <= blockSize) {
+                int64_t dstart = i->getStart();
+                int64_t dend = i->getEnd();
+                // We accept partial overlaps, only consider the block done if it is fully consumed by the done block
+                if(dstart <= start && dend >= end) {
+                    overlaps = true;
+                }
+            } else {
+                overlaps = block.overlaps(*i);
+            }
+        }
 
-		for(DownloadList::const_iterator i = downloads.begin(); !overlaps && i !=downloads.end(); ++i) {
-			overlaps = block.overlaps((*i)->getSegment());
-		}
+        for(DownloadList::const_iterator i = downloads.begin(); !overlaps && i !=downloads.end(); ++i) {
+            overlaps = block.overlaps((*i)->getSegment());
+        }
 
-		if(!overlaps) {
-			return block;
-		}
+        if(!overlaps) {
+            return block;
+        }
 
-		if(curSize > blockSize) {
-			curSize -= blockSize;
-		} else {
-			start = end;
-			curSize = targetSize;
-		}
-	}
+        if(curSize > blockSize) {
+            curSize -= blockSize;
+        } else {
+            start = end;
+            curSize = targetSize;
+        }
+    }
 
-	return Segment(0, 0);
+    return Segment(0, 0);
 }
 
 int64_t QueueItem::getDownloadedBytes() const {
-	int64_t total = 0;
-	for(SegmentSet::const_iterator i = done.begin(); i != done.end(); ++i) {
-		total += i->getSize();
-	}
-	return total;
+    int64_t total = 0;
+    for(SegmentSet::const_iterator i = done.begin(); i != done.end(); ++i) {
+        total += i->getSize();
+    }
+    return total;
 }
 
 void QueueItem::addSegment(const Segment& segment) {
-	done.insert(segment);
+    done.insert(segment);
 
-	// Consolidate segments
-	if(done.size() == 1)
-		return;
+    // Consolidate segments
+    if(done.size() == 1)
+        return;
 
-	for(SegmentSet::iterator i = ++done.begin() ; i != done.end(); ) {
-		SegmentSet::iterator prev = i;
-		prev--;
-		if(prev->getEnd() >= i->getStart()) {
-			Segment big(prev->getStart(), i->getEnd() - prev->getStart());
-			done.erase(prev);
-			done.erase(i++);
-			done.insert(big);
-		} else {
-			++i;
-		}
-	}
+    for(SegmentSet::iterator i = ++done.begin() ; i != done.end(); ) {
+        SegmentSet::iterator prev = i;
+        prev--;
+        if(prev->getEnd() >= i->getStart()) {
+            Segment big(prev->getStart(), i->getEnd() - prev->getStart());
+            done.erase(prev);
+            done.erase(i++);
+            done.insert(big);
+        } else {
+            ++i;
+        }
+    }
 }
 
 }
