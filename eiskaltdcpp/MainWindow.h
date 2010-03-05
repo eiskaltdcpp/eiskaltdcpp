@@ -150,7 +150,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotWidgetsToggle();
         void slotQC();
         void slotHideWindow();
-        void slotHideprogressSpace();
+        void slotHideProgressSpace();
         void slotExit();
 
         void slotAboutClient();
@@ -217,7 +217,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileIPFilter;
         QAction *fileSearch;
         QAction *fileHideWindow;
-        QAction *fileHideprogressSpace;
+        QAction *fileHideProgressSpace;
         QAction *fileQuit;
 
         QMenu *menuWidgets;

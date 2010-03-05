@@ -340,9 +340,11 @@ void MainWindow::initActions(){
         fileHideWindow->setShortcut(tr("Esc"));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
-        fileHideprogressSpace = new QAction(tr("Hide/Show free space bar"), this);
-        //fileHideWindow->setShortcut(tr("Esc"));
-        connect(fileHideprogressSpace, SIGNAL(triggered()), this, SLOT(slotHideprogressSpace()));
+        fileHideProgressSpace = new QAction(tr("Hide free space bar"), this);
+        if (!WBGET(WB_SHOW_FREE_SPACE))
+            fileHideProgressSpace->setText(tr("Show free space bar"));
+        connect(fileHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
+
         fileQuit = new QAction("", this);
         fileQuit->setShortcut(tr("Ctrl+Q"));
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
@@ -384,8 +386,8 @@ void MainWindow::initActions(){
                 << fileAntiSpam
                 << fileIPFilter
                 << separator5
+                << fileHideProgressSpace
                 << fileHideWindow
-                << fileHideprogressSpace
                 << fileQuit;
 
         toolBarActions << fileOptions
@@ -475,7 +477,7 @@ void MainWindow::initStatusBar(){
     progressSpace->setFixedHeight(18);
     progressSpace->setToolTip(tr("Space free"));
     if (!WBGET(WB_SHOW_FREE_SPACE))
-    progressSpace->hide();
+        progressSpace->hide();
 
     statusBar()->addWidget(msgLabel);
     statusBar()->addPermanentWidget(statusTRLabel);
@@ -989,12 +991,14 @@ void MainWindow::slotHideWindow(){
     }
 }
 
-void MainWindow::slotHideprogressSpace() {
+void MainWindow::slotHideProgressSpace() {
     if (WBGET(WB_SHOW_FREE_SPACE)) {
         progressSpace->hide();
+        fileHideProgressSpace->setText(tr("Show free space bar"));
         WBSET(WB_SHOW_FREE_SPACE,0);
     } else {
         progressSpace->show();
+        fileHideProgressSpace->setText(tr("Hide free space bar"));
         WBSET(WB_SHOW_FREE_SPACE,1);
     }
 }
