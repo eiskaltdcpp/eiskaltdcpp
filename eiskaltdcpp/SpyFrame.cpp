@@ -6,6 +6,7 @@
 #include "SearchFrame.h"
 
 #include <QMenu>
+#include <QMessageBox>
 #include <QItemSelectionModel>
 
 using namespace dcpp;
@@ -46,6 +47,16 @@ void SpyFrame::closeEvent(QCloseEvent *e){
         e->accept();
     }
     else {
+        if (pushButton->text() == tr("Stop")){
+            int ret = QMessageBox::question(this, tr("Search Spy"),
+                                            tr("Search Spy is now running.\n"
+                                               "It will continue to work when the widget is hidden.\n"
+                                               "Do you want to stop it?\n"),
+                                            QMessageBox::Yes | QMessageBox::No);
+            if(ret == QMessageBox::Yes)
+                slotStartStop();
+        }
+
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
         MainWindow::getInstance()->remWidgetFromArena(this);
 
@@ -116,11 +127,14 @@ void SpyFrame::contextMenu(){
 void SpyFrame::on(dcpp::ClientManagerListener::IncomingSearch, const string &s) throw(){
     bool isTTH = _q(s).startsWith("TTH:");
 
-    if (checkBox->isChecked() && isTTH)
+    if (checkBox_IGNORETTH->isChecked() && isTTH)
         return;
 
     typedef Func2<SpyModel, QString, bool> FUNC;
     FUNC *f = new FUNC(model, &SpyModel::addResult, _q(s).replace("$", " "), isTTH);
 
     QApplication::postEvent(this, new SpyFrameCustomEvent(f));
+
+    if (checkBox_AUTOSCROLLING->isChecked())
+        treeView->scrollToBottom();
 }

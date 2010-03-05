@@ -9,6 +9,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/Singleton.h"
 
+#include "WulforUtil.h"
 #include "ArenaWidget.h"
 #include "ui_UISpy.h"
 #include "Func.h"
@@ -44,6 +45,7 @@ public:
     QString getArenaTitle() {return getArenaShortTitle(); }
     QMenu *getMenu() {return NULL; }
     QWidget *getWidget() { return this; }
+    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSPY); }
 
 protected:
     virtual void closeEvent(QCloseEvent *);
