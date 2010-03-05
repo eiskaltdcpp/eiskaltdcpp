@@ -1010,7 +1010,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="604"/>
         <source>Free %1 of %2</source>
-        <translation type="unfinished">Свободно %1 из %2</translation>
+        <translation>Свободно %1 из %2</translation>
     </message>
     <message>
         <source>%1/%2 :: %4/%5 :: %3</source>
@@ -1077,18 +1077,17 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="447"/>
         <source>Counts</source>
-        <translation type="unfinished">Счётчик</translation>
+        <translation>Счётчик</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="453"/>
         <source>Download speed/Upload speed (per sec.)</source>
-        <translatorcomment>Скорость загрузки/Скорость отдачи (в сек.)</translatorcomment>
-        <translation type="unfinished">Download speed/Upload speed (per sec.)</translation>
+        <translation>Скорость загрузки/Скорость отдачи (в сек.)</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="459"/>
         <source>Downloaded/Uploaded</source>
-        <translation type="unfinished">Загружено/Отдано</translation>
+        <translation>Загружено/Отдано</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="496"/>
@@ -1839,7 +1838,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../SettingsSharing.cpp" line="204"/>
         <source>Error</source>
-        <translation type="unfinished">Ошибка</translation>
+        <translation>Ошибка</translation>
     </message>
 </context>
 <context>
@@ -1856,7 +1855,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 It will continue to work when the widget is hidden.
 Do you want to stop it?
 </source>
-        <translation type="unfinished">Поисковый Шпион сейчас запущен.
+        <translation>Поисковый Шпион сейчас запущен.
 Он продолжит работать когда виджен будет спрятан.
 Хотите остановить его?
 </translation>
@@ -3152,12 +3151,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="164"/>
         <source>Clear filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить фильтр</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="167"/>
         <source>c</source>
-        <translation type="unfinished"></translation>
+        <translation>с</translation>
     </message>
 </context>
 <context>
@@ -3610,7 +3609,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="470"/>
         <source>Not a use temporary directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Не использовать временную директорию</translation>
     </message>
 </context>
 <context>
@@ -3951,7 +3950,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISpy.ui" line="56"/>
         <source>Autoscrolling</source>
-        <translation type="unfinished"></translation>
+        <translation>Автопрокрутка</translation>
     </message>
     <message>
         <location filename="../ui/UISpy.ui" line="42"/>
