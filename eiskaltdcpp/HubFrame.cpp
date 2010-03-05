@@ -274,8 +274,6 @@ QMenu *HubFrame::Menu::buildUserCmdMenu(const QString &hub, const QString &cid){
             QString raw_name = _q(uc.getName());
             QAction *action = NULL;
 
-            printf("%s - %s\n", uc.getName().c_str(), uc.getCommand().c_str());
-
             if (raw_name.contains("\\")){
                 QStringList submenus = raw_name.split("\\", QString::SkipEmptyParts);
                 QString name = submenus.takeLast();
