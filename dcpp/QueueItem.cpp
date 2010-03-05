@@ -23,6 +23,7 @@
 #include "HashManager.h"
 #include "Download.h"
 #include "File.h"
+#include "Transfer.h"
 
 namespace dcpp {
 
@@ -70,14 +71,19 @@ const string& QueueItem::getTempTarget() {
     if(!isSet(QueueItem::FLAG_USER_LIST) && tempTarget.empty()) {
         if(!SETTING(TEMP_DOWNLOAD_DIRECTORY).empty() && (File::getSize(getTarget()) == -1)) {
 #ifdef _WIN32
+            //TODO <сделать загрузку без temp диры>
             dcpp::StringMap sm;
             if(target.length() >= 3 && target[1] == ':' && target[2] == '\\')
                 sm["targetdrive"] = target.substr(0, 3);
             else
                 sm["targetdrive"] = Util::getPath(Util::PATH_USER_LOCAL).substr(0, 3);
             setTempTarget(Util::formatParams(SETTING(TEMP_DOWNLOAD_DIRECTORY), sm, false) + getTempName(getTargetFileName(), getTTH()));
+            // </сделать загрузку без temp диры>
 #else //_WIN32
-            setTempTarget(SETTING(TEMP_DOWNLOAD_DIRECTORY) + getTempName(getTargetFileName(), getTTH()));
+            if (SETTING(NO_USE_TEMP_DIR))
+                setTempTarget(target + getTempName("", getTTH()));
+            else
+                setTempTarget(SETTING(TEMP_DOWNLOAD_DIRECTORY) + getTempName(getTargetFileName(), getTTH()));
 #endif //_WIN32
         }
     }
