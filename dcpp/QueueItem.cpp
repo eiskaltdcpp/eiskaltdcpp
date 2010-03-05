@@ -23,7 +23,6 @@
 #include "HashManager.h"
 #include "Download.h"
 #include "File.h"
-#include "Transfer.h"
 
 namespace dcpp {
 
