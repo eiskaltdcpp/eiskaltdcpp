@@ -340,6 +340,9 @@ void MainWindow::initActions(){
         fileHideWindow->setShortcut(tr("Esc"));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
+        fileHideprogressSpace = new QAction(tr("Hide/Show free space bar"), this);
+        //fileHideWindow->setShortcut(tr("Esc"));
+        connect(fileHideprogressSpace, SIGNAL(triggered()), this, SLOT(slotHideprogressSpace()));
         fileQuit = new QAction("", this);
         fileQuit->setShortcut(tr("Ctrl+Q"));
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
@@ -382,6 +385,7 @@ void MainWindow::initActions(){
                 << fileIPFilter
                 << separator5
                 << fileHideWindow
+                << fileHideprogressSpace
                 << fileQuit;
 
         toolBarActions << fileOptions
@@ -470,6 +474,8 @@ void MainWindow::initStatusBar(){
     progressSpace->setMaximumWidth(250);
     progressSpace->setFixedHeight(18);
     progressSpace->setToolTip(tr("Space free"));
+    if (!WBGET(WB_SHOW_FREE_SPACE))
+    progressSpace->hide();
 
     statusBar()->addWidget(msgLabel);
     statusBar()->addPermanentWidget(statusTRLabel);
@@ -591,6 +597,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     statusSPLabel->setFixedWidth(spLabelWidth);
     statusTRLabel->setFixedWidth(trLabelWidth);
 
+    if (WBGET(WB_CHAT_SHOW_TIMESTAMP)) {
     boost::filesystem::space_info info;
     if (boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY)))
         info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
@@ -607,7 +614,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
 
         progressSpace->setFormat(format);
         progressSpace->setValue(static_cast<unsigned>(percent));
-    }
+    }}
 }
 
 void MainWindow::setStatusMessage(QString msg){
@@ -977,9 +984,18 @@ void MainWindow::slotQC(){
 }
 
 void MainWindow::slotHideWindow(){
-    if (!isUnload && isActiveWindow())
-    {
+    if (!isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
         hide();
+    }
+}
+
+void MainWindow::slotHideprogressSpace() {
+    if (WBGET(WB_SHOW_FREE_SPACE)) {
+        progressSpace->hide();
+        WBSET(WB_SHOW_FREE_SPACE,0);
+    } else {
+        progressSpace->show();
+        WBSET(WB_SHOW_FREE_SPACE,1);
     }
 }
 

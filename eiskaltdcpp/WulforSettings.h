@@ -39,6 +39,7 @@ const char * const WS_NOTIFY_SOUNDS           = "notify-sound-files";
 const char * const WS_NOTIFY_SND_CMD          = "notify-sound-cmd";
 const char * const WS_FAVUSERS_STATE          = "favoriteusers-state";
 const char * const WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";
+const char * const WB_SHOW_FREE_SPACE         = "show-free-space";
 const char * const WB_CHAT_SHOW_JOINS         = "chat-show-joins";
 const char * const WB_CHAT_REDIRECT_BOT_PMS   = "chat-redirect-pms-from-bot";
 const char * const WB_CHAT_KEEPFOCUS          = "chat-keep-focus";
