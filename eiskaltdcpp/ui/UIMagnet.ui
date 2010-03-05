@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>342</width>
-    <height>160</height>
+    <height>249</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,21 +20,21 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="5" column="2">
+   <item row="6" column="2">
     <widget class="QPushButton" name="pushButton_CANCEL">
      <property name="text">
       <string>Cancel</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
+   <item row="6" column="0">
     <widget class="QPushButton" name="pushButton_SEARCH">
      <property name="text">
       <string>Search</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="1">
+   <item row="6" column="1">
     <widget class="QPushButton" name="pushButton_DOWNLOAD">
      <property name="text">
       <string>Download</string>
@@ -113,6 +113,13 @@
        </widget>
       </item>
      </layout>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="3">
+    <widget class="QCheckBox" name="checkBox_Remember">
+     <property name="text">
+      <string>Remember my choose</string>
+     </property>
     </widget>
    </item>
   </layout>

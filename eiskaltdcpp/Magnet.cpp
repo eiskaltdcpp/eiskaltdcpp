@@ -28,7 +28,6 @@ Magnet::Magnet(QWidget *parent) :
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
 }
-
 Magnet::~Magnet(){
     SearchManager::getInstance()->removeListener(this);
 
@@ -84,10 +83,23 @@ void Magnet::setLink(const QString &link){
         MainWindow::getInstance()->show();
         MainWindow::getInstance()->raise();
     }
+
+    if (WIGET(WI_DEF_MAGNET_ACTION) != 0) {
+        checkBox_Remember->setChecked(true);
+        if (WIGET(WI_DEF_MAGNET_ACTION) == 2)
+            Magnet::download();
+        else if (WIGET(WI_DEF_MAGNET_ACTION) == 1)
+            Magnet::search();
+    } else
+        checkBox_Remember->setChecked(false);
+
 }
 
 void Magnet::search(){
     QString tth = lineEdit_TTH->text();
+
+    if (checkBox_Remember->isChecked() && WIGET(WI_DEF_MAGNET_ACTION) != 1)
+        WISET(WI_DEF_MAGNET_ACTION,1);
 
     if (tth.isEmpty())
         return;
@@ -106,6 +118,8 @@ void Magnet::search(){
 void Magnet::download(){
     QString tth = lineEdit_TTH->text();
 
+    if (checkBox_Remember->isChecked() && WIGET(WI_DEF_MAGNET_ACTION) != 2)
+        WISET(WI_DEF_MAGNET_ACTION,2);
     if (tth.isEmpty())
         return;
 

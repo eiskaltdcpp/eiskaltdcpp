@@ -58,6 +58,7 @@ const char * const WB_NOTIFY_SND_ENABLED      = "notify-sound-enabled";
 const char * const WB_NOTIFY_SND_EXTERNAL     = "notify-sound-use-external";
 const char * const WB_NOTIFY_SHOW_ON_ACTIVE   = "notify-show-on-active";
 const char * const WB_NOTIFY_CH_ICON_ALWAYS   = "notify-change-icon-always";
+const char * const WI_DEF_MAGNET_ACTION       = "def-magnet-action"; //0-not do any 1-search 2-download
 const char * const WI_CHAT_MAXPARAGRAPHS      = "chat-max-paragraph";
 const char * const WI_CHAT_WIDTH              = "chat-width";
 const char * const WI_CHAT_USERLIST_WIDTH     = "chat-userlist-width";

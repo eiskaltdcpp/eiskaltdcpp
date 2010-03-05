@@ -86,6 +86,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_NOTIFY_CH_ICON_ALWAYS, (int)false);
         intmap.insert(WB_NOTIFY_SHOW_ON_ACTIVE, (int)false);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS, 300);
+        intmap.insert(WI_DEF_MAGNET_ACTION, 0);
         intmap.insert(WI_CHAT_WIDTH, -1);
         intmap.insert(WI_CHAT_USERLIST_WIDTH, -1);
         intmap.insert(WI_CHAT_SORT_COLUMN, 0);
