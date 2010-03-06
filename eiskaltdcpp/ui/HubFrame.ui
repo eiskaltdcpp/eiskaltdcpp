@@ -120,7 +120,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QTreeView" name="treeView_USERS">

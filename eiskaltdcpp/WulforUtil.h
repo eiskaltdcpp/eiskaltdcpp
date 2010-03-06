@@ -77,6 +77,7 @@ public:
         eiUSERS,
         eiZOOM_IN,
         eiZOOM_OUT,
+        eiQT_LOGO,
 
         eiFILETYPE_APPLICATION,
         eiFILETYPE_ARCHIVE,

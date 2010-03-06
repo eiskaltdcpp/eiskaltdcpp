@@ -256,9 +256,10 @@ void MainWindow::saveSettings(){
 }
 
 void MainWindow::initActions(){
-    {
-        WulforUtil *WU = WulforUtil::getInstance();
 
+    WulforUtil *WU = WulforUtil::getInstance();
+
+    {
         fileOptions = new QAction("", this);
         fileOptions->setShortcut(tr("Ctrl+O"));
         fileOptions->setIcon(WU->getPixmap(WulforUtil::eiCONFIGURE));
@@ -440,9 +441,11 @@ void MainWindow::initActions(){
     }
     {
         aboutClient = new QAction("", this);
+        aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL));
         connect(aboutClient, SIGNAL(triggered()), this, SLOT(slotAboutClient()));
 
         aboutQt = new QAction("", this);
+        aboutQt->setIcon(WU->getPixmap(WulforUtil::eiQT_LOGO));
         connect(aboutQt, SIGNAL(triggered()), this, SLOT(slotAboutQt()));
     }
 }

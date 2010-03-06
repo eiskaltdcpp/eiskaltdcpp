@@ -245,6 +245,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiUSERS] = loadPixmap("users.png");
     m_PixmapMap[eiZOOM_IN] = loadPixmap("zoom-in.png");
     m_PixmapMap[eiZOOM_OUT] = loadPixmap("zoom-out.png");
+    m_PixmapMap[eiQT_LOGO] = loadPixmap("qt-logo.png");
 
     m_PixmapMap[eiFILETYPE_APPLICATION] = loadPixmap("filetype-application.png");
     m_PixmapMap[eiFILETYPE_ARCHIVE] = loadPixmap("filetype-archive.png");
