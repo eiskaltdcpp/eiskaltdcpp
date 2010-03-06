@@ -150,6 +150,7 @@ void SettingsDownloads::slotDownloadTo(){
 
     QMenu *m = new QMenu(this);
     QAction *new_alias = new QAction(tr("New"), m);
+    new_alias->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITADD));
 
     m->addAction(new_alias);
 

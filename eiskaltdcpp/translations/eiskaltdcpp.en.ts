@@ -1555,7 +1555,7 @@ Keys:
     <name>SettingsDownloads</name>
     <message>
         <location filename="../SettingsDownloads.cpp" line="137"/>
-        <location filename="../SettingsDownloads.cpp" line="169"/>
+        <location filename="../SettingsDownloads.cpp" line="170"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1565,17 +1565,17 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsDownloads.cpp" line="157"/>
+        <location filename="../SettingsDownloads.cpp" line="158"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsDownloads.cpp" line="164"/>
+        <location filename="../SettingsDownloads.cpp" line="165"/>
         <source>Enter alias for directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsDownloads.cpp" line="164"/>
+        <location filename="../SettingsDownloads.cpp" line="165"/>
         <source>Alias</source>
         <translation type="unfinished"></translation>
     </message>
