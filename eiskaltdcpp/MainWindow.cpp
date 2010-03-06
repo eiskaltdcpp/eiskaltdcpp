@@ -599,24 +599,25 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     statusSPLabel->setFixedWidth(spLabelWidth);
     statusTRLabel->setFixedWidth(trLabelWidth);
 
-    if (WBGET(WB_CHAT_SHOW_TIMESTAMP)) {
-    boost::filesystem::space_info info;
-    if (boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY)))
-        info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
-    else if (boost::filesystem::exists(Util::getPath(Util::PATH_USER_CONFIG)))
-        info = boost::filesystem::space(boost::filesystem::path(Util::getPath(Util::PATH_USER_CONFIG)));
+    if (WBGET(WB_SHOW_FREE_SPACE)) {
+        boost::filesystem::space_info info;
+        if (boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY)))
+            info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
+        else if (boost::filesystem::exists(Util::getPath(Util::PATH_USER_CONFIG)))
+            info = boost::filesystem::space(boost::filesystem::path(Util::getPath(Util::PATH_USER_CONFIG)));
 
-    if (info.capacity) {
-        float total = info.capacity;
-        float percent = 100.0f*(total-info.available)/total;
+        if (info.capacity) {
+            float total = info.capacity;
+            float percent = 100.0f*(total-info.available)/total;
 
-        QString format = tr("Free %1 of %2")
+            QString format = tr("Free %1 of %2")
                          .arg(_q(dcpp::Util::formatBytes(info.available)))
                          .arg(_q(dcpp::Util::formatBytes(total)));
 
-        progressSpace->setFormat(format);
-        progressSpace->setValue(static_cast<unsigned>(percent));
-    }}
+            progressSpace->setFormat(format);
+            progressSpace->setValue(static_cast<unsigned>(percent));
+        }
+    }
 }
 
 void MainWindow::setStatusMessage(QString msg){
