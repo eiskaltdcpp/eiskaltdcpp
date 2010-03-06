@@ -203,9 +203,26 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
         }
         case Qt::ForegroundRole:
         {
-            foreach (QString f, checked){
+            /*foreach (QString f, checked){
                 if (f.startsWith(fp))
                     return QColor(0x1F, 0x8F, 0x1F);
+            }*/
+
+            break;
+        }
+        case Qt::FontRole:
+        {
+            if (index.column() == 0){
+                QFont font;
+                font.setBold(true);
+
+                foreach (QString f, checked){
+                    if (f.startsWith(fp))
+                        return font;
+                }
+
+                if (checked.contains(fp))
+                    return font;
             }
 
             break;

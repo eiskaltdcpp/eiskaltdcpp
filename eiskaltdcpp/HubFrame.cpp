@@ -2163,18 +2163,10 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
     typedef Func1<HubFrame, VarMap> FUNC;
     FUNC *func = NULL;
 
-    qDebug() << QString("New message from %1").arg(nick);
-
-    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && user.getIdentity().isBot()){
-        qDebug("User is a Bot. Redirecting to main chat.");
-
+    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && user.getIdentity().isBot())
         func = new FUNC(this, &HubFrame::newMsg, map);
-    }
-    else{
-        qDebug("User is not a Bot. Default action.");
-
+    else
         func = new FUNC(this, &HubFrame::newPm, map);
-    }
 
     QApplication::postEvent(this, new UserCustomEvent(func));
 
