@@ -79,6 +79,7 @@ class SearchFrame : public QWidget,
         Action exec(QStringList);
         QMenu *buildUserCmdMenu(QList<QString> hubs);
         QMap<QString, QString> ucParams;
+        QString getDownloadToPath() {return downToPath; }
 
     private:
         Menu();
@@ -87,7 +88,11 @@ class SearchFrame : public QWidget,
         QMap<QAction*, Action> actions;
         QList<QAction*> action_list;
 
+        QString downToPath;
+
         QMenu *menu;
+        QMenu *down_to;
+        QMenu *down_wh_to;
     };
 
     class HubInfo{

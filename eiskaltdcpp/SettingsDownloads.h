@@ -23,6 +23,7 @@ public slots:
 
 private slots:
     void slotBrowse();
+    void slotDownloadTo();
 
 private:
     void init();

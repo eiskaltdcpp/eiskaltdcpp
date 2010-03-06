@@ -38,13 +38,13 @@ SearchFrame::Menu::Menu(){
     QAction *down       = new QAction(tr("Download"), NULL);
     down->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
-    QAction *down_to    = new QAction(tr("Download to"), NULL);
+    down_to             = new QMenu(tr("Download to"));
     down_to->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD_AS));
 
     QAction *down_wh    = new QAction(tr("Download Whole Directory"), NULL);
     down_wh->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
-    QAction *down_wh_to = new QAction(tr("Download Whole Directory to"), NULL);
+    down_wh_to          = new QMenu(tr("Download Whole Directory to"));
     down_wh_to->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD_AS));
 
     QAction *sep        = new QAction(menu);
@@ -79,9 +79,7 @@ SearchFrame::Menu::Menu(){
     rem->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
     actions.insert(down, Download);
-    actions.insert(down_to, DownloadTo);
     actions.insert(down_wh, DownloadWholeDir);
-    actions.insert(down_wh_to, DownloadWholeDirTo);
     actions.insert(find_tth, SearchTTH);
     actions.insert(magnet, Magnet);
     actions.insert(browse, Browse);
@@ -93,9 +91,7 @@ SearchFrame::Menu::Menu(){
     actions.insert(rem, Remove);
 
     action_list   << down
-                  << down_to
                   << down_wh
-                  << down_wh_to
                   << sep
                   << find_tth
                   << magnet
@@ -113,15 +109,54 @@ SearchFrame::Menu::~Menu(){
     qDeleteAll(action_list);
 
     delete menu;
+    delete down_to;
+    delete down_wh_to;
 }
 
 SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList()){
     foreach(QAction *a, action_list)
         a->setParent(NULL);
 
-    menu->clear();
+    qDeleteAll(down_to->actions());
+    qDeleteAll(down_wh_to->actions());
+    down_to->clear();
+    down_wh_to->clear();
 
+    QString aliases, paths;
+
+    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
+    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+
+    QStringList a = aliases.split("\n", QString::SkipEmptyParts);
+    QStringList p = paths.split("\n", QString::SkipEmptyParts);
+
+    if (a.size() == p.size() && !a.isEmpty()){
+        for (int i = 0; i < a.size(); i++){
+            QAction *act = new QAction(a.at(i), down_to);
+            act->setData(p.at(i));
+
+            down_to->addAction(act);
+
+            QAction *act1 = new QAction(a.at(i), down_to);
+            act1->setData(p.at(i));
+
+            down_wh_to->addAction(act1);
+        }
+    }
+
+    QAction *browse = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+    browse->setData("");
+
+    QAction *browse1 = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+    browse->setData("");
+
+    down_to->addAction(browse);
+    down_wh_to->addAction(browse1);
+
+    menu->clear();
     menu->addActions(action_list);
+    menu->insertMenu(action_list.at(1), down_to);
+    menu->insertMenu(action_list.at(2), down_wh_to);
 
     QMenu *userm = buildUserCmdMenu(list);
 
@@ -134,6 +169,16 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
         delete userm;
 
         return actions.value(ret);
+    }
+    else if (down_to->actions().contains(ret)){
+        downToPath = ret->data().toString();
+
+        return DownloadTo;
+    }
+    else if (down_wh_to->actions().contains(ret)){
+        downToPath = ret->data().toString();
+
+        return DownloadWholeDirTo;
     }
     else if (ret){
         ucParams["LAST"] = ret->toolTip();
@@ -863,7 +908,10 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::DownloadTo:
         {
-            QString target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
+            QString target = Menu::getInstance()->getDownloadToPath();
+
+            if (!QDir(target).exists())
+                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
 
             if (target.isEmpty())
                 break;
@@ -910,7 +958,10 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::DownloadWholeDirTo:
         {
-            QString target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
+            QString target = Menu::getInstance()->getDownloadToPath();
+
+            if (!QDir(target).exists())
+                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
 
             if (target.isEmpty())
                 break;

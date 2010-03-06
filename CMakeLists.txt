@@ -188,8 +188,8 @@ if (ICONV_SECOND_ARGUMENT_IS_CONST)
   add_definitions (-DICONV_CONST=const)
 endif (ICONV_SECOND_ARGUMENT_IS_CONST)
 
-set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -O3 -fomit-frame-pointer")
-set(CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3")
+set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -O3 -fomit-frame-pointer -pipe")
+set(CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3 -pipe")
 
 include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_BINARY_DIR}/dcpp

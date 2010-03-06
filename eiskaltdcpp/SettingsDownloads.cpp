@@ -6,6 +6,8 @@
 #include "dcpp/SettingsManager.h"
 
 #include <QFileDialog>
+#include <QInputDialog>
+#include <QMenu>
 
 using namespace dcpp;
 
@@ -89,9 +91,25 @@ void SettingsDownloads::init(){
         connect(pushButton_BROWSE1, SIGNAL(clicked()), SLOT(slotBrowse()));
     }
     {//Download to
-        /**
-          TODO: implement
-        */
+        QString aliases, paths;
+
+        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
+        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+
+        QStringList a = aliases.split("\n", QString::SkipEmptyParts);
+        QStringList p = paths.split("\n", QString::SkipEmptyParts);
+
+        if (a.size() == p.size() && !a.isEmpty()){
+            for (int i = 0; i < a.size(); i++){
+                QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
+
+                item->setText(0, p.at(i));
+                item->setText(1, a.at(i));
+            }
+        }
+
+        treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+        connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotDownloadTo()));
     }
     {//Queue
         //Auto-priority
@@ -125,5 +143,67 @@ void SettingsDownloads::slotBrowse(){
         lineEdit_DLDIR->setText(dir);
     else if (sender() == pushButton_BROWSE1)
         lineEdit_UNF_DL_DIR->setText(dir);
+}
+
+void SettingsDownloads::slotDownloadTo(){
+    QList<QTreeWidgetItem*> selected = treeWidget->selectedItems();
+
+    QMenu *m = new QMenu(this);
+    QAction *new_alias = new QAction(tr("New"), m);
+
+    m->addAction(new_alias);
+
+    if (!selected.isEmpty())
+        m->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Delete"));
+
+    QAction *ret = m->exec(QCursor::pos());
+
+    delete m;
+
+    if (ret == new_alias){
+        QString alias = QInputDialog::getText(this, tr("Enter alias for directory"), tr("Alias"));
+
+        if (alias.isEmpty())
+            return;
+
+        QString dir = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
+
+        if (dir.isEmpty())
+            return;
+
+        QString aliases, paths;
+
+        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
+        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+
+        aliases += alias + "\n";
+        paths   += dir + "\n";
+
+        WSSET(WS_DOWNLOADTO_ALIASES, aliases.toAscii().toBase64());
+        WSSET(WS_DOWNLOADTO_PATHS, paths.toAscii().toBase64());
+
+        QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
+
+        item->setText(0, dir);
+        item->setText(1, alias);
+    }
+    else if (ret){
+        QString aliases, paths;
+        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
+        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+
+        foreach (QTreeWidgetItem *i, selected){
+            QString alias = i->text(1);
+            QString path  = i->text(0);
+
+            aliases.replace(alias+"\n", "");
+            paths.replace(path+"\n", "");
+
+            delete i;
+        }
+
+        WSSET(WS_DOWNLOADTO_ALIASES, aliases.toAscii().toBase64());
+        WSSET(WS_DOWNLOADTO_PATHS, paths.toAscii().toBase64());
+    }
 }
 
