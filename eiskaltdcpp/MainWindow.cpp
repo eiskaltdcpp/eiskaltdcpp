@@ -363,6 +363,7 @@ void MainWindow::initActions(){
         connect(chatClear, SIGNAL(triggered()), this, SLOT(slotChatClear()));
 
         findInChat = new QAction("", this);
+        findInChat->setShortcut(tr("Ctrl+F"));
         findInChat->setIcon(WU->getPixmap(WulforUtil::eiFIND));
         connect(findInChat, SIGNAL(triggered()), this, SLOT(slotFindInChat()));
 

@@ -478,10 +478,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
             return ret;
         }
-
-        if (k_e->modifiers() == Qt::ControlModifier && k_e->key() == Qt::Key_F){
-            slotHideFindFrame();
-        }
     }
     else if (e->type() == QEvent::KeyPress){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);

@@ -173,8 +173,6 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap();
 
-    void slotHideFindFrame();
-
     void disableChat(){
         chatDisabled = !chatDisabled;
 
@@ -191,6 +189,9 @@ public:
 
         addStatus(tr("Chat cleared."));
     }
+
+public slots:
+    void slotHideFindFrame();
 
 protected:
     virtual bool eventFilter(QObject *, QEvent *);
