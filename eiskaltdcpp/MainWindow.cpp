@@ -16,6 +16,7 @@
 #include <QKeyEvent>
 #include <QFileDialog>
 #include <QProgressBar>
+#include <QFileDialog>
 
 #include "HubFrame.h"
 #include "HubManager.h"
@@ -273,6 +274,10 @@ void MainWindow::initActions(){
         fileFileListBrowser->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
         connect(fileFileListBrowser, SIGNAL(triggered()), this, SLOT(slotFileBrowseFilelist()));
 
+        fileOpenLogFile = new QAction("", this);
+        fileOpenLogFile->setIcon(WU->getPixmap(WulforUtil::eiOPEN_LOG_FILE));
+        connect(fileOpenLogFile, SIGNAL(triggered()), this, SLOT(slotFileOpenLogFile()));
+
         fileFileListRefresh = new QAction("", this);
         fileFileListRefresh->setShortcut(tr("Ctrl+R"));
         fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiRELOAD));
@@ -377,6 +382,7 @@ void MainWindow::initActions(){
 
         fileMenuActions << fileOptions
                 << separator1
+                << fileOpenLogFile
                 << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
@@ -506,6 +512,8 @@ void MainWindow::retranslateUi(){
         menuFile->setTitle(tr("&File"));
 
         fileOptions->setText(tr("Options"));
+
+        fileOpenLogFile->setText(tr("Open log file"));
 
         fileFileListBrowser->setText(tr("Open filelist..."));
 
@@ -874,6 +882,19 @@ void MainWindow::startSocket(){
 
 void MainWindow::showShareBrowser(dcpp::UserPtr usr, QString file, QString jump_to){
     ShareBrowser *sb = new ShareBrowser(usr, file, jump_to);
+}
+
+void MainWindow::slotFileOpenLogFile(){
+    QString f = QFileDialog::getOpenFileName(this, tr("Open log file"),_q(SETTING(LOG_DIRECTORY)), tr("Log files (*.log);;All files (*.*)"));
+
+    if (!f.isEmpty()){
+        if (f.startsWith("/"))
+            f = "file://" + f;
+        else
+            f = "file:///" + f;
+
+        QDesktopServices::openUrl(f);
+    }
 }
 
 void MainWindow::slotFileBrowseOwnFilelist(){

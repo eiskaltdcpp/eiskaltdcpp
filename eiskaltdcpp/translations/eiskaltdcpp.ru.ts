@@ -879,69 +879,69 @@ Favorite user</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../MainWindow.cpp" line="262"/>
+        <location filename="../MainWindow.cpp" line="263"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="267"/>
+        <location filename="../MainWindow.cpp" line="268"/>
         <source>Ctrl+L</source>
         <translation>Ctrl+L</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="272"/>
+        <location filename="../MainWindow.cpp" line="273"/>
         <source>Shift+L</source>
         <translation>Shift+L</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="277"/>
+        <location filename="../MainWindow.cpp" line="282"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="290"/>
+        <location filename="../MainWindow.cpp" line="295"/>
         <source>Ctrl+H</source>
         <translation>Ctrl+H</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="295"/>
+        <location filename="../MainWindow.cpp" line="300"/>
         <source>Ctrl+T</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="302"/>
+        <location filename="../MainWindow.cpp" line="307"/>
         <source>Ctrl+D</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="335"/>
+        <location filename="../MainWindow.cpp" line="340"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="339"/>
+        <location filename="../MainWindow.cpp" line="344"/>
         <source>Hide window</source>
         <translation>Свернуть окно в трей</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="340"/>
+        <location filename="../MainWindow.cpp" line="345"/>
         <source>Esc</source>
         <translation>Esc</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="343"/>
-        <location filename="../MainWindow.cpp" line="1037"/>
+        <location filename="../MainWindow.cpp" line="349"/>
+        <location filename="../MainWindow.cpp" line="1060"/>
         <source>Hide free space bar</source>
         <translation>Скрыть индикатор свободного места</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="345"/>
-        <location filename="../MainWindow.cpp" line="1033"/>
+        <location filename="../MainWindow.cpp" line="351"/>
+        <location filename="../MainWindow.cpp" line="1056"/>
         <source>Show free space bar</source>
         <translation>Показать индикатор свободного места</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="349"/>
+        <location filename="../MainWindow.cpp" line="356"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
@@ -950,120 +950,131 @@ Favorite user</source>
         <translation type="obsolete">Загружено/Отдано :: Скорость загрузки/Скорость отдачи (в сек.) :: Счётчик</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="490"/>
+        <location filename="../MainWindow.cpp" line="498"/>
         <source>Space free</source>
         <translation>Свободно места на диске</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="504"/>
+        <location filename="../MainWindow.cpp" line="512"/>
         <source>&amp;File</source>
         <translation>&amp;Файл</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="506"/>
+        <location filename="../MainWindow.cpp" line="514"/>
         <source>Options</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="508"/>
+        <location filename="../MainWindow.cpp" line="516"/>
+        <location filename="../MainWindow.cpp" line="888"/>
+        <source>Open log file</source>
+        <translation>Открыть лог-файл</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="518"/>
         <source>Open filelist...</source>
         <translation>Открыть список файлов...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="510"/>
+        <location filename="../MainWindow.cpp" line="520"/>
         <source>Open own filelist</source>
         <translation>Cвой список файлов</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="514"/>
+        <location filename="../MainWindow.cpp" line="524"/>
         <source>Hash progress</source>
         <translation>Прогресс хэширования</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="526"/>
+        <location filename="../MainWindow.cpp" line="536"/>
         <source>Search Spy</source>
         <translation>Поисковой шпион</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="536"/>
+        <location filename="../MainWindow.cpp" line="546"/>
         <source>Search</source>
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="538"/>
+        <location filename="../MainWindow.cpp" line="548"/>
         <source>Quick connect</source>
         <translation>Быстрое подключение</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="540"/>
+        <location filename="../MainWindow.cpp" line="550"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="542"/>
+        <location filename="../MainWindow.cpp" line="552"/>
         <source>Clear chat</source>
         <translation>Очистить чат</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="546"/>
+        <location filename="../MainWindow.cpp" line="556"/>
         <source>&amp;Widgets</source>
         <translation>&amp;Виджеты</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="548"/>
+        <location filename="../MainWindow.cpp" line="558"/>
         <source>&amp;Help</source>
         <translation>&amp;Справка</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="555"/>
+        <location filename="../MainWindow.cpp" line="565"/>
         <source>Main layout</source>
         <translation>Главный фрейм</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="629"/>
+        <location filename="../MainWindow.cpp" line="639"/>
         <source>Free %1 of %2</source>
         <translation>Свободно %1 из %2</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="888"/>
+        <source>Log files (*.log);;All files (*.*)</source>
+        <translation></translation>
     </message>
     <message>
         <source>%1/%2 :: %4/%5 :: %3</source>
         <translation type="obsolete">%1/%2 :: %4/%5 :: %3</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="704"/>
+        <location filename="../MainWindow.cpp" line="714"/>
         <source>Choose file to open</source>
         <translation>Выбор файла для открывания</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="705"/>
+        <location filename="../MainWindow.cpp" line="715"/>
         <source>Modern XML Filelists</source>
         <translation>Современные XML-списки пользователей</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="706"/>
+        <location filename="../MainWindow.cpp" line="716"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Современные несжатые XML-списки пользователей</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="707"/>
+        <location filename="../MainWindow.cpp" line="717"/>
         <source>All files</source>
         <translation>Все файлы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="712"/>
+        <location filename="../MainWindow.cpp" line="722"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation>Не удалось загрузить список файлов: Недопустимое имя файла</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="857"/>
-        <location filename="../MainWindow.cpp" line="864"/>
+        <location filename="../MainWindow.cpp" line="867"/>
+        <location filename="../MainWindow.cpp" line="874"/>
         <source>Cannot listen socket because: 
 </source>
         <translation>Невозможно использовать сокет. Причины: 
 </translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="857"/>
-        <location filename="../MainWindow.cpp" line="864"/>
+        <location filename="../MainWindow.cpp" line="867"/>
+        <location filename="../MainWindow.cpp" line="874"/>
         <source>
 
 Please check your connection settings</source>
@@ -1072,62 +1083,62 @@ Please check your connection settings</source>
 Пожалуйта, проверьте настройки подключения</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="859"/>
+        <location filename="../MainWindow.cpp" line="869"/>
         <source>Connection Manager: Warning</source>
         <translation>Менеджер подключений: предупреждение</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="866"/>
+        <location filename="../MainWindow.cpp" line="876"/>
         <source>Search Manager: Warning</source>
         <translation>Менджер поиска: предупреждение</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="518"/>
+        <location filename="../MainWindow.cpp" line="528"/>
         <source>Transfers</source>
         <translation>Список передач</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="465"/>
+        <location filename="../MainWindow.cpp" line="473"/>
         <source>Counts</source>
         <translation>Счётчик</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="471"/>
+        <location filename="../MainWindow.cpp" line="479"/>
         <source>Download speed/Upload speed (per sec.)</source>
         <translation>Скорость загрузки/Скорость отдачи (в сек.)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="477"/>
+        <location filename="../MainWindow.cpp" line="485"/>
         <source>Downloaded/Uploaded</source>
         <translation>Загружено/Отдано</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="516"/>
+        <location filename="../MainWindow.cpp" line="526"/>
         <source>Reconnect to hub</source>
         <translation>Переподключиться к хабу</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="520"/>
+        <location filename="../MainWindow.cpp" line="530"/>
         <source>Download queue</source>
         <translation>Очередь загрузок</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="532"/>
+        <location filename="../MainWindow.cpp" line="542"/>
         <source>Favourite hubs</source>
         <translation>Избранные хабы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="534"/>
+        <location filename="../MainWindow.cpp" line="544"/>
         <source>Favourite users</source>
         <translation>Избранные пользователи</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="550"/>
+        <location filename="../MainWindow.cpp" line="560"/>
         <source>About EiskaltDC++</source>
         <translation>Об EiskaltDC++</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="552"/>
+        <location filename="../MainWindow.cpp" line="562"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
@@ -1136,7 +1147,7 @@ Please check your connection settings</source>
         <translation type="obsolete">/c</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="63"/>
+        <location filename="../MainWindow.cpp" line="64"/>
         <source>Ready</source>
         <translation>Готов</translation>
     </message>
@@ -1145,27 +1156,27 @@ Please check your connection settings</source>
         <translation type="obsolete">%1 : %2 | %4 : %5 | %3</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="522"/>
+        <location filename="../MainWindow.cpp" line="532"/>
         <source>Finished downloads</source>
         <translation>Список загруженного</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="512"/>
+        <location filename="../MainWindow.cpp" line="522"/>
         <source>Refresh share</source>
         <translation>Обновить шару</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="524"/>
+        <location filename="../MainWindow.cpp" line="534"/>
         <source>Finished uploads</source>
         <translation>Список отданного</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="528"/>
+        <location filename="../MainWindow.cpp" line="538"/>
         <source>AntiSpam module</source>
         <translation>Модуль антиспама</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="530"/>
+        <location filename="../MainWindow.cpp" line="540"/>
         <source>IPFilter module</source>
         <translation>IP-фильтр</translation>
     </message>
@@ -4055,17 +4066,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../WulforUtil.cpp" line="486"/>
+        <location filename="../WulforUtil.cpp" line="489"/>
         <source>System default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="557"/>
+        <location filename="../WulforUtil.cpp" line="560"/>
         <source>Enter parameter value</source>
         <translation>Укажите значение параметра</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="651"/>
+        <location filename="../WulforUtil.cpp" line="654"/>
         <source>Offline</source>
         <translation>Не в сети</translation>
     </message>

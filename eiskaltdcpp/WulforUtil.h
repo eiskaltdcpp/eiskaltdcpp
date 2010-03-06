@@ -64,6 +64,7 @@ public:
         eiICON_APPL,
         eiMESSAGE,
         eiMESSAGE_TRAY_ICON,
+        eiOPEN_LOG_FILE,
         eiOWN_FILELIST,
         eiRECONNECT,
         eiRELOAD,
