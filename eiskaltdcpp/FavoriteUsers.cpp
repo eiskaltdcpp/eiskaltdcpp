@@ -27,10 +27,12 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView->installEventFilter(this);
     treeView->setModel(model);
+    treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_FAVUSERS_STATE).toAscii()));
     treeView->setSortingEnabled(true);
 
     connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
+    connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
 
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
     VarMap params;
@@ -197,6 +199,35 @@ void FavoriteUsers::slotContextMenu(){
         foreach(FavoriteUserItem *i, items)
             handleDesc(i->cid);
     }
+}
+
+void FavoriteUsers::slotHeaderMenu(){
+    QMenu * mcols = new QMenu(this);
+    QAction * column;
+    int index;
+
+    for (int i = 0; i < model->columnCount(); ++i) {
+        index = treeView->header()->logicalIndex(i);
+        column = mcols->addAction(model->headerData(index, Qt::Horizontal).toString());
+        column->setCheckable(true);
+
+        column->setChecked(!treeView->header()->isSectionHidden(index));
+        column->setData(index);
+    }
+
+    QAction * chosen = mcols->exec(QCursor::pos());
+
+    if (chosen) {
+        index = chosen->data().toInt();
+
+        if (treeView->header()->isSectionHidden(index)) {
+            treeView->header()->showSection(index);
+        } else {
+            treeView->header()->hideSection(index);
+        }
+    }
+
+    delete mcols;
 }
 
 void FavoriteUsers::on(UserAdded, const FavoriteUser& aUser) throw() {

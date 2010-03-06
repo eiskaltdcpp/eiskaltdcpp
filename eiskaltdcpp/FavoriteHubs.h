@@ -58,6 +58,7 @@ protected:
 private slots:
     void slotContexMenu(const QPoint&);
     void slotClicked(const QModelIndex&);
+    void slotHeaderMenu();
 
 private:
     FavoriteHubs(QWidget* = NULL);

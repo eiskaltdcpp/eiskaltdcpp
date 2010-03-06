@@ -52,6 +52,7 @@ public slots:
     virtual void slotTypeChanged(int) = 0;
     virtual void slotClear() = 0;
     virtual void slotContextMenu() = 0;
+    virtual void slotHeaderMenu() = 0;
 };
 
 template <bool isUpload>
@@ -130,10 +131,12 @@ private:
         setUnload(false);
 
         treeView->setContextMenuPolicy(Qt::CustomContextMenu);
+        treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
         QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
         QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
         QObject::connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
+        QObject::connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
 
         slotTypeChanged(0);
     }
@@ -292,6 +295,35 @@ private:
             }
         }
 
+    }
+
+    void slotHeaderMenu(){
+        QMenu * mcols = new QMenu(this);
+        QAction * column;
+        int index;
+
+        for (int i = 0; i < model->columnCount(); ++i) {
+            index = treeView->header()->logicalIndex(i);
+            column = mcols->addAction(model->headerData(index, Qt::Horizontal).toString());
+            column->setCheckable(true);
+
+            column->setChecked(!treeView->header()->isSectionHidden(index));
+            column->setData(index);
+        }
+
+        QAction * chosen = mcols->exec(QCursor::pos());
+
+        if (chosen) {
+            index = chosen->data().toInt();
+
+            if (treeView->header()->isSectionHidden(index)) {
+                treeView->header()->showSection(index);
+            } else {
+                treeView->header()->hideSection(index);
+            }
+        }
+
+        delete mcols;
     }
 
     void on(FinishedManagerListener::AddedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) throw(){

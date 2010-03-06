@@ -145,6 +145,7 @@ void ShareBrowser::init(){
 
     treeView_RPANE->setModel(list_model);
     treeView_RPANE->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeView_RPANE->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
     label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(_q(Util::formatBytes(share_size))).arg(itemsCount));
 
@@ -161,7 +162,7 @@ void ShareBrowser::init(){
     connect(treeView_RPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
     connect(treeView_RPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
-    //connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotLeftPaneClicked(QModelIndex)));
+    connect(treeView_RPANE->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
 
     setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -530,4 +531,33 @@ void ShareBrowser::slotLoaderFinish(){
     MainWindow::getInstance()->mapWidgetOnArena(this);
     MainWindow::getInstance()->addArenaWidgetOnToolbar(this);
 
+}
+
+void ShareBrowser::slotHeaderMenu(){
+    QMenu * mcols = new QMenu(this);
+    QAction * column;
+    int index;
+
+    for (int i = 0; i < list_model->columnCount(); ++i) {
+        index = treeView_RPANE->header()->logicalIndex(i);
+        column = mcols->addAction(list_model->headerData(index, Qt::Horizontal).toString());
+        column->setCheckable(true);
+
+        column->setChecked(!treeView_RPANE->header()->isSectionHidden(index));
+        column->setData(index);
+    }
+
+    QAction * chosen = mcols->exec(QCursor::pos());
+
+    if (chosen) {
+        index = chosen->data().toInt();
+
+        if (treeView_RPANE->header()->isSectionHidden(index)) {
+            treeView_RPANE->header()->showSection(index);
+        } else {
+            treeView_RPANE->header()->hideSection(index);
+        }
+    }
+
+    delete mcols;
 }

@@ -70,6 +70,7 @@ protected:
 
 private slots:
     void slotContextMenu();
+    void slotHeaderMenu();
 
 private:
     FavoriteUsers(QWidget *parent = NULL);
