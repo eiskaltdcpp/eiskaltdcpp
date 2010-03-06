@@ -17,6 +17,9 @@ private:
 
 public slots:
     void ok();
+
+private slots:
+    void slotBrowse();
 };
 
 #endif // SETTINGSLOG_H

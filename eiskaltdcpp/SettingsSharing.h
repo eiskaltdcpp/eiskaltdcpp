@@ -41,6 +41,7 @@ private slots:
     void slotRecreateShare();
     void slotShareHidden(bool);
     void slotGetName(QModelIndex);
+    void slotHeaderMenu();
 
 private:
     void init();

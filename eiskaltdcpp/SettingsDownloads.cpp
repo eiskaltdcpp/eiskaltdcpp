@@ -1,4 +1,5 @@
 #include "SettingsDownloads.h"
+#include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -80,6 +81,9 @@ void SettingsDownloads::init(){
 
         spinBox_MAXDL->setValue(SETTING(DOWNLOAD_SLOTS));
         spinBox_NONEWDL->setValue(SETTING(MAX_DOWNLOAD_SPEED));
+
+        pushButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
+        pushButton_BROWSE1->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
         connect(pushButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
         connect(pushButton_BROWSE1, SIGNAL(clicked()), SLOT(slotBrowse()));

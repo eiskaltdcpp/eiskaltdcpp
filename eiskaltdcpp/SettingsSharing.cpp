@@ -1,6 +1,7 @@
 #include "SettingsSharing.h"
 #include "HashProgress.h"
 #include "WulforUtil.h"
+#include "WulforSettings.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -38,6 +39,8 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::MIN_UPLOAD_SPEED, spinBox_EXTRA->value());
     SM->set(SettingsManager::SLOTS, spinBox_UPLOAD->value());
 
+    WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
+
     SM->save();
 }
 
@@ -56,13 +59,18 @@ void SettingsSharing::init(){
 
     toolButton_RECREATE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiRELOAD));
 
+    treeView->setSortingEnabled(true);
+    treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView->header()->hideSection(1);
     treeView->header()->hideSection(2);
+
+    treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toAscii()));
 
     connect(toolButton_RECREATE, SIGNAL(clicked()), this, SLOT(slotRecreateShare()));
     connect(model, SIGNAL(getName(QModelIndex)), this, SLOT(slotGetName(QModelIndex)));
     connect(model, SIGNAL(expandMe(QModelIndex)), treeView, SLOT(expand(QModelIndex)));
     connect(checkBox_SHAREHIDDEN, SIGNAL(clicked(bool)), this, SLOT(slotShareHidden(bool)));
+    connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
 }
 
 void SettingsSharing::updateShareView(){
@@ -102,6 +110,35 @@ void SettingsSharing::slotGetName(QModelIndex index){
         return;
 
     model->setAlias(index, dir_alias);
+}
+
+void SettingsSharing::slotHeaderMenu(){
+    QMenu * mcols = new QMenu(this);
+    QAction * column;
+    int index;
+
+    for (int i = 0; i < model->columnCount(); ++i) {
+        index = treeView->header()->logicalIndex(i);
+        column = mcols->addAction(model->headerData(index, Qt::Horizontal).toString());
+        column->setCheckable(true);
+
+        column->setChecked(!treeView->header()->isSectionHidden(index));
+        column->setData(index);
+    }
+
+    QAction * chosen = mcols->exec(QCursor::pos());
+
+    if (chosen) {
+        index = chosen->data().toInt();
+
+        if (treeView->header()->isSectionHidden(index)) {
+            treeView->header()->showSection(index);
+        } else {
+            treeView->header()->hideSection(index);
+        }
+    }
+
+    delete mcols;
 }
 
 ShareDirModel::ShareDirModel(QObject *parent){

@@ -4,6 +4,7 @@
 #include "dcpp/SettingsManager.h"
 
 #include <QDir>
+#include <QFileDialog>
 
 using namespace dcpp;
 
@@ -33,6 +34,10 @@ void SettingsLog::init(){
     checkBox_FILELIST->setChecked(BOOLSETTING(LOG_SYSTEM));
     checkBox_STAT->setChecked(BOOLSETTING(LOG_STATUS_MESSAGES));
     checkBox_SYSTEM->setChecked(BOOLSETTING(LOG_SYSTEM));
+
+    toolButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
+
+    connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
 }
 
 void SettingsLog::ok(){
@@ -56,4 +61,15 @@ void SettingsLog::ok(){
     sm->set(SettingsManager::LOG_FILELIST_TRANSFERS, checkBox_FILELIST->isChecked());
 
     sm->save();
+}
+
+void SettingsLog::slotBrowse(){
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Choose the directory"), lineEdit_LOGDIR->text());
+
+    if (!dir.isEmpty()){
+        if (!dir.endsWith(QDir::separator()))
+            dir += QDir::separator();
+
+        lineEdit_LOGDIR->setText(dir);
+    }
 }
