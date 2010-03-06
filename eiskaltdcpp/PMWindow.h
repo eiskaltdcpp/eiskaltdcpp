@@ -54,8 +54,6 @@ private:
     QString cid;
     QString hubUrl;
     QMenu *arena_menu;
-
-    QString last_hyperlink;
 };
 
 #endif // PMWindow_H

@@ -34,6 +34,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
 
     plainTextEdit_INPUT->installEventFilter(this);
     textEdit_CHAT->viewport()->installEventFilter(this);
+    textEdit_CHAT->viewport()->setMouseTracking(true);
 
     arena_menu = new QMenu(tr("Private message"));
     QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
@@ -85,10 +86,8 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
     else if (e->type() == QEvent::MouseMove && (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport())){
         QString str = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
 
-        if (!str.isEmpty()){
+        if (!str.isEmpty())
             textEdit_CHAT->viewport()->setCursor(Qt::PointingHandCursor);
-            last_hyperlink = str;
-        }
         else
             textEdit_CHAT->viewport()->setCursor(Qt::IBeamCursor);
     }

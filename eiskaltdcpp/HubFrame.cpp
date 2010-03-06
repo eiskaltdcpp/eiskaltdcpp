@@ -1312,7 +1312,7 @@ void HubFrame::newPm(VarMap map){
     message = LinkParser::parseForLinks(message);
 
     message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
-    full_message  = time + "<font color=\"" + WSGET(color) + "\"><b>" + nick + "</b> </font>";
+    full_message  = time + QString("<a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
     full_message += message;
 
     WulforUtil::getInstance()->textToHtml(full_message, false);
@@ -1707,10 +1707,10 @@ void HubFrame::slotChatMenu(const QPoint &){
     switch (action){
         case Menu::CopyText:
         {
-            QString ret = textEdit_CHAT->textCursor().selectedText();
+            QString ret = editor->textCursor().selectedText();
 
             if (ret.isEmpty())
-                ret = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(p));
+                ret = editor->anchorAt(textEdit_CHAT->mapFromGlobal(p));
 
             if (ret.startsWith("user://")){
                 ret.remove(0, 7);
