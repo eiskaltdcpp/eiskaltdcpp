@@ -615,12 +615,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         }
     }
     else if (e->type() == QEvent::MouseMove && (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport())){
-        QString str = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
-
-        if (!str.isEmpty()){
+        if (!textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).isEmpty())
             textEdit_CHAT->viewport()->setCursor(Qt::PointingHandCursor);
-            last_hyperlink = str;
-        }
         else
             textEdit_CHAT->viewport()->setCursor(Qt::IBeamCursor);
     }
@@ -1286,7 +1282,7 @@ void HubFrame::newMsg(VarMap map){
     message = LinkParser::parseForLinks(message);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
-    output  = time + "<font color=\"" + WSGET(color) + "\"><b>" + nick + "</b> </font>";
+    output  = time + QString("<a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
     output  += message;
 
     //WulforUtil::getInstance()->textToHtml(output, false);
@@ -1705,6 +1701,7 @@ void HubFrame::slotChatMenu(const QPoint &){
         return;
     }
 
+    QPoint p = QCursor::pos();
     Menu::Action action = Menu::getInstance()->execChatMenu(client, cid);
 
     switch (action){
@@ -1712,12 +1709,21 @@ void HubFrame::slotChatMenu(const QPoint &){
         {
             QString ret = textEdit_CHAT->textCursor().selectedText();
 
-            if (!ret.isEmpty())
-                QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
-            else if (!last_hyperlink.isEmpty()){
-                QApplication::clipboard()->setText(last_hyperlink, QClipboard::Clipboard);
-                last_hyperlink.clear();
+            if (ret.isEmpty())
+                ret = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(p));
+
+            if (ret.startsWith("user://")){
+                ret.remove(0, 7);
+
+                ret = ret.trimmed();
+
+                if (ret.startsWith("<") && ret.endsWith(">")){
+                    ret.remove(0, 1);//remove <
+                    ret = ret.left(ret.lastIndexOf(">"));//remove >
+                }
             }
+
+            QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
 
             break;
         }

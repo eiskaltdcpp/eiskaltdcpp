@@ -106,7 +106,7 @@ void SettingsSharing::slotGetName(QModelIndex index){
 
 ShareDirModel::ShareDirModel(QObject *parent){
     QDirModel::setParent(parent);
-    QDirModel::setFilter((QDir::AllDirs | QDir::NoDotAndDotDot) & ~QDir::System);
+    QDirModel::setFilter((QDir::AllDirs | QDir::NoDotAndDotDot));
 
     StringPairList directories = ShareManager::getInstance()->getDirectories();
     for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){

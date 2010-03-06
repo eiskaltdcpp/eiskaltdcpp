@@ -124,14 +124,14 @@ struct Compare {
         }
         template <int i>
         bool static AttrCmp(const FileBrowserItem * l, const FileBrowserItem * r) {
-            if (!(l->dir && r->dir)){
+            if ((l->dir && !r->dir) || (!l->dir && r->dir)){
                 return (l->dir != NULL);
             }
             return Cmp(QString::localeAwareCompare(l->data(i).toString(), r->data(i).toString()), 0);
         }
         template <int column>
         bool static NumCmp(const FileBrowserItem * l, const FileBrowserItem * r) {
-            if (!(l->dir && r->dir)){
+            if ((l->dir && !r->dir) || (!l->dir && r->dir)){
                 return (l->dir != NULL);
             }
             return Cmp(l->data(column).toULongLong(), r->data(column).toULongLong());
@@ -211,6 +211,19 @@ int FileBrowserModel::rowCount(const QModelIndex &parent) const
     return parentItem->childCount();
 }
 
+static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i){
+    if (column == -1 || !i || i->childCount() == 0)
+        return;
+
+    if (order == Qt::AscendingOrder)
+        Compare<Qt::AscendingOrder>().sort(column, i->childItems);
+    else if (order == Qt::DescendingOrder)
+        Compare<Qt::DescendingOrder>().sort(column, i->childItems);
+
+    foreach(FileBrowserItem *ii, i->childItems)
+        sortRecursive(column, order, ii);
+}
+
 void FileBrowserModel::sort(int column, Qt::SortOrder order) {
     sortColumn = column;
     sortOrder = order;
@@ -223,10 +236,7 @@ void FileBrowserModel::sort(int column, Qt::SortOrder order) {
 
     emit layoutAboutToBeChanged();
 
-    if (order == Qt::AscendingOrder)
-        Compare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
-    else if (order == Qt::DescendingOrder)
-        Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
+    sortRecursive(column, order, rootItem);
 
     emit layoutChanged();
 }

@@ -188,14 +188,14 @@ struct Compare {
         }
         template <int i>
         bool static AttrCmp(const DownloadQueueItem * l, const DownloadQueueItem * r) {
-            if (!(l->dir && r->dir)){
+            if (l->dir != r->dir){
                 return (l->dir);
             }
             return Cmp(QString::localeAwareCompare(l->data(i).toString(), r->data(i).toString()), 0);
         }
         template <int column>
         bool static NumCmp(const DownloadQueueItem * l, const DownloadQueueItem * r) {
-            if (!(l->dir && r->dir)){
+            if (l->dir != r->dir){
                 return (l->dir);
             }
             return Cmp(l->data(column).toULongLong(), r->data(column).toULongLong());

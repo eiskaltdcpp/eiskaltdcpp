@@ -269,8 +269,6 @@ private:
     quint64 total_shared;
     QString hub_title;
 
-    QString last_hyperlink;
-
     bool chatDisabled;
     bool hasMessages;
 
