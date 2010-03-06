@@ -144,78 +144,78 @@
     <name>DownloadQueueModel</name>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="53"/>
-        <location filename="../DownloadQueueModel.cpp" line="222"/>
+        <location filename="../DownloadQueueModel.cpp" line="246"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="53"/>
-        <location filename="../DownloadQueueModel.cpp" line="222"/>
+        <location filename="../DownloadQueueModel.cpp" line="246"/>
         <source>Status</source>
         <translation>Статус</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="53"/>
-        <location filename="../DownloadQueueModel.cpp" line="222"/>
+        <location filename="../DownloadQueueModel.cpp" line="246"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="53"/>
-        <location filename="../DownloadQueueModel.cpp" line="222"/>
+        <location filename="../DownloadQueueModel.cpp" line="246"/>
         <source>Downloaded</source>
         <translation>Загружено</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="54"/>
-        <location filename="../DownloadQueueModel.cpp" line="223"/>
+        <location filename="../DownloadQueueModel.cpp" line="247"/>
         <source>Priority</source>
         <translation>Приоритет</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="54"/>
-        <location filename="../DownloadQueueModel.cpp" line="223"/>
+        <location filename="../DownloadQueueModel.cpp" line="247"/>
         <source>User</source>
         <translation>Пользователь</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="54"/>
-        <location filename="../DownloadQueueModel.cpp" line="223"/>
+        <location filename="../DownloadQueueModel.cpp" line="247"/>
         <source>Path</source>
         <translation>Путь</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="54"/>
-        <location filename="../DownloadQueueModel.cpp" line="223"/>
+        <location filename="../DownloadQueueModel.cpp" line="247"/>
         <source>Exact size</source>
         <translation>Точный размер</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="55"/>
-        <location filename="../DownloadQueueModel.cpp" line="224"/>
+        <location filename="../DownloadQueueModel.cpp" line="248"/>
         <source>Errors</source>
         <translation>Ошибки</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="55"/>
-        <location filename="../DownloadQueueModel.cpp" line="224"/>
+        <location filename="../DownloadQueueModel.cpp" line="248"/>
         <source>Added</source>
         <translation>Добавлено</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="55"/>
-        <location filename="../DownloadQueueModel.cpp" line="224"/>
+        <location filename="../DownloadQueueModel.cpp" line="248"/>
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="115"/>
-        <location filename="../DownloadQueueModel.cpp" line="132"/>
+        <location filename="../DownloadQueueModel.cpp" line="139"/>
+        <location filename="../DownloadQueueModel.cpp" line="156"/>
         <source>No errors</source>
         <translation>Ошибок нет</translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="134"/>
+        <location filename="../DownloadQueueModel.cpp" line="158"/>
         <source>&lt;b&gt;Added: &lt;/b&gt; %1
 &lt;b&gt;Path: &lt;/b&gt; %2
 &lt;b&gt;Errors: &lt;/b&gt; %3
@@ -226,49 +226,40 @@
 </translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="334"/>
         <source>Unknown</source>
-        <translation>Неизвестно</translation>
+        <translation type="obsolete">Неизвестно</translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="335"/>
-        <location filename="../DownloadQueueModel.cpp" line="414"/>
         <source>0 B (0.00%)</source>
-        <translation>0 Б (0.00%)</translation>
+        <translation type="obsolete">0 Б (0.00%)</translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="342"/>
-        <location filename="../DownloadQueueModel.cpp" line="419"/>
+        <location filename="../DownloadQueueModel.cpp" line="103"/>
         <source>Paused</source>
         <translation>Приостановленно</translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="345"/>
-        <location filename="../DownloadQueueModel.cpp" line="422"/>
+        <location filename="../DownloadQueueModel.cpp" line="106"/>
         <source>Lowest</source>
         <translation>Минимальный</translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="348"/>
-        <location filename="../DownloadQueueModel.cpp" line="425"/>
+        <location filename="../DownloadQueueModel.cpp" line="109"/>
         <source>Low</source>
         <translation>Низкий</translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="351"/>
-        <location filename="../DownloadQueueModel.cpp" line="428"/>
+        <location filename="../DownloadQueueModel.cpp" line="112"/>
         <source>High</source>
         <translation>Высокий</translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="354"/>
-        <location filename="../DownloadQueueModel.cpp" line="431"/>
+        <location filename="../DownloadQueueModel.cpp" line="115"/>
         <source>Highest</source>
         <translation>Максимальный</translation>
     </message>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="357"/>
-        <location filename="../DownloadQueueModel.cpp" line="434"/>
+        <location filename="../DownloadQueueModel.cpp" line="118"/>
         <source>Normal</source>
         <translation>Нормальный</translation>
     </message>
@@ -329,30 +320,30 @@
         <translation>Избранные хабы</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="118"/>
-        <location filename="../FavoriteHubs.cpp" line="145"/>
-        <location filename="../FavoriteHubs.cpp" line="211"/>
+        <location filename="../FavoriteHubs.cpp" line="120"/>
+        <location filename="../FavoriteHubs.cpp" line="147"/>
+        <location filename="../FavoriteHubs.cpp" line="213"/>
         <source>System default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="265"/>
-        <location filename="../FavoriteHubs.cpp" line="295"/>
+        <location filename="../FavoriteHubs.cpp" line="267"/>
+        <location filename="../FavoriteHubs.cpp" line="297"/>
         <source>Add new</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="296"/>
+        <location filename="../FavoriteHubs.cpp" line="298"/>
         <source>Change</source>
         <translation>Изменить</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="297"/>
+        <location filename="../FavoriteHubs.cpp" line="299"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="298"/>
+        <location filename="../FavoriteHubs.cpp" line="300"/>
         <source>Connect</source>
         <translation>Подключиться</translation>
     </message>
@@ -360,19 +351,19 @@
 <context>
     <name>FavoriteUsers</name>
     <message>
-        <location filename="../FavoriteUsers.cpp" line="122"/>
-        <location filename="../FavoriteUsers.cpp" line="218"/>
+        <location filename="../FavoriteUsers.cpp" line="124"/>
+        <location filename="../FavoriteUsers.cpp" line="249"/>
         <source>Online</source>
         <translation>В сети</translation>
     </message>
     <message>
-        <location filename="../FavoriteUsers.cpp" line="157"/>
-        <location filename="../FavoriteUsers.cpp" line="182"/>
+        <location filename="../FavoriteUsers.cpp" line="159"/>
+        <location filename="../FavoriteUsers.cpp" line="184"/>
         <source>Description</source>
         <translation>Описание</translation>
     </message>
     <message>
-        <location filename="../FavoriteUsers.cpp" line="179"/>
+        <location filename="../FavoriteUsers.cpp" line="181"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
@@ -448,12 +439,12 @@
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../FinishedTransfers.h" line="262"/>
+        <location filename="../FinishedTransfers.h" line="265"/>
         <source>Open file</source>
         <translation>Открыть файл</translation>
     </message>
     <message>
-        <location filename="../FinishedTransfers.h" line="263"/>
+        <location filename="../FinishedTransfers.h" line="266"/>
         <source>Open directory</source>
         <translation>Открыть каталог</translation>
     </message>
@@ -500,71 +491,71 @@
 <context>
     <name>HubFrame</name>
     <message>
-        <location filename="../HubFrame.cpp" line="778"/>
+        <location filename="../HubFrame.cpp" line="773"/>
         <source>Hub menu</source>
         <translation>Меню хаба</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="780"/>
+        <location filename="../HubFrame.cpp" line="775"/>
         <source>Reconnect</source>
         <translation>Переподключиться</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="781"/>
+        <location filename="../HubFrame.cpp" line="776"/>
         <source>Show window</source>
         <translation>Показать окно</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="784"/>
+        <location filename="../HubFrame.cpp" line="779"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="830"/>
-        <location filename="../HubFrame.cpp" line="848"/>
+        <location filename="../HubFrame.cpp" line="825"/>
+        <location filename="../HubFrame.cpp" line="843"/>
         <source>Not connected</source>
         <translation>Не подключено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="934"/>
-        <location filename="../HubFrame.cpp" line="950"/>
+        <location filename="../HubFrame.cpp" line="929"/>
+        <location filename="../HubFrame.cpp" line="945"/>
         <source>Away mode off</source>
         <translation>Режим отсутствия отключен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="944"/>
+        <location filename="../HubFrame.cpp" line="939"/>
         <source>Away mode on: </source>
         <translation>Режим отсутствия включен: </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="955"/>
+        <location filename="../HubFrame.cpp" line="950"/>
         <source>Chat has been cleared</source>
         <translation>Чат очищен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="884"/>
+        <location filename="../HubFrame.cpp" line="879"/>
         <source>Hub role: Operator</source>
         <translation>Роль на хабе: Оператор</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="67"/>
+        <location filename="../HubFrame.cpp" line="66"/>
         <source>Copy text</source>
         <translation>Копировать</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="886"/>
+        <location filename="../HubFrame.cpp" line="881"/>
         <source>Hub role: User</source>
         <translation>Роль на хабе: Пользователь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="889"/>
+        <location filename="../HubFrame.cpp" line="884"/>
         <source>
 Favorite user</source>
         <translation>
 Избранный пользователь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="991"/>
+        <location filename="../HubFrame.cpp" line="986"/>
         <source>/away - set away-mode on/off
 /back - set away-mode off
 /browse &lt;nick&gt; - browse user files
@@ -591,74 +582,74 @@ Favorite user</source>
 /sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1141"/>
+        <location filename="../HubFrame.cpp" line="1136"/>
         <source> joins the chat</source>
         <translation> входит в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1166"/>
-        <location filename="../HubFrame.cpp" line="1178"/>
+        <location filename="../HubFrame.cpp" line="1161"/>
+        <location filename="../HubFrame.cpp" line="1173"/>
         <source>User not found</source>
         <translation>Пользователь не найден</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1185"/>
+        <location filename="../HubFrame.cpp" line="1180"/>
         <source>Slot granted to </source>
         <translation>Слот отдан </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1196"/>
-        <location filename="../HubFrame.cpp" line="1216"/>
+        <location filename="../HubFrame.cpp" line="1191"/>
+        <location filename="../HubFrame.cpp" line="1211"/>
         <source>User not found.</source>
         <translation>Пользователь не найден.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1205"/>
+        <location filename="../HubFrame.cpp" line="1200"/>
         <source> has been added to favorites.</source>
         <translation> был добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1225"/>
+        <location filename="../HubFrame.cpp" line="1220"/>
         <source> has been removed from favorites.</source>
         <translation> был удалён из избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1356"/>
+        <location filename="../HubFrame.cpp" line="1352"/>
         <source>User offline.</source>
         <translation>Пользователь не в сети.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1391"/>
+        <location filename="../HubFrame.cpp" line="1387"/>
         <source>Enter password</source>
         <translation>Введите пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1391"/>
+        <location filename="../HubFrame.cpp" line="1387"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1487"/>
+        <location filename="../HubFrame.cpp" line="1483"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Пользователей: %1 | Общая шара: %2</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1781"/>
+        <location filename="../HubFrame.h" line="190"/>
         <source>Chat cleared.</source>
         <translation>Чат очищен.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1798"/>
+        <location filename="../HubFrame.h" line="182"/>
         <source>Chat disabled.</source>
-        <translation>Вывод чата отключен.</translation>
+        <translation>Чат отключен.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1800"/>
+        <location filename="../HubFrame.h" line="184"/>
         <source>Chat enabled.</source>
-        <translation>Вывод чата включен.</translation>
+        <translation>Чат включен.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1257"/>
+        <location filename="../HubFrame.cpp" line="1252"/>
         <source>Favorite hub added.</source>
         <translation>Хаб добавлен в избранные.</translation>
     </message>
@@ -687,93 +678,93 @@ Favorite user</source>
 /sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1260"/>
+        <location filename="../HubFrame.cpp" line="1255"/>
         <source>Favorite hub already exists.</source>
         <translation>Хаб уже есть в избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1405"/>
-        <location filename="../HubFrame.cpp" line="2001"/>
+        <location filename="../HubFrame.cpp" line="1401"/>
+        <location filename="../HubFrame.cpp" line="1998"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получен запрос перенаправления к уже подключенному хабу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1388"/>
+        <location filename="../HubFrame.cpp" line="1384"/>
         <source>Stored password sent...</source>
         <translation>Отправлен сохраненный пароль...</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="68"/>
+        <location filename="../HubFrame.cpp" line="67"/>
         <source>Copy nick</source>
         <translation>Копировать ник</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="69"/>
+        <location filename="../HubFrame.cpp" line="68"/>
         <source>Browse files</source>
         <translation>Просмотр списка файлов</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="70"/>
+        <location filename="../HubFrame.cpp" line="69"/>
         <source>Match Queue</source>
         <translation>Согласовать очередь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="71"/>
+        <location filename="../HubFrame.cpp" line="70"/>
         <source>Private Message</source>
         <translation>Личное сообщение</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="72"/>
+        <location filename="../HubFrame.cpp" line="71"/>
         <source>Add to Favorites</source>
         <translation>Добавить в избранные</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="73"/>
+        <location filename="../HubFrame.cpp" line="72"/>
         <source>Remove from Favorites</source>
         <translation>Удалить из избранных</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="74"/>
+        <location filename="../HubFrame.cpp" line="73"/>
         <source>Grant slot</source>
         <translation>Выдать слот</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="75"/>
+        <location filename="../HubFrame.cpp" line="74"/>
         <source>Remove from Queue</source>
         <translation>Удалить из очереди</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="79"/>
+        <location filename="../HubFrame.cpp" line="78"/>
         <source>Clear chat</source>
         <translation>Очистить чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="80"/>
+        <location filename="../HubFrame.cpp" line="79"/>
         <source>Find in chat</source>
         <translation>Найти в чате</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="81"/>
+        <location filename="../HubFrame.cpp" line="80"/>
         <source>Disable/Enable chat</source>
-        <translation>Включить/отключить вывод чата</translation>
+        <translation>Включить/отключить чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="83"/>
+        <location filename="../HubFrame.cpp" line="82"/>
         <source>Select all</source>
         <translation>Выделить всё</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="85"/>
+        <location filename="../HubFrame.cpp" line="84"/>
         <source>Zoom In</source>
         <translation>Увеличить</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="86"/>
+        <location filename="../HubFrame.cpp" line="85"/>
         <source>Zoom Out</source>
         <translation>Уменьшить</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="255"/>
+        <location filename="../HubFrame.cpp" line="254"/>
         <source>User commands</source>
         <translation>Команды пользователя</translation>
     </message>
@@ -860,23 +851,23 @@ Favorite user</source>
 <context>
     <name>Magnet</name>
     <message>
-        <location filename="../Magnet.cpp" line="145"/>
+        <location filename="../Magnet.cpp" line="144"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../Magnet.cpp" line="145"/>
+        <location filename="../Magnet.cpp" line="144"/>
         <source>You have not active connections to hubs</source>
         <translation>Вы не подключены ни к одному хабу</translation>
     </message>
     <message>
-        <location filename="../Magnet.cpp" line="164"/>
+        <location filename="../Magnet.cpp" line="163"/>
         <source>Please, wait...</source>
         <translation>Пожалуйста, подождите...</translation>
     </message>
     <message>
-        <location filename="../Magnet.cpp" line="173"/>
-        <location filename="../Magnet.cpp" line="180"/>
+        <location filename="../Magnet.cpp" line="172"/>
+        <location filename="../Magnet.cpp" line="179"/>
         <source>Search Manager not ready. Please, try again later.</source>
         <translation>Менеджер поиска не готов. Попробуйте позже.</translation>
     </message>
@@ -935,13 +926,13 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="343"/>
-        <location filename="../MainWindow.cpp" line="1002"/>
+        <location filename="../MainWindow.cpp" line="1037"/>
         <source>Hide free space bar</source>
         <translation>Спрятать индикатор свободного места</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="345"/>
-        <location filename="../MainWindow.cpp" line="998"/>
+        <location filename="../MainWindow.cpp" line="1033"/>
         <source>Show free space bar</source>
         <translation>Показать индикатор свободного места</translation>
     </message>
@@ -955,72 +946,77 @@ Favorite user</source>
         <translation type="obsolete">Загружено/Отдано :: Скорость загрузки/Скорость отдачи (в сек.) :: Счётчик</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="478"/>
+        <location filename="../MainWindow.cpp" line="490"/>
         <source>Space free</source>
         <translation>Свободно места на диске</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="492"/>
+        <location filename="../MainWindow.cpp" line="504"/>
         <source>&amp;File</source>
         <translation>&amp;Файл</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="494"/>
+        <location filename="../MainWindow.cpp" line="506"/>
         <source>Options</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="496"/>
+        <location filename="../MainWindow.cpp" line="508"/>
         <source>Open filelist...</source>
         <translation>Открыть список файлов...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="498"/>
+        <location filename="../MainWindow.cpp" line="510"/>
         <source>Open own filelist</source>
         <translation>Cвой список файлов</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="502"/>
+        <location filename="../MainWindow.cpp" line="514"/>
         <source>Hash progress</source>
         <translation>Прогресс хэширования</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="514"/>
+        <location filename="../MainWindow.cpp" line="526"/>
         <source>Search Spy</source>
         <translation>Поисковой шпион</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="524"/>
+        <location filename="../MainWindow.cpp" line="536"/>
         <source>Search</source>
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="526"/>
+        <location filename="../MainWindow.cpp" line="538"/>
         <source>Quick connect</source>
         <translation>Быстрое подключение</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="528"/>
+        <location filename="../MainWindow.cpp" line="540"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="530"/>
+        <location filename="../MainWindow.cpp" line="542"/>
+        <source>Clear chat</source>
+        <translation>Очистить чат</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="546"/>
         <source>&amp;Widgets</source>
         <translation>&amp;Виджеты</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="532"/>
+        <location filename="../MainWindow.cpp" line="548"/>
         <source>&amp;Help</source>
         <translation>&amp;Справка</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="539"/>
+        <location filename="../MainWindow.cpp" line="555"/>
         <source>Main layout</source>
         <translation>Главный фрейм</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="613"/>
+        <location filename="../MainWindow.cpp" line="629"/>
         <source>Free %1 of %2</source>
         <translation>Свободно %1 из %2</translation>
     </message>
@@ -1029,41 +1025,41 @@ Favorite user</source>
         <translation type="obsolete">%1/%2 :: %4/%5 :: %3</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="688"/>
+        <location filename="../MainWindow.cpp" line="704"/>
         <source>Choose file to open</source>
         <translation>Выбор файла для открывания</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="689"/>
+        <location filename="../MainWindow.cpp" line="705"/>
         <source>Modern XML Filelists</source>
         <translation>Современные XML-списки пользователей</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="690"/>
+        <location filename="../MainWindow.cpp" line="706"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Современные несжатые XML-списки пользователей</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="691"/>
+        <location filename="../MainWindow.cpp" line="707"/>
         <source>All files</source>
         <translation>Все файлы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="696"/>
+        <location filename="../MainWindow.cpp" line="712"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation>Не удалось загрузить список файлов: Недопустимое имя файла</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="836"/>
-        <location filename="../MainWindow.cpp" line="843"/>
+        <location filename="../MainWindow.cpp" line="857"/>
+        <location filename="../MainWindow.cpp" line="864"/>
         <source>Cannot listen socket because: 
 </source>
         <translation>Невозможно использовать сокет. Причины: 
 </translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="836"/>
-        <location filename="../MainWindow.cpp" line="843"/>
+        <location filename="../MainWindow.cpp" line="857"/>
+        <location filename="../MainWindow.cpp" line="864"/>
         <source>
 
 Please check your connection settings</source>
@@ -1072,62 +1068,62 @@ Please check your connection settings</source>
 Пожалуйта, проверьте настройки подключения</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="838"/>
+        <location filename="../MainWindow.cpp" line="859"/>
         <source>Connection Manager: Warning</source>
         <translation>Менеджер подключений: предупреждение</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="845"/>
+        <location filename="../MainWindow.cpp" line="866"/>
         <source>Search Manager: Warning</source>
         <translation>Менджер поиска: предупреждение</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="506"/>
+        <location filename="../MainWindow.cpp" line="518"/>
         <source>Transfers</source>
         <translation>Список передач</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="453"/>
+        <location filename="../MainWindow.cpp" line="465"/>
         <source>Counts</source>
         <translation>Счётчик</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="459"/>
+        <location filename="../MainWindow.cpp" line="471"/>
         <source>Download speed/Upload speed (per sec.)</source>
         <translation>Скорость загрузки/Скорость отдачи (в сек.)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="465"/>
+        <location filename="../MainWindow.cpp" line="477"/>
         <source>Downloaded/Uploaded</source>
         <translation>Загружено/Отдано</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="504"/>
+        <location filename="../MainWindow.cpp" line="516"/>
         <source>Reconnect to hub</source>
         <translation>Переподключиться к хабу</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="508"/>
+        <location filename="../MainWindow.cpp" line="520"/>
         <source>Download queue</source>
         <translation>Очередь загрузок</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="520"/>
+        <location filename="../MainWindow.cpp" line="532"/>
         <source>Favourite hubs</source>
         <translation>Избранные хабы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="522"/>
+        <location filename="../MainWindow.cpp" line="534"/>
         <source>Favourite users</source>
         <translation>Избранные пользователи</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="534"/>
+        <location filename="../MainWindow.cpp" line="550"/>
         <source>About EiskaltDC++</source>
         <translation>Об EiskaltDC++</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="536"/>
+        <location filename="../MainWindow.cpp" line="552"/>
         <source>About Qt</source>
         <translation>О Qt</translation>
     </message>
@@ -1145,27 +1141,27 @@ Please check your connection settings</source>
         <translation type="obsolete">%1 : %2 | %4 : %5 | %3</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="510"/>
+        <location filename="../MainWindow.cpp" line="522"/>
         <source>Finished downloads</source>
         <translation>Список загруженного</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="500"/>
+        <location filename="../MainWindow.cpp" line="512"/>
         <source>Refresh share</source>
         <translation>Обновить шару</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="512"/>
+        <location filename="../MainWindow.cpp" line="524"/>
         <source>Finished uploads</source>
         <translation>Список отданного</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="516"/>
+        <location filename="../MainWindow.cpp" line="528"/>
         <source>AntiSpam module</source>
         <translation>Модуль антиспама</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="518"/>
+        <location filename="../MainWindow.cpp" line="530"/>
         <source>IPFilter module</source>
         <translation>IP-фильтр</translation>
     </message>
@@ -1173,22 +1169,22 @@ Please check your connection settings</source>
 <context>
     <name>PMWindow</name>
     <message>
-        <location filename="../PMWindow.cpp" line="38"/>
+        <location filename="../PMWindow.cpp" line="39"/>
         <source>Private message</source>
         <translation>Личное сообщение</translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="39"/>
+        <location filename="../PMWindow.cpp" line="40"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="133"/>
+        <location filename="../PMWindow.cpp" line="132"/>
         <source> on hub </source>
         <translation> на хабе </translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="198"/>
+        <location filename="../PMWindow.cpp" line="197"/>
         <source>User went offline</source>
         <translation>Пользователь покинул хаб</translation>
     </message>
@@ -1196,7 +1192,7 @@ Please check your connection settings</source>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../main.cpp" line="121"/>
+        <location filename="../main.cpp" line="115"/>
         <source>Using:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Key&gt;
@@ -1614,7 +1610,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>SettingsDownloads</name>
     <message>
-        <location filename="../SettingsDownloads.cpp" line="115"/>
+        <location filename="../SettingsDownloads.cpp" line="119"/>
         <source>Select directory</source>
         <translation>Укажите каталог</translation>
     </message>
@@ -1721,8 +1717,8 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>SettingsSharing</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="51"/>
-        <location filename="../SettingsSharing.cpp" line="69"/>
+        <location filename="../SettingsSharing.cpp" line="54"/>
+        <location filename="../SettingsSharing.cpp" line="77"/>
         <source>Total shared: %1</source>
         <translation>Всего расшарено: %1</translation>
     </message>
@@ -1739,12 +1735,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation type="obsolete">Удалить</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="96"/>
+        <location filename="../SettingsSharing.cpp" line="104"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="96"/>
+        <location filename="../SettingsSharing.cpp" line="104"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
@@ -1770,57 +1766,57 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Список файлов:</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="151"/>
+        <location filename="../ShareBrowser.cpp" line="152"/>
         <source>Filebrowser</source>
         <translation>Браузер файлов</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="153"/>
+        <location filename="../ShareBrowser.cpp" line="154"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="263"/>
-        <location filename="../ShareBrowser.cpp" line="271"/>
+        <location filename="../ShareBrowser.cpp" line="264"/>
+        <location filename="../ShareBrowser.cpp" line="272"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="263"/>
-        <location filename="../ShareBrowser.cpp" line="271"/>
+        <location filename="../ShareBrowser.cpp" line="264"/>
+        <location filename="../ShareBrowser.cpp" line="272"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="264"/>
-        <location filename="../ShareBrowser.cpp" line="272"/>
+        <location filename="../ShareBrowser.cpp" line="265"/>
+        <location filename="../ShareBrowser.cpp" line="273"/>
         <source>Exact size</source>
         <translation>Точный размер</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="265"/>
-        <location filename="../ShareBrowser.cpp" line="273"/>
+        <location filename="../ShareBrowser.cpp" line="266"/>
+        <location filename="../ShareBrowser.cpp" line="274"/>
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="149"/>
+        <location filename="../ShareBrowser.cpp" line="150"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Общий размер шары: %1; файлов: %2</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="367"/>
-        <location filename="../ShareBrowser.cpp" line="378"/>
+        <location filename="../ShareBrowser.cpp" line="368"/>
+        <location filename="../ShareBrowser.cpp" line="379"/>
         <source>Total size: %1</source>
         <translation>Общий размер: %1</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="381"/>
+        <location filename="../ShareBrowser.cpp" line="382"/>
         <source>; Selected: %1</source>
         <translation>; Выделено: %1</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="421"/>
+        <location filename="../ShareBrowser.cpp" line="422"/>
         <source>Select directory</source>
         <translation>Укажите каталог</translation>
     </message>
@@ -1848,7 +1844,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="204"/>
+        <location filename="../SettingsSharing.cpp" line="262"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -1905,141 +1901,141 @@ Do you want to stop it?
 <context>
     <name>TransferView</name>
     <message>
-        <location filename="../TransferView.cpp" line="279"/>
+        <location filename="../TransferView.cpp" line="278"/>
         <source>Download complete</source>
         <translation>Загрузка завершена</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="302"/>
-        <location filename="../TransferView.cpp" line="653"/>
+        <location filename="../TransferView.cpp" line="301"/>
+        <location filename="../TransferView.cpp" line="652"/>
         <source>File list</source>
         <translation>Список файлов</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="304"/>
+        <location filename="../TransferView.cpp" line="303"/>
         <source>TTH: </source>
         <translation>TTH: </translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="475"/>
+        <location filename="../TransferView.cpp" line="474"/>
         <source>Requesting</source>
         <translation>Запрос</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="489"/>
+        <location filename="../TransferView.cpp" line="488"/>
         <source>Download starting...</source>
         <translation>Загрузка начата...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="510"/>
-        <location filename="../TransferView.cpp" line="704"/>
+        <location filename="../TransferView.cpp" line="509"/>
+        <location filename="../TransferView.cpp" line="703"/>
         <source>[S]</source>
         <translation>[S]</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="512"/>
-        <location filename="../TransferView.cpp" line="706"/>
+        <location filename="../TransferView.cpp" line="511"/>
+        <location filename="../TransferView.cpp" line="705"/>
         <source>[U]</source>
         <translation>[U]</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="516"/>
+        <location filename="../TransferView.cpp" line="515"/>
         <source>[T]</source>
         <translation>[T]</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="518"/>
-        <location filename="../TransferView.cpp" line="709"/>
+        <location filename="../TransferView.cpp" line="517"/>
+        <location filename="../TransferView.cpp" line="708"/>
         <source>[Z]</source>
         <translation>[Z]</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="520"/>
+        <location filename="../TransferView.cpp" line="519"/>
         <source>Downloaded %1</source>
         <translation>Загружено %1</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="521"/>
+        <location filename="../TransferView.cpp" line="520"/>
         <source> (%1%)</source>
         <translation> (%1%)</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="537"/>
+        <location filename="../TransferView.cpp" line="536"/>
         <source>Download complete...</source>
         <translation>Загрузка завершена...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="579"/>
+        <location filename="../TransferView.cpp" line="578"/>
         <source>Connecting...</source>
         <translation>Подключение...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="592"/>
+        <location filename="../TransferView.cpp" line="591"/>
         <source>Connected</source>
         <translation>Подключен</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="632"/>
+        <location filename="../TransferView.cpp" line="631"/>
         <source>Connecting</source>
         <translation>Подключение</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="634"/>
+        <location filename="../TransferView.cpp" line="633"/>
         <source>No download slots</source>
         <translation>Нет свободных слотов</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="636"/>
+        <location filename="../TransferView.cpp" line="635"/>
         <source>Waiting to retry</source>
         <translation>Ожидание новой попытки</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="683"/>
+        <location filename="../TransferView.cpp" line="682"/>
         <source>Upload starting...</source>
         <translation>Отдача начата...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="711"/>
+        <location filename="../TransferView.cpp" line="710"/>
         <source> Uploaded %1 (%2%) </source>
         <translation> Отдано %1 (%2%) </translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="729"/>
+        <location filename="../TransferView.cpp" line="728"/>
         <source>Upload complete</source>
         <translation>Отдача завершена</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="744"/>
+        <location filename="../TransferView.cpp" line="743"/>
         <source>Upload failed</source>
         <translation>Отдача не удалась</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="32"/>
+        <location filename="../TransferView.cpp" line="31"/>
         <source>Browse files</source>
         <translation>Просмотр списка файлов</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="35"/>
+        <location filename="../TransferView.cpp" line="34"/>
         <source>Match Queue</source>
         <translation>Согласовать очередь</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="37"/>
+        <location filename="../TransferView.cpp" line="36"/>
         <source>Send Private Message</source>
         <translation>Отправить личное сообщение</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="40"/>
+        <location filename="../TransferView.cpp" line="39"/>
         <source>Add to favorites</source>
         <translation>Добавить в избранные</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="43"/>
+        <location filename="../TransferView.cpp" line="42"/>
         <source>Grant extra slot</source>
         <translation>Выдать дополнительный слот</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="48"/>
+        <location filename="../TransferView.cpp" line="47"/>
         <source>Remove from Queue</source>
         <translation>Удалить из очереди</translation>
     </message>
@@ -2048,12 +2044,12 @@ Do you want to stop it?
         <translation type="obsolete">Команда пользователя</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="54"/>
+        <location filename="../TransferView.cpp" line="53"/>
         <source>Force attempt</source>
         <translation>Принудительная попытка</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="57"/>
+        <location filename="../TransferView.cpp" line="56"/>
         <source>Close connection(s)</source>
         <translation>Закрыть подключение(я)</translation>
     </message>
@@ -3453,178 +3449,176 @@ p, li { white-space: pre-wrap; }
         <translation>Каталог для незавершённых загрузок</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="62"/>
-        <location filename="../ui/UISettingsDownloads.ui" line="69"/>
         <source>Browse...</source>
-        <translation>Обзор...</translation>
+        <translation type="obsolete">Обзор...</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="79"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="91"/>
         <source>Limits</source>
         <translation>Ограничения</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="95"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="107"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
         <translation>Максимум одновременных загрузок (0 = без огранияений)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="102"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="114"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
         <translation>Максимум скорости загрузки (КиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="109"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="121"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
         <translation>&lt;b&gt;Заметка:&lt;/b&gt; Из-за изменения скорости загрузки, точность не равна 100%</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="119"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="131"/>
         <source>Public Hub lists</source>
         <translation>Публичные списки хабов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="128"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="140"/>
         <source>Http proxy (hub list only)</source>
         <translation>HTTP-прокси (только для списка хабов)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="135"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="147"/>
         <source>Configure Public Hub Lists</source>
         <translation>Настроить публичные списки хабов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="146"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="158"/>
         <source>Download to</source>
         <translation>Загрузить в</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="186"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="198"/>
         <source>Path</source>
         <translation>Путь</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="191"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="203"/>
         <source>Alias</source>
         <translation>Короткое имя</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="200"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="212"/>
         <source>Queue</source>
         <translation>Очередь</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="206"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="218"/>
         <source>Auto-priority settings</source>
         <translation>Настройки автоприоритета</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="240"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="252"/>
         <source>Highest priority max size (KiB)</source>
         <translation>Максимальный (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="247"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="259"/>
         <source>High priority max size (KiB)</source>
         <translation>Высокий (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="254"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="266"/>
         <source>Normal priority max size (KiB)</source>
         <translation>Нормальный (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="261"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="273"/>
         <source>Low priority max size (KiB)</source>
         <translation>Низкий (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="271"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="283"/>
         <source>Auto-drop settings</source>
         <translation>Настройки автоматического сброса</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="319"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="331"/>
         <source>Drop sources below (B/s)</source>
         <translation>Сброс, если ниже (Б/с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="326"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="338"/>
         <source>Check every (s)</source>
         <translation>Проверять каждые (с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="333"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="345"/>
         <source>Min. elapsed (s)</source>
         <translation>Прошло (минимум) (с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="340"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="352"/>
         <source>Max inactivity (s)</source>
         <translation>Простой (максимум). (с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="347"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="359"/>
         <source>Min sources online</source>
         <translation>Онлайн (минимум)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="354"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="366"/>
         <source>Min filesize (KiB)</source>
         <translation>Размер (минимум) (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="364"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="376"/>
         <source>Other options</source>
         <translation>Прочие настройки</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="371"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="383"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
         <translation>Установить минимальный приоритет для свежедобавленных файлов размером больше, чем в опции &quot;Низкий&quot; настроек автоприоритета</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="382"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="394"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
         <translation>Автосброс медленных источников очереди (кроме списков файлов)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="393"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="405"/>
         <source>Remove slow filelists</source>
         <translation>Удалять медленные закачки списков файлов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="404"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="416"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
         <translation>Не удалять источник при авто-сбросе, а только отключаться</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="415"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="427"/>
         <source>Automatically search for alternative download locations</source>
         <translation>Автоматически искать альтернативные источники</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="426"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>Automatically match queue for auto search hits</source>
         <translation>Автоматически настраивать очередь для результатов автопоиска</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="437"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="449"/>
         <source>Skip zero-byte files</source>
         <translation>Пропускать файлы с нулевым размером</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="448"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="460"/>
         <source>Don&apos;t download files already in share</source>
         <translation>Не загружать файлы, уже имеющиеся в собственной шаре</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="459"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="471"/>
         <source>Don&apos;t download files already in the queue</source>
         <translation>Не загружать файлы, уже имеющиеся в очереди</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="470"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="482"/>
         <source>Not a use temporary directory</source>
         <translation>Не использовать временную директорию</translation>
     </message>
@@ -3652,9 +3646,13 @@ p, li { white-space: pre-wrap; }
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="67"/>
         <source>Test</source>
-        <translation>Проверить</translation>
+        <translation type="obsolete">Проверить</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="67"/>
+        <source>Apply</source>
+        <translation>Применить</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="77"/>
@@ -4053,17 +4051,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../WulforUtil.cpp" line="484"/>
+        <location filename="../WulforUtil.cpp" line="486"/>
         <source>System default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="555"/>
+        <location filename="../WulforUtil.cpp" line="557"/>
         <source>Enter parameter value</source>
         <translation>Укажите значение параметра</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="649"/>
+        <location filename="../WulforUtil.cpp" line="651"/>
         <source>Offline</source>
         <translation>Не в сети</translation>
     </message>
