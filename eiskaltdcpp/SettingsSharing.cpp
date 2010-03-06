@@ -182,13 +182,34 @@ Qt::ItemFlags ShareDirModel::flags(const QModelIndex& index) const{
 }
 
 QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRole) const{
-    if (index.isValid() && index.column() == 0 && role == Qt::CheckStateRole){
-        foreach (QString f, checked){
-            if (filePath(index).startsWith(f))
-                return Qt::Checked;
-        }
+    if (!index.isValid())
+        return QVariant();
 
-        return (checked.contains(filePath(index)) ? Qt::Checked : Qt::Unchecked);
+    QString fp = filePath(index);
+
+    switch (role){
+        case Qt::CheckStateRole:
+        {   
+            if (index.column() == 0){
+                foreach (QString f, checked){
+                    if (fp.startsWith(f))
+                        return Qt::Checked;
+                }
+
+                return (checked.contains(fp) ? Qt::Checked : Qt::Unchecked);
+            }
+
+            break;
+        }
+        case Qt::ForegroundRole:
+        {
+            foreach (QString f, checked){
+                if (f.startsWith(fp))
+                    return QColor(0x1F, 0x8F, 0x1F);
+            }
+
+            break;
+        }
     }
 
     return QDirModel::data(index, role);
