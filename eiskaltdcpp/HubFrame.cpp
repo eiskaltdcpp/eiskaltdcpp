@@ -615,8 +615,12 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         }
     }
     else if (e->type() == QEvent::MouseMove && (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport())){
-        if (!textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).isEmpty())
+        QString str = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
+
+        if (!str.isEmpty()){
             textEdit_CHAT->viewport()->setCursor(Qt::PointingHandCursor);
+            last_hyperlink = str;
+        }
         else
             textEdit_CHAT->viewport()->setCursor(Qt::IBeamCursor);
     }
@@ -1710,6 +1714,10 @@ void HubFrame::slotChatMenu(const QPoint &){
 
             if (!ret.isEmpty())
                 QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+            else if (!last_hyperlink.isEmpty()){
+                QApplication::clipboard()->setText(last_hyperlink, QClipboard::Clipboard);
+                last_hyperlink.clear();
+            }
 
             break;
         }

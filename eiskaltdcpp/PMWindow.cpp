@@ -82,6 +82,16 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
             WulforUtil::getInstance()->openUrl(pressedParagraph);
         }
     }
+    else if (e->type() == QEvent::MouseMove && (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport())){
+        QString str = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
+
+        if (!str.isEmpty()){
+            textEdit_CHAT->viewport()->setCursor(Qt::PointingHandCursor);
+            last_hyperlink = str;
+        }
+        else
+            textEdit_CHAT->viewport()->setCursor(Qt::IBeamCursor);
+    }
 
     return QWidget::eventFilter(obj, e);
 }
