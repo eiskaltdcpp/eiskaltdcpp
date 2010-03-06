@@ -1302,7 +1302,8 @@ void HubFrame::newPm(VarMap map){
     QString color = map["CLR"].toString();
     QString full_message = "";
 
-    Notification::getInstance()->showMessage(Notification::PM, nick, message);
+    if (nick != _q(client->getMyNick()))
+        Notification::getInstance()->showMessage(Notification::PM, nick, message);
 
     nick = map["3RD"].toBool()? ("* " + nick + " ") : ("<" + nick + "> ");
 
