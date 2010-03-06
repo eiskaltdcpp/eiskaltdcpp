@@ -153,6 +153,9 @@ friend class dcpp::Singleton<MainWindow>;
         void slotHideProgressSpace();
         void slotExit();
 
+        void slotChatClear();
+        void slotChatDisable();
+
         void slotAboutClient();
         void slotAboutQt();
 
@@ -219,6 +222,9 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileHideWindow;
         QAction *fileHideProgressSpace;
         QAction *fileQuit;
+
+        QAction *chatDisable;
+        QAction *chatClear;
 
         QMenu *menuWidgets;
         QList<QAction*> menuWidgetsActions;

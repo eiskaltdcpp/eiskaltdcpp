@@ -1783,9 +1783,7 @@ void HubFrame::slotChatMenu(const QPoint &){
         }
         case Menu::ClearChat:
         {
-            editor->setHtml("");
-
-            addStatus(tr("Chat cleared."));
+            clearChat();
 
             break;
         }
@@ -1797,14 +1795,7 @@ void HubFrame::slotChatMenu(const QPoint &){
         }
         case Menu::DisableChat:
         {
-            chatDisabled = !chatDisabled;
-
-            plainTextEdit_INPUT->setEnabled(!chatDisabled);
-
-            if (chatDisabled)
-                addStatus(tr("Chat disabled."));
-            else
-                addStatus(tr("Chat enabled."));
+            disableChat();
 
             break;
         }

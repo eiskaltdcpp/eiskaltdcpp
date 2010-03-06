@@ -173,7 +173,22 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap();
 
-    QString getUserInfo(UserListItem *item);
+    void disableChat(){
+        chatDisabled = !chatDisabled;
+
+        plainTextEdit_INPUT->setEnabled(!chatDisabled);
+
+        if (chatDisabled)
+            addStatus(tr("Chat disabled."));
+        else
+            addStatus(tr("Chat enabled."));
+    }
+
+    void clearChat(){
+        textEdit_CHAT->setHtml("");
+
+        addStatus(tr("Chat cleared."));
+    }
 
 protected:
     virtual bool eventFilter(QObject *, QEvent *);
@@ -218,6 +233,8 @@ private:
     void delUserFromFav(const QString&);
     void delUserFromQueue(const QString&);
     void addAsFavorite();
+
+    QString getUserInfo(UserListItem *item);
 
     void newMsg(VarMap);
     void newPm(VarMap);

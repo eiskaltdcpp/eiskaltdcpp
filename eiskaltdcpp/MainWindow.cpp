@@ -350,6 +350,14 @@ void MainWindow::initActions(){
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
         connect(fileQuit, SIGNAL(triggered()), this, SLOT(slotExit()));
 
+        chatClear = new QAction("", this);
+        chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
+        connect(chatClear, SIGNAL(triggered()), this, SLOT(slotChatClear()));
+
+        chatDisable = new QAction("", this);
+        chatDisable->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
+        connect(chatDisable, SIGNAL(triggered()), this, SLOT(slotChatDisable()));
+
         QAction *separator0 = new QAction("", this);
         separator0->setSeparator(true);
         QAction *separator1 = new QAction("", this);
@@ -362,6 +370,8 @@ void MainWindow::initActions(){
         separator4->setSeparator(true);
         QAction *separator5 = new QAction("", this);
         separator5->setSeparator(true);
+        QAction *separator6 = new QAction("", this);
+        separator6->setSeparator(true);
 
         fileMenuActions << fileOptions
                 << separator1
@@ -392,10 +402,12 @@ void MainWindow::initActions(){
 
         toolBarActions << fileOptions
                 << separator1
-                << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
+                << separator6
+                << chatClear
+                << chatDisable
                 << separator2
                 << fileHubReconnect
                 << fileQuickConnect
@@ -526,6 +538,10 @@ void MainWindow::retranslateUi(){
         fileQuickConnect->setText(tr("Quick connect"));
 
         fileQuit->setText(tr("Quit"));
+
+        chatClear->setText(tr("Clear chat"));
+
+        chatDisable->setText("Disable/Enable chat");
 
         menuWidgets->setTitle(tr("&Widgets"));
 
@@ -736,6 +752,11 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
 
     tBar->mapped(awgt);
+
+    HubFrame *fr = HubManager::getInstance()->activeHub();
+
+    chatClear->setEnabled(fr == awgt->getWidget());
+    chatDisable->setEnabled(fr == awgt->getWidget());
 
     arenaMap[awgt]->setFocus();
 }
@@ -968,6 +989,20 @@ void MainWindow::slotFileTransfer(bool toggled){
         transfer_dock->setWidget(NULL);
         transfer_dock->setVisible(false);
     }
+}
+
+void MainWindow::slotChatClear(){
+    HubFrame *fr = HubManager::getInstance()->activeHub();
+
+    if (fr)
+        fr->clearChat();
+}
+
+void MainWindow::slotChatDisable(){
+    HubFrame *fr = HubManager::getInstance()->activeHub();
+
+    if (fr)
+        fr->disableChat();
 }
 
 void MainWindow::slotWidgetsToggle(){
