@@ -338,11 +338,13 @@ void MainWindow::initActions(){
 
         fileHideWindow = new QAction(tr("Hide window"), this);
         fileHideWindow->setShortcut(tr("Esc"));
+        fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
         fileHideProgressSpace = new QAction(tr("Hide free space bar"), this);
         if (!WBGET(WB_SHOW_FREE_SPACE))
             fileHideProgressSpace->setText(tr("Show free space bar"));
+        fileHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
         connect(fileHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
 
         fileQuit = new QAction("", this);

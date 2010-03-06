@@ -921,7 +921,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="339"/>
         <source>Hide window</source>
-        <translation>Скрыть окно</translation>
+        <translation>Свернуть окно в трей</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="340"/>
@@ -932,7 +932,7 @@ Favorite user</source>
         <location filename="../MainWindow.cpp" line="343"/>
         <location filename="../MainWindow.cpp" line="1037"/>
         <source>Hide free space bar</source>
-        <translation>Спрятать индикатор свободного места</translation>
+        <translation>Скрыть индикатор свободного места</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="345"/>
