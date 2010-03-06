@@ -2,7 +2,6 @@
 #include "MainWindow.h"
 #include "PMWindow.h"
 #include "Func.h"
-#include "WulforManager.h"
 #include "WulforUtil.h"
 #include "Antispam.h"
 #include "HubManager.h"

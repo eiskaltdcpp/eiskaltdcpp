@@ -329,13 +329,14 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["WMA"]  = eiFILETYPE_MP3;
     m_FileTypeMap["WV"]   = eiFILETYPE_MP3;
 
-        // ARCHIVE 3
+    // ARCHIVE 3
     m_FileTypeMap["7Z"]  = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["ACE"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["BZ2"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["CAB"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["EX_"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["GZ"]  = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["JAR"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["LZH"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["RAR"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["RPM"] = eiFILETYPE_ARCHIVE;
@@ -345,7 +346,7 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["ZOO"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["Z"]   = eiFILETYPE_ARCHIVE;
 
-        // DOCUMENT 4
+    // DOCUMENT 4
     m_FileTypeMap["CFG"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["CONF"]  = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["CPP"]   = eiFILETYPE_DOCUMENT;
@@ -353,6 +354,7 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["C"]     = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["DIZ"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["DOC"]   = eiFILETYPE_DOCUMENT;
+    m_FileTypeMap["DOCX"]  = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["H"]     = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["HLP"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["HTM"]   = eiFILETYPE_DOCUMENT;
@@ -381,7 +383,7 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["XML"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["XLS"]   = eiFILETYPE_DOCUMENT;
 
-        // APPL 5
+    // APPL 5
     m_FileTypeMap["BAT"] = eiFILETYPE_APPLICATION;
     m_FileTypeMap["CGI"] = eiFILETYPE_APPLICATION;
     m_FileTypeMap["COM"] = eiFILETYPE_APPLICATION;
@@ -394,7 +396,7 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["SYS"] = eiFILETYPE_APPLICATION;
     m_FileTypeMap["VXD"] = eiFILETYPE_APPLICATION;
 
-        // PICTURE 6
+    // PICTURE 6
     m_FileTypeMap["3DS"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["A11"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["ACB"]  = eiFILETYPE_PICTURE;

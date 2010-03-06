@@ -196,7 +196,6 @@ SOURCES = main.cpp \
     ../dcpp/ShareManager.cpp \
     ../dcpp/ZUtils.cpp \
     HubFrame.cpp \
-    WulforManager.cpp \
     UserListModel.cpp \
     WulforUtil.cpp \
     WulforSettings.cpp \

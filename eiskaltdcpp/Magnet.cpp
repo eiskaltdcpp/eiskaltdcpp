@@ -11,7 +11,6 @@
 #include "dcpp/QueueManager.h"
 
 #include "WulforUtil.h"
-#include "WulforManager.h"
 #include "SearchFrame.h"
 #include "MainWindow.h"
 #include "Func.h"

@@ -12,7 +12,6 @@ using namespace std;
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
 
-#include "WulforManager.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 #include "UPnP.h"
@@ -52,9 +51,6 @@ int main(int argc, char *argv[])
 
         HashManager::getInstance()->setPriority(Thread::IDLE);
 
-        WulforManager::newInstance();
-        WulforManager::getInstance()->start();
-
         WulforUtil::newInstance();
 
         WulforSettings::newInstance();
@@ -92,7 +88,6 @@ int main(int argc, char *argv[])
         std::cout << "Shutting down..." << std::endl;
 
         WulforSettings::getInstance()->save();
-        WulforManager::getInstance()->stop();
 
         UPnPMapper::deleteInstance();
         UPnP::getInstance()->stop();
@@ -104,7 +99,6 @@ int main(int argc, char *argv[])
 
         HubManager::deleteInstance();
 
-        WulforManager::deleteInstance();
         WulforUtil::deleteInstance();
         WulforSettings::deleteInstance();
 

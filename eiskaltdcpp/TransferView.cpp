@@ -1,7 +1,6 @@
 #include "TransferView.h"
 #include "TransferViewModel.h"
 #include "WulforUtil.h"
-#include "WulforManager.h"
 #include "WulforSettings.h"
 #include "Func.h"
 #include "IPFilter.h"

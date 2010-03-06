@@ -54,7 +54,6 @@ set (SRCS   Antispam.cpp
             UPnP.cpp
             UPnPMapper.cpp
             UserListModel.cpp
-            WulforManager.cpp
             WulforSettings.cpp
             WulforUtil.cpp)
 set (MOC_HDRS Antispam.h
@@ -100,7 +99,6 @@ set (MOC_HDRS Antispam.h
             UPnP.h
             UPnPMapper.h
             UserListModel.h
-            WulforManager.h
             WulforSettings.h
             WulforUtil.h )
 set (UI_FORMS ui/UIAbout.ui

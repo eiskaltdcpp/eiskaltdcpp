@@ -1,6 +1,5 @@
 #include "SingleInstanceRunner.h"
 #include "MainWindow.h"
-#include "WulforManager.h"
 #include "Func.h"
 
 SingleInstanceRunner::SingleInstanceRunner()
