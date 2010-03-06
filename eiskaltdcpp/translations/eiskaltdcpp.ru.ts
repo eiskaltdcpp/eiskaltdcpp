@@ -538,9 +538,8 @@
         <translation>Роль на хабе: Оператор</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="66"/>
         <source>Copy text</source>
-        <translation>Копировать</translation>
+        <translation type="obsolete">Копировать</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="881"/>
@@ -692,6 +691,11 @@ Favorite user</source>
         <location filename="../HubFrame.cpp" line="1384"/>
         <source>Stored password sent...</source>
         <translation>Отправлен сохраненный пароль...</translation>
+    </message>
+    <message>
+        <location filename="../HubFrame.cpp" line="66"/>
+        <source>Copy</source>
+        <translation>Копировать</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="67"/>

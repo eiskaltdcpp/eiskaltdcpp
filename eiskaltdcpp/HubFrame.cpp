@@ -63,7 +63,7 @@ HubFrame::Menu::Menu(){
     last_user_cmd = "";
 
     //Userlist actions
-    QAction *copy_text   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy text"), NULL);
+    QAction *copy_text   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy"), NULL);
     QAction *copy_nick   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy nick"), NULL);
     QAction *browse      = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse files"), NULL);
     QAction *match_queue = new QAction(QPixmap(), tr("Match Queue"), NULL);

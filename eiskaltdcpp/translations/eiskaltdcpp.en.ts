@@ -480,11 +480,6 @@
 <context>
     <name>HubFrame</name>
     <message>
-        <location filename="../HubFrame.cpp" line="66"/>
-        <source>Copy text</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../HubFrame.cpp" line="67"/>
         <source>Copy nick</source>
         <translation type="unfinished"></translation>
@@ -609,6 +604,11 @@
     <message>
         <location filename="../HubFrame.cpp" line="879"/>
         <source>Hub role: Operator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../HubFrame.cpp" line="66"/>
+        <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
