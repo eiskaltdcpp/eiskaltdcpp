@@ -58,6 +58,9 @@ void Notification::enableTray(bool enable){
         QAction *sep = new QAction(menu);
         sep->setSeparator(true);
 
+        show_hide->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiHIDEWINDOW));
+        close_app->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEXIT));
+
         connect(show_hide, SIGNAL(triggered()), this, SLOT(slotShowHide()));
         connect(close_app, SIGNAL(triggered()), this, SLOT(slotExit()));
         connect(tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason)));
