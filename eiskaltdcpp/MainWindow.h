@@ -155,6 +155,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotExit();
 
         void slotChatClear();
+        void slotFindInChat();
         void slotChatDisable();
 
         void slotAboutClient();
@@ -226,6 +227,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileQuit;
 
         QAction *chatDisable;
+        QAction *findInChat;
         QAction *chatClear;
 
         QMenu *menuWidgets;

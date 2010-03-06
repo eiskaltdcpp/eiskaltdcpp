@@ -223,6 +223,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiFILECLOSE] = loadPixmap("fileclose.png");
     m_PixmapMap[eiFILEFIND] = loadPixmap("filefind.png");
     m_PixmapMap[eiFILTER] = loadPixmap("filter.png");
+    m_PixmapMap[eiFIND] = loadPixmap("find.png");
     m_PixmapMap[eiFOLDER_BLUE] = loadPixmap("folder_blue.png");
     m_PixmapMap[eiFREESPACE] = loadPixmap("freespace.png");
     m_PixmapMap[eiGUI] = loadPixmap("gui.png");

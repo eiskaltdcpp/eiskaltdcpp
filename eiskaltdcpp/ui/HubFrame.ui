@@ -153,12 +153,6 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QComboBox" name="comboBox_COLUMNS"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_FILTER"/>
-         </item>
-         <item>
           <widget class="QToolButton" name="toolButton_CLEAR_FILTER">
            <property name="toolTip">
             <string>Clear filter</string>
@@ -167,6 +161,12 @@
             <string>c</string>
            </property>
           </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_FILTER"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox_COLUMNS"/>
          </item>
         </layout>
        </item>

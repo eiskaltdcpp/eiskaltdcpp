@@ -173,6 +173,8 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap();
 
+    void slotHideFindFrame();
+
     void disableChat(){
         chatDisabled = !chatDisabled;
 
@@ -215,7 +217,6 @@ private slots:
     void slotFilterTextChanged(const QString & text);
     void slotFindForward() { findText(0); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
-    void slotHideFindFrame();
     void slotFindTextEdited(const QString & text);
 
 private:

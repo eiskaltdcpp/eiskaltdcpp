@@ -362,6 +362,10 @@ void MainWindow::initActions(){
         chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
         connect(chatClear, SIGNAL(triggered()), this, SLOT(slotChatClear()));
 
+        findInChat = new QAction("", this);
+        findInChat->setIcon(WU->getPixmap(WulforUtil::eiFIND));
+        connect(findInChat, SIGNAL(triggered()), this, SLOT(slotFindInChat()));
+
         chatDisable = new QAction("", this);
         chatDisable->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
         connect(chatDisable, SIGNAL(triggered()), this, SLOT(slotChatDisable()));
@@ -416,6 +420,7 @@ void MainWindow::initActions(){
                 << fileHashProgress
                 << separator6
                 << chatClear
+                << findInChat
                 << chatDisable
                 << separator2
                 << fileHubReconnect
@@ -553,6 +558,8 @@ void MainWindow::retranslateUi(){
         fileQuit->setText(tr("Quit"));
 
         chatClear->setText(tr("Clear chat"));
+
+        findInChat->setText(tr("Find in chat"));
 
         chatDisable->setText("Disable/Enable chat");
 
@@ -769,6 +776,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
     chatClear->setEnabled(fr == awgt->getWidget());
+    findInChat->setEnabled(fr == awgt->getWidget());
     chatDisable->setEnabled(fr == awgt->getWidget());
 
     arenaMap[awgt]->setFocus();
@@ -1022,6 +1030,13 @@ void MainWindow::slotChatClear(){
 
     if (fr)
         fr->clearChat();
+}
+
+void MainWindow::slotFindInChat(){
+    HubFrame *fr = HubManager::getInstance()->activeHub();
+
+    if (fr)
+        fr->slotHideFindFrame();
 }
 
 void MainWindow::slotChatDisable(){

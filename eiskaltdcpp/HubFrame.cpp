@@ -76,7 +76,7 @@ HubFrame::Menu::Menu(){
     //Chat actions
     QAction *sep1        = new QAction(NULL);
     QAction *clear_chat  = new QAction(WU->getPixmap(WulforUtil::eiCLEAR), tr("Clear chat"), NULL);
-    QAction *find_in_chat= new QAction(QPixmap(), tr("Find in chat"), NULL);
+    QAction *find_in_chat= new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Find in chat"), NULL);
     QAction *dis_chat    = new QAction(WU->getPixmap(WulforUtil::eiFILECLOSE), tr("Disable/Enable chat"), NULL);
     QAction *sep2        = new QAction(NULL);
     QAction *select_all  = new QAction(tr("Select all"), NULL);

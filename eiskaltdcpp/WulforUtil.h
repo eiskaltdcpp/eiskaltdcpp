@@ -55,6 +55,7 @@ public:
         eiFILECLOSE,
         eiFILEFIND,
         eiFILTER,
+        eiFIND,
         eiFOLDER_BLUE,
         eiFREESPACE,
         eiGUI,
