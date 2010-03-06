@@ -2144,6 +2144,12 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 
     if (nick == _q(client->getMyNick()))
         color = WS_CHAT_PRIV_LOCAL_COLOR;
+    else if (user.getIdentity().isOp())
+        color = WS_CHAT_OP_COLOR;
+    else if (user.getIdentity().isBot())
+        color = WS_CHAT_BOT_COLOR;
+    else if (user.getIdentity().isHub())
+        color = WS_CHAT_STAT_COLOR;
 
     map["CLR"] = color;
     map["3RD"] = thirdPerson;
@@ -2152,10 +2158,18 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
     typedef Func1<HubFrame, VarMap> FUNC;
     FUNC *func = NULL;
 
-    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && user.getIdentity().isBot())
+    qDebug() << QString("New message from %1").arg(nick);
+
+    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && user.getIdentity().isBot()){
+        qDebug("User is a Bot. Redirecting to main chat.");
+
         func = new FUNC(this, &HubFrame::newMsg, map);
-    else
+    }
+    else{
+        qDebug("User is not a Bot. Default action.");
+
         func = new FUNC(this, &HubFrame::newPm, map);
+    }
 
     QApplication::postEvent(this, new UserCustomEvent(func));
 
