@@ -32,7 +32,7 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
 
 
 UserListModel::~UserListModel() {
-    rootItem->childItems.clear();
+    delete rootItem;
 }
 
 
