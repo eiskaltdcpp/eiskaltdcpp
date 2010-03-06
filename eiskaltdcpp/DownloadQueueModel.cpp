@@ -91,10 +91,34 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
         }
         case Qt::DisplayRole:
         {
-            if (index.column() == COLUMN_DOWNLOADQUEUE_DOWN){
-                QString ret = item->data(COLUMN_DOWNLOADQUEUE_DOWN).toString();
+            if (index.column() == COLUMN_DOWNLOADQUEUE_DOWN || index.column() == COLUMN_DOWNLOADQUEUE_SIZE)
+                return _q(Util::formatBytes(item->data(index.column()).toLongLong()));
+            else if (index.column() == COLUMN_DOWNLOADQUEUE_PRIO){
+                QueueItem::Priority prio = static_cast<QueueItem::Priority>(item->data(COLUMN_DOWNLOADQUEUE_PRIO).toInt());
 
-                return ret.left(ret.indexOf("(")).trimmed();
+                QString prio_str = "";
+
+                switch (prio){
+                    case QueueItem::PAUSED:
+                        prio_str = tr("Paused");
+                        break;
+                    case QueueItem::LOWEST:
+                        prio_str = tr("Lowest");
+                        break;
+                    case QueueItem::LOW:
+                        prio_str = tr("Low");
+                        break;
+                    case QueueItem::HIGH:
+                        prio_str = tr("High");
+                        break;
+                    case QueueItem::HIGHEST:
+                        prio_str = tr("Highest");
+                        break;
+                    default:
+                        prio_str = tr("Normal");
+                }
+
+                return prio_str;
             }
 
             return item->data(index.column());
@@ -176,7 +200,7 @@ struct Compare {
                  case COLUMN_DOWNLOADQUEUE_PATH:
                      return AttrCmp<COLUMN_DOWNLOADQUEUE_PATH>;
                  case COLUMN_DOWNLOADQUEUE_STATUS:
-                     return AttrCmp<COLUMN_DOWNLOADQUEUE_STATUS>;
+                     return AttrCmp<COLUMN_DOWNLOADQUEUE_DOWN>;
                  case COLUMN_DOWNLOADQUEUE_TTH:
                      return AttrCmp<COLUMN_DOWNLOADQUEUE_TTH>;
                  default:
@@ -316,55 +340,14 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
     DownloadQueueItem *child = NULL;
     QList<QVariant> childData;
 
-    qlonglong size = map["ESIZE"].toLongLong();
-    qlonglong down = map["DOWN"].toLongLong();
-
-    QString size_str = "";
-    QString down_str = "";
-    QString prio_str = "";
-
-    if (size > 0){
-        size_str = _q(Util::formatBytes(size));
-
-        double percent = ((double)down * 100.0/(double)size);
-
-        down_str = _q(Util::formatBytes(down)) + " (" + _q(Util::toString(percent)) + "%)";
-    }
-    else {
-        size_str = tr("Unknown");
-        down_str = tr("0 B (0.00%)");
-    }
-
-    QueueItem::Priority prio = static_cast<QueueItem::Priority>(map["PRIO"].toInt());
-
-    switch (prio){
-        case QueueItem::PAUSED:
-            prio_str = tr("Paused");
-            break;
-        case QueueItem::LOWEST:
-            prio_str = tr("Lowest");
-            break;
-        case QueueItem::LOW:
-            prio_str = tr("Low");
-            break;
-        case QueueItem::HIGH:
-            prio_str = tr("High");
-            break;
-        case QueueItem::HIGHEST:
-            prio_str = tr("Highest");
-            break;
-        default:
-            prio_str = tr("Normal");
-    }
-
     childData << map["FNAME"]
               << map["STATUS"]
-              << size_str
-              << down_str
-              << prio_str
+              << (map["ESIZE"].toLongLong() > 0? map["ESIZE"] : 0)
+              << (map["DOWN"].toLongLong() > 0? map["DOWN"] : 0)
+              << map["PRIO"]
               << map["USERS"]
               << map["PATH"]
-              << map["ESIZE"]
+              << (map["ESIZE"].toLongLong() > 0? map["ESIZE"] : 0)
               << map["ERRORS"]
               << map["ADDED"]
               << map["TTH"];
@@ -398,45 +381,9 @@ void DownloadQueueModel::updItem(const QMap<QString, QVariant> &map){
 
     item = target;
 
-    qlonglong size = map["ESIZE"].toLongLong();
-    qlonglong down = map["DOWN"].toLongLong();
-    QueueItem::Priority prio = static_cast<QueueItem::Priority>(map["PRIO"].toInt());
-
-    QString down_str = "";
-    QString prio_str = "";
-
-    if (size > 0){
-        double percent = ((double)down * 100.0/(double)size);
-
-        down_str = _q(Util::formatBytes(down)) + " (" + _q(Util::toString(percent)) + "%)";
-    }
-    else {
-        down_str = tr("0 B (0.00%)");
-    }
-
-    switch (prio){
-        case QueueItem::PAUSED:
-            prio_str = tr("Paused");
-            break;
-        case QueueItem::LOWEST:
-            prio_str = tr("Lowest");
-            break;
-        case QueueItem::LOW:
-            prio_str = tr("Low");
-            break;
-        case QueueItem::HIGH:
-            prio_str = tr("High");
-            break;
-        case QueueItem::HIGHEST:
-            prio_str = tr("Highest");
-            break;
-        default:
-            prio_str = tr("Normal");
-    }
-
     item->updateColumn(COLUMN_DOWNLOADQUEUE_STATUS, map["STATUS"]);
-    item->updateColumn(COLUMN_DOWNLOADQUEUE_DOWN, down_str);
-    item->updateColumn(COLUMN_DOWNLOADQUEUE_PRIO, prio_str);
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_DOWN, (map["DOWN"].toLongLong() > 0? map["DOWN"] : 0));
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_PRIO, map["PRIO"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_USER, map["USERS"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_ERR, map["ERRORS"]);
 }
@@ -745,18 +692,9 @@ void DownloadQueueDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
         return;
     }
 
-    QString down_str = item->data(COLUMN_DOWNLOADQUEUE_DOWN).toString();
-    QString temp = down_str;
+    double percent = ((double)item->data(COLUMN_DOWNLOADQUEUE_DOWN).toLongLong() * 100.0/(double)item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong());
 
-    down_str = down_str.left(down_str.indexOf("("));
-    down_str = down_str.trimmed();
-
-    temp.remove(0, temp.indexOf("(")+1);
-    temp = temp.left(temp.indexOf("%)"));
-
-    double percent = temp.toDouble();
-
-    QString status = QString("%1%").arg(temp);
+    QString status = QString("%1%").arg(percent);
 
     progressBarOption.text = status;
     progressBarOption.progress = static_cast<int>(percent);
