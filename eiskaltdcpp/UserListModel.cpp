@@ -25,7 +25,7 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
     stripper.setPattern("\\[.*\\]");
     stripper.setMinimal(true);
 
-    rootItem = pool.construct(reinterpret_cast<UserListItem*>(NULL));
+    rootItem = new UserListItem(NULL);
 
     WU = WulforUtil::getInstance();
 }
@@ -283,8 +283,7 @@ void UserListModel::clear() {
     users.clear();
     nicks.clear();
 
-    foreach(UserListItem *i, rootItem->childItems)
-        pool.destroy(i);
+    qDeleteAll(rootItem->childItems);
 
     rootItem->childItems.clear();
 
@@ -304,7 +303,7 @@ void UserListModel::removeUser(const UserPtr &ptr) {
     UserListItem *item = users.value(ptr);
 
     rootItem->childItems.removeAt(index);
-    pool.destroy(item);
+    delete item;
 
     users.erase(iter);
 
@@ -339,7 +338,7 @@ void UserListModel::addUser(const QString& nick,
 
     UserListItem *item;
 
-    item = pool.construct(rootItem);
+    item = new UserListItem(rootItem);
 
     item->px = WU->getUserIcon(ptr, isAway, isOp, speed);
     item->nick = nick;

@@ -17,8 +17,6 @@
 #include <QStringList>
 #include <QRegExp>
 
-#include <boost/pool/object_pool.hpp>
-
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/User.h"
@@ -150,8 +148,6 @@ private:
     int sortColumn;
     Qt::SortOrder sortOrder;
     QRegExp stripper;
-
-    boost::object_pool<UserListItem> pool;
 
     WulforUtil *WU;
 };
