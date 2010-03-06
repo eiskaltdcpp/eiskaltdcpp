@@ -480,7 +480,7 @@
 <context>
     <name>HubFrame</name>
     <message>
-        <location filename="../HubFrame.cpp" line="67"/>
+        <location filename="../HubFrame.cpp" line="66"/>
         <source>Copy nick</source>
         <translation type="unfinished"></translation>
     </message>

@@ -1024,6 +1024,9 @@ bool HubFrame::parseForCmd(QString line){
 }
 
 void HubFrame::addStatus(QString msg){
+    if (chatDisabled)
+        return;
+
     QString status = "";
     QString nick    = " * ";
 
@@ -2097,6 +2100,9 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
 }
 
 void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int) throw(){
+    if(chatDisabled)
+        return;
+
     QString status = QString("%1...").arg(_q(msg.c_str()));
 
     typedef Func1<HubFrame, QString> FUNC;

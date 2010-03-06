@@ -66,7 +66,6 @@ void SettingsGUI::init(){
 
         lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
 
-        toolButton_APPFONTBROWSE->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
         toolButton_LANGBROWSE->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
     }
     {//Chat tab

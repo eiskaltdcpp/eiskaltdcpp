@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>415</width>
-    <height>344</height>
+    <width>413</width>
+    <height>342</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -83,7 +83,7 @@
           <item row="0" column="1">
            <widget class="QToolButton" name="toolButton_APPFONTBROWSE">
             <property name="text">
-             <string/>
+             <string>Change</string>
             </property>
            </widget>
           </item>
