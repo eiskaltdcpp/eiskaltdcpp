@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>510</width>
-    <height>354</height>
+    <width>542</width>
+    <height>395</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,8 +29,8 @@
       <attribute name="title">
        <string>Downloads</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string>Directories</string>
@@ -82,10 +82,17 @@
             </property>
            </widget>
           </item>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="checkBox_NO_USE_TEMP_DIR">
+            <property name="text">
+             <string>Don't use temporary directory</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item>
         <widget class="QGroupBox" name="groupBox_2">
          <property name="title">
           <string>Limits</string>
@@ -125,7 +132,7 @@
          </layout>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item>
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
           <string>Public Hub lists</string>
@@ -150,6 +157,19 @@
           </item>
          </layout>
         </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>7</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -477,17 +497,6 @@
               <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
              </property>
             </item>
-            <item>
-             <property name="text">
-              <string>Not a use temporary directory</string>
-             </property>
-             <property name="checkState">
-              <enum>Checked</enum>
-             </property>
-             <property name="flags">
-              <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
-             </property>
-            </item>
            </widget>
           </item>
          </layout>
@@ -500,5 +509,54 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkBox_NO_USE_TEMP_DIR</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_2</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>255</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>255</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_NO_USE_TEMP_DIR</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEdit_UNF_DL_DIR</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>255</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>255</x>
+     <y>141</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_NO_USE_TEMP_DIR</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>pushButton_BROWSE1</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>255</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>507</x>
+     <y>141</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
