@@ -505,29 +505,9 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             QString pressedParagraph = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
 
             if (!WulforUtil::getInstance()->openUrl(pressedParagraph)){
-                QString nick = "";
-
-                QTextCursor cursor = textEdit_CHAT->cursorForPosition(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
-                QString pressedParagraph = cursor.block().text();
-                int cpos = cursor.position()-cursor.block().position();
-
-                int l = pressedParagraph.indexOf("<");
-                int r = pressedParagraph.indexOf(">");
-
-                if ((l <= cpos) && (cpos <= r))
-                    nick = pressedParagraph.mid(l+1, r-l-1);
-
-                UserListItem *item = model->itemForNick(nick);
-
-                if (item){
-                    QModelIndex index = model->index(item->row(), 0, QModelIndex());
-
-                    treeView_USERS->clearSelection();
-
-                    treeView_USERS->selectionModel()->select(index, QItemSelectionModel::Select | QItemSelectionModel::Rows);
-
-                    treeView_USERS->scrollTo(index, QAbstractItemView::PositionAtCenter);
-                }
+                /**
+                  Do nothing
+                */
             }
         }
         else if ((isChat || isUserList) && m_e->button() == Qt::MidButton)
@@ -1687,6 +1667,16 @@ void HubFrame::slotChatMenu(const QPoint &){
     }
     else {
         nick = pressedParagraph.mid(nickStart, nickLen);
+    }
+
+    UserListItem *item = model->itemForNick(nick);
+
+    if (item){
+        QModelIndex index = model->index(item->row(), 0, QModelIndex());
+
+        treeView_USERS->clearSelection();
+        treeView_USERS->selectionModel()->select(index, QItemSelectionModel::Select | QItemSelectionModel::Rows);
+        treeView_USERS->scrollTo(index, QAbstractItemView::PositionAtCenter);
     }
 
     QString cid = model->CIDforNick(nick);
