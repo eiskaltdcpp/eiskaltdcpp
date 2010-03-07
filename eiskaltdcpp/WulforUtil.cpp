@@ -12,6 +12,7 @@
 #endif
 
 #include "dcpp/ClientManager.h"
+#include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"
 
 #include <QDir>
@@ -37,6 +38,8 @@
 #define CLIENT_SOUNDS_DIR ""
 #endif
 
+using namespace dcpp;
+
 const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
 
 WulforUtil::WulforUtil()
@@ -49,11 +52,11 @@ WulforUtil::WulforUtil()
     connectionSpeeds["0.01"]    = 0;
     connectionSpeeds["0.02"]    = 0;
     connectionSpeeds["0.05"]    = 0;
-    connectionSpeeds["0.1"]     = 0;
-    connectionSpeeds["0.2"]     = 0;
-    connectionSpeeds["0.5"]     = 0;
+    connectionSpeeds["0.1"]     = 1;
+    connectionSpeeds["0.2"]     = 1;
+    connectionSpeeds["0.5"]     = 2;
     connectionSpeeds["1"]       = 3;
-    connectionSpeeds["2"]       = 5;
+    connectionSpeeds["2"]       = 4;
     connectionSpeeds["5"]       = 5;
     connectionSpeeds["10"]      = 5;
     connectionSpeeds["20"]      = 5;
@@ -181,8 +184,12 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
     if (isOp)
         y += 8;
 
-    if (id->isSet(User::PASSIVE))
+    if (id->isSet(User::PASSIVE)){
         y += 16;
+
+        if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_PASSIVE)
+            x = 7;
+    }
 
     if (userIconCache[x][y] == 0) {
         userIconCache[x][y] = new QPixmap(
