@@ -263,9 +263,6 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiFILETYPE_UNKNOWN] = loadPixmap("filetype-unknown.png");
     m_PixmapMap[eiFILETYPE_VIDEO] = loadPixmap("filetype-video.png");
 
-    m_PixmapMap[eiFLAG_GB] = loadPixmap("flag_gb.png");
-    m_PixmapMap[eiFLAG_RU] = loadPixmap("flag_ru.png");
-
     return !m_bError;
 }
 

@@ -86,10 +86,7 @@ public:
         eiFILETYPE_MP3,
         eiFILETYPE_PICTURE,
         eiFILETYPE_UNKNOWN,
-        eiFILETYPE_VIDEO,
-
-        eiFLAG_GB,
-        eiFLAG_RU
+        eiFILETYPE_VIDEO
     };
 
     typedef QMap<enum Icons, QPixmap> PixmapMap;
