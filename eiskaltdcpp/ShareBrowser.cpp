@@ -524,8 +524,19 @@ void ShareBrowser::slotLoaderFinish(){
             }
 
             treeView_LPANE->selectionModel()->select(jump_index, QItemSelectionModel::Select);
+            treeView_LPANE->scrollTo(jump_index, QAbstractItemView::PositionAtCenter);
         }
     }
+    else {
+        QModelIndex index = tree_model->index(0, 0, QModelIndex());
+
+        slotLeftPaneClicked(index);
+
+        treeView_LPANE->expand(index);
+    }
+
+    treeView_LPANE->resizeColumnToContents(0);
+    treeView_LPANE->resizeColumnToContents(1);
 
     MainWindow::getInstance()->addArenaWidget(this);
     MainWindow::getInstance()->mapWidgetOnArena(this);

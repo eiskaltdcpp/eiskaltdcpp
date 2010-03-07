@@ -212,7 +212,8 @@ private:
         QString to_key = (index == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
         QString old_state = treeView->header()->saveState().toBase64();
 
-        WSSET(from_key, old_state);
+        if (sender() == comboBox)
+            WSSET(from_key, old_state);
 
         treeView->header()->restoreState(QByteArray::fromBase64(WSGET(to_key).toAscii()));
         treeView->setSortingEnabled(true);

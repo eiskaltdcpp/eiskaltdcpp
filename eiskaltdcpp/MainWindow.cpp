@@ -780,7 +780,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     findInChat->setEnabled(fr == awgt->getWidget());
     chatDisable->setEnabled(fr == awgt->getWidget());
 
-    arenaMap[awgt]->setFocus();
+    //arenaMap[awgt]->setFocus();
 }
 
 void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
