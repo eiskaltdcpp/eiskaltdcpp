@@ -18,6 +18,7 @@ public:
     bool setData(const QModelIndex& index, const QVariant& value, int role);
 
     void setAlias(const QModelIndex&, const QString &);
+    void beginExpanding();
 
 Q_SIGNALS:
     void getName(QModelIndex);

@@ -71,6 +71,8 @@ void SettingsSharing::init(){
     connect(model, SIGNAL(expandMe(QModelIndex)), treeView, SLOT(expand(QModelIndex)));
     connect(checkBox_SHAREHIDDEN, SIGNAL(clicked(bool)), this, SLOT(slotShareHidden(bool)));
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
+
+    model->beginExpanding();
 }
 
 void SettingsSharing::updateShareView(){
@@ -288,4 +290,20 @@ void ShareDirModel::setAlias(const QModelIndex &index, const QString &alias){
     QDirModel::setData(index, true, Qt::CheckStateRole);
 
     emit layoutChanged();
+}
+
+void ShareDirModel::beginExpanding(){
+    foreach (QString f, checked){
+        QStack<QModelIndex> stack;
+        QModelIndex i = index(f);
+
+        while (i.isValid()){
+            stack.push(i);
+
+            i = i.parent();
+        }
+
+        while (!stack.isEmpty())
+            emit expandMe(stack.pop());
+    }
 }
