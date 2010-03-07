@@ -555,54 +555,54 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="749"/>
+        <location filename="../HubFrame.cpp" line="770"/>
         <source>Hub menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="751"/>
+        <location filename="../HubFrame.cpp" line="772"/>
         <source>Reconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="752"/>
+        <location filename="../HubFrame.cpp" line="773"/>
         <source>Show window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="755"/>
+        <location filename="../HubFrame.cpp" line="776"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="801"/>
-        <location filename="../HubFrame.cpp" line="819"/>
+        <location filename="../HubFrame.cpp" line="822"/>
+        <location filename="../HubFrame.cpp" line="840"/>
         <source>Not connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="857"/>
+        <location filename="../HubFrame.cpp" line="878"/>
         <source>Hub role: User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="905"/>
-        <location filename="../HubFrame.cpp" line="921"/>
+        <location filename="../HubFrame.cpp" line="926"/>
+        <location filename="../HubFrame.cpp" line="942"/>
         <source>Away mode off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="915"/>
+        <location filename="../HubFrame.cpp" line="936"/>
         <source>Away mode on: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="926"/>
+        <location filename="../HubFrame.cpp" line="947"/>
         <source>Chat has been cleared</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="855"/>
+        <location filename="../HubFrame.cpp" line="876"/>
         <source>Hub role: Operator</source>
         <translation type="unfinished"></translation>
     </message>
@@ -612,13 +612,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="860"/>
+        <location filename="../HubFrame.cpp" line="881"/>
         <source>
 Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="962"/>
+        <location filename="../HubFrame.cpp" line="983"/>
         <source>/away - set away-mode on/off
 /back - set away-mode off
 /browse &lt;nick&gt; - browse user files
@@ -634,75 +634,75 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1115"/>
+        <location filename="../HubFrame.cpp" line="1143"/>
         <source> joins the chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1140"/>
-        <location filename="../HubFrame.cpp" line="1152"/>
+        <location filename="../HubFrame.cpp" line="1168"/>
+        <location filename="../HubFrame.cpp" line="1180"/>
         <source>User not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1159"/>
+        <location filename="../HubFrame.cpp" line="1187"/>
         <source>Slot granted to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1170"/>
-        <location filename="../HubFrame.cpp" line="1190"/>
+        <location filename="../HubFrame.cpp" line="1198"/>
+        <location filename="../HubFrame.cpp" line="1218"/>
         <source>User not found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1179"/>
+        <location filename="../HubFrame.cpp" line="1207"/>
         <source> has been added to favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1199"/>
+        <location filename="../HubFrame.cpp" line="1227"/>
         <source> has been removed from favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1231"/>
+        <location filename="../HubFrame.cpp" line="1259"/>
         <source>Favorite hub added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1234"/>
+        <location filename="../HubFrame.cpp" line="1262"/>
         <source>Favorite hub already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1331"/>
+        <location filename="../HubFrame.cpp" line="1359"/>
         <source>User offline.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1363"/>
+        <location filename="../HubFrame.cpp" line="1391"/>
         <source>Stored password sent...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1366"/>
+        <location filename="../HubFrame.cpp" line="1394"/>
         <source>Enter password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1366"/>
+        <location filename="../HubFrame.cpp" line="1394"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1380"/>
-        <location filename="../HubFrame.cpp" line="1987"/>
+        <location filename="../HubFrame.cpp" line="1408"/>
+        <location filename="../HubFrame.cpp" line="2015"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1462"/>
+        <location filename="../HubFrame.cpp" line="1490"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3381,177 +3381,172 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="55"/>
-        <source>Unfinished downloads directory</source>
+        <location filename="../ui/UISettingsDownloads.ui" line="81"/>
+        <source>Use unfinished downloads directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="88"/>
-        <source>Don&apos;t use temporary directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="98"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="94"/>
         <source>Limits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="114"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="110"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="121"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="117"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="128"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="124"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="138"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="134"/>
         <source>Public Hub lists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="147"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="143"/>
         <source>Http proxy (hub list only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="154"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="150"/>
         <source>Configure Public Hub Lists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="178"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="174"/>
         <source>Download to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="218"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="214"/>
         <source>Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="223"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="219"/>
         <source>Alias</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="232"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="228"/>
         <source>Queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="238"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="234"/>
         <source>Auto-priority settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="272"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="268"/>
         <source>Highest priority max size (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="279"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="275"/>
         <source>High priority max size (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="286"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="282"/>
         <source>Normal priority max size (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="293"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="289"/>
         <source>Low priority max size (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="303"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="299"/>
         <source>Auto-drop settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="351"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="347"/>
         <source>Drop sources below (B/s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="358"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="354"/>
         <source>Check every (s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="365"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="361"/>
         <source>Min. elapsed (s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="372"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="368"/>
         <source>Max inactivity (s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="379"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="375"/>
         <source>Min sources online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="386"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="382"/>
         <source>Min filesize (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="396"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="392"/>
         <source>Other options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="403"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="399"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="414"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="410"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="425"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="421"/>
         <source>Remove slow filelists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="436"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="432"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="447"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="443"/>
         <source>Automatically search for alternative download locations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="458"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="454"/>
         <source>Automatically match queue for auto search hits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="469"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="465"/>
         <source>Skip zero-byte files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="480"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="476"/>
         <source>Don&apos;t download files already in share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="491"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="487"/>
         <source>Don&apos;t download files already in the queue</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3972,17 +3967,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../WulforUtil.cpp" line="498"/>
+        <location filename="../WulforUtil.cpp" line="495"/>
         <source>System default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="569"/>
+        <location filename="../WulforUtil.cpp" line="566"/>
         <source>Enter parameter value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="663"/>
+        <location filename="../WulforUtil.cpp" line="660"/>
         <source>Offline</source>
         <translation type="unfinished"></translation>
     </message>

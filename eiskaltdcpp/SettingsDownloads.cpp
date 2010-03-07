@@ -46,7 +46,7 @@ void SettingsDownloads::ok(){
     if (!udl_dir.endsWith(PATH_SEPARATOR))
         udl_dir += PATH_SEPARATOR_STR;
 
-    SM->set(SettingsManager::NO_USE_TEMP_DIR, checkBox_NO_USE_TEMP_DIR->isChecked());
+    SM->set(SettingsManager::NO_USE_TEMP_DIR, !checkBox_NO_USE_TEMP_DIR->isChecked());
 
     SM->set(SettingsManager::DOWNLOAD_DIRECTORY, CQST(dl_dir));
     SM->set(SettingsManager::TEMP_DOWNLOAD_DIRECTORY, CQST(udl_dir));
@@ -82,7 +82,7 @@ void SettingsDownloads::init(){
         lineEdit_UNF_DL_DIR->setText(CSTD(SETTING(TEMP_DOWNLOAD_DIRECTORY)));
         lineEdit_PROXY->setText(CSTD(SETTING(HTTP_PROXY)));
 
-        checkBox_NO_USE_TEMP_DIR->setChecked((((bool)SettingsManager::getInstance()->get(SettingsManager::NO_USE_TEMP_DIR))? Qt::Checked : Qt::Unchecked));
+        checkBox_NO_USE_TEMP_DIR->setChecked(!(((bool)SettingsManager::getInstance()->get(SettingsManager::NO_USE_TEMP_DIR))? Qt::Checked : Qt::Unchecked));
 
         spinBox_MAXDL->setValue(SETTING(DOWNLOAD_SLOTS));
         spinBox_NONEWDL->setValue(SETTING(MAX_DOWNLOAD_SPEED));
