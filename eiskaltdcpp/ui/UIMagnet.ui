@@ -35,42 +35,21 @@
       <enum>QFrame::Plain</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_LINK">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
+      <item row="1" column="1" colspan="2">
        <widget class="QLineEdit" name="lineEdit_TTH">
         <property name="readOnly">
          <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="lineEdit_SIZE">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
+      <item row="3" column="1" colspan="2">
        <widget class="QLineEdit" name="lineEdit_FNAME">
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Magnet link</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
+      <item row="1" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>TTH</string>
@@ -84,10 +63,40 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_FPATH"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_1">
+        <property name="text">
+         <string>Filepath</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" colspan="2">
+       <widget class="QLineEdit" name="lineEdit_SIZE">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
          <string>Size</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QPushButton" name="pushButton_BROWSE">
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>
@@ -154,6 +163,17 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>pushButton_CANCEL</tabstop>
+  <tabstop>pushButton_SEARCH</tabstop>
+  <tabstop>pushButton_DOWNLOAD</tabstop>
+  <tabstop>checkBox_Remember</tabstop>
+  <tabstop>lineEdit_TTH</tabstop>
+  <tabstop>lineEdit_SIZE</tabstop>
+  <tabstop>lineEdit_FNAME</tabstop>
+  <tabstop>lineEdit_FPATH</tabstop>
+  <tabstop>pushButton_BROWSE</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

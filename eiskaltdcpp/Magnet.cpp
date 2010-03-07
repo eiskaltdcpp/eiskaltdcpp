@@ -2,6 +2,7 @@
 
 #include <QUrl>
 #include <QMessageBox>
+#include <QFileDialog>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -23,9 +24,12 @@ Magnet::Magnet(QWidget *parent) :
 {
     setupUi(this);
 
+	pushButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
+
     connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
+	connect(pushButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
 }
 Magnet::~Magnet(){
     SearchManager::getInstance()->removeListener(this);
@@ -74,7 +78,7 @@ void Magnet::setLink(const QString &link){
         tth = tth.left(tth.indexOf("&dn="));
 
     lineEdit_TTH->setText(tth);
-    lineEdit_LINK->setText(link);
+    lineEdit_FPATH->setText(_q(SETTING(DOWNLOAD_DIRECTORY)));
 
     setWindowTitle(lineEdit_FNAME->text());
 
@@ -181,6 +185,15 @@ void Magnet::timeout(){
     accept();
 }
 
+void Magnet::slotBrowse(){
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
+
+    if (dir.isEmpty())
+        return;
+
+	lineEdit_FPATH->setText(dir + PATH_SEPARATOR_STR);
+}
+
 void Magnet::on(SearchManagerListener::SR, const dcpp::SearchResultPtr &result) throw(){
     if (!result)
         return;
@@ -194,7 +207,7 @@ void Magnet::on(SearchManagerListener::SR, const dcpp::SearchResultPtr &result) 
         SearchManager::getInstance()->removeListener(this);
 
         UserPtr user = result->getUser();
-        string target = SETTING(DOWNLOAD_DIRECTORY) + _tq(_q(result->getFileName()).split("\\", QString::SkipEmptyParts).last());
+        string target = _tq(lineEdit_FPATH->text()) + _tq(lineEdit_FNAME->text().split("\\", QString::SkipEmptyParts).last());
 
         QueueManager::getInstance()->add(target, result->getSize(), result->getTTH(), user, result->getHubURL());
 
@@ -205,3 +218,4 @@ void Magnet::on(SearchManagerListener::SR, const dcpp::SearchResultPtr &result) 
     }
     catch (const Exception &){}
 }
+
