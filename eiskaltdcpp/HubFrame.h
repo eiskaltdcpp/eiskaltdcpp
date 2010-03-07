@@ -291,6 +291,9 @@ private:
     bool chatDisabled;
     bool hasMessages;
 
+    QList<QString> commands;
+    int command_index;
+
     PMMap pm;
     ShellList shell_list;
 

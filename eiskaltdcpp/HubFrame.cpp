@@ -400,7 +400,8 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
         arenaMenu(NULL),
         codec(NULL),
         chatDisabled(false),
-        hasMessages(false)
+        hasMessages(false),
+        command_index(0)
 {
     setupUi(this);
 
@@ -491,6 +492,26 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             plainTextEdit_INPUT->setPlainText("");
 
             return true;
+        }
+        else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Up){
+            if (command_index < 0 || commands.size()-1 < command_index || commands.size() == 0)
+                return false;
+
+            plainTextEdit_INPUT->setPlainText(commands.at(command_index));
+
+            if (command_index >= 1)
+                command_index--;
+        }
+        else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Down){
+            if (command_index < 0 || commands.size()-1 < command_index+1 || commands.size() == 0)
+                return false;
+
+            plainTextEdit_INPUT->setPlainText(commands.at(command_index+1));
+
+            if (command_index < commands.size()-1)
+                command_index++;
+            else
+                command_index = commands.size()-1;
         }
         else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab)
             return true;
@@ -995,6 +1016,13 @@ bool HubFrame::parseForCmd(QString line){
     }
     else
         return false;
+
+    commands.push_back(line);
+
+    if (commands.size() >= 64)
+        commands.removeAt(0);
+
+    command_index = commands.size()-1;
 
     return true;
 }
