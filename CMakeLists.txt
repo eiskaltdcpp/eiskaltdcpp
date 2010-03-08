@@ -184,6 +184,10 @@ add_definitions (-pipe -O2 -I. -fno-builtin -D_FILE_OFFSET_BITS=64
                  -D_REENTRANT -D_DATADIR="${_DATADIR}"
                  -DNDEBUG -DBUILDING_DCPP)
 
+if (HAVE_IFADDRS_H)
+  add_definitions (-DHAVE_IFADDRS_H -DHAVE_IF_ADDRS_H)
+endif (HAVE_IFADDRS_H)
+
 if (ICONV_SECOND_ARGUMENT_IS_CONST)
   add_definitions (-DICONV_CONST=const)
 endif (ICONV_SECOND_ARGUMENT_IS_CONST)
