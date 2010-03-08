@@ -840,7 +840,7 @@ QString HubFrame::getArenaShortTitle(){
     QString ret = tr("Not connected");
 
     if (client && client->isConnected()){
-                ret  = QString("%1").arg(QString(client->getHubName().c_str()));
+        ret = QString("[+] %1").arg(QString(client->getHubName().c_str()));
     }
     else if (client){
         ret = QString("[-] %1").arg(client->getHubUrl().c_str());

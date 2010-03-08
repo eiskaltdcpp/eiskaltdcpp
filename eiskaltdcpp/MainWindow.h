@@ -129,6 +129,7 @@ friend class dcpp::Singleton<MainWindow>;
     protected:
         virtual void closeEvent(QCloseEvent*);
         virtual void customEvent(QEvent *);
+        virtual bool eventFilter(QObject *, QEvent *);
 
     private slots:
         void slotFileOpenLogFile();

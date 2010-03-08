@@ -175,6 +175,27 @@ void MainWindow::customEvent(QEvent *e){
     e->accept();
 }
 
+bool MainWindow::eventFilter(QObject *obj, QEvent *e){
+    if (e->type() == QEvent::KeyRelease){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if (k_e->modifiers() == Qt::ControlModifier){
+            if (k_e->key() == Qt::Key_PageUp)
+                tBar->prevTab();
+            else if (k_e->key() == Qt::Key_PageDown)
+                tBar->nextTab();
+            else if (k_e->key() == Qt::Key_W){
+                if (arena->widget())
+                    arena->widget()->close();
+            }
+
+            return true;
+        }
+    }
+
+    return QMainWindow::eventFilter(obj, e);
+}
+
 void MainWindow::init(){
     installEventFilter(this);
 
@@ -585,6 +606,7 @@ void MainWindow::initToolbar(){
     fBar->setMovable(true);
     fBar->setFloatable(true);
     fBar->setAllowedAreas(Qt::AllToolBarAreas);
+    fBar->installEventFilter(this);
 
     tBar = new ToolBar(NULL);
     tBar->setObjectName("tBar");
@@ -593,6 +615,7 @@ void MainWindow::initToolbar(){
     tBar->setMovable(true);
     tBar->setFloatable(true);
     tBar->setAllowedAreas(Qt::AllToolBarAreas);
+    tBar->installEventFilter(this);
 
     addToolBar(fBar);
     addToolBar(tBar);

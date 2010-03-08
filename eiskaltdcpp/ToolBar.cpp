@@ -177,6 +177,20 @@ void ToolBar::redraw(){
         MainWindow::getInstance()->setWindowTitle(awgt->getArenaTitle());
 }
 
+void ToolBar::nextTab(){
+    if (!tabbar)
+        return;
+
+    tabbar->setCurrentIndex(tabbar->currentIndex()+1);
+}
+
+void ToolBar::prevTab(){
+    if (!tabbar)
+        return;
+
+    tabbar->setCurrentIndex(tabbar->currentIndex()-1);
+}
+
 QString ToolBar::compactToolTipText(QString text)
 {
     int maxlen = 60;

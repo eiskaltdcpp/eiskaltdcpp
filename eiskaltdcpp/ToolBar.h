@@ -26,6 +26,9 @@ public:
     void redraw();
     void initTabs();
 
+    void nextTab();
+    void prevTab();
+
     bool hasWidget(ArenaWidget*);
     void mapWidget(ArenaWidget*);
 
