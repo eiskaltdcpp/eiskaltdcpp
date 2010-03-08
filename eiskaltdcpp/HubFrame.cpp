@@ -936,6 +936,62 @@ bool HubFrame::parseForCmd(QString line){
             addStatus(tr("Away mode on: ") + QString::fromStdString(Util::getAwayMessage()));
         }
     }
+    else if (cmd == "/alias" && !emptyParam){
+        QStringList lex = line.split(" ", QString::SkipEmptyParts);
+
+        if (lex.size() >= 2){
+            QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toAscii());
+
+            if (lex.at(1) == "list"){
+                if (!aliases.isEmpty())
+                    addStatus("\n"+aliases);
+                else
+                    addStatus(tr("Aliases not found."));
+            }
+            else if (lex.at(1) == "purge" && lex.size() == 3){
+                QString alias = lex.at(2);
+                QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
+
+                foreach(QString line, alias_list){
+                    QStringList cmds = line.split('\t', QString::SkipEmptyParts);
+
+                    if (cmds.size() == 2 && alias == cmds.at(0)){
+                        alias_list.removeAt(alias_list.indexOf(line));
+
+                        QString new_aliases;
+                        foreach (QString line, alias_list)
+                            new_aliases += line + "\n";
+
+                        WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toAscii().toBase64());
+
+                        addStatus(tr("Alias removed."));
+                    }
+                }
+            }
+            else if (lex.size() >= 2){
+                QString raw = line;
+
+                raw.remove(0, raw.indexOf(" ")+1);
+
+                if (raw.indexOf("::") <= 0){
+                    addStatus(tr("Invalid alias syntax."));
+                }
+                else {
+                    QStringList new_cmd = raw.split("::", QString::SkipEmptyParts);
+
+                    if (new_cmd.size() < 2 || new_cmd.at(1).isEmpty())
+                        addStatus(tr("Invalid alias syntax."));
+                    else if (!aliases.contains(new_cmd.at(0)+'\t')){
+                        aliases += new_cmd.at(0) + '\t' +  new_cmd.at(1) + '\n';
+
+                        WSSET(WS_CHAT_CMD_ALIASES, aliases.toAscii().toBase64());
+
+                        addStatus(tr("Alias %1 => %2 has been added").arg(new_cmd.at(0)).arg(new_cmd.at(1)));
+                    }
+                }
+            }
+        }
+    }
     else if (cmd == "/back"){
         Util::setAway(false);
 
@@ -980,7 +1036,10 @@ bool HubFrame::parseForCmd(QString line){
     }
     else if (cmd == "/help" || cmd == "/?" || cmd == "/h"){
         QString out = "\n" +
-                      tr("/away - set away-mode on/off\n"
+                      tr("/alias <ALIAS_NAME>::<COMMAND> - make alias /ALIAS_NAME to /COMMAND\n"
+                         "/alias purge <ALIAS_NAME> - remove alias\n"
+                         "/alias list - list all aliases\n"
+                         "/away <message> - set away-mode on/off\n"
                          "/back - set away-mode off\n"
                          "/browse <nick> - browse user files\n"
                          "/clear - clear chat window\n"
@@ -1013,6 +1072,24 @@ bool HubFrame::parseForCmd(QString line){
         line.replace("\n", "");
 
         WSCMD(line);
+    }
+    else if (!WSGET(WS_CHAT_CMD_ALIASES).isEmpty()){
+        QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toAscii());
+        QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
+        bool ok = false;
+
+        foreach(QString line, alias_list){
+            QStringList cmds = line.split('\t', QString::SkipEmptyParts);
+
+            if (cmds.size() == 2 && cmd == ("/" + cmds.at(0))){
+                parseForCmd(cmds.at(1));
+
+                ok = true;
+            }
+        }
+
+        if (!ok)
+            return ok;
     }
     else
         return false;

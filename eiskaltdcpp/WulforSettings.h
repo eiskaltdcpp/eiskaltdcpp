@@ -21,6 +21,7 @@ const char * const WS_CHAT_PRIV_USER_COLOR    = "chat-pr-us-color";
 const char * const WS_CHAT_PRIV_LOCAL_COLOR   = "chat-pr-lc-color";
 const char * const WS_CHAT_SAY_NICK           = "chat-say-mynick";
 const char * const WS_CHAT_USERLIST_STATE     = "chat-userlist-saved-state";
+const char * const WS_CHAT_CMD_ALIASES        = "chat-cmd-aliases";
 const char * const WS_QCONNECT_HISTORY        = "qc-history";
 const char * const WS_DEFAULT_LOCALE          = "default_locale";
 const char * const WS_DQUEUE_STATE            = "dqueue-state";
