@@ -2150,7 +2150,17 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 
     QString nick =  _q(from.getIdentity().getNick());
 
-    if (AntiSpam::getInstance() && nick != _q(client->getMyNick())){
+    if (AntiSpam::getInstance()){
+        /*QString cid = (from.getUser() == ClientManager::getInstance()->getMe())? _q(to.getIdentity().getNick()):_q(from.getIdentity().getNick());
+        QString nick = WulforUtil::getInstance()->getNicks(cid);
+
+        if (!AntiSpam::getInstance()->isInAny(nick)){
+            AntiSpam::getInstance()->checkUser(cid, _q(msg), _q(client->getHubUrl()));
+
+            if (AntiSpam::getInstance()->isInBlack(nick) || !AntiSpam::getInstance()->isInAny(nick))
+                return;
+        }*/
+
         if (AntiSpam::getInstance()->isInBlack(nick))
             return;
     }

@@ -1403,36 +1403,36 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="547"/>
-        <location filename="../SearchFrame.cpp" line="813"/>
+        <location filename="../SearchFrame.cpp" line="546"/>
+        <location filename="../SearchFrame.cpp" line="819"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="551"/>
-        <location filename="../SearchFrame.cpp" line="809"/>
-        <location filename="../SearchFrame.cpp" line="817"/>
+        <location filename="../SearchFrame.cpp" line="550"/>
+        <location filename="../SearchFrame.cpp" line="815"/>
+        <location filename="../SearchFrame.cpp" line="823"/>
         <source>Search - %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="556"/>
+        <location filename="../SearchFrame.cpp" line="555"/>
         <source>Ready to search...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="914"/>
-        <location filename="../SearchFrame.cpp" line="964"/>
+        <location filename="../SearchFrame.cpp" line="920"/>
+        <location filename="../SearchFrame.cpp" line="970"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1211"/>
+        <location filename="../SearchFrame.cpp" line="1217"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1220"/>
+        <location filename="../SearchFrame.cpp" line="1226"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1726,77 +1726,82 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="49"/>
+        <location filename="../ShareBrowser.cpp" line="48"/>
         <source>Search for alternates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="51"/>
+        <location filename="../ShareBrowser.cpp" line="50"/>
         <source>Copy magnet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="103"/>
+        <location filename="../ShareBrowser.cpp" line="89"/>
+        <source>Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ShareBrowser.cpp" line="133"/>
         <source>Own files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="105"/>
+        <location filename="../ShareBrowser.cpp" line="135"/>
         <source>Listing: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="150"/>
+        <location filename="../ShareBrowser.cpp" line="180"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="152"/>
+        <location filename="../ShareBrowser.cpp" line="182"/>
         <source>Filebrowser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="154"/>
+        <location filename="../ShareBrowser.cpp" line="184"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="264"/>
-        <location filename="../ShareBrowser.cpp" line="272"/>
+        <location filename="../ShareBrowser.cpp" line="295"/>
+        <location filename="../ShareBrowser.cpp" line="303"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="264"/>
-        <location filename="../ShareBrowser.cpp" line="272"/>
+        <location filename="../ShareBrowser.cpp" line="295"/>
+        <location filename="../ShareBrowser.cpp" line="303"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="265"/>
-        <location filename="../ShareBrowser.cpp" line="273"/>
+        <location filename="../ShareBrowser.cpp" line="296"/>
+        <location filename="../ShareBrowser.cpp" line="304"/>
         <source>Exact size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="266"/>
-        <location filename="../ShareBrowser.cpp" line="274"/>
+        <location filename="../ShareBrowser.cpp" line="297"/>
+        <location filename="../ShareBrowser.cpp" line="305"/>
         <source>TTH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="368"/>
-        <location filename="../ShareBrowser.cpp" line="379"/>
+        <location filename="../ShareBrowser.cpp" line="427"/>
+        <location filename="../ShareBrowser.cpp" line="440"/>
         <source>Total size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="382"/>
+        <location filename="../ShareBrowser.cpp" line="443"/>
         <source>; Selected: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="422"/>
+        <location filename="../ShareBrowser.cpp" line="486"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>

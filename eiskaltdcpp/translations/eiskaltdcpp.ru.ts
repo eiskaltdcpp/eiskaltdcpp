@@ -226,14 +226,6 @@
 </translation>
     </message>
     <message>
-        <source>Unknown</source>
-        <translation type="obsolete">Неизвестно</translation>
-    </message>
-    <message>
-        <source>0 B (0.00%)</source>
-        <translation type="obsolete">0 Б (0.00%)</translation>
-    </message>
-    <message>
         <location filename="../DownloadQueueModel.cpp" line="103"/>
         <source>Paused</source>
         <translation>Приостановленно</translation>
@@ -538,10 +530,6 @@
         <translation>Роль на хабе: Оператор</translation>
     </message>
     <message>
-        <source>Copy text</source>
-        <translation type="obsolete">Копировать</translation>
-    </message>
-    <message>
         <location filename="../HubFrame.cpp" line="878"/>
         <source>Hub role: User</source>
         <translation>Роль на хабе: Пользователь</translation>
@@ -651,30 +639,6 @@ Favorite user</source>
         <location filename="../HubFrame.cpp" line="1259"/>
         <source>Favorite hub added.</source>
         <translation>Хаб добавлен в избранные.</translation>
-    </message>
-    <message>
-        <source>/away - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/away - включить/выключить режим &quot;Отошёл&quot;
-/back - отключить режим &quot;Отошёл&quot;
-/browse &lt;nick&gt; - открыть список файлов пользователя
-/clear - очистить чат
-/close - закрыть текущий хаб
-/fav - добавить текущий хаб в избранные
-/grant &lt;nick&gt; - выдалить дополнительный слот пользователю
-/help, /?, /h - показать эту справку
-/me - сказать от третьего лица
-/pm &lt;nick&gt; - начать личный чат с пользователем
-/sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1262"/>
@@ -951,10 +915,6 @@ Favorite user</source>
         <translation></translation>
     </message>
     <message>
-        <source>Downloaded/Uploaded :: Download speed/Upload speed (per sec.) :: Counts</source>
-        <translation type="obsolete">Загружено/Отдано :: Скорость загрузки/Скорость отдачи (в сек.) :: Счётчик</translation>
-    </message>
-    <message>
         <location filename="../MainWindow.cpp" line="507"/>
         <source>Space free</source>
         <translation>Свободно места на диске</translation>
@@ -1044,10 +1004,6 @@ Favorite user</source>
         <location filename="../MainWindow.cpp" line="900"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>%1/%2 :: %4/%5 :: %3</source>
-        <translation type="obsolete">%1/%2 :: %4/%5 :: %3</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="725"/>
@@ -1158,17 +1114,9 @@ Please check your connection settings</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <source>/s</source>
-        <translation type="obsolete">/c</translation>
-    </message>
-    <message>
         <location filename="../MainWindow.cpp" line="64"/>
         <source>Ready</source>
         <translation>Готов</translation>
-    </message>
-    <message>
-        <source>%1 : %2 | %4 : %5 | %3</source>
-        <translation type="obsolete">%1 : %2 | %4 : %5 | %3</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="541"/>
@@ -1254,20 +1202,20 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="547"/>
-        <location filename="../SearchFrame.cpp" line="813"/>
+        <location filename="../SearchFrame.cpp" line="546"/>
+        <location filename="../SearchFrame.cpp" line="819"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation>Слишком быстрая попытка нового поиска, подождите %1 секунд</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="551"/>
-        <location filename="../SearchFrame.cpp" line="809"/>
-        <location filename="../SearchFrame.cpp" line="817"/>
+        <location filename="../SearchFrame.cpp" line="550"/>
+        <location filename="../SearchFrame.cpp" line="815"/>
+        <location filename="../SearchFrame.cpp" line="823"/>
         <source>Search - %1</source>
         <translation>Поиск - %1</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="556"/>
+        <location filename="../SearchFrame.cpp" line="555"/>
         <source>Ready to search...</source>
         <translation>Готов к поиску...</translation>
     </message>
@@ -1397,18 +1345,18 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Хабы</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="914"/>
-        <location filename="../SearchFrame.cpp" line="964"/>
+        <location filename="../SearchFrame.cpp" line="920"/>
+        <location filename="../SearchFrame.cpp" line="970"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1211"/>
+        <location filename="../SearchFrame.cpp" line="1217"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Результаты отсутствуют&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1220"/>
+        <location filename="../SearchFrame.cpp" line="1226"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Найдено: &lt;b&gt;%1&lt;/b&gt;  Отсеяно: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -1780,18 +1728,6 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Всего расшарено: %1</translation>
     </message>
     <message>
-        <source>Add</source>
-        <translation type="obsolete">Добавить</translation>
-    </message>
-    <message>
-        <source>Rename</source>
-        <translation type="obsolete">Переименовать</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Удалить</translation>
-    </message>
-    <message>
         <location filename="../SettingsSharing.cpp" line="106"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
@@ -1801,79 +1737,76 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <source>Name</source>
         <translation>Имя</translation>
     </message>
-    <message>
-        <source>Error</source>
-        <translation type="obsolete">Ошибка</translation>
-    </message>
-    <message>
-        <source>Enter new name</source>
-        <translation type="obsolete">Укажите новое имя</translation>
-    </message>
 </context>
 <context>
     <name>ShareBrowser</name>
     <message>
-        <location filename="../ShareBrowser.cpp" line="103"/>
+        <location filename="../ShareBrowser.cpp" line="133"/>
         <source>Own files</source>
         <translation>Свои файлы</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="105"/>
+        <location filename="../ShareBrowser.cpp" line="135"/>
         <source>Listing: </source>
         <translation>Список файлов:</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="152"/>
+        <location filename="../ShareBrowser.cpp" line="182"/>
         <source>Filebrowser</source>
         <translation>Браузер файлов</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="154"/>
+        <location filename="../ShareBrowser.cpp" line="184"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="264"/>
-        <location filename="../ShareBrowser.cpp" line="272"/>
+        <location filename="../ShareBrowser.cpp" line="295"/>
+        <location filename="../ShareBrowser.cpp" line="303"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="264"/>
-        <location filename="../ShareBrowser.cpp" line="272"/>
+        <location filename="../ShareBrowser.cpp" line="295"/>
+        <location filename="../ShareBrowser.cpp" line="303"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="265"/>
-        <location filename="../ShareBrowser.cpp" line="273"/>
+        <location filename="../ShareBrowser.cpp" line="296"/>
+        <location filename="../ShareBrowser.cpp" line="304"/>
         <source>Exact size</source>
         <translation>Точный размер</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="266"/>
-        <location filename="../ShareBrowser.cpp" line="274"/>
+        <location filename="../ShareBrowser.cpp" line="297"/>
+        <location filename="../ShareBrowser.cpp" line="305"/>
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="150"/>
+        <location filename="../ShareBrowser.cpp" line="180"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Общий размер шары: %1; файлов: %2</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="368"/>
-        <location filename="../ShareBrowser.cpp" line="379"/>
+        <location filename="../ShareBrowser.cpp" line="89"/>
+        <source>Browse</source>
+        <translation type="unfinished">Просмотр</translation>
+    </message>
+    <message>
+        <location filename="../ShareBrowser.cpp" line="427"/>
+        <location filename="../ShareBrowser.cpp" line="440"/>
         <source>Total size: %1</source>
         <translation>Общий размер: %1</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="382"/>
+        <location filename="../ShareBrowser.cpp" line="443"/>
         <source>; Selected: %1</source>
         <translation>; Выделено: %1</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="422"/>
+        <location filename="../ShareBrowser.cpp" line="486"/>
         <source>Select directory</source>
         <translation>Укажите каталог</translation>
     </message>
@@ -1888,12 +1821,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Загрузить в</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="49"/>
+        <location filename="../ShareBrowser.cpp" line="48"/>
         <source>Search for alternates</source>
         <translation>Поиск альтернатив</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="51"/>
+        <location filename="../ShareBrowser.cpp" line="50"/>
         <source>Copy magnet</source>
         <translation>Копировать магнет-ссылку</translation>
     </message>
@@ -2095,10 +2028,6 @@ Do you want to stop it?
         <location filename="../TransferView.cpp" line="47"/>
         <source>Remove from Queue</source>
         <translation>Удалить из очереди</translation>
-    </message>
-    <message>
-        <source>User command</source>
-        <translation type="obsolete">Команда пользователя</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="53"/>
@@ -3108,22 +3037,6 @@ p, li { white-space: pre-wrap; }
         <source>Form</source>
         <translation>Форма</translation>
     </message>
-    <message>
-        <source>Nick</source>
-        <translation type="obsolete">Ник</translation>
-    </message>
-    <message>
-        <source>Hub</source>
-        <translation type="obsolete">Хаб</translation>
-    </message>
-    <message>
-        <source>Last seen</source>
-        <translation type="obsolete">Был замечен</translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="obsolete">Описание</translation>
-    </message>
 </context>
 <context>
     <name>UIFinishedTransfers</name>
@@ -3308,10 +3221,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIMagnet.ui" line="131"/>
         <source>Download</source>
         <translation>Загрузить</translation>
-    </message>
-    <message>
-        <source>Magnet link</source>
-        <translation type="obsolete">Magnet-ссылка</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="55"/>
@@ -3505,18 +3414,6 @@ p, li { white-space: pre-wrap; }
         <translation>Каталог для загрузок по умолчанию</translation>
     </message>
     <message>
-        <source>Unfinished downloads directory</source>
-        <translation type="obsolete">Каталог для незавершённых загрузок</translation>
-    </message>
-    <message>
-        <source>Browse...</source>
-        <translation type="obsolete">Обзор...</translation>
-    </message>
-    <message>
-        <source>Don&apos;t use temporary directory</source>
-        <translation type="obsolete">Не использовать временный каталог</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="81"/>
         <source>Use unfinished downloads directory</source>
         <translation>Использовать каталог для незавершённых загрузок</translation>
@@ -3686,10 +3583,6 @@ p, li { white-space: pre-wrap; }
         <source>Don&apos;t download files already in the queue</source>
         <translation>Не загружать файлы, уже имеющиеся в очереди</translation>
     </message>
-    <message>
-        <source>Not a use temporary directory</source>
-        <translation type="obsolete">Не использовать временную директорию</translation>
-    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>
@@ -3712,10 +3605,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsGUI.ui" line="52"/>
         <source>Theme</source>
         <translation>Тема</translation>
-    </message>
-    <message>
-        <source>Test</source>
-        <translation type="obsolete">Проверить</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="67"/>
@@ -3991,18 +3880,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsSharing.ui" line="79"/>
         <source>Upload slots</source>
         <translation>Слоты отдачи</translation>
-    </message>
-    <message>
-        <source>Path</source>
-        <translation type="obsolete">Путь</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="obsolete">Имя</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">Размер</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="92"/>
