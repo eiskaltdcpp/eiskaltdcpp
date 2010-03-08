@@ -33,14 +33,24 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
 
     connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
+    connect(checkBox_AUTOGRANT, SIGNAL(toggled(bool)), this, SLOT(slotAutoGrant(bool)));
 
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
     VarMap params;
 
     for(FavoriteManager::FavoriteMap::iterator i = ul.begin(); i != ul.end(); ++i) {
-        getParams(params, i->second);
+        dcpp::FavoriteUser &u = i->second;
+
+        if (WBGET(WB_FAVUSERS_AUTOGRANT)){
+            u.setFlag(FavoriteUser::FLAG_GRANTSLOT);
+            FavoriteManager::getInstance()->setAutoGrant(u.getUser(), true);
+        }
+
+        getParams(params, u);
         addUser(params);
     }
+
+    checkBox_AUTOGRANT->setChecked(WBGET(WB_FAVUSERS_AUTOGRANT));
 
     FavoriteManager::getInstance()->addListener(this);
 
@@ -231,6 +241,9 @@ void FavoriteUsers::slotHeaderMenu(){
 }
 
 void FavoriteUsers::on(UserAdded, const FavoriteUser& aUser) throw() {
+    if (WBGET(WB_FAVUSERS_AUTOGRANT))
+        FavoriteManager::getInstance()->setAutoGrant(aUser.getUser(), true);
+
     FavUserEvent *u_e = new FavUserEvent();
 
     getParams(u_e->getMap(), aUser);

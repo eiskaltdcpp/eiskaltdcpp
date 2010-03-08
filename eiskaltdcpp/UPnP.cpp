@@ -6,7 +6,7 @@
 #include "dcpp/forward.h"
 #include "dcpp/Util.h"
 
-#define _DEBUG_UPNP_ 0
+#define _DEBUG_UPNP_ 1
 
 #if _DEBUG_UPNP_
 #include <QtDebug>

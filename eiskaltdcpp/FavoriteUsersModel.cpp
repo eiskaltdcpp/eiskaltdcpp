@@ -1,7 +1,16 @@
 #include "FavoriteUsersModel.h"
 
+#include "WulforUtil.h"
+
 #include <QList>
 #include <QStringList>
+
+#include "dcpp/stdinc.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/ClientManager.h"
+#include "dcpp/FavoriteManager.h"
+#include "dcpp/CID.h"
+
 
 FavoriteUsersModel::FavoriteUsersModel(QObject *parent)
     : QAbstractItemModel(parent), sortColumn(-1)
@@ -37,7 +46,22 @@ QVariant FavoriteUsersModel::data(const QModelIndex &index, int role) const
 
     switch(role) {
         case Qt::DecorationRole: // icon
+        {
+            if (index.column() == 0){
+                FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
+
+                for(FavoriteManager::FavoriteMap::iterator i = ul.begin(); i != ul.end(); ++i) {
+                    const dcpp::FavoriteUser &u = i->second;
+
+                    if (_q(u.getUser()->getCID().toBase32()) == item->cid){
+                        if (u.isSet(FavoriteUser::FLAG_GRANTSLOT))
+                            return WulforUtil::getInstance()->getPixmap(WulforUtil::eiBALL_GREEN).scaled(16, 16);
+                    }
+                }
+            }
+
             break;
+        }
         case Qt::DisplayRole:
             return item->data(index.column());
         case Qt::TextAlignmentRole:

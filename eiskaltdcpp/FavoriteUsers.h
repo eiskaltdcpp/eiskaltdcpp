@@ -71,6 +71,7 @@ protected:
 private slots:
     void slotContextMenu();
     void slotHeaderMenu();
+    void slotAutoGrant(bool b){ WBSET(WB_FAVUSERS_AUTOGRANT, b); }
 
 private:
     FavoriteUsers(QWidget *parent = NULL);
