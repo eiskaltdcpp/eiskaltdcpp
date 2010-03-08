@@ -199,7 +199,11 @@ friend class dcpp::Singleton<MainWindow>;
         ToolBar *fBar;//for actions
 
         QLabel *statusLabel;
-        QLabel *statusSPLabel;
+        QLabel *statusDSPLabel;
+        QLabel *statusUSPLabel;
+        QLabel *statusDLabel;
+        QLabel *statusULabel;
+
         QLabel *statusTRLabel;
         QLabel *msgLabel;
         QProgressBar *progressSpace;
