@@ -72,8 +72,9 @@ void HashProgress::timerTick(){
         double speedStat = (((double)(startBytes - bytes)) * 1000) / diff;
 
         stat->setText(QString(tr("%1 files/h, %2 files left").arg(filestat).arg((uint32_t)files)));
-        speed->setText(QString(tr("%1/s, %2 left").arg(_q(Text::toT(Util::formatBytes((int64_t)speedStat))))
-                                                  .arg(_q(Text::toT(Util::formatBytes(bytes))))));
+        speed->setText(QString(tr("%1/s, %2 left, %3 shared").arg(_q(Text::toT(Util::formatBytes((int64_t)speedStat))))
+                                                             .arg(_q(Text::toT(Util::formatBytes(bytes)))))
+                                                             .arg(QString::fromStdString(Util::formatBytes(ShareManager::getInstance()->getShareSize()))));
 
         if(filestat == 0 || speedStat == 0) {
             left->setText(tr("-:--:-- left"));

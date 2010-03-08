@@ -188,6 +188,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
                 if (arena->widget())
                     arena->widget()->close();
             }
+            else
+               return QMainWindow::eventFilter(obj, e);
 
             return true;
         }
