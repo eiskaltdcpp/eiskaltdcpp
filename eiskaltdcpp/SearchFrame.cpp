@@ -375,7 +375,6 @@ void SearchFrame::init(){
     MainWindow *mwnd = MainWindow::getInstance();
 
     comboBox_SEARCHSTR->installEventFilter(this);
-    comboBox_SEARCHSTR->setFocus();
 
     load();
 
@@ -387,6 +386,8 @@ void SearchFrame::init(){
     left_pane_old_size = panes[0];
 
     timer1->start();
+
+    comboBox_SEARCHSTR->setFocus();
 }
 
 void SearchFrame::load(){

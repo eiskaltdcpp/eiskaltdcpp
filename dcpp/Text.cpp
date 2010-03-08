@@ -339,7 +339,7 @@ const string& fromUtf8(const string& str, const string& toCharset, string& tmp) 
 }
 
 const string& convert(const string& str, string& tmp, const string& fromCharset, const string& toCharset) throw() {
-	if(str.empty())
+        if(str.empty() || (strcmp(fromCharset.c_str(), toCharset.c_str()) == 0))
 		return str;
 
 #ifdef _WIN32
