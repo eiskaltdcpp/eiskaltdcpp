@@ -31,6 +31,7 @@
 #include <QCloseEvent>
 #include <QThread>
 #include <QRegExp>
+#include <QScrollBar>
 
 #include <QtDebug>
 
@@ -2021,8 +2022,12 @@ void HubFrame::slotFilterTextChanged(const QString & text){
 }
 
 void HubFrame::slotFindTextEdited(const QString & text){
-    if (text.isEmpty())
+    if (text.isEmpty()){
+        textEdit_CHAT->verticalScrollBar()->setValue(textEdit_CHAT->verticalScrollBar()->maximum());
+        textEdit_CHAT->textCursor().movePosition(QTextCursor::End, QTextCursor::MoveAnchor, 1);
+
         return;
+    }
 
     QTextCursor c = textEdit_CHAT->textCursor();
 
