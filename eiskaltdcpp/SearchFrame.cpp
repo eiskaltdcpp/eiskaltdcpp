@@ -468,7 +468,6 @@ void SearchFrame::download(const SearchFrame::VarMap &params){
             QueueManager::getInstance()->add(target + subdir, size, TTHValue(params["TTH"].toString().toStdString()), user, hubUrl);
         }
         else{
-            printf("%s %s %s\n", filename.c_str(), hubUrl.c_str(), target.c_str());
             QueueManager::getInstance()->addDirectory(filename, user, hubUrl, target);
         }
     }
@@ -616,20 +615,22 @@ void SearchFrame::getParams(SearchFrame::VarMap &map, const dcpp::SearchResultPt
             path += "\\";
 
         map["PATH"] = path;
+        map["ISDIR"]   = false;
     }
     else{
-        map["PATH"] = "";
+        map["FILE"] = _q(ptr->getFileName()).split('\\', QString::SkipEmptyParts).last();
+        map["PATH"] = _q(ptr->getFile()).left(_q(ptr->getFile()).lastIndexOf(map["FILE"].toString()));
         map["TTH"]  = "";
+        map["ISDIR"] = true;
     }
 
     map["NICK"]    = WulforUtil::getInstance()->getNicks(ptr->getUser()->getCID());
     map["FSLS"]    = ptr->getFreeSlots();
     map["ASLS"]    = ptr->getSlots();
     map["IP"]      = _q(ptr->getIP());
-    map["ISDIR"]   = map["FILE"].toString().endsWith("\\");
-    map["HUB"]     = QString::fromStdString(ptr->getHubName());
-    map["HOST"]    = QString::fromStdString(ptr->getHubURL());
-    map["CID"]     = QString::fromStdString(ptr->getUser()->getCID().toBase32());
+    map["HUB"]     = _q(ptr->getHubName());
+    map["HOST"]    = _q(ptr->getHubURL());
+    map["CID"]     = _q(ptr->getUser()->getCID().toBase32());
 }
 
 bool SearchFrame::getDownloadParams(SearchFrame::VarMap &params, SearchItem *item){
@@ -638,8 +639,13 @@ bool SearchFrame::getDownloadParams(SearchFrame::VarMap &params, SearchItem *ite
 
     params.clear();
 
+    QString fname = item->data(COLUMN_SF_PATH).toString() + item->data(COLUMN_SF_FILENAME).toString();
+
+    if (item->isDir && !fname.endsWith('\\'))
+        fname += "\\";
+
     params["CID"]   = item->cid;
-    params["FNAME"] = item->data(COLUMN_SF_PATH).toString() + item->data(COLUMN_SF_FILENAME).toString();
+    params["FNAME"] = fname;
     params["ESIZE"] = item->data(COLUMN_SF_ESIZE);
     params["TTH"]   = item->data(COLUMN_SF_TTH);
     params["HOST"]  = item->data(COLUMN_SF_HOST);
@@ -1269,7 +1275,7 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
         }
     }
 
-    if (filterShared == Filter){
+    if (filterShared == Filter && aResult->getType() == SearchResult::TYPE_FILE){
         const TTHValue& t = aResult->getTTH();
 
         if (ShareManager::getInstance()->isTTHShared(t)) {

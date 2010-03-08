@@ -386,14 +386,12 @@ QModelIndex FileBrowserModel::createIndexForItem(FileBrowserItem *item){
 }
 
 void FileBrowserModel::clear(){
-    blockSignals(true);
-
-    qDeleteAll(rootItem->childItems);
-    rootItem->childItems.clear();
-
-    blockSignals(false);
-
-    emit layoutChanged();
+    beginRemoveRows(QModelIndex(), 0, rowCount()-1);
+    {
+        qDeleteAll(rootItem->childItems);
+        rootItem->childItems.clear();
+    }
+    endRemoveRows();
 }
 
 void FileBrowserModel::repaint(){

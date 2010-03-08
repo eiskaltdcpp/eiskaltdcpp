@@ -65,12 +65,16 @@ class ShareBrowser : public QWidget,
 
         Action exec();
 
+        QString getTarget() { return target; }
+
     private:
         Menu();
         virtual ~Menu();
 
         QMap<QAction*, Action> actions;
         QMenu *menu;
+        QMenu *down_to;
+        QString target;
     };
 
 public:

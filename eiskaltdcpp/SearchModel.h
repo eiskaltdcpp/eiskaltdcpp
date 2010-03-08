@@ -135,7 +135,7 @@ public:
             const bool isDir);
 
     /** */
-    void addResultPtr(QMap<QString, QVariant>&);
+    void addResultPtr(const QMap<QString, QVariant>&);
     /** */
     int getSortColumn() const;
     /** */

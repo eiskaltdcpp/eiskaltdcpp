@@ -319,7 +319,7 @@ void SearchModel::sort(int column, Qt::SortOrder order) {
     emit layoutChanged();
 }
 
-void SearchModel::addResultPtr(QMap<QString, QVariant> &map){
+void SearchModel::addResultPtr(const QMap<QString, QVariant> &map){
     try {
         addResult(map["FILE"].toString(),
                   map["SIZE"].toULongLong(),
@@ -366,7 +366,7 @@ void SearchModel::addResult
 
     SearchItem * parent = NULL;
 
-    if (tths.contains(tth))
+    if (!isDir && tths.contains(tth))
         parent = tths[tth];
     else
         parent = rootItem;
@@ -385,7 +385,7 @@ void SearchModel::addResult
     item->isDir = isDir;
     item->cid = cid;
 
-    if (parent == rootItem)
+    if (parent == rootItem && !isDir)
         tths.insert(tth, item);
     else {
         parent->appendChild(item);

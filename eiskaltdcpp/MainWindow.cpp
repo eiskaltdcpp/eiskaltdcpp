@@ -477,19 +477,19 @@ void MainWindow::initMenuBar(){
 void MainWindow::initStatusBar(){
     statusLabel = new QLabel(statusBar());
     statusLabel->setFrameShadow(QFrame::Plain);
-    statusLabel->setFrameShape(QFrame::NoFrame);
+    statusLabel->setFrameShape(QFrame::StyledPanel);
     statusLabel->setAlignment(Qt::AlignRight);
     statusLabel->setToolTip(tr("Counts"));
 
     statusSPLabel = new QLabel(statusBar());
     statusSPLabel->setFrameShadow(QFrame::Plain);
-    statusSPLabel->setFrameShape(QFrame::NoFrame);
+    statusSPLabel->setFrameShape(QFrame::StyledPanel);
     statusSPLabel->setAlignment(Qt::AlignRight);
     statusSPLabel->setToolTip(tr("Download speed/Upload speed (per sec.)"));
 
     statusTRLabel = new QLabel(statusBar());
     statusTRLabel->setFrameShadow(QFrame::Plain);
-    statusTRLabel->setFrameShape(QFrame::NoFrame);
+    statusTRLabel->setFrameShape(QFrame::StyledPanel);
     statusTRLabel->setAlignment(Qt::AlignRight);
     statusTRLabel->setToolTip(tr("Downloaded/Uploaded"));
 
@@ -630,8 +630,8 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
                                            .arg(map["UP"]));
 
     QFontMetrics metrics(font());
-    int trLabelWidth = metrics.width(statusTRLabel->text()) > statusTRLabel->width()? metrics.width(statusTRLabel->text()) : statusTRLabel->width();
-    int spLabelWidth = metrics.width(statusSPLabel->text()) > statusSPLabel->width()? metrics.width(statusSPLabel->text()) : statusSPLabel->width();
+    int trLabelWidth = metrics.width(statusTRLabel->text()) > statusTRLabel->width()? metrics.width(statusTRLabel->text()) + 10 : statusTRLabel->width();
+    int spLabelWidth = metrics.width(statusSPLabel->text()) > statusSPLabel->width()? metrics.width(statusSPLabel->text()) + 10 : statusSPLabel->width();
 
     statusSPLabel->setFixedWidth(spLabelWidth);
     statusTRLabel->setFixedWidth(trLabelWidth);
