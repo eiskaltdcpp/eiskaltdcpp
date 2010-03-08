@@ -83,6 +83,14 @@ MainWindow::MainWindow (QWidget *parent):
 
         IPFilter::getInstance()->loadList();
     }
+
+    QFont f;
+
+    if (!WSGET(WS_APP_FONT).isEmpty() && f.fromString(WSGET(WS_APP_FONT)))
+        qApp->setFont(f);
+
+    if (!WSGET(WS_APP_THEME).isEmpty())
+        qApp->setStyle(WSGET(WS_APP_THEME));
 }
 
 MainWindow::~MainWindow(){

@@ -152,14 +152,6 @@ void WulforSettings::load(){
     }
     catch (Exception ex){
     }
-
-    QFont f;
-
-    if (!getStr(WS_APP_FONT).isEmpty() && f.fromString(getStr(WS_APP_FONT)))
-        qApp->setFont(f);
-
-    if (!getStr(WS_APP_THEME).isEmpty())
-        qApp->setStyle(getStr(WS_APP_THEME));
 }
 
 void WulforSettings::save(){
@@ -241,6 +233,18 @@ void WulforSettings::loadTranslation(){
         qApp->installTranslator(&tor);
     else
         WSSET(WS_TRANSLATION_FILE, "");
+}
+
+void WulforSettings::loadTheme(){
+    if (!getStr(WS_APP_THEME).isEmpty()){
+        printf("Setting up new theme: %s\n", getStr(WS_APP_THEME).toAscii().constData());
+        qApp->setStyle(getStr(WS_APP_THEME));
+    }
+
+    if (!getStr(WS_APP_FONT).isEmpty() && f.fromString(getStr(WS_APP_FONT))){
+        printf("Setting up new font: %s\n", f.toString().toAscii().constData());
+        qApp->setFont(f);
+    }
 }
 
 QString WulforSettings::getStr(QString key) throw (WulforSettings::BadKey){

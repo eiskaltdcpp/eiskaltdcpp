@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QMap>
 #include <QTranslator>
+#include <QFont>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -85,6 +86,7 @@ const char * const WI_NOTIFY_EVENTMAP         = "notify-event-map";
 const char * const WI_NOTIFY_SNDMAP           = "notify-snd-map";
 const char * const WI_NOTIFY_MODULE           = "notify-module";
 
+
 class WulforSettings :
         public QObject,
         public dcpp::Singleton<WulforSettings>
@@ -104,6 +106,7 @@ public:
     void save();
 
     void loadTranslation();
+    void loadTheme();
 
     QString getStr(QString) throw(BadKey);
     int     getInt(QString) throw(BadKey);
@@ -120,6 +123,8 @@ private:
     virtual ~WulforSettings();
 
     QString configFile;
+
+    QFont f;
 
     WIntMap intmap;
     WStrMap strmap;

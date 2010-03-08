@@ -204,6 +204,8 @@ void SettingsGUI::slotBrowseFont(){
 
     if (ok){
         qApp->setFont(f);
+        lineEdit_APPFONT->setText(f.toString());
+
         WSSET(WS_APP_FONT, f.toString());
     }
 }

@@ -56,10 +56,10 @@ int main(int argc, char *argv[])
         WulforSettings::newInstance();
         WulforSettings::getInstance()->load();
         WulforSettings::getInstance()->loadTranslation();
+        WulforSettings::getInstance()->loadTheme();
 
         if (WulforUtil::getInstance()->loadUserIcons())
             std::cout << "UserList icons has been loaded" << std::endl;
-
 
         if (WulforUtil::getInstance()->loadIcons())
             std::cout << "Application icons has been loaded" << std::endl;
@@ -72,6 +72,8 @@ int main(int argc, char *argv[])
 
         MainWindow::newInstance();
         MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
+
+        WulforSettings::getInstance()->loadTheme();
 
         Notification::newInstance();
         Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
