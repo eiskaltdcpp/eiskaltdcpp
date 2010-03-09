@@ -115,32 +115,7 @@ void SettingsSharing::slotGetName(QModelIndex index){
 }
 
 void SettingsSharing::slotHeaderMenu(){
-    QMenu * mcols = new QMenu(this);
-    QAction * column;
-    int index;
-
-    for (int i = 0; i < model->columnCount(); ++i) {
-        index = treeView->header()->logicalIndex(i);
-        column = mcols->addAction(model->headerData(index, Qt::Horizontal).toString());
-        column->setCheckable(true);
-
-        column->setChecked(!treeView->header()->isSectionHidden(index));
-        column->setData(index);
-    }
-
-    QAction * chosen = mcols->exec(QCursor::pos());
-
-    if (chosen) {
-        index = chosen->data().toInt();
-
-        if (treeView->header()->isSectionHidden(index)) {
-            treeView->header()->showSection(index);
-        } else {
-            treeView->header()->hideSection(index);
-        }
-    }
-
-    delete mcols;
+    WulforUtil::headerMenu(treeView);
 }
 
 ShareDirModel::ShareDirModel(QObject *parent){

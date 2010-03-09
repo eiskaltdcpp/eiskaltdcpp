@@ -658,31 +658,7 @@ void DownloadQueue::slotCollapseRow(const QModelIndex &row){
 }
 
 void DownloadQueue::slotHeaderMenu(const QPoint&){
-    QMenu * mcols = new QMenu(this);
-    QAction * column;
-    int index;
-
-    for (int i = 0; i < queue_model->columnCount(); ++i) {
-        index = treeView_TARGET->header()->logicalIndex(i);
-        column = mcols->addAction(queue_model->headerData(index, Qt::Horizontal).toString());
-        column->setCheckable(true);
-
-        column->setChecked(!treeView_TARGET->header()->isSectionHidden(index));
-        column->setData(index);
-    }
-
-    QAction * chosen = mcols->exec(QCursor::pos());
-
-    if (chosen) {
-        index = chosen->data().toInt();
-
-        if (treeView_TARGET->header()->isSectionHidden(index))
-            treeView_TARGET->header()->showSection(index);
-        else
-            treeView_TARGET->header()->hideSection(index);
-    }
-
-    delete mcols;
+    WulforUtil::headerMenu(treeView_TARGET);
 }
 
 void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw(){

@@ -175,6 +175,27 @@ void FavoriteUsers::handleDesc(const QString & _cid){
     }
 }
 
+void FavoriteUsers::handleGrant(const QString &cid){
+    FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
+
+    for(FavoriteManager::FavoriteMap::iterator i = ul.begin(); i != ul.end(); ++i) {
+        dcpp::FavoriteUser &u = i->second;
+
+        if (_q(u.getUser()->getCID().toBase32()) == cid){
+            if (u.isSet(FavoriteUser::FLAG_GRANTSLOT)){
+                u.unsetFlag(FavoriteUser::FLAG_GRANTSLOT);
+                FavoriteManager::getInstance()->setAutoGrant(u.getUser(), false);
+            }
+            else {
+                u.setFlag(FavoriteUser::FLAG_GRANTSLOT);
+                FavoriteManager::getInstance()->setAutoGrant(u.getUser(), true);
+            }
+
+            break;
+        }
+    }
+}
+
 void FavoriteUsers::slotContextMenu(){
     QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
     QList<FavoriteUserItem*> items;
@@ -194,7 +215,10 @@ void FavoriteUsers::slotContextMenu(){
     QAction *desc   = new QAction(tr("Description"), menu);
     desc->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDIT));
 
-    menu->addActions(QList<QAction*>() << desc << remove);
+    QAction *grant  = new QAction(tr("Grant/Remove slot"), menu);
+    grant->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiBALL_GREEN));
+
+    menu->addActions(QList<QAction*>() << desc << grant << remove);
 
     QAction *ret = menu->exec(QCursor::pos());
 
@@ -205,6 +229,10 @@ void FavoriteUsers::slotContextMenu(){
         foreach(FavoriteUserItem *i, items)
             handleRemove(i->cid);
     }
+    else if (ret == grant){
+        foreach(FavoriteUserItem *i, items)
+            handleGrant(i->cid);
+    }
     else {
         foreach(FavoriteUserItem *i, items)
             handleDesc(i->cid);
@@ -212,32 +240,7 @@ void FavoriteUsers::slotContextMenu(){
 }
 
 void FavoriteUsers::slotHeaderMenu(){
-    QMenu * mcols = new QMenu(this);
-    QAction * column;
-    int index;
-
-    for (int i = 0; i < model->columnCount(); ++i) {
-        index = treeView->header()->logicalIndex(i);
-        column = mcols->addAction(model->headerData(index, Qt::Horizontal).toString());
-        column->setCheckable(true);
-
-        column->setChecked(!treeView->header()->isSectionHidden(index));
-        column->setData(index);
-    }
-
-    QAction * chosen = mcols->exec(QCursor::pos());
-
-    if (chosen) {
-        index = chosen->data().toInt();
-
-        if (treeView->header()->isSectionHidden(index)) {
-            treeView->header()->showSection(index);
-        } else {
-            treeView->header()->hideSection(index);
-        }
-    }
-
-    delete mcols;
+    WulforUtil::headerMenu(treeView);
 }
 
 void FavoriteUsers::on(UserAdded, const FavoriteUser& aUser) throw() {

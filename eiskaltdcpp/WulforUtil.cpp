@@ -21,6 +21,7 @@
 #include <QInputDialog>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QAbstractItemModel>
 
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
@@ -672,4 +673,48 @@ QString WulforUtil::getHubNames(const dcpp::UserPtr &user){
 
 QString WulforUtil::getHubNames(const QString &cid){
     return getHubNames(CID(_tq(cid)));
+}
+
+void WulforUtil::headerMenu(QTreeView *tree){
+    if (!tree || !tree->model() || !tree->header())
+        return;
+
+    QMenu * mcols = new QMenu(NULL);
+    QAbstractItemModel *model = tree->model();
+    QAction * column;
+
+    int count = 0;
+    for (int i = 0; i < model->columnCount(); ++i)
+        count += tree->header()->isSectionHidden(tree->header()->logicalIndex(i))? 0 : 1;
+
+    bool allowDisable = count > 1;
+    int index;
+
+    for (int i = 0; i < model->columnCount(); ++i) {
+        index = tree->header()->logicalIndex(i);
+        column = mcols->addAction(model->headerData(index, Qt::Horizontal).toString());
+        column->setCheckable(true);
+
+        bool checked = !tree->header()->isSectionHidden(index);
+
+        column->setChecked(checked);
+        column->setData(index);
+
+        if (checked && !allowDisable)
+            column->setEnabled(false);
+    }
+
+    QAction * chosen = mcols->exec(QCursor::pos());
+
+    if (chosen) {
+        index = chosen->data().toInt();
+
+        if (tree->header()->isSectionHidden(index)) {
+            tree->header()->showSection(index);
+        } else {
+            tree->header()->hideSection(index);
+        }
+    }
+
+    delete mcols;
 }

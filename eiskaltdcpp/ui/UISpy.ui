@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>483</width>
-    <height>235</height>
+    <width>481</width>
+    <height>233</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,20 +29,6 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Start</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_CLEAR">
-       <property name="text">
-        <string>Clear</string>
-       </property>
-      </widget>
-     </item>
      <item>
       <widget class="QCheckBox" name="checkBox_IGNORETTH">
        <property name="text">
@@ -69,6 +55,20 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Start</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_CLEAR">
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

@@ -429,32 +429,7 @@ void TransferView::slotContextMenu(const QPoint &){
 }
 
 void TransferView::slotHeaderMenu(const QPoint &){
-    QMenu * mcols = new QMenu(this);
-    QAction * column;
-    int index;
-
-    for (int i = 0; i < model->columnCount(); ++i) {
-        index = treeView_TRANSFERS->header()->logicalIndex(i);
-        column = mcols->addAction(model->headerData(index, Qt::Horizontal).toString());
-        column->setCheckable(true);
-
-        column->setChecked(!treeView_TRANSFERS->header()->isSectionHidden(index));
-        column->setData(index);
-    }
-
-    QAction * chosen = mcols->exec(QCursor::pos());
-
-    if (chosen) {
-        index = chosen->data().toInt();
-
-        if (treeView_TRANSFERS->header()->isSectionHidden(index)) {
-            treeView_TRANSFERS->header()->showSection(index);
-        } else {
-            treeView_TRANSFERS->header()->hideSection(index);
-        }
-    }
-
-    delete mcols;
+    WulforUtil::headerMenu(treeView_TRANSFERS);
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) throw(){

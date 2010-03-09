@@ -609,30 +609,5 @@ void ShareBrowser::slotLoaderFinish(){
 }
 
 void ShareBrowser::slotHeaderMenu(){
-    QMenu * mcols = new QMenu(this);
-    QAction * column;
-    int index;
-
-    for (int i = 0; i < list_model->columnCount(); ++i) {
-        index = treeView_RPANE->header()->logicalIndex(i);
-        column = mcols->addAction(list_model->headerData(index, Qt::Horizontal).toString());
-        column->setCheckable(true);
-
-        column->setChecked(!treeView_RPANE->header()->isSectionHidden(index));
-        column->setData(index);
-    }
-
-    QAction * chosen = mcols->exec(QCursor::pos());
-
-    if (chosen) {
-        index = chosen->data().toInt();
-
-        if (treeView_RPANE->header()->isSectionHidden(index)) {
-            treeView_RPANE->header()->showSection(index);
-        } else {
-            treeView_RPANE->header()->hideSection(index);
-        }
-    }
-
-    delete mcols;
+    WulforUtil::headerMenu(treeView_RPANE);
 }

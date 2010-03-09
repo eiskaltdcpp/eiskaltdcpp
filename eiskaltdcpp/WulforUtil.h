@@ -7,6 +7,8 @@
 #include <QMap>
 #include <QHash>
 #include <QTextCodec>
+#include <QTreeView>
+#include <QAbstractItemModel>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -123,6 +125,8 @@ public:
 
     int sortOrderToInt(Qt::SortOrder);
     Qt::SortOrder intToSortOrder(int);
+
+    static void headerMenu(QTreeView*);
 
     QString getHubNames(const dcpp::CID&);
     QString getHubNames(const dcpp::UserPtr&);

@@ -79,6 +79,7 @@ private:
 
     void handleRemove(const QString &);
     void handleDesc(const QString &);
+    void handleGrant(const QString &);
 
     void getParams(VarMap &map, const dcpp::FavoriteUser &);
 
