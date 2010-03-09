@@ -28,6 +28,7 @@
 #include "dcpp/ShareManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Download.h"
+#include "dcpp/version.h"
 
 #include "ArenaWidget.h"
 #include "HistoryInterface.h"

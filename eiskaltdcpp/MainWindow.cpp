@@ -1149,6 +1149,14 @@ void MainWindow::slotAboutClient(){
                      .arg(EISKALTDCPP_VERSION_SFX)
                      .arg(DCPP_REVISION));
 #endif
+    a.label_ABOUT->setTextFormat(Qt::RichText);
+    a.label_ABOUT->setText(QString("%1\n<br><br> %2 %3\n<br><br> %4 %5")
+                           .arg(tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols."))
+                           .arg(tr("Core version:"))
+                           .arg(DCVERSIONSTRING)
+                           .arg(tr("Home page:"))
+                           .arg("<a href='http://code.google.com/p/eiskaltdc/'"
+                                ">http://code.google.com/p/eiskaltdc/</a>"));
 
     a.exec();
 }
