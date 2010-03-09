@@ -467,7 +467,7 @@
     <message>
         <location filename="../HashProgress.cpp" line="75"/>
         <source>%1/s, %2 left, %3 shared</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/с, %2 осталось, %3 расшарено</translation>
     </message>
     <message>
         <source>%1/s, %2 left</source>
@@ -526,23 +526,23 @@
     <message>
         <location filename="../HubFrame.cpp" line="950"/>
         <source>Aliases not found.</source>
-        <translation type="unfinished"></translation>
+        <translation>Псевдонимы не найдены.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="968"/>
         <source>Alias removed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Псевдоним удалён.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="978"/>
         <location filename="../HubFrame.cpp" line="984"/>
         <source>Invalid alias syntax.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неверный синтаксис для псевдонима.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="990"/>
         <source>Alias %1 =&gt; %2 has been added</source>
-        <translation type="unfinished"></translation>
+        <translation>Псевдоним %1 =&gt; %2 был добавлен</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1004"/>
@@ -777,7 +777,36 @@ Favorite user</source>
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - создать псевдоним /ALIAS_NAME для команды /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - удалить 
+/alias list - список всех псевдонимов команд
+/away - включить/выключить режим &quot;Отошёл&quot;
+/back - отключить режим &quot;Отошёл&quot;
+/browse &lt;nick&gt; - открыть список файлов пользователя
+/clear - очистить чат
+/close - закрыть текущий хаб
+/fav - добавить текущий хаб в избранные
+/grant &lt;nick&gt; - выдалить дополнительный слот пользователю
+/help, /?, /h - показать эту справку
+/info &lt;nick&gt; - показать информацию о пользователе
+/me - сказать от третьего лица
+/pm &lt;nick&gt; - начать личный чат с пользователем
+/sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translatorcomment>
+        <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - создать псевдоним /ALIAS_NAME для команды /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - удалить 
+/alias list - список всех псевдонимов команд
+/away - включить/выключить режим &quot;Отошёл&quot;
+/back - отключить режим &quot;Отошёл&quot;
+/browse &lt;nick&gt; - открыть список файлов пользователя
+/clear - очистить чат
+/close - закрыть текущий хаб
+/fav - добавить текущий хаб в избранные
+/grant &lt;nick&gt; - выдалить дополнительный слот пользователю
+/help, /?, /h - показать эту справку
+/info &lt;nick&gt; - показать информацию о пользователе
+/me - сказать от третьего лица
+/pm &lt;nick&gt; - начать личный чат с пользователем
+/sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
 </context>
 <context>
@@ -785,7 +814,7 @@ Favorite user</source>
     <message>
         <location filename="../IPFilter.cpp" line="454"/>
         <source>Nothing to export.</source>
-        <translation>Нет ничего для экспорта.</translation>
+        <translation>Экспортировать нечего.</translation>
     </message>
     <message>
         <location filename="../IPFilter.cpp" line="466"/>
@@ -795,7 +824,7 @@ Favorite user</source>
     <message>
         <location filename="../IPFilter.cpp" line="482"/>
         <source>Nothing to import.</source>
-        <translation>Нет ничего для импорта.</translation>
+        <translation>Импортировать нечего.</translation>
     </message>
     <message>
         <location filename="../IPFilter.cpp" line="506"/>
@@ -960,22 +989,22 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="519"/>
         <source>Download speed (per sec.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость загрузки (в сек.)</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="525"/>
         <source>Upload speed (per sec.)</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость отдачи (в сек.)</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="531"/>
         <source>Downloaded</source>
-        <translation type="unfinished">Загружено</translation>
+        <translation>Загружено</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="537"/>
         <source>Uploaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Отдано</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="550"/>
@@ -1673,12 +1702,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../SettingsDownloads.cpp" line="168"/>
         <source>Enter alias for directory</source>
-        <translation>Укажите короткое имя для каталога</translation>
+        <translation>Укажите псевдоним для каталога</translation>
     </message>
     <message>
         <location filename="../SettingsDownloads.cpp" line="168"/>
         <source>Alias</source>
-        <translation>Короткое имя</translation>
+        <translation>Псевдоним</translation>
     </message>
 </context>
 <context>
@@ -1853,7 +1882,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../ShareBrowser.cpp" line="89"/>
         <source>Browse</source>
-        <translation type="unfinished">Просмотр</translation>
+        <translation>Просмотр</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="427"/>
@@ -3101,7 +3130,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="39"/>
         <source>Auto grant slot</source>
-        <translation type="unfinished"></translation>
+        <translation>Автовыдача слота</translation>
     </message>
 </context>
 <context>
@@ -3253,12 +3282,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIIPFilter.ui" line="146"/>
         <source>IN</source>
-        <translation>Вх.</translation>
+        <translation>Вх</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="153"/>
         <source>OUT</source>
-        <translation>Исх.</translation>
+        <translation>Исх</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="166"/>
@@ -3532,7 +3561,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="219"/>
         <source>Alias</source>
-        <translation>Короткое имя</translation>
+        <translation>Псевдоним</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="228"/>
@@ -3690,7 +3719,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="112"/>
         <source>Icon theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема иконок</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="133"/>
