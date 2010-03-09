@@ -470,10 +470,6 @@
         <translation>%1/с, %2 осталось, %3 расшарено</translation>
     </message>
     <message>
-        <source>%1/s, %2 left</source>
-        <translation type="obsolete">%1/с, %2 осталось</translation>
-    </message>
-    <message>
         <location filename="../HashProgress.cpp" line="86"/>
         <source>%1 left</source>
         <translation>%1 осталось</translation>
@@ -567,32 +563,6 @@ Favorite user</source>
 Избранный пользователь</translation>
     </message>
     <message>
-        <source>/away - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/away - включить/выключить режим &quot;Отошёл&quot;
-/back - отключить режим &quot;Отошёл&quot;
-/browse &lt;nick&gt; - открыть список файлов пользователя
-/clear - очистить чат
-/close - закрыть текущий хаб
-/fav - добавить текущий хаб в избранные
-/grant &lt;nick&gt; - выдалить дополнительный слот пользователю
-/help, /?, /h - показать эту справку
-/info &lt;nick&gt; - показать информацию о пользователе
-/me - сказать от третьего лица
-/pm &lt;nick&gt; - начать личный чат с пользователем
-/sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
-    </message>
-    <message>
         <location filename="../HubFrame.cpp" line="1221"/>
         <source> joins the chat</source>
         <translation> входит в чат</translation>
@@ -671,7 +641,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1486"/>
-        <location filename="../HubFrame.cpp" line="2097"/>
+        <location filename="../HubFrame.cpp" line="2100"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получен запрос перенаправления к уже подключенному хабу</translation>
     </message>
@@ -1098,6 +1068,21 @@ Favorite user</source>
         <translation></translation>
     </message>
     <message>
+        <location filename="../MainWindow.cpp" line="1154"/>
+        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
+        <translation>EiskaltDC++ - графический клиент для протоколов Direct Connect и ADC.</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="1155"/>
+        <source>Core version:</source>
+        <translation>Версия ядра:</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="1157"/>
+        <source>Home page:</source>
+        <translation>Домашняя страница:</translation>
+    </message>
+    <message>
         <location filename="../MainWindow.cpp" line="772"/>
         <source>Choose file to open</source>
         <translation>Выбор файла для открывания</translation>
@@ -1164,14 +1149,6 @@ Please check your connection settings</source>
         <location filename="../MainWindow.cpp" line="513"/>
         <source>Counts</source>
         <translation>Счётчик</translation>
-    </message>
-    <message>
-        <source>Download speed/Upload speed (per sec.)</source>
-        <translation type="obsolete">Скорость загрузки/Скорость отдачи (в сек.)</translation>
-    </message>
-    <message>
-        <source>Downloaded/Uploaded</source>
-        <translation type="obsolete">Загружено/Отдано</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="580"/>
@@ -2218,12 +2195,28 @@ Do you want to stop it?
         <translation>Об EiskaltDC++</translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="24"/>
+        <location filename="../ui/UIAbout.ui" line="38"/>
+        <source>About program</source>
+        <translation>О программе</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIAbout.ui" line="44"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;arial,sans-serif&apos;; font-size:medium; color:#000000;&quot;&gt;EiskaltDC++ is &lt;/span&gt;graphical client for &lt;span style=&quot; font-family:&apos;arial,sans-serif&apos;; color:#000000;&quot;&gt;Direct Connect and ADC protocols.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;arial,sans-serif&apos;; font-size:medium; color:#000000;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;arial,sans-serif&apos;; font-size:medium; color:#000000;&quot;&gt;Home page: &lt;/span&gt;&lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIAbout.ui" line="58"/>
         <source>Authors</source>
         <translation>Авторы</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/UIAbout.ui" line="30"/>
+        <location filename="../ui/UIAbout.ui" line="64"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -2238,12 +2231,12 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="48"/>
+        <location filename="../ui/UIAbout.ui" line="82"/>
         <source>License</source>
         <translation>Лицензия</translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="54"/>
+        <location filename="../ui/UIAbout.ui" line="88"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -2874,7 +2867,7 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="691"/>
+        <location filename="../ui/UIAbout.ui" line="20"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
