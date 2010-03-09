@@ -577,9 +577,9 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         if (isChat || isUserList){
             QString nick = "";
             QString cid = "";
+            QTextCursor cursor = textEdit_CHAT->textCursor();
 
             if (isChat){
-                QTextCursor cursor = textEdit_CHAT->textCursor();
                 QString pressedParagraph = cursor.block().text();
 
                 int l = pressedParagraph.indexOf("<");
@@ -604,7 +604,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             if (!cid.isEmpty()){
                 if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1)
                     browseUserFiles(cid, false);
-                else{
+                else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://")){//may be dbl click on user nick
                     plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
                     plainTextEdit_INPUT->setFocus();
                 }
@@ -1817,6 +1817,9 @@ void HubFrame::slotChatMenu(const QPoint &){
                     ret = ret.left(ret.lastIndexOf(">"));//remove >
                 }
             }
+
+            if (ret.isEmpty())
+                ret = editor->textCursor().block().text();
 
             QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
 

@@ -694,7 +694,7 @@ void DownloadQueueDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
 
     double percent = ((double)item->data(COLUMN_DOWNLOADQUEUE_DOWN).toLongLong() * 100.0/(double)item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong());
 
-    QString status = QString("%1%").arg(percent);
+    QString status = QString("%1%").arg(percent, 0, 'f', 1);
 
     progressBarOption.text = status;
     progressBarOption.progress = static_cast<int>(percent);
