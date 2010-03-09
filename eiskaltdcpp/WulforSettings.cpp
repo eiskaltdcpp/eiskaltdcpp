@@ -62,6 +62,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_FAV_HUBS_STATE, "");
         strmap.insert(WS_APP_THEME, "");
         strmap.insert(WS_APP_FONT, "");
+        strmap.insert(WS_APP_ICONTHEME, "default");
         strmap.insert(WS_NOTIFY_SOUNDS, "");
         strmap.insert(WS_NOTIFY_SND_CMD, "");
         strmap.insert(WS_FAVUSERS_STATE, "");

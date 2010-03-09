@@ -13,6 +13,10 @@
 #include <QDir>
 #include <QFile>
 
+#ifndef CLIENT_ICONS_DIR
+#define CLIENT_ICONS_DIR ""
+#endif
+
 SettingsGUI::SettingsGUI(QWidget *parent) :
     QWidget(parent),
     custom_style(false)
@@ -58,6 +62,19 @@ void SettingsGUI::init(){
                 comboBox_LANGS->addItem(lang, full_path);
 
                 if (full_path == WSGET(WS_TRANSLATION_FILE))
+                    comboBox_LANGS->setCurrentIndex(i);
+
+                i++;
+            }
+        }
+
+        QString icons = CLIENT_ICONS_DIR "/appl/";
+        i = 0;
+        foreach (QString f, QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+            if (!f.isEmpty()){
+                comboBox_ICONS->addItem(f);
+
+                if (f == WSGET(WS_APP_ICONTHEME))
                     comboBox_LANGS->setCurrentIndex(i);
 
                 i++;
@@ -133,6 +150,7 @@ void SettingsGUI::init(){
     connect(toolButton_APPFONTBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseFont()));
     connect(toolButton_LANGBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseLng()));
     connect(comboBox_LANGS, SIGNAL(activated(int)), this, SLOT(slotLngIndexChanged(int)));
+    connect(comboBox_ICONS, SIGNAL(activated(int)), this, SLOT(slotIconsChanged()));
 }
 
 void SettingsGUI::ok(){
@@ -232,4 +250,10 @@ void SettingsGUI::slotLngIndexChanged(int index){
     MainWindow::getInstance()->retranslateUi();
 
     lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
+}
+
+void SettingsGUI::slotIconsChanged(){
+    WSSET(WS_APP_ICONTHEME, comboBox_ICONS->currentText());
+
+    WulforUtil::getInstance()->loadIcons();
 }

@@ -5,6 +5,7 @@
 #include <QPixmap>
 #include <QImage>
 #include <QMap>
+#include <QHash>
 #include <QTextCodec>
 
 #include "dcpp/stdinc.h"
@@ -89,7 +90,7 @@ public:
         eiFILETYPE_VIDEO
     };
 
-    typedef QMap<enum Icons, QPixmap> PixmapMap;
+    typedef QHash<qulonglong, QPixmap> PixmapMap;
 
     bool loadUserIcons();
     bool loadIcons();

@@ -23,6 +23,7 @@ private slots:
     void slotBrowseFont();
     void slotBrowseLng();
     void slotLngIndexChanged(int);
+    void slotIconsChanged();
 
 public slots:
     void ok();

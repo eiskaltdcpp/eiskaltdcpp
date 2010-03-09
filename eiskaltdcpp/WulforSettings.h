@@ -43,6 +43,7 @@ const char * const WS_FAVUSERS_STATE          = "favoriteusers-state";
 const char * const WS_SHAREHEADER_STATE       = "shareheader-state";
 const char * const WS_DOWNLOADTO_ALIASES      = "downloadto-aliases";
 const char * const WS_DOWNLOADTO_PATHS        = "downloadto-paths";
+const char * const WS_APP_ICONTHEME           = "app-theme-icons";
 const char * const WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";
 const char * const WB_SHOW_FREE_SPACE         = "show-free-space";
 const char * const WB_CHAT_SHOW_JOINS         = "chat-show-joins";

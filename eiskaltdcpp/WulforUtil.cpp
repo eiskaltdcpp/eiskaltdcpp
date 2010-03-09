@@ -121,24 +121,26 @@ bool WulforUtil::loadUserIcons(){
 
 QString WulforUtil::findAppIconsPath(){
     //Try to find icons directory
-    QString settings_path = QDir::currentPath() + "/icons/appl/default";
+    QString icon_theme = WSGET(WS_APP_ICONTHEME);
+
+    QString settings_path = QDir::currentPath() + "/icons/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
 
     if (QDir(settings_path).exists())
         return settings_path;
 
-    settings_path = bin_path + "/appl/default";
+    settings_path = bin_path + "/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return settings_path;
 
-    settings_path = QDir::homePath()+QString(".dc/icons/appl/default");
+    settings_path = QDir::homePath()+QString(".dc/icons/appl/" + icon_theme);
     settings_path = QDir::toNativeSeparators(settings_path);
 
     if (QDir(settings_path).exists())
         return settings_path;
 
-    settings_path = CLIENT_ICONS_DIR "/appl/default";
+    settings_path = CLIENT_ICONS_DIR "/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
 
     if (QDir(settings_path).exists())
@@ -211,6 +213,8 @@ bool WulforUtil::loadIcons(){
     m_bError = false;
 
     app_icons_path = findAppIconsPath();
+
+    m_PixmapMap.clear();
 
     m_PixmapMap[eiBALL_GREEN] = loadPixmap("ball_green.png");
     m_PixmapMap[eiBOOKMARK_ADD] = loadPixmap("bookmark_add.png");
@@ -286,7 +290,7 @@ QPixmap WulforUtil::loadPixmap(const QString &file){
 }
 
 const QPixmap &WulforUtil::getPixmap(enum WulforUtil::Icons e){
-    return m_PixmapMap[e];
+    return m_PixmapMap[static_cast<qulonglong>(e)];
 }
 
 QString WulforUtil::getNicks(const QString &cid){
