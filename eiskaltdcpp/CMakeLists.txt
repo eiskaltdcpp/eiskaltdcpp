@@ -172,7 +172,7 @@ if (UNIX)
 endif (UNIX)
 
 include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
-set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES})
+set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 add_executable (eiskaltdcpp WIN32 main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
@@ -183,7 +183,6 @@ add_executable (eiskaltdcpp WIN32 main.cpp
                 translations)
 add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}" -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}" -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}" -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}" )
 
-set_target_properties (eiskaltdcpp PROPERTIES LINK_FLAGS -Wl,--as-needed,--no-undefined)
 target_link_libraries (eiskaltdcpp ${LIBS} dcpp)
 
   set_property (TARGET eiskaltdcpp PROPERTY OUTPUT_NAME ${PROJECT_NAME_GLOBAL})

@@ -107,7 +107,7 @@ find_package (Gettext REQUIRED)
 find_package (Qt4 4.5 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus REQUIRED )
 find_package (PkgConfig)
 
-pkg_check_modules (PC_UPNP libupnp)
+pkg_check_modules (PC_UPNP REQUIRED libupnp)
 
 set (UPNP_DEFINITIONS ${PC_UPNP_CFLAGS_OTHER})
 
@@ -116,16 +116,24 @@ find_path(UPNP_INCLUDE_DIR upnp/upnp.h
    ${PC_UPNP_INCLUDEDIR}
    ${PC_UPNP_INCLUDE_DIRS}
    PATH_SUFFIXES upnp)
-
-find_library(UPNP_LIBRARY upnp
+find_library(UPNP_UPNP_LIBRARY upnp
    HINTS
    ${PC_UPNP_LIBDIR}
-   ${PC_UPNP_LIBRARY_DIRS})
+  ${PC_UPNP_LIBRARY_DIRS})
+find_library(UPNP_IXML_LIBRARY ixml
+   HINTS
+   ${PC_UPNP_LIBDIR}
+  ${PC_UPNP_LIBRARY_DIRS})
+find_library(UPNP_THREADUTIL_LIBRARY threadutil
+   HINTS
+   ${PC_UPNP_LIBDIR}
+  ${PC_UPNP_LIBRARY_DIRS})
 
 if (UPNP_INCLUDE_DIR AND UPNP_LIBRARY)
     set (UPNP_FOUND 1)
 endif (UPNP_INCLUDE_DIR AND UPNP_LIBRARY)
 if (UPNP_FOUND)
+    set (UPNP_LIBRARY ${UPNP_UPNP_LIBRARY} ${UPNP_IXML_LIBRARY} ${UPNP_THREADUTIL_LIBRARY})
     message (STATUS "Found the upnp libraries at ${UPNP_LIBRARY}")
     message (STATUS "Found the upnp headers at ${UPNP_INCLUDE_DIR}")
 else (UPNP_FOUND)
@@ -203,6 +211,15 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
    )
+message(STATUS "CMAKE Found Libs:
+
+                upnp: ${UPNP_LIBRARY}
+                boost: ${Boost_LIBRARIES}
+                bzip2: ${BZIP2_LIBRARIES}
+                zlib: ${ZLIB_LIBRARIES}
+                openssl: ${OPENSSL_LIBRARIES}
+                iconv: ${ICONV_LIBRARIES}
+                ")
 
 add_subdirectory (dcpp)
 add_subdirectory (eiskaltdcpp)
