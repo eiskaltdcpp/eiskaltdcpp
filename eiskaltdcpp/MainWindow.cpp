@@ -1166,14 +1166,16 @@ void MainWindow::slotAboutClient(){
                      .arg(DCPP_REVISION));
 #endif
     a.label_ABOUT->setTextFormat(Qt::RichText);
-    a.label_ABOUT->setText(QString("%1\n<br><br> %2 %3\n<br><br> %4 %5 <br><br> Total up: <b>%6</b> <br> Total down: <b>%7</b>")
+    a.label_ABOUT->setText(QString("%1<br><br> %2 %3<br><br> %4 %5<br><br> %6 <b>%7</b> <br> %8 <b>%9</b>")
                            .arg(tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols."))
                            .arg(tr("Core version:"))
                            .arg(DCVERSIONSTRING)
                            .arg(tr("Home page:"))
-                           .arg("<a href='http://code.google.com/p/eiskaltdc/'"
-                                ">http://code.google.com/p/eiskaltdc/</a>")
+                           .arg("<a href=\"http://code.google.com/p/eiskaltdc/\">"
+                                "http://code.google.com/p/eiskaltdc/</a>")
+                           .arg(tr("Total up:"))
                            .arg(_q(Util::formatBytes(app_total_up)))
+                           .arg(tr("Total down:"))
                            .arg(_q(Util::formatBytes(app_total_down))));
 
     a.exec();
