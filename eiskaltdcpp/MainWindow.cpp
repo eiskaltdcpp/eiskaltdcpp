@@ -129,8 +129,10 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
     saveSettings();
 
-    TransferView::getInstance()->close();
-    TransferView::deleteInstance();
+    if (TransferView::getInstance()){
+        TransferView::getInstance()->close();
+        TransferView::deleteInstance();
+    }
 
     if (FavoriteHubs::getInstance()){
         FavoriteHubs::getInstance()->setUnload(true);
@@ -169,6 +171,8 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
         if (arenaMap.contains(it.key()))//some widgets can autodelete itself from arena widgets
             it.value()->close();
     }
+
+    setUnload(false);
 
     c_e->accept();
 }
@@ -245,6 +249,8 @@ void MainWindow::init(){
     initToolbar();
 
     loadSettings();
+
+    connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotExit()));
 }
 
 void MainWindow::loadSettings(){
@@ -275,6 +281,11 @@ void MainWindow::loadSettings(){
 }
 
 void MainWindow::saveSettings(){
+    static bool stateIsSaved = false;
+
+    if (stateIsSaved)
+        return;
+
     WISET(WI_MAINWINDOW_HEIGHT, height());
     WISET(WI_MAINWINDOW_WIDTH, width());
     WISET(WI_MAINWINDOW_X, x());
@@ -284,6 +295,8 @@ void MainWindow::saveSettings(){
     WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
     WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
+
+    stateIsSaved = true;
 }
 
 void MainWindow::initActions(){
@@ -1137,6 +1150,9 @@ void MainWindow::slotExit(){
 void MainWindow::slotAboutClient(){
     About a(this);
 
+    qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
+    qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong();
+
 #ifndef DCPP_REVISION
     a.label->setText(QString("<b>%1</b> %2 (%3)")
                      .arg(EISKALTDCPP_WND_TITLE)
@@ -1150,15 +1166,21 @@ void MainWindow::slotAboutClient(){
                      .arg(DCPP_REVISION));
 #endif
     a.label_ABOUT->setTextFormat(Qt::RichText);
-    a.label_ABOUT->setText(QString("%1\n<br><br> %2 %3\n<br><br> %4 %5")
+    a.label_ABOUT->setText(QString("%1\n<br><br> %2 %3\n<br><br> %4 %5 <br><br> Total up: <b>%6</b> <br> Total down: <b>%7</b>")
                            .arg(tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols."))
                            .arg(tr("Core version:"))
                            .arg(DCVERSIONSTRING)
                            .arg(tr("Home page:"))
                            .arg("<a href='http://code.google.com/p/eiskaltdc/'"
-                                ">http://code.google.com/p/eiskaltdc/</a>"));
+                                ">http://code.google.com/p/eiskaltdc/</a>")
+                           .arg(_q(Util::formatBytes(app_total_up)))
+                           .arg(_q(Util::formatBytes(app_total_down))));
 
     a.exec();
+}
+
+void MainWindow::slotUnixSignal(int sig){
+    printf("%i\n");
 }
 
 void MainWindow::slotAboutQt(){
@@ -1212,6 +1234,12 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
     map["DOWN"]     = _q(Util::formatBytes(Socket::getTotalDown()));
     map["USPEED"]   = _q(Util::formatBytes(upBytes));
     map["UP"]       = _q(Util::formatBytes(Socket::getTotalUp()));
+
+    qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong()+downDiff;
+    qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong()+upDiff;
+
+    WSSET(WS_APP_TOTAL_DOWN, QString().setNum(app_total_down));
+    WSSET(WS_APP_TOTAL_UP, QString().setNum(app_total_up));
 
     lastUpdate = ticks;
     lastUp = Socket::getTotalUp();

@@ -36,7 +36,7 @@ void parseCmdLine(const QStringList &);
 
 int main(int argc, char *argv[])
 {
-        QApplication app(argc, argv);
+        EiskaltApp app(argc, argv);
         int ret = 0;
 
         parseCmdLine(qApp->arguments());
@@ -138,3 +138,4 @@ void parseCmdLine(const QStringList &args){
         }
     }
 }
+

@@ -15,6 +15,7 @@
 #include <QTabBar>
 #include <QToolBar>
 #include <QHash>
+#include <QSessionManager>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -41,6 +42,7 @@ using namespace dcpp;
 class FavoriteHubs;
 class DownloadQueue;
 class ToolBar;
+class MainWindow;
 
 class QProgressBar;
 
@@ -156,6 +158,8 @@ friend class dcpp::Singleton<MainWindow>;
         void slotHideProgressSpace();
         void slotExit();
 
+        void slotUnixSignal(int);
+
         void slotChatClear();
         void slotFindInChat();
         void slotChatDisable();
@@ -250,6 +254,23 @@ friend class dcpp::Singleton<MainWindow>;
         ArenaWidgetMap arenaMap;
 
         HistoryInterface<QWidget*> history;
+};
+
+class EiskaltApp: public QApplication{
+Q_OBJECT
+public:
+    EiskaltApp(int argc, char *argv[]): QApplication(argc, argv){}
+
+    void commitData(QSessionManager& manager){
+        if (MainWindow::getInstance()){
+            MainWindow::getInstance()->setUnload(true);
+            MainWindow::getInstance()->close();
+        }
+
+        manager.release();
+    }
+
+    void saveState(QSessionManager &){ /** Do nothing */ }
 };
 
 #endif //MAINWINDOW_H_
