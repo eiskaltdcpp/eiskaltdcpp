@@ -1536,7 +1536,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <location filename="../SearchFrame.cpp" line="147"/>
         <location filename="../SearchFrame.cpp" line="150"/>
         <source>Browse</source>
-        <translation>Просмотр</translation>
+        <translation>Выбрать каталог</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="209"/>
