@@ -917,11 +917,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             QString target = Menu::getInstance()->getDownloadToPath();
 
-            if (!QDir(target).exists())
+            if (!QDir(target).exists() || target.isEmpty())
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
-
-            if (target.isEmpty())
-                break;
 
             if (!target.endsWith(QDir::separator()))
                 target += QDir::separator();
@@ -1040,7 +1037,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 if (getWholeDirParams(params, item))
                     getFileList(params, false);
             }
-            
+
             break;
         }
         case Menu::MatchQueue:
@@ -1054,14 +1051,14 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     getFileList(params, true);
                 }
             }
-            
+
             break;
         }
         case Menu::SendPM:
         {
             HubFrame *fr = NULL;
             HubManager *hm = HubManager::getInstance();
-            
+
             foreach (QModelIndex i, list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
@@ -1072,7 +1069,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
                 if (fr)
                     fr->createPMWindow(cid);
-            }            
+            }
 
             break;
         }
@@ -1086,8 +1083,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     addToFav(params["CID"].toString());
 
             }
-            
-            break;          
+
+            break;
         }
         case Menu::GrantExtraSlot:
         {
@@ -1099,7 +1096,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     grant(params);
 
             }
-             
+
             break;
         }
         case Menu::RemoveFromQueue:
@@ -1112,7 +1109,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     removeSource(params);
 
              }
-             
+
              break;
         }
         case Menu::Remove:
@@ -1126,7 +1123,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
                 model->repaint();
             }
-             
+
             break;
         }
         case Menu::UserCommands:
