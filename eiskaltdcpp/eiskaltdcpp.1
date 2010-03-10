@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp" 1 "03 Mar 2010"
+.TH "eiskaltdcpp" 1 "11 Mar 2010"
 .SH "NAME"
 EiskaltDC++ \- graphical client for Direct Connect which uses Qt libraries
 .SH "SYNOPSIS"
@@ -68,6 +68,36 @@ Open filelist from local filesystem
 .TP
 .B "Esc"
 Close dialog window or hide main window in tray
+.SH "CHAT COMMANDS"
+/alias <ALIAS_NAME>::<COMMAND> - make alias /ALIAS_NAME to /COMMAND
+.br
+/alias purge <ALIAS_NAME> - remove alias
+.br
+/alias list - list all aliases
+.br
+/away <message> - set away-mode on/off
+.br
+/back - set away-mode off
+.br
+/browse <nick> - browse user files
+.br
+/clear - clear chat window
+.br
+/close - close this hub
+.br
+/fav - add this hub to favorites
+.br
+/grant <nick> - grant extra slot to user
+.br
+/help, /?, /h - show help
+.br
+/info <nick> - show info about user
+.br
+/me - say a third person
+.br
+/pm <nick> - begin private chat with user
+.br
+/sh <command> - start command and redirect output to the chat
 .SH AUTHOR
 This program was written by Andrey Karlov <dein.negativ@gmail.com>.
 .br
