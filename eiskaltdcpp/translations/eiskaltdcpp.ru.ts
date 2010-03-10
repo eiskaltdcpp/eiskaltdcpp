@@ -1079,21 +1079,26 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1171"/>
-        <source>Core version:</source>
-        <translation>Версия ядра:</translation>
+        <source>DC++ core version:</source>
+        <translation>Версия ядра DC++:</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1173"/>
+        <source>(with small changes)</source>
+        <translation>(с небольшими изменениями)</translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="1174"/>
         <source>Home page:</source>
         <translation>Домашняя страница:</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1176"/>
+        <location filename="../MainWindow.cpp" line="1177"/>
         <source>Total up:</source>
         <translation>Отдано (всего):</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1178"/>
+        <location filename="../MainWindow.cpp" line="1179"/>
         <source>Total down:</source>
         <translation>Загружено (всего):</translation>
     </message>

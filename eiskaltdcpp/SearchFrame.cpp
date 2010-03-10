@@ -132,12 +132,12 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
 
     if (a.size() == p.size() && !a.isEmpty()){
         for (int i = 0; i < a.size(); i++){
-            QAction *act = new QAction(a.at(i), down_to);
+            QAction *act = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
             act->setData(p.at(i));
 
             down_to->addAction(act);
 
-            QAction *act1 = new QAction(a.at(i), down_to);
+            QAction *act1 = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
             act1->setData(p.at(i));
 
             down_wh_to->addAction(act1);
