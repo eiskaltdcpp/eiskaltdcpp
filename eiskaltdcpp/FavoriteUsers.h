@@ -57,7 +57,7 @@ public:
     virtual QString getArenaTitle() { return tr("Favourite users"); }
     virtual QString getArenaShortTitle() { return getArenaTitle(); }
     virtual QMenu *getMenu() { return NULL; }
-    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUSERS); }
+    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFAVUSERS); }
 
 protected:
     virtual void closeEvent(QCloseEvent *);

@@ -55,6 +55,8 @@ public:
         eiEDITCOPY,
         eiEDITDELETE,
         eiEXIT,
+        eiFAVSERVER,
+        eiFAVUSERS,
         eiFILECLOSE,
         eiFILEFIND,
         eiFILTER,

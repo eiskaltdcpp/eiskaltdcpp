@@ -372,11 +372,11 @@ void MainWindow::initActions(){
         connect(fileFinishedUploads, SIGNAL(triggered()), this, SLOT(slotFileFinishedUploads()));
 
         fileFavoriteHubs = new QAction("", this);
-        fileFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
+        fileFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiFAVSERVER));
         connect(fileFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotFileFavoriteHubs()));
 
         fileFavoriteUsers = new QAction("", this);
-        fileFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
+        fileFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
         connect(fileFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotFileFavoriteUsers()));
 
         fileSpy = new QAction("", this);
