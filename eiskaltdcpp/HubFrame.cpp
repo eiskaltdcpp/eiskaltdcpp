@@ -519,10 +519,16 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             return true;
 
         if (k_e->modifiers() == Qt::ControlModifier){
-            if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus)
+            if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus){
                 textEdit_CHAT->zoomIn();
-            else if (k_e->key() == Qt::Key_Minus)
+
+                return true;
+            }
+            else if (k_e->key() == Qt::Key_Minus){
                 textEdit_CHAT->zoomOut();
+
+                return true;
+            }
         }
     }
     else if (e->type() == QEvent::MouseButtonPress){
