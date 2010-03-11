@@ -566,6 +566,9 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             else if (isUserList){
                 QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
 
+                if (treeView_USERS->model() == proxy)
+                    index = proxy->mapToSource(index);
+
                 if (index.isValid()){
                     UserListItem *i = reinterpret_cast<UserListItem*>(index.internalPointer());
 
@@ -607,6 +610,9 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             else if (isUserList){
                 QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
 
+                if (treeView_USERS->model() == proxy)
+                    index = proxy->mapToSource(index);
+
                 if (index.isValid()){
                     UserListItem *i = reinterpret_cast<UserListItem*>(index.internalPointer());
 
@@ -618,7 +624,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             if (!cid.isEmpty()){
                 if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1)
                     browseUserFiles(cid, false);
-                else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://")){//may be dbl click on user nick
+                else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
                     plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
                     plainTextEdit_INPUT->setFocus();
                 }
@@ -740,6 +746,7 @@ void HubFrame::init(){
 
     treeView_USERS->setModel(model);
     treeView_USERS->setSortingEnabled(true);
+    treeView_USERS->setItemsExpandable(false);
     treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->viewport()->installEventFilter(this);
