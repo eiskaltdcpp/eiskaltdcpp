@@ -29,86 +29,86 @@ using namespace std;
 
 void callBack(void* x, const std::string& a)
 {
-	std::cout << "Loading: " << a << std::endl;
+    std::cout << "Loading: " << a << std::endl;
 }
 
 void parseCmdLine(const QStringList &);
 
 int main(int argc, char *argv[])
 {
-        EiskaltApp app(argc, argv);
-        int ret = 0;
+    EiskaltApp app(argc, argv);
+    int ret = 0;
 
-        parseCmdLine(qApp->arguments());
+    parseCmdLine(qApp->arguments());
 
-        SingleInstanceRunner runner;
+    SingleInstanceRunner runner;
 
-        if (runner.isServerRunning(qApp->arguments()))
-            return 0;
+    if (runner.isServerRunning(qApp->arguments()))
+        return 0;
 
-	dcpp::startup(callBack, NULL);
-        dcpp::TimerManager::getInstance()->start();
+    dcpp::startup(callBack, NULL);
+    dcpp::TimerManager::getInstance()->start();
 
-        HashManager::getInstance()->setPriority(Thread::IDLE);
+    HashManager::getInstance()->setPriority(Thread::IDLE);
 
-        WulforUtil::newInstance();
+    WulforUtil::newInstance();
 
-        WulforSettings::newInstance();
-        WulforSettings::getInstance()->load();
-        WulforSettings::getInstance()->loadTranslation();
-        WulforSettings::getInstance()->loadTheme();
+    WulforSettings::newInstance();
+    WulforSettings::getInstance()->load();
+    WulforSettings::getInstance()->loadTranslation();
+    WulforSettings::getInstance()->loadTheme();
 
-        if (WulforUtil::getInstance()->loadUserIcons())
-            std::cout << "UserList icons has been loaded" << std::endl;
+    if (WulforUtil::getInstance()->loadUserIcons())
+        std::cout << "UserList icons has been loaded" << std::endl;
 
-        if (WulforUtil::getInstance()->loadIcons())
-            std::cout << "Application icons has been loaded" << std::endl;
+    if (WulforUtil::getInstance()->loadIcons())
+        std::cout << "Application icons has been loaded" << std::endl;
 
-        UPnP::newInstance();
-        UPnP::getInstance()->start();
-        UPnPMapper::newInstance();
+    UPnP::newInstance();
+    UPnP::getInstance()->start();
+    UPnPMapper::newInstance();
 
-        HubManager::newInstance();
+    HubManager::newInstance();
 
-        MainWindow::newInstance();
-        MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
+    MainWindow::newInstance();
+    MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
 
-        WulforSettings::getInstance()->loadTheme();
+    WulforSettings::getInstance()->loadTheme();
 
-        Notification::newInstance();
-        Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
+    Notification::newInstance();
+    Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
 
-        MainWindow::getInstance()->autoconnect();
-        MainWindow::getInstance()->show();
-        MainWindow::getInstance()->parseCmdLine();
+    MainWindow::getInstance()->autoconnect();
+    MainWindow::getInstance()->show();
+    MainWindow::getInstance()->parseCmdLine();
 
-        if (WBGET(WB_MAINWINDOW_HIDE))
-            MainWindow::getInstance()->hide();
+    if (WBGET(WB_MAINWINDOW_HIDE))
+        MainWindow::getInstance()->hide();
 
-        ret = app.exec();
+    ret = app.exec();
 
-        std::cout << "Shutting down..." << std::endl;
+    std::cout << "Shutting down..." << std::endl;
 
-        WulforSettings::getInstance()->save();
+    WulforSettings::getInstance()->save();
 
-        UPnPMapper::deleteInstance();
-        UPnP::getInstance()->stop();
-        UPnP::deleteInstance();
+    UPnPMapper::deleteInstance();
+    UPnP::getInstance()->stop();
+    UPnP::deleteInstance();
 
-        Notification::deleteInstance();
+    Notification::deleteInstance();
 
-        MainWindow::deleteInstance();
+    MainWindow::deleteInstance();
 
-        HubManager::deleteInstance();
+    HubManager::deleteInstance();
 
-        WulforUtil::deleteInstance();
-        WulforSettings::deleteInstance();
+    WulforUtil::deleteInstance();
+    WulforSettings::deleteInstance();
 
-        dcpp::shutdown();
+    dcpp::shutdown();
 
-        runner.servStop();
+    runner.servStop();
 
-        return ret;
+    return ret;
 }
 
 void parseCmdLine(const QStringList &args){
