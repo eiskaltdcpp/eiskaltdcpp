@@ -482,8 +482,11 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         {
             target = Menu::getInstance()->getTarget();
 
+            if (!QDir(target).exists() || target.isEmpty())
+                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
+
             if (target.isEmpty())
-                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), target);
+                break;
 
             if (!target.endsWith(QDir::separator()))
                 target += QDir::separator();

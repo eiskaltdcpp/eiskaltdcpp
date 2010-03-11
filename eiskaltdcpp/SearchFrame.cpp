@@ -920,6 +920,9 @@ void SearchFrame::slotContextMenu(const QPoint &){
             if (!QDir(target).exists() || target.isEmpty())
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
 
+            if (target.isEmpty())
+                break;
+
             if (!target.endsWith(QDir::separator()))
                 target += QDir::separator();
 
