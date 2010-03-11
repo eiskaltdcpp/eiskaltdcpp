@@ -1181,7 +1181,7 @@ void MainWindow::slotAboutClient(){
                            .arg(tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols."))
                            .arg(tr("DC++ core version:"))
                            .arg(DCVERSIONSTRING)
-                           .arg(tr("(with small changes)"))
+                           .arg(tr("(modified)"))
                            .arg(tr("Home page:"))
                            .arg("<a href=\"http://code.google.com/p/eiskaltdc/\">"
                                 "http://code.google.com/p/eiskaltdc/</a>")

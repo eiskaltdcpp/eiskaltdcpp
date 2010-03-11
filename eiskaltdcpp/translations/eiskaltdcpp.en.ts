@@ -1076,7 +1076,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1184"/>
-        <source>(with small changes)</source>
+        <source>(modified)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1771,18 +1771,18 @@ Keys:
 <context>
     <name>SettingsSharing</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="54"/>
-        <location filename="../SettingsSharing.cpp" line="79"/>
+        <location filename="../SettingsSharing.cpp" line="55"/>
+        <location filename="../SettingsSharing.cpp" line="80"/>
         <source>Total shared: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="106"/>
+        <location filename="../SettingsSharing.cpp" line="107"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="106"/>
+        <location filename="../SettingsSharing.cpp" line="107"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1883,7 +1883,7 @@ Keys:
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="256"/>
+        <location filename="../SettingsSharing.cpp" line="257"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3318,27 +3318,32 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="20"/>
+        <location filename="../ui/UISettingsSharing.ui" line="32"/>
+        <source>Don&apos;t share (group simbol *, separator |)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="76"/>
         <source>Share hidden files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="27"/>
+        <location filename="../ui/UISettingsSharing.ui" line="83"/>
         <source>Follow symlinks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="69"/>
+        <location filename="../ui/UISettingsSharing.ui" line="120"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="79"/>
+        <location filename="../ui/UISettingsSharing.ui" line="142"/>
         <source>Upload slots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="92"/>
+        <location filename="../ui/UISettingsSharing.ui" line="51"/>
         <source>Total shared: %1</source>
         <translation type="unfinished"></translation>
     </message>

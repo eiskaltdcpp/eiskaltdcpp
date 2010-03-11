@@ -786,7 +786,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="2300"/>
         <source>Search flood detected: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Поисковый флуд обнаружен: %1</translation>
     </message>
 </context>
 <context>
@@ -1089,8 +1089,8 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1184"/>
-        <source>(with small changes)</source>
-        <translation>(с небольшими изменениями)</translation>
+        <source>(modified)</source>
+        <translation>(измененное)</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1185"/>
@@ -1814,18 +1814,18 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>SettingsSharing</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="54"/>
-        <location filename="../SettingsSharing.cpp" line="79"/>
+        <location filename="../SettingsSharing.cpp" line="55"/>
+        <location filename="../SettingsSharing.cpp" line="80"/>
         <source>Total shared: %1</source>
         <translation>Всего расшарено: %1</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="106"/>
+        <location filename="../SettingsSharing.cpp" line="107"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="106"/>
+        <location filename="../SettingsSharing.cpp" line="107"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
@@ -1926,7 +1926,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="256"/>
+        <location filename="../SettingsSharing.cpp" line="257"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -2273,7 +2273,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="20"/>
@@ -3364,27 +3364,32 @@ p, li { white-space: pre-wrap; }
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="20"/>
+        <location filename="../ui/UISettingsSharing.ui" line="32"/>
+        <source>Don&apos;t share (group simbol *, separator |)</source>
+        <translation>Не расшаривать (групповой символ *, разделитель |)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="76"/>
         <source>Share hidden files</source>
         <translation>Расшаривать скрытые файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="27"/>
+        <location filename="../ui/UISettingsSharing.ui" line="83"/>
         <source>Follow symlinks</source>
         <translation>Следовать по символическим ссылкам</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="69"/>
+        <location filename="../ui/UISettingsSharing.ui" line="120"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Выдать дополнительный слот при скорости ниже (КиБ/с, 0 = неогр.)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="79"/>
+        <location filename="../ui/UISettingsSharing.ui" line="142"/>
         <source>Upload slots</source>
         <translation>Слоты отдачи</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="92"/>
+        <location filename="../ui/UISettingsSharing.ui" line="51"/>
         <source>Total shared: %1</source>
         <translation>Всего расшарено: %1</translation>
     </message>
