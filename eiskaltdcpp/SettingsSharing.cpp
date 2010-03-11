@@ -38,6 +38,7 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::FOLLOW_LINKS, checkBox_FOLLOW->isChecked());
     SM->set(SettingsManager::MIN_UPLOAD_SPEED, spinBox_EXTRA->value());
     SM->set(SettingsManager::SLOTS, spinBox_UPLOAD->value());
+    SM->set(SettingsManager::SKIPLIST_SHARE, _tq(lineEdit_SKIPLIST->text()));
 
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
 
@@ -47,7 +48,7 @@ void SettingsSharing::ok(){
 void SettingsSharing::init(){
     checkBox_SHAREHIDDEN->setChecked(BOOLSETTING(SHARE_HIDDEN));
     checkBox_FOLLOW->setChecked(BOOLSETTING(FOLLOW_LINKS));
-
+    lineEdit_SKIPLIST->setText(_q(SETTING(SKIPLIST_SHARE)));
     spinBox_UPLOAD->setValue(SETTING(SLOTS));
     spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));
 
@@ -166,7 +167,7 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
 
     switch (role){
         case Qt::CheckStateRole:
-        {   
+        {
             if (index.column() == 0){
                 foreach (QString f, checked){
                     if (fp.startsWith(f))

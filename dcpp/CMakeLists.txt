@@ -90,6 +90,7 @@ set (dcpp_hdrs
             ZUtils.h
             forward.h
             stdinc.h
+            Wildcards.h
             version.h)
 set (dcpp_srcs
             ADLSearch.cpp
@@ -142,6 +143,7 @@ set (dcpp_srcs
             Util.cpp
             ZUtils.cpp
             stdinc.cpp
+            Wildcards.cpp
             version.cpp)
 if (HAVE_ADDRS_H EQUAL 1)
   add_definitions (-DHAVE_IFADDRS_H)
