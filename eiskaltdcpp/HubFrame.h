@@ -174,14 +174,19 @@ public:
     const QPixmap &getPixmap();
 
     void disableChat(){
-        chatDisabled = !chatDisabled;
+        if (!chatDisabled){
+            addStatus(tr("Chat disabled."));
+
+            chatDisabled = true;
+        }
+        else{
+            chatDisabled = false;
+
+            addStatus(tr("Chat enabled."));
+        }
 
         plainTextEdit_INPUT->setEnabled(!chatDisabled);
-
-        if (chatDisabled)
-            addStatus(tr("Chat disabled."));
-        else
-            addStatus(tr("Chat enabled."));
+        plainTextEdit_INPUT->setVisible(!chatDisabled);
     }
 
     void clearChat(){

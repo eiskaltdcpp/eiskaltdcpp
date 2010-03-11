@@ -125,9 +125,9 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
         return;
     }
 
-    blockSignals(true);
-
     saveSettings();
+
+    blockSignals(true);
 
     if (TransferView::getInstance()){
         TransferView::getInstance()->close();
@@ -137,31 +137,43 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     if (FavoriteHubs::getInstance()){
         FavoriteHubs::getInstance()->setUnload(true);
         FavoriteHubs::getInstance()->close();
+        
+        FavoriteHubs::deleteInstance();
     }
 
     if (FinishedDownloads::getInstance()){
         FinishedDownloads::getInstance()->setUnload(true);
         FinishedDownloads::getInstance()->close();
+
+        FinishedDownloads::deleteInstance();
     }
 
     if (FinishedUploads::getInstance()){
         FinishedUploads::getInstance()->setUnload(true);
         FinishedUploads::getInstance()->close();
+
+        FinishedUploads::deleteInstance();
     }
 
     if (FavoriteUsers::getInstance()){
         FavoriteUsers::getInstance()->setUnload(true);
         FavoriteUsers::getInstance()->close();
+
+        FavoriteUsers::deleteInstance();
     }
 
     if (DownloadQueue::getInstance()){
         DownloadQueue::getInstance()->setUnload(true);
         DownloadQueue::getInstance()->close();
+
+        DownloadQueue::deleteInstance();
     }
 
     if (SpyFrame::getInstance()){
         SpyFrame::getInstance()->setUnload(true);
         SpyFrame::getInstance()->close();
+
+        SpyFrame::deleteInstance();
     }
 
     QMap< ArenaWidget*, QWidget* > map = arenaMap;
@@ -171,8 +183,6 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
         if (arenaMap.contains(it.key()))//some widgets can autodelete itself from arena widgets
             it.value()->close();
     }
-
-    setUnload(false);
 
     c_e->accept();
 }

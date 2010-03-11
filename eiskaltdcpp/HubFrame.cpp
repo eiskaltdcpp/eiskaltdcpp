@@ -2174,9 +2174,6 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
 }
 
 void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int) throw(){
-    if(chatDisabled)
-        return;
-
     QString status = QString("%1...").arg(_q(msg.c_str()));
 
     typedef Func1<HubFrame, QString> FUNC;
@@ -2275,5 +2272,9 @@ void HubFrame::on(ClientListener::NickTaken, Client*) throw(){
     QApplication::postEvent(this, new UserCustomEvent(func));
 }
 
-void HubFrame::on(ClientListener::SearchFlood, Client*, const string&) throw(){
+void HubFrame::on(ClientListener::SearchFlood, Client*, const string &str) throw(){
+    typedef Func1<HubFrame, QString> FUNC;
+    FUNC *func = new FUNC(this, &HubFrame::addStatus, tr("Search flood detected: %1").arg(_q(str)));
+
+    QApplication::postEvent(this, new UserCustomEvent(func));
 }

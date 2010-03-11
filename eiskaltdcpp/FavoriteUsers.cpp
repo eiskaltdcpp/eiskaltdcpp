@@ -70,7 +70,7 @@ void FavoriteUsers::closeEvent(QCloseEvent *e){
 
         WSSET(WS_FAVUSERS_STATE, treeView->header()->saveState().toBase64());
 
-        setAttribute(Qt::WA_DeleteOnClose);
+        //setAttribute(Qt::WA_DeleteOnClose);
 
         e->accept();
     }

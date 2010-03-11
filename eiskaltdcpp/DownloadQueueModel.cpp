@@ -91,9 +91,11 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
         }
         case Qt::DisplayRole:
         {
-            if (index.column() == COLUMN_DOWNLOADQUEUE_DOWN || index.column() == COLUMN_DOWNLOADQUEUE_SIZE)
+            if ((index.column() == COLUMN_DOWNLOADQUEUE_DOWN || index.column() == COLUMN_DOWNLOADQUEUE_SIZE) && !item->dir)
                 return _q(Util::formatBytes(item->data(index.column()).toLongLong()));
-            else if (index.column() == COLUMN_DOWNLOADQUEUE_PRIO){
+            else if ((index.column() == COLUMN_DOWNLOADQUEUE_DOWN || index.column() == COLUMN_DOWNLOADQUEUE_SIZE) && item->dir)
+                break;
+            else if (index.column() == COLUMN_DOWNLOADQUEUE_PRIO && !item->dir){
                 QueueItem::Priority prio = static_cast<QueueItem::Priority>(item->data(COLUMN_DOWNLOADQUEUE_PRIO).toInt());
 
                 QString prio_str = "";

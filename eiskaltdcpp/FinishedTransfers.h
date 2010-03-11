@@ -96,7 +96,7 @@ protected:
             MainWindow::getInstance()->remWidgetFromArena(this);
             MainWindow::getInstance()->remArenaWidget(this);
 
-            setAttribute(Qt::WA_DeleteOnClose);
+            //setAttribute(Qt::WA_DeleteOnClose);
 
             QString key = (comboBox->currentIndex() == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
             QString state = treeView->header()->saveState().toBase64();

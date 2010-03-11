@@ -42,7 +42,7 @@ void FavoriteHubs::closeEvent(QCloseEvent *e){
 
         save();
 
-        setAttribute(Qt::WA_DeleteOnClose);
+        //setAttribute(Qt::WA_DeleteOnClose);
 
         e->accept();
     }

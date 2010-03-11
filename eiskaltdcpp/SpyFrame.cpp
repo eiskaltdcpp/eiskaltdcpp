@@ -40,7 +40,7 @@ void SpyFrame::closeEvent(QCloseEvent *e){
         MainWindow::getInstance()->remWidgetFromArena(this);
         MainWindow::getInstance()->remArenaWidget(this);
 
-        setAttribute(Qt::WA_DeleteOnClose);
+        //setAttribute(Qt::WA_DeleteOnClose);
 
         //save();
 
