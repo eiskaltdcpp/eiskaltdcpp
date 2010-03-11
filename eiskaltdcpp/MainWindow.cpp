@@ -17,6 +17,7 @@
 #include <QFileDialog>
 #include <QProgressBar>
 #include <QFileDialog>
+#include <QRegExp>
 
 #include "HubFrame.h"
 #include "HubManager.h"

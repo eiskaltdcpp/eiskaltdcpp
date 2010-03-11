@@ -480,6 +480,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
             return ret;
         }
+
     }
     else if (e->type() == QEvent::KeyPress){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
@@ -516,6 +517,13 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         }
         else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab)
             return true;
+
+        if (k_e->modifiers() == Qt::ControlModifier){
+            if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus)
+                textEdit_CHAT->zoomIn();
+            else if (k_e->key() == Qt::Key_Minus)
+                textEdit_CHAT->zoomOut();
+        }
     }
     else if (e->type() == QEvent::MouseButtonPress){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
@@ -1596,6 +1604,9 @@ void HubFrame::slotPMClosed(QString cid){
 }
 
 void HubFrame::slotUserListMenu(const QPoint&){
+    Menu::Action action = Menu::getInstance()->execUserMenu(client, _q(client->getMyIdentity().getUser()->getCID().toBase32()));
+    UserListItem *item = NULL;
+
     QItemSelectionModel *selection_model = treeView_USERS->selectionModel();
     QModelIndexList proxy_list = selection_model->selectedRows(0);
 
@@ -1610,10 +1621,6 @@ void HubFrame::slotUserListMenu(const QPoint&){
     }
     else
         list = proxy_list;
-
-    QString cid = (reinterpret_cast<UserListItem*>(list.at(0).internalPointer()))->cid;
-    Menu::Action action = Menu::getInstance()->execUserMenu(client, cid);
-    UserListItem *item = NULL;
 
     switch (action){
         case Menu::None:
@@ -1798,6 +1805,9 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     QPoint p = QCursor::pos();
     Menu::Action action = Menu::getInstance()->execChatMenu(client, cid);
+
+    if (!model->itemForNick(nick))//may be user went offline
+        return;
 
     switch (action){
         case Menu::CopyText:
