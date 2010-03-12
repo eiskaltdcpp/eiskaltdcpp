@@ -16,3 +16,4 @@ Comment[en]=Share files over the DC++ network
 Comment[be]=Паздяляйцеся файламі праз сетку DC++
 Categories=Network;FileTransfer;P2P;Qt;
 GenericName[ru_RU]=Клиент сетей DC++
+GenericName[be_BY]=Кліент сеткі DC++

@@ -127,17 +127,22 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISpy.ui
             ui/UITransferView.ui)
 set (LANGUAGES en
-               ru)
+               ru
+               be)
 
 set (COMPILED_TRANSLATIONS ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.en.qm
-                           ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.ru.qm)
+                           ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.ru.qm
+                           ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.be.qm)
 
 #set (PO_FILES po/ru.po)
+#set (PO_FILES po/be.po)
 
 #set (MO_FILES ${CMAKE_CURRENT_SOURCE_DIR}/po/en.mo
+#              ${CMAKE_CURRENT_SOURCE_DIR}/po/be.mo
 #              ${CMAKE_CURRENT_SOURCE_DIR}/po/ru.mo)
 
 #GETTEXT_CREATE_TRANSLATIONS ( po/ru.po ALL ${PO_FILES})
+#GETTEXT_CREATE_TRANSLATIONS ( po/be.po ALL ${PO_FILES})
 
 #Create moc files
 QT4_WRAP_CPP (M_SRCS ${MOC_HDRS})

@@ -117,4 +117,5 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UISettingsGUI.ui \
     ui/UISpy.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
-               translations/eiskaltdcpp.ru.ts
+               translations/eiskaltdcpp.ru.ts \
+               translations/eiskaltdcpp.be.ts
