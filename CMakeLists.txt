@@ -1,3 +1,5 @@
+OPTION(WANT_BUNDLE "Enable Mac OS X bundle build" OFF)
+
 project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6)
 set (PROJECT_NAME_GLOBAL eiskaltdcpp)
@@ -158,14 +160,18 @@ if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
 endif (NOT CMAKE_BUILD_TYPE)
 
-if (UNIX AND NOT BUNDLE)
+if (UNIX AND NOT APPLE)
   set (DATAPATH "share/eiskaltdcpp")
-elseif (BUNDLE EQUAL 1)
+elseif (APPLE)
   set (DATAPATH "./")
-endif (UNIX AND NOT BUNDLE)
+endif (UNIX AND NOT APPLE)
 
 set (SHARE_DIR "share")
+IF (APPLE)
+set (CLIENT_DATA_DIR ".")
+ELSE (APPLE)
 set (CLIENT_DATA_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/${PROJECT_NAME_GLOBAL}")
+ENDIF (APPLE)
 set (_DATADIR "${CLIENT_DATA_DIR}")
 
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")

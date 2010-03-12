@@ -178,7 +178,16 @@ endif (UNIX)
 include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
-add_executable (eiskaltdcpp WIN32 main.cpp
+if (APPLE)
+  # set how it shows up in the Info.plist file
+  SET(MACOSX_BUNDLE_ICON_FILE icon_128x128.icns)
+  # set where in the bundle to put the icns file
+  SET_SOURCE_FILES_PROPERTIES(${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
+  # include the icns file in the target
+  SET(SRCS ${SRCS} ${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns)
+endif (APPLE)
+
+add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
                 ${SRCS}
@@ -195,7 +204,12 @@ target_link_libraries (eiskaltdcpp ${LIBS} dcpp)
 endif (APPLE)
 
   set_property (TARGET eiskaltdcpp PROPERTY OUTPUT_NAME ${PROJECT_NAME_GLOBAL})
-  install (TARGETS eiskaltdcpp RUNTIME DESTINATION bin)
+  install (TARGETS eiskaltdcpp
+    RUNTIME DESTINATION bin
+    BUNDLE DESTINATION . )
+
+if (NOT APPLE)
+
   install (DIRECTORY icons/appl icons/emot icons/user DESTINATION ${CLIENT_ICONS_DEST} PATTERN ".svn" EXCLUDE)
   install (FILES icons/icon_128x128.png DESTINATION share/icons/hicolor/128x128/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_64x64.png DESTINATION share/icons/hicolor/64x64/apps RENAME eiskaltdcpp.png)
@@ -208,3 +222,50 @@ endif (APPLE)
   install (FILES ../eiskaltdcpp.desktop DESTINATION share/applications)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
   INSTALL (FILES eiskaltdcpp.1.gz DESTINATION share/man/man1)
+
+endif (NOT APPLE)
+
+if (APPLE)
+
+  INCLUDE( ${QT_USE_FILE} )
+
+  SET(plugin_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
+  SET(qtconf_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
+  SET(APPS "\${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME_GLOBAL}.app")
+  SET(DIRS ${QT_LIBRARY_DIRS} ${PC_UPNP_LIBRARY_DIRS} ${CMAKE_INSTALL_PREFIX}/${LIBDIR})
+
+  SET(CPACK_PACKAGE_ICON ${CMAKE_CURRENT_SOURCE_DIR}/icons/ValknutVolumeIcon.icns)
+  SET(CPACK_BUNDLE_ICON ${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns)
+  SET(CPACK_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
+  SET(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}_${SVNVERSION}")
+  set (MACOSX_BUNDLE_INFO_STRING "DC and ADC client")
+  set (MACOSX_BUNDLE_ICON_FILE icon_128x128.icns)
+  set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
+  set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
+  set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
+  set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
+  set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION})
+  set (MACOSX_BUNDLE_COPYRIGH "Copyright 2010 Andrey Karlov")
+
+  install (DIRECTORY icons/appl icons/emot icons/user DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons PATTERN ".svn" EXCLUDE)
+  install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/128x128/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_64x64.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/64x64/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_32x32.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/32x32/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_48x48.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/48x48/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_22x22.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/22x22/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_24x24.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/24x24/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_16x16.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/16x16/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/pixmaps/ RENAME eiskaltdcpp.png)
+  install (FILES ../eiskaltdcpp.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
+  install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${PROJECT_NAME_GLOBAL}.app/${CLIENT_TRANSLATIONS_DEST})
+  INSTALL (FILES eiskaltdcpp.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+
+  INSTALL(CODE "
+    file(GLOB_RECURSE QTPLUGINS
+      \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
+    include(BundleUtilities)
+    fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
+    set(CPACK_BINARY_DRAGNDROP ON)
+    include(CPack)
+
+endif (APPLE)
