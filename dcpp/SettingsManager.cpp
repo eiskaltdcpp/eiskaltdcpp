@@ -48,7 +48,7 @@ const string SettingsManager::settingTags[] =
     "LogFilePrivateChat", "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileSystem",
     "LogFormatSystem", "LogFormatStatus", "DirectoryListingFrameOrder", "DirectoryListingFrameWidths",
     "TLSPrivateKeyFile", "TLSCertificateFile", "TLSTrustedCertificatesPath",
-    "Language", "DownloadsOrder", "DownloadsWidth", "SkipListShare"
+    "Language", "DownloadsOrder", "DownloadsWidth", "SkipListShare",
     "SoundMainChat", "SoundPM", "SoundPMWindow",
     "SENTRY",
     // Ints
