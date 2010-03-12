@@ -741,7 +741,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
             if (Wildcard::patternMatch(name, l_skip_list, '|'))
             {
                 LogManager::getInstance()->message(str(F_("User has choosen not to share file: %1% (Size: %2% B)")
-                % name % Util::toString(i->getSize())));
+                % aName % Util::toString(i->getSize())));
                 continue;
             }
         }

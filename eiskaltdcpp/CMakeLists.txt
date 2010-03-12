@@ -175,9 +175,40 @@ if (UNIX)
                 INPUT_FILE eiskaltdcpp.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
-
+if (APPLE AND BUNDLE)
+  # set how it shows up in the Info.plist file
+  set(MACOSX_BUNDLE_ICON_FILE icons/icon_128x128.icns)
+  # set where in the bundle to put the icns file
+  set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
+  #set (CPACK_BUNDLE_PLIST ../Info.plist)
+  set (CPACK_BUNDLE_ICON icons/icon_128x128.icns)
+  set (CPACK_PACKAGE_ICON icons/icon_128x128.icns)
+  set (CPACK_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
+  set (CPACK_PACKAGE_FILE_NAME ${PROJECT_NAME_GLOBAL})
+  set (MACOSX_BUNDLE_INFO_STRING "DC and ADC client")
+  set (MACOSX_BUNDLE_ICON_FILE icon_128x128.icns)
+  set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
+  set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
+  set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
+  set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
+  set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION})
+  set (MACOSX_BUNDLE_COPYRIGH "Copyright 2010 Andrey Karlov")
+  # include the icns file in the target
+  set (SRCS ${SRCS} ${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns
+                icons/icon_128x128.png
+                icons/icon_64x64.png
+                icons/icon_32x32.png
+                icons/icon_48x48.png
+                icons/icon_22x22.png
+                icons/icon_24x24.png
+                icons/icon_16x16.png
+                ../eiskaltdc.desktop
+                docs/en/eiskaltdc.1.gz
+                ../COPYING)
+endif (APPLE AND BUNDLE)
 include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
+if (UNIX AND NOT BUNDLE)
 add_executable (eiskaltdcpp WIN32 main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
@@ -208,3 +239,4 @@ endif (APPLE)
   install (FILES ../eiskaltdcpp.desktop DESTINATION share/applications)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
   INSTALL (FILES eiskaltdcpp.1.gz DESTINATION share/man/man1)
+endif (UNIX AND NOT BUNDLE)
