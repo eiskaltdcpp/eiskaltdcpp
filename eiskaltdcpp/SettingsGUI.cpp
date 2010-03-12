@@ -63,7 +63,7 @@ void SettingsGUI::init(){
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);
 
-                if (full_path == WSGET(WS_TRANSLATION_FILE))
+                if (WSGET(WS_TRANSLATION_FILE).endsWith(f))
                     comboBox_LANGS->setCurrentIndex(i);
 
                 i++;
@@ -77,7 +77,7 @@ void SettingsGUI::init(){
                 comboBox_ICONS->addItem(f);
 
                 if (f == WSGET(WS_APP_ICONTHEME))
-                    comboBox_LANGS->setCurrentIndex(i);
+                    comboBox_ICONS->setCurrentIndex(i);
 
                 i++;
             }
