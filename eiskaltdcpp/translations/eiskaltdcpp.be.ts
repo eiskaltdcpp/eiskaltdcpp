@@ -6,88 +6,88 @@
     <message>
         <location filename="../DownloadQueue.cpp" line="32"/>
         <source>Search for alternates</source>
-        <translation type="unfinished">Шукаць іншыя крыніцы</translation>
+        <translation>Шукаць іншыя крыніцы</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="33"/>
         <source>Copy magnet</source>
-        <translation type="unfinished">Перапісаць магніт-спасылку</translation>
+        <translation>Перапісаць магніт-спасылку</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="34"/>
         <source>Rename/Move</source>
-        <translation type="unfinished">Пераназваць/Перасунуць</translation>
+        <translation>Пераназваць/Перасунуць</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="39"/>
         <source>Set priority</source>
-        <translation type="unfinished">Вызначыць пяршынства</translation>
+        <translation>Вызначыць пяршынства</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="41"/>
         <source>Paused</source>
-        <translation type="unfinished">Прыпынены</translation>
+        <translation>Прыпынены</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="44"/>
         <source>Lowest</source>
-        <translation type="unfinished">Найніжэйшае</translation>
+        <translation>Найніжэйшае</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="47"/>
         <source>Low</source>
-        <translation type="unfinished">Нізкае</translation>
+        <translation>Нізкае</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="50"/>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Звычайнае</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="53"/>
         <source>High</source>
-        <translation type="unfinished">Высокае</translation>
+        <translation>Высокае</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="56"/>
         <source>Highest</source>
-        <translation type="unfinished">Найвышэйшае</translation>
+        <translation>Найвышэйшае</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="62"/>
         <source>Browse files</source>
-        <translation type="unfinished">Прагледзець файлы</translation>
+        <translation>Прагледзець файлы</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="63"/>
         <source>Send private message</source>
-        <translation type="unfinished">Даслаць асабістае паведамленьне</translation>
+        <translation>Даслаць асабістае паведамленьне</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="68"/>
         <source>Remove source</source>
-        <translation type="unfinished">Выкрасьліць крыніцу</translation>
+        <translation>Выкрасьліць крыніцу</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="69"/>
         <source>Remove user</source>
-        <translation type="unfinished">Выкрасьліць карыстальніка</translation>
+        <translation>Выкрасьліць карыстальніка</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="71"/>
         <location filename="../DownloadQueue.cpp" line="162"/>
         <source>Remove</source>
-        <translation type="unfinished">Выкрасьліць</translation>
+        <translation>Выкрасьліць</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="310"/>
         <source>No users...</source>
-        <translation>Няма карыстальнікаў...</translation>
+        <translation>Няма карыстальнікаў…</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="318"/>
         <source>Running...</source>
-        <translation>Выконваецца...</translation>
+        <translation>Выконваецца…</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="344"/>
@@ -498,82 +498,82 @@
     <message>
         <location filename="../HubFrame.cpp" line="67"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Перапісаць у буфэр</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="68"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Перапісаць мянушку</translation>
+        <translation>Перапісаць мянушку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="69"/>
         <source>Browse files</source>
-        <translation type="unfinished">Прагледзець файлы</translation>
+        <translation>Прагледзець файлы</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="70"/>
         <source>Match Queue</source>
-        <translation type="unfinished">Узгадніць чаргу</translation>
+        <translation>Узгадніць чаргу</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="71"/>
         <source>Private Message</source>
-        <translation type="unfinished">Асабістае паведамленьне</translation>
+        <translation>Асабістае паведамленьне</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="72"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished">Дадаць да ўлюбёнцаў</translation>
+        <translation>Дадаць да ўлюбёнцаў</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="73"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished">Выкрасьліць з улюбёнцаў</translation>
+        <translation>Выкрасьліць з улюбёнцаў</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="74"/>
         <source>Grant slot</source>
-        <translation type="unfinished">Даць шчыліну</translation>
+        <translation>Даць шчыліну</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="75"/>
         <source>Remove from Queue</source>
-        <translation type="unfinished">Выкрасьліць з чаргі</translation>
+        <translation>Выкрасьліць з чаргі</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="79"/>
         <source>Clear chat</source>
-        <translation type="unfinished">Ачысьціць гаману</translation>
+        <translation>Ачысьціць гаману</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="80"/>
         <source>Find in chat</source>
-        <translation type="unfinished">Шукаць у гамане</translation>
+        <translation>Шукаць у гамане</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="81"/>
         <source>Disable/Enable chat</source>
-        <translation type="unfinished">Забараніць ці задзейнічаць гаману</translation>
+        <translation>Забараніць або задзейнічаць гаману</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="83"/>
         <source>Select all</source>
-        <translation type="unfinished">Выбраць усё</translation>
+        <translation>Выбраць усё</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="85"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Павялічыць</translation>
+        <translation>Павялічыць</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="86"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Паменшыць</translation>
+        <translation>Паменшыць</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="255"/>
         <source>User commands</source>
-        <translation type="unfinished">Загады карыстальніка</translation>
+        <translation>Загады карыстальніка</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="792"/>
@@ -739,7 +739,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="1490"/>
         <source>Stored password sent...</source>
-        <translation>Даслалі захаванае гасло...</translation>
+        <translation>Даслалі захаванае гасло…</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1493"/>
@@ -878,7 +878,7 @@ Favorite user</source>
     <message>
         <location filename="../Magnet.cpp" line="167"/>
         <source>Please, wait...</source>
-        <translation>Калі ласка, чакайце...</translation>
+        <translation>Калі ласка, чакайце…</translation>
     </message>
     <message>
         <location filename="../Magnet.cpp" line="176"/>
@@ -1021,7 +1021,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="596"/>
         <source>Open filelist...</source>
-        <translation>Адкрыць сьпіс файлаў...</translation>
+        <translation>Адкрыць сьпіс файлаў…</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="598"/>
@@ -1217,7 +1217,8 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="1184"/>
         <source>(modified)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???зьмененае</translatorcomment>
+        <translation>(зьмененая)</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1188"/>
@@ -1286,78 +1287,78 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SearchFrame.cpp" line="38"/>
         <source>Download</source>
-        <translation type="unfinished">Сьцягнуць</translation>
+        <translation>Сьцягнуць</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="41"/>
         <source>Download to</source>
-        <translation type="unfinished">Сьцягваць у</translation>
+        <translation>Сьцягнуць у</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="44"/>
         <source>Download Whole Directory</source>
-        <translation type="unfinished">Сьцягнуць увесь каталёг</translation>
+        <translation>Сьцягнуць увесь каталёг</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="47"/>
         <source>Download Whole Directory to</source>
-        <translation type="unfinished">Сьцягнуць увесь каталёг у</translation>
+        <translation>Сьцягнуць увесь каталёг у</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="53"/>
         <source>Search TTH</source>
-        <translation type="unfinished">Шукаць скарот (TTH)</translation>
+        <translation>Шукаць скарот (TTH)</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="56"/>
         <source>Copy magnet</source>
-        <translation type="unfinished">Перапісаць магніт-спасылку</translation>
+        <translation>Перапісаць магніт-спасылку</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="59"/>
         <source>Browse files</source>
-        <translation type="unfinished">Прагледзець файлы</translation>
+        <translation>Прагледзець файлы</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="62"/>
         <source>Match Queue</source>
-        <translation type="unfinished">Узгадніць чаргу</translation>
+        <translation>Узгадніць чаргу</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="64"/>
         <source>Send Private Message</source>
-        <translation type="unfinished">Даслаць асабістае паведамленьне</translation>
+        <translation>Даслаць асабістае паведамленьне</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="67"/>
         <source>Add to favorites</source>
-        <translation type="unfinished">Дадаць да ўлюбёнцаў</translation>
+        <translation>Дадаць да ўлюбёнцаў</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="70"/>
         <source>Grant extra slot</source>
-        <translation type="unfinished">Даць дадатковую шчыліну</translation>
+        <translation>Даць дадатковую шчыліну</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="75"/>
         <source>Remove from Queue</source>
-        <translation type="unfinished">Выкрасьліць з чаргі</translation>
+        <translation>Выкрасьліць з чаргі</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="78"/>
         <source>Remove</source>
-        <translation type="unfinished">Выкрасьліць</translation>
+        <translation>Выкрасьліць</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="147"/>
         <location filename="../SearchFrame.cpp" line="150"/>
         <source>Browse</source>
-        <translation type="unfinished">Прагледзець</translation>
+        <translation>Прагледзець</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="209"/>
         <source>User commands</source>
-        <translation type="unfinished">Загады карыстальніка</translation>
+        <translation>Загады карыстальніка</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="272"/>
@@ -1388,7 +1389,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <location filename="../SearchFrame.cpp" line="559"/>
         <source>Ready to search...</source>
         <translatorcomment>???Гатовы шукаць</translatorcomment>
-        <translation>Можна шукаць...</translation>
+        <translation>Можна шукаць…</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="924"/>
@@ -1848,27 +1849,27 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../ShareBrowser.cpp" line="44"/>
         <source>Download</source>
-        <translation type="unfinished">Сьцягнуць</translation>
+        <translation>Сьцягнуць</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="46"/>
         <source>Download to</source>
-        <translation type="unfinished">Сьцягваць у</translation>
+        <translation>Сьцягнуць у</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="48"/>
         <source>Search for alternates</source>
-        <translation type="unfinished">Шукаць іншыя крыніцы</translation>
+        <translation>Шукаць іншыя крыніцы</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="50"/>
         <source>Copy magnet</source>
-        <translation type="unfinished">Перапісаць магніт-спасылку</translation>
+        <translation>Перапісаць магніт-спасылку</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="89"/>
         <source>Browse</source>
-        <translation type="unfinished">Прагледзець</translation>
+        <translation>Прагледзець</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="133"/>
@@ -2000,42 +2001,42 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="31"/>
         <source>Browse files</source>
-        <translation type="unfinished">Прагледзець файлы</translation>
+        <translation>Прагледзець файлы</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="34"/>
         <source>Match Queue</source>
-        <translation type="unfinished">Узгадніць чаргу</translation>
+        <translation>Узгадніць чаргу</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="36"/>
         <source>Send Private Message</source>
-        <translation type="unfinished">Даслаць асабістае паведамленьне</translation>
+        <translation>Даслаць асабістае паведамленьне</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="39"/>
         <source>Add to favorites</source>
-        <translation type="unfinished">Дадаць да ўлюбёнцаў</translation>
+        <translation>Дадаць да ўлюбёнцаў</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="42"/>
         <source>Grant extra slot</source>
-        <translation type="unfinished">Даць дадатковую шчыліну</translation>
+        <translation>Даць дадатковую шчыліну</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="47"/>
         <source>Remove from Queue</source>
-        <translation type="unfinished">Выкрасьліць з чаргі</translation>
+        <translation>Выкрасьліць з чаргі</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="53"/>
         <source>Force attempt</source>
-        <translation type="unfinished">Прымусіць паспрабаваць</translation>
+        <translation>Прымусіць паспрабаваць</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="56"/>
         <source>Close connection(s)</source>
-        <translation type="unfinished">Закрыць злучэньне(і)</translation>
+        <translation>Закрыць злучэньне(і)</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="278"/>
@@ -2061,7 +2062,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="463"/>
         <source>Download starting...</source>
-        <translation>Пачынаем сьцягваць...</translation>
+        <translation>Пачынаем сьцягваць…</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="484"/>
@@ -2099,12 +2100,12 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="511"/>
         <source>Download complete...</source>
-        <translation>Скончылі сьцягваць...</translation>
+        <translation>Скончылі сьцягваць…</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="553"/>
         <source>Connecting...</source>
-        <translation>Злучаемся...</translation>
+        <translation>Злучаемся…</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="566"/>
@@ -2129,7 +2130,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="657"/>
         <source>Upload starting...</source>
-        <translation>Пачынаем зацягваць...</translation>
+        <translation>Пачынаем зацягваць…</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="685"/>
@@ -3398,7 +3399,8 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="32"/>
         <source>Don&apos;t share (group simbol *, separator |)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???групаваньня</translatorcomment>
+        <translation>Не абагуляць (знак групаваньня — “*”; аддзяляльнік — “|”)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="76"/>
