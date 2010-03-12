@@ -188,7 +188,11 @@ add_executable (eiskaltdcpp WIN32 main.cpp
                 translations)
 add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}" -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}" -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}" -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}" )
 
+if (APPLE)
 target_link_libraries (eiskaltdcpp ${LIBS} dcpp)
+else (APPLE)
+target_link_libraries (eiskaltdcpp ${LIBS} dcpp iconv intl upnp ixml)
+endif (APPLE)
 
   set_property (TARGET eiskaltdcpp PROPERTY OUTPUT_NAME ${PROJECT_NAME_GLOBAL})
   install (TARGETS eiskaltdcpp RUNTIME DESTINATION bin)
