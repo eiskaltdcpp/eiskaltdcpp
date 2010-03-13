@@ -385,6 +385,8 @@ void DownloadQueueModel::updItem(const QMap<QString, QVariant> &map){
 
     item->updateColumn(COLUMN_DOWNLOADQUEUE_STATUS, map["STATUS"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_DOWN, (map["DOWN"].toLongLong() > 0? map["DOWN"] : 0));
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_ESIZE, map["ESIZE"].toULongLong() > 0? map["ESIZE"] : 0);
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_SIZE, map["ESIZE"].toULongLong() > 0? map["ESIZE"] : 0);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_PRIO, map["PRIO"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_USER, map["USERS"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_ERR, map["ERRORS"]);
@@ -694,7 +696,10 @@ void DownloadQueueDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
         return;
     }
 
-    double percent = ((double)item->data(COLUMN_DOWNLOADQUEUE_DOWN).toLongLong() * 100.0/(double)item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong());
+    qulonglong esize = item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong();
+    double percent = ((double)item->data(COLUMN_DOWNLOADQUEUE_DOWN).toLongLong() * 100.0);
+
+    percent = esize > 0? (percent/(double)esize) : 0.0;
 
     QString status = QString("%1%").arg(percent, 0, 'f', 1);
 
