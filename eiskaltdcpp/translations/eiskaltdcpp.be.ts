@@ -508,7 +508,7 @@
     <message>
         <location filename="../HubFrame.cpp" line="71"/>
         <source>Show in list</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказаць у сьпісе</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="72"/>
@@ -2173,7 +2173,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferViewModel.cpp" line="37"/>
         <source>Time left</source>
-        <translation>Мінула часу</translation>
+        <translation>Засталося</translation>
     </message>
     <message>
         <location filename="../TransferViewModel.cpp" line="37"/>
@@ -2295,7 +2295,23 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Eugene Petrov&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dhamp@ya.ru&amp;gt;&lt;br /&gt; (maintainer and developer 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Logo and Splash Screen Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (version 0.4.10 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Калі ласка, пра памылкі паведамляйце сюды: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Распрацоўнікі&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;Андрэй Карлаў&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (галоўны распрацоўнік ад вэрсіі 0.4.10)&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Барыс Пэк  aka  Tehnick&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br /&gt; (суправаджальнік і распрацоўнік ад вэрсіі 1.89.0)&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Яўген Пятроў&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dhamp@ya.ru&amp;gt;&lt;br /&gt; (суправаджальнік і распрацоўнік ад вэрсіі 0.4.10)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Знак і знак на шыльдзе&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Уладзімір Белы&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (ад вэрсіі 0.4.10)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="130"/>
@@ -2310,7 +2326,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Copyright (C) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="103"/>
@@ -2327,7 +2353,14 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Russian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 0.4.10 and later)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Belarusian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 1.0.40 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Перакладчыкі&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Пераклаў у расейскую&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Уладзімір Белы&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (ад вэрсіі 0.4.10)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Пераклаў у беларускую&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Павал Шаламіцкі  aka  Клёк&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (ад вэрсіі 1.0.40)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="124"/>
@@ -3177,12 +3210,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="112"/>
         <source>Icon theme</source>
-        <translation>Тэма значак</translation>
+        <translation>Набор значак</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="135"/>
         <source>Emoticon theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Набор пачуцьцезнакаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="143"/>
@@ -3232,7 +3265,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="230"/>
         <source>Enable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Задзейнічаць пачуцьцезнакі</translation>
     </message>
 </context>
 <context>
