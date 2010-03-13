@@ -49,7 +49,7 @@ sudo make uninstall
 
 
 *******************************************************************************
-Mac OS X specific installation notes
+Mac OS X specific notes
 *******************************************************************************
 # For generate native bundle on Mac OS X use:
 cpack -G DragNDrop
