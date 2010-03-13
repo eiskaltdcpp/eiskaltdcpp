@@ -49,6 +49,7 @@ void SettingsGUI::init(){
             lineEdit_APPFONT->setText(WSGET(WS_APP_FONT));
 
         int i = 0;
+        int k = -1;
         foreach (QString f, QDir(QString(CLIENT_TRANSLATIONS_DIR)).entryList(QDir::Files | QDir::NoSymLinks)){
             QString full_path = QString(CLIENT_TRANSLATIONS_DIR) + QDir::separator() + f;
             QString lang = "";
@@ -64,11 +65,12 @@ void SettingsGUI::init(){
                 comboBox_LANGS->addItem(lang, full_path);
 
                 if (WSGET(WS_TRANSLATION_FILE).endsWith(f))
-                    comboBox_LANGS->setCurrentIndex(i);
+                    k = i;
 
                 i++;
             }
         }
+        comboBox_LANGS->setCurrentIndex(k);
 
         QString icons = CLIENT_ICONS_DIR "/appl/";
         i = 0;
