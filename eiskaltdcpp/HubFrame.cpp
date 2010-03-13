@@ -1150,6 +1150,8 @@ void HubFrame::addStatus(QString msg){
     WulforUtil::getInstance()->textToHtml(msg);
     WulforUtil::getInstance()->textToHtml(nick);
 
+    msg = LinkParser::parseForLinks(msg);
+
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + _q(Util::getTimeString().c_str()) + "]</font>";
 
