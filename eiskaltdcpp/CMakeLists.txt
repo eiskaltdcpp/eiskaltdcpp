@@ -237,7 +237,7 @@ if (APPLE)
   SET(plugin_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
   SET(qtconf_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
   SET(APPS "\${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME_GLOBAL}.app")
-  SET(DIRS ${QT_LIBRARY_DIRS} ${PC_UPNP_LIBRARY_DIRS} ${CMAKE_INSTALL_PREFIX}/${LIBDIR})
+  SET(DIRS "\${QT_LIBRARY_DIRS}" "\${PC_UPNP_LIBRARY_DIRS}" "\${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
 
   SET(CPACK_PACKAGE_ICON ${CMAKE_CURRENT_SOURCE_DIR}/icons/ValknutVolumeIcon.icns)
   SET(CPACK_BUNDLE_ICON ${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns)
@@ -252,18 +252,23 @@ if (APPLE)
   set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION})
   set (MACOSX_BUNDLE_COPYRIGH "Copyright 2010 Andrey Karlov")
 
-  install (DIRECTORY icons/appl icons/emot icons/user DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons PATTERN ".svn" EXCLUDE)
-  install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/128x128/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_64x64.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/64x64/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_32x32.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/32x32/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_48x48.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/48x48/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_22x22.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/22x22/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_24x24.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/24x24/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_16x16.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/icons/hicolor/16x16/apps RENAME eiskaltdcpp.png)
+  install (DIRECTORY icons/appl icons/emot icons/user DESTINATION ${CLIENT_ICONS_DEST} PATTERN ".svn" EXCLUDE)
+  install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/64x64/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_32x32.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/32x32/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_48x48.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/48x48/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_22x22.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/22x22/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_24x24.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/24x24/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_16x16.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/16x16/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/pixmaps/ RENAME eiskaltdcpp.png)
   install (FILES ../eiskaltdcpp.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${PROJECT_NAME_GLOBAL}.app/${CLIENT_TRANSLATIONS_DEST})
+  install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
   INSTALL (FILES eiskaltdcpp.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+
+  install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
+
+  INSTALL(CODE "
+    file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
 
   INSTALL(CODE "
     file(GLOB_RECURSE QTPLUGINS

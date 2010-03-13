@@ -1,5 +1,3 @@
-OPTION(WANT_BUNDLE "Enable Mac OS X bundle build" OFF)
-
 project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6)
 set (PROJECT_NAME_GLOBAL eiskaltdcpp)
@@ -168,7 +166,7 @@ endif (UNIX AND NOT APPLE)
 
 set (SHARE_DIR "share")
 IF (APPLE)
-set (CLIENT_DATA_DIR ".")
+set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app")
 ELSE (APPLE)
 set (CLIENT_DATA_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/${PROJECT_NAME_GLOBAL}")
 ENDIF (APPLE)
