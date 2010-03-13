@@ -223,6 +223,9 @@ namespace {
 template <Qt::SortOrder order>
 struct Compare {
     void static sort(int col, QList<SearchItem*>& items) {
+#ifdef _DEBUG_MODEL_
+        qDebug() << "Sorting by " << col << " column and " << WulforUtil::getInstance()->sortOrderToInt(order) << " order.";
+#endif
         qStableSort(items.begin(), items.end(), getAttrComp(col));
     }
 
@@ -301,7 +304,7 @@ void SearchModel::sort(int column, Qt::SortOrder order) {
     sortOrder = order;
 #ifdef _DEBUG_MODEL_
     if (sortColumn != column)
-        qDebug() << "Sorting by " << column << " column and " << DCGuiUtils::SortOrderName(order) << " order.";
+        qDebug() << "Sorting by " << column << " column and " << WulforUtil::getInstance()->sortOrderToInt(order) << " order.";
 #endif
 
     emit layoutAboutToBeChanged();
