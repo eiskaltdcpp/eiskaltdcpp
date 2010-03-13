@@ -480,16 +480,19 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         case Menu::DownloadTo:
         {
+            static QString old_target = QDir::homePath();
             target = Menu::getInstance()->getTarget();
 
             if (!QDir(target).exists() || target.isEmpty())
-                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
+                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
 
             if (target.isEmpty())
                 break;
 
             if (!target.endsWith(QDir::separator()))
                 target += QDir::separator();
+
+            old_target = target;
 
             if (!target.isEmpty()){
                 foreach (QModelIndex index, list){

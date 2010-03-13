@@ -58,6 +58,8 @@ public:
         eiEXIT,
         eiFAVSERVER,
         eiFAVUSERS,
+        eiFAVADD,
+        eiFAVREM,
         eiFILECLOSE,
         eiFILEFIND,
         eiFILTER,

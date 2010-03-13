@@ -68,13 +68,14 @@ HubFrame::Menu::Menu(){
     //Userlist actions
     QAction *copy_text   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy"), NULL);
     QAction *copy_nick   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy nick"), NULL);
+    QAction *find        = new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Show in list"), NULL);
     QAction *browse      = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse files"), NULL);
-    QAction *match_queue = new QAction(QPixmap(), tr("Match Queue"), NULL);
+    QAction *match_queue = new QAction(WU->getPixmap(WulforUtil::eiDOWN), tr("Match Queue"), NULL);
     QAction *private_msg = new QAction(WU->getPixmap(WulforUtil::eiMESSAGE), tr("Private Message"), NULL);
-    QAction *fav_add     = new QAction(QPixmap(), tr("Add to Favorites"), NULL);
-    QAction *fav_del     = new QAction(QPixmap(), tr("Remove from Favorites"), NULL);
+    QAction *fav_add     = new QAction(WU->getPixmap(WulforUtil::eiFAVADD), tr("Add to Favorites"), NULL);
+    QAction *fav_del     = new QAction(WU->getPixmap(WulforUtil::eiFAVREM), tr("Remove from Favorites"), NULL);
     QAction *grant_slot  = new QAction(WU->getPixmap(WulforUtil::eiEDITADD), tr("Grant slot"), NULL);
-    QAction *rem_queue   = new QAction(QPixmap(), tr("Remove from Queue"), NULL);
+    QAction *rem_queue   = new QAction(WU->getPixmap(WulforUtil::eiEDITDELETE), tr("Remove from Queue"), NULL);
 
     //Chat actions
     QAction *sep1        = new QAction(NULL);
@@ -91,6 +92,7 @@ HubFrame::Menu::Menu(){
 
     actions << copy_text
             << copy_nick
+            << find
             << browse
             << match_queue
             << private_msg
@@ -1807,16 +1809,6 @@ void HubFrame::slotChatMenu(const QPoint &){
         nick = pressedParagraph.mid(nickStart, nickLen);
     }
 
-    UserListItem *item = model->itemForNick(nick);
-
-    if (item){
-        QModelIndex index = model->index(item->row(), 0, QModelIndex());
-
-        treeView_USERS->clearSelection();
-        treeView_USERS->selectionModel()->select(index, QItemSelectionModel::Select | QItemSelectionModel::Rows);
-        treeView_USERS->scrollTo(index, QAbstractItemView::PositionAtCenter);
-    }
-
     QString cid = model->CIDforNick(nick);
 
     if (cid.isEmpty()){
@@ -1863,6 +1855,20 @@ void HubFrame::slotChatMenu(const QPoint &){
         case Menu::CopyNick:
         {
             qApp->clipboard()->setText(nick, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::FindInList:
+        {
+            UserListItem *item = model->itemForNick(nick);
+
+            if (item){
+                QModelIndex index = model->index(item->row(), 0, QModelIndex());
+
+                treeView_USERS->clearSelection();
+                treeView_USERS->selectionModel()->select(index, QItemSelectionModel::Select | QItemSelectionModel::Rows);
+                treeView_USERS->scrollTo(index, QAbstractItemView::PositionAtCenter);
+            }
 
             break;
         }

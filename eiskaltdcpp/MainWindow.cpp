@@ -398,7 +398,7 @@ void MainWindow::initActions(){
         connect(fileSearch, SIGNAL(triggered()), this, SLOT(slotFileSearch()));
 
         fileHideWindow = new QAction(tr("Hide window"), this);
-        fileHideWindow->setShortcut(tr("Esc"));
+        //fileHideWindow->setShortcut(tr("Esc"));
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 

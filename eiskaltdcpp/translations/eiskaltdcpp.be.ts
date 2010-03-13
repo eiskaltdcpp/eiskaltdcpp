@@ -507,157 +507,162 @@
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="71"/>
+        <source>Show in list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../HubFrame.cpp" line="72"/>
         <source>Browse files</source>
         <translation>Прагледзець файлы</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="72"/>
+        <location filename="../HubFrame.cpp" line="73"/>
         <source>Match Queue</source>
         <translation>Узгадніць чаргу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="73"/>
+        <location filename="../HubFrame.cpp" line="74"/>
         <source>Private Message</source>
         <translation>Асабістае паведамленьне</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="74"/>
+        <location filename="../HubFrame.cpp" line="75"/>
         <source>Add to Favorites</source>
         <translation>Дадаць да ўлюбёнцаў</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="75"/>
+        <location filename="../HubFrame.cpp" line="76"/>
         <source>Remove from Favorites</source>
         <translation>Выкрасьліць з улюбёнцаў</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="76"/>
+        <location filename="../HubFrame.cpp" line="77"/>
         <source>Grant slot</source>
         <translation>Даць шчыліну</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="77"/>
+        <location filename="../HubFrame.cpp" line="78"/>
         <source>Remove from Queue</source>
         <translation>Выкрасьліць з чаргі</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="81"/>
+        <location filename="../HubFrame.cpp" line="82"/>
         <source>Clear chat</source>
         <translation>Ачысьціць гаману</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="82"/>
+        <location filename="../HubFrame.cpp" line="83"/>
         <source>Find in chat</source>
         <translation>Шукаць у гамане</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="83"/>
+        <location filename="../HubFrame.cpp" line="84"/>
         <source>Disable/Enable chat</source>
         <translation>Забараніць або задзейнічаць гаману</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="85"/>
+        <location filename="../HubFrame.cpp" line="86"/>
         <source>Select all</source>
         <translation>Выбраць усё</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="87"/>
+        <location filename="../HubFrame.cpp" line="88"/>
         <source>Zoom In</source>
         <translation>Павялічыць</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="88"/>
+        <location filename="../HubFrame.cpp" line="89"/>
         <source>Zoom Out</source>
         <translation>Паменшыць</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="257"/>
+        <location filename="../HubFrame.cpp" line="259"/>
         <source>User commands</source>
         <translation>Загады карыстальніка</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="804"/>
+        <location filename="../HubFrame.cpp" line="806"/>
         <source>Hub menu</source>
         <translation>Мэню асяродка</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="806"/>
+        <location filename="../HubFrame.cpp" line="808"/>
         <source>Reconnect</source>
         <translation>Нанова злучыцца</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="807"/>
+        <location filename="../HubFrame.cpp" line="809"/>
         <source>Show window</source>
         <translation>Паказаць ваконца</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="810"/>
+        <location filename="../HubFrame.cpp" line="812"/>
         <source>Close</source>
         <translation>Закрыць</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="856"/>
-        <location filename="../HubFrame.cpp" line="874"/>
+        <location filename="../HubFrame.cpp" line="858"/>
+        <location filename="../HubFrame.cpp" line="876"/>
         <source>Not connected</source>
         <translatorcomment>???Не далучаны</translatorcomment>
         <translation>Не злучыліся</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="910"/>
+        <location filename="../HubFrame.cpp" line="912"/>
         <source>Hub role: Operator</source>
         <translation>Роля на асяродку: апэратар</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="912"/>
+        <location filename="../HubFrame.cpp" line="914"/>
         <source>Hub role: User</source>
         <translation>Роля на асяродку: карыстальнік</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="915"/>
+        <location filename="../HubFrame.cpp" line="917"/>
         <source>
 Favorite user</source>
         <translation>
 Улюбёнец</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="960"/>
-        <location filename="../HubFrame.cpp" line="1032"/>
+        <location filename="../HubFrame.cpp" line="962"/>
+        <location filename="../HubFrame.cpp" line="1034"/>
         <source>Away mode off</source>
         <translation>Вярнуліся са стану “адыйшоў”</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="970"/>
+        <location filename="../HubFrame.cpp" line="972"/>
         <source>Away mode on: </source>
         <translation>Перайшлі ў стан “адыйшоў”: </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="983"/>
+        <location filename="../HubFrame.cpp" line="985"/>
         <source>Aliases not found.</source>
         <translation>Назовак не знайшлі.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1001"/>
+        <location filename="../HubFrame.cpp" line="1003"/>
         <source>Alias removed.</source>
         <translation>Выкрасьлілі назоўку.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1011"/>
-        <location filename="../HubFrame.cpp" line="1017"/>
+        <location filename="../HubFrame.cpp" line="1013"/>
+        <location filename="../HubFrame.cpp" line="1019"/>
         <source>Invalid alias syntax.</source>
         <translation>Хібны сынтакс назоўкі.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1023"/>
+        <location filename="../HubFrame.cpp" line="1025"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Дадалі назоўку %1 =&gt; %2</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1037"/>
+        <location filename="../HubFrame.cpp" line="1039"/>
         <source>Chat has been cleared</source>
         <translation>Ачысьцілі гаману</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1073"/>
+        <location filename="../HubFrame.cpp" line="1075"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - remove alias
 /alias list - list all aliases
@@ -690,95 +695,95 @@ Favorite user</source>
 /sh &lt;загад&gt; — выканаць загад і перанакіраваць вынік у гаману</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1254"/>
+        <location filename="../HubFrame.cpp" line="1256"/>
         <source> joins the chat</source>
         <translation> далучаецца да гаманы</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1279"/>
-        <location filename="../HubFrame.cpp" line="1291"/>
+        <location filename="../HubFrame.cpp" line="1281"/>
+        <location filename="../HubFrame.cpp" line="1293"/>
         <source>User not found</source>
         <translation>Не знайшлі карыстальніка</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1298"/>
+        <location filename="../HubFrame.cpp" line="1300"/>
         <source>Slot granted to </source>
         <translation>Далі шчыліну карыстальніку </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1309"/>
-        <location filename="../HubFrame.cpp" line="1329"/>
+        <location filename="../HubFrame.cpp" line="1311"/>
+        <location filename="../HubFrame.cpp" line="1331"/>
         <source>User not found.</source>
         <translation>Не знайшлі карыстальніка.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1318"/>
+        <location filename="../HubFrame.cpp" line="1320"/>
         <source> has been added to favorites.</source>
         <translation> дадалі да ўлюбёнцаў.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1338"/>
+        <location filename="../HubFrame.cpp" line="1340"/>
         <source> has been removed from favorites.</source>
         <translation> выкрасьлілі з улюбёнцаў.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1370"/>
+        <location filename="../HubFrame.cpp" line="1372"/>
         <source>Favorite hub added.</source>
         <translation>Дадалі асяродак да ўлюбёных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1373"/>
+        <location filename="../HubFrame.cpp" line="1375"/>
         <source>Favorite hub already exists.</source>
         <translation>Асяродак ужо ёсьць ва ўлюбёных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1470"/>
+        <location filename="../HubFrame.cpp" line="1472"/>
         <source>User offline.</source>
         <translation>Карыстальнік адлучаны.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1502"/>
+        <location filename="../HubFrame.cpp" line="1504"/>
         <source>Stored password sent...</source>
         <translation>Даслалі захаванае гасло…</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1505"/>
+        <location filename="../HubFrame.cpp" line="1507"/>
         <source>Enter password</source>
         <translation>Упішыце гасло</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1505"/>
+        <location filename="../HubFrame.cpp" line="1507"/>
         <source>Password</source>
         <translation>Гасло</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1519"/>
-        <location filename="../HubFrame.cpp" line="2143"/>
+        <location filename="../HubFrame.cpp" line="1521"/>
+        <location filename="../HubFrame.cpp" line="2149"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Атрымалі просьбу перанакіравацца да асяродку, зь якім ужо злучыліся</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1601"/>
+        <location filename="../HubFrame.cpp" line="1603"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Карыстальнікаў: %1 | Разам абагулілі: %2</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2345"/>
+        <location filename="../HubFrame.cpp" line="2351"/>
         <source>Search flood detected: %1</source>
         <translation>Выявілі назолу ў пошуку: %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.h" line="178"/>
+        <location filename="../HubFrame.h" line="179"/>
         <source>Chat disabled.</source>
         <translation>Гаману забаранілі.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.h" line="185"/>
+        <location filename="../HubFrame.h" line="186"/>
         <source>Chat enabled.</source>
         <translation>Гаману задзейнічалі.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.h" line="195"/>
+        <location filename="../HubFrame.h" line="196"/>
         <source>Chat cleared.</source>
         <translation>Гаману ачысьцілі.</translation>
     </message>
@@ -943,11 +948,6 @@ Favorite user</source>
         <location filename="../MainWindow.cpp" line="400"/>
         <source>Hide window</source>
         <translation>Схаваць ваконца</translation>
-    </message>
-    <message>
-        <location filename="../MainWindow.cpp" line="401"/>
-        <source>Esc</source>
-        <translation></translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="405"/>
@@ -1325,85 +1325,85 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Узгадніць чаргу</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="64"/>
+        <location filename="../SearchFrame.cpp" line="65"/>
         <source>Send Private Message</source>
         <translation>Даслаць асабістае паведамленьне</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="67"/>
+        <location filename="../SearchFrame.cpp" line="68"/>
         <source>Add to favorites</source>
         <translation>Дадаць да ўлюбёнцаў</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="70"/>
+        <location filename="../SearchFrame.cpp" line="71"/>
         <source>Grant extra slot</source>
         <translation>Даць дадатковую шчыліну</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="75"/>
+        <location filename="../SearchFrame.cpp" line="77"/>
         <source>Remove from Queue</source>
         <translation>Выкрасьліць з чаргі</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="78"/>
+        <location filename="../SearchFrame.cpp" line="80"/>
         <source>Remove</source>
         <translation>Выкрасьліць</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="147"/>
-        <location filename="../SearchFrame.cpp" line="150"/>
+        <location filename="../SearchFrame.cpp" line="149"/>
+        <location filename="../SearchFrame.cpp" line="152"/>
         <source>Browse</source>
         <translation>Прагледзець</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="209"/>
+        <location filename="../SearchFrame.cpp" line="211"/>
         <source>User commands</source>
         <translation>Загады карыстальніка</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="272"/>
+        <location filename="../SearchFrame.cpp" line="274"/>
         <source>Search window</source>
         <translatorcomment>???вакно пошуку</translatorcomment>
         <translation>Ваконца шукаць файлы</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="363"/>
+        <location filename="../SearchFrame.cpp" line="365"/>
         <source>Close</source>
         <translation>Закрыць</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="550"/>
-        <location filename="../SearchFrame.cpp" line="823"/>
+        <location filename="../SearchFrame.cpp" line="560"/>
+        <location filename="../SearchFrame.cpp" line="833"/>
         <source>Searching too soon, next search in %1 second</source>
         <translatorcomment>!!!множны лік</translatorcomment>
         <translation>Занадта часта шукаем, наступны раз паспрабуем праз %1 сэкундаў</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="554"/>
-        <location filename="../SearchFrame.cpp" line="819"/>
-        <location filename="../SearchFrame.cpp" line="827"/>
+        <location filename="../SearchFrame.cpp" line="564"/>
+        <location filename="../SearchFrame.cpp" line="829"/>
+        <location filename="../SearchFrame.cpp" line="837"/>
         <source>Search - %1</source>
         <translation>Шукаем — %1</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="559"/>
+        <location filename="../SearchFrame.cpp" line="569"/>
         <source>Ready to search...</source>
         <translatorcomment>???Гатовы шукаць</translatorcomment>
         <translation>Можна шукаць…</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="924"/>
-        <location filename="../SearchFrame.cpp" line="974"/>
+        <location filename="../SearchFrame.cpp" line="935"/>
+        <location filename="../SearchFrame.cpp" line="988"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1195"/>
+        <location filename="../SearchFrame.cpp" line="1211"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Вынікаў няма&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1204"/>
+        <location filename="../SearchFrame.cpp" line="1220"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translatorcomment>???Прапусьцілі</translatorcomment>
         <translation>Знайшлі: &lt;b&gt;%1&lt;/b&gt;  Адкінулі: &lt;b&gt;%2&lt;/b&gt;</translation>
@@ -1933,7 +1933,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>; Абраныя: %1</translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="486"/>
+        <location filename="../ShareBrowser.cpp" line="487"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
@@ -2009,141 +2009,141 @@ Do you want to stop it?
         <translation>Узгадніць чаргу</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="36"/>
+        <location filename="../TransferView.cpp" line="37"/>
         <source>Send Private Message</source>
         <translation>Даслаць асабістае паведамленьне</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="39"/>
+        <location filename="../TransferView.cpp" line="40"/>
         <source>Add to favorites</source>
         <translation>Дадаць да ўлюбёнцаў</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="42"/>
+        <location filename="../TransferView.cpp" line="43"/>
         <source>Grant extra slot</source>
         <translation>Даць дадатковую шчыліну</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="47"/>
+        <location filename="../TransferView.cpp" line="49"/>
         <source>Remove from Queue</source>
         <translation>Выкрасьліць з чаргі</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="53"/>
+        <location filename="../TransferView.cpp" line="55"/>
         <source>Force attempt</source>
         <translation>Прымусіць паспрабаваць</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="56"/>
+        <location filename="../TransferView.cpp" line="58"/>
         <source>Close connection(s)</source>
         <translation>Закрыць злучэньне(і)</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="278"/>
+        <location filename="../TransferView.cpp" line="280"/>
         <source>Download complete</source>
         <translation>Скончылі сьцягваць</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="301"/>
-        <location filename="../TransferView.cpp" line="627"/>
+        <location filename="../TransferView.cpp" line="303"/>
+        <location filename="../TransferView.cpp" line="629"/>
         <source>File list</source>
         <translation>Сьпіс файлаў</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="303"/>
+        <location filename="../TransferView.cpp" line="305"/>
         <source>TTH: </source>
         <translation>Скарот (TTH): </translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="449"/>
+        <location filename="../TransferView.cpp" line="451"/>
         <source>Requesting</source>
         <translation>Запытваемся</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="463"/>
+        <location filename="../TransferView.cpp" line="465"/>
         <source>Download starting...</source>
         <translation>Пачынаем сьцягваць…</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="484"/>
-        <location filename="../TransferView.cpp" line="678"/>
+        <location filename="../TransferView.cpp" line="486"/>
+        <location filename="../TransferView.cpp" line="680"/>
         <source>[S]</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="486"/>
-        <location filename="../TransferView.cpp" line="680"/>
+        <location filename="../TransferView.cpp" line="488"/>
+        <location filename="../TransferView.cpp" line="682"/>
         <source>[U]</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="490"/>
+        <location filename="../TransferView.cpp" line="492"/>
         <source>[T]</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="492"/>
-        <location filename="../TransferView.cpp" line="683"/>
+        <location filename="../TransferView.cpp" line="494"/>
+        <location filename="../TransferView.cpp" line="685"/>
         <source>[Z]</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="494"/>
+        <location filename="../TransferView.cpp" line="496"/>
         <source>Downloaded %1</source>
         <translation>Сьцягнулі %1</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="495"/>
+        <location filename="../TransferView.cpp" line="497"/>
         <source> (%1%)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="511"/>
+        <location filename="../TransferView.cpp" line="513"/>
         <source>Download complete...</source>
         <translation>Скончылі сьцягваць…</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="553"/>
+        <location filename="../TransferView.cpp" line="555"/>
         <source>Connecting...</source>
         <translation>Злучаемся…</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="566"/>
+        <location filename="../TransferView.cpp" line="568"/>
         <source>Connected</source>
         <translation>Злучыліся</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="606"/>
+        <location filename="../TransferView.cpp" line="608"/>
         <source>Connecting</source>
         <translation>Злучаемся</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="608"/>
+        <location filename="../TransferView.cpp" line="610"/>
         <source>No download slots</source>
         <translation>Няма шчылінаў сьцягваць</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="610"/>
+        <location filename="../TransferView.cpp" line="612"/>
         <source>Waiting to retry</source>
         <translation>Чакаем паспрабаваць зноўку</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="657"/>
+        <location filename="../TransferView.cpp" line="659"/>
         <source>Upload starting...</source>
         <translation>Пачынаем зацягваць…</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="685"/>
+        <location filename="../TransferView.cpp" line="687"/>
         <source> Uploaded %1 (%2%) </source>
         <translation> Зацягнулі %1 (%2%) </translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="703"/>
+        <location filename="../TransferView.cpp" line="705"/>
         <source>Upload complete</source>
         <translation>Скончылі зацягваць</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="718"/>
+        <location filename="../TransferView.cpp" line="720"/>
         <source>Upload failed</source>
         <translation>Не ўдалося зацягнуць</translation>
     </message>
@@ -2287,20 +2287,38 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Developers&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;Andrey Karlov&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (main developer 0.4.10 and later)&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Boris Pek  aka  Tehnick&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br /&gt; (maintainer and developer 1.89.0 and later)&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Eugene Petrov&lt;br /&gt; (maintainer and developer 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;br /&gt; (version 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Splash Screen Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Eugene Petrov&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dhamp@ya.ru&amp;gt;&lt;br /&gt; (maintainer and developer 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Logo and Splash Screen Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (version 0.4.10 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="94"/>
+        <location filename="../ui/UIAbout.ui" line="130"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Copyright (C) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIAbout.ui" line="103"/>
         <source>Translation</source>
         <translation>Пераклад</translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="100"/>
+        <location filename="../ui/UIAbout.ui" line="109"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -2312,22 +2330,7 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="121"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Copyright (C) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/UIAbout.ui" line="115"/>
+        <location filename="../ui/UIAbout.ui" line="124"/>
         <source>License</source>
         <translation>Ліцэнзія</translation>
     </message>
@@ -3572,17 +3575,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../WulforUtil.cpp" line="503"/>
+        <location filename="../WulforUtil.cpp" line="505"/>
         <source>System default</source>
         <translation>Прадвызначаны</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="574"/>
+        <location filename="../WulforUtil.cpp" line="576"/>
         <source>Enter parameter value</source>
         <translation>Упішыце значэньне парамэтру</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="668"/>
+        <location filename="../WulforUtil.cpp" line="670"/>
         <source>Offline</source>
         <translation>Адлучаны</translation>
     </message>

@@ -60,6 +60,7 @@ SearchFrame::Menu::Menu(){
     browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
     QAction *match      = new QAction(tr("Match Queue"), NULL);
+    match->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
 
     QAction *send_pm    = new QAction(tr("Send Private Message"), NULL);
     send_pm->setIcon(WU->getPixmap(WulforUtil::eiMESSAGE));
@@ -68,6 +69,7 @@ SearchFrame::Menu::Menu(){
     add_to_fav->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
 
     QAction *grant      = new QAction(tr("Grant extra slot"), NULL);
+    grant->setIcon(WU->getPixmap(WulforUtil::eiEDITADD));
 
     QAction *sep1       = new QAction(menu);
     sep1->setSeparator(true);
@@ -362,6 +364,14 @@ void SearchFrame::init(){
     arena_menu = new QMenu(this->windowTitle());
     QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
+
+    QList<WulforUtil::Icons> icons;
+    icons   << WulforUtil::eiFILETYPE_UNKNOWN  << WulforUtil::eiFILETYPE_MP3         << WulforUtil::eiFILETYPE_ARCHIVE
+            << WulforUtil::eiFILETYPE_DOCUMENT << WulforUtil::eiFILETYPE_APPLICATION << WulforUtil::eiFILETYPE_PICTURE
+            << WulforUtil::eiFILETYPE_VIDEO    << WulforUtil::eiFOLDER_BLUE          << WulforUtil::eiFIND;
+
+    for (int i = 0; i < icons.size(); i++)
+        comboBox_FILETYPES->setItemIcon(i, WulforUtil::getInstance()->getPixmap(icons.at(i)));
 
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
@@ -918,16 +928,19 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::DownloadTo:
         {
+            static QString old_target = QDir::homePath();
             QString target = Menu::getInstance()->getDownloadToPath();
 
             if (!QDir(target).exists() || target.isEmpty())
-                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
+                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
 
             if (target.isEmpty())
                 break;
 
             if (!target.endsWith(QDir::separator()))
                 target += QDir::separator();
+
+            old_target = target;
 
             foreach (QModelIndex i, list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
@@ -968,16 +981,19 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::DownloadWholeDirTo:
         {
+            static QString old_target = QDir::homePath();
             QString target = Menu::getInstance()->getDownloadToPath();
 
             if (!QDir(target).exists())
-                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
+                target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
 
             if (target.isEmpty())
                 break;
 
             if (!target.endsWith(QDir::separator()))
                 target += QDir::separator();
+
+            old_target = target;
 
             foreach (QModelIndex i, list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());

@@ -32,6 +32,7 @@ TransferView::Menu::Menu():
     browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
     QAction *match      = new QAction(tr("Match Queue"), menu);
+    match->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
 
     QAction *send_pm    = new QAction(tr("Send Private Message"), menu);
     send_pm->setIcon(WU->getPixmap(WulforUtil::eiMESSAGE));
@@ -40,6 +41,7 @@ TransferView::Menu::Menu():
     add_to_fav->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
 
     QAction *grant      = new QAction(tr("Grant extra slot"), menu);
+    grant->setIcon(WU->getPixmap(WulforUtil::eiEDITADD));
 
     QAction *sep1       = new QAction(menu);
     sep1->setSeparator(true);

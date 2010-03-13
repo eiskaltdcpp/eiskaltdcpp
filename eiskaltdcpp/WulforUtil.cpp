@@ -234,6 +234,8 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiEMOTICON] = loadPixmap("emoticon.png");
     m_PixmapMap[eiEXIT] = loadPixmap("exit.png");
     m_PixmapMap[eiFAVUSERS] = loadPixmap("favusers.png");
+    m_PixmapMap[eiFAVADD] = loadPixmap("favadd.png");
+    m_PixmapMap[eiFAVREM] = loadPixmap("favrem.png");
     m_PixmapMap[eiFAVSERVER] = loadPixmap("favserver.png");
     m_PixmapMap[eiFILECLOSE] = loadPixmap("fileclose.png");
     m_PixmapMap[eiFILEFIND] = loadPixmap("filefind.png");
