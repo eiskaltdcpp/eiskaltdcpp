@@ -4,6 +4,8 @@
 #include "HubManager.h"
 #include "MainWindow.h"
 #include "Notification.h"
+#include "EmoticonFactory.h"
+#include "EmoticonDialog.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -36,6 +38,12 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     textEdit_CHAT->viewport()->installEventFilter(this);
     textEdit_CHAT->viewport()->setMouseTracking(true);
 
+    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
+        EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
+
+    toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+    toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
+
     arena_menu = new QMenu(tr("Private message"));
     QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
@@ -43,6 +51,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_HUB, SIGNAL(clicked()), this, SLOT(slotHub()));
     connect(pushButton_SHARE, SIGNAL(clicked()), this, SLOT(slotShare()));
+    connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
 }
 
 PMWindow::~PMWindow(){
@@ -221,4 +230,37 @@ void PMWindow::slotShare(){
         }
         catch (const Exception &e){}
     }
+}
+
+void PMWindow::slotSmile(){
+    if (!(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance()))
+        return;
+
+    int x, y;
+    EmoticonDialog *dialog = new EmoticonDialog(this);
+    QPixmap p = QPixmap::fromImage(EmoticonFactory::getInstance()->getImage());
+    dialog->SetPixmap(p);
+
+    if (dialog->exec() == QDialog::Accepted) {
+
+        dialog->GetXY(x, y);
+
+        QString smiley = EmoticonFactory::getInstance()->textForPos(x, y);
+
+        if (!smiley.isEmpty()) {
+
+            smiley.replace("&lt;", "<");
+            smiley.replace("&gt;", ">");
+            smiley.replace("&amp;", "&");
+            smiley.replace("&apos;", "\'");
+            smiley.replace("&quot;", "\"");
+
+            smiley += " ";
+
+            plainTextEdit_INPUT->textCursor().insertText(smiley);
+            plainTextEdit_INPUT->setFocus();
+        }
+    }
+
+    delete dialog;
 }

@@ -33,6 +33,7 @@ public:
 private slots:
     void slotHub();
     void slotShare();
+    void slotSmile();
 
 signals:
     void privateMessageClosed(QString);

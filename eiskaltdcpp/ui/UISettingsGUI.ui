@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>409</width>
-    <height>338</height>
+    <width>407</width>
+    <height>336</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -90,7 +90,7 @@
          </layout>
         </widget>
        </item>
-       <item row="4" column="2">
+       <item row="5" column="2">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -126,6 +126,16 @@
          </property>
         </spacer>
        </item>
+       <item row="4" column="2">
+        <widget class="QComboBox" name="comboBox_EMOT"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Emoticon theme</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tab">
@@ -145,42 +155,42 @@
          </layout>
         </widget>
        </item>
-       <item row="2" column="0" colspan="2">
+       <item row="3" column="0" colspan="2">
         <widget class="QCheckBox" name="checkBox_CHATJOINS">
          <property name="text">
           <string>Show joins</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0" colspan="4">
+       <item row="4" column="0" colspan="4">
         <widget class="QCheckBox" name="checkBox_CHATHIDDEN">
          <property name="text">
           <string>Show hidden users</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="0" colspan="4">
+       <item row="5" column="0" colspan="4">
         <widget class="QCheckBox" name="checkBox_IGNOREPMHUB">
          <property name="text">
           <string>Ignore private messages from Hub</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="0" colspan="4">
+       <item row="6" column="0" colspan="4">
         <widget class="QCheckBox" name="checkBox_IGNOREPMBOT">
          <property name="text">
           <string>Ignore private messages from Bot</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="0" colspan="4">
+       <item row="8" column="0" colspan="4">
         <widget class="QCheckBox" name="checkBox_REDIRECTPMBOT">
          <property name="text">
           <string>Redirect messages from Bot to the main chat</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="0" colspan="4">
+       <item row="10" column="0" colspan="4">
         <widget class="QCheckBox" name="checkBox_KEEPFOCUS">
          <property name="text">
           <string>Do not change focus on new private message</string>
@@ -211,6 +221,13 @@
         <widget class="QSpinBox" name="spinBox_PARAGRAPHS">
          <property name="maximum">
           <number>1000</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="3">
+        <widget class="QCheckBox" name="checkBox_EMOT">
+         <property name="text">
+          <string>Enable emoticons</string>
          </property>
         </widget>
        </item>

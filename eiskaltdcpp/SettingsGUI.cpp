@@ -83,6 +83,21 @@ void SettingsGUI::init(){
             }
         }
 
+        QString emot = CLIENT_ICONS_DIR "/emot/";
+        comboBox_EMOT->addItem("");
+        comboBox_EMOT->setCurrentIndex(0);
+        i = 1;
+        foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+            if (!f.isEmpty()){
+                comboBox_EMOT->addItem(f);
+
+                if (f == WSGET(WS_APP_EMOTICON_THEME))
+                    comboBox_EMOT->setCurrentIndex(i);
+
+                i++;
+            }
+        }
+
         lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
 
         toolButton_LANGBROWSE->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
@@ -96,6 +111,7 @@ void SettingsGUI::init(){
         checkBox_IGNOREPMBOT->setChecked(BOOLSETTING(IGNORE_BOT_PMS));
         checkBox_REDIRECTPMBOT->setChecked(WBGET(WB_CHAT_REDIRECT_BOT_PMS));
         checkBox_KEEPFOCUS->setChecked(WBGET(WB_CHAT_KEEPFOCUS));
+        checkBox_EMOT->setChecked(WBGET(WB_APP_ENABLE_EMOTICON));
 
         QColor c;
         QPixmap p(10, 10);
@@ -164,6 +180,8 @@ void SettingsGUI::ok(){
             WSSET(WS_APP_FONT, lineEdit_APPFONT->text());
         if (!lineEdit_LANGFILE->text().isEmpty())
             WSSET(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
+
+        WSSET(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());
     }
     {//Chat tab
         WISET(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());
@@ -172,6 +190,7 @@ void SettingsGUI::ok(){
         WBSET(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
         WBSET(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());
         WBSET(WB_CHAT_KEEPFOCUS, checkBox_KEEPFOCUS->isChecked());
+        WBSET(WB_APP_ENABLE_EMOTICON, checkBox_EMOT->isChecked());
 
         int i = 0;
 

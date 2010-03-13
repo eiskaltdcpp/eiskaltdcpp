@@ -54,6 +54,7 @@ public:
         eiEDITADD,
         eiEDITCOPY,
         eiEDITDELETE,
+        eiEMOTICON,
         eiEXIT,
         eiFAVSERVER,
         eiFAVUSERS,

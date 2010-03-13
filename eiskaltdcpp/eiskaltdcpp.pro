@@ -141,7 +141,10 @@ HEADERS = MainWindow.h \
     FavoriteUsersModel.h \
     SettingsLog.h \
     SpyFrame.h \
-    SpyModel.h
+    SpyModel.h \
+    EmoticonObject.h \
+    EmoticonFactory.h \
+    EmoticonDialog.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -240,7 +243,9 @@ SOURCES = main.cpp \
     FavoriteUsersModel.cpp \
     SettingsLog.cpp \
     SpyFrame.cpp \
-    SpyModel.cpp
+    SpyModel.cpp \
+    EmoticonFactory.cpp \
+    EmoticonDialog.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \

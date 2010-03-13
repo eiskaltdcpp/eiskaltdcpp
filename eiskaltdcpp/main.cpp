@@ -20,6 +20,7 @@ using namespace std;
 #include "Notification.h"
 #include "SingleInstanceRunner.h"
 #include "Version.h"
+#include "EmoticonFactory.h"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -75,6 +76,11 @@ int main(int argc, char *argv[])
 
     WulforSettings::getInstance()->loadTheme();
 
+    if (WBGET(WB_APP_ENABLE_EMOTICON)){
+        EmoticonFactory::newInstance();
+        EmoticonFactory::getInstance()->load();
+    }
+
     Notification::newInstance();
     Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
 
@@ -90,6 +96,8 @@ int main(int argc, char *argv[])
     std::cout << "Shutting down..." << std::endl;
 
     WulforSettings::getInstance()->save();
+
+    EmoticonFactory::deleteInstance();
 
     UPnPMapper::deleteInstance();
     UPnP::getInstance()->stop();

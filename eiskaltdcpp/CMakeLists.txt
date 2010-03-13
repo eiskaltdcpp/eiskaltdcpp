@@ -5,6 +5,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 include (${QT_USE_FILE})
 set (HDRS   ArenaWidget.h
+            EmoticonObject.h
             Func.h
             HistoryInterface.h
             PMWindow.h
@@ -15,6 +16,8 @@ set (SRCS   Antispam.cpp
             ArenaWidget.cpp
             DownloadQueue.cpp
             DownloadQueueModel.cpp
+            EmoticonDialog.cpp
+            EmoticonFactory.cpp
             FavoriteHubModel.cpp
             FavoriteHubs.cpp
             FavoriteUsers.cpp
@@ -60,6 +63,8 @@ set (MOC_HDRS Antispam.h
             AntiSpamFrame.h
             DownloadQueue.h
             DownloadQueueModel.h
+            EmoticonDialog.h
+            EmoticonFactory.h
             FavoriteHubModel.h
             FavoriteHubs.h
             FavoriteUsers.h

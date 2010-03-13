@@ -7,6 +7,8 @@
 #include "HubManager.h"
 #include "Notification.h"
 #include "ShellCommandRunner.h"
+#include "EmoticonFactory.h"
+#include "EmoticonDialog.h"
 
 #include "UserListModel.h"
 
@@ -392,6 +394,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
         input.remove(0, 1);
     }
 
+    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
+        output = EmoticonFactory::getInstance()->convertEmoticons(output);
+
     return output;
 }
 
@@ -762,10 +767,16 @@ void HubFrame::init(){
     textEdit_CHAT->viewport()->installEventFilter(this);//QTextEdit don't receive all mouse events
     textEdit_CHAT->setMouseTracking(true);
 
+    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
+        EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
+
     frame->setVisible(false);
 
     for (int i = 0; i < model->columnCount(); i++)
         comboBox_COLUMNS->addItem(model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
+
+    toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+    toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
 
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
@@ -776,6 +787,7 @@ void HubFrame::init(){
     connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
     connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
     connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged(QString)));
+    connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
 
     plainTextEdit_INPUT->installEventFilter(this);
 
@@ -2036,6 +2048,39 @@ void HubFrame::slotFindTextEdited(const QString & text){
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
 
     textEdit_CHAT->setTextCursor(c);
+}
+
+void HubFrame::slotSmile(){
+    if (!(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance()))
+        return;
+
+    int x, y;
+    EmoticonDialog *dialog = new EmoticonDialog(this);
+    QPixmap p = QPixmap::fromImage(EmoticonFactory::getInstance()->getImage());
+    dialog->SetPixmap(p);
+
+    if (dialog->exec() == QDialog::Accepted) {
+
+        dialog->GetXY(x, y);
+
+        QString smiley = EmoticonFactory::getInstance()->textForPos(x, y);
+
+        if (!smiley.isEmpty()) {
+
+            smiley.replace("&lt;", "<");
+            smiley.replace("&gt;", ">");
+            smiley.replace("&amp;", "&");
+            smiley.replace("&apos;", "\'");
+            smiley.replace("&quot;", "\"");
+
+            smiley += " ";
+
+            plainTextEdit_INPUT->textCursor().insertText(smiley);
+            plainTextEdit_INPUT->setFocus();
+        }
+    }
+
+    delete dialog;
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){

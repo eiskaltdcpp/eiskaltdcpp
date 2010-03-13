@@ -224,6 +224,7 @@ private slots:
     void slotFindForward() { findText(0); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotFindTextEdited(const QString & text);
+    void slotSmile();
 
 private:
     // Chat functions
