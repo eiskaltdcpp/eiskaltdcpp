@@ -396,26 +396,26 @@
 <context>
     <name>FileBrowserModel</name>
     <message>
-        <location filename="../FileBrowserModel.cpp" line="30"/>
-        <location filename="../FileBrowserModel.cpp" line="158"/>
+        <location filename="../FileBrowserModel.cpp" line="34"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../FileBrowserModel.cpp" line="30"/>
-        <location filename="../FileBrowserModel.cpp" line="158"/>
+        <location filename="../FileBrowserModel.cpp" line="34"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../FileBrowserModel.cpp" line="30"/>
-        <location filename="../FileBrowserModel.cpp" line="158"/>
+        <location filename="../FileBrowserModel.cpp" line="34"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>Exact size</source>
         <translation>Точный размер</translation>
     </message>
     <message>
-        <location filename="../FileBrowserModel.cpp" line="30"/>
-        <location filename="../FileBrowserModel.cpp" line="158"/>
+        <location filename="../FileBrowserModel.cpp" line="34"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
@@ -568,54 +568,54 @@ Favorite user</source>
 Избранный пользователь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1256"/>
+        <location filename="../HubFrame.cpp" line="1258"/>
         <source> joins the chat</source>
         <translation> входит в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1281"/>
-        <location filename="../HubFrame.cpp" line="1293"/>
+        <location filename="../HubFrame.cpp" line="1283"/>
+        <location filename="../HubFrame.cpp" line="1295"/>
         <source>User not found</source>
         <translation>Пользователь не найден</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1300"/>
+        <location filename="../HubFrame.cpp" line="1302"/>
         <source>Slot granted to </source>
         <translation>Слот отдан </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1311"/>
-        <location filename="../HubFrame.cpp" line="1331"/>
+        <location filename="../HubFrame.cpp" line="1313"/>
+        <location filename="../HubFrame.cpp" line="1333"/>
         <source>User not found.</source>
         <translation>Пользователь не найден.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1320"/>
+        <location filename="../HubFrame.cpp" line="1322"/>
         <source> has been added to favorites.</source>
         <translation> был добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1340"/>
+        <location filename="../HubFrame.cpp" line="1342"/>
         <source> has been removed from favorites.</source>
         <translation> был удалён из избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1472"/>
+        <location filename="../HubFrame.cpp" line="1474"/>
         <source>User offline.</source>
         <translation>Пользователь не в сети.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1507"/>
+        <location filename="../HubFrame.cpp" line="1509"/>
         <source>Enter password</source>
         <translation>Введите пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1507"/>
+        <location filename="../HubFrame.cpp" line="1509"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1603"/>
+        <location filename="../HubFrame.cpp" line="1605"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Пользователей: %1 | Общая шара: %2</translation>
     </message>
@@ -635,23 +635,23 @@ Favorite user</source>
         <translation>Чат включен.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1372"/>
+        <location filename="../HubFrame.cpp" line="1374"/>
         <source>Favorite hub added.</source>
         <translation>Хаб добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1375"/>
+        <location filename="../HubFrame.cpp" line="1377"/>
         <source>Favorite hub already exists.</source>
         <translation>Хаб уже есть в избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1521"/>
-        <location filename="../HubFrame.cpp" line="2149"/>
+        <location filename="../HubFrame.cpp" line="1523"/>
+        <location filename="../HubFrame.cpp" line="2151"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получен запрос перенаправления к уже подключенному хабу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1504"/>
+        <location filename="../HubFrame.cpp" line="1506"/>
         <source>Stored password sent...</source>
         <translation>Отправлен сохраненный пароль...</translation>
     </message>
@@ -668,7 +668,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="71"/>
         <source>Show in list</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать в списке</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="72"/>
@@ -789,7 +789,7 @@ Favorite user</source>
 /sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2351"/>
+        <location filename="../HubFrame.cpp" line="2353"/>
         <source>Search flood detected: %1</source>
         <translation>Поисковый флуд обнаружен: %1</translation>
     </message>
@@ -950,8 +950,9 @@ Favorite user</source>
         <translation>Свернуть окно в трей</translation>
     </message>
     <message>
+        <location filename="../MainWindow.cpp" line="401"/>
         <source>Esc</source>
-        <translation type="obsolete">Esc</translation>
+        <translation>Esc</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="405"/>
@@ -2268,7 +2269,23 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Eugene Petrov&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dhamp@ya.ru&amp;gt;&lt;br /&gt; (maintainer and developer 0.4.10 and later)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Logo and Splash Screen Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (version 0.4.10 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Используйте &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/span&gt;&lt;/a&gt; для сообщения об ошибках.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Разработчики&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;Andrey Karlov&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (главный разработчик 0.4.10 и более поздних)&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Boris Pek  aka  Tehnick&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br /&gt; (сопровождение и разработка 1.89.0 и более поздних)&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Eugene Petrov&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dhamp@ya.ru&amp;gt;&lt;br /&gt; (сопровождение и разработка 0.4.10 и более поздних)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Логотип и загрузочная заставка&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (версия 0.4.10 и более поздние)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="130"/>
@@ -2283,7 +2300,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="103"/>
@@ -2300,7 +2317,14 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Russian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 0.4.10 and later)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Belarusian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 1.0.40 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Переводчики&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Russian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (для 0.4.10 и более поздних)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Belarusian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (для 1.0.40 и более поздних)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="124"/>
@@ -3158,7 +3182,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="135"/>
         <source>Emoticon theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема смайлов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="143"/>
@@ -3188,7 +3212,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="230"/>
         <source>Enable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать смайлы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="175"/>

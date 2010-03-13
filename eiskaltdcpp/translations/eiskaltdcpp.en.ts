@@ -393,26 +393,26 @@
 <context>
     <name>FileBrowserModel</name>
     <message>
-        <location filename="../FileBrowserModel.cpp" line="30"/>
-        <location filename="../FileBrowserModel.cpp" line="158"/>
+        <location filename="../FileBrowserModel.cpp" line="34"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileBrowserModel.cpp" line="30"/>
-        <location filename="../FileBrowserModel.cpp" line="158"/>
+        <location filename="../FileBrowserModel.cpp" line="34"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileBrowserModel.cpp" line="30"/>
-        <location filename="../FileBrowserModel.cpp" line="158"/>
+        <location filename="../FileBrowserModel.cpp" line="34"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>Exact size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FileBrowserModel.cpp" line="30"/>
-        <location filename="../FileBrowserModel.cpp" line="158"/>
+        <location filename="../FileBrowserModel.cpp" line="34"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>TTH</source>
         <translation type="unfinished"></translation>
     </message>
@@ -652,7 +652,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2351"/>
+        <location filename="../HubFrame.cpp" line="2353"/>
         <source>Search flood detected: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -673,75 +673,75 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1256"/>
+        <location filename="../HubFrame.cpp" line="1258"/>
         <source> joins the chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1281"/>
-        <location filename="../HubFrame.cpp" line="1293"/>
+        <location filename="../HubFrame.cpp" line="1283"/>
+        <location filename="../HubFrame.cpp" line="1295"/>
         <source>User not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1300"/>
+        <location filename="../HubFrame.cpp" line="1302"/>
         <source>Slot granted to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1311"/>
-        <location filename="../HubFrame.cpp" line="1331"/>
+        <location filename="../HubFrame.cpp" line="1313"/>
+        <location filename="../HubFrame.cpp" line="1333"/>
         <source>User not found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1320"/>
+        <location filename="../HubFrame.cpp" line="1322"/>
         <source> has been added to favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1340"/>
+        <location filename="../HubFrame.cpp" line="1342"/>
         <source> has been removed from favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1372"/>
+        <location filename="../HubFrame.cpp" line="1374"/>
         <source>Favorite hub added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1375"/>
+        <location filename="../HubFrame.cpp" line="1377"/>
         <source>Favorite hub already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1472"/>
+        <location filename="../HubFrame.cpp" line="1474"/>
         <source>User offline.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1504"/>
+        <location filename="../HubFrame.cpp" line="1506"/>
         <source>Stored password sent...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1507"/>
+        <location filename="../HubFrame.cpp" line="1509"/>
         <source>Enter password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1507"/>
+        <location filename="../HubFrame.cpp" line="1509"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1521"/>
-        <location filename="../HubFrame.cpp" line="2149"/>
+        <location filename="../HubFrame.cpp" line="1523"/>
+        <location filename="../HubFrame.cpp" line="2151"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1603"/>
+        <location filename="../HubFrame.cpp" line="1605"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -919,6 +919,11 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="400"/>
         <source>Hide window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="401"/>
+        <source>Esc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
