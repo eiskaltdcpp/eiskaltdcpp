@@ -21,6 +21,10 @@
 #include <QFontMetrics>
 #include <QSize>
 
+#include "dcpp/ShareManager.h"
+
+using namespace dcpp;
+
 #include <set>
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
@@ -79,6 +83,14 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         }
         case Qt::ForegroundRole:
         {
+            if (item->dir)
+                break;
+
+            TTHValue t(_tq(item->data(COLUMN_FILEBROWSER_TTH).toString()));
+
+            if (ShareManager::getInstance()->isTTHShared(t))
+                return QColor(0x1F, 0x8F, 0x1F);
+
             break;
         }
         case Qt::BackgroundColorRole:
