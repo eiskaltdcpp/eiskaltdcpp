@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>495</width>
+    <width>635</width>
     <height>393</height>
    </rect>
   </property>
@@ -69,6 +69,13 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_SHARE_TEMP_FILES">
+       <property name="text">
+        <string>Share temp files</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QCheckBox" name="checkBox_SHAREHIDDEN">

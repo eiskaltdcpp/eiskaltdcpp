@@ -36,6 +36,7 @@ void SettingsSharing::ok(){
     SettingsManager *SM = SettingsManager::getInstance();
 
     SM->set(SettingsManager::FOLLOW_LINKS, checkBox_FOLLOW->isChecked());
+    SM->set(SettingsManager::SHARE_TEMP_FILES, checkBox_SHARE_TEMP_FILES->isChecked());
     SM->set(SettingsManager::MIN_UPLOAD_SPEED, spinBox_EXTRA->value());
     SM->set(SettingsManager::SLOTS, spinBox_UPLOAD->value());
     SM->set(SettingsManager::SKIPLIST_SHARE, _tq(lineEdit_SKIPLIST->text()));
@@ -47,6 +48,7 @@ void SettingsSharing::ok(){
 
 void SettingsSharing::init(){
     checkBox_SHAREHIDDEN->setChecked(BOOLSETTING(SHARE_HIDDEN));
+    checkBox_SHARE_TEMP_FILES->setChecked(BOOLSETTING(SHARE_TEMP_FILES));
     checkBox_FOLLOW->setChecked(BOOLSETTING(FOLLOW_LINKS));
     lineEdit_SKIPLIST->setText(_q(SETTING(SKIPLIST_SHARE)));
     spinBox_UPLOAD->setValue(SETTING(SLOTS));

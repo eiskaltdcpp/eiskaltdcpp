@@ -738,10 +738,10 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
             continue;
         if (l_skip_list.size())
         {
-            if (Wildcard::patternMatch(name, l_skip_list, '|'))
+            if (Wildcard::patternMatch(aName, l_skip_list, '|'))
             {
-                LogManager::getInstance()->message(str(F_("User has choosen not to share file: %1% (Size: %2% B)")
-                % aName % Util::toString(i->getSize())));
+                LogManager::getInstance()->message(str(F_("User has choosen not to share file: %1%%2% (Size: %3% B)")
+                % aName % name % Util::toString(i->getSize())));
                 continue;
             }
         }
@@ -755,8 +755,16 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
         } else {
             // Not a directory, assume it's a file...make sure we're not sharing the settings file...
             const string l_ext = Util::getFileExt(name);
-            if ((Util::stricmp(l_ext.c_str(), ".dctmp") != 0)
+            if ((name != "Thumbs.db") &&
+                (name != "desktop.ini") &&
+                (name != "folder.htt")
                 ) {
+                if (!BOOLSETTING(SHARE_TEMP_FILES) &&
+                    (Util::stricmp(l_ext.c_str(), ".dctmp") == 0)) {
+                    LogManager::getInstance()->message(str(F_("User has choosen not to share temp file: %1%%2% (Size: %3% B)")
+                    % aName % name % Util::toString(i->getSize())));
+                    continue;
+                }
                 int64_t size = i->getSize();
                 string fileName = aName + name;
                 if(Util::stricmp(fileName, SETTING(TLS_PRIVATE_KEY_FILE)) == 0) {

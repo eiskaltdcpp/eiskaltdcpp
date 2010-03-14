@@ -74,7 +74,7 @@ const string SettingsManager::settingTags[] =
     "AutoDropAll", "AutoDropFilelists", "AutoDropDisconnect",
     "OpenPublic", "OpenFavoriteHubs", "OpenFavoriteUsers", "OpenQueue", "OpenFinishedDownloads",
     "OpenFinishedUploads", "OpenSearchSpy", "OpenNetworkStatistics", "OpenNotepad", "OutgoingConnections",
-    "NoIpOverride","NoUseTempDir", "SearchOnlyFreeSlots", "LastSearchType", "BoldFinishedDownloads", "BoldFinishedUploads", "BoldQueue",
+    "NoIpOverride","NoUseTempDir","ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType", "BoldFinishedDownloads", "BoldFinishedUploads", "BoldQueue",
     "BoldHub", "BoldPm", "BoldSearch", "BoldSearchSpy", "SocketInBuffer", "SocketOutBuffer",
     "OpenWaitingUsers", "BoldWaitingUsers", "OpenSystemLog", "BoldSystemLog", "AutoRefreshTime",
     "UseTLS", "AutoSearchLimit", "AltSortOrder", "AutoKickNoFavs", "PromptPassword", "SpyFrameIgnoreTthSearches",
@@ -248,6 +248,7 @@ SettingsManager::SettingsManager()
     setDefault(OPEN_NOTEPAD, false);
     setDefault(NO_IP_OVERRIDE, false);
     setDefault(NO_USE_TEMP_DIR, false);
+    setDefault(SHARE_TEMP_FILES, false);
     setDefault(SEARCH_ONLY_FREE_SLOTS, false);
     setDefault(SEARCH_FILTER_SHARED, true);
     setDefault(LAST_SEARCH_TYPE, 0);
