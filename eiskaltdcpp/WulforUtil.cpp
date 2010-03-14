@@ -225,6 +225,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiCONNECT] = loadPixmap("connect.png");
     m_PixmapMap[eiCONNECT_NO] = loadPixmap("connect_no.png");
     m_PixmapMap[eiDOWN] = loadPixmap("down.png");
+    m_PixmapMap[eiDOWNLIST] = loadPixmap("downlist.png");
     m_PixmapMap[eiDOWNLOAD] = loadPixmap("download.png");
     m_PixmapMap[eiDOWNLOAD_AS] = loadPixmap("download_as.png");
     m_PixmapMap[eiEDIT] = loadPixmap("edit.png");
@@ -233,10 +234,11 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiEDITDELETE] = loadPixmap("editdelete.png");
     m_PixmapMap[eiEMOTICON] = loadPixmap("emoticon.png");
     m_PixmapMap[eiEXIT] = loadPixmap("exit.png");
-    m_PixmapMap[eiFAVUSERS] = loadPixmap("favusers.png");
+    m_PixmapMap[eiFAV] = loadPixmap("fav.png");
     m_PixmapMap[eiFAVADD] = loadPixmap("favadd.png");
     m_PixmapMap[eiFAVREM] = loadPixmap("favrem.png");
     m_PixmapMap[eiFAVSERVER] = loadPixmap("favserver.png");
+    m_PixmapMap[eiFAVUSERS] = loadPixmap("favusers.png");
     m_PixmapMap[eiFILECLOSE] = loadPixmap("fileclose.png");
     m_PixmapMap[eiFILEFIND] = loadPixmap("filefind.png");
     m_PixmapMap[eiFILTER] = loadPixmap("filter.png");
@@ -260,6 +262,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiSPLASH] = loadPixmap("splash.png");
     m_PixmapMap[eiTRANSFER] = loadPixmap("transfer.png");
     m_PixmapMap[eiUP] = loadPixmap("up.png");
+    m_PixmapMap[eiUPLIST] = loadPixmap("uplist.png");
     m_PixmapMap[eiUSERS] = loadPixmap("users.png");
     m_PixmapMap[eiZOOM_IN] = loadPixmap("zoom-in.png");
     m_PixmapMap[eiZOOM_OUT] = loadPixmap("zoom-out.png");

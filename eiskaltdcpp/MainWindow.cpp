@@ -367,11 +367,11 @@ void MainWindow::initActions(){
         connect(fileDownloadQueue, SIGNAL(triggered()), this, SLOT(slotFileDownloadQueue()));
 
         fileFinishedDownloads = new QAction("", this);
-        fileFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
+        fileFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWNLIST));
         connect(fileFinishedDownloads, SIGNAL(triggered()), this, SLOT(slotFileFinishedDownloads()));
 
         fileFinishedUploads = new QAction("", this);
-        fileFinishedUploads->setIcon(WU->getPixmap(WulforUtil::eiUP));
+        fileFinishedUploads->setIcon(WU->getPixmap(WulforUtil::eiUPLIST));
         connect(fileFinishedUploads, SIGNAL(triggered()), this, SLOT(slotFileFinishedUploads()));
 
         fileFavoriteHubs = new QAction("", this);
