@@ -35,11 +35,11 @@ void SettingsGUI::init(){
         WulforUtil *WU = WulforUtil::getInstance();
         QStringList styles = QStyleFactory::keys();
 
-        foreach (QString k, styles)
-            comboBox_THEMES->addItem(k);
+        foreach (QString s, styles)
+            comboBox_THEMES->addItem(s);
 
-        if (styles.indexOf(WSGET(WS_APP_THEME)) >= 0)
-            comboBox_THEMES->setCurrentIndex(styles.indexOf(WSGET(WS_APP_THEME)));
+        comboBox_THEMES->setCurrentIndex(styles.indexOf(WSGET(WS_APP_THEME)));
+
 
         if (WSGET(WS_APP_FONT).isEmpty()){
             lineEdit_APPFONT->setText(qApp->font().toString());
@@ -233,7 +233,14 @@ void SettingsGUI::slotChatColorItemClicked(QListWidgetItem *item){
 void SettingsGUI::slotTestAppTheme(){
     custom_style = true;
 
-    qApp->setStyle(comboBox_THEMES->currentText());
+    QString s = comboBox_THEMES->currentText();
+
+    if (s.isEmpty())
+        return;
+
+    qApp->setStyle(s);
+
+    WSSET(WS_APP_THEME, s);
 }
 
 void SettingsGUI::slotThemeChanged(){
