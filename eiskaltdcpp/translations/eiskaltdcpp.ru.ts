@@ -1722,7 +1722,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../SettingsGUI.cpp" line="38"/>
         <source>Default (need to restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Системная (требуется перезапуск)</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="60"/>
@@ -3222,7 +3222,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="237"/>
         <source>Force emoticon parsing</source>
-        <translation type="unfinished"></translation>
+        <translation>Принудительная замена смайлов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="175"/>
