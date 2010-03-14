@@ -3447,7 +3447,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="76"/>
         <source>Share temp files</source>
-        <translation>Расширить временные файлы</translation>
+        <translation>Расшарить временные файлы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="83"/>
