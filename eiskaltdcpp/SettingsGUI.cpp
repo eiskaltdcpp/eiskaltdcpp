@@ -74,16 +74,18 @@ void SettingsGUI::init(){
 
         QString icons = CLIENT_ICONS_DIR "/appl/";
         i = 0;
+        k = -1;
         foreach (QString f, QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_ICONS->addItem(f);
 
                 if (f == WSGET(WS_APP_ICONTHEME))
-                    comboBox_ICONS->setCurrentIndex(i);
+                    k = i;
 
                 i++;
             }
         }
+        comboBox_ICONS->setCurrentIndex(k);
 
         QString emot = CLIENT_ICONS_DIR "/emot/";
         comboBox_EMOT->addItem("");

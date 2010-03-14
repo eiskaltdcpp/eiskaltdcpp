@@ -1729,82 +1729,82 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>SettingsGUI</name>
     <message>
-        <location filename="../SettingsGUI.cpp" line="57"/>
+        <location filename="../SettingsGUI.cpp" line="58"/>
         <source>English</source>
         <translation>Ангельская</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="59"/>
+        <location filename="../SettingsGUI.cpp" line="60"/>
         <source>Russian</source>
         <translation>Расейская</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="61"/>
+        <location filename="../SettingsGUI.cpp" line="62"/>
         <source>Belarusian</source>
         <translation>Беларуская</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="121"/>
+        <location filename="../SettingsGUI.cpp" line="125"/>
         <source>Local user</source>
         <translation>Мясцовы карыстальнік</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="125"/>
+        <location filename="../SettingsGUI.cpp" line="129"/>
         <source>Operator</source>
         <translation>Апэратар</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="129"/>
+        <location filename="../SettingsGUI.cpp" line="133"/>
         <source>Bot</source>
         <translation>Бот</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="133"/>
+        <location filename="../SettingsGUI.cpp" line="137"/>
         <source>Private: local user</source>
         <translation>Асабістае: мясцовы карыстальнік</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="137"/>
+        <location filename="../SettingsGUI.cpp" line="141"/>
         <source>Private: user</source>
         <translation>Асабістае: карыстальнік</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="141"/>
+        <location filename="../SettingsGUI.cpp" line="145"/>
         <source>Chat: Say nick</source>
         <translation>Гамана: сказалі мянушку</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="145"/>
+        <location filename="../SettingsGUI.cpp" line="149"/>
         <source>Core</source>
         <translation>Аснова</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="149"/>
+        <location filename="../SettingsGUI.cpp" line="153"/>
         <source>Status</source>
         <translation>Стан</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="153"/>
+        <location filename="../SettingsGUI.cpp" line="157"/>
         <source>User</source>
         <translation>Карыстальнік</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="157"/>
+        <location filename="../SettingsGUI.cpp" line="161"/>
         <source>Time stamp</source>
         <translation>Часадзнака</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="161"/>
+        <location filename="../SettingsGUI.cpp" line="165"/>
         <source>Message</source>
         <translation>Паведамленьне</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="253"/>
+        <location filename="../SettingsGUI.cpp" line="257"/>
         <source>Select translation</source>
         <translation>Абярыце пераклад</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="253"/>
+        <location filename="../SettingsGUI.cpp" line="257"/>
         <source>Translation (*.qm)</source>
         <translation>Пераклад (*.qm)</translation>
     </message>
