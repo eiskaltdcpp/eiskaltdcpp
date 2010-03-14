@@ -35,10 +35,12 @@ void SettingsGUI::init(){
         WulforUtil *WU = WulforUtil::getInstance();
         QStringList styles = QStyleFactory::keys();
 
+        comboBox_THEMES->addItem(tr("Default (need to restart)"));
+
         foreach (QString s, styles)
             comboBox_THEMES->addItem(s);
 
-        comboBox_THEMES->setCurrentIndex(styles.indexOf(WSGET(WS_APP_THEME)));
+        comboBox_THEMES->setCurrentIndex(styles.indexOf(WSGET(WS_APP_THEME)) >= 0? (styles.indexOf(WSGET(WS_APP_THEME))+1) : 0);
 
 
         if (WSGET(WS_APP_FONT).isEmpty()){
@@ -231,6 +233,12 @@ void SettingsGUI::slotChatColorItemClicked(QListWidgetItem *item){
 }
 
 void SettingsGUI::slotTestAppTheme(){
+    if (comboBox_THEMES->currentIndex() == 0){//Default
+        WSSET(WS_APP_THEME, "");
+
+        return;
+    }
+
     custom_style = true;
 
     QString s = comboBox_THEMES->currentText();

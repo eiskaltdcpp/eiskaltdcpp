@@ -365,7 +365,7 @@ void ShareBrowser::slotLeftPaneClicked(const QModelIndex &index){
                 treeView_LPANE->expand(index);
             }
 
-            treeView_LPANE->selectionModel()->select(index, QItemSelectionModel::SelectCurrent);
+            treeView_LPANE->selectionModel()->select(index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
             treeView_LPANE->scrollTo(index, QAbstractItemView::PositionAtCenter);
         }
     }
@@ -593,7 +593,7 @@ void ShareBrowser::slotLoaderFinish(){
                 index = index.parent();
             }
 
-            treeView_LPANE->selectionModel()->select(jump_index, QItemSelectionModel::SelectCurrent);
+            treeView_LPANE->selectionModel()->select(jump_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
             treeView_LPANE->scrollTo(jump_index, QAbstractItemView::PositionAtCenter);
         }
     }
