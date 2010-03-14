@@ -228,6 +228,7 @@ void MainWindow::init(){
     arena->setFloating(false);
     arena->setAllowedAreas(Qt::RightDockWidgetArea);
     arena->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    arena->setContextMenuPolicy(Qt::CustomContextMenu);
     arena->setTitleBarWidget(new QWidget(arena));
 
     transfer_dock = new QDockWidget(this);
@@ -235,6 +236,7 @@ void MainWindow::init(){
     transfer_dock->setFloating(false);
     transfer_dock->setAllowedAreas(Qt::BottomDockWidgetArea);
     transfer_dock->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    transfer_dock->setContextMenuPolicy(Qt::CustomContextMenu);
     transfer_dock->setTitleBarWidget(new QWidget(transfer_dock));
 
     setCentralWidget(arena);
