@@ -95,6 +95,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_NOTIFY_SHOW_ON_ACTIVE, (int)false);
         intmap.insert(WB_FAVUSERS_AUTOGRANT, (int)true);
         intmap.insert(WB_APP_ENABLE_EMOTICON, (int)true);
+        intmap.insert(WB_APP_FORCE_EMOTICONS, (int)true);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS, 300);
         intmap.insert(WI_DEF_MAGNET_ACTION, 0);
         intmap.insert(WI_CHAT_WIDTH, -1);

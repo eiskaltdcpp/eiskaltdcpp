@@ -118,6 +118,7 @@ void SettingsGUI::init(){
         checkBox_REDIRECTPMBOT->setChecked(WBGET(WB_CHAT_REDIRECT_BOT_PMS));
         checkBox_KEEPFOCUS->setChecked(WBGET(WB_CHAT_KEEPFOCUS));
         checkBox_EMOT->setChecked(WBGET(WB_APP_ENABLE_EMOTICON));
+        checkBox_EMOTFORCE->setChecked(WBGET(WB_APP_FORCE_EMOTICONS));
 
         QColor c;
         QPixmap p(10, 10);
@@ -168,6 +169,7 @@ void SettingsGUI::init(){
 
     }
 
+    connect(checkBox_EMOT, SIGNAL(toggled(bool)), checkBox_EMOTFORCE, SLOT(setEnabled(bool)));
     connect(pushButton_TEST, SIGNAL(clicked()), this, SLOT(slotTestAppTheme()));
     connect(comboBox_THEMES, SIGNAL(activated(int)), this, SLOT(slotThemeChanged()));
     connect(listWidget_CHATCOLOR, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotChatColorItemClicked(QListWidgetItem*)));
@@ -197,6 +199,7 @@ void SettingsGUI::ok(){
         WBSET(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());
         WBSET(WB_CHAT_KEEPFOCUS, checkBox_KEEPFOCUS->isChecked());
         WBSET(WB_APP_ENABLE_EMOTICON, checkBox_EMOT->isChecked());
+        WBSET(WB_APP_FORCE_EMOTICONS, checkBox_EMOTFORCE->isChecked());
 
         int i = 0;
 

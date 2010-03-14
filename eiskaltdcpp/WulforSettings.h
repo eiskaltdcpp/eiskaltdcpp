@@ -69,6 +69,7 @@ const char * const WB_NOTIFY_SHOW_ON_ACTIVE   = "notify-show-on-active";
 const char * const WB_NOTIFY_CH_ICON_ALWAYS   = "notify-change-icon-always";
 const char * const WB_FAVUSERS_AUTOGRANT      = "favusers-auto-grant";
 const char * const WB_APP_ENABLE_EMOTICON     = "app-enable-emoticon";
+const char * const WB_APP_FORCE_EMOTICONS     = "app-force-find-emoticons";
 const char * const WI_DEF_MAGNET_ACTION       = "def-magnet-action"; //0-not do any 1-search 2-download
 const char * const WI_CHAT_MAXPARAGRAPHS      = "chat-max-paragraph";
 const char * const WI_CHAT_WIDTH              = "chat-width";
