@@ -1560,6 +1560,8 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
 
     textEdit_CHAT->setTextCursor(c);
+
+    slotFindAll();
 }
 
 void HubFrame::nickCompletion() {
@@ -2024,6 +2026,8 @@ void HubFrame::slotHideFindFrame(){
 
         c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
 
+        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
         textEdit_CHAT->setTextCursor(c);
     }
 }
@@ -2049,8 +2053,6 @@ void HubFrame::slotFilterTextChanged(const QString & text){
 }
 
 void HubFrame::slotFindTextEdited(const QString & text){
-    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
-
     if (text.isEmpty()){
         textEdit_CHAT->verticalScrollBar()->setValue(textEdit_CHAT->verticalScrollBar()->maximum());
         textEdit_CHAT->textCursor().movePosition(QTextCursor::End, QTextCursor::MoveAnchor, 1);
@@ -2063,10 +2065,20 @@ void HubFrame::slotFindTextEdited(const QString & text){
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
 
+    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
     textEdit_CHAT->setTextCursor(c);
+
+    slotFindAll();
 }
 
 void HubFrame::slotFindAll(){
+    if (!pushButton_ALL->isChecked()){
+        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
+        return;
+    }
+
     QList<QTextEdit::ExtraSelection> extraSelections;
 
     if (!lineEdit_FIND->text().isEmpty()) {

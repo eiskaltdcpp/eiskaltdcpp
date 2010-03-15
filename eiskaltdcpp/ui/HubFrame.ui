@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>467</width>
-    <height>236</height>
+    <width>439</width>
+    <height>245</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -60,9 +60,6 @@
             <number>0</number>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
-            <property name="margin">
-             <number>0</number>
-            </property>
             <item>
              <widget class="QLabel" name="label">
               <property name="text">
@@ -79,6 +76,9 @@
             </item>
             <item>
              <widget class="QToolButton" name="toolButton_BACK">
+              <property name="toolTip">
+               <string>Previous (Shift+F3)</string>
+              </property>
               <property name="text">
                <string>&lt;</string>
               </property>
@@ -89,6 +89,9 @@
             </item>
             <item>
              <widget class="QToolButton" name="toolButton_FORWARD">
+              <property name="toolTip">
+               <string>Next (F3)</string>
+              </property>
               <property name="text">
                <string>&gt;</string>
               </property>
@@ -98,20 +101,26 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_ALL">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
+             <widget class="QToolButton" name="pushButton_ALL">
+              <property name="toolTip">
+               <string>Highlight all</string>
               </property>
               <property name="text">
-               <string>All</string>
+               <string>A</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QToolButton" name="toolButton_HIDE">
+              <property name="toolTip">
+               <string>Hide find frame (Ctrl+F)</string>
+              </property>
               <property name="text">
                <string>X</string>
               </property>

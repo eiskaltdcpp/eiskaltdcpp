@@ -452,46 +452,46 @@
         <location filename="../FinishedTransfersModel.cpp" line="46"/>
         <location filename="../FinishedTransfersModel.cpp" line="52"/>
         <source>User</source>
-        <translation type="unfinished">Пользователь</translation>
+        <translation>Пользователь</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="46"/>
         <source>Files</source>
-        <translation type="unfinished">Файлы</translation>
+        <translation>Файлы</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="46"/>
         <location filename="../FinishedTransfersModel.cpp" line="52"/>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Время</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="46"/>
         <location filename="../FinishedTransfersModel.cpp" line="53"/>
         <source>Transferred</source>
-        <translation type="unfinished"></translation>
+        <translation>Передано</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="47"/>
         <location filename="../FinishedTransfersModel.cpp" line="53"/>
         <source>Speed</source>
-        <translation type="unfinished">Скорость</translation>
+        <translation>Скорость</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="47"/>
         <location filename="../FinishedTransfersModel.cpp" line="54"/>
         <source>Elapsed time</source>
-        <translation type="unfinished"></translation>
+        <translation>Затраченное время</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="52"/>
         <source>Filename</source>
-        <translation type="unfinished">Имя файла</translation>
+        <translation>Имя файла</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="52"/>
         <source>Path</source>
-        <translation type="unfinished">Путь</translation>
+        <translation>Путь</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="53"/>
@@ -501,50 +501,50 @@
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="54"/>
         <source>Target</source>
-        <translation type="unfinished"></translation>
+        <translation>Назначение</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="115"/>
         <location filename="../FinishedTransfersModel.cpp" line="123"/>
         <source>/s</source>
-        <translation type="unfinished">/c</translation>
+        <translation>/c</translation>
     </message>
 </context>
 <context>
     <name>HashProgress</name>
     <message>
-        <location filename="../HashProgress.cpp" line="65"/>
+        <location filename="../HashProgress.cpp" line="67"/>
         <source>-.-- files/h, %1 files left</source>
         <translation>-.-- файлов/ч, осталось файлов: %1</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="66"/>
+        <location filename="../HashProgress.cpp" line="68"/>
         <source>-.-- B/s, %1 left</source>
         <translation>-.-- Б/с, %1 осталось</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="67"/>
-        <location filename="../HashProgress.cpp" line="80"/>
+        <location filename="../HashProgress.cpp" line="69"/>
+        <location filename="../HashProgress.cpp" line="82"/>
         <source>-:--:-- left</source>
         <translation>-:--:-- осталось</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="74"/>
+        <location filename="../HashProgress.cpp" line="76"/>
         <source>%1 files/h, %2 files left</source>
         <translation>%1 файлов/ч, осталось файлов: %2</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="75"/>
+        <location filename="../HashProgress.cpp" line="77"/>
         <source>%1/s, %2 left, %3 shared</source>
         <translation>%1/с, %2 осталось, %3 расшарено</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="86"/>
+        <location filename="../HashProgress.cpp" line="88"/>
         <source>%1 left</source>
         <translation>%1 осталось</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="91"/>
+        <location filename="../HashProgress.cpp" line="93"/>
         <source>Done</source>
         <translation>Завершено</translation>
     </message>
@@ -552,134 +552,134 @@
 <context>
     <name>HubFrame</name>
     <message>
-        <location filename="../HubFrame.cpp" line="806"/>
+        <location filename="../HubFrame.cpp" line="810"/>
         <source>Hub menu</source>
         <translation>Меню хаба</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="808"/>
+        <location filename="../HubFrame.cpp" line="812"/>
         <source>Reconnect</source>
         <translation>Переподключиться</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="809"/>
+        <location filename="../HubFrame.cpp" line="813"/>
         <source>Show window</source>
         <translation>Показать окно</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="812"/>
+        <location filename="../HubFrame.cpp" line="816"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="858"/>
-        <location filename="../HubFrame.cpp" line="876"/>
+        <location filename="../HubFrame.cpp" line="862"/>
+        <location filename="../HubFrame.cpp" line="880"/>
         <source>Not connected</source>
         <translation>Не подключено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="962"/>
-        <location filename="../HubFrame.cpp" line="1034"/>
+        <location filename="../HubFrame.cpp" line="966"/>
+        <location filename="../HubFrame.cpp" line="1038"/>
         <source>Away mode off</source>
         <translation>Режим отсутствия отключен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="972"/>
+        <location filename="../HubFrame.cpp" line="976"/>
         <source>Away mode on: </source>
         <translation>Режим отсутствия включен: </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="985"/>
+        <location filename="../HubFrame.cpp" line="989"/>
         <source>Aliases not found.</source>
         <translation>Псевдонимы не найдены.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1003"/>
+        <location filename="../HubFrame.cpp" line="1007"/>
         <source>Alias removed.</source>
         <translation>Псевдоним удалён.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1013"/>
-        <location filename="../HubFrame.cpp" line="1019"/>
+        <location filename="../HubFrame.cpp" line="1017"/>
+        <location filename="../HubFrame.cpp" line="1023"/>
         <source>Invalid alias syntax.</source>
         <translation>Неверный синтаксис для псевдонима.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1025"/>
+        <location filename="../HubFrame.cpp" line="1029"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Псевдоним %1 =&gt; %2 был добавлен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1039"/>
+        <location filename="../HubFrame.cpp" line="1043"/>
         <source>Chat has been cleared</source>
         <translation>Чат очищен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="912"/>
+        <location filename="../HubFrame.cpp" line="916"/>
         <source>Hub role: Operator</source>
         <translation>Роль на хабе: Оператор</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="914"/>
+        <location filename="../HubFrame.cpp" line="918"/>
         <source>Hub role: User</source>
         <translation>Роль на хабе: Пользователь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="917"/>
+        <location filename="../HubFrame.cpp" line="921"/>
         <source>
 Favorite user</source>
         <translation>
 Избранный пользователь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1258"/>
+        <location filename="../HubFrame.cpp" line="1262"/>
         <source> joins the chat</source>
         <translation> входит в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1283"/>
-        <location filename="../HubFrame.cpp" line="1295"/>
+        <location filename="../HubFrame.cpp" line="1287"/>
+        <location filename="../HubFrame.cpp" line="1299"/>
         <source>User not found</source>
         <translation>Пользователь не найден</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1302"/>
+        <location filename="../HubFrame.cpp" line="1306"/>
         <source>Slot granted to </source>
         <translation>Слот отдан </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1313"/>
-        <location filename="../HubFrame.cpp" line="1333"/>
+        <location filename="../HubFrame.cpp" line="1317"/>
+        <location filename="../HubFrame.cpp" line="1337"/>
         <source>User not found.</source>
         <translation>Пользователь не найден.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1322"/>
+        <location filename="../HubFrame.cpp" line="1326"/>
         <source> has been added to favorites.</source>
         <translation> был добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1342"/>
+        <location filename="../HubFrame.cpp" line="1346"/>
         <source> has been removed from favorites.</source>
         <translation> был удалён из избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1474"/>
+        <location filename="../HubFrame.cpp" line="1478"/>
         <source>User offline.</source>
         <translation>Пользователь не в сети.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1509"/>
+        <location filename="../HubFrame.cpp" line="1513"/>
         <source>Enter password</source>
         <translation>Введите пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1509"/>
+        <location filename="../HubFrame.cpp" line="1513"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1605"/>
+        <location filename="../HubFrame.cpp" line="1613"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Пользователей: %1 | Общая шара: %2</translation>
     </message>
@@ -699,23 +699,23 @@ Favorite user</source>
         <translation>Чат включен.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1374"/>
+        <location filename="../HubFrame.cpp" line="1378"/>
         <source>Favorite hub added.</source>
         <translation>Хаб добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1377"/>
+        <location filename="../HubFrame.cpp" line="1381"/>
         <source>Favorite hub already exists.</source>
         <translation>Хаб уже есть в избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1523"/>
-        <location filename="../HubFrame.cpp" line="2151"/>
+        <location filename="../HubFrame.cpp" line="1527"/>
+        <location filename="../HubFrame.cpp" line="2191"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получен запрос перенаправления к уже подключенному хабу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1506"/>
+        <location filename="../HubFrame.cpp" line="1510"/>
         <source>Stored password sent...</source>
         <translation>Отправлен сохраненный пароль...</translation>
     </message>
@@ -805,7 +805,7 @@ Favorite user</source>
         <translation>Команды пользователя</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1075"/>
+        <location filename="../HubFrame.cpp" line="1079"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - remove alias
 /alias list - list all aliases
@@ -853,7 +853,7 @@ Favorite user</source>
 /sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2353"/>
+        <location filename="../HubFrame.cpp" line="2393"/>
         <source>Search flood detected: %1</source>
         <translation>Поисковый флуд обнаружен: %1</translation>
     </message>
@@ -2719,9 +2719,14 @@ p, li { white-space: pre-wrap; }
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="69"/>
+        <location filename="../ui/HubFrame.ui" line="66"/>
         <source>Find: </source>
         <translation>Поиск: </translation>
+    </message>
+    <message>
+        <location filename="../ui/HubFrame.ui" line="80"/>
+        <source>Previous (Shift+F3)</source>
+        <translation>Предыдущее (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="83"/>
@@ -2735,26 +2740,46 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="93"/>
+        <source>Next (F3)</source>
+        <translation>Следующее (F3)</translation>
+    </message>
+    <message>
+        <location filename="../ui/HubFrame.ui" line="96"/>
         <source>&gt;</source>
         <translation>&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="96"/>
+        <location filename="../ui/HubFrame.ui" line="99"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="103"/>
+        <location filename="../ui/HubFrame.ui" line="106"/>
+        <source>Highlight all</source>
+        <translation>Подсветить все</translation>
+    </message>
+    <message>
+        <location filename="../ui/HubFrame.ui" line="109"/>
+        <source>A</source>
+        <translation>A</translation>
+    </message>
+    <message>
+        <location filename="../ui/HubFrame.ui" line="122"/>
+        <source>Hide find frame (Ctrl+F)</source>
+        <translation>Спрятать поисковый фрейм (Ctrl+F)</translation>
+    </message>
+    <message>
+        <location filename="../ui/HubFrame.ui" line="125"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="184"/>
+        <location filename="../ui/HubFrame.ui" line="206"/>
         <source>Clear filter</source>
         <translation>Очистить фильтр</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="187"/>
+        <location filename="../ui/HubFrame.ui" line="209"/>
         <source>c</source>
         <translation>с</translation>
     </message>
