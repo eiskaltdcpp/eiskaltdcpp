@@ -1,6 +1,8 @@
 #include "HashProgress.h"
 #include "WulforUtil.h"
 
+#include <QDir>
+
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/HashManager.h"
@@ -92,11 +94,33 @@ void HashProgress::timerTick(){
     }
     else {
         QString fname = QString::fromStdString(Text::toT(path));
+        QFontMetrics metrics(font());
 
         file->setToolTip(fname);
 
-        if (fname.length() > 45)
-            fname = "..." + fname.right(42);
+        if (metrics.width(fname) > file->width()*2/3){
+            QStringList parts = fname.split(QDir::separator(), QString::SkipEmptyParts);
+
+            if (parts.size() > 1){
+                QString out = "";
+
+                for (int i = (parts.size()-1); i >= 0; i--){
+                    if (metrics.width(out+parts.at(i)+QDir::separator()) < file->width()*2/3){
+                        out = parts.at(i) + (out.isEmpty()? out : (QDir::separator() + out));
+                    }
+                    else{
+                        out = QString("..") + QDir::separator() + out;
+
+                        break;
+                    }
+                }
+
+                if (out.isEmpty())
+                    out = parts.last();
+
+                fname = out;
+            }
+        }
 
         file->setText(fname);
     }
