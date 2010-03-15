@@ -288,13 +288,18 @@ void FinishedTransfersModel::sort(int column, Qt::SortOrder order) {
 }
 
 void FinishedTransfersModel::clearModel(){
-    qDeleteAll(userItem->childItems);
-    qDeleteAll(fileItem->childItems);
+    blockSignals(true);
+    {
+        qDeleteAll(userItem->childItems);
+        qDeleteAll(fileItem->childItems);
 
-    userItem->childItems.clear();
-    fileItem->childItems.clear();
+        userItem->childItems.clear();
+        fileItem->childItems.clear();
 
-    reset();
+        file_hash.clear();
+        user_hash.clear();
+    }
+    blockSignals(false);
 
     emit layoutChanged();
 }

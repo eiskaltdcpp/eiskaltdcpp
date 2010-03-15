@@ -331,6 +331,18 @@ void TransferView::slotContextMenu(const QPoint &){
     if (list.size() < 1)
         return;
 
+    Menu::Action act;
+
+    {
+        Menu m;
+        act = m.exec();
+    }
+
+    list = selection_model->selectedRows(0);
+
+    if (list.size() < 1)
+        return;
+
     QList<TransferViewItem*> items;
 
     foreach (QModelIndex index, list){
@@ -346,13 +358,6 @@ void TransferView::slotContextMenu(const QPoint &){
 
     if (items.size() < 1)
         return;
-
-    Menu::Action act;
-
-    {
-        Menu m;
-        act = m.exec();
-    }
 
     switch (act){
 

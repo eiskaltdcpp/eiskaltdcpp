@@ -144,6 +144,8 @@ private:
     ~FinishedTransfers(){
         FinishedManager::getInstance()->removeListener(this);
 
+        model->clearModel();
+
         delete model;
     }
 
@@ -223,7 +225,11 @@ private:
 
     void slotClear(){
         model->clearModel();
-        FinishedManager::getInstance()->removeAll(isUpload);
+
+        try {
+            FinishedManager::getInstance()->removeAll(isUpload);
+        }
+        catch (const std::exception&){}
     }
 
     void slotContextMenu(){
