@@ -443,14 +443,78 @@
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../FinishedTransfers.h" line="266"/>
+        <location filename="../FinishedTransfers.h" line="272"/>
         <source>Open file</source>
         <translation>Адкрыць файл</translation>
     </message>
     <message>
-        <location filename="../FinishedTransfers.h" line="267"/>
+        <location filename="../FinishedTransfers.h" line="273"/>
         <source>Open directory</source>
         <translation>Адкрыць каталёг</translation>
+    </message>
+</context>
+<context>
+    <name>FinishedTransfersModel</name>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="46"/>
+        <location filename="../FinishedTransfersModel.cpp" line="52"/>
+        <source>User</source>
+        <translation type="unfinished">Карыстальнік</translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="46"/>
+        <source>Files</source>
+        <translation type="unfinished">Файлы</translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="46"/>
+        <location filename="../FinishedTransfersModel.cpp" line="52"/>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="46"/>
+        <location filename="../FinishedTransfersModel.cpp" line="53"/>
+        <source>Transferred</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="47"/>
+        <location filename="../FinishedTransfersModel.cpp" line="53"/>
+        <source>Speed</source>
+        <translation type="unfinished">Хуткасьць</translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="47"/>
+        <location filename="../FinishedTransfersModel.cpp" line="54"/>
+        <source>Elapsed time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="52"/>
+        <source>Filename</source>
+        <translation type="unfinished">Назоў файла</translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="52"/>
+        <source>Path</source>
+        <translation type="unfinished">Шлях</translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="53"/>
+        <source>CRC checked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="54"/>
+        <source>Target</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../FinishedTransfersModel.cpp" line="115"/>
+        <location filename="../FinishedTransfersModel.cpp" line="123"/>
+        <source>/s</source>
+        <translation type="unfinished">/с</translation>
     </message>
 </context>
 <context>
@@ -2055,7 +2119,7 @@ Do you want to stop it?
     </message>
     <message>
         <location filename="../TransferView.cpp" line="303"/>
-        <location filename="../TransferView.cpp" line="629"/>
+        <location filename="../TransferView.cpp" line="634"/>
         <source>File list</source>
         <translation>Сьпіс файлаў</translation>
     </message>
@@ -2065,95 +2129,95 @@ Do you want to stop it?
         <translation>Скарот (TTH): </translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="451"/>
+        <location filename="../TransferView.cpp" line="456"/>
         <source>Requesting</source>
         <translation>Запытваемся</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="465"/>
+        <location filename="../TransferView.cpp" line="470"/>
         <source>Download starting...</source>
         <translation>Пачынаем сьцягваць…</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="486"/>
-        <location filename="../TransferView.cpp" line="680"/>
+        <location filename="../TransferView.cpp" line="491"/>
+        <location filename="../TransferView.cpp" line="685"/>
         <source>[S]</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="488"/>
-        <location filename="../TransferView.cpp" line="682"/>
+        <location filename="../TransferView.cpp" line="493"/>
+        <location filename="../TransferView.cpp" line="687"/>
         <source>[U]</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="492"/>
+        <location filename="../TransferView.cpp" line="497"/>
         <source>[T]</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="494"/>
-        <location filename="../TransferView.cpp" line="685"/>
+        <location filename="../TransferView.cpp" line="499"/>
+        <location filename="../TransferView.cpp" line="690"/>
         <source>[Z]</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="496"/>
+        <location filename="../TransferView.cpp" line="501"/>
         <source>Downloaded %1</source>
         <translation>Сьцягнулі %1</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="497"/>
+        <location filename="../TransferView.cpp" line="502"/>
         <source> (%1%)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="513"/>
+        <location filename="../TransferView.cpp" line="518"/>
         <source>Download complete...</source>
         <translation>Скончылі сьцягваць…</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="555"/>
+        <location filename="../TransferView.cpp" line="560"/>
         <source>Connecting...</source>
         <translation>Злучаемся…</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="568"/>
+        <location filename="../TransferView.cpp" line="573"/>
         <source>Connected</source>
         <translation>Злучыліся</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="608"/>
+        <location filename="../TransferView.cpp" line="613"/>
         <source>Connecting</source>
         <translation>Злучаемся</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="610"/>
+        <location filename="../TransferView.cpp" line="615"/>
         <source>No download slots</source>
         <translation>Няма шчылінаў сьцягваць</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="612"/>
+        <location filename="../TransferView.cpp" line="617"/>
         <source>Waiting to retry</source>
         <translation>Чакаем паспрабаваць зноўку</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="659"/>
+        <location filename="../TransferView.cpp" line="664"/>
         <source>Upload starting...</source>
         <translation>Пачынаем зацягваць…</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="687"/>
+        <location filename="../TransferView.cpp" line="692"/>
         <source> Uploaded %1 (%2%) </source>
         <translation> Зацягнулі %1 (%2%) </translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="705"/>
+        <location filename="../TransferView.cpp" line="710"/>
         <source>Upload complete</source>
         <translation>Скончылі зацягваць</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="720"/>
+        <location filename="../TransferView.cpp" line="725"/>
         <source>Upload failed</source>
         <translation>Не ўдалося зацягнуць</translation>
     </message>
