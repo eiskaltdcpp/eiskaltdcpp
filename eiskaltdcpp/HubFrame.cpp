@@ -544,6 +544,9 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         bool isChat = (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport());
         bool isUserList = (static_cast<QWidget*>(obj) == treeView_USERS->viewport());
 
+        if (isChat)
+            textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
         if (isChat && (m_e->button() == Qt::LeftButton)){
             QString pressedParagraph = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
 
@@ -790,6 +793,7 @@ void HubFrame::init(){
     connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
     connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged(QString)));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
+    connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
 
     plainTextEdit_INPUT->installEventFilter(this);
 
@@ -1539,6 +1543,8 @@ void HubFrame::follow(string redirect){
 }
 
 void HubFrame::findText(QTextDocument::FindFlags flag){
+    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
     if (lineEdit_FIND->text().isEmpty())
         return;
 
@@ -2043,6 +2049,8 @@ void HubFrame::slotFilterTextChanged(const QString & text){
 }
 
 void HubFrame::slotFindTextEdited(const QString & text){
+    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
     if (text.isEmpty()){
         textEdit_CHAT->verticalScrollBar()->setValue(textEdit_CHAT->verticalScrollBar()->maximum());
         textEdit_CHAT->textCursor().movePosition(QTextCursor::End, QTextCursor::MoveAnchor, 1);
@@ -2056,6 +2064,26 @@ void HubFrame::slotFindTextEdited(const QString & text){
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
 
     textEdit_CHAT->setTextCursor(c);
+}
+
+void HubFrame::slotFindAll(){
+    QList<QTextEdit::ExtraSelection> extraSelections;
+
+    if (!lineEdit_FIND->text().isEmpty()) {
+        QTextEdit::ExtraSelection selection;
+        selection.format.setBackground(QColor(Qt::yellow).lighter(160));
+
+        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, 0);
+
+        while (!c.isNull()){
+            selection.cursor = c;
+            extraSelections.append(selection);
+
+            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
+        }
+    }
+
+    textEdit_CHAT->setExtraSelections(extraSelections);
 }
 
 void HubFrame::slotSmile(){
