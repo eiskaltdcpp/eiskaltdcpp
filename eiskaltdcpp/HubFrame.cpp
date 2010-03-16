@@ -810,7 +810,7 @@ void HubFrame::initMenu(){
     arenaMenu = new QMenu(tr("Hub menu"), this);
 
     QAction *reconnect = new QAction(WU->getPixmap(WulforUtil::eiRECONNECT), tr("Reconnect"), arenaMenu);
-    QAction *show_wnd  = new QAction(WU->getPixmap(WulforUtil::eiCHAT), tr("Show window"), arenaMenu);
+    QAction *show_wnd  = new QAction(WU->getPixmap(WulforUtil::eiCHAT), tr("Show widget"), arenaMenu);
     QAction *sep       = new QAction(arenaMenu);
     sep->setSeparator(true);
     QAction *close_wnd = new QAction(WU->getPixmap(WulforUtil::eiEXIT), tr("Close"), arenaMenu);
