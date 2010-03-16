@@ -83,8 +83,8 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
 
     if (WBGET(WB_APP_FORCE_EMOTICONS)){
         QString buf = html;
-        EmoticonMap::iterator it = map.begin();
-        EmoticonMap::iterator end = map.end();
+        EmoticonMap::iterator it = map.end();
+        EmoticonMap::iterator begin = map.begin();
 
         while (!buf.isEmpty()){
             if (buf.startsWith("<a href=") && buf.indexOf("</a>") > 0){
@@ -104,13 +104,14 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
 
             bool found = false;
 
-            for (it = map.begin(); it != end; ++it){
+            for (it = map.end()-1; it != begin; --it){
                 if (buf.startsWith(it.key())){
                     EmoticonObject *obj = it.value();
 
-                    QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />").arg(it.key())
-                                                                                                                      .arg(emoTheme)
-                                                                                                                      .arg(obj->id);
+                    QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
+                                  .arg(it.key())
+                                  .arg(emoTheme)
+                                  .arg(obj->id);
 
                     out += img + " ";
                     buf.remove(0, it.key().length());
