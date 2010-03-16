@@ -132,6 +132,7 @@ public:
 
     QStringList matchNicksContaining(const QString & part, bool stripTags = false) const;
     QStringList matchNicksStartingWith(const QString & part, bool stripTags = false) const;
+    QStringList matchNicksAny(const QString &part, bool stripTags = false) const;
 
     void repaint() { emit layoutChanged(); }
     void repaintData(const QModelIndex &left, const QModelIndex &right){ emit dataChanged(left, right); }

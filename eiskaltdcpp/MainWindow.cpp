@@ -188,6 +188,13 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     c_e->accept();
 }
 
+void MainWindow::showEvent(QShowEvent *e){
+    if (e->spontaneous())
+        redrawToolPanel();
+
+    e->accept();
+}
+
 void MainWindow::customEvent(QEvent *e){
     if (e->type() == MainWindowCustomEvent::Event){
         MainWindowCustomEvent *c_e = reinterpret_cast<MainWindowCustomEvent*>(e);
@@ -574,6 +581,7 @@ void MainWindow::initStatusBar(){
     progressSpace->setMaximumWidth(250);
     progressSpace->setFixedHeight(18);
     progressSpace->setToolTip(tr("Space free"));
+
     if (!WBGET(WB_SHOW_FREE_SPACE))
         progressSpace->hide();
 
@@ -649,7 +657,7 @@ void MainWindow::retranslateUi(){
 }
 
 void MainWindow::initToolbar(){
-    fBar = new ToolBar(NULL);
+    fBar = new ToolBar(this);
     fBar->setObjectName("fBar");
     fBar->addActions(toolBarActions);
     fBar->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -658,7 +666,7 @@ void MainWindow::initToolbar(){
     fBar->setAllowedAreas(Qt::AllToolBarAreas);
     fBar->installEventFilter(this);
 
-    tBar = new ToolBar(NULL);
+    tBar = new ToolBar(this);
     tBar->setObjectName("tBar");
     tBar->initTabs();
     tBar->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -813,8 +821,10 @@ void MainWindow::redrawToolPanel(){
     QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
     QHash<QAction*, ArenaWidget*>::iterator end = menuWidgetsHash.end();
 
-    for(; it != end; ++it)
-        it.key()->setText(it.value()->getArenaShortTitle());//also redraw all widget menu items
+    for(; it != end; ++it){//also redraw all widget menu items
+        it.key()->setText(it.value()->getArenaShortTitle());
+        it.key()->setIcon(it.value()->getPixmap());
+    }
 }
 
 void MainWindow::addArenaWidget(ArenaWidget *wgt){
@@ -1146,11 +1156,13 @@ void MainWindow::slotHideProgressSpace() {
     if (WBGET(WB_SHOW_FREE_SPACE)) {
         progressSpace->hide();
         fileHideProgressSpace->setText(tr("Show free space bar"));
-        WBSET(WB_SHOW_FREE_SPACE,0);
+
+        WBSET(WB_SHOW_FREE_SPACE, false);
     } else {
         progressSpace->show();
         fileHideProgressSpace->setText(tr("Hide free space bar"));
-        WBSET(WB_SHOW_FREE_SPACE,1);
+
+        WBSET(WB_SHOW_FREE_SPACE, true);
     }
 }
 

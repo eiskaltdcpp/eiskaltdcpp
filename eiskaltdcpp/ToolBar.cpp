@@ -31,9 +31,20 @@ bool ToolBar::eventFilter(QObject *obj, QEvent *e){
     return QToolBar::eventFilter(obj, e);
 }
 
+void ToolBar::showEvent(QShowEvent *e){
+    e->accept();
+
+    if (tabbar){
+        tabbar->hide();// I know, this is crap, but tabbar->repaint() doesn't fit all tabs in tabbar properly when
+        tabbar->show();// MainWindow becomes visible (restoring from system tray)
+    }
+}
+
 void ToolBar::initTabs(){
-    tabbar = new QTabBar(this);
+    tabbar = new QTabBar(parentWidget());
+    tabbar->setObjectName("arenaTabbar");
     tabbar->setTabsClosable(true);
+    tabbar->setDocumentMode(true);
     tabbar->setMovable(true);
     tabbar->setContextMenuPolicy(Qt::CustomContextMenu);
     tabbar->setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
@@ -170,6 +181,8 @@ void ToolBar::redraw(){
         tabbar->setTabToolTip(it.value(), compactToolTipText(it.key()->getArenaTitle()));
         tabbar->setTabIcon(it.value(), it.key()->getPixmap());
     }
+
+    tabbar->repaint();
 
     ArenaWidget *awgt = findWidgetForIndex(tabbar->currentIndex());
 

@@ -451,6 +451,24 @@ QStringList UserListModel::matchNicksStartingWith(const QString & part, bool str
     return matches;
 }
 
+QStringList UserListModel::matchNicksAny(const QString &part, bool stripTags) const{
+    QStringList matches;
+
+    if (part.isEmpty()) {
+        return matches;
+    }
+
+    for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
+        QString nick_lc = (*it)->nick.toLower();
+
+        if (nick_lc.startsWith(part) || nick_lc.contains(part)) {
+            matches << (*it)->nick;
+        }
+    }
+
+    return matches;
+}
+
 UserListItem::UserListItem(UserListItem *parent) :
     isOp(false), px(NULL), parentItem(parent)
 {

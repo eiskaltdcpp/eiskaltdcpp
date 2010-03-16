@@ -1582,13 +1582,19 @@ void HubFrame::nickCompletion() {
     if (matchExp.isEmpty())
         return;
 
-    QStringList nicks = model->matchNicksStartingWith(matchExp.toLower());
+    QStringList nicks = model->matchNicksAny(matchExp.toLower());
 
     if (nicks.size() == 1){
         QString nick = nicks.at(0);
-        QString insertion = nick.right(nick.length()-matchExp.length()) + ": ";
 
-        plainTextEdit_INPUT->textCursor().insertText(insertion);
+        int i = matchExp.length();
+
+        while (i > 0){
+            plainTextEdit_INPUT->textCursor().deletePreviousChar();
+            i--;
+        }
+
+        plainTextEdit_INPUT->textCursor().insertText(nick + ": ");
     }
     else if (!nicks.isEmpty() && nicks.size() < 15){
         QMenu *m = new QMenu();
@@ -1600,9 +1606,16 @@ void HubFrame::nickCompletion() {
 
         if (ret){
             QString nick = ret->text();
-            QString insertion = nick.right(nick.length()-matchExp.length()) + ": ";
+            //QString insertion = nick.right(nick.length()-matchExp.length()) + ": ";
 
-            plainTextEdit_INPUT->textCursor().insertText(insertion);
+            int i = matchExp.length();
+
+            while (i > 0){
+                plainTextEdit_INPUT->textCursor().deletePreviousChar();
+                i--;
+            }
+
+            plainTextEdit_INPUT->textCursor().insertText(nick + ": ");
         }
 
         delete m;

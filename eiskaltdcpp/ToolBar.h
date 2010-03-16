@@ -4,6 +4,7 @@
 #include <QToolBar>
 #include <QTabBar>
 #include <QEvent>
+#include <QShowEvent>
 
 #include "ArenaWidget.h"
 
@@ -34,6 +35,7 @@ public:
 
 protected:
     virtual bool eventFilter(QObject *, QEvent *);
+    virtual void showEvent(QShowEvent *);
 
 public Q_SLOTS:
     void mapped(ArenaWidget*);

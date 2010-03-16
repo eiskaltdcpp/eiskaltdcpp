@@ -12,6 +12,7 @@
 #include <QAction>
 #include <QStatusBar>
 #include <QCloseEvent>
+#include <QShowEvent>
 #include <QTabBar>
 #include <QToolBar>
 #include <QHash>
@@ -131,6 +132,7 @@ friend class dcpp::Singleton<MainWindow>;
 
     protected:
         virtual void closeEvent(QCloseEvent*);
+        virtual void showEvent(QShowEvent *);
         virtual void customEvent(QEvent *);
         virtual bool eventFilter(QObject *, QEvent *);
 

@@ -1,863 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<emoticons imagefile="flylink.png">
-  <emoticon left="108" top="108" right="126" bottom="126">
-    <emotext>8O</emotext>
+<emoticons imagefile="default.png">
+  <emoticon left="112" top="112" right="132" bottom="132">
+    <emotext>:-][</emotext>
   </emoticon>
-  <emoticon left="108" top="129" right="126" bottom="147">
-    <emotext>:кот:</emotext>
+  <emoticon left="112" top="24" right="132" bottom="44">
+    <emotext>:&amp;apos;-(</emotext>
+    <emotext>:&amp;apos;(</emotext>
   </emoticon>
-  <emoticon left="108" top="150" right="126" bottom="168">
-    <emotext>:ведьма:</emotext>
+  <emoticon left="112" top="2" right="132" bottom="22">
+    <emotext>:-B</emotext>
+    <emotext>:B</emotext>
   </emoticon>
-  <emoticon left="108" top="171" right="126" bottom="189">
-    <emotext>8P</emotext>
+  <emoticon left="112" top="46" right="132" bottom="66">
+    <emotext>&amp;amp;gt;:-]</emotext>
   </emoticon>
-  <emoticon left="108" top="192" right="126" bottom="210">
-    <emotext>:рокер:</emotext>
+  <emoticon left="112" top="68" right="132" bottom="88">
+    <emotext>|-0</emotext>
   </emoticon>
-  <emoticon left="108" top="3" right="126" bottom="21">
-    <emotext>:))</emotext>
-    <emotext>:)</emotext>
+  <emoticon left="112" top="90" right="132" bottom="110">
+    <emotext>*-|</emotext>
   </emoticon>
-  <emoticon left="108" top="213" right="126" bottom="231">
-    <emotext>:суицид:</emotext>
+  <emoticon left="24" top="112" right="44" bottom="132">
+    <emotext>8-|</emotext>
+    <emotext>{:-\</emotext>
   </emoticon>
-  <emoticon left="108" top="24" right="126" bottom="42">
-    <emotext>:Ыыы:</emotext>
-  </emoticon>
-  <emoticon left="108" top="234" right="126" bottom="252">
-    <emotext>:спряталсо:</emotext>
-  </emoticon>
-  <emoticon left="108" top="255" right="126" bottom="273">
-    <emotext>:во!:</emotext>
-  </emoticon>
-  <emoticon left="108" top="276" right="126" bottom="294">
-    <emotext>:виктори:</emotext>
-  </emoticon>
-  <emoticon left="108" top="297" right="126" bottom="315">
-    <emotext>:влево:</emotext>
-  </emoticon>
-  <emoticon left="108" top="318" right="126" bottom="336">
-    <emotext>:чифир:</emotext>
-  </emoticon>
-  <emoticon left="108" top="339" right="126" bottom="357">
-    <emotext>:толчок:</emotext>
-  </emoticon>
-  <emoticon left="108" top="45" right="126" bottom="63">
-    <emotext>:паинька:</emotext>
-  </emoticon>
-  <emoticon left="108" top="66" right="126" bottom="84">
-    <emotext>&gt;_&lt;</emotext>
-  </emoticon>
-  <emoticon left="108" top="87" right="126" bottom="105">
-    <emotext>:(</emotext>
-  </emoticon>
-  <emoticon left="129" top="108" right="147" bottom="126">
-    <emotext>8D</emotext>
-    <emotext>8-D</emotext>
-  </emoticon>
-  <emoticon left="129" top="129" right="147" bottom="147">
-    <emotext>:пёс:</emotext>
-  </emoticon>
-  <emoticon left="129" top="150" right="147" bottom="168">
-    <emotext>:упырь:</emotext>
-  </emoticon>
-  <emoticon left="129" top="171" right="147" bottom="189">
-    <emotext>:поцелуй:</emotext>
-  </emoticon>
-  <emoticon left="129" top="192" right="147" bottom="210">
-    <emotext>:хайер:</emotext>
-  </emoticon>
-  <emoticon left="129" top="3" right="147" bottom="21">
-    <emotext>&amp;&amp;&gt;)</emotext>
-  </emoticon>
-  <emoticon left="129" top="213" right="147" bottom="231">
-    <emotext>:смерть:</emotext>
-  </emoticon>
-  <emoticon left="129" top="24" right="147" bottom="42">
-    <emotext>:ааа:</emotext>
-  </emoticon>
-  <emoticon left="129" top="234" right="147" bottom="252">
-    <emotext>:ау:</emotext>
-  </emoticon>
-  <emoticon left="129" top="255" right="147" bottom="273">
-    <emotext>:Vm:</emotext>
-  </emoticon>
-  <emoticon left="129" top="276" right="147" bottom="294">
-    <emotext>:вилы:</emotext>
-  </emoticon>
-  <emoticon left="129" top="297" right="147" bottom="315">
-    <emotext>:вправо:</emotext>
-  </emoticon>
-  <emoticon left="129" top="318" right="147" bottom="336">
-    <emotext>:звук:</emotext>
-  </emoticon>
-  <emoticon left="129" top="339" right="168" bottom="357">
-    <emotext>:siski:</emotext>
-  </emoticon>
-  <emoticon left="129" top="45" right="147" bottom="63">
-    <emotext>:ля-ля:</emotext>
-  </emoticon>
-  <emoticon left="129" top="66" right="147" bottom="84">
-    <emotext>8[]</emotext>
-    <emotext>8-[]</emotext>
-  </emoticon>
-  <emoticon left="129" top="87" right="147" bottom="105">
-    <emotext>&amp;&amp;&gt;&amp;&amp;&gt;:(</emotext>
-  </emoticon>
-  <emoticon left="150" top="108" right="168" bottom="126">
-    <emotext>:Topsy:</emotext>
-  </emoticon>
-  <emoticon left="150" top="129" right="168" bottom="147">
-    <emotext>:суслик:</emotext>
-  </emoticon>
-  <emoticon left="150" top="150" right="168" bottom="168">
-    <emotext>:злайа:</emotext>
-  </emoticon>
-  <emoticon left="150" top="171" right="168" bottom="189">
-    <emotext>:влюблён:</emotext>
-  </emoticon>
-  <emoticon left="150" top="192" right="168" bottom="210">
-    <emotext>:панк:</emotext>
-  </emoticon>
-  <emoticon left="150" top="3" right="168" bottom="21">
-    <emotext>&amp;&amp;&gt;B)</emotext>
-  </emoticon>
-  <emoticon left="150" top="213" right="168" bottom="231">
-    <emotext>:помер:</emotext>
-  </emoticon>
-  <emoticon left="150" top="24" right="168" bottom="42">
-    <emotext>:пацталом:</emotext>
-  </emoticon>
-  <emoticon left="150" top="234" right="168" bottom="252">
-    <emotext>:куку:</emotext>
-  </emoticon>
-  <emoticon left="150" top="255" right="168" bottom="273">
-    <emotext>:mV:</emotext>
-  </emoticon>
-  <emoticon left="150" top="276" right="168" bottom="294">
-    <emotext>:секира:</emotext>
-  </emoticon>
-  <emoticon left="150" top="297" right="168" bottom="315">
-    <emotext>:луна:</emotext>
-  </emoticon>
-  <emoticon left="150" top="318" right="168" bottom="336">
-    <emotext>:огонь:</emotext>
-  </emoticon>
-  <emoticon left="150" top="45" right="168" bottom="63">
-    <emotext>:свищу:</emotext>
-  </emoticon>
-  <emoticon left="150" top="66" right="168" bottom="84">
-    <emotext>:фингал:</emotext>
-  </emoticon>
-  <emoticon left="150" top="87" right="168" bottom="105">
-    <emotext>&amp;&amp;&gt;8@</emotext>
-  </emoticon>
-  <emoticon left="171" top="108" right="189" bottom="126">
-    <emotext>:сплю:</emotext>
-  </emoticon>
-  <emoticon left="171" top="129" right="189" bottom="147">
-    <emotext>:кролег:</emotext>
-  </emoticon>
-  <emoticon left="171" top="150" right="189" bottom="168">
-    <emotext>:эльф:</emotext>
-  </emoticon>
-  <emoticon left="171" top="171" right="189" bottom="189">
-    <emotext>:*</emotext>
+  <emoticon left="24" top="24" right="44" bottom="44">
     <emotext>:-*</emotext>
   </emoticon>
-  <emoticon left="171" top="192" right="189" bottom="210">
-    <emotext>:рэпер:</emotext>
-  </emoticon>
-  <emoticon left="171" top="3" right="189" bottom="21">
-    <emotext>:хи:</emotext>
-  </emoticon>
-  <emoticon left="171" top="213" right="189" bottom="231">
-    <emotext>:роджер:</emotext>
-  </emoticon>
-  <emoticon left="171" top="24" right="189" bottom="42">
-    <emotext>;)</emotext>
-  </emoticon>
-  <emoticon left="171" top="234" right="189" bottom="252">
-    <emotext>:Шэрлок:</emotext>
-  </emoticon>
-  <emoticon left="171" top="255" right="189" bottom="273">
-    <emotext>:фига:</emotext>
-  </emoticon>
-  <emoticon left="171" top="276" right="189" bottom="294">
-    <emotext>:ствол:</emotext>
-  </emoticon>
-  <emoticon left="171" top="297" right="189" bottom="315">
-    <emotext>:солнце:</emotext>
-  </emoticon>
-  <emoticon left="171" top="318" right="189" bottom="336">
-    <emotext>:ганж:</emotext>
-  </emoticon>
-  <emoticon left="171" top="45" right="189" bottom="63">
-    <emotext>:хз:</emotext>
-  </emoticon>
-  <emoticon left="171" top="66" right="189" bottom="84">
-    <emotext>8$</emotext>
-    <emotext>8-$</emotext>
-  </emoticon>
-  <emoticon left="171" top="87" right="189" bottom="105">
-    <emotext>&amp;&amp;&gt;:(]</emotext>
-  </emoticon>
-  <emoticon left="192" top="108" right="210" bottom="126">
-    <emotext>:дремлю:</emotext>
-  </emoticon>
-  <emoticon left="192" top="129" right="210" bottom="147">
-    <emotext>:колхознег:</emotext>
-  </emoticon>
-  <emoticon left="192" top="150" right="210" bottom="168">
-    <emotext>:викинг:</emotext>
-  </emoticon>
-  <emoticon left="192" top="171" right="210" bottom="189">
-    <emotext>:с розой:</emotext>
-  </emoticon>
-  <emoticon left="192" top="192" right="210" bottom="210">
-    <emotext>:дитё:</emotext>
-  </emoticon>
-  <emoticon left="192" top="3" right="210" bottom="21">
-    <emotext>:хе-хе:</emotext>
-  </emoticon>
-  <emoticon left="192" top="213" right="210" bottom="231">
-    <emotext>:пират:</emotext>
-  </emoticon>
-  <emoticon left="192" top="24" right="210" bottom="42">
-    <emotext>;-)</emotext>
-  </emoticon>
-  <emoticon left="192" top="234" right="210" bottom="252">
-    <emotext>:ищу:</emotext>
-  </emoticon>
-  <emoticon left="192" top="255" right="210" bottom="273">
-    <emotext>:фак:</emotext>
-  </emoticon>
-  <emoticon left="192" top="276" right="210" bottom="294">
-    <emotext>:револьвер:</emotext>
-  </emoticon>
-  <emoticon left="192" top="297" right="210" bottom="315">
-    <emotext>:гроза:</emotext>
-  </emoticon>
-  <emoticon left="192" top="318" right="210" bottom="336">
-    <emotext>:АК:</emotext>
-  </emoticon>
-  <emoticon left="192" top="45" right="210" bottom="63">
-    <emotext>:Хмм:</emotext>
-  </emoticon>
-  <emoticon left="192" top="66" right="210" bottom="84">
-    <emotext>:sick:</emotext>
-  </emoticon>
-  <emoticon left="192" top="87" right="210" bottom="105">
-    <emotext>;$</emotext>
-  </emoticon>
-  <emoticon left="3" top="108" right="21" bottom="126">
-    <emotext>8&amp;&apos;</emotext>
-  </emoticon>
-  <emoticon left="3" top="129" right="21" bottom="147">
-    <emotext>:1ыйнах:</emotext>
-  </emoticon>
-  <emoticon left="3" top="150" right="21" bottom="168">
-    <emotext>:гуманоид:</emotext>
-  </emoticon>
-  <emoticon left="3" top="171" right="21" bottom="189">
-    <emotext>:сердце:</emotext>
-  </emoticon>
-  <emoticon left="3" top="192" right="21" bottom="210">
-    <emotext>:party:</emotext>
-  </emoticon>
-  <emoticon left="3" top="3" right="21" bottom="21">
-    <emotext>:)</emotext>
+  <emoticon left="24" top="2" right="44" bottom="22">
     <emotext>:-)</emotext>
   </emoticon>
-  <emoticon left="3" top="213" right="21" bottom="231">
-    <emotext>:нигер:</emotext>
+  <emoticon left="24" top="46" right="44" bottom="66">
+    <emotext>O.o</emotext>
   </emoticon>
-  <emoticon left="3" top="24" right="21" bottom="42">
-    <emotext>:veryhappy:</emotext>
+  <emoticon left="24" top="68" right="44" bottom="88">
+    <emotext>:-/</emotext>
+    <emotext>:/</emotext>
+    <emotext>8-$</emotext>
   </emoticon>
-  <emoticon left="3" top="234" right="21" bottom="252">
-    <emotext>:мент:</emotext>
+  <emoticon left="24" top="90" right="44" bottom="110">
+    <emotext>:-X</emotext>
   </emoticon>
-  <emoticon left="3" top="255" right="21" bottom="273">
-    <emotext>:кул:</emotext>
+  <emoticon left="2" top="112" right="22" bottom="132">
+    <emotext>$-\</emotext>
   </emoticon>
-  <emoticon left="3" top="276" right="21" bottom="294">
-    <emotext>m\_/</emotext>
-  </emoticon>
-  <emoticon left="3" top="297" right="21" bottom="315">
-    <emotext>:вперёд:</emotext>
-  </emoticon>
-  <emoticon left="3" top="318" right="21" bottom="336">
-    <emotext>:ЛС:</emotext>
-  </emoticon>
-  <emoticon left="3" top="339" right="21" bottom="357">
-    <emotext>:торт:</emotext>
-  </emoticon>
-  <emoticon left="3" top="45" right="21" bottom="63">
-    <emotext>:Ь</emotext>
-  </emoticon>
-  <emoticon left="3" top="66" right="21" bottom="84">
-    <emotext>:молюсь:</emotext>
-  </emoticon>
-  <emoticon left="3" top="87" right="21" bottom="105">
-    <emotext>:[)</emotext>
-    <emotext>:-[)</emotext>
-  </emoticon>
-  <emoticon left="213" top="108" right="231" bottom="126">
-    <emotext>:зеваю:</emotext>
-  </emoticon>
-  <emoticon left="213" top="129" right="231" bottom="147">
-    <emotext>:мужик:</emotext>
-  </emoticon>
-  <emoticon left="213" top="150" right="231" bottom="168">
-    <emotext>:король:</emotext>
-  </emoticon>
-  <emoticon left="213" top="171" right="231" bottom="189">
-    <emotext>:в зубах:</emotext>
-  </emoticon>
-  <emoticon left="213" top="192" right="231" bottom="210">
-    <emotext>:попа:</emotext>
-  </emoticon>
-  <emoticon left="213" top="3" right="231" bottom="21">
-    <emotext>:аххаха:</emotext>
-  </emoticon>
-  <emoticon left="213" top="213" right="231" bottom="231">
-    <emotext>:головорез:</emotext>
-  </emoticon>
-  <emoticon left="213" top="24" right="231" bottom="42">
-    <emotext>В-)</emotext>
-  </emoticon>
-  <emoticon left="213" top="234" right="231" bottom="252">
-    <emotext>:в носу:</emotext>
-  </emoticon>
-  <emoticon left="213" top="255" right="231" bottom="273">
-    <emotext>:кулак:</emotext>
-  </emoticon>
-  <emoticon left="213" top="276" right="231" bottom="294">
-    <emotext>:!!!:</emotext>
-  </emoticon>
-  <emoticon left="213" top="297" right="231" bottom="315">
-    <emotext>:ХР:</emotext>
-  </emoticon>
-  <emoticon left="213" top="318" right="231" bottom="336">
-    <emotext>:М16:</emotext>
-  </emoticon>
-  <emoticon left="213" top="45" right="231" bottom="63">
-    <emotext>:хм:</emotext>
-  </emoticon>
-  <emoticon left="213" top="66" right="231" bottom="84">
-    <emotext>:блювать:</emotext>
-  </emoticon>
-  <emoticon left="213" top="87" right="231" bottom="105">
-    <emotext>&amp;&amp;&gt;:@</emotext>
-  </emoticon>
-  <emoticon left="24" top="108" right="42" bottom="126">
-    <emotext>:ужоснах:</emotext>
-  </emoticon>
-  <emoticon left="24" top="129" right="42" bottom="147">
-    <emotext>:2ойнах:</emotext>
-  </emoticon>
-  <emoticon left="24" top="150" right="42" bottom="168">
-    <emotext>:шрэк:</emotext>
-  </emoticon>
-  <emoticon left="24" top="171" right="42" bottom="189">
-    <emotext>:сердца:</emotext>
-  </emoticon>
-  <emoticon left="24" top="192" right="42" bottom="210">
-    <emotext>:бубльгум:</emotext>
-  </emoticon>
-  <emoticon left="24" top="3" right="42" bottom="21">
-    <emotext>=]</emotext>
-    <emotext>=-]</emotext>
-  </emoticon>
-  <emoticon left="24" top="213" right="42" bottom="231">
-    <emotext>:юзер:</emotext>
-  </emoticon>
-  <emoticon left="24" top="24" right="42" bottom="42">
-    <emotext>:|)</emotext>
-  </emoticon>
-  <emoticon left="24" top="234" right="42" bottom="252">
-    <emotext>:санитар:</emotext>
-  </emoticon>
-  <emoticon left="24" top="255" right="42" bottom="273">
-    <emotext>:йес!:</emotext>
-  </emoticon>
-  <emoticon left="24" top="276" right="42" bottom="294">
-    <emotext>\m/_</emotext>
-  </emoticon>
-  <emoticon left="24" top="297" right="42" bottom="315">
-    <emotext>:чувак:</emotext>
-  </emoticon>
-  <emoticon left="24" top="318" right="42" bottom="336">
-    <emotext>:+роза:</emotext>
-  </emoticon>
-  <emoticon left="24" top="339" right="42" bottom="357">
-    <emotext>:ТВ:</emotext>
-  </emoticon>
-  <emoticon left="24" top="45" right="42" bottom="63">
-    <emotext>^_^</emotext>
-  </emoticon>
-  <emoticon left="24" top="66" right="42" bottom="84">
-    <emotext>:&amp;&apos;(</emotext>
-  </emoticon>
-  <emoticon left="24" top="87" right="42" bottom="105">
-    <emotext>8-Э</emotext>
-  </emoticon>
-  <emoticon left="234" top="108" right="252" bottom="126">
-    <emotext>:ммм:</emotext>
-  </emoticon>
-  <emoticon left="234" top="129" right="252" bottom="147">
-    <emotext>:качаю:</emotext>
-  </emoticon>
-  <emoticon left="234" top="150" right="252" bottom="168">
-    <emotext>:шут:</emotext>
-  </emoticon>
-  <emoticon left="234" top="171" right="252" bottom="189">
-    <emotext>:респект:</emotext>
-  </emoticon>
-  <emoticon left="234" top="192" right="252" bottom="210">
-    <emotext>:bag:</emotext>
-  </emoticon>
-  <emoticon left="234" top="3" right="252" bottom="21">
-    <emotext>8-)</emotext>
-    <emotext>о_О</emotext>
-    <emotext>o_O</emotext>
-    <emotext>О_о</emotext>
-    <emotext>O_o</emotext>
-  </emoticon>
-  <emoticon left="234" top="213" right="252" bottom="231">
-    <emotext>:гопнег:</emotext>
-  </emoticon>
-  <emoticon left="234" top="24" right="252" bottom="42">
-    <emotext>В-.</emotext>
-  </emoticon>
-  <emoticon left="234" top="234" right="252" bottom="252">
-    <emotext>:Х</emotext>
-    <emotext>:-Х</emotext>
-  </emoticon>
-  <emoticon left="234" top="255" right="252" bottom="273">
-    <emotext>:косяк:</emotext>
-  </emoticon>
-  <emoticon left="234" top="276" right="252" bottom="294">
-    <emotext>:!!:</emotext>
-  </emoticon>
-  <emoticon left="234" top="297" right="252" bottom="315">
-    <emotext>:-1:</emotext>
-  </emoticon>
-  <emoticon left="234" top="318" right="252" bottom="336">
-    <emotext>:идея:</emotext>
-  </emoticon>
-  <emoticon left="234" top="45" right="252" bottom="63">
-    <emotext>:(</emotext>
+  <emoticon left="2" top="24" right="22" bottom="44">
     <emotext>:-(</emotext>
-    <emotext>;(</emotext>
-    <emotext>;-(</emotext>
+    <emotext>:(</emotext>
+    <emotext>8-(</emotext>
+    <emotext>;o(</emotext>
   </emoticon>
-  <emoticon left="234" top="66" right="252" bottom="84">
-    <emotext>:грипп:</emotext>
+  <emoticon left="2" top="2" right="22" bottom="22">
+    <emotext>:-))</emotext>
+    <emotext>:))</emotext>
   </emoticon>
-  <emoticon left="234" top="87" right="252" bottom="105">
-    <emotext>&amp;&amp;&gt;:/</emotext>
+  <emoticon left="2" top="46" right="22" bottom="66">
+    <emotext>LOL</emotext>
+    <emotext>ROFL</emotext>
   </emoticon>
-  <emoticon left="255" top="108" right="273" bottom="126">
-    <emotext>:мм:</emotext>
+  <emoticon left="2" top="68" right="22" bottom="88">
+    <emotext>&amp;amp;gt;:-[</emotext>
   </emoticon>
-  <emoticon left="255" top="129" right="273" bottom="147">
-    <emotext>:фхуу:</emotext>
+  <emoticon left="2" top="90" right="22" bottom="110">
+    <emotext>:-O</emotext>
   </emoticon>
-  <emoticon left="255" top="150" right="273" bottom="168">
+  <emoticon left="46" top="112" right="66" bottom="132">
+    <emotext>:-T</emotext>
+  </emoticon>
+  <emoticon left="46" top="24" right="66" bottom="44">
+    <emotext>:-P</emotext>
+    <emotext>:P</emotext>
+    <emotext>=P</emotext>
+  </emoticon>
+  <emoticon left="46" top="2" right="66" bottom="22">
+    <emotext>:)</emotext>
+    <emotext>*-D</emotext>
+  </emoticon>
+  <emoticon left="46" top="46" right="66" bottom="66">
+    <emotext>8-p</emotext>
+  </emoticon>
+  <emoticon left="46" top="68" right="66" bottom="88">
+    <emotext>*LOVE*</emotext>
+  </emoticon>
+  <emoticon left="46" top="90" right="66" bottom="110">
+    <emotext>8-D</emotext>
+  </emoticon>
+  <emoticon left="68" top="112" right="88" bottom="132">
+    <emotext>}:-[</emotext>
+    <emotext>;-}</emotext>
+    <emotext>-&amp;amp;gt;</emotext>
+  </emoticon>
+  <emoticon left="68" top="24" right="88" bottom="44">
+    <emotext>8-)</emotext>
+    <emotext>8)</emotext>
+    <emotext>0.0</emotext>
+    <emotext>8-}</emotext>
+  </emoticon>
+  <emoticon left="68" top="2" right="88" bottom="22">
+    <emotext>;-)</emotext>
+    <emotext>;)</emotext>
+    <emotext>;o)</emotext>
+  </emoticon>
+  <emoticon left="68" top="46" right="88" bottom="66">
+    <emotext>%-)</emotext>
+    <emotext>:-~~</emotext>
+  </emoticon>
+  <emoticon left="68" top="68" right="88" bottom="88">
+    <emotext>:-!</emotext>
+    <emotext>X-|</emotext>
+  </emoticon>
+  <emoticon left="68" top="90" right="88" bottom="110">
+    <emotext>:-|</emotext>
+  </emoticon>
+  <emoticon left="90" top="112" right="110" bottom="132">
+    <emotext>&amp;amp;gt;.&amp;amp;lt;</emotext>
+  </emoticon>
+  <emoticon left="90" top="24" right="110" bottom="44">
+    <emotext>8-\</emotext>
+    <emotext>:&amp;quot;&amp;amp;gt;</emotext>
+  </emoticon>
+  <emoticon left="90" top="2" right="110" bottom="22">
+    <emotext>:-D</emotext>
+    <emotext>:D</emotext>
     <emotext>:o)</emotext>
   </emoticon>
-  <emoticon left="255" top="171" right="273" bottom="189">
-    <emotext>:пьанайа:</emotext>
+  <emoticon left="90" top="46" right="110" bottom="66">
+    <emotext>*KISSED*</emotext>
   </emoticon>
-  <emoticon left="255" top="192" right="273" bottom="210">
-    <emotext>:читаю:</emotext>
-  </emoticon>
-  <emoticon left="255" top="3" right="273" bottom="21">
-    <emotext>:рад:</emotext>
-  </emoticon>
-  <emoticon left="255" top="213" right="273" bottom="231">
-    <emotext>:качок:</emotext>
-  </emoticon>
-  <emoticon left="255" top="24" right="273" bottom="42">
-    <emotext>ВD</emotext>
-  </emoticon>
-  <emoticon left="255" top="234" right="273" bottom="252">
-    <emotext>:секрет:</emotext>
-  </emoticon>
-  <emoticon left="255" top="255" right="273" bottom="273">
-    <emotext>:вот там:</emotext>
-  </emoticon>
-  <emoticon left="255" top="276" right="273" bottom="294">
-    <emotext>:!:</emotext>
-  </emoticon>
-  <emoticon left="255" top="297" right="273" bottom="315">
-    <emotext>:+1:</emotext>
-  </emoticon>
-  <emoticon left="255" top="318" right="273" bottom="336">
-    <emotext>:40%:</emotext>
-  </emoticon>
-  <emoticon left="255" top="45" right="273" bottom="63">
-    <emotext>O~O</emotext>
-  </emoticon>
-  <emoticon left="255" top="66" right="273" bottom="84">
-    <emotext>:замэрз:</emotext>
-  </emoticon>
-  <emoticon left="255" top="87" right="273" bottom="105">
-    <emotext>&amp;&amp;&gt;:-|</emotext>
-  </emoticon>
-  <emoticon left="276" top="108" right="294" bottom="126">
-    <emotext>:слушаю:</emotext>
-  </emoticon>
-  <emoticon left="276" top="129" right="294" bottom="147">
-    <emotext>:босс:</emotext>
-  </emoticon>
-  <emoticon left="276" top="150" right="294" bottom="168">
-    <emotext>:прынцесса:</emotext>
-  </emoticon>
-  <emoticon left="276" top="171" right="294" bottom="189">
-    <emotext>:q</emotext>
-  </emoticon>
-  <emoticon left="276" top="192" right="294" bottom="210">
-    <emotext>:рулесы:</emotext>
-  </emoticon>
-  <emoticon left="276" top="3" right="294" bottom="21">
-    <emotext>:хлопаю:</emotext>
-  </emoticon>
-  <emoticon left="276" top="213" right="294" bottom="231">
-    <emotext>:супермэн:</emotext>
-  </emoticon>
-  <emoticon left="276" top="24" right="294" bottom="42">
-    <emotext>:тьфу:</emotext>
-  </emoticon>
-  <emoticon left="276" top="234" right="294" bottom="252">
-    <emotext>:не шали:</emotext>
-  </emoticon>
-  <emoticon left="276" top="255" right="294" bottom="273">
-    <emotext>:ОК:</emotext>
-  </emoticon>
-  <emoticon left="276" top="276" right="294" bottom="294">
-    <emotext>:???:</emotext>
-  </emoticon>
-  <emoticon left="276" top="297" right="294" bottom="315">
-    <emotext>:пыво:</emotext>
-  </emoticon>
-  <emoticon left="276" top="318" right="294" bottom="336">
-    <emotext>:ноты:</emotext>
-  </emoticon>
-  <emoticon left="276" top="45" right="294" bottom="63">
-    <emotext>|(</emotext>
-  </emoticon>
-  <emoticon left="276" top="66" right="294" bottom="84">
-    <emotext>(8D</emotext>
-  </emoticon>
-  <emoticon left="276" top="87" right="294" bottom="105">
-    <emotext>:diablored:</emotext>
-  </emoticon>
-  <emoticon left="297" top="108" right="315" bottom="126">
-    <emotext>:телефон:</emotext>
-  </emoticon>
-  <emoticon left="297" top="129" right="315" bottom="147">
-    <emotext>:гордый:</emotext>
-  </emoticon>
-  <emoticon left="297" top="150" right="315" bottom="168">
-    <emotext>:флирт:</emotext>
-  </emoticon>
-  <emoticon left="297" top="171" right="315" bottom="189">
-    <emotext>:&amp;&amp;&gt;</emotext>
-  </emoticon>
-  <emoticon left="297" top="192" right="315" bottom="210">
-    <emotext>B|</emotext>
-  </emoticon>
-  <emoticon left="297" top="3" right="315" bottom="21">
-    <emotext>:урра:</emotext>
-  </emoticon>
-  <emoticon left="297" top="213" right="315" bottom="231">
-    <emotext>:пилот:</emotext>
-  </emoticon>
-  <emoticon left="297" top="24" right="315" bottom="42">
-    <emotext>:бе:</emotext>
-  </emoticon>
-  <emoticon left="297" top="234" right="315" bottom="252">
-    <emotext>:эй:</emotext>
-  </emoticon>
-  <emoticon left="297" top="255" right="315" bottom="273">
-    <emotext>:рулез:</emotext>
-  </emoticon>
-  <emoticon left="297" top="276" right="315" bottom="294">
-    <emotext>:?:</emotext>
-  </emoticon>
-  <emoticon left="297" top="297" right="315" bottom="315">
-    <emotext>:кубок:</emotext>
-  </emoticon>
-  <emoticon left="297" top="318" right="315" bottom="336">
-    <emotext>:пицца:</emotext>
-  </emoticon>
-  <emoticon left="297" top="45" right="315" bottom="63">
-    <emotext>|:|</emotext>
-  </emoticon>
-  <emoticon left="297" top="66" right="315" bottom="84">
-    <emotext>8&amp;&amp;</emotext>
-  </emoticon>
-  <emoticon left="297" top="87" right="315" bottom="105">
-    <emotext>:diabloblack:</emotext>
-  </emoticon>
-  <emoticon left="318" top="108" right="336" bottom="126">
-    <emotext>:превед:</emotext>
-  </emoticon>
-  <emoticon left="318" top="129" right="336" bottom="147">
-    <emotext>:танувас:</emotext>
-  </emoticon>
-  <emoticon left="318" top="150" right="336" bottom="168">
-    <emotext>;*</emotext>
-  </emoticon>
-  <emoticon left="318" top="171" right="336" bottom="189">
-    <emotext>:отдых:</emotext>
-  </emoticon>
-  <emoticon left="318" top="192" right="336" bottom="210">
-    <emotext>:Гиви:</emotext>
-  </emoticon>
-  <emoticon left="318" top="3" right="336" bottom="21">
-    <emotext>:Э</emotext>
-    <emotext>:-Э</emotext>
-  </emoticon>
-  <emoticon left="318" top="213" right="336" bottom="231">
-    <emotext>:Тринити:</emotext>
-  </emoticon>
-  <emoticon left="318" top="24" right="336" bottom="42">
-    <emotext>:}</emotext>
-    <emotext>:-}</emotext>
-  </emoticon>
-  <emoticon left="318" top="234" right="336" bottom="252">
-    <emotext>:победа:</emotext>
-  </emoticon>
-  <emoticon left="318" top="255" right="336" bottom="273">
-    <emotext>:сакс:</emotext>
-  </emoticon>
-  <emoticon left="318" top="276" right="336" bottom="294">
-    <emotext>:зараза:</emotext>
-  </emoticon>
-  <emoticon left="318" top="297" right="336" bottom="315">
-    <emotext>:подарок:</emotext>
-  </emoticon>
-  <emoticon left="318" top="318" right="336" bottom="336">
-    <emotext>:флак:</emotext>
-  </emoticon>
-  <emoticon left="318" top="45" right="336" bottom="63">
-    <emotext>:\</emotext>
-  </emoticon>
-  <emoticon left="318" top="66" right="336" bottom="84">
-    <emotext>:гы:</emotext>
-  </emoticon>
-  <emoticon left="318" top="87" right="336" bottom="105">
-    <emotext>8|</emotext>
-  </emoticon>
-  <emoticon left="339" top="108" right="357" bottom="126">
-    <emotext>:бб:</emotext>
-  </emoticon>
-  <emoticon left="339" top="129" right="357" bottom="147">
-    <emotext>$)</emotext>
-  </emoticon>
-  <emoticon left="339" top="150" right="357" bottom="168">
-    <emotext>:брюнетка:</emotext>
-  </emoticon>
-  <emoticon left="339" top="171" right="357" bottom="189">
-    <emotext>:дэнс:</emotext>
-  </emoticon>
-  <emoticon left="339" top="192" right="357" bottom="210">
-    <emotext>:лумумба:</emotext>
-  </emoticon>
-  <emoticon left="339" top="3" right="357" bottom="21">
-    <emotext>:))</emotext>
-    <emotext>:-))</emotext>
-    <emotext>:-D</emotext>
-    <emotext>:-D</emotext>
-  </emoticon>
-  <emoticon left="339" top="213" right="357" bottom="231">
-    <emotext>:томмиган:</emotext>
-  </emoticon>
-  <emoticon left="339" top="24" right="357" bottom="42">
-    <emotext>:Р</emotext>
-  </emoticon>
-  <emoticon left="339" top="234" right="357" bottom="252">
-    <emotext>:класс:</emotext>
-  </emoticon>
-  <emoticon left="339" top="255" right="357" bottom="273">
-    <emotext>\_/m</emotext>
-  </emoticon>
-  <emoticon left="339" top="276" right="357" bottom="294">
-    <emotext>:радиация:</emotext>
-  </emoticon>
-  <emoticon left="339" top="297" right="357" bottom="315">
-    <emotext>:орден:</emotext>
-  </emoticon>
-  <emoticon left="339" top="318" right="357" bottom="336">
-    <emotext>:звезда:</emotext>
-  </emoticon>
-  <emoticon left="339" top="45" right="357" bottom="63">
-    <emotext>:нупжлст:</emotext>
-  </emoticon>
-  <emoticon left="339" top="66" right="357" bottom="84">
-    <emotext>%&amp;&amp;</emotext>
-  </emoticon>
-  <emoticon left="339" top="87" right="357" bottom="105">
-    <emotext>8o</emotext>
-  </emoticon>
-  <emoticon left="45" top="108" right="63" bottom="126">
-    <emotext>:ужос:</emotext>
-  </emoticon>
-  <emoticon left="45" top="129" right="63" bottom="147">
-    <emotext>:3ийнах:</emotext>
-  </emoticon>
-  <emoticon left="45" top="150" right="63" bottom="168">
-    <emotext>O-)</emotext>
-  </emoticon>
-  <emoticon left="45" top="171" right="63" bottom="189">
-    <emotext>:чмок:</emotext>
-  </emoticon>
-  <emoticon left="45" top="192" right="63" bottom="210">
-    <emotext>:в кино:</emotext>
-  </emoticon>
-  <emoticon left="45" top="3" right="63" bottom="21">
-    <emotext>:добрый:</emotext>
-  </emoticon>
-  <emoticon left="45" top="213" right="63" bottom="231">
-    <emotext>:ботаник:</emotext>
-  </emoticon>
-  <emoticon left="45" top="24" right="63" bottom="42">
-    <emotext>:лол:</emotext>
-  </emoticon>
-  <emoticon left="45" top="234" right="63" bottom="252">
-    <emotext>:ВДВ:</emotext>
-  </emoticon>
-  <emoticon left="45" top="255" right="63" bottom="273">
-    <emotext>:йоу:</emotext>
-  </emoticon>
-  <emoticon left="45" top="276" right="63" bottom="294">
-    <emotext>_\m/</emotext>
-  </emoticon>
-  <emoticon left="45" top="297" right="63" bottom="315">
-    <emotext>:чувиха:</emotext>
-  </emoticon>
-  <emoticon left="45" top="318" right="63" bottom="336">
-    <emotext>:бомба:</emotext>
-  </emoticon>
-  <emoticon left="45" top="339" right="63" bottom="357">
-    <emotext>:ПиСи:</emotext>
-  </emoticon>
-  <emoticon left="45" top="45" right="63" bottom="63">
-    <emotext>:-.</emotext>
-  </emoticon>
-  <emoticon left="45" top="66" right="63" bottom="84">
-    <emotext>:плакалъ:</emotext>
-  </emoticon>
-  <emoticon left="45" top="87" right="63" bottom="105">
-    <emotext>%D</emotext>
-  </emoticon>
-  <emoticon left="66" top="108" right="84" bottom="126">
-    <emotext>:челюсть отвисла:</emotext>
-  </emoticon>
-  <emoticon left="66" top="129" right="84" bottom="147">
-    <emotext>:головастик:</emotext>
-  </emoticon>
-  <emoticon left="66" top="150" right="84" bottom="168">
-    <emotext>:зомби:</emotext>
-  </emoticon>
-  <emoticon left="66" top="171" right="84" bottom="189">
-    <emotext>:кисс:</emotext>
-  </emoticon>
-  <emoticon left="66" top="192" right="84" bottom="210">
-    <emotext>:гитарист:</emotext>
-  </emoticon>
-  <emoticon left="66" top="3" right="84" bottom="21">
-    <emotext>O_O</emotext>
-    <emotext>О_О</emotext>
-  </emoticon>
-  <emoticon left="66" top="213" right="84" bottom="231">
-    <emotext>:Кенни:</emotext>
-  </emoticon>
-  <emoticon left="66" top="24" right="84" bottom="42">
-    <emotext>:эххе:</emotext>
-  </emoticon>
-  <emoticon left="66" top="234" right="84" bottom="252">
-    <emotext>:секьюрити:</emotext>
-  </emoticon>
-  <emoticon left="66" top="255" right="84" bottom="273">
-    <emotext>:розочка:</emotext>
-  </emoticon>
-  <emoticon left="66" top="276" right="84" bottom="294">
-    <emotext>:стой:</emotext>
-  </emoticon>
-  <emoticon left="66" top="297" right="84" bottom="315">
-    <emotext>:цензура:</emotext>
-  </emoticon>
-  <emoticon left="66" top="318" right="84" bottom="336">
-    <emotext>:баян:</emotext>
-  </emoticon>
-  <emoticon left="66" top="339" right="84" bottom="357">
-    <emotext>:стена:</emotext>
-  </emoticon>
-  <emoticon left="66" top="45" right="84" bottom="63">
-    <emotext>:ой:</emotext>
-  </emoticon>
-  <emoticon left="66" top="66" right="84" bottom="84">
-    <emotext>:рыдаю:</emotext>
-  </emoticon>
-  <emoticon left="66" top="87" right="84" bottom="105">
-    <emotext>&amp;&amp;&gt;8D</emotext>
-  </emoticon>
-  <emoticon left="87" top="108" right="105" bottom="126">
-    <emotext>:жубы штучат:</emotext>
-  </emoticon>
-  <emoticon left="87" top="129" right="105" bottom="147">
-    <emotext>:тедди:</emotext>
-  </emoticon>
-  <emoticon left="87" top="150" right="105" bottom="168">
-    <emotext>:Крюгер:</emotext>
-  </emoticon>
-  <emoticon left="87" top="171" right="105" bottom="189">
-    <emotext>:лав:</emotext>
-  </emoticon>
-  <emoticon left="87" top="192" right="105" bottom="210">
-    <emotext>:ару:</emotext>
-  </emoticon>
-  <emoticon left="87" top="3" right="105" bottom="21">
-    <emotext>:доволен:</emotext>
-  </emoticon>
-  <emoticon left="87" top="213" right="105" bottom="231">
-    <emotext>:без кожи:</emotext>
-  </emoticon>
-  <emoticon left="87" top="24" right="105" bottom="42">
-    <emotext>:гг:</emotext>
-  </emoticon>
-  <emoticon left="87" top="234" right="105" bottom="252">
-    <emotext>:нинзя:</emotext>
-  </emoticon>
-  <emoticon left="87" top="255" right="105" bottom="273">
-    <emotext>:пять:</emotext>
-  </emoticon>
-  <emoticon left="87" top="276" right="105" bottom="294">
-    <emotext>:ты:</emotext>
-  </emoticon>
-  <emoticon left="87" top="297" right="105" bottom="315">
-    <emotext>:стоп:</emotext>
-  </emoticon>
-  <emoticon left="87" top="318" right="105" bottom="336">
-    <emotext>:часы:</emotext>
-  </emoticon>
-  <emoticon left="87" top="339" right="105" bottom="357">
-    <emotext>:апстену:</emotext>
-  </emoticon>
-  <emoticon left="87" top="45" right="105" bottom="63">
-    <emotext>0:)</emotext>
-  </emoticon>
-  <emoticon left="87" top="66" right="105" bottom="84">
-    <emotext>:$</emotext>
+  <emoticon left="90" top="68" right="110" bottom="88">
     <emotext>:-$</emotext>
+    <emotext>%-\</emotext>
   </emoticon>
-  <emoticon left="87" top="87" right="105" bottom="105">
-    <emotext>}:-D&amp;&amp;&gt;</emotext>
+  <emoticon left="90" top="90" right="110" bottom="110">
+    <emotext>=)</emotext>
+    <emotext>=]</emotext>
+    <emotext>{:-)</emotext>
   </emoticon>
 </emoticons>
