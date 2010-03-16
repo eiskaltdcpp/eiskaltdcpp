@@ -496,7 +496,7 @@
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="53"/>
         <source>CRC checked</source>
-        <translation type="unfinished"></translation>
+        <translation>CRC проверенно</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="54"/>
