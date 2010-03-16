@@ -92,6 +92,9 @@ void Client::reloadSettings(bool updateNick) {
         if (!hub->getEncoding().empty()){
             setEncoding(hub->getEncoding());
         }
+        if (hub->getUseInternetIP() && !SETTING(INTERNETIP).empty()){
+            externalIP = SETTING(INTERNETIP);
+        }
     } else {
         if(updateNick) {
             setCurrentNick(checkNick(SETTING(NICK)));

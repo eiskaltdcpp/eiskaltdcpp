@@ -380,6 +380,7 @@ void FavoriteManager::save() {
             xml.addChildAttrib("ExternalIP", (*i)->getExternalIP()); // not tested feature
             //xml.addChildAttrib("StealthMode", (*i)->getStealth());// not tested feature
             xml.addChildAttrib("OverrideId", Util::toString((*i)->getOverrideId()));// not tested feature
+            xml.addChildAttrib("UseInternetIp",(*i)->getUseInternetIP());
         }
         xml.stepOut();
         xml.addTag("Users");
@@ -480,6 +481,7 @@ void FavoriteManager::load(SimpleXML& aXml) {
             e->setClientId(aXml.getChildAttrib("ClientId")); // not tested feature
             //e->setStealth(aXml.getBoolChildAttrib("StealthMode")); // not tested feature
             e->setOverrideId(Util::toInt(aXml.getChildAttrib("OverrideId")) != 0); // not tested feature
+            e->setUseInternetIP(aXml.getBoolChildAttrib("UseInternetIp"));
             favoriteHubs.push_back(e);
         }
         aXml.stepOut();

@@ -158,6 +158,7 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     editor.lineEdit_IP->setText(map["IP"].toString());
 
     editor.checkBox_IP->setChecked(isValidIP(map["IP"].toString()));
+    editor.checkBox_USEINTERNET->setChecked(map["IIP"].toBool());
 
     QString tag = map["TAG"].toString();
     QStringList tags;
@@ -188,6 +189,7 @@ void FavoriteHubs::getParams(const FavoriteHubEntry *entry, StrMap &map){
     map["UDESC"]    = _q(entry->getUserDescription());
     map["TAG"]      = _q(entry->getClientId());
     map["IP"]       = _q(entry->getExternalIP());
+    map["IIP"]      = entry->getUseInternetIP();
 }
 
 void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
@@ -199,6 +201,7 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
     map["AUTO"]     = editor.checkBox_AUTOCONNECT->isChecked();
     map["NICK"]     = editor.lineEdit_NICK->text();
     map["PASS"]     = editor.lineEdit_PASSWORD->text();
+    map["IIP"]      = editor.checkBox_USEINTERNET->isChecked();
 
     if (isValidIP(editor.lineEdit_IP->text()) && editor.checkBox_IP->isChecked())
         map["IP"] = editor.lineEdit_IP->text();
@@ -234,6 +237,7 @@ void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
     entry.setExternalIP(map["IP"].toString().toStdString());
     entry.setClientId(map["TAG"].toString().toStdString());
     entry.setOverrideId(map["TAG"].toString() != "EiskaltDC++ V:2.0");
+    entry.setUseInternetIP(map["IIP"].toBool());
 }
 
 void FavoriteHubs::updateItem(FavoriteHubItem *item, StrMap &map){

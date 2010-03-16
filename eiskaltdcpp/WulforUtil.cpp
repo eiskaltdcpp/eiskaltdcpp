@@ -22,6 +22,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QAbstractItemModel>
+#include <QHostAddress>
 
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
@@ -43,8 +44,18 @@ using namespace dcpp;
 
 const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
 
-WulforUtil::WulforUtil()
+WulforUtil::WulforUtil(): http(NULL)
 {
+    QHttpRequestHeader header("GET", "/index.html");
+    header.setValue("Host", "checkip.dyndns.org");
+    QString useragent = QString("EiskaltDCPP");
+    header.setValue("User-Agent", useragent);
+
+    http = new QHttp();
+    connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
+    http->setHost("checkip.dyndns.org");
+    http->request(header);
+
     memset(userIconCache, 0, sizeof (userIconCache));
 
     userIcons = new QImage();
@@ -91,6 +102,7 @@ WulforUtil::WulforUtil()
 
 WulforUtil::~WulforUtil(){
     delete userIcons;
+    delete http;
 
     clearUserIconCache();
 }
@@ -725,4 +737,36 @@ void WulforUtil::headerMenu(QTreeView *tree){
     }
 
     delete mcols;
+}
+
+void WulforUtil::slotHttpDone(bool error){
+    if (!error){
+        QString html = QString(http->readAll());
+        int start = html.indexOf(":")+2;
+        int end = html.indexOf("</body>", start);
+
+
+        if ((start == -1) || (end < start)) {
+            internetIP = "";
+        } else {
+            QString ip = html.mid(start, end - start);
+
+            if (QHostAddress().setAddress(ip)) {
+                internetIP = ip;
+            }
+        }
+    }
+    else
+        internetIP = "";
+
+    if (!internetIP.isEmpty()){
+        SettingsManager::getInstance()->set(SettingsManager::INTERNETIP, internetIP.toStdString());
+        Client::List clients = ClientManager::getInstance()->getClients();
+
+        for(Client::Iter i = clients.begin(); i != clients.end(); ++i) {
+            if((*i)->isConnected()) {
+                (*i)->reloadSettings(false);
+            }
+        }
+    }
 }

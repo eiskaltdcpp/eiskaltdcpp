@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>320</width>
+    <width>318</width>
     <height>365</height>
    </rect>
   </property>
@@ -128,6 +128,16 @@
         </property>
        </widget>
       </item>
+      <item row="7" column="0" colspan="2">
+       <widget class="QCheckBox" name="checkBox_USEINTERNET">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Automaticaly update from Internet</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -199,8 +209,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>242</x>
-     <y>361</y>
+     <x>254</x>
+     <y>358</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -215,8 +225,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>310</x>
-     <y>361</y>
+     <x>311</x>
+     <y>358</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -231,12 +241,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>60</x>
-     <y>266</y>
+     <x>74</x>
+     <y>264</y>
     </hint>
     <hint type="destinationlabel">
-     <x>309</x>
-     <y>267</y>
+     <x>303</x>
+     <y>265</y>
     </hint>
    </hints>
   </connection>
@@ -247,12 +257,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>51</x>
-     <y>318</y>
+     <x>65</x>
+     <y>316</y>
     </hint>
     <hint type="destinationlabel">
-     <x>309</x>
-     <y>319</y>
+     <x>303</x>
+     <y>317</y>
     </hint>
    </hints>
   </connection>
@@ -263,12 +273,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>53</x>
-     <y>171</y>
+     <x>67</x>
+     <y>162</y>
     </hint>
     <hint type="destinationlabel">
-     <x>159</x>
-     <y>175</y>
+     <x>264</x>
+     <y>162</y>
     </hint>
    </hints>
   </connection>
@@ -279,12 +289,28 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>90</x>
-     <y>199</y>
+     <x>98</x>
+     <y>186</y>
     </hint>
     <hint type="destinationlabel">
-     <x>127</x>
-     <y>200</y>
+     <x>232</x>
+     <y>186</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_IP</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox_USEINTERNET</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>17</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>202</y>
     </hint>
    </hints>
   </connection>

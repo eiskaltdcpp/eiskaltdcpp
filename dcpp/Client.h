@@ -108,6 +108,9 @@ public:
     GETSET(string, clientId, ClientId);
     GETSET(string, currentNick, CurrentNick);
     GETSET(string, currentDescription, CurrentDescription);
+
+    /** Reload details from favmanager or settings */
+    void reloadSettings(bool updateNick);
 protected:
     friend class ClientManager;
     Client(const string& hubURL, char separator, bool secure_);
@@ -136,9 +139,6 @@ protected:
 
     void updateCounts(bool aRemove);
     void updateActivity() { lastActivity = GET_TICK(); }
-
-    /** Reload details from favmanager or settings */
-    void reloadSettings(bool updateNick);
 
     virtual string checkNick(const string& nick) = 0;
 

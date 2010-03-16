@@ -9,10 +9,13 @@
 #include <QTextCodec>
 #include <QTreeView>
 #include <QAbstractItemModel>
+#include <QHttp>
+#include <QHttpHeader>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
+#include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
 
@@ -140,6 +143,11 @@ public:
     QString getHubNames(const dcpp::UserPtr&);
     QString getHubNames(const QString&);
 
+    std::string getInternetIP() const { return _tq(internetIP); }
+
+private slots:
+    void slotHttpDone(bool);
+
 private:
 
     WulforUtil();
@@ -167,6 +175,9 @@ private:
     QMap<QString, QString> QtEnc2DCEnc;
 
     static const QString magnetSignature;
+
+    QHttp *http;
+    QString internetIP;
 };
 
 #endif // WULFORUTIL_H
