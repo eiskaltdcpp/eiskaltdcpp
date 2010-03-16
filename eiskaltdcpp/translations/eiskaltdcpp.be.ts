@@ -459,62 +459,62 @@
         <location filename="../FinishedTransfersModel.cpp" line="46"/>
         <location filename="../FinishedTransfersModel.cpp" line="52"/>
         <source>User</source>
-        <translation type="unfinished">Карыстальнік</translation>
+        <translation>Карыстальнік</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="46"/>
         <source>Files</source>
-        <translation type="unfinished">Файлы</translation>
+        <translation>Файлы</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="46"/>
         <location filename="../FinishedTransfersModel.cpp" line="52"/>
         <source>Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Час</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="46"/>
         <location filename="../FinishedTransfersModel.cpp" line="53"/>
         <source>Transferred</source>
-        <translation type="unfinished"></translation>
+        <translation>Перадалося</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="47"/>
         <location filename="../FinishedTransfersModel.cpp" line="53"/>
         <source>Speed</source>
-        <translation type="unfinished">Хуткасьць</translation>
+        <translation>Хуткасьць</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="47"/>
         <location filename="../FinishedTransfersModel.cpp" line="54"/>
         <source>Elapsed time</source>
-        <translation type="unfinished"></translation>
+        <translation>Мінула часу</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="52"/>
         <source>Filename</source>
-        <translation type="unfinished">Назоў файла</translation>
+        <translation>Назоў файла</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="52"/>
         <source>Path</source>
-        <translation type="unfinished">Шлях</translation>
+        <translation>Шлях</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="53"/>
         <source>CRC checked</source>
-        <translation type="unfinished"></translation>
+        <translation>CRC спраўдзілі</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="54"/>
         <source>Target</source>
-        <translation type="unfinished"></translation>
+        <translation>Прызначэньне</translation>
     </message>
     <message>
         <location filename="../FinishedTransfersModel.cpp" line="115"/>
         <location filename="../FinishedTransfersModel.cpp" line="123"/>
         <source>/s</source>
-        <translation type="unfinished">/с</translation>
+        <translation>/с</translation>
     </message>
 </context>
 <context>
@@ -2377,14 +2377,14 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Распрацоўнікі&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;Андрэй Карлаў&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;Андрэй Карлаў  (Andrey Karlov)&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (галоўны распрацоўнік ад вэрсіі 0.4.10)&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Boris Pek  aka  Tehnick&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br /&gt; (суправаджальнік і распрацоўнік ад вэрсіі 1.89.0)&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Яўген Пятроў&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dhamp@ya.ru&amp;gt;&lt;br /&gt; (суправаджальнік і распрацоўнік ад вэрсіі 0.4.10)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Знак і знак на шыльдзе&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Уладзімір Белы&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Яўген Пятроў  (Eugene Petrov)&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dhamp@ya.ru&amp;gt;&lt;br /&gt; (суправаджальнік і распрацоўнік ад вэрсіі 0.4.10)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Знак і знак на шыльдзе&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Уладзімір Белы  (Uladzimir Bely)&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (ад вэрсіі 0.4.10)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -2760,7 +2760,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="80"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Папярэдняе (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="83"/>
@@ -2775,7 +2775,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="93"/>
         <source>Next (F3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Наступнае (F3)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="96"/>
@@ -2790,17 +2790,18 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="106"/>
         <source>Highlight all</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???усё</translatorcomment>
+        <translation>Падсьвечваць усе</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="109"/>
         <source>A</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="122"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation type="unfinished"></translation>
+        <translation>Схаваць форму пошуку (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="125"/>
