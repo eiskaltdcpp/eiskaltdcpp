@@ -192,6 +192,12 @@ void MainWindow::showEvent(QShowEvent *e){
     if (e->spontaneous())
         redrawToolPanel();
 
+    HubFrame *fr = HubManager::getInstance()->activeHub();
+
+    chatClear->setEnabled(fr == arena->widget());
+    findInChat->setEnabled(fr == arena->widget());
+    chatDisable->setEnabled(fr == arena->widget());
+
     e->accept();
 }
 
