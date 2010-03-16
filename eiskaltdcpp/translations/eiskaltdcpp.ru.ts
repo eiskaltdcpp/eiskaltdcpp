@@ -2236,7 +2236,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferViewModel.cpp" line="37"/>
         <source>Time left</source>
-        <translation>Прошло</translation>
+        <translation>Осталось</translation>
     </message>
     <message>
         <location filename="../TransferViewModel.cpp" line="37"/>
