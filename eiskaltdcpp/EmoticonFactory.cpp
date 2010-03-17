@@ -117,7 +117,7 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
 
             bool found = false;
 
-            for (it = map.end()-1; it != begin; --it){
+            for (it = map.end()-1; it != begin-1; --it){
                 if (buf.startsWith(it.key())){
                     EmoticonObject *obj = it.value();
 
@@ -149,7 +149,7 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
         while (!buf.isEmpty()){
             bool found = false;
 
-            for (it = map.end()-1; it != begin; --it){
+            for (it = map.end()-1; it != begin-1; --it){
                 if (buf.startsWith(" "+it.key()+" ")){
                     EmoticonObject *obj = it.value();
 

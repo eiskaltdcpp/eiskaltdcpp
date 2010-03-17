@@ -1153,6 +1153,17 @@ void MainWindow::slotQC(){
 }
 
 void MainWindow::slotHideWindow(){
+    if (findInChat->isEnabled()){
+        HubFrame *fr = HubManager::getInstance()->activeHub();
+
+        if (fr->frame->isVisible()){
+            if (fr->lineEdit_FIND->hasFocus()){
+                fr->slotHideFindFrame();
+
+                return;
+            }
+        }
+    }
     if (!isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
         hide();
     }

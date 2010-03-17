@@ -87,7 +87,7 @@ private:
 
 class HubFrame :
         public QWidget,
-        private Ui::UIHubFrame,
+        public Ui::UIHubFrame,
         private dcpp::ClientListener,
         public ArenaWidget
 {
