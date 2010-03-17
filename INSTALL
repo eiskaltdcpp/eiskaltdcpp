@@ -6,6 +6,7 @@ libboost-system, libboost-filesystem, libboost-date-time (>=1.34.1)
 libxml2 (>= 2.6.31)
 libupnp (=1.6.* only)
 libssl (>= 0.9.8)
+libaspell
 bzip2
 zlib
 
@@ -19,6 +20,7 @@ libupnp-dev (=1.6.* only)
 libboost-system-dev
 libboost-filesystem-dev
 libboost-date-time-dev
+libaspell-dev
 bzip2
 gcc
 
