@@ -2,6 +2,7 @@
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 #include "MainWindow.h"
+#include "EmoticonFactory.h"
 
 #include <QListWidgetItem>
 #include <QPixmap>
@@ -189,7 +190,11 @@ void SettingsGUI::ok(){
         if (!lineEdit_LANGFILE->text().isEmpty())
             WSSET(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
 
-        WSSET(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());
+        if (WSGET(WS_APP_EMOTICON_THEME) != comboBox_EMOT->currentText()){
+            WSSET(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());
+
+            EmoticonFactory::getInstance()->load();
+        }
     }
     {//Chat tab
         WISET(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());

@@ -53,6 +53,9 @@ void EmoticonFactory::load(){
 
     im = new QImage();
     im->load(pngFile, "PNG");
+
+    foreach(QTextDocument *d, docs)
+        addEmoticons(d);
 }
 
 void EmoticonFactory::addEmoticons(QTextDocument *to){
@@ -71,6 +74,12 @@ void EmoticonFactory::addEmoticons(QTextDocument *to){
                                   i->bottom - i->top
                                  )
                        );
+    }
+
+    if (!docs.contains(to)){
+        connect(to, SIGNAL(destroyed()), this, SLOT(slotDocDeleted()));
+
+        docs << to;
     }
 }
 
@@ -253,9 +262,12 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
 
 void EmoticonFactory::clear(){
     qDeleteAll(list);
+
     map.clear();
+    list.clear();
 
     delete im;
+    im = NULL;
 }
 
 QDomNode EmoticonFactory::findSectionByName(const QDomNode &node, const QString &name){
@@ -282,4 +294,11 @@ void EmoticonFactory::getSubSectionsByName(const QDomNode &node, EmoticonFactory
 
         domNode = domNode.nextSibling();
     }
+}
+
+void EmoticonFactory::slotDocDeleted(){
+    QTextDocument *doc = reinterpret_cast<QTextDocument*>(sender());
+
+    if (docs.contains(doc))
+        docs.removeAt(docs.indexOf(doc));
 }

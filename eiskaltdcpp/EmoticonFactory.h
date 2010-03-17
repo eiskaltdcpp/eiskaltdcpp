@@ -19,6 +19,7 @@ class EmoticonFactory :
 {
 Q_OBJECT
 typedef QList<QDomNode> DomNodeList;
+typedef QList<QTextDocument*> TextDocumentList;
 
 friend class dcpp::Singleton<EmoticonFactory>;
 
@@ -36,6 +37,9 @@ public:
             return QImage();
     }
 
+private slots:
+    void slotDocDeleted();
+
 private:
     EmoticonFactory();
     ~EmoticonFactory();
@@ -48,6 +52,7 @@ private:
 
     EmoticonMap map;
     EmoticonList list;
+    TextDocumentList docs;
 
     QImage *im;
 };
