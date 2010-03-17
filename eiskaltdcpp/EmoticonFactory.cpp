@@ -87,11 +87,11 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
     in.replace("&lt;","<");
     in.replace("&#59;",";");
 
-    if (WBGET(WB_APP_FORCE_EMOTICONS)){
-        QString buf = in;
-        EmoticonMap::iterator it = map.end();
-        EmoticonMap::iterator begin = map.begin();
+    QString buf = in;
+    EmoticonMap::iterator it = map.end();
+    EmoticonMap::iterator begin = map.begin();
 
+    if (WBGET(WB_APP_FORCE_EMOTICONS)){
         while (!buf.isEmpty()){
             if (buf.startsWith("<a href=") && buf.indexOf("</a>") > 0){
                 QString add = buf.left(buf.indexOf("</a>")) + "</a>";
@@ -134,45 +134,44 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
                 buf.remove(0, 1);
             }
         }
-
-        return out;
     }
+    else{
+        buf.prepend(" ");
+        buf.append(" ");
 
-    QStringList out_list = in.split(' ', QString::SkipEmptyParts);
+        while (!buf.isEmpty()){
+            bool found = false;
 
-    foreach (QString s, out_list){
-        if (map.contains(s)){
-            EmoticonObject *obj = map[s];
+            for (it = map.end()-1; it != begin; --it){
+                if (buf.startsWith(" "+it.key()+" ")){
+                    EmoticonObject *obj = it.value();
 
-            QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
-                          .arg(s)
-                          .arg(emoTheme)
-                          .arg(obj->id);
+                    QString img = QString(" <img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" /> ")
+                                  .arg(it.key())
+                                  .arg(emoTheme)
+                                  .arg(obj->id);
 
-            out += img + " ";
+                    out += img;
+                    buf.remove(0, it.key().length()+1);
+
+                    found = true;
+
+                    break;
+                }
+            }
+
+            if (!found){
+                out += buf.at(0);
+
+                buf.remove(0, 1);
+            }
         }
-        else
-            out += s + " ";
+
+        if (out.startsWith(" "))
+            out.remove(0, 1);
+        if (out.endsWith(" "))
+            out.remove(out.length()-1, 1);
     }
-
-    out_list = out.split("&nbsp;");
-
-    out = "";
-
-    foreach (QString s, out_list){
-        if (map.contains(s)){
-            EmoticonObject *obj = map[s];
-
-            QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />").arg(s)
-                                                                                                              .arg(emoTheme)
-                                                                                                              .arg(obj->id);
-
-            out += img + "&nbsp;";
-        }
-        else
-            out += s + "&nbsp;";
-    }
-
     return out;
 }
 
