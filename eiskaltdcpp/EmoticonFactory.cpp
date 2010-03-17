@@ -80,14 +80,12 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
 
     QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
     QString out = "";
+    QString buf = html;
 
-    QString in = html;
+    buf.replace("&gt;",">");
+    buf.replace("&lt;","<");
+    buf.replace("&#59;",";");
 
-    in.replace("&gt;",">");
-    in.replace("&lt;","<");
-    in.replace("&#59;",";");
-
-    QString buf = in;
     EmoticonMap::iterator it = map.end();
     EmoticonMap::iterator begin = map.begin();
 
