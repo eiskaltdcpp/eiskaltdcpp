@@ -21,6 +21,7 @@ using namespace std;
 #include "SingleInstanceRunner.h"
 #include "Version.h"
 #include "EmoticonFactory.h"
+#include "SpellCheck.h"
 
 #include <QApplication>
 #include <QMainWindow>
@@ -81,6 +82,9 @@ int main(int argc, char *argv[])
         EmoticonFactory::getInstance()->load();
     }
 
+    if (WBGET(WB_APP_ENABLE_ASPELL))
+        SpellCheck::newInstance();
+
     Notification::newInstance();
     Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
 
@@ -98,6 +102,9 @@ int main(int argc, char *argv[])
     WulforSettings::getInstance()->save();
 
     EmoticonFactory::deleteInstance();
+
+    if (SpellCheck::getInstance())
+        SpellCheck::deleteInstance();
 
     UPnPMapper::deleteInstance();
     UPnP::getInstance()->stop();

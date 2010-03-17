@@ -34,7 +34,7 @@ bool ToolBar::eventFilter(QObject *obj, QEvent *e){
 void ToolBar::showEvent(QShowEvent *e){
     e->accept();
 
-    if (tabbar){
+    if (tabbar && e->spontaneous()){
         tabbar->hide();// I know, this is crap, but tabbar->repaint() doesn't fit all tabs in tabbar properly when
         tabbar->show();// MainWindow becomes visible (restoring from system tray)
     }

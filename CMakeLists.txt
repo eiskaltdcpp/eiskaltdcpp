@@ -7,7 +7,7 @@ include (CheckIncludeFile)
 include (CheckIncludeFiles)
 include (CheckFunctionExists)
 include (FindPkgConfig)
-include(CheckCXXSourceCompiles)
+include (CheckCXXSourceCompiles)
 
 #IF (GPTOOLS_CPU AND GPTOOLS_MEM)
 #    SET (GPTOOLS_CPU FALSE)
@@ -104,6 +104,7 @@ find_package (ZLIB REQUIRED)
 find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
+find_package (ASPELL REQUIRED)
 find_package (Qt4 4.5 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus REQUIRED )
 find_package (PkgConfig)
 
@@ -165,11 +166,13 @@ elseif (APPLE)
 endif (UNIX AND NOT APPLE)
 
 set (SHARE_DIR "share")
-IF (APPLE)
-set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app")
-ELSE (APPLE)
-set (CLIENT_DATA_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/${PROJECT_NAME_GLOBAL}")
-ENDIF (APPLE)
+
+if (APPLE)
+  set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app")
+else (APPLE)
+  set (CLIENT_DATA_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/${PROJECT_NAME_GLOBAL}")
+endif (APPLE)
+
 set (_DATADIR "${CLIENT_DATA_DIR}")
 
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
@@ -195,7 +198,7 @@ set (CLIENT_ICONS_DEST "${CLIENT_DATA_DIR}/icons")
 
 add_definitions (-pipe -O2 -I. -fno-builtin -D_FILE_OFFSET_BITS=64
                  -D_REENTRANT -D_DATADIR="${_DATADIR}"
-                 -DNDEBUG -DBUILDING_DCPP)
+                 -DNDEBUG -DBUILDING_DCPP ${ASPELL_DEFINITIONS})
 
 if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H -DHAVE_IF_ADDRS_H)
@@ -224,6 +227,7 @@ message(STATUS "CMAKE Found Libs:
                 zlib: ${ZLIB_LIBRARIES}
                 openssl: ${OPENSSL_LIBRARIES}
                 iconv: ${ICONV_LIBRARIES}
+                aspell: ${ASPELL_LIBRARIES}
                 ")
 
 add_subdirectory (dcpp)

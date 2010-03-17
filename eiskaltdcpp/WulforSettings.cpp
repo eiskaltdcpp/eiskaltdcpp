@@ -72,6 +72,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_APP_TOTAL_DOWN, "0");
         strmap.insert(WS_APP_TOTAL_UP, "0");
         strmap.insert(WS_APP_EMOTICON_THEME, "default");
+        strmap.insert(WS_APP_ASPELL_LANG, "");
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_SHOW_FREE_SPACE, (int)true);
@@ -96,6 +97,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_FAVUSERS_AUTOGRANT, (int)true);
         intmap.insert(WB_APP_ENABLE_EMOTICON, (int)true);
         intmap.insert(WB_APP_FORCE_EMOTICONS, (int)true);
+        intmap.insert(WB_APP_ENABLE_ASPELL, (int)true);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS, 300);
         intmap.insert(WI_DEF_MAGNET_ACTION, 0);
         intmap.insert(WI_CHAT_WIDTH, -1);

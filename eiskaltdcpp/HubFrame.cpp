@@ -9,6 +9,7 @@
 #include "ShellCommandRunner.h"
 #include "EmoticonFactory.h"
 #include "EmoticonDialog.h"
+#include "SpellCheck.h"
 
 #include "UserListModel.h"
 
@@ -34,6 +35,7 @@
 #include <QThread>
 #include <QRegExp>
 #include <QScrollBar>
+#include <QShortcut>
 
 #include <QtDebug>
 
@@ -479,11 +481,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         else if (static_cast<QLineEdit*>(obj) == lineEdit_FIND){
             bool ret = QWidget::eventFilter(obj, e);
 
-            if (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return){
+            if (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return)
                 slotFindForward();
-
-                return ret;
-            }
 
             return ret;
         }
@@ -794,8 +793,11 @@ void HubFrame::init(){
     connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged(QString)));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
     connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
+    connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SLOT(slotInputTextChanged()));
+    connect(plainTextEdit_INPUT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotInputContextMenu()));
 
     plainTextEdit_INPUT->installEventFilter(this);
+    plainTextEdit_INPUT->setContextMenuPolicy(Qt::CustomContextMenu);
 
     initMenu();
 
@@ -1032,6 +1034,11 @@ bool HubFrame::parseForCmd(QString line){
             }
         }
     }
+    else if (cmd == "/aspell" && !emptyParam){
+        WBSET(WB_APP_ENABLE_ASPELL, param.trimmed() == "on");
+
+        addStatus(tr("Aspell switched %1").arg((WBGET(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
+    }
     else if (cmd == "/back"){
         Util::setAway(false);
 
@@ -1076,7 +1083,8 @@ bool HubFrame::parseForCmd(QString line){
     }
     else if (cmd == "/help" || cmd == "/?" || cmd == "/h"){
         QString out = "\n" +
-                      tr("/alias <ALIAS_NAME>::<COMMAND> - make alias /ALIAS_NAME to /COMMAND\n"
+                      tr("/aspell on/off - enable/disable spell checking\n"
+                         "/alias <ALIAS_NAME>::<COMMAND> - make alias /ALIAS_NAME to /COMMAND\n"
                          "/alias purge <ALIAS_NAME> - remove alias\n"
                          "/alias list - list all aliases\n"
                          "/away <message> - set away-mode on/off\n"
@@ -2142,6 +2150,108 @@ void HubFrame::slotSmile(){
     }
 
     delete dialog;
+}
+
+void HubFrame::slotInputTextChanged(){
+    QString line = plainTextEdit_INPUT->toPlainText();
+
+    if (line.isEmpty() || !SpellCheck::getInstance())
+        return;
+
+    SpellCheck *sp = SpellCheck::getInstance();
+    QStringList words = line.split(QRegExp("\\W+"), QString::SkipEmptyParts);
+
+    if (words.isEmpty())
+        return;
+
+    QList<QTextEdit::ExtraSelection> extraSelections;
+
+    QTextCursor c = plainTextEdit_INPUT->textCursor();
+
+    plainTextEdit_INPUT->moveCursor(QTextCursor::Start);
+
+    QTextEdit::ExtraSelection selection;
+    selection.format.setUnderlineStyle(QTextCharFormat::WaveUnderline);
+    selection.format.setUnderlineColor(Qt::red);
+
+    foreach (QString s, words){
+        if (plainTextEdit_INPUT->find(s) && !sp->ok(s)){
+            selection.cursor = plainTextEdit_INPUT->textCursor();
+            extraSelections.append(selection);
+        }
+    }
+
+    plainTextEdit_INPUT->setTextCursor(c);
+    plainTextEdit_INPUT->setExtraSelections(extraSelections);
+}
+
+void HubFrame::slotInputContextMenu(){
+    if (plainTextEdit_INPUT->toPlainText().isEmpty() || !SpellCheck::getInstance())
+        return;
+
+    SpellCheck *sp = SpellCheck::getInstance();
+    QTextCursor c = plainTextEdit_INPUT->cursorForPosition(plainTextEdit_INPUT->mapFromGlobal(QCursor::pos()));
+    QString block = c.block().text();
+
+    int pos = c.position();
+    pos = (pos == 0)? pos : pos-1;
+
+    QString left = "", right = "", word = "";
+
+    left = block.left(pos).split(QRegExp("\\W+")).last();
+    right = block.remove(0, pos).split(QRegExp("\\W+")).first();
+
+    word = left + right;
+
+    if (sp->ok(word)){
+        QMenu *m = plainTextEdit_INPUT->createStandardContextMenu();
+        m->exec(QCursor::pos());
+
+        m->deleteLater();
+
+        return;
+    }
+    else {
+        QStringList list;
+        sp->suggestions(word, list);
+
+        QMenu *m  = new QMenu(this);
+        QMenu *ss = new QMenu(tr("Suggestions"), this);
+        QAction *add_to_dict = new QAction(tr("Add to dictionary"), m);
+
+        m->addAction(add_to_dict);
+
+        foreach (QString s, list)
+            ss->addAction(s);
+
+        m->addMenu(ss);
+
+        QAction *ret = m->exec(QCursor::pos());
+
+        if (ret == add_to_dict)
+            sp->addToDict(word);
+        else if (ret){
+            int i = left.length();
+
+            while (i > 0){
+                c.deletePreviousChar();
+                i--;
+            }
+
+            c.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, right.size()-1);
+
+            i = right.length();
+
+            while (i > 0){
+                c.deletePreviousChar();
+                i--;
+            }
+
+            c.insertText(ret->text());
+        }
+
+        slotInputTextChanged();
+    }
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
