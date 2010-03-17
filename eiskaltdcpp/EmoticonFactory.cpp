@@ -81,8 +81,14 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
     QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
     QString out = "";
 
+    QString in = html;
+
+    in.replace("&gt;",">");
+    in.replace("&lt;","<");
+    in.replace("&#59;",";");
+
     if (WBGET(WB_APP_FORCE_EMOTICONS)){
-        QString buf = html;
+        QString buf = in;
         EmoticonMap::iterator it = map.end();
         EmoticonMap::iterator begin = map.begin();
 
@@ -132,15 +138,16 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
         return out;
     }
 
-    QStringList out_list = html.split(' ', QString::SkipEmptyParts);
+    QStringList out_list = in.split(' ', QString::SkipEmptyParts);
 
     foreach (QString s, out_list){
         if (map.contains(s)){
             EmoticonObject *obj = map[s];
 
-            QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />").arg(s)
-                                                                                                              .arg(emoTheme)
-                                                                                                              .arg(obj->id);
+            QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
+                          .arg(s)
+                          .arg(emoTheme)
+                          .arg(obj->id);
 
             out += img + " ";
         }
