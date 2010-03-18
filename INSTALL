@@ -6,9 +6,9 @@ libboost-system, libboost-filesystem, libboost-date-time (>=1.34.1)
 libxml2 (>= 2.6.31)
 libupnp (=1.6.* only)
 libssl (>= 0.9.8)
-libaspell
 bzip2
 zlib
+libaspell (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -20,9 +20,9 @@ libupnp-dev (=1.6.* only)
 libboost-system-dev
 libboost-filesystem-dev
 libboost-date-time-dev
-libaspell-dev
 bzip2
 gcc
+libaspell-dev (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -38,6 +38,7 @@ svn export http://eiskaltdc.googlecode.com/svn/branches/trunk/ eiskaltdcpp-trunk
 
 ---------
 Keys for cmake:
+-DUSE_ASPELL:BOOL=1 (default: BOOL=0)
 -DCMAKE_PREFIX_INSTALL=<prefix for install> (default: /usr/local)
 -DESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
 -PIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
