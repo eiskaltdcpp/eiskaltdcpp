@@ -7,6 +7,7 @@
 
 #include <QFileDialog>
 #include <QSound>
+#include <QSystemTrayIcon>
 
 SettingsNotification::SettingsNotification(QWidget *parent) :
     QWidget(parent)
@@ -20,6 +21,9 @@ void SettingsNotification::init(){
     WulforUtil *WU = WulforUtil::getInstance();
 
     {//Text
+        checkBox_TRAY->setChecked(WBGET(WB_TRAY_ENABLED));
+        checkBox_TRAY->setEnabled(QSystemTrayIcon::isSystemTrayAvailable());
+
         groupBox->setChecked(WBGET(WB_NOTIFY_ENABLED));
 
         unsigned emap = static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP));
@@ -97,6 +101,12 @@ void SettingsNotification::ok(){
         WBSET(WB_NOTIFY_ENABLED, groupBox->isChecked());
         WBSET(WB_NOTIFY_CH_ICON_ALWAYS, checkBox_MWVISIBLE->isChecked());
         WBSET(WB_NOTIFY_SHOW_ON_ACTIVE, checkBox_MWACTIVE->isChecked());
+
+        if (WBGET(WB_TRAY_ENABLED) != checkBox_TRAY->isChecked()){
+            WBSET(WB_TRAY_ENABLED, checkBox_TRAY->isChecked());
+
+            Notify->enableTray(WBGET(WB_TRAY_ENABLED));
+        }
 
         unsigned emap = 0;
 

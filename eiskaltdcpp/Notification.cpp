@@ -37,7 +37,6 @@ void Notification::enableTray(bool enable){
         if (tray)
             tray->hide();
 
-        delete tray->contextMenu();
         delete tray;
 
         tray = NULL;
@@ -47,6 +46,14 @@ void Notification::enableTray(bool enable){
         WBSET(WB_TRAY_ENABLED, false);
     }
     else {
+        delete tray;
+
+        if (!QSystemTrayIcon::isSystemTrayAvailable()){
+            WBSET(WB_TRAY_ENABLED, false);
+
+            return;
+        }
+
         tray = new QSystemTrayIcon(this);
         tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiICON_APPL));
 

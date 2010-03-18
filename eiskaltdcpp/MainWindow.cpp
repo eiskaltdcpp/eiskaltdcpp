@@ -119,7 +119,7 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
-    if (!isUnload){
+    if (!isUnload && WBGET(WB_NOTIFY_ENABLED)){
         hide();
         c_e->ignore();
 
@@ -415,6 +415,7 @@ void MainWindow::initActions(){
         fileHideWindow = new QAction(tr("Hide window"), this);
         fileHideWindow->setShortcut(tr("Esc"));
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
+        fileHideWindow->setEnabled(WBGET(WB_TRAY_ENABLED));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
         fileHideProgressSpace = new QAction(tr("Hide free space bar"), this);
@@ -1102,6 +1103,9 @@ void MainWindow::slotFileSettings(){
     Settings s;
 
     s.exec();
+
+    //reload some settings
+    fileHideWindow->setEnabled(WBGET(WB_TRAY_ENABLED));
 }
 
 void MainWindow::slotFileTransfer(bool toggled){
