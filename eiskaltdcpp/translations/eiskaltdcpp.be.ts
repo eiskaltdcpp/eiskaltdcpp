@@ -640,10 +640,6 @@
         <translation>Паменшыць</translation>
     </message>
     <message>
-        <source>User commands</source>
-        <translation type="obsolete">Загады карыстальніка</translation>
-    </message>
-    <message>
         <location filename="../HubFrame.cpp" line="260"/>
         <source>Commands</source>
         <translation type="unfinished"></translation>
@@ -773,38 +769,6 @@ Favorite user</source>
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/alias &lt;НАЗОЎКА&gt;::&lt;ЗАГАД&gt; — стварыць назоўку /НАЗОЎКА да загаду /ЗАГАД
-/alias purge &lt;НАЗОЎКА&gt; — выкрасьліць назоўку
-/alias list — пералічыць усе назоўкі
-/away &lt;паведамленьне&gt; — перайсьці ў стан “адыйшоў”, ці вярнуцца
-/back — вярнуцца са стану “адыйшоў”
-/browse &lt;мянушка&gt; — прагледзець файлы карыстальніка
-/clear — ачысьціць ваконца гаманы
-/close — закрыць гэты асяродак
-/fav — дадаць гэты асяродак да ўлюбёных
-/grant &lt;мянушка&gt; — даць слот карыстальніку
-/help, /?, /h — паказаць дапамогу (тое, што вы зараз чытаеце)
-/info &lt;мянушка&gt; — паказаць зьвесткі пра карыстальніка
-/me — сказаць ад трэцяе асобы
-/pm &lt;мянушка&gt; — пачаць гаманіць асабіста з карыстальнікам
-/sh &lt;загад&gt; — выканаць загад і перанакіраваць вынік у гаману</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1242"/>
@@ -1483,53 +1447,49 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Прагледзець</translation>
     </message>
     <message>
-        <source>User commands</source>
-        <translation type="obsolete">Загады карыстальніка</translation>
-    </message>
-    <message>
         <location filename="../SearchFrame.cpp" line="209"/>
         <source>Search window</source>
         <translatorcomment>???вакно пошуку</translatorcomment>
         <translation>Ваконца шукаць файлы</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="300"/>
+        <location filename="../SearchFrame.cpp" line="301"/>
         <source>Close</source>
         <translation>Закрыць</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="495"/>
-        <location filename="../SearchFrame.cpp" line="768"/>
+        <location filename="../SearchFrame.cpp" line="499"/>
+        <location filename="../SearchFrame.cpp" line="774"/>
         <source>Searching too soon, next search in %1 second</source>
         <translatorcomment>!!!множны лік</translatorcomment>
         <translation>Занадта часта шукаем, наступны раз паспрабуем праз %1 сэкундаў</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="499"/>
-        <location filename="../SearchFrame.cpp" line="764"/>
-        <location filename="../SearchFrame.cpp" line="772"/>
+        <location filename="../SearchFrame.cpp" line="503"/>
+        <location filename="../SearchFrame.cpp" line="770"/>
+        <location filename="../SearchFrame.cpp" line="778"/>
         <source>Search - %1</source>
         <translation>Шукаем — %1</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="504"/>
+        <location filename="../SearchFrame.cpp" line="508"/>
         <source>Ready to search...</source>
         <translatorcomment>???Гатовы шукаць</translatorcomment>
         <translation>Можна шукаць…</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="870"/>
-        <location filename="../SearchFrame.cpp" line="923"/>
+        <location filename="../SearchFrame.cpp" line="876"/>
+        <location filename="../SearchFrame.cpp" line="929"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1146"/>
+        <location filename="../SearchFrame.cpp" line="1152"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Вынікаў няма&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1155"/>
+        <location filename="../SearchFrame.cpp" line="1161"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translatorcomment>???Прапусьцілі</translatorcomment>
         <translation>Знайшлі: &lt;b&gt;%1&lt;/b&gt;  Адкінулі: &lt;b&gt;%2&lt;/b&gt;</translation>
@@ -3169,164 +3129,164 @@ p, li { white-space: pre-wrap; }
         <translation>Абмежаваньні</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="110"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="116"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
         <translation>Найбольшая колькасьць адначасовых сьцягваньняў (0 = бясконцая)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="117"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="132"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
         <translation>Не пачынаць сьцягваць новае, калі хуткасьць перавышае (КіБ/с, 0 = бясконцая)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="124"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="142"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
         <translation>Уважце: хуткасьць зьмяняецца, таму дакладнасьць меней за 100%</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="134"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="155"/>
         <source>Public Hub lists</source>
         <translatorcomment>???публічныя сьпісы</translatorcomment>
         <translation>Сьпісы публічных асяродкаў</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="143"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="164"/>
         <source>Http proxy (hub list only)</source>
         <translation>Пасродак http (толькі на сьпіс асяродкаў)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="150"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="171"/>
         <source>Configure Public Hub Lists</source>
         <translation>Наставіць сьпісы публічных асяродкаў</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="174"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="195"/>
         <source>Download to</source>
         <translation>Сьцягваць у</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="214"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="247"/>
         <source>Path</source>
         <translation>Шлях</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="219"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="252"/>
         <source>Alias</source>
         <translation>Назоўка</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="228"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="261"/>
         <source>Queue</source>
         <translation>Чарга</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="234"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="267"/>
         <source>Auto-priority settings</source>
         <translation>Наладжваньні самарушнага пяршынства</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="268"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="307"/>
         <source>Highest priority max size (KiB)</source>
         <translation>Найвышэйшае: памер у КіБ &lt;</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="275"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="323"/>
         <source>High priority max size (KiB)</source>
         <translation>Высокае: памер у КіБ &lt;</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="282"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="339"/>
         <source>Normal priority max size (KiB)</source>
         <translation>Звычайнае: памер у КіБ &lt;</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="289"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="355"/>
         <source>Low priority max size (KiB)</source>
         <translation>Нізкае: памер у КіБ &lt;</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="299"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="384"/>
         <source>Auto-drop settings</source>
         <translation>Наладжваньні самарушна адкідаць крыніцы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="347"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>Drop sources below (B/s)</source>
         <translation>Адкідаць павольнейшыя за (Б/c)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="354"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="454"/>
         <source>Check every (s)</source>
         <translation>Спраўджваць кожныя (с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="361"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="470"/>
         <source>Min. elapsed (s)</source>
         <translation>Часу мінула ня меней за (с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="368"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="486"/>
         <source>Max inactivity (s)</source>
         <translation>Бязьдзейнічае болей за (с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="375"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="502"/>
         <source>Min sources online</source>
         <translation>Далучаных крыніцаў болей за</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="382"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="518"/>
         <source>Min filesize (KiB)</source>
         <translation>Найменшы памер файла (КіБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="392"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="547"/>
         <source>Other options</source>
         <translation>Іншыя можнасьці</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="399"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="560"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
         <translation>Калі дадаецца файл, большы за памер для нізкага пяршынства, надаваць яму найніжэйшае пяршынства</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="410"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="571"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
         <translation>Самарушна адкідаць павольныя крыніцы ва ўсіх пунктах чаргі (апроч сьпісаў файлаў)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="421"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="582"/>
         <source>Remove slow filelists</source>
         <translation>Выкрасьляць павольныя сьпісы файлаў</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="432"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="593"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
         <translation>Не выкрасьляць крыніцу, калі самарушна адкідаем — толькі адлучацца</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="443"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="604"/>
         <source>Automatically search for alternative download locations</source>
         <translation>Самарушна шукаць іншыя крыніцы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="454"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="615"/>
         <source>Automatically match queue for auto search hits</source>
         <translatorcomment>???</translatorcomment>
         <translation>Самарушна ўзгадняць чаргу, калі што патрапіцца ў самарушным пошуку</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="465"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="626"/>
         <source>Skip zero-byte files</source>
         <translation>Прапускаць файлы нулявога памеру</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="476"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="637"/>
         <source>Don&apos;t download files already in share</source>
         <translation>Ня сьцягваць файлы, што ўжо маюцца ў абагуленым</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="487"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="648"/>
         <source>Don&apos;t download files already in the queue</source>
         <translation>Ня сьцягваць файлы, што ўжо стаяць у чарзе</translation>
     </message>
@@ -3370,67 +3330,67 @@ p, li { white-space: pre-wrap; }
         <translation>Зьмяніць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="112"/>
+        <location filename="../ui/UISettingsGUI.ui" line="111"/>
         <source>Icon theme</source>
         <translation>Набор значак</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="135"/>
+        <location filename="../ui/UISettingsGUI.ui" line="121"/>
         <source>Emoticon theme</source>
         <translation>Набор пачуцьцезнакаў</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="143"/>
+        <location filename="../ui/UISettingsGUI.ui" line="147"/>
         <source>Chat</source>
         <translation>Гамана</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="149"/>
+        <location filename="../ui/UISettingsGUI.ui" line="153"/>
         <source>Text color</source>
         <translation>Колер тэксту</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="161"/>
+        <location filename="../ui/UISettingsGUI.ui" line="203"/>
         <source>Show joins</source>
         <translation>Паказваць, калі хто ўваходзіць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="168"/>
+        <location filename="../ui/UISettingsGUI.ui" line="210"/>
         <source>Show hidden users</source>
         <translation>Паказваць схаваных карыстальнікаў</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="175"/>
+        <location filename="../ui/UISettingsGUI.ui" line="217"/>
         <source>Ignore private messages from Hub</source>
         <translation>Не зважаць на асабістыя паведамленьні ад асяродка</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="182"/>
+        <location filename="../ui/UISettingsGUI.ui" line="224"/>
         <source>Ignore private messages from Bot</source>
         <translation>Не зважаць на асабістыя паведамленьні ад бота</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="189"/>
+        <location filename="../ui/UISettingsGUI.ui" line="231"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation>Накіроўваць паведамленьні ад бота ў галоўную гаману</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="196"/>
+        <location filename="../ui/UISettingsGUI.ui" line="238"/>
         <source>Do not change focus on new private message</source>
         <translation>Не пераходзіць да новага асабістага паведамленьня</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="203"/>
+        <location filename="../ui/UISettingsGUI.ui" line="256"/>
         <source>Maximum paragraphs</source>
         <translation>Найбольшая колькасьць абзацаў</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="230"/>
+        <location filename="../ui/UISettingsGUI.ui" line="174"/>
         <source>Enable emoticons</source>
         <translation>Задзейнічаць пачуцьцезнакі</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="237"/>
+        <location filename="../ui/UISettingsGUI.ui" line="194"/>
         <source>Force emoticon parsing</source>
         <translation>Прымусіць разьбіраць пачуцьцезнакі</translation>
     </message>
@@ -3504,60 +3464,60 @@ p, li { white-space: pre-wrap; }
         <translation>Тэкст</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="30"/>
+        <location filename="../ui/UISettingsNotification.ui" line="37"/>
         <source>Enable notifications</source>
         <translation>Дазволіць апавяшчэньні</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="39"/>
+        <location filename="../ui/UISettingsNotification.ui" line="46"/>
         <location filename="../ui/UISettingsNotification.ui" line="170"/>
         <source>Your nick is mentioned in main chat</source>
         <translation>Вашую мянушку згадалі ў агульнае гамане</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="46"/>
+        <location filename="../ui/UISettingsNotification.ui" line="53"/>
         <location filename="../ui/UISettingsNotification.ui" line="199"/>
         <source>Private message</source>
         <translation>Асабістае паведамленьне</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="53"/>
+        <location filename="../ui/UISettingsNotification.ui" line="60"/>
         <location filename="../ui/UISettingsNotification.ui" line="228"/>
         <source>Transfer done</source>
         <translation>Скончылі перадаваць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="60"/>
+        <location filename="../ui/UISettingsNotification.ui" line="67"/>
         <source>Allow other types of notifications</source>
         <translation>Дазволіць іншыя віды апавяшчэньняў</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="67"/>
+        <location filename="../ui/UISettingsNotification.ui" line="103"/>
         <source>Notification module</source>
         <translation>Убудова апавяшчэньняў</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="88"/>
+        <location filename="../ui/UISettingsNotification.ui" line="123"/>
         <source>Default (Qt)</source>
         <translation>Звычайная (Qt)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="93"/>
+        <location filename="../ui/UISettingsNotification.ui" line="128"/>
         <source>D-Bus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="101"/>
+        <location filename="../ui/UISettingsNotification.ui" line="88"/>
         <source>Change icon when main window is visible</source>
         <translation>Зьмяняць значку, калі бачна галоўнае вакно</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="124"/>
+        <location filename="../ui/UISettingsNotification.ui" line="81"/>
         <source>Enable notifications with visible main window</source>
         <translation>Дазволіць апавяшчаць, калі бачна галоўнае вакно</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="147"/>
+        <location filename="../ui/UISettingsNotification.ui" line="30"/>
         <source>Show icon in system tray</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3612,17 +3572,17 @@ p, li { white-space: pre-wrap; }
         <translation>Тлумачэньне адсутнасьці</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="97"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="93"/>
         <source>Max upload speed</source>
         <translation>Найвялікшая хуткасьць зацягваць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="104"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="135"/>
         <source>Default hub encoding</source>
         <translation>Звычайны знаказбор асяродку</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="124"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="122"/>
         <source>MiB/s</source>
         <translation>МіБ/с</translation>
     </message>
@@ -3641,27 +3601,27 @@ p, li { white-space: pre-wrap; }
         <translation>Не абагуляць (знак групаваньня — “*”; аддзяляльнік — “|”)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="76"/>
+        <location filename="../ui/UISettingsSharing.ui" line="93"/>
         <source>Share temp files</source>
         <translation>Абагуляць часовыя файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="83"/>
+        <location filename="../ui/UISettingsSharing.ui" line="119"/>
         <source>Share hidden files</source>
         <translation>Абагуляць схаваныя файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="90"/>
+        <location filename="../ui/UISettingsSharing.ui" line="69"/>
         <source>Follow symlinks</source>
         <translation>Хадзіць па спасылках</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="127"/>
+        <location filename="../ui/UISettingsSharing.ui" line="149"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Дадаць шчыліну, калі хуткасьць &lt; (КіБ/с, 0 = бясконцая)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="149"/>
+        <location filename="../ui/UISettingsSharing.ui" line="171"/>
         <source>Upload slots</source>
         <translation>Шчылінаў зацягваць файлы</translation>
     </message>

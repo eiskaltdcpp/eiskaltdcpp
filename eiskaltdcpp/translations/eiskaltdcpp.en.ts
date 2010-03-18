@@ -1572,41 +1572,41 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="300"/>
+        <location filename="../SearchFrame.cpp" line="301"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="495"/>
-        <location filename="../SearchFrame.cpp" line="768"/>
+        <location filename="../SearchFrame.cpp" line="499"/>
+        <location filename="../SearchFrame.cpp" line="774"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="499"/>
-        <location filename="../SearchFrame.cpp" line="764"/>
-        <location filename="../SearchFrame.cpp" line="772"/>
+        <location filename="../SearchFrame.cpp" line="503"/>
+        <location filename="../SearchFrame.cpp" line="770"/>
+        <location filename="../SearchFrame.cpp" line="778"/>
         <source>Search - %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="504"/>
+        <location filename="../SearchFrame.cpp" line="508"/>
         <source>Ready to search...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="870"/>
-        <location filename="../SearchFrame.cpp" line="923"/>
+        <location filename="../SearchFrame.cpp" line="876"/>
+        <location filename="../SearchFrame.cpp" line="929"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1146"/>
+        <location filename="../SearchFrame.cpp" line="1152"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1155"/>
+        <location filename="../SearchFrame.cpp" line="1161"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3038,162 +3038,162 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="110"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="116"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="117"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="132"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="124"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="142"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="134"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="155"/>
         <source>Public Hub lists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="143"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="164"/>
         <source>Http proxy (hub list only)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="150"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="171"/>
         <source>Configure Public Hub Lists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="174"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="195"/>
         <source>Download to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="214"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="247"/>
         <source>Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="219"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="252"/>
         <source>Alias</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="228"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="261"/>
         <source>Queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="234"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="267"/>
         <source>Auto-priority settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="268"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="307"/>
         <source>Highest priority max size (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="275"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="323"/>
         <source>High priority max size (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="282"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="339"/>
         <source>Normal priority max size (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="289"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="355"/>
         <source>Low priority max size (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="299"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="384"/>
         <source>Auto-drop settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="347"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>Drop sources below (B/s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="354"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="454"/>
         <source>Check every (s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="361"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="470"/>
         <source>Min. elapsed (s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="368"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="486"/>
         <source>Max inactivity (s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="375"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="502"/>
         <source>Min sources online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="382"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="518"/>
         <source>Min filesize (KiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="392"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="547"/>
         <source>Other options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="399"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="560"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="410"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="571"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="421"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="582"/>
         <source>Remove slow filelists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="432"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="593"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="443"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="604"/>
         <source>Automatically search for alternative download locations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="454"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="615"/>
         <source>Automatically match queue for auto search hits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="465"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="626"/>
         <source>Skip zero-byte files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="476"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="637"/>
         <source>Don&apos;t download files already in share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="487"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="648"/>
         <source>Don&apos;t download files already in the queue</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3236,67 +3236,67 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="112"/>
+        <location filename="../ui/UISettingsGUI.ui" line="111"/>
         <source>Icon theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="135"/>
+        <location filename="../ui/UISettingsGUI.ui" line="121"/>
         <source>Emoticon theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="143"/>
+        <location filename="../ui/UISettingsGUI.ui" line="147"/>
         <source>Chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="149"/>
+        <location filename="../ui/UISettingsGUI.ui" line="153"/>
         <source>Text color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="161"/>
+        <location filename="../ui/UISettingsGUI.ui" line="203"/>
         <source>Show joins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="168"/>
+        <location filename="../ui/UISettingsGUI.ui" line="210"/>
         <source>Show hidden users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="203"/>
+        <location filename="../ui/UISettingsGUI.ui" line="256"/>
         <source>Maximum paragraphs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="230"/>
+        <location filename="../ui/UISettingsGUI.ui" line="174"/>
         <source>Enable emoticons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="237"/>
+        <location filename="../ui/UISettingsGUI.ui" line="194"/>
         <source>Force emoticon parsing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="175"/>
+        <location filename="../ui/UISettingsGUI.ui" line="217"/>
         <source>Ignore private messages from Hub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="182"/>
+        <location filename="../ui/UISettingsGUI.ui" line="224"/>
         <source>Ignore private messages from Bot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="189"/>
+        <location filename="../ui/UISettingsGUI.ui" line="231"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="196"/>
+        <location filename="../ui/UISettingsGUI.ui" line="238"/>
         <source>Do not change focus on new private message</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3370,60 +3370,60 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="30"/>
+        <location filename="../ui/UISettingsNotification.ui" line="37"/>
         <source>Enable notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="39"/>
+        <location filename="../ui/UISettingsNotification.ui" line="46"/>
         <location filename="../ui/UISettingsNotification.ui" line="170"/>
         <source>Your nick is mentioned in main chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="46"/>
+        <location filename="../ui/UISettingsNotification.ui" line="53"/>
         <location filename="../ui/UISettingsNotification.ui" line="199"/>
         <source>Private message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="53"/>
+        <location filename="../ui/UISettingsNotification.ui" line="60"/>
         <location filename="../ui/UISettingsNotification.ui" line="228"/>
         <source>Transfer done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="60"/>
+        <location filename="../ui/UISettingsNotification.ui" line="67"/>
         <source>Allow other types of notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="67"/>
+        <location filename="../ui/UISettingsNotification.ui" line="103"/>
         <source>Notification module</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="88"/>
+        <location filename="../ui/UISettingsNotification.ui" line="123"/>
         <source>Default (Qt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="93"/>
+        <location filename="../ui/UISettingsNotification.ui" line="128"/>
         <source>D-Bus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="101"/>
+        <location filename="../ui/UISettingsNotification.ui" line="88"/>
         <source>Change icon when main window is visible</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="124"/>
+        <location filename="../ui/UISettingsNotification.ui" line="81"/>
         <source>Enable notifications with visible main window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="147"/>
+        <location filename="../ui/UISettingsNotification.ui" line="30"/>
         <source>Show icon in system tray</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3478,17 +3478,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="97"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="93"/>
         <source>Max upload speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="104"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="135"/>
         <source>Default hub encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="124"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="122"/>
         <source>MiB/s</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3506,27 +3506,27 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="76"/>
+        <location filename="../ui/UISettingsSharing.ui" line="93"/>
         <source>Share temp files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="83"/>
+        <location filename="../ui/UISettingsSharing.ui" line="119"/>
         <source>Share hidden files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="90"/>
+        <location filename="../ui/UISettingsSharing.ui" line="69"/>
         <source>Follow symlinks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="127"/>
+        <location filename="../ui/UISettingsSharing.ui" line="149"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="149"/>
+        <location filename="../ui/UISettingsSharing.ui" line="171"/>
         <source>Upload slots</source>
         <translation type="unfinished"></translation>
     </message>

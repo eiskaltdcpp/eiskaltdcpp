@@ -617,17 +617,17 @@
     <message>
         <location filename="../HubFrame.cpp" line="260"/>
         <source>Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Команды</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="262"/>
         <source>Chat context</source>
-        <translation type="unfinished"></translation>
+        <translation>Содержимое чата</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="263"/>
         <source>Hub context</source>
-        <translation type="unfinished"></translation>
+        <translation>Содержимое хаба</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="887"/>
@@ -860,10 +860,6 @@ Favorite user</source>
         <translation>Уменьшить</translation>
     </message>
     <message>
-        <source>User commands</source>
-        <translation type="obsolete">Команды пользователя</translation>
-    </message>
-    <message>
         <location filename="../HubFrame.cpp" line="782"/>
         <source>Show widget</source>
         <translation>Показать виджет</translation>
@@ -877,53 +873,6 @@ Favorite user</source>
         <location filename="../HubFrame.cpp" line="2198"/>
         <source>Add to dictionary</source>
         <translation>Добавить в словарь</translation>
-    </message>
-    <message>
-        <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translatorcomment>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - создать псевдоним /ALIAS_NAME для команды /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - удалить 
-/alias list - список всех псевдонимов команд
-/away - включить/выключить режим &quot;Отошёл&quot;
-/back - отключить режим &quot;Отошёл&quot;
-/browse &lt;nick&gt; - открыть список файлов пользователя
-/clear - очистить чат
-/close - закрыть текущий хаб
-/fav - добавить текущий хаб в избранные
-/grant &lt;nick&gt; - выдалить дополнительный слот пользователю
-/help, /?, /h - показать эту справку
-/info &lt;nick&gt; - показать информацию о пользователе
-/me - сказать от третьего лица
-/pm &lt;nick&gt; - начать личный чат с пользователем
-/sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translatorcomment>
-        <translation type="obsolete">/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - создать псевдоним /ALIAS_NAME для команды /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - удалить 
-/alias list - список всех псевдонимов команд
-/away - включить/выключить режим &quot;Отошёл&quot;
-/back - отключить режим &quot;Отошёл&quot;
-/browse &lt;nick&gt; - открыть список файлов пользователя
-/clear - очистить чат
-/close - закрыть текущий хаб
-/fav - добавить текущий хаб в избранные
-/grant &lt;nick&gt; - выдалить дополнительный слот пользователю
-/help, /?, /h - показать эту справку
-/info &lt;nick&gt; - показать информацию о пользователе
-/me - сказать от третьего лица
-/pm &lt;nick&gt; - начать личный чат с пользователем
-/sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2484"/>
@@ -1431,25 +1380,25 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="300"/>
+        <location filename="../SearchFrame.cpp" line="301"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="495"/>
-        <location filename="../SearchFrame.cpp" line="768"/>
+        <location filename="../SearchFrame.cpp" line="499"/>
+        <location filename="../SearchFrame.cpp" line="774"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation>Слишком быстрая попытка нового поиска, подождите %1 секунд</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="499"/>
-        <location filename="../SearchFrame.cpp" line="764"/>
-        <location filename="../SearchFrame.cpp" line="772"/>
+        <location filename="../SearchFrame.cpp" line="503"/>
+        <location filename="../SearchFrame.cpp" line="770"/>
+        <location filename="../SearchFrame.cpp" line="778"/>
         <source>Search - %1</source>
         <translation>Поиск - %1</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="504"/>
+        <location filename="../SearchFrame.cpp" line="508"/>
         <source>Ready to search...</source>
         <translation>Готов к поиску...</translation>
     </message>
@@ -1579,18 +1528,18 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Хабы</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="870"/>
-        <location filename="../SearchFrame.cpp" line="923"/>
+        <location filename="../SearchFrame.cpp" line="876"/>
+        <location filename="../SearchFrame.cpp" line="929"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1146"/>
+        <location filename="../SearchFrame.cpp" line="1152"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Результаты отсутствуют&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1155"/>
+        <location filename="../SearchFrame.cpp" line="1161"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Найдено: &lt;b&gt;%1&lt;/b&gt;  Отсеяно: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -1689,10 +1638,6 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <location filename="../SearchFrame.cpp" line="152"/>
         <source>Browse</source>
         <translation>Выбрать каталог</translation>
-    </message>
-    <message>
-        <source>User commands</source>
-        <translation type="obsolete">Команды пользователя</translation>
     </message>
 </context>
 <context>
@@ -3148,162 +3093,162 @@ p, li { white-space: pre-wrap; }
         <translation>Ограничения</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="110"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="116"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
         <translation>Максимум одновременных загрузок (0 = без ограничений)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="117"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="132"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
         <translation>Максимум скорости загрузки (КиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="124"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="142"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
         <translation>&lt;b&gt;Заметка:&lt;/b&gt; Из-за изменения скорости загрузки, точность не равна 100%</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="134"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="155"/>
         <source>Public Hub lists</source>
         <translation>Публичные списки хабов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="143"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="164"/>
         <source>Http proxy (hub list only)</source>
         <translation>HTTP-прокси (только для списка хабов)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="150"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="171"/>
         <source>Configure Public Hub Lists</source>
         <translation>Настроить публичные списки хабов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="174"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="195"/>
         <source>Download to</source>
         <translation>Загрузить в</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="214"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="247"/>
         <source>Path</source>
         <translation>Путь</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="219"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="252"/>
         <source>Alias</source>
         <translation>Псевдоним</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="228"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="261"/>
         <source>Queue</source>
         <translation>Очередь</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="234"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="267"/>
         <source>Auto-priority settings</source>
         <translation>Настройки автоприоритета</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="268"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="307"/>
         <source>Highest priority max size (KiB)</source>
         <translation>Максимальный (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="275"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="323"/>
         <source>High priority max size (KiB)</source>
         <translation>Высокий (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="282"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="339"/>
         <source>Normal priority max size (KiB)</source>
         <translation>Нормальный (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="289"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="355"/>
         <source>Low priority max size (KiB)</source>
         <translation>Низкий (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="299"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="384"/>
         <source>Auto-drop settings</source>
         <translation>Настройки автоматического сброса</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="347"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>Drop sources below (B/s)</source>
         <translation>Сброс, если ниже (Б/с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="354"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="454"/>
         <source>Check every (s)</source>
         <translation>Проверять каждые (с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="361"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="470"/>
         <source>Min. elapsed (s)</source>
         <translation>Прошло (минимум) (с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="368"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="486"/>
         <source>Max inactivity (s)</source>
         <translation>Простой (максимум). (с)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="375"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="502"/>
         <source>Min sources online</source>
         <translation>Онлайн (минимум)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="382"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="518"/>
         <source>Min filesize (KiB)</source>
         <translation>Размер (минимум) (КиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="392"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="547"/>
         <source>Other options</source>
         <translation>Прочие настройки</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="399"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="560"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
         <translation>Установить минимальный приоритет для свежедобавленных файлов размером больше, чем в опции &quot;Низкий&quot; настроек автоприоритета</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="410"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="571"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
         <translation>Автосброс медленных источников очереди (кроме списков файлов)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="421"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="582"/>
         <source>Remove slow filelists</source>
         <translation>Удалять медленные закачки списков файлов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="432"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="593"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
         <translation>Не удалять источник при авто-сбросе, а только отключаться</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="443"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="604"/>
         <source>Automatically search for alternative download locations</source>
         <translation>Автоматически искать альтернативные источники</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="454"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="615"/>
         <source>Automatically match queue for auto search hits</source>
         <translation>Автоматически настраивать очередь для результатов автопоиска</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="465"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="626"/>
         <source>Skip zero-byte files</source>
         <translation>Пропускать файлы с нулевым размером</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="476"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="637"/>
         <source>Don&apos;t download files already in share</source>
         <translation>Не загружать файлы, уже имеющиеся в собственной шаре</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="487"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="648"/>
         <source>Don&apos;t download files already in the queue</source>
         <translation>Не загружать файлы, уже имеющиеся в очереди</translation>
     </message>
@@ -3346,67 +3291,67 @@ p, li { white-space: pre-wrap; }
         <translation>Изменить</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="112"/>
+        <location filename="../ui/UISettingsGUI.ui" line="111"/>
         <source>Icon theme</source>
         <translation>Тема иконок</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="135"/>
+        <location filename="../ui/UISettingsGUI.ui" line="121"/>
         <source>Emoticon theme</source>
         <translation>Тема смайлов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="143"/>
+        <location filename="../ui/UISettingsGUI.ui" line="147"/>
         <source>Chat</source>
         <translation>Чат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="149"/>
+        <location filename="../ui/UISettingsGUI.ui" line="153"/>
         <source>Text color</source>
         <translation>Цвета текста</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="161"/>
+        <location filename="../ui/UISettingsGUI.ui" line="203"/>
         <source>Show joins</source>
         <translation>Показывать входы/выходы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="168"/>
+        <location filename="../ui/UISettingsGUI.ui" line="210"/>
         <source>Show hidden users</source>
         <translation>Отображать скрытых пользователей</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="203"/>
+        <location filename="../ui/UISettingsGUI.ui" line="256"/>
         <source>Maximum paragraphs</source>
         <translation>Максимальное число параграфов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="230"/>
+        <location filename="../ui/UISettingsGUI.ui" line="174"/>
         <source>Enable emoticons</source>
         <translation>Использовать смайлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="237"/>
+        <location filename="../ui/UISettingsGUI.ui" line="194"/>
         <source>Force emoticon parsing</source>
         <translation>Принудительная замена смайлов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="175"/>
+        <location filename="../ui/UISettingsGUI.ui" line="217"/>
         <source>Ignore private messages from Hub</source>
         <translation>Игнорировать личные сообщения от хаба</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="182"/>
+        <location filename="../ui/UISettingsGUI.ui" line="224"/>
         <source>Ignore private messages from Bot</source>
         <translation>Игнорировать приватные сообщения от бота</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="189"/>
+        <location filename="../ui/UISettingsGUI.ui" line="231"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation>Перенаправлять сообщения от бота в основной чат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="196"/>
+        <location filename="../ui/UISettingsGUI.ui" line="238"/>
         <source>Do not change focus on new private message</source>
         <translation>Не переводить фокус на новое личное сообщение</translation>
     </message>
@@ -3480,62 +3425,62 @@ p, li { white-space: pre-wrap; }
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="30"/>
+        <location filename="../ui/UISettingsNotification.ui" line="37"/>
         <source>Enable notifications</source>
         <translation>Включить уведомления</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="39"/>
+        <location filename="../ui/UISettingsNotification.ui" line="46"/>
         <location filename="../ui/UISettingsNotification.ui" line="170"/>
         <source>Your nick is mentioned in main chat</source>
         <translation>Ваш ник упомянут в чате</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="46"/>
+        <location filename="../ui/UISettingsNotification.ui" line="53"/>
         <location filename="../ui/UISettingsNotification.ui" line="199"/>
         <source>Private message</source>
         <translation>Личное сообщение</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="53"/>
+        <location filename="../ui/UISettingsNotification.ui" line="60"/>
         <location filename="../ui/UISettingsNotification.ui" line="228"/>
         <source>Transfer done</source>
         <translation>Загрузка завершена</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="60"/>
+        <location filename="../ui/UISettingsNotification.ui" line="67"/>
         <source>Allow other types of notifications</source>
         <translation>Разрешить прочие типы уведомлений</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="67"/>
+        <location filename="../ui/UISettingsNotification.ui" line="103"/>
         <source>Notification module</source>
         <translation>Уведомления</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="88"/>
+        <location filename="../ui/UISettingsNotification.ui" line="123"/>
         <source>Default (Qt)</source>
         <translation>По умолчанию (Qt)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="93"/>
+        <location filename="../ui/UISettingsNotification.ui" line="128"/>
         <source>D-Bus</source>
         <translation>D-Bus</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="101"/>
+        <location filename="../ui/UISettingsNotification.ui" line="88"/>
         <source>Change icon when main window is visible</source>
         <translation>Изменять иконку при видимом главном окне</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="124"/>
+        <location filename="../ui/UISettingsNotification.ui" line="81"/>
         <source>Enable notifications with visible main window</source>
         <translation>Включить уведомления при видимом главном окне</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="147"/>
+        <location filename="../ui/UISettingsNotification.ui" line="30"/>
         <source>Show icon in system tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать иконку в системном трее</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="155"/>
@@ -3588,17 +3533,17 @@ p, li { white-space: pre-wrap; }
         <translation>Сообщение об отсутствии</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="97"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="93"/>
         <source>Max upload speed</source>
         <translation>Максимальная скорость отдачи</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="104"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="135"/>
         <source>Default hub encoding</source>
         <translation>Кодировка хаба по умолчанию</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="124"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="122"/>
         <source>MiB/s</source>
         <translation>МиБ/с</translation>
     </message>
@@ -3616,27 +3561,27 @@ p, li { white-space: pre-wrap; }
         <translation>Не расшаривать (групповой символ *, разделитель |)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="76"/>
+        <location filename="../ui/UISettingsSharing.ui" line="93"/>
         <source>Share temp files</source>
         <translation>Расшарить временные файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="83"/>
+        <location filename="../ui/UISettingsSharing.ui" line="119"/>
         <source>Share hidden files</source>
         <translation>Расшаривать скрытые файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="90"/>
+        <location filename="../ui/UISettingsSharing.ui" line="69"/>
         <source>Follow symlinks</source>
-        <translation>Следовать по символическим ссылкам</translation>
+        <translation>Следовать по символьным ссылкам</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="127"/>
+        <location filename="../ui/UISettingsSharing.ui" line="149"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Выдать дополнительный слот при скорости ниже (КиБ/с, 0 = неогр.)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="149"/>
+        <location filename="../ui/UISettingsSharing.ui" line="171"/>
         <source>Upload slots</source>
         <translation>Слоты отдачи</translation>
     </message>
@@ -3777,7 +3722,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../WulforUtil.cpp" line="785"/>
         <source>User commands</source>
-        <translation type="unfinished">Команды пользователя</translation>
+        <translation>Команды пользователя</translation>
     </message>
 </context>
 </TS>
