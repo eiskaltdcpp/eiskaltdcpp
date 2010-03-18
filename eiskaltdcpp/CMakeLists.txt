@@ -49,7 +49,6 @@ set (SRCS   Antispam.cpp
             ShareBrowser.cpp
             ShellCommandRunner.cpp
             SingleInstanceRunner.cpp
-            SpellCheck.cpp
             SpyFrame.cpp
             SpyModel.cpp
             ToolBar.cpp
@@ -97,7 +96,6 @@ set (MOC_HDRS Antispam.h
             SearchModel.h
             ShareBrowser.h
             ShellCommandRunner.h
-            SpellCheck.h
             SpyFrame.h
             SpyModel.h
             ToolBar.h
@@ -136,6 +134,11 @@ set (UI_FORMS ui/UIAbout.ui
 set (LANGUAGES en
                ru
                be)
+
+if (USE_ASPELL)
+  set (SRCS ${SRCS} SpellCheck.cpp)
+  set (MOC_HDRS ${MOC_HDRS} SpellCheck.h)
+endif (USE_ASPELL)
 
 set (COMPILED_TRANSLATIONS ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.en.qm
                            ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.ru.qm
@@ -182,8 +185,14 @@ if (UNIX)
                 INPUT_FILE eiskaltdcpp.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
-include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS} ${ASPELL_INCLUDE_DIR})
-set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES} ${ICONV_LIBRARIES} ${ASPELL_LIBRARIES})
+
+include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
+set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
+
+if (USE_ASPELL)
+  include_directories (${ASPELL_INCLUDE_DIR})
+  set (LIBS ${LIBS} ${ASPELL_LIBRARIES})
+endif (USE_ASPELL)
 
 if (APPLE)
   # set how it shows up in the Info.plist file

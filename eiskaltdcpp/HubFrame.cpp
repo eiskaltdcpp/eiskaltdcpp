@@ -9,7 +9,10 @@
 #include "ShellCommandRunner.h"
 #include "EmoticonFactory.h"
 #include "EmoticonDialog.h"
+
+#ifdef USE_ASPELL
 #include "SpellCheck.h"
+#endif
 
 #include "UserListModel.h"
 
@@ -793,11 +796,15 @@ void HubFrame::init(){
     connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged(QString)));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
     connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
+
+#ifdef USE_ASPELL
     connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SLOT(slotInputTextChanged()));
     connect(plainTextEdit_INPUT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotInputContextMenu()));
 
-    plainTextEdit_INPUT->installEventFilter(this);
     plainTextEdit_INPUT->setContextMenuPolicy(Qt::CustomContextMenu);
+#endif
+
+    plainTextEdit_INPUT->installEventFilter(this);
 
     initMenu();
 
@@ -1034,11 +1041,13 @@ bool HubFrame::parseForCmd(QString line){
             }
         }
     }
+#ifdef USE_ASPELL
     else if (cmd == "/aspell" && !emptyParam){
         WBSET(WB_APP_ENABLE_ASPELL, param.trimmed() == "on");
 
         addStatus(tr("Aspell switched %1").arg((WBGET(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
     }
+#endif
     else if (cmd == "/back"){
         Util::setAway(false);
 
@@ -1083,7 +1092,10 @@ bool HubFrame::parseForCmd(QString line){
     }
     else if (cmd == "/help" || cmd == "/?" || cmd == "/h"){
         QString out = "\n" +
-                      tr("/aspell on/off - enable/disable spell checking\n"
+                      tr(""
+#ifdef USE_ASPELL
+                         "/aspell on/off - enable/disable spell checking\n"
+#endif
                          "/alias <ALIAS_NAME>::<COMMAND> - make alias /ALIAS_NAME to /COMMAND\n"
                          "/alias purge <ALIAS_NAME> - remove alias\n"
                          "/alias list - list all aliases\n"
@@ -2153,6 +2165,7 @@ void HubFrame::slotSmile(){
 }
 
 void HubFrame::slotInputTextChanged(){
+#ifdef USE_ASPELL
     QString line = plainTextEdit_INPUT->toPlainText();
 
     if (line.isEmpty() || !SpellCheck::getInstance())
@@ -2183,27 +2196,32 @@ void HubFrame::slotInputTextChanged(){
 
     plainTextEdit_INPUT->setTextCursor(c);
     plainTextEdit_INPUT->setExtraSelections(extraSelections);
+#endif
 }
 
 void HubFrame::slotInputContextMenu(){
+#ifdef USE_ASPELL
     if (plainTextEdit_INPUT->toPlainText().isEmpty() || !SpellCheck::getInstance())
         return;
 
+    if (!plainTextEdit_INPUT->textCursor().selectedText().isEmpty()){
+        QMenu *m = plainTextEdit_INPUT->createStandardContextMenu();
+        m->exec(QCursor::pos());
+
+        m->deleteLater();
+
+        return;
+    }
+
     SpellCheck *sp = SpellCheck::getInstance();
     QTextCursor c = plainTextEdit_INPUT->cursorForPosition(plainTextEdit_INPUT->mapFromGlobal(QCursor::pos()));
-    QString block = c.block().text();
+    c.select(QTextCursor::WordUnderCursor);
 
-    int pos = c.position();
-    pos = (pos == 0)? pos : pos-1;
+    QString word = c.selectedText();
 
-    QString left = "", right = "", word = "";
+    if (sp->ok(word) || word.isEmpty()){
+        c.clearSelection();
 
-    left = block.left(pos).split(QRegExp("\\W+")).last();
-    right = block.remove(0, pos).split(QRegExp("\\W+")).first();
-
-    word = left + right;
-
-    if (sp->ok(word)){
         QMenu *m = plainTextEdit_INPUT->createStandardContextMenu();
         m->exec(QCursor::pos());
 
@@ -2231,27 +2249,17 @@ void HubFrame::slotInputContextMenu(){
         if (ret == add_to_dict)
             sp->addToDict(word);
         else if (ret){
-            int i = left.length();
-
-            while (i > 0){
-                c.deletePreviousChar();
-                i--;
-            }
-
-            c.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, right.size()-1);
-
-            i = right.length();
-
-            while (i > 0){
-                c.deletePreviousChar();
-                i--;
-            }
+            c.removeSelectedText();
 
             c.insertText(ret->text());
         }
 
+        m->deleteLater();
+        ss->deleteLater();
+
         slotInputTextChanged();
     }
+#endif
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){

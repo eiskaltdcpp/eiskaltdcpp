@@ -104,9 +104,15 @@ find_package (ZLIB REQUIRED)
 find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
-find_package (ASPELL REQUIRED)
 find_package (Qt4 4.5 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus REQUIRED )
 find_package (PkgConfig)
+
+if (USE_ASPELL)
+  find_package (ASPELL REQUIRED)
+  message (STATUS "Building with Aspell support")
+else (USE_ASPELL)
+  message (STATUS "Building without Aspell support")
+endif (USE_ASPELL)
 
 pkg_check_modules (PC_UPNP REQUIRED libupnp)
 
@@ -198,7 +204,11 @@ set (CLIENT_ICONS_DEST "${CLIENT_DATA_DIR}/icons")
 
 add_definitions (-pipe -O2 -I. -fno-builtin -D_FILE_OFFSET_BITS=64
                  -D_REENTRANT -D_DATADIR="${_DATADIR}"
-                 -DNDEBUG -DBUILDING_DCPP ${ASPELL_DEFINITIONS})
+                 -DNDEBUG -DBUILDING_DCPP)
+
+if (USE_ASPELL)
+  add_definitions (-DUSE_ASPELL ${ASPELL_DEFINITIONS})
+endif (USE_ASPELL)
 
 if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H -DHAVE_IF_ADDRS_H)
