@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>390</width>
-    <height>315</height>
+    <width>348</width>
+    <height>324</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,15 @@
       <attribute name="title">
        <string>Text</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QCheckBox" name="checkBox_TRAY">
+         <property name="text">
+          <string>Show icon in system tray</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string>Enable notifications</string>
@@ -32,103 +39,103 @@
          <property name="checkable">
           <bool>true</bool>
          </property>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0" colspan="5">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
            <widget class="QCheckBox" name="checkBox_NICKSAY">
             <property name="text">
              <string>Your nick is mentioned in main chat</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0" colspan="5">
+          <item>
            <widget class="QCheckBox" name="checkBox_PM">
             <property name="text">
              <string>Private message</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0" colspan="5">
+          <item>
            <widget class="QCheckBox" name="checkBox_TRDONE">
             <property name="text">
              <string>Transfer done</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="0" colspan="5">
+          <item>
            <widget class="QCheckBox" name="checkBox_ANY">
             <property name="text">
              <string>Allow other types of notifications</string>
             </property>
            </widget>
           </item>
-          <item row="7" column="1">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Notification module</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="0">
-           <spacer name="horizontalSpacer">
+          <item>
+           <widget class="Line" name="line">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="7" column="3" colspan="2">
-           <widget class="QComboBox" name="comboBox">
-            <item>
-             <property name="text">
-              <string>Default (Qt)</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>D-Bus</string>
-             </property>
-            </item>
            </widget>
           </item>
-          <item row="6" column="0" colspan="5">
-           <widget class="QCheckBox" name="checkBox_MWVISIBLE">
-            <property name="text">
-             <string>Change icon when main window is visible</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <spacer name="verticalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>5</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="5" column="0" colspan="5">
+          <item>
            <widget class="QCheckBox" name="checkBox_MWACTIVE">
             <property name="text">
              <string>Enable notifications with visible main window</string>
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox_MWVISIBLE">
+            <property name="text">
+             <string>Change icon when main window is visible</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Notification module</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <item>
+               <property name="text">
+                <string>Default (Qt)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>D-Bus</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
          </layout>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -140,13 +147,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="0" column="0">
-        <widget class="QCheckBox" name="checkBox_TRAY">
-         <property name="text">
-          <string>Show icon in system tray</string>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>
