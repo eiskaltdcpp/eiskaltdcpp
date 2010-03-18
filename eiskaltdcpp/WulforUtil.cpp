@@ -23,6 +23,7 @@
 #include <QUrl>
 #include <QAbstractItemModel>
 #include <QHostAddress>
+#include <QMenu>
 
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
@@ -769,4 +770,76 @@ void WulforUtil::slotHttpDone(bool error){
             }
         }
     }
+}
+
+QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx){
+    if (hub_list.empty())
+        return NULL;
+
+    dcpp::StringList hubs;
+    QMap<QString, QMenu*> registered_menus;
+
+    foreach (QString s, hub_list)
+        hubs.push_back(s.toStdString());
+
+    QMenu *usr_menu = new QMenu(tr("User commands"));
+    UserCommand::List commands = FavoriteManager::getInstance()->getUserCommands(ctx, hubs);
+    bool separator = false;
+
+    for (UserCommand::List::iterator i = commands.begin(); i != commands.end(); ++i){
+        UserCommand& uc = *i;
+
+        // Add line separator only if it's not a duplicate
+        if (uc.getType() == UserCommand::TYPE_SEPARATOR && !separator){
+            QAction *sep = new QAction(usr_menu);
+            sep->setSeparator(true);
+
+            usr_menu->addAction(sep);
+
+            separator = true;
+        }
+        else if (uc.getType() == UserCommand::TYPE_RAW || uc.getType() == UserCommand::TYPE_RAW_ONCE){
+            separator = false;
+
+            QString raw_name = _q(uc.getName());
+            QAction *action = NULL;
+
+            if (raw_name.contains("\\")){
+                QStringList submenus = raw_name.split("\\", QString::SkipEmptyParts);
+                QString name = submenus.takeLast();
+                QString key = "";
+                QMenu *parent = usr_menu;
+                QMenu *submenu;
+
+                foreach (QString s, submenus){
+                    key += s + "\\";
+
+                    if (registered_menus.contains(key))
+                        parent = registered_menus[key];
+                    else {
+                        submenu = new QMenu(s, parent);
+                        parent->addMenu(submenu);
+
+                        registered_menus.insert(key, submenu);
+
+                        parent = submenu;
+                    }
+                }
+
+                action = new QAction(name, parent);
+                parent->addAction(action);
+            }
+            else{
+                action = new QAction(_q(uc.getName()), usr_menu);
+                usr_menu->addAction(action);
+            }
+
+            action->setToolTip(_q(uc.getCommand()));
+            action->setStatusTip(_q(uc.getName()));
+            action->setData(_q(uc.getHub()));
+
+        }
+    }
+
+    return usr_menu;
 }

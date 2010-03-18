@@ -145,6 +145,8 @@ public:
 
     std::string getInternetIP() const { return _tq(internetIP); }
 
+    QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx);
+
 private slots:
     void slotHttpDone(bool);
 

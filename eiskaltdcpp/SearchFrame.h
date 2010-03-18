@@ -196,6 +196,8 @@ private:
 
     QMenu *arena_menu;
 
+    bool saveFileType;
+
     SearchModel *model;
 
     bool isHash;

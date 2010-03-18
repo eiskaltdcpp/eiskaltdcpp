@@ -132,7 +132,7 @@ class HubFrame :
 
         Action execUserMenu(Client*, const QString&);
         Action execChatMenu(Client*, const QString&);
-        QMenu *buildUserCmdMenu(const QString&, const QString&);
+        QMenu *buildUserCmdMenu(const QString&);
 
         QString getLastUserCmd() const;
 

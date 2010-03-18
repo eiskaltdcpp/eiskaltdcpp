@@ -145,7 +145,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        user_menu = buildUserCmdMenu(_q(client->getHubUrl()), cid);
+        user_menu = buildUserCmdMenu(_q(client->getHubUrl()));
         menu->addMenu(user_menu);
     }
 
@@ -205,7 +205,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        user_menu = buildUserCmdMenu(_q(client->getHubUrl()), cid);
+        user_menu = buildUserCmdMenu(_q(client->getHubUrl()));
         menu->addMenu(user_menu);
     }
 
@@ -252,75 +252,35 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     }
 }
 
-QMenu *HubFrame::Menu::buildUserCmdMenu(const QString &hub, const QString &cid){
-    if (cid.isEmpty() || hub.isEmpty())
+QMenu *HubFrame::Menu::buildUserCmdMenu(const QString &hub){
+    if (hub.isEmpty())
         return NULL;
 
-    dcpp::StringList hubs;
-    QMap<QString, QMenu*> registered_menus;
+    QMenu *menu = new QMenu();
+    menu->setTitle(tr("Commands"));
 
-    hubs.push_back(hub.toStdString());
+    QMenu *u_c = new QMenu(tr("Chat context"), menu);
+    QMenu *h_c = new QMenu(tr("Hub context"), menu);
 
-    QMenu *usr_menu = new QMenu(tr("User commands"));
-    UserCommand::List commands = FavoriteManager::getInstance()->getUserCommands(UserCommand::CONTEXT_CHAT, hubs);
-    bool separator = false;
+    QMenu *tmp = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << hub, UserCommand::CONTEXT_CHAT);
 
-    for (UserCommand::List::iterator i = commands.begin(); i != commands.end(); ++i){
-        UserCommand& uc = *i;
-
-        // Add line separator only if it's not a duplicate
-        if (uc.getType() == UserCommand::TYPE_SEPARATOR && !separator){
-            QAction *sep = new QAction(usr_menu);
-            sep->setSeparator(true);
-
-            usr_menu->addAction(sep);
-
-            separator = true;
-        }
-        else if (uc.getType() == UserCommand::TYPE_RAW || uc.getType() == UserCommand::TYPE_RAW_ONCE){
-            separator = false;
-
-            QString raw_name = _q(uc.getName());
-            QAction *action = NULL;
-
-            if (raw_name.contains("\\")){
-                QStringList submenus = raw_name.split("\\", QString::SkipEmptyParts);
-                QString name = submenus.takeLast();
-                QString key = "";
-                QMenu *parent = usr_menu;
-                QMenu *submenu;
-
-                foreach (QString s, submenus){
-                    key += s + "\\";
-
-                    if (registered_menus.contains(key))
-                        parent = registered_menus[key];
-                    else {
-                        submenu = new QMenu(s, parent);
-                        parent->addMenu(submenu);
-
-                        registered_menus.insert(key, submenu);
-
-                        parent = submenu;
-                    }
-                }
-
-                action = new QAction(name, parent);
-                parent->addAction(action);
-            }
-            else{
-                action = new QAction(_q(uc.getName()), usr_menu);
-                usr_menu->addAction(action);
-            }
-
-            action->setToolTip(_q(uc.getCommand()));
-            action->setStatusTip(_q(uc.getName()));
-            action->setData(_q(uc.getHub()));
-
-        }
+    if (tmp){
+        u_c->addMenu(tmp);
+        menu->addMenu(u_c);
     }
+    else
+        delete u_c;
 
-    return usr_menu;
+    tmp = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << hub, UserCommand::CONTEXT_HUB);
+
+    if (tmp){
+        h_c->addMenu(tmp);
+        menu->addMenu(h_c);
+    }
+    else
+        delete h_c;
+
+    return menu;
 }
 
 QString HubFrame::LinkParser::parseForLinks(QString input){

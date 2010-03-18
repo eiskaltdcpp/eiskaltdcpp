@@ -202,72 +202,7 @@ QMenu *SearchFrame::Menu::buildUserCmdMenu(QList<QString> hub_list){
     if (hub_list.empty())
         return NULL;
 
-    dcpp::StringList hubs;
-    QMap<QString, QMenu*> registered_menus;
-
-    foreach (QString s, hub_list)
-        hubs.push_back(s.toStdString());
-
-    QMenu *usr_menu = new QMenu(tr("User commands"));
-    UserCommand::List commands = FavoriteManager::getInstance()->getUserCommands(UserCommand::CONTEXT_SEARCH, hubs);
-    bool separator = false;
-
-    for (UserCommand::List::iterator i = commands.begin(); i != commands.end(); ++i){
-        UserCommand& uc = *i;
-
-        // Add line separator only if it's not a duplicate
-        if (uc.getType() == UserCommand::TYPE_SEPARATOR && !separator){
-            QAction *sep = new QAction(usr_menu);
-            sep->setSeparator(true);
-
-            usr_menu->addAction(sep);
-
-            separator = true;
-        }
-        else if (uc.getType() == UserCommand::TYPE_RAW || uc.getType() == UserCommand::TYPE_RAW_ONCE){
-            separator = false;
-
-            QString raw_name = _q(uc.getName());
-            QAction *action = NULL;
-
-            if (raw_name.contains("\\")){
-                QStringList submenus = raw_name.split("\\", QString::SkipEmptyParts);
-                QString name = submenus.takeLast();
-                QString key = "";
-                QMenu *parent = usr_menu;
-                QMenu *submenu;
-
-                foreach (QString s, submenus){
-                    key += s + "\\";
-
-                    if (registered_menus.contains(key))
-                        parent = registered_menus[key];
-                    else {
-                        submenu = new QMenu(s, parent);
-                        parent->addMenu(submenu);
-
-                        registered_menus.insert(key, submenu);
-
-                        parent = submenu;
-                    }
-                }
-
-                action = new QAction(name, parent);
-                parent->addAction(action);
-            }
-            else{
-                action = new QAction(_q(uc.getName()), usr_menu);
-                usr_menu->addAction(action);
-            }
-
-            action->setToolTip(_q(uc.getCommand()));
-            action->setStatusTip(_q(uc.getName()));
-            action->setData(_q(uc.getHub()));
-
-        }
-    }
-
-    return usr_menu;
+    return WulforUtil::getInstance()->buildUserCmdMenu(hub_list, UserCommand::CONTEXT_SEARCH);
 }
 
 SearchFrame::SearchFrame(QWidget *parent):
@@ -280,7 +215,8 @@ SearchFrame::SearchFrame(QWidget *parent):
         results(0L),
         filterShared(SearchFrame::None),
         withFreeSlots(false),
-        timer1(NULL)
+        timer1(NULL),
+        saveFileType(true)
 {
     setupUi(this);
 
@@ -424,7 +360,10 @@ void SearchFrame::save(){
     WISET(WI_SEARCH_SORT_COLUMN, model->getSortColumn());
     WISET(WI_SEARCH_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(model->getSortOrder()));
     WISET(WI_SEARCH_SHARED_ACTION, static_cast<int>(filterShared));
-    WISET(WI_SEARCH_LAST_TYPE, comboBox_FILETYPES->currentIndex());
+
+    if (saveFileType)
+        WISET(WI_SEARCH_LAST_TYPE, comboBox_FILETYPES->currentIndex());
+
     WBSET(WB_SEARCHFILTER_NOFREE, checkBox_FILTERSLOTS->isChecked());
     WBSET(WB_SEARCH_DONTHIDEPANEL, checkBox_HIDEPANEL->isChecked());
 }
@@ -707,6 +646,8 @@ void SearchFrame::searchAlternates(const QString &tth){
     lineEdit_SIZE->setText("");
 
     slotStartSearch();
+
+    saveFileType = false;
 }
 
 void SearchFrame::searchFile(const QString &file){
