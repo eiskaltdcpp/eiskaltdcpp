@@ -1167,9 +1167,8 @@ void MainWindow::slotQC(){
 }
 
 void MainWindow::slotHideWindow(){
-    if (findInChat->isEnabled()){
-        HubFrame *fr = HubManager::getInstance()->activeHub();
-
+    HubFrame *fr = HubManager::getInstance()->activeHub();
+    if (fr){
         if (fr->frame->isVisible()){
             if (fr->lineEdit_FIND->hasFocus()){
                 fr->slotHideFindFrame();
@@ -1309,3 +1308,45 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
 
     QApplication::postEvent(this, new MainWindowCustomEvent(func));
 }
+
+//bool MainWindow::FreeDiscSpace( string path, ulonglong * res )
+//{
+        //if ( !res )
+        //{
+                //return false;
+        //}
+
+//#ifdef WIN32
+        //ULARGE_INTEGER lpFreeBytesAvailableToCaller; // receives the number of bytes on
+                                               //// disk available to the caller
+        //ULARGE_INTEGER lpTotalNumberOfBytes;    // receives the number of bytes on disk
+        //ULARGE_INTEGER lpTotalNumberOfFreeBytes; // receives the free bytes on disk
+
+        //if ( GetDiskFreeSpaceEx( path.Data(), &lpFreeBytesAvailableToCaller,
+                                //&lpTotalNumberOfBytes,
+                                //&lpTotalNumberOfFreeBytes ) == true )
+        //{
+                //*res = lpTotalNumberOfFreeBytes.QuadPart;
+                //return true;
+        //}
+        //else
+        //{
+                //return false;
+        //}
+//#else
+        //struct fs_usage fsp;
+
+        //if ( get_fs_usage(path.Data(),path.Data(),&fsp) == 0 )
+        //{
+                //// printf("ok %d\n",fsp.fsu_bavail_top_bit_set);
+                //*res = fsp.fsu_bavail*fsp.fsu_blocksize;
+                //return true;
+        //}
+        //else
+        //{
+                //perror("CDir::FreeDiscSpace");
+                //return false;
+        //}
+
+//#endif
+//}
