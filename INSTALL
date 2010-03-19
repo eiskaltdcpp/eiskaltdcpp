@@ -8,7 +8,7 @@ libssl (>= 0.9.8)
 bzip2
 zlib
 libaspell (optional, see cmake keys)
-libboost-system, libboost-filesystem, libboost-date-time (>=1.34.1) (optional(this libs need for free space bar), see cmake keys)
+libboost-system, libboost-filesystem, libboost-date-time (>=1.34.1) (optional, see cmake keys)
 
 *******************************************************************************
 Build Depends
@@ -34,7 +34,7 @@ svn export http://eiskaltdc.googlecode.com/svn/branches/trunk/ eiskaltdcpp-trunk
 
 ---------
 Keys for cmake:
--DUSE_ASPELL:BOOL=1 (default: BOOL=0)
+-DUSE_ASPELL:BOOL=1 (default: BOOL=0) (this libs need for free space bar)
 -DFREE_SPACE_BAR:BOOL=1 (default: BOOL=0)
 -DCMAKE_PREFIX_INSTALL=<prefix for install> (default: /usr/local)
 -DESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
