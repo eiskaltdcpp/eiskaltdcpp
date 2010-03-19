@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <string>
 #include <iostream>
-
+#ifdef FREE_SPACE_BAR
 #include <boost/filesystem.hpp>
-
+#endif
 #include <QPushButton>
 #include <QSize>
 #include <QModelIndex>
@@ -138,7 +138,7 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     if (FavoriteHubs::getInstance()){
         FavoriteHubs::getInstance()->setUnload(true);
         FavoriteHubs::getInstance()->close();
-        
+
         FavoriteHubs::deleteInstance();
     }
 
@@ -421,6 +421,9 @@ void MainWindow::initActions(){
         fileHideProgressSpace = new QAction(tr("Hide free space bar"), this);
         if (!WBGET(WB_SHOW_FREE_SPACE))
             fileHideProgressSpace->setText(tr("Show free space bar"));
+#ifndef FREE_SPACE_BAR
+        fileHideProgressSpace->setEnabled(false);
+#endif
         fileHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
         connect(fileHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
 
@@ -580,7 +583,7 @@ void MainWindow::initStatusBar(){
     msgLabel->setFrameShadow(QFrame::Plain);
     msgLabel->setFrameShape(QFrame::NoFrame);
     msgLabel->setAlignment(Qt::AlignLeft);
-
+#ifdef FREE_SPACE_BAR
     progressSpace = new QProgressBar(this);
     progressSpace->setMaximum(100);
     progressSpace->setMinimum(0);
@@ -591,6 +594,9 @@ void MainWindow::initStatusBar(){
 
     if (!WBGET(WB_SHOW_FREE_SPACE))
         progressSpace->hide();
+#else //FREE_SPACE_BAR
+WBSET(WB_SHOW_FREE_SPACE, false);
+#endif //FREE_SPACE_BAR
 
     statusBar()->addWidget(msgLabel);
     statusBar()->addPermanentWidget(statusDLabel);
@@ -598,7 +604,9 @@ void MainWindow::initStatusBar(){
     statusBar()->addPermanentWidget(statusDSPLabel);
     statusBar()->addPermanentWidget(statusUSPLabel);
     statusBar()->addPermanentWidget(statusLabel);
+#ifdef FREE_SPACE_BAR
     statusBar()->addPermanentWidget(progressSpace);
+#endif //FREE_SPACE_BAR
 }
 
 void MainWindow::retranslateUi(){
@@ -723,7 +731,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     statusDSPLabel->setFixedWidth(metrics.width(statusDSPLabel->text()) > statusDSPLabel->width()? metrics.width(statusDSPLabel->text()) + 10 : statusDSPLabel->width());
     statusDLabel->setFixedWidth(metrics.width(statusDLabel->text()) > statusDLabel->width()? metrics.width(statusDLabel->text()) + 10 : statusDLabel->width());
     statusULabel->setFixedWidth(metrics.width(statusULabel->text()) > statusULabel->width()? metrics.width(statusULabel->text()) + 10 : statusULabel->width());
-
+#ifdef FREE_SPACE_BAR
     if (WBGET(WB_SHOW_FREE_SPACE)) {
         boost::filesystem::space_info info;
         if (boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY)))
@@ -743,6 +751,8 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
             progressSpace->setValue(static_cast<unsigned>(percent));
         }
     }
+#endif //FREE_SPACE_BAR
+
 }
 
 void MainWindow::setStatusMessage(QString msg){
