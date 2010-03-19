@@ -642,17 +642,19 @@
     <message>
         <location filename="../HubFrame.cpp" line="260"/>
         <source>Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Загады</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="262"/>
         <source>Chat context</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???зьмесьціва</translatorcomment>
+        <translation>Кантэкст гаманы</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="263"/>
         <source>Hub context</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???зьмесьціва</translatorcomment>
+        <translation>Кантэкст асяродку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="779"/>
@@ -667,7 +669,7 @@
     <message>
         <location filename="../HubFrame.cpp" line="782"/>
         <source>Show widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказаць ваконца</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="785"/>
@@ -733,17 +735,17 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="1008"/>
         <source>Aspell switched %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Aspell</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1008"/>
         <source>on</source>
-        <translation type="unfinished"></translation>
+        <translation>Задзейнічалі</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1008"/>
         <source>off</source>
-        <translation type="unfinished"></translation>
+        <translation>Вымкнулі</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1019"/>
@@ -768,7 +770,22 @@ Favorite user</source>
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off — спраўджваць (on) ці ня спраўджваць (off) правапіс
+/alias &lt;НАЗОЎКА&gt;::&lt;ЗАГАД&gt; — стварыць назоўку /НАЗОЎКА да загаду /ЗАГАД
+/alias purge &lt;НАЗОЎКА&gt; — выкрасьліць назоўку
+/alias list — пералічыць усе назоўкі
+/away &lt;паведамленьне&gt; — перайсьці ў стан “адыйшоў”, ці вярнуцца
+/back — вярнуцца са стану “адыйшоў”
+/browse &lt;мянушка&gt; — прагледзець файлы карыстальніка
+/clear — ачысьціць ваконца гаманы
+/close — закрыць гэты асяродак
+/fav — дадаць гэты асяродак да ўлюбёных
+/grant &lt;мянушка&gt; — даць слот карыстальніку
+/help, /?, /h — паказаць дапамогу (тое, што вы зараз чытаеце)
+/info &lt;мянушка&gt; — паказаць зьвесткі пра карыстальніка
+/me — сказаць ад трэцяе асобы
+/pm &lt;мянушка&gt; — пачаць гаманіць асабіста з карыстальнікам
+/sh &lt;загад&gt; — выканаць загад і перанакіраваць вынік у гаману</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1242"/>
@@ -846,12 +863,12 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="2197"/>
         <source>Suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>Прапановы</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2198"/>
         <source>Add to dictionary</source>
-        <translation type="unfinished"></translation>
+        <translation>Дадаць у слоўнік</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2484"/>
@@ -1209,7 +1226,7 @@ Favorite user</source>
         <location filename="../MainWindow.cpp" line="653"/>
         <source>&amp;Widgets</source>
         <translatorcomment>???</translatorcomment>
-        <translation>&amp;Карткі</translation>
+        <translation>&amp;Ваконцы</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="655"/>
@@ -2058,7 +2075,7 @@ It will continue to work when the widget is hidden.
 Do you want to stop it?
 </source>
         <translation>Зараз шпегуем у шуканым.
-Калі схаваць гэтую картку, шпегаваць у шуканым ня спынім.
+Калі схаваць гэтае ваконца, шпегаваць у шуканым ня спынім.
 Ці хочаце вы спыніць шпегаваць?
 </translation>
     </message>
@@ -2671,7 +2688,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="137"/>
         <source>Automaticaly update from Internet</source>
-        <translation type="unfinished"></translation>
+        <translation>Самарушна абнаўляць са словасьвету</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="147"/>
@@ -3519,7 +3536,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>
         <source>Show icon in system tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказваць значку ў латку сыстэмы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="155"/>
@@ -3762,7 +3779,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../WulforUtil.cpp" line="785"/>
         <source>User commands</source>
-        <translation type="unfinished">Загады карыстальніка</translation>
+        <translation>Загады карыстальніка</translation>
     </message>
 </context>
 </TS>
