@@ -1,5 +1,8 @@
 project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6)
+if (FREE_SPACE_BAR_C)
+add_subdirectory(gnulib)
+endif (FREE_SPACE_BAR_C)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
@@ -189,7 +192,17 @@ endif (UNIX)
 include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
+if (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
+add_definitions (-DFREE_SPACE_BAR)
+set (LIBS ${LIBS} ${Boost_LIBRARIES})
+endif (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
+if (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
+add_definitions (-DFREE_SPACE_BAR_C)
+set (LIBS ${LIBS} gnu)
+endif (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
+
 if (USE_ASPELL)
+  add_definitions (-DUSE_ASPELL ${ASPELL_DEFINITIONS})
   include_directories (${ASPELL_INCLUDE_DIR})
   set (LIBS ${LIBS} ${ASPELL_LIBRARIES})
 endif (USE_ASPELL)
