@@ -14,36 +14,39 @@ SpellCheck::SpellCheck(QObject *parent) :
     aspell_config_replace(config, "encoding", "utf-8");
     aspell_config_replace(config, "personal", (QDir::homePath()+QDir::separator()+".eiskaltdc++"+QDir::separator()+"dict").toAscii().constData());
 
-    AspellCanHaveError *error = new_aspell_speller(config);
+    if (config){
+        /*const AspellDictInfoList *dicts = get_aspell_dict_info_list(config);
+        AspellDictInfoEnumeration *enumer = aspell_dict_info_list_elements(dicts);
+        const AspellDictInfo *info = NULL;
 
-    if (aspell_error(error) != 0){
-        delete_aspell_config(config);
+        QStringList all;
 
-        config = NULL;
-    }
-    else
-        spell_checker = to_aspell_speller(error);
+        while ((info = aspell_dict_info_enumeration_next(enumer)) != NULL)
+            all.append(QString::fromUtf8(info->code, strlen(info->code)));
 
-    const AspellDictInfoList *dicts = get_aspell_dict_info_list(config);
-    AspellDictInfoEnumeration *enumer = aspell_dict_info_list_elements(dicts);
-    const AspellDictInfo *info = NULL;
+        if (WSGET(WS_APP_ASPELL_LANG).isEmpty()){
+            QString lc_prefix = QLocale::system().name();
 
-    QStringList all;
-
-    while ((info = aspell_dict_info_enumeration_next(enumer)) != NULL)
-        all.append(QString::fromUtf8(info->code, strlen(info->code)));
-
-    if (WSGET(WS_APP_ASPELL_LANG).isEmpty()){
-        QString lc_prefix = QLocale::system().name();
-
-        if (all.contains(lc_prefix))//Loading dictionary from system locale
-            aspell_config_replace(config, "lang", lc_prefix.toAscii().constData());
-        else if (all.contains(lc_prefix.left(lc_prefix.indexOf("_")))) {
-            aspell_config_replace(config, "lang", lc_prefix.left(lc_prefix.indexOf("_")).toAscii().constData());
+            if (all.contains(lc_prefix))//Loading dictionary from system locale
+                aspell_config_replace(config, "lang", lc_prefix.toAscii().constData());
+            else if (all.contains(lc_prefix.left(lc_prefix.indexOf("_")))) {
+                aspell_config_replace(config, "lang", lc_prefix.left(lc_prefix.indexOf("_")).toAscii().constData());
+            }
         }
+        else
+            aspell_config_replace(config, "lang", WSGET(WS_APP_ASPELL_LANG).toAscii().constData());*/
+        AspellCanHaveError *error = new_aspell_speller(config);
+
+        if (aspell_error(error) != 0){
+            delete_aspell_config(config);
+
+            printf("%s\n", aspell_error_message(error));
+
+            config = NULL;
+        }
+        else
+            spell_checker = to_aspell_speller(error);
     }
-    else
-        aspell_config_replace(config, "lang", WSGET(WS_APP_ASPELL_LANG).toAscii().constData());
 }
 
 SpellCheck::~SpellCheck(){
