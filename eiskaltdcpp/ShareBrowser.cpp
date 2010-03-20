@@ -69,6 +69,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
     qDeleteAll(down_to->actions());
     down_to->clear();
 
+    const QPixmap &dir_px = WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE);
     QString aliases, paths;
 
     aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
@@ -81,12 +82,14 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
         for (int i = 0; i < a.size(); i++){
             QAction *act = new QAction(a.at(i), down_to);
             act->setData(p.at(i));
+            act->setIcon(dir_px);
 
             down_to->addAction(act);
         }
     }
 
     QAction *browse = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+    browse->setIcon(dir_px);
     browse->setData("");
 
     down_to->addAction(browse);
