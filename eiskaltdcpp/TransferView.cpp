@@ -508,6 +508,11 @@ void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadL
 
         QApplication::postEvent(this, new TransferViewCustomEvent(f));
     }
+
+    typedef Func0<TransferViewModel> FUNC;
+    FUNC *f = new FUNC(model, &TransferViewModel::sort);
+
+    QApplication::postEvent(this, new TransferViewCustomEvent(f));
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* dl) throw(){
@@ -700,6 +705,11 @@ void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList&
 
         QApplication::postEvent(this, new TransferViewCustomEvent(f));
     }
+
+    typedef Func0<TransferViewModel> FUNC;
+    FUNC *f = new FUNC(model, &TransferViewModel::sort);
+
+    QApplication::postEvent(this, new TransferViewCustomEvent(f));
 }
 
 void TransferView::on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) throw(){

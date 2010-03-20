@@ -87,6 +87,7 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    virtual void sort() { sort(sortColumn, sortOrder); }
 
     /** */
     void addConnection(VarMap);
