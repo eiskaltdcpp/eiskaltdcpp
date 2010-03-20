@@ -1062,7 +1062,7 @@ Favorite user</source>
         <location filename="../MainWindow.cpp" line="425"/>
         <location filename="../MainWindow.cpp" line="1165"/>
         <source>Show/hide find frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказаць або схаваць форму пошуку</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="427"/>
@@ -1232,7 +1232,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="665"/>
         <source>Disable/enable chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Задзейнічаць або абязьдзейніць гаману</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="667"/>
@@ -1265,13 +1265,13 @@ Favorite user</source>
         <location filename="../MainWindow.cpp" line="752"/>
         <location filename="../MainWindow.cpp" line="774"/>
         <source>Free %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Вольных %1</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="755"/>
         <location filename="../MainWindow.cpp" line="777"/>
         <source>Free %1 of %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Вольных %1 з %2</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="853"/>
@@ -1334,7 +1334,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="1195"/>
         <source>Chat cleared.</source>
-        <translation type="unfinished">Гаману ачысьцілі.</translation>
+        <translation>Гаману ачысьцілі.</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1288"/>
@@ -3388,27 +3388,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="256"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Колеры</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="262"/>
         <source>Text colors in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Колеры тэксту ў гамане</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="281"/>
         <source>Highlighting of search results in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Падсьвятляць вынікі пошуку ў гамане</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="287"/>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Колер</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="307"/>
         <source>Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Празрыстацьць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="167"/>
