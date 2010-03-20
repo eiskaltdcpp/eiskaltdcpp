@@ -344,18 +344,6 @@ void WulforUtil::textToHtml(QString &str, bool print){
                 out += add;
                 buf.remove(0, add.length());
             }
-            else if (buf.startsWith("&nbsp;")){
-                out += "&nbsp;";
-                buf.remove(0, QString("&nbsp;").length());
-            }
-            else if (buf.startsWith("<br/>")){
-                out += "<br/>";
-                buf.remove(0, QString("<br/>").length());
-            }
-            else if (buf.startsWith("<br>")){
-                out += "<br>";
-                buf.remove(0, QString("<br>").length());
-            }
             else if (buf.startsWith(";")){
                 out += "&#59;";
                 buf.remove(0, 1);
@@ -366,6 +354,14 @@ void WulforUtil::textToHtml(QString &str, bool print){
             }
             else if (buf.startsWith(">")){
                 out += "&gt;";
+                buf.remove(0, 1);
+            }
+            else if (buf.startsWith(' ')){
+                if (out.endsWith("&nbsp;"))
+                    out += "&nbsp;";
+                else
+                    out += ' ';
+
                 buf.remove(0, 1);
             }
             else{

@@ -367,19 +367,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
         if (input.isEmpty())
             break;
 
-        if (input.at(0) == ' '){//convert spaces to html if need it
-            if (output.endsWith(' ')){
-                output = output.left(output.lastIndexOf(' '));
-                output += "&nbsp;&nbsp;";
-            }
-            else if (output.endsWith("&nbsp;"))
-                output += "&nbsp;";
-            else
-                output += " ";
-        }
-        else {
-            output += input.at(0);
-        }
+        output += input.at(0);
 
         input.remove(0, 1);
     }

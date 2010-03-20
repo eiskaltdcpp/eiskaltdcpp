@@ -104,12 +104,6 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
 
                 continue;
             }
-            else if (buf.startsWith("&nbsp;")){
-                out += "&nbsp;";
-                buf.remove(0, QString("&nbsp;").length());
-
-                continue;
-            }
 
             bool found = false;
 
