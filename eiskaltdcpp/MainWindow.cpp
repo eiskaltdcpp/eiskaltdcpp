@@ -419,8 +419,10 @@ void MainWindow::initActions(){
         fileHideWindow = new QAction(tr("Hide window"), this);
         fileHideWindow->setShortcut(tr("Esc"));
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
-        fileHideWindow->setEnabled(WBGET(WB_TRAY_ENABLED));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
+
+        if (!WBGET(WB_TRAY_ENABLED))
+            fileHideWindow->setText(tr("Show/hide find frame"));
 
         fileHideProgressSpace = new QAction(tr("Hide free space bar"), this);
         if (!WBGET(WB_SHOW_FREE_SPACE))
@@ -1151,7 +1153,10 @@ void MainWindow::slotFileSettings(){
     s.exec();
 
     //reload some settings
-    fileHideWindow->setEnabled(WBGET(WB_TRAY_ENABLED));
+    if (!WBGET(WB_TRAY_ENABLED))
+        fileHideWindow->setText(tr("Show/hide find frame"));
+    else
+        fileHideWindow->setText(tr("Hide window"));
 }
 
 void MainWindow::slotFileTransfer(bool toggled){
@@ -1218,9 +1223,13 @@ void MainWindow::slotQC(){
 void MainWindow::slotHideWindow(){
     HubFrame *fr = HubManager::getInstance()->activeHub();
     if (fr){
-        if (fr->lineEdit_FIND->hasFocus()){
-                fr->slotHideFindFrame();
-                return;
+        if (fr->lineEdit_FIND->hasFocus() && WBGET(WB_TRAY_ENABLED)){
+            fr->slotHideFindFrame();
+            return;
+        }
+        else if (!WBGET(WB_TRAY_ENABLED)){
+            fr->slotHideFindFrame();
+            return;
         }
     }
     if (!isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
