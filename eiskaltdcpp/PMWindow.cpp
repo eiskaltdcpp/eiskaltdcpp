@@ -209,7 +209,7 @@ void PMWindow::addOutput(QString msg){
 
     /* This is temporary block. Later we must make it more wise. */
     msg.replace("\r", "");
-    msg.replace("\n", "\n<br>");
+    msg.replace("\n", "\n<br/>");
     msg.replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
 
     textEdit_CHAT->append(msg);

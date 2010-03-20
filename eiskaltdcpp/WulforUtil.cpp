@@ -357,7 +357,7 @@ void WulforUtil::textToHtml(QString &str, bool print){
                 buf.remove(0, 1);
             }
             else if (buf.startsWith(' ')){
-                if (out.endsWith("&nbsp;"))
+                if (out.endsWith(" "))
                     out += "&nbsp;";
                 else
                     out += ' ';
