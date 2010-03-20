@@ -172,11 +172,11 @@ void SettingsGUI::init(){
         c.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
         h_color = c;
 
-        c.setAlpha(WSGET(WS_CHAT_FIND_COLOR_ALPHA).toInt());
+        c.setAlpha(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
         p.fill(c);
         toolButton_H_COLOR->setIcon(p);
 
-        horizontalSlider_H_COLOR->setValue(WSGET(WS_CHAT_FIND_COLOR_ALPHA).toInt());
+        horizontalSlider_H_COLOR->setValue(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
     }
 
     connect(checkBox_EMOT, SIGNAL(toggled(bool)), checkBox_EMOTFORCE, SLOT(setEnabled(bool)));
@@ -238,7 +238,7 @@ void SettingsGUI::ok(){
         WSSET(WS_CHAT_MSG_COLOR,        QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
 
         WSSET(WS_CHAT_FIND_COLOR,       h_color.name());
-        WSSET(WS_CHAT_FIND_COLOR_ALPHA, QString("%1").arg(horizontalSlider_H_COLOR->value()));
+        WISET(WI_CHAT_FIND_COLOR_ALPHA, horizontalSlider_H_COLOR->value());
     }
 
     WulforSettings::getInstance()->save();

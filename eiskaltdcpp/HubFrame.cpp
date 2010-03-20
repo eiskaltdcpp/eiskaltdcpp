@@ -2108,7 +2108,7 @@ void HubFrame::slotFindAll(){
 
         QColor color;
         color.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
-        color.setAlpha(WSGET(WS_CHAT_FIND_COLOR_ALPHA).toInt());
+        color.setAlpha(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
 
         selection.format.setBackground(color);
 

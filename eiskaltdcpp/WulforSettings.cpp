@@ -39,7 +39,6 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_CHAT_OP_COLOR, "#000000");
         strmap.insert(WS_CHAT_BOT_COLOR, "#838383");
         strmap.insert(WS_CHAT_FIND_COLOR, "#FFFF00");
-        strmap.insert(WS_CHAT_FIND_COLOR_ALPHA, "127");
         strmap.insert(WS_CHAT_PRIV_LOCAL_COLOR, "#078010");
         strmap.insert(WS_CHAT_PRIV_USER_COLOR, "#ac0000");
         strmap.insert(WS_CHAT_SAY_NICK, "#2344e7");
@@ -108,6 +107,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_CHAT_SORT_ORDER, 0);
         intmap.insert(WI_CHAT_DBLCLICK_ACT, 0);//nick in chat
         intmap.insert(WI_CHAT_MDLCLICK_ACT, 1);//browse files
+        intmap.insert(WI_CHAT_FIND_COLOR_ALPHA, 127);
         intmap.insert(WI_MAINWINDOW_HEIGHT, -1);
         intmap.insert(WI_MAINWINDOW_WIDTH, -1);
         intmap.insert(WI_MAINWINDOW_X, -1);
