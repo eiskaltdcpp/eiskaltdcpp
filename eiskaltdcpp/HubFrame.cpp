@@ -1028,6 +1028,11 @@ bool HubFrame::parseForCmd(QString line){
     else if (cmd == "/aspell" && !emptyParam){
         WBSET(WB_APP_ENABLE_ASPELL, param.trimmed() == "on");
 
+        if (WBGET(WB_APP_ENABLE_ASPELL) && !SpellCheck::getInstance())
+            SpellCheck::newInstance();
+        else if (SpellCheck::getInstance())
+            SpellCheck::deleteInstance();
+
         addStatus(tr("Aspell switched %1").arg((WBGET(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
     }
 #endif
@@ -2194,64 +2199,59 @@ void HubFrame::slotInputTextChanged(){
 }
 
 void HubFrame::slotInputContextMenu(){
-#ifdef USE_ASPELL
-    if (plainTextEdit_INPUT->toPlainText().isEmpty() || !SpellCheck::getInstance())
-        return;
 
-    if (!plainTextEdit_INPUT->textCursor().selectedText().isEmpty()){
-        QMenu *m = plainTextEdit_INPUT->createStandardContextMenu();
-        m->exec(QCursor::pos());
+    QMenu *m = plainTextEdit_INPUT->createStandardContextMenu();
 
-        m->deleteLater();
+#ifndef USE_ASPELL
+    m->exec(QCursor::pos());
+    m->deleteLater();
+#else
+    if (SpellCheck::getInstance()) {
+        SpellCheck *sp = SpellCheck::getInstance();
+        QTextCursor c = plainTextEdit_INPUT->cursorForPosition(plainTextEdit_INPUT->mapFromGlobal(QCursor::pos()));
+        c.select(QTextCursor::WordUnderCursor);
 
-        return;
-    }
+        QString word = c.selectedText();
 
-    SpellCheck *sp = SpellCheck::getInstance();
-    QTextCursor c = plainTextEdit_INPUT->cursorForPosition(plainTextEdit_INPUT->mapFromGlobal(QCursor::pos()));
-    c.select(QTextCursor::WordUnderCursor);
+        if (sp->ok(word) || word.isEmpty()){
+            c.clearSelection();
+            m->exec(QCursor::pos());
+            m->deleteLater();
+        }
+        else {
+            QStringList list;
+            sp->suggestions(word, list);
 
-    QString word = c.selectedText();
+            m->addSeparator();
+            QMenu *ss = new QMenu(tr("Suggestions"), this);
+            QAction *add_to_dict = new QAction(tr("Add to dictionary"), m);
 
-    if (sp->ok(word) || word.isEmpty()){
-        c.clearSelection();
+            m->addAction(add_to_dict);
 
-        QMenu *m = plainTextEdit_INPUT->createStandardContextMenu();
-        m->exec(QCursor::pos());
+            foreach (QString s, list)
+                ss->addAction(s);
 
-        m->deleteLater();
+            m->addMenu(ss);
 
-        return;
+            QAction *ret = m->exec(QCursor::pos());
+
+            if (ret == add_to_dict)
+                sp->addToDict(word);
+            else if (ret){
+                c.removeSelectedText();
+
+                c.insertText(ret->text());
+            }
+
+            m->deleteLater();
+            ss->deleteLater();
+
+            slotInputTextChanged();
+        }
     }
     else {
-        QStringList list;
-        sp->suggestions(word, list);
-
-        QMenu *m  = new QMenu(this);
-        QMenu *ss = new QMenu(tr("Suggestions"), this);
-        QAction *add_to_dict = new QAction(tr("Add to dictionary"), m);
-
-        m->addAction(add_to_dict);
-
-        foreach (QString s, list)
-            ss->addAction(s);
-
-        m->addMenu(ss);
-
-        QAction *ret = m->exec(QCursor::pos());
-
-        if (ret == add_to_dict)
-            sp->addToDict(word);
-        else if (ret){
-            c.removeSelectedText();
-
-            c.insertText(ret->text());
-        }
-
+        m->exec(QCursor::pos());
         m->deleteLater();
-        ss->deleteLater();
-
-        slotInputTextChanged();
     }
 #endif
 }
