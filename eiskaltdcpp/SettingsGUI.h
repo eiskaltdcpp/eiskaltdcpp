@@ -24,12 +24,16 @@ private slots:
     void slotBrowseLng();
     void slotLngIndexChanged(int);
     void slotIconsChanged();
+    void slotGetColor();
+    void slotSetTransparency(int);
 
 public slots:
     void ok();
 
 private:
     bool custom_style;
+
+    QColor h_color;
 };
 
 #endif // SETTINGSGUI_H

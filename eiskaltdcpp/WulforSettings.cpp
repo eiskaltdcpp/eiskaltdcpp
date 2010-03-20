@@ -38,6 +38,8 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_CHAT_LOCAL_COLOR, "#078010");
         strmap.insert(WS_CHAT_OP_COLOR, "#000000");
         strmap.insert(WS_CHAT_BOT_COLOR, "#838383");
+        strmap.insert(WS_CHAT_FIND_COLOR, "#FFFF00");
+        strmap.insert(WS_CHAT_FIND_COLOR_ALPHA, "127");
         strmap.insert(WS_CHAT_PRIV_LOCAL_COLOR, "#078010");
         strmap.insert(WS_CHAT_PRIV_USER_COLOR, "#ac0000");
         strmap.insert(WS_CHAT_SAY_NICK, "#2344e7");

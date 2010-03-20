@@ -2105,7 +2105,12 @@ void HubFrame::slotFindAll(){
 
     if (!lineEdit_FIND->text().isEmpty()) {
         QTextEdit::ExtraSelection selection;
-        selection.format.setBackground(QColor(Qt::yellow).lighter(160));
+
+        QColor color;
+        color.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
+        color.setAlpha(WSGET(WS_CHAT_FIND_COLOR_ALPHA).toInt());
+
+        selection.format.setBackground(color);
 
         QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, 0);
 

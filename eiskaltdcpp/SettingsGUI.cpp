@@ -120,7 +120,8 @@ void SettingsGUI::init(){
         checkBox_KEEPFOCUS->setChecked(WBGET(WB_CHAT_KEEPFOCUS));
         checkBox_EMOT->setChecked(WBGET(WB_APP_ENABLE_EMOTICON));
         checkBox_EMOTFORCE->setChecked(WBGET(WB_APP_FORCE_EMOTICONS));
-
+    }
+    {//Color tab
         QColor c;
         QPixmap p(10, 10);
 
@@ -168,6 +169,14 @@ void SettingsGUI::init(){
         p.fill(c);
         new QListWidgetItem(p, tr("Message"), listWidget_CHATCOLOR);
 
+        c.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
+        h_color = c;
+
+        c.setAlpha(WSGET(WS_CHAT_FIND_COLOR_ALPHA).toInt());
+        p.fill(c);
+        toolButton_H_COLOR->setIcon(p);
+
+        horizontalSlider_H_COLOR->setValue(WSGET(WS_CHAT_FIND_COLOR_ALPHA).toInt());
     }
 
     connect(checkBox_EMOT, SIGNAL(toggled(bool)), checkBox_EMOTFORCE, SLOT(setEnabled(bool)));
@@ -178,6 +187,8 @@ void SettingsGUI::init(){
     connect(toolButton_LANGBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseLng()));
     connect(comboBox_LANGS, SIGNAL(activated(int)), this, SLOT(slotLngIndexChanged(int)));
     connect(comboBox_ICONS, SIGNAL(activated(int)), this, SLOT(slotIconsChanged()));
+    connect(toolButton_H_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
+    connect(horizontalSlider_H_COLOR, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
 }
 
 void SettingsGUI::ok(){
@@ -206,6 +217,12 @@ void SettingsGUI::ok(){
         WBSET(WB_APP_ENABLE_EMOTICON, checkBox_EMOT->isChecked());
         WBSET(WB_APP_FORCE_EMOTICONS, checkBox_EMOTFORCE->isChecked());
 
+        SM->set(SettingsManager::IGNORE_BOT_PMS, checkBox_IGNOREPMBOT->isChecked());
+        SM->set(SettingsManager::IGNORE_HUB_PMS, checkBox_IGNOREPMHUB->isChecked());
+
+        SM->save();
+    }
+    {//Color tab
         int i = 0;
 
         WSSET(WS_CHAT_LOCAL_COLOR,      QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
@@ -220,10 +237,8 @@ void SettingsGUI::ok(){
         WSSET(WS_CHAT_TIME_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_MSG_COLOR,        QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
 
-        SM->set(SettingsManager::IGNORE_BOT_PMS, checkBox_IGNOREPMBOT->isChecked());
-        SM->set(SettingsManager::IGNORE_HUB_PMS, checkBox_IGNOREPMHUB->isChecked());
-
-        SM->save();
+        WSSET(WS_CHAT_FIND_COLOR,       h_color.name());
+        WSSET(WS_CHAT_FIND_COLOR_ALPHA, QString("%1").arg(horizontalSlider_H_COLOR->value()));
     }
 
     WulforSettings::getInstance()->save();
@@ -237,6 +252,31 @@ void SettingsGUI::slotChatColorItemClicked(QListWidgetItem *item){
     if (color.isValid()) {
         p.fill(color);
         item->setIcon(p);
+    }
+}
+
+void SettingsGUI::slotGetColor(){
+    QPixmap p(10, 10);
+    QColor color(toolButton_H_COLOR->icon().pixmap(10, 10).toImage().pixel(0, 0));
+    color = QColorDialog::getColor(color);
+
+    if (color.isValid()) {
+        h_color = color;
+
+        color.setAlpha(horizontalSlider_H_COLOR->value());
+        p.fill(color);
+        toolButton_H_COLOR->setIcon(p);
+    }
+}
+
+void SettingsGUI::slotSetTransparency(int value){
+    QPixmap p(10, 10);
+    QColor color = h_color;
+    color.setAlpha(value);
+
+    if (color.isValid()) {
+        p.fill(color);
+        toolButton_H_COLOR->setIcon(p);
     }
 }
 
