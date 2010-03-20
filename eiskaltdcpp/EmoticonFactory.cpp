@@ -149,7 +149,22 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
                                   .arg(obj->id);
 
                     out += img;
-                    buf.remove(0, it.key().length()+1);
+                    buf.remove(0, it.key().length()+2);
+
+                    found = true;
+
+                    break;
+                }
+                else if (buf.startsWith(" "+it.key()+"\n")){
+                    EmoticonObject *obj = it.value();
+
+                    QString img = QString(" <img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />\n")
+                                  .arg(it.key())
+                                  .arg(emoTheme)
+                                  .arg(obj->id);
+
+                    out += img;
+                    buf.remove(0, it.key().length()+2);
 
                     found = true;
 
