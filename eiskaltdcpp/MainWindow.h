@@ -130,6 +130,9 @@ friend class dcpp::Singleton<MainWindow>;
         /** */
         void setUnload(bool b){ isUnload = b; }
 
+    public slots:
+        void slotChatClear();
+
     protected:
         virtual void closeEvent(QCloseEvent*);
         virtual void showEvent(QShowEvent *);
@@ -162,7 +165,6 @@ friend class dcpp::Singleton<MainWindow>;
 
         void slotUnixSignal(int);
 
-        void slotChatClear();
         void slotFindInChat();
         void slotChatDisable();
 

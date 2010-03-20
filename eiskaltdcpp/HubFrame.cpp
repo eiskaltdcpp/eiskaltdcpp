@@ -1950,16 +1950,8 @@ void HubFrame::slotChatMenu(const QPoint &){
         }
         case Menu::ClearChat:
         {
-            if (pmw){
-                editor->setHtml("");
-
-                QWidget *wg = editor->parentWidget();
-
-                PMWindow *pm = qobject_cast<PMWindow *>(wg);
-
-                if (pm)
-                    pm->addStatus(tr("Chat cleared."));
-            }
+            if (pmw)
+                MainWindow::getInstance()->slotChatClear(); // some hack
             else
                 clearChat();
             
