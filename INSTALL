@@ -16,6 +16,7 @@ Build Depends
 qt4 (>=4.5.0)
 cmake (>= 2.6.0)
 libupnp-dev (=1.6.* only)
+libboost-dev (headers only)
 bzip2
 gcc
 libaspell-dev (optional, see cmake keys)
