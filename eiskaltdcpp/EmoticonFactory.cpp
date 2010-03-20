@@ -91,10 +91,6 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
     QString out = "";
     QString buf = html;
 
-    buf.replace("&gt;",">");
-    buf.replace("&lt;","<");
-    buf.replace("&#59;",";");
-
     EmoticonMap::iterator it = map.end();
     EmoticonMap::iterator begin = map.begin();
 

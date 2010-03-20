@@ -1159,10 +1159,10 @@ void HubFrame::addStatus(QString msg){
     QString status = "";
     QString nick    = " * ";
 
+    msg = LinkParser::parseForLinks(msg);
+
     WulforUtil::getInstance()->textToHtml(msg);
     WulforUtil::getInstance()->textToHtml(nick);
-
-    msg = LinkParser::parseForLinks(msg);
 
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + _q(Util::getTimeString().c_str()) + "]</font>";
@@ -1409,10 +1409,10 @@ void HubFrame::newMsg(VarMap map){
 
     nick = third? ("* " + nick + " ") : ("<" + nick + "> ");
 
+    message = LinkParser::parseForLinks(message);
+
     WulforUtil::getInstance()->textToHtml(message);
     WulforUtil::getInstance()->textToHtml(nick);
-
-    message = LinkParser::parseForLinks(message);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
     output  = time + QString("<a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
@@ -1440,10 +1440,10 @@ void HubFrame::newPm(VarMap map){
 
     nick = map["3RD"].toBool()? ("* " + nick + " ") : ("<" + nick + "> ");
 
+    message = LinkParser::parseForLinks(message);
+
     WulforUtil::getInstance()->textToHtml(message);
     WulforUtil::getInstance()->textToHtml(nick);
-
-    message = LinkParser::parseForLinks(message);
 
     message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
     full_message  = time + QString("<a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
