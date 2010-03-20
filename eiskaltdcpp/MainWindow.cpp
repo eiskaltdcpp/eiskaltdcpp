@@ -749,11 +749,15 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
         if (info.capacity) {
             float total = info.capacity;
             float percent = 100.0f*(total-info.available)/total;
-            QString format = tr("%1/%2")
-                         .arg(_q(dcpp::Util::formatBytes(info.available)))
-                         .arg(_q(dcpp::Util::formatBytes(total)));
+            QString format = tr("Free %1")
+                             .arg(_q(dcpp::Util::formatBytes(info.available)));
+
+            QString tooltip = tr("Free %1 of %2")
+                              .arg(_q(dcpp::Util::formatBytes(info.available)))
+                              .arg(_q(dcpp::Util::formatBytes(total)));
 
             progressSpace->setFormat(format);
+            progressSpace->setToolTip(tooltip);
             progressSpace->setValue(static_cast<unsigned>(percent));
         }
 #elif defined FREE_SPACE_BAR_C
