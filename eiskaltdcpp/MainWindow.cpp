@@ -767,11 +767,15 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
         }
     }
     float percent = 100.0f*(total-available)/total;
-    QString format = tr("%1/%2")
+    QString format = tr("Free %1")
+                         .arg(_q(dcpp::Util::formatBytes(available)));
+
+    QString tooltip = tr("Free %1 of %2")
                          .arg(_q(dcpp::Util::formatBytes(available)))
                          .arg(_q(dcpp::Util::formatBytes(total)));
 
             progressSpace->setFormat(format);
+            progressSpace->setToolTip(tooltip);
             progressSpace->setValue(static_cast<unsigned>(percent));
 #endif //FREE_SPACE_BAR
     }
