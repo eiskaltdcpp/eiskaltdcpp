@@ -33,7 +33,7 @@ public slots:
 private:
     bool custom_style;
 
-    QColor h_color;
+    QColor h_color; // clean color (without transparency)
 };
 
 #endif // SETTINGSGUI_H
