@@ -662,7 +662,7 @@ void MainWindow::retranslateUi(){
 
         findInChat->setText(tr("Find in chat"));
 
-        chatDisable->setText("Disable/Enable chat");
+        chatDisable->setText(tr("Disable/enable chat"));
 
         menuWidgets->setTitle(tr("&Widgets"));
 

@@ -1162,6 +1162,11 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../MainWindow.cpp" line="665"/>
+        <source>Disable/enable chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../MainWindow.cpp" line="667"/>
         <source>&amp;Widgets</source>
         <translation type="unfinished"></translation>

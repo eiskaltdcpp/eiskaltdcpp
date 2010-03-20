@@ -1151,6 +1151,11 @@ Favorite user</source>
         <translation>Найти в чате</translation>
     </message>
     <message>
+        <location filename="../MainWindow.cpp" line="665"/>
+        <source>Disable/enable chat</source>
+        <translation>Отключить/включить чат</translation>
+    </message>
+    <message>
         <location filename="../MainWindow.cpp" line="667"/>
         <source>&amp;Widgets</source>
         <translation>&amp;Виджеты</translation>
