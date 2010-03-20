@@ -552,6 +552,7 @@ void MainWindow::initMenuBar(){
     menuBar()->addMenu(menuFile);
     menuBar()->addMenu(menuWidgets);
     menuBar()->addMenu(menuAbout);
+    menuBar()->setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
 void MainWindow::initStatusBar(){
