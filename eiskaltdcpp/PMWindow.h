@@ -13,7 +13,7 @@ class QMenu;
 class QShowEvent;
 
 class PMWindow: public QWidget,
-                private Ui::UIPrivateMessage,
+                public Ui::UIPrivateMessage,
                 public ArenaWidget
 {
     Q_OBJECT
@@ -29,6 +29,8 @@ public:
     QWidget *getWidget();
     QMenu   *getMenu();
     const QPixmap &getPixmap();
+
+    void addStatus(QString);
 
 private slots:
     void slotHub();

@@ -106,10 +106,27 @@ HubFrame::Menu::Menu(){
             << grant_slot
             << rem_queue;
 
+    pm_actions << copy_text
+            << copy_nick
+            << browse
+            << match_queue
+            << fav_add
+            << fav_del
+            << grant_slot
+            << rem_queue;
+
     chat_actions << sep1
                  << clear_chat
                  << find_in_chat
                  << dis_chat
+                 << sep2
+                 << select_all
+                 << sep3
+                 << zoom_in
+                 << zoom_out;
+
+    pm_chat_actions << sep1
+                 << clear_chat
                  << sep2
                  << select_all
                  << sep3
@@ -130,6 +147,9 @@ HubFrame::Menu::~Menu(){
 
     qDeleteAll(chat_actions);
     qDeleteAll(actions);
+
+    qDeleteAll(pm_chat_actions);
+    qDeleteAll(pm_actions);
 }
 
 HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QString &cid = QString()){
@@ -193,18 +213,24 @@ QString HubFrame::Menu::getLastUserCmd() const{
     return last_user_cmd;
 }
 
-HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QString &cid = QString()){
+HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QString &cid = QString(), bool pmw = false){
     if (!client)
         return None;
 
     menu->clear();
 
-    menu->addActions(actions);
-    menu->addActions(chat_actions);
+    if(pmw){
+        menu->addActions(pm_actions);
+        menu->addActions(pm_chat_actions);
+    }
+    else{
+        menu->addActions(actions);
+        menu->addActions(chat_actions);
+    }
 
     QMenu *user_menu = NULL;
 
-    if (!cid.isEmpty()){
+    if (!cid.isEmpty() && !pmw){
         user_menu = buildUserCmdMenu(_q(client->getHubUrl()));
         menu->addMenu(user_menu);
     }
@@ -1824,7 +1850,10 @@ void HubFrame::slotChatMenu(const QPoint &){
     }
 
     QPoint p = QCursor::pos();
-    Menu::Action action = Menu::getInstance()->execChatMenu(client, cid);
+
+    bool pmw = (editor != this->textEdit_CHAT);
+
+    Menu::Action action = Menu::getInstance()->execChatMenu(client, cid, pmw);
 
     if (!model->itemForNick(nick))//may be user went offline
         return;
@@ -1924,8 +1953,19 @@ void HubFrame::slotChatMenu(const QPoint &){
         }
         case Menu::ClearChat:
         {
-            clearChat();
+            if (pmw){
+                editor->setHtml("");
 
+                QWidget *wg = editor->parentWidget();
+
+                PMWindow *pm = qobject_cast<PMWindow *>(wg);
+
+                if (pm)
+                    pm->addStatus(tr("Chat cleared."));
+            }
+            else
+                clearChat();
+            
             break;
         }
         case Menu::FindInChat:

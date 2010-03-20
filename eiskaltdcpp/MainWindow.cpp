@@ -31,6 +31,7 @@
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "HashProgress.h"
+#include "PMWindow.h"
 #include "TransferView.h"
 #include "ShareBrowser.h"
 #include "QuickConnect.h"
@@ -200,12 +201,6 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 void MainWindow::showEvent(QShowEvent *e){
     if (e->spontaneous())
         redrawToolPanel();
-
-    HubFrame *fr = HubManager::getInstance()->activeHub();
-
-    chatClear->setEnabled(fr == arena->widget());
-    findInChat->setEnabled(fr == arena->widget());
-    chatDisable->setEnabled(fr == arena->widget());
 
     e->accept();
 }
@@ -899,13 +894,29 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     tBar->mapped(awgt);
 
+    QWidget *wg = arenaMap[awgt];
+
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    chatClear->setEnabled(fr == awgt->getWidget());
-    findInChat->setEnabled(fr == awgt->getWidget());
-    chatDisable->setEnabled(fr == awgt->getWidget());
+    if (fr == arena->widget() || typeid(*wg) == typeid(PMWindow))
+        chatClear->setEnabled(true);
+    else
+        chatClear->setEnabled(false);
 
-    //arenaMap[awgt]->setFocus();
+    findInChat->setEnabled(fr == arena->widget());
+    chatDisable->setEnabled(fr == arena->widget());
+
+    if (fr == arena->widget()){
+        fr->plainTextEdit_INPUT->setFocus();
+    }
+    else if(typeid(*wg) == typeid(PMWindow)){
+        PMWindow *pm = qobject_cast<PMWindow *>(wg);
+        if (pm)
+            pm->plainTextEdit_INPUT->setFocus();
+    }
+    else{
+        arenaMap[awgt]->setFocus();
+    }
 }
 
 void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
@@ -1159,6 +1170,19 @@ void MainWindow::slotChatClear(){
 
     if (fr)
         fr->clearChat();
+    else{
+        QWidget *wg = arena->widget();
+
+        if(typeid(*wg) == typeid(PMWindow)){
+            PMWindow *pm = qobject_cast<PMWindow *>(wg);
+
+            if (pm){
+                pm->textEdit_CHAT->setHtml("");
+
+                pm->addStatus(tr("Chat cleared."));
+            }
+        }
+    }
 }
 
 void MainWindow::slotFindInChat(){

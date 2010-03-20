@@ -34,6 +34,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
 
     setAttribute(Qt::WA_DeleteOnClose);
 
+    this->installEventFilter(this);
     plainTextEdit_INPUT->installEventFilter(this);
     textEdit_CHAT->viewport()->installEventFilter(this);
     textEdit_CHAT->viewport()->setMouseTracking(true);
@@ -81,6 +82,19 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
             plainTextEdit_INPUT->setPlainText("");
 
             return true;
+        }
+
+        if (k_e->modifiers() == Qt::ControlModifier){
+            if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus){
+                textEdit_CHAT->zoomIn();
+
+                return true;
+            }
+            else if (k_e->key() == Qt::Key_Minus){
+                textEdit_CHAT->zoomOut();
+
+                return true;
+            }
         }
     }
     else if (e->type() == QEvent::MouseButtonRelease){
@@ -169,6 +183,24 @@ void PMWindow::addStatusMessage(QString msg){
     status = time + status;
     status += "<font color=\"" + WulforSettings::getInstance()->getStr(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>: ";
     status += msg;
+
+    addOutput(status);
+}
+
+void PMWindow::addStatus(QString msg){
+    QString status = "";
+    QString nick    = " * ";
+
+    WulforUtil::getInstance()->textToHtml(msg);
+    WulforUtil::getInstance()->textToHtml(nick);
+
+    msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
+    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + _q(Util::getTimeString().c_str()) + "]</font>";
+
+    status = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
+    status += msg;
+
+    WulforUtil::getInstance()->textToHtml(status, false);
 
     addOutput(status);
 }
