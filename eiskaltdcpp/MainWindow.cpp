@@ -515,22 +515,22 @@ void MainWindow::initActions(){
                 << fileFileListRefresh
                 << fileHashProgress
                 << separator6
-                << chatClear
-                << findInChat
-                << chatDisable
-                << separator2
                 << fileHubReconnect
                 << fileQuickConnect
                 << separator0
+                << fileFavoriteHubs
+                << fileFavoriteUsers
+                << fileSearch
+                << separator3
                 << fileTransfers
                 << fileDownloadQueue
                 << fileFinishedDownloads
                 << fileFinishedUploads
                 << separator4
-                << fileFavoriteHubs
-                << fileFavoriteUsers
-                << fileSearch
-                << separator3
+                << chatClear
+                << findInChat
+                << chatDisable
+                << separator2
                 << fileSpy
                 << fileAntiSpam
                 << fileIPFilter
