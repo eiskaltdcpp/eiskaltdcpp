@@ -310,6 +310,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
     if (input.isEmpty() || input.isNull())
         return input;
 
+    QStringList all_links;
     QString output = "";
 
     while (!input.isEmpty()){
@@ -358,6 +359,8 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
 
                 output += html_link;
                 input.remove(0, l_pos);
+
+                all_links << html_link;
             }
 
             if (input.isEmpty())
@@ -374,6 +377,74 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
 
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         output = EmoticonFactory::getInstance()->convertEmoticons(output);
+
+    QString out = "";
+    QString buf = output;
+
+    while (!buf.isEmpty()){
+        if (buf.startsWith("<a href=") && buf.indexOf("</a>") > 0){
+            QString add = buf.left(buf.indexOf("</a>")) + "</a>";
+
+            if (!all_links.contains(add) && add.count("<a href=") < 2){
+                buf.remove(0, add.length());
+
+                add.replace(";", "&#59;");
+                add.replace("<", "&lt;");
+                add.replace(">", "&gt;");
+
+                out += add;
+            }
+            else if (add.count("<a href=") > 1){
+                QString temp = add.left(add.indexOf("<a href=",QString("<a href=").length()-1));
+
+                buf.remove(0, add.length());
+                add.remove(0, temp.length());
+
+                temp.replace(";", "&#59;");
+                temp.replace("<", "&lt;");
+                temp.replace(">", "&gt;");
+
+                out += temp;
+                out += add;
+            }
+            else{
+                out += add;
+                buf.remove(0, add.length());
+            }
+        }
+        else if (buf.startsWith("<img alt=") && buf.indexOf("\" />") > 0){
+            QString add = buf.left(buf.indexOf("\" />")) + "\" />";
+
+            out += add;
+            buf.remove(0, add.length());
+        }
+        else if (buf.startsWith(";")){
+            out += "&#59;";
+            buf.remove(0, 1);
+        }
+        else if (buf.startsWith("<")){
+            out += "&lt;";
+            buf.remove(0, 1);
+        }
+        else if (buf.startsWith(">")){
+            out += "&gt;";
+            buf.remove(0, 1);
+        }
+        else if (buf.startsWith(' ')){
+            if (out.endsWith(" "))
+                out += "&nbsp;";
+            else
+                out += ' ';
+
+            buf.remove(0, 1);
+        }
+        else{
+            out += buf.at(0);
+            buf.remove(0, 1);
+        }
+    }
+
+    output = out;
 
     return output;
 }
@@ -1149,7 +1220,6 @@ void HubFrame::addStatus(QString msg){
 
     msg = LinkParser::parseForLinks(msg);
 
-    WulforUtil::getInstance()->textToHtml(msg);
     WulforUtil::getInstance()->textToHtml(nick);
 
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
@@ -1399,7 +1469,6 @@ void HubFrame::newMsg(VarMap map){
 
     message = LinkParser::parseForLinks(message);
 
-    WulforUtil::getInstance()->textToHtml(message);
     WulforUtil::getInstance()->textToHtml(nick);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
@@ -1430,7 +1499,6 @@ void HubFrame::newPm(VarMap map){
 
     message = LinkParser::parseForLinks(message);
 
-    WulforUtil::getInstance()->textToHtml(message);
     WulforUtil::getInstance()->textToHtml(nick);
 
     message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";

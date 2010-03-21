@@ -325,52 +325,9 @@ QString WulforUtil::getNicks(const CID &cid){
 
 void WulforUtil::textToHtml(QString &str, bool print){
     if (print){
-        if (str.isEmpty())
-            return;
-
-        QString out = "";
-        QString buf = str;
-
-        while (!buf.isEmpty()){
-            if (buf.startsWith("<a href=") && buf.indexOf("</a>") > 0){
-                QString add = buf.left(buf.indexOf("</a>")) + "</a>";
-
-                out += add;
-                buf.remove(0, add.length());
-            }
-            else if (buf.startsWith("<img alt=") && buf.indexOf("\" />") > 0){
-                QString add = buf.left(buf.indexOf("\" />")) + "\" />";
-
-                out += add;
-                buf.remove(0, add.length());
-            }
-            else if (buf.startsWith(";")){
-                out += "&#59;";
-                buf.remove(0, 1);
-            }
-            else if (buf.startsWith("<")){
-                out += "&lt;";
-                buf.remove(0, 1);
-            }
-            else if (buf.startsWith(">")){
-                out += "&gt;";
-                buf.remove(0, 1);
-            }
-            else if (buf.startsWith(' ')){
-                if (out.endsWith(" "))
-                    out += "&nbsp;";
-                else
-                    out += ' ';
-
-                buf.remove(0, 1);
-            }
-            else{
-                out += buf.at(0);
-                buf.remove(0, 1);
-            }
-        }
-
-        str = out;
+        str.replace(";", "&#59;");
+        str.replace("<", "&lt;");
+        str.replace(">", "&gt;");
     }
     else {
         str.replace("\n", "<br/>");
