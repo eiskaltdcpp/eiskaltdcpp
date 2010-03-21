@@ -114,6 +114,16 @@ HubFrame::Menu::Menu(){
             << grant_slot
             << rem_queue;
 
+    ul_actions << browse
+            << private_msg
+            << fav_add
+            << fav_del
+            << grant_slot
+            << copy_text
+            << copy_nick
+            << match_queue
+            << rem_queue;
+
     chat_actions << sep1
                  << clear_chat
                  << find_in_chat
@@ -156,7 +166,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
 
     menu->setTitle("");
 
-    menu->addActions(actions);
+    menu->addActions(ul_actions);
 
     QMenu *user_menu = NULL;
 
@@ -309,7 +319,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
     if (input.isEmpty() || input.isNull())
         return input;
 
-    QStringList all_links;
+    input.replace("<a href=","&lt;a href=");
+    input.replace("</a>","&lt;/a&gt;");
+    input.replace("<img alt=","&lt;img alt=");
+    input.replace("\" />","\" /&gt;");
+
     QString output = "";
 
     while (!input.isEmpty()){
@@ -358,8 +372,6 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
 
                 output += html_link;
                 input.remove(0, l_pos);
-
-                all_links << html_link;
             }
 
             if (input.isEmpty())
@@ -384,38 +396,30 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
         if (buf.startsWith("<a href=") && buf.indexOf("</a>") > 0){
             QString add = buf.left(buf.indexOf("</a>")) + "</a>";
 
-            if (!all_links.contains(add) && add.count("<a href=") < 2){
-                buf.remove(0, add.length());
-
-                add.replace(";", "&#59;");
-                add.replace("<", "&lt;");
-                add.replace(">", "&gt;");
-
-                out += add;
-            }
-            else if (add.count("<a href=") > 1){
-                QString temp = add.left(add.lastIndexOf("<a href="));
-
-                buf.remove(0, add.length());
-                add.remove(0, temp.length());
-
-                temp.replace(";", "&#59;");
-                temp.replace("<", "&lt;");
-                temp.replace(">", "&gt;");
-
-                out += temp;
-                out += add;
-            }
-            else{
-                out += add;
-                buf.remove(0, add.length());
-            }
+            out += add;
+            buf.remove(0, add.length());
         }
         else if (buf.startsWith("<img alt=") && buf.indexOf("\" />") > 0){
             QString add = buf.left(buf.indexOf("\" />")) + "\" />";
 
             out += add;
             buf.remove(0, add.length());
+        }
+        else if (buf.startsWith("&lt;a href=")){
+            out += "&lt;a href=";
+            buf.remove(0, QString("&lt;a href=").length());
+        }
+        else if (buf.startsWith("&lt;/a&gt;")){
+            out += "&lt;/a&gt;";
+            buf.remove(0, QString("&lt;/a&gt;").length());
+        }
+        else if (buf.startsWith("&lt;img alt=")){
+            out += "&lt;img alt=";
+            buf.remove(0, QString("&lt;img alt=").length());
+        }
+        else if (buf.startsWith("\" /&gt;")){
+            out += "\" /&gt;";
+            buf.remove(0, QString("\" /&gt;").length());
         }
         else if (buf.startsWith(";")){
             out += "&#59;";

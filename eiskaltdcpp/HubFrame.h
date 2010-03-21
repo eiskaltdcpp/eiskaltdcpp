@@ -139,11 +139,12 @@ class HubFrame :
 
     private:
         QMenu *menu;
-        QList<QAction*> actions;
-        QList<QAction*> pm_actions;
-        QList<QAction*> chat_actions;
-        QList<QAction*> pm_chat_actions;
-        QMap<QAction*, Action> chat_actions_map;//chat menu has separators and because of it all actions are mapped
+        QList<QAction*> actions;           // actions list for menu
+        QList<QAction*> pm_actions;        // actions list for menu in PMWindow
+        QList<QAction*> ul_actions;        // actions list for menu in user list
+        QList<QAction*> chat_actions;      // chat actions list for menu
+        QList<QAction*> pm_chat_actions;   // chat actions list for menu in PMWindow
+        QMap<QAction*, Action> chat_actions_map; //chat menu has separators and because of it all actions are mapped
         QString last_user_cmd;
         static Menu *instance;
     };
