@@ -336,7 +336,8 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
                 while (l_pos < input.size()){
                     QChar ch = input.at(l_pos);
 
-                    if (ch == ',' || ch == '!' || ch.isSpace()){
+                    if (ch == ',' || ch == '!' || ch.isSpace() ||
+                        ch == '\n' || ch == '"' || ch == '\''){
                         break;
                     }
                     else
