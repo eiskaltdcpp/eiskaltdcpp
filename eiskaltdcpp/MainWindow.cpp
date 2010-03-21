@@ -202,11 +202,13 @@ void MainWindow::showEvent(QShowEvent *e){
     if (e->spontaneous())
         redrawToolPanel();
 
+    QWidget *wg = arena->widget();
+
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
     bool enable = (fr && (fr == arena->widget()));
 
-    chatClear->setEnabled(enable);
+    chatClear->setEnabled(enable || typeid(*wg) == typeid(PMWindow));
     findInChat->setEnabled(enable);
     chatDisable->setEnabled(enable);
 
