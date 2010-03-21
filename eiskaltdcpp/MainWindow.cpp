@@ -482,42 +482,43 @@ void MainWindow::initActions(){
         separator6->setSeparator(true);
 
         fileMenuActions << fileOptions
+                << separator0
+                << fileSearch
                 << separator1
-                << fileOpenLogFile
+                << fileHubReconnect
+                << fileQuickConnect
+                << fileFavoriteHubs
+                << fileFavoriteUsers
+                << separator2
                 << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
-                << separator2
-                << fileHubReconnect
-                << fileQuickConnect
-                << separator0
+                << separator3
                 << fileTransfers
                 << fileDownloadQueue
                 << fileFinishedDownloads
                 << fileFinishedUploads
                 << separator4
-                << fileFavoriteHubs
-                << fileFavoriteUsers
-                << fileSearch
-                << separator3
                 << fileSpy
                 << fileAntiSpam
                 << fileIPFilter
                 << separator5
+                << fileOpenLogFile
                 << fileHideProgressSpace
                 << fileHideWindow
+                << separator6
                 << fileQuit;
 
         toolBarActions << fileOptions
-                << separator1
+                << separator0
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
-                << separator6
+                << separator1
                 << fileHubReconnect
                 << fileQuickConnect
-                << separator0
+                << separator2
                 << fileFavoriteHubs
                 << fileFavoriteUsers
                 << fileSearch
@@ -530,11 +531,11 @@ void MainWindow::initActions(){
                 << chatClear
                 << findInChat
                 << chatDisable
-                << separator2
+                << separator5
                 << fileSpy
                 << fileAntiSpam
                 << fileIPFilter
-                << separator5
+                << separator6
                 << fileQuit;
     }
     {
