@@ -56,12 +56,12 @@ int main(int argc, char *argv[])
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
 
-    WulforUtil::newInstance();
-
     WulforSettings::newInstance();
     WulforSettings::getInstance()->load();
     WulforSettings::getInstance()->loadTranslation();
     WulforSettings::getInstance()->loadTheme();
+
+    WulforUtil::newInstance();
 
     if (WulforUtil::getInstance()->loadUserIcons())
         std::cout << "UserList icons has been loaded" << std::endl;
