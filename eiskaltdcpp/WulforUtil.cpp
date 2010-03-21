@@ -48,13 +48,13 @@ const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
 WulforUtil::WulforUtil(): http(NULL)
 {
     QHttpRequestHeader header("GET", "/index.html");
-    header.setValue("Host", "checkip.dyndns.org");
+    header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
     QString useragent = QString("EiskaltDCPP");
     header.setValue("User-Agent", useragent);
 
     http = new QHttp();
     connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
-    http->setHost("checkip.dyndns.org");
+    http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
     http->request(header);
 
     memset(userIconCache, 0, sizeof (userIconCache));
