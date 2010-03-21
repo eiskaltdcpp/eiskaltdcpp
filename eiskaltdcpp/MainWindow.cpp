@@ -201,11 +201,14 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 void MainWindow::showEvent(QShowEvent *e){
     if (e->spontaneous())
         redrawToolPanel();
+
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    chatClear->setEnabled(fr == arena->widget());
-    findInChat->setEnabled(fr == arena->widget());
-    chatDisable->setEnabled(fr == arena->widget());
+    bool enable = (fr && (fr == arena->widget()));
+
+    chatClear->setEnabled(enable);
+    findInChat->setEnabled(enable);
+    chatDisable->setEnabled(enable);
 
     e->accept();
 }
@@ -914,11 +917,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    if (fr == arena->widget() || typeid(*wg) == typeid(PMWindow))
-        chatClear->setEnabled(true);
-    else
-        chatClear->setEnabled(false);
-
+    chatClear->setEnabled(fr == arena->widget() || typeid(*wg) == typeid(PMWindow));
     findInChat->setEnabled(fr == arena->widget());
     chatDisable->setEnabled(fr == arena->widget());
 
@@ -941,6 +940,10 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
 
     if (arena->widget() == awgt->getWidget())
         arena->widget()->hide();
+
+    chatClear->setEnabled(false);
+    findInChat->setEnabled(false);
+    chatDisable->setEnabled(false);
 }
 
 void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){
