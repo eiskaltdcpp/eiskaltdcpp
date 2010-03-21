@@ -206,9 +206,9 @@ void MainWindow::showEvent(QShowEvent *e){
 
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    bool enable = (fr && (fr == wg));
+    bool enable = (fr && (fr == arena->widget()));
 
-    chatClear->setEnabled(enable || (wg && wg->qt_metacast("PMWindow")));
+    chatClear->setEnabled(enable || typeid(*wg) == typeid(PMWindow));
     findInChat->setEnabled(enable);
     chatDisable->setEnabled(enable);
 
@@ -924,14 +924,14 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    chatClear->setEnabled(fr == arena->widget());
+    chatClear->setEnabled(fr == arena->widget() || typeid(*wg) == typeid(PMWindow));
     findInChat->setEnabled(fr == arena->widget());
     chatDisable->setEnabled(fr == arena->widget());
 
     if (fr == arena->widget()){
         fr->plainTextEdit_INPUT->setFocus();
     }
-    else if(wg->qt_metacast("PMWindow")){
+    else if(typeid(*wg) == typeid(PMWindow)){
         PMWindow *pm = qobject_cast<PMWindow *>(wg);
         if (pm)
             pm->plainTextEdit_INPUT->setFocus();
@@ -1202,7 +1202,7 @@ void MainWindow::slotChatClear(){
     else{
         QWidget *wg = arena->widget();
 
-        if(wg->qt_metacast("PMWindow")){
+        if(typeid(*wg) == typeid(PMWindow)){
             PMWindow *pm = qobject_cast<PMWindow *>(wg);
 
             if (pm){
