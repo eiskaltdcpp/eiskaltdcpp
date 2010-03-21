@@ -895,8 +895,13 @@ void MainWindow::remArenaWidget(ArenaWidget *awgt){
         arenaWidgets.removeAt(arenaWidgets.indexOf(awgt));
         arenaMap.erase(arenaMap.find(awgt));
 
-        if (arena->widget() == awgt->getWidget())
+        if (arena->widget() == awgt->getWidget()){
             arena->setWidget(NULL);
+
+            chatClear->setEnabled(false);
+            findInChat->setEnabled(false);
+            chatDisable->setEnabled(false);
+        }
     }
 }
 
@@ -941,9 +946,9 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
     if (arena->widget() == awgt->getWidget())
         arena->widget()->hide();
 
-    chatClear->setEnabled(false);
+    /*chatClear->setEnabled(false);
     findInChat->setEnabled(false);
-    chatDisable->setEnabled(false);
+    chatDisable->setEnabled(false);*/
 }
 
 void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){

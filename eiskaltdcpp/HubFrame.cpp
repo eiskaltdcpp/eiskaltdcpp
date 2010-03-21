@@ -780,12 +780,10 @@ void HubFrame::closeEvent(QCloseEvent *e){
 void HubFrame::showEvent(QShowEvent *e){
     e->accept();
 
-    if (isVisible()){
-        HubManager::getInstance()->setActiveHub(this);
+    HubManager::getInstance()->setActiveHub(this);
 
-        hasMessages = false;
-        MainWindow::getInstance()->redrawToolPanel();
-    }
+    hasMessages = false;
+    MainWindow::getInstance()->redrawToolPanel();
 }
 
 void HubFrame::hideEvent(QHideEvent *e){
