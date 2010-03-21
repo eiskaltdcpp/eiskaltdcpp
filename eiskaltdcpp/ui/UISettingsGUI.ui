@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>341</width>
-    <height>300</height>
+    <height>355</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -110,6 +110,9 @@
            <property name="text">
             <string>Icon theme</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
           </widget>
          </item>
          <item row="0" column="2">
@@ -119,6 +122,9 @@
           <widget class="QLabel" name="label_3">
            <property name="text">
             <string>Emoticon theme</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>

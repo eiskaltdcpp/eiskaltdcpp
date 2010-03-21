@@ -1737,7 +1737,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../Settings.cpp" line="27"/>
         <source>Personal</source>
-        <translation>Личные</translation>
+        <translation>Персональные</translation>
     </message>
     <message>
         <location filename="../Settings.cpp" line="32"/>
@@ -2985,7 +2985,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="20"/>
         <source>Incomming connections</source>
-        <translation>Входящие подключения</translation>
+        <translation>Входящие соединения</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="29"/>
@@ -3041,7 +3041,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="169"/>
         <source>Outgoing connections</source>
-        <translation>Исходящие подключения</translation>
+        <translation>Исходящие соединения</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="178"/>
@@ -3119,17 +3119,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="116"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
-        <translation>Максимум одновременных загрузок (0 = без ограничений)</translation>
+        <translation>Макс. число одновременных загрузок (0 = без ограничений)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="132"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
-        <translation>Максимум скорости загрузки (КиБ/с, 0 = без ограничений)</translation>
+        <translation>Не добавлять загрузки при скорости выше, (КиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="142"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
-        <translation>&lt;b&gt;Заметка:&lt;/b&gt; Из-за изменения скорости загрузки, точность не равна 100%</translation>
+        <translation>&lt;b&gt;Примечание:&lt;/b&gt; Точность не равна 100% из-за постоянных изменений скорости</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="155"/>
@@ -3139,7 +3139,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="164"/>
         <source>Http proxy (hub list only)</source>
-        <translation>HTTP-прокси (только для списка хабов)</translation>
+        <translation>HTTP-прокси (только для загрузки списков хабов)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="171"/>
@@ -3169,77 +3169,77 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="267"/>
         <source>Auto-priority settings</source>
-        <translation>Настройки автоприоритета</translation>
+        <translation>Настройки автоприоритета загрузок (размер файла менее, КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="307"/>
         <source>Highest priority max size (KiB)</source>
-        <translation>Максимальный (КиБ)</translation>
+        <translation>Максимальный</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="323"/>
         <source>High priority max size (KiB)</source>
-        <translation>Высокий (КиБ)</translation>
+        <translation>Высокий</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="339"/>
         <source>Normal priority max size (KiB)</source>
-        <translation>Нормальный (КиБ)</translation>
+        <translation>Нормальный</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="355"/>
         <source>Low priority max size (KiB)</source>
-        <translation>Низкий (КиБ)</translation>
+        <translation>Низкий</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="384"/>
         <source>Auto-drop settings</source>
-        <translation>Настройки автоматического сброса</translation>
+        <translation>Настройки автоматического сброса загрузок</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>Drop sources below (B/s)</source>
-        <translation>Сброс, если ниже (Б/с)</translation>
+        <translation>Минимальная скорость (Б/с)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="454"/>
         <source>Check every (s)</source>
-        <translation>Проверять каждые (с)</translation>
+        <translation>Проверять каждые (сек)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="470"/>
         <source>Min. elapsed (s)</source>
-        <translation>Прошло (минимум) (с)</translation>
+        <translation>На протяжении (сек)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="486"/>
         <source>Max inactivity (s)</source>
-        <translation>Простой (максимум). (с)</translation>
+        <translation>Время простоя выше (сек)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="502"/>
         <source>Min sources online</source>
-        <translation>Онлайн (минимум)</translation>
+        <translation>Источников не менее (шт)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="518"/>
         <source>Min filesize (KiB)</source>
-        <translation>Размер (минимум) (КиБ)</translation>
+        <translation>Размер загрузки более (КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="547"/>
         <source>Other options</source>
-        <translation>Прочие настройки</translation>
+        <translation>Прочие настройки очереди</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="560"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
-        <translation>Установить минимальный приоритет для свежедобавленных файлов размером больше, чем в опции &quot;Низкий&quot; настроек автоприоритета</translation>
+        <translation>Мин. приоритет для новых загрузок размером больше, чем в опции &quot;Низкий&quot;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="571"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
-        <translation>Автосброс медленных источников очереди (кроме списков файлов)</translation>
+        <translation>Автоматический сброс медленных источников в очереди (кроме списков файлов)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="582"/>
@@ -3249,7 +3249,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="593"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
-        <translation>Не удалять источник при авто-сбросе, а только отключаться</translation>
+        <translation>Не удалять источник при автоматическом сбросе, а только отключаться</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="604"/>
@@ -3269,12 +3269,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="637"/>
         <source>Don&apos;t download files already in share</source>
-        <translation>Не загружать файлы, уже имеющиеся в собственной шаре</translation>
+        <translation>Не загружать уже имеющиеся в собственной шаре файлы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="648"/>
         <source>Don&apos;t download files already in the queue</source>
-        <translation>Не загружать файлы, уже имеющиеся в очереди</translation>
+        <translation>Не загружать уже имеющиеся в очереди файлы</translation>
     </message>
 </context>
 <context>
@@ -3292,12 +3292,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="30"/>
         <source>Language file</source>
-        <translation>Языковой файл</translation>
+        <translation>Файл локализации (язык интерфейса)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="52"/>
         <source>Theme</source>
-        <translation>Тема</translation>
+        <translation>Тема оформления</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="67"/>
@@ -3317,12 +3317,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="111"/>
         <source>Icon theme</source>
-        <translation>Тема иконок</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="121"/>
         <source>Emoticon theme</source>
-        <translation>Тема смайлов</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="147"/>
@@ -3357,7 +3357,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="167"/>
         <source>Show joins</source>
-        <translation>Показывать входы/выходы</translation>
+        <translation>Отображать вход/выход пользователей в чат</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="174"/>
@@ -3377,7 +3377,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="160"/>
         <source>Force emoticon parsing</source>
-        <translation>Принудительная замена смайлов</translation>
+        <translation>Форсировать смайлы не отделённые пробелами</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="181"/>
@@ -3387,7 +3387,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="188"/>
         <source>Ignore private messages from Bot</source>
-        <translation>Игнорировать приватные сообщения от бота</translation>
+        <translation>Игнорировать личные сообщения от бота</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="195"/>
@@ -3438,7 +3438,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsLog.ui" line="108"/>
         <source>Log directory</source>
-        <translation>Каталог для отчётов</translation>
+        <translation>Каталог для файлов отчётов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="127"/>
@@ -3471,19 +3471,19 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="37"/>
         <source>Enable notifications</source>
-        <translation>Включить уведомления</translation>
+        <translation>Использовать уведомления</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="46"/>
         <location filename="../ui/UISettingsNotification.ui" line="170"/>
         <source>Your nick is mentioned in main chat</source>
-        <translation>Ваш ник упомянут в чате</translation>
+        <translation>Ник был упомянут в чате</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="53"/>
         <location filename="../ui/UISettingsNotification.ui" line="199"/>
         <source>Private message</source>
-        <translation>Личное сообщение</translation>
+        <translation>Новое личное сообщение</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="60"/>
@@ -3494,7 +3494,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="67"/>
         <source>Allow other types of notifications</source>
-        <translation>Разрешить прочие типы уведомлений</translation>
+        <translation>Прочие типы уведомлений</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="103"/>
@@ -3524,7 +3524,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>
         <source>Show icon in system tray</source>
-        <translation>Показывать иконку в системном трее</translation>
+        <translation>Отображать иконку в системном трее</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="155"/>
@@ -3534,14 +3534,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="161"/>
         <source>Enable sounds</source>
-        <translation>Включить звуки</translation>
+        <translation>Использовать звуки</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="182"/>
         <location filename="../ui/UISettingsNotification.ui" line="211"/>
         <location filename="../ui/UISettingsNotification.ui" line="240"/>
         <source>Test</source>
-        <translation>Проверка</translation>
+        <translation>Тест</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="273"/>
@@ -3602,12 +3602,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="32"/>
         <source>Don&apos;t share (group simbol *, separator |)</source>
-        <translation>Не расшаривать (групповой символ *, разделитель |)</translation>
+        <translation>Не расшаривать файлы по маске (групповой символ *, разделитель |)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="93"/>
         <source>Share temp files</source>
-        <translation>Расшарить временные файлы</translation>
+        <translation>Расшаривать временные файлы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="119"/>
@@ -3622,12 +3622,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="149"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Выдать дополнительный слот при скорости ниже (КиБ/с, 0 = неогр.)</translation>
+        <translation>Выдавать дополнительный слот при скорости ниже (КиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="171"/>
         <source>Upload slots</source>
-        <translation>Слоты отдачи</translation>
+        <translation>Количество слотов отдачи</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="51"/>
