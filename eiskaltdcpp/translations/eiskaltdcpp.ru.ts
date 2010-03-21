@@ -2004,7 +2004,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../ShareBrowser.cpp" line="89"/>
         <source>Browse</source>
-        <translation>Просмотр</translation>
+        <translation>Выбрать каталог</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="427"/>
