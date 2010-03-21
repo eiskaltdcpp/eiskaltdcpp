@@ -648,13 +648,13 @@
         <location filename="../HubFrame.cpp" line="294"/>
         <source>Chat context</source>
         <translatorcomment>???зьмесьціва</translatorcomment>
-        <translation>Кантэкст гаманы</translation>
+        <translation>Зьмесьціва гаманы</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="295"/>
         <source>Hub context</source>
         <translatorcomment>???зьмесьціва</translatorcomment>
-        <translation>Кантэкст асяродку</translation>
+        <translation>Зьмесьціва асяродку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="864"/>
@@ -3172,7 +3172,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="116"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
-        <translation>Найбольшая колькасьць адначасовых сьцягваньняў (0 = бясконцая)</translation>
+        <translation>Найбольшая колькасьць адначасовых сьцягваньняў (0 = не абмяжоўваць)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="132"/>
@@ -3679,6 +3679,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="149"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
+        <translatorcomment>???бясконцая ці нуль?</translatorcomment>
         <translation>Дадаць шчыліну, калі хуткасьць &lt; (КіБ/с, 0 = бясконцая)</translation>
     </message>
     <message>
