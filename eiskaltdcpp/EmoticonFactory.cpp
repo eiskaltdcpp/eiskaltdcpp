@@ -94,20 +94,27 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
     EmoticonMap::iterator it = map.end();
     EmoticonMap::iterator begin = map.begin();
 
-    if (WBGET(WB_APP_FORCE_EMOTICONS)){
-        while (!buf.isEmpty()){
-            if (buf.startsWith("<a href=") && buf.indexOf("</a>") > 0){
-                QString add = buf.left(buf.indexOf("</a>")) + "</a>";
+    bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
 
-                out += add;
-                buf.remove(0, add.length());
+    if (!force_emot){
+        buf.prepend(" ");
+        buf.append(" ");
+    }
 
-                continue;
-            }
+    while (!buf.isEmpty()){
+        if (buf.startsWith("<a href=") && buf.indexOf("</a>") > 0){
+            QString add = buf.left(buf.indexOf("</a>")) + "</a>";
 
-            bool found = false;
+            out += add;
+            buf.remove(0, add.length());
 
-            for (it = map.end()-1; it != begin-1; --it){
+            continue;
+        }
+
+        bool found = false;
+
+        for (it = map.end()-1; it != begin-1; --it){
+            if (force_emot){
                 if (buf.startsWith(it.key())){
                     EmoticonObject *obj = it.value();
 
@@ -124,22 +131,7 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
                     break;
                 }
             }
-
-            if (!found){
-                out += buf.at(0);
-
-                buf.remove(0, 1);
-            }
-        }
-    }
-    else{
-        buf.prepend(" ");
-        buf.append(" ");
-
-        while (!buf.isEmpty()){
-            bool found = false;
-
-            for (it = map.end()-1; it != begin-1; --it){
+            else{
                 if (buf.startsWith(" "+it.key()+" ")){
                     EmoticonObject *obj = it.value();
 
@@ -149,7 +141,7 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
                                   .arg(obj->id);
 
                     out += img;
-                    buf.remove(0, it.key().length()+2);
+                    buf.remove(0, it.key().length()+1);
 
                     found = true;
 
@@ -171,19 +163,22 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
                     break;
                 }
             }
-
-            if (!found){
-                out += buf.at(0);
-
-                buf.remove(0, 1);
-            }
         }
 
+        if (!found){
+            out += buf.at(0);
+
+            buf.remove(0, 1);
+        }
+    }
+
+    if (!force_emot){
         if (out.startsWith(" "))
             out.remove(0, 1);
         if (out.endsWith(" "))
             out.remove(out.length()-1, 1);
     }
+
     return out;
 }
 
