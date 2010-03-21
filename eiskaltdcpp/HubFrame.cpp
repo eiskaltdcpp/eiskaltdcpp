@@ -395,7 +395,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
                 out += add;
             }
             else if (add.count("<a href=") > 1){
-                QString temp = add.left(add.indexOf("<a href=",QString("<a href=").length()-1));
+                QString temp = add.left(add.lastIndexOf("<a href="));
 
                 buf.remove(0, add.length());
                 add.remove(0, temp.length());
