@@ -7,7 +7,6 @@
 #include "HubManager.h"
 #include "Notification.h"
 #include "ShellCommandRunner.h"
-#include "EmoticonFactory.h"
 #include "EmoticonDialog.h"
 
 #ifdef USE_ASPELL
@@ -950,6 +949,32 @@ const QPixmap &HubFrame::getPixmap(){
     else
         return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER);
 }
+
+void HubFrame::clearChat(){
+    textEdit_CHAT->setHtml("");
+
+    addStatus(tr("Chat cleared."));
+
+    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
+        EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
+}
+
+void HubFrame::disableChat(){
+    if (!chatDisabled){
+        addStatus(tr("Chat disabled."));
+
+        chatDisabled = true;
+    }
+    else{
+        chatDisabled = false;
+
+        addStatus(tr("Chat enabled."));
+    }
+
+    plainTextEdit_INPUT->setEnabled(!chatDisabled);
+    plainTextEdit_INPUT->setVisible(!chatDisabled);
+}
+
 
 QString HubFrame::getUserInfo(UserListItem *item){
     QString ttip = "";

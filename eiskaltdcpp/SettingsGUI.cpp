@@ -194,10 +194,14 @@ void SettingsGUI::init(){
 void SettingsGUI::ok(){
     SettingsManager *SM = SettingsManager::getInstance();
     {//Basic tab
-        if (custom_style)
+        if (custom_style && comboBox_THEMES->currentIndex() > 0)
             WSSET(WS_APP_THEME, comboBox_THEMES->currentText());
+        else if (comboBox_THEMES->currentIndex() == 0)
+            WSSET(WS_APP_THEME, "");
+
         if (!lineEdit_APPFONT->text().isEmpty())
             WSSET(WS_APP_FONT, lineEdit_APPFONT->text());
+
         if (!lineEdit_LANGFILE->text().isEmpty())
             WSSET(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
 

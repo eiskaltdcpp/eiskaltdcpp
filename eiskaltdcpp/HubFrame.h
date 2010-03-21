@@ -26,6 +26,7 @@
 
 #include "UserListModel.h"
 #include "ArenaWidget.h"
+#include "EmoticonFactory.h"
 #include "Func.h"
 
 class ShellCommandRunner;
@@ -176,27 +177,8 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap();
 
-    void disableChat(){
-        if (!chatDisabled){
-            addStatus(tr("Chat disabled."));
-
-            chatDisabled = true;
-        }
-        else{
-            chatDisabled = false;
-
-            addStatus(tr("Chat enabled."));
-        }
-
-        plainTextEdit_INPUT->setEnabled(!chatDisabled);
-        plainTextEdit_INPUT->setVisible(!chatDisabled);
-    }
-
-    void clearChat(){
-        textEdit_CHAT->setHtml("");
-
-        addStatus(tr("Chat cleared."));
-    }
+    void disableChat();
+    void clearChat();
 
 public slots:
     void slotHideFindFrame();
