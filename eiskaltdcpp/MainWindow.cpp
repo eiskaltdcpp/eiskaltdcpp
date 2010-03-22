@@ -204,16 +204,11 @@ void MainWindow::showEvent(QShowEvent *e){
 
     QWidget *wg = arena->widget();
 
-    bool pmw = false;
-
-    if (wg != 0)
-        pmw = (typeid(*wg) == typeid(PMWindow));
-
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    bool enable = (fr && (fr == arena->widget()));
+    bool enable = (fr && (fr == wg));
 
-    chatClear->setEnabled(enable || pmw);
+    chatClear->setEnabled(enable || (wg && wg->qt_metacast("PMWindow")));
     findInChat->setEnabled(enable);
     chatDisable->setEnabled(enable);
 
@@ -482,60 +477,59 @@ void MainWindow::initActions(){
         separator6->setSeparator(true);
 
         fileMenuActions << fileOptions
-                << separator0
-                << fileSearch
                 << separator1
-                << fileHubReconnect
-                << fileQuickConnect
-                << fileFavoriteHubs
-                << fileFavoriteUsers
-                << separator2
+                << fileOpenLogFile
                 << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
-                << separator3
+                << separator2
+                << fileHubReconnect
+                << fileQuickConnect
+                << separator0
                 << fileTransfers
                 << fileDownloadQueue
                 << fileFinishedDownloads
                 << fileFinishedUploads
                 << separator4
-                << fileSpy
-                << fileAntiSpam
-                << fileIPFilter
-                << separator5
-                << fileOpenLogFile
-                << fileHideProgressSpace
-                << fileHideWindow
-                << separator6
-                << fileQuit;
-
-        toolBarActions << fileOptions
-                << separator0
-                << fileFileListBrowserLocal
-                << fileFileListRefresh
-                << fileHashProgress
-                << separator1
-                << fileHubReconnect
-                << fileQuickConnect
-                << separator2
                 << fileFavoriteHubs
                 << fileFavoriteUsers
                 << fileSearch
                 << separator3
+                << fileSpy
+                << fileAntiSpam
+                << fileIPFilter
+                << separator5
+                << fileHideProgressSpace
+                << fileHideWindow
+                << fileQuit;
+
+        toolBarActions << fileOptions
+                << separator1
+                << fileFileListBrowserLocal
+                << fileFileListRefresh
+                << fileHashProgress
+                << separator6
+                << chatClear
+                << findInChat
+                << chatDisable
+                << separator2
+                << fileHubReconnect
+                << fileQuickConnect
+                << separator0
                 << fileTransfers
                 << fileDownloadQueue
                 << fileFinishedDownloads
                 << fileFinishedUploads
                 << separator4
-                << chatClear
-                << findInChat
-                << chatDisable
-                << separator5
+                << fileFavoriteHubs
+                << fileFavoriteUsers
+                << fileSearch
+                << separator3
                 << fileSpy
                 << fileAntiSpam
                 << fileIPFilter
-                << separator6
+                << separator5
                 << fileQuit;
     }
     {
@@ -778,13 +772,16 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
             progressSpace->setValue(static_cast<unsigned>(percent));
         }
 #elif defined FREE_SPACE_BAR_C
-    std::string s = Util::getPath(Util::PATH_USER_CONFIG);
+    std::string s = SETTING(DOWNLOAD_DIRECTORY);
     unsigned long long available = 0;
     unsigned long long total = 0;
     if (!s.empty()) {
         if (MainWindow::FreeDiscSpace(s.c_str() , &available, &total) == false) {
+            s = Util::getPath(Util::PATH_USER_CONFIG);
+            if (MainWindow::FreeDiscSpace(s.c_str() , &available, &total) == false) {
             available = 0;
             total = 0;
+            }
         }
     }
     float percent = 100.0f*(total-available)/total;
@@ -928,21 +925,16 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     QWidget *wg = arenaMap[awgt];
 
-    bool pmw = false;
-
-    if (wg != 0)
-        pmw = (typeid(*wg) == typeid(PMWindow));
-
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    chatClear->setEnabled(fr == arena->widget() || pmw);
+    chatClear->setEnabled(fr == arena->widget());
     findInChat->setEnabled(fr == arena->widget());
     chatDisable->setEnabled(fr == arena->widget());
 
     if (fr == arena->widget()){
         fr->plainTextEdit_INPUT->setFocus();
     }
-    else if(pmw){
+    else if(wg->qt_metacast("PMWindow")){
         PMWindow *pm = qobject_cast<PMWindow *>(wg);
         if (pm)
             pm->plainTextEdit_INPUT->setFocus();
@@ -1213,12 +1205,7 @@ void MainWindow::slotChatClear(){
     else{
         QWidget *wg = arena->widget();
 
-        bool pmw = false;
-
-        if (wg != 0)
-            pmw = (typeid(*wg) == typeid(PMWindow));
-
-        if(pmw){
+        if(wg->qt_metacast("PMWindow")){
             PMWindow *pm = qobject_cast<PMWindow *>(wg);
 
             if (pm){
