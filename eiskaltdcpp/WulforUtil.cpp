@@ -589,9 +589,10 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
         name = command.left(j);
 
         if (done.find(name.toStdString()) == done.end()){
-            QString input = QInputDialog::getText(MainWindow::getInstance(), tr("Enter parameter value"), name, QLineEdit::Normal);
+            bool bOk;
+            QString input = QInputDialog::getText(MainWindow::getInstance(), tr("Enter parameter value"), name, QLineEdit::Normal, QString(), &bOk);
 
-            if (!input.isEmpty()){
+            if (bOk){
                 ucParams["line:" + name.toStdString()] = input.toStdString();
                 done[name.toStdString()] = input.toStdString();
             }
