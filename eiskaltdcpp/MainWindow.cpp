@@ -204,11 +204,16 @@ void MainWindow::showEvent(QShowEvent *e){
 
     QWidget *wg = arena->widget();
 
+    bool pmw = false;
+
+    if (wg != 0)
+        pmw = (typeid(*wg) == typeid(PMWindow));
+
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    bool enable = (fr && (fr == wg));
+    bool enable = (fr && (fr == arena->widget()));
 
-    chatClear->setEnabled(enable || (wg && wg->qt_metacast("PMWindow")));
+    chatClear->setEnabled(enable || pmw);
     findInChat->setEnabled(enable);
     chatDisable->setEnabled(enable);
 
@@ -477,59 +482,60 @@ void MainWindow::initActions(){
         separator6->setSeparator(true);
 
         fileMenuActions << fileOptions
+                << separator0
+                << fileSearch
                 << separator1
-                << fileOpenLogFile
+                << fileHubReconnect
+                << fileQuickConnect
+                << fileFavoriteHubs
+                << fileFavoriteUsers
+                << separator2
                 << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
-                << separator2
-                << fileHubReconnect
-                << fileQuickConnect
-                << separator0
+                << separator3
                 << fileTransfers
                 << fileDownloadQueue
                 << fileFinishedDownloads
                 << fileFinishedUploads
                 << separator4
-                << fileFavoriteHubs
-                << fileFavoriteUsers
-                << fileSearch
-                << separator3
                 << fileSpy
                 << fileAntiSpam
                 << fileIPFilter
                 << separator5
+                << fileOpenLogFile
                 << fileHideProgressSpace
                 << fileHideWindow
+                << separator6
                 << fileQuit;
 
         toolBarActions << fileOptions
-                << separator1
+                << separator0
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
-                << separator6
-                << chatClear
-                << findInChat
-                << chatDisable
-                << separator2
+                << separator1
                 << fileHubReconnect
                 << fileQuickConnect
-                << separator0
+                << separator2
+                << fileFavoriteHubs
+                << fileFavoriteUsers
+                << fileSearch
+                << separator3
                 << fileTransfers
                 << fileDownloadQueue
                 << fileFinishedDownloads
                 << fileFinishedUploads
                 << separator4
-                << fileFavoriteHubs
-                << fileFavoriteUsers
-                << fileSearch
-                << separator3
+                << chatClear
+                << findInChat
+                << chatDisable
+                << separator5
                 << fileSpy
                 << fileAntiSpam
                 << fileIPFilter
-                << separator5
+                << separator6
                 << fileQuit;
     }
     {
@@ -925,16 +931,21 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     QWidget *wg = arenaMap[awgt];
 
+    bool pmw = false;
+
+    if (wg != 0)
+        pmw = (typeid(*wg) == typeid(PMWindow));
+
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    chatClear->setEnabled(fr == arena->widget());
+    chatClear->setEnabled(fr == arena->widget() || pmw);
     findInChat->setEnabled(fr == arena->widget());
     chatDisable->setEnabled(fr == arena->widget());
 
     if (fr == arena->widget()){
         fr->plainTextEdit_INPUT->setFocus();
     }
-    else if(wg->qt_metacast("PMWindow")){
+    else if(pmw){
         PMWindow *pm = qobject_cast<PMWindow *>(wg);
         if (pm)
             pm->plainTextEdit_INPUT->setFocus();
@@ -1205,7 +1216,12 @@ void MainWindow::slotChatClear(){
     else{
         QWidget *wg = arena->widget();
 
-        if(wg->qt_metacast("PMWindow")){
+        bool pmw = false;
+
+        if (wg != 0)
+            pmw = (typeid(*wg) == typeid(PMWindow));
+
+        if(pmw){
             PMWindow *pm = qobject_cast<PMWindow *>(wg);
 
             if (pm){
