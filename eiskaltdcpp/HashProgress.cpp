@@ -20,6 +20,8 @@ HashProgress::HashProgress(QWidget *parent):
 {
     setupUi(this);
 
+    setWindowModality(Qt::ApplicationModal);
+
     HashManager::getInstance()->setPriority(Thread::NORMAL);
 
     timer = new QTimer();

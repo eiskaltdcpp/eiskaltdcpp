@@ -443,7 +443,7 @@ void MainWindow::initActions(){
         if (!WBGET(WB_SHOW_FREE_SPACE))
             fileHideProgressSpace->setText(tr("Show free space bar"));
 #if (!defined FREE_SPACE_BAR && !defined FREE_SPACE_BAR_C)
-        fileHideProgressSpace->setEnabled(false);
+        fileHideProgressSpace->setVisible(false);
 #endif
         fileHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
         connect(fileHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));

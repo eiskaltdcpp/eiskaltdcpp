@@ -158,8 +158,9 @@ void Notification::slotExit(){
 void Notification::slotShowHide(){
     MainWindow *MW = MainWindow::getInstance();
 
-    if (MW->isVisible())
+    if (MW->isVisible()){
         MW->hide();
+    }
     else{
         MW->show();
         MW->raise();
