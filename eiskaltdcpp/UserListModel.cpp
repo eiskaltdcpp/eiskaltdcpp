@@ -80,7 +80,7 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
         {
             if (index.column() != COLUMN_NICK)
                 break;
-            
+
             if (item->px)
                 return (*item->px);
 
@@ -118,7 +118,7 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
         case Qt::TextAlignmentRole:
         {
             if (index.column() == COLUMN_SHARE)
-                return Qt::AlignRight;
+                return static_cast<int>(Qt::AlignRight | Qt::AlignVCenter);
 
             break;
         }
