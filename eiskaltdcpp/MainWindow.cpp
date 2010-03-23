@@ -130,7 +130,7 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
-    if (!isUnload && WBGET(WB_NOTIFY_ENABLED)){
+    if (!isUnload && WBGET(WB_TRAY_ENABLED)){
         hide();
         c_e->ignore();
 
