@@ -1501,7 +1501,7 @@ void HubFrame::newMsg(VarMap map){
     WulforUtil::getInstance()->textToHtml(nick);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
-    output  = time + QString("<a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
+    output  = time + QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
     output  += message;
 
     //WulforUtil::getInstance()->textToHtml(output, false);
@@ -1531,7 +1531,7 @@ void HubFrame::newPm(VarMap map){
     WulforUtil::getInstance()->textToHtml(nick);
 
     message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
-    full_message  = time + QString("<a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
+    full_message  = time + QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
     full_message += message;
 
     WulforUtil::getInstance()->textToHtml(full_message, false);
@@ -2468,7 +2468,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
 
     map["NICK"] = _q(user.getIdentity().getNick());
     map["MSG"]  = _q(msg.c_str());
-    map["TIME"] = _q(Util::getTimeString());
+    map["TIME"] = QDateTime::currentDateTime().toString("hh:mm:ss");
 
     QString color = WS_CHAT_USER_COLOR;
 
@@ -2550,7 +2550,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 
     map["NICK"]  = nick;
     map["MSG"]   = _q(msg);
-    map["TIME"]  = _q(Util::getTimeString());
+    map["TIME"]  = QDateTime::currentDateTime().toString("hh:mm:ss");
 
     QString color = WS_CHAT_PRIV_USER_COLOR;
 
