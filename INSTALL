@@ -9,6 +9,7 @@ zlib
 libaspell (optional, see cmake keys)
 libboost-system, libboost-filesystem, libboost-date-time (>=1.34.1) (optional, see cmake keys)
 
+
 *******************************************************************************
 Build Depends
 *******************************************************************************
@@ -21,8 +22,9 @@ gcc
 libaspell-dev (optional, see cmake keys)
 libboost-date-time-dev, libboost-filesystem-dev, libboost-system-dev (optional, see cmake keys)
 
+
 *******************************************************************************
-Installation in Linux, *BSD and other UNIX-like systems
+Installation in Linux and other UNIX-like systems
 *******************************************************************************
 cmake -DCMAKE_INSTALL_PREFIX=/usr ./
 make -j2
@@ -47,6 +49,14 @@ And other standart cmake keys...
 Uninstall program
 *******************************************************************************
 sudo make uninstall
+
+
+*******************************************************************************
+*BSD specific notes
+*******************************************************************************
+cmake ./
+gmake -j2
+sudo gmake install
 
 
 *******************************************************************************
