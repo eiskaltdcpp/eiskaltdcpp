@@ -46,9 +46,9 @@ public:
     virtual ~UserUpdatedEvent()
     {}
 
-    const dcpp::UserPtr &getUser() const { return ptr; }
-    bool getJoin() const {return join; }
-    QHash<QString, QVariant> &getMap() { return map; }
+    inline const dcpp::UserPtr &getUser() const { return ptr; }
+    inline bool getJoin() const {return join; }
+    inline QHash<QString, QVariant> &getMap() { return map; }
 
 private:
     dcpp::UserPtr ptr;

@@ -38,6 +38,7 @@
 #include "SearchFrame.h"
 #include "Settings.h"
 #include "FavoriteHubs.h"
+#include "PublicHubs.h"
 #include "FavoriteUsers.h"
 #include "DownloadQueue.h"
 #include "FinishedTransfers.h"
@@ -150,6 +151,13 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
         FavoriteHubs::getInstance()->close();
 
         FavoriteHubs::deleteInstance();
+    }
+
+    if (PublicHubs::getInstance()){
+        PublicHubs::getInstance()->setUnload(true);
+        PublicHubs::getInstance()->close();
+
+        PublicHubs::deleteInstance();
     }
 
     if (FinishedDownloads::getInstance()){
@@ -410,6 +418,10 @@ void MainWindow::initActions(){
         fileFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiFAVSERVER));
         connect(fileFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotFileFavoriteHubs()));
 
+        filePublicHubs = new QAction("", this);
+        filePublicHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
+        connect(filePublicHubs, SIGNAL(triggered()), this, SLOT(slotFilePublicHubs()));
+
         fileFavoriteUsers = new QAction("", this);
         fileFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
         connect(fileFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotFileFavoriteUsers()));
@@ -522,6 +534,7 @@ void MainWindow::initActions(){
                 << fileFavoriteHubs
                 << fileFavoriteUsers
                 << fileSearch
+                << filePublicHubs
                 << separator3
                 << fileTransfers
                 << fileDownloadQueue
@@ -666,6 +679,8 @@ void MainWindow::retranslateUi(){
         fileIPFilter->setText(tr("IPFilter module"));
 
         fileFavoriteHubs->setText(tr("Favourite hubs"));
+
+        filePublicHubs->setText(tr("Public hubs"));
 
         fileFavoriteUsers->setText(tr("Favourite users"));
 
@@ -1176,6 +1191,13 @@ void MainWindow::slotFileFavoriteHubs(){
         FavoriteHubs::newInstance();
 
     toggleSingletonWidget(FavoriteHubs::getInstance());
+}
+
+void MainWindow::slotFilePublicHubs(){
+    if (!PublicHubs::getInstance())
+        PublicHubs::newInstance();
+
+    toggleSingletonWidget(PublicHubs::getInstance());
 }
 
 void MainWindow::slotFileFavoriteUsers(){

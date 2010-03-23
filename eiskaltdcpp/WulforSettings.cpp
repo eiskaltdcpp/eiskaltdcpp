@@ -75,6 +75,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_APP_EMOTICON_THEME, "default");
         strmap.insert(WS_APP_ASPELL_LANG, "");
         strmap.insert(WS_APP_DYNDNS_SERVER, "checkip.dyndns.org");
+        strmap.insert(WS_PUBLICHUBS_STATE, "");
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_SHOW_FREE_SPACE, (int)true);

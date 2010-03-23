@@ -145,7 +145,9 @@ HEADERS = MainWindow.h \
     EmoticonObject.h \
     EmoticonFactory.h \
     EmoticonDialog.h \
-    SpellCheck.h
+    SpellCheck.h \
+    PublicHubModel.h \
+    PublicHubs.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -247,7 +249,9 @@ SOURCES = main.cpp \
     SpyModel.cpp \
     EmoticonFactory.cpp \
     EmoticonDialog.cpp \
-    SpellCheck.cpp
+    SpellCheck.cpp \
+    PublicHubModel.cpp \
+    PublicHubs.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \
@@ -273,4 +277,5 @@ FORMS = ui/HubFrame.ui \
     ui/UIAbout.ui \
     ui/UISettingsNotification.ui \
     ui/UISettingsLog.ui \
-    ui/UISpy.ui
+    ui/UISpy.ui \
+    ui/UIPublicHubs.ui
