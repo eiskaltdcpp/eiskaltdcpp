@@ -12,6 +12,7 @@ HEADERS = HEADERS = MainWindow.h \
     UserListModel.h \
     WulforUtil.h \
     WulforSettings.h \
+    Notification.h \
     ArenaWidget.h \
     PMWindow.h \
     TransferView.h \
@@ -60,6 +61,7 @@ SOURCES = main.cpp \
     UserListModel.cpp \
     WulforUtil.cpp \
     WulforSettings.cpp \
+    Notification.cpp \
     ArenaWidget.cpp \
     PMWindow.cpp \
     ChatComandParser.cpp \

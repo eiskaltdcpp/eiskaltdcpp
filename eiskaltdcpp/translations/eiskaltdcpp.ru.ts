@@ -1357,6 +1357,19 @@ Please check your connection settings</source>
     </message>
 </context>
 <context>
+    <name>Notification</name>
+    <message>
+        <location filename="../Notification.cpp" line="63"/>
+        <source>Show/Hide window</source>
+        <translation>Показать/Спрятать окно</translation>
+    </message>
+    <message>
+        <location filename="../Notification.cpp" line="64"/>
+        <source>Exit</source>
+        <translation>Выход</translation>
+    </message>
+</context>
+<context>
     <name>PMWindow</name>
     <message>
         <location filename="../PMWindow.cpp" line="48"/>
