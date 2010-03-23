@@ -1,7 +1,7 @@
 *******************************************************************************
 Program Depends
 *******************************************************************************
-libqtcore4, libqtgui4, libqt4-network, libqt4-sql, libqt4-xml, libqt4-dbus (>= 4.5.0)
+libqtcore4, libqtgui4, libqt4-network, libqt4-xml, libqt4-dbus (>= 4.5.0)
 libupnp (=1.6.* only)
 libssl (>= 0.9.8)
 bzip2
