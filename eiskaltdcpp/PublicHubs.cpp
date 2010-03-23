@@ -94,7 +94,7 @@ void PublicHubs::updateList(){
         data << _q(entry->getName())         << _q(entry->getDescription())  << entry->getUsers()
              << _q(entry->getServer())       << _q(entry->getCountry())      << (qulonglong)entry->getShared()
              << (qint64)entry->getMinShare() << (qint64)entry->getMinSlots() << (qint64)entry->getMaxHubs()
-             << (qint64)entry->getMaxUsers() << entry->getReliability()      << _q(entry->getRating());
+             << (qint64)entry->getMaxUsers() << static_cast<double>(entry->getReliability()) << _q(entry->getRating());
 
         model->addResult(data, entry);
     }

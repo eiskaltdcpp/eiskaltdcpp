@@ -160,7 +160,7 @@ struct Compare {
                 case COLUMN_PHUB_MINSLOTS:
                      return NumCmp<COLUMN_PHUB_MINSLOTS>;
                 case COLUMN_PHUB_REL:
-                     return FltCmp<COLUMN_PHUB_REL>;
+                     return DblCmp<COLUMN_PHUB_REL>;
                 case COLUMN_PHUB_SHARED:
                      return AttrCmp<COLUMN_PHUB_SHARED>;
                 case COLUMN_PHUB_ADDRESS:
@@ -188,8 +188,8 @@ struct Compare {
             return Cmp(l->data(column).toULongLong(), r->data(column).toULongLong());
         }
         template <int column>
-        bool static FltCmp(const PublicHubItem * l, const PublicHubItem * r) {
-            return Cmp(l->data(column).toFloat(), r->data(column).toFloat());
+        bool static DblCmp(const PublicHubItem * l, const PublicHubItem * r) {
+            return Cmp(l->data(column).toDouble(), r->data(column).toDouble());
         }
         template <typename T>
         bool static Cmp(const T& l, const T& r);
