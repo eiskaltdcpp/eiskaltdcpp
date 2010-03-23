@@ -1747,11 +1747,27 @@ void HubFrame::slotPMClosed(QString cid){
 }
 
 void HubFrame::slotUserListMenu(const QPoint&){
-    Menu::Action action = Menu::getInstance()->execUserMenu(client, _q(client->getMyIdentity().getUser()->getCID().toBase32()));
-    UserListItem *item = NULL;
-
     QItemSelectionModel *selection_model = treeView_USERS->selectionModel();
     QModelIndexList proxy_list = selection_model->selectedRows(0);
+
+    if (proxy_list.size() < 1)
+        return;
+
+    QString cid = "";
+
+    if (treeView_USERS->model() != model){
+        QModelIndex i = proxy->mapToSource(proxy_list.at(0));
+        cid = reinterpret_cast<UserListItem*>(i.internalPointer())->cid;
+    }
+    else{
+        QModelIndex i = proxy_list.at(0);
+        cid = reinterpret_cast<UserListItem*>(i.internalPointer())->cid;
+    }
+
+    Menu::Action action = Menu::getInstance()->execUserMenu(client, cid);
+    UserListItem *item = NULL;
+
+    proxy_list = selection_model->selectedRows(0);
 
     if (proxy_list.size() < 1)
         return;

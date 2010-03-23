@@ -569,6 +569,7 @@ bool WulforUtil::openUrl(const QString &url){
 
 bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams){
     QString name;
+    static QString store = "";
     StringMap done;
     int i = 0;
     int j = 0;
@@ -590,9 +591,10 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
 
         if (done.find(name.toStdString()) == done.end()){
             bool bOk;
-            QString input = QInputDialog::getText(MainWindow::getInstance(), tr("Enter parameter value"), name, QLineEdit::Normal, QString(), &bOk);
+            QString input = QInputDialog::getText(MainWindow::getInstance(), tr("Enter parameter value"), name, QLineEdit::Normal, store, &bOk);
 
             if (bOk){
+                store = input;
                 ucParams["line:" + name.toStdString()] = input.toStdString();
                 done[name.toStdString()] = input.toStdString();
             }
