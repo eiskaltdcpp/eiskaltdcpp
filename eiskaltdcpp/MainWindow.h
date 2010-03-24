@@ -17,6 +17,8 @@
 #include <QToolBar>
 #include <QHash>
 #include <QSessionManager>
+#include <QShortcut>
+#include <QKeySequence>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -164,6 +166,8 @@ friend class dcpp::Singleton<MainWindow>;
         void slotHideProgressSpace();
         void slotExit();
 
+        void slotCloseCurrentWidget();
+
         void slotUnixSignal(int);
 
         void slotFindInChat();
@@ -194,6 +198,7 @@ friend class dcpp::Singleton<MainWindow>;
         void initMenuBar();
         void initStatusBar();
         void initToolbar();
+        void initHotkeys();
 
         void toggleSingletonWidget(ArenaWidget *a);
 
@@ -243,6 +248,10 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileHideWindow;
         QAction *fileHideProgressSpace;
         QAction *fileQuit;
+
+        QShortcut *ctrl_pgup;
+        QShortcut *ctrl_pgdown;
+        QShortcut *ctrl_w;
 
         QAction *chatDisable;
         QAction *findInChat;

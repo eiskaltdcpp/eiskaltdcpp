@@ -27,9 +27,6 @@ public:
     void redraw();
     void initTabs();
 
-    void nextTab();
-    void prevTab();
-
     bool hasWidget(ArenaWidget*);
     void mapWidget(ArenaWidget*);
 
@@ -39,6 +36,8 @@ protected:
 
 public Q_SLOTS:
     void mapped(ArenaWidget*);
+    void nextTab();
+    void prevTab();
 
 private Q_SLOTS:
     void slotIndexChanged(int);

@@ -239,25 +239,6 @@ void MainWindow::customEvent(QEvent *e){
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *e){
-    if (e->type() == QEvent::KeyRelease){
-        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
-
-        if (k_e->modifiers() == Qt::ControlModifier){
-            if (k_e->key() == Qt::Key_PageUp)
-                tBar->prevTab();
-            else if (k_e->key() == Qt::Key_PageDown)
-                tBar->nextTab();
-            else if (k_e->key() == Qt::Key_W){
-                if (arena->widget())
-                    arena->widget()->close();
-            }
-            else
-               return QMainWindow::eventFilter(obj, e);
-
-            return true;
-        }
-    }
-
     return QMainWindow::eventFilter(obj, e);
 }
 
@@ -300,6 +281,8 @@ void MainWindow::init(){
     initStatusBar();
 
     initToolbar();
+
+    initHotkeys();
 
     loadSettings();
 
@@ -563,6 +546,20 @@ void MainWindow::initActions(){
         aboutQt->setIcon(WU->getPixmap(WulforUtil::eiQT_LOGO));
         connect(aboutQt, SIGNAL(triggered()), this, SLOT(slotAboutQt()));
     }
+}
+
+void MainWindow::initHotkeys(){
+    ctrl_pgdown = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageDown), this);
+    ctrl_pgup   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageUp), this);
+    ctrl_w      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_W), this);
+
+    ctrl_pgdown->setContext(Qt::WindowShortcut);
+    ctrl_pgup->setContext(Qt::WindowShortcut);
+    ctrl_w->setContext(Qt::WindowShortcut);
+
+    connect(ctrl_pgdown, SIGNAL(activated()), tBar, SLOT(nextTab()));
+    connect(ctrl_pgup,   SIGNAL(activated()), tBar, SLOT(prevTab()));
+    connect(ctrl_w,      SIGNAL(activated()), this, SLOT(slotCloseCurrentWidget()));
 }
 
 void MainWindow::initMenuBar(){
@@ -1359,6 +1356,11 @@ void MainWindow::slotAboutClient(){
 
 void MainWindow::slotUnixSignal(int sig){
     printf("%i\n");
+}
+
+void MainWindow::slotCloseCurrentWidget(){
+    if (arena->widget())
+        arena->widget()->close();
 }
 
 void MainWindow::slotAboutQt(){
