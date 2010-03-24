@@ -29,6 +29,7 @@
 #include "Util.h"
 #include "TimerManager.h"
 #include "Speaker.h"
+#include "PerFolderLimit.h"
 
 namespace dcpp {
 
@@ -74,6 +75,7 @@ private:
 	typedef unordered_set<UserPtr, User::Hash> SlotSet;
 	typedef SlotSet::iterator SlotIter;
 	SlotSet reservedSlots;
+	CPerfolderLimit limits;
 
 	typedef pair<UserPtr, uint64_t> WaitingUser;
 	typedef list<WaitingUser> WaitingUserList;

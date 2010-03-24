@@ -40,7 +40,7 @@ namespace dcpp {
 
 static const string UPLOAD_AREA = "Uploads";
 
-UploadManager::UploadManager() throw() : running(0), extra(0), lastGrant(0) {
+UploadManager::UploadManager() throw() : running(0), extra(0), lastGrant(0), limits(NULL) {
 	ClientManager::getInstance()->addListener(this);
 	TimerManager::getInstance()->addListener(this);
 }
@@ -91,6 +91,14 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
 				start = 0;
 				size = xml.size();
 			} else {
+				{
+					string msg;
+					if ( aFile != Transfer::USER_LIST_NAME_BZ && aFile != Transfer::USER_LIST_NAME &&
+					     !limits.IsUserAllowed(ShareManager::getInstance()->toVirtual(ShareManager::getInstance()->getTTH(aFile)), aSource.getUser(), &msg) )
+					{
+						throw ShareException(msg);
+					}
+				}
 				File* f = new File(sourceFile, File::READ, File::OPEN);
 
 				start = aStartPos;

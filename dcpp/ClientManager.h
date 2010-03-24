@@ -69,6 +69,17 @@ public:
 		return onlineUsers.find(aUser->getCID()) != onlineUsers.end();
 	}
 
+  Identity getOnlineUserIdentity(const UserPtr& aUser) const {
+    Lock l(cs);
+    OnlineMap::const_iterator i;
+    i=onlineUsers.find(aUser->getCID());
+    if ( i != onlineUsers.end() )
+    {
+      return i->second->getIdentity();
+    }
+    return Identity();
+  }
+
 	bool isOp(const UserPtr& aUser, const string& aHubUrl) const;
 
 	/** Constructs a synthetic, hopefully unique CID */
