@@ -160,13 +160,20 @@ message (STATUS "Build without free space bar")
 endif (NOT FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
 
 if (LOCAL_BOOST)
-file(DOWNLOAD http://eiskaltdc.googlecode.com/files/boost.tar.gz ${CMAKE_CURRENT_SOURCE_DIR}/boost.tar.gz)
+file(GLOB BOOST_TAR_EXISTS  *.tar.gz)
+if (NOT BOOST_TAR_EXISTS)
+set (boost_file_name "boost.tar.gz")
+file(DOWNLOAD http://eiskaltdc.googlecode.com/files/${boost_file_name} ${CMAKE_CURRENT_SOURCE_DIR}/${boost_file_name} LOG boost_logs STATUS boost_status)
+message (STATUS "${boost_logs}")
+message (STATUS "${boost_status}")
+endif (NOT BOOST_TAR_EXISTS)
+file(GLOB BOOST_TAR_EXISTS  *.tar.gz)
 FIND_PROGRAM (TAR_CMD tar)
   EXECUTE_PROCESS (
-                COMMAND ${TAR_CMD} -xf boost.tar.gz
+                COMMAND ${TAR_CMD} -xf ${BOOST_TAR_EXISTS}
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 set (Boost_INCLUDEDIR "./")
-message (STATUS "USE LOCAL BOOST HEADERS")
+message (STATUS "USED LOCAL BOOST HEADERS")
 endif(LOCAL_BOOST)
 
 pkg_check_modules (PC_UPNP REQUIRED libupnp)
