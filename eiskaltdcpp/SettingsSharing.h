@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDirModel>
+#include <QShowEvent>
 
 #include "ui_UISettingsSharing.h"
 
@@ -35,7 +36,10 @@ class SettingsSharing :
 public:
     SettingsSharing(QWidget* = NULL);
     virtual ~SettingsSharing();
-public slots:
+protected:
+    virtual void showEvent(QShowEvent *);
+
+public Q_SLOTS:
     void ok();
 
 private slots:

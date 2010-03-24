@@ -608,8 +608,8 @@ void ShareBrowser::slotLoaderFinish(){
         treeView_LPANE->expand(index);
     }
 
-    treeView_LPANE->resizeColumnToContents(0);
-    treeView_LPANE->resizeColumnToContents(1);
+    /*treeView_LPANE->resizeColumnToContents(0);
+    treeView_LPANE->resizeColumnToContents(1);*/
 
     MainWindow::getInstance()->addArenaWidget(this);
     MainWindow::getInstance()->mapWidgetOnArena(this);

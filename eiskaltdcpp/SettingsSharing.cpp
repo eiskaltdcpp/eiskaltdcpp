@@ -32,6 +32,15 @@ SettingsSharing::~SettingsSharing(){
     delete model;
 }
 
+void SettingsSharing::showEvent(QShowEvent *e){
+    e->accept();
+
+    if (WSGET(WS_SHAREHEADER_STATE).isEmpty()){
+        for (int i = 0; i < model->columnCount(); i++)
+            treeView->setColumnWidth(i, treeView->width()/4);
+    }
+}
+
 void SettingsSharing::ok(){
     SettingsManager *SM = SettingsManager::getInstance();
 
@@ -69,7 +78,8 @@ void SettingsSharing::init(){
     treeView->header()->hideSection(1);
     treeView->header()->hideSection(2);
 
-    treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toAscii()));
+    if (!WSGET(WS_SHAREHEADER_STATE).isEmpty())
+        treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toAscii()));
 
     connect(toolButton_RECREATE, SIGNAL(clicked()), this, SLOT(slotRecreateShare()));
     connect(model, SIGNAL(getName(QModelIndex)), this, SLOT(slotGetName(QModelIndex)));
