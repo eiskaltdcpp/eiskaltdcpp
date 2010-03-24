@@ -64,7 +64,7 @@ bool CPerfolderLimit::IsUserAllowed(string const& request, const UserPtr user, s
       *message=string("Too small share to download from ") + pos->m_folder + ": " + buf_user + "/" + buf_need + " GiB";
     }
 
-    LogManager::getInstance()->message(string("Denied to send file '")+request+"' to "+id.getNick()+" "+id.getIp()+*message);
+    LogManager::getInstance()->message(string("Denied to send file '")+request+"' to "+id.getNick()+" ("+id.getIp()+"): "+*message);
 
     return false;
   }
