@@ -178,7 +178,7 @@ void PMWindow::addStatusMessage(QString msg){
     QString status = " * ";
 
     QString nick = "DC-CORE";
-    QString time = "[" + QString::fromStdString(Util::getTimeString().c_str()) + "]";
+    QString time = "[" + QDateTime::currentDateTime().toString("hh:mm:ss") + "]";
 
     status = time + status;
     status += "<font color=\"" + WulforSettings::getInstance()->getStr(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>: ";
@@ -195,7 +195,7 @@ void PMWindow::addStatus(QString msg){
     WulforUtil::getInstance()->textToHtml(nick);
 
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
-    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + _q(Util::getTimeString().c_str()) + "]</font>";
+    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
 
     status = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
     status += msg;

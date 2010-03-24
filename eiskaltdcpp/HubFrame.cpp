@@ -1252,7 +1252,7 @@ void HubFrame::addStatus(QString msg){
     WulforUtil::getInstance()->textToHtml(nick);
 
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
-    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + _q(Util::getTimeString().c_str()) + "]</font>";
+    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
 
     status = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
     status += msg;
@@ -1579,7 +1579,7 @@ void HubFrame::pmUserEvent(QString cid, QString e){
     QString nick    = " * DC-CORE";
 
     QString msg     = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + e + "</font>";
-    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + _q(Util::getTimeString().c_str()) + "]</font>";
+    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" +QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
 
     output = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
     output += msg;
