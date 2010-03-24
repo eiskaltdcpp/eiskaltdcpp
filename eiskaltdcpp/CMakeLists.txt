@@ -113,32 +113,7 @@ set (MOC_HDRS Antispam.h
             UserListModel.h
             WulforSettings.h
             WulforUtil.h )
-set (UI_FORMS ui/UIAbout.ui
-            ui/UIAntiSpam.ui
-            ui/HubFrame.ui
-            ui/PrivateMessage.ui
-            ui/UIDownloadQueue.ui
-            ui/UIFavoriteHubs.ui
-            ui/UIFavoriteHubEditor.ui
-            ui/UIFavoriteUsers.ui
-            ui/UIFinishedTransfers.ui
-            ui/UIHashProgressDialog.ui
-            ui/UIIPFilter.ui
-            ui/UIMagnet.ui
-            ui/UIPublicHubs.ui
-            ui/UIQuickConnect.ui
-            ui/UISearchFrame.ui
-            ui/UISettings.ui
-            ui/UISettingsConnection.ui
-            ui/UISettingsDownloads.ui
-            ui/UISettingsGUI.ui
-            ui/UISettingsLog.ui
-            ui/UISettingsNotification.ui
-            ui/UISettingsPersonal.ui
-            ui/UISettingsSharing.ui
-            ui/UIShareBrowser.ui
-            ui/UISpy.ui
-            ui/UITransferView.ui)
+aux_source_directory(${PROJECT_SOURCE_DIR}/ui UI_FORMS)
 set (LANGUAGES en
                ru
                be)

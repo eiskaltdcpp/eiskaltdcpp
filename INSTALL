@@ -20,6 +20,7 @@ libboost-dev (headers only)
 bzip2
 gcc
 libaspell-dev (optional, see cmake keys)
+libboost-dev (headers only) (optional, see cmake keys)
 libboost-date-time-dev, libboost-filesystem-dev, libboost-system-dev (optional, see cmake keys)
 
 
@@ -39,6 +40,7 @@ Keys for cmake:
 -DUSE_ASPELL:BOOL=1 (default: BOOL=0)
 -DFREE_SPACE_BAR:BOOL=1 (default: BOOL=0) (boost libs)
 -DFREE_SPACE_BAR_C:BOOL=1 (default: BOOL=0)
+-DLOCAL_BOOST:BOOL=1 (default: BOOL=0) (use local boost headers)
 -DCMAKE_PREFIX_INSTALL=<prefix for install> (default: /usr/local)
 -DESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
 -PIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)

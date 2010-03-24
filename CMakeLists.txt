@@ -117,23 +117,57 @@ else (USE_ASPELL)
   message (STATUS "Building without Aspell support")
 endif (USE_ASPELL)
 
+#if (NOT (LOCAL_BOOST EQUAL 0))
+#set (LOCAL_BOOST 1)
+#endif (NOT (LOCAL_BOOST EQUAL 0))
+
 if (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
+if (NOT LOCAL_BOOST)
 find_package (Boost COMPONENTS date_time filesystem system REQUIRED)
 message (STATUS "Build with free space bar (boost)")
-elseif (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
+else (NOT LOCAL_BOOST)
+message (STATUS "Sorry, you add flag when use boost libs with flag when change ")
+message (STATUS "local boost headers, may build this config only with free space bar (c realized)")
+set (FREE_SPACE_BAR_C 1)
+set (FREE_SPACE_BAR 0)
+endif (NOT LOCAL_BOOST)
+endif (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
+
+if (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
+set (FREE_SPACE_BAR_C 1)
+if (NOT LOCAL_BOOST)
 find_package (Boost REQUIRED)
+endif (NOT LOCAL_BOOST)
 message (STATUS "Build with free space bar (realisation on C, POSIX 1003.1-2001 (and later) with XSI)")
-elseif (FREE_SPACE_BAR AND FREE_SPACE_BAR_C)
+endif (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
+
+if (FREE_SPACE_BAR AND FREE_SPACE_BAR_C)
 set (FREE_SPACE_BAR 0)
 set (FREE_SPACE_BAR_C 1)
+if (NOT LOCAL_BOOST)
 find_package (Boost REQUIRED)
+endif (NOT LOCAL_BOOST)
 message (STATUS "Build with free space bar (realisation on C, POSIX 1003.1-2001 (and later) with XSI)")
-elseif (NOT FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
+endif (FREE_SPACE_BAR AND FREE_SPACE_BAR_C)
+
+if (NOT FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
 set (FREE_SPACE_BAR 0)
 set (FREE_SPACE_BAR_C 0)
+if (NOT LOCAL_BOOST)
 find_package (Boost REQUIRED)
+endif (NOT LOCAL_BOOST)
 message (STATUS "Build without free space bar")
-endif (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
+endif (NOT FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
+
+if (LOCAL_BOOST)
+file(DOWNLOAD http://eiskaltdc.googlecode.com/files/boost.tar.gz ${CMAKE_CURRENT_SOURCE_DIR}/boost.tar.gz)
+FIND_PROGRAM (TAR_CMD tar)
+  EXECUTE_PROCESS (
+                COMMAND ${TAR_CMD} -xf boost.tar.gz
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+set (Boost_INCLUDEDIR "./")
+message (STATUS "USE LOCAL BOOST HEADERS")
+endif(LOCAL_BOOST)
 
 pkg_check_modules (PC_UPNP REQUIRED libupnp)
 
@@ -246,10 +280,10 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
    )
-message(STATUS "CMAKE Found Libs:
+message(STATUS "CMAKE use in build this libs(and headers):
 
                 upnp: ${UPNP_LIBRARY}
-                boost: ${Boost_LIBRARIES}
+                boost: ${Boost_LIBRARIES} ${Boost_INCLUDEDIR}
                 bzip2: ${BZIP2_LIBRARIES}
                 zlib: ${ZLIB_LIBRARIES}
                 openssl: ${OPENSSL_LIBRARIES}
