@@ -2,11 +2,14 @@
 
 #include <QUrl>
 #include <QMessageBox>
+#include <QDir>
 #include <QFileDialog>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Util.h"
+#include "dcpp/User.h"
+#include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/QueueManager.h"
@@ -24,16 +27,15 @@ Magnet::Magnet(QWidget *parent) :
 {
     setupUi(this);
 
-	pushButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
+    pushButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
     connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
-	connect(pushButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
+    connect(pushButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
 }
-Magnet::~Magnet(){
-    SearchManager::getInstance()->removeListener(this);
 
+Magnet::~Magnet(){
     delete t;
 }
 
@@ -65,8 +67,17 @@ void Magnet::setLink(const QString &link){
     if (url.hasQueryItem("dn"))
         lineEdit_FNAME->setText(url.queryItemValue("dn"));
 
+    lineEdit_SIZE->setReadOnly(true);
+
+    qulonglong size = 0;
     if (url.hasQueryItem("xl"))
-        lineEdit_SIZE->setText(_q(Util::formatBytes(url.queryItemValue("xl").toLongLong())));
+        size = url.queryItemValue("xl").toLongLong();
+
+    if (size > 0){
+        lineEdit_SIZE->setText(QString("%1 (%2)").arg(size).arg(_q(Util::formatBytes(size))));
+    }
+    else
+        lineEdit_SIZE->setText("0 (0 MiB)");
 
     QString tth = link;
 
@@ -125,58 +136,23 @@ void Magnet::download(){
         WISET(WI_DEF_MAGNET_ACTION,2);
     if (tth.isEmpty())
         return;
+    QString fname = lineEdit_FNAME->text();
+    QString path = lineEdit_FPATH->text();
+    QString size_str = lineEdit_SIZE->text();
 
-    StringList client_list;
+    QString name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+    qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
 
-    ClientManager* clientMgr = ClientManager::getInstance();
-
-    clientMgr->lock();
-    Client::List& clients = clientMgr->getClients();
-
-    for(Client::List::iterator it = clients.begin(); it != clients.end(); ++it) {
-        Client* client = *it;
-
-        if(!client->isConnected())
-            continue;
-
-        client_list.push_back(client->getHubUrl());
+    try {
+        UserPtr dummyuser(new User(CID::generate()));
+        QueueManager::getInstance()->add(_tq(name), size, TTHValue(_tq(tth)), dummyuser, "");
+        QueueManager::getInstance()->removeSource(_tq(name), dummyuser, QueueItem::Source::FLAG_REMOVED);
+    }
+    catch (const std::exception& e){
+        QMessageBox::critical(this, tr("Error"), tr("Some error ocurred when starting download:\n %1").arg(e.what()));
     }
 
-    clientMgr->unlock();
-
-    if (client_list.empty()){
-        QMessageBox::critical(this, tr("Error"), tr("You have not active connections to hubs"));
-
-        accept();;
-    }
-
-    string token = Util::toString(Util::rand());
-    SearchManager::SizeModes sizeMode = SearchManager::SIZE_DONTCARE;
-    SearchManager::TypeModes ftype = SearchManager::TYPE_TTH;
-
-    if(SearchManager::getInstance()->okToSearch()){
-        pushButton_SEARCH->setEnabled(false);
-        pushButton_DOWNLOAD->setEnabled(false);
-        pushButton_CANCEL->setEnabled(false);
-
-        t = new QTimer();
-        t->setSingleShot(true);
-        t->setInterval(5000);
-        connect(t, SIGNAL(timeout()), this, SLOT(timeout()));
-
-        setWindowTitle(tr("Please, wait..."));
-
-        SearchManager::getInstance()->addListener(this);
-
-        t->start();
-
-        SearchManager::getInstance()->search(client_list, _tq(tth), 0, ftype, sizeMode, token);
-    }
-    else {
-        QMessageBox::information(this, tr(""), tr("Search Manager not ready. Please, try again later."));
-
-        accept();
-    }
+    accept();
 }
 
 void Magnet::timeout(){
@@ -193,29 +169,3 @@ void Magnet::slotBrowse(){
 
 	lineEdit_FPATH->setText(dir + PATH_SEPARATOR_STR);
 }
-
-void Magnet::on(SearchManagerListener::SR, const dcpp::SearchResultPtr &result) throw(){
-    if (!result)
-        return;
-
-    string tth = _tq(lineEdit_TTH->text());
-
-    if (result->getType() != SearchResult::TYPE_FILE || TTHValue(tth) != result->getTTH())
-        return;
-
-    try {
-        SearchManager::getInstance()->removeListener(this);
-
-        UserPtr user = result->getUser();
-        string target = _tq(lineEdit_FPATH->text()) + _tq(lineEdit_FNAME->text().split("\\", QString::SkipEmptyParts).last());
-
-        QueueManager::getInstance()->add(target, result->getSize(), result->getTTH(), user, result->getHubURL());
-
-        typedef Func0<Magnet> FUNC;
-        FUNC *f = new FUNC(this, &Magnet::accept);
-
-        QApplication::postEvent(this, new MagnetCustomEvent(f));
-    }
-    catch (const Exception &){}
-}
-

@@ -28,8 +28,7 @@ private:
 
 class Magnet :
         public QDialog,
-        private Ui::UIMagnet,
-        private dcpp::SearchManagerListener
+        private Ui::UIMagnet
 {
 Q_OBJECT
 public:
@@ -40,9 +39,6 @@ public:
 
 protected:
     virtual void customEvent(QEvent *);
-
-private:
-    void on(SearchManagerListener::SR, const dcpp::SearchResultPtr&) throw();
 
 private slots:
     void search();
