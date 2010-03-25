@@ -645,6 +645,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
                     plainTextEdit_INPUT->setFocus();
                 }
+                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2)
+                    addPM(cid, "");
                 else
                     browseUserFiles(cid, false);
             }
@@ -687,6 +689,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             if (!cid.isEmpty()){
                 if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1)
                     browseUserFiles(cid, false);
+                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2)
+                    addPM(cid, "");
                 else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
                     if (plainTextEdit_INPUT->textCursor().position() == 0)
                         plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
