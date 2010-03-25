@@ -63,8 +63,11 @@ void HashProgress::timerTick(){
 
         return;;
     }
-    else if (isDone)
+    else if (isDone){
+        timer->start();
+
         return;
+    }
 
     double diff = tick - startTime;
 
