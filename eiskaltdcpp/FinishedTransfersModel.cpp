@@ -212,7 +212,7 @@ int FinishedTransfersModel::rowCount(const QModelIndex &parent) const
 namespace {
 
 template <Qt::SortOrder order>
-struct Compare {
+struct FileCompare {
     void static sort(int col, QList<FinishedTransfersItem*>& items) {
         qStableSort(items.begin(), items.end(), getAttrComp(col));
     }
@@ -265,12 +265,69 @@ struct Compare {
 };
 
 template <> template <typename T>
-bool inline Compare<Qt::AscendingOrder>::Cmp(const T& l, const T& r) {
+bool inline FileCompare<Qt::AscendingOrder>::Cmp(const T& l, const T& r) {
     return l < r;
 }
 
 template <> template <typename T>
-bool inline Compare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
+bool inline FileCompare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
+    return l > r;
+}
+
+template <Qt::SortOrder order>
+struct UserCompare {
+    void static sort(int col, QList<FinishedTransfersItem*>& items) {
+        qStableSort(items.begin(), items.end(), getAttrComp(col));
+    }
+
+    void static insertSorted(int col, QList<FinishedTransfersItem*>& items, FinishedTransfersItem* item) {
+        QList<FinishedTransfersItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        items.insert(it, item);
+    }
+
+    private:
+        typedef bool (*AttrComp)(const FinishedTransfersItem * l, const FinishedTransfersItem * r);
+        AttrComp static getAttrComp(int column) {
+            switch (column){
+                case COLUMN_FINISHED_NAME:
+                    return AttrCmp<COLUMN_FINISHED_NAME>;
+                case COLUMN_FINISHED_PATH:
+                    return AttrCmp<COLUMN_FINISHED_PATH>;
+                case COLUMN_FINISHED_TIME:
+                    return AttrCmp<COLUMN_FINISHED_TIME>;
+                case COLUMN_FINISHED_USER:
+                    return NumCmp<COLUMN_FINISHED_USER>;
+                case COLUMN_FINISHED_TR:
+                    return NumCmp<COLUMN_FINISHED_TR>;
+                default:
+                    return AttrCmp<COLUMN_FINISHED_ELAPS>;
+            }
+
+            return NULL;
+        }
+        template <int i>
+        bool static AttrCmp(const FinishedTransfersItem * l, const FinishedTransfersItem * r) {
+            return Cmp(QString::localeAwareCompare(l->data(i).toString(), r->data(i).toString()), 0);
+        }
+        template <typename T, T (FinishedTransfersItem::*attr)>
+        bool static AttrCmp(const FinishedTransfersItem * l, const FinishedTransfersItem * r) {
+            return Cmp(l->*attr, r->*attr);
+        }
+        template <int i>
+        bool static NumCmp(const FinishedTransfersItem * l, const FinishedTransfersItem * r) {
+            return Cmp(l->data(i).toULongLong(), r->data(i).toULongLong());
+        }
+        template <typename T>
+        bool static Cmp(const T& l, const T& r);
+};
+
+template <> template <typename T>
+bool inline UserCompare<Qt::AscendingOrder>::Cmp(const T& l, const T& r) {
+    return l < r;
+}
+
+template <> template <typename T>
+bool inline UserCompare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
     return l > r;
 }
 
@@ -279,10 +336,18 @@ bool inline Compare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
 void FinishedTransfersModel::sort(int column, Qt::SortOrder order) {
     emit layoutAboutToBeChanged();
 
-    if (order == Qt::AscendingOrder)
-        Compare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
-    else if (order == Qt::DescendingOrder)
-        Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
+    if (rootItem == fileItem){
+        if (order == Qt::AscendingOrder)
+            FileCompare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
+        else if (order == Qt::DescendingOrder)
+            FileCompare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
+    }
+    else {
+        if (order == Qt::AscendingOrder)
+            UserCompare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
+        else if (order == Qt::DescendingOrder)
+            UserCompare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
+    }
 
     emit layoutChanged();
 }
