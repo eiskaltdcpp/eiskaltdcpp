@@ -96,7 +96,7 @@ void HashProgress::timerTick(){
 
     if(files == 0) {
         isDone = true;
-        progress->setValue(100);
+        progress->setValue(10000);
         file->setText(tr("Done"));
     }
     else {
