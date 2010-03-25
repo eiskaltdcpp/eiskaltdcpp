@@ -16,6 +16,8 @@ public:
     virtual QString getArenaTitle() = 0;
     virtual QString getArenaShortTitle() = 0;
     virtual QMenu *getMenu() = 0;
+    virtual QAction *toolButton() { return toolBtn; }
+    virtual void  setToolButton(QAction *btn) { if (btn) toolBtn = btn; }
     virtual const QPixmap &getPixmap(){ return _pxmap; }
 
     virtual void setUnload(bool b){ _arenaUnload = b; }
@@ -23,6 +25,7 @@ public:
 
 private:
     bool _arenaUnload;
+    QAction *toolBtn;
     QPixmap _pxmap;
 };
 

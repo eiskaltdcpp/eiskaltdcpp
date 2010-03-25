@@ -964,6 +964,9 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     tBar->mapped(awgt);
 
     QWidget *wg = arenaMap[awgt];
+    
+    if (awgt->toolButton())
+        awgt->toolButton()->setChecked(true);
 
     bool pmw = false;
 
@@ -993,6 +996,9 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
     if (!arenaWidgets.contains(awgt))
         return;
 
+    if (awgt->toolButton())
+        awgt->toolButton()->setChecked(false);
+
     if (arena->widget() == awgt->getWidget())
         arena->widget()->hide();
 
@@ -1016,6 +1022,9 @@ void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){
     menuWidgets->clear();
     menuWidgets->addActions(menuWidgetsActions);
 
+    if (awgt->toolButton())
+        awgt->toolButton()->setChecked(true);
+
     tBar->insertWidget(awgt, keepFocus);
 }
 
@@ -1034,12 +1043,23 @@ void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
         }
     }
 
+    if (awgt->toolButton())
+        awgt->toolButton()->setChecked(false);
+
     tBar->removeWidget(awgt);
 }
 
 void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     if (!a)
         return;
+
+    if (sender() && typeid(*sender()) == typeid(QAction) && a->getWidget()){
+        QAction *act = reinterpret_cast<QAction*>(sender());;
+
+        act->setCheckable(true);
+
+        a->setToolButton(act);
+    }
 
     if (tBar->hasWidget(a)){
         QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
