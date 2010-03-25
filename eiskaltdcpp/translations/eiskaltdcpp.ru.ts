@@ -3619,7 +3619,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="40"/>
         <source>Ask confirm before exit</source>
-        <translation>Запрос на подтвержение перед выходом</translation>
+        <translation>Запросить подтвержение перед выходом</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="50"/>
