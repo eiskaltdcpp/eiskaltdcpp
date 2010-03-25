@@ -24,6 +24,8 @@ void SettingsNotification::init(){
         checkBox_TRAY->setChecked(WBGET(WB_TRAY_ENABLED));
         checkBox_TRAY->setEnabled(QSystemTrayIcon::isSystemTrayAvailable());
 
+        checkBox_EXIT_CONFIRM->setChecked(WBGET(WB_EXIT_CONFIRM));
+
         groupBox->setChecked(WBGET(WB_NOTIFY_ENABLED));
 
         unsigned emap = static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP));
@@ -101,6 +103,8 @@ void SettingsNotification::ok(){
         WBSET(WB_NOTIFY_ENABLED, groupBox->isChecked());
         WBSET(WB_NOTIFY_CH_ICON_ALWAYS, checkBox_MWVISIBLE->isChecked());
         WBSET(WB_NOTIFY_SHOW_ON_ACTIVE, checkBox_MWACTIVE->isChecked());
+
+        WBSET(WB_EXIT_CONFIRM, checkBox_EXIT_CONFIRM->isChecked());
 
         if (WBGET(WB_TRAY_ENABLED) != checkBox_TRAY->isChecked()){
             WBSET(WB_TRAY_ENABLED, checkBox_TRAY->isChecked());

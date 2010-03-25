@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>348</width>
-    <height>324</height>
+    <height>325</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,6 +28,19 @@
         <widget class="QCheckBox" name="checkBox_TRAY">
          <property name="text">
           <string>Show icon in system tray</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_EXIT_CONFIRM">
+         <property name="text">
+          <string>Ask confirm before exit</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>

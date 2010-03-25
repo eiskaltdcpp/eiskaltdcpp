@@ -90,6 +90,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_ANTISPAM_AS_FILTER, (int)false);
         intmap.insert(WB_IPFILTER_ENABLED, (int)false);
         intmap.insert(WB_TRAY_ENABLED, (int)true);
+        intmap.insert(WB_EXIT_CONFIRM, (int)true);
         intmap.insert(WB_SHOW_HIDDEN_USERS, (int)false);
         intmap.insert(WB_SHOW_JOINS, (int)false);
         intmap.insert(WB_NOTIFY_ENABLED, (int)true);

@@ -207,6 +207,7 @@ friend class dcpp::Singleton<MainWindow>;
         static bool FreeDiscSpace ( std::string path, unsigned long long * res, unsigned long long * res2);
 #endif
         bool isUnload;
+        bool exitBegin;
 
         // Widgets
         QDockWidget *arena;

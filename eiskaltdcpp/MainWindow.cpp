@@ -60,6 +60,8 @@ MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
         statusLabel(NULL)
 {
+    exitBegin = false;
+    
     arenaMap.clear();
     arenaWidgets.clear();
 
@@ -135,6 +137,26 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
         c_e->ignore();
 
         return;
+    }
+
+    if (isUnload && WBGET(WB_EXIT_CONFIRM) && !exitBegin){
+        QMessageBox::StandardButton ret;
+
+        ret = QMessageBox::question(this, tr("Exit confirm"),
+                                    tr("Exit program?"),
+                                    QMessageBox::Yes | QMessageBox::No,
+                                    QMessageBox::Yes);
+
+        if (ret == QMessageBox::Yes){
+            exitBegin = true;
+        }
+        else{
+            setUnload(false);
+
+            c_e->ignore();
+
+            return;
+        }
     }
 
     saveSettings();
