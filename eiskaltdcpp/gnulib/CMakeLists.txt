@@ -6,7 +6,6 @@ if (FS_USAGE_C)
 add_definitions(-DFS_USAGE_C)
 IF (NOT WIN32)
 aux_source_directory(${PROJECT_SOURCE_DIR} gnulib_SRCS)
-message (STATUS ${gnulib_SRCS})
 # actual target:
 ADD_LIBRARY(gnu STATIC ${gnulib_SRCS})
 ENDIF (NOT WIN32)

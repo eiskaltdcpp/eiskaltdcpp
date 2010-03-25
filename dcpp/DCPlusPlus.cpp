@@ -33,14 +33,15 @@
 #include "SettingsManager.h"
 #include "FinishedManager.h"
 #include "ResourceManager.h"
+#include "ThrottleManager.h"
 #include "ADLSearch.h"
 
 #include "StringTokenizer.h"
 
 #ifdef _STLP_DEBUG
 void __stl_debug_terminate() {
-	int* x = 0;
-	*x = 0;
+    int* x = 0;
+    *x = 0;
 }
 #endif
 
@@ -49,93 +50,95 @@ extern "C" int _nl_msg_cat_cntr;
 namespace dcpp {
 
 void startup(void (*f)(void*, const string&), void* p) {
-	// "Dedicated to the near-memory of Nev. Let's start remembering people while they're still alive."
-	// Nev's great contribution to dc++
-	while(1) break;
+    // "Dedicated to the near-memory of Nev. Let's start remembering people while they're still alive."
+    // Nev's great contribution to dc++
+    while(1) break;
 
 
 #ifdef _WIN32
-	WSADATA wsaData;
-	WSAStartup(MAKEWORD(2, 2), &wsaData);
+    WSADATA wsaData;
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
 #endif
 
-	Util::initialize();
+    Util::initialize();
 
-	bindtextdomain(PACKAGE, LOCALEDIR);
+    bindtextdomain(PACKAGE, LOCALEDIR);
 
-	ResourceManager::newInstance();
-	SettingsManager::newInstance();
+    ResourceManager::newInstance();
+    SettingsManager::newInstance();
 
-	LogManager::newInstance();
-	TimerManager::newInstance();
-	HashManager::newInstance();
-	CryptoManager::newInstance();
-	SearchManager::newInstance();
-	ClientManager::newInstance();
-	ConnectionManager::newInstance();
-	DownloadManager::newInstance();
-	UploadManager::newInstance();
-	ShareManager::newInstance();
-	FavoriteManager::newInstance();
-	QueueManager::newInstance();
-	FinishedManager::newInstance();
-	ADLSearchManager::newInstance();
+    LogManager::newInstance();
+    TimerManager::newInstance();
+    HashManager::newInstance();
+    CryptoManager::newInstance();
+    SearchManager::newInstance();
+    ClientManager::newInstance();
+    ConnectionManager::newInstance();
+    DownloadManager::newInstance();
+    UploadManager::newInstance();
+    ThrottleManager::newInstance();
+    ShareManager::newInstance();
+    FavoriteManager::newInstance();
+    QueueManager::newInstance();
+    FinishedManager::newInstance();
+    ADLSearchManager::newInstance();
 
-	SettingsManager::getInstance()->load();
+    SettingsManager::getInstance()->load();
 
-	if(!SETTING(LANGUAGE).empty()) {
+    if(!SETTING(LANGUAGE).empty()) {
 #ifdef _WIN32
-		string language = "LANGUAGE=" + SETTING(LANGUAGE);
-		putenv(language.c_str());
+        string language = "LANGUAGE=" + SETTING(LANGUAGE);
+        putenv(language.c_str());
 #else
-		setenv("LANGUAGE", SETTING(LANGUAGE).c_str(), true);
+        setenv("LANGUAGE", SETTING(LANGUAGE).c_str(), true);
 #endif
-		// Apparently this is supposted to make gettext reload the message catalog...
-		_nl_msg_cat_cntr++;
-	}
+        // Apparently this is supposted to make gettext reload the message catalog...
+        _nl_msg_cat_cntr++;
+    }
 
-	FavoriteManager::getInstance()->load();
-	CryptoManager::getInstance()->loadCertificates();
+    FavoriteManager::getInstance()->load();
+    CryptoManager::getInstance()->loadCertificates();
 
-	if(f != NULL)
-		(*f)(p, _("Hash database"));
-	HashManager::getInstance()->startup();
+    if(f != NULL)
+        (*f)(p, _("Hash database"));
+    HashManager::getInstance()->startup();
         if(f != NULL)
-		(*f)(p, _("Shared Files"));
+        (*f)(p, _("Shared Files"));
         ShareManager::getInstance()->refresh(false, false, true);
-	if(f != NULL)
-		(*f)(p, _("Download Queue"));
-	QueueManager::getInstance()->loadQueue();
+    if(f != NULL)
+        (*f)(p, _("Download Queue"));
+    QueueManager::getInstance()->loadQueue();
 }
 
 void shutdown() {
-	TimerManager::getInstance()->shutdown();
-	HashManager::getInstance()->shutdown();
-	ConnectionManager::getInstance()->shutdown();
+    TimerManager::getInstance()->shutdown();
+    HashManager::getInstance()->shutdown();
+    ConnectionManager::getInstance()->shutdown();
 
-	BufferedSocket::waitShutdown();
+    BufferedSocket::waitShutdown();
 
-	SettingsManager::getInstance()->save();
+    SettingsManager::getInstance()->save();
 
-	ADLSearchManager::deleteInstance();
-	FinishedManager::deleteInstance();
-	ShareManager::deleteInstance();
-	CryptoManager::deleteInstance();
-	DownloadManager::deleteInstance();
-	UploadManager::deleteInstance();
-	QueueManager::deleteInstance();
-	ConnectionManager::deleteInstance();
-	SearchManager::deleteInstance();
-	FavoriteManager::deleteInstance();
-	ClientManager::deleteInstance();
-	HashManager::deleteInstance();
-	LogManager::deleteInstance();
-	SettingsManager::deleteInstance();
-	TimerManager::deleteInstance();
-	ResourceManager::deleteInstance();
+    ADLSearchManager::deleteInstance();
+    FinishedManager::deleteInstance();
+    ShareManager::deleteInstance();
+    CryptoManager::deleteInstance();
+    ThrottleManager::deleteInstance();
+    DownloadManager::deleteInstance();
+    UploadManager::deleteInstance();
+    QueueManager::deleteInstance();
+    ConnectionManager::deleteInstance();
+    SearchManager::deleteInstance();
+    FavoriteManager::deleteInstance();
+    ClientManager::deleteInstance();
+    HashManager::deleteInstance();
+    LogManager::deleteInstance();
+    SettingsManager::deleteInstance();
+    TimerManager::deleteInstance();
+    ResourceManager::deleteInstance();
 
 #ifdef _WIN32
-	::WSACleanup();
+    ::WSACleanup();
 #endif
 }
 

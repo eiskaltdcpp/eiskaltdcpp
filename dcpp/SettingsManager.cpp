@@ -75,7 +75,10 @@ const string SettingsManager::settingTags[] =
     "OpenPublic", "OpenFavoriteHubs", "OpenFavoriteUsers", "OpenQueue", "OpenFinishedDownloads",
     "OpenFinishedUploads", "OpenSearchSpy", "OpenNetworkStatistics", "OpenNotepad", "OutgoingConnections",
     "NoIpOverride","NoUseTempDir","ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType", "BoldFinishedDownloads", "BoldFinishedUploads", "BoldQueue",
-    "BoldHub", "BoldPm", "BoldSearch", "BoldSearchSpy", "SocketInBuffer", "SocketOutBuffer",
+    "BoldHub", "BoldPm", "BoldSearch", "BoldSearchSpy",
+    "ThrottleEnable","UploadLimit","DownloadLimit", "UploadLimitNormal","DownloadLimitNormal",
+    "UploadLimitTime", "DownloadLimitTime", "TimeThrottle", "TimeLimitStart", "TimeLimitEnd",
+    "SocketInBuffer", "SocketOutBuffer",
     "OpenWaitingUsers", "BoldWaitingUsers", "OpenSystemLog", "BoldSystemLog", "AutoRefreshTime",
     "UseTLS", "AutoSearchLimit", "AltSortOrder", "AutoKickNoFavs", "PromptPassword", "SpyFrameIgnoreTthSearches",
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs", "AllowUntrustedClients",
@@ -186,6 +189,17 @@ SettingsManager::SettingsManager()
     setDefault(CONFIG_VERSION, "0.181");        // 0.181 is the last version missing configversion
     setDefault(KEEP_LISTS, false);
     setDefault(AUTO_KICK, false);
+    setDefault(MAX_UPLOAD_SPEED_LIMIT_NORMAL, 0);
+    setDefault(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, 0);
+    setDefault(MAX_UPLOAD_SPEED_LIMIT, 0);
+    setDefault(MAX_DOWNLOAD_SPEED_LIMIT, 0);
+    setDefault(MAX_UPLOAD_SPEED_LIMIT_TIME, 0);
+    setDefault(MAX_DOWNLOAD_SPEED_LIMIT_TIME, 0);
+    setDefault(TIME_DEPENDENT_THROTTLE, false);
+    setDefault(BANDWIDTH_LIMIT_START, 0);
+    setDefault(BANDWIDTH_LIMIT_END, 0);
+    setDefault(THROTTLE_ENABLE, false);
+   // setDefault(BWSETTING_MODE, BWSETTING_DEFAULT);
     setDefault(QUEUEFRAME_SHOW_TREE, true);
     setDefault(COMPRESS_TRANSFERS, true);
     setDefault(SFV_CHECK, true);

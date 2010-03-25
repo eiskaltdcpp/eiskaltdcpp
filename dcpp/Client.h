@@ -49,7 +49,7 @@ public:
 
     virtual size_t getUserCount() const = 0;
     virtual int64_t getAvailable() const = 0;
-
+    static int getTotalCounts() { return counts.normal + counts.registered + counts.op; }
     virtual void send(const AdcCommand& command) = 0;
 
     virtual string escape(string const& str) const { return str; }

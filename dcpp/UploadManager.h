@@ -23,6 +23,7 @@
 #include "UserConnectionListener.h"
 #include "Singleton.h"
 #include "UploadManagerListener.h"
+#include "Client.h"
 #include "ClientManagerListener.h"
 #include "MerkleTree.h"
 #include "User.h"
@@ -36,86 +37,86 @@ namespace dcpp {
 class UploadManager : private ClientManagerListener, private UserConnectionListener, public Speaker<UploadManagerListener>, private TimerManagerListener, public Singleton<UploadManager>
 {
 public:
-	/** @return Number of uploads. */
-	size_t getUploadCount() { Lock l(cs); return uploads.size(); }
+    /** @return Number of uploads. */
+    size_t getUploadCount() { Lock l(cs); return uploads.size(); }
 
-	/**
-	 * @remarks This is only used in the tray icons. Could be used in
-	 * MainFrame too.
-	 *
-	 * @return Running average download speed in Bytes/s
-	 */
-	int64_t getRunningAverage();
+    /**
+     * @remarks This is only used in the tray icons. Could be used in
+     * MainFrame too.
+     *
+     * @return Running average download speed in Bytes/s
+     */
+    int64_t getRunningAverage();
+    uint8_t getSlots() const { return (uint8_t) (SETTING(SLOTS)* Client::getTotalCounts());}
+    /** @return Number of free slots. */
+    int getFreeSlots() { return max((SETTING(SLOTS) - running), 0); }
 
-	/** @return Number of free slots. */
-	int getFreeSlots() { return max((SETTING(SLOTS) - running), 0); }
+    /** @internal */
+    int getFreeExtraSlots() { return max(3 - getExtra(), 0); }
 
-	/** @internal */
-	int getFreeExtraSlots() { return max(3 - getExtra(), 0); }
+    /** @param aUser Reserve an upload slot for this user and connect. */
+    void reserveSlot(const UserPtr& aUser, const string& hubHint);
 
-	/** @param aUser Reserve an upload slot for this user and connect. */
-	void reserveSlot(const UserPtr& aUser, const string& hubHint);
+    typedef set<string> FileSet;
+    typedef unordered_map<UserPtr, FileSet, User::Hash> FilesMap;
+    void clearUserFiles(const UserPtr&);
+    UserList getWaitingUsers();
+    const FileSet& getWaitingUserFiles(const UserPtr&);
 
-	typedef set<string> FileSet;
-	typedef unordered_map<UserPtr, FileSet, User::Hash> FilesMap;
-	void clearUserFiles(const UserPtr&);
-	UserList getWaitingUsers();
-	const FileSet& getWaitingUserFiles(const UserPtr&);
+    /** @internal */
+    void addConnection(UserConnectionPtr conn);
 
-	/** @internal */
-	void addConnection(UserConnectionPtr conn);
-
-	GETSET(int, running, Running);
-	GETSET(int, extra, Extra);
-	GETSET(uint64_t, lastGrant, LastGrant);
+    GETSET(int, running, Running);
+    GETSET(int, extra, Extra);
+    GETSET(uint64_t, lastGrant, LastGrant);
 private:
-	UploadList uploads;
-	CriticalSection cs;
+    UploadList uploads;
+    CriticalSection cs;
 
-	typedef unordered_set<UserPtr, User::Hash> SlotSet;
-	typedef SlotSet::iterator SlotIter;
-	SlotSet reservedSlots;
-	CPerfolderLimit limits;
+    typedef unordered_set<UserPtr, User::Hash> SlotSet;
+    typedef SlotSet::iterator SlotIter;
+    SlotSet reservedSlots;
+    CPerfolderLimit limits;
 
-	typedef pair<UserPtr, uint64_t> WaitingUser;
-	typedef list<WaitingUser> WaitingUserList;
+    typedef pair<UserPtr, uint64_t> WaitingUser;
+    typedef list<WaitingUser> WaitingUserList;
 
-	struct WaitingUserFresh {
-		bool operator()(const WaitingUser& wu) { return wu.second > GET_TICK() - 5*60*1000; }
-	};
+    struct WaitingUserFresh {
+        bool operator()(const WaitingUser& wu) { return wu.second > GET_TICK() - 5*60*1000; }
+    };
 
-	//functions for manipulating waitingFiles and waitingUsers
-	WaitingUserList waitingUsers;		//this one merely lists the users waiting for slots
-	FilesMap waitingFiles;		//set of files which this user has asked for
-	void addFailedUpload(const UserConnection& source, string filename);
+    //functions for manipulating waitingFiles and waitingUsers
+    WaitingUserList waitingUsers;       //this one merely lists the users waiting for slots
+    FilesMap waitingFiles;      //set of files which this user has asked for
+    void addFailedUpload(const UserConnection& source, string filename);
 
-	friend class Singleton<UploadManager>;
-	UploadManager() throw();
-	virtual ~UploadManager() throw();
+    friend class Singleton<UploadManager>;
+    UploadManager() throw();
+    virtual ~UploadManager() throw();
 
-	bool getAutoSlot();
-	void removeConnection(UserConnection* aConn);
-	void removeUpload(Upload* aUpload);
+    bool getAutoSlot();
+    void removeConnection(UserConnection* aConn);
+    void removeUpload(Upload* aUpload);
 
-	// ClientManagerListener
-	virtual void on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) throw();
+    // ClientManagerListener
+    virtual void on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) throw();
 
-	// TimerManagerListener
-	virtual void on(Second, uint32_t aTick) throw();
-	virtual void on(Minute, uint32_t aTick) throw();
+    // TimerManagerListener
+    virtual void on(Second, uint32_t aTick) throw();
+    virtual void on(Minute, uint32_t aTick) throw();
 
-	// UserConnectionListener
-	virtual void on(BytesSent, UserConnection*, size_t, size_t) throw();
-	virtual void on(Failed, UserConnection*, const string&) throw();
-	virtual void on(Get, UserConnection*, const string&, int64_t) throw();
-	virtual void on(Send, UserConnection*) throw();
-	virtual void on(GetListLength, UserConnection* conn) throw();
-	virtual void on(TransmitDone, UserConnection*) throw();
+    // UserConnectionListener
+    virtual void on(BytesSent, UserConnection*, size_t, size_t) throw();
+    virtual void on(Failed, UserConnection*, const string&) throw();
+    virtual void on(Get, UserConnection*, const string&, int64_t) throw();
+    virtual void on(Send, UserConnection*) throw();
+    virtual void on(GetListLength, UserConnection* conn) throw();
+    virtual void on(TransmitDone, UserConnection*) throw();
 
-	virtual void on(AdcCommand::GET, UserConnection*, const AdcCommand&) throw();
-	virtual void on(AdcCommand::GFI, UserConnection*, const AdcCommand&) throw();
+    virtual void on(AdcCommand::GET, UserConnection*, const AdcCommand&) throw();
+    virtual void on(AdcCommand::GFI, UserConnection*, const AdcCommand&) throw();
 
-	bool prepareFile(UserConnection& aSource, const string& aType, const string& aFile, int64_t aResume, int64_t aBytes, bool listRecursive = false);
+    bool prepareFile(UserConnection& aSource, const string& aType, const string& aFile, int64_t aResume, int64_t aBytes, bool listRecursive = false);
 };
 
 } // namespace dcpp

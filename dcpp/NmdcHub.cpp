@@ -782,13 +782,19 @@ void NmdcHub::myInfo(bool alwaysSend) {
         modeChar = 'A';
     else
         modeChar = 'P';
-
+string uploadSpeed;
+    int upLimit = BOOLSETTING(THROTTLE_ENABLE) ? SETTING(MAX_UPLOAD_SPEED_LIMIT) : 0;
+    if (upLimit > 0) {
+        uploadSpeed = Util::toString(upLimit) + " KiB/s";
+    } else {
+        uploadSpeed = SETTING(UPLOAD_SPEED);
+    }
     string uMin = (SETTING(MIN_UPLOAD_SPEED) == 0) ? Util::emptyString : ",O:" + Util::toString(SETTING(MIN_UPLOAD_SPEED));
     string myInfoA =
         "$MyINFO $ALL " + fromUtf8(getMyNick()) + " " + fromUtf8(escape(getCurrentDescription())) + " <"+ getClientId().c_str() + ",M:" + modeChar + ",H:" + getCounts();
     string myInfoB = ",S:" + Util::toString(SETTING(SLOTS));
     string myInfoC = uMin +
-        ">$ $" + SETTING(UPLOAD_SPEED) + "\x01$" + fromUtf8(escape(SETTING(EMAIL))) + '$';
+        ">$ $" + uploadSpeed + "\x01$" + fromUtf8(escape(SETTING(EMAIL))) + '$';
     string myInfoD = ShareManager::getInstance()->getShareSizeString() + "$|";
     // we always send A and C; however, B (slots) and D (share size) can frequently change so we delay them if needed
     if(lastMyInfoA != myInfoA || lastMyInfoC != myInfoC ||

@@ -26,6 +26,8 @@ protected:
 private slots:
     void slotToggleIncomming();
     void slotToggleOutgoing();
+    void slotThrottle();
+    void slotTimeThrottle();
 
 private:
     void init();

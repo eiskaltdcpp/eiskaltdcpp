@@ -25,6 +25,7 @@
 #include "StringTokenizer.h"
 #include "SettingsManager.h"
 #include "LogManager.h"
+#include "UploadManager.h" // [+]IRainman
 #include "version.h"
 #include "File.h"
 #include "SimpleXML.h"
@@ -1111,6 +1112,54 @@ string Util::translateError(int aError) {
     return Text::toUtf8(strerror(aError));
 #endif // _WIN32
 }
+//[+]IRainman SpeedLimiter
+void Util::checkLimiterSpeed()
+{
+    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) < 5 * UploadManager::getInstance()->getSlots() + 4)
+    {
+        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, 5 * UploadManager::getInstance()->getSlots() + 4);
+    }
 
+    if ((SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) > 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL)) || (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) == 0))
+    {
+        SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
+    }
+
+    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) < 5 * UploadManager::getInstance()->getSlots() + 4)
+    {
+        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, 5 * UploadManager::getInstance()->getSlots() + 4);
+    }
+
+    if ((SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) > 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME)) || (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) == 0))
+    {
+        SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
+    }
+
+    if (Util::checkLimiterTime())
+    {
+        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
+        SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME));
+    }
+    else
+    {
+        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
+        SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
+    }
+}
+
+bool Util::checkLimiterTime()
+{
+    if (!SETTING(TIME_DEPENDENT_THROTTLE))
+        return false;
+
+    time_t currentTime;
+    time(&currentTime);
+    int currentHour = localtime(&currentTime)->tm_hour;
+    return ((SETTING(BANDWIDTH_LIMIT_START) < SETTING(BANDWIDTH_LIMIT_END) &&
+             currentHour >= SETTING(BANDWIDTH_LIMIT_START) && currentHour < SETTING(BANDWIDTH_LIMIT_END)) ||
+            (SETTING(BANDWIDTH_LIMIT_START) > SETTING(BANDWIDTH_LIMIT_END) &&
+             (currentHour >= SETTING(BANDWIDTH_LIMIT_START) || currentHour < SETTING(BANDWIDTH_LIMIT_END))));
+}
+//[~]IRainman SpeedLimiter
 
 } // namespace dcpp

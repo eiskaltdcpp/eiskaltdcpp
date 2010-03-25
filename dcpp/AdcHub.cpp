@@ -700,15 +700,30 @@ void AdcHub::info(bool /*alwaysSend*/) {
     addParam(lastInfoMap, c, "HR", Util::toString(counts.registered));
     addParam(lastInfoMap, c, "HO", Util::toString(counts.op));
     addParam(lastInfoMap, c, "VE", getClientId().c_str());
-
-    addParam(lastInfoMap, c, "US", Util::toString((long)(Util::toDouble(SETTING(UPLOAD_SPEED))*1024*1024/8)));
+    if (BOOLSETTING(THROTTLE_ENABLE) && SETTING(MAX_UPLOAD_SPEED_LIMIT) != 0)
+    {
+        addParam(lastInfoMap, c, "US", Util::toString(SETTING(MAX_UPLOAD_SPEED_LIMIT)*1024));
+    }
+    else
+    {
+        addParam(lastInfoMap, c, "US", Util::toString((long)(Util::toDouble(SETTING(UPLOAD_SPEED))*1024*1024 / 8)));
+    }
+    //addParam(lastInfoMap, c, "US", Util::toString((long)(Util::toDouble(SETTING(UPLOAD_SPEED))*1024*1024/8)));
     addParam(lastInfoMap, c, "AW", Util::getAway() ? "1" : Util::emptyString);
 
-    if(SETTING(MAX_DOWNLOAD_SPEED) > 0) {
+        if (BOOLSETTING(THROTTLE_ENABLE) && SETTING(MAX_DOWNLOAD_SPEED_LIMIT) != 0)
+    {
+        addParam(lastInfoMap, c, "DS", Util::toString((SETTING(MAX_DOWNLOAD_SPEED_LIMIT)*1024)));
+    }
+    else
+    {
+        addParam(lastInfoMap, c, "DS", Util::emptyString);
+    }
+    /*if(SETTING(MAX_DOWNLOAD_SPEED) > 0) {
         addParam(lastInfoMap, c, "DS", Util::toString((SETTING(MAX_DOWNLOAD_SPEED)*1024*8)));
     } else {
         addParam(lastInfoMap, c, "DS", Util::emptyString);
-    }
+    }*/
 
     string su;
     if(CryptoManager::getInstance()->TLSOk()) {

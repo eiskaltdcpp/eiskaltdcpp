@@ -32,8 +32,7 @@ bool SettingsConnection::eventFilter(QObject *obj, QEvent *e){
 #include <QtDebug>
 
 void SettingsConnection::ok(){
-    if (!dirty)
-        return;
+    qDebug() << dirty;
 
     bool active = !radioButton_PASSIVE->isChecked();
     SettingsManager *SM = SettingsManager::getInstance();
@@ -65,12 +64,10 @@ void SettingsConnection::ok(){
             SM->set(SettingsManager::TLS_PORT, 3031);
             showMsg(tr("You enter ports with number < 1024, ports numbers set to default."));
         }
-
         ip.replace(" ", "");
         ip = ip.trimmed();
 
         qDebug() << ip;
-
         SM->set(SettingsManager::EXTERNAL_IP, ip.toStdString());
         SM->set(SettingsManager::NO_IP_OVERRIDE, checkBox_DONTOVERRIDE->checkState() == Qt::Checked);
     }
@@ -108,6 +105,25 @@ void SettingsConnection::ok(){
     if (SETTING(OUTGOING_CONNECTIONS) != type)
         Socket::socksUpdated();
 
+        SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
+        qDebug() << SETTING(THROTTLE_ENABLE) << "->" << checkBox_THROTTLE_ENABLE->isChecked();
+        SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_THROTTLE_ENABLE->isChecked());
+        qDebug() << SETTING(TIME_DEPENDENT_THROTTLE) << "->"<< checkBox_THROTTLE_ENABLE->isChecked();
+        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, spinBox_DOWN_LIMIT_NORMAL->value());
+        qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_DOWN_LIMIT_NORMAL->value();
+        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, spinBox_UP_LIMIT_NORMAL->value());
+        qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_UP_LIMIT_NORMAL->value();
+        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, spinBox_DOWN_LIMIT_TIME->value());
+        qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_DOWN_LIMIT_TIME->value();
+        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
+        qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_UP_LIMIT_TIME->value();
+        SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
+        qDebug() << SETTING(BANDWIDTH_LIMIT_START) << "->" << spinBox_BANDWIDTH_LIMIT_START->value();
+        SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
+        qDebug() << SETTING(BANDWIDTH_LIMIT_END) << "->" << spinBox_BANDWIDTH_LIMIT_END->value();
+        if((checkBox_THROTTLE_ENABLE->isChecked() || checkBox_TIME_DEPENDENT_THROTTLE->isChecked()))
+            Util::checkLimiterSpeed();
+
     SM->save();
 
     if (old_mode != SETTING(INCOMING_CONNECTIONS) || old_tcp != (SETTING(TCP_PORT))
@@ -124,9 +140,17 @@ void SettingsConnection::init(){
         spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));
         spinBox_TLS->setValue(old_tls = SETTING(TLS_PORT));
     }
-
+    checkBox_THROTTLE_ENABLE->setChecked(BOOLSETTING(THROTTLE_ENABLE));
+    checkBox_TIME_DEPENDENT_THROTTLE->setChecked(BOOLSETTING(TIME_DEPENDENT_THROTTLE));
+    spinBox_DOWN_LIMIT_NORMAL->setValue(SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
+    spinBox_UP_LIMIT_NORMAL->setValue(SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
+    spinBox_DOWN_LIMIT_TIME->setValue(SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME));
+    spinBox_UP_LIMIT_TIME->setValue(SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
+    spinBox_BANDWIDTH_LIMIT_START->setValue(SETTING(BANDWIDTH_LIMIT_START));
+    spinBox_BANDWIDTH_LIMIT_END->setValue(SETTING(BANDWIDTH_LIMIT_END));
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
-
+    frame_4->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
+    frame_3->setEnabled(checkBox_THROTTLE_ENABLE->isChecked());
     switch (SETTING(INCOMING_CONNECTIONS)){
         case SettingsManager::INCOMING_DIRECT:
         {
@@ -183,7 +207,8 @@ void SettingsConnection::init(){
     connect(radioButton_PORT, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
     connect(radioButton_PASSIVE, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
     connect(radioButton_UPNP, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
-
+    connect(checkBox_THROTTLE_ENABLE,SIGNAL(toggled(bool)),this,SLOT(slotThrottle()));
+    connect(checkBox_TIME_DEPENDENT_THROTTLE,SIGNAL(toggled(bool)),this,SLOT(slotTimeThrottle()));
     connect(radioButton_DC, SIGNAL(toggled(bool)), this, SLOT(slotToggleOutgoing()));
     connect(radioButton_SOCKS, SIGNAL(toggled(bool)), this, SLOT(slotToggleOutgoing()));
 
@@ -214,6 +239,16 @@ void SettingsConnection::slotToggleIncomming(){
     frame->setEnabled(b);
 }
 
+void SettingsConnection::slotThrottle(){
+    bool b=checkBox_THROTTLE_ENABLE->isChecked();
+    frame_3->setEnabled(b);
+}
+
+void SettingsConnection::slotTimeThrottle(){
+    bool b=checkBox_TIME_DEPENDENT_THROTTLE->isChecked();
+
+    frame_4->setEnabled(b);
+}
 void SettingsConnection::slotToggleOutgoing(){
     bool b = !radioButton_DC->isChecked();
 
