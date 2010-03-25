@@ -44,6 +44,7 @@ HashProgress::~HashProgress(){
 }
 
 void HashProgress::timerTick(){
+    static bool isDone = false;
     string path;
     int64_t bytes = 0;
     size_t files = 0;
@@ -62,6 +63,8 @@ void HashProgress::timerTick(){
 
         return;;
     }
+    else if (isDone)
+        return;
 
     double diff = tick - startTime;
 
@@ -92,6 +95,8 @@ void HashProgress::timerTick(){
     }
 
     if(files == 0) {
+        isDone = true;
+        progress->setValue(100);
         file->setText(tr("Done"));
     }
     else {
