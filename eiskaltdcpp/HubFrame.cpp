@@ -638,7 +638,11 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
             if (!cid.isEmpty()){
                 if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0){
-                    plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                    if (plainTextEdit_INPUT->textCursor().position() == 0)
+                        plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                    else
+                        plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
+
                     plainTextEdit_INPUT->setFocus();
                 }
                 else
@@ -684,7 +688,11 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1)
                     browseUserFiles(cid, false);
                 else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
-                    plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                    if (plainTextEdit_INPUT->textCursor().position() == 0)
+                        plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                    else
+                        plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
+
                     plainTextEdit_INPUT->setFocus();
                 }
             }
@@ -1708,7 +1716,10 @@ void HubFrame::nickCompletion() {
                 i--;
             }
 
-            plainTextEdit_INPUT->textCursor().insertText(nick + ": ");
+            if (plainTextEdit_INPUT->textCursor().position() == 0)
+                plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+            else
+                plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
         }
 
         delete m;

@@ -39,6 +39,13 @@ void callBack(void* x, const std::string& a)
 
 void parseCmdLine(const QStringList &);
 
+#ifndef WIN32
+#include <unistd.h>
+#include <signal.h>
+
+void installHandlers();
+#endif
+
 int main(int argc, char *argv[])
 {
     EiskaltApp app(argc, argv);
@@ -53,6 +60,8 @@ int main(int argc, char *argv[])
 
     dcpp::startup(callBack, NULL);
     dcpp::TimerManager::getInstance()->start();
+
+    installHandlers();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
 
@@ -146,7 +155,7 @@ void parseCmdLine(const QStringList &args){
                             "  -v, --version\t Show version string"
                             );
 
-            printf("%s\n", msg.toAscii().constData());
+            std::cout << msg.toAscii().constData() << std::endl;
 
             exit(0);
         }
@@ -160,4 +169,18 @@ void parseCmdLine(const QStringList &args){
         }
     }
 }
+
+#ifndef WIN32
+void installHandlers(){
+    struct sigaction sa;
+    memset(&sa, 0, sizeof(sa));
+    sa.sa_handler = SIG_IGN;
+    if (sigaction(SIGPIPE, &sa, NULL) == -1){
+        std::cout << "Cannot handle SIGPIPE" << std::endl;
+    }
+
+    std::cout << "Signal handlers installed." << std::endl;
+}
+
+#endif
 

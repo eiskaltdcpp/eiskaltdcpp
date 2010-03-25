@@ -307,7 +307,7 @@ int File::extendFile(int64_t len) throw() {
 	char zero;
 
 	if( (lseek(h, (off_t)len, SEEK_SET) != -1) && (::write(h, &zero,1) != -1) ) {
-		ftruncate(h,(off_t)len);
+                (void)ftruncate(h,(off_t)len);
 		return 1;
 	}
 	return -1;
