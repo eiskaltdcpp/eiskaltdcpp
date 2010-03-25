@@ -49,7 +49,8 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::MIN_UPLOAD_SPEED, spinBox_EXTRA->value());
     SM->set(SettingsManager::SLOTS, spinBox_UPLOAD->value());
     SM->set(SettingsManager::SKIPLIST_SHARE, _tq(lineEdit_SKIPLIST->text()));
-	SM->set(SettingsManager::MAX_HASH_SPEED, spinBox_MAXHASHSPEED->value());
+    SM->set(SettingsManager::MAX_HASH_SPEED, spinBox_MAXHASHSPEED->value());
+    SM->set(SettingsManager::FAST_HASH, checkBox_FASTHASH->isChecked());
 
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
 
@@ -60,6 +61,7 @@ void SettingsSharing::init(){
     checkBox_SHAREHIDDEN->setChecked(BOOLSETTING(SHARE_HIDDEN));
     checkBox_SHARE_TEMP_FILES->setChecked(BOOLSETTING(SHARE_TEMP_FILES));
     checkBox_FOLLOW->setChecked(BOOLSETTING(FOLLOW_LINKS));
+    checkBox_FASTHASH->setChecked(BOOLSETTING(FAST_HASH));
     lineEdit_SKIPLIST->setText(_q(SETTING(SKIPLIST_SHARE)));
     spinBox_UPLOAD->setValue(SETTING(SLOTS));
 	spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
