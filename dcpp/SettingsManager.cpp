@@ -132,7 +132,7 @@ SettingsManager::SettingsManager()
 
     setDefault(DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS));
     setDefault(TEMP_DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_USER_LOCAL) + "Incomplete" PATH_SEPARATOR_STR);
-    setDefault(SLOTS, 1);
+    setDefault(SLOTS, 5);
     setDefault(TCP_PORT, 0);
     setDefault(UDP_PORT, 0);
     setDefault(TLS_PORT, 0);
@@ -163,7 +163,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_MAIN_CHAT, false);
     setDefault(STATUS_IN_CHAT, true);
     setDefault(SHOW_JOINS, false);
-    setDefault(UPLOAD_SPEED, connectionSpeeds[0]);
+    setDefault(UPLOAD_SPEED, connectionSpeeds[11]);
     setDefault(USE_SYSTEM_ICONS, true);
     setDefault(USE_OEM_MONOFONT, false);
     setDefault(POPUP_PMS, true);
