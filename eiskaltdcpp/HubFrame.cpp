@@ -850,7 +850,8 @@ void HubFrame::init(){
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
     connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
     connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
-    connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged(QString)));
+    connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged()));
+    connect(comboBox_COLUMNS, SIGNAL(activated(int)), this, SLOT(slotFilterTextChanged()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
     connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
 
@@ -2175,7 +2176,9 @@ void HubFrame::slotHideFindFrame(){
     }
 }
 
-void HubFrame::slotFilterTextChanged(const QString & text){
+void HubFrame::slotFilterTextChanged(){
+    QString text = lineEdit_FILTER->text();
+
     if (!text.isEmpty()){
         if (!proxy){
             proxy = new QSortFilterProxyModel(this);
