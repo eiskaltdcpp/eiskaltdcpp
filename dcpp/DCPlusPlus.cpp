@@ -102,9 +102,9 @@ void startup(void (*f)(void*, const string&), void* p) {
     if(f != NULL)
         (*f)(p, _("Hash database"));
     HashManager::getInstance()->startup();
-        if(f != NULL)
+    if(f != NULL)
         (*f)(p, _("Shared Files"));
-        ShareManager::getInstance()->refresh(false, false, true);
+    ShareManager::getInstance()->refresh(true, false, true);
     if(f != NULL)
         (*f)(p, _("Download Queue"));
     QueueManager::getInstance()->loadQueue();
