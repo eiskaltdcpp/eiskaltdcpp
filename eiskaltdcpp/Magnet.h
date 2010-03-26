@@ -44,7 +44,8 @@ private slots:
     void search();
     void download();
     void timeout();
-	void slotBrowse();
+    void slotBrowse();
+    void slotNameChanged();
 
 private:
     QTimer *t;
