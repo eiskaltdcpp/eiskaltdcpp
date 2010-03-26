@@ -265,8 +265,6 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
 }
 
 void MainWindow::init(){
-    installEventFilter(this);
-
     arena = new QDockWidget();
     arena->setFloating(false);
     arena->setAllowedAreas(Qt::RightDockWidgetArea);
@@ -736,7 +734,6 @@ void MainWindow::initToolbar(){
     fBar->setMovable(true);
     fBar->setFloatable(true);
     fBar->setAllowedAreas(Qt::AllToolBarAreas);
-    fBar->installEventFilter(this);
 
     tBar = new ToolBar(this);
     tBar->setObjectName("tBar");
@@ -745,7 +742,6 @@ void MainWindow::initToolbar(){
     tBar->setMovable(true);
     tBar->setFloatable(true);
     tBar->setAllowedAreas(Qt::AllToolBarAreas);
-    tBar->installEventFilter(this);
 
     addToolBar(fBar);
     addToolBar(tBar);
