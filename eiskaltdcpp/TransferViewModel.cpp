@@ -16,6 +16,7 @@
 #include <QPainter>
 #include <QSize>
 #include <QStyleOptionProgressBar>
+#include <QHash>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -254,14 +255,24 @@ void TransferViewModel::sort(int column, Qt::SortOrder order) {
     if (column == -1)
         return;
 
-    emit layoutAboutToBeChanged();
+    QHash<TransferViewItem*, QModelIndex> hash;
+
+    for (int i = 0; i < rootItem->childCount(); i++){
+        hash.insert(rootItem->child(i), createIndex(i, 0, rootItem->child(i)));
+    }
+
+    //emit layoutAboutToBeChanged();
 
     if (order == Qt::AscendingOrder)
         Compare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
     else if (order == Qt::DescendingOrder)
         Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
 
-    emit layoutChanged();
+    //emit layoutChanged();
+
+    for (int i = 0; i < rootItem->childCount(); i++){
+        changePersistentIndex(hash.value(rootItem->child(i)), createIndex(i, 0, rootItem->child(i)));
+    }
 }
 
 void TransferViewModel::initTransfer(VarMap params){
