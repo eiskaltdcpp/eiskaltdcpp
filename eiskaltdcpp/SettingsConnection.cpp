@@ -10,8 +10,10 @@
 #include <QRadioButton>
 #include <QList>
 #include <QMessageBox>
+//#define DEBUG_CONNECTION
+#ifdef DEBUG_CONNECTION
 #include <QtDebug>
-
+#endif
 using namespace dcpp;
 
 SettingsConnection::SettingsConnection( QWidget *parent):
@@ -39,9 +41,9 @@ void SettingsConnection::ok(){
 
     if (active){
         QString ip = lineEdit_WANIP->text();
-
+#ifdef DEBUG_CONNECTION
         qDebug() << ip;
-
+#endif
         if (!validateIp(ip))
             ip = "";
 
@@ -64,8 +66,9 @@ void SettingsConnection::ok(){
         }
         ip.replace(" ", "");
         ip = ip.trimmed();
-
+#ifdef DEBUG_CONNECTION
         qDebug() << ip;
+#endif
         SM->set(SettingsManager::EXTERNAL_IP, ip.toStdString());
         SM->set(SettingsManager::NO_IP_OVERRIDE, checkBox_DONTOVERRIDE->checkState() == Qt::Checked);
     }
@@ -102,22 +105,23 @@ void SettingsConnection::ok(){
 
     if (SETTING(OUTGOING_CONNECTIONS) != type)
         Socket::socksUpdated();
-
+#ifdef DEBUG_CONNECTION
         qDebug() << SETTING(THROTTLE_ENABLE) << "->" << checkBox_THROTTLE_ENABLE->isChecked();
-        SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
         qDebug() << SETTING(TIME_DEPENDENT_THROTTLE) << "->"<< checkBox_TIME_DEPENDENT_THROTTLE->isChecked();
-        SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
         qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_DOWN_LIMIT_NORMAL->value();
-        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, spinBox_DOWN_LIMIT_NORMAL->value());
         qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_UP_LIMIT_NORMAL->value();
-        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, spinBox_UP_LIMIT_NORMAL->value());
         qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_DOWN_LIMIT_TIME->value();
-        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, spinBox_DOWN_LIMIT_TIME->value());
         qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_UP_LIMIT_TIME->value();
-        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
         qDebug() << SETTING(BANDWIDTH_LIMIT_START) << "->" << spinBox_BANDWIDTH_LIMIT_START->value();
-        SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
         qDebug() << SETTING(BANDWIDTH_LIMIT_END) << "->" << spinBox_BANDWIDTH_LIMIT_END->value();
+#endif
+        SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
+        SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
+        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, spinBox_DOWN_LIMIT_NORMAL->value());
+        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, spinBox_UP_LIMIT_NORMAL->value());
+        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, spinBox_DOWN_LIMIT_TIME->value());
+        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
+        SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
         SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
 
         if((checkBox_THROTTLE_ENABLE->isChecked() || checkBox_TIME_DEPENDENT_THROTTLE->isChecked()))
@@ -150,6 +154,7 @@ void SettingsConnection::init(){
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
     frame_4->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
     frame_3->setEnabled(checkBox_THROTTLE_ENABLE->isChecked());
+    frame_5->setEnabled(checkBox_THROTTLE_ENABLE->isChecked());
     switch (SETTING(INCOMING_CONNECTIONS)){
         case SettingsManager::INCOMING_DIRECT:
         {
@@ -246,7 +251,7 @@ void SettingsConnection::slotThrottle(){
 void SettingsConnection::slotTimeThrottle(){
     bool b=checkBox_TIME_DEPENDENT_THROTTLE->isChecked();
 
-    frame_4->setEnabled(b);
+    frame_4->setEnabled(b);frame_5->setEnabled(b);
 }
 void SettingsConnection::slotToggleOutgoing(){
     bool b = !radioButton_DC->isChecked();
