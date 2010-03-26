@@ -10,6 +10,7 @@
 #include <QRadioButton>
 #include <QList>
 #include <QMessageBox>
+#include <QtDebug>
 
 using namespace dcpp;
 
@@ -29,10 +30,7 @@ bool SettingsConnection::eventFilter(QObject *obj, QEvent *e){
     return QWidget::eventFilter(obj, e);
 }
 
-#include <QtDebug>
-
 void SettingsConnection::ok(){
-    qDebug() << dirty;
 
     bool active = !radioButton_PASSIVE->isChecked();
     SettingsManager *SM = SettingsManager::getInstance();
@@ -105,22 +103,23 @@ void SettingsConnection::ok(){
     if (SETTING(OUTGOING_CONNECTIONS) != type)
         Socket::socksUpdated();
 
-        SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
         qDebug() << SETTING(THROTTLE_ENABLE) << "->" << checkBox_THROTTLE_ENABLE->isChecked();
-        SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_THROTTLE_ENABLE->isChecked());
-        qDebug() << SETTING(TIME_DEPENDENT_THROTTLE) << "->"<< checkBox_THROTTLE_ENABLE->isChecked();
-        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, spinBox_DOWN_LIMIT_NORMAL->value());
+        SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
+        qDebug() << SETTING(TIME_DEPENDENT_THROTTLE) << "->"<< checkBox_TIME_DEPENDENT_THROTTLE->isChecked();
+        SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
         qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_DOWN_LIMIT_NORMAL->value();
-        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, spinBox_UP_LIMIT_NORMAL->value());
+        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, spinBox_DOWN_LIMIT_NORMAL->value());
         qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_UP_LIMIT_NORMAL->value();
-        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, spinBox_DOWN_LIMIT_TIME->value());
+        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, spinBox_UP_LIMIT_NORMAL->value());
         qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_DOWN_LIMIT_TIME->value();
-        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
+        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, spinBox_DOWN_LIMIT_TIME->value());
         qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_UP_LIMIT_TIME->value();
-        SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
+        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
         qDebug() << SETTING(BANDWIDTH_LIMIT_START) << "->" << spinBox_BANDWIDTH_LIMIT_START->value();
-        SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
+        SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
         qDebug() << SETTING(BANDWIDTH_LIMIT_END) << "->" << spinBox_BANDWIDTH_LIMIT_END->value();
+        SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
+
         if((checkBox_THROTTLE_ENABLE->isChecked() || checkBox_TIME_DEPENDENT_THROTTLE->isChecked()))
             Util::checkLimiterSpeed();
 
