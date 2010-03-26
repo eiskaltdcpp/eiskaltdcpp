@@ -290,7 +290,7 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
 message(STATUS "CMAKE use in build this libs(and headers):
 
                 upnp: ${UPNP_LIBRARY}
-                boost: ${Boost_LIBRARIES} ${Boost_INCLUDEDIR}
+                boost: ${Boost_LIBRARIES} ${Boost_INCLUDE_DIR}
                 bzip2: ${BZIP2_LIBRARIES}
                 zlib: ${ZLIB_LIBRARIES}
                 openssl: ${OPENSSL_LIBRARIES}
