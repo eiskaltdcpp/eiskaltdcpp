@@ -1004,12 +1004,12 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="145"/>
         <source>Exit confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Пацьвердзіць, што выходзім</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="146"/>
         <source>Exit program?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ці выйсьці з праграмы?</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="366"/>
@@ -1206,7 +1206,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="702"/>
         <source>Public hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>Публічныя асяродкі</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="704"/>
@@ -1382,12 +1382,12 @@ Please check your connection settings</source>
     <message>
         <location filename="../Notification.cpp" line="63"/>
         <source>Show/Hide window</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказаць або схаваць ваконца</translation>
     </message>
     <message>
         <location filename="../Notification.cpp" line="64"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Выйсьці</translation>
     </message>
 </context>
 <context>
@@ -1418,62 +1418,62 @@ Please check your connection settings</source>
     <message>
         <location filename="../PublicHubModel.cpp" line="13"/>
         <source>Name</source>
-        <translation type="unfinished">Назоў</translation>
+        <translation>Назоў</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="13"/>
         <source>Description</source>
-        <translation type="unfinished">Апісаньне</translation>
+        <translation>Апісаньне</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="13"/>
         <source>Users</source>
-        <translation type="unfinished">Карыстальнікі</translation>
+        <translation>Карыстальнікі</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="13"/>
         <source>Address</source>
-        <translation type="unfinished">Адрэса</translation>
+        <translation>Адрэса</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="14"/>
         <source>Country</source>
-        <translation type="unfinished"></translation>
+        <translation>Краіна</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="14"/>
         <source>Shared</source>
-        <translation type="unfinished"></translation>
+        <translation>Абагуленае</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="14"/>
         <source>Min share</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Найменшае абагуленае</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="14"/>
         <source>Min slots</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Найменей шчылінаў</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="15"/>
         <source>Max hubs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Найболей асяродкаў</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="15"/>
         <source>Max users</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Найболей карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="15"/>
         <source>Reliability</source>
-        <translation type="unfinished"></translation>
+        <translation>Надзейнасьць</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="15"/>
         <source>Rating</source>
-        <translation type="unfinished"></translation>
+        <translation>Ацэнка</translation>
     </message>
 </context>
 <context>
@@ -1481,47 +1481,47 @@ Please check your connection settings</source>
     <message>
         <location filename="../PublicHubs.cpp" line="33"/>
         <source>Downloading public hub list...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягваецца сьпіс публічных асяродкаў…</translation>
     </message>
     <message>
         <location filename="../PublicHubs.cpp" line="121"/>
         <source>Connect</source>
-        <translation type="unfinished">Злучыцца</translation>
+        <translation>Злучыцца</translation>
     </message>
     <message>
         <location filename="../PublicHubs.cpp" line="122"/>
         <source>Add to favorites</source>
-        <translation type="unfinished">Дадаць да ўлюбёнцаў</translation>
+        <translation>Дадаць да ўлюбёных</translation>
     </message>
     <message>
         <location filename="../PublicHubs.cpp" line="123"/>
         <source>Copy &amp;address to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Перапісаць &amp;адрэсу ў буфэр абмену</translation>
     </message>
     <message>
         <location filename="../PublicHubs.cpp" line="184"/>
         <source>Downloading public hub list... (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягваецца сьпіс публічных асяродкаў… (%1)</translation>
     </message>
     <message>
         <location filename="../PublicHubs.cpp" line="191"/>
         <source>Download failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не ўдалося сьцягнуць: %1</translation>
     </message>
     <message>
         <location filename="../PublicHubs.cpp" line="198"/>
         <source>Hub list downloaded... (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягнулі сьпіс асяродкаў… (%1)</translation>
     </message>
     <message>
         <location filename="../PublicHubs.cpp" line="205"/>
         <source>Hub list loaded from cache...</source>
-        <translation type="unfinished"></translation>
+        <translation>Прачыталі з запасьніку сьпіс асяродкаў…</translation>
     </message>
     <message>
         <location filename="../PublicHubs.h" line="45"/>
         <source>Public Hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>Публічныя асяродкі</translation>
     </message>
 </context>
 <context>
@@ -3149,7 +3149,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIPublicHubs.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3719,7 +3719,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="40"/>
         <source>Ask confirm before exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Запытацца на пацьверджаньне, калі выходзім</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="50"/>
@@ -3881,7 +3881,8 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="131"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???</translatorcomment>
+        <translation>Найв. хуткасьць ствараць скароты (МБ/с, 0=не абмяжоўваць)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="161"/>
