@@ -721,12 +721,19 @@ void HubFrame::customEvent(QEvent *e){
     else if (e->type() == UserRemovedEvent::Event){
         UserRemovedEvent *u_e = reinterpret_cast<UserRemovedEvent*>(e);
 
-        total_shared -= u_e->getShare();
+        total_shared -= u_e->getShare();       
+
+        QString cid = _q(u_e->getUser()->getCID().toBase32());
+        if (pm.contains(cid)){
+            pmUserOffline(cid);
+
+            QString nick = model->itemForPtr(u_e->getUser())->nick;
+            pm.insert(nick, pm[cid]);
+
+            pm.remove(cid);
+        }
 
         model->removeUser(u_e->getUser());
-
-        if (pm.contains(_q(u_e->getUser()->getCID().toBase32())))
-            pmUserOffline(_q(u_e->getUser()->getCID().toBase32()));
     }
     else if (e->type() == UserCustomEvent::Event){
         UserCustomEvent *u_e = reinterpret_cast<UserCustomEvent*>(e);
@@ -1370,6 +1377,22 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
             addStatus(map["NICK"].toString() + tr(" joins the chat"));
 
         model->addUser(map, user);
+
+        if (pm.contains(map["NICK"].toString())){
+            QString cid = map["CID"].toString();
+            QString nick = map["NICK"].toString();
+
+            PMWindow *wnd = pm[nick];
+
+            wnd->cid = cid;
+            wnd->hubUrl = _q(client->getHubUrl());
+
+            pm.insert(cid, wnd);
+
+            pm.remove(nick);
+
+            pmUserEvent(cid, tr("User online."));
+        }
     }
 
     total_shared += map["SHARE"].toULongLong();
