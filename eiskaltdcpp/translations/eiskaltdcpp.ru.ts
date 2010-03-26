@@ -970,7 +970,8 @@ Favorite user</source>
         <location filename="../Magnet.cpp" line="152"/>
         <source>Some error ocurred when starting download:
  %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Произошла ошибка при старте загрузки:
+ %1</translation>
     </message>
     <message>
         <location filename="../Magnet.cpp" line="159"/>
@@ -3127,7 +3128,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="24"/>
         <source>Connection</source>
-        <translation type="unfinished">Подключение</translation>
+        <translation>Подключение</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="30"/>
@@ -3234,23 +3235,23 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsConnection.ui" line="285"/>
         <location filename="../ui/UISettingsConnection.ui" line="297"/>
         <source>Limits</source>
-        <translation type="unfinished">Ограничения</translation>
+        <translation>Ограничения</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="310"/>
         <source>WARNING!!! NOT TESTED!!! NO GARANTEE TO WORK!!!!</source>
-        <translation type="unfinished"></translation>
+        <translation>Внимание!!! Не протестировано!!! Нет гарантий корректной работы!!!</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="317"/>
         <source>On/Off speed limits</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить/выключить ограничение скорости</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="354"/>
         <location filename="../ui/UISettingsConnection.ui" line="506"/>
         <source>Download</source>
-        <translation type="unfinished">Загрузить</translation>
+        <translation>Загрузка</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="368"/>
@@ -3258,23 +3259,23 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsConnection.ui" line="520"/>
         <location filename="../ui/UISettingsConnection.ui" line="554"/>
         <source>KiB/s</source>
-        <translation type="unfinished"></translation>
+        <translation>КиБ/с</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="388"/>
         <location filename="../ui/UISettingsConnection.ui" line="540"/>
         <source>Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Отдача</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="426"/>
         <source>Alternate restrictions speed from </source>
-        <translation type="unfinished"></translation>
+        <translation>Другая скорость загрузки в часы от</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="453"/>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>до</translation>
     </message>
 </context>
 <context>
@@ -3806,7 +3807,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Use fast hash</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать быстрый хэш</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="103"/>
@@ -3831,7 +3832,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="161"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Выдавать дополнительный слот при скорости ниже (КиБ/с, 0 = без ограничений)</translation>
+        <translation>Выдавать доп. слот при скорости ниже (КиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="183"/>
