@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>549</width>
-    <height>412</height>
+    <height>420</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -171,6 +171,12 @@
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="5" column="0" colspan="3">
         <widget class="QListWidget" name="listWidget_HUBS">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
          <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
          </property>
@@ -295,6 +301,12 @@
       </layout>
      </widget>
      <widget class="QTreeView" name="treeView_RESULTS">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>
