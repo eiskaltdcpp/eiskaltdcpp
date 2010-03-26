@@ -154,7 +154,7 @@ void SettingsConnection::init(){
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
     frame_4->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
     frame_3->setEnabled(checkBox_THROTTLE_ENABLE->isChecked());
-    frame_5->setEnabled(checkBox_THROTTLE_ENABLE->isChecked());
+    frame_5->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
     switch (SETTING(INCOMING_CONNECTIONS)){
         case SettingsManager::INCOMING_DIRECT:
         {
