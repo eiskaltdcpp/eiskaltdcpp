@@ -75,7 +75,7 @@ namespace dcpp{
         friend class Singleton<ThrottleManager>;
 
         // constructor
-        ThrottleManager(void) : downTokens(0), upTokens(0), downLimit(0), upLimit(0)
+        ThrottleManager(void) : downTokens(0), upTokens(0), downLimit(0), upLimit(0), activeWaiter(-1)
         {
             TimerManager::getInstance()->addListener(this);
         }
@@ -139,7 +139,9 @@ namespace dcpp{
             {
                 Lock l(stateCS);
 
-                dcassert(activeWaiter == 0 || activeWaiter == 1);
+                if (!(activeWaiter == 0 || activeWaiter == 1))
+                    return;
+
                 waitCS[1-activeWaiter].enter();
                 Thread::safeExchange(activeWaiter, 1-activeWaiter);
                 waitCS[1-activeWaiter].leave();

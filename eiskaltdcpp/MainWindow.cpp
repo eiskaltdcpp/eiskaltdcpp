@@ -127,10 +127,6 @@ MainWindow::~MainWindow(){
 
     delete fBar;
     delete tBar;
-
-    qDeleteAll(fileMenuActions);
-    qDeleteAll(hubsMenuActions);
-    qDeleteAll(toolsMenuActions);
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
