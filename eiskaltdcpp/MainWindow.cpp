@@ -82,7 +82,7 @@ MainWindow::MainWindow (QWidget *parent):
     transfer_dock->setWidget(TransferView::getInstance());
 
     blockSignals(true);
-    fileTransfers->setChecked(transfer_dock->isVisible());
+    toolsTransfers->setChecked(transfer_dock->isVisible());
     blockSignals(false);
 
     if (WBGET(WB_ANTISPAM_ENABLED)){
@@ -129,6 +129,8 @@ MainWindow::~MainWindow(){
     delete tBar;
 
     qDeleteAll(fileMenuActions);
+    qDeleteAll(hubsMenuActions);
+    qDeleteAll(toolsMenuActions);
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
@@ -360,11 +362,6 @@ void MainWindow::initActions(){
     WulforUtil *WU = WulforUtil::getInstance();
 
     {
-        fileOptions = new QAction("", this);
-        fileOptions->setShortcut(tr("Ctrl+O"));
-        fileOptions->setIcon(WU->getPixmap(WulforUtil::eiCONFIGURE));
-        connect(fileOptions, SIGNAL(triggered()), this, SLOT(slotFileSettings()));
-
         fileFileListBrowserLocal = new QAction("", this);
         fileFileListBrowserLocal->setShortcut(tr("Ctrl+L"));
         fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
@@ -384,67 +381,9 @@ void MainWindow::initActions(){
         fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiRELOAD));
         connect(fileFileListRefresh, SIGNAL(triggered()), this, SLOT(slotFileRefreshShare()));
 
-        fileHubReconnect = new QAction("", this);
-        fileHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
-        connect(fileHubReconnect, SIGNAL(triggered()), this, SLOT(slotFileReconnect()));
-
         fileHashProgress = new QAction("", this);
         fileHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         connect(fileHashProgress, SIGNAL(triggered()), this, SLOT(slotFileHashProgress()));
-
-        fileQuickConnect = new QAction("", this);
-        fileQuickConnect->setShortcut(tr("Ctrl+H"));
-        fileQuickConnect->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
-        connect(fileQuickConnect, SIGNAL(triggered()), this, SLOT(slotQC()));
-
-        fileTransfers = new QAction("", this);
-        fileTransfers->setShortcut(tr("Ctrl+T"));
-        fileTransfers->setIcon(WU->getPixmap(WulforUtil::eiTRANSFER));
-        fileTransfers->setCheckable(true);
-        connect(fileTransfers, SIGNAL(toggled(bool)), this, SLOT(slotFileTransfer(bool)));
-        //transfer_dock->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
-
-        fileDownloadQueue = new QAction("", this);
-        fileDownloadQueue->setShortcut(tr("Ctrl+D"));
-        fileDownloadQueue->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
-        connect(fileDownloadQueue, SIGNAL(triggered()), this, SLOT(slotFileDownloadQueue()));
-
-        fileFinishedDownloads = new QAction("", this);
-        fileFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWNLIST));
-        connect(fileFinishedDownloads, SIGNAL(triggered()), this, SLOT(slotFileFinishedDownloads()));
-
-        fileFinishedUploads = new QAction("", this);
-        fileFinishedUploads->setIcon(WU->getPixmap(WulforUtil::eiUPLIST));
-        connect(fileFinishedUploads, SIGNAL(triggered()), this, SLOT(slotFileFinishedUploads()));
-
-        fileFavoriteHubs = new QAction("", this);
-        fileFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiFAVSERVER));
-        connect(fileFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotFileFavoriteHubs()));
-
-        filePublicHubs = new QAction("", this);
-        filePublicHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
-        connect(filePublicHubs, SIGNAL(triggered()), this, SLOT(slotFilePublicHubs()));
-
-        fileFavoriteUsers = new QAction("", this);
-        fileFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
-        connect(fileFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotFileFavoriteUsers()));
-
-        fileSpy = new QAction("", this);
-        fileSpy->setIcon(WU->getPixmap(WulforUtil::eiSPY));
-        connect(fileSpy, SIGNAL(triggered()), this, SLOT(slotFileSpy()));
-
-        fileAntiSpam = new QAction("", this);
-        fileAntiSpam->setIcon(WU->getPixmap(WulforUtil::eiSPAM));
-        connect(fileAntiSpam, SIGNAL(triggered()), this, SLOT(slotFileAntiSpam()));
-
-        fileIPFilter = new QAction("", this);
-        fileIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
-        connect(fileIPFilter, SIGNAL(triggered()), this, SLOT(slotFileIPFilter()));
-
-        fileSearch = new QAction("", this);
-        fileSearch->setShortcut(tr("Ctrl+S"));
-        fileSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
-        connect(fileSearch, SIGNAL(triggered()), this, SLOT(slotFileSearch()));
 
         fileHideWindow = new QAction(tr("Hide window"), this);
         fileHideWindow->setShortcut(tr("Esc"));
@@ -454,19 +393,82 @@ void MainWindow::initActions(){
         if (!WBGET(WB_TRAY_ENABLED))
             fileHideWindow->setText(tr("Show/hide find frame"));
 
-        fileHideProgressSpace = new QAction(tr("Hide free space bar"), this);
-        if (!WBGET(WB_SHOW_FREE_SPACE))
-            fileHideProgressSpace->setText(tr("Show free space bar"));
-#if (!defined FREE_SPACE_BAR && !defined FREE_SPACE_BAR_C)
-        fileHideProgressSpace->setVisible(false);
-#endif
-        fileHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
-        connect(fileHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
-
         fileQuit = new QAction("", this);
         fileQuit->setShortcut(tr("Ctrl+Q"));
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
         connect(fileQuit, SIGNAL(triggered()), this, SLOT(slotExit()));
+
+        hubsHubReconnect = new QAction("", this);
+        hubsHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
+        connect(hubsHubReconnect, SIGNAL(triggered()), this, SLOT(slotHubsReconnect()));
+
+        hubsQuickConnect = new QAction("", this);
+        hubsQuickConnect->setShortcut(tr("Ctrl+H"));
+        hubsQuickConnect->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
+        connect(hubsQuickConnect, SIGNAL(triggered()), this, SLOT(slotQC()));
+
+        hubsFavoriteHubs = new QAction("", this);
+        hubsFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiFAVSERVER));
+        connect(hubsFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteHubs()));
+
+        hubsPublicHubs = new QAction("", this);
+        hubsPublicHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
+        connect(hubsPublicHubs, SIGNAL(triggered()), this, SLOT(slotHubsPublicHubs()));
+
+        hubsFavoriteUsers = new QAction("", this);
+        hubsFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
+        connect(hubsFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteUsers()));
+
+        toolsOptions = new QAction("", this);
+        toolsOptions->setShortcut(tr("Ctrl+O"));
+        toolsOptions->setIcon(WU->getPixmap(WulforUtil::eiCONFIGURE));
+        connect(toolsOptions, SIGNAL(triggered()), this, SLOT(slotToolsSettings()));
+
+        toolsTransfers = new QAction("", this);
+        toolsTransfers->setShortcut(tr("Ctrl+T"));
+        toolsTransfers->setIcon(WU->getPixmap(WulforUtil::eiTRANSFER));
+        toolsTransfers->setCheckable(true);
+        connect(toolsTransfers, SIGNAL(toggled(bool)), this, SLOT(slotToolsTransfer(bool)));
+        //transfer_dock->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+
+        toolsDownloadQueue = new QAction("", this);
+        toolsDownloadQueue->setShortcut(tr("Ctrl+D"));
+        toolsDownloadQueue->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
+        connect(toolsDownloadQueue, SIGNAL(triggered()), this, SLOT(slotToolsDownloadQueue()));
+
+        toolsFinishedDownloads = new QAction("", this);
+        toolsFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWNLIST));
+        connect(toolsFinishedDownloads, SIGNAL(triggered()), this, SLOT(slotToolsFinishedDownloads()));
+
+        toolsFinishedUploads = new QAction("", this);
+        toolsFinishedUploads->setIcon(WU->getPixmap(WulforUtil::eiUPLIST));
+        connect(toolsFinishedUploads, SIGNAL(triggered()), this, SLOT(slotToolsFinishedUploads()));
+
+        toolsSpy = new QAction("", this);
+        toolsSpy->setIcon(WU->getPixmap(WulforUtil::eiSPY));
+        connect(toolsSpy, SIGNAL(triggered()), this, SLOT(slotToolsSpy()));
+
+        toolsAntiSpam = new QAction("", this);
+        toolsAntiSpam->setIcon(WU->getPixmap(WulforUtil::eiSPAM));
+        connect(toolsAntiSpam, SIGNAL(triggered()), this, SLOT(slotToolsAntiSpam()));
+
+        toolsIPFilter = new QAction("", this);
+        toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
+        connect(toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
+
+        toolsSearch = new QAction("", this);
+        toolsSearch->setShortcut(tr("Ctrl+S"));
+        toolsSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
+        connect(toolsSearch, SIGNAL(triggered()), this, SLOT(slotToolsSearch()));
+
+        toolsHideProgressSpace = new QAction(tr("Hide free space bar"), this);
+        if (!WBGET(WB_SHOW_FREE_SPACE))
+            toolsHideProgressSpace->setText(tr("Show free space bar"));
+#if (!defined FREE_SPACE_BAR && !defined FREE_SPACE_BAR_C)
+        toolsHideProgressSpace->setVisible(false);
+#endif
+        toolsHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
+        connect(toolsHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
 
         chatClear = new QAction("", this);
         chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
@@ -496,61 +498,65 @@ void MainWindow::initActions(){
         QAction *separator6 = new QAction("", this);
         separator6->setSeparator(true);
 
-        fileMenuActions << fileOptions
-                << separator0
-                << fileSearch
-                << separator1
-                << fileHubReconnect
-                << fileQuickConnect
-                << fileFavoriteHubs
-                << fileFavoriteUsers
-                << separator2
-                << fileFileListBrowser
+        fileMenuActions << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
-                << separator3
-                << fileTransfers
-                << fileDownloadQueue
-                << fileFinishedDownloads
-                << fileFinishedUploads
-                << separator4
-                << fileSpy
-                << fileAntiSpam
-                << fileIPFilter
-                << separator5
+                << separator0
                 << fileOpenLogFile
-                << fileHideProgressSpace
+                << separator1
                 << fileHideWindow
-                << separator6
+                << separator2
                 << fileQuit;
 
-        toolBarActions << fileOptions
+        hubsMenuActions << hubsHubReconnect
+                << hubsQuickConnect
+                << hubsFavoriteHubs
+                << hubsPublicHubs
+                << separator0
+                << hubsFavoriteUsers;
+
+        toolsMenuActions << toolsSearch
+                << separator0
+                << toolsTransfers
+                << toolsDownloadQueue
+                << toolsFinishedDownloads
+                << toolsFinishedUploads
+                << separator1
+                << toolsSpy
+                << toolsAntiSpam
+                << toolsIPFilter
+                << separator2
+                << toolsHideProgressSpace
+                << separator3
+                << toolsOptions;
+
+        toolBarActions << toolsOptions
                 << separator0
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
                 << separator1
-                << fileHubReconnect
-                << fileQuickConnect
+                << hubsHubReconnect
+                << hubsQuickConnect
                 << separator2
-                << fileFavoriteHubs
-                << fileFavoriteUsers
-                << fileSearch
-                << filePublicHubs
+                << hubsFavoriteHubs
+                << hubsFavoriteUsers
+                << toolsSearch
+                << hubsPublicHubs
                 << separator3
-                << fileTransfers
-                << fileDownloadQueue
-                << fileFinishedDownloads
-                << fileFinishedUploads
+                << toolsTransfers
+                << toolsDownloadQueue
+                << toolsFinishedDownloads
+                << toolsFinishedUploads
                 << separator4
                 << chatClear
                 << findInChat
                 << chatDisable
                 << separator5
-                << fileSpy
-                << fileAntiSpam
-                << fileIPFilter
+                << toolsSpy
+                << toolsAntiSpam
+                << toolsIPFilter
                 << separator6
                 << fileQuit;
     }
@@ -589,6 +595,16 @@ void MainWindow::initMenuBar(){
         menuFile->addActions(fileMenuActions);
     }
     {
+        menuHubs = new QMenu("", this);
+
+        menuHubs->addActions(hubsMenuActions);
+    }
+    {
+        menuTools = new QMenu("", this);
+
+        menuTools->addActions(toolsMenuActions);
+    }
+    {
         menuAbout = new QMenu("", this);
 
         menuAbout->addAction(aboutClient);
@@ -596,6 +612,8 @@ void MainWindow::initMenuBar(){
     }
 
     menuBar()->addMenu(menuFile);
+    menuBar()->addMenu(menuHubs);
+    menuBar()->addMenu(menuTools);
     menuBar()->addMenu(menuWidgets);
     menuBar()->addMenu(menuAbout);
     menuBar()->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -667,8 +685,6 @@ void MainWindow::retranslateUi(){
     {
         menuFile->setTitle(tr("&File"));
 
-        fileOptions->setText(tr("Options"));
-
         fileOpenLogFile->setText(tr("Open log file"));
 
         fileFileListBrowser->setText(tr("Open filelist..."));
@@ -679,33 +695,39 @@ void MainWindow::retranslateUi(){
 
         fileHashProgress->setText(tr("Hash progress"));
 
-        fileHubReconnect->setText(tr("Reconnect to hub"));
-
-        fileTransfers->setText(tr("Transfers"));
-
-        fileDownloadQueue->setText(tr("Download queue"));
-
-        fileFinishedDownloads->setText(tr("Finished downloads"));
-
-        fileFinishedUploads->setText(tr("Finished uploads"));
-
-        fileSpy->setText(tr("Search Spy"));
-
-        fileAntiSpam->setText(tr("AntiSpam module"));
-
-        fileIPFilter->setText(tr("IPFilter module"));
-
-        fileFavoriteHubs->setText(tr("Favourite hubs"));
-
-        filePublicHubs->setText(tr("Public hubs"));
-
-        fileFavoriteUsers->setText(tr("Favourite users"));
-
-        fileSearch->setText(tr("Search"));
-
-        fileQuickConnect->setText(tr("Quick connect"));
-
         fileQuit->setText(tr("Quit"));
+
+        menuHubs->setTitle(tr("&Hubs"));
+
+        hubsHubReconnect->setText(tr("Reconnect to hub"));
+
+        hubsFavoriteHubs->setText(tr("Favourite hubs"));
+
+        hubsPublicHubs->setText(tr("Public hubs"));
+
+        hubsFavoriteUsers->setText(tr("Favourite users"));
+
+        hubsQuickConnect->setText(tr("Quick connect"));
+
+        menuTools->setTitle(tr("&Tools"));
+
+        toolsTransfers->setText(tr("Transfers"));
+
+        toolsDownloadQueue->setText(tr("Download queue"));
+
+        toolsFinishedDownloads->setText(tr("Finished downloads"));
+
+        toolsFinishedUploads->setText(tr("Finished uploads"));
+
+        toolsSpy->setText(tr("Search Spy"));
+
+        toolsAntiSpam->setText(tr("AntiSpam module"));
+
+        toolsIPFilter->setText(tr("IPFilter module"));
+
+        toolsOptions->setText(tr("Options"));
+
+        toolsSearch->setText(tr("Search"));
 
         chatClear->setText(tr("Clear chat"));
 
@@ -1168,81 +1190,81 @@ void MainWindow::slotFileHashProgress(){
     progress.exec();
 }
 
-void MainWindow::slotFileReconnect(){
+void MainWindow::slotHubsReconnect(){
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
     if (fr)
         fr->reconnect();
 }
 
-void MainWindow::slotFileSearch(){
+void MainWindow::slotToolsSearch(){
     SearchFrame *sf = new SearchFrame();
 
     sf->setAttribute(Qt::WA_DeleteOnClose);
 }
 
-void MainWindow::slotFileDownloadQueue(){
+void MainWindow::slotToolsDownloadQueue(){
     if (!DownloadQueue::getInstance())
         DownloadQueue::newInstance();
 
     toggleSingletonWidget(DownloadQueue::getInstance());
 }
 
-void MainWindow::slotFileFinishedDownloads(){
+void MainWindow::slotToolsFinishedDownloads(){
     if (!FinishedDownloads::getInstance())
         FinishedDownloads::newInstance();
 
     toggleSingletonWidget(FinishedDownloads::getInstance());
 }
 
-void MainWindow::slotFileFinishedUploads(){
+void MainWindow::slotToolsFinishedUploads(){
     if (!FinishedUploads::getInstance())
         FinishedUploads::newInstance();
 
     toggleSingletonWidget(FinishedUploads::getInstance());
 }
 
-void MainWindow::slotFileSpy(){
+void MainWindow::slotToolsSpy(){
     if (!SpyFrame::getInstance())
         SpyFrame::newInstance();
 
     toggleSingletonWidget(SpyFrame::getInstance());
 }
 
-void MainWindow::slotFileAntiSpam(){
+void MainWindow::slotToolsAntiSpam(){
     AntiSpamFrame fr(this);
 
     fr.exec();
 }
 
-void MainWindow::slotFileIPFilter(){
+void MainWindow::slotToolsIPFilter(){
     IPFilterFrame fr(this);
 
     fr.exec();
 }
 
-void MainWindow::slotFileFavoriteHubs(){
+void MainWindow::slotHubsFavoriteHubs(){
     if (!FavoriteHubs::getInstance())
         FavoriteHubs::newInstance();
 
     toggleSingletonWidget(FavoriteHubs::getInstance());
 }
 
-void MainWindow::slotFilePublicHubs(){
+void MainWindow::slotHubsPublicHubs(){
     if (!PublicHubs::getInstance())
         PublicHubs::newInstance();
 
     toggleSingletonWidget(PublicHubs::getInstance());
 }
 
-void MainWindow::slotFileFavoriteUsers(){
+void MainWindow::slotHubsFavoriteUsers(){
     if (!FavoriteUsers::getInstance())
         FavoriteUsers::newInstance();
 
     toggleSingletonWidget(FavoriteUsers::getInstance());
 }
 
-void MainWindow::slotFileSettings(){
+void MainWindow::slotToolsSettings(){
     Settings s;
 
     s.exec();
@@ -1254,7 +1276,7 @@ void MainWindow::slotFileSettings(){
         fileHideWindow->setText(tr("Hide window"));
 }
 
-void MainWindow::slotFileTransfer(bool toggled){
+void MainWindow::slotToolsTransfer(bool toggled){
     if (toggled){
         transfer_dock->setVisible(true);
         transfer_dock->setWidget(TransferView::getInstance());
@@ -1340,12 +1362,12 @@ void MainWindow::slotHideWindow(){
 void MainWindow::slotHideProgressSpace() {
     if (WBGET(WB_SHOW_FREE_SPACE)) {
         progressSpace->hide();
-        fileHideProgressSpace->setText(tr("Show free space bar"));
+        toolsHideProgressSpace->setText(tr("Show free space bar"));
 
         WBSET(WB_SHOW_FREE_SPACE, false);
     } else {
         progressSpace->show();
-        fileHideProgressSpace->setText(tr("Hide free space bar"));
+        toolsHideProgressSpace->setText(tr("Hide free space bar"));
 
         WBSET(WB_SHOW_FREE_SPACE, true);
     }
