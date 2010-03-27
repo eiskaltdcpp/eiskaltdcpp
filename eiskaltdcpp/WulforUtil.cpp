@@ -540,7 +540,7 @@ QTextCodec *WulforUtil::codecForEncoding(QString name){
 }
 
 bool WulforUtil::openUrl(const QString &url){
-    if (url.startsWith("http://") || url.startsWith("www.") || url.startsWith(("ftp://"))){
+    if (url.startsWith("http://") || url.startsWith("www.") || url.startsWith(("ftp://")) || url.startsWith("https://")){
         QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
     }
     else if (url.startsWith("adc://") || url.startsWith("adcs://")){

@@ -43,7 +43,7 @@
 
 #include <exception>
 
-QStringList HubFrame::LinkParser::link_types = QString("http://,ftp://,dchub://,adc://,adcs://,magnet:,www.").split(",");
+QStringList HubFrame::LinkParser::link_types = QString("http://,https://,ftp://,dchub://,adc://,adcs://,magnet:,www.").split(",");
 HubFrame::Menu *HubFrame::Menu::instance = NULL;
 unsigned HubFrame::Menu::counter = 0;
 
