@@ -106,6 +106,13 @@ namespace dcpp{
         void on(TimerManagerListener::Second, uint32_t aTick) throw() {
             if (!BOOLSETTING(THROTTLE_ENABLE))
                 return;
+            {
+            Lock l(stateCS);
+            if (activeWaiter == -1)
+            // This will create slight weirdness for the read/write calls between
+            // here and the first activeWaiter-toggle below.
+                waitCS[activeWaiter = 0].enter();
+            }
 
             downLimit   = SETTING(MAX_DOWNLOAD_SPEED_LIMIT);
             upLimit     = SETTING(MAX_UPLOAD_SPEED_LIMIT);
