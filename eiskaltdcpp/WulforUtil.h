@@ -151,6 +151,7 @@ public:
 
 private slots:
     void slotHttpDone(bool);
+    void slotHttpTimer();
 
 private:
 
@@ -181,6 +182,7 @@ private:
     static const QString magnetSignature;
 
     QHttp *http;
+    QTimer *http_timer;
     QString internetIP;
 };
 

@@ -381,6 +381,7 @@ void FavoriteManager::save() {
             //xml.addChildAttrib("StealthMode", (*i)->getStealth());// not tested feature
             xml.addChildAttrib("OverrideId", Util::toString((*i)->getOverrideId()));// not tested feature
             xml.addChildAttrib("UseInternetIp",(*i)->getUseInternetIP());
+            xml.addChildAttrib("DisableChat", (*i)->getDisableChat());
         }
         xml.stepOut();
         xml.addTag("Users");
@@ -482,6 +483,7 @@ void FavoriteManager::load(SimpleXML& aXml) {
             //e->setStealth(aXml.getBoolChildAttrib("StealthMode")); // not tested feature
             e->setOverrideId(Util::toInt(aXml.getChildAttrib("OverrideId")) != 0); // not tested feature
             e->setUseInternetIP(aXml.getBoolChildAttrib("UseInternetIp"));
+            e->setDisableChat(aXml.getBoolChildAttrib("DisableChat"));
             favoriteHubs.push_back(e);
         }
         aXml.stepOut();

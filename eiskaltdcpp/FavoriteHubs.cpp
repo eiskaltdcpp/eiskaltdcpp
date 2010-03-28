@@ -114,6 +114,7 @@ void FavoriteHubs::init(){
     connect(treeView, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(slotContexMenu(const QPoint&)));
     connect(treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(slotClicked(QModelIndex)));
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
+    connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotDblClicked()));
 }
 
 void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor){
@@ -159,6 +160,7 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
 
     editor.checkBox_IP->setChecked(isValidIP(map["IP"].toString()));
     editor.checkBox_USEINTERNET->setChecked(map["IIP"].toBool());
+    editor.checkBox_DISABLECHAT->setChecked(map["DCHAT"].toBool());
 
     QString tag = map["TAG"].toString();
     QStringList tags;
@@ -190,6 +192,7 @@ void FavoriteHubs::getParams(const FavoriteHubEntry *entry, StrMap &map){
     map["TAG"]      = _q(entry->getClientId());
     map["IP"]       = _q(entry->getExternalIP());
     map["IIP"]      = entry->getUseInternetIP();
+    map["DCHAT"]    = entry->getDisableChat();
 }
 
 void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
@@ -202,6 +205,7 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
     map["NICK"]     = editor.lineEdit_NICK->text();
     map["PASS"]     = editor.lineEdit_PASSWORD->text();
     map["IIP"]      = editor.checkBox_USEINTERNET->isChecked();
+    map["DCHAT"]    = editor.checkBox_DISABLECHAT->isChecked();
 
     if (isValidIP(editor.lineEdit_IP->text()) && editor.checkBox_IP->isChecked())
         map["IP"] = editor.lineEdit_IP->text();
@@ -238,6 +242,7 @@ void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
     entry.setClientId(map["TAG"].toString().toStdString());
     entry.setOverrideId(map["TAG"].toString() != "EiskaltDC++ V:2.0");
     entry.setUseInternetIP(map["IIP"].toBool());
+    entry.setDisableChat(map["DCHAT"].toBool());
 }
 
 void FavoriteHubs::updateItem(FavoriteHubItem *item, StrMap &map){
@@ -343,7 +348,7 @@ void FavoriteHubs::slotContexMenu(const QPoint &){
         }
         else if (res == conn && entry){
             QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
-           MainWindow::getInstance()->newHubFrame(address, encoding);
+            MainWindow::getInstance()->newHubFrame(address, encoding);
         }
         else if (res == add_new){
             FavoriteHubEditor editor;
@@ -363,6 +368,24 @@ void FavoriteHubs::slotContexMenu(const QPoint &){
     }
 
     delete menu;
+}
+
+void FavoriteHubs::slotDblClicked(){
+    QItemSelectionModel *s_model = treeView->selectionModel();
+    QModelIndexList list = s_model->selectedRows(0);
+
+    foreach (QModelIndex i, list){
+        FavoriteHubItem *item = static_cast<FavoriteHubItem*>(list.at(0).internalPointer());
+
+        if (!item)
+            continue;
+
+        QString address = item->data(COLUMN_HUB_ADDRESS).toString();
+        FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address.toStdString());
+        QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
+
+        MainWindow::getInstance()->newHubFrame(address, encoding);
+    }
 }
 
 void FavoriteHubs::slotHeaderMenu(){

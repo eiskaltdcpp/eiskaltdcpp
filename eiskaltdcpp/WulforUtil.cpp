@@ -57,6 +57,12 @@ WulforUtil::WulforUtil(): http(NULL)
     http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
     http->request(header);
 
+    http_timer = new QTimer();
+    http_timer->setInterval(30*1000);
+    connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
+
+    http_timer->start();
+
     memset(userIconCache, 0, sizeof (userIconCache));
 
     userIcons = new QImage();
@@ -103,6 +109,7 @@ WulforUtil::WulforUtil(): http(NULL)
 
 WulforUtil::~WulforUtil(){
     delete userIcons;
+    delete http_timer;
     delete http;
 
     clearUserIconCache();
@@ -785,6 +792,15 @@ void WulforUtil::slotHttpDone(bool error){
             }
         }
     }
+}
+
+void WulforUtil::slotHttpTimer(){
+    QHttpRequestHeader header("GET", "/index.html");
+    header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
+    QString useragent = QString("EiskaltDCPP");
+    header.setValue("User-Agent", useragent);
+
+    http->request(header);
 }
 
 QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx){

@@ -86,6 +86,7 @@ public:
     GETSET(bool, overrideId, OverrideId);
     GETSET(string, externalIP, ExternalIP);
     GETSET(bool, useInternetIp, UseInternetIP);
+    GETSET(bool, disableChat, DisableChat);
 private:
     string nick;
 };

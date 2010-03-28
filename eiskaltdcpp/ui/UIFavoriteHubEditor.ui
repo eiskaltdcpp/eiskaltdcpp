@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>318</width>
-    <height>365</height>
+    <width>363</width>
+    <height>415</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -128,13 +128,20 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="0" colspan="2">
+      <item row="7" column="1">
        <widget class="QCheckBox" name="checkBox_USEINTERNET">
         <property name="enabled">
          <bool>false</bool>
         </property>
         <property name="text">
-         <string>Automaticaly update from Internet</string>
+         <string>Auto update from Internet</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0" colspan="2">
+       <widget class="QCheckBox" name="checkBox_DISABLECHAT">
+        <property name="text">
+         <string>Disable chat</string>
         </property>
        </widget>
       </item>

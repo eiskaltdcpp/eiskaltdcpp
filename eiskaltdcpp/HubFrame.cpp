@@ -492,6 +492,11 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
 
     init();
 
+    FavoriteHubEntry* entry = FavoriteManager::getInstance()->getFavoriteHubEntry(_tq(hub));
+
+    if (entry && entry->getDisableChat())
+        disableChat();
+
     client->connect();
 
     setAttribute(Qt::WA_DeleteOnClose);
