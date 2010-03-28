@@ -217,7 +217,7 @@
     </message>
     <message>
         <source>Nick</source>
-        <translation>Becenév</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <source>Password</source>
@@ -225,7 +225,7 @@
     </message>
     <message>
         <source>User description</source>
-        <translation>Felhasználó leírás</translation>
+        <translation>Leírás</translation>
     </message>
     <message>
         <source>Remote encoding</source>
@@ -290,7 +290,7 @@
     <name>FavoriteUsersModel</name>
     <message>
         <source>Nick</source>
-        <translation>Becenév</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <source>Hub</source>
@@ -432,7 +432,7 @@
     </message>
     <message>
         <source>Copy nick</source>
-        <translation>Náv másolása</translation>
+        <translation>Nick másolása</translation>
     </message>
     <message>
         <source>Show in list</source>
@@ -545,7 +545,8 @@
     <message>
         <source>
 Favorite user</source>
-        <translation>Kedvenc felhasználó</translation>
+        <translation>
+Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Away mode off</source>
@@ -553,7 +554,7 @@ Favorite user</source>
     </message>
     <message>
         <source>Away mode on: </source>
-        <translation>Away-mód bekapcsolva:</translation>
+        <translation>Away-mód bekapcsolva: </translation>
     </message>
     <message>
         <source>Aliases not found.</source>
@@ -573,7 +574,7 @@ Favorite user</source>
     </message>
     <message>
         <source>Aspell switched %1</source>
-        <translation>Aspell átváltva %1</translation>
+        <translation>Aspell átállítva %1</translation>
     </message>
     <message>
         <source>on</source>
@@ -2075,9 +2076,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Fordítók&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Orosz fordítás&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (0.4.10 és újabb)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Belorusz fordítás&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (1.0.40 és újabb)&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Magyar fordítás&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Ákos Berki&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;husumo@gmail.com&amp;gt;&lt;br /&gt; (2.0 és újabb)&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (1.0.40 és újabb)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>License</source>
@@ -2274,7 +2273,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Nick</source>
-        <translation>Becenév</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <source>User description</source>
@@ -3037,7 +3036,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Nick</source>
-        <translation>Becenév</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <source>E-Mail</source>
