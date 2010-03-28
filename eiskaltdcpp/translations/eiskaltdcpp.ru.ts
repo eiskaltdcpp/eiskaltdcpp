@@ -573,44 +573,44 @@
         <translation>Не подключено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1075"/>
-        <location filename="../HubFrame.cpp" line="1159"/>
+        <location filename="../HubFrame.cpp" line="1074"/>
+        <location filename="../HubFrame.cpp" line="1158"/>
         <source>Away mode off</source>
         <translation>Режим отсутствия отключен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1085"/>
+        <location filename="../HubFrame.cpp" line="1084"/>
         <source>Away mode on: </source>
         <translation>Режим отсутствия включен: </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1098"/>
+        <location filename="../HubFrame.cpp" line="1097"/>
         <source>Aliases not found.</source>
         <translation>Псевдонимы не найдены.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1116"/>
+        <location filename="../HubFrame.cpp" line="1115"/>
         <source>Alias removed.</source>
         <translation>Псевдоним удалён.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1126"/>
-        <location filename="../HubFrame.cpp" line="1132"/>
+        <location filename="../HubFrame.cpp" line="1125"/>
+        <location filename="../HubFrame.cpp" line="1131"/>
         <source>Invalid alias syntax.</source>
         <translation>Неверный синтаксис для псевдонима.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1138"/>
+        <location filename="../HubFrame.cpp" line="1137"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Псевдоним %1 =&gt; %2 был добавлен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1164"/>
+        <location filename="../HubFrame.cpp" line="1163"/>
         <source>Chat has been cleared</source>
         <translation>Чат очищен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1025"/>
+        <location filename="../HubFrame.cpp" line="1024"/>
         <source>Hub role: Operator</source>
         <translation>Роль на хабе: Оператор</translation>
     </message>
@@ -630,29 +630,29 @@
         <translation>Содержимое хаба</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1027"/>
+        <location filename="../HubFrame.cpp" line="1026"/>
         <source>Hub role: User</source>
         <translation>Роль на хабе: Пользователь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1030"/>
+        <location filename="../HubFrame.cpp" line="1029"/>
         <source>
 Favorite user</source>
         <translation>
 Избранный пользователь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1153"/>
+        <location filename="../HubFrame.cpp" line="1152"/>
         <source>Aspell switched %1</source>
         <translation>Aspell %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1153"/>
+        <location filename="../HubFrame.cpp" line="1152"/>
         <source>on</source>
         <translation>включен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1153"/>
+        <location filename="../HubFrame.cpp" line="1152"/>
         <source>off</source>
         <translation>выключен</translation>
     </message>
@@ -691,54 +691,54 @@ Favorite user</source>
 /sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1391"/>
+        <location filename="../HubFrame.cpp" line="1392"/>
         <source> joins the chat</source>
         <translation> входит в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1434"/>
-        <location filename="../HubFrame.cpp" line="1446"/>
+        <location filename="../HubFrame.cpp" line="1435"/>
+        <location filename="../HubFrame.cpp" line="1447"/>
         <source>User not found</source>
         <translation>Пользователь не найден</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1453"/>
+        <location filename="../HubFrame.cpp" line="1454"/>
         <source>Slot granted to </source>
         <translation>Слот отдан </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1464"/>
-        <location filename="../HubFrame.cpp" line="1484"/>
+        <location filename="../HubFrame.cpp" line="1465"/>
+        <location filename="../HubFrame.cpp" line="1485"/>
         <source>User not found.</source>
         <translation>Пользователь не найден.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1473"/>
+        <location filename="../HubFrame.cpp" line="1474"/>
         <source> has been added to favorites.</source>
         <translation> был добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1493"/>
+        <location filename="../HubFrame.cpp" line="1494"/>
         <source> has been removed from favorites.</source>
         <translation> был удалён из избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1623"/>
+        <location filename="../HubFrame.cpp" line="1624"/>
         <source>User offline.</source>
         <translation>Пользователь не в сети.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1658"/>
+        <location filename="../HubFrame.cpp" line="1659"/>
         <source>Enter password</source>
         <translation>Введите пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1658"/>
+        <location filename="../HubFrame.cpp" line="1659"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1774"/>
+        <location filename="../HubFrame.cpp" line="1775"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Пользователей: %1 | Общая шара: %2</translation>
     </message>
@@ -758,23 +758,23 @@ Favorite user</source>
         <translation>Чат включен.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1525"/>
+        <location filename="../HubFrame.cpp" line="1526"/>
         <source>Favorite hub added.</source>
         <translation>Хаб добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1528"/>
+        <location filename="../HubFrame.cpp" line="1529"/>
         <source>Favorite hub already exists.</source>
         <translation>Хаб уже есть в избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1672"/>
-        <location filename="../HubFrame.cpp" line="2478"/>
+        <location filename="../HubFrame.cpp" line="1673"/>
+        <location filename="../HubFrame.cpp" line="2482"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получен запрос перенаправления к уже подключенному хабу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1655"/>
+        <location filename="../HubFrame.cpp" line="1656"/>
         <source>Stored password sent...</source>
         <translation>Отправлен сохраненный пароль...</translation>
     </message>
@@ -864,7 +864,7 @@ Favorite user</source>
         <translation>Показать виджет</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1203"/>
+        <location filename="../HubFrame.cpp" line="1202"/>
         <source>/aspell on/off - enable/disable spell checking
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - remove alias
@@ -901,22 +901,22 @@ Favorite user</source>
 /sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1410"/>
+        <location filename="../HubFrame.cpp" line="1411"/>
         <source>User online.</source>
         <translation>Пользователь онлайн.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2388"/>
+        <location filename="../HubFrame.cpp" line="2392"/>
         <source>Suggestions</source>
         <translation>Варианты</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2389"/>
+        <location filename="../HubFrame.cpp" line="2393"/>
         <source>Add to dictionary</source>
         <translation>Добавить в словарь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2683"/>
+        <location filename="../HubFrame.cpp" line="2687"/>
         <source>Search flood detected: %1</source>
         <translation>Поисковый флуд обнаружен: %1</translation>
     </message>
@@ -3712,50 +3712,62 @@ p, li { white-space: pre-wrap; }
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="20"/>
+        <location filename="../ui/UISettingsLog.ui" line="39"/>
         <source>Private messages</source>
         <translation>Личные сообщения</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="29"/>
-        <location filename="../ui/UISettingsLog.ui" line="51"/>
-        <location filename="../ui/UISettingsLog.ui" line="73"/>
-        <location filename="../ui/UISettingsLog.ui" line="95"/>
         <source>Format</source>
-        <translation>Формат</translation>
+        <translation type="obsolete">Формат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="42"/>
+        <location filename="../ui/UISettingsLog.ui" line="71"/>
         <source>Main chat</source>
         <translation>Основной чат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="64"/>
+        <location filename="../ui/UISettingsLog.ui" line="103"/>
         <source>Downloads</source>
         <translation>Загрузки</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="86"/>
+        <location filename="../ui/UISettingsLog.ui" line="135"/>
         <source>Uploads</source>
         <translation>Отдачи</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="108"/>
+        <location filename="../ui/UISettingsLog.ui" line="20"/>
         <source>Log directory</source>
         <translation>Каталог для файлов отчётов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="127"/>
+        <location filename="../ui/UISettingsLog.ui" line="48"/>
+        <location filename="../ui/UISettingsLog.ui" line="80"/>
+        <location filename="../ui/UISettingsLog.ui" line="112"/>
+        <location filename="../ui/UISettingsLog.ui" line="144"/>
+        <source>File</source>
+        <translation>Файл</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="58"/>
+        <location filename="../ui/UISettingsLog.ui" line="90"/>
+        <location filename="../ui/UISettingsLog.ui" line="122"/>
+        <location filename="../ui/UISettingsLog.ui" line="154"/>
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="181"/>
         <source>Own filelist uploads</source>
         <translation>Отдачи своего списка файлов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="134"/>
+        <location filename="../ui/UISettingsLog.ui" line="167"/>
         <source>System messages</source>
         <translation>Системные сообщения</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="141"/>
+        <location filename="../ui/UISettingsLog.ui" line="174"/>
         <source>Status messages</source>
         <translation>Статусные сообщения</translation>
     </message>

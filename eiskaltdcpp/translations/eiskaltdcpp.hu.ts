@@ -3000,7 +3000,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Format</source>
-        <translation>Formátum</translation>
+        <translation type="obsolete">Formátum</translation>
     </message>
     <message>
         <source>Main chat</source>
@@ -3029,6 +3029,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Status messages</source>
         <translation>Státuszüzenetek</translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Fájl</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Szöveg</translation>
     </message>
 </context>
 <context>
