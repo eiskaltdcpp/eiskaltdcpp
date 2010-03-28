@@ -573,44 +573,44 @@
         <translation>Не подключено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1066"/>
-        <location filename="../HubFrame.cpp" line="1150"/>
+        <location filename="../HubFrame.cpp" line="1067"/>
+        <location filename="../HubFrame.cpp" line="1151"/>
         <source>Away mode off</source>
         <translation>Режим отсутствия отключен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1076"/>
+        <location filename="../HubFrame.cpp" line="1077"/>
         <source>Away mode on: </source>
         <translation>Режим отсутствия включен: </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1089"/>
+        <location filename="../HubFrame.cpp" line="1090"/>
         <source>Aliases not found.</source>
         <translation>Псевдонимы не найдены.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1107"/>
+        <location filename="../HubFrame.cpp" line="1108"/>
         <source>Alias removed.</source>
         <translation>Псевдоним удалён.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1117"/>
-        <location filename="../HubFrame.cpp" line="1123"/>
+        <location filename="../HubFrame.cpp" line="1118"/>
+        <location filename="../HubFrame.cpp" line="1124"/>
         <source>Invalid alias syntax.</source>
         <translation>Неверный синтаксис для псевдонима.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1129"/>
+        <location filename="../HubFrame.cpp" line="1130"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Псевдоним %1 =&gt; %2 был добавлен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1155"/>
+        <location filename="../HubFrame.cpp" line="1156"/>
         <source>Chat has been cleared</source>
         <translation>Чат очищен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1016"/>
+        <location filename="../HubFrame.cpp" line="1017"/>
         <source>Hub role: Operator</source>
         <translation>Роль на хабе: Оператор</translation>
     </message>
@@ -630,34 +630,34 @@
         <translation>Содержимое хаба</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1018"/>
+        <location filename="../HubFrame.cpp" line="1019"/>
         <source>Hub role: User</source>
         <translation>Роль на хабе: Пользователь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1021"/>
+        <location filename="../HubFrame.cpp" line="1022"/>
         <source>
 Favorite user</source>
         <translation>
 Избранный пользователь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1144"/>
+        <location filename="../HubFrame.cpp" line="1145"/>
         <source>Aspell switched %1</source>
         <translation>Aspell %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1144"/>
+        <location filename="../HubFrame.cpp" line="1145"/>
         <source>on</source>
         <translation>включен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1144"/>
+        <location filename="../HubFrame.cpp" line="1145"/>
         <source>off</source>
         <translation>выключен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1191"/>
+        <location filename="../HubFrame.cpp" line="1192"/>
         <source>/aspell on/off - enable/disable spell checking
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - remove alias
@@ -692,54 +692,54 @@ Favorite user</source>
 /sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1377"/>
+        <location filename="../HubFrame.cpp" line="1383"/>
         <source> joins the chat</source>
         <translation> входит в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1418"/>
-        <location filename="../HubFrame.cpp" line="1430"/>
+        <location filename="../HubFrame.cpp" line="1426"/>
+        <location filename="../HubFrame.cpp" line="1438"/>
         <source>User not found</source>
         <translation>Пользователь не найден</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1437"/>
+        <location filename="../HubFrame.cpp" line="1445"/>
         <source>Slot granted to </source>
         <translation>Слот отдан </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1448"/>
-        <location filename="../HubFrame.cpp" line="1468"/>
+        <location filename="../HubFrame.cpp" line="1456"/>
+        <location filename="../HubFrame.cpp" line="1476"/>
         <source>User not found.</source>
         <translation>Пользователь не найден.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1457"/>
+        <location filename="../HubFrame.cpp" line="1465"/>
         <source> has been added to favorites.</source>
         <translation> был добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1477"/>
+        <location filename="../HubFrame.cpp" line="1485"/>
         <source> has been removed from favorites.</source>
         <translation> был удалён из избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1607"/>
+        <location filename="../HubFrame.cpp" line="1615"/>
         <source>User offline.</source>
         <translation>Пользователь не в сети.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1642"/>
+        <location filename="../HubFrame.cpp" line="1650"/>
         <source>Enter password</source>
         <translation>Введите пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1642"/>
+        <location filename="../HubFrame.cpp" line="1650"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1758"/>
+        <location filename="../HubFrame.cpp" line="1766"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Пользователей: %1 | Общая шара: %2</translation>
     </message>
@@ -759,23 +759,23 @@ Favorite user</source>
         <translation>Чат включен.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1509"/>
+        <location filename="../HubFrame.cpp" line="1517"/>
         <source>Favorite hub added.</source>
         <translation>Хаб добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1512"/>
+        <location filename="../HubFrame.cpp" line="1520"/>
         <source>Favorite hub already exists.</source>
         <translation>Хаб уже есть в избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1656"/>
-        <location filename="../HubFrame.cpp" line="2458"/>
+        <location filename="../HubFrame.cpp" line="1664"/>
+        <location filename="../HubFrame.cpp" line="2466"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получен запрос перенаправления к уже подключенному хабу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1639"/>
+        <location filename="../HubFrame.cpp" line="1647"/>
         <source>Stored password sent...</source>
         <translation>Отправлен сохраненный пароль...</translation>
     </message>
@@ -865,22 +865,22 @@ Favorite user</source>
         <translation>Показать виджет</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1394"/>
+        <location filename="../HubFrame.cpp" line="1402"/>
         <source>User online.</source>
         <translation>Пользователь онлайн.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2368"/>
+        <location filename="../HubFrame.cpp" line="2376"/>
         <source>Suggestions</source>
         <translation>Варианты</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2369"/>
+        <location filename="../HubFrame.cpp" line="2377"/>
         <source>Add to dictionary</source>
         <translation>Добавить в словарь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2660"/>
+        <location filename="../HubFrame.cpp" line="2668"/>
         <source>Search flood detected: %1</source>
         <translation>Поисковый флуд обнаружен: %1</translation>
     </message>
@@ -2000,67 +2000,72 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Белорусский</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="130"/>
+        <location filename="../SettingsGUI.cpp" line="67"/>
+        <source>Hungarian</source>
+        <translation>Венгерский</translation>
+    </message>
+    <message>
+        <location filename="../SettingsGUI.cpp" line="133"/>
         <source>Local user</source>
         <translation>Локальный пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="134"/>
+        <location filename="../SettingsGUI.cpp" line="137"/>
         <source>Operator</source>
         <translation>Оператор</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="138"/>
+        <location filename="../SettingsGUI.cpp" line="141"/>
         <source>Bot</source>
         <translation>Бот</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="142"/>
+        <location filename="../SettingsGUI.cpp" line="145"/>
         <source>Private: local user</source>
         <translation>Личный чат: локальный пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="146"/>
+        <location filename="../SettingsGUI.cpp" line="149"/>
         <source>Private: user</source>
         <translation>Личный чат: пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="150"/>
+        <location filename="../SettingsGUI.cpp" line="153"/>
         <source>Chat: Say nick</source>
         <translation>Чат: Ник упомянут</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="154"/>
+        <location filename="../SettingsGUI.cpp" line="157"/>
         <source>Core</source>
         <translation>Ядро</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="158"/>
+        <location filename="../SettingsGUI.cpp" line="161"/>
         <source>Status</source>
         <translation>Статус</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="162"/>
+        <location filename="../SettingsGUI.cpp" line="165"/>
         <source>User</source>
         <translation>Пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="166"/>
+        <location filename="../SettingsGUI.cpp" line="169"/>
         <source>Time stamp</source>
         <translation>Временная метка</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="170"/>
+        <location filename="../SettingsGUI.cpp" line="173"/>
         <source>Message</source>
         <translation>Сообщение</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="324"/>
+        <location filename="../SettingsGUI.cpp" line="328"/>
         <source>Select translation</source>
         <translation>Выберите перевод</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="324"/>
+        <location filename="../SettingsGUI.cpp" line="328"/>
         <source>Translation (*.qm)</source>
         <translation>Перевод (*.qm)</translation>
     </message>
@@ -3544,27 +3549,32 @@ p, li { white-space: pre-wrap; }
         <translation>Чат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="262"/>
+        <location filename="../ui/UISettingsGUI.ui" line="183"/>
+        <source>Show joins only for favorite users</source>
+        <translation>Вход/выход только для избранных пользователей</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="272"/>
         <source>Colors</source>
         <translation>Цвета</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="268"/>
+        <location filename="../ui/UISettingsGUI.ui" line="278"/>
         <source>Text colors in chat</source>
         <translation>Цвета текста в чате</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="287"/>
+        <location filename="../ui/UISettingsGUI.ui" line="297"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Подсветка результатов поиска в чате</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="293"/>
+        <location filename="../ui/UISettingsGUI.ui" line="303"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="313"/>
+        <location filename="../ui/UISettingsGUI.ui" line="323"/>
         <source>Transparency</source>
         <translation>Прозрачность</translation>
     </message>
@@ -3574,12 +3584,12 @@ p, li { white-space: pre-wrap; }
         <translation>Отображать вход/выход пользователей в чат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="180"/>
+        <location filename="../ui/UISettingsGUI.ui" line="190"/>
         <source>Show hidden users</source>
         <translation>Отображать скрытых пользователей</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="226"/>
+        <location filename="../ui/UISettingsGUI.ui" line="236"/>
         <source>Maximum paragraphs</source>
         <translation>Максимальное число параграфов</translation>
     </message>
@@ -3595,22 +3605,22 @@ p, li { white-space: pre-wrap; }
         <translation>Принудительная замена смайлов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="187"/>
+        <location filename="../ui/UISettingsGUI.ui" line="197"/>
         <source>Ignore private messages from Hub</source>
         <translation>Игнорировать личные сообщения от хаба</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="194"/>
+        <location filename="../ui/UISettingsGUI.ui" line="204"/>
         <source>Ignore private messages from Bot</source>
         <translation>Игнорировать личные сообщения от бота</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="201"/>
+        <location filename="../ui/UISettingsGUI.ui" line="211"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation>Перенаправлять сообщения от бота в основной чат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="208"/>
+        <location filename="../ui/UISettingsGUI.ui" line="218"/>
         <source>Do not change focus on new private message</source>
         <translation>Не переводить фокус на новое личное сообщение</translation>
     </message>
@@ -3979,22 +3989,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../WulforUtil.cpp" line="521"/>
+        <location filename="../WulforUtil.cpp" line="531"/>
         <source>System default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="594"/>
+        <location filename="../WulforUtil.cpp" line="604"/>
         <source>Enter parameter value</source>
         <translation>Укажите значение параметра</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="689"/>
+        <location filename="../WulforUtil.cpp" line="699"/>
         <source>Offline</source>
         <translation>Не в сети</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="788"/>
+        <location filename="../WulforUtil.cpp" line="798"/>
         <source>User commands</source>
         <translation>Команды пользователя</translation>
     </message>

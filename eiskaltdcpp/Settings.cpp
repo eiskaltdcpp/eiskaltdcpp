@@ -49,12 +49,12 @@ void Settings::init(){
     connect(this, SIGNAL(accepted()), gui, SLOT(ok()));
     widgets.insert(item, 4);
 
-    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiOWN_FILELIST), tr("Notifications"), listWidget);
+    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiMESSAGE), tr("Notifications"), listWidget);
     SettingsNotification *notify = new SettingsNotification(this);
     connect(this, SIGNAL(accepted()), notify, SLOT(ok()));
     widgets.insert(item, 5);
 
-    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiOWN_FILELIST), tr("Logs"), listWidget);
+    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiOPEN_LOG_FILE), tr("Logs"), listWidget);
     SettingsLog *logs = new SettingsLog(this);
     connect(this, SIGNAL(accepted()), logs, SLOT(ok()));
     widgets.insert(item, 6);

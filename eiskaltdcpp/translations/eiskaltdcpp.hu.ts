@@ -1610,6 +1610,10 @@ Keys:
         <source>Translation (*.qm)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hungarian</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsNotification</name>
@@ -2823,6 +2827,10 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show joins only for favorite users</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
