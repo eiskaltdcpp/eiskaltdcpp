@@ -1211,7 +1211,7 @@ bool HubFrame::parseForCmd(QString line){
                          "/back - set away-mode off\n"
                          "/browse <nick> - browse user files\n"
                          "/clear - clear chat window\n"
-                         "/magnet - default action with magnet (0-ask,1-search,2-download)\n"
+                         "/magnet - default action with magnet (0-ask, 1-search, 2-download)\n"
                          "/close - close this hub\n"
                          "/fav - add this hub to favorites\n"
                          "/grant <nick> - grant extra slot to user\n"
