@@ -21,6 +21,7 @@ const char * const WS_CHAT_TIME_COLOR         = "chat-ts-color";
 const char * const WS_CHAT_MSG_COLOR          = "chat-msg-color";
 const char * const WS_CHAT_PRIV_USER_COLOR    = "chat-pr-us-color";
 const char * const WS_CHAT_PRIV_LOCAL_COLOR   = "chat-pr-lc-color";
+const char * const WS_CHAT_FAVUSER_COLOR      = "chat-fu-color";
 const char * const WS_CHAT_SAY_NICK           = "chat-say-mynick";
 const char * const WS_CHAT_USERLIST_STATE     = "chat-userlist-saved-state";
 const char * const WS_CHAT_CMD_ALIASES        = "chat-cmd-aliases";

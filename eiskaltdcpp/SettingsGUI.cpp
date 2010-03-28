@@ -164,6 +164,10 @@ void SettingsGUI::init(){
         p.fill(c);
         new QListWidgetItem(p, tr("User"), listWidget_CHATCOLOR);
 
+        c.setNamedColor(WSGET(WS_CHAT_FAVUSER_COLOR));
+        p.fill(c);
+        new QListWidgetItem(p, tr("Favorite User"), listWidget_CHATCOLOR);
+
         c.setNamedColor(WSGET(WS_CHAT_TIME_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Time stamp"), listWidget_CHATCOLOR);
@@ -242,6 +246,7 @@ void SettingsGUI::ok(){
         WSSET(WS_CHAT_CORE_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_STAT_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_USER_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        WSSET(WS_CHAT_FAVUSER_COLOR,    QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_TIME_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_MSG_COLOR,        QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
 

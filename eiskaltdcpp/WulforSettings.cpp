@@ -45,6 +45,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_CHAT_CORE_COLOR, "#ff0000");
         strmap.insert(WS_CHAT_STAT_COLOR, "#ac0000");
         strmap.insert(WS_CHAT_USER_COLOR, "#ac0000");
+        strmap.insert(WS_CHAT_FAVUSER_COLOR, "#00ff7f");
         strmap.insert(WS_CHAT_TIME_COLOR, qApp->palette().text().color().name());
         strmap.insert(WS_CHAT_MSG_COLOR, qApp->palette().text().color().name());
         strmap.insert(WS_CHAT_USERLIST_STATE, "");

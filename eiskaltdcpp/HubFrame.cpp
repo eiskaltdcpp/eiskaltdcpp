@@ -2549,6 +2549,9 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
     else if (user.getIdentity().isBot())
         color = WS_CHAT_BOT_COLOR;
 
+    if (FavoriteManager::getInstance()->isFavoriteUser(user.getUser()))
+        color = WS_CHAT_FAVUSER_COLOR;
+
     map["CLR"] = color;
     map["3RD"] = thirdPerson;
 
