@@ -97,49 +97,53 @@ void Notification::switchModule(int m){
 
 void Notification::showMessage(Notification::Type t, const QString &title, const QString &msg){
     if (WBGET(WB_NOTIFY_ENABLED)){
-        if (title.isEmpty() || msg.isEmpty())
-            return;
+        do {
+            if (title.isEmpty() || msg.isEmpty())
+                break;
 
-        if ((MainWindow::getInstance()->isActiveWindow() || MainWindow::getInstance()->isVisible() ) &&
-            !WBGET(WB_NOTIFY_SHOW_ON_ACTIVE))
-            return;
+            if ((MainWindow::getInstance()->isActiveWindow() || MainWindow::getInstance()->isVisible() ) &&
+                !WBGET(WB_NOTIFY_SHOW_ON_ACTIVE))
+                break;
 
-        if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
-            return;
+            if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
+                break;
 
-        if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS)))
-            tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE_TRAY_ICON));
+            if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS)))
+                tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE_TRAY_ICON));
 
-        if (notify)
-            notify->showMessage(title, msg, tray);
+            if (notify)
+                notify->showMessage(title, msg, tray);
+        } while (0);
     }
 
     if (WBGET(WB_NOTIFY_SND_ENABLED)){
-        if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_SNDMAP)) & static_cast<unsigned>(t)))
-            return;
+        do {
+            if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_SNDMAP)) & static_cast<unsigned>(t)))
+                break;
 
-        int sound_pos = getBitPos(static_cast<unsigned>(t));
+            int sound_pos = getBitPos(static_cast<unsigned>(t));
 
-        if (sound_pos >= 0 && sound_pos < sounds.size()){
-            QString sound = sounds.at(sound_pos);
+            if (sound_pos >= 0 && sound_pos < sounds.size()){
+                QString sound = sounds.at(sound_pos);
 
-            if (sound.isEmpty() || !QFile::exists(sound))
-                return;
+                if (sound.isEmpty() || !QFile::exists(sound))
+                    break;
 
-            if (!WBGET(WB_NOTIFY_SND_EXTERNAL))
-                QSound::play(sound);
-            else {
-                QString cmd = WSGET(WS_NOTIFY_SND_CMD);
+                if (!WBGET(WB_NOTIFY_SND_EXTERNAL))
+                    QSound::play(sound);
+                else {
+                    QString cmd = WSGET(WS_NOTIFY_SND_CMD);
 
-                if (cmd.isEmpty())
-                    return;
+                    if (cmd.isEmpty())
+                        break;
 
-                ShellCommandRunner *r = new ShellCommandRunner(cmd, QStringList() << sound, this);
-                connect(r, SIGNAL(finished(bool,QString)), this, SLOT(slotCmdFinished(bool,QString)));
+                    ShellCommandRunner *r = new ShellCommandRunner(cmd, QStringList() << sound, this);
+                    connect(r, SIGNAL(finished(bool,QString)), this, SLOT(slotCmdFinished(bool,QString)));
 
-                r->start();
+                    r->start();
+                }
             }
-        }
+        } while (0);
     }
 }
 

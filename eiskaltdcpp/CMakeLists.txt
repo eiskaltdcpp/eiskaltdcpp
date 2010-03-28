@@ -141,7 +141,8 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UITransferView.ui)
 set (LANGUAGES en
                ru
-               be)
+               be
+               hu)
 
 if (USE_ASPELL)
   set (SRCS ${SRCS} SpellCheck.cpp)
@@ -150,7 +151,8 @@ endif (USE_ASPELL)
 
 set (COMPILED_TRANSLATIONS ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.en.qm
                            ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.ru.qm
-                           ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.be.qm)
+                           ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.be.qm
+                           ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.hu.qm)
 
 #set (PO_FILES po/ru.po)
 #set (PO_FILES po/be.po)

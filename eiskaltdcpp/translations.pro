@@ -127,4 +127,5 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UIPublicHubs.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.ru.ts \
-               translations/eiskaltdcpp.be.ts
+               translations/eiskaltdcpp.be.ts \
+               translations/eiskaltdcpp.hu.ts

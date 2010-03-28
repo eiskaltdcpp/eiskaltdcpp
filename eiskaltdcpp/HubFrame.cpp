@@ -1373,7 +1373,7 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
             model->sort(model->getSortColumn(), model->getSortOrder());
     }
     else{
-        if (join && WS->getBool(WB_SHOW_JOINS))
+        if (join && WS->getBool(WB_CHAT_SHOW_JOINS))
             addStatus(map["NICK"].toString() + tr(" joins the chat"));
 
         model->addUser(map, user);
