@@ -2240,6 +2240,9 @@ void HubFrame::slotFilterTextChanged(){
     }
     else if (treeView_USERS->model() != model)
         treeView_USERS->setModel(model);
+
+    if (comboBox_COLUMNS->hasFocus())
+        lineEdit_FILTER->setFocus();
 }
 
 void HubFrame::slotFindTextEdited(const QString & text){
