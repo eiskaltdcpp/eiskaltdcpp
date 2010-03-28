@@ -346,7 +346,10 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
                 }
 
                 QString link = input.left(l_pos);
-                QString toshow = QUrl::fromEncoded(link.toAscii()).toString();
+                QString toshow = link;
+
+                if (linktype == "http://"  || linktype == "https://" || linktype == "ftp://")
+                    toshow = QUrl::fromEncoded(link.toAscii()).toString();
 
                 if (linktype == "magnet:"){
                     QUrl url;
@@ -1270,15 +1273,11 @@ void HubFrame::addStatus(QString msg){
 
     msg = LinkParser::parseForLinks(msg);
 
-    WulforUtil::getInstance()->textToHtml(nick);
-
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
 
     status = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
     status += msg;
-
-    WulforUtil::getInstance()->textToHtml(status, false);
 
     addOutput(status);
 }
@@ -2407,7 +2406,7 @@ void HubFrame::slotInputContextMenu(){
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
-    QString status = QString("Connecting to %1...").arg(QString::fromStdString(client->getHubUrl()));
+    QString status = QString("Connecting to %1").arg(QString::fromStdString(client->getHubUrl()));
 
     typedef Func1<HubFrame, QString> FUNC;
     FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
@@ -2416,7 +2415,7 @@ void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
 }
 
 void HubFrame::on(ClientListener::Connected, Client*) throw(){
-    QString status = QString("Connected to %1...").arg(QString::fromStdString(client->getHubUrl()));
+    QString status = QString("Connected to %1").arg(QString::fromStdString(client->getHubUrl()));
 
     typedef Func1<HubFrame, QString> FUNC;
     FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
@@ -2565,7 +2564,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
 }
 
 void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int) throw(){
-    QString status = QString("%1...").arg(_q(msg.c_str()));
+    QString status = QString("%1 ").arg(_q(msg));
 
     typedef Func1<HubFrame, QString> FUNC;
     FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
