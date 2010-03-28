@@ -8,7 +8,7 @@
 #include "Notification.h"
 #include "ShellCommandRunner.h"
 #include "EmoticonDialog.h"
-
+#include "WulforSettings.h"
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
@@ -724,7 +724,7 @@ void HubFrame::customEvent(QEvent *e){
     else if (e->type() == UserRemovedEvent::Event){
         UserRemovedEvent *u_e = reinterpret_cast<UserRemovedEvent*>(e);
 
-        total_shared -= u_e->getShare();       
+        total_shared -= u_e->getShare();
 
         QString cid = _q(u_e->getUser()->getCID().toBase32());
         if (pm.contains(cid)){
@@ -939,7 +939,7 @@ QString HubFrame::getArenaTitle(){
     QString ret = tr("Not connected");
 
     if (client && client->isConnected()){
-		ret  = QString("%1 - %2 [%3]").arg(QString(client->getHubName().c_str()))
+        ret  = QString("%1 - %2 [%3]").arg(QString(client->getHubName().c_str()))
                                       .arg(QString(client->getHubDescription().c_str()))
                                       .arg(QString(client->getIp().c_str()));
         QString prefix = QString("[+%1] ").arg(client->isSecure()? ("S") : (client->isTrusted()? ("T"): ("")));
@@ -1170,6 +1170,9 @@ bool HubFrame::parseForCmd(QString line){
     else if (cmd == "/grant" && !emptyParam){
         grantSlot(model->CIDforNick(param));
     }
+    else if (cmd == "/magnet" && !emptyParam){
+        WISET(WI_DEF_MAGNET_ACTION, param.toInt());
+    }
     else if (cmd == "/info" && !emptyParam){
         UserListItem *item = model->itemForNick(param);
 
@@ -1203,6 +1206,7 @@ bool HubFrame::parseForCmd(QString line){
                          "/back - set away-mode off\n"
                          "/browse <nick> - browse user files\n"
                          "/clear - clear chat window\n"
+                         "/magnet - default action with magnet (0-ask,1-search,2-download)\n"
                          "/close - close this hub\n"
                          "/fav - add this hub to favorites\n"
                          "/grant <nick> - grant extra slot to user\n"
@@ -2110,7 +2114,7 @@ void HubFrame::slotChatMenu(const QPoint &){
                 MainWindow::getInstance()->slotChatClear(); // some hack
             else
                 clearChat();
-            
+
             break;
         }
         case Menu::FindInChat:
