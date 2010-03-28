@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -560,6 +560,18 @@ string Socket::getLocalIp() throw() {
 		return inet_ntoa(sock_addr.sin_addr);
 	}
 	return Util::emptyString;
+}
+
+uint16_t Socket::getLocalPort() throw() {
+	if(sock == INVALID_SOCKET)
+		return 0;
+
+	sockaddr_in sock_addr;
+	socklen_t len = sizeof(sock_addr);
+	if(getsockname(sock, (sockaddr*)&sock_addr, &len) == 0) {
+		return ntohs(sock_addr.sin_port);
+	}
+	return 0;
 }
 
 void Socket::socksUpdated() {

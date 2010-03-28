@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -54,9 +54,9 @@ bool SSLSocket::waitConnected(uint32_t millis) {
 	}
 
 	while(true) {
-		int ret = SSL_connect(ssl);
+		int ret = ssl->server?SSL_accept(ssl):SSL_connect(ssl);
 		if(ret == 1) {
-			dcdebug("Connected to SSL server using %s\n", SSL_get_cipher(ssl));
+			dcdebug("Connected to SSL server using %s as %s\n", SSL_get_cipher(ssl), ssl->server?"server":"client");
 			return true;
 		}
 		if(!waitWant(ret, millis)) {
@@ -157,7 +157,7 @@ int SSLSocket::checkSSL(int ret) throw(SocketException) {
 					ssl.reset();
 					// @todo replace 80 with MAX_ERROR_SZ or whatever's appropriate for yaSSL in some nice way...
 					char errbuf[80];
-					throw SocketException(str(F_("SSL Error: %1% (%2%, %3%)") % ERR_error_string(err, errbuf) % ret % err));
+					throw SSLSocketException(str(F_("SSL Error: %1% (%2%, %3%)") % ERR_error_string(err, errbuf) % ret % err));
 				}
 		}
 	}

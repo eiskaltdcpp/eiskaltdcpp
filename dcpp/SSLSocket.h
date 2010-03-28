@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- */
+ */ 
 
 #ifndef DCPLUSPLUS_DCPP_SSLSOCKET_H
 #define DCPLUSPLUS_DCPP_SSLSOCKET_H
@@ -33,6 +33,17 @@ using namespace yaSSL;
 #endif
 
 namespace dcpp {
+
+class SSLSocketException : public SocketException {
+public:
+#ifdef _DEBUG
+	SSLSocketException(const string& aError) throw() : SocketException("SSLSocketException: " + aError) { }
+#else //_DEBUG
+	SSLSocketException(const string& aError) throw() : SocketException(aError) { }
+#endif // _DEBUG
+
+	virtual ~SSLSocketException() throw() { }
+};
 
 class CryptoManager;
 
