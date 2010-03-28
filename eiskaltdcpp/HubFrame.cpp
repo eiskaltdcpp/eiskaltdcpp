@@ -542,8 +542,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
         if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
-            (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
-            (k_e->modifiers() == Qt::NoModifier))
+            ((k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) && k_e->modifiers() == Qt::NoModifier) ||
+             (k_e->key() == Qt::Key_Enter && k_e->modifiers() == Qt::KeypadModifier))
         {
             sendChat(plainTextEdit_INPUT->toPlainText(), false, false);
 
