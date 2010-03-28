@@ -1004,8 +1004,7 @@ void HubFrame::disableChat(){
     }
 
     plainTextEdit_INPUT->setEnabled(!chatDisabled);
-    plainTextEdit_INPUT->setVisible(!chatDisabled);
-    toolButton_SMILE->setVisible(!chatDisabled);
+    frame_INPUT->setVisible(!chatDisabled);
 }
 
 
@@ -1289,6 +1288,8 @@ void HubFrame::addStatus(QString msg){
     status += msg;
 
     addOutput(status);
+
+    label_LAST_STATUS->setText(status);
 }
 
 void HubFrame::addOutput(QString msg){
