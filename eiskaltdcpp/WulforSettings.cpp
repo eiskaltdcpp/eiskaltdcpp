@@ -80,10 +80,10 @@ WulforSettings::WulforSettings():
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_SHOW_FREE_SPACE, (int)true);
-        intmap.insert(WB_CHAT_SHOW_JOINS, (int)true);
+        intmap.insert(WB_CHAT_SHOW_JOINS, (int)false);
         intmap.insert(WB_CHAT_REDIRECT_BOT_PMS, (int)true);
         intmap.insert(WB_CHAT_KEEPFOCUS, (int)true);
-        intmap.insert(WB_CHAT_SHOW_JOINS_FAV, (int)false);
+        intmap.insert(WB_CHAT_SHOW_JOINS_FAV, (int)true);
         intmap.insert(WB_MAINWINDOW_MAXIMIZED, (int)true);
         intmap.insert(WB_MAINWINDOW_HIDE, (int)false);
         intmap.insert(WB_SEARCHFILTER_NOFREE, (int)false);
@@ -92,7 +92,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_ANTISPAM_AS_FILTER, (int)false);
         intmap.insert(WB_IPFILTER_ENABLED, (int)false);
         intmap.insert(WB_TRAY_ENABLED, (int)true);
-        intmap.insert(WB_EXIT_CONFIRM, (int)true);
+        intmap.insert(WB_EXIT_CONFIRM, (int)false);
         intmap.insert(WB_SHOW_HIDDEN_USERS, (int)false);
         intmap.insert(WB_SHOW_JOINS, (int)false);
         intmap.insert(WB_NOTIFY_ENABLED, (int)true);
