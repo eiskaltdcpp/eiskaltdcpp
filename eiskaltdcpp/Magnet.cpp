@@ -18,7 +18,7 @@
 #include "SearchFrame.h"
 #include "MainWindow.h"
 #include "Func.h"
-
+#include <QtDebug>
 using namespace dcpp;
 
 Magnet::Magnet(QWidget *parent) :
@@ -33,7 +33,6 @@ Magnet::Magnet(QWidget *parent) :
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
     connect(pushButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
-    connect(lineEdit_FNAME, SIGNAL(textChanged(QString)), this, SLOT(slotNameChanged()));
 }
 
 Magnet::~Magnet(){
@@ -67,8 +66,6 @@ void Magnet::setLink(const QString &link){
 
     if (url.hasQueryItem("dn"))
         lineEdit_FNAME->setText(url.queryItemValue("dn"));
-    else
-        pushButton_DOWNLOAD->setEnabled(false);
 
     lineEdit_SIZE->setReadOnly(true);
 
@@ -90,6 +87,9 @@ void Magnet::setLink(const QString &link){
         tth = tth.left(tth.indexOf("&xl="));
     else if (!lineEdit_FNAME->text().isEmpty())
         tth = tth.left(tth.indexOf("&dn="));
+
+    if (lineEdit_FNAME->text().isEmpty())
+    lineEdit_FNAME->setText(tth);
 
     lineEdit_TTH->setText(tth);
     lineEdit_FPATH->setText(_q(SETTING(DOWNLOAD_DIRECTORY)));
@@ -143,24 +143,22 @@ void Magnet::download(){
     QString path = lineEdit_FPATH->text();
     QString size_str = lineEdit_SIZE->text();
 
-    QString name = "";
-    if (!fname.isEmpty())
-        name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + fname.split(QDir::separator(), QString::SkipEmptyParts).last();
-    else
-        name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + tr("UnknownFile");
-
+    QString name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + fname.split(QDir::separator(), QString::SkipEmptyParts).last();
     qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
-
     try {
         UserPtr dummyuser(new User(CID::generate()));
         QueueManager::getInstance()->add(_tq(name), size, TTHValue(_tq(tth)), dummyuser, "");
-        //QueueManager::getInstance()->removeSource(_tq(name), dummyuser, QueueItem::Source::FLAG_REMOVED);
+        QueueManager::getInstance()->removeSource(_tq(name), dummyuser, QueueItem::Source::FLAG_REMOVED);
     }
     catch (const std::exception& e){
         QMessageBox::critical(this, tr("Error"), tr("Some error ocurred when starting download:\n %1").arg(e.what()));
     }
+    typedef Func0<Magnet> FUNC;
+    FUNC *f = new FUNC(this, &Magnet::accept);
 
-    accept();
+    QApplication::postEvent(this, new MagnetCustomEvent(f));
+
+
 }
 
 void Magnet::timeout(){
@@ -175,9 +173,5 @@ void Magnet::slotBrowse(){
     if (dir.isEmpty())
         return;
 
-	lineEdit_FPATH->setText(dir + PATH_SEPARATOR_STR);
-}
-
-void Magnet::slotNameChanged(){
-    pushButton_DOWNLOAD->setEnabled(!lineEdit_FNAME->text().isEmpty());
+        lineEdit_FPATH->setText(dir + PATH_SEPARATOR_STR);
 }
