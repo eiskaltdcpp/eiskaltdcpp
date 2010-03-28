@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -339,7 +339,7 @@ const string& fromUtf8(const string& str, const string& toCharset, string& tmp) 
 }
 
 const string& convert(const string& str, string& tmp, const string& fromCharset, const string& toCharset) throw() {
-        if(str.empty() || (strcmp(fromCharset.c_str(), toCharset.c_str()) == 0))
+	if(str.empty())
 		return str;
 
 #ifdef _WIN32
