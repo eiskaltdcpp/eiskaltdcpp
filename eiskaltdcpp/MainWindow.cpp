@@ -365,7 +365,7 @@ void MainWindow::initActions(){
 
         fileFileListBrowser = new QAction("", this);
         fileFileListBrowser->setShortcut(tr("Shift+L"));
-        fileFileListBrowser->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+        fileFileListBrowser->setIcon(WU->getPixmap(WulforUtil::eiOPENLIST));
         connect(fileFileListBrowser, SIGNAL(triggered()), this, SLOT(slotFileBrowseFilelist()));
 
         fileOpenLogFile = new QAction("", this);
@@ -374,7 +374,7 @@ void MainWindow::initActions(){
 
         fileFileListRefresh = new QAction("", this);
         fileFileListRefresh->setShortcut(tr("Ctrl+R"));
-        fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiRELOAD));
+        fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiREFRLIST));
         connect(fileFileListRefresh, SIGNAL(triggered()), this, SLOT(slotFileRefreshShare()));
 
         fileHashProgress = new QAction("", this);
