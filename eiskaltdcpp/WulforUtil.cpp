@@ -143,6 +143,11 @@ QString WulforUtil::findAppIconsPath(){
     if (QDir(settings_path).exists())
         return settings_path;
 
+    settings_path = QDir::homePath() + "/.eiskaltdc++/icons";
+    settings_path = QDir::toNativeSeparators(settings_path);
+    if (QDir(settings_path).exists())
+        return settings_path;
+
     settings_path = bin_path + "/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())

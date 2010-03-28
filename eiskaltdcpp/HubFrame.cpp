@@ -997,6 +997,7 @@ void HubFrame::disableChat(){
 
     plainTextEdit_INPUT->setEnabled(!chatDisabled);
     plainTextEdit_INPUT->setVisible(!chatDisabled);
+    toolButton_SMILE->setVisible(!chatDisabled);
 }
 
 
@@ -1338,6 +1339,7 @@ void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
 void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, bool join){
     static WulforUtil *WU = WulforUtil::getInstance();
     static WulforSettings *WS = WulforSettings::getInstance();
+    static bool showFavJoinsOnly = WS->getBool(WB_CHAT_SHOW_JOINS_FAV);
 
     if (!model)
         return;
@@ -1373,8 +1375,14 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
             model->sort(model->getSortColumn(), model->getSortOrder());
     }
     else{
-        if (join && WS->getBool(WB_CHAT_SHOW_JOINS))
-            addStatus(map["NICK"].toString() + tr(" joins the chat"));
+        if (join && WS->getBool(WB_CHAT_SHOW_JOINS)){
+            do {
+                if (showFavJoinsOnly && !FavoriteManager::getInstance()->isFavoriteUser(user))
+                    break;
+
+                addStatus(map["NICK"].toString() + tr(" joins the chat"));
+            } while (0);
+        }
 
         model->addUser(map, user);
 

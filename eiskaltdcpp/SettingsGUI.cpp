@@ -115,6 +115,7 @@ void SettingsGUI::init(){
         spinBox_PARAGRAPHS->setValue(WIGET(WI_CHAT_MAXPARAGRAPHS));
 
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
+        checkBox_JOINSFAV->setChecked(WBGET(WB_CHAT_SHOW_JOINS_FAV));
         checkBox_CHATHIDDEN->setChecked(WBGET(WB_SHOW_HIDDEN_USERS));
         checkBox_IGNOREPMHUB->setChecked(BOOLSETTING(IGNORE_HUB_PMS));
         checkBox_IGNOREPMBOT->setChecked(BOOLSETTING(IGNORE_BOT_PMS));
@@ -218,6 +219,7 @@ void SettingsGUI::ok(){
 
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
+        WBSET(WB_CHAT_SHOW_JOINS_FAV, checkBox_JOINSFAV->isChecked());
         WBSET(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());
         WBSET(WB_CHAT_KEEPFOCUS, checkBox_KEEPFOCUS->isChecked());
         WBSET(WB_APP_ENABLE_EMOTICON, checkBox_EMOT->isChecked());

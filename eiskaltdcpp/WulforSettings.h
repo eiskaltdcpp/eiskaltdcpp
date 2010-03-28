@@ -54,6 +54,7 @@ const char * const WS_PUBLICHUBS_STATE        = "publichubs-state";
 const char * const WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";
 const char * const WB_SHOW_FREE_SPACE         = "show-free-space";
 const char * const WB_CHAT_SHOW_JOINS         = "chat-show-joins";
+const char * const WB_CHAT_SHOW_JOINS_FAV     = "chat-show-joins-fav-only";
 const char * const WB_CHAT_REDIRECT_BOT_PMS   = "chat-redirect-pms-from-bot";
 const char * const WB_CHAT_KEEPFOCUS          = "chat-keep-focus";
 const char * const WB_MAINWINDOW_MAXIMIZED    = "mainwindow-maximized";

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>341</width>
-    <height>355</height>
+    <width>339</width>
+    <height>353</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -171,6 +171,16 @@
         <widget class="QCheckBox" name="checkBox_CHATJOINS">
          <property name="text">
           <string>Show joins</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_JOINSFAV">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Show joins only for favorite users</string>
          </property>
         </widget>
        </item>
@@ -356,5 +366,22 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkBox_CHATJOINS</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox_JOINSFAV</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>82</x>
+     <y>94</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>80</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
