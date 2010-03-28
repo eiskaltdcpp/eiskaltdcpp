@@ -69,6 +69,7 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    virtual void sort() { sort(sortColumn, sortOrder); }
 
     /** Clear model and redraw view*/
     void clearModel();
@@ -96,6 +97,9 @@ private:
     FinishedTransfersItem *rootItem;
     FinishedTransfersItem *fileItem;
     FinishedTransfersItem *userItem;
+
+    int sortColumn;
+    Qt::SortOrder sortOrder;
 
     QHash<QString, FinishedTransfersItem* > file_hash;
     QHash<QString, FinishedTransfersItem* > user_hash;

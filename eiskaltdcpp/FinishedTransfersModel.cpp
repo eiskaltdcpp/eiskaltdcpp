@@ -40,7 +40,7 @@ using namespace dcpp;
 #endif
 
 FinishedTransfersModel::FinishedTransfersModel(QObject *parent):
-        QAbstractItemModel(parent)
+        QAbstractItemModel(parent), sortColumn(0), sortOrder(Qt::AscendingOrder)
 {
     QList<QVariant> userData;
     userData << tr("User")<< tr("Files") << tr("Time") << tr("Transferred")
@@ -336,6 +336,9 @@ bool inline UserCompare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
 void FinishedTransfersModel::sort(int column, Qt::SortOrder order) {
     emit layoutAboutToBeChanged();
 
+    sortColumn = column;
+    sortOrder = order;
+
     if (rootItem == fileItem){
         if (order == Qt::AscendingOrder)
             FileCompare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
@@ -461,6 +464,9 @@ FinishedTransfersItem *FinishedTransfersModel::findFile(const QString &fname){
 
     file_hash.insert(fname, item);
 
+    if (rootItem == fileItem)
+        sort();
+
     return item;
 }
 
@@ -479,6 +485,9 @@ FinishedTransfersItem *FinishedTransfersModel::findUser(const QString &cid){
     userItem->appendChild(item);
 
     user_hash.insert(cid, item);
+
+    if (rootItem == userItem)
+        sort();
 
     return item;
 }
