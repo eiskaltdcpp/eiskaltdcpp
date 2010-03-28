@@ -63,6 +63,8 @@ void SettingsGUI::init(){
                 lang = tr("Russian");
             else if (f == "eiskaltdcpp.be.qm")
                 lang = tr("Belarusian");
+            else if (f == "eiskaltdcpp.hu.qm")
+                lang = tr("Hungarian");
 
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);
