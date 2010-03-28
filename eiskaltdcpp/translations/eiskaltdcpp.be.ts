@@ -795,7 +795,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="1394"/>
         <source>User online.</source>
-        <translation type="unfinished"></translation>
+        <translation>Карыстальнік далучыўся.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1418"/>
@@ -837,7 +837,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="1607"/>
         <source>User offline.</source>
-        <translation>Карыстальнік адлучаны.</translation>
+        <translation>Карыстальнік адлучыўся.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1639"/>
@@ -980,7 +980,7 @@ Favorite user</source>
     <message>
         <location filename="../Magnet.cpp" line="150"/>
         <source>UnknownFile</source>
-        <translation type="unfinished"></translation>
+        <translation>НевядомыФайл</translation>
     </message>
     <message>
         <location filename="../Magnet.cpp" line="160"/>
@@ -991,7 +991,8 @@ Favorite user</source>
         <location filename="../Magnet.cpp" line="160"/>
         <source>Some error ocurred when starting download:
  %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Здарылася памылка, калі пачыналі сьцягваць:
+ %1</translation>
     </message>
     <message>
         <location filename="../Magnet.cpp" line="167"/>
@@ -1241,12 +1242,12 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="696"/>
         <source>&amp;Hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Асяродкі</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="708"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Прылады</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="728"/>
@@ -3198,7 +3199,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="24"/>
         <source>Connection</source>
-        <translation type="unfinished">Злучэньне</translation>
+        <translation>Злучэньне</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="30"/>
@@ -3306,23 +3307,23 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsConnection.ui" line="285"/>
         <location filename="../ui/UISettingsConnection.ui" line="297"/>
         <source>Limits</source>
-        <translation type="unfinished">Абмежаваньні</translation>
+        <translation>Абмежаваньні</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="310"/>
         <source>WARNING!!! NOT TESTED!!! NO GARANTEE TO WORK!!!!</source>
-        <translation type="unfinished"></translation>
+        <translation>Перасьцярога!!! Нявыпрабаванае!!! Можа не працаваць!!!</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="317"/>
         <source>On/Off speed limits</source>
-        <translation type="unfinished"></translation>
+        <translation>Задзейнічаць абмежаваньні хуткасьці</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="347"/>
         <location filename="../ui/UISettingsConnection.ui" line="488"/>
         <source>Download</source>
-        <translation type="unfinished">Сьцягнуць</translation>
+        <translation>Сьцягваць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="361"/>
@@ -3330,23 +3331,23 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsConnection.ui" line="502"/>
         <location filename="../ui/UISettingsConnection.ui" line="536"/>
         <source>KiB/s</source>
-        <translation type="unfinished"></translation>
+        <translation>КіБ/с</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="381"/>
         <location filename="../ui/UISettingsConnection.ui" line="522"/>
         <source>Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Зацягваць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="422"/>
         <source>Alternate restrictions speed from </source>
-        <translation type="unfinished"></translation>
+        <translation>Іншыя абмежаваньні ў час ад</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="445"/>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>да</translation>
     </message>
 </context>
 <context>
@@ -3881,7 +3882,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="96"/>
         <source>Use fast hash</source>
-        <translation type="unfinished"></translation>
+        <translation>Хуткі спосаб ствараць скароты</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
@@ -3901,14 +3902,13 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="66"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translatorcomment>???</translatorcomment>
-        <translation>Найв. хуткасьць ствараць скароты (МБ/с, 0=не абмяжоўваць)</translation>
+        <translation>Найвялікшая хуткасьць ствараць скароты (МБ/с, 0=не абмяжоўваць)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="173"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translatorcomment>???бясконцая ці нуль?</translatorcomment>
-        <translation>Дадаць шчыліну, калі хуткасьць &lt; (КіБ/с, 0 = бясконцая)</translation>
+        <translation>Дадаць шчыліну, калі хуткасьць (у КіБ/с) меней за</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="195"/>
