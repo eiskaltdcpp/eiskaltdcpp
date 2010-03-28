@@ -66,6 +66,7 @@ public:
     QList<UserListItem*> childItems;
 
     bool isOp;
+    bool fav;
     QString nick;
     qulonglong share;
     QString comm;

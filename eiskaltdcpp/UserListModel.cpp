@@ -122,6 +122,16 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
 
             break;
         }
+        case Qt::FontRole:
+        {
+            QFont font;
+            font.setBold(true);
+
+            if (item->fav)
+                return font;
+
+            break;
+        }
     }
 
     return QVariant();
@@ -189,6 +199,8 @@ struct Compare {
         bool static AttrCmp(const UserListItem * l, const UserListItem * r) {
             if (l->isOp != r->isOp)
                 return l->isOp;
+            else if (l->fav != r->fav)
+                return l->fav;
             else
                 return Cmp(l->*attr, r->*attr);;
         }
@@ -351,6 +363,7 @@ void UserListModel::addUser(const QString& nick,
     item->isOp = isOp;
     item->cid = cid;
     item->ptr = ptr;
+    item->fav = FavoriteManager::getInstance()->isFavoriteUser(ptr);
 
     users.insert(ptr, item);
     nicks.insert(nick, ptr);
@@ -470,7 +483,7 @@ QStringList UserListModel::matchNicksAny(const QString &part, bool stripTags) co
 }
 
 UserListItem::UserListItem(UserListItem *parent) :
-    isOp(false), px(NULL), parentItem(parent)
+    isOp(false), px(NULL), parentItem(parent), fav(false)
 {
 }
 

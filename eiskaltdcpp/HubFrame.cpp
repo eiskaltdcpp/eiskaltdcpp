@@ -1906,6 +1906,8 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
                 if (item)
                     addUserToFav(item->cid);
+
+                item->fav = true;
             }
 
             break;
@@ -1917,6 +1919,8 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
                 if (item)
                     delUserFromFav(item->cid);
+
+                item->fav = false;
             }
 
             break;
