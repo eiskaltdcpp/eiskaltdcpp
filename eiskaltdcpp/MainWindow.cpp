@@ -390,6 +390,7 @@ void MainWindow::initActions(){
 
         fileHideWindow = new QAction(tr("Hide window"), this);
         fileHideWindow->setShortcut(tr("Esc"));
+        fileHideWindow->setShortcutContext(Qt::ApplicationShortcut);
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
