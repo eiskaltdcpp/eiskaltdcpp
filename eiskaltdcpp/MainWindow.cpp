@@ -332,6 +332,12 @@ void MainWindow::loadSettings(){
 
     if (!wstate.isEmpty())
         this->restoreState(QByteArray::fromBase64(wstate.toAscii()));
+    
+    tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+    panelsWidgets->setChecked(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+    
+    fBar->setVisible(WBGET(WB_TOOLS_PANEL_VISIBLE));
+    panelsTools->setChecked(WBGET(WB_TOOLS_PANEL_VISIBLE));
 }
 
 void MainWindow::saveSettings(){
@@ -560,6 +566,15 @@ void MainWindow::initActions(){
         menuWidgets = new QMenu("", this);
     }
     {
+        panelsWidgets = new QAction("", this);
+        panelsWidgets->setCheckable(true);
+        connect(panelsWidgets, SIGNAL(triggered()), this, SLOT(slotPanelMenuActionClicked()));
+
+        panelsTools = new QAction("", this);
+        panelsTools->setCheckable(true);
+        connect(panelsTools, SIGNAL(triggered()), this, SLOT(slotPanelMenuActionClicked()));
+    }
+    {
         aboutClient = new QAction("", this);
         aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL));
         connect(aboutClient, SIGNAL(triggered()), this, SLOT(slotAboutClient()));
@@ -601,6 +616,12 @@ void MainWindow::initMenuBar(){
         menuTools->addActions(toolsMenuActions);
     }
     {
+        menuPanels = new QMenu("", this);
+
+        menuPanels->addAction(panelsWidgets);
+        menuPanels->addAction(panelsTools);
+    }
+    {
         menuAbout = new QMenu("", this);
 
         menuAbout->addAction(aboutClient);
@@ -611,6 +632,7 @@ void MainWindow::initMenuBar(){
     menuBar()->addMenu(menuHubs);
     menuBar()->addMenu(menuTools);
     menuBar()->addMenu(menuWidgets);
+    menuBar()->addMenu(menuPanels);
     menuBar()->addMenu(menuAbout);
     menuBar()->setContextMenuPolicy(Qt::CustomContextMenu);
 }
@@ -732,6 +754,12 @@ void MainWindow::retranslateUi(){
         chatDisable->setText(tr("Disable/enable chat"));
 
         menuWidgets->setTitle(tr("&Widgets"));
+
+        menuPanels->setTitle(tr("&Panels"));
+
+        panelsWidgets->setText(tr("Widgets panel"));
+
+        panelsTools->setText(tr("Tools panel"));
 
         menuAbout->setTitle(tr("&Help"));
 
@@ -1280,6 +1308,24 @@ void MainWindow::slotToolsTransfer(bool toggled){
     else {
         transfer_dock->setWidget(NULL);
         transfer_dock->setVisible(false);
+    }
+}
+
+void MainWindow::slotPanelMenuActionClicked(){
+    QObject *obj = sender();
+
+    QAction *act = qobject_cast<QAction *>(obj);
+
+    if (act == 0)
+        return;
+
+    if (act == panelsWidgets){
+        tBar->setVisible(panelsWidgets->isChecked());
+        WBSET(WB_WIDGETS_PANEL_VISIBLE, panelsWidgets->isChecked());
+    }
+    else if (act == panelsTools){
+        fBar->setVisible(panelsTools->isChecked());
+        WBSET(WB_TOOLS_PANEL_VISIBLE, panelsTools->isChecked());
     }
 }
 

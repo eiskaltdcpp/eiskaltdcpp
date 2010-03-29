@@ -160,6 +160,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsSearch();
         void slotToolsSettings();
         void slotToolsTransfer(bool);
+        void slotPanelMenuActionClicked();
         void slotWidgetsToggle();
         void slotQC();
         void slotHideWindow();
@@ -253,6 +254,10 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsIPFilter;
         QAction *toolsHideProgressSpace;
         QAction *toolsOptions;
+
+        QMenu   *menuPanels;
+        QAction *panelsWidgets;
+        QAction *panelsTools;
 
         QShortcut *ctrl_pgup;
         QShortcut *ctrl_pgdown;
