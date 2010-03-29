@@ -480,7 +480,7 @@
     </message>
     <message>
         <source>Select all</source>
-        <translation>Minden kiválasztása</translation>
+        <translation>Minden kijelölése</translation>
     </message>
     <message>
         <source>Zoom In</source>
