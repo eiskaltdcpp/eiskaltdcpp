@@ -14,6 +14,8 @@
 #include <QAction>
 #include <QFileDialog>
 #include <QDir>
+#include <QFile>
+#include <QTextStream>
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QStack>
@@ -55,6 +57,21 @@ void SettingsSharing::ok(){
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
 
     SM->save();
+
+    QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
+
+    if (f.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){
+
+        QList<QTreeWidgetItem*> items = treeWidget->findItems("*", Qt::MatchWildcard, 0);
+        QTextStream stream(&f);
+
+        foreach (QTreeWidgetItem *i, items)
+            stream << i->text(1).left(i->text(1).indexOf(tr("GiB"))) << i->text(0) << '\n';
+
+        stream.flush();
+
+        f.close();
+    }
 }
 
 void SettingsSharing::init(){
@@ -83,6 +100,49 @@ void SettingsSharing::init(){
     if (!WSGET(WS_SHAREHEADER_STATE).isEmpty())
         treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toAscii()));
 
+    QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
+
+    if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&f);
+        QString line = "";
+        QMap<QString, unsigned> restrict_map;
+
+        while (!(line = stream.readLine(0)).isNull()){
+            QStringList list = line.split(' ');
+
+            if (list.size() < 2)
+                continue;
+
+            bool ok = false;
+            unsigned size = 0;
+
+            size = list.at(0).toUInt(&ok);
+
+            if (!ok)
+                continue;
+
+            QString virt_path = line.remove(0, list.at(0).length() + 1);
+
+            if (!virt_path.isEmpty() && size > 0 && !restrict_map.contains(virt_path))
+                restrict_map.insert(virt_path, size);
+        }
+
+        f.close();
+
+        QMap< QString, unsigned>::iterator it = restrict_map.begin();
+        for (; it != restrict_map.end(); ++it){
+            QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
+
+            item->setText(0, it.key());
+            item->setText(1, tr("%1 GiB").arg(it.value()));
+        }
+    }
+    else
+        treeWidget->setEnabled(false);
+
+    treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotRestrictMenu()));
     connect(toolButton_RECREATE, SIGNAL(clicked()), this, SLOT(slotRecreateShare()));
     connect(model, SIGNAL(getName(QModelIndex)), this, SLOT(slotGetName(QModelIndex)));
     connect(model, SIGNAL(expandMe(QModelIndex)), treeView, SLOT(expand(QModelIndex)));
@@ -133,6 +193,51 @@ void SettingsSharing::slotGetName(QModelIndex index){
 
 void SettingsSharing::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView);
+}
+
+void SettingsSharing::slotRestrictMenu(){
+    WulforUtil *WU = WulforUtil::getInstance();
+    QMenu *m = new QMenu(this);
+    QAction *add = new QAction(WU->getPixmap(WulforUtil::eiEDITADD), tr("Add"), m);
+    m->addAction(add);
+
+    QAction *rem = NULL;
+
+    QList<QTreeWidgetItem*> selected = treeWidget->selectedItems();
+
+    if (selected.size() > 0){
+        rem = new QAction(WU->getPixmap(WulforUtil::eiEDITDELETE), tr("Remove"), m);
+        m->addAction(rem);
+    }
+
+    QAction *ret = m->exec(QCursor::pos());
+
+    delete m;
+
+    if (ret == add){
+        int size = -1;
+        QString virt_path = "";
+        bool ok = false;
+
+        virt_path = QInputDialog::getText(this, tr("Enter virtual path name"), tr("Virtual path"), QLineEdit::Normal, "", &ok);
+
+        if (!ok || virt_path.isEmpty())
+            return;
+
+        ok = false;
+
+        size = QInputDialog::getInt(this, tr("Enter restriction (in GiB)"), tr("Restriction"), 1, 1, 1000, 1, &ok);
+
+        if (!ok)
+            return;
+
+        QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
+
+        item->setText(0, virt_path);
+        item->setText(1, tr("%1 GiB").arg(size));
+    }
+    else if (ret)
+        qDeleteAll(selected);
 }
 
 ShareDirModel::ShareDirModel(QObject *parent){
