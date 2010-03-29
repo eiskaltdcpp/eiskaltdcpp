@@ -104,6 +104,9 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_APP_ENABLE_EMOTICON, (int)true);
         intmap.insert(WB_APP_FORCE_EMOTICONS, (int)true);
         intmap.insert(WB_APP_ENABLE_ASPELL, (int)true);
+        intmap.insert(WB_WIDGETS_PANEL_VISIBLE, (int)true);
+        intmap.insert(WB_TOOLS_PANEL_VISIBLE, (int)true);
+        intmap.insert(WB_MAIN_MENU_VISIBLE, (int)true);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS, 300);
         intmap.insert(WI_DEF_MAGNET_ACTION, 0);
         intmap.insert(WI_CHAT_WIDTH, -1);
@@ -127,8 +130,6 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_NOTIFY_EVENTMAP, 0x0F);// 0b00001111, all events
         intmap.insert(WI_NOTIFY_MODULE, 0);//default
         intmap.insert(WI_NOTIFY_SNDMAP, 0x0F);// 0b00001111, all events
-        intmap.insert(WB_WIDGETS_PANEL_VISIBLE, (int)true);
-        intmap.insert(WB_TOOLS_PANEL_VISIBLE, (int)true);
     }
 }
 

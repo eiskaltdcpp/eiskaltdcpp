@@ -163,6 +163,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotPanelMenuActionClicked();
         void slotWidgetsToggle();
         void slotQC();
+        void slotHideMainMenu();
         void slotHideWindow();
         void slotHideProgressSpace();
         void slotExit();
@@ -262,6 +263,7 @@ friend class dcpp::Singleton<MainWindow>;
         QShortcut *ctrl_pgup;
         QShortcut *ctrl_pgdown;
         QShortcut *ctrl_w;
+        QShortcut *ctrl_m;
 
         QAction *chatDisable;
         QAction *findInChat;

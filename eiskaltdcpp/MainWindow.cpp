@@ -338,6 +338,8 @@ void MainWindow::loadSettings(){
     
     fBar->setVisible(WBGET(WB_TOOLS_PANEL_VISIBLE));
     panelsTools->setChecked(WBGET(WB_TOOLS_PANEL_VISIBLE));
+
+    menuBar()->setVisible(WBGET(WB_MAIN_MENU_VISIBLE));
 }
 
 void MainWindow::saveSettings(){
@@ -589,14 +591,17 @@ void MainWindow::initHotkeys(){
     ctrl_pgdown = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageDown), this);
     ctrl_pgup   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageUp), this);
     ctrl_w      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_W), this);
+    ctrl_m      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_M), this);
 
     ctrl_pgdown->setContext(Qt::WindowShortcut);
     ctrl_pgup->setContext(Qt::WindowShortcut);
     ctrl_w->setContext(Qt::WindowShortcut);
+    ctrl_m->setContext(Qt::WindowShortcut);
 
     connect(ctrl_pgdown, SIGNAL(activated()), tBar, SLOT(nextTab()));
     connect(ctrl_pgup,   SIGNAL(activated()), tBar, SLOT(prevTab()));
     connect(ctrl_w,      SIGNAL(activated()), this, SLOT(slotCloseCurrentWidget()));
+    connect(ctrl_m,      SIGNAL(activated()), this, SLOT(slotHideMainMenu()));
 }
 
 void MainWindow::initMenuBar(){
@@ -1382,6 +1387,12 @@ void MainWindow::slotQC(){
     QuickConnect qc;
 
     qc.exec();
+}
+
+void MainWindow::slotHideMainMenu(){
+    bool b = menuBar()->isVisible();
+    menuBar()->setVisible(!b);
+    WBSET(WB_MAIN_MENU_VISIBLE, !b);
 }
 
 void MainWindow::slotHideWindow(){
