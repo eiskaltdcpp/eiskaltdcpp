@@ -895,7 +895,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Open own filelist</source>
-        <translation>Sajá fájl-lista megnyitása</translation>
+        <translation>Saját fájl-lista megnyitása</translation>
     </message>
     <message>
         <source>Refresh share</source>
