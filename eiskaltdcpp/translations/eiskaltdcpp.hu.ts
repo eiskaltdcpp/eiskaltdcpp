@@ -589,40 +589,6 @@ Kedvenc felhasználó</translation>
         <translation>A chat törölve lett</translation>
     </message>
     <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/aspell on/off - nyelvhelyesség elenőrző ki/be kapcsolása
-/alias &lt;ÁLNÉV&gt;::&lt;PARANCS&gt; - álnév létrehozása /ÁLNÉV a /PARANCSRA
-/alias purge &lt;ÁLNÉV&gt; - álnév eltávolítása
-/alias list - álnevek listázása
-/away &lt;üzenet&gt; - away-mód ki/be kapcsolása
-/back - away-mód kikapcsolása
-/browse &lt;nick&gt; - felhaszáló fájlistájának böngészése
-/clear - chat ablak törlése
-/close - hub bezárása
-/fav - hub hozzáadása a kedvencekhez
-/grant &lt;nick&gt; - extra slot biztosítása a felhasználónak
-/help, /?, /h - segítség mutatása
-/info &lt;nick&gt; - információ mutatása a felhasználóról
-/me - üzenet küldése harmadik személyben
-/pm &lt;nick&gt; - privát beszélgetés kezdése a felhasználóval
-/sh &lt;parancs&gt; - shell parancs indítása, és a kimenet átirányítása a chat ablakba</translation>
-    </message>
-    <message>
         <source> joins the chat</source>
         <translation> belépett a hubra</translation>
     </message>
@@ -798,10 +764,6 @@ Kedvenc felhasználó</translation>
 </context>
 <context>
     <name>Magnet</name>
-    <message>
-        <source>UnknownFile</source>
-        <translation type="obsolete">IsmeretlenFájl</translation>
-    </message>
     <message>
         <source>Error</source>
         <translation>Hiba</translation>
@@ -1124,6 +1086,18 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>Total down:</source>
         <translation>Összes letöltés:</translation>
+    </message>
+    <message>
+        <source>&amp;Panels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tools panel</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1717,6 +1691,38 @@ Kapcsolók:
         <source>Name</source>
         <translation>Név</translation>
     </message>
+    <message>
+        <source>GiB</source>
+        <translation type="unfinished">GiB</translation>
+    </message>
+    <message>
+        <source>%1 GiB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Hozzáadás</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter virtual path name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Virtual path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter restriction (in GiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShareBrowser</name>
@@ -2101,24 +2107,6 @@ p, li { white-space: pre-wrap; }
         <translation>Fordítás</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Translators&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Russian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (for 0.4.10 and later)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Belarusian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (for 1.0.40 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Fordítók&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Orosz fordítás&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (0.4.10 és újabb)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Belorusz fordítás&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (1.0.40 és újabb)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>License</source>
         <translation>Licenc</translation>
     </message>
@@ -2332,10 +2320,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>000.000.000.000; </source>
         <translation>000.000.000.000; </translation>
-    </message>
-    <message>
-        <source>Automaticaly update from Internet</source>
-        <translation type="obsolete">Automatikus frissítés az internetről</translation>
     </message>
     <message>
         <source>Identification</source>
@@ -2999,10 +2983,6 @@ p, li { white-space: pre-wrap; }
         <translation>Privát üzenetek</translation>
     </message>
     <message>
-        <source>Format</source>
-        <translation type="obsolete">Formátum</translation>
-    </message>
-    <message>
         <source>Main chat</source>
         <translation>Main chat</translation>
     </message>
@@ -3190,6 +3170,26 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Upload slots</source>
         <translation>Feltöltési slotok</translation>
+    </message>
+    <message>
+        <source>Basic</source>
+        <translation type="unfinished">Alap beállítások</translation>
+    </message>
+    <message>
+        <source>Restrictions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Share</source>
+        <translation type="unfinished">Megosztás</translation>
+    </message>
+    <message>
+        <source>Restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All changes take effect only after restart</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
