@@ -104,6 +104,7 @@ const char * const WI_SHARE_WIDTH             = "sharebrowser-width";
 const char * const WI_NOTIFY_EVENTMAP         = "notify-event-map";
 const char * const WI_NOTIFY_SNDMAP           = "notify-snd-map";
 const char * const WI_NOTIFY_MODULE           = "notify-module";
+const char * const WI_OUT_IN_HIST             = "number-of-output-messages-in-history";
 
 
 class WulforSettings :

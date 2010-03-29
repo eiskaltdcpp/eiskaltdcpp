@@ -589,16 +589,22 @@ void MainWindow::initActions(){
 void MainWindow::initHotkeys(){
     ctrl_pgdown = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageDown), this);
     ctrl_pgup   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageUp), this);
+    ctrl_down   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Down), this);
+    ctrl_up     = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Up), this);
     ctrl_w      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_W), this);
     ctrl_m      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_M), this);
 
     ctrl_pgdown->setContext(Qt::WindowShortcut);
     ctrl_pgup->setContext(Qt::WindowShortcut);
+    ctrl_down->setContext(Qt::WindowShortcut);
+    ctrl_up->setContext(Qt::WindowShortcut);
     ctrl_w->setContext(Qt::WindowShortcut);
     ctrl_m->setContext(Qt::WindowShortcut);
 
     connect(ctrl_pgdown, SIGNAL(activated()), tBar, SLOT(nextTab()));
     connect(ctrl_pgup,   SIGNAL(activated()), tBar, SLOT(prevTab()));
+    connect(ctrl_down,   SIGNAL(activated()), this, SLOT(nextMsg()));
+    connect(ctrl_up,     SIGNAL(activated()), this, SLOT(prevMsg()));
     connect(ctrl_w,      SIGNAL(activated()), this, SLOT(slotCloseCurrentWidget()));
     connect(ctrl_m,      SIGNAL(activated()), this, SLOT(slotHideMainMenu()));
 }
@@ -1477,6 +1483,50 @@ void MainWindow::slotCloseCurrentWidget(){
 
 void MainWindow::slotAboutQt(){
     QMessageBox::aboutQt(this);
+}
+
+void MainWindow::nextMsg(){
+    HubFrame *fr = HubManager::getInstance()->activeHub();
+
+    if (fr)
+        fr->nextMsg();
+    else{
+        QWidget *wg = arena->widget();
+
+        bool pmw = false;
+
+        if (wg != 0)
+            pmw = (typeid(*wg) == typeid(PMWindow));
+
+        if(pmw){
+            PMWindow *pm = qobject_cast<PMWindow *>(wg);
+
+            if (pm)
+                pm->nextMsg();
+        }
+    }
+}
+
+void MainWindow::prevMsg(){
+    HubFrame *fr = HubManager::getInstance()->activeHub();
+
+    if (fr)
+        fr->prevMsg();
+    else{
+        QWidget *wg = arena->widget();
+
+        bool pmw = false;
+
+        if (wg != 0)
+            pmw = (typeid(*wg) == typeid(PMWindow));
+
+        if(pmw){
+            PMWindow *pm = qobject_cast<PMWindow *>(wg);
+
+            if (pm)
+                pm->prevMsg();
+        }
+    }
 }
 
 void MainWindow::on(dcpp::LogManagerListener::Message, time_t t, const std::string& m) throw(){

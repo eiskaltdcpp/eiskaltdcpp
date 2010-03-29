@@ -53,6 +53,8 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(pushButton_HUB, SIGNAL(clicked()), this, SLOT(slotHub()));
     connect(pushButton_SHARE, SIGNAL(clicked()), this, SLOT(slotShare()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
+
+    out_messages_index = 0;
 }
 
 PMWindow::~PMWindow(){
@@ -237,6 +239,45 @@ void PMWindow::sendMessage(QString msg, bool stripNewLines){
     else {
         addStatusMessage(tr("User went offline"));
     }
+
+    out_messages << msg;
+
+    if (out_messages.size() >= WIGET(WI_OUT_IN_HIST))
+        out_messages.removeAt(0);
+
+    out_messages_index = out_messages.size()-1;
+}
+
+void PMWindow::nextMsg(){
+    if (!plainTextEdit_INPUT->hasFocus())
+        return;
+
+    if (out_messages_index < 0 ||
+        out_messages.size()-1 < out_messages_index+1 ||
+        out_messages.size() == 0)
+        return;
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index+1));
+
+    if (out_messages_index < out_messages.size()-1)
+        out_messages_index++;
+    else
+        out_messages_index = out_messages.size()-1;
+}
+
+void PMWindow::prevMsg(){
+    if (!plainTextEdit_INPUT->hasFocus())
+        return;
+
+    if (out_messages_index < 0 ||
+        out_messages.size()-1 < out_messages_index ||
+        out_messages.size() == 0)
+        return;
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
+
+    if (out_messages_index >= 1)
+        out_messages_index--;
 }
 
 void PMWindow::slotHub(){

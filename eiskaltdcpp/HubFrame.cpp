@@ -463,8 +463,7 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
         arenaMenu(NULL),
         codec(NULL),
         chatDisabled(false),
-        hasMessages(false),
-        command_index(0)
+        hasMessages(false)
 {
     setupUi(this);
 
@@ -500,6 +499,8 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     client->connect();
 
     setAttribute(Qt::WA_DeleteOnClose);
+
+    out_messages_index = 0;
 }
 
 
@@ -558,26 +559,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             plainTextEdit_INPUT->setPlainText("");
 
             return true;
-        }
-        else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Up){
-            if (command_index < 0 || commands.size()-1 < command_index || commands.size() == 0)
-                return false;
-
-            plainTextEdit_INPUT->setPlainText(commands.at(command_index));
-
-            if (command_index >= 1)
-                command_index--;
-        }
-        else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Down){
-            if (command_index < 0 || commands.size()-1 < command_index+1 || commands.size() == 0)
-                return false;
-
-            plainTextEdit_INPUT->setPlainText(commands.at(command_index+1));
-
-            if (command_index < commands.size()-1)
-                command_index++;
-            else
-                command_index = commands.size()-1;
         }
         else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab)
             return true;
@@ -1046,6 +1027,13 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
 
     if (!parseForCmd(msg))
         client->hubMessage(Text::toUtf8(msg.toStdString()), thirdPerson);
+
+    out_messages << msg;
+
+    if (out_messages.size() >= WIGET(WI_OUT_IN_HIST))
+        out_messages.removeAt(0);
+
+    out_messages_index = out_messages.size()-1;
 }
 
 bool HubFrame::parseForCmd(QString line){
@@ -1261,13 +1249,6 @@ bool HubFrame::parseForCmd(QString line){
     }
     else
         return false;
-
-    commands.push_back(line);
-
-    if (commands.size() >= 64)
-        commands.removeAt(0);
-
-    command_index = commands.size()-1;
 
     return true;
 }
@@ -2194,6 +2175,38 @@ void HubFrame::slotShellFinished(bool ok, QString output){
         shell_list.removeAt(shell_list.indexOf(runner));
 
     delete runner;
+}
+
+void HubFrame::nextMsg(){
+    if (!plainTextEdit_INPUT->hasFocus())
+        return;
+
+    if (out_messages_index < 0 ||
+        out_messages.size()-1 < out_messages_index+1 ||
+        out_messages.size() == 0)
+        return;
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index+1));
+
+    if (out_messages_index < out_messages.size()-1)
+        out_messages_index++;
+    else
+        out_messages_index = out_messages.size()-1;
+}
+
+void HubFrame::prevMsg(){
+    if (!plainTextEdit_INPUT->hasFocus())
+        return;
+
+    if (out_messages_index < 0 ||
+        out_messages.size()-1 < out_messages_index ||
+        out_messages.size() == 0)
+        return;
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
+
+    if (out_messages_index >= 1)
+        out_messages_index--;
 }
 
 void HubFrame::slotHideFindFrame(){

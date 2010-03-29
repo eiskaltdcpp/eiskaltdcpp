@@ -32,6 +32,10 @@ public:
 
     void addStatus(QString);
 
+public slots:
+    void nextMsg();
+    void prevMsg();
+
 private slots:
     void slotHub();
     void slotShare();
@@ -57,6 +61,9 @@ private:
     QString cid;
     QString hubUrl;
     QMenu *arena_menu;
+
+    QStringList out_messages;
+    int out_messages_index;
 };
 
 #endif // PMWindow_H

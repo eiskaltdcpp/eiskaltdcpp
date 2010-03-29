@@ -130,6 +130,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_NOTIFY_EVENTMAP, 0x0F);// 0b00001111, all events
         intmap.insert(WI_NOTIFY_MODULE, 0);//default
         intmap.insert(WI_NOTIFY_SNDMAP, 0x0F);// 0b00001111, all events
+        intmap.insert(WI_OUT_IN_HIST, 50);//number of output messages in history
     }
 }
 

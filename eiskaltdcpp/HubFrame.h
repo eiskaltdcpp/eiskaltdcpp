@@ -183,6 +183,8 @@ public:
 
 public slots:
     void slotHideFindFrame();
+    void nextMsg();
+    void prevMsg();
 
 protected:
     virtual bool eventFilter(QObject *, QEvent *);
@@ -286,8 +288,8 @@ private:
     bool chatDisabled;
     bool hasMessages;
 
-    QList<QString> commands;
-    int command_index;
+    QStringList out_messages;
+    int out_messages_index;
 
     PMMap pm;
     ShellList shell_list;

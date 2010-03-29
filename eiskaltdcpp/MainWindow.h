@@ -172,6 +172,9 @@ friend class dcpp::Singleton<MainWindow>;
 
         void slotUnixSignal(int);
 
+        void nextMsg();
+        void prevMsg();
+
         void slotFindInChat();
         void slotChatDisable();
 
@@ -262,6 +265,8 @@ friend class dcpp::Singleton<MainWindow>;
 
         QShortcut *ctrl_pgup;
         QShortcut *ctrl_pgdown;
+        QShortcut *ctrl_up;
+        QShortcut *ctrl_down;
         QShortcut *ctrl_w;
         QShortcut *ctrl_m;
 
