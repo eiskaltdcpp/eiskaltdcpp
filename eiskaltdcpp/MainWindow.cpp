@@ -372,7 +372,6 @@ void MainWindow::initActions(){
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
 
         fileFileListBrowser = new QAction("", this);
-        fileFileListBrowser->setShortcut(tr("Shift+L"));
         fileFileListBrowser->setIcon(WU->getPixmap(WulforUtil::eiOPENLIST));
         connect(fileFileListBrowser, SIGNAL(triggered()), this, SLOT(slotFileBrowseFilelist()));
 
