@@ -3260,7 +3260,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Comment</source>
-        <translation>Megjegyzés</translation>
+        <translation>Leírás</translation>
     </message>
     <message>
         <source>Tag</source>
