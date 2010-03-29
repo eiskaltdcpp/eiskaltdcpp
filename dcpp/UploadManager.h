@@ -69,6 +69,8 @@ public:
     GETSET(int, running, Running);
     GETSET(int, extra, Extra);
     GETSET(uint64_t, lastGrant, LastGrant);
+
+    void updateLimits() {limits.RenewList(NULL);}
 private:
     UploadList uploads;
     CriticalSection cs;

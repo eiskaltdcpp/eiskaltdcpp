@@ -26,6 +26,7 @@
 #include "LogManager.h"
 #include "HashManager.h"
 #include "DownloadManager.h"
+#include "UploadManager.h"
 
 #include "SimpleXML.h"
 #include "StringTokenizer.h"
@@ -831,6 +832,7 @@ void ShareManager::refresh(bool dirs /* = false */, bool aUpdate /* = true */, b
         LogManager::getInstance()->message(_("File list refresh in progress, please wait for it to finish before trying to refresh again"));
         return;
     }
+    UploadManager::getInstance()->updateLimits();
 
     update = aUpdate;
     refreshDirs = dirs;
