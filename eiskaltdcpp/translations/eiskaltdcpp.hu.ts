@@ -1546,7 +1546,7 @@ Kapcsolók:
     <name>SettingsConnection</name>
     <message>
         <source>You enter ports with number &lt; 1024, ports numbers set to default.</source>
-        <translation>You enter ports with number &lt; 1024, ports numbers set to default.</translation>
+        <translation>Az általad megadott port &lt; 1024, a portok az alapértelmezés szerint beálítva.</translation>
     </message>
     <message>
         <source>No valid SOCKS5 server IP found!</source>
@@ -2889,7 +2889,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Apply</source>
-        <translation>Beálít</translation>
+        <translation>Beállít</translation>
     </message>
     <message>
         <source>Application font</source>
