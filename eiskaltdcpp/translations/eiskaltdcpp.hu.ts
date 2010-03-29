@@ -120,7 +120,7 @@
     </message>
     <message>
         <source>Status</source>
-        <translation>Státusz</translation>
+        <translation>Állapot</translation>
     </message>
     <message>
         <source>Size</source>
@@ -1089,15 +1089,15 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>&amp;Panels</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Eszköztárak</translation>
     </message>
     <message>
         <source>Widgets panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ablak eszköztár</translation>
     </message>
     <message>
         <source>Tools panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Alap eszköztár</translation>
     </message>
 </context>
 <context>
@@ -1628,7 +1628,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Status</source>
-        <translation>Státusz</translation>
+        <translation>Állapot</translation>
     </message>
     <message>
         <source>User</source>
@@ -1693,35 +1693,35 @@ Kapcsolók:
     </message>
     <message>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 GiB</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Hozzáadás</translation>
+        <translation>Hozzáadás</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Enter virtual path name</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtuális útvonalnév megadása</translation>
     </message>
     <message>
         <source>Virtual path</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtuális útvonal</translation>
     </message>
     <message>
         <source>Enter restriction (in GiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Korlátozás megadása (GiB)</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Korlátozás</translation>
     </message>
 </context>
 <context>
@@ -1973,7 +1973,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Status</source>
-        <translation>Státusz</translation>
+        <translation>Állapot</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2099,7 +2099,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Boris Pek  aka  Tehnick&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br /&gt; (karbantartó és fejlesztő 1.89.0 és újabb)&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Eugene Petrov&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dhamp@ya.ru&amp;gt;&lt;br /&gt; (karbantartó és fejlesztő 0.4.10 és újabb)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Logo and Splash Screen Logo&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;dhamp@ya.ru&amp;gt;&lt;br /&gt; (karbantartó és fejlesztő 0.4.10 és újabb)&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Logó és Indítási képernyő&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (0.4.10 és újabb)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -2742,11 +2742,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
-        <translation>Rgyszerre folytatható letöltések száma (0 = korlátlan)</translation>
+        <translation>Egyszerre folytatható letöltések száma (0 = korlátlan)</translation>
     </message>
     <message>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
-        <translation>ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)</translation>
+        <translation>Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)</translation>
     </message>
     <message>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
@@ -2758,7 +2758,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Http proxy (hub list only)</source>
-        <translation>Http proxy (csak hublista)</translation>
+        <translation>Http proxy (csak hublistákhoz)</translation>
     </message>
     <message>
         <source>Configure Public Hub Lists</source>
@@ -2941,7 +2941,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Do not change focus on new private message</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne kerüljön fókusz az újonnan érkezett privát üzenetekre</translation>
     </message>
     <message>
         <source>Maximum paragraphs</source>
@@ -3008,15 +3008,15 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Status messages</source>
-        <translation>Státuszüzenetek</translation>
+        <translation>Állapotüzenetek</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Fájl</translation>
+        <translation>Fájl</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Szöveg</translation>
+        <translation>Szöveg</translation>
     </message>
 </context>
 <context>
@@ -3173,23 +3173,23 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">Alap beállítások</translation>
+        <translation>Alap beállítások</translation>
     </message>
     <message>
         <source>Restrictions</source>
-        <translation type="unfinished"></translation>
+        <translation>Korlátozások</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation type="unfinished">Megosztás</translation>
+        <translation>Megosztás</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Korlátozás</translation>
     </message>
     <message>
         <source>All changes take effect only after restart</source>
-        <translation type="unfinished"></translation>
+        <translation>A változások csak újraindítás után lesznek érvényesek</translation>
     </message>
 </context>
 <context>
