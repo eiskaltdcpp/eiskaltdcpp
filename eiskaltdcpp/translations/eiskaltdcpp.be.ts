@@ -771,7 +771,23 @@ Favorite user</source>
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off — спраўджваць (on) ці ня спраўджваць (off) правапіс
+/alias &lt;НАЗОЎКА&gt;::&lt;ЗАГАД&gt; — стварыць назоўку /НАЗОЎКА да загаду /ЗАГАД
+/alias purge &lt;НАЗОЎКА&gt; — выкрасьліць назоўку
+/alias list — пералічыць усе назоўкі
+/away &lt;паведамленьне&gt; — перайсьці ў стан “адыйшоў”, ці вярнуцца
+/back — вярнуцца са стану “адыйшоў”
+/browse &lt;мянушка&gt; — прагледзець файлы карыстальніка
+/clear — ачысьціць ваконца гаманы
+/magnet — прадвызначанае дзеяньне па магніт-спасылцы (0 — запытацца, 1 — шукаць, 2 — сьцягнуць)
+/close — закрыць гэты асяродак
+/fav — дадаць гэты асяродак да ўлюбёных
+/grant &lt;мянушка&gt; — даць слот карыстальніку
+/help, /?, /h — паказаць дапамогу (тое, што вы зараз чытаеце)
+/info &lt;мянушка&gt; — паказаць зьвесткі пра карыстальніка
+/me — сказаць ад трэцяе асобы
+/pm &lt;мянушка&gt; — пачаць гаманіць асабіста з карыстальнікам
+/sh &lt;загад&gt; — выканаць загад і перанакіраваць вынік у гаману</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1392"/>
@@ -1228,7 +1244,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="730"/>
         <source>&amp;Tools</source>
-        <translation>&amp;Прылады</translation>
+        <translation>Пры&amp;лады</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="750"/>
@@ -1254,17 +1270,17 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="758"/>
         <source>&amp;Panels</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Паліцы</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="760"/>
         <source>Widgets panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Паліца ваконцаў</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="762"/>
         <source>Tools panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Паліца прыладаў</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="764"/>
@@ -1465,22 +1481,22 @@ Please check your connection settings</source>
     <message>
         <location filename="../PublicHubModel.cpp" line="14"/>
         <source>Min share</source>
-        <translation type="unfinished">Найменшае абагуленае</translation>
+        <translation>Найменшае абагуленае</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="14"/>
         <source>Min slots</source>
-        <translation type="unfinished">Найменей шчылінаў</translation>
+        <translation>Найменей шчылінаў</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="15"/>
         <source>Max hubs</source>
-        <translation type="unfinished">Найболей асяродкаў</translation>
+        <translation>Найболей асяродкаў</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="15"/>
         <source>Max users</source>
-        <translation type="unfinished">Найболей карыстальнікаў</translation>
+        <translation>Найболей карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../PublicHubModel.cpp" line="15"/>
@@ -2023,7 +2039,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsGUI.cpp" line="67"/>
         <source>Hungarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Вугорская</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="133"/>
@@ -2073,7 +2089,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsGUI.cpp" line="169"/>
         <source>Favorite User</source>
-        <translation type="unfinished"></translation>
+        <translation>Улюбёнец</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="173"/>
@@ -2122,7 +2138,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsSharing.cpp" line="69"/>
         <source>GiB</source>
-        <translation type="unfinished">ГіБ</translation>
+        <translation>ГіБ</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="87"/>
@@ -2134,7 +2150,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <location filename="../SettingsSharing.cpp" line="137"/>
         <location filename="../SettingsSharing.cpp" line="237"/>
         <source>%1 GiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ГіБ</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="183"/>
@@ -2149,7 +2165,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsSharing.cpp" line="201"/>
         <source>Add</source>
-        <translation type="unfinished">Дадаць</translation>
+        <translation>Дадаць</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="209"/>
@@ -2159,22 +2175,22 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsSharing.cpp" line="222"/>
         <source>Enter virtual path name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Упішыце назоў уяўнага шляху</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="222"/>
         <source>Virtual path</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Уяўны шлях</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="229"/>
         <source>Enter restriction (in GiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Упішыце абмежаваньне (у ГіБ)</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="229"/>
         <source>Restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Абмежаваньне</translation>
     </message>
 </context>
 <context>
@@ -2692,7 +2708,21 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Akos Berki aka sumo&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;husumo@gmail.com&amp;gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 2.0.1 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>!!!запытацца на транскрыцыю імені Akos Berki</translatorcomment>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Перакладчыкі&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Пераклаў у расейскую&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Уладзімір Белы  (Uladzimir Bely)&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (ад вэрсіі 0.4.10)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Пераклаў у беларускую&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Павал Шаламіцкі  aka  Клёк  (Paval Shalamitski)&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (ад вэрсіі 1.0.40)&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Пераклаў у вугорскую&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Akos Berki aka sumo&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;husumo@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (ад вэрсіі 2.0.1)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="130"/>
@@ -2912,12 +2942,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="137"/>
         <source>Auto update from Internet</source>
-        <translation type="unfinished"></translation>
+        <translation>Самарушна абнаўляць са словасьвету</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="144"/>
         <source>Disable chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Забараніць гаману</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="154"/>
@@ -3652,7 +3682,8 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="183"/>
         <source>Show joins only for favorite users</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???</translatorcomment>
+        <translation>Паказваць, толькі калі ўвайшоў ці выйшаў улюбёнец</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="272"/>
@@ -3763,7 +3794,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsLog.ui" line="112"/>
         <location filename="../ui/UISettingsLog.ui" line="144"/>
         <source>File</source>
-        <translation type="unfinished">Файл</translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="58"/>
@@ -3771,7 +3802,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsLog.ui" line="122"/>
         <location filename="../ui/UISettingsLog.ui" line="154"/>
         <source>Text</source>
-        <translation type="unfinished">Тэкст</translation>
+        <translation>Тэкст</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="181"/>
@@ -3940,7 +3971,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
-        <translation type="unfinished">Галоўныя</translation>
+        <translation>Галоўныя</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="45"/>
@@ -3966,22 +3997,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="222"/>
         <source>Restrictions</source>
-        <translation type="unfinished"></translation>
+        <translation>Абмежаваньні</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="244"/>
         <source>Share</source>
-        <translation type="unfinished">Доля</translation>
+        <translation>Абагуленае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="249"/>
         <source>Restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Абмежаваньне</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="257"/>
         <source>All changes take effect only after restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Усе зьмяненьні пачнуць дзейнічаць пасьля наступнага запуску</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="122"/>
