@@ -194,14 +194,20 @@ void ToolBar::nextTab(){
     if (!tabbar)
         return;
 
-    tabbar->setCurrentIndex(tabbar->currentIndex()+1);
+    if (tabbar->currentIndex()+1 < tabbar->count())
+        tabbar->setCurrentIndex(tabbar->currentIndex()+1);
+    else
+        tabbar->setCurrentIndex(0);
 }
 
 void ToolBar::prevTab(){
     if (!tabbar)
         return;
 
-    tabbar->setCurrentIndex(tabbar->currentIndex()-1);
+    if (tabbar->currentIndex()-1 >= 0)
+        tabbar->setCurrentIndex(tabbar->currentIndex()-1);
+    else
+        tabbar->setCurrentIndex(tabbar->count()-1);
 }
 
 QString ToolBar::compactToolTipText(QString text)
