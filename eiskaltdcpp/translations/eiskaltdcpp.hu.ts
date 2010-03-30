@@ -1596,7 +1596,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Local user</source>
-        <translation>Helyi felhasználó</translation>
+        <translation>Saját felhasználó</translation>
     </message>
     <message>
         <source>Operator</source>
@@ -1608,15 +1608,15 @@ Kapcsolók:
     </message>
     <message>
         <source>Private: local user</source>
-        <translation>Privát: helyi felhasználó</translation>
+        <translation>Privát: Saját felhasználó</translation>
     </message>
     <message>
         <source>Private: user</source>
-        <translation>Privát: felhasználó</translation>
+        <translation>Privát: Chat partner</translation>
     </message>
     <message>
         <source>Chat: Say nick</source>
-        <translation>Chat: saját nick</translation>
+        <translation>Chat: Saját nicknév a chatszövegben</translation>
     </message>
     <message>
         <source>Core</source>
@@ -2462,7 +2462,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Last status message on hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Utolsó státuszüzenet a hubon</translation>
     </message>
 </context>
 <context>
