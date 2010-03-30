@@ -1230,7 +1230,7 @@ Favorite user</source>
         <location filename="../MainWindow.cpp" line="477"/>
         <location filename="../MainWindow.cpp" line="1453"/>
         <source>Hide last status message</source>
-        <translation type="unfinished"></translation>
+        <translation>Схаваць апошняе апісаньне стану</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="737"/>
@@ -1382,7 +1382,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="1451"/>
         <source>Show last status message</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказаць апошняе апісаньне стану</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1491"/>
@@ -2176,17 +2176,17 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsSharing.cpp" line="209"/>
         <source>Remove</source>
-        <translation type="unfinished">Выкрасьліць</translation>
+        <translation>Выкрасьліць</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="222"/>
         <source>Enter virtual path name</source>
-        <translation type="unfinished">Упішыце назоў уяўнага шляху</translation>
+        <translation>Упішыце назоў уяўнага шляху</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="222"/>
         <source>Virtual path</source>
-        <translation type="unfinished">Уяўны шлях</translation>
+        <translation>Уяўны шлях</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="229"/>
@@ -3125,7 +3125,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="242"/>
         <source>Last status message on hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Апошняе апісаньне стану на асяродку</translation>
     </message>
 </context>
 <context>
@@ -3409,7 +3409,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="317"/>
         <source>On/Off speed limits</source>
-        <translation>Задзейнічаць абмежаваньні хуткасьці</translation>
+        <translation>Абмяжоўваць хуткасьці</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="347"/>
@@ -3699,7 +3699,8 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="236"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???</translatorcomment>
+        <translation>Памятаць выходныя паведамленьні (0 = ня памятаць)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="301"/>
@@ -4032,7 +4033,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="45"/>
         <source>Don&apos;t share (group symbol *, separator |)</source>
-        <translation type="unfinished"></translation>
+        <translation>Не абагуляць (знак “*” групуе, “|” — аддзяляе)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="79"/>
