@@ -3141,7 +3141,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Don&apos;t share (group simbol *, separator |)</source>
-        <translation>Don&apos;t share (group simbol *, separator |)</translation>
+        <translation type="obsolete">Don&apos;t share (group simbol *, separator |)</translation>
     </message>
     <message>
         <source>Total shared: %1</source>
@@ -3194,6 +3194,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>All changes take effect only after restart</source>
         <translation>A változások csak újraindítás után lesznek érvényesek</translation>
+    </message>
+    <message>
+        <source>Don&apos;t share (group symbol *, separator |)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -2012,72 +2012,72 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Венгерский</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="133"/>
+        <location filename="../SettingsGUI.cpp" line="134"/>
         <source>Local user</source>
         <translation>Локальный пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="137"/>
+        <location filename="../SettingsGUI.cpp" line="138"/>
         <source>Operator</source>
         <translation>Оператор</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="141"/>
+        <location filename="../SettingsGUI.cpp" line="142"/>
         <source>Bot</source>
         <translation>Бот</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="145"/>
+        <location filename="../SettingsGUI.cpp" line="146"/>
         <source>Private: local user</source>
         <translation>Личный чат: локальный пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="149"/>
+        <location filename="../SettingsGUI.cpp" line="150"/>
         <source>Private: user</source>
         <translation>Личный чат: пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="153"/>
+        <location filename="../SettingsGUI.cpp" line="154"/>
         <source>Chat: Say nick</source>
         <translation>Чат: Ник упомянут</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="157"/>
+        <location filename="../SettingsGUI.cpp" line="158"/>
         <source>Core</source>
         <translation>Ядро</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="161"/>
+        <location filename="../SettingsGUI.cpp" line="162"/>
         <source>Status</source>
         <translation>Статус</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="165"/>
+        <location filename="../SettingsGUI.cpp" line="166"/>
         <source>User</source>
         <translation>Пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="169"/>
+        <location filename="../SettingsGUI.cpp" line="170"/>
         <source>Favorite User</source>
         <translation>Избранный пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="173"/>
+        <location filename="../SettingsGUI.cpp" line="174"/>
         <source>Time stamp</source>
         <translation>Временная метка</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="177"/>
+        <location filename="../SettingsGUI.cpp" line="178"/>
         <source>Message</source>
         <translation>Сообщение</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="333"/>
+        <location filename="../SettingsGUI.cpp" line="335"/>
         <source>Select translation</source>
         <translation>Выберите перевод</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="333"/>
+        <location filename="../SettingsGUI.cpp" line="335"/>
         <source>Translation (*.qm)</source>
         <translation>Перевод (*.qm)</translation>
     </message>
@@ -3923,9 +3923,8 @@ p, li { white-space: pre-wrap; }
         <translation>Основные</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="45"/>
         <source>Don&apos;t share (group simbol *, separator |)</source>
-        <translation>Не расшаривать файлы по маске (групповой символ *, разделитель |)</translation>
+        <translation type="obsolete">Не расшаривать файлы по маске (групповой символ *, разделитель |)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="109"/>
@@ -3966,6 +3965,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsSharing.ui" line="122"/>
         <source>Follow symlinks</source>
         <translation>Следовать по символьным ссылкам</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="45"/>
+        <source>Don&apos;t share (group symbol *, separator |)</source>
+        <translation>Не расшаривать файлы по маске (групповой символ *, разделитель |)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="79"/>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>436</width>
-    <height>360</height>
+    <height>367</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,7 +42,7 @@
           </size>
          </property>
          <property name="title">
-          <string>Don't share (group simbol *, separator |)</string>
+          <string>Don't share (group symbol *, separator |)</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
