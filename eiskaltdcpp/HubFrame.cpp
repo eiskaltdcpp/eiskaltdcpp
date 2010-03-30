@@ -1028,12 +1028,14 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
     if (!parseForCmd(msg))
         client->hubMessage(Text::toUtf8(msg.toStdString()), thirdPerson);
 
-    out_messages << msg;
+    if (!thirdPerson){
+        out_messages << msg;
 
-    if (out_messages.size() >= WIGET(WI_OUT_IN_HIST))
-        out_messages.removeAt(0);
+        if (out_messages.size() >= WIGET(WI_OUT_IN_HIST))
+            out_messages.removeAt(0);
 
-    out_messages_index = out_messages.size()-1;
+        out_messages_index = out_messages.size()-1;
+    }
 }
 
 bool HubFrame::parseForCmd(QString line){
