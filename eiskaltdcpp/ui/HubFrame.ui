@@ -238,6 +238,9 @@
          <height>18</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>Last status message on hub</string>
+       </property>
        <property name="text">
         <string/>
        </property>

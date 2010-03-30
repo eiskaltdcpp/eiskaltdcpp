@@ -802,10 +802,6 @@ Kedvenc felhasználó</translation>
         <translation>Ctrl+L</translation>
     </message>
     <message>
-        <source>Shift+L</source>
-        <translation>Shift+L</translation>
-    </message>
-    <message>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
@@ -2463,6 +2459,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>c</source>
         <translation>c</translation>
+    </message>
+    <message>
+        <source>Last status message on hub</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
