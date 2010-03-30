@@ -136,6 +136,7 @@ void SettingsSharing::init(){
             item->setText(0, it.key());
             item->setText(1, tr("%1 GiB").arg(it.value()));
         }
+
     }
 
     treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);

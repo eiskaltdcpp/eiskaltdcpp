@@ -1726,7 +1726,11 @@ void HubFrame::nickCompletion() {
             i--;
         }
 
-        plainTextEdit_INPUT->textCursor().insertText(nick + ": ");
+        if (plainTextEdit_INPUT->textCursor().position() == 0)
+            plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+        else
+            plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
+
     }
     else if (!nicks.isEmpty() && nicks.size() < 15){
         QMenu *m = new QMenu();
@@ -1846,6 +1850,9 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
                 if (item)
                     addPM(item->cid, "");
+
+                if (pm.contains(cid))
+                    MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);
             }
 
             break;
@@ -2068,6 +2075,9 @@ void HubFrame::slotChatMenu(const QPoint &){
         case Menu::PrivateMessage:
         {
             addPM(cid, "");
+
+            if (pm.contains(cid))
+                MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);
 
             break;
         }
