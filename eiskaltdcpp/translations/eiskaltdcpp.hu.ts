@@ -686,7 +686,7 @@ Kedvenc felhasználó</translation>
 /back - away-mód kikapcsolása
 /browse &lt;nick&gt; - felhaszáló fájlistájának böngészése
 /clear - chat ablak törlése
-/magnet - alapértelmezett akció magnetlinkel (0-kérdés, 1-keresés 2-letöltés)
+/magnet - alapértelmezett magnetlink akció (0-kérdés, 1-keresés 2-letöltés)
 /close - hub bezárása
 /fav - hub hozzáadása a kedvencekhez
 /grant &lt;nick&gt; - extra slot biztosítása a felhasználónak
