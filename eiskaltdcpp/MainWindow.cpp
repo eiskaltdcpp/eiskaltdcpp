@@ -476,12 +476,9 @@ void MainWindow::initActions(){
 
         toolsHideLastStatus = new QAction(tr("Hide last status message"), this);
         // toolsHideLastStatus->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
-        toolsHideLastStatus->setCheckable(true);
-        toolsHideLastStatus->setChecked(true);
         connect(toolsHideLastStatus, SIGNAL(triggered()), this, SLOT(slotHideLastStatus()));
-
-        toolsHideLastStatus->setChecked(WBGET(WB_LAST_STATUS));
-        slotHideLastStatus();
+        if (!WBGET(WB_LAST_STATUS))
+            toolsHideLastStatus->setText(tr("Show last status message"));
 
         chatClear = new QAction("", this);
         chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
@@ -1443,9 +1440,7 @@ void MainWindow::slotHideProgressSpace() {
 }
 
 void MainWindow::slotHideLastStatus(){
-    bool st = toolsHideLastStatus->isChecked();
-
-    WBSET(WB_LAST_STATUS, st);
+    bool st = !WBGET(WB_LAST_STATUS);
 
     if (!st)
         toolsHideLastStatus->setText(tr("Show last status message"));
@@ -1460,6 +1455,8 @@ void MainWindow::slotHideLastStatus(){
         if (fr)
             fr->label_LAST_STATUS->setVisible(st);
     }
+
+    WBSET(WB_LAST_STATUS, st);
 }
 
 void MainWindow::slotExit(){
