@@ -1097,11 +1097,11 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Hide last status message</source>
-        <translation type="unfinished"></translation>
+        <translation>Utolsó státuszüzenet elrejtése</translation>
     </message>
     <message>
         <source>Show last status message</source>
-        <translation type="unfinished"></translation>
+        <translation>Utolsó státuszüzenet mutatása</translation>
     </message>
 </context>
 <context>
