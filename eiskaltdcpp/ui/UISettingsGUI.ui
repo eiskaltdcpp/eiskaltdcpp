@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>341</width>
-    <height>353</height>
+    <width>420</width>
+    <height>381</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -188,6 +188,13 @@
         <widget class="QCheckBox" name="checkBox_CHATHIDDEN">
          <property name="text">
           <string>Show hidden users</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_LAST_STATUS">
+         <property name="text">
+          <string>Show last status under chat frame</string>
          </property>
         </widget>
        </item>

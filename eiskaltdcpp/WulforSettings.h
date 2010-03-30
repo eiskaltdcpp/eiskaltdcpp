@@ -69,6 +69,7 @@ const char * const WB_TRAY_ENABLED            = "systemtray-enabled";
 const char * const WB_EXIT_CONFIRM            = "exit-confirm";
 const char * const WB_SHOW_HIDDEN_USERS       = "show-hidden-users";
 const char * const WB_SHOW_JOINS              = "show-joins";
+const char * const WB_LAST_STATUS              = "last-status";
 const char * const WB_NOTIFY_ENABLED          = "notify-enabled";
 const char * const WB_NOTIFY_SND_ENABLED      = "notify-sound-enabled";
 const char * const WB_NOTIFY_SND_EXTERNAL     = "notify-sound-use-external";

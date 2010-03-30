@@ -1271,8 +1271,11 @@ void HubFrame::addStatus(QString msg){
     status += msg;
 
     addOutput(status);
+    if (WBGET(WB_LAST_STATUS))
+        label_LAST_STATUS->setText(status);
+    else
+        label_LAST_STATUS->hide();
 
-    label_LAST_STATUS->setText(status);
 }
 
 void HubFrame::addOutput(QString msg){
