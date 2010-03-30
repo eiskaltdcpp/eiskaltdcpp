@@ -2971,6 +2971,10 @@ p, li { white-space: pre-wrap; }
         <source>Show joins only for favorite users</source>
         <translation>Csak a kedvenc felhasználók belépéseinek a mutatása</translation>
     </message>
+    <message>
+        <source>Remember outgoing messages (0 = don&apos;t remember)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>

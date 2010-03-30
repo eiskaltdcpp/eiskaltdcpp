@@ -3062,7 +3062,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="242"/>
         <source>Last status message on hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Последнее статусное сообщение на хабе</translation>
     </message>
 </context>
 <context>
@@ -3629,27 +3629,32 @@ p, li { white-space: pre-wrap; }
         <translation>Вход/выход только для избранных пользователей</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="272"/>
+        <location filename="../ui/UISettingsGUI.ui" line="236"/>
+        <source>Remember outgoing messages (0 = don&apos;t remember)</source>
+        <translation>Запоминать исходящие сообщения (0 = не запоминать)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="301"/>
         <source>Colors</source>
         <translation>Цвета</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="278"/>
+        <location filename="../ui/UISettingsGUI.ui" line="307"/>
         <source>Text colors in chat</source>
         <translation>Цвета текста в чате</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="297"/>
+        <location filename="../ui/UISettingsGUI.ui" line="326"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Подсветка результатов поиска в чате</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="303"/>
+        <location filename="../ui/UISettingsGUI.ui" line="332"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="323"/>
+        <location filename="../ui/UISettingsGUI.ui" line="352"/>
         <source>Transparency</source>
         <translation>Прозрачность</translation>
     </message>
@@ -3664,7 +3669,7 @@ p, li { white-space: pre-wrap; }
         <translation>Отображать скрытых пользователей</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="236"/>
+        <location filename="../ui/UISettingsGUI.ui" line="265"/>
         <source>Maximum paragraphs</source>
         <translation>Максимальное число параграфов</translation>
     </message>

@@ -3686,27 +3686,32 @@ p, li { white-space: pre-wrap; }
         <translation>Паказваць, толькі калі ўвайшоў ці выйшаў улюбёнец</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="272"/>
+        <location filename="../ui/UISettingsGUI.ui" line="236"/>
+        <source>Remember outgoing messages (0 = don&apos;t remember)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="301"/>
         <source>Colors</source>
         <translation>Колеры</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="278"/>
+        <location filename="../ui/UISettingsGUI.ui" line="307"/>
         <source>Text colors in chat</source>
         <translation>Колеры тэксту ў гамане</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="297"/>
+        <location filename="../ui/UISettingsGUI.ui" line="326"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Падсьвятляць вынікі пошуку ў гамане</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="303"/>
+        <location filename="../ui/UISettingsGUI.ui" line="332"/>
         <source>Color</source>
         <translation>Колер</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="323"/>
+        <location filename="../ui/UISettingsGUI.ui" line="352"/>
         <source>Transparency</source>
         <translation>Празрыстацьць</translation>
     </message>
@@ -3741,7 +3746,7 @@ p, li { white-space: pre-wrap; }
         <translation>Не пераходзіць да новага асабістага паведамленьня</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="236"/>
+        <location filename="../ui/UISettingsGUI.ui" line="265"/>
         <source>Maximum paragraphs</source>
         <translation>Найбольшая колькасьць абзацаў</translation>
     </message>
