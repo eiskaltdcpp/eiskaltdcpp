@@ -500,8 +500,6 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
 
     setAttribute(Qt::WA_DeleteOnClose);
 
-    label_LAST_STATUS->setVisible(WBGET(WB_LAST_STATUS));
-
     out_messages_index = 0;
 }
 
@@ -920,6 +918,8 @@ void HubFrame::load(){
     }
 
     treeView_USERS->sortByColumn(WIGET(WI_CHAT_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_CHAT_SORT_ORDER)));
+
+    label_LAST_STATUS->setVisible(WBGET(WB_LAST_STATUS));
 }
 
 QWidget *HubFrame::getWidget(){
@@ -1276,6 +1276,8 @@ void HubFrame::addStatus(QString msg){
     status += msg;
 
     addOutput(status);
+
+    label_LAST_STATUS->setText(status);
 }
 
 void HubFrame::addOutput(QString msg){

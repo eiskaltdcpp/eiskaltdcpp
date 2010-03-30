@@ -1440,7 +1440,9 @@ void MainWindow::slotHideProgressSpace() {
 }
 
 void MainWindow::slotHideLastStatus(){
-    bool st = !WBGET(WB_LAST_STATUS);
+    bool st = WBGET(WB_LAST_STATUS);
+
+    st = !st;
 
     if (!st)
         toolsHideLastStatus->setText(tr("Show last status message"));
@@ -1448,9 +1450,7 @@ void MainWindow::slotHideLastStatus(){
         toolsHideLastStatus->setText(tr("Hide last status message"));
 
     for (int k = 0; k < arenaWidgets.size(); ++k){
-        QWidget *wg = arenaMap[arenaWidgets.at(k)];
-
-        HubFrame *fr = qobject_cast<HubFrame *>(wg);
+        HubFrame *fr = qobject_cast<HubFrame *>(arenaMap[arenaWidgets.at(k)]);
 
         if (fr)
             fr->label_LAST_STATUS->setVisible(st);
