@@ -3211,7 +3211,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Autoscrolling</source>
-        <translation>Automatikus gördítés</translation>
+        <translation>Automatikus görgetés</translation>
     </message>
     <message>
         <source>Start</source>
