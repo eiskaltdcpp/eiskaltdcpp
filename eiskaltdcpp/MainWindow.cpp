@@ -474,6 +474,15 @@ void MainWindow::initActions(){
         toolsHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
         connect(toolsHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
 
+        toolsHideLastStatus = new QAction(tr("Hide last status message"), this);
+        // toolsHideLastStatus->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
+        toolsHideLastStatus->setCheckable(true);
+        toolsHideLastStatus->setChecked(true);
+        connect(toolsHideLastStatus, SIGNAL(triggered()), this, SLOT(slotHideLastStatus()));
+
+        toolsHideLastStatus->setChecked(WBGET(WB_LAST_STATUS));
+        slotHideLastStatus();
+
         chatClear = new QAction("", this);
         chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
         connect(chatClear, SIGNAL(triggered()), this, SLOT(slotChatClear()));
@@ -532,6 +541,7 @@ void MainWindow::initActions(){
                 << toolsIPFilter
                 << separator2
                 << toolsHideProgressSpace
+                << toolsHideLastStatus
                 << separator3
                 << toolsOptions;
 
@@ -1429,6 +1439,26 @@ void MainWindow::slotHideProgressSpace() {
         toolsHideProgressSpace->setText(tr("Hide free space bar"));
 
         WBSET(WB_SHOW_FREE_SPACE, true);
+    }
+}
+
+void MainWindow::slotHideLastStatus(){
+    bool st = toolsHideLastStatus->isChecked();
+
+    WBSET(WB_LAST_STATUS, st);
+
+    if (!st)
+        toolsHideLastStatus->setText(tr("Show last status message"));
+    else
+        toolsHideLastStatus->setText(tr("Hide last status message"));
+
+    for (int k = 0; k < arenaWidgets.size(); ++k){
+        QWidget *wg = arenaMap[arenaWidgets.at(k)];
+
+        HubFrame *fr = qobject_cast<HubFrame *>(wg);
+
+        if (fr)
+            fr->label_LAST_STATUS->setVisible(st);
     }
 }
 

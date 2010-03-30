@@ -114,7 +114,6 @@ void SettingsGUI::init(){
     {//Chat tab
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
         spinBox_PARAGRAPHS->setValue(WIGET(WI_CHAT_MAXPARAGRAPHS));
-        checkBox_LAST_STATUS->setChecked(WBGET(WB_LAST_STATUS));
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
         checkBox_JOINSFAV->setChecked(WBGET(WB_CHAT_SHOW_JOINS_FAV));
         checkBox_CHATHIDDEN->setChecked(WBGET(WB_SHOW_HIDDEN_USERS));
@@ -222,7 +221,6 @@ void SettingsGUI::ok(){
     {//Chat tab
         WISET(WI_OUT_IN_HIST, spinBox_OUT_IN_HIST->value());
         WISET(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());
-        WBSET(WB_LAST_STATUS,checkBox_LAST_STATUS->isChecked());
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS_FAV, checkBox_JOINSFAV->isChecked());

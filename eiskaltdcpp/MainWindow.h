@@ -166,6 +166,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotHideMainMenu();
         void slotHideWindow();
         void slotHideProgressSpace();
+        void slotHideLastStatus();
         void slotExit();
 
         void slotCloseCurrentWidget();
@@ -257,6 +258,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsAntiSpam;
         QAction *toolsIPFilter;
         QAction *toolsHideProgressSpace;
+        QAction *toolsHideLastStatus;
         QAction *toolsOptions;
 
         QMenu   *menuPanels;
