@@ -34,6 +34,9 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
 
     setAttribute(Qt::WA_DeleteOnClose);
 
+    plainTextEdit_INPUT->setWordWrapMode(QTextOption::NoWrap);
+    plainTextEdit_INPUT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     this->installEventFilter(this);
     plainTextEdit_INPUT->installEventFilter(this);
     textEdit_CHAT->viewport()->installEventFilter(this);
