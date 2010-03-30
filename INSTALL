@@ -42,6 +42,7 @@ Keys for cmake:
 -DFREE_SPACE_BAR:BOOL=1 (default: BOOL=0) (boost libs)
 -DFREE_SPACE_BAR_C:BOOL=1 (default: BOOL=0)
 -DLOCAL_BOOST:BOOL=1 (default: BOOL=0) (use local boost headers)
+-Dlinguas:STRING="needed translations, separator ' '" (example -Dlinguas="en ru") (default: NOT SET)
 -DCMAKE_PREFIX_INSTALL=<prefix for install> (default: /usr/local)
 -DESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
 -PIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)

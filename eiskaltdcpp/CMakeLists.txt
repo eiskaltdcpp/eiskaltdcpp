@@ -139,21 +139,36 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIShareBrowser.ui
             ui/UISpy.ui
             ui/UITransferView.ui)
-set (LANGUAGES en
-               ru
-               be
-               hu)
+if (NOT linguas)
+set (LANGUAGES en ru be hu)
+else (NOT linguas)
+string(LENGTH ${linguas} length)
+#message(STATUS "длина: ${length}")
+set (begin 0)
+while (1)
+if (begin GREATER ${length})
+break()
+endif (begin GREATER ${length})
+#message(STATUS "начало: ${begin}")
+string(SUBSTRING ${linguas} ${begin} 2 linguas2)
+#message(STATUS "считали:${linguas2}")
+set (linguas1 ${linguas1} ${linguas2})
+#message(STATUS "старое начало: ${begin}")
+math(EXPR begin ${begin}+3)
+#message(STATUS "новое начало: ${begin}")
+endwhile()
+#message(STATUS ${linguas1})
+set (LANGUAGES ${linguas1})
+endif (NOT linguas)
 
 if (USE_ASPELL)
   set (SRCS ${SRCS} SpellCheck.cpp)
   set (MOC_HDRS ${MOC_HDRS} SpellCheck.h)
 endif (USE_ASPELL)
-
-set (COMPILED_TRANSLATIONS ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.en.qm
-                           ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.ru.qm
-                           ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.be.qm
-                           ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.hu.qm)
-
+foreach (LANGUAGE ${LANGUAGES})
+set (COMPILED_TRANSLATIONS ${COMPILED_TRANSLATIONS} ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.qm)
+#message (STATUS ${COMPILED_TRANSLATIONS})
+endforeach()
 #set (PO_FILES po/ru.po)
 #set (PO_FILES po/be.po)
 
