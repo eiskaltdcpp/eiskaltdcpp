@@ -1095,6 +1095,14 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Tools panel</source>
         <translation>Alap eszköztár</translation>
     </message>
+    <message>
+        <source>Hide last status message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show last status message</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -3138,10 +3146,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Form</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>Don&apos;t share (group simbol *, separator |)</source>
-        <translation type="obsolete">Don&apos;t share (group simbol *, separator |)</translation>
     </message>
     <message>
         <source>Total shared: %1</source>
