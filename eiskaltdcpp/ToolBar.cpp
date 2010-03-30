@@ -13,6 +13,8 @@ ToolBar::ToolBar(QWidget *parent):
 }
 
 ToolBar::~ToolBar(){
+    foreach (QShortcut *s, shortcuts)
+        s->deleteLater();
 }
 
 bool ToolBar::eventFilter(QObject *obj, QEvent *e){
@@ -50,6 +52,23 @@ void ToolBar::initTabs(){
     tabbar->setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
 
     tabbar->installEventFilter(this);
+
+    shortcuts << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_1), parentWidget()))
+              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_2), parentWidget()))
+              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_3), parentWidget()))
+              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_4), parentWidget()))
+              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_5), parentWidget()))
+              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_6), parentWidget()))
+              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_7), parentWidget()))
+              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_8), parentWidget()))
+              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_9), parentWidget()))
+              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_0), parentWidget()));
+
+    foreach (QShortcut *s, shortcuts){
+        s->setContext(Qt::ApplicationShortcut);
+
+        connect(s, SIGNAL(activated()), this, SLOT(slotShorcuts()));
+    }
 
     connect(tabbar, SIGNAL(currentChanged(int)), this, SLOT(slotIndexChanged(int)));
     connect(tabbar, SIGNAL(tabMoved(int,int)), this, SLOT(slotTabMoved(int,int)));
@@ -157,6 +176,18 @@ void ToolBar::slotContextMenu(const QPoint &p){
 
     if (m)
         m->exec(QCursor::pos());
+}
+
+void ToolBar::slotShorcuts(){
+    QShortcut *sh = qobject_cast<QShortcut*>(sender());
+
+    if (!sh)
+        return;
+
+    int index = shortcuts.indexOf(sh);
+
+    if (index >= 0 && tabbar->count() >= (index + 1))
+        tabbar->setCurrentIndex(index);
 }
 
 ArenaWidget *ToolBar::findWidgetForIndex(int index){

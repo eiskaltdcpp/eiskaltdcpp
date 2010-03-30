@@ -5,6 +5,8 @@
 #include <QTabBar>
 #include <QEvent>
 #include <QShowEvent>
+#include <QShortcut>
+#include <QList>
 
 #include "ArenaWidget.h"
 
@@ -44,6 +46,7 @@ private Q_SLOTS:
     void slotTabMoved(int, int);
     void slotClose(int);
     void slotContextMenu(const QPoint&);
+    void slotShorcuts();
 
     QString compactToolTipText(QString text);
 
@@ -52,6 +55,7 @@ private:
     void rebuildIndexes(int);
 
     QTabBar *tabbar;
+    QList<QShortcut*> shortcuts;
     WidgetMap map;
 };
 
