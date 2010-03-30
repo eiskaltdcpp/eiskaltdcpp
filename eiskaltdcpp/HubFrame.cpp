@@ -858,6 +858,9 @@ void HubFrame::init(){
     plainTextEdit_INPUT->setContextMenuPolicy(Qt::CustomContextMenu);
 #endif
 
+    plainTextEdit_INPUT->setWordWrapMode(QTextOption::NoWrap);
+    plainTextEdit_INPUT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     plainTextEdit_INPUT->installEventFilter(this);
 
     initMenu();
@@ -2370,7 +2373,11 @@ void HubFrame::slotInputTextChanged(){
     selection.format.setUnderlineStyle(QTextCharFormat::WaveUnderline);
     selection.format.setUnderlineColor(Qt::red);
 
+    bool ok = false;
     foreach (QString s, words){
+        if (s.toLongLong(&ok) && ok)
+            continue;
+
         if (plainTextEdit_INPUT->find(s) && !sp->ok(s)){
             selection.cursor = plainTextEdit_INPUT->textCursor();
             extraSelections.append(selection);
