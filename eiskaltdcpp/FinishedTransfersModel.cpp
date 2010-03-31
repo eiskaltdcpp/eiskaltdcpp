@@ -189,7 +189,7 @@ QModelIndex FinishedTransfersModel::parent(const QModelIndex &index) const
     FinishedTransfersItem *childItem = static_cast<FinishedTransfersItem*>(index.internalPointer());
     FinishedTransfersItem *parentItem = childItem->parent();
 
-    if (parentItem == rootItem)
+    if (parentItem == rootItem || !parentItem)
         return QModelIndex();
 
     return createIndex(parentItem->row(), 0, parentItem);

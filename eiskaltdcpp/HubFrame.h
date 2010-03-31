@@ -215,6 +215,7 @@ private slots:
     void slotInputTextChanged();
     void slotInputContextMenu();
     void slotFindAll();
+    void slotStatusLinkOpen(const QString &url);
     void slotSmile();
 
 private:

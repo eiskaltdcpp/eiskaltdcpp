@@ -849,6 +849,9 @@ void HubFrame::init(){
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
     toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
 
+    label_LAST_STATUS->setOpenExternalLinks(false);
+
+    connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(updater, SIGNAL(timeout()), this, SLOT(slotUsersUpdated()));
@@ -2465,6 +2468,10 @@ void HubFrame::slotInputContextMenu(){
         m->deleteLater();
     }
 #endif
+}
+
+void HubFrame::slotStatusLinkOpen(const QString &url){
+    WulforUtil::getInstance()->openUrl(url);
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
