@@ -225,6 +225,14 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 
     menu->clear();
 
+    QAction *title = new QAction(WulforUtil::getInstance()->getNicks(cid), menu);
+    QFont f;
+    f.setBold(true);
+    title->setFont(f);
+    title->setEnabled(false);
+
+    menu->addAction(title);
+
     if(pmw){
         menu->addActions(pm_actions);
         menu->addActions(pm_chat_actions);
@@ -242,6 +250,8 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     }
 
     QAction *res = menu->exec(QCursor::pos());
+
+    title->deleteLater();
 
     if (actions.contains(res)){
         delete user_menu;
@@ -336,7 +346,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
                 while (l_pos < input.size()){
                     QChar ch = input.at(l_pos);
 
-                    if (ch == ',' || ch == '!' || ch.isSpace() ||
+                    if (ch == ',' ||  ch.isSpace() ||
                         ch == '\n' || ch == '"' || ch == '\''||
                         ch == '>' || ch == '<'){
                         break;
@@ -355,6 +365,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
                     QUrl url;
                     toshow = link;
                     toshow.replace("+", "%20");
+                    toshow.replace("!", "%21");
                     url.setEncodedUrl(toshow.toAscii());
 
                     if (url.hasQueryItem("dn")) {
