@@ -849,8 +849,6 @@ void HubFrame::init(){
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
     toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
 
-    label_LAST_STATUS->setOpenExternalLinks(false);
-
     connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
@@ -1292,6 +1290,8 @@ void HubFrame::addStatus(QString msg){
     addOutput(status);
 
     label_LAST_STATUS->setText(status);
+    label_LAST_STATUS->setToolTip(tr("<b>Last status message on hub:</b><br/>%1")
+                                  .arg(status.replace("\n","<br/>")));
 }
 
 void HubFrame::addOutput(QString msg){
@@ -1778,7 +1778,10 @@ void HubFrame::nickCompletion() {
 }
 
 void HubFrame::slotUsersUpdated(){
-    label_USERSTATE->setText(QString(tr("Users count: %1 | Total share: %2")).arg(model->rowCount()).arg(_q(Util::formatBytes(total_shared))));
+    label_USERSTATE->setText(QString(tr("Users count: %1 | Total share: %2"))
+                             .arg(model->rowCount())
+                             .arg(_q(Util::formatBytes(total_shared))));
+    label_LAST_STATUS->setMaximumHeight(label_USERSTATE->height());
 }
 
 void HubFrame::slotReconnect(){
