@@ -1290,8 +1290,9 @@ void HubFrame::addStatus(QString msg){
     addOutput(status);
 
     label_LAST_STATUS->setText(status);
+    WulforUtil::getInstance()->textToHtml(status, false);
     label_LAST_STATUS->setToolTip(tr("<b>Last status message on hub:</b><br/>%1")
-                                  .arg(status.replace("\n","<br/>")));
+                                  .arg(status));
 }
 
 void HubFrame::addOutput(QString msg){
