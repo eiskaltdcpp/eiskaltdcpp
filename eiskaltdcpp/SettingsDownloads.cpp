@@ -28,6 +28,7 @@ SettingsDownloads::SettingsDownloads(QWidget *parent):
     other_settings.insert(SettingsManager::SKIP_ZERO_BYTE, 6);
     other_settings.insert(SettingsManager::DONT_DL_ALREADY_SHARED, 7);
     other_settings.insert(SettingsManager::DONT_DL_ALREADY_QUEUED, 8);
+    other_settings.insert(SettingsManager::SFV_CHECK, 9);
 
     init();
 }

@@ -341,8 +341,14 @@ void ShareBrowser::slotLeftPaneClicked(const QModelIndex &index){
 
     FileBrowserItem *item = static_cast<FileBrowserItem*>(index.internalPointer());
 
-    if (!(item && item->dir))
+    if (!item)
         return;
+
+    if (item->file){
+        download(item->file, _q(SETTING(DOWNLOAD_DIRECTORY)));
+
+        return;
+    }
 
     if (sender() == treeView_LPANE){
         label_PATH->setText(tree_model->createRemotePath(item));

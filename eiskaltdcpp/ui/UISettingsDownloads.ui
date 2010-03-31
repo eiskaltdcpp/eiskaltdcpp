@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>586</width>
-    <height>374</height>
+    <width>584</width>
+    <height>372</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -652,6 +652,14 @@
              </property>
              <property name="flags">
               <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SFV Check</string>
+             </property>
+             <property name="checkState">
+              <enum>Checked</enum>
              </property>
             </item>
            </widget>

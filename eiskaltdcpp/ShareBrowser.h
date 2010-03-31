@@ -95,7 +95,6 @@ private slots:
     void slotLeftPaneSelChanged(const QItemSelection&, const QItemSelection&);
     void slotCustomContextMenu(const QPoint&);
     void slotHeaderMenu();
-
     void slotLoaderFinish();
 
 private:
