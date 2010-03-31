@@ -696,6 +696,10 @@ Kedvenc felhasználó</translation>
 /pm &lt;nick&gt; - privát beszélgetés kezdése a felhasználóval
 /sh &lt;parancs&gt; - shell parancs indítása, és a kimenet átirányítása a chat ablakba</translation>
     </message>
+    <message>
+        <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -2875,6 +2879,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Don&apos;t download files already in the queue</source>
         <translation>Ne töltse le azokat a fájlokat, amik már a Letöltési sorban vannak</translation>
+    </message>
+    <message>
+        <source>SFV Check</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
