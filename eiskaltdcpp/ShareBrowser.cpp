@@ -119,7 +119,8 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         list_root(NULL),
         tree_model(NULL),
         list_model(NULL),
-        loader_func(NULL)
+        loader_func(NULL),
+        proxy(NULL)
 {
     setupUi(this);
 
@@ -145,6 +146,8 @@ ShareBrowser::~ShareBrowser(){
     delete tree_model;
     delete list_model;
     delete arena_menu;
+
+    delete proxy;
 
     MainWindow::getInstance()->remWidgetFromArena(this);
     MainWindow::getInstance()->remArenaWidget(this);
@@ -193,6 +196,7 @@ void ShareBrowser::init(){
     connect(treeView_LPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
 
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
+    connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
 
     connect(treeView_RPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
@@ -627,4 +631,34 @@ void ShareBrowser::slotLoaderFinish(){
 
 void ShareBrowser::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView_RPANE);
+}
+
+void ShareBrowser::slotFilter(){
+    if (frame_FILTER->isVisible()){
+        treeView_RPANE->setModel(list_model);
+
+        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+
+        delete proxy;
+        proxy = NULL;
+    }
+    else {
+        proxy = new QSortFilterProxyModel(NULL);
+        proxy->setDynamicSortFilter(true);
+        proxy->setFilterFixedString(lineEdit_FILTER->text());
+        proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+        proxy->setFilterKeyColumn(COLUMN_FILEBROWSER_NAME);
+        proxy->setSourceModel(list_model);
+
+        treeView_RPANE->setModel(proxy);
+
+        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+
+        lineEdit_FILTER->setFocus();
+
+        if (!lineEdit_FILTER->text().isEmpty())
+            lineEdit_FILTER->selectAll();
+    }
+
+    frame_FILTER->setVisible(!frame_FILTER->isVisible());
 }

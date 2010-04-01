@@ -8,6 +8,7 @@
 #include <QItemSelectionModel>
 #include <QThread>
 #include <QCloseEvent>
+#include <QSortFilterProxyModel>
 
 #include "ArenaWidget.h"
 #include "Func.h"
@@ -87,6 +88,9 @@ public:
     QMenu   *getMenu();
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiOWN_FILELIST); }
 
+public slots:
+    void slotFilter();
+
 protected:
     virtual void closeEvent(QCloseEvent *);
 
@@ -116,6 +120,8 @@ private:
     ShareBrowserLoader::LoaderFunc *loader_func;
 
     QMenu *arena_menu;
+
+    QSortFilterProxyModel *proxy;
 
     QString nick;
     QString file;

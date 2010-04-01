@@ -176,7 +176,7 @@ friend class dcpp::Singleton<MainWindow>;
         void nextMsg();
         void prevMsg();
 
-        void slotFindInChat();
+        void slotFind();
         void slotChatDisable();
 
         void slotAboutClient();
@@ -273,7 +273,7 @@ friend class dcpp::Singleton<MainWindow>;
         QShortcut *ctrl_m;
 
         QAction *chatDisable;
-        QAction *findInChat;
+        QAction *findInWidget;
         QAction *chatClear;
 
         QMenu *menuWidgets;
@@ -290,8 +290,6 @@ friend class dcpp::Singleton<MainWindow>;
         ActionList toolsMenuActions;
         ArenaWidgetList arenaWidgets;
         ArenaWidgetMap arenaMap;
-
-        HistoryInterface<QWidget*> history;
 };
 
 class EiskaltApp: public QApplication{

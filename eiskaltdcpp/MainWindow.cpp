@@ -232,17 +232,19 @@ void MainWindow::showEvent(QShowEvent *e){
 
     QWidget *wg = arena->widget();
 
-    bool pmw = false;
+    bool pmw = false, share_browser = false;
 
-    if (wg != 0)
+    if (wg != 0){
         pmw = (typeid(*wg) == typeid(PMWindow));
+        share_browser = (typeid(*wg) == typeid(ShareBrowser));
+    }
 
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
     bool enable = (fr && (fr == arena->widget()));
 
     chatClear->setEnabled(enable || pmw);
-    findInChat->setEnabled(enable);
+    findInWidget->setEnabled(enable || share_browser);
     chatDisable->setEnabled(enable);
 
     e->accept();
@@ -283,8 +285,6 @@ void MainWindow::init(){
     addDockWidget(Qt::BottomDockWidgetArea, transfer_dock);
 
     transfer_dock->hide();
-
-    history.setSize(30);
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
@@ -484,10 +484,10 @@ void MainWindow::initActions(){
         chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
         connect(chatClear, SIGNAL(triggered()), this, SLOT(slotChatClear()));
 
-        findInChat = new QAction("", this);
-        findInChat->setShortcut(tr("Ctrl+F"));
-        findInChat->setIcon(WU->getPixmap(WulforUtil::eiFIND));
-        connect(findInChat, SIGNAL(triggered()), this, SLOT(slotFindInChat()));
+        findInWidget = new QAction("", this);
+        findInWidget->setShortcut(tr("Ctrl+F"));
+        findInWidget->setIcon(WU->getPixmap(WulforUtil::eiFIND));
+        connect(findInWidget, SIGNAL(triggered()), this, SLOT(slotFind()));
 
         chatDisable = new QAction("", this);
         chatDisable->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
@@ -562,7 +562,7 @@ void MainWindow::initActions(){
                 << toolsFinishedUploads
                 << separator4
                 << chatClear
-                << findInChat
+                << findInWidget
                 << chatDisable
                 << separator5
                 << toolsSpy
@@ -767,7 +767,7 @@ void MainWindow::retranslateUi(){
 
         chatClear->setText(tr("Clear chat"));
 
-        findInChat->setText(tr("Find in chat"));
+        findInWidget->setText(tr("Find/Filter"));
 
         chatDisable->setText(tr("Disable/enable chat"));
 
@@ -1004,7 +1004,7 @@ void MainWindow::remArenaWidget(ArenaWidget *awgt){
             arena->setWidget(NULL);
 
             chatClear->setEnabled(false);
-            findInChat->setEnabled(false);
+            findInWidget->setEnabled(false);
             chatDisable->setEnabled(false);
         }
     }
@@ -1028,15 +1028,17 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
 
-    bool pmw = false;
+    bool pmw = false, share_browser = false;
 
-    if (wg != 0)
+    if (wg != 0){
         pmw = (typeid(*wg) == typeid(PMWindow));
+        share_browser = (typeid(*wg) == typeid(ShareBrowser));
+    }
 
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
     chatClear->setEnabled(fr == arena->widget() || pmw);
-    findInChat->setEnabled(fr == arena->widget());
+    findInWidget->setEnabled(fr == arena->widget() || share_browser);
     chatDisable->setEnabled(fr == arena->widget());
 
     if (fr == arena->widget()){
@@ -1063,7 +1065,7 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
         arena->widget()->hide();
 
     /*chatClear->setEnabled(false);
-    findInChat->setEnabled(false);
+    findInWidget->setEnabled(false);
     chatDisable->setEnabled(false);*/
 }
 
@@ -1372,11 +1374,19 @@ void MainWindow::slotChatClear(){
     }
 }
 
-void MainWindow::slotFindInChat(){
+void MainWindow::slotFind(){
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
-    if (fr)
+    if (fr){
         fr->slotHideFindFrame();
+    }
+    else if (arena->widget()){
+        if (arena->widget()->qt_metacast("ShareBrowser")){
+            ShareBrowser *s = qobject_cast<ShareBrowser*>(arena->widget());
+
+            s->slotFilter();
+        }
+    }
 }
 
 void MainWindow::slotChatDisable(){

@@ -1,2 +1,2 @@
 --- 2.0.1 2010-04-18 ---
-*
+* ShareBrowser filtering support (Ctrl+F hotkey)
