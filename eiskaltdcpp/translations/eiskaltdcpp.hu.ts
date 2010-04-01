@@ -1049,11 +1049,11 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Connection Manager: Warning</source>
-        <translation>Connection Manager: Figyelmeztetés</translation>
+        <translation>Kapcsolatkezelő: Figyelmeztetés</translation>
     </message>
     <message>
         <source>Search Manager: Warning</source>
-        <translation>Search Manager: Figyelmeztetés</translation>
+        <translation>Kereséskezelő: Figyelmeztetés</translation>
     </message>
     <message>
         <source>Log files (*.log);;All files (*.*)</source>
