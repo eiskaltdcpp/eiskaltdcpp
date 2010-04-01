@@ -5,8 +5,6 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 
-const int EISKALTPORT = 33561;
-
 class SingleInstanceRunner: public QObject
 {
 Q_OBJECT
@@ -23,6 +21,7 @@ private slots:
 
 private:
     QTcpServer serv;
+    unsigned EISKALTPORT;
 };
 
 #endif // SINGLEINSTANCERUNNER_H

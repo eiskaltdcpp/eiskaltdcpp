@@ -2,8 +2,23 @@
 #include "MainWindow.h"
 #include "Func.h"
 
+#ifndef WIN32
+#include <stdlib.h>
+#include <QHash>
+#endif
+
 SingleInstanceRunner::SingleInstanceRunner()
 {
+#ifndef WIN32
+    char *user = getenv("USER");
+    QString login = user;
+    uint hash = qHash(login);
+    EISKALTPORT = (hash >> 16) + 4098;
+
+    printf("Internal server running on %i\n", EISKALTPORT);
+#else
+    EISKALTPORT = 33561;
+#endif
 }
 
 bool SingleInstanceRunner::isServerRunning(const QStringList &list){
