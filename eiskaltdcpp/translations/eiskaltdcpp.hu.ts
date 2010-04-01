@@ -698,7 +698,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Utolsó státuszüzenet a hubon:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
 </context>
 <context>
@@ -2882,7 +2882,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>SFV Check</source>
-        <translation type="unfinished"></translation>
+        <translation>SFV Ellenőrzés</translation>
     </message>
 </context>
 <context>
