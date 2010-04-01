@@ -2961,7 +2961,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Maximum paragraphs</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Ennyi hozzászólásig görgethető vissza a chat.</translatorcomment>
+        <translation>Maximum sorok a chaten</translation>
     </message>
     <message>
         <source>Colors</source>
@@ -2989,7 +2990,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kimenő üzenetek megjegyzése (0 = tiltás)</translation>
     </message>
 </context>
 <context>
@@ -3209,7 +3210,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Don&apos;t share (group symbol *, separator |)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiltott megosztás(ok) (csoportos kijelölés *, elválasztó |)</translation>
     </message>
 </context>
 <context>
