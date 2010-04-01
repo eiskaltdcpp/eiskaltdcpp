@@ -792,7 +792,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="1293"/>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Апошняе апісаньне стану на асяродку:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1394"/>
@@ -3645,7 +3645,8 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="659"/>
         <source>SFV Check</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>!!!удакладніць, што такое SFV</translatorcomment>
+        <translation>Спраўджваць SFV</translation>
     </message>
 </context>
 <context>
