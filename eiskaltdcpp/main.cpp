@@ -58,10 +58,10 @@ int main(int argc, char *argv[])
     if (runner.isServerRunning(qApp->arguments()))
         return 0;
 
+    installHandlers();
+
     dcpp::startup(callBack, NULL);
     dcpp::TimerManager::getInstance()->start();
-
-    installHandlers();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
 

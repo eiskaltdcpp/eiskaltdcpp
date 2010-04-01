@@ -164,6 +164,8 @@ void ShareBrowser::closeEvent(QCloseEvent *e){
 }
 
 void ShareBrowser::init(){
+    frame_FILTER->setVisible(false);
+
     initModels();
 
     buildList();
