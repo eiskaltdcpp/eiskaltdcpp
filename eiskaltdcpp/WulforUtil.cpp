@@ -292,6 +292,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiSPAM] = loadPixmap("spam.png");
     m_PixmapMap[eiSPY] = loadPixmap("spy.png");
     m_PixmapMap[eiSPLASH] = loadPixmap("splash.png");
+    m_PixmapMap[eiSTATUS] = loadPixmap("status.png");
     m_PixmapMap[eiTRANSFER] = loadPixmap("transfer.png");
     m_PixmapMap[eiUP] = loadPixmap("up.png");
     m_PixmapMap[eiUPLIST] = loadPixmap("uplist.png");

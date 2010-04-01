@@ -475,7 +475,7 @@ void MainWindow::initActions(){
         connect(toolsHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
 
         toolsHideLastStatus = new QAction(tr("Hide last status message"), this);
-        // toolsHideLastStatus->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
+        toolsHideLastStatus->setIcon(WU->getPixmap(WulforUtil::eiSTATUS));
         connect(toolsHideLastStatus, SIGNAL(triggered()), this, SLOT(slotHideLastStatus()));
         if (!WBGET(WB_LAST_STATUS))
             toolsHideLastStatus->setText(tr("Show last status message"));

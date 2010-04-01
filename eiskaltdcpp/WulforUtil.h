@@ -88,6 +88,7 @@ public:
         eiSPAM,
         eiSPY,
         eiSPLASH,
+        eiSTATUS,
         eiTRANSFER,
         eiUP,
         eiUPLIST,
