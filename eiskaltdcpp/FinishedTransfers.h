@@ -74,9 +74,9 @@ public:
     QMenu *getMenu() { return NULL; }
     const QPixmap &getPixmap(){
         if (isUpload)
-            return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUP);
+            return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUPLIST);
         else
-            return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWN);
+            return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWNLIST);
     }
 
 protected:
