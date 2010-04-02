@@ -154,7 +154,7 @@ struct Compare {
                 case COLUMN_PHUB_REL:
                      return DblCmp<COLUMN_PHUB_REL>;
                 case COLUMN_PHUB_SHARED:
-                     return AttrCmp<COLUMN_PHUB_SHARED>;
+                     return NumCmp<COLUMN_PHUB_SHARED>;
                 case COLUMN_PHUB_ADDRESS:
                      return AttrCmp<COLUMN_PHUB_ADDRESS>;
                 case COLUMN_PHUB_COUNTRY:

@@ -107,7 +107,7 @@ void PublicHubs::updateList(){
         data.clear();
 
         data << _q(entry->getName())         << _q(entry->getDescription())  << entry->getUsers()
-             << _q(entry->getServer())       << _q(entry->getCountry())      << (qulonglong)entry->getShared()
+             << _q(entry->getServer())       << _q(entry->getCountry())      << (qlonglong)entry->getShared()
              << (qint64)entry->getMinShare() << (qint64)entry->getMinSlots() << (qint64)entry->getMaxHubs()
              << (qint64)entry->getMaxUsers() << static_cast<double>(entry->getReliability()) << _q(entry->getRating());
 
