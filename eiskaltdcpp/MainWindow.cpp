@@ -232,11 +232,15 @@ void MainWindow::showEvent(QShowEvent *e){
 
     QWidget *wg = arena->widget();
 
-    bool pmw = false, share_browser = false;
+    bool pmw = false, share_browser = false, phubs = false;
 
     if (wg != 0){
-        pmw = (typeid(*wg) == typeid(PMWindow));
-        share_browser = (typeid(*wg) == typeid(ShareBrowser));
+        if (typeid(*wg) == typeid(PMWindow))
+            pmw = true;
+        else if (typeid(*wg) == typeid(ShareBrowser))
+            share_browser = true;
+        else if (typeid(*wg) == typeid(PublicHubs))
+            phubs = true;
     }
 
     HubFrame *fr = HubManager::getInstance()->activeHub();
@@ -244,7 +248,7 @@ void MainWindow::showEvent(QShowEvent *e){
     bool enable = (fr && (fr == arena->widget()));
 
     chatClear->setEnabled(enable || pmw);
-    findInWidget->setEnabled(enable || share_browser);
+    findInWidget->setEnabled(enable || share_browser || phubs);
     chatDisable->setEnabled(enable);
 
     e->accept();
@@ -1028,17 +1032,21 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
 
-    bool pmw = false, share_browser = false;
+    bool pmw = false, share_browser = false, phubs = false;
 
     if (wg != 0){
-        pmw = (typeid(*wg) == typeid(PMWindow));
-        share_browser = (typeid(*wg) == typeid(ShareBrowser));
+        if (typeid(*wg) == typeid(PMWindow))
+            pmw = true;
+        else if (typeid(*wg) == typeid(ShareBrowser))
+            share_browser = true;
+        else if (typeid(*wg) == typeid(PublicHubs))
+            phubs = true;
     }
 
     HubFrame *fr = HubManager::getInstance()->activeHub();
 
     chatClear->setEnabled(fr == arena->widget() || pmw);
-    findInWidget->setEnabled(fr == arena->widget() || share_browser);
+    findInWidget->setEnabled(fr == arena->widget() || share_browser || phubs);
     chatDisable->setEnabled(fr == arena->widget());
 
     if (fr == arena->widget()){
@@ -1385,6 +1393,11 @@ void MainWindow::slotFind(){
             ShareBrowser *s = qobject_cast<ShareBrowser*>(arena->widget());
 
             s->slotFilter();
+        }
+        else if (arena->widget()->qt_metacast("PublicHubs")){
+            PublicHubs *p = qobject_cast<PublicHubs*>(arena->widget());
+
+            p->slotFilter();
         }
     }
 }

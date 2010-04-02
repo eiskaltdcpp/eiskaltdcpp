@@ -231,8 +231,6 @@ void SettingsGUI::ok(){
 
         SM->set(SettingsManager::IGNORE_BOT_PMS, checkBox_IGNOREPMBOT->isChecked());
         SM->set(SettingsManager::IGNORE_HUB_PMS, checkBox_IGNOREPMHUB->isChecked());
-
-        SM->save();
     }
     {//Color tab
         int i = 0;
@@ -253,8 +251,6 @@ void SettingsGUI::ok(){
         WSSET(WS_CHAT_FIND_COLOR,       h_color.name());
         WISET(WI_CHAT_FIND_COLOR_ALPHA, horizontalSlider_H_COLOR->value());
     }
-
-    WulforSettings::getInstance()->save();
 }
 
 void SettingsGUI::slotChatColorItemClicked(QListWidgetItem *item){

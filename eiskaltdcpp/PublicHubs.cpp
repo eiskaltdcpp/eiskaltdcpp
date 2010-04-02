@@ -9,7 +9,7 @@
 using namespace dcpp;
 
 PublicHubs::PublicHubs(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent), proxy(NULL)
 {
     setupUi(this);
 
@@ -24,6 +24,18 @@ PublicHubs::PublicHubs(QWidget *parent) :
 
     MainWindow *MW = MainWindow::getInstance();
     MW->addArenaWidget(this);
+
+    QString hubs = _q(SettingsManager::getInstance()->get(SettingsManager::HUBLIST_SERVERS));
+
+    comboBox_HUBS->addItems(hubs.split(";"));
+    comboBox_HUBS->setCurrentIndex(FavoriteManager::getInstance()->getSelectedHubList());
+
+    for (int i = 0; i < model->columnCount(); i++)
+        comboBox_FILTER->addItem(model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
+
+    comboBox_FILTER->setCurrentIndex(COLUMN_PHUB_DESC);
+
+    frame->hide();
 
     entries = FavoriteManager::getInstance()->getPublicHubs();
 
@@ -40,10 +52,13 @@ PublicHubs::PublicHubs(QWidget *parent) :
 
     connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
+    connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
+    connect(comboBox_HUBS, SIGNAL(activated(int)), this, SLOT(slotHubChanged(int)));
 }
 
 PublicHubs::~PublicHubs(){
     delete model;
+    delete proxy;
 
     FavoriteManager::getInstance()->removeListener(this);
 }
@@ -177,6 +192,47 @@ void PublicHubs::slotContextMenu(){
 
 void PublicHubs::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView);
+}
+
+void PublicHubs::slotFilter(){
+    if (frame->isVisible()){
+        treeView->setModel(model);
+
+        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+
+        delete proxy;
+        proxy = NULL;
+    }
+    else {
+        proxy = new QSortFilterProxyModel(NULL);
+        proxy->setDynamicSortFilter(true);
+        proxy->setFilterFixedString(lineEdit_FILTER->text());
+        proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+        proxy->setFilterKeyColumn(comboBox_FILTER->currentIndex());
+        proxy->setSourceModel(model);
+
+        treeView->setModel(proxy);
+
+        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+        connect(comboBox_FILTER, SIGNAL(currentIndexChanged(int)), this, SLOT(slotFilterColumnChanged()));
+
+        lineEdit_FILTER->setFocus();
+
+        if (!lineEdit_FILTER->text().isEmpty())
+            lineEdit_FILTER->selectAll();
+    }
+
+    frame->setVisible(!frame->isVisible());
+}
+
+void PublicHubs::slotHubChanged(int pos){
+    FavoriteManager::getInstance()->setHubList(pos);
+    FavoriteManager::getInstance()->refresh();
+}
+
+void PublicHubs::slotFilterColumnChanged(){
+    if (proxy)
+        proxy->setFilterKeyColumn(comboBox_FILTER->currentIndex());
 }
 
 void PublicHubs::on(DownloadStarting, const std::string& l) throw(){

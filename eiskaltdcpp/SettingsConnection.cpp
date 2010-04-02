@@ -106,34 +106,32 @@ void SettingsConnection::ok(){
     if (SETTING(OUTGOING_CONNECTIONS) != type)
         Socket::socksUpdated();
 #ifdef DEBUG_CONNECTION
-        qDebug() << SETTING(THROTTLE_ENABLE) << "->" << checkBox_THROTTLE_ENABLE->isChecked();
-        qDebug() << SETTING(TIME_DEPENDENT_THROTTLE) << "->"<< checkBox_TIME_DEPENDENT_THROTTLE->isChecked();
-        qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_DOWN_LIMIT_NORMAL->value();
-        qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_UP_LIMIT_NORMAL->value();
-        qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_DOWN_LIMIT_TIME->value();
-        qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_UP_LIMIT_TIME->value();
-        qDebug() << SETTING(BANDWIDTH_LIMIT_START) << "->" << spinBox_BANDWIDTH_LIMIT_START->value();
-        qDebug() << SETTING(BANDWIDTH_LIMIT_END) << "->" << spinBox_BANDWIDTH_LIMIT_END->value();
+    qDebug() << SETTING(THROTTLE_ENABLE) << "->" << checkBox_THROTTLE_ENABLE->isChecked();
+    qDebug() << SETTING(TIME_DEPENDENT_THROTTLE) << "->"<< checkBox_TIME_DEPENDENT_THROTTLE->isChecked();
+    qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_DOWN_LIMIT_NORMAL->value();
+    qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_UP_LIMIT_NORMAL->value();
+    qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_DOWN_LIMIT_TIME->value();
+    qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_UP_LIMIT_TIME->value();
+    qDebug() << SETTING(BANDWIDTH_LIMIT_START) << "->" << spinBox_BANDWIDTH_LIMIT_START->value();
+    qDebug() << SETTING(BANDWIDTH_LIMIT_END) << "->" << spinBox_BANDWIDTH_LIMIT_END->value();
 #endif
-        SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
-        SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
-        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, spinBox_DOWN_LIMIT_NORMAL->value());
-        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, spinBox_UP_LIMIT_NORMAL->value());
-        SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, spinBox_DOWN_LIMIT_TIME->value());
-        SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
-        SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
-        SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
+    SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
+    SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
+    SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, spinBox_DOWN_LIMIT_NORMAL->value());
+    SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, spinBox_UP_LIMIT_NORMAL->value());
+    SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, spinBox_DOWN_LIMIT_TIME->value());
+    SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
+    SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
+    SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
 
-        if((checkBox_THROTTLE_ENABLE->isChecked() || checkBox_TIME_DEPENDENT_THROTTLE->isChecked()))
-            Util::checkLimiterSpeed();
-
-    SM->save();
+    if((checkBox_THROTTLE_ENABLE->isChecked() || checkBox_TIME_DEPENDENT_THROTTLE->isChecked()))
+        Util::checkLimiterSpeed();
 
     if (old_mode != SETTING(INCOMING_CONNECTIONS) || old_tcp != (SETTING(TCP_PORT))
         || old_udp != (SETTING(UDP_PORT)) || old_tls != (SETTING(TLS_PORT)))
-        {
-            MainWindow::getInstance()->startSocket();
-        }
+    {
+        MainWindow::getInstance()->startSocket();
+    }
 }
 
 void SettingsConnection::init(){
@@ -156,25 +154,25 @@ void SettingsConnection::init(){
     frame_3->setEnabled(checkBox_THROTTLE_ENABLE->isChecked());
     frame_5->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
     switch (SETTING(INCOMING_CONNECTIONS)){
-        case SettingsManager::INCOMING_DIRECT:
+    case SettingsManager::INCOMING_DIRECT:
         {
             radioButton_ACTIVE->setChecked(true);
 
             break;
         }
-        case SettingsManager::INCOMING_FIREWALL_NAT:
+    case SettingsManager::INCOMING_FIREWALL_NAT:
         {
             radioButton_PORT->setChecked(true);
 
             break;
         }
-        case SettingsManager::INCOMING_FIREWALL_PASSIVE:
+    case SettingsManager::INCOMING_FIREWALL_PASSIVE:
         {
             radioButton_PASSIVE->setChecked(true);
 
             break;
         }
-        case SettingsManager::INCOMING_FIREWALL_UPNP:
+    case SettingsManager::INCOMING_FIREWALL_UPNP:
         {
             radioButton_UPNP->setChecked(true);
 
@@ -190,13 +188,13 @@ void SettingsConnection::init(){
     checkBox_RESOLVE->setCheckState( SETTING(SOCKS_RESOLVE)? Qt::Checked : Qt::Unchecked );
 
     switch (SETTING(OUTGOING_CONNECTIONS)){
-        case SettingsManager::OUTGOING_DIRECT:
+    case SettingsManager::OUTGOING_DIRECT:
         {
             radioButton_DC->toggle();
 
             break;
         }
-        case SettingsManager::OUTGOING_SOCKS5:
+    case SettingsManager::OUTGOING_SOCKS5:
         {
             radioButton_SOCKS->toggle();
 

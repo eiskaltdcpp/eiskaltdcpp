@@ -24,6 +24,10 @@
 #include "SettingsManager.h"
 #include "TimerManager.h"
 
+#ifndef MSG_NOSIGNAL
+#define MSG_NOSIGNAL 0
+#endif
+
 namespace dcpp {
 
 string Socket::udpServer;

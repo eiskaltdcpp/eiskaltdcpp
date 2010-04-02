@@ -19,13 +19,18 @@ public:
     Settings();
     virtual ~Settings();
 
+signals:
+    void timeToDie();
+
 private slots:
     void slotItemActivated(QListWidgetItem*);
+    void dirty();
 
 private:
     void init();
 
     WidgetMap widgets;
+    bool is_dirty;
 };
 
 #endif // SETTINGS_H

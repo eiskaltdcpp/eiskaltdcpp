@@ -5,6 +5,7 @@
 #include <QCloseEvent>
 #include <QMenu>
 #include <QPixmap>
+#include <QSortFilterProxyModel>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -48,6 +49,9 @@ public:
     QMenu   *getMenu(){ return NULL; }
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER); }
 
+public slots:
+    void slotFilter();
+
 protected:
     virtual void closeEvent(QCloseEvent *);
     virtual void customEvent(QEvent *);
@@ -60,6 +64,8 @@ protected:
 private slots:
     void slotContextMenu();
     void slotHeaderMenu();
+    void slotHubChanged(int);
+    void slotFilterColumnChanged();
 
 private:
     PublicHubs(QWidget *parent = NULL);
@@ -72,6 +78,7 @@ private:
 
     dcpp::HubEntryList entries;
     PublicHubModel *model;
+    QSortFilterProxyModel *proxy;
 };
 
 #endif // PUBLICHUBS_H

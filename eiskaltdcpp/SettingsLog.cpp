@@ -67,8 +67,6 @@ void SettingsLog::ok(){
     sm->set(SettingsManager::LOG_SYSTEM, checkBox_SYSTEM->isChecked());
     sm->set(SettingsManager::LOG_STATUS_MESSAGES, checkBox_STAT->isChecked());
     sm->set(SettingsManager::LOG_FILELIST_TRANSFERS, checkBox_FILELIST->isChecked());
-
-    sm->save();
 }
 
 void SettingsLog::slotBrowse(){

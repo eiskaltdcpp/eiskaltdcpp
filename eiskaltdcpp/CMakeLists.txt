@@ -39,6 +39,7 @@ set (SRCS   Antispam.cpp
             Notification.cpp
             PMWindow.cpp
             PublicHubs.cpp
+            PublicHubsList.cpp
             PublicHubModel.cpp
             QuickConnect.cpp
             SearchFrame.cpp
@@ -88,6 +89,7 @@ set (MOC_HDRS Antispam.h
             Notification.h
             PMWindow.h
             PublicHubs.h
+            PublicHubsList.h
             PublicHubModel.h
             Settings.h
             SettingsConnection.h
@@ -126,6 +128,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIIPFilter.ui
             ui/UIMagnet.ui
             ui/UIPublicHubs.ui
+            ui/UIPublicHubsList.ui
             ui/UIQuickConnect.ui
             ui/UISearchFrame.ui
             ui/UISettings.ui

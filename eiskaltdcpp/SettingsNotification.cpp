@@ -159,8 +159,6 @@ void SettingsNotification::ok(){
 
         WISET(WI_NOTIFY_SNDMAP, emap);
     }
-
-    WulforSettings::getInstance()->save();
 }
 
 void SettingsNotification::slotBrowseFile(){

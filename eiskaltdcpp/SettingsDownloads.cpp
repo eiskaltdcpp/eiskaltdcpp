@@ -1,5 +1,6 @@
 #include "SettingsDownloads.h"
 #include "WulforUtil.h"
+#include "PublicHubsList.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -73,8 +74,6 @@ void SettingsDownloads::ok(){
 
     for (; it != other_settings.constEnd(); ++it)
         SM->set(it.key(), listWidget->item(it.value())->checkState() == Qt::Checked);
-
-    SM->save();
 }
 
 void SettingsDownloads::init(){
@@ -93,6 +92,7 @@ void SettingsDownloads::init(){
 
         connect(pushButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
         connect(pushButton_BROWSE1, SIGNAL(clicked()), SLOT(slotBrowse()));
+        connect(pushButton_CFGLISTS, SIGNAL(clicked()), SLOT(slotCfgPublic()));
     }
     {//Download to
         QString aliases, paths;
@@ -210,5 +210,11 @@ void SettingsDownloads::slotDownloadTo(){
         WSSET(WS_DOWNLOADTO_ALIASES, aliases.toAscii().toBase64());
         WSSET(WS_DOWNLOADTO_PATHS, paths.toAscii().toBase64());
     }
+}
+
+void SettingsDownloads::slotCfgPublic(){
+    PublicHubsList h;
+
+    h.exec();
 }
 

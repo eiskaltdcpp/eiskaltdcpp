@@ -24,6 +24,7 @@ public slots:
 private slots:
     void slotBrowse();
     void slotDownloadTo();
+    void slotCfgPublic();
 
 private:
     void init();

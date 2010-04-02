@@ -56,8 +56,6 @@ void SettingsSharing::ok(){
 
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
 
-    SM->save();
-
     QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
 
     if (f.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){
