@@ -267,7 +267,7 @@ Qt::ItemFlags ShareDirModel::flags(const QModelIndex& index) const{
     QString fp = filePath(index);
 
     foreach (QString file, checked){
-        if (fp.startsWith(file) && fp != file){
+        if (fp.startsWith(file) && (fp.split(QDir::separator()).length() != file.split(QDir::separator()).length()) && fp != file){
             f &= ~(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 
             break;
@@ -313,7 +313,7 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
                 font.setBold(true);
 
                 foreach (QString f, checked){
-                    if (f.startsWith(fp))
+                    if (f == fp)
                         return font;
                 }
 
