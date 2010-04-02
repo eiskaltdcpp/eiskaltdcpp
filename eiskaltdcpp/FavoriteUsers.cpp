@@ -158,6 +158,7 @@ void FavoriteUsers::handleRemove(const QString & _cid){
 
 void FavoriteUsers::handleDesc(const QString & _cid){
     FavoriteUserItem *item = model->itemForCID(_cid);
+    static QString old = "";
 
     if (!item)
         return;
@@ -166,9 +167,10 @@ void FavoriteUsers::handleDesc(const QString & _cid){
     const dcpp::UserPtr &user = ClientManager::getInstance()->findUser(cid);
 
     if (user){
-        QString desc = QInputDialog::getText(this, item->data(COLUMN_USER_NICK).toString(), tr("Description"));
+        QString desc = QInputDialog::getText(this, item->data(COLUMN_USER_NICK).toString(), tr("Description"), QLineEdit::Normal, old);
 
         if (!desc.isEmpty()){
+            old = desc;
             item->updateColumn(COLUMN_USER_DESC, desc);
             FavoriteManager::getInstance()->setUserDescription(user, _tq(desc));
         }

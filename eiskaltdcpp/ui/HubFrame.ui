@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>505</width>
-    <height>268</height>
+    <width>355</width>
+    <height>223</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,6 +31,12 @@
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
           <number>-1</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
          </property>
          <item>
           <widget class="QTextEdit" name="textEdit_CHAT">
@@ -60,6 +66,9 @@
             <number>0</number>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="margin">
+             <number>2</number>
+            </property>
             <item>
              <widget class="QLabel" name="label">
               <property name="text">
@@ -146,12 +155,24 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout">
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>3</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>3</number>
+          </property>
           <item row="0" column="0">
            <widget class="QPlainTextEdit" name="plainTextEdit_INPUT">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>45</height>
+              <height>35</height>
              </size>
             </property>
            </widget>
