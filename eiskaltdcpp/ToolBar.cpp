@@ -50,6 +50,8 @@ void ToolBar::initTabs(){
     tabbar->setMovable(true);
     tabbar->setContextMenuPolicy(Qt::CustomContextMenu);
     tabbar->setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
+    tabbar->setExpanding(false);
+    tabbar->setSizePolicy(QSizePolicy::Expanding, tabbar->sizePolicy().verticalPolicy());
 
     tabbar->installEventFilter(this);
 
