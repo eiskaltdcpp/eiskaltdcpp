@@ -341,23 +341,23 @@
     <name>FavoriteUsers</name>
     <message>
         <location filename="../FavoriteUsers.cpp" line="134"/>
-        <location filename="../FavoriteUsers.cpp" line="265"/>
+        <location filename="../FavoriteUsers.cpp" line="267"/>
         <source>Online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteUsers.cpp" line="169"/>
-        <location filename="../FavoriteUsers.cpp" line="215"/>
+        <location filename="../FavoriteUsers.cpp" line="170"/>
+        <location filename="../FavoriteUsers.cpp" line="217"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteUsers.cpp" line="212"/>
+        <location filename="../FavoriteUsers.cpp" line="214"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteUsers.cpp" line="218"/>
+        <location filename="../FavoriteUsers.cpp" line="220"/>
         <source>Grant/Remove slot</source>
         <translation type="unfinished"></translation>
     </message>
@@ -723,27 +723,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1293"/>
+        <location filename="../HubFrame.cpp" line="1294"/>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1413"/>
+        <location filename="../HubFrame.cpp" line="1414"/>
         <source>User online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2443"/>
+        <location filename="../HubFrame.cpp" line="2444"/>
         <source>Suggestions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2444"/>
+        <location filename="../HubFrame.cpp" line="2445"/>
         <source>Add to dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2742"/>
+        <location filename="../HubFrame.cpp" line="2743"/>
         <source>Search flood detected: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -784,75 +784,75 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1394"/>
+        <location filename="../HubFrame.cpp" line="1395"/>
         <source> joins the chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1437"/>
-        <location filename="../HubFrame.cpp" line="1449"/>
+        <location filename="../HubFrame.cpp" line="1438"/>
+        <location filename="../HubFrame.cpp" line="1450"/>
         <source>User not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1456"/>
+        <location filename="../HubFrame.cpp" line="1457"/>
         <source>Slot granted to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1467"/>
-        <location filename="../HubFrame.cpp" line="1487"/>
+        <location filename="../HubFrame.cpp" line="1468"/>
+        <location filename="../HubFrame.cpp" line="1488"/>
         <source>User not found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1476"/>
+        <location filename="../HubFrame.cpp" line="1477"/>
         <source> has been added to favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1496"/>
+        <location filename="../HubFrame.cpp" line="1497"/>
         <source> has been removed from favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1528"/>
+        <location filename="../HubFrame.cpp" line="1529"/>
         <source>Favorite hub added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1531"/>
+        <location filename="../HubFrame.cpp" line="1532"/>
         <source>Favorite hub already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1626"/>
+        <location filename="../HubFrame.cpp" line="1627"/>
         <source>User offline.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1658"/>
+        <location filename="../HubFrame.cpp" line="1659"/>
         <source>Stored password sent...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1661"/>
+        <location filename="../HubFrame.cpp" line="1662"/>
         <source>Enter password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1661"/>
+        <location filename="../HubFrame.cpp" line="1662"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1675"/>
-        <location filename="../HubFrame.cpp" line="2537"/>
+        <location filename="../HubFrame.cpp" line="1676"/>
+        <location filename="../HubFrame.cpp" line="2538"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1781"/>
+        <location filename="../HubFrame.cpp" line="1782"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -993,391 +993,391 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="427"/>
+        <location filename="../MainWindow.cpp" line="431"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="370"/>
+        <location filename="../MainWindow.cpp" line="374"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="383"/>
+        <location filename="../MainWindow.cpp" line="387"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="410"/>
+        <location filename="../MainWindow.cpp" line="414"/>
         <source>Ctrl+H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="432"/>
+        <location filename="../MainWindow.cpp" line="436"/>
         <source>Ctrl+T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="439"/>
+        <location filename="../MainWindow.cpp" line="443"/>
         <source>Ctrl+D</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="464"/>
+        <location filename="../MainWindow.cpp" line="468"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="391"/>
-        <location filename="../MainWindow.cpp" line="1318"/>
+        <location filename="../MainWindow.cpp" line="395"/>
+        <location filename="../MainWindow.cpp" line="1328"/>
         <source>Hide window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="392"/>
+        <location filename="../MainWindow.cpp" line="396"/>
         <source>Esc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="398"/>
-        <location filename="../MainWindow.cpp" line="1316"/>
+        <location filename="../MainWindow.cpp" line="402"/>
+        <location filename="../MainWindow.cpp" line="1326"/>
         <source>Show/hide find frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="468"/>
-        <location filename="../MainWindow.cpp" line="1436"/>
+        <location filename="../MainWindow.cpp" line="472"/>
+        <location filename="../MainWindow.cpp" line="1477"/>
         <source>Hide free space bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="470"/>
-        <location filename="../MainWindow.cpp" line="1431"/>
+        <location filename="../MainWindow.cpp" line="474"/>
+        <location filename="../MainWindow.cpp" line="1472"/>
         <source>Show free space bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="401"/>
+        <location filename="../MainWindow.cpp" line="405"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="488"/>
+        <location filename="../MainWindow.cpp" line="492"/>
         <source>Ctrl+F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="669"/>
+        <location filename="../MainWindow.cpp" line="673"/>
         <source>Download speed (per sec.)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="675"/>
+        <location filename="../MainWindow.cpp" line="679"/>
         <source>Upload speed (per sec.)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="681"/>
+        <location filename="../MainWindow.cpp" line="685"/>
         <source>Downloaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="687"/>
+        <location filename="../MainWindow.cpp" line="691"/>
         <source>Uploaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="700"/>
+        <location filename="../MainWindow.cpp" line="704"/>
         <source>Space free</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="722"/>
+        <location filename="../MainWindow.cpp" line="726"/>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="764"/>
+        <location filename="../MainWindow.cpp" line="768"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="724"/>
-        <location filename="../MainWindow.cpp" line="1190"/>
+        <location filename="../MainWindow.cpp" line="728"/>
+        <location filename="../MainWindow.cpp" line="1200"/>
         <source>Open log file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="726"/>
+        <location filename="../MainWindow.cpp" line="730"/>
         <source>Open filelist...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="728"/>
+        <location filename="../MainWindow.cpp" line="732"/>
         <source>Open own filelist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="730"/>
+        <location filename="../MainWindow.cpp" line="734"/>
         <source>Refresh share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="732"/>
+        <location filename="../MainWindow.cpp" line="736"/>
         <source>Hash progress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="750"/>
+        <location filename="../MainWindow.cpp" line="754"/>
         <source>Transfers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="752"/>
+        <location filename="../MainWindow.cpp" line="756"/>
         <source>Download queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="754"/>
+        <location filename="../MainWindow.cpp" line="758"/>
         <source>Finished downloads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="756"/>
+        <location filename="../MainWindow.cpp" line="760"/>
         <source>Finished uploads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="758"/>
+        <location filename="../MainWindow.cpp" line="762"/>
         <source>Search Spy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="760"/>
+        <location filename="../MainWindow.cpp" line="764"/>
         <source>AntiSpam module</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="762"/>
+        <location filename="../MainWindow.cpp" line="766"/>
         <source>IPFilter module</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="742"/>
+        <location filename="../MainWindow.cpp" line="746"/>
         <source>Public hubs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="477"/>
-        <location filename="../MainWindow.cpp" line="1450"/>
+        <location filename="../MainWindow.cpp" line="481"/>
+        <location filename="../MainWindow.cpp" line="1491"/>
         <source>Hide last status message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="736"/>
+        <location filename="../MainWindow.cpp" line="740"/>
         <source>&amp;Hubs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="748"/>
+        <location filename="../MainWindow.cpp" line="752"/>
         <source>&amp;Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="768"/>
+        <location filename="../MainWindow.cpp" line="772"/>
         <source>Clear chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="770"/>
-        <source>Find in chat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../MainWindow.cpp" line="772"/>
+        <location filename="../MainWindow.cpp" line="776"/>
         <source>Disable/enable chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="774"/>
+        <location filename="../MainWindow.cpp" line="778"/>
         <source>&amp;Widgets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="776"/>
+        <location filename="../MainWindow.cpp" line="780"/>
         <source>&amp;Panels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="778"/>
+        <location filename="../MainWindow.cpp" line="782"/>
         <source>Widgets panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="780"/>
+        <location filename="../MainWindow.cpp" line="784"/>
         <source>Tools panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="863"/>
-        <location filename="../MainWindow.cpp" line="888"/>
+        <location filename="../MainWindow.cpp" line="867"/>
+        <location filename="../MainWindow.cpp" line="892"/>
         <source>Free %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="866"/>
-        <location filename="../MainWindow.cpp" line="891"/>
+        <location filename="../MainWindow.cpp" line="870"/>
+        <location filename="../MainWindow.cpp" line="895"/>
         <source>Free %1 of %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1190"/>
+        <location filename="../MainWindow.cpp" line="1200"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1369"/>
+        <location filename="../MainWindow.cpp" line="1379"/>
         <source>Chat cleared.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="481"/>
-        <location filename="../MainWindow.cpp" line="1448"/>
+        <location filename="../MainWindow.cpp" line="485"/>
+        <location filename="../MainWindow.cpp" line="1489"/>
         <source>Show last status message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1488"/>
+        <location filename="../MainWindow.cpp" line="1529"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1489"/>
+        <location filename="../MainWindow.cpp" line="1530"/>
         <source>DC++ core version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1491"/>
+        <location filename="../MainWindow.cpp" line="1532"/>
         <source>(modified)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1492"/>
+        <location filename="../MainWindow.cpp" line="1533"/>
         <source>Home page:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1495"/>
+        <location filename="../MainWindow.cpp" line="1536"/>
         <source>Total up:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1497"/>
+        <location filename="../MainWindow.cpp" line="1538"/>
         <source>Total down:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="738"/>
+        <location filename="../MainWindow.cpp" line="742"/>
         <source>Reconnect to hub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="663"/>
+        <location filename="../MainWindow.cpp" line="667"/>
         <source>Counts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="740"/>
+        <location filename="../MainWindow.cpp" line="744"/>
         <source>Favourite hubs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="744"/>
+        <location filename="../MainWindow.cpp" line="748"/>
         <source>Favourite users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="766"/>
+        <location filename="../MainWindow.cpp" line="770"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="746"/>
+        <location filename="../MainWindow.cpp" line="750"/>
         <source>Quick connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="734"/>
+        <location filename="../MainWindow.cpp" line="738"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="782"/>
-        <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../MainWindow.cpp" line="784"/>
-        <source>About EiskaltDC++</source>
+        <location filename="../MainWindow.cpp" line="774"/>
+        <source>Find/Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="786"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="788"/>
+        <source>About EiskaltDC++</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="790"/>
         <source>About Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="789"/>
+        <location filename="../MainWindow.cpp" line="793"/>
         <source>Main layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="967"/>
+        <location filename="../MainWindow.cpp" line="971"/>
         <source>Choose file to open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="968"/>
+        <location filename="../MainWindow.cpp" line="972"/>
         <source>Modern XML Filelists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="969"/>
+        <location filename="../MainWindow.cpp" line="973"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="970"/>
+        <location filename="../MainWindow.cpp" line="974"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="975"/>
+        <location filename="../MainWindow.cpp" line="979"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1169"/>
-        <location filename="../MainWindow.cpp" line="1176"/>
+        <location filename="../MainWindow.cpp" line="1179"/>
+        <location filename="../MainWindow.cpp" line="1186"/>
         <source>Cannot listen socket because: 
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1169"/>
-        <location filename="../MainWindow.cpp" line="1176"/>
+        <location filename="../MainWindow.cpp" line="1179"/>
+        <location filename="../MainWindow.cpp" line="1186"/>
         <source>
 
 Please check your connection settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1171"/>
+        <location filename="../MainWindow.cpp" line="1181"/>
         <source>Connection Manager: Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1178"/>
+        <location filename="../MainWindow.cpp" line="1188"/>
         <source>Search Manager: Warning</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1484,47 +1484,47 @@ Please check your connection settings</source>
 <context>
     <name>PublicHubs</name>
     <message>
-        <location filename="../PublicHubs.cpp" line="33"/>
+        <location filename="../PublicHubs.cpp" line="45"/>
         <source>Downloading public hub list...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PublicHubs.cpp" line="121"/>
+        <location filename="../PublicHubs.cpp" line="136"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PublicHubs.cpp" line="122"/>
+        <location filename="../PublicHubs.cpp" line="137"/>
         <source>Add to favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PublicHubs.cpp" line="123"/>
+        <location filename="../PublicHubs.cpp" line="138"/>
         <source>Copy &amp;address to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PublicHubs.cpp" line="184"/>
+        <location filename="../PublicHubs.cpp" line="243"/>
         <source>Downloading public hub list... (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PublicHubs.cpp" line="191"/>
+        <location filename="../PublicHubs.cpp" line="250"/>
         <source>Download failed: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PublicHubs.cpp" line="198"/>
+        <location filename="../PublicHubs.cpp" line="257"/>
         <source>Hub list downloaded... (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PublicHubs.cpp" line="205"/>
+        <location filename="../PublicHubs.cpp" line="264"/>
         <source>Hub list loaded from cache...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PublicHubs.h" line="45"/>
+        <location filename="../PublicHubs.h" line="46"/>
         <source>Public Hubs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1778,36 +1778,36 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="499"/>
-        <location filename="../SearchFrame.cpp" line="774"/>
+        <location filename="../SearchFrame.cpp" line="501"/>
+        <location filename="../SearchFrame.cpp" line="776"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="503"/>
-        <location filename="../SearchFrame.cpp" line="770"/>
-        <location filename="../SearchFrame.cpp" line="778"/>
+        <location filename="../SearchFrame.cpp" line="505"/>
+        <location filename="../SearchFrame.cpp" line="772"/>
+        <location filename="../SearchFrame.cpp" line="780"/>
         <source>Search - %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="508"/>
+        <location filename="../SearchFrame.cpp" line="510"/>
         <source>Ready to search...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="876"/>
-        <location filename="../SearchFrame.cpp" line="929"/>
+        <location filename="../SearchFrame.cpp" line="878"/>
+        <location filename="../SearchFrame.cpp" line="931"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1152"/>
+        <location filename="../SearchFrame.cpp" line="1154"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1161"/>
+        <location filename="../SearchFrame.cpp" line="1163"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1888,37 +1888,37 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="27"/>
+        <location filename="../Settings.cpp" line="31"/>
         <source>Personal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="32"/>
+        <location filename="../Settings.cpp" line="36"/>
         <source>Connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="37"/>
+        <location filename="../Settings.cpp" line="41"/>
         <source>Downloads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="42"/>
+        <location filename="../Settings.cpp" line="46"/>
         <source>Sharing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="47"/>
+        <location filename="../Settings.cpp" line="51"/>
         <source>GUI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="52"/>
+        <location filename="../Settings.cpp" line="56"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="57"/>
+        <location filename="../Settings.cpp" line="61"/>
         <source>Logs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1936,7 +1936,7 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsConnection.cpp" line="283"/>
+        <location filename="../SettingsConnection.cpp" line="281"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2058,12 +2058,12 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="333"/>
+        <location filename="../SettingsGUI.cpp" line="329"/>
         <source>Select translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="333"/>
+        <location filename="../SettingsGUI.cpp" line="329"/>
         <source>Translation (*.qm)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2071,12 +2071,12 @@ Keys:
 <context>
     <name>SettingsNotification</name>
     <message>
-        <location filename="../SettingsNotification.cpp" line="169"/>
+        <location filename="../SettingsNotification.cpp" line="167"/>
         <source>Select file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsNotification.cpp" line="169"/>
+        <location filename="../SettingsNotification.cpp" line="167"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2092,59 +2092,59 @@ Keys:
 <context>
     <name>SettingsSharing</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="69"/>
+        <location filename="../SettingsSharing.cpp" line="67"/>
         <source>GiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="87"/>
-        <location filename="../SettingsSharing.cpp" line="155"/>
+        <location filename="../SettingsSharing.cpp" line="85"/>
+        <location filename="../SettingsSharing.cpp" line="153"/>
         <source>Total shared: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="137"/>
-        <location filename="../SettingsSharing.cpp" line="236"/>
+        <location filename="../SettingsSharing.cpp" line="135"/>
+        <location filename="../SettingsSharing.cpp" line="234"/>
         <source>%1 GiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="182"/>
+        <location filename="../SettingsSharing.cpp" line="180"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="182"/>
+        <location filename="../SettingsSharing.cpp" line="180"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="200"/>
+        <location filename="../SettingsSharing.cpp" line="198"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="208"/>
+        <location filename="../SettingsSharing.cpp" line="206"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="221"/>
+        <location filename="../SettingsSharing.cpp" line="219"/>
         <source>Enter virtual path name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="221"/>
+        <location filename="../SettingsSharing.cpp" line="219"/>
         <source>Virtual path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="228"/>
+        <location filename="../SettingsSharing.cpp" line="226"/>
         <source>Enter restriction (in GiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="228"/>
+        <location filename="../SettingsSharing.cpp" line="226"/>
         <source>Restriction</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2177,67 +2177,67 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="136"/>
+        <location filename="../ShareBrowser.cpp" line="137"/>
         <source>Own files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="138"/>
+        <location filename="../ShareBrowser.cpp" line="139"/>
         <source>Listing: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="183"/>
+        <location filename="../ShareBrowser.cpp" line="188"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="185"/>
+        <location filename="../ShareBrowser.cpp" line="190"/>
         <source>Filebrowser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="187"/>
+        <location filename="../ShareBrowser.cpp" line="192"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="298"/>
-        <location filename="../ShareBrowser.cpp" line="306"/>
+        <location filename="../ShareBrowser.cpp" line="304"/>
+        <location filename="../ShareBrowser.cpp" line="312"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="298"/>
-        <location filename="../ShareBrowser.cpp" line="306"/>
+        <location filename="../ShareBrowser.cpp" line="304"/>
+        <location filename="../ShareBrowser.cpp" line="312"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="299"/>
-        <location filename="../ShareBrowser.cpp" line="307"/>
+        <location filename="../ShareBrowser.cpp" line="305"/>
+        <location filename="../ShareBrowser.cpp" line="313"/>
         <source>Exact size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="300"/>
-        <location filename="../ShareBrowser.cpp" line="308"/>
+        <location filename="../ShareBrowser.cpp" line="306"/>
+        <location filename="../ShareBrowser.cpp" line="314"/>
         <source>TTH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="436"/>
-        <location filename="../ShareBrowser.cpp" line="449"/>
+        <location filename="../ShareBrowser.cpp" line="442"/>
+        <location filename="../ShareBrowser.cpp" line="455"/>
         <source>Total size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="452"/>
+        <location filename="../ShareBrowser.cpp" line="458"/>
         <source>; Selected: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ShareBrowser.cpp" line="496"/>
+        <location filename="../ShareBrowser.cpp" line="502"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2245,7 +2245,7 @@ Keys:
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="377"/>
+        <location filename="../SettingsSharing.cpp" line="375"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2949,72 +2949,72 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="66"/>
+        <location filename="../ui/HubFrame.ui" line="75"/>
         <source>Find: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="80"/>
+        <location filename="../ui/HubFrame.ui" line="89"/>
         <source>Previous (Shift+F3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="83"/>
+        <location filename="../ui/HubFrame.ui" line="92"/>
         <source>&lt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="86"/>
+        <location filename="../ui/HubFrame.ui" line="95"/>
         <source>Shift+F3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="93"/>
+        <location filename="../ui/HubFrame.ui" line="102"/>
         <source>Next (F3)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="96"/>
+        <location filename="../ui/HubFrame.ui" line="105"/>
         <source>&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="99"/>
+        <location filename="../ui/HubFrame.ui" line="108"/>
         <source>F3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="106"/>
+        <location filename="../ui/HubFrame.ui" line="115"/>
         <source>Highlight all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="109"/>
+        <location filename="../ui/HubFrame.ui" line="118"/>
         <source>A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="122"/>
+        <location filename="../ui/HubFrame.ui" line="131"/>
         <source>Hide find frame (Ctrl+F)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="125"/>
+        <location filename="../ui/HubFrame.ui" line="134"/>
         <source>X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="206"/>
+        <location filename="../ui/HubFrame.ui" line="227"/>
         <source>Clear filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="209"/>
+        <location filename="../ui/HubFrame.ui" line="230"/>
         <source>c</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="242"/>
+        <location filename="../ui/HubFrame.ui" line="263"/>
         <source>Last status message on hub</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3153,6 +3153,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIPublicHubs.ui" line="14"/>
         <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIPublicHubs.ui" line="89"/>
+        <source>X</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3953,6 +3958,11 @@ p, li { white-space: pre-wrap; }
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../ui/UIShareBrowser.ui" line="137"/>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISpy</name>
@@ -4059,22 +4069,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../WulforUtil.cpp" line="540"/>
+        <location filename="../WulforUtil.cpp" line="541"/>
         <source>System default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="613"/>
+        <location filename="../WulforUtil.cpp" line="614"/>
         <source>Enter parameter value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="708"/>
+        <location filename="../WulforUtil.cpp" line="709"/>
         <source>Offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="816"/>
+        <location filename="../WulforUtil.cpp" line="817"/>
         <source>User commands</source>
         <translation type="unfinished"></translation>
     </message>

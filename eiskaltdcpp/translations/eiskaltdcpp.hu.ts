@@ -978,10 +978,6 @@ Kedvenc felhasználó</translation>
         <translation>Chat törlése</translation>
     </message>
     <message>
-        <source>Find in chat</source>
-        <translation>Keresés a chaten</translation>
-    </message>
-    <message>
         <source>Disable/enable chat</source>
         <translation>Chat tiltása/engedélyezése</translation>
     </message>
@@ -1106,6 +1102,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>Show last status message</source>
         <translation>Utolsó státuszüzenet mutatása</translation>
+    </message>
+    <message>
+        <source>Find/Filter</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2588,6 +2588,10 @@ p, li { white-space: pre-wrap; }
         <source>Form</source>
         <translation></translation>
     </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished">X</translation>
+    </message>
 </context>
 <context>
     <name>UIQuickConnect</name>
@@ -3218,6 +3222,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Form</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished">X</translation>
     </message>
 </context>
 <context>
