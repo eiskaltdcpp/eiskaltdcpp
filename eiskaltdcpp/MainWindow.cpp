@@ -1432,7 +1432,12 @@ void MainWindow::slotHideMainMenu(){
 }
 
 void MainWindow::slotHideWindow(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    QWidget *wg = arena->widget();
+
+    HubFrame *fr = qobject_cast<HubFrame *>(wg);
+    PublicHubs *ph = qobject_cast<PublicHubs *>(wg);
+    ShareBrowser *sb = qobject_cast<ShareBrowser *>(wg);
+
     if (fr){
         if (fr->lineEdit_FIND->hasFocus() && WBGET(WB_TRAY_ENABLED)){
             fr->slotHideFindFrame();
@@ -1443,6 +1448,19 @@ void MainWindow::slotHideWindow(){
             return;
         }
     }
+    else if (ph){
+        if (ph->frame->isVisible() && ph->lineEdit_FILTER->hasFocus()){
+            ph->slotFilter();
+            return;
+        }
+    }
+    else if (sb){
+        if (sb->frame_FILTER->isVisible() && sb->lineEdit_FILTER->hasFocus()){
+            sb->slotFilter();
+            return;
+        }
+    }
+
     if (!isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
         hide();
     }

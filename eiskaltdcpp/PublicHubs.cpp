@@ -233,6 +233,9 @@ void PublicHubs::slotHubChanged(int pos){
 void PublicHubs::slotFilterColumnChanged(){
     if (proxy)
         proxy->setFilterKeyColumn(comboBox_FILTER->currentIndex());
+
+    if (comboBox_FILTER->hasFocus())
+        lineEdit_FILTER->setFocus();
 }
 
 void PublicHubs::on(DownloadStarting, const std::string& l) throw(){

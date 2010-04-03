@@ -37,7 +37,7 @@ class PublicHubs :
         public dcpp::Singleton<PublicHubs>,
         public ArenaWidget,
         public dcpp::FavoriteManagerListener,
-        private Ui::UIPublicHubs
+        public Ui::UIPublicHubs
 {
 Q_OBJECT
 friend class dcpp::Singleton<PublicHubs>;

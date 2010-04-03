@@ -47,7 +47,7 @@ class ShareBrowserLoader: public QThread
 
 class ShareBrowser : public QWidget,
                      public ArenaWidget,
-                     private Ui::UIShareBrowser
+                     public Ui::UIShareBrowser
 {
     Q_OBJECT
 
