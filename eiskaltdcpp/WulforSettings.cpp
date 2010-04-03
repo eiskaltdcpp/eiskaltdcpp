@@ -108,7 +108,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_WIDGETS_PANEL_VISIBLE, (int)true);
         intmap.insert(WB_TOOLS_PANEL_VISIBLE, (int)true);
         intmap.insert(WB_MAIN_MENU_VISIBLE, (int)true);
-        intmap.insert(WI_CHAT_MAXPARAGRAPHS, 300);
+        intmap.insert(WI_CHAT_MAXPARAGRAPHS, 1000);
         intmap.insert(WI_DEF_MAGNET_ACTION, 0);
         intmap.insert(WI_CHAT_WIDTH, -1);
         intmap.insert(WI_CHAT_USERLIST_WIDTH, -1);
