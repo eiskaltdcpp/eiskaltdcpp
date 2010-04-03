@@ -183,16 +183,7 @@ QModelIndex FinishedTransfersModel::index(int row, int column, const QModelIndex
 
 QModelIndex FinishedTransfersModel::parent(const QModelIndex &index) const
 {
-    if (!index.isValid())
-        return QModelIndex();
-
-    FinishedTransfersItem *childItem = static_cast<FinishedTransfersItem*>(index.internalPointer());
-    FinishedTransfersItem *parentItem = childItem->parent();
-
-    if (parentItem == rootItem || !parentItem)
-        return QModelIndex();
-
-    return createIndex(parentItem->row(), 0, parentItem);
+    return QModelIndex();
 }
 
 int FinishedTransfersModel::rowCount(const QModelIndex &parent) const
@@ -512,7 +503,7 @@ void FinishedTransfersItem::appendChild(FinishedTransfersItem *item) {
 }
 
 FinishedTransfersItem *FinishedTransfersItem::child(int row) {
-    return childItems.value(row);
+    return ((row >= 0 && row <= childItems.count()-1)? childItems.value(row) : NULL);
 }
 
 int FinishedTransfersItem::childCount() const {
