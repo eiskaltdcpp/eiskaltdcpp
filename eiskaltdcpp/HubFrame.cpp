@@ -109,6 +109,7 @@ HubFrame::Menu::Menu(){
             << copy_nick
             << browse
             << match_queue
+            << private_msg
             << fav_add
             << fav_del
             << grant_slot
@@ -346,9 +347,8 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 while (l_pos < input.size()){
                     QChar ch = input.at(l_pos);
 
-                    if (ch == ',' ||  ch.isSpace() ||
-                        ch == '\n' || ch == '"' || ch == '\''||
-                        ch == '>' || ch == '<'){
+                    if (ch.isSpace() || ch == '\n'  ||
+                        ch == '>'    || ch == '<'){
                         break;
                     }
                     else
@@ -537,7 +537,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
         if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
             (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
-            (k_e->modifiers() == Qt::NoModifier))
+            (k_e->modifiers() != Qt::ShiftModifier))
         {
             return true;
         }
@@ -562,7 +562,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
         if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
-            ((k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) && k_e->modifiers() == Qt::NoModifier) ||
+            ((k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) && k_e->modifiers() != Qt::ShiftModifier) ||
              (k_e->key() == Qt::Key_Enter && k_e->modifiers() == Qt::KeypadModifier))
         {
             sendChat(plainTextEdit_INPUT->toPlainText(), false, false);
