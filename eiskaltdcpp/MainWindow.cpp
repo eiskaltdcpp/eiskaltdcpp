@@ -252,6 +252,20 @@ void MainWindow::showEvent(QShowEvent *e){
     chatDisable->setEnabled(enable);
 
     e->accept();
+
+    if (WBGET(WB_APP_AUTO_AWAY)){
+        Util::setAway(false);
+        Util::setManualAway(false);
+    }
+}
+
+void MainWindow::hideEvent(QHideEvent *e){
+    e->accept();
+
+    if (WBGET(WB_APP_AUTO_AWAY)){
+        Util::setAway(true);
+        Util::setManualAway(true);
+    }
 }
 
 void MainWindow::customEvent(QEvent *e){
@@ -463,6 +477,34 @@ void MainWindow::initActions(){
         toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
         connect(toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
 
+        toolsAwayOn = new QAction("", this);
+        toolsAwayOn->setCheckable(true);
+        connect(toolsAwayOn, SIGNAL(triggered()), this, SLOT(slotToolsSwitchAway()));
+
+        toolsAwayOff = new QAction("", this);
+        toolsAwayOff->setCheckable(true);
+        connect(toolsAwayOff, SIGNAL(triggered()), this, SLOT(slotToolsSwitchAway()));
+
+        toolsAutoAway = new QAction("", this);
+        toolsAutoAway->setCheckable(true);
+        toolsAutoAway->setChecked(WBGET(WB_APP_AUTO_AWAY));
+        connect(toolsAutoAway, SIGNAL(triggered()), this, SLOT(slotToolsAutoAway()));
+
+        QAction *away_sep = new QAction("", this);
+        away_sep->setSeparator(true);
+
+        awayGroup = new QActionGroup(this);
+        awayGroup->addAction(toolsAwayOn);
+        awayGroup->addAction(toolsAwayOff);
+
+        menuAway = new QMenu(this);
+        menuAway->addActions(QList<QAction*>() << toolsAwayOn << toolsAwayOff << away_sep << toolsAutoAway);
+
+        {
+            QAction *act = Util::getAway()? toolsAwayOn : toolsAwayOff;
+            act->setChecked(true);
+        }
+
         toolsSearch = new QAction("", this);
         toolsSearch->setShortcut(tr("Ctrl+S"));
         toolsSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
@@ -510,6 +552,8 @@ void MainWindow::initActions(){
         separator5->setSeparator(true);
         QAction *separator6 = new QAction("", this);
         separator6->setSeparator(true);
+        QAction *separator7 = new QAction("", this);
+        separator7->setSeparator(true);
 
         fileMenuActions << fileFileListBrowser
                 << fileFileListBrowserLocal
@@ -539,6 +583,7 @@ void MainWindow::initActions(){
                 << toolsSpy
                 << toolsAntiSpam
                 << toolsIPFilter
+                << separator7
                 << separator2
                 << toolsHideProgressSpace
                 << toolsHideLastStatus
@@ -635,6 +680,7 @@ void MainWindow::initMenuBar(){
         menuTools = new QMenu("", this);
 
         menuTools->addActions(toolsMenuActions);
+        menuTools->insertMenu(toolsMenuActions.at(toolsMenuActions.indexOf(toolsIPFilter)+1), menuAway);
     }
     {
         menuPanels = new QMenu("", this);
@@ -783,6 +829,14 @@ void MainWindow::retranslateUi(){
 
         toolsIPFilter->setText(tr("IPFilter module"));
 
+        menuAway->setTitle(tr("Away"));
+
+        toolsAwayOn->setText(tr("On"));
+
+        toolsAwayOff->setText(tr("Off"));
+
+        toolsAutoAway->setText(tr("Away when not visible"));
+
         toolsOptions->setText(tr("Options"));
 
         toolsSearch->setText(tr("Search"));
@@ -918,6 +972,12 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
             progressSpace->setToolTip(tooltip);
             progressSpace->setValue(static_cast<unsigned>(percent));
 #endif //FREE_SPACE_BAR
+    }
+
+    if ((Util::getAway() && !toolsAwayOn->isChecked()) || (!Util::getAway() && toolsAwayOff->isChecked())){
+        QAction *act = Util::getAway()? toolsAwayOn : toolsAwayOff;
+
+        act->setChecked(true);
     }
 }
 
@@ -1311,6 +1371,17 @@ void MainWindow::slotToolsIPFilter(){
     IPFilterFrame fr(this);
 
     fr.exec();
+}
+
+void MainWindow::slotToolsAutoAway(){
+    WBSET(WB_APP_AUTO_AWAY, toolsAutoAway->isChecked());
+}
+
+void MainWindow::slotToolsSwitchAway(){
+    bool away = (sender() == toolsAwayOn)? true : false;
+
+    Util::setAway(away);
+    Util::setManualAway(away);
 }
 
 void MainWindow::slotHubsFavoriteHubs(){

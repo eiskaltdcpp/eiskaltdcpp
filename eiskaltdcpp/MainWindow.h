@@ -138,6 +138,7 @@ friend class dcpp::Singleton<MainWindow>;
     protected:
         virtual void closeEvent(QCloseEvent*);
         virtual void showEvent(QShowEvent *);
+        virtual void hideEvent(QHideEvent *);
         virtual void customEvent(QEvent *);
         virtual bool eventFilter(QObject *, QEvent *);
 
@@ -157,6 +158,8 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsSpy();
         void slotToolsAntiSpam();
         void slotToolsIPFilter();
+        void slotToolsSwitchAway();
+        void slotToolsAutoAway();
         void slotToolsSearch();
         void slotToolsSettings();
         void slotToolsTransfer(bool);
@@ -261,6 +264,11 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsSpy;
         QAction *toolsAntiSpam;
         QAction *toolsIPFilter;
+        QMenu   *menuAway;
+        QActionGroup *awayGroup;
+        QAction *toolsAwayOn;
+        QAction *toolsAwayOff;
+        QAction *toolsAutoAway;
         QAction *toolsHideProgressSpace;
         QAction *toolsHideLastStatus;
         QAction *toolsOptions;

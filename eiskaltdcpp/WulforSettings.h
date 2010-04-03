@@ -79,6 +79,7 @@ const char * const WB_FAVUSERS_AUTOGRANT      = "favusers-auto-grant";
 const char * const WB_APP_ENABLE_EMOTICON     = "app-enable-emoticon";
 const char * const WB_APP_FORCE_EMOTICONS     = "app-force-find-emoticons";
 const char * const WB_APP_ENABLE_ASPELL       = "app-enable-aspell";
+const char * const WB_APP_AUTO_AWAY           = "app-auto-away";
 const char * const WB_WIDGETS_PANEL_VISIBLE   = "widgets-panel-visible";
 const char * const WB_TOOLS_PANEL_VISIBLE     = "tools-panel-visible";
 const char * const WB_MAIN_MENU_VISIBLE       = "main-menu-visible";

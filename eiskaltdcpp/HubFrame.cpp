@@ -1084,9 +1084,10 @@ bool HubFrame::parseForCmd(QString line){
             Util::setAway(true);
             Util::setManualAway(true);
 
-            line.remove(0, 6);
-
-            Util::setAwayMessage(line.toStdString());
+            if (!emptyParam){
+                line.remove(0, 6);
+                Util::setAwayMessage(line.toStdString());
+            }
 
             addStatus(tr("Away mode on: ") + QString::fromStdString(Util::getAwayMessage()));
         }
@@ -2730,6 +2731,9 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
         params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
         LOG(LogManager::PM, params);
     }
+
+    if (from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway() && !pm.contains(_q(id.toBase32())))
+        ClientManager::getInstance()->privateMessage(user.getUser(), Util::getAwayMessage(), false, client->getHubUrl());
 }
 
 void HubFrame::on(ClientListener::NickTaken, Client*) throw(){
