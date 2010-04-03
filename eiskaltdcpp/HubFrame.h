@@ -151,7 +151,7 @@ class HubFrame :
 
     class LinkParser{
     public:
-       static QString parseForLinks(QString);
+       static QString parseForLinks(QString, bool);
 
     private:
        static QStringList link_types;

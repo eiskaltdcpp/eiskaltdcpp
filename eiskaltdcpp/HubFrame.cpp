@@ -325,7 +325,7 @@ QMenu *HubFrame::Menu::buildUserCmdMenu(const QString &hub){
     return menu;
 }
 
-QString HubFrame::LinkParser::parseForLinks(QString input){
+QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
     if (input.isEmpty() || input.isNull())
         return input;
 
@@ -402,7 +402,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input){
         input.remove(0, 1);
     }
 
-    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
+    if (use_emot && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         output = EmoticonFactory::getInstance()->convertEmoticons(output);
 
     QString out = "";
@@ -1276,23 +1276,26 @@ void HubFrame::addStatus(QString msg){
     if (chatDisabled)
         return;
 
+    QString pure_msg = msg;
     QString status = "";
     QString nick    = " * ";
 
-    msg = LinkParser::parseForLinks(msg);
+    pure_msg = LinkParser::parseForLinks(msg, false);
+    msg      = LinkParser::parseForLinks(msg, true);
 
+    pure_msg        = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + pure_msg + "</font>";
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
 
     status = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
-    status += msg;
 
-    addOutput(status);
+    addOutput(status + msg);
 
+    status += pure_msg;
     label_LAST_STATUS->setText(status);
+
     WulforUtil::getInstance()->textToHtml(status, false);
-    label_LAST_STATUS->setToolTip(tr("<b>Last status message on hub:</b><br/>%1")
-                                  .arg(status));
+    label_LAST_STATUS->setToolTip(tr("<b>Last status message on hub:</b><br/>%1").arg(status));
 }
 
 void HubFrame::addOutput(QString msg){
@@ -1552,7 +1555,7 @@ void HubFrame::newMsg(VarMap map){
 
     nick = third? ("* " + nick + " ") : ("<" + nick + "> ");
 
-    message = LinkParser::parseForLinks(message);
+    message = LinkParser::parseForLinks(message, true);
 
     WulforUtil::getInstance()->textToHtml(nick);
 
@@ -1582,7 +1585,7 @@ void HubFrame::newPm(VarMap map){
 
     nick = map["3RD"].toBool()? ("* " + nick + " ") : ("<" + nick + "> ");
 
-    message = LinkParser::parseForLinks(message);
+    message = LinkParser::parseForLinks(message, true);
 
     WulforUtil::getInstance()->textToHtml(nick);
 
