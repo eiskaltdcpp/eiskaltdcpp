@@ -505,7 +505,6 @@ void MainWindow::initActions(){
         awayGroup->addAction(toolsAwayOff);
 
         menuAway = new QMenu(this);
-        // Doesn't work: menuAway->setIcon(QIcon(WU->getPixmap(WulforUtil::eiAWAY)));
         menuAway->addActions(QList<QAction*>() << toolsAwayOn << toolsAwayOff << away_sep << toolsAutoAway);
         {
             QAction *act = Util::getAway()? toolsAwayOn : toolsAwayOff;
@@ -513,6 +512,7 @@ void MainWindow::initActions(){
         }
         // end
         menuAwayAction->setMenu(menuAway);
+        menuAwayAction->setIcon(QIcon(WU->getPixmap(WulforUtil::eiAWAY)));
 
         toolsSearch = new QAction("", this);
         toolsSearch->setShortcut(tr("Ctrl+S"));
