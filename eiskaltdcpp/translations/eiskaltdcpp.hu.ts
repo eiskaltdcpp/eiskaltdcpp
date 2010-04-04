@@ -1107,6 +1107,30 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Find/Filter</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hide users statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show users statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Away when not visible</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Away message</source>
+        <translation type="unfinished">Away üzenet</translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>

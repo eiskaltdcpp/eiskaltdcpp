@@ -839,7 +839,7 @@ void MainWindow::retranslateUi(){
 
         toolsIPFilter->setText(tr("IPFilter module"));
 
-        menuAway->setTitle(tr("Away"));
+        menuAway->setTitle(tr("Away message"));
 
         toolsAwayOn->setText(tr("On"));
 
