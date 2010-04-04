@@ -228,14 +228,9 @@ friend class dcpp::Singleton<MainWindow>;
 
         QLabel *statusLabel;
         QLabel *statusDSPLabel;
-        QLabel *statusDSPLabelIcon;
         QLabel *statusUSPLabel;
-        QLabel *statusUSPLabelIcon;
         QLabel *statusDLabel;
-        QLabel *statusDLabelIcon;
         QLabel *statusULabel;
-        QLabel *statusULabelIcon;
-
         QLabel *statusTRLabel;
         QLabel *msgLabel;
         QProgressBar *progressSpace;

@@ -730,37 +730,29 @@ void MainWindow::initStatusBar(){
     statusDSPLabel->setFrameShadow(QFrame::Plain);
     statusDSPLabel->setFrameShape(QFrame::NoFrame);
     statusDSPLabel->setAlignment(Qt::AlignRight);
+    statusDSPLabel->setScaledContents(true);
     statusDSPLabel->setToolTip(tr("Download speed (per sec.)"));
-
-    statusDSPLabelIcon = new QLabel(statusBar());
-    statusDSPLabelIcon->setPixmap(WU->getPixmap(WulforUtil::eiDOWN).scaled(sc_size, sc_size));
 
     statusUSPLabel = new QLabel(statusBar());
     statusUSPLabel->setFrameShadow(QFrame::Plain);
     statusUSPLabel->setFrameShape(QFrame::NoFrame);
     statusUSPLabel->setAlignment(Qt::AlignRight);
+    statusDSPLabel->setScaledContents(true);
     statusUSPLabel->setToolTip(tr("Upload speed (per sec.)"));
-
-    statusUSPLabelIcon = new QLabel(statusBar());
-    statusUSPLabelIcon->setPixmap(WU->getPixmap(WulforUtil::eiUP).scaled(sc_size, sc_size));
 
     statusDLabel = new QLabel(statusBar());
     statusDLabel->setFrameShadow(QFrame::Plain);
     statusDLabel->setFrameShape(QFrame::NoFrame);
     statusDLabel->setAlignment(Qt::AlignRight);
+    statusDLabel->setScaledContents(true);
     statusDLabel->setToolTip(tr("Downloaded"));
-
-    statusDLabelIcon = new QLabel(statusBar());
-    statusDLabelIcon->setPixmap(WU->getPixmap(WulforUtil::eiDOWNLIST).scaled(sc_size, sc_size));
 
     statusULabel = new QLabel(statusBar());
     statusULabel->setFrameShadow(QFrame::Plain);
     statusULabel->setFrameShape(QFrame::NoFrame);
     statusULabel->setAlignment(Qt::AlignRight);
+    statusULabel->setScaledContents(true);
     statusULabel->setToolTip(tr("Uploaded"));
-
-    statusULabelIcon = new QLabel(statusBar());
-    statusULabelIcon->setPixmap(WU->getPixmap(WulforUtil::eiUPLIST).scaled(sc_size, sc_size));
 
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
@@ -783,13 +775,9 @@ void MainWindow::initStatusBar(){
 
     statusBar()->addWidget(msgLabel);
     statusBar()->addPermanentWidget(statusDLabel);
-    statusBar()->addPermanentWidget(statusDLabelIcon);
     statusBar()->addPermanentWidget(statusULabel);
-    statusBar()->addPermanentWidget(statusULabelIcon);
     statusBar()->addPermanentWidget(statusDSPLabel);
-    statusBar()->addPermanentWidget(statusDSPLabelIcon);
     statusBar()->addPermanentWidget(statusUSPLabel);
-    statusBar()->addPermanentWidget(statusUSPLabelIcon);
     statusBar()->addPermanentWidget(statusLabel);
 #if (defined FREE_SPACE_BAR || defined FREE_SPACE_BAR_C)
     statusBar()->addPermanentWidget(progressSpace);

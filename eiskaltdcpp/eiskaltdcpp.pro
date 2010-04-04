@@ -4,7 +4,6 @@ PKGCONFIG += libupnp
 INCLUDEPATH += ../dcpp
 HEADERS = MainWindow.h \
     Func.h \
-    WulforManager.h \
     ../dcpp/HashBloom.h \
     ../dcpp/FavoriteUser.h \
     ../dcpp/File.h \
@@ -208,7 +207,6 @@ SOURCES = main.cpp \
     WulforSettings.cpp \
     ArenaWidget.cpp \
     PMWindow.cpp \
-    ChatComandParser.cpp \
     TransferView.cpp \
     ShareBrowser.cpp \
     FileBrowserModel.cpp \
