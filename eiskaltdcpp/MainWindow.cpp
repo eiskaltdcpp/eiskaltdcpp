@@ -505,6 +505,7 @@ void MainWindow::initActions(){
         awayGroup->addAction(toolsAwayOff);
 
         menuAway = new QMenu(this);
+        // Doesn't work: menuAway->setIcon(QIcon(WU->getPixmap(WulforUtil::eiAWAY)));
         menuAway->addActions(QList<QAction*>() << toolsAwayOn << toolsAwayOff << away_sep << toolsAutoAway);
         {
             QAction *act = Util::getAway()? toolsAwayOn : toolsAwayOff;
@@ -534,7 +535,7 @@ void MainWindow::initActions(){
             toolsHideLastStatus->setText(tr("Show last status message"));
 
         toolsHideUsersStatisctics = new QAction(tr("Hide users statistics"), this);
-        //toolsHideUsersStatisctics->setIcon(WU->getPixmap(WulforUtil::eiSTATUS));
+        toolsHideUsersStatisctics->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
         connect(toolsHideUsersStatisctics, SIGNAL(triggered()), this, SLOT(slotHideUsersStatistics()));
         if (!WBGET(WB_USERS_STATISTICS))
             toolsHideUsersStatisctics->setText(tr("Show users statistics"));
@@ -1605,9 +1606,9 @@ void MainWindow::slotHideUsersStatistics(){
     st = !st;
 
     if (!st)
-        toolsHideLastStatus->setText(tr("Show users statistics"));
+        toolsHideUsersStatisctics->setText(tr("Show users statistics"));
     else
-        toolsHideLastStatus->setText(tr("Hide users statistics"));
+        toolsHideUsersStatisctics->setText(tr("Hide users statistics"));
 
     for (int k = 0; k < arenaWidgets.size(); ++k){
         HubFrame *fr = qobject_cast<HubFrame *>(arenaMap[arenaWidgets.at(k)]);

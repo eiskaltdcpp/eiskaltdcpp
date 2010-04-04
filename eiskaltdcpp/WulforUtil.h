@@ -43,7 +43,8 @@ friend class dcpp::Singleton<WulforUtil>;
 
 public:
     enum Icons {
-        eiBALL_GREEN = 0,
+        eiAWAY = 0,
+        eiBALL_GREEN,
         eiBOOKMARK_ADD,
         eiCHAT,
         eiCLEAR,

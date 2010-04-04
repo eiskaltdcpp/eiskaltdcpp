@@ -247,6 +247,7 @@ bool WulforUtil::loadIcons(){
 
     m_PixmapMap.clear();
 
+    m_PixmapMap[eiAWAY] = loadPixmap("away");
     m_PixmapMap[eiBALL_GREEN] = loadPixmap("ball_green.png");
     m_PixmapMap[eiBOOKMARK_ADD] = loadPixmap("bookmark_add.png");
     m_PixmapMap[eiCHAT] = loadPixmap("chat.png");
