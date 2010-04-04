@@ -81,6 +81,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP, (int)true);
         intmap.insert(WB_SHOW_FREE_SPACE, (int)true);
         intmap.insert(WB_LAST_STATUS, (int)true);
+        intmap.insert(WB_USERS_STATISTICS, (int)true);
         intmap.insert(WB_CHAT_SHOW_JOINS, (int)false);
         intmap.insert(WB_CHAT_REDIRECT_BOT_PMS, (int)true);
         intmap.insert(WB_CHAT_KEEPFOCUS, (int)true);

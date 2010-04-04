@@ -533,6 +533,12 @@ void MainWindow::initActions(){
         if (!WBGET(WB_LAST_STATUS))
             toolsHideLastStatus->setText(tr("Show last status message"));
 
+        toolsHideUsersStatisctics = new QAction(tr("Hide users statistics"), this);
+        //toolsHideUsersStatisctics->setIcon(WU->getPixmap(WulforUtil::eiSTATUS));
+        connect(toolsHideUsersStatisctics, SIGNAL(triggered()), this, SLOT(slotHideUsersStatistics()));
+        if (!WBGET(WB_USERS_STATISTICS))
+            toolsHideUsersStatisctics->setText(tr("Show users statistics"));
+
         chatClear = new QAction("", this);
         chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
         connect(chatClear, SIGNAL(triggered()), this, SLOT(slotChatClear()));
@@ -595,6 +601,7 @@ void MainWindow::initActions(){
                 << separator3
                 << toolsHideProgressSpace
                 << toolsHideLastStatus
+                << toolsHideUsersStatisctics
                 << separator4
                 << toolsOptions;
 
@@ -1590,6 +1597,26 @@ void MainWindow::slotHideLastStatus(){
     }
 
     WBSET(WB_LAST_STATUS, st);
+}
+
+void MainWindow::slotHideUsersStatistics(){
+    bool st = WBGET(WB_USERS_STATISTICS);
+
+    st = !st;
+
+    if (!st)
+        toolsHideLastStatus->setText(tr("Show users statistics"));
+    else
+        toolsHideLastStatus->setText(tr("Hide users statistics"));
+
+    for (int k = 0; k < arenaWidgets.size(); ++k){
+        HubFrame *fr = qobject_cast<HubFrame *>(arenaMap[arenaWidgets.at(k)]);
+
+        if (fr)
+            fr->label_USERSTATE->setVisible(st);
+    }
+
+    WBSET(WB_USERS_STATISTICS, st);
 }
 
 void MainWindow::slotExit(){
