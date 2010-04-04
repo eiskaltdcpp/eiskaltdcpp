@@ -231,6 +231,11 @@
       <layout class="QGridLayout" name="gridLayout_4">
        <item row="0" column="0">
         <widget class="QTreeWidget" name="treeWidget">
+         <property name="toolTip">
+          <string>Per folder limit specifies how many files in GiB
+remote user must share the to be able
+to download from this folder</string>
+         </property>
          <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
          </property>

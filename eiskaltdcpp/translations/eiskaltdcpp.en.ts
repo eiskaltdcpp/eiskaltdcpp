@@ -3324,54 +3324,47 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="313"/>
-        <location filename="../ui/UISettingsConnection.ui" line="330"/>
+        <location filename="../ui/UISettingsConnection.ui" line="328"/>
         <source>Limits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="325"/>
-        <source>Per folder limit specifies how many files in GiB
-remote user must share the to be able
-to download from this folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="343"/>
+        <location filename="../ui/UISettingsConnection.ui" line="341"/>
         <source>WARNING!!! NOT TESTED!!! NO GARANTEE TO WORK!!!!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="350"/>
+        <location filename="../ui/UISettingsConnection.ui" line="348"/>
         <source>On/Off speed limits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="383"/>
-        <location filename="../ui/UISettingsConnection.ui" line="527"/>
+        <location filename="../ui/UISettingsConnection.ui" line="381"/>
+        <location filename="../ui/UISettingsConnection.ui" line="525"/>
         <source>Download</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="397"/>
-        <location filename="../ui/UISettingsConnection.ui" line="431"/>
-        <location filename="../ui/UISettingsConnection.ui" line="541"/>
-        <location filename="../ui/UISettingsConnection.ui" line="575"/>
+        <location filename="../ui/UISettingsConnection.ui" line="395"/>
+        <location filename="../ui/UISettingsConnection.ui" line="429"/>
+        <location filename="../ui/UISettingsConnection.ui" line="539"/>
+        <location filename="../ui/UISettingsConnection.ui" line="573"/>
         <source>KiB/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="417"/>
-        <location filename="../ui/UISettingsConnection.ui" line="561"/>
+        <location filename="../ui/UISettingsConnection.ui" line="415"/>
+        <location filename="../ui/UISettingsConnection.ui" line="559"/>
         <source>Upload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="458"/>
+        <location filename="../ui/UISettingsConnection.ui" line="456"/>
         <source>Alternate restrictions speed from </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="481"/>
+        <location filename="../ui/UISettingsConnection.ui" line="479"/>
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3945,17 +3938,24 @@ to download from this folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="251"/>
-        <source>Share</source>
+        <location filename="../ui/UISettingsSharing.ui" line="235"/>
+        <source>Per folder limit specifies how many files in GiB
+remote user must share the to be able
+to download from this folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="256"/>
+        <source>Share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="261"/>
         <source>Restriction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="264"/>
+        <location filename="../ui/UISettingsSharing.ui" line="269"/>
         <source>All changes take effect only after restart</source>
         <translation type="unfinished"></translation>
     </message>

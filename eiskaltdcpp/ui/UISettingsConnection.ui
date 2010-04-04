@@ -322,9 +322,7 @@
           </sizepolicy>
          </property>
          <property name="toolTip">
-          <string>Per folder limit specifies how many files in GiB
-remote user must share the to be able
-to download from this folder</string>
+          <string/>
          </property>
          <property name="title">
           <string>Limits</string>
