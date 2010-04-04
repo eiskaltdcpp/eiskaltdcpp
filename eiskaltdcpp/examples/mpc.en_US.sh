@@ -5,7 +5,7 @@
 ## Author: none
 ## License: Public Domain
 
-## Depends: bash, mpc, mpd
+## Depends: sh, mpc, mpd
 
 ## Examples:
 # output in console:
