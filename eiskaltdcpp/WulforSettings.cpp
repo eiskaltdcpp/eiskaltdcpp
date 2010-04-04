@@ -131,7 +131,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_TRANSFER_HEIGHT, -1);
         intmap.insert(WI_SHARE_RPANE_WIDTH, -1);
         intmap.insert(WI_SHARE_WIDTH, -1);
-        intmap.insert(WI_NOTIFY_EVENTMAP, 0x0F);// 0b00001111, all events
+        intmap.insert(WI_NOTIFY_EVENTMAP, 0x0B);// 0b00001011, (transfer done = off)
         intmap.insert(WI_NOTIFY_MODULE, 0);//default
         intmap.insert(WI_NOTIFY_SNDMAP, 0x0F);// 0b00001111, all events
         intmap.insert(WI_OUT_IN_HIST, 50);//number of output messages in history
