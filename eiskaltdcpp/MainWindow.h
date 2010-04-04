@@ -264,11 +264,14 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsSpy;
         QAction *toolsAntiSpam;
         QAction *toolsIPFilter;
+        QAction *menuAwayAction;
+        // submenu
         QMenu   *menuAway;
         QActionGroup *awayGroup;
         QAction *toolsAwayOn;
         QAction *toolsAwayOff;
         QAction *toolsAutoAway;
+        // end
         QAction *toolsHideProgressSpace;
         QAction *toolsHideLastStatus;
         QAction *toolsOptions;
@@ -277,6 +280,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *panelsWidgets;
         QAction *panelsTools;
 
+        // Standalone shortcuts
         QShortcut *ctrl_pgup;
         QShortcut *ctrl_pgdown;
         QShortcut *ctrl_up;

@@ -386,6 +386,7 @@ void MainWindow::initActions(){
     {
         fileFileListBrowserLocal = new QAction("", this);
         fileFileListBrowserLocal->setShortcut(tr("Ctrl+L"));
+        fileFileListBrowserLocal->setShortcutContext(Qt::ApplicationShortcut);
         fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
 
@@ -408,6 +409,7 @@ void MainWindow::initActions(){
 
         fileHideWindow = new QAction(tr("Hide window"), this);
         fileHideWindow->setShortcut(tr("Esc"));
+        fileHideWindow->setShortcutContext(Qt::ApplicationShortcut);
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
@@ -416,6 +418,8 @@ void MainWindow::initActions(){
 
         fileQuit = new QAction("", this);
         fileQuit->setShortcut(tr("Ctrl+Q"));
+        fileQuit->setMenuRole(QAction::QuitRole);
+        fileQuit->setShortcutContext(Qt::ApplicationShortcut);
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
         connect(fileQuit, SIGNAL(triggered()), this, SLOT(slotExit()));
 
@@ -442,6 +446,7 @@ void MainWindow::initActions(){
 
         toolsOptions = new QAction("", this);
         toolsOptions->setShortcut(tr("Ctrl+O"));
+        toolsOptions->setMenuRole(QAction::PreferencesRole);
         toolsOptions->setIcon(WU->getPixmap(WulforUtil::eiCONFIGURE));
         connect(toolsOptions, SIGNAL(triggered()), this, SLOT(slotToolsSettings()));
 
@@ -490,6 +495,8 @@ void MainWindow::initActions(){
         toolsAutoAway->setChecked(WBGET(WB_APP_AUTO_AWAY));
         connect(toolsAutoAway, SIGNAL(triggered()), this, SLOT(slotToolsAutoAway()));
 
+        menuAwayAction = new QAction("", this);
+        // submenu
         QAction *away_sep = new QAction("", this);
         away_sep->setSeparator(true);
 
@@ -499,11 +506,12 @@ void MainWindow::initActions(){
 
         menuAway = new QMenu(this);
         menuAway->addActions(QList<QAction*>() << toolsAwayOn << toolsAwayOff << away_sep << toolsAutoAway);
-
         {
             QAction *act = Util::getAway()? toolsAwayOn : toolsAwayOff;
             act->setChecked(true);
         }
+        // end
+        menuAwayAction->setMenu(menuAway);
 
         toolsSearch = new QAction("", this);
         toolsSearch->setShortcut(tr("Ctrl+S"));
@@ -531,6 +539,7 @@ void MainWindow::initActions(){
 
         findInWidget = new QAction("", this);
         findInWidget->setShortcut(tr("Ctrl+F"));
+        findInWidget->setShortcutContext(Qt::ApplicationShortcut);
         findInWidget->setIcon(WU->getPixmap(WulforUtil::eiFIND));
         connect(findInWidget, SIGNAL(triggered()), this, SLOT(slotFind()));
 
@@ -552,8 +561,6 @@ void MainWindow::initActions(){
         separator5->setSeparator(true);
         QAction *separator6 = new QAction("", this);
         separator6->setSeparator(true);
-        QAction *separator7 = new QAction("", this);
-        separator7->setSeparator(true);
 
         fileMenuActions << fileFileListBrowser
                 << fileFileListBrowserLocal
@@ -583,11 +590,12 @@ void MainWindow::initActions(){
                 << toolsSpy
                 << toolsAntiSpam
                 << toolsIPFilter
-                << separator7
                 << separator2
+                << menuAwayAction
+                << separator3
                 << toolsHideProgressSpace
                 << toolsHideLastStatus
-                << separator3
+                << separator4
                 << toolsOptions;
 
         toolBarActions << toolsOptions
@@ -633,29 +641,25 @@ void MainWindow::initActions(){
     }
     {
         aboutClient = new QAction("", this);
+        aboutClient->setMenuRole(QAction::AboutRole);
         aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL));
         connect(aboutClient, SIGNAL(triggered()), this, SLOT(slotAboutClient()));
 
         aboutQt = new QAction("", this);
+        aboutQt->setMenuRole(QAction::AboutQtRole);
         aboutQt->setIcon(WU->getPixmap(WulforUtil::eiQT_LOGO));
         connect(aboutQt, SIGNAL(triggered()), this, SLOT(slotAboutQt()));
     }
 }
 
 void MainWindow::initHotkeys(){
+    // Standalone shortcuts
     ctrl_pgdown = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageDown), this);
     ctrl_pgup   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageUp), this);
     ctrl_down   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Down), this);
     ctrl_up     = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Up), this);
     ctrl_w      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_W), this);
     ctrl_m      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_M), this);
-
-    ctrl_pgdown->setContext(Qt::WindowShortcut);
-    ctrl_pgup->setContext(Qt::WindowShortcut);
-    ctrl_down->setContext(Qt::WindowShortcut);
-    ctrl_up->setContext(Qt::WindowShortcut);
-    ctrl_w->setContext(Qt::WindowShortcut);
-    ctrl_m->setContext(Qt::WindowShortcut);
 
     connect(ctrl_pgdown, SIGNAL(activated()), tBar, SLOT(nextTab()));
     connect(ctrl_pgup,   SIGNAL(activated()), tBar, SLOT(prevTab()));
@@ -680,7 +684,6 @@ void MainWindow::initMenuBar(){
         menuTools = new QMenu("", this);
 
         menuTools->addActions(toolsMenuActions);
-        menuTools->insertMenu(toolsMenuActions.at(toolsMenuActions.indexOf(toolsIPFilter)+1), menuAway);
     }
     {
         menuPanels = new QMenu("", this);
