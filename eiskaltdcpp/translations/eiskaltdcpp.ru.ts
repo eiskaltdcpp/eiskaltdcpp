@@ -852,7 +852,7 @@ Favorite user</source>
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - создать псевдоним /ALIAS_NAME для команды /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - удалить 
 /alias list - список всех псевдонимов команд
-/away - включить/выключить режим &quot;Отошёл&quot;
+/away &lt;message&gt; - включить/выключить режим &quot;Отошёл&quot;
 /back - отключить режим &quot;Отошёл&quot;
 /browse &lt;nick&gt; - открыть список файлов пользователя
 /clear - очистить чат
