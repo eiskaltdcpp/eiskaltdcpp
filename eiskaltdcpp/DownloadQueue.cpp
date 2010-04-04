@@ -462,13 +462,17 @@ void DownloadQueue::removeFromDir(DownloadQueueItem *i){
 
     getChilds(i, list);
 
+    QueueManager *QM = QueueManager::getInstance();
+
+    if (!i->dir && !list.contains(i))
+        list.push_back(i);
+
     foreach(DownloadQueueItem *ii, list){
         QString target = ii->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + ii->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
 
         if (target.isEmpty())
             continue;
 
-        QueueManager *QM = QueueManager::getInstance();
         QM->remove(_tq(target));
     }
 }
