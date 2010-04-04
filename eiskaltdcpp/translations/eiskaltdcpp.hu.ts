@@ -2753,6 +2753,12 @@ p, li { white-space: pre-wrap; }
         <source>to</source>
         <translation>-</translation>
     </message>
+    <message>
+        <source>Per folder limit specifies how many files in GiB
+remote user must share the to be able
+to download from this folder</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
