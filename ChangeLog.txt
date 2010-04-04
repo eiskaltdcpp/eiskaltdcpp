@@ -1,3 +1,7 @@
 --- 2.0.1 2010-04-18 ---
 * ShareBrowser filtering support (Ctrl+F hotkey)
 * Away mode support
+* The File menu is divided into several thematic menus
+* Significantly expanded the settings dialog
+* Added examples of custom scripts
+* Added a status line with the last message on hub
