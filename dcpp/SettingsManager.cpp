@@ -144,7 +144,7 @@ SettingsManager::SettingsManager()
     setDefault(FILTER_MESSAGES, true);
     setDefault(MINIMIZE_TRAY, true);
     setDefault(ALWAYS_TRAY, true);
-    setDefault(AUTO_SEARCH, false);
+    setDefault(AUTO_SEARCH, true);
     setDefault(TIME_STAMPS, true);
     setDefault(POPUP_HUB_PMS, true);
     setDefault(POPUP_BOT_PMS, true);
@@ -248,9 +248,9 @@ SettingsManager::SettingsManager()
     setDefault(AUTODROP_INACTIVITY, 10);
     setDefault(AUTODROP_MINSOURCES, 2);
     setDefault(AUTODROP_FILESIZE, 0);
-    setDefault(AUTODROP_ALL, false);
-    setDefault(AUTODROP_FILELISTS, false);
-    setDefault(AUTODROP_DISCONNECT, false);
+    setDefault(AUTODROP_ALL, true);
+    setDefault(AUTODROP_FILELISTS, true);
+    setDefault(AUTODROP_DISCONNECT, true);
     setDefault(OPEN_PUBLIC, false);
     setDefault(OPEN_FAVORITE_HUBS, false);
     setDefault(OPEN_FAVORITE_USERS, false);
