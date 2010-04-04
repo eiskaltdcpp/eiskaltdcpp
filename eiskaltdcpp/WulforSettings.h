@@ -51,6 +51,7 @@ const char * const WS_APP_TOTAL_DOWN          = "app-stat-total-down";
 const char * const WS_APP_ASPELL_LANG         = "app-aspell-lang";
 const char * const WS_APP_EMOTICON_THEME      = "app-emoticon-theme";
 const char * const WS_APP_DYNDNS_SERVER       = "app-dyndns-server";
+const char * const WS_APP_DYNDNS_INDEX        = "app-dyndns-server-index";
 const char * const WS_PUBLICHUBS_STATE        = "publichubs-state";
 const char * const WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";
 const char * const WB_SHOW_FREE_SPACE         = "show-free-space";

@@ -47,7 +47,7 @@ const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
 
 WulforUtil::WulforUtil(): http(NULL)
 {
-    QHttpRequestHeader header("GET", "/index.html");
+    QHttpRequestHeader header("GET", WSGET(WS_APP_DYNDNS_INDEX));
     header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
     QString useragent = QString("EiskaltDCPP");
     header.setValue("User-Agent", useragent);
@@ -797,7 +797,7 @@ void WulforUtil::slotHttpDone(bool error){
 }
 
 void WulforUtil::slotHttpTimer(){
-    QHttpRequestHeader header("GET", "/index.html");
+    QHttpRequestHeader header("GET", WSGET(WS_APP_DYNDNS_INDEX));
     header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
     QString useragent = QString("EiskaltDCPP");
     header.setValue("User-Agent", useragent);
