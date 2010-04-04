@@ -409,7 +409,7 @@ void MainWindow::initActions(){
 
         fileHideWindow = new QAction(tr("Hide window"), this);
         fileHideWindow->setShortcut(tr("Esc"));
-        fileHideWindow->setShortcutContext(Qt::ApplicationShortcut);
+        fileHideWindow->setShortcutContext(Qt::WindowShortcut);
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
@@ -516,6 +516,7 @@ void MainWindow::initActions(){
 
         toolsSearch = new QAction("", this);
         toolsSearch->setShortcut(tr("Ctrl+S"));
+        toolsSearch->setShortcutContext(Qt::WidgetShortcut);
         toolsSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
         connect(toolsSearch, SIGNAL(triggered()), this, SLOT(slotToolsSearch()));
 
@@ -546,7 +547,7 @@ void MainWindow::initActions(){
 
         findInWidget = new QAction("", this);
         findInWidget->setShortcut(tr("Ctrl+F"));
-        findInWidget->setShortcutContext(Qt::ApplicationShortcut);
+        findInWidget->setShortcutContext(Qt::WidgetWithChildrenShortcut);
         findInWidget->setIcon(WU->getPixmap(WulforUtil::eiFIND));
         connect(findInWidget, SIGNAL(triggered()), this, SLOT(slotFind()));
 
