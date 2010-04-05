@@ -1133,7 +1133,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Fast search panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyorskereső panel</translation>
     </message>
 </context>
 <context>
