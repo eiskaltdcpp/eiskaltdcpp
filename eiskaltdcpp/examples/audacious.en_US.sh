@@ -9,9 +9,9 @@
 
 ## Examples:
 # output in console:
-#
+# /me Audacious playing now: Rammstein - Sonne
 # output in eiskaltdcpp chat:
-#
+# [10:57:03] * Ben_Vladen Audacious playing now: Rammstein - Sonne
 
 au=$(audtool2 --current-song)
 echo "/me Audacious playing now: $au"
