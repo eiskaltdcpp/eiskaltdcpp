@@ -180,6 +180,8 @@ friend class dcpp::Singleton<MainWindow>;
         void nextMsg();
         void prevMsg();
 
+        void slotSearch();
+
         void slotFind();
         void slotChatDisable();
 
@@ -207,6 +209,7 @@ friend class dcpp::Singleton<MainWindow>;
         void initActions();
         void initMenuBar();
         void initStatusBar();
+        void initSearchBar();
         void initToolbar();
         void initHotkeys();
 
@@ -225,6 +228,9 @@ friend class dcpp::Singleton<MainWindow>;
 
         ToolBar *tBar;//for tabs
         ToolBar *fBar;//for actions
+        ToolBar *sBar;//for fast search
+
+        QLineEdit *searchLineEdit;
 
         QLabel *statusLabel;
         QLabel *statusDSPLabel;
@@ -276,6 +282,7 @@ friend class dcpp::Singleton<MainWindow>;
         QMenu   *menuPanels;
         QAction *panelsWidgets;
         QAction *panelsTools;
+        QAction *panelsSearch;
 
         // Standalone shortcuts
         QShortcut *ctrl_pgup;

@@ -127,6 +127,7 @@ MainWindow::~MainWindow(){
 
     delete fBar;
     delete tBar;
+    delete sBar;
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
@@ -316,6 +317,8 @@ void MainWindow::init(){
 
     initStatusBar();
 
+    initSearchBar();
+
     initToolbar();
 
     initHotkeys();
@@ -356,6 +359,9 @@ void MainWindow::loadSettings(){
     
     fBar->setVisible(WBGET(WB_TOOLS_PANEL_VISIBLE));
     panelsTools->setChecked(WBGET(WB_TOOLS_PANEL_VISIBLE));
+
+    sBar->setVisible(WBGET(WB_SEARCH_PANEL_VISIBLE));
+    panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
 
     menuBar()->setVisible(WBGET(WB_MAIN_MENU_VISIBLE));
 }
@@ -647,6 +653,10 @@ void MainWindow::initActions(){
         panelsTools = new QAction("", this);
         panelsTools->setCheckable(true);
         connect(panelsTools, SIGNAL(triggered()), this, SLOT(slotPanelMenuActionClicked()));
+
+        panelsSearch = new QAction("", this);
+        panelsSearch->setCheckable(true);
+        connect(panelsSearch, SIGNAL(triggered()), this, SLOT(slotPanelMenuActionClicked()));
     }
     {
         aboutClient = new QAction("", this);
@@ -699,6 +709,7 @@ void MainWindow::initMenuBar(){
 
         menuPanels->addAction(panelsWidgets);
         menuPanels->addAction(panelsTools);
+        menuPanels->addAction(panelsSearch);
     }
     {
         menuAbout = new QMenu("", this);
@@ -784,6 +795,12 @@ void MainWindow::initStatusBar(){
 #endif //FREE_SPACE_BAR
 }
 
+void MainWindow::initSearchBar(){
+    searchLineEdit = new QLineEdit(this);
+
+    connect(searchLineEdit, SIGNAL(returnPressed()), this, SLOT(slotSearch()));
+}
+
 void MainWindow::retranslateUi(){
     //Retranslate menu actions
     {
@@ -855,6 +872,8 @@ void MainWindow::retranslateUi(){
 
         panelsTools->setText(tr("Tools panel"));
 
+        panelsSearch->setText(tr("Fast search panel"));
+
         menuAbout->setTitle(tr("&Help"));
 
         aboutClient->setText(tr("About EiskaltDC++"));
@@ -883,8 +902,17 @@ void MainWindow::initToolbar(){
     tBar->setFloatable(true);
     tBar->setAllowedAreas(Qt::AllToolBarAreas);
 
+    sBar = new ToolBar(this);
+    sBar->setObjectName("sBar");
+    sBar->addWidget(searchLineEdit);
+    sBar->setContextMenuPolicy(Qt::CustomContextMenu);
+    sBar->setMovable(true);
+    sBar->setFloatable(true);
+    sBar->setAllowedAreas(Qt::AllToolBarAreas);
+
     addToolBar(fBar);
     addToolBar(tBar);
+    addToolBar(sBar);
 }
 
 void MainWindow::newHubFrame(QString address, QString enc){
@@ -1444,6 +1472,21 @@ void MainWindow::slotPanelMenuActionClicked(){
         fBar->setVisible(panelsTools->isChecked());
         WBSET(WB_TOOLS_PANEL_VISIBLE, panelsTools->isChecked());
     }
+    else if (act == panelsSearch){
+        sBar->setVisible(panelsSearch->isChecked());
+        WBSET(WB_SEARCH_PANEL_VISIBLE, panelsSearch->isChecked());
+    }
+}
+
+void MainWindow::slotSearch(){
+    SearchFrame *sf = new SearchFrame();
+
+    sf->setAttribute(Qt::WA_DeleteOnClose);
+
+    sf->comboBox_FILETYPES->setCurrentIndex(0);
+    sf->comboBox_SEARCHSTR->setEditText(searchLineEdit->text());
+
+    sf->slotStartSearch();
 }
 
 void MainWindow::slotChatClear(){

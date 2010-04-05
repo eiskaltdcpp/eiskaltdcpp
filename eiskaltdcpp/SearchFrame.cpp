@@ -274,19 +274,6 @@ void SearchFrame::customEvent(QEvent *e){
     e->accept();
 }
 
-bool SearchFrame::eventFilter(QObject *obj, QEvent *e){
-    if (e->type() == QEvent::KeyRelease){
-        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
-        int key = k_e->key();
-
-        if (static_cast<QComboBox*>(obj) == comboBox_SEARCHSTR && (key == Qt::Key_Enter || key == Qt::Key_Return))
-            slotStartSearch();
-
-    }
-
-    return QWidget::eventFilter(obj, e);
-}
-
 void SearchFrame::init(){
     timer1 = new QTimer(this);
     timer1->setInterval(1000);
@@ -317,6 +304,7 @@ void SearchFrame::init(){
     connect(treeView_RESULTS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(timer1, SIGNAL(timeout()), this, SLOT(slotTimer()));
     connect(pushButton_SIDEPANEL, SIGNAL(clicked()), this, SLOT(slotToggleSidePanel()));
+    connect(comboBox_SEARCHSTR->lineEdit(), SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR, SLOT(setFocus()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR->lineEdit(), SLOT(selectAll()));
 
