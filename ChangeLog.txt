@@ -5,3 +5,4 @@
 * Significantly expanded the settings dialog
 * Added examples of custom scripts
 * Added a status line with the last message on hub
+* Added fast search panel
