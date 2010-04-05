@@ -1131,6 +1131,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Away message</source>
         <translation>Away üzenet</translation>
     </message>
+    <message>
+        <source>Fast search panel</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
