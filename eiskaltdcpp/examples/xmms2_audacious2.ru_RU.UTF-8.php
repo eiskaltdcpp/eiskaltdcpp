@@ -6,6 +6,22 @@
 * @license http://opensource.org/licenses/gpl-2.0.php GNU Public License
 * @version 14.03.2010
 *
+* Depends: php4+, xmms2 | audacious2
+*
+* Launching:
+* /usr/share/eiskaltdcpp/examples/xmms2_audacious2.ru_RU.UTF-8.php audacious2
+*
+* Examples:
+*
+* output when playing local file:
+* отрывается под Madonna - The Power of Good-Bye; Длина песни: 4:12; Уже прослушал: 2%
+| <320kbps:44.1kHz> [Powered by Audacious 2.3-beta3 | GNU/Linux]
+*
+* output when playing radio:
+* отрывается под WINTER, MARKUS - Electro Love Song @ recordradio.spb.ru |
+<192kbps:44.1kHz> Радио: Record 192k MP3 | Адрес: http://radio.san.ru:8000/record
+[Powered by Audacious 2.3-beta3 | GNU/Linux]
+*
 */
 
 $me = false; // Использовать +me
