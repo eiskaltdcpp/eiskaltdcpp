@@ -38,7 +38,7 @@ svn export http://eiskaltdc.googlecode.com/svn/branches/trunk/ eiskaltdcpp-trunk
 
 ---------
 Keys for cmake:
--DUSE_ASPELL:BOOL=1 (default: BOOL=0)
+-DUSE_ASPELL:BOOL=1/0 (default: not set) (forced use or not use aspell)
 -DFREE_SPACE_BAR:BOOL=1 (default: BOOL=0) (boost libs)
 -DFREE_SPACE_BAR_C:BOOL=1 (default: BOOL=0)
 -DLOCAL_BOOST:BOOL=1 (default: BOOL=0) (use local boost headers)
