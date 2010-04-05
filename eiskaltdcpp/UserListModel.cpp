@@ -314,6 +314,8 @@ void UserListModel::removeUser(const UserPtr &ptr) {
 
     UserListItem *item = users.value(ptr);
 
+    nicks.remove(item->nick);
+
     rootItem->childItems.removeAt(index);
     delete item;
 

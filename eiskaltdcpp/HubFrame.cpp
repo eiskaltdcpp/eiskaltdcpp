@@ -1637,7 +1637,7 @@ void HubFrame::pmUserEvent(QString cid, QString e){
         return;
 
     QString output = "";
-    QString nick    = " * DC-CORE";
+    QString nick    = " * ";
 
     QString msg     = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + e + "</font>";
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" +QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
