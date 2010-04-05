@@ -1105,31 +1105,31 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Find/Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés/Szűrés</translation>
     </message>
     <message>
         <source>Hide users statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználói statisztika elrejtése</translation>
     </message>
     <message>
         <source>Show users statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználói statisztika mutatása</translation>
     </message>
     <message>
         <source>On</source>
-        <translation type="unfinished"></translation>
+        <translation>Be</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Ki</translation>
     </message>
     <message>
         <source>Away when not visible</source>
-        <translation type="unfinished"></translation>
+        <translation>Away-mód bekapcsolása, mikor nem látható</translation>
     </message>
     <message>
         <source>Away message</source>
-        <translation type="unfinished">Away üzenet</translation>
+        <translation>Away üzenet</translation>
     </message>
 </context>
 <context>
@@ -2614,7 +2614,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished">X</translation>
+        <translation>X</translation>
     </message>
 </context>
 <context>
@@ -3244,7 +3244,9 @@ p, li { white-space: pre-wrap; }
         <source>Per folder limit specifies how many files in GiB
 remote user must share the to be able
 to download from this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvtárankénti limit, ahol megadható,
+hogy a távoli felhasználónak mennyi adatot kell megosztania (GiB),
+hogy letölthessen ebből a könyvtárból</translation>
     </message>
 </context>
 <context>
@@ -3255,7 +3257,7 @@ to download from this folder</source>
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished">X</translation>
+        <translation>X</translation>
     </message>
 </context>
 <context>
