@@ -74,7 +74,7 @@ void Magnet::setLink(const QString &link){
         size = url.queryItemValue("xl").toLongLong();
 
     if (size > 0){
-        lineEdit_SIZE->setText(QString("%1 (%2)").arg(size).arg(_q(Util::formatBytes(size))));
+        lineEdit_SIZE->setText(QString("%1 (%2)").arg(size).arg(WulforUtil::formatBytes(size)));
     }
     else
         lineEdit_SIZE->setText("0 (0 MiB)");

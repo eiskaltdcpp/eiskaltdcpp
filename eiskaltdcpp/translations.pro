@@ -47,7 +47,8 @@ HEADERS = HEADERS = MainWindow.h \
     SpyFrame.h \
     SpyModel.h \
     PublicHubs.h \
-    PublicHubModel.h
+    PublicHubModel.h \
+    PublicHubsList.h
 SOURCES = main.cpp \
     Antispam.cpp \
     AntiSpamFrame.cpp \
@@ -96,7 +97,8 @@ SOURCES = main.cpp \
     SpyFrame.cpp \
     SpyModel.cpp \
     PublicHubModel.cpp \
-    PublicHubs.cpp
+    PublicHubs.cpp \
+    PublicHubsList.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \
@@ -124,7 +126,8 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UISettingsLog.ui \
     ui/UISettingsGUI.ui \
     ui/UISpy.ui \
-    ui/UIPublicHubs.ui
+    ui/UIPublicHubs.ui \
+    ui/UIPublicHubsList.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.ru.ts \
                translations/eiskaltdcpp.be.ts \

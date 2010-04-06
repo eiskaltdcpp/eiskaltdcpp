@@ -40,7 +40,7 @@ public:
 
 signals:
     /** emitted when the command has finished */
-    virtual void finished(bool ok, QString output);
+    void finished(bool ok, QString output);
 
 private:
     /** used to cancel the thread */

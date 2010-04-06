@@ -87,9 +87,9 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
         case Qt::DisplayRole:
         {
             if (index.column() == COLUMN_TRANSFER_SPEED)
-                return _q(Util::formatBytes(item->data(COLUMN_TRANSFER_SPEED).toDouble())) + tr("/s");
+                return WulforUtil::formatBytes(item->data(COLUMN_TRANSFER_SPEED).toDouble()) + tr("/s");
             else if (index.column() == COLUMN_TRANSFER_SIZE)
-                return _q(Util::formatBytes(item->data(COLUMN_TRANSFER_SIZE).toLongLong()));
+                return WulforUtil::formatBytes(item->data(COLUMN_TRANSFER_SIZE).toLongLong());
             else if (index.column() == COLUMN_TRANSFER_TLEFT){
                 int time = item->data(COLUMN_TRANSFER_TLEFT).toInt();
 
@@ -522,7 +522,7 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     else
         p->updateColumn(COLUMN_TRANSFER_STATS, tr("Waiting for slot "));
 
-    QString stat = vstr(p->data(COLUMN_TRANSFER_STATS)) + _q(Util::formatBytes(p->dpos))
+    QString stat = vstr(p->data(COLUMN_TRANSFER_STATS)) + WulforUtil::formatBytes(p->dpos)
                    + QString(" (%1%)").arg(progress, 0, 'f', 1)  + QString(tr(" from %1/%2 user(s)")).arg(active).arg(p->childCount());
 
     QString hubs_str = "";

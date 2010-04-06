@@ -83,7 +83,7 @@ void SettingsSharing::init(){
     spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));
 
     label_TOTALSHARED->setText(tr("Total shared: %1")
-                               .arg(QString::fromStdString(Util::formatBytes(ShareManager::getInstance()->getShareSize()))));
+                               .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
 
     model = new ShareDirModel();
     treeView->setModel(model);
@@ -151,7 +151,7 @@ void SettingsSharing::init(){
 
 void SettingsSharing::updateShareView(){
     label_TOTALSHARED->setText(tr("Total shared: %1")
-                               .arg(QString::fromStdString(Util::formatBytes(ShareManager::getInstance()->getShareSize()))));
+                               .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
 }
 
 void SettingsSharing::slotRecreateShare(){

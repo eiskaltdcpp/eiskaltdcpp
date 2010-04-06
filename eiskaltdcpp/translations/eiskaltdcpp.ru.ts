@@ -657,54 +657,54 @@ Favorite user</source>
         <translation>выключен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1400"/>
+        <location filename="../HubFrame.cpp" line="1402"/>
         <source> joins the chat</source>
         <translation> входит в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1443"/>
-        <location filename="../HubFrame.cpp" line="1455"/>
+        <location filename="../HubFrame.cpp" line="1445"/>
+        <location filename="../HubFrame.cpp" line="1457"/>
         <source>User not found</source>
         <translation>Пользователь не найден</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1462"/>
+        <location filename="../HubFrame.cpp" line="1464"/>
         <source>Slot granted to </source>
         <translation>Слот отдан </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1473"/>
-        <location filename="../HubFrame.cpp" line="1493"/>
+        <location filename="../HubFrame.cpp" line="1475"/>
+        <location filename="../HubFrame.cpp" line="1495"/>
         <source>User not found.</source>
         <translation>Пользователь не найден.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1482"/>
+        <location filename="../HubFrame.cpp" line="1484"/>
         <source> has been added to favorites.</source>
         <translation> был добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1502"/>
+        <location filename="../HubFrame.cpp" line="1504"/>
         <source> has been removed from favorites.</source>
         <translation> был удалён из избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1632"/>
+        <location filename="../HubFrame.cpp" line="1634"/>
         <source>User offline.</source>
         <translation>Пользователь не в сети.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1667"/>
+        <location filename="../HubFrame.cpp" line="1669"/>
         <source>Enter password</source>
         <translation>Введите пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1667"/>
+        <location filename="../HubFrame.cpp" line="1669"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1787"/>
+        <location filename="../HubFrame.cpp" line="1789"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Пользователей: %1 | Общая шара: %2</translation>
     </message>
@@ -724,23 +724,23 @@ Favorite user</source>
         <translation>Чат включен.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1534"/>
+        <location filename="../HubFrame.cpp" line="1536"/>
         <source>Favorite hub added.</source>
         <translation>Хаб добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1537"/>
+        <location filename="../HubFrame.cpp" line="1539"/>
         <source>Favorite hub already exists.</source>
         <translation>Хаб уже есть в избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1681"/>
-        <location filename="../HubFrame.cpp" line="2543"/>
+        <location filename="../HubFrame.cpp" line="1683"/>
+        <location filename="../HubFrame.cpp" line="2545"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получен запрос перенаправления к уже подключенному хабу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1664"/>
+        <location filename="../HubFrame.cpp" line="1666"/>
         <source>Stored password sent...</source>
         <translation>Отправлен сохраненный пароль...</translation>
     </message>
@@ -872,22 +872,22 @@ Favorite user</source>
         <translation>&lt;b&gt;Последнее статусное сообщение на хабе:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1419"/>
+        <location filename="../HubFrame.cpp" line="1421"/>
         <source>User online.</source>
         <translation>Пользователь онлайн.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2449"/>
+        <location filename="../HubFrame.cpp" line="2451"/>
         <source>Suggestions</source>
         <translation>Варианты</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2450"/>
+        <location filename="../HubFrame.cpp" line="2452"/>
         <source>Add to dictionary</source>
         <translation>Добавить в словарь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2751"/>
+        <location filename="../HubFrame.cpp" line="2753"/>
         <source>Search flood detected: %1</source>
         <translation>Поисковый флуд обнаружен: %1</translation>
     </message>
@@ -3262,6 +3262,24 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>UIPublicHubsList</name>
+    <message>
+        <location filename="../ui/UIPublicHubsList.ui" line="14"/>
+        <source>Dialog</source>
+        <translation>Диалог</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIPublicHubsList.ui" line="23"/>
+        <source>Up</source>
+        <translation>Вверх</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIPublicHubsList.ui" line="30"/>
+        <source>Down</source>
+        <translation>Вниз</translation>
+    </message>
+</context>
+<context>
     <name>UIQuickConnect</name>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="32"/>
@@ -4190,12 +4208,42 @@ to download from this folder</source>
         <translation>Укажите значение параметра</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="710"/>
+        <location filename="../WulforUtil.cpp" line="687"/>
+        <source>%1 B</source>
+        <translation>%1 Б</translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="689"/>
+        <source>%1 KiB</source>
+        <translation>%1 КиБ</translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="691"/>
+        <source>%1 MiB</source>
+        <translation>%1 МиБ</translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="693"/>
+        <source>%1 GiB</source>
+        <translation>%1 ГиБ</translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="695"/>
+        <source>%1 TiB</source>
+        <translation>%1 ТиБ</translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="697"/>
+        <source>%1 PiB</source>
+        <translation>%1 ПиБ</translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="725"/>
         <source>Offline</source>
         <translation>Не в сети</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="818"/>
+        <location filename="../WulforUtil.cpp" line="833"/>
         <source>User commands</source>
         <translation>Команды пользователя</translation>
     </message>

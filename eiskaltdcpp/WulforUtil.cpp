@@ -682,6 +682,21 @@ QStringList WulforUtil::getLocalIPs(){
     return addresses;
 }
 
+QString WulforUtil::formatBytes(int64_t aBytes){
+    if(aBytes < 1024)
+        return tr("%1 B").arg((int)(aBytes & 0xffffffff));
+    else if(aBytes < 1024*1024)
+        return tr("%1 KiB").arg(static_cast<double>(aBytes)/1024.0, 0, 'f', 1);
+    else if(aBytes < 1024*1024*1024)
+        return tr("%1 MiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0), 0, 'f', 1);
+    else if(aBytes < (int64_t)1024*1024*1024*1024)
+        return tr("%1 GiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0), 0, 'f', 1);
+    else if(aBytes < (int64_t)1024*1024*1024*1024*1024)
+        return tr("%1 TiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0), 0, 'f', 1);
+    else
+        return tr("%1 PiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0*1024.0), 0, 'f', 1);
+}
+
 QString WulforUtil::makeMagnet(const QString &path, const int64_t size, const QString &tth){
     if (path.isEmpty() || tth.isEmpty())
         return "";

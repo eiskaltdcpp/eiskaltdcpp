@@ -376,7 +376,7 @@ void SearchModel::addResult
 
     QList<QVariant> item_data;
 
-    item_data << QVariant() << file << ext << QString::fromStdString(dcpp::Util::formatBytes(size))
+    item_data << QVariant() << file << ext << WulforUtil::formatBytes(size)
               << size << tth << path << nick << free_slots
               << all_slots << ip << hub << host,
 

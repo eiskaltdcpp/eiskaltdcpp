@@ -45,7 +45,7 @@ QVariant PublicHubModel::data(const QModelIndex &index, int role) const
             break;
         case Qt::DisplayRole:
             if (index.column() == COLUMN_PHUB_SHARED || index.column() == COLUMN_PHUB_MINSHARE)
-                return _q(dcpp::Util::formatBytes(item->data(index.column()).toULongLong()));
+                return WulforUtil::formatBytes(item->data(index.column()).toULongLong());
 
             return item->data(index.column());
         case Qt::TextAlignmentRole:

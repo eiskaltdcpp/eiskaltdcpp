@@ -498,7 +498,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadL
         if (dl->isSet(Download::FLAG_ZDOWNLOAD))
             str += tr("[Z]");
 
-        str += " " + QString(tr("Downloaded %1")).arg(_q(Util::formatBytes(dl->getPos())))
+        str += " " + QString(tr("Downloaded %1")).arg(WulforUtil::formatBytes(dl->getPos()))
             + QString(tr(" (%1%)")).arg(vdbl(params["PERC"]), 0, 'f', 1);
 
         params["STAT"] = str;
@@ -694,7 +694,7 @@ void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList&
         if (ul->isSet(Upload::FLAG_ZUPLOAD))
             stat += tr("[Z]");
 
-        stat += QString(tr(" Uploaded %1 (%2%) ")).arg(_q(Util::formatBytes(ul->getPos()))).arg(vdbl(params["PERC"]), 0, 'f', 1);
+        stat += QString(tr(" Uploaded %1 (%2%) ")).arg(WulforUtil::formatBytes(ul->getPos())).arg(vdbl(params["PERC"]), 0, 'f', 1);
 
         params["STAT"] = stat;
         params["DOWN"] = false;

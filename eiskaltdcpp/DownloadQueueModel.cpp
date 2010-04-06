@@ -92,7 +92,7 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
         case Qt::DisplayRole:
         {
             if ((index.column() == COLUMN_DOWNLOADQUEUE_DOWN || index.column() == COLUMN_DOWNLOADQUEUE_SIZE) && !item->dir)
-                return _q(Util::formatBytes(item->data(index.column()).toLongLong()));
+                return WulforUtil::formatBytes(item->data(index.column()).toLongLong());
             else if ((index.column() == COLUMN_DOWNLOADQUEUE_DOWN || index.column() == COLUMN_DOWNLOADQUEUE_SIZE) && item->dir)
                 break;
             else if (index.column() == COLUMN_DOWNLOADQUEUE_PRIO && !item->dir){

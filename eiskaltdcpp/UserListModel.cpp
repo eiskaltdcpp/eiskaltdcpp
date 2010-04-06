@@ -25,6 +25,13 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
     stripper.setPattern("\\[.*\\]");
     stripper.setMinimal(true);
 
+    _needResort = false;
+
+    t = new QTimer();
+    t->setSingleShot(true);
+    t->setInterval(2500);
+    connect(t, SIGNAL(timeout()), this, SLOT(slotResort()));
+
     rootItem = new UserListItem(NULL);
 
     WU = WulforUtil::getInstance();
@@ -33,6 +40,8 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
 
 UserListModel::~UserListModel() {
     delete rootItem;
+
+    t->deleteLater();
 }
 
 
@@ -70,7 +79,7 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
                 case COLUMN_TAG: return item->tag;
                 case COLUMN_CONN: return item->conn;
                 case COLUMN_EMAIL: return item->email;
-                case COLUMN_SHARE: return QString::fromStdString(dcpp::Util::formatBytes(item->share));
+                case COLUMN_SHARE: return WulforUtil::formatBytes(item->share);
                 case COLUMN_IP: return item->ip;
             }
 
@@ -98,7 +107,7 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
                 ttip += "<b>" + headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->email + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->ip + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " +
-                        QString::fromStdString(dcpp::Util::formatBytes(item->share)) + "<br/>";
+                        WulforUtil::formatBytes(item->share) + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->tag + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->conn + "<br/>";
 
@@ -300,6 +309,15 @@ void UserListModel::clear() {
     rootItem->childItems.clear();
 
     emit layoutChanged();
+}
+
+void UserListModel::needResort(){
+    if (_needResort)
+        return;
+
+    _needResort = true;
+
+    t->start();
 }
 
 void UserListModel::removeUser(const UserPtr &ptr) {

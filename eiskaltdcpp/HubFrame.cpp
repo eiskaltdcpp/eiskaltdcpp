@@ -372,7 +372,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                         toshow = url.queryItemValue("dn");
 
                         if (url.hasQueryItem("xl"))
-                            toshow += " (" + QString::fromStdString(Util::formatBytes(url.queryItemValue("xl").toULongLong())) + ")";
+                            toshow += " (" + WulforUtil::formatBytes(url.queryItemValue("xl").toULongLong()) + ")";
                     }
                 }
 
@@ -1015,7 +1015,7 @@ QString HubFrame::getUserInfo(UserListItem *item){
     ttip += model->headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->email + "\n";
     ttip += model->headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->ip + "\n";
     ttip += model->headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + ": " +
-            QString::fromStdString(dcpp::Util::formatBytes(item->share)) + "\n";
+            WulforUtil::formatBytes(item->share) + "\n";
     ttip += model->headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->tag + "\n";
     ttip += model->headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->conn + "\n";
 
@@ -1383,13 +1383,15 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
         item->isOp = isOp;
         item->px = WU->getUserIcon(user, map["AWAY"].toBool(), item->isOp, map["SPEED"].toString());
 
-        QModelIndex left = model->index(item->row(), COLUMN_NICK);
-        QModelIndex right= model->index(item->row(), COLUMN_EMAIL);
+        int row = item->row();
+
+        QModelIndex left = model->index(row, COLUMN_NICK);
+        QModelIndex right= model->index(row, COLUMN_EMAIL);
 
         model->repaintData(left, right);
 
         if (needresort)
-            model->sort(model->getSortColumn(), model->getSortOrder());
+            model->needResort();
     }
     else{
         if (join && WS->getBool(WB_CHAT_SHOW_JOINS)){
@@ -1786,7 +1788,7 @@ void HubFrame::nickCompletion() {
 void HubFrame::slotUsersUpdated(){
     label_USERSTATE->setText(QString(tr("Users count: %1 | Total share: %2"))
                              .arg(model->rowCount())
-                             .arg(_q(Util::formatBytes(total_shared))));
+                             .arg(WulforUtil::formatBytes(total_shared)));
     label_LAST_STATUS->setMaximumHeight(label_USERSTATE->height());
 }
 

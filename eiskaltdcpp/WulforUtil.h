@@ -141,6 +141,8 @@ public:
     int sortOrderToInt(Qt::SortOrder);
     Qt::SortOrder intToSortOrder(int);
 
+    static QString formatBytes(int64_t bytes);
+
     static void headerMenu(QTreeView*);
 
     QString getHubNames(const dcpp::CID&);

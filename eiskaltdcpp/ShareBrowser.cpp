@@ -185,7 +185,7 @@ void ShareBrowser::init(){
     treeView_RPANE->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_RPANE->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(_q(Util::formatBytes(share_size))).arg(itemsCount));
+    label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(WulforUtil::formatBytes(share_size)).arg(itemsCount));
 
     arena_menu = new QMenu(tr("Filebrowser"));
 
@@ -282,7 +282,7 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
     size = dir->getTotalSize();
 
     data << QString::fromUtf8(dir->getName().c_str())
-         << _q(Util::formatBytes(size))
+         << WulforUtil::formatBytes(size)
          << size
          << "";
 
@@ -407,7 +407,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         current_size += size;
 
         data << QString::fromUtf8((*it)->getName().c_str())
-             << _q(Util::formatBytes(size))
+             << WulforUtil::formatBytes(size)
              << size
              << "";
 
@@ -429,7 +429,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         current_size += size;
 
         data << QString::fromUtf8((*it_file)->getName().c_str())
-             << _q(Util::formatBytes(size))
+             << WulforUtil::formatBytes(size)
              << size
              << QString::fromUtf8((*it_file)->getTTH().toBase32().c_str());
 
@@ -439,7 +439,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         list_root->appendChild(child);
     }
 
-    label_RIGHT->setText(QString(tr("Total size: %1")).arg(_q(Util::formatBytes(current_size))));
+    label_RIGHT->setText(QString(tr("Total size: %1")).arg(WulforUtil::formatBytes(current_size)));
 
     list_model->repaint();
 }
@@ -452,10 +452,10 @@ void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection&, const QItemSele
     foreach (QModelIndex i, list)
         selected_size += (reinterpret_cast<FileBrowserItem*>(i.internalPointer()))->data(COLUMN_FILEBROWSER_ESIZE).toULongLong();
 
-    QString status = QString(tr("Total size: %1")).arg(_q(Util::formatBytes(current_size)));
+    QString status = QString(tr("Total size: %1")).arg(WulforUtil::formatBytes(current_size));
 
     if (selected_size)
-        status += QString(tr("; Selected: %1")).arg(_q(Util::formatBytes(selected_size)));
+        status += QString(tr("; Selected: %1")).arg(WulforUtil::formatBytes(selected_size));
 
     label_RIGHT->setText(status);
 }

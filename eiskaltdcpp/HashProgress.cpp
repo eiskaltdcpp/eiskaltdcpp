@@ -73,7 +73,7 @@ void HashProgress::timerTick(){
 
     if(diff < 1000 || files == 0 || bytes == 0) {
         stat->setText(QString(tr("-.-- files/h, %1 files left")).arg((uint32_t)files));
-        speed->setText(QString(tr("-.-- B/s, %1 left").arg(_q(Text::toT(Util::formatBytes(bytes))))));
+        speed->setText(tr("-.-- B/s, %1 left").arg(WulforUtil::formatBytes(bytes)));
         left->setText(tr("-:--:-- left"));
         progress->setValue(0);
     }
@@ -81,10 +81,10 @@ void HashProgress::timerTick(){
         double filestat = (((double)(startFiles - files)) * 60 * 60 * 1000) / diff;
         double speedStat = (((double)(startBytes - bytes)) * 1000) / diff;
 
-        stat->setText(QString(tr("%1 files/h, %2 files left").arg(filestat).arg((uint32_t)files)));
-        speed->setText(QString(tr("%1/s, %2 left, %3 shared").arg(_q(Text::toT(Util::formatBytes((int64_t)speedStat))))
-                                                             .arg(_q(Text::toT(Util::formatBytes(bytes)))))
-                                                             .arg(QString::fromStdString(Util::formatBytes(ShareManager::getInstance()->getShareSize()))));
+        stat->setText(tr("%1 files/h, %2 files left").arg(filestat).arg((uint32_t)files));
+        speed->setText(tr("%1/s, %2 left, %3 shared").arg(WulforUtil::formatBytes((int64_t)speedStat))
+                                                     .arg(WulforUtil::formatBytes(bytes))
+                                                     .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
 
         if(filestat == 0 || speedStat == 0) {
             left->setText(tr("-:--:-- left"));

@@ -965,11 +965,11 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
             float total = info.capacity;
             float percent = 100.0f*(total-info.available)/total;
             QString format = tr("Free %1")
-                             .arg(_q(dcpp::Util::formatBytes(info.available)));
+                             .arg(WulforUtil::formatBytes(info.available));
 
             QString tooltip = tr("Free %1 of %2")
-                              .arg(_q(dcpp::Util::formatBytes(info.available)))
-                              .arg(_q(dcpp::Util::formatBytes(total)));
+                              .arg(WulforUtil::formatBytes(info.available))
+                              .arg(WulforUtil::formatBytes(total));
 
             progressSpace->setFormat(format);
             progressSpace->setToolTip(tooltip);
@@ -990,11 +990,11 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     }
     float percent = 100.0f*(total-available)/total;
     QString format = tr("Free %1")
-                         .arg(_q(dcpp::Util::formatBytes(available)));
+                         .arg(WulforUtil::formatBytes(available));
 
     QString tooltip = tr("Free %1 of %2")
-                         .arg(_q(dcpp::Util::formatBytes(available)))
-                         .arg(_q(dcpp::Util::formatBytes(total)));
+                         .arg(WulforUtil::formatBytes(available))
+                         .arg(WulforUtil::formatBytes(total));
 
             progressSpace->setFormat(format);
             progressSpace->setToolTip(tooltip);
@@ -1686,9 +1686,9 @@ void MainWindow::slotAboutClient(){
                            .arg("<a href=\"http://code.google.com/p/eiskaltdc/\">"
                                 "http://code.google.com/p/eiskaltdc/</a>")
                            .arg(tr("Total up:"))
-                           .arg(_q(Util::formatBytes(app_total_up)))
+                           .arg(WulforUtil::formatBytes(app_total_up))
                            .arg(tr("Total down:"))
-                           .arg(_q(Util::formatBytes(app_total_down))));
+                           .arg(WulforUtil::formatBytes(app_total_down)));
 
     a.exec();
 }
@@ -1793,10 +1793,10 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
     QMap<QString, QString> map;
 
     map["STATS"]    = _q(Client::getCounts());
-    map["DSPEED"]   = _q(Util::formatBytes(downBytes));
-    map["DOWN"]     = _q(Util::formatBytes(Socket::getTotalDown()));
-    map["USPEED"]   = _q(Util::formatBytes(upBytes));
-    map["UP"]       = _q(Util::formatBytes(Socket::getTotalUp()));
+    map["DSPEED"]   = WulforUtil::formatBytes(downBytes);
+    map["DOWN"]     = WulforUtil::formatBytes(Socket::getTotalDown());
+    map["USPEED"]   = WulforUtil::formatBytes(upBytes);
+    map["UP"]       = WulforUtil::formatBytes(Socket::getTotalUp());
 
     qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong()+downDiff;
     qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong()+upDiff;

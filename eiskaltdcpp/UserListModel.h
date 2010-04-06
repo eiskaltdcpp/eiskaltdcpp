@@ -16,6 +16,7 @@
 #include <QList>
 #include <QStringList>
 #include <QRegExp>
+#include <QTimer>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -137,6 +138,10 @@ public:
 
     void repaint() { emit layoutChanged(); }
     void repaintData(const QModelIndex &left, const QModelIndex &right){ emit dataChanged(left, right); }
+    void needResort();
+
+private slots:
+    void slotResort(){ sort(sortColumn, sortOrder); _needResort = false; }
 
 private:
     UserListItem *rootItem;
@@ -150,6 +155,9 @@ private:
     int sortColumn;
     Qt::SortOrder sortOrder;
     QRegExp stripper;
+
+    QTimer *t;
+    bool _needResort;
 
     WulforUtil *WU;
 };

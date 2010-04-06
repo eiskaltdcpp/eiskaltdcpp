@@ -2622,6 +2622,21 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>UIPublicHubsList</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Beállítások</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UIQuickConnect</name>
     <message>
         <source>Quick connect</source>
@@ -3365,6 +3380,30 @@ hogy letölthessen ebből a könyvtárból</translation>
     <message>
         <source>User commands</source>
         <translation>Felhasználói parancsok</translation>
+    </message>
+    <message>
+        <source>%1 B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 KiB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 MiB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 GiB</source>
+        <translation type="unfinished">%1 GiB</translation>
+    </message>
+    <message>
+        <source>%1 TiB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 PiB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
