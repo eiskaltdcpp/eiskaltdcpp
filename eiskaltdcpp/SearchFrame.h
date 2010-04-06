@@ -44,8 +44,8 @@ private:
 };
 
 class SearchFrame : public QWidget,
-                    public Ui::SearchFrame,
                     public ArenaWidget,
+                    private Ui::SearchFrame,
                     private SearchManagerListener,
                     private ClientManagerListener
 {
@@ -143,9 +143,6 @@ public:
     void searchAlternates(const QString &);
     void searchFile(const QString &);
 
-public slots:
-    void slotStartSearch();
-
 protected:
     virtual void closeEvent(QCloseEvent*);
     virtual void customEvent(QEvent *);
@@ -158,6 +155,7 @@ private slots:
     void slotContextMenu(const QPoint&);
     void slotHeaderMenu(const QPoint&);
     void slotToggleSidePanel();
+    void slotStartSearch();
 
 private:
     void init();

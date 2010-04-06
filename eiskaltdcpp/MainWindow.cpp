@@ -1483,10 +1483,7 @@ void MainWindow::slotSearch(){
 
     sf->setAttribute(Qt::WA_DeleteOnClose);
 
-    sf->comboBox_FILETYPES->setCurrentIndex(0);
-    sf->comboBox_SEARCHSTR->setEditText(searchLineEdit->text());
-
-    sf->slotStartSearch();
+    sf->searchFile(searchLineEdit->text());
 }
 
 void MainWindow::slotChatClear(){

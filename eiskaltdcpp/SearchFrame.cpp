@@ -648,6 +648,8 @@ void SearchFrame::searchFile(const QString &file){
     comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_ANY);
     lineEdit_SIZE->setText("");
 
+    saveFileType = false;
+
     slotStartSearch();
 }
 
