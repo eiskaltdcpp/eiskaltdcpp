@@ -1137,7 +1137,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Clear text field</source>
-        <translation type="unfinished"></translation>
+        <translation>Szövegmező törlése</translation>
     </message>
 </context>
 <context>
@@ -2629,15 +2629,15 @@ p, li { white-space: pre-wrap; }
     <name>UIPublicHubsList</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Beállítások</translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Le</translation>
     </message>
 </context>
 <context>
@@ -3045,7 +3045,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Use Ctrl+Enter to send messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Használd a Ctrl+Enter kombinációt üzenet küldéséhez</translation>
     </message>
 </context>
 <context>
@@ -3277,11 +3277,11 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Haladó</translation>
     </message>
     <message>
         <source>Auto refresh time (minutes,0 = off)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatikus frissítési időköz (percben, 0 = letiltva)</translation>
     </message>
     <message>
         <source>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</source>
@@ -3289,7 +3289,7 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Run on startup refresh share </source>
-        <translation type="unfinished"></translation>
+        <translation>Megosztás frissítése a kliens indulásakor</translation>
     </message>
 </context>
 <context>
@@ -3407,27 +3407,27 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>%1 B</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 B</translation>
     </message>
     <message>
         <source>%1 KiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 KiB</translation>
     </message>
     <message>
         <source>%1 MiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 MiB</translation>
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation type="unfinished">%1 GiB</translation>
+        <translation>%1 GiB</translation>
     </message>
     <message>
         <source>%1 TiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 TiB</translation>
     </message>
     <message>
         <source>%1 PiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 PiB</translation>
     </message>
 </context>
 </TS>
