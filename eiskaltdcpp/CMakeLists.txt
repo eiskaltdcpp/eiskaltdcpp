@@ -6,6 +6,10 @@ endif (FREE_SPACE_BAR_C)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+set (QT_USE_QTNETWORK 1)
+set (QT_USE_QTXML 1)
+set (QT_USE_QTDBUS 1)
+
 include (${QT_USE_FILE})
 set (HDRS   ArenaWidget.h
             EmoticonObject.h

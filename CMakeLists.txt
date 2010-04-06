@@ -299,13 +299,13 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
    )
 message(STATUS "CMAKE use in build this libs(and headers):
 
-                upnp: ${UPNP_LIBRARY}
-                boost: ${Boost_LIBRARIES} ${Boost_INCLUDE_DIR}
-                bzip2: ${BZIP2_LIBRARIES}
-                zlib: ${ZLIB_LIBRARIES}
-                openssl: ${OPENSSL_LIBRARIES}
-                iconv: ${ICONV_LIBRARIES}
-                aspell: ${ASPELL_LIBRARIES}
+                upnp (headers): ${UPNP_LIBRARY} (${UPNP_INCLUDE_DIR})
+                boost (headers): ${Boost_LIBRARIES} (${Boost_INCLUDE_DIR})
+                bzip2 (headers): ${BZIP2_LIBRARIES} (${BZIP2_INCLUDE_DIR})
+                zlib (headers): ${ZLIB_LIBRARIES} (${ZLIB_INCLUDE_DIR})
+                openssl (headers): ${OPENSSL_LIBRARIES} (${OPENSSL_INCLUDE_DIR})
+                iconv (headers): ${ICONV_LIBRARIES} (${ICONV_INCLUDE_DIR})
+                aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 ")
 
 add_subdirectory (dcpp)
