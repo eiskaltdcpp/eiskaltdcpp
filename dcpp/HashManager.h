@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -73,7 +73,7 @@ public:
 	size_t getBlockSize(const TTHValue& root);
 
 	void addTree(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tt) {
-		hashDone(aFileName, aTimeStamp, tt, -1);
+		hashDone(aFileName, aTimeStamp, tt, -1, -1);
 	}
 	void addTree(const TigerTree& tree) { Lock l(cs); store.addTree(tree); }
 
@@ -95,19 +95,37 @@ public:
 		store.save();
 	}
 
+	struct HashPauser {
+		HashPauser();
+		~HashPauser();
+
+	private:
+		bool resume;
+	};
+
+	/// @return whether hashing was already paused
+	bool pauseHashing();
+	void resumeHashing();
+	bool isHashingPaused() const;
+
 private:
 	class Hasher : public Thread {
 	public:
-		Hasher() : stop(false), running(false), rebuild(false), currentSize(0) { }
+		Hasher() : stop(false), running(false), paused(0), rebuild(false), currentSize(0) { }
 
 		void hashFile(const string& fileName, int64_t size);
+
+		/// @return whether hashing was already paused
+		bool pause();
+		void resume();
+		bool isPaused() const;
 
 		void stopHashing(const string& baseDir);
 		virtual int run();
 		bool fastHash(const string& fname, uint8_t* buf, TigerTree& tth, int64_t size, CRC32Filter* xcrc32);
 		void getStats(string& curFile, int64_t& bytesLeft, size_t& filesLeft);
-		void shutdown() { stop = true; s.signal(); }
-		void scheduleRebuild() { rebuild = true; s.signal(); }
+		void shutdown() { stop = true; if(paused) s.signal(); s.signal(); }
+		void scheduleRebuild() { rebuild = true; if(paused) s.signal(); s.signal(); }
 
 	private:
 		// Case-sensitive (faster), it is rather unlikely that case changes, and if it does it's harmless.
@@ -116,14 +134,17 @@ private:
 		typedef WorkMap::iterator WorkIter;
 
 		WorkMap w;
-		CriticalSection cs;
+		mutable CriticalSection cs;
 		Semaphore s;
 
 		bool stop;
 		bool running;
+		unsigned paused;
 		bool rebuild;
 		string currentFile;
 		int64_t currentSize;
+
+		void instantPause();
 	};
 
 	friend class Hasher;
@@ -202,12 +223,12 @@ private:
 	Hasher hasher;
 	HashStore store;
 
-	CriticalSection cs;
+	mutable CriticalSection cs;
 
 	/** Single node tree where node = root, no storage in HashData.dat */
 	static const int64_t SMALL_TREE = -1;
 
-	void hashDone(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tth, int64_t speed);
+	void hashDone(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tth, int64_t speed, int64_t size);
 
 	void doRebuild() {
 		Lock l(cs);

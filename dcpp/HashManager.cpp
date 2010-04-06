@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2009 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -52,7 +52,7 @@ TTHValue HashManager::getTTH(const string& aFileName, int64_t aSize) throw(HashE
 	const TTHValue* tth = store.getTTH(aFileName);
 	if (tth == NULL) {
 		hasher.hashFile(aFileName, aSize);
-		throw HashException(Util::emptyString);
+		throw HashException();
 	}
 	return *tth;
 }
@@ -67,7 +67,7 @@ size_t HashManager::getBlockSize(const TTHValue& root) {
 	return store.getBlockSize(root);
 }
 
-void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tth, int64_t speed) {
+void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tth, int64_t speed, int64_t size) {
 	try {
 		Lock l(cs);
 		store.addFile(aFileName, aTimeStamp, tth, true);
@@ -79,7 +79,11 @@ void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const T
 	fire(HashManagerListener::TTHDone(), aFileName, tth.getRoot());
 
 	if (speed > 0) {
-		LogManager::getInstance()->message(str(F_("Finished hashing: %1% (%2%/s)") % Util::addBrackets(aFileName) % Util::formatBytes(speed)));
+		LogManager::getInstance()->message(str(F_("Finished hashing: %1% (%2% at %3%/s)") % Util::addBrackets(aFileName) %
+			Util::formatBytes(size) % Util::formatBytes(speed)));
+	} else if(size >= 0) {
+		LogManager::getInstance()->message(str(F_("Finished hashing: %1% (%2%)") % Util::addBrackets(aFileName) %
+			Util::formatBytes(size)));
 	} else {
 		LogManager::getInstance()->message(str(F_("Finished hashing: %1%") % Util::addBrackets(aFileName)));
 	}
@@ -356,6 +360,8 @@ void HashManager::HashStore::load() {
 
 		HashLoader l(*this);
 		SimpleXMLReader(&l).fromXML(File(getIndexFile(), File::READ, File::OPEN).read());
+		//File f(getIndexFile(), File::READ, File::OPEN);
+		//SimpleXMLReader(&l).parse(f);
 	} catch (const Exception&) {
 		// ...
 	}
@@ -462,8 +468,27 @@ void HashManager::HashStore::createDataFile(const string& name) {
 void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
 	Lock l(cs);
 	if (w.insert(make_pair(fileName, size)).second) {
+		if(paused > 0)
+			paused++;
+		else
 		s.signal();
 	}
+}
+
+bool HashManager::Hasher::pause() {
+	Lock l(cs);
+	return paused++;
+}
+
+void HashManager::Hasher::resume() {
+	Lock l(cs);
+	while(--paused > 0)
+		s.signal();
+}
+
+bool HashManager::Hasher::isPaused() const {
+	Lock l(cs);
+	return paused > 0;
 }
 
 void HashManager::Hasher::stopHashing(const string& baseDir) {
@@ -488,6 +513,19 @@ void HashManager::Hasher::getStats(string& curFile, int64_t& bytesLeft, size_t& 
 		bytesLeft += i->second;
 	}
 	bytesLeft += currentSize;
+}
+
+void HashManager::Hasher::instantPause() {
+	bool wait = false;
+	{
+		Lock l(cs);
+		if(paused > 0) {
+			paused++;
+			wait = true;
+		}
+	}
+	if(wait)
+		s.wait();
 }
 
 #ifdef _WIN32
@@ -538,7 +576,7 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
 
 	over.Offset = hn;
 	size -= hn;
-	for (;;) {
+	while (!stop) {
 		if (size > 0) {
 			// Start a new overlapped read
 			ResetEvent(over.hEvent);
@@ -587,6 +625,8 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
 			}
 		}
 
+		instantPause();
+
 		*((uint64_t*)&over.Offset) += rn;
 		size -= rn;
 
@@ -613,13 +653,15 @@ static void sigbus_handler(int signum, siginfo_t* info, void* context) {
 
 bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree& tth, int64_t size, CRC32Filter* xcrc32) {
 	int fd = open(Text::fromUtf8(filename).c_str(), O_RDONLY);
-	if(fd == -1)
+	if(fd == -1) {
+		dcdebug("Error opening file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
 		return false;
+	}
 
-	int64_t size_left = size;
 	int64_t pos = 0;
 	int64_t size_read = 0;
         void *buf = NULL;
+	bool ok = false;
 
         // Prepare and setup a signal handler in case of SIGBUS during mmapped file reads.
         // SIGBUS can be sent when the file is truncated or in case of read errors.
@@ -639,14 +681,13 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
             return false;	// Better luck with the slow hash.
         }
 
-	uint32_t lastRead = GET_TICK();
-	while(pos <= size) {
-		if(size_left > 0) {
-			size_read = std::min(size_left, BUF_SIZE);
+	uint64_t lastRead = GET_TICK();
+	while (pos < size && !stop) {
+		size_read = std::min(size - pos, BUF_SIZE);
 			buf = mmap(0, size_read, PROT_READ, MAP_SHARED, fd, pos);
 			if(buf == MAP_FAILED) {
-				close(fd);
-				return false;
+			dcdebug("Error calling mmap for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
+			break;
 			}
 
                         if (sigsetjmp(sb_env, 1)) {
@@ -654,22 +695,22 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
                             break;
                         }
 
-			madvise(buf, size_read, MADV_SEQUENTIAL | MADV_WILLNEED);
+		if (madvise(buf, size_read, MADV_SEQUENTIAL | MADV_WILLNEED) == -1) {
+			dcdebug("Error calling madvise for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
+			break;
+		}
 
 			if(SETTING(MAX_HASH_SPEED) > 0) {
-				uint32_t now = GET_TICK();
-				uint32_t minTime = size_read * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
+			uint64_t now = GET_TICK();
+			uint64_t minTime = size_read * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
 				if(lastRead + minTime> now) {
-					uint32_t diff = now - lastRead;
+				uint64_t diff = now - lastRead;
 					Thread::sleep(minTime - diff);
 				}
 				lastRead = lastRead + minTime;
 			} else {
 				lastRead = GET_TICK();
 			}
-		} else {
-			size_read = 0;
-		}
 
 		tth.update(buf, size_read);
 		if(xcrc32)
@@ -680,22 +721,32 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
 			currentSize = max(static_cast<uint64_t>(currentSize - size_read), static_cast<uint64_t>(0));
 		}
 
-		munmap(buf, size_read);
-		pos += size_read;
-		size_left -= size_read;
-                buf = NULL;
+		if (munmap(buf, size_read) == -1) {
+			dcdebug("Error calling munmap for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
+			break;
+		}
 
-                if(size_left <= 0) {
-                        break;
+                buf = NULL;
+		pos += size_read;
+
+		instantPause();
+
+		if (pos == size) {
+			ok = true;
                 }
 	}
+
+	if (buf != NULL && buf != MAP_FAILED && munmap(buf, size_read) == -1) {
+		dcdebug("Error calling munmap for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
+	}
+
 	close(fd);
 
         if (sigaction(SIGBUS, &oldact, NULL) == -1) {
             dcdebug("Failed to reset old signal handler for SIGBUS\n");
         }
 
-	return true;
+	return ok;
 }
 
 #endif // !_WIN32
@@ -792,6 +843,8 @@ int HashManager::Hasher::run() {
 								currentSize = max(static_cast<uint64_t>(currentSize - n), static_cast<uint64_t>(0));
 							}
 							sizeLeft -= n;
+
+						instantPause();
 						}while (n> 0 && !stop);
 					} else {
 						sizeLeft = 0;
@@ -807,7 +860,7 @@ int HashManager::Hasher::run() {
 					if(xcrc32 && xcrc32->getValue() != sfv.getCRC()) {
 						LogManager::getInstance()->message(str(F_("%1% not shared; calculated CRC32 does not match the one found in SFV file.") % Util::addBrackets(fname)));
 					} else {
-						HashManager::getInstance()->hashDone(fname, timestamp, *tth, speed);
+					HashManager::getInstance()->hashDone(fname, timestamp, *tth, speed, size);
 					}
 				} catch(const FileException& e) {
 					LogManager::getInstance()->message(str(F_("Error hashing %1%: %2%") % Util::addBrackets(fname) % e.getError()));
@@ -832,5 +885,29 @@ int HashManager::Hasher::run() {
 		}
 		return 0;
 	}
+
+HashManager::HashPauser::HashPauser() {
+	resume = !HashManager::getInstance()->pauseHashing();
+}
+
+HashManager::HashPauser::~HashPauser() {
+	if(resume)
+		HashManager::getInstance()->resumeHashing();
+}
+
+bool HashManager::pauseHashing() {
+	Lock l(cs);
+	return hasher.pause();
+}
+
+void HashManager::resumeHashing() {
+	Lock l(cs);
+	hasher.resume();
+}
+
+bool HashManager::isHashingPaused() const {
+	Lock l(cs);
+	return hasher.isPaused();
+}
 
 } // namespace dcpp
