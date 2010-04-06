@@ -29,7 +29,7 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
 
     t = new QTimer();
     t->setSingleShot(true);
-    t->setInterval(2500);
+    t->setInterval(4000);
     connect(t, SIGNAL(timeout()), this, SLOT(slotResort()));
 
     rootItem = new UserListItem(NULL);
