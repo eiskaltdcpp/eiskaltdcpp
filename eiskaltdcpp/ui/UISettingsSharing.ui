@@ -323,6 +323,9 @@ to download from this folder</string>
        </item>
        <item>
         <widget class="QCheckBox" name="checkBox_REFRESH_ON_STARTUP">
+         <property name="toolTip">
+          <string>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</string>
+         </property>
          <property name="text">
           <string>Run on startup refresh share </string>
          </property>
