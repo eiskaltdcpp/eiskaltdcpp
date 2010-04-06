@@ -3043,6 +3043,10 @@ p, li { white-space: pre-wrap; }
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
         <translation>Kimenő üzenetek megjegyzése (0 = tiltás)</translation>
     </message>
+    <message>
+        <source>Use Ctrl+Enter to send messages</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -3277,6 +3281,14 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Auto refresh time (minutes,0 = off)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run on startup refresh share </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
