@@ -1491,13 +1491,13 @@ void ShareManager::on(HashManagerListener::TTHDone, const string& fname, const T
         setDirty();
     }
 }
-
 void ShareManager::on(TimerManagerListener::Minute, uint32_t tick) throw() {
-    if(SETTING(AUTO_REFRESH_TIME) > 0) {
-        if(lastFullUpdate + SETTING(AUTO_REFRESH_TIME) * 60 * 1000 <= tick) {
-            refresh(true, true);
-        }
-    }
+	if (SETTING(AUTO_REFRESH_TIME) > 0) {
+		if (Util::getUpTime() > 5 * 60) { // [+] IRainman: disabling update file list immediately after startup
+			if (lastFullUpdate + SETTING(AUTO_REFRESH_TIME) * 60 * 1000 < tick) {
+				refresh(true, true);
+			}
+		}
+	}
 }
-
 } // namespace dcpp

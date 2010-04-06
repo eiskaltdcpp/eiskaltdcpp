@@ -50,7 +50,7 @@ namespace dcpp {
 #ifndef _DEBUG
 FastCriticalSection FastAllocBase::cs;
 #endif
-
+time_t Util::startTime = time(NULL);
 string Util::emptyString;
 wstring Util::emptyStringW;
 tstring Util::emptyStringT;
