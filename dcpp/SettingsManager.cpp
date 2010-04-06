@@ -64,7 +64,7 @@ const string SettingsManager::settingTags[] =
     "MaxCompression", "NoAwayMsgToBots", "SkipZeroByte", "AdlsBreakOnFirst",
     "HubUserCommands", "AutoSearchAutoMatch", "DownloadBarColor", "UploadBarColor", "LogSystem",
     "LogFilelistTransfers", "SendUnknownCommands", "MaxHashSpeed", "OpenUserCmdHelp",
-    "GetUserCountry", "FavShowJoins", "LogStatusMessages", "ShowStatusbar",
+    "GetUserCountry", "FavShowJoins", "LogStatusMessages", "ShowStatusbar", "AllowUpdateFilelistsOnStartup",
     "ShowToolbar", "ShowTransferview", "PopunderPm", "PopunderFilelist", "MagnetAsk", "MagnetAction", "MagnetRegister",
     "AddFinishedInstantly", "DontDLAlreadyShared", "UseCTRLForLineHistory",
     "OpenNewWindow", "UDPPort", "ShowLastLinesLog",
@@ -262,6 +262,7 @@ SettingsManager::SettingsManager()
     setDefault(OPEN_NOTEPAD, false);
     setDefault(NO_IP_OVERRIDE, false);
     setDefault(NO_USE_TEMP_DIR, false);
+	setDefault(ALLOW_UPDATE_FILELIST_ON_STARTUP, true);
     setDefault(SHARE_TEMP_FILES, false);
     setDefault(SEARCH_ONLY_FREE_SLOTS, false);
     setDefault(SEARCH_FILTER_SHARED, true);

@@ -54,6 +54,7 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::MAX_HASH_SPEED, spinBox_MAXHASHSPEED->value());
     SM->set(SettingsManager::FAST_HASH, checkBox_FASTHASH->isChecked());
 	SM->set(SettingsManager::AUTO_REFRESH_TIME, spinBox_REFRESH_TIME->value());
+	SM->set(SettingsManager::ALLOW_UPDATE_FILELIST_ON_STARTUP, checkBox_REFRESH_ON_STARTUP->isChecked());
 
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
 
@@ -83,6 +84,7 @@ void SettingsSharing::init(){
 	spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
     spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));
 	spinBox_REFRESH_TIME->setValue(SETTING(AUTO_REFRESH_TIME));
+	checkBox_REFRESH_ON_STARTUP->setChecked(BOOLSETTING(ALLOW_UPDATE_FILELIST_ON_STARTUP));
 
     label_TOTALSHARED->setText(tr("Total shared: %1")
                                .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));

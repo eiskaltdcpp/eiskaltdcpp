@@ -870,7 +870,7 @@ int ShareManager::run() {
     if(dirs.empty())
         refreshDirs = false;
 
-    if(refreshDirs) {
+    if(refreshDirs && (BOOLSETTING(ALLOW_UPDATE_FILELIST_ON_STARTUP) || Util::getUpTime() > 15)) {
         LogManager::getInstance()->message(_("File list refresh initiated"));
 
         lastFullUpdate = GET_TICK();
