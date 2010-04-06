@@ -1025,7 +1025,7 @@ Favorite user</source>
         <translation>Ці выйсьці з праграмы?</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="454"/>
+        <location filename="../MainWindow.cpp" line="451"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
@@ -1035,97 +1035,97 @@ Favorite user</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="408"/>
+        <location filename="../MainWindow.cpp" line="407"/>
         <source>Ctrl+R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="437"/>
+        <location filename="../MainWindow.cpp" line="434"/>
         <source>Ctrl+H</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="460"/>
+        <location filename="../MainWindow.cpp" line="457"/>
         <source>Ctrl+T</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="467"/>
+        <location filename="../MainWindow.cpp" line="464"/>
         <source>Ctrl+D</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="524"/>
+        <location filename="../MainWindow.cpp" line="521"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="416"/>
-        <location filename="../MainWindow.cpp" line="1445"/>
+        <location filename="../MainWindow.cpp" line="415"/>
+        <location filename="../MainWindow.cpp" line="1451"/>
         <source>Hide window</source>
         <translation>Схаваць ваконца</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="417"/>
+        <location filename="../MainWindow.cpp" line="416"/>
         <source>Esc</source>
         <translation>Esc</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="423"/>
-        <location filename="../MainWindow.cpp" line="1443"/>
+        <location filename="../MainWindow.cpp" line="421"/>
+        <location filename="../MainWindow.cpp" line="1449"/>
         <source>Show/hide find frame</source>
         <translation>Паказаць або схаваць форму пошуку</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="529"/>
-        <location filename="../MainWindow.cpp" line="1609"/>
+        <location filename="../MainWindow.cpp" line="525"/>
+        <location filename="../MainWindow.cpp" line="1602"/>
         <source>Hide free space bar</source>
         <translation>Схаваць стужку вольнае прасторы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="531"/>
-        <location filename="../MainWindow.cpp" line="1604"/>
+        <location filename="../MainWindow.cpp" line="527"/>
+        <location filename="../MainWindow.cpp" line="1597"/>
         <source>Show free space bar</source>
         <translation>Паказаць стужку вольнае прасторы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="426"/>
+        <location filename="../MainWindow.cpp" line="424"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="555"/>
+        <location filename="../MainWindow.cpp" line="551"/>
         <source>Ctrl+F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="738"/>
+        <location filename="../MainWindow.cpp" line="733"/>
         <source>Counts</source>
         <translatorcomment>???хм</translatorcomment>
         <translation>Лічыльнік</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="745"/>
+        <location filename="../MainWindow.cpp" line="740"/>
         <source>Download speed (per sec.)</source>
         <translation>Хуткасьць сьцягваць (за сэк.)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="752"/>
+        <location filename="../MainWindow.cpp" line="747"/>
         <source>Upload speed (per sec.)</source>
         <translation>Хуткасьць зацягваць (за сэк.)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="759"/>
+        <location filename="../MainWindow.cpp" line="754"/>
         <source>Downloaded</source>
         <translation>Сьцягнулі</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="766"/>
+        <location filename="../MainWindow.cpp" line="761"/>
         <source>Uploaded</source>
         <translation>Зацягнулі</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="779"/>
+        <location filename="../MainWindow.cpp" line="774"/>
         <source>Space free</source>
         <translation>Вольная прастора</translation>
     </message>
@@ -1146,7 +1146,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="809"/>
-        <location filename="../MainWindow.cpp" line="1306"/>
+        <location filename="../MainWindow.cpp" line="1307"/>
         <source>Open log file</source>
         <translation>Адкрыць файл журналу</translation>
     </message>
@@ -1237,21 +1237,26 @@ Favorite user</source>
         <translation>Хутка злучыцца</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="538"/>
-        <location filename="../MainWindow.cpp" line="1623"/>
+        <location filename="../MainWindow.cpp" line="534"/>
+        <location filename="../MainWindow.cpp" line="1616"/>
         <source>Hide last status message</source>
         <translation>Схаваць апошняе апісаньне стану</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="544"/>
-        <location filename="../MainWindow.cpp" line="1643"/>
+        <location filename="../MainWindow.cpp" line="540"/>
+        <location filename="../MainWindow.cpp" line="1636"/>
         <source>Hide users statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="548"/>
-        <location filename="../MainWindow.cpp" line="1641"/>
+        <location filename="../MainWindow.cpp" line="544"/>
+        <location filename="../MainWindow.cpp" line="1634"/>
         <source>Show users statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="798"/>
+        <source>Clear text field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1342,53 +1347,53 @@ Favorite user</source>
         <translation>Галоўнае разьмешчаньне</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="967"/>
-        <location filename="../MainWindow.cpp" line="992"/>
+        <location filename="../MainWindow.cpp" line="968"/>
+        <location filename="../MainWindow.cpp" line="993"/>
         <source>Free %1</source>
         <translation>Вольных %1</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="970"/>
-        <location filename="../MainWindow.cpp" line="995"/>
+        <location filename="../MainWindow.cpp" line="971"/>
+        <location filename="../MainWindow.cpp" line="996"/>
         <source>Free %1 of %2</source>
         <translation>Вольных %1 з %2</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1077"/>
+        <location filename="../MainWindow.cpp" line="1078"/>
         <source>Choose file to open</source>
         <translation>Абярыце, які файл адкрываць</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1078"/>
+        <location filename="../MainWindow.cpp" line="1079"/>
         <source>Modern XML Filelists</source>
         <translation>Сучасныя XML сьпісы файлаў</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1079"/>
+        <location filename="../MainWindow.cpp" line="1080"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Сучасныя XML сьпісы файлаў (нясьціснутыя)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1080"/>
+        <location filename="../MainWindow.cpp" line="1081"/>
         <source>All files</source>
         <translation>Усе файлы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1085"/>
+        <location filename="../MainWindow.cpp" line="1086"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation>Не магу прачытаць сьпіс файлаў: хібны назоў сьпісу файлаў</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1285"/>
-        <location filename="../MainWindow.cpp" line="1292"/>
+        <location filename="../MainWindow.cpp" line="1286"/>
+        <location filename="../MainWindow.cpp" line="1293"/>
         <source>Cannot listen socket because: 
 </source>
         <translation>Не магу праслухаць гняздо. Падставы: 
 </translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1285"/>
-        <location filename="../MainWindow.cpp" line="1292"/>
+        <location filename="../MainWindow.cpp" line="1286"/>
+        <location filename="../MainWindow.cpp" line="1293"/>
         <source>
 
 Please check your connection settings</source>
@@ -1397,28 +1402,28 @@ Please check your connection settings</source>
 Калі ласка, спраўдзіце наладжваньні злучэньня</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1287"/>
+        <location filename="../MainWindow.cpp" line="1288"/>
         <source>Connection Manager: Warning</source>
         <translation>Кіраўнік злучэньняў: перасьцярога</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1294"/>
+        <location filename="../MainWindow.cpp" line="1295"/>
         <source>Search Manager: Warning</source>
         <translation>Кіраўнік пошуку: перасьцярога</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1306"/>
+        <location filename="../MainWindow.cpp" line="1307"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation>Файлы журналу (*.log);;Усе файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1511"/>
+        <location filename="../MainWindow.cpp" line="1504"/>
         <source>Chat cleared.</source>
         <translation>Гаману ачысьцілі.</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="542"/>
-        <location filename="../MainWindow.cpp" line="1621"/>
+        <location filename="../MainWindow.cpp" line="538"/>
+        <location filename="../MainWindow.cpp" line="1614"/>
         <source>Show last status message</source>
         <translation>Паказаць апошняе апісаньне стану</translation>
     </message>
@@ -1428,33 +1433,33 @@ Please check your connection settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1681"/>
+        <location filename="../MainWindow.cpp" line="1674"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
         <translation>EiskaltDC++ — графічны кліент да пратаколаў Direct Connect і ADC.</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1682"/>
+        <location filename="../MainWindow.cpp" line="1675"/>
         <source>DC++ core version:</source>
         <translation>Вэрсія асновы DC++:</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1684"/>
+        <location filename="../MainWindow.cpp" line="1677"/>
         <source>(modified)</source>
         <translatorcomment>???зьмененае</translatorcomment>
         <translation>(зьмененая)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1688"/>
+        <location filename="../MainWindow.cpp" line="1681"/>
         <source>Total up:</source>
         <translation>Разам зацягнулі:</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1690"/>
+        <location filename="../MainWindow.cpp" line="1683"/>
         <source>Total down:</source>
         <translation>Разам сьцягнулі:</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1685"/>
+        <location filename="../MainWindow.cpp" line="1678"/>
         <source>Home page:</source>
         <translation>Хатняя бачына:</translation>
     </message>
@@ -1715,15 +1720,15 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="489"/>
-        <location filename="../SearchFrame.cpp" line="764"/>
+        <location filename="../SearchFrame.cpp" line="776"/>
         <source>Searching too soon, next search in %1 second</source>
         <translatorcomment>!!!множны лік</translatorcomment>
         <translation>Занадта часта шукаем, наступны раз паспрабуем праз %1 сэкундаў</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="493"/>
-        <location filename="../SearchFrame.cpp" line="760"/>
-        <location filename="../SearchFrame.cpp" line="768"/>
+        <location filename="../SearchFrame.cpp" line="772"/>
+        <location filename="../SearchFrame.cpp" line="780"/>
         <source>Search - %1</source>
         <translation>Шукаем — %1</translation>
     </message>
@@ -1734,18 +1739,18 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Можна шукаць…</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="866"/>
-        <location filename="../SearchFrame.cpp" line="919"/>
+        <location filename="../SearchFrame.cpp" line="878"/>
+        <location filename="../SearchFrame.cpp" line="931"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1142"/>
+        <location filename="../SearchFrame.cpp" line="1154"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Вынікаў няма&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1151"/>
+        <location filename="../SearchFrame.cpp" line="1163"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translatorcomment>???Прапусьцілі</translatorcomment>
         <translation>Знайшлі: &lt;b&gt;%1&lt;/b&gt;  Адкінулі: &lt;b&gt;%2&lt;/b&gt;</translation>
@@ -2185,59 +2190,59 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>SettingsSharing</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="67"/>
+        <location filename="../SettingsSharing.cpp" line="68"/>
         <source>GiB</source>
         <translation>ГіБ</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="85"/>
-        <location filename="../SettingsSharing.cpp" line="153"/>
+        <location filename="../SettingsSharing.cpp" line="87"/>
+        <location filename="../SettingsSharing.cpp" line="155"/>
         <source>Total shared: %1</source>
         <translation>Разам абагулілі: %1</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="135"/>
-        <location filename="../SettingsSharing.cpp" line="234"/>
+        <location filename="../SettingsSharing.cpp" line="137"/>
+        <location filename="../SettingsSharing.cpp" line="236"/>
         <source>%1 GiB</source>
         <translation>%1 ГіБ</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="180"/>
+        <location filename="../SettingsSharing.cpp" line="182"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="180"/>
+        <location filename="../SettingsSharing.cpp" line="182"/>
         <source>Name</source>
         <translation>Назоў</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="198"/>
+        <location filename="../SettingsSharing.cpp" line="200"/>
         <source>Add</source>
         <translation>Дадаць</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="206"/>
+        <location filename="../SettingsSharing.cpp" line="208"/>
         <source>Remove</source>
         <translation>Выкрасьліць</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="219"/>
+        <location filename="../SettingsSharing.cpp" line="221"/>
         <source>Enter virtual path name</source>
         <translation>Упішыце назоў уяўнага шляху</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="219"/>
+        <location filename="../SettingsSharing.cpp" line="221"/>
         <source>Virtual path</source>
         <translation>Уяўны шлях</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="226"/>
+        <location filename="../SettingsSharing.cpp" line="228"/>
         <source>Enter restriction (in GiB)</source>
         <translation>Упішыце абмежаваньне (у ГіБ)</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="226"/>
+        <location filename="../SettingsSharing.cpp" line="228"/>
         <source>Restriction</source>
         <translation>Абмежаваньне</translation>
     </message>
@@ -2339,7 +2344,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="375"/>
+        <location filename="../SettingsSharing.cpp" line="377"/>
         <source>Error</source>
         <translation>Памылка</translation>
     </message>
@@ -4063,49 +4068,59 @@ p, li { white-space: pre-wrap; }
         <translation>Галоўныя</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="112"/>
+        <location filename="../ui/UISettingsSharing.ui" line="204"/>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="277"/>
+        <source>Auto refresh time (minutes,0 = off)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="302"/>
         <source>Use fast hash</source>
         <translation>Хуткі спосаб ствараць скароты</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="145"/>
+        <location filename="../ui/UISettingsSharing.ui" line="328"/>
         <source>Share temp files</source>
         <translation>Абагуляць часовыя файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="158"/>
+        <location filename="../ui/UISettingsSharing.ui" line="315"/>
         <source>Share hidden files</source>
         <translation>Абагуляць схаваныя файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="229"/>
+        <location filename="../ui/UISettingsSharing.ui" line="153"/>
         <source>Restrictions</source>
         <translation>Абмежаваньні</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="235"/>
+        <location filename="../ui/UISettingsSharing.ui" line="159"/>
         <source>Per folder limit specifies how many files in GiB
 remote user must share the to be able
 to download from this folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="256"/>
+        <location filename="../ui/UISettingsSharing.ui" line="180"/>
         <source>Share</source>
         <translation>Абагуленае</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="261"/>
+        <location filename="../ui/UISettingsSharing.ui" line="185"/>
         <source>Restriction</source>
         <translation>Абмежаваньне</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="269"/>
+        <location filename="../ui/UISettingsSharing.ui" line="193"/>
         <source>All changes take effect only after restart</source>
         <translation>Усе зьмяненьні пачнуць дзейнічаць пасьля наступнага запуску</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="125"/>
+        <location filename="../ui/UISettingsSharing.ui" line="142"/>
         <source>Follow symlinks</source>
         <translation>Хадзіць па спасылках</translation>
     </message>
@@ -4115,23 +4130,23 @@ to download from this folder</source>
         <translation>Не абагуляць (знак “*” групуе, “|” — аддзяляе)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="79"/>
+        <location filename="../ui/UISettingsSharing.ui" line="218"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
         <translation>Найвялікшая хуткасьць ствараць скароты (МБ/с, 0=не абмяжоўваць)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="193"/>
+        <location filename="../ui/UISettingsSharing.ui" line="244"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translatorcomment>???бясконцая ці нуль?</translatorcomment>
         <translation>Дадаць шчыліну, калі хуткасьць (у КіБ/с) меней за</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="215"/>
+        <location filename="../ui/UISettingsSharing.ui" line="126"/>
         <source>Upload slots</source>
         <translation>Шчылінаў зацягваць файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="66"/>
+        <location filename="../ui/UISettingsSharing.ui" line="91"/>
         <source>Total shared: %1</source>
         <translation>Разам абагулілі: %1</translation>
     </message>
@@ -4202,52 +4217,52 @@ to download from this folder</source>
 <context>
     <name>UserListModel</name>
     <message>
-        <location filename="../UserListModel.cpp" line="106"/>
+        <location filename="../UserListModel.cpp" line="115"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: Operator</source>
         <translation>&lt;b&gt;Роля на асяродку&lt;/b&gt;: апэратар</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="108"/>
+        <location filename="../UserListModel.cpp" line="117"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: User</source>
         <translation>&lt;b&gt;Роля на асяродку&lt;/b&gt;: карыстальнік</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="111"/>
+        <location filename="../UserListModel.cpp" line="120"/>
         <source>&lt;br/&gt;&lt;b&gt;Favorite user&lt;/b&gt;</source>
         <translation>&lt;br/&gt;&lt;b&gt;Улюбёнец&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="144"/>
+        <location filename="../UserListModel.cpp" line="153"/>
         <source>Nick</source>
         <translation>Мянушка</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="145"/>
+        <location filename="../UserListModel.cpp" line="154"/>
         <source>Comment</source>
         <translation>Заўвага</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="146"/>
+        <location filename="../UserListModel.cpp" line="155"/>
         <source>Tag</source>
         <translation>Бірка</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="147"/>
+        <location filename="../UserListModel.cpp" line="156"/>
         <source>Connection</source>
         <translation>Злучэньне</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="148"/>
+        <location filename="../UserListModel.cpp" line="157"/>
         <source>Email</source>
         <translation>Эл. пошта</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="149"/>
+        <location filename="../UserListModel.cpp" line="158"/>
         <source>Share</source>
         <translation>Доля</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="150"/>
+        <location filename="../UserListModel.cpp" line="159"/>
         <source>IP</source>
         <translation></translation>
     </message>

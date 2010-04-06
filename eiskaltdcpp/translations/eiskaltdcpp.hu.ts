@@ -1135,6 +1135,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Fast search panel</source>
         <translation>Gyorskereső panel</translation>
     </message>
+    <message>
+        <source>Clear text field</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -3266,6 +3270,14 @@ to download from this folder</source>
         <translation>Könyvtárankénti limit, ahol megadható,
 hogy a távoli felhasználónak mennyi adatot kell megosztania (GiB),
 hogy letölthessen ebből a könyvtárból</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto refresh time (minutes,0 = off)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
