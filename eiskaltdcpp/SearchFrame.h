@@ -142,6 +142,7 @@ public:
 
     void searchAlternates(const QString &);
     void searchFile(const QString &);
+    void fastSearch(const QString &);
 
 protected:
     virtual void closeEvent(QCloseEvent*);

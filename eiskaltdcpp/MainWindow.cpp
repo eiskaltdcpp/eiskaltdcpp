@@ -793,7 +793,7 @@ void MainWindow::initStatusBar(){
 void MainWindow::initSearchBar(){
     searchLineEdit = new QLineEdit(this);
 
-    connect(searchLineEdit, SIGNAL(returnPressed()), this, SLOT(slotSearch()));
+    connect(searchLineEdit, SIGNAL(returnPressed()), this, SLOT(slotToolsSearch()));
 }
 
 void MainWindow::retranslateUi(){
@@ -1354,6 +1354,11 @@ void MainWindow::slotToolsSearch(){
     SearchFrame *sf = new SearchFrame();
 
     sf->setAttribute(Qt::WA_DeleteOnClose);
+
+    QLineEdit *le = qobject_cast<QLineEdit *>(sender());
+
+    if (le == searchLineEdit)
+        sf->fastSearch(searchLineEdit->text());
 }
 
 void MainWindow::slotToolsDownloadQueue(){
@@ -1452,9 +1457,7 @@ void MainWindow::slotToolsTransfer(bool toggled){
 }
 
 void MainWindow::slotPanelMenuActionClicked(){
-    QObject *obj = sender();
-
-    QAction *act = qobject_cast<QAction *>(obj);
+    QAction *act = qobject_cast<QAction *>(sender());
 
     if (act == 0)
         return;
@@ -1471,14 +1474,6 @@ void MainWindow::slotPanelMenuActionClicked(){
         sBar->setVisible(panelsSearch->isChecked());
         WBSET(WB_SEARCH_PANEL_VISIBLE, panelsSearch->isChecked());
     }
-}
-
-void MainWindow::slotSearch(){
-    SearchFrame *sf = new SearchFrame();
-
-    sf->setAttribute(Qt::WA_DeleteOnClose);
-
-    sf->searchFile(searchLineEdit->text());
 }
 
 void MainWindow::slotChatClear(){

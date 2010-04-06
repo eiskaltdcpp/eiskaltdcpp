@@ -653,6 +653,13 @@ void SearchFrame::searchFile(const QString &file){
     slotStartSearch();
 }
 
+void SearchFrame::fastSearch(const QString &text){
+    comboBox_FILETYPES->setCurrentIndex(0);
+    comboBox_SEARCHSTR->setEditText(text);
+
+    slotStartSearch();
+}
+
 void SearchFrame::slotStartSearch(){
     MainWindow *MW = MainWindow::getInstance();
     QString s = comboBox_SEARCHSTR->currentText();

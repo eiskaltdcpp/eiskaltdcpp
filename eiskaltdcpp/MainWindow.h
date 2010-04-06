@@ -180,8 +180,6 @@ friend class dcpp::Singleton<MainWindow>;
         void nextMsg();
         void prevMsg();
 
-        void slotSearch();
-
         void slotFind();
         void slotChatDisable();
 
