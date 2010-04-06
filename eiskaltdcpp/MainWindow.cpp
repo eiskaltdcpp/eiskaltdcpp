@@ -796,6 +796,7 @@ void MainWindow::initSearchBar(){
 
     searchToolButton->setText("c");
     searchToolButton->setToolTip(tr("Clear text field"));
+    searchToolButton->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiERASER));
 
     connect(searchLineEdit,   SIGNAL(returnPressed()), this, SLOT(slotToolsSearch()));
     connect(searchToolButton, SIGNAL(clicked()), searchLineEdit, SLOT(clear()));

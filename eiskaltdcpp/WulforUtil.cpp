@@ -264,6 +264,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiEDITCOPY] = loadPixmap("editcopy.png");
     m_PixmapMap[eiEDITDELETE] = loadPixmap("editdelete.png");
     m_PixmapMap[eiEMOTICON] = loadPixmap("emoticon.png");
+    m_PixmapMap[eiERASER] = loadPixmap("eraser.png");
     m_PixmapMap[eiEXIT] = loadPixmap("exit.png");
     m_PixmapMap[eiFAV] = loadPixmap("fav.png");
     m_PixmapMap[eiFAVADD] = loadPixmap("favadd.png");

@@ -60,6 +60,7 @@ public:
         eiEDITCOPY,
         eiEDITDELETE,
         eiEMOTICON,
+        eiERASER,
         eiEXIT,
         eiFAV,
         eiFAVADD,
