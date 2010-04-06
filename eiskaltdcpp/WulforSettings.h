@@ -86,6 +86,7 @@ const char * const WB_WIDGETS_PANEL_VISIBLE   = "widgets-panel-visible";
 const char * const WB_TOOLS_PANEL_VISIBLE     = "tools-panel-visible";
 const char * const WB_SEARCH_PANEL_VISIBLE    = "search-panel-visible";
 const char * const WB_MAIN_MENU_VISIBLE       = "main-menu-visible";
+const char * const WB_USE_CTRL_ENTER          = "use-ctrl-enter";
 const char * const WI_DEF_MAGNET_ACTION       = "def-magnet-action"; //0-not do any 1-search 2-download
 const char * const WI_CHAT_MAXPARAGRAPHS      = "chat-max-paragraph";
 const char * const WI_CHAT_WIDTH              = "chat-width";

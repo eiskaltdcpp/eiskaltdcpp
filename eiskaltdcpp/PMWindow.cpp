@@ -79,7 +79,8 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
         if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
-            ((k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) && k_e->modifiers() == Qt::NoModifier) ||
+            (!WBGET(WB_USE_CTRL_ENTER) || k_e->modifiers() == Qt::ControlModifier) &&
+            ((k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) && k_e->modifiers() != Qt::ShiftModifier) ||
              (k_e->key() == Qt::Key_Enter && k_e->modifiers() == Qt::KeypadModifier))
         {
             sendMessage(plainTextEdit_INPUT->toPlainText());

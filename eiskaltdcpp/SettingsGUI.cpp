@@ -123,6 +123,7 @@ void SettingsGUI::init(){
         checkBox_KEEPFOCUS->setChecked(WBGET(WB_CHAT_KEEPFOCUS));
         checkBox_EMOT->setChecked(WBGET(WB_APP_ENABLE_EMOTICON));
         checkBox_EMOTFORCE->setChecked(WBGET(WB_APP_FORCE_EMOTICONS));
+        checkBox_USE_CTRL_ENTER->setChecked(WBGET(WB_USE_CTRL_ENTER));
     }
     {//Color tab
         QColor c;
@@ -228,6 +229,7 @@ void SettingsGUI::ok(){
         WBSET(WB_CHAT_KEEPFOCUS, checkBox_KEEPFOCUS->isChecked());
         WBSET(WB_APP_ENABLE_EMOTICON, checkBox_EMOT->isChecked());
         WBSET(WB_APP_FORCE_EMOTICONS, checkBox_EMOTFORCE->isChecked());
+        WBSET(WB_USE_CTRL_ENTER, checkBox_USE_CTRL_ENTER->isChecked());
 
         SM->set(SettingsManager::IGNORE_BOT_PMS, checkBox_IGNOREPMBOT->isChecked());
         SM->set(SettingsManager::IGNORE_HUB_PMS, checkBox_IGNOREPMHUB->isChecked());

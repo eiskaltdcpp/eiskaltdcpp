@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>420</width>
-    <height>346</height>
+    <height>368</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -216,6 +216,16 @@
         <widget class="QCheckBox" name="checkBox_KEEPFOCUS">
          <property name="text">
           <string>Do not change focus on new private message</string>
+         </property>
+         <property name="autoExclusive">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_USE_CTRL_ENTER">
+         <property name="text">
+          <string>Use Ctrl+Enter to send messages</string>
          </property>
          <property name="autoExclusive">
           <bool>false</bool>
