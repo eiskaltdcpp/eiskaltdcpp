@@ -19,6 +19,7 @@
 #include <QSessionManager>
 #include <QShortcut>
 #include <QKeySequence>
+#include <QToolButton>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -228,7 +229,8 @@ friend class dcpp::Singleton<MainWindow>;
         ToolBar *fBar;//for actions
         ToolBar *sBar;//for fast search
 
-        QLineEdit *searchLineEdit;
+        QLineEdit   *searchLineEdit;
+        QToolButton *searchToolButton;
 
         QLabel *statusLabel;
         QLabel *statusDSPLabel;

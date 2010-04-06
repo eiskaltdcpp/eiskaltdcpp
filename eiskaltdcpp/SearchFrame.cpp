@@ -654,6 +654,9 @@ void SearchFrame::searchFile(const QString &file){
 }
 
 void SearchFrame::fastSearch(const QString &text){
+    if (text.isEmpty())
+        return;
+
     comboBox_FILETYPES->setCurrentIndex(0);
     comboBox_SEARCHSTR->setEditText(text);
 
