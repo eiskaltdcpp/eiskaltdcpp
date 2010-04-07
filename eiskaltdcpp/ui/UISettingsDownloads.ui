@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>584</width>
-    <height>372</height>
+    <width>531</width>
+    <height>354</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,6 +36,9 @@
           <string>Directories</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="1" column="0">
            <widget class="QLineEdit" name="lineEdit_DLDIR"/>
           </item>
@@ -94,6 +97,9 @@
           <string>Limits</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="1" column="0">
            <widget class="QSpinBox" name="spinBox_NONEWDL">
             <property name="maximum">
@@ -155,6 +161,9 @@
           <string>Public Hub lists</string>
          </property>
          <layout class="QGridLayout" name="gridLayout">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="1" column="0">
            <widget class="QLineEdit" name="lineEdit_PROXY"/>
           </item>
@@ -267,6 +276,9 @@
           <string>Auto-priority settings</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_8">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="0" column="1">
            <widget class="QSpinBox" name="spinBox_HTPMAX">
             <property name="maximum">
@@ -384,6 +396,9 @@
           <string>Auto-drop settings</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_9">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="0" column="1">
            <widget class="QSpinBox" name="spinBox_DROPSB">
             <property name="maximum">
@@ -547,6 +562,9 @@
           <string>Other options</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_10">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="0" column="0">
            <widget class="QListWidget" name="listWidget">
             <property name="minimumSize">

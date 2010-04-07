@@ -17,6 +17,8 @@ private slots:
     void slotAccepted();
     void slotUp();
     void slotDown();
+    void slotAdd();
+    void slotRem();
 };
 
 #endif // PUBLICHUBSLIST_H

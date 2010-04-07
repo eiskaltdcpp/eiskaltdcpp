@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>363</width>
-    <height>415</height>
+    <width>361</width>
+    <height>395</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,9 @@
       <string>Hub</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="margin">
+       <number>1</number>
+      </property>
       <item row="0" column="0" colspan="2">
        <widget class="QCheckBox" name="checkBox_AUTOCONNECT">
         <property name="text">
@@ -154,6 +157,9 @@
       <string>Identification</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
+      <property name="margin">
+       <number>1</number>
+      </property>
       <item row="0" column="1">
        <widget class="QLineEdit" name="lineEdit_NICK">
         <property name="enabled">

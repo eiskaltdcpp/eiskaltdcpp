@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>420</width>
-    <height>368</height>
+    <width>418</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,6 +30,9 @@
           <string>Language file</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_6">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="0" column="0">
            <widget class="QLineEdit" name="lineEdit_LANGFILE"/>
           </item>
@@ -52,6 +55,9 @@
           <string>Theme</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="0" column="0">
            <widget class="QComboBox" name="comboBox_THEMES"/>
           </item>
@@ -77,6 +83,9 @@
           <string>Application font</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="0" column="0">
            <widget class="QLineEdit" name="lineEdit_APPFONT"/>
           </item>
@@ -317,6 +326,9 @@
           <string>Text colors in chat</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item row="0" column="0">
            <widget class="QListWidget" name="listWidget_CHATCOLOR">
             <property name="minimumSize">
