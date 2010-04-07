@@ -729,7 +729,12 @@ void HubFrame::customEvent(QEvent *e){
             pmUserOffline(cid);
 
             QString nick = model->itemForPtr(u_e->getUser())->nick;
-            pm.insert(nick, pm[cid]);
+            PMWindow *pmw = pm[cid];
+
+            pm.insert(nick, pmw);
+
+            pmw->cid = nick;
+            pmw->plainTextEdit_INPUT->setEnabled(false);
 
             pm.remove(cid);
         }
@@ -1415,6 +1420,7 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
             PMWindow *wnd = pm[nick];
 
             wnd->cid = cid;
+            wnd->plainTextEdit_INPUT->setEnabled(true);
             wnd->hubUrl = _q(client->getHubUrl());
 
             pm.insert(cid, wnd);
