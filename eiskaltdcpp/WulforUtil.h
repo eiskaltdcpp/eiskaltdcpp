@@ -138,6 +138,7 @@ public:
     QStringList getLocalIPs();
 
     QString makeMagnet(const QString&, const int64_t, const QString&);
+    static void splitMagnet(const QString &magnet, int64_t &size, QString &tth, QString &name);
 
     int sortOrderToInt(Qt::SortOrder);
     Qt::SortOrder intToSortOrder(int);

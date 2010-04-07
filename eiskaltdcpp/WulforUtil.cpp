@@ -705,6 +705,39 @@ QString WulforUtil::makeMagnet(const QString &path, const int64_t size, const QS
     return magnetSignature + tth + "&xl=" + _q(Util::toString(size)) + "&dn=" + _q(Util::encodeURI(path.toStdString()));
 }
 
+void WulforUtil::splitMagnet(const QString &magnet, int64_t &size, QString &tth, QString &name){
+    size = 0;
+    tth = "";
+    name = "";
+
+    if (magnet.isEmpty() || !magnet.contains("urn:tree:tiger"))
+        return;
+
+    QUrl url;
+
+    if (!magnet.contains("+"))
+        url.setEncodedUrl(magnet.toAscii());
+    else {
+        QString _l = magnet;
+
+        _l.replace("+", "%20");
+        url.setEncodedUrl(_l.toAscii());
+    }
+
+    if (url.hasQueryItem("dn"))
+        name = url.queryItemValue("dn");
+
+    if (url.hasQueryItem("xl"))
+        size = url.queryItemValue("xl").toLongLong();
+
+    if (url.hasQueryItem("xt")){
+        tth = url.queryItemValue("xt");
+
+        if (tth.startsWith("urn:tree:tiger:"))
+            tth.remove(0, strlen("urn:tree:tiger:"));
+    }
+}
+
 int WulforUtil::sortOrderToInt(Qt::SortOrder order){
     if (order == Qt::AscendingOrder)
         return 0;

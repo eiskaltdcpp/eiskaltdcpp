@@ -50,46 +50,23 @@ void Magnet::customEvent(QEvent *e){
 }
 
 void Magnet::setLink(const QString &link){
-    if (link.isEmpty() || !link.contains("urn:tree:tiger") || !link.contains("magnet"))
-        return;
 
-    QUrl url;
-
-    if (!link.contains("+"))
-        url.setEncodedUrl(link.toAscii());
-    else {
-        QString _l = link;
-
-        _l.replace("+", "%20");
-        url.setEncodedUrl(_l.toAscii());
-    }
-
-    if (url.hasQueryItem("dn"))
-        lineEdit_FNAME->setText(url.queryItemValue("dn"));
-
-	qDebug() << url.queryItemValue("dn");
+    QString name = "", tth = "";
+    int64_t size = 0;
 
     lineEdit_SIZE->setReadOnly(true);
 
-    qulonglong size = 0;
-    if (url.hasQueryItem("xl"))
-        size = url.queryItemValue("xl").toLongLong();
+    WulforUtil::splitMagnet(link, size, tth, name);
 
-    if (size > 0){
+    lineEdit_FNAME->setText(name);
+
+    if (size > 0)
         lineEdit_SIZE->setText(QString("%1 (%2)").arg(size).arg(WulforUtil::formatBytes(size)));
-    }
     else
         lineEdit_SIZE->setText("0 (0 MiB)");
-	qDebug() << size;
-	QString tth;
-	if (url.hasQueryItem("xt"))
-        tth = url.queryItemValue("xt");
-	qDebug() << tth;
-	tth = tth.right(39);
-	qDebug() << tth;
 
     if (lineEdit_FNAME->text().isEmpty())
-    lineEdit_FNAME->setText(tth);
+        lineEdit_FNAME->setText(tth);
 
     lineEdit_TTH->setText(tth);
     lineEdit_FPATH->setText(_q(SETTING(DOWNLOAD_DIRECTORY)));
