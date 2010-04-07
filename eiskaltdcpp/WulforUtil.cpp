@@ -691,11 +691,11 @@ QString WulforUtil::formatBytes(int64_t aBytes){
     else if(aBytes < 1024*1024*1024)
         return tr("%1 MiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0), 0, 'f', 1);
     else if(aBytes < (int64_t)1024*1024*1024*1024)
-        return tr("%1 GiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0), 0, 'f', 1);
+        return tr("%1 GiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0), 0, 'f', 2);
     else if(aBytes < (int64_t)1024*1024*1024*1024*1024)
-        return tr("%1 TiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0), 0, 'f', 1);
+        return tr("%1 TiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0), 0, 'f', 3);
     else
-        return tr("%1 PiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0*1024.0), 0, 'f', 1);
+        return tr("%1 PiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0*1024.0), 0, 'f', 4);
 }
 
 QString WulforUtil::makeMagnet(const QString &path, const int64_t size, const QString &tth){
