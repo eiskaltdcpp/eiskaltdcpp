@@ -734,7 +734,7 @@ void HubFrame::customEvent(QEvent *e){
             pm.insert(nick, pmw);
 
             pmw->cid = nick;
-            pmw->plainTextEdit_INPUT->setEnabled(false);
+            pmw->plainTextEdit_INPUT->setEnabled(false);//we need interface function
 
             pm.remove(cid);
         }
