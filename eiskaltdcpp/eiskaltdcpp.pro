@@ -279,4 +279,5 @@ FORMS = ui/HubFrame.ui \
     ui/UISettingsLog.ui \
     ui/UISpy.ui \
     ui/UIPublicHubs.ui \
-    ui/UIPublicHubsList.ui
+    ui/UIPublicHubsList.ui \
+    ui/UIUserCommands.ui

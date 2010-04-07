@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UIUserCommands</class>
+ <widget class="QDialog" name="UIUserCommands">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>289</width>
+    <height>403</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>New command</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>2</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Type</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="margin">
+       <number>2</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QRadioButton" name="radioButton_SEP">
+        <property name="text">
+         <string>Separator</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QRadioButton" name="radioButton_CHAT">
+        <property name="text">
+         <string>Chat</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QRadioButton" name="radioButton_RAW">
+        <property name="text">
+         <string>Raw</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QRadioButton" name="radioButton_PM">
+        <property name="text">
+         <string>PM</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Context</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <property name="margin">
+       <number>2</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="checkBox_HUB">
+        <property name="text">
+         <string>Hub</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QCheckBox" name="checkBox_SEARCH">
+        <property name="text">
+         <string>Search</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkBox_USER">
+        <property name="text">
+         <string>User</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="checkBox_FB">
+        <property name="text">
+         <string>Filebrowser</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Parameters</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <property name="margin">
+       <number>2</number>
+      </property>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="lineEdit_NAME">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLineEdit" name="lineEdit_CMD">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLineEdit" name="lineEdit_HUB"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLineEdit" name="lineEdit_TO">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Command</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Hub address</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>To</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QCheckBox" name="checkBox_SENDONCE">
+        <property name="text">
+         <string>Send once per nick</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>radioButton_CHAT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_NAME</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_CHAT</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_CMD</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>247</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_RAW</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_NAME</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>56</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>129</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_RAW</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_CMD</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>58</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>110</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_PM</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_NAME</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>60</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>228</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_PM</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_CMD</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>218</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_PM</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_TO</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>59</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>333</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_SEP</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_NAME</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>14</x>
+     <y>34</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>19</x>
+     <y>190</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_SEP</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_CMD</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>38</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>241</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_SEP</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_TO</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>68</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>UIUserCommands</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>389</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>142</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>UIUserCommands</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>256</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>287</x>
+     <y>104</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

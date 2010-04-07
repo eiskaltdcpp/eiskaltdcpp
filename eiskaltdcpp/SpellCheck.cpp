@@ -70,7 +70,7 @@ void SpellCheck::suggestions(const QString &word, QStringList &list){
     if (!spell_checker || word.isEmpty())
         return;
 
-    const AspellWordList *suggestions = aspell_speller_suggest(spell_checker, word.toUtf8().constData(), word.length());
+    const AspellWordList *suggestions = aspell_speller_suggest(spell_checker, word.toAscii().constData(), -1);
     AspellStringEnumeration *elements = aspell_word_list_elements(suggestions);
 
     const char * sugg;
