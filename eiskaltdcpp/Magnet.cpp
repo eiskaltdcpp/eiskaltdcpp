@@ -50,7 +50,7 @@ void Magnet::customEvent(QEvent *e){
 }
 
 void Magnet::setLink(const QString &link){
-    if (link.isEmpty() || !link.startsWith("magnet:?xt=urn:tree:tiger:"))
+    if (link.isEmpty() || !link.contains("urn:tree:tiger") || !link.contains("magnet"))
         return;
 
     QUrl url;
@@ -67,6 +67,8 @@ void Magnet::setLink(const QString &link){
     if (url.hasQueryItem("dn"))
         lineEdit_FNAME->setText(url.queryItemValue("dn"));
 
+	qDebug() << url.queryItemValue("dn");
+
     lineEdit_SIZE->setReadOnly(true);
 
     qulonglong size = 0;
@@ -78,15 +80,13 @@ void Magnet::setLink(const QString &link){
     }
     else
         lineEdit_SIZE->setText("0 (0 MiB)");
-
-    QString tth = link;
-
-    tth.replace("magnet:?xt=urn:tree:tiger:", "");//remove magnet signature
-
-    if (!lineEdit_SIZE->text().isEmpty())
-        tth = tth.left(tth.indexOf("&xl="));
-    else if (!lineEdit_FNAME->text().isEmpty())
-        tth = tth.left(tth.indexOf("&dn="));
+	qDebug() << size;
+	QString tth;
+	if (url.hasQueryItem("xt"))
+        tth = url.queryItemValue("xt");
+	qDebug() << tth;
+	tth = tth.right(39);
+	qDebug() << tth;
 
     if (lineEdit_FNAME->text().isEmpty())
     lineEdit_FNAME->setText(tth);
