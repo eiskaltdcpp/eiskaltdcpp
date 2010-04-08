@@ -27,6 +27,7 @@
 #include "HashManager.h"
 #include "DownloadManager.h"
 #include "UploadManager.h"
+//#include "QueueManager.h"
 
 #include "SimpleXML.h"
 #include "StringTokenizer.h"
@@ -54,12 +55,13 @@
 namespace dcpp {
 
 ShareManager::ShareManager() : hits(0), xmlListLen(0), bzXmlListLen(0),
-    xmlDirty(true), refreshDirs(false), update(false), initial(true), listN(0), refreshing(0),
+    xmlDirty(true), forceXmlRefresh(false), refreshDirs(false), update(false), initial(true), listN(0), refreshing(0),
     lastXmlUpdate(0), lastFullUpdate(GET_TICK()), bloom(1<<20)
 {
     SettingsManager::getInstance()->addListener(this);
     TimerManager::getInstance()->addListener(this);
     DownloadManager::getInstance()->addListener(this);
+    //QueueManager::getInstance()->addListener(this);
     HashManager::getInstance()->addListener(this);
 }
 
@@ -67,15 +69,20 @@ ShareManager::~ShareManager() {
     SettingsManager::getInstance()->removeListener(this);
     TimerManager::getInstance()->removeListener(this);
     DownloadManager::getInstance()->removeListener(this);
+    //QueueManager::getInstance()->removeListener(this);
     HashManager::getInstance()->removeListener(this);
 
     join();
-
     StringList lists = File::findFiles(Util::getPath(Util::PATH_USER_CONFIG), "files?*.xml.bz2");
     for_each(lists.begin(), lists.end(), File::deleteFile);
+    //if(bzXmlRef.get()) {
+        //bzXmlRef.reset();
+        //File::deleteFile(getBZXmlFile());
+    //}
 }
 
 ShareManager::Directory::Directory(const string& aName, const ShareManager::Directory::Ptr& aParent) :
+    size(0),
     name(aName),
     parent(aParent.get()),
     fileTypes(1 << SearchManager::TYPE_DIRECTORY)
@@ -281,6 +288,7 @@ bool ShareManager::hasVirtual(const string& virtualName) const throw() {
 void ShareManager::load(SimpleXML& aXml) {
     Lock l(cs);
 
+    aXml.resetCurrentChild();
     if(aXml.findChild("Share")) {
         aXml.stepIn();
         while(aXml.findChild("Directory")) {
@@ -366,7 +374,9 @@ private:
 bool ShareManager::loadCache() throw() {
     try {
         ShareLoader loader(directories);
+        //SimpleXMLReader xml(&loader);
         string txt;
+
         dcpp::File ff(Util::getPath(Util::PATH_USER_CONFIG) + "files.xml.bz2", dcpp::File::READ, dcpp::File::OPEN);
         FilteredInputStream<UnBZFilter, false> f(&ff);
         const size_t BUF_SIZE = 64*1024;
@@ -381,6 +391,7 @@ bool ShareManager::loadCache() throw() {
         }
 
         SimpleXMLReader(&loader).fromXML(txt);
+//      xml.parse(f);
 
         for(DirList::const_iterator i = directories.begin(); i != directories.end(); ++i) {
             const Directory::Ptr& d = *i;
@@ -411,6 +422,10 @@ void ShareManager::addDirectory(const string& realPath, const string& virtualNam
         throw ShareException(_("No directory specified"));
     }
 
+    //if (!checkHidden(realPath)) {
+        //throw ShareException(_("Directory is hidden"));
+    //}
+
     if(Util::stricmp(SETTING(TEMP_DOWNLOAD_DIRECTORY), realPath) == 0) {
         throw ShareException(_("The temporary download directory cannot be shared"));
     }
@@ -428,6 +443,8 @@ void ShareManager::addDirectory(const string& realPath, const string& virtualNam
             }
         }
     }
+
+    HashManager::HashPauser pauser;
 
     Directory::Ptr dp = buildTree(realPath, Directory::Ptr());
 
@@ -469,6 +486,7 @@ void ShareManager::Directory::merge(const Directory::Ptr& source) {
                 dcdebug("File named the same as directory");
             } else {
                 directories.insert(std::make_pair(subSource->getName(), subSource));
+                subSource->parent = this;
             }
         } else {
             Directory::Ptr subTarget = ti->second;
@@ -484,7 +502,10 @@ void ShareManager::Directory::merge(const Directory::Ptr& source) {
             if(directories.find(i->getName()) != directories.end()) {
                 dcdebug("Directory named the same as file");
             } else {
-                files.insert(*i);
+                std::pair<File::Set::iterator, bool> added = files.insert(*i);
+                if(added.second) {
+                    const_cast<File&>(*added.first).setParent(this);
+                }
             }
         }
     }
@@ -514,9 +535,11 @@ void ShareManager::removeDirectory(const string& realPath) {
 
     shares.erase(i);
 
+    HashManager::HashPauser pauser;
+
     // Readd all directories with the same vName
     for(i = shares.begin(); i != shares.end(); ++i) {
-        if(Util::stricmp(i->second, vName) == 0) {
+        if(Util::stricmp(i->second, vName) == 0) { //&& checkHidden(i->first)) {
             Directory::Ptr dp = buildTree(i->first, 0);
             dp->setName(i->second);
             merge(dp);
@@ -783,6 +806,10 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
     return dir;
 }
 
+//bool ShareManager::checkHidden(const string& aName) const {
+    //return (BOOLSETTING(SHARE_HIDDEN) || !FileFindIter(aName.substr(0, aName.size() - 1))->isHidden());
+//}
+
 void ShareManager::updateIndices(Directory& dir) {
     bloom.add(Text::toLower(dir.getName()));
 
@@ -814,9 +841,12 @@ void ShareManager::updateIndices(Directory& dir, const Directory::File::Set::ite
         dir.size+=f.getSize();
     } else {
         if(!SETTING(LIST_DUPES)) {
+            try {
             LogManager::getInstance()->message(str(F_("Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: %3%")
             % Util::addBrackets(dir.getRealPath(f.getName())) % Util::toString(f.getSize()) % Util::addBrackets(j->second->getParent()->getRealPath(j->second->getName()))));
             dir.files.erase(i);
+            } catch (const ShareException&) {
+            }
             return;
         }
     }
@@ -871,15 +901,18 @@ int ShareManager::run() {
         refreshDirs = false;
 
     if(refreshDirs && (BOOLSETTING(ALLOW_UPDATE_FILELIST_ON_STARTUP) || Util::getUpTime() > 15)) {
+        HashManager::HashPauser pauser;
         LogManager::getInstance()->message(_("File list refresh initiated"));
 
         lastFullUpdate = GET_TICK();
 
         DirList newDirs;
         for(StringPairIter i = dirs.begin(); i != dirs.end(); ++i) {
+            //if (checkHidden(i->second)) {
             Directory::Ptr dp = buildTree(i->second, Directory::Ptr());
             dp->setName(i->first);
             newDirs.push_back(dp);
+           // }
         }
 
         {
@@ -918,7 +951,7 @@ void ShareManager::getBloom(ByteVector& v, size_t k, size_t m, size_t h) const {
 
 void ShareManager::generateXmlList() {
     Lock l(cs);
-    if(xmlDirty && (lastXmlUpdate + 15 * 60 * 1000 < GET_TICK() || lastXmlUpdate < lastFullUpdate)) {
+    if(forceXmlRefresh || (xmlDirty && (lastXmlUpdate + 15 * 60 * 1000 < GET_TICK() || lastXmlUpdate < lastFullUpdate))) {
         listN++;
 
         try {
@@ -965,11 +998,13 @@ void ShareManager::generateXmlList() {
             bzXmlRef = auto_ptr<File>(new File(newXmlName, File::READ, File::OPEN));
             setBZXmlFile(newXmlName);
             bzXmlListLen = File::getSize(newXmlName);
+            LogManager::getInstance()->message(str(F_("File list %1% generated") % Util::addBrackets(bzXmlFile)));
         } catch(const Exception&) {
             // No new file lists...
         }
 
         xmlDirty = false;
+        forceXmlRefresh = false;
         lastXmlUpdate = GET_TICK();
     }
 }
@@ -1451,16 +1486,20 @@ ShareManager::Directory::Ptr ShareManager::getDirectory(const string& fname) {
 }
 
 void ShareManager::on(DownloadManagerListener::Complete, Download* d) throw() {
+//void ShareManager::on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) throw() {
     if(BOOLSETTING(ADD_FINISHED_INSTANTLY)) {
         // Check if finished download is supposed to be shared
         Lock l(cs);
         const string& n = d->getPath();
+        //const string& n = qi->getTarget();
         for(StringMapIter i = shares.begin(); i != shares.end(); i++) {
-            if(Util::strnicmp(i->first, n, i->first.size()) == 0 && n[i->first.size()] == PATH_SEPARATOR) {
+             if(Util::strnicmp(i->first, n, i->first.size()) == 0 && n[i->first.size()] == PATH_SEPARATOR) {
                 string s = n.substr(i->first.size()+1);
+            //if(Util::strnicmp(i->first, n, i->first.size()) == 0 && n[i->first.size() - 1] == PATH_SEPARATOR) {
                 try {
                     // Schedule for hashing, it'll be added automatically later on...
                     HashManager::getInstance()->checkTTH(n, d->getSize(), 0);
+                    //HashManager::getInstance()->checkTTH(n, qi->getSize(), 0);
                 } catch(const Exception&) {
                     // Not a vital feature...
                 }
@@ -1489,15 +1528,17 @@ void ShareManager::on(HashManagerListener::TTHDone, const string& fname, const T
             updateIndices(*d, it);
         }
         setDirty();
+        forceXmlRefresh = true;
     }
 }
+
 void ShareManager::on(TimerManagerListener::Minute, uint32_t tick) throw() {
-	if (SETTING(AUTO_REFRESH_TIME) > 0) {
-		if (Util::getUpTime() > 5 * 60) { // [+] IRainman: disabling update file list immediately after startup
-			if (lastFullUpdate + SETTING(AUTO_REFRESH_TIME) * 60 * 1000 < tick) {
-				refresh(true, true);
-			}
-		}
-	}
+    if (SETTING(AUTO_REFRESH_TIME) > 0) {
+        if (Util::getUpTime() > 5 * 60) { // [+] IRainman: disabling update file list immediately after startup
+            if (lastFullUpdate + SETTING(AUTO_REFRESH_TIME) * 60 * 1000 < tick) {
+                refresh(true, true);
+            }
+        }
+    }
 }
 } // namespace dcpp

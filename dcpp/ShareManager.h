@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2009 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@
 #include "SettingsManager.h"
 #include "HashManagerListener.h"
 #include "DownloadManagerListener.h"
+//#include "QueueManagerListener.h"
 
 #include "Exception.h"
 #include "CriticalSection.h"
@@ -47,6 +48,7 @@ class MemoryInputStream;
 struct ShareLoader;
 class ShareManager : public Singleton<ShareManager>, private SettingsManagerListener, private Thread, private TimerManagerListener,
 	private HashManagerListener, private DownloadManagerListener
+	//private HashManagerListener, private QueueManagerListener
 {
 public:
 	/**
@@ -127,7 +129,7 @@ private:
 			typedef set<File, FileLess> Set;
 
 			File() : size(0), parent(0) { }
-			File(const string& aName, int64_t aSize, Directory::Ptr aParent, const TTHValue& aRoot) :
+			File(const string& aName, int64_t aSize, const Directory::Ptr& aParent, const TTHValue& aRoot) :
 			name(aName), tth(aRoot), size(aSize), parent(aParent.get()) { }
 			File(const File& rhs) :
 			name(rhs.getName()), tth(rhs.getTTH()), size(rhs.getSize()), parent(rhs.getParent()) { }
@@ -243,6 +245,7 @@ private:
 	auto_ptr<File> bzXmlRef;
 
 	bool xmlDirty;
+	bool forceXmlRefresh; /// bypass the 15-minutes guard
 	bool refreshDirs;
 	bool update;
 	bool initial;
@@ -273,6 +276,7 @@ private:
 	Directory::File::Set::const_iterator findFile(const string& virtualFile) const throw(ShareException);
 
 	Directory::Ptr buildTree(const string& aName, const Directory::Ptr& aParent);
+	bool checkHidden(const string& aName) const;
 
 	void rebuildIndices();
 
@@ -293,6 +297,9 @@ private:
 
 	// DownloadManagerListener
 	virtual void on(DownloadManagerListener::Complete, Download* d) throw();
+
+	// QueueManagerListener
+	//virtual void on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) throw();
 
 	// HashManagerListener
 	virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) throw();
