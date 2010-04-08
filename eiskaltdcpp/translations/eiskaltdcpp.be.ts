@@ -1137,7 +1137,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="850"/>
         <source>Away message</source>
-        <translation type="unfinished">Тлумачэньне адсутнасьці</translation>
+        <translation>Прысутнасьць</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="858"/>
@@ -1246,18 +1246,18 @@ Favorite user</source>
         <location filename="../MainWindow.cpp" line="540"/>
         <location filename="../MainWindow.cpp" line="1649"/>
         <source>Hide users statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Схаваць статыстыку карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="544"/>
         <location filename="../MainWindow.cpp" line="1647"/>
         <source>Show users statistics</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказаць статыстыку карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="798"/>
         <source>Clear text field</source>
-        <translation type="unfinished"></translation>
+        <translation>Ачысьціць тэкставае поле</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="820"/>
@@ -1277,17 +1277,17 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="852"/>
         <source>On</source>
-        <translation type="unfinished"></translation>
+        <translation>Адыйшоў</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="854"/>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Тут</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="856"/>
         <source>Away when not visible</source>
-        <translation type="unfinished"></translation>
+        <translation>“Адыйшоў”, калі ня бачна ваконца</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="862"/>
@@ -1323,7 +1323,8 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="876"/>
         <source>Fast search panel</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???хуткага?</translatorcomment>
+        <translation>Паліца шпаркага пошуку</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="878"/>
@@ -1430,7 +1431,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="864"/>
         <source>Find/Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Шукаць/Прасеяць</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1687"/>
@@ -1616,12 +1617,12 @@ Please check your connection settings</source>
     <message>
         <location filename="../PublicHubsList.cpp" line="61"/>
         <source>Public hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Публічны асяродак</translation>
     </message>
     <message>
         <location filename="../PublicHubsList.cpp" line="61"/>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Спасылка</translation>
     </message>
 </context>
 <context>
@@ -3107,7 +3108,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="110"/>
         <source>Close on finish</source>
-        <translation>Закрыць, як сконцыцца</translation>
+        <translation>Закрыць, як скончыцца</translation>
     </message>
 </context>
 <context>
@@ -3328,7 +3329,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIPublicHubs.ui" line="86"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3336,27 +3337,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьпіс публічных асяродкаў</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Вышэй</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="30"/>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ніжэй</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="69"/>
         <source>Add</source>
-        <translation type="unfinished">Дадаць</translation>
+        <translation>Дадаць</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="76"/>
         <source>Remove</source>
-        <translation type="unfinished">Выкрасьліць</translation>
+        <translation>Выкрасьліць</translation>
     </message>
 </context>
 <context>
@@ -3597,7 +3598,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="180"/>
         <source>Configure Public Hub Lists</source>
-        <translation>Наставіць сьпісы публічных асяродкаў</translation>
+        <translation>Наставіць сьпісы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="204"/>
@@ -3799,7 +3800,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="237"/>
         <source>Use Ctrl+Enter to send messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Адсылаць паведамленьні спалучэньнем “Ctrl+Enter”</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="255"/>
@@ -3810,7 +3811,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="310"/>
         <source>The height of the text entry field</source>
-        <translation type="unfinished"></translation>
+        <translation>Вышыня поля ўпісваць тэкст</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="352"/>
@@ -4107,17 +4108,21 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Don&apos;t share (group symbol *, separator |)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Не абагуляць (знак “*” групуе, “|” — аддзяляе)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="200"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Адмысловыя</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="243"/>
         <source>Auto refresh time (minutes,0 = off)</source>
-        <translation type="unfinished"></translation>
+        <translation>Дапаўняць абагуленае кожныя (у хвілінах; 0=не дапаўняць самарушна)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="290"/>
@@ -4132,12 +4137,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="323"/>
         <source>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі не задзейнічаць гэтую можнасьць і выйсьці з кліента да таго, як абагуленае скончыла дапаўняцца, памер абагуленага па наступным запуску будзе роўным нулю.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="326"/>
         <source>Run on startup refresh share </source>
-        <translation type="unfinished"></translation>
+        <translation>Дапаўняць абагуленае па запуску</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="303"/>
@@ -4154,7 +4159,9 @@ p, li { white-space: pre-wrap; }
         <source>Per folder limit specifies how many files in GiB
 remote user must share the to be able
 to download from this folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Абмежаваньне на тэчку абагуленага вызначае, колькі
+аддалены карыстальнік мусіць абагуліць (у ГіБ),
+каб мець магчымасьць сьцягваць з дадзенае тэчкі</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="176"/>
@@ -4208,7 +4215,7 @@ to download from this folder</source>
     <message>
         <location filename="../ui/UIShareBrowser.ui" line="140"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -4329,32 +4336,32 @@ to download from this folder</source>
     <message>
         <location filename="../WulforUtil.cpp" line="688"/>
         <source>%1 B</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Б</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="690"/>
         <source>%1 KiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 КіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="692"/>
         <source>%1 MiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 МіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="694"/>
         <source>%1 GiB</source>
-        <translation type="unfinished">%1 ГіБ</translation>
+        <translation>%1 ГіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="696"/>
         <source>%1 TiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ТіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="698"/>
         <source>%1 PiB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ПіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="759"/>
