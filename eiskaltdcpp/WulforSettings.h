@@ -100,6 +100,7 @@ const char * const WI_SEARCH_SORT_COLUMN      = "search-sort-column";
 const char * const WI_SEARCH_SORT_ORDER       = "search-sort-order";
 const char * const WI_SEARCH_SHARED_ACTION    = "search-shared-action";
 const char * const WI_SEARCH_LAST_TYPE        = "search-last-search-type";
+const char * const WI_TEXT_EDIT_HEIGHT        = "text-edit-height";
 const char * const WI_TRANSFER_HEIGHT         = "transfer-height";
 const char * const WI_MAINWINDOW_WIDTH        = "mainwindow-width";
 const char * const WI_MAINWINDOW_HEIGHT       = "mainwindow-height";

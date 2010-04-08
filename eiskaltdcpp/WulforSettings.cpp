@@ -130,6 +130,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_SEARCH_SORT_ORDER, 0);
         intmap.insert(WI_SEARCH_SHARED_ACTION, 0);
         intmap.insert(WI_SEARCH_LAST_TYPE, 0);
+        intmap.insert(WI_TEXT_EDIT_HEIGHT, 35);
         intmap.insert(WI_TRANSFER_HEIGHT, -1);
         intmap.insert(WI_SHARE_RPANE_WIDTH, -1);
         intmap.insert(WI_SHARE_WIDTH, -1);

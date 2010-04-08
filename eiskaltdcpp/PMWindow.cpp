@@ -58,6 +58,8 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
 
     out_messages_index = 0;
+
+    reloadSomeSettings();
 }
 
 PMWindow::~PMWindow(){
@@ -155,6 +157,11 @@ void PMWindow::showEvent(QShowEvent *e){
         if (unread == 0)
             Notify->resetTrayIcon();
     }
+}
+
+void PMWindow::reloadSomeSettings(){
+    if (plainTextEdit_INPUT->maximumHeight() != WIGET(WI_TEXT_EDIT_HEIGHT))
+        plainTextEdit_INPUT->setMaximumHeight(WIGET(WI_TEXT_EDIT_HEIGHT));
 }
 
 QString PMWindow::getArenaTitle(){

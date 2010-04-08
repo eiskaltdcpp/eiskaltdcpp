@@ -512,6 +512,8 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     setAttribute(Qt::WA_DeleteOnClose);
 
     out_messages_index = 0;
+
+    reloadSomeSettings();
 }
 
 
@@ -941,6 +943,11 @@ void HubFrame::load(){
 
     label_LAST_STATUS->setVisible(WBGET(WB_LAST_STATUS));
     label_USERSTATE->setVisible(WBGET(WB_USERS_STATISTICS));
+}
+
+void HubFrame::reloadSomeSettings(){
+    if (plainTextEdit_INPUT->maximumHeight() != WIGET(WI_TEXT_EDIT_HEIGHT))
+        plainTextEdit_INPUT->setMaximumHeight(WIGET(WI_TEXT_EDIT_HEIGHT));
 }
 
 QWidget *HubFrame::getWidget(){

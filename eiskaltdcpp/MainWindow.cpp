@@ -1304,6 +1304,18 @@ void MainWindow::showShareBrowser(dcpp::UserPtr usr, QString file, QString jump_
     ShareBrowser *sb = new ShareBrowser(usr, file, jump_to);
 }
 
+void MainWindow::reloadSomeSettings(){
+    for (int k = 0; k < arenaWidgets.size(); ++k){
+        HubFrame *fr = qobject_cast<HubFrame *>(arenaMap[arenaWidgets.at(k)]);
+        PMWindow *pm = qobject_cast<PMWindow *>(arenaMap[arenaWidgets.at(k)]);
+
+        if (fr)
+            fr->reloadSomeSettings();
+        else if (pm)
+            pm->reloadSomeSettings();
+    }
+}
+
 void MainWindow::slotFileOpenLogFile(){
     QString f = QFileDialog::getOpenFileName(this, tr("Open log file"),_q(SETTING(LOG_DIRECTORY)), tr("Log files (*.log);;All files (*.*)"));
 

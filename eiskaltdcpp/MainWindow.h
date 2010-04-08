@@ -131,6 +131,9 @@ friend class dcpp::Singleton<MainWindow>;
         void retranslateUi();
 
         /** */
+        void reloadSomeSettings();
+
+        /** */
         void setUnload(bool b){ isUnload = b; }
 
     public slots:

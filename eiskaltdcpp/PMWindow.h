@@ -33,6 +33,7 @@ public:
     void addStatus(QString);
 
 public slots:
+    void reloadSomeSettings();
     void nextMsg();
     void prevMsg();
 

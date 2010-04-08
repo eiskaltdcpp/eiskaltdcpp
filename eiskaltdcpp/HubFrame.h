@@ -182,6 +182,7 @@ public:
     void clearChat();
 
 public slots:
+    void reloadSomeSettings();
     void slotHideFindFrame();
     void nextMsg();
     void prevMsg();
