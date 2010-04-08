@@ -31,6 +31,7 @@ public:
     const QPixmap &getPixmap();
 
     void addStatus(QString);
+    void sendMessage(QString,bool = false, bool = false);
 
 public slots:
     void reloadSomeSettings();
@@ -53,7 +54,6 @@ protected:
     virtual void showEvent(QShowEvent *);
 
 private:
-    void sendMessage(QString,bool = false);
     void addStatusMessage(QString);
     void addOutput(QString);
 

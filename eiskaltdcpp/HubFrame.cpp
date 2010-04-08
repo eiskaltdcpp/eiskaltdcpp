@@ -1058,7 +1058,7 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
     if (msg.endsWith("\n"))
         msg = msg.left(msg.lastIndexOf("\n"));
 
-    if (!parseForCmd(msg))
+    if (!parseForCmd(msg, this))
         client->hubMessage(Text::toUtf8(msg.toStdString()), thirdPerson);
 
     if (!thirdPerson){
@@ -1071,7 +1071,10 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
     }
 }
 
-bool HubFrame::parseForCmd(QString line){
+bool HubFrame::parseForCmd(QString line, QWidget *wg){
+    HubFrame *fr = qobject_cast<HubFrame *>(wg);
+    PMWindow *pm = qobject_cast<PMWindow *>(wg);
+
     QStringList list = line.split(" ", QString::SkipEmptyParts);
 
     if (list.size() == 0)
@@ -1094,7 +1097,10 @@ bool HubFrame::parseForCmd(QString line){
             Util::setAway(false);
             Util::setManualAway(false);
 
-            addStatus(tr("Away mode off"));
+            if (fr == this)
+                addStatus(tr("Away mode off"));
+            else if (pm)
+                pm->addStatus(tr("Away mode off"));
         }
         else {
             Util::setAway(true);
@@ -1105,7 +1111,10 @@ bool HubFrame::parseForCmd(QString line){
                 Util::setAwayMessage(line.toStdString());
             }
 
-            addStatus(tr("Away mode on: ") + QString::fromStdString(Util::getAwayMessage()));
+            if (fr == this)
+                addStatus(tr("Away mode on: ") + QString::fromStdString(Util::getAwayMessage()));
+            else if (pm)
+                pm->addStatus(tr("Away mode on: ") + QString::fromStdString(Util::getAwayMessage()));
         }
     }
     else if (cmd == "/alias" && !emptyParam){
@@ -1115,10 +1124,18 @@ bool HubFrame::parseForCmd(QString line){
             QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toAscii());
 
             if (lex.at(1) == "list"){
-                if (!aliases.isEmpty())
-                    addStatus("\n"+aliases);
-                else
-                    addStatus(tr("Aliases not found."));
+                if (!aliases.isEmpty()){
+                    if (fr == this)
+                        addStatus("\n"+aliases);
+                    else if (pm)
+                        pm->addStatus("\n"+aliases);
+                }
+                else{
+                    if (fr == this)
+                        addStatus(tr("Aliases not found."));
+                    else if (pm)
+                        pm->addStatus(tr("Aliases not found."));
+                }
             }
             else if (lex.at(1) == "purge" && lex.size() == 3){
                 QString alias = lex.at(2);
@@ -1136,7 +1153,10 @@ bool HubFrame::parseForCmd(QString line){
 
                         WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toAscii().toBase64());
 
-                        addStatus(tr("Alias removed."));
+                        if (fr == this)
+                            addStatus(tr("Alias removed."));
+                        else if (pm)
+                            pm->addStatus(tr("Alias removed."));
                     }
                 }
             }
@@ -1146,19 +1166,29 @@ bool HubFrame::parseForCmd(QString line){
                 raw.remove(0, raw.indexOf(" ")+1);
 
                 if (raw.indexOf("::") <= 0){
-                    addStatus(tr("Invalid alias syntax."));
+                    if (fr == this)
+                        addStatus(tr("Invalid alias syntax."));
+                    else if (pm)
+                        pm->addStatus(tr("Invalid alias syntax."));
                 }
                 else {
                     QStringList new_cmd = raw.split("::", QString::SkipEmptyParts);
 
-                    if (new_cmd.size() < 2 || new_cmd.at(1).isEmpty())
-                        addStatus(tr("Invalid alias syntax."));
+                    if (new_cmd.size() < 2 || new_cmd.at(1).isEmpty()){
+                        if (fr == this)
+                            addStatus(tr("Invalid alias syntax."));
+                        else if (pm)
+                            pm->addStatus(tr("Invalid alias syntax."));
+                    }
                     else if (!aliases.contains(new_cmd.at(0)+'\t')){
                         aliases += new_cmd.at(0) + '\t' +  new_cmd.at(1) + '\n';
 
                         WSSET(WS_CHAT_CMD_ALIASES, aliases.toAscii().toBase64());
 
-                        addStatus(tr("Alias %1 => %2 has been added").arg(new_cmd.at(0)).arg(new_cmd.at(1)));
+                        if (fr == this)
+                            addStatus(tr("Alias %1 => %2 has been added").arg(new_cmd.at(0)).arg(new_cmd.at(1)));
+                        else if (pm)
+                            pm->addStatus(tr("Alias %1 => %2 has been added").arg(new_cmd.at(0)).arg(new_cmd.at(1)));
                     }
                 }
             }
@@ -1173,18 +1203,28 @@ bool HubFrame::parseForCmd(QString line){
         else if (SpellCheck::getInstance())
             SpellCheck::deleteInstance();
 
-        addStatus(tr("Aspell switched %1").arg((WBGET(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
+        if (fr == this)
+            addStatus(tr("Aspell switched %1").arg((WBGET(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
+        else if (pm)
+            pm->addStatus(tr("Aspell switched %1").arg((WBGET(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
     }
 #endif
     else if (cmd == "/back"){
         Util::setAway(false);
 
-        addStatus(tr("Away mode off"));
+        if (fr == this)
+            addStatus(tr("Away mode off"));
+        else if (pm)
+            pm->addStatus(tr("Away mode off"));
     }
     else if (cmd == "/clear"){
         textEdit_CHAT->setHtml("");
 
-        addStatus(tr("Chat has been cleared"));
+        if (fr == this)
+            addStatus(tr("Chat has been cleared"));
+        else if (pm)
+            pm->addStatus(tr("Chat has been cleared"));
+
     }
     else if (cmd == "/close"){
         this->close();
@@ -1207,7 +1247,10 @@ bool HubFrame::parseForCmd(QString line){
         if (item){
             QString ttip = "\n" + getUserInfo(item);
 
-            addStatus(ttip);
+            if (fr == this)
+                addStatus(ttip);
+            else if (pm)
+                pm->addStatus(ttip);
         }
     }
     else if (cmd == "/me" && !emptyParam){
@@ -1216,7 +1259,10 @@ bool HubFrame::parseForCmd(QString line){
 
         line.remove(0, 4);
 
-        sendChat(line, true, false);
+        if (fr == this)
+            sendChat(line, true, false);
+        else if (pm)
+            pm->sendMessage(line, true, false);
     }
     else if (cmd == "/pm" && !emptyParam){
         addPM(model->CIDforNick(param), "");
@@ -1244,7 +1290,10 @@ bool HubFrame::parseForCmd(QString line){
                          "/pm <nick> - begin private chat with user\n"
                          "/sh <command> - start command and redirect output to the chat");
 
-        addStatus(out);
+        if (fr == this)
+            addStatus(out);
+        else if (pm)
+            pm->addStatus(out);
     }
     else if (cmd == "/sh" && !emptyParam){
         if (line.endsWith("\n"))//remove extra \n char
@@ -1252,7 +1301,7 @@ bool HubFrame::parseForCmd(QString line){
 
         line = line.remove(0, 4);
 
-        ShellCommandRunner *sh = new ShellCommandRunner(line, this);
+        ShellCommandRunner *sh = new ShellCommandRunner(line, wg);
         connect(sh, SIGNAL(finished(bool,QString)), this, SLOT(slotShellFinished(bool,QString)));
 
         shell_list.append(sh);
@@ -1274,7 +1323,7 @@ bool HubFrame::parseForCmd(QString line){
             QStringList cmds = line.split('\t', QString::SkipEmptyParts);
 
             if (cmds.size() == 2 && cmd == ("/" + cmds.at(0))){
-                parseForCmd(cmds.at(1));
+                parseForCmd(cmds.at(1), wg);
 
                 ok = true;
             }
@@ -2225,8 +2274,15 @@ void HubFrame::slotShowWnd(){
 }
 
 void HubFrame::slotShellFinished(bool ok, QString output){
-    if (ok)
-        sendChat(output, false, false);
+    if (ok){
+        HubFrame *fr = qobject_cast<HubFrame *>(sender()->parent());
+        PMWindow *pm = qobject_cast<PMWindow *>(sender()->parent());
+
+        if (fr == this)
+            sendChat(output, false, false);
+        else if (pm)
+            pm->sendMessage(output, false, false);
+    }
 
     ShellCommandRunner *runner = reinterpret_cast<ShellCommandRunner*>(sender());
 

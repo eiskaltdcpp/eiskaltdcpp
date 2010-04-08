@@ -166,6 +166,8 @@ public:
     ~HubFrame();
 
     void addStatus(QString);
+    bool parseForCmd(QString, QWidget *);
+
     void createPMWindow(const QString&);
     void createPMWindow(const dcpp::CID&);
 
@@ -226,7 +228,6 @@ private slots:
 private:
     // Chat functions
     void addOutput(QString);
-    bool parseForCmd(QString);
 
     // GUI setup functions
     void init();

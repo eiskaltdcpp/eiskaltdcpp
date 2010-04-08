@@ -83,9 +83,18 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
         if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
             (!WBGET(WB_USE_CTRL_ENTER) || k_e->modifiers() == Qt::ControlModifier) &&
             ((k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) && k_e->modifiers() != Qt::ShiftModifier) ||
-             (k_e->key() == Qt::Key_Enter && k_e->modifiers() == Qt::KeypadModifier))
+            (k_e->key() == Qt::Key_Enter && k_e->modifiers() == Qt::KeypadModifier))
         {
-            sendMessage(plainTextEdit_INPUT->toPlainText());
+            QString msg = plainTextEdit_INPUT->toPlainText();
+
+            HubFrame *fr = HubManager::getInstance()->getHub(hubUrl);
+
+            if (fr){
+                if (!fr->parseForCmd(msg, this))
+                    sendMessage(msg, false, false);
+            }
+            else
+                sendMessage(msg, false, false);
 
             plainTextEdit_INPUT->setPlainText("");
 
@@ -243,7 +252,7 @@ void PMWindow::addOutput(QString msg){
     }
 }
 
-void PMWindow::sendMessage(QString msg, bool stripNewLines){
+void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
     if (user && user->isOnline()){
@@ -254,7 +263,7 @@ void PMWindow::sendMessage(QString msg, bool stripNewLines){
         if (msg.isEmpty() || msg == "\n")
             return;
 
-        ClientManager::getInstance()->privateMessage(user, msg.toStdString(), false, hubUrl.toStdString());
+        ClientManager::getInstance()->privateMessage(user, msg.toStdString(), thirdPerson, hubUrl.toStdString());
     }
     else {
         addStatusMessage(tr("User went offline"));
