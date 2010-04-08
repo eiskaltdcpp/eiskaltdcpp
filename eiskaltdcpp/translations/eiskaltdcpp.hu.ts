@@ -1056,10 +1056,6 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <translation>Log fájlok (*.log);;Minden fájl (*.*)</translation>
     </message>
     <message>
-        <source>Chat cleared.</source>
-        <translation>Chat törölve.</translation>
-    </message>
-    <message>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
         <translation>Az EiskaltDC++ egy grafikus kliens a Direct Connect és az ADC protokollhoz.</translation>
     </message>
@@ -1168,6 +1164,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>User went offline</source>
         <translation>A felhasználó kilépett</translation>
+    </message>
+    <message>
+        <source>Chat cleared.</source>
+        <translation type="unfinished">Chat törölve.</translation>
     </message>
 </context>
 <context>
