@@ -1261,6 +1261,17 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
 </context>
 <context>
+    <name>PublicHubsList</name>
+    <message>
+        <source>Public hub</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QApplication</name>
     <message>
         <source>Using:
@@ -2639,6 +2650,14 @@ p, li { white-space: pre-wrap; }
         <source>Down</source>
         <translation>Le</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Hozzáadás</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIQuickConnect</name>
@@ -3047,6 +3066,10 @@ p, li { white-space: pre-wrap; }
         <source>Use Ctrl+Enter to send messages</source>
         <translation>Használd a Ctrl+Enter kombinációt üzenet küldéséhez</translation>
     </message>
+    <message>
+        <source>The height of the text entry field</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -3264,10 +3287,6 @@ p, li { white-space: pre-wrap; }
         <translation>A változások csak újraindítás után lesznek érvényesek</translation>
     </message>
     <message>
-        <source>Don&apos;t share (group symbol *, separator |)</source>
-        <translation>Tiltott megosztás(ok) (csoportos kijelölés *, elválasztó |)</translation>
-    </message>
-    <message>
         <source>Per folder limit specifies how many files in GiB
 remote user must share the to be able
 to download from this folder</source>
@@ -3290,6 +3309,14 @@ hogy letölthessen ebből a könyvtárból</translation>
     <message>
         <source>Run on startup refresh share </source>
         <translation>Megosztás frissítése a kliens indulásakor</translation>
+    </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Don&apos;t share (group symbol *, separator |)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
