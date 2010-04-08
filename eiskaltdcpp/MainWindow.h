@@ -20,6 +20,7 @@
 #include <QShortcut>
 #include <QKeySequence>
 #include <QToolButton>
+#include <QRegExp>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"

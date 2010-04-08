@@ -1363,8 +1363,29 @@ void MainWindow::slotToolsSearch(){
 
     QLineEdit *le = qobject_cast<QLineEdit *>(sender());
 
-    if (le == searchLineEdit)
-        sf->fastSearch(searchLineEdit->text());
+    if (le == searchLineEdit){
+        QString text = searchLineEdit->text();
+        bool isTTH = false;
+
+        if (!text.isEmpty()){
+            if (text.startsWith("magnet:")){
+                QString link = text;
+                QString tth = "", name = "";
+                int64_t size = 0;
+
+                WulforUtil::splitMagnet(link, size, tth, name);
+
+                text  = tth;
+                isTTH = true;
+            }
+            else if (text.length() == 39){
+                if (text.contains(QRegExp("[A-Z0-9]",Qt::CaseSensitive)))
+                    isTTH = true;
+            }
+        }
+
+        sf->fastSearch(text, isTTH);
+    }
 }
 
 void MainWindow::slotToolsDownloadQueue(){

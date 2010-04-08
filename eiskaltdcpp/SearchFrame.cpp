@@ -653,11 +653,15 @@ void SearchFrame::searchFile(const QString &file){
     slotStartSearch();
 }
 
-void SearchFrame::fastSearch(const QString &text){
+void SearchFrame::fastSearch(const QString &text, bool isTTH){
     if (text.isEmpty())
         return;
 
-    comboBox_FILETYPES->setCurrentIndex(0);
+    if (!isTTH)
+        comboBox_FILETYPES->setCurrentIndex(0); // set type "Any"
+    else
+        comboBox_FILETYPES->setCurrentIndex(8); // set type "TTH"
+
     comboBox_SEARCHSTR->setEditText(text);
 
     slotStartSearch();
