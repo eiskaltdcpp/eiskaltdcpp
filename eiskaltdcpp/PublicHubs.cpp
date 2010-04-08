@@ -194,6 +194,10 @@ void PublicHubs::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView);
 }
 
+bool PublicHubs::isFindFrameActivated(){
+    return (frame->isVisible() && lineEdit_FILTER->hasFocus());
+}
+
 void PublicHubs::slotFilter(){
     if (frame->isVisible()){
         treeView->setModel(model);

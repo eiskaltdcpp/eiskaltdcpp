@@ -45,9 +45,9 @@ class ShareBrowserLoader: public QThread
         LoaderFunc *func;
 };
 
-class ShareBrowser : public QWidget,
-                     public ArenaWidget,
-                     public Ui::UIShareBrowser
+class ShareBrowser : public  QWidget,
+                     public  ArenaWidget,
+                     private Ui::UIShareBrowser
 {
     Q_OBJECT
 
@@ -87,6 +87,8 @@ public:
     QWidget *getWidget();
     QMenu   *getMenu();
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiOWN_FILELIST); }
+
+    bool isFindFrameActivated();
 
 public slots:
     void slotFilter();

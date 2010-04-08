@@ -1559,13 +1559,13 @@ void MainWindow::slotHideWindow(){
         }
     }
     else if (ph){
-        if (ph->frame->isVisible() && ph->lineEdit_FILTER->hasFocus()){
+        if (ph->isFindFrameActivated()){
             ph->slotFilter();
             return;
         }
     }
     else if (sb){
-        if (sb->frame_FILTER->isVisible() && sb->lineEdit_FILTER->hasFocus()){
+        if (sb->isFindFrameActivated()){
             sb->slotFilter();
             return;
         }

@@ -633,6 +633,10 @@ void ShareBrowser::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView_RPANE);
 }
 
+bool ShareBrowser::isFindFrameActivated(){
+    return (frame_FILTER->isVisible() && lineEdit_FILTER->hasFocus());
+}
+
 void ShareBrowser::slotFilter(){
     if (frame_FILTER->isVisible()){
         treeView_RPANE->setModel(list_model);

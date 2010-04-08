@@ -33,11 +33,11 @@ private:
 };
 
 class PublicHubs :
-        public QWidget,
-        public dcpp::Singleton<PublicHubs>,
-        public ArenaWidget,
-        public dcpp::FavoriteManagerListener,
-        public Ui::UIPublicHubs
+        public  QWidget,
+        public  dcpp::Singleton<PublicHubs>,
+        public  ArenaWidget,
+        public  dcpp::FavoriteManagerListener,
+        private Ui::UIPublicHubs
 {
 Q_OBJECT
 friend class dcpp::Singleton<PublicHubs>;
@@ -48,6 +48,8 @@ public:
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return NULL; }
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER); }
+
+    bool isFindFrameActivated();
 
 public slots:
     void slotFilter();
