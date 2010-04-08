@@ -343,6 +343,12 @@ void SearchFrame::load(){
     comboBox_FILETYPES->setCurrentIndex(WIGET(WI_SEARCH_LAST_TYPE));
 
     treeView_RESULTS->sortByColumn(WIGET(WI_SEARCH_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_SEARCH_SORT_ORDER)));
+
+    QStringList list = WSGET(WS_SEARCH_HISTORY).replace("\r","")
+                       .split('\n', QString::SkipEmptyParts);
+
+    comboBox_SEARCHSTR->addItems(list);
+    comboBox_SEARCHSTR->setCurrentIndex(-1);
 }
 
 void SearchFrame::save(){
@@ -668,6 +674,9 @@ void SearchFrame::fastSearch(const QString &text, bool isTTH){
 }
 
 void SearchFrame::slotStartSearch(){
+    if (comboBox_SEARCHSTR->currentText().replace(" ","").length() == 0)
+        return;
+
     MainWindow *MW = MainWindow::getInstance();
     QString s = comboBox_SEARCHSTR->currentText();
     StringList clients;
@@ -787,6 +796,29 @@ void SearchFrame::slotStartSearch(){
     }
 
     MW->redrawToolPanel();
+
+    { // save search history and update QComboBox items
+        QString     last = comboBox_SEARCHSTR->currentText();
+        QStringList list = WSGET(WS_SEARCH_HISTORY).replace("\r","")
+                           .split('\n', QString::SkipEmptyParts);
+
+        if (list.indexOf(last) == -1)
+            list << last;
+
+        if (list.size() > 10)
+            list.removeAt(0);
+
+        comboBox_SEARCHSTR->clear();
+        comboBox_SEARCHSTR->addItems(list);
+        comboBox_SEARCHSTR->setCurrentIndex(-1);
+        comboBox_SEARCHSTR->setEditText(last);
+
+        QString hist = "";
+        for(int k = 0; k < list.size(); ++k)
+            hist += list.at(k) + '\n';
+
+        WSSET(WS_SEARCH_HISTORY, hist);
+    }
 }
 
 void SearchFrame::slotClear(){

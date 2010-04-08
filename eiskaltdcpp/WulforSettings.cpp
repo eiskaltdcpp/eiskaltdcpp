@@ -54,6 +54,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_DEFAULT_LOCALE, "UTF-8");
         strmap.insert(WS_DQUEUE_STATE, "");
         strmap.insert(WS_SEARCH_STATE, "");
+        strmap.insert(WS_SEARCH_HISTORY, "");
         strmap.insert(WS_TRANSLATION_FILE, "");
         strmap.insert(WS_TRANSFERS_STATE, "");
         strmap.insert(WS_SHARE_LPANE_STATE, "");

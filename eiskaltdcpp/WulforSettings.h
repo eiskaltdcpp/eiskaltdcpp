@@ -29,6 +29,7 @@ const char * const WS_QCONNECT_HISTORY        = "qc-history";
 const char * const WS_DEFAULT_LOCALE          = "default_locale";
 const char * const WS_DQUEUE_STATE            = "dqueue-state";
 const char * const WS_SEARCH_STATE            = "search-state";
+const char * const WS_SEARCH_HISTORY          = "search-history";
 const char * const WS_TRANSLATION_FILE        = "translation-file";
 const char * const WS_TRANSFERS_STATE         = "transfer-state";
 const char * const WS_MAINWINDOW_STATE        = "mainwindow-state";
