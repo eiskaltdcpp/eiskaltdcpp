@@ -87,10 +87,10 @@ private:
 };
 
 class HubFrame :
-        public QWidget,
-        public Ui::UIHubFrame,
+        public  QWidget,
+        private Ui::UIHubFrame,
         private dcpp::ClientListener,
-        public ArenaWidget
+        public  ArenaWidget
 {
     Q_OBJECT
 
@@ -168,7 +168,10 @@ public:
     void addStatus(QString);
     void createPMWindow(const QString&);
     void createPMWindow(const dcpp::CID&);
+
     bool hasCID(const dcpp::CID &, const QString &);
+    bool isFindFrameActivated();
+
     inline void reconnect() { slotReconnect(); }
 
     // Arena Widget interface
@@ -184,6 +187,7 @@ public:
 public slots:
     void reloadSomeSettings();
     void slotHideFindFrame();
+    void slotActivate();
     void nextMsg();
     void prevMsg();
 

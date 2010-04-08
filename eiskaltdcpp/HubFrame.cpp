@@ -512,8 +512,6 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     setAttribute(Qt::WA_DeleteOnClose);
 
     out_messages_index = 0;
-
-    reloadSomeSettings();
 }
 
 
@@ -941,13 +939,15 @@ void HubFrame::load(){
 
     treeView_USERS->sortByColumn(WIGET(WI_CHAT_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_CHAT_SORT_ORDER)));
 
-    label_LAST_STATUS->setVisible(WBGET(WB_LAST_STATUS));
-    label_USERSTATE->setVisible(WBGET(WB_USERS_STATISTICS));
+    reloadSomeSettings();
 }
 
 void HubFrame::reloadSomeSettings(){
-    if (plainTextEdit_INPUT->maximumHeight() != WIGET(WI_TEXT_EDIT_HEIGHT))
-        plainTextEdit_INPUT->setMaximumHeight(WIGET(WI_TEXT_EDIT_HEIGHT));
+    plainTextEdit_INPUT->setMaximumHeight(WIGET(WI_TEXT_EDIT_HEIGHT));
+
+    label_USERSTATE->setVisible(WBGET(WB_USERS_STATISTICS));
+
+    label_LAST_STATUS->setVisible(WBGET(WB_LAST_STATUS));
 }
 
 QWidget *HubFrame::getWidget(){
@@ -1630,6 +1630,10 @@ bool HubFrame::hasCID(const dcpp::CID &cid, const QString &nick){
     return (model->CIDforNick(nick) == _q(cid.toBase32()));
 }
 
+bool HubFrame::isFindFrameActivated(){
+    return lineEdit_FIND->hasFocus();
+}
+
 void HubFrame::clearUsers(){
     if (model){
         model->blockSignals(true);
@@ -1799,6 +1803,10 @@ void HubFrame::nickCompletion() {
 
         delete m;
     }
+}
+
+void HubFrame::slotActivate(){
+    plainTextEdit_INPUT->setFocus();
 }
 
 void HubFrame::slotUsersUpdated(){
@@ -2155,8 +2163,9 @@ void HubFrame::slotChatMenu(const QPoint &){
         }
         case Menu::ClearChat:
         {
-            if (pmw)
+            if (pmw){
                 MainWindow::getInstance()->slotChatClear(); // some hack
+            }
             else
                 clearChat();
 

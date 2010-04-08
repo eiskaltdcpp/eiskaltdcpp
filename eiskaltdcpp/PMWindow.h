@@ -12,9 +12,9 @@ class QCloseEvent;
 class QMenu;
 class QShowEvent;
 
-class PMWindow: public QWidget,
-                public Ui::UIPrivateMessage,
-                public ArenaWidget
+class PMWindow: public  QWidget,
+                private Ui::UIPrivateMessage,
+                public  ArenaWidget
 {
     Q_OBJECT
 
@@ -34,6 +34,8 @@ public:
 
 public slots:
     void reloadSomeSettings();
+    void slotActivate();
+    void clearChat();
     void nextMsg();
     void prevMsg();
 

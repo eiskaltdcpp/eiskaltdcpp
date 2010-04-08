@@ -1140,34 +1140,21 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
 
-    bool pmw = false, share_browser = false, phubs = false;
+    HubFrame     *fr = qobject_cast<HubFrame *>(wg);
+    PMWindow     *pm = qobject_cast<PMWindow *>(wg);
+    ShareBrowser *sb = qobject_cast<ShareBrowser *>(wg);
+    PublicHubs   *ph = qobject_cast<PublicHubs *>(wg);
 
-    if (wg != 0){
-        if (typeid(*wg) == typeid(PMWindow))
-            pmw = true;
-        else if (typeid(*wg) == typeid(ShareBrowser))
-            share_browser = true;
-        else if (typeid(*wg) == typeid(PublicHubs))
-            phubs = true;
-    }
+    chatClear->setEnabled(fr || pm);
+    findInWidget->setEnabled(fr || sb || ph);
+    chatDisable->setEnabled(fr);
 
-    HubFrame *fr = HubManager::getInstance()->activeHub();
-
-    chatClear->setEnabled(fr == arena->widget() || pmw);
-    findInWidget->setEnabled(fr == arena->widget() || share_browser || phubs);
-    chatDisable->setEnabled(fr == arena->widget());
-
-    if (fr == arena->widget()){
-        fr->plainTextEdit_INPUT->setFocus();
-    }
-    else if(pmw){
-        PMWindow *pm = qobject_cast<PMWindow *>(wg);
-        if (pm)
-            pm->plainTextEdit_INPUT->setFocus();
-    }
-    else{
+    if (fr)
+        fr->slotActivate();
+    else if(pm)
+        pm->slotActivate();
+    else
         arenaMap[awgt]->setFocus();
-    }
 }
 
 void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
@@ -1496,28 +1483,13 @@ void MainWindow::slotPanelMenuActionClicked(){
 }
 
 void MainWindow::slotChatClear(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    HubFrame *fr = qobject_cast<HubFrame *>(arena->widget());
+    PMWindow *pm = qobject_cast<PMWindow *>(arena->widget());
 
     if (fr)
         fr->clearChat();
-    else{
-        QWidget *wg = arena->widget();
-
-        bool pmw = false;
-
-        if (wg != 0)
-            pmw = (typeid(*wg) == typeid(PMWindow));
-
-        if(pmw){
-            PMWindow *pm = qobject_cast<PMWindow *>(wg);
-
-            if (pm){
-                pm->textEdit_CHAT->setHtml("");
-
-                pm->addStatus(tr("Chat cleared."));
-            }
-        }
-    }
+    else if (pm)
+        pm->clearChat();
 }
 
 void MainWindow::slotFind(){
@@ -1577,7 +1549,7 @@ void MainWindow::slotHideWindow(){
     ShareBrowser *sb = qobject_cast<ShareBrowser *>(wg);
 
     if (fr){
-        if (fr->lineEdit_FIND->hasFocus() && WBGET(WB_TRAY_ENABLED)){
+        if (fr->isFindFrameActivated() && WBGET(WB_TRAY_ENABLED)){
             fr->slotHideFindFrame();
             return;
         }
@@ -1628,14 +1600,14 @@ void MainWindow::slotHideLastStatus(){
     else
         toolsHideLastStatus->setText(tr("Hide last status message"));
 
+    WBSET(WB_LAST_STATUS, st);
+
     for (int k = 0; k < arenaWidgets.size(); ++k){
         HubFrame *fr = qobject_cast<HubFrame *>(arenaMap[arenaWidgets.at(k)]);
 
         if (fr)
-            fr->label_LAST_STATUS->setVisible(st);
+            fr->reloadSomeSettings();
     }
-
-    WBSET(WB_LAST_STATUS, st);
 }
 
 void MainWindow::slotHideUsersStatistics(){
@@ -1648,14 +1620,14 @@ void MainWindow::slotHideUsersStatistics(){
     else
         toolsHideUsersStatisctics->setText(tr("Hide users statistics"));
 
+    WBSET(WB_USERS_STATISTICS, st);
+
     for (int k = 0; k < arenaWidgets.size(); ++k){
         HubFrame *fr = qobject_cast<HubFrame *>(arenaMap[arenaWidgets.at(k)]);
 
         if (fr)
-            fr->label_USERSTATE->setVisible(st);
+            fr->reloadSomeSettings();
     }
-
-    WBSET(WB_USERS_STATISTICS, st);
 }
 
 void MainWindow::slotExit(){

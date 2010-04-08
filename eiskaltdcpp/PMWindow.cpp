@@ -159,6 +159,10 @@ void PMWindow::showEvent(QShowEvent *e){
     }
 }
 
+void PMWindow::slotActivate(){
+    plainTextEdit_INPUT->setFocus();
+}
+
 void PMWindow::reloadSomeSettings(){
     if (plainTextEdit_INPUT->maximumHeight() != WIGET(WI_TEXT_EDIT_HEIGHT))
         plainTextEdit_INPUT->setMaximumHeight(WIGET(WI_TEXT_EDIT_HEIGHT));
@@ -185,6 +189,11 @@ const QPixmap &PMWindow::getPixmap(){
         return WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE);
     else
         return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER);
+}
+
+void PMWindow::clearChat(){
+    textEdit_CHAT->setHtml("");
+    addStatus(tr("Chat cleared."));
 }
 
 void PMWindow::addStatusMessage(QString msg){
