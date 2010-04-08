@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/php5
 <?php
 /**
 *
@@ -6,7 +6,7 @@
 * @license http://opensource.org/licenses/gpl-2.0.php GNU Public License
 * @version 14.03.2010
 *
-* Depends: php4+, xmms2 | audacious2
+* Depends: php5, xmms2 | audacious2
 *
 * Launching:
 * /usr/share/eiskaltdcpp/examples/xmms2_audacious2.ru_RU.UTF-8.php audacious2
