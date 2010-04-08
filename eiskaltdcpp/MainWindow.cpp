@@ -1563,9 +1563,17 @@ void MainWindow::slotHideWindow(){
             ph->slotFilter();
             return;
         }
+        else if (!WBGET(WB_TRAY_ENABLED)){
+            ph->slotFilter();
+            return;
+        }
     }
     else if (sb){
         if (sb->isFindFrameActivated()){
+            sb->slotFilter();
+            return;
+        }
+        else if (!WBGET(WB_TRAY_ENABLED)){
             sb->slotFilter();
             return;
         }
