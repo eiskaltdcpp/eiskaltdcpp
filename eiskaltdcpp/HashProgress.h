@@ -23,6 +23,7 @@ public slots:
 private slots:
     void timerTick();
     void slotStart();
+    void slotPause();
 
 private:
     QTimer *timer;

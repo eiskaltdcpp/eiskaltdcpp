@@ -30,9 +30,9 @@ HashProgress::HashProgress(QWidget *parent):
 
     connect(timer, SIGNAL(timeout()), this, SLOT(timerTick()));
     connect(pushButton_START, SIGNAL(clicked()), this, SLOT(slotStart()));
-	//connect(pushButon_PAUSE,SIGNAL(clicked()), this, SLOT(slotPause()));
+    connect(pushButton_PAUSE,SIGNAL(clicked()), this, SLOT(slotPause()));
     connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(slotAutoClose(bool)));
-
+    pushButton_PAUSE->setText(HashManager::getInstance()->isHashingPaused() ? tr("Resume") : tr("Pause"));
     timer->start();
 }
 
@@ -148,9 +148,9 @@ void HashProgress::timerTick(){
 
 void HashProgress::slotStart(){
     ShareManager *SM = ShareManager::getInstance();
-
     SM->setDirty();
     SM->refresh(true);
+
 }
 
 void HashProgress::slotAutoClose(bool b){
@@ -159,4 +159,14 @@ void HashProgress::slotAutoClose(bool b){
     blockSignals(true);
     checkBox->setChecked(b);
     blockSignals(false);
+}
+void HashProgress::slotPause(){
+        HashManager *HM = HashManager::getInstance();
+        if(HM->isHashingPaused()) {
+            HM->resumeHashing();HashManager::getInstance()->setPriority(Thread::NORMAL);
+        } else {
+            HM->pauseHashing();HashManager::getInstance()->setPriority(Thread::IDLE);
+        }
+        //printf("нажали кнопку\n");
+        pushButton_PAUSE->setText(HM->isHashingPaused() ? tr("Resume") : tr("Pause"));
 }
