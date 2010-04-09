@@ -1167,7 +1167,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Chat cleared.</source>
-        <translation type="unfinished">Chat törölve.</translation>
+        <translation>Chat törölve.</translation>
     </message>
 </context>
 <context>
@@ -1264,11 +1264,11 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <name>PublicHubsList</name>
     <message>
         <source>Public hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Publikus hub</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Link</translation>
     </message>
 </context>
 <context>
@@ -2652,11 +2652,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Hozzáadás</translation>
+        <translation>Hozzáadás</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
 </context>
 <context>
@@ -3068,7 +3068,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>The height of the text entry field</source>
-        <translation type="unfinished"></translation>
+        <translation>A szövegbeviteli mező magassága</translation>
     </message>
 </context>
 <context>
@@ -3316,7 +3316,11 @@ hogy letölthessen ebből a könyvtárból</translation>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Don&apos;t share (group symbol *, separator |)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Tiltott megosztások (csoportos kijelőlés *, elválasztó |)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
