@@ -423,6 +423,14 @@
         <source>Done</source>
         <translation>Kész</translation>
     </message>
+    <message>
+        <source>Resume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubFrame</name>
@@ -2455,6 +2463,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Close on finish</source>
         <translation>Bezárás az indexelés után</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

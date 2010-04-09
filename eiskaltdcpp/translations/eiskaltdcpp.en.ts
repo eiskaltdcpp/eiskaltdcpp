@@ -309,30 +309,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="121"/>
-        <location filename="../FavoriteHubs.cpp" line="148"/>
-        <location filename="../FavoriteHubs.cpp" line="220"/>
+        <location filename="../FavoriteHubs.cpp" line="122"/>
+        <location filename="../FavoriteHubs.cpp" line="149"/>
+        <location filename="../FavoriteHubs.cpp" line="221"/>
         <source>System default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="276"/>
-        <location filename="../FavoriteHubs.cpp" line="306"/>
+        <location filename="../FavoriteHubs.cpp" line="277"/>
+        <location filename="../FavoriteHubs.cpp" line="307"/>
         <source>Add new</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="307"/>
+        <location filename="../FavoriteHubs.cpp" line="308"/>
         <source>Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="308"/>
+        <location filename="../FavoriteHubs.cpp" line="309"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="309"/>
+        <location filename="../FavoriteHubs.cpp" line="310"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -509,6 +509,18 @@
 </context>
 <context>
     <name>HashProgress</name>
+    <message>
+        <location filename="../HashProgress.cpp" line="35"/>
+        <location filename="../HashProgress.cpp" line="171"/>
+        <source>Resume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../HashProgress.cpp" line="35"/>
+        <location filename="../HashProgress.cpp" line="171"/>
+        <source>Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../HashProgress.cpp" line="76"/>
         <source>-.-- files/h, %1 files left</source>
@@ -740,22 +752,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1486"/>
+        <location filename="../HubFrame.cpp" line="1488"/>
         <source>User online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2531"/>
+        <location filename="../HubFrame.cpp" line="2543"/>
         <source>Suggestions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2532"/>
+        <location filename="../HubFrame.cpp" line="2544"/>
         <source>Add to dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2833"/>
+        <location filename="../HubFrame.cpp" line="2845"/>
         <source>Search flood detected: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -796,75 +808,75 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1466"/>
+        <location filename="../HubFrame.cpp" line="1468"/>
         <source> joins the chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1510"/>
-        <location filename="../HubFrame.cpp" line="1522"/>
+        <location filename="../HubFrame.cpp" line="1512"/>
+        <location filename="../HubFrame.cpp" line="1524"/>
         <source>User not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1529"/>
+        <location filename="../HubFrame.cpp" line="1531"/>
         <source>Slot granted to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1540"/>
-        <location filename="../HubFrame.cpp" line="1560"/>
+        <location filename="../HubFrame.cpp" line="1542"/>
+        <location filename="../HubFrame.cpp" line="1562"/>
         <source>User not found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1549"/>
+        <location filename="../HubFrame.cpp" line="1551"/>
         <source> has been added to favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1569"/>
+        <location filename="../HubFrame.cpp" line="1571"/>
         <source> has been removed from favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1601"/>
+        <location filename="../HubFrame.cpp" line="1603"/>
         <source>Favorite hub added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1604"/>
+        <location filename="../HubFrame.cpp" line="1606"/>
         <source>Favorite hub already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1703"/>
+        <location filename="../HubFrame.cpp" line="1705"/>
         <source>User offline.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1735"/>
+        <location filename="../HubFrame.cpp" line="1737"/>
         <source>Stored password sent...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1738"/>
+        <location filename="../HubFrame.cpp" line="1740"/>
         <source>Enter password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1738"/>
+        <location filename="../HubFrame.cpp" line="1740"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1752"/>
-        <location filename="../HubFrame.cpp" line="2625"/>
+        <location filename="../HubFrame.cpp" line="1754"/>
+        <location filename="../HubFrame.cpp" line="2637"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1862"/>
+        <location filename="../HubFrame.cpp" line="1864"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1447,27 +1459,27 @@ Please check your connection settings</source>
 <context>
     <name>PMWindow</name>
     <message>
-        <location filename="../PMWindow.cpp" line="51"/>
+        <location filename="../PMWindow.cpp" line="50"/>
         <source>Private message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="52"/>
+        <location filename="../PMWindow.cpp" line="51"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="181"/>
+        <location filename="../PMWindow.cpp" line="182"/>
         <source> on hub </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="205"/>
+        <location filename="../PMWindow.cpp" line="206"/>
         <source>Chat cleared.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="269"/>
+        <location filename="../PMWindow.cpp" line="270"/>
         <source>User went offline</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2518,79 +2530,79 @@ Do you want to stop it?
 <context>
     <name>TransferViewModel</name>
     <message>
-        <location filename="../TransferViewModel.cpp" line="37"/>
+        <location filename="../TransferViewModel.cpp" line="38"/>
         <source>Users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="37"/>
+        <location filename="../TransferViewModel.cpp" line="38"/>
         <source>Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="37"/>
+        <location filename="../TransferViewModel.cpp" line="38"/>
         <source>Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="37"/>
+        <location filename="../TransferViewModel.cpp" line="38"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="38"/>
+        <location filename="../TransferViewModel.cpp" line="39"/>
         <source>Time left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="38"/>
+        <location filename="../TransferViewModel.cpp" line="39"/>
         <source>File name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="38"/>
+        <location filename="../TransferViewModel.cpp" line="39"/>
         <source>Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="38"/>
+        <location filename="../TransferViewModel.cpp" line="39"/>
         <source>IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="90"/>
+        <location filename="../TransferViewModel.cpp" line="91"/>
         <source>/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="287"/>
+        <location filename="../TransferViewModel.cpp" line="291"/>
         <source>File list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="521"/>
+        <location filename="../TransferViewModel.cpp" line="525"/>
         <source>Downloaded </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="523"/>
+        <location filename="../TransferViewModel.cpp" line="527"/>
         <source>Waiting for slot </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="526"/>
+        <location filename="../TransferViewModel.cpp" line="530"/>
         <source> from %1/%2 user(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="533"/>
-        <location filename="../TransferViewModel.cpp" line="535"/>
+        <location filename="../TransferViewModel.cpp" line="537"/>
+        <location filename="../TransferViewModel.cpp" line="539"/>
         <source>TTH: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="572"/>
         <location filename="../TransferViewModel.cpp" line="576"/>
+        <location filename="../TransferViewModel.cpp" line="580"/>
         <source>Finished</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2993,12 +3005,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIHashProgressDialog.ui" line="137"/>
+        <location filename="../ui/UIHashProgressDialog.ui" line="130"/>
+        <source>Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIHashProgressDialog.ui" line="144"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIHashProgressDialog.ui" line="130"/>
+        <location filename="../ui/UIHashProgressDialog.ui" line="137"/>
         <source>Start</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3205,12 +3222,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="95"/>
+        <location filename="../ui/PrivateMessage.ui" line="92"/>
         <source>Go to hub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="102"/>
+        <location filename="../ui/PrivateMessage.ui" line="99"/>
         <source>User share</source>
         <translation type="unfinished"></translation>
     </message>
