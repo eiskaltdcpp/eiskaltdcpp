@@ -36,8 +36,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
 
     plainTextEdit_INPUT->setWordWrapMode(QTextOption::NoWrap);
     plainTextEdit_INPUT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
-    this->installEventFilter(this);
+    plainTextEdit_INPUT->setContextMenuPolicy(Qt::CustomContextMenu);
     plainTextEdit_INPUT->installEventFilter(this);
     textEdit_CHAT->viewport()->installEventFilter(this);
     textEdit_CHAT->viewport()->setMouseTracking(true);
@@ -56,6 +55,8 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(pushButton_HUB, SIGNAL(clicked()), this, SLOT(slotHub()));
     connect(pushButton_SHARE, SIGNAL(clicked()), this, SLOT(slotShare()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
+    connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SIGNAL(inputTextChanged()));
+    connect(plainTextEdit_INPUT, SIGNAL(customContextMenuRequested(QPoint)), this, SIGNAL(inputTextMenu()));
 
     out_messages_index = 0;
 
@@ -178,11 +179,11 @@ void PMWindow::reloadSomeSettings(){
 }
 
 QString PMWindow::getArenaTitle(){
-    return WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) + tr(" on hub ") + hubUrl;
+    return ((cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid) + tr(" on hub ") + hubUrl;
 }
 
 QString PMWindow::getArenaShortTitle(){
-    return WulforUtil::getInstance()->getNicks(CID(cid.toStdString()));
+    return (cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid;
 }
 
 QWidget *PMWindow::getWidget(){

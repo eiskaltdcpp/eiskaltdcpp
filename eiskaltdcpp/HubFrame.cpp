@@ -1380,6 +1380,8 @@ void HubFrame::addPM(QString cid, QString output){
         p->textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
 
         connect(p, SIGNAL(privateMessageClosed(QString)), this, SLOT(slotPMClosed(QString)));
+        connect(p, SIGNAL(inputTextChanged()), this, SLOT(slotInputTextChanged()));
+        connect(p, SIGNAL(inputTextMenu()), this, SLOT(slotInputContextMenu()));
         connect(p->textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
 
         MainWindow::getInstance()->addArenaWidget(p);
@@ -1629,7 +1631,7 @@ void HubFrame::newMsg(VarMap map){
     WulforUtil::getInstance()->textToHtml(nick);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
-    output  = time + QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
+    output  = time + QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>").arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
     output  += message;
 
     //WulforUtil::getInstance()->textToHtml(output, false);
@@ -2466,6 +2468,11 @@ void HubFrame::slotSmile(){
 
 void HubFrame::slotInputTextChanged(){
 #ifdef USE_ASPELL
+    PMWindow *p = qobject_cast<PMWindow*>(sender());
+    QPlainTextEdit *plainTextEdit_INPUT = (p)? qobject_cast<QPlainTextEdit*>(p->inputWidget()) : this->plainTextEdit_INPUT;
+
+    if (!plainTextEdit_INPUT)
+        return;
     QString line = plainTextEdit_INPUT->toPlainText();
 
     if (line.isEmpty() || !SpellCheck::getInstance())
@@ -2504,6 +2511,11 @@ void HubFrame::slotInputTextChanged(){
 }
 
 void HubFrame::slotInputContextMenu(){
+    PMWindow *p = qobject_cast<PMWindow*>(sender());
+    QPlainTextEdit *plainTextEdit_INPUT = (p)? qobject_cast<QPlainTextEdit*>(p->inputWidget()) : this->plainTextEdit_INPUT;
+
+    if (!plainTextEdit_INPUT)
+        return;
 
     QMenu *m = plainTextEdit_INPUT->createStandardContextMenu();
 

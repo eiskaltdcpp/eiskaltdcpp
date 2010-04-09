@@ -32,6 +32,7 @@ public:
 
     void addStatus(QString);
     void sendMessage(QString,bool = false, bool = false);
+    QWidget *inputWidget() const {return plainTextEdit_INPUT; }
 
 public slots:
     void reloadSomeSettings();
@@ -47,6 +48,8 @@ private slots:
 
 signals:
     void privateMessageClosed(QString);
+    void inputTextChanged();
+    void inputTextMenu();
 
 protected:
     virtual bool eventFilter(QObject*, QEvent*);

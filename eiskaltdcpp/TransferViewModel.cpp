@@ -20,6 +20,7 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
+#include "dcpp/ShareManager.h"
 #include "dcpp/Util.h"
 
 #define _DEBUG_ 1
@@ -116,6 +117,9 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
             break;
         case Qt::ToolTipRole:
         {
+            if (index.column() == COLUMN_TRANSFER_FNAME)
+                return item->target;
+
             break;
         }
     }
