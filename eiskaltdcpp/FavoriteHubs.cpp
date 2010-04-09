@@ -106,6 +106,7 @@ void FavoriteHubs::init(){
     treeView->setRootIsDecorated(false);
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeView->viewport()->setAcceptDrops(true);
 
     MainWindow::getInstance()->addArenaWidget(this);
 
