@@ -106,7 +106,10 @@ void FavoriteHubs::init(){
     treeView->setRootIsDecorated(false);
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
-    treeView->viewport()->setAcceptDrops(true);
+    //treeView->viewport()->setAcceptDrops(true);
+    treeView->setDragEnabled(true);
+    treeView->setAcceptDrops(true);
+    //treeView->setDragDropMode(QAbstractItemView::InternalMove);
 
     MainWindow::getInstance()->addArenaWidget(this);
 
@@ -498,9 +501,19 @@ void FavoriteHubs::slotConnectButtonClicked(){
 }
 
 void FavoriteHubs::slotUpButtonClicked(){
+    QItemSelectionModel *s_model = treeView->selectionModel();
+    QModelIndexList list = s_model->selectedRows(0);
+
+    foreach (QModelIndex i, list)
+        s_model->select(model->moveUp(i), QItemSelectionModel::ClearAndSelect|QItemSelectionModel::Rows);
 }
 
 void FavoriteHubs::slotDownButtonClicked(){
+    QItemSelectionModel *s_model = treeView->selectionModel();
+    QModelIndexList list = s_model->selectedRows(0);
+
+    foreach (QModelIndex i, list)
+         s_model->select(model->moveDown(i), QItemSelectionModel::ClearAndSelect|QItemSelectionModel::Rows);
 }
 
 FavoriteHubItem *FavoriteHubs::getItem(){

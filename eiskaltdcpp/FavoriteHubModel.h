@@ -71,6 +71,14 @@ public:
     /** sort list */
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
+    virtual Qt::DropActions supportedDragActions() const { return Qt::MoveAction; }
+    //virtual Qt::DropActions supportedDropActions() const { return Qt::MoveAction; }
+
+    virtual bool removeRow(int row, const QModelIndex &parent);
+    virtual bool insertRow(int row, const QModelIndex &parent);
+    virtual bool insertRows(int position, int rows, const QModelIndex &index = QModelIndex());
+    virtual bool removeRows(int position, int rows, const QModelIndex &index = QModelIndex());
+
     /** */
     void addResult(QList<QVariant> &data);
     /** */
@@ -83,6 +91,9 @@ public:
     bool removeItem(const QModelIndex&);
     /** */
     bool removeItem(const FavoriteHubItem*);
+
+    QModelIndex moveUp(const QModelIndex &);
+    QModelIndex moveDown(const QModelIndex &);
 
     /** */
     void repaint();

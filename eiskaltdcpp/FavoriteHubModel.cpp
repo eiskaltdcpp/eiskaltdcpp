@@ -80,6 +80,11 @@ Qt::ItemFlags FavoriteHubModel::flags(const QModelIndex &index) const
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 
+    if (index.isValid())
+        flags |= Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
+    else
+        flags |= Qt::ItemIsDragEnabled;
+
     if (index.column() == COLUMN_HUB_AUTOCONNECT)
         flags |= Qt::ItemIsUserCheckable;
     else if (index.column() == COLUMN_HUB_PASSWORD || index.column() == COLUMN_HUB_ENCODING)
@@ -143,6 +148,36 @@ int FavoriteHubModel::rowCount(const QModelIndex &parent) const
         parentItem = static_cast<FavoriteHubItem*>(parent.internalPointer());
 
     return parentItem->childCount();
+}
+
+bool FavoriteHubModel::insertRow(int row, const QModelIndex &parent){
+    return true;
+}
+
+bool FavoriteHubModel::removeRow(int row, const QModelIndex &parent){
+    return true;
+}
+
+bool FavoriteHubModel::insertRows(int position, int rows, const QModelIndex &index){
+    FavoriteHubItem *from = NULL;
+
+    beginRemoveRows(QModelIndex(), position, position);
+    {
+        from = rootItem->childItems.takeAt(position);
+    }
+    endRemoveRows();
+
+    beginInsertRows(QModelIndex(), index.row(), index.row());
+    {
+        rootItem->childItems.insert(index.row(), from);
+    }
+    endInsertRows();
+
+    return true;
+}
+
+bool FavoriteHubModel::removeRows(int position, int rows, const QModelIndex &index){
+    return true;
 }
 
 namespace {
@@ -273,6 +308,48 @@ void FavoriteHubModel::addResult(QList<QVariant> &data){
     rootItem->appendChild(item);
 
     emit layoutChanged();
+}
+
+QModelIndex FavoriteHubModel::moveDown(const QModelIndex &index){
+    if (index.row() >= rootItem->childCount() - 1)
+        return QModelIndex();
+
+    FavoriteHubItem *item = NULL;
+
+    beginRemoveRows(QModelIndex(), index.row(), index.row());
+    {
+        item = rootItem->childItems.takeAt(index.row());
+    }
+    endRemoveRows();
+
+    beginInsertRows(QModelIndex(), index.row()+1, index.row()+1);
+    {
+        rootItem->childItems.insert(index.row()+1, item);
+    }
+    endInsertRows();
+
+    return this->index(index.row()+1, index.column(), QModelIndex());
+}
+
+QModelIndex FavoriteHubModel::moveUp(const QModelIndex &index){
+    if (index.row() < 1)
+        return QModelIndex();
+
+    FavoriteHubItem *item = NULL;
+
+    beginRemoveRows(QModelIndex(), index.row(), index.row());
+    {
+        item = rootItem->childItems.takeAt(index.row());
+    }
+    endRemoveRows();
+
+    beginInsertRows(QModelIndex(), index.row()-1, index.row()-1);
+    {
+        rootItem->childItems.insert(index.row()-1, item);
+    }
+    endInsertRows();
+
+    return this->index(index.row()-1, index.column(), QModelIndex());
 }
 
 const QList<FavoriteHubItem*> &FavoriteHubModel::getItems(){
