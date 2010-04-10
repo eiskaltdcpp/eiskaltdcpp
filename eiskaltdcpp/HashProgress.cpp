@@ -25,14 +25,16 @@ HashProgress::HashProgress(QWidget *parent):
     HashManager::getInstance()->setPriority(Thread::NORMAL);
 
     timer = new QTimer();
-    timer->setInterval(800);
-    timer->setSingleShot(true);
+    timer->setInterval(250);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(timerTick()));
     connect(pushButton_START, SIGNAL(clicked()), this, SLOT(slotStart()));
     connect(pushButton_PAUSE,SIGNAL(clicked()), this, SLOT(slotPause()));
     connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(slotAutoClose(bool)));
     pushButton_PAUSE->setText(HashManager::getInstance()->isHashingPaused() ? tr("Resume") : tr("Pause"));
+
+    slotStart();
+
     timer->start();
 }
 
@@ -45,7 +47,6 @@ HashProgress::~HashProgress(){
 }
 
 void HashProgress::timerTick(){
-    static bool isDone = false;
     string path;
     int64_t bytes = 0;
     size_t files = 0;
@@ -63,11 +64,6 @@ void HashProgress::timerTick(){
         accept();
 
         return;;
-    }
-    else if (isDone){
-        timer->start();
-
-        return;
     }
 
     double diff = tick - startTime;
@@ -94,12 +90,11 @@ void HashProgress::timerTick(){
             double fs = files * 60 * 60 / filestat;
             double ss = bytes / speedStat;
 
-            left->setText(QString(tr("%1 left").arg(QString::fromStdString(Text::toT(Util::formatSeconds((int64_t)(fs + ss) / 2))))));
+            left->setText(QString(tr("%1 left").arg(_q(Text::toT(Util::formatSeconds((int64_t)(fs + ss) / 2))))));
         }
     }
 
     if(files == 0) {
-        isDone = true;
         progress->setValue(10000);
         file->setText(tr("Done"));
     }
@@ -142,8 +137,6 @@ void HashProgress::timerTick(){
     else {
         progress->setValue((int)(10000 * ((0.5 * (startFiles - files)/startFiles) + 0.5 * (startBytes - bytes) / startBytes)));
     }
-
-    timer->start();
 }
 
 void HashProgress::slotStart(){
