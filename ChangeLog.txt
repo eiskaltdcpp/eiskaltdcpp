@@ -1,0 +1,11 @@
+--- 2.0.1 2010-04-18 ---
+* ShareBrowser filtering support (Ctrl+F hotkey)
+* Away mode support
+* The File menu is divided into several thematic menus
+* Significantly expanded the settings dialog
+* Added examples of custom scripts
+* Added a status line with the last message on hub
+* Added fast search panel
+* Added the ability to run multiple copies of the client from different users of the system.
+  Check that different local ports have been specified in the settings.
+* Thanks to Akos Berki the Hungarian translation is now available.
