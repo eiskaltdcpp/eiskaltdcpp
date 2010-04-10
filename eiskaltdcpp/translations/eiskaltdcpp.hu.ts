@@ -404,20 +404,12 @@
         <translation>-.-- B/s, %1 maradt</translation>
     </message>
     <message>
-        <source>-:--:-- left</source>
-        <translation>-:--:-- maradt</translation>
-    </message>
-    <message>
         <source>%1 files/h, %2 files left</source>
         <translation>%1 fájl/ó, %2 fájl maradt</translation>
     </message>
     <message>
         <source>%1/s, %2 left, %3 shared</source>
         <translation>%1/s, %2 maradt, %3 megosztva</translation>
-    </message>
-    <message>
-        <source>%1 left</source>
-        <translation>%1 maradt</translation>
     </message>
     <message>
         <source>Done</source>
@@ -430,6 +422,14 @@
     <message>
         <source>Pause</source>
         <translation>Szünet</translation>
+    </message>
+    <message>
+        <source>%p% :: %1 left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Indítás</translation>
     </message>
 </context>
 <context>
@@ -2411,6 +2411,30 @@ p, li { white-space: pre-wrap; }
         <source>Form</source>
         <translation></translation>
     </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Új hozzáadása</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Törlés</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation type="unfinished">Csatlakozás</translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteUsers</name>
@@ -2463,10 +2487,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Close on finish</source>
         <translation>Bezárás az indexelés után</translation>
-    </message>
-    <message>
-        <source>Pause</source>
-        <translation>Szünet</translation>
     </message>
 </context>
 <context>

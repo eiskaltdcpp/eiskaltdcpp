@@ -318,31 +318,31 @@
         <translation>Улюбёныя асяродкі</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="122"/>
-        <location filename="../FavoriteHubs.cpp" line="149"/>
-        <location filename="../FavoriteHubs.cpp" line="221"/>
+        <location filename="../FavoriteHubs.cpp" line="154"/>
+        <location filename="../FavoriteHubs.cpp" line="181"/>
+        <location filename="../FavoriteHubs.cpp" line="253"/>
         <source>System default</source>
         <translatorcomment>???Прадвызначаная</translatorcomment>
         <translation>Звычайная</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="277"/>
-        <location filename="../FavoriteHubs.cpp" line="307"/>
+        <location filename="../FavoriteHubs.cpp" line="309"/>
+        <location filename="../FavoriteHubs.cpp" line="339"/>
         <source>Add new</source>
         <translation>Дадаць</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="308"/>
+        <location filename="../FavoriteHubs.cpp" line="340"/>
         <source>Change</source>
         <translation>Зьмяніць</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="309"/>
+        <location filename="../FavoriteHubs.cpp" line="341"/>
         <source>Delete</source>
         <translation>Сьцерці</translation>
     </message>
     <message>
-        <location filename="../FavoriteHubs.cpp" line="310"/>
+        <location filename="../FavoriteHubs.cpp" line="342"/>
         <source>Connect</source>
         <translation>Злучыцца</translation>
     </message>
@@ -520,51 +520,48 @@
 <context>
     <name>HashProgress</name>
     <message>
-        <location filename="../HashProgress.cpp" line="35"/>
-        <location filename="../HashProgress.cpp" line="171"/>
+        <location filename="../HashProgress.cpp" line="92"/>
+        <source>%p% :: %1 left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../HashProgress.cpp" line="165"/>
         <source>Resume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="35"/>
-        <location filename="../HashProgress.cpp" line="171"/>
+        <location filename="../HashProgress.cpp" line="167"/>
         <source>Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="76"/>
+        <location filename="../HashProgress.cpp" line="170"/>
+        <source>Start</source>
+        <translation type="unfinished">Пачаць</translation>
+    </message>
+    <message>
+        <location filename="../HashProgress.cpp" line="71"/>
         <source>-.-- files/h, %1 files left</source>
         <translatorcomment>!!!множныя лікі</translatorcomment>
         <translation>-.-- файлаў за гадзіну, засталося %1 файлаў</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="77"/>
+        <location filename="../HashProgress.cpp" line="72"/>
         <source>-.-- B/s, %1 left</source>
         <translation>-.-- Б/с, засталося %1</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="78"/>
-        <location filename="../HashProgress.cpp" line="91"/>
-        <source>-:--:-- left</source>
-        <translation>-:--:-- засталося</translation>
-    </message>
-    <message>
-        <location filename="../HashProgress.cpp" line="85"/>
+        <location filename="../HashProgress.cpp" line="80"/>
         <source>%1 files/h, %2 files left</source>
         <translation>%1 файлаў за гадзіну, засталося %2 файлаў</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="86"/>
+        <location filename="../HashProgress.cpp" line="81"/>
         <source>%1/s, %2 left, %3 shared</source>
         <translation>%1/с; засталося %2, абагулілі %3</translation>
     </message>
     <message>
-        <location filename="../HashProgress.cpp" line="97"/>
-        <source>%1 left</source>
-        <translation>засталося %1</translation>
-    </message>
-    <message>
-        <location filename="../HashProgress.cpp" line="104"/>
+        <location filename="../HashProgress.cpp" line="98"/>
         <source>Done</source>
         <translation>Скончылі</translation>
     </message>
@@ -3070,6 +3067,36 @@ p, li { white-space: pre-wrap; }
         <source>Form</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubs.ui" line="53"/>
+        <source>Add new</source>
+        <translation type="unfinished">Дадаць</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubs.ui" line="70"/>
+        <source>Change</source>
+        <translation type="unfinished">Зьмяніць</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubs.ui" line="80"/>
+        <source>Delete</source>
+        <translation type="unfinished">Сьцерці</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubs.ui" line="97"/>
+        <source>Connect</source>
+        <translation type="unfinished">Злучыцца</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubs.ui" line="114"/>
+        <source>Move up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubs.ui" line="124"/>
+        <source>Move down</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteUsers</name>
@@ -3120,22 +3147,17 @@ p, li { white-space: pre-wrap; }
         <translation>Поступ стварэньня скаротаў</translation>
     </message>
     <message>
-        <location filename="../ui/UIHashProgressDialog.ui" line="130"/>
-        <source>Pause</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UIHashProgressDialog.ui" line="144"/>
+        <location filename="../ui/UIHashProgressDialog.ui" line="133"/>
         <source>Hide</source>
         <translation>Схаваць</translation>
     </message>
     <message>
-        <location filename="../ui/UIHashProgressDialog.ui" line="137"/>
+        <location filename="../ui/UIHashProgressDialog.ui" line="126"/>
         <source>Start</source>
         <translation>Пачаць</translation>
     </message>
     <message>
-        <location filename="../ui/UIHashProgressDialog.ui" line="110"/>
+        <location filename="../ui/UIHashProgressDialog.ui" line="106"/>
         <source>Close on finish</source>
         <translation>Закрыць, як скончыцца</translation>
     </message>
