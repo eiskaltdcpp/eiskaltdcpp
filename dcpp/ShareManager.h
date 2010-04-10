@@ -59,7 +59,7 @@ public:
 	void removeDirectory(const string& realPath);
 	void renameDirectory(const string& realPath, const string& virtualName) throw(ShareException);
 
-        bool isRefreshing() { return (dcpp::Thread::safeExchange(refreshing, 1) == 1); }
+	bool isRefreshing() { return refreshing; }
 
 	string toVirtual(const TTHValue& tth) const throw(ShareException);
 	string toReal(const string& virtualFile) throw(ShareException);
