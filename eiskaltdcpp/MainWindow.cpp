@@ -723,9 +723,6 @@ void MainWindow::initMenuBar(){
 }
 
 void MainWindow::initStatusBar(){
-    WulforUtil *WU = WulforUtil::getInstance();
-    int sc_size = 18;
-
     statusLabel = new QLabel(statusBar());
     statusLabel->setFrameShadow(QFrame::Plain);
     statusLabel->setFrameShape(QFrame::NoFrame);
