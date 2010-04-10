@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>524</width>
-    <height>162</height>
+    <height>164</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -126,13 +126,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_PAUSE">
-       <property name="text">
-        <string>Pause</string>
-       </property>
-      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_START">

@@ -29,11 +29,9 @@ HashProgress::HashProgress(QWidget *parent):
 
     connect(timer, SIGNAL(timeout()), this, SLOT(timerTick()));
     connect(pushButton_START, SIGNAL(clicked()), this, SLOT(slotStart()));
-    connect(pushButton_PAUSE,SIGNAL(clicked()), this, SLOT(slotPause()));
     connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(slotAutoClose(bool)));
-    pushButton_PAUSE->setText(HashManager::getInstance()->isHashingPaused() ? tr("Resume") : tr("Pause"));
 
-    slotStart();
+    stateButton();
 
     timer->start();
 }
@@ -135,15 +133,24 @@ void HashProgress::timerTick(){
         progress->setValue(0);
     }
     else {
-        progress->setValue((int)(10000 * ((0.5 * (startFiles - files)/startFiles) + 0.5 * (startBytes - bytes) / startBytes)));
+        progress->setValue((int)(10000 * ((startBytes - bytes) / startBytes)));
     }
 }
 
 void HashProgress::slotStart(){
     ShareManager *SM = ShareManager::getInstance();
-    SM->setDirty();
-    SM->refresh(true);
-
+    HashManager *HM = HashManager::getInstance();
+    if (SM->isRefreshing()) {
+        if(HM->isHashingPaused()) {
+            HM->resumeHashing();HashManager::getInstance()->setPriority(Thread::NORMAL);
+        } else {
+            HM->pauseHashing();HashManager::getInstance()->setPriority(Thread::IDLE);
+        }
+    } else {
+            SM->setDirty();
+            SM->refresh(true);
+    }
+    stateButton();
 }
 
 void HashProgress::slotAutoClose(bool b){
@@ -153,13 +160,6 @@ void HashProgress::slotAutoClose(bool b){
     checkBox->setChecked(b);
     blockSignals(false);
 }
-void HashProgress::slotPause(){
-        HashManager *HM = HashManager::getInstance();
-        if(HM->isHashingPaused()) {
-            HM->resumeHashing();HashManager::getInstance()->setPriority(Thread::NORMAL);
-        } else {
-            HM->pauseHashing();HashManager::getInstance()->setPriority(Thread::IDLE);
-        }
-        //printf("нажали кнопку\n");
-        pushButton_PAUSE->setText(HM->isHashingPaused() ? tr("Resume") : tr("Pause"));
+void HashProgress::stateButton(){
+pushButton_START->setText(ShareManager::getInstance()->isRefreshing() ? (HashManager::getInstance()->isHashingPaused() ? tr("Resume") : tr("Pause")) : tr("Start"));
 }
