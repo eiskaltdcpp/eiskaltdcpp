@@ -11,6 +11,28 @@
 
 using namespace dcpp;
 
+enum { IDLE, RUNNING, PAUSED };
+
+unsigned getHashStatus() {
+    ShareManager *SM = ShareManager::getInstance();
+    HashManager *HM = HashManager::getInstance();
+	if( SM->isRefreshing() )
+		return RUNNING;
+
+	if( HM->isHashingPaused() )
+		return PAUSED;
+
+    string path;
+    int64_t bytes = 0;
+    size_t files = 0;
+	HM->getStats(path, bytes, files);
+	
+	if( bytes != 0 || files != 0 )
+		return RUNNING;
+
+	return IDLE;
+}
+
 HashProgress::HashProgress(QWidget *parent):
         QDialog(parent),
         autoClose(false),
@@ -51,6 +73,13 @@ void HashProgress::timerTick(){
     stateButton();
 
     HashManager::getInstance()->getStats(path, bytes, files);
+    if(ShareManager::getInstance()->isRefreshing()) {
+        file->setText(tr("Refreshing file list"));
+        return;;
+    }
+
+    if( startTime == 0 )
+        startTime = tick;
 
     if(bytes > startBytes)
         startBytes = bytes;
@@ -58,7 +87,7 @@ void HashProgress::timerTick(){
     if(files > startFiles)
         startFiles = files;
 
-    if(autoClose && files == 0 && !ShareManager::getInstance()->isRefreshing()) {
+    if(autoClose && files == 0) {
         accept();
 
         return;;
@@ -67,13 +96,14 @@ void HashProgress::timerTick(){
     double diff = tick - startTime;
     bool paused = HashManager::getInstance()->isHashingPaused();
 
-    if(diff < 1000 || files == 0 || bytes == 0 || paused) {
+    QString eta;
+
+    if( diff == 0. || files == 0 || bytes == 0 || paused) {
         stat->setText(QString(tr("-.-- files/h, %1 files left")).arg((uint32_t)files));
         speed->setText(tr("-.-- B/s, %1 left").arg(WulforUtil::formatBytes(bytes)));
-        progress->setFormat("%p% :: -:--:-- left");
+        eta = tr("-:--:--");
         progress->setValue(0);
-    }
-    else {
+    } else {
         double filestat = (((double)(startFiles - files)) * 60 * 60 * 1000) / diff;
         double speedStat = (((double)(startBytes - bytes)) * 1000) / diff;
 
@@ -82,22 +112,22 @@ void HashProgress::timerTick(){
                                                      .arg(WulforUtil::formatBytes(bytes))
                                                      .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
 
-        if(filestat == 0 || speedStat == 0) {
-            progress->setFormat("%p% :: -:--:-- left");
+        if(/*filestat == 0 ||*/ speedStat == 0) {
+            eta = tr("-:--:--");
         }
         else {
             double fs = files * 60 * 60 / filestat;
             double ss = bytes / speedStat;
 
-            progress->setFormat(tr("%p% :: %1 left").arg(_q(Text::toT(Util::formatSeconds((int64_t)(fs + ss) / 2)))));
+            eta = _q(Text::toT(Util::formatSeconds((int64_t)(ss))));
         }
     }
+    progress->setFormat( tr("%p% %1 left").arg(eta) );
 
-    if(files == 0 && !ShareManager::getInstance()->isRefreshing()) {
-        progress->setValue(10000);
+    if(files == 0 ) {
+        //progress->setValue(10000); // generates anoying blinking 0 -> 100%
         file->setText(tr("Done"));
-    }
-    else {
+    } else {
         QString fname = QString::fromStdString(Text::toT(path));
         QFontMetrics metrics(font());
 
@@ -133,21 +163,22 @@ void HashProgress::timerTick(){
     if(startFiles == 0 || startBytes == 0)
         progress->setValue(0);
     else
-        progress->setValue(static_cast<int>(10000.0*(static_cast<double>((startBytes - bytes))/startBytes)));
+        progress->setValue( (10000*(startBytes - bytes))/startBytes);
 }
 
 void HashProgress::slotStart(){
     ShareManager *SM = ShareManager::getInstance();
     HashManager *HM = HashManager::getInstance();
-    if (SM->isRefreshing()) {
-        if(HM->isHashingPaused()) {
-            HM->resumeHashing();HashManager::getInstance()->setPriority(Thread::NORMAL);
-        } else {
-            HM->pauseHashing();HashManager::getInstance()->setPriority(Thread::IDLE);
-        }
-    } else {
+    switch( getHashStatus() ) {
+    case IDLE:
             SM->setDirty();
             SM->refresh(true);
+            break;
+    case RUNNING:
+            HM->pauseHashing();HashManager::getInstance()->setPriority(Thread::IDLE);
+            break;
+    case PAUSED:
+            HM->resumeHashing();HashManager::getInstance()->setPriority(Thread::NORMAL);
     }
     stateButton();
 }
@@ -160,12 +191,15 @@ void HashProgress::slotAutoClose(bool b){
     blockSignals(false);
 }
 void HashProgress::stateButton(){
-    if (ShareManager::getInstance()->isRefreshing()) {
-        if (HashManager::getInstance()->isHashingPaused())
-            pushButton_START->setText(tr("Resume"));
-        else
-            pushButton_START->setText(tr("Pause"));
-    }
-    else
+    switch( getHashStatus() ) {
+    case IDLE:
         pushButton_START->setText(tr("Start"));
+        break;
+    case RUNNING:
+        pushButton_START->setText(tr("Pause"));
+        break;
+    case PAUSED:
+        pushButton_START->setText(tr("Resume"));
+        break;
+    }
 }
