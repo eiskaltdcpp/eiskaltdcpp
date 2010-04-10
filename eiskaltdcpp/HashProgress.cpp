@@ -31,8 +31,6 @@ HashProgress::HashProgress(QWidget *parent):
     connect(pushButton_START, SIGNAL(clicked()), this, SLOT(slotStart()));
     connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(slotAutoClose(bool)));
 
-    stateButton();
-
     timer->start();
 }
 
@@ -50,6 +48,8 @@ void HashProgress::timerTick(){
     size_t files = 0;
     uint32_t tick = GET_TICK();
 
+    stateButton();
+
     HashManager::getInstance()->getStats(path, bytes, files);
 
     if(bytes > startBytes)
@@ -65,14 +65,19 @@ void HashProgress::timerTick(){
     }
 
     double diff = tick - startTime;
-
-    if(diff < 1000 || files == 0 || bytes == 0) {
+    bool paused = HashManager::getInstance()->isHashingPaused();
+    if(diff < 1000 || files == 0 || bytes == 0 || paused) {
         stat->setText(QString(tr("-.-- files/h, %1 files left")).arg((uint32_t)files));
         speed->setText(tr("-.-- B/s, %1 left").arg(WulforUtil::formatBytes(bytes)));
         left->setText(tr("-:--:-- left"));
         progress->setValue(0);
-    }
-    else {
+        if(paused) {
+            left->setText(tr("Paused"));
+        } else {
+            left->setText(tr("-:--:-- left"));
+            progress->setValue(0);
+        }
+    } else {
         double filestat = (((double)(startFiles - files)) * 60 * 60 * 1000) / diff;
         double speedStat = (((double)(startBytes - bytes)) * 1000) / diff;
 
@@ -93,7 +98,6 @@ void HashProgress::timerTick(){
     }
 
     if(files == 0) {
-        progress->setValue(10000);
         file->setText(tr("Done"));
     }
     else {
@@ -133,7 +137,7 @@ void HashProgress::timerTick(){
         progress->setValue(0);
     }
     else {
-        progress->setValue((int)(10000 * ((startBytes - bytes) / startBytes)));
+        progress->setValue((int)(10000 * ((0.5 * (startFiles - files)/startFiles) + 0.5 * (startBytes - bytes) / startBytes)));
     }
 }
 
@@ -161,5 +165,12 @@ void HashProgress::slotAutoClose(bool b){
     blockSignals(false);
 }
 void HashProgress::stateButton(){
-pushButton_START->setText(ShareManager::getInstance()->isRefreshing() ? (HashManager::getInstance()->isHashingPaused() ? tr("Resume") : tr("Pause")) : tr("Start"));
+    if (ShareManager::getInstance()->isRefreshing()) {
+        if (HashManager::getInstance()->isHashingPaused())
+            pushButton_START->setText(tr("Resume"));
+        else
+            pushButton_START->setText(tr("Pause"));
+    } else
+        pushButton_START->setText(tr("Start"));
+//pushButton_START->setText(ShareManager::getInstance()->isRefreshing() ? (HashManager::getInstance()->isHashingPaused() ? tr("Resume") : tr("Pause")) : tr("Start"));
 }
