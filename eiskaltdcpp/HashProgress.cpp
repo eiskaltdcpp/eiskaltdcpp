@@ -58,7 +58,7 @@ void HashProgress::timerTick(){
     if(files > startFiles)
         startFiles = files;
 
-    if(autoClose && files == 0) {
+    if(autoClose && files == 0 && !ShareManager::getInstance()->isRefreshing()) {
         accept();
 
         return;;
@@ -66,18 +66,14 @@ void HashProgress::timerTick(){
 
     double diff = tick - startTime;
     bool paused = HashManager::getInstance()->isHashingPaused();
+
     if(diff < 1000 || files == 0 || bytes == 0 || paused) {
         stat->setText(QString(tr("-.-- files/h, %1 files left")).arg((uint32_t)files));
         speed->setText(tr("-.-- B/s, %1 left").arg(WulforUtil::formatBytes(bytes)));
-        left->setText(tr("-:--:-- left"));
+        progress->setFormat("%p% :: -:--:-- left");
         progress->setValue(0);
-        if(paused) {
-            left->setText(tr("Paused"));
-        } else {
-            left->setText(tr("-:--:-- left"));
-            progress->setValue(0);
-        }
-    } else {
+    }
+    else {
         double filestat = (((double)(startFiles - files)) * 60 * 60 * 1000) / diff;
         double speedStat = (((double)(startBytes - bytes)) * 1000) / diff;
 
@@ -87,17 +83,18 @@ void HashProgress::timerTick(){
                                                      .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
 
         if(filestat == 0 || speedStat == 0) {
-            left->setText(tr("-:--:-- left"));
+            progress->setFormat("%p% :: -:--:-- left");
         }
         else {
             double fs = files * 60 * 60 / filestat;
             double ss = bytes / speedStat;
 
-            left->setText(QString(tr("%1 left").arg(_q(Text::toT(Util::formatSeconds((int64_t)(fs + ss) / 2))))));
+            progress->setFormat(tr("%p% :: %1 left").arg(_q(Text::toT(Util::formatSeconds((int64_t)(fs + ss) / 2)))));
         }
     }
 
-    if(files == 0) {
+    if(files == 0 && !ShareManager::getInstance()->isRefreshing()) {
+        progress->setValue(10000);
         file->setText(tr("Done"));
     }
     else {
@@ -133,12 +130,10 @@ void HashProgress::timerTick(){
         file->setText(fname);
     }
 
-    if(startFiles == 0 || startBytes == 0) {
+    if(startFiles == 0 || startBytes == 0)
         progress->setValue(0);
-    }
-    else {
-        progress->setValue((int)(10000 * ((0.5 * (startFiles - files)/startFiles) + 0.5 * (startBytes - bytes) / startBytes)));
-    }
+    else
+        progress->setValue(static_cast<int>(10000.0*(static_cast<double>((startBytes - bytes))/startBytes)));
 }
 
 void HashProgress::slotStart(){
@@ -170,7 +165,7 @@ void HashProgress::stateButton(){
             pushButton_START->setText(tr("Resume"));
         else
             pushButton_START->setText(tr("Pause"));
-    } else
+    }
+    else
         pushButton_START->setText(tr("Start"));
-//pushButton_START->setText(ShareManager::getInstance()->isRefreshing() ? (HashManager::getInstance()->isHashingPaused() ? tr("Resume") : tr("Pause")) : tr("Start"));
 }

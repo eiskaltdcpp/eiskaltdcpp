@@ -119,6 +119,13 @@ public:
 		pthread_mutex_unlock(&mtx);
 		return ret;
 	}
+        static bool safeCmp(volatile long & target, long value) {
+            pthread_mutex_lock(&mtx);
+            bool ret = (target == value);
+            pthread_mutex_unlock(&mtx);
+            return ret;
+        }
+
 #endif
 
 protected:
