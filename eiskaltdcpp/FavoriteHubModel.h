@@ -88,6 +88,7 @@ public:
     void repaint();
 
 private:
+    Qt::DropActions supportedDropActions() const;
 
     FavoriteHubItem *rootItem;
 

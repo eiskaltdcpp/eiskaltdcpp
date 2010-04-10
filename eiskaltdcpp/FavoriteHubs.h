@@ -61,6 +61,13 @@ private slots:
     void slotDblClicked();
     void slotHeaderMenu();
 
+    void slotAdd_newButtonClicked();
+    void slotChangeButtonClicked();
+    void slotRemoveButtonClicked();
+    void slotConnectButtonClicked();
+    void slotUpButtonClicked();
+    void slotDownButtonClicked();
+
 private:
     FavoriteHubs(QWidget* = NULL);
     virtual ~FavoriteHubs();
@@ -77,6 +84,8 @@ private:
     void getParams(const FavoriteHubEditor&, StrMap&);
     void updateEntry(FavoriteHubEntry&, StrMap&);
     void updateItem(FavoriteHubItem*, StrMap&);
+
+    FavoriteHubItem *getItem();
 
     FavoriteHubModel *model;
 

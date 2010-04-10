@@ -110,12 +110,41 @@ void FavoriteHubs::init(){
 
     MainWindow::getInstance()->addArenaWidget(this);
 
+    WulforUtil *WU = WulforUtil::getInstance();
+
+    add_newButton->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
+    changeButton->setIcon(WU->getPixmap(WulforUtil::eiEDIT));
+    removeButton->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
+    connectButton->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
+    upButton->setIcon(WU->getPixmap(WulforUtil::eiUP));
+    downButton->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
+
     load();
+
+    int row_num = model->rowCount();
+    if (row_num == 0){
+        changeButton->setEnabled(false);
+        removeButton->setEnabled(false);
+        connectButton->setEnabled(false);
+        upButton->setEnabled(false);
+        downButton->setEnabled(false);
+    }
+    else if(row_num == 1){
+        upButton->setEnabled(false);
+        downButton->setEnabled(false);
+    }
 
     connect(treeView, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(slotContexMenu(const QPoint&)));
     connect(treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(slotClicked(QModelIndex)));
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotDblClicked()));
+
+    connect(add_newButton, SIGNAL(clicked()), this, SLOT(slotAdd_newButtonClicked()));
+    connect(changeButton,  SIGNAL(clicked()), this, SLOT(slotChangeButtonClicked()));
+    connect(removeButton,  SIGNAL(clicked()), this, SLOT(slotRemoveButtonClicked()));
+    connect(connectButton, SIGNAL(clicked()), this, SLOT(slotConnectButtonClicked()));
+    connect(upButton,      SIGNAL(clicked()), this, SLOT(slotUpButtonClicked()));
+    connect(downButton,    SIGNAL(clicked()), this, SLOT(slotDownButtonClicked()));
 }
 
 void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor){
@@ -322,71 +351,30 @@ void FavoriteHubs::slotContexMenu(const QPoint &){
 
         QAction *res = menu->exec(QCursor::pos());
 
-        QString address = item->data(COLUMN_HUB_ADDRESS).toString();
-        FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address.toStdString());
-
-        if (res == change){
-            FavoriteHubEditor editor;
-
-
-            if (entry){
-                StrMap map;
-
-                getParams(entry, map);
-                initHubEditor(editor, map);
-
-                if (editor.exec() == QDialog::Accepted){
-                    getParams(editor, map);
-                    updateItem(item, map);
-                    updateEntry(*entry, map);
-
-                    FavoriteManager::getInstance()->save();
-                }
-            }
-        }
-        else if (res == remove && entry){
-            FavoriteManager::getInstance()->removeFavorite(entry);
-        }
-        else if (res == conn && entry){
-            QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
-            MainWindow::getInstance()->newHubFrame(address, encoding);
-        }
-        else if (res == add_new){
-            FavoriteHubEditor editor;
-
-            initHubEditor(editor);
-
-            if (editor.exec() == QDialog::Accepted){
-                StrMap map;
-                FavoriteHubEntry entry;
-
-                getParams(editor, map);
-                updateEntry(entry, map);
-
-                FavoriteManager::getInstance()->addFavorite(entry);
-            }
-        }
+        if (res == change)
+            slotChangeButtonClicked();
+        else if (res == remove)
+            slotRemoveButtonClicked();
+        else if (res == conn)
+            slotDblClicked();
+        else if (res == add_new)
+            slotAdd_newButtonClicked();
     }
 
     delete menu;
 }
 
 void FavoriteHubs::slotDblClicked(){
-    QItemSelectionModel *s_model = treeView->selectionModel();
-    QModelIndexList list = s_model->selectedRows(0);
+    FavoriteHubItem *item = getItem();
 
-    foreach (QModelIndex i, list){
-        FavoriteHubItem *item = static_cast<FavoriteHubItem*>(list.at(0).internalPointer());
+    if (!item)
+        return;
 
-        if (!item)
-            continue;
+    QString address = item->data(COLUMN_HUB_ADDRESS).toString();
+    FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address.toStdString());
+    QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
 
-        QString address = item->data(COLUMN_HUB_ADDRESS).toString();
-        FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address.toStdString());
-        QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
-
-        MainWindow::getInstance()->newHubFrame(address, encoding);
-    }
+    MainWindow::getInstance()->newHubFrame(address, encoding);
 }
 
 void FavoriteHubs::slotHeaderMenu(){
@@ -449,3 +437,77 @@ void FavoriteHubs::on(FavoriteRemoved, const FavoriteHubEntryPtr entry) throw(){
     model->removeItem(item);
 }
 
+void FavoriteHubs::slotAdd_newButtonClicked(){
+    FavoriteHubEditor editor;
+
+    initHubEditor(editor);
+
+    if (editor.exec() == QDialog::Accepted){
+        StrMap map;
+        FavoriteHubEntry entry;
+
+        getParams(editor, map);
+        updateEntry(entry, map);
+
+        FavoriteManager::getInstance()->addFavorite(entry);
+    }
+}
+
+void FavoriteHubs::slotChangeButtonClicked(){
+    FavoriteHubItem *item = getItem();
+
+    if (!item)
+        return;
+
+    QString address = item->data(COLUMN_HUB_ADDRESS).toString();
+    FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address.toStdString());
+
+    FavoriteHubEditor editor;
+
+    if (entry){
+        StrMap map;
+
+        getParams(entry, map);
+        initHubEditor(editor, map);
+
+        if (editor.exec() == QDialog::Accepted){
+            getParams(editor, map);
+            updateItem(item, map);
+            updateEntry(*entry, map);
+
+            FavoriteManager::getInstance()->save();
+        }
+    }
+}
+
+void FavoriteHubs::slotRemoveButtonClicked(){
+    FavoriteHubItem *item = getItem();
+
+    if (!item)
+        return;
+
+    QString address = item->data(COLUMN_HUB_ADDRESS).toString();
+    FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address.toStdString());
+
+    if (entry)
+        FavoriteManager::getInstance()->removeFavorite(entry);
+}
+
+void FavoriteHubs::slotConnectButtonClicked(){
+    slotDblClicked();
+}
+
+void FavoriteHubs::slotUpButtonClicked(){
+}
+
+void FavoriteHubs::slotDownButtonClicked(){
+}
+
+FavoriteHubItem *FavoriteHubs::getItem(){
+    QItemSelectionModel *s_model = treeView->selectionModel();
+    QModelIndexList list = s_model->selectedRows(0);
+
+    FavoriteHubItem *item = static_cast<FavoriteHubItem*>(list.at(0).internalPointer());
+
+    return item;
+}

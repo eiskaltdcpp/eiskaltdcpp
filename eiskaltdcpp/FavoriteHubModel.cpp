@@ -283,6 +283,10 @@ void FavoriteHubModel::repaint(){
     emit layoutChanged();
 }
 
+Qt::DropActions FavoriteHubModel::supportedDropActions() const{
+    return Qt::MoveAction;
+}
+
 FavoriteHubItem::FavoriteHubItem(const QList<QVariant> &data, FavoriteHubItem *parent) :
     itemData(data), parentItem(parent)
 {
