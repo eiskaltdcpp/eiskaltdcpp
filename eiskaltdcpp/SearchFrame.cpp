@@ -808,15 +808,14 @@ void SearchFrame::slotStartSearch(){
         if (list.size() > 10)
             list.removeAt(0);
 
+        list.removeDuplicates();
+
         comboBox_SEARCHSTR->clear();
         comboBox_SEARCHSTR->addItems(list);
         comboBox_SEARCHSTR->setCurrentIndex(-1);
         comboBox_SEARCHSTR->setEditText(last);
 
-        QString hist = "";
-        for(int k = 0; k < list.size(); ++k)
-            hist += list.at(k) + '\n';
-
+        QString hist = list.join("\n");
         WSSET(WS_SEARCH_HISTORY, hist);
     }
 }
