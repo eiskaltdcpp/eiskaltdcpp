@@ -424,10 +424,6 @@
         <translation>Szünet</translation>
     </message>
     <message>
-        <source>%p% :: %1 left</source>
-        <translation type="obsolete">%p% :: %1 maradt</translation>
-    </message>
-    <message>
         <source>Start</source>
         <translation>Indítás</translation>
     </message>
@@ -513,14 +509,6 @@
     <message>
         <source>Commands</source>
         <translation>Felhasználói parancsok</translation>
-    </message>
-    <message>
-        <source>Chat context</source>
-        <translation type="obsolete">Chat</translation>
-    </message>
-    <message>
-        <source>Hub context</source>
-        <translation type="obsolete">Hub</translation>
     </message>
     <message>
         <source>Hub menu</source>
@@ -3205,10 +3193,6 @@ p, li { white-space: pre-wrap; }
         <translation>Más típusú értesítések engedélyezése</translation>
     </message>
     <message>
-        <source>Enable notifications with visible main window</source>
-        <translation>Értesítések engedélyezése, mikor a főablak látható</translation>
-    </message>
-    <message>
         <source>Change icon when main window is visible</source>
         <translation>Ikon megváltoztatása mikor a főablak látható</translation>
     </message>
@@ -3242,6 +3226,10 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Enable notifications with active main window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable notifications with not active main window</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

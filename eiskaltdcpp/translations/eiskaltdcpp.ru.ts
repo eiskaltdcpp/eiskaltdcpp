@@ -512,10 +512,6 @@
 <context>
     <name>HashProgress</name>
     <message>
-        <source>%p% :: %1 left</source>
-        <translation type="obsolete">%p% :: %1 осталось</translation>
-    </message>
-    <message>
         <location filename="../HashProgress.cpp" line="202"/>
         <source>Resume</source>
         <translation>Возобновить</translation>
@@ -650,14 +646,6 @@
         <location filename="../HubFrame.cpp" line="303"/>
         <source>Commands</source>
         <translation>Команды</translation>
-    </message>
-    <message>
-        <source>Chat context</source>
-        <translation type="obsolete">Содержимое чата</translation>
-    </message>
-    <message>
-        <source>Hub context</source>
-        <translation type="obsolete">Содержимое хаба</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1041"/>
@@ -2195,12 +2183,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>SettingsNotification</name>
     <message>
-        <location filename="../SettingsNotification.cpp" line="169"/>
+        <location filename="../SettingsNotification.cpp" line="174"/>
         <source>Select file</source>
         <translation>Выбор файла</translation>
     </message>
     <message>
-        <location filename="../SettingsNotification.cpp" line="169"/>
+        <location filename="../SettingsNotification.cpp" line="174"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
@@ -4003,6 +3991,11 @@ p, li { white-space: pre-wrap; }
         <translation>Прочие типы уведомлений</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsNotification.ui" line="94"/>
+        <source>Enable notifications with not active main window</source>
+        <translation>Включить уведомления при неактивном главном окне</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsNotification.ui" line="101"/>
         <source>Enable notifications with active main window</source>
         <translation>Включить уведомления при активном главном окне</translation>
@@ -4026,11 +4019,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsNotification.ui" line="108"/>
         <source>Change icon when main window is visible</source>
         <translation>Изменять иконку при видимом главном окне</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsNotification.ui" line="94"/>
-        <source>Enable notifications with visible main window</source>
-        <translation>Включить уведомления при видимом главном окне</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>

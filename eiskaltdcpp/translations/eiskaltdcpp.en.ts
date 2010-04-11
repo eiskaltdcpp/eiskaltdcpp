@@ -2152,12 +2152,12 @@ Keys:
 <context>
     <name>SettingsNotification</name>
     <message>
-        <location filename="../SettingsNotification.cpp" line="169"/>
+        <location filename="../SettingsNotification.cpp" line="174"/>
         <source>Select file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsNotification.cpp" line="169"/>
+        <location filename="../SettingsNotification.cpp" line="174"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3927,6 +3927,11 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsNotification.ui" line="94"/>
+        <source>Enable notifications with not active main window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsNotification.ui" line="101"/>
         <source>Enable notifications with active main window</source>
         <translation type="unfinished"></translation>
@@ -3949,11 +3954,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="108"/>
         <source>Change icon when main window is visible</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsNotification.ui" line="94"/>
-        <source>Enable notifications with visible main window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

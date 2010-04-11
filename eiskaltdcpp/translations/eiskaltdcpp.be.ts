@@ -664,16 +664,6 @@
         <translation>Загады</translation>
     </message>
     <message>
-        <source>Chat context</source>
-        <translatorcomment>???зьмесьціва</translatorcomment>
-        <translation type="obsolete">Зьмесьціва гаманы</translation>
-    </message>
-    <message>
-        <source>Hub context</source>
-        <translatorcomment>???зьмесьціва</translatorcomment>
-        <translation type="obsolete">Зьмесьціва асяродку</translation>
-    </message>
-    <message>
         <location filename="../HubFrame.cpp" line="883"/>
         <source>Hub menu</source>
         <translation>Мэню асяродка</translation>
@@ -2217,12 +2207,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>SettingsNotification</name>
     <message>
-        <location filename="../SettingsNotification.cpp" line="169"/>
+        <location filename="../SettingsNotification.cpp" line="174"/>
         <source>Select file</source>
         <translation>Абярыце файл</translation>
     </message>
     <message>
-        <location filename="../SettingsNotification.cpp" line="169"/>
+        <location filename="../SettingsNotification.cpp" line="174"/>
         <source>All files (*.*)</source>
         <translation>Усе файлы (*.*)</translation>
     </message>
@@ -4058,6 +4048,11 @@ p, li { white-space: pre-wrap; }
         <translation>Дазволіць іншыя віды апавяшчэньняў</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsNotification.ui" line="94"/>
+        <source>Enable notifications with not active main window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsNotification.ui" line="101"/>
         <source>Enable notifications with active main window</source>
         <translation type="unfinished"></translation>
@@ -4081,11 +4076,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsNotification.ui" line="108"/>
         <source>Change icon when main window is visible</source>
         <translation>Зьмяняць значку, калі бачна галоўнае вакно</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsNotification.ui" line="94"/>
-        <source>Enable notifications with visible main window</source>
-        <translation>Дазволіць апавяшчаць, калі бачна галоўнае вакно</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>
