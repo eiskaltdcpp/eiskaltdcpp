@@ -23,11 +23,6 @@
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
 
-#ifndef _WIN32
-#include <sys/time.h>
-#include <limits.h>
-#endif
-
 using namespace dcpp;
 
 class WulforUtil;
@@ -36,11 +31,11 @@ namespace dcpp{
     inline uint qHash(const boost::intrusive_ptr<dcpp::User> &ptr){
         ulong key = (unsigned long)(void*)ptr.get();
 
-#if ULONG_MAX >= 18446744073709551615UL
-        return uint((key >> (8 * sizeof(uint) - 1)) ^ key);
-#else
-        return return uint(key);
-#endif
+        if (sizeof(ulong) > sizeof(uint)) {
+            return uint((key >> (8 * sizeof(uint) - 1)) ^ key);
+        } else {
+            return uint(key);
+        }
     }
 }
 
