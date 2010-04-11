@@ -425,11 +425,11 @@
     </message>
     <message>
         <source>%p% :: %1 left</source>
-        <translation type="unfinished"></translation>
+        <translation>%p% :: %1 maradt</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Indítás</translation>
+        <translation>Indítás</translation>
     </message>
 </context>
 <context>
@@ -2413,27 +2413,27 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Add new</source>
-        <translation type="unfinished">Új hozzáadása</translation>
+        <translation>Új hozzáadása</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Módosítás</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation type="unfinished">Csatlakozás</translation>
+        <translation>Csatlakozás</translation>
     </message>
     <message>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>Mozgatás fel</translation>
     </message>
     <message>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>Mozgatás le</translation>
     </message>
 </context>
 <context>
