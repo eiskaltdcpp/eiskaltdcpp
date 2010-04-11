@@ -105,6 +105,10 @@ void Notification::showMessage(Notification::Type t, const QString &title, const
 	        !(MainWindow::getInstance()->isActiveWindow() && WBGET(WB_NOTIFY_SHOW_ON_ACTIVE)))
                 break;
 
+            if (MainWindow::getInstance()->isActiveWindow() && !WBGET(WB_NOTIFY_SHOW_ON_ACTIVE) ||
+		!MainWindow::getInstance()->isActiveWindow() && MainWindow::getInstance()->isVisible() && !WBGET(WB_NOTIFY_SHOW_ON_VISIBLE))
+                break;
+
             if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
                 break;
 
