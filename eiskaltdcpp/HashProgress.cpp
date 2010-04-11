@@ -75,7 +75,7 @@ void HashProgress::timerTick(){
     HashManager::getInstance()->getStats(path, bytes, files);
     if(ShareManager::getInstance()->isRefreshing()) {
         file->setText(tr("Refreshing file list"));
-        return;;
+        return;
     }
 
     if( startTime == 0 )

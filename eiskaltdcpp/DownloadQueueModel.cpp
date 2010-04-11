@@ -369,6 +369,8 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
         emit needExpand(stack.pop());
     }
 
+    repaint();
+
     return child;
 }
 
