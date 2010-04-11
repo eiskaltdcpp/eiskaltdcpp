@@ -805,8 +805,8 @@ void SearchFrame::slotStartSearch(){
         if (list.indexOf(last) == -1)
             list << last;
 
-        if (list.size() > 10)
-            list.removeAt(0);
+        while (list.size() > 10)
+            list.removeFirst();
 
         list.removeDuplicates();
 

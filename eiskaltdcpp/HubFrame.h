@@ -16,6 +16,7 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
+#include "dcpp/FastAlloc.h"
 #include "dcpp/ClientListener.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/ClientManagerListener.h"
@@ -34,7 +35,7 @@ class PMWindow;
 
 using namespace dcpp;
 
-class UserUpdatedEvent: public QEvent{
+class UserUpdatedEvent: public QEvent, public dcpp::FastAlloc<UserUpdatedEvent>{
 public:
     static const QEvent::Type Event = static_cast<QEvent::Type>(1200);
 
@@ -56,7 +57,7 @@ private:
     QHash<QString, QVariant> map;
 };
 
-class UserRemovedEvent: public QEvent{
+class UserRemovedEvent: public QEvent, public dcpp::FastAlloc<UserRemovedEvent>{
 public:
     static const QEvent::Type Event = static_cast<QEvent::Type>(1201);
 
@@ -73,7 +74,7 @@ private:
     dcpp::UserPtr user;
 };
 
-class UserCustomEvent: public QEvent{
+class UserCustomEvent: public QEvent, public dcpp::FastAlloc<UserCustomEvent>{
 public:
     static const QEvent::Type Event = static_cast<QEvent::Type>(1202);
 
