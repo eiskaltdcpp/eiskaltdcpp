@@ -224,6 +224,7 @@ private slots:
     void slotInputContextMenu();
     void slotFindAll();
     void slotStatusLinkOpen(const QString &url);
+    void slotHubMenu(QAction*);
     void slotSmile();
 
 private:

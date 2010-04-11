@@ -302,26 +302,10 @@ QMenu *HubFrame::Menu::buildUserCmdMenu(const QString &hub){
     QMenu *menu = new QMenu();
     menu->setTitle(tr("Commands"));
 
-    QMenu *u_c = new QMenu(tr("Chat context"), menu);
-    QMenu *h_c = new QMenu(tr("Hub context"), menu);
-
     QMenu *tmp = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << hub, UserCommand::CONTEXT_CHAT);
 
-    if (tmp){
-        u_c->addMenu(tmp);
-        menu->addMenu(u_c);
-    }
-    else
-        delete u_c;
-
-    tmp = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << hub, UserCommand::CONTEXT_HUB);
-
-    if (tmp){
-        h_c->addMenu(tmp);
-        menu->addMenu(h_c);
-    }
-    else
-        delete h_c;
+    if (tmp)
+        menu->addMenu(tmp);
 
     return menu;
 }
@@ -474,7 +458,8 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
         arenaMenu(NULL),
         codec(NULL),
         chatDisabled(false),
-        hasMessages(false)
+        hasMessages(false),
+        client(NULL)
 {
     setupUi(this);
 
@@ -893,6 +878,8 @@ void HubFrame::init(){
 void HubFrame::initMenu(){
     WulforUtil *WU = WulforUtil::getInstance();
 
+    delete arenaMenu;
+
     arenaMenu = new QMenu(tr("Hub menu"), this);
 
     QAction *reconnect = new QAction(WU->getPixmap(WulforUtil::eiRECONNECT), tr("Reconnect"), arenaMenu);
@@ -903,9 +890,21 @@ void HubFrame::initMenu(){
 
     arenaMenu->addActions(QList<QAction*>() << reconnect
                                             << show_wnd
-                                            << sep
-                                            << close_wnd
                          );
+
+    if (client && client->isConnected()){
+        QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(QList<QString>() << _q(client->getHubUrl()), UserCommand::CONTEXT_HUB);
+
+        if (u_c){
+            u_c->setTitle(tr("Hub Menu"));
+
+            arenaMenu->addMenu(u_c);
+
+            connect(u_c, SIGNAL(triggered(QAction*)), this, SLOT(slotHubMenu(QAction*)));
+        }
+    }
+
+    arenaMenu->addActions(QList<QAction*>() << sep << close_wnd);
 
     connect(reconnect, SIGNAL(triggered()), this, SLOT(slotReconnect()));
     connect(show_wnd, SIGNAL(triggered()), this, SLOT(slotShowWnd()));
@@ -986,6 +985,8 @@ QString HubFrame::getArenaShortTitle(){
 }
 
 QMenu *HubFrame::getMenu(){
+    initMenu();
+
     return arenaMenu;
 }
 
@@ -2575,6 +2576,29 @@ void HubFrame::slotInputContextMenu(){
 
 void HubFrame::slotStatusLinkOpen(const QString &url){
     WulforUtil::getInstance()->openUrl(url);
+}
+
+void HubFrame::slotHubMenu(QAction *res){
+    if (res && !res->toolTip().isEmpty()){//User command
+        QString last_user_cmd = res->toolTip();
+        QString cmd_name = res->statusTip();
+        QString hub = res->data().toString();
+
+        int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), client->getHubUrl());
+        UserCommand uc;
+
+        if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
+            return;
+
+        StringMap params;
+
+        if (WulforUtil::getInstance()->getUserCommandParams(last_user_cmd, params)){
+            UserPtr user = ClientManager::getInstance()->getMe();
+
+            if (user)
+                ClientManager::getInstance()->userCommand(user, uc, params, true);
+        }
+    }
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
