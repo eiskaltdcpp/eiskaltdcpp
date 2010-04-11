@@ -28,7 +28,6 @@ using namespace std;
 
 #include <QApplication>
 #include <QMainWindow>
-#include <QtDBus>
 
 #include "MainWindow.h"
 

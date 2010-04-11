@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>466</width>
-    <height>357</height>
+    <width>464</width>
+    <height>355</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -309,6 +309,13 @@ to download from this folder</string>
          </property>
          <property name="text">
           <string>Run on startup refresh share </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_AUTOREMOVE">
+         <property name="text">
+          <string>Auto remove not existing directories</string>
          </property>
         </widget>
        </item>

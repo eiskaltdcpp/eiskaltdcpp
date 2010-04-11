@@ -16,6 +16,7 @@
 #include <QProgressBar>
 #include <QFileDialog>
 #include <QRegExp>
+#include <QDir>
 #ifdef FREE_SPACE_BAR
     #include <boost/filesystem.hpp>
 #endif //FREE_SPACE_BAR
@@ -47,6 +48,8 @@
 #include "ToolBar.h"
 #include "Magnet.h"
 #include "SpyFrame.h"
+
+#include "dcpp/ShareManager.h"
 
 #include "UPnPMapper.h"
 #include "WulforSettings.h"
@@ -105,6 +108,20 @@ MainWindow::MainWindow (QWidget *parent):
 
     if (!WSGET(WS_APP_THEME).isEmpty())
         qApp->setStyle(WSGET(WS_APP_THEME));
+
+    if (WBGET(WB_APP_REMOVE_NOT_EX_DIRS)){
+        StringPairList directories = ShareManager::getInstance()->getDirectories();
+        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){
+            QDir dir(_q(it->second));
+
+            if (!dir.exists()){
+                try {
+                    ShareManager::getInstance()->removeDirectory(it->second);
+                }
+                catch (const std::exception&){}
+            }
+        }
+    }
 }
 
 MainWindow::~MainWindow(){
