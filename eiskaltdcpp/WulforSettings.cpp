@@ -104,6 +104,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_NOTIFY_SND_EXTERNAL,   static_cast<int>(false));
         intmap.insert(WB_NOTIFY_CH_ICON_ALWAYS, static_cast<int>(false));
         intmap.insert(WB_NOTIFY_SHOW_ON_ACTIVE, static_cast<int>(false));
+        intmap.insert(WB_NOTIFY_SHOW_ON_VISIBLE, static_cast<int>(false));
         intmap.insert(WB_FAVUSERS_AUTOGRANT,    static_cast<int>(true));
         intmap.insert(WB_APP_ENABLE_EMOTICON,   static_cast<int>(true));
         intmap.insert(WB_APP_FORCE_EMOTICONS,   static_cast<int>(false));

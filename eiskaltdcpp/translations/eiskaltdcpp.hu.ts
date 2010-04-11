@@ -425,11 +425,23 @@
     </message>
     <message>
         <source>%p% :: %1 left</source>
-        <translation>%p% :: %1 maradt</translation>
+        <translation type="obsolete">%p% :: %1 maradt</translation>
     </message>
     <message>
         <source>Start</source>
         <translation>Indítás</translation>
+    </message>
+    <message>
+        <source>Refreshing file list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>-:--:--</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%p% %1 left</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -504,11 +516,11 @@
     </message>
     <message>
         <source>Chat context</source>
-        <translation>Chat</translation>
+        <translation type="obsolete">Chat</translation>
     </message>
     <message>
         <source>Hub context</source>
-        <translation>Hub</translation>
+        <translation type="obsolete">Hub</translation>
     </message>
     <message>
         <source>Hub menu</source>
@@ -707,6 +719,10 @@ Kedvenc felhasználó</translation>
     <message>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;Utolsó státuszüzenet a hubon:&lt;/b&gt;&lt;br/&gt;%1</translation>
+    </message>
+    <message>
+        <source>Hub Menu</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3224,6 +3240,10 @@ p, li { white-space: pre-wrap; }
         <source>Use external command</source>
         <translation>Külső parancs használata</translation>
     </message>
+    <message>
+        <source>Enable notifications with active main window</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsPersonal</name>
@@ -3353,6 +3373,10 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Tiltott megosztások (csoportos kijelőlés *, elválasztó |)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Auto remove not existing directories</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

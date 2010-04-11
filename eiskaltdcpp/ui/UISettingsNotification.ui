@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>344</width>
-    <height>315</height>
+    <height>374</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -89,14 +89,21 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="checkBox_MWACTIVE">
+           <widget class="QCheckBox" name="checkBox_MWVISIBLE">
             <property name="text">
              <string>Enable notifications with visible main window</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="checkBox_MWVISIBLE">
+           <widget class="QCheckBox" name="checkBox_MWACTIVE">
+            <property name="text">
+             <string>Enable notifications with active main window</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox_CHICON">
             <property name="text">
              <string>Change icon when main window is visible</string>
             </property>
