@@ -38,6 +38,11 @@ void SettingsNotification::init(){
         checkBox_MWVISIBLE->setChecked(WBGET(WB_NOTIFY_SHOW_ON_VISIBLE));
         checkBox_CHICON->setChecked(WBGET(WB_NOTIFY_CH_ICON_ALWAYS));
 
+        if (WBGET(WB_NOTIFY_SHOW_ON_ACTIVE)){
+            checkBox_MWVISIBLE->setChecked(true);
+            checkBox_MWVISIBLE->setDisabled(true);
+        }
+
         comboBox->setCurrentIndex(WIGET(WI_NOTIFY_MODULE));
     }
     {//Sound

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>344</width>
-    <height>374</height>
+    <width>374</width>
+    <height>356</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -91,7 +91,7 @@
           <item>
            <widget class="QCheckBox" name="checkBox_MWVISIBLE">
             <property name="text">
-             <string>Enable notifications with visible main window</string>
+             <string>Enable notifications with not active main window</string>
             </property>
            </widget>
           </item>
@@ -321,5 +321,38 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkBox_MWACTIVE</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_MWVISIBLE</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>186</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>186</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_MWACTIVE</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>checkBox_MWVISIBLE</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>186</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>186</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
