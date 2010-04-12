@@ -3106,6 +3106,22 @@ p, li { white-space: pre-wrap; }
         <source>The height of the text entry field</source>
         <translation>A szövegbeviteli mező magassága</translation>
     </message>
+    <message>
+        <source>Window position at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember window position on exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always hide window to system tray at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always show window at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
