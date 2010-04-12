@@ -269,6 +269,18 @@ void MainWindow::showEvent(QShowEvent *e){
     findInWidget->setEnabled(enable || share_browser || phubs);
     chatDisable->setEnabled(enable);
 
+    if (w > 0 && h > 0)
+        this->resize(QSize(w, h));
+
+#ifdef Q_WS_WIN
+    // In MS Windows this movement does not needed.
+    // Because the window object is not destroyed when it has hided.
+    // Graphics subsystem features...
+#else
+    if (xPos >= 0 && yPos >= 0)
+        this->move(QPoint(xPos, yPos));
+#endif
+
     if (showMax)
         showMaximized();
 
@@ -282,6 +294,11 @@ void MainWindow::showEvent(QShowEvent *e){
 
 void MainWindow::hideEvent(QHideEvent *e){
     showMax = isMaximized();
+
+    h = height();
+    w = width();
+    xPos = x();
+    yPos = y();
 
     e->accept();
 
@@ -354,18 +371,18 @@ void MainWindow::loadSettings(){
     WulforSettings *WS = WulforSettings::getInstance();
 
     showMax = WS->getBool(WB_MAINWINDOW_MAXIMIZED);
-    int w = WS->getInt(WI_MAINWINDOW_WIDTH);
-    int h = WS->getInt(WI_MAINWINDOW_HEIGHT);
-    int xPos = WS->getInt(WI_MAINWINDOW_X);
-    int yPos = WS->getInt(WI_MAINWINDOW_Y);
+    w = WS->getInt(WI_MAINWINDOW_WIDTH);
+    h = WS->getInt(WI_MAINWINDOW_HEIGHT);
+    xPos = WS->getInt(WI_MAINWINDOW_X);
+    yPos = WS->getInt(WI_MAINWINDOW_Y);
 
     QPoint p(xPos, yPos);
     QSize  sz(w, h);
 
-    if (p.x() >= 0 || p.y() >= 0)
+    if (p.x() >= 0 && p.y() >= 0)
         this->move(p);
 
-    if (sz.width() > 0 || sz.height() > 0)
+    if (sz.width() > 0 && sz.height() > 0)
         this->resize(sz);
 
     QString wstate = WSGET(WS_MAINWINDOW_STATE);
@@ -391,12 +408,25 @@ void MainWindow::saveSettings(){
     if (stateIsSaved)
         return;
 
-    WISET(WI_MAINWINDOW_HEIGHT, height());
-    WISET(WI_MAINWINDOW_WIDTH, width());
-    WISET(WI_MAINWINDOW_X, x());
-    WISET(WI_MAINWINDOW_Y, y());
+    if (height() > 0)
+        WISET(WI_MAINWINDOW_HEIGHT, height());
+    else
+        WISET(WI_MAINWINDOW_HEIGHT, h);
 
-    WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
+    if (width() > 0)
+        WISET(WI_MAINWINDOW_WIDTH, width());
+    else
+        WISET(WI_MAINWINDOW_WIDTH, w);
+
+    if (x() >= 0)
+        WISET(WI_MAINWINDOW_X, x());
+    else
+        WISET(WI_MAINWINDOW_X, xPos);
+
+    if (y() >= 0)
+        WISET(WI_MAINWINDOW_Y, y());
+    else
+        WISET(WI_MAINWINDOW_Y, yPos);
 
     if (isVisible())
         WBSET(WB_MAINWINDOW_MAXIMIZED, isMaximized());
@@ -405,6 +435,8 @@ void MainWindow::saveSettings(){
 
     if (WBGET(WB_MAINWINDOW_REMEMBER))
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
+
+    WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
 
     stateIsSaved = true;
 }

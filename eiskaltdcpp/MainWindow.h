@@ -227,6 +227,10 @@ friend class dcpp::Singleton<MainWindow>;
 
         // position and geometry
         bool showMax;
+        int w;
+        int h;
+        int xPos;
+        int yPos;
 
         // Widgets
         QDockWidget *arena;
