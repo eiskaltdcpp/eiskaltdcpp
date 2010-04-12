@@ -225,6 +225,9 @@ friend class dcpp::Singleton<MainWindow>;
         bool isUnload;
         bool exitBegin;
 
+        // position and geometry
+        bool showMax;
+
         // Widgets
         QDockWidget *arena;
         QDockWidget *transfer_dock;

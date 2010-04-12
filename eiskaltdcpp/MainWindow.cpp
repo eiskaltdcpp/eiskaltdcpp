@@ -269,6 +269,9 @@ void MainWindow::showEvent(QShowEvent *e){
     findInWidget->setEnabled(enable || share_browser || phubs);
     chatDisable->setEnabled(enable);
 
+    if (showMax)
+        showMaximized();
+
     e->accept();
 
     if (WBGET(WB_APP_AUTO_AWAY)){
@@ -278,6 +281,8 @@ void MainWindow::showEvent(QShowEvent *e){
 }
 
 void MainWindow::hideEvent(QHideEvent *e){
+    showMax = isMaximized();
+
     e->accept();
 
     if (WBGET(WB_APP_AUTO_AWAY)){
@@ -348,7 +353,7 @@ void MainWindow::init(){
 void MainWindow::loadSettings(){
     WulforSettings *WS = WulforSettings::getInstance();
 
-    bool showMax = WS->getBool(WB_MAINWINDOW_MAXIMIZED);
+    showMax = WS->getBool(WB_MAINWINDOW_MAXIMIZED);
     int w = WS->getInt(WI_MAINWINDOW_WIDTH);
     int h = WS->getInt(WI_MAINWINDOW_HEIGHT);
     int xPos = WS->getInt(WI_MAINWINDOW_X);
@@ -362,9 +367,6 @@ void MainWindow::loadSettings(){
 
     if (sz.width() > 0 || sz.height() > 0)
         this->resize(sz);
-
-    if (showMax)
-        this->showMaximized();
 
     QString wstate = WSGET(WS_MAINWINDOW_STATE);
 
@@ -394,10 +396,11 @@ void MainWindow::saveSettings(){
     WISET(WI_MAINWINDOW_X, x());
     WISET(WI_MAINWINDOW_Y, y());
 
-    WBSET(WB_MAINWINDOW_MAXIMIZED, isMaximized());
-    WBSET(WB_MAINWINDOW_HIDE, !isVisible());
-
     WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
+    WBSET(WB_MAINWINDOW_MAXIMIZED, showMax);
+
+    if (WBGET(WB_MAINWINDOW_REMEMBER))
+        WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
     stateIsSaved = true;
 }

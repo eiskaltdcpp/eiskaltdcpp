@@ -110,6 +110,13 @@ void SettingsGUI::init(){
         lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
 
         toolButton_LANGBROWSE->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+
+        if (WBGET(WB_MAINWINDOW_REMEMBER))
+            radioButton_REMEMBER->setChecked(true);
+        else if (WBGET(WB_MAINWINDOW_HIDE))
+            radioButton_HIDE->setChecked(true);
+        else
+            radioButton_SHOW->setChecked(true);
     }
     {//Chat tab
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
@@ -214,6 +221,9 @@ void SettingsGUI::ok(){
 
         if (!lineEdit_LANGFILE->text().isEmpty())
             WSSET(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
+
+        WBSET(WB_MAINWINDOW_REMEMBER, radioButton_REMEMBER->isChecked());
+        WBSET(WB_MAINWINDOW_HIDE, radioButton_HIDE->isChecked());
 
         if (WSGET(WS_APP_EMOTICON_THEME) != comboBox_EMOT->currentText()){
             WSSET(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());

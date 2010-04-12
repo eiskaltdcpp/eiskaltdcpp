@@ -90,6 +90,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_CHAT_SHOW_JOINS_FAV,   static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_MAXIMIZED,  static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_HIDE,       static_cast<int>(false));
+        intmap.insert(WB_MAINWINDOW_REMEMBER,   static_cast<int>(true));
         intmap.insert(WB_SEARCHFILTER_NOFREE,   static_cast<int>(false));
         intmap.insert(WB_SEARCH_DONTHIDEPANEL,  static_cast<int>(false));
         intmap.insert(WB_ANTISPAM_ENABLED,      static_cast<int>(false));
