@@ -193,9 +193,10 @@ bool UPnP::unmap(UPnP::Port port, UPnP::Protocol proto){
 
     IXML_Document *doc = NULL;
     IXML_Document *out = new IXML_Document;
+    WulforUtil *WU = WulforUtil::getInstance();
 
     QString proto_desc = (proto == TCP) ? "TCP" : "UDP";
-    QString internal_ip = dcpp::Util::getLocalIp().c_str();
+    QString internal_ip = (WU->getLocalIPs().size() > 0) ? (WU->getLocalIPs()[0]) : (dcpp::Util::getLocalIp().c_str());
     QString p = QString().setNum(port);
     int ret = -1;
 

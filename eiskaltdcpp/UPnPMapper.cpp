@@ -70,6 +70,8 @@ void UPnPMapper::forward(){
     }
 }
 
+#include <QtDebug>
+
 void UPnPMapper::unmap(){
     UPnP *UPNP = UPnP::getInstance();
 
