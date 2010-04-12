@@ -233,6 +233,12 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
         SpyFrame::deleteInstance();
     }
 
+    if (SearchManager::getInstance())
+        SearchManager::getInstance()->disconnect();
+
+    if (ConnectionManager::getInstance())
+        ConnectionManager::getInstance()->disconnect();
+
     QMap< ArenaWidget*, QWidget* > map = arenaMap;
     QMap< ArenaWidget*, QWidget* >::iterator it = map.begin();
 
