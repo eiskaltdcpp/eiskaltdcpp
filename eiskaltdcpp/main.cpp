@@ -102,11 +102,15 @@ int main(int argc, char *argv[])
     Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
 
     MainWindow::getInstance()->autoconnect();
-    MainWindow::getInstance()->show();
-    MainWindow::getInstance()->parseCmdLine();
 
-    if (WBGET(WB_MAINWINDOW_HIDE))
-        MainWindow::getInstance()->hide();
+    if (!WBGET(WB_MAINWINDOW_HIDE) ||
+        !WBGET(WB_TRAY_ENABLED) ||
+        !QSystemTrayIcon::isSystemTrayAvailable())
+    {
+        MainWindow::getInstance()->show();
+    }
+
+    MainWindow::getInstance()->parseCmdLine();
 
     ret = app.exec();
 
