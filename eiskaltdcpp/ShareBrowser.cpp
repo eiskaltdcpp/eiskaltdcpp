@@ -345,7 +345,12 @@ void ShareBrowser::slotLeftPaneClicked(const QModelIndex &index){
     if (!index.isValid())
         return;
 
-    FileBrowserItem *item = static_cast<FileBrowserItem*>(index.internalPointer());
+    FileBrowserItem *item = NULL;
+
+    if (sender() == treeView_RPANE && treeView_RPANE->model() == proxy)
+        item = static_cast<FileBrowserItem*>(proxy->mapToSource(index).internalPointer());
+    else
+        item = static_cast<FileBrowserItem*>(index.internalPointer());
 
     if (!item)
         return;
@@ -467,7 +472,15 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         return;
 
     QItemSelectionModel *selection_model = view->selectionModel();
-    QModelIndexList list = selection_model->selectedRows(0);
+    QModelIndexList list;
+    QModelIndexList selected  = selection_model->selectedRows(0);
+
+    if (view == treeView_RPANE && treeView_RPANE->model() == proxy){
+        foreach (QModelIndex i, selected)
+            list.push_back(proxy->mapToSource(i));
+    }
+    else
+        list = selected;
 
     if (!Menu::getInstance())
         Menu::newInstance();
