@@ -152,7 +152,16 @@ SettingsManager::SettingsManager()
     setDefault(IGNORE_BOT_PMS, false);
     setDefault(LIST_DUPES, true);
     setDefault(BUFFER_SIZE, 64);
-    setDefault(HUBLIST_SERVERS, "http://hublist.openhublist.org/hublist.xml.bz2;http://dchublist.com/hublist.xml.bz2;http://adchublist.com/hublist.xml.bz2;http://www.hublist.org/PublicHubList.xml.bz2;http://dclist.eu/hublist.xml.bz2;http://download.hublist.cz/hublist.xml.bz2;http://hublist.awenet.info/PublicHubList.xml.bz2");
+    setDefault(HUBLIST_SERVERS,
+               "http://hublist.openhublist.org/hublist.xml.bz2;"
+               "http://dchublist.com/hublist.xml.bz2;"
+               "http://adchublist.com/hublist.xml.bz2;"
+               "http://www.hublist.org/PublicHubList.xml.bz2;"
+               "http://dclist.eu/hublist.xml.bz2;"
+               "http://download.hublist.cz/hublist.xml.bz2;"
+               "http://hublist.awenet.info/PublicHubList.xml.bz2;"
+               "http://www.hublista.hu/hublist.xml.bz2"
+               );
     setDefault(DOWNLOAD_SLOTS, 3);
     setDefault(SKIPLIST_SHARE, "*.~*|*.*~");
     setDefault(MAX_DOWNLOAD_SPEED, 0);
