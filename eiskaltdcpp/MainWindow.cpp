@@ -275,7 +275,7 @@ void MainWindow::showEvent(QShowEvent *e){
     findInWidget->setEnabled(enable || share_browser || phubs);
     chatDisable->setEnabled(enable);
 
-    if (w > 0 && h > 0 && !showMax)
+    if (w > 0 && h > 0 && w != width() && h != height() && !showMax)
         this->resize(QSize(w, h));
 
 #ifdef Q_WS_WIN
@@ -283,7 +283,7 @@ void MainWindow::showEvent(QShowEvent *e){
     // Because the window object is not destroyed when it has hided.
     // Graphics subsystem features...
 #else
-    if (xPos >= 0 && yPos >= 0 && !showMax)
+    if (xPos >= 0 && yPos >= 0 && xPos != x() && yPos !=y() && !showMax)
         this->move(QPoint(xPos, yPos));
 #endif
 

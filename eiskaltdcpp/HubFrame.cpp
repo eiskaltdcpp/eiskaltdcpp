@@ -1266,9 +1266,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         if (fr == this)
             sendChat(line, true, false);
         else if (pm)
-            pm->sendMessage(line, false, false);
-        // This is temporary. It is need to check ClientManager::privateMessage(...) function
-        // in dcpp kernel with version > 0.75. And "pm->sendMessage(line, true, false);" will be here.
+            pm->sendMessage(line, true, false);
     }
     else if (cmd == "/pm" && !emptyParam){
         addPM(model->CIDforNick(param), "");
@@ -1637,7 +1635,9 @@ void HubFrame::newMsg(VarMap map){
     WulforUtil::getInstance()->textToHtml(nick);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
-    output  = time + QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>").arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
+    output  = time +
+              QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
+              .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
     output  += message;
 
     //WulforUtil::getInstance()->textToHtml(output, false);
@@ -1667,7 +1667,9 @@ void HubFrame::newPm(VarMap map){
     WulforUtil::getInstance()->textToHtml(nick);
 
     message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
-    full_message  = time + QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%1</b></font></a>").arg(nick).arg(WSGET(color));
+    full_message  = time +
+                    QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
+                    .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
     full_message += message;
 
     WulforUtil::getInstance()->textToHtml(full_message, false);
