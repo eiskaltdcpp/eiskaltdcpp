@@ -149,7 +149,7 @@ void Notification::showMessage(Notification::Type t, const QString &title, const
 }
 
 void Notification::setToolTip(const QString &DSPEED, const QString &USPEED, const QString &DOWN, const QString &UP){
-    if (!WBGET(WB_TRAY_ENABLED))
+    if (!WBGET(WB_TRAY_ENABLED) || !tray)
         return;
 
     QString out = tr("<b>Speed</b><br/>"

@@ -1010,7 +1010,8 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     statusDLabel->setText(map["DOWN"]);
     statusULabel->setText(map["UP"]);
 
-    Notification::getInstance()->setToolTip(map["DSPEED"], map["USPEED"], map["DOWN"], map["UP"]);
+    if (Notification::getInstance())
+        Notification::getInstance()->setToolTip(map["DSPEED"], map["USPEED"], map["DOWN"], map["UP"]);
 
     QFontMetrics metrics(font());
 
