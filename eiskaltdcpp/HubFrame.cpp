@@ -1258,12 +1258,17 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         if (line.endsWith("\n"))//remove extra \n char
             line = line.left(line.lastIndexOf("\n"));
 
-        line.remove(0, 4);
+        // This is temporary. It is need to check ClientManager::privateMessage(...) function
+        // in dcpp kernel with version > 0.75. And "if (fr == this)" will not be needed.
+        if (fr == this)
+            line.remove(0, 4);
 
         if (fr == this)
-            sendChat(line, true, false);
+            sendChat(line, false, false);
         else if (pm)
             pm->sendMessage(line, true, false);
+        // This is temporary. It is need to check ClientManager::privateMessage(...) function
+        // in dcpp kernel with version > 0.75. And "pm->sendMessage(line, true, false);" will be here.
     }
     else if (cmd == "/pm" && !emptyParam){
         addPM(model->CIDforNick(param), "");
