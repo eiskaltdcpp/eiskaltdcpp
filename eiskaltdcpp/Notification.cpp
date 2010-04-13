@@ -70,7 +70,8 @@ void Notification::enableTray(bool enable){
 
         connect(show_hide, SIGNAL(triggered()), this, SLOT(slotShowHide()));
         connect(close_app, SIGNAL(triggered()), this, SLOT(slotExit()));
-        connect(tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason)));
+        connect(tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+                this, SLOT(slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason)));
 
         menu->addActions(QList<QAction*>() << show_hide << sep << close_app);
 
@@ -145,6 +146,19 @@ void Notification::showMessage(Notification::Type t, const QString &title, const
             }
         } while (0);
     }
+}
+
+void Notification::setToolTip(const QString &DSPEED, const QString &USPEED, const QString &DOWN, const QString &UP){
+    if (!WBGET(WB_TRAY_ENABLED))
+        return;
+
+    QString out = tr("<b>Speed</b><br/>"
+                     "Download: <font color=\"green\">%1</font> Upload: <font color=\"red\">%2</font><br/>"
+                     "<b>Statistics</b><br/>"
+                     "Downloaded: <font color=\"green\">%3</font> Uploaded: <font color=\"red\">%4</font>")
+                  .arg(DSPEED).arg(USPEED).arg(DOWN).arg(UP);
+
+    tray->setToolTip(out);
 }
 
 void Notification::reloadSounds(){

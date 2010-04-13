@@ -68,6 +68,7 @@ enum Type{
 
     void enableTray(bool);
     void showMessage(Type t, const QString&, const QString&);
+    void setToolTip(const QString &, const QString &, const QString &, const QString &);
     void reloadSounds();
     void resetTrayIcon(){
         if (tray)

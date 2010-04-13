@@ -1,4 +1,5 @@
 #include "MainWindow.h"
+#include "Notification.h"
 
 #include <stdlib.h>
 #include <string>
@@ -1008,6 +1009,8 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     statusDSPLabel->setText(map["DSPEED"]);
     statusDLabel->setText(map["DOWN"]);
     statusULabel->setText(map["UP"]);
+
+    Notification::getInstance()->setToolTip(map["DSPEED"], map["USPEED"], map["DOWN"], map["UP"]);
 
     QFontMetrics metrics(font());
 
