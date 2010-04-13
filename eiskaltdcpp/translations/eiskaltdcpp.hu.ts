@@ -429,15 +429,15 @@
     </message>
     <message>
         <source>Refreshing file list</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl-lista frissítése</translation>
     </message>
     <message>
         <source>-:--:--</source>
-        <translation type="unfinished"></translation>
+        <translation>-:--:--</translation>
     </message>
     <message>
         <source>%p% %1 left</source>
-        <translation type="unfinished"></translation>
+        <translation>%p% %1 maradt</translation>
     </message>
 </context>
 <context>
@@ -710,7 +710,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Hub Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub Menü</translation>
     </message>
 </context>
 <context>
@@ -3108,19 +3108,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Window position at startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ablak pozíció induláskor</translation>
     </message>
     <message>
         <source>Remember window position on exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ablak pozíció megjegyzése kilépéskor</translation>
     </message>
     <message>
         <source>Always hide window to system tray at startup</source>
-        <translation type="unfinished"></translation>
+        <translation>A program induláskor automatikusan a tálcára kerüljön</translation>
     </message>
     <message>
         <source>Always show window at startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Induláskor az ablak automatikusan látható legyen</translation>
     </message>
 </context>
 <context>
@@ -3242,11 +3242,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Enable notifications with active main window</source>
-        <translation type="unfinished"></translation>
+        <translation>Értesítések engedélyezése aktív főablak mellett is</translation>
     </message>
     <message>
         <source>Enable notifications with not active main window</source>
-        <translation type="unfinished"></translation>
+        <translation>Értesítések engedélyezése mikor a főablak nem aktív</translation>
     </message>
 </context>
 <context>
@@ -3380,7 +3380,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Auto remove not existing directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem létező könyvtárak automatikus eltávolítása</translation>
     </message>
 </context>
 <context>
