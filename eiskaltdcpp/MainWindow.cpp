@@ -275,7 +275,7 @@ void MainWindow::showEvent(QShowEvent *e){
     findInWidget->setEnabled(enable || share_browser || phubs);
     chatDisable->setEnabled(enable);
 
-    if (w > 0 && h > 0)
+    if (w > 0 && h > 0 && !showMax)
         this->resize(QSize(w, h));
 
 #ifdef Q_WS_WIN
@@ -283,7 +283,7 @@ void MainWindow::showEvent(QShowEvent *e){
     // Because the window object is not destroyed when it has hided.
     // Graphics subsystem features...
 #else
-    if (xPos >= 0 && yPos >= 0)
+    if (xPos >= 0 && yPos >= 0 && !showMax)
         this->move(QPoint(xPos, yPos));
 #endif
 
@@ -301,10 +301,12 @@ void MainWindow::showEvent(QShowEvent *e){
 void MainWindow::hideEvent(QHideEvent *e){
     showMax = isMaximized();
 
-    h = height();
-    w = width();
-    xPos = x();
-    yPos = y();
+    if (!showMax){
+        h = height();
+        w = width();
+        xPos = x();
+        yPos = y();
+    }
 
     e->accept();
 
@@ -414,30 +416,30 @@ void MainWindow::saveSettings(){
     if (stateIsSaved)
         return;
 
-    if (height() > 0)
+    if (isVisible())
+        showMax = isMaximized();
+
+    WBSET(WB_MAINWINDOW_MAXIMIZED, showMax);
+
+    if (height() > 0 && !showMax)
         WISET(WI_MAINWINDOW_HEIGHT, height());
     else
         WISET(WI_MAINWINDOW_HEIGHT, h);
 
-    if (width() > 0)
+    if (width() > 0  && !showMax)
         WISET(WI_MAINWINDOW_WIDTH, width());
     else
         WISET(WI_MAINWINDOW_WIDTH, w);
 
-    if (x() >= 0)
+    if (x() >= 0 && !showMax)
         WISET(WI_MAINWINDOW_X, x());
     else
         WISET(WI_MAINWINDOW_X, xPos);
 
-    if (y() >= 0)
+    if (y() >= 0 && !showMax)
         WISET(WI_MAINWINDOW_Y, y());
     else
         WISET(WI_MAINWINDOW_Y, yPos);
-
-    if (isVisible())
-        WBSET(WB_MAINWINDOW_MAXIMIZED, isMaximized());
-    else
-        WBSET(WB_MAINWINDOW_MAXIMIZED, showMax);
 
     if (WBGET(WB_MAINWINDOW_REMEMBER))
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
