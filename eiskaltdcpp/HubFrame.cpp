@@ -1264,9 +1264,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             line.remove(0, 4);
 
         if (fr == this)
-            sendChat(line, false, false);
+            sendChat(line, true, false);
         else if (pm)
-            pm->sendMessage(line, true, false);
+            pm->sendMessage(line, false, false);
         // This is temporary. It is need to check ClientManager::privateMessage(...) function
         // in dcpp kernel with version > 0.75. And "pm->sendMessage(line, true, false);" will be here.
     }
