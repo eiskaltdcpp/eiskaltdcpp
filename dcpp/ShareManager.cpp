@@ -771,7 +771,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
         }
         if(i->isDirectory()) {
             string newName = aName + name + PATH_SEPARATOR;
-            if((Util::stricmp(newName + PATH_SEPARATOR, SETTING(TEMP_DOWNLOAD_DIRECTORY)) != 0)
+            if((Util::stricmp(newName, SETTING(TEMP_DOWNLOAD_DIRECTORY)) != 0)
                     && (Util::stricmp(newName, Util::getPath(Util::PATH_USER_CONFIG)) != 0)
                     && (Util::stricmp(newName, SETTING(LOG_DIRECTORY)) != 0)) {
                 dir->directories[name] = buildTree(newName, dir);
