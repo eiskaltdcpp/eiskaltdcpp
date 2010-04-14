@@ -33,6 +33,12 @@ Magnet::Magnet(QWidget *parent) :
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
     connect(pushButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
+    if (!SETTING(AUTO_SEARCH)){
+        pushButton_DOWNLOAD->setToolTip(tr("Run search alternatives manually."));
+    }
+    else {
+        pushButton_DOWNLOAD->setToolTip(tr("Download file via auto search alternatives"));
+    }
 }
 
 Magnet::~Magnet(){

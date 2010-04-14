@@ -798,6 +798,14 @@ Kedvenc felhasználó</translation>
         <source>Select directory</source>
         <translation>Könyvtár kiválasztása</translation>
     </message>
+    <message>
+        <source>Run search alternatives manually.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download file via auto search alternatives</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -2638,16 +2646,16 @@ p, li { white-space: pre-wrap; }
         <translation>Keresés</translation>
     </message>
     <message>
-        <source>Download</source>
-        <translation>Letöltés</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
         <source>Remember my choose</source>
         <translation>Emlékezz a választásra</translation>
+    </message>
+    <message>
+        <source>Add to queue</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

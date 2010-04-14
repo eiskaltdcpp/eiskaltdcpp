@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>438</width>
-    <height>190</height>
+    <height>231</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -131,7 +131,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_DOWNLOAD">
        <property name="text">
-        <string>Download</string>
+        <string>Add to queue</string>
        </property>
       </widget>
      </item>
