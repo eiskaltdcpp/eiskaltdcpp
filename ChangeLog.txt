@@ -2,19 +2,19 @@
 * Added a widget with public hubs.
 * Filtering support in basic widgets (Ctrl+F hotkey).
 * Away mode support.
-* The File menu is divided into several thematic menus.
-* Added examples of custom scripts.
+* The File menu was splitted into several thematic menus.
+* Added custom scripts examples.
 * Added a status line with the last message on hub.
 * Added fast search panel.
-* Added the ability to run multiple copies of the client from different users of the system.
-  Check that different local ports have been specified in the settings.
+* Added ability to run several instances of client by different system users.
+  Different local ports have to be specified in the settings.
 * Thanks to Akos Berki the Hungarian translation is now available.
-* Added ability to disable chat with automatic connection to the hub.
-* Added a graphical configuration for limit of speed hashing.
-* Added pause in hashing process.
-* Added ability to limit of upload to users by the size of their share.
-* Fixed problems with recalling program from system tray in Gnome and Mac OS X.
-* Added a history of sent messages, their number is regulated in the settings.
-* Added search history, their number is regulated in the settings.
+* Added ability to disable chat during automatic connecting to favorite hub.
+* Added option in preference dialog to limit hashing speed.
+* Added ability to pause hashing process.
+* Added ability to limit upload to users according their own share size.
+* Fixed problems during restoring program from system tray in Gnome and Mac OS X.
+* Added history of sent messages, their number can be configured.
+* Added search history, their number can be configured.
 * Significantly expanded the settings dialog.
 * Lots of bug fixes, etc.
