@@ -94,6 +94,7 @@ class HubFrame :
         public  ArenaWidget
 {
     Q_OBJECT
+    Q_INTERFACES(ArenaWidget)
 
     class Menu{
 
@@ -183,6 +184,7 @@ public:
     QString getArenaShortTitle();
     QMenu *getMenu();
     const QPixmap &getPixmap();
+    void CTRL_F_pressed() { slotHideFindFrame(); }
 
     void disableChat();
     void clearChat();

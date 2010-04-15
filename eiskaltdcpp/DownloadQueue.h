@@ -44,6 +44,7 @@ class DownloadQueue :
         public dcpp::Singleton<DownloadQueue>
 {
     Q_OBJECT
+    Q_INTERFACES(ArenaWidget)
 
 typedef QMap<QString, QVariant> VarMap;
 typedef QMap<QString, QMap<QString, QString> > SourceMap;
@@ -94,6 +95,7 @@ public:
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return NULL; }
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWNLOAD); }
+    void DEL_pressed();
 
 protected:
     virtual void closeEvent(QCloseEvent*);

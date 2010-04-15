@@ -212,6 +212,40 @@ void DownloadQueue::customEvent(QEvent *e){
     e->accept();
 }
 
+void DownloadQueue::DEL_pressed(){
+    if (!treeView_TARGET->hasFocus())
+        return;
+    
+    QModelIndexList list = treeView_TARGET->selectionModel()->selectedRows(0);
+    
+    if (list.isEmpty())
+        return;
+    
+    QList<DownloadQueueItem*> items;
+    
+    foreach (QModelIndex i, list){
+        DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(i.internalPointer());
+        
+        if (!item)
+            continue;
+        
+        if (item->dir)
+            getChilds(item, items);
+        else if (!items.contains(item))
+            items.push_front(item);
+    }
+
+    QueueManager *QM = QueueManager::getInstance();
+    foreach (DownloadQueueItem *i, items){
+        QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
+
+        try {
+            QM->remove(target.toStdString());
+        }
+        catch (const Exception &){}
+    }
+}
+
 void DownloadQueue::init(){
     queue_model = new DownloadQueueModel(this);
 

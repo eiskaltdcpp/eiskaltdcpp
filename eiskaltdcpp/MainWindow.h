@@ -186,6 +186,7 @@ friend class dcpp::Singleton<MainWindow>;
         void prevMsg();
 
         void slotFind();
+        void slotDel();
         void slotChatDisable();
 
         void slotAboutClient();
@@ -302,6 +303,7 @@ friend class dcpp::Singleton<MainWindow>;
         QShortcut *ctrl_down;
         QShortcut *ctrl_w;
         QShortcut *ctrl_m;
+        QShortcut *del;
 
         QAction *chatDisable;
         QAction *findInWidget;

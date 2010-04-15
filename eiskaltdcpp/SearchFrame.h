@@ -50,7 +50,7 @@ class SearchFrame : public QWidget,
                     private ClientManagerListener
 {
     Q_OBJECT
-
+    Q_INTERFACES(ArenaWidget)
 
     typedef QMap<QString, QVariant> VarMap;
 

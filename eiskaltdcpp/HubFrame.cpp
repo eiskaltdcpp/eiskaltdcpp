@@ -1975,7 +1975,9 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
-                    ttip = getUserInfo(item);
+                    ttip += getUserInfo(item) + "\n";
+
+                ttip += "\n";
             }
 
             if (!ttip.isEmpty())

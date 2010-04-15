@@ -20,6 +20,9 @@ public:
     virtual void  setToolButton(QAction *btn) { if (btn) toolBtn = btn; }
     virtual const QPixmap &getPixmap(){ return _pxmap; }
 
+    virtual void DEL_pressed() {}
+    virtual void CTRL_F_pressed() {}
+
     virtual void setUnload(bool b){ _arenaUnload = b; }
     virtual bool isUnload() const { return _arenaUnload; }
 
@@ -29,4 +32,5 @@ private:
     QPixmap _pxmap;
 };
 
+Q_DECLARE_INTERFACE (ArenaWidget, "com.NegatiV.EiskaltDCPP.ArenaWidget/1.0")
 #endif // ARENAWIDGET_H

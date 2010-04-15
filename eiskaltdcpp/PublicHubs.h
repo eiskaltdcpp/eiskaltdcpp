@@ -40,6 +40,7 @@ class PublicHubs :
         private Ui::UIPublicHubs
 {
 Q_OBJECT
+Q_INTERFACES(ArenaWidget)
 friend class dcpp::Singleton<PublicHubs>;
 
 public:
@@ -48,6 +49,7 @@ public:
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return NULL; }
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER); }
+    void CTRL_F_pressed() { slotFilter(); }
 
     bool isFindFrameActivated();
 

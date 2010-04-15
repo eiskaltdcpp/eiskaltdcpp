@@ -50,6 +50,7 @@ class ShareBrowser : public  QWidget,
                      private Ui::UIShareBrowser
 {
     Q_OBJECT
+    Q_INTERFACES(ArenaWidget)
 
     class Menu : public dcpp::Singleton<Menu>{
 
@@ -87,6 +88,7 @@ public:
     QWidget *getWidget();
     QMenu   *getMenu();
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiOWN_FILELIST); }
+    void CTRL_F_pressed() { slotFilter(); }
 
     bool isFindFrameActivated();
 

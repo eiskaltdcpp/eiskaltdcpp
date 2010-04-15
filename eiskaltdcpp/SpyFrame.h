@@ -37,6 +37,8 @@ class SpyFrame :
         private Ui::UISpy
 {
 Q_OBJECT
+Q_INTERFACES(ArenaWidget)
+
 friend class dcpp::Singleton<SpyFrame>;
 
 public:

@@ -17,6 +17,7 @@ class PMWindow: public  QWidget,
                 public  ArenaWidget
 {
     Q_OBJECT
+    Q_INTERFACES(ArenaWidget)
 
 public:
     friend class HubFrame;

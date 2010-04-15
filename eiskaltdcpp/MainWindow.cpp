@@ -728,6 +728,7 @@ void MainWindow::initHotkeys(){
     ctrl_up     = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Up), this);
     ctrl_w      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_W), this);
     ctrl_m      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_M), this);
+    del         = new QShortcut(QKeySequence(Qt::Key_Delete), this);
 
     connect(ctrl_pgdown, SIGNAL(activated()), tBar, SLOT(nextTab()));
     connect(ctrl_pgup,   SIGNAL(activated()), tBar, SLOT(prevTab()));
@@ -735,6 +736,7 @@ void MainWindow::initHotkeys(){
     connect(ctrl_up,     SIGNAL(activated()), this, SLOT(prevMsg()));
     connect(ctrl_w,      SIGNAL(activated()), this, SLOT(slotCloseCurrentWidget()));
     connect(ctrl_m,      SIGNAL(activated()), this, SLOT(slotHideMainMenu()));
+    connect(del,         SIGNAL(activated()), this, SLOT(slotDel()));
 }
 
 void MainWindow::initMenuBar(){
@@ -1568,23 +1570,19 @@ void MainWindow::slotChatClear(){
 }
 
 void MainWindow::slotFind(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    if (!arena->widget() || !qobject_cast<ArenaWidget*>(arena->widget()))
+        return;
 
-    if (fr){
-        fr->slotHideFindFrame();
-    }
-    else if (arena->widget()){
-        if (arena->widget()->qt_metacast("ShareBrowser")){
-            ShareBrowser *s = qobject_cast<ShareBrowser*>(arena->widget());
+    ArenaWidget *awgt = qobject_cast<ArenaWidget*>(arena->widget());
+    awgt->CTRL_F_pressed();
+}
 
-            s->slotFilter();
-        }
-        else if (arena->widget()->qt_metacast("PublicHubs")){
-            PublicHubs *p = qobject_cast<PublicHubs*>(arena->widget());
+void MainWindow::slotDel(){
+    if (!arena->widget() || !qobject_cast<ArenaWidget*>(arena->widget()))
+        return;
 
-            p->slotFilter();
-        }
-    }
+    ArenaWidget *awgt = qobject_cast<ArenaWidget*>(arena->widget());
+    awgt->DEL_pressed();
 }
 
 void MainWindow::slotChatDisable(){
