@@ -1,11 +1,20 @@
 --- 2.0.1 2010-04-18 ---
-* ShareBrowser filtering support (Ctrl+F hotkey)
-* Away mode support
-* The File menu is divided into several thematic menus
-* Significantly expanded the settings dialog
-* Added examples of custom scripts
-* Added a status line with the last message on hub
-* Added fast search panel
+* Added a widget with public hubs.
+* Filtering support in basic widgets (Ctrl+F hotkey).
+* Away mode support.
+* The File menu is divided into several thematic menus.
+* Added examples of custom scripts.
+* Added a status line with the last message on hub.
+* Added fast search panel.
 * Added the ability to run multiple copies of the client from different users of the system.
   Check that different local ports have been specified in the settings.
 * Thanks to Akos Berki the Hungarian translation is now available.
+* Added ability to disable chat with automatic connection to the hub.
+* Added a graphical configuration for limit of speed hashing.
+* Added pause in hashing process.
+* Added ability to limit of upload to users by the size of their share.
+* Fixed problems with recalling program from system tray in Gnome and Mac OS X.
+* Added a history of sent messages, their number is regulated in the settings.
+* Added search history, their number is regulated in the settings.
+* Significantly expanded the settings dialog.
+* Lots of bug fixes, etc.
