@@ -213,6 +213,7 @@ ConnectionManager::Server::Server(bool secure_, uint16_t aPort, const string& ip
 	sock.create();
 	ip = ip_;
 	port = sock.bind(aPort, ip);
+        sock.setSocketOpt(SO_REUSEADDR, 1);
 	sock.listen();
 
 	start();
@@ -237,6 +238,7 @@ int ConnectionManager::Server::run() throw() {
 			try {
 				sock.disconnect();
 				sock.create();
+                                sock.setSocketOpt(SO_REUSEADDR, 1);
 				sock.bind(port, ip);
 				sock.listen();
 				if(failed) {

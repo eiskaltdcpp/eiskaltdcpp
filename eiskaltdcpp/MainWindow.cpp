@@ -251,6 +251,11 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     c_e->accept();
 }
 
+void MainWindow::beginExit(){
+    exitBegin = true;
+    setUnload(true);
+}
+
 void MainWindow::showEvent(QShowEvent *e){
     if (e->spontaneous())
         redrawToolPanel();

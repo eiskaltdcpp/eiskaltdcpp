@@ -79,6 +79,7 @@ void SearchManager::listen() throw(SocketException) {
 		socket.reset(new Socket);
 		socket->create(Socket::TYPE_UDP);
 		socket->setBlocking(true);
+                socket->setSocketOpt(SO_REUSEADDR, 1);
 		port = socket->bind(static_cast<uint16_t>(SETTING(UDP_PORT)), SETTING(BIND_ADDRESS));
 
 		start();

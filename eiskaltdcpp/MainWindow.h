@@ -91,6 +91,8 @@ friend class dcpp::Singleton<MainWindow>;
         typedef QList<ArenaWidget*> ArenaWidgetList;
         typedef QMap<ArenaWidget*, QWidget*> ArenaWidgetMap;
 
+        void beginExit();
+
         /** Allow widget to be mapped on arena*/
         void addArenaWidget(ArenaWidget*);
         /** Disallow widget to be mapped on arena*/
@@ -332,7 +334,7 @@ public:
 
     void commitData(QSessionManager& manager){
         if (MainWindow::getInstance()){
-            MainWindow::getInstance()->setUnload(true);
+            MainWindow::getInstance()->beginExit();
             MainWindow::getInstance()->close();
         }
 
