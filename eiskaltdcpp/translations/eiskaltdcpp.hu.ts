@@ -800,11 +800,11 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Run search alternatives manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternatívák keresése most.</translation>
     </message>
     <message>
         <source>Download file via auto search alternatives</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájlok letöltése automatikus alternatívák keresése közben</translation>
     </message>
 </context>
 <context>
@@ -1168,7 +1168,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Sebesség&lt;/b&gt;&lt;br/&gt;Letöltés: &lt;font color=&quot;green&quot;&gt;%1&lt;/font&gt; Feltöltés: &lt;font color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statisztika&lt;/b&gt;&lt;br/&gt;Letöltve: &lt;font color=&quot;green&quot;&gt;%3&lt;/font&gt; Feltöltve: &lt;font color=&quot;red&quot;&gt;%4&lt;/font&gt;</translation>
     </message>
 </context>
 <context>
@@ -1320,7 +1320,7 @@ Kapcsolók:
     <name>SearchFrame</name>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Keresés</translation>
     </message>
     <message>
         <source>Search</source>
@@ -1831,7 +1831,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Total share size: %1;  Files: %2</source>
-        <translation>Teljes megosztás mérete: 1;  Fájlok: %2</translation>
+        <translation>Teljes megosztás mérete: %1;  Fájlok: %2</translation>
     </message>
     <message>
         <source>Filebrowser</source>
@@ -2327,7 +2327,7 @@ p, li { white-space: pre-wrap; }
     <name>UIDownloadQueue</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Letöltési sor</translation>
     </message>
 </context>
 <context>
@@ -2425,7 +2425,7 @@ p, li { white-space: pre-wrap; }
     <name>UIFavoriteHubs</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Kedvenc hubok</translation>
     </message>
     <message>
         <source>Add new</source>
@@ -2456,7 +2456,7 @@ p, li { white-space: pre-wrap; }
     <name>UIFavoriteUsers</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Kedvenc felhasználók</translation>
     </message>
     <message>
         <source>Auto grant slot to all users</source>
@@ -2467,7 +2467,7 @@ p, li { white-space: pre-wrap; }
     <name>UIFinishedTransfers</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Befejezett átvitelek</translation>
     </message>
     <message>
         <source>Files</source>
@@ -2509,7 +2509,7 @@ p, li { white-space: pre-wrap; }
     <name>UIHubFrame</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <source>Find: </source>
@@ -2623,7 +2623,7 @@ p, li { white-space: pre-wrap; }
     <name>UIMagnet</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <source>TTH</source>
@@ -2655,14 +2655,14 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Add to queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás a letöltési sorhoz</translation>
     </message>
 </context>
 <context>
     <name>UIPrivateMessage</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Privát üzenet</translation>
     </message>
     <message>
         <source>Go to hub</source>
@@ -2677,7 +2677,7 @@ p, li { white-space: pre-wrap; }
     <name>UIPublicHubs</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Publikus hubok</translation>
     </message>
     <message>
         <source>X</source>
@@ -2725,7 +2725,7 @@ p, li { white-space: pre-wrap; }
     <name>UISettingsConnection</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Kapcsolat beállításai</translation>
     </message>
     <message>
         <source>Connection</source>
@@ -2848,7 +2848,7 @@ p, li { white-space: pre-wrap; }
     <name>UISettingsDownloads</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Letöltés beállításai</translation>
     </message>
     <message>
         <source>Downloads</source>
@@ -3007,7 +3007,7 @@ p, li { white-space: pre-wrap; }
     <name>UISettingsGUI</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>GUI beállításai</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -3139,7 +3139,7 @@ p, li { white-space: pre-wrap; }
     <name>UISettingsLog</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Naplózás beállításai</translation>
     </message>
     <message>
         <source>Private messages</source>
@@ -3186,7 +3186,7 @@ p, li { white-space: pre-wrap; }
     <name>UISettingsNotification</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Értesítések beállításai</translation>
     </message>
     <message>
         <source>Text</source>
@@ -3265,7 +3265,7 @@ p, li { white-space: pre-wrap; }
     <name>UISettingsPersonal</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Személyes beállítások</translation>
     </message>
     <message>
         <source>Nick</source>
@@ -3300,7 +3300,7 @@ p, li { white-space: pre-wrap; }
     <name>UISettingsSharing</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Megosztás beállításai</translation>
     </message>
     <message>
         <source>Total shared: %1</source>
@@ -3399,7 +3399,7 @@ p, li { white-space: pre-wrap; }
     <name>UIShareBrowser</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Megosztás</translation>
     </message>
     <message>
         <source>X</source>
@@ -3410,7 +3410,7 @@ p, li { white-space: pre-wrap; }
     <name>UISpy</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Keresések megfigyelése</translation>
     </message>
     <message>
         <source>Ignore TTH search</source>
@@ -3433,7 +3433,7 @@ p, li { white-space: pre-wrap; }
     <name>UITransferView</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation>Átvitelek</translation>
     </message>
 </context>
 <context>
