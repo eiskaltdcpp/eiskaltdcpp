@@ -400,6 +400,9 @@ void MainWindow::loadSettings(){
     panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
 
     menuBar()->setVisible(WBGET(WB_MAIN_MENU_VISIBLE));
+
+    if (transfer_dock->isVisible())
+        toolsTransfers->setChecked(true);
 }
 
 void MainWindow::saveSettings(){

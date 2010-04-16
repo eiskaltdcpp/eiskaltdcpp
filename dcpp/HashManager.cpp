@@ -687,9 +687,16 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         }
 
     uint64_t lastRead = GET_TICK();
+    unsigned long mmap_flags = MAP_PRIVATE;
+#ifdef MAP_POPULATE
+    mmap_flags |= MAP_POPULATE;
+#endif
+#ifdef MAP_NORESERVE
+    mmap_flags |= MAP_NORESERVE;
+#endif
     while (pos < size && !stop) {
-        size_read = std::min(size - pos, BUF_SIZE);
-            buf = mmap(0, size_read, PROT_READ, MAP_SHARED, fd, pos);
+            size_read = std::min(size - pos, BUF_SIZE);
+            buf = mmap(0, size_read, PROT_READ, mmap_flags, fd, pos);
             if(buf == MAP_FAILED) {
             dcdebug("Error calling mmap for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
             break;
