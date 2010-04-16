@@ -53,10 +53,11 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::SKIPLIST_SHARE, _tq(lineEdit_SKIPLIST->text()));
     SM->set(SettingsManager::MAX_HASH_SPEED, spinBox_MAXHASHSPEED->value());
     SM->set(SettingsManager::FAST_HASH, checkBox_FASTHASH->isChecked());
-	SM->set(SettingsManager::AUTO_REFRESH_TIME, spinBox_REFRESH_TIME->value());
-	SM->set(SettingsManager::ALLOW_UPDATE_FILELIST_ON_STARTUP, checkBox_REFRESH_ON_STARTUP->isChecked());
+    SM->set(SettingsManager::AUTO_REFRESH_TIME, spinBox_REFRESH_TIME->value());
+    SM->set(SettingsManager::ALLOW_UPDATE_FILELIST_ON_STARTUP, checkBox_REFRESH_ON_STARTUP->isChecked());
 
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
+    WBSET(WB_APP_REMOVE_NOT_EX_DIRS, checkBox_AUTOREMOVE->isChecked());
 
     QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
 
@@ -81,10 +82,11 @@ void SettingsSharing::init(){
     checkBox_FASTHASH->setChecked(BOOLSETTING(FAST_HASH));
     lineEdit_SKIPLIST->setText(_q(SETTING(SKIPLIST_SHARE)));
     spinBox_UPLOAD->setValue(SETTING(SLOTS));
-	spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
+    spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
     spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));
-	spinBox_REFRESH_TIME->setValue(SETTING(AUTO_REFRESH_TIME));
-	checkBox_REFRESH_ON_STARTUP->setChecked(BOOLSETTING(ALLOW_UPDATE_FILELIST_ON_STARTUP));
+    spinBox_REFRESH_TIME->setValue(SETTING(AUTO_REFRESH_TIME));
+    checkBox_REFRESH_ON_STARTUP->setChecked(BOOLSETTING(ALLOW_UPDATE_FILELIST_ON_STARTUP));
+    checkBox_AUTOREMOVE->setChecked(WBGET(WB_APP_REMOVE_NOT_EX_DIRS));
 
     label_TOTALSHARED->setText(tr("Total shared: %1")
                                .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
