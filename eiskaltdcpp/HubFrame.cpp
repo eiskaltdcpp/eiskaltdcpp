@@ -178,17 +178,15 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
 
     QAction *res = menu->exec(QCursor::pos());
 
-    if (actions.contains(res)){
-        delete user_menu;
+    if (user_menu)
+        user_menu->deleteLater();
 
+    if (actions.contains(res))
         return static_cast<Action>(actions.indexOf(res));
-    }
     else if (res && !res->toolTip().isEmpty()){//User command{
         last_user_cmd = res->toolTip();
         QString cmd_name = res->statusTip();
         QString hub = res->data().toString();
-
-        delete user_menu;
 
         int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
         UserCommand uc;
@@ -252,23 +250,19 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 
     QAction *res = menu->exec(QCursor::pos());
 
+    if (user_menu)
+        user_menu->deleteLater();
+
     title->deleteLater();
 
-    if (actions.contains(res)){
-        delete user_menu;
+    if (actions.contains(res))
         return static_cast<Action>(actions.indexOf(res));
-    }
-    else if (chat_actions_map.contains(res)){
-        delete user_menu;
-
+    else if (chat_actions_map.contains(res))
         return chat_actions_map[res];
-    }
     else if (res && !res->toolTip().isEmpty()){//User command
         last_user_cmd = res->toolTip();
         QString cmd_name = res->statusTip();
         QString hub = res->data().toString();
-
-        delete user_menu;
 
         int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
         UserCommand uc;
@@ -289,10 +283,8 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         else
             return None;
     }
-    else{
-        delete user_menu;
+    else
         return None;
-    }
 }
 
 QMenu *HubFrame::Menu::buildUserCmdMenu(const QString &hub){
