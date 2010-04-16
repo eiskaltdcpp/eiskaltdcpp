@@ -684,18 +684,20 @@ QStringList WulforUtil::getLocalIPs(){
 }
 
 QString WulforUtil::formatBytes(int64_t aBytes){
+    QString s;
     if(aBytes < 1024)
-        return tr("%1 B").arg((int)(aBytes & 0xffffffff));
+        s = tr("%1 B").arg((int)(aBytes & 0xffffffff));
     else if(aBytes < 1024*1024)
-        return tr("%1 KiB").arg(static_cast<double>(aBytes)/1024.0, 0, 'f', 1);
+        s = tr("%1 KiB").arg(static_cast<double>(aBytes)/1024.0, 0, 'f', 1);
     else if(aBytes < 1024*1024*1024)
-        return tr("%1 MiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0), 0, 'f', 1);
+        s = tr("%1 MiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0), 0, 'f', 1);
     else if(aBytes < static_cast<int64_t>(1024)*1024*1024*1024)
-        return tr("%1 GiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0), 0, 'f', 2);
+        s = tr("%1 GiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0), 0, 'f', 2);
     else if(aBytes < static_cast<int64_t>(1024)*1024*1024*1024*1024)
-        return tr("%1 TiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0), 0, 'f', 3);
+        s = tr("%1 TiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0), 0, 'f', 3);
     else
-        return tr("%1 PiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0*1024.0), 0, 'f', 4);
+        s = tr("%1 PiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0*1024.0), 0, 'f', 4);
+    return s;
 }
 
 QString WulforUtil::makeMagnet(const QString &path, const int64_t size, const QString &tth){

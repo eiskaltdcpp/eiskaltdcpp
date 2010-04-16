@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>510</width>
-    <height>323</height>
+    <width>677</width>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -334,20 +334,6 @@
           <string>Limits</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QLabel" name="label_18">
-            <property name="font">
-             <font>
-              <weight>75</weight>
-              <bold>true</bold>
-              <underline>true</underline>
-             </font>
-            </property>
-            <property name="text">
-             <string>WARNING!!! NOT TESTED!!! NO GARANTEE TO WORK!!!!</string>
-            </property>
-           </widget>
-          </item>
           <item>
            <widget class="QCheckBox" name="checkBox_THROTTLE_ENABLE">
             <property name="text">
