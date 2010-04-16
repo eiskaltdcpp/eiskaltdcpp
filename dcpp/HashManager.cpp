@@ -646,7 +646,7 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
 }
 
 #else // !_WIN32
-static const int64_t BUF_SIZE = 0x1000000 - (0x1000000 % getpagesize());
+static const int64_t BUF_SIZE = 0x800000 - (0x800000 % getpagesize());
 static sigjmp_buf sb_env;
 
 static void sigbus_handler(int signum, siginfo_t* info, void* context) {
