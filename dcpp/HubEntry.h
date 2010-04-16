@@ -65,7 +65,7 @@ public:
     FavoriteHubEntry(const FavoriteHubEntry& rhs) throw() : userdescription(rhs.userdescription), name(rhs.getName()),
     server(rhs.getServer()), description(rhs.getDescription()), password(rhs.getPassword()),
     connect(rhs.getConnect()), encoding(rhs.getEncoding()), nick(rhs.nick), overrideId(rhs.overrideId), clientId(rhs.clientId),
-    externalIP(""), useInternetIp(false)
+    externalIP(""), useInternetIp(false), disableChat(false)
     { }
     ~FavoriteHubEntry() throw() { }
 
