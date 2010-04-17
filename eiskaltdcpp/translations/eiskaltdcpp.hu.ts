@@ -1155,6 +1155,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Clear text field</source>
         <translation>Szövegmező törlése</translation>
     </message>
+    <message>
+        <source>Open download directory</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
