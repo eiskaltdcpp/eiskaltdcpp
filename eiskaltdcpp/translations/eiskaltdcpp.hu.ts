@@ -1159,6 +1159,22 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Open download directory</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Ctrl+E</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+N</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+P</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+U</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -3417,6 +3433,46 @@ hogy letölthessen ebből a könyvtárból</translation>
     <message>
         <source>Delete</source>
         <translation type="unfinished">Törlés</translation>
+    </message>
+    <message>
+        <source>FastHash options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>32</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>64</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffer size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Populate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No reserve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private mapping</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

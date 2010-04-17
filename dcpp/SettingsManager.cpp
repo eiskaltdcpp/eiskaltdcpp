@@ -319,6 +319,10 @@ SettingsManager::SettingsManager()
     setDefault(CONFIRM_ITEM_REMOVAL, true);
     setDefault(CONFIRM_ADLS_REMOVAL, true);
     setDefault(SEARCH_MERGE, true);
+    setDefault(HASH_BUFFER_SIZE_MB, 8);
+    setDefault(HASH_BUFFER_POPULATE, true);
+    setDefault(HASH_BUFFER_NORESERVE, true);
+    setDefault(HASH_BUFFER_PRIVATE, true);
     setDefault(TRANSFERS_PANED_POS, .7);
     setDefault(QUEUE_PANED_POS, .3);
     setDefault(SEARCH_PANED_POS, .2);

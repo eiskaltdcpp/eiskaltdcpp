@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>464</width>
-    <height>355</height>
+    <height>388</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -355,6 +355,106 @@ to download from this folder</string>
          <property name="text">
           <string>Auto remove not existing directories</string>
          </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>FastHash options</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <property name="margin">
+           <number>1</number>
+          </property>
+          <item row="0" column="0" colspan="3">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="4">
+           <widget class="QComboBox" name="comboBox_BUFSIZE">
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>8</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>16</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>32</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>64</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Buffer size</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="5">
+           <widget class="QFrame" name="frame">
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_6">
+             <property name="margin">
+              <number>1</number>
+             </property>
+             <item row="0" column="1">
+              <widget class="QCheckBox" name="checkBox_MAPPOPULATE">
+               <property name="text">
+                <string>Populate</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QCheckBox" name="checkBox_MAPNORESERVE">
+               <property name="text">
+                <string>No reserve</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QCheckBox" name="checkBox_MAPPRIVATE">
+               <property name="text">
+                <string>Private mapping</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>

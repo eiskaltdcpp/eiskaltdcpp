@@ -646,7 +646,7 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
 }
 
 #else // !_WIN32
-static const int64_t BUF_SIZE = 0x800000 - (0x800000 % getpagesize());
+
 static sigjmp_buf sb_env;
 
 static void sigbus_handler(int signum, siginfo_t* info, void* context) {
@@ -657,6 +657,9 @@ static void sigbus_handler(int signum, siginfo_t* info, void* context) {
 }
 
 bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree& tth, int64_t size, CRC32Filter* xcrc32) {
+    static const int64_t BUF_BYTES = (SETTING(HASH_BUFFER_SIZE_MB) >= 1)? SETTING(HASH_BUFFER_SIZE_MB)*1024*1024 : 0x800000;
+    static const int64_t BUF_SIZE = BUF_BYTES - (BUF_BYTES % getpagesize());
+
     int fd = open(Text::fromUtf8(filename).c_str(), O_RDONLY);
     if(fd == -1) {
         dcdebug("Error opening file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
@@ -687,12 +690,14 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         }
 
     uint64_t lastRead = GET_TICK();
-    unsigned long mmap_flags = MAP_PRIVATE;
+    unsigned long mmap_flags = static_cast<bool>(SETTING(HASH_BUFFER_PRIVATE))? MAP_PRIVATE : MAP_SHARED;
 #ifdef MAP_POPULATE
-    mmap_flags |= MAP_POPULATE;
+    if (static_cast<bool>(SETTING(HASH_BUFFER_POPULATE)))
+        mmap_flags |= MAP_POPULATE;
 #endif
 #ifdef MAP_NORESERVE
-    mmap_flags |= MAP_NORESERVE;
+    if (static_cast<bool>(SETTING(HASH_BUFFER_NORESERVE)))
+        mmap_flags |= MAP_NORESERVE;
 #endif
     while (pos < size && !stop) {
             size_read = std::min(size - pos, BUF_SIZE);
@@ -803,6 +808,9 @@ int HashManager::Hasher::run() {
                 buf = (uint8_t*)VirtualAlloc(NULL, 2*BUF_SIZE, MEM_COMMIT, PAGE_READWRITE);
             }
 #endif
+            static const int64_t BUF_BYTES = (SETTING(HASH_BUFFER_SIZE_MB) >= 1)? SETTING(HASH_BUFFER_SIZE_MB)*1024*1024 : 0x800000;
+            static const int64_t BUF_SIZE = BUF_BYTES - (BUF_BYTES % getpagesize());
+
             if(buf == NULL) {
                 virtualBuf = false;
                 buf = new uint8_t[BUF_SIZE];

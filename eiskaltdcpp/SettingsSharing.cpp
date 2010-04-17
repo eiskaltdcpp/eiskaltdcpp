@@ -56,6 +56,10 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::FAST_HASH, checkBox_FASTHASH->isChecked());
     SM->set(SettingsManager::AUTO_REFRESH_TIME, spinBox_REFRESH_TIME->value());
     SM->set(SettingsManager::ALLOW_UPDATE_FILELIST_ON_STARTUP, checkBox_REFRESH_ON_STARTUP->isChecked());
+    SM->set(SettingsManager::HASH_BUFFER_NORESERVE, checkBox_MAPNORESERVE->isChecked());
+    SM->set(SettingsManager::HASH_BUFFER_POPULATE, checkBox_MAPPOPULATE->isChecked());
+    SM->set(SettingsManager::HASH_BUFFER_PRIVATE, checkBox_MAPPRIVATE->isChecked());
+    SM->set(SettingsManager::HASH_BUFFER_SIZE_MB, comboBox_BUFSIZE->currentText().toInt());
 
     QStringList list;
     for (int k = 0; k < listWidget_SKIPLIST->count(); ++k)
@@ -158,6 +162,18 @@ void SettingsSharing::init(){
     }
 
     treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    checkBox_MAPNORESERVE->setChecked(SETTING(HASH_BUFFER_NORESERVE));
+    checkBox_MAPPOPULATE->setChecked(SETTING(HASH_BUFFER_POPULATE));
+    checkBox_MAPPRIVATE->setChecked(SETTING(HASH_BUFFER_PRIVATE));
+
+    for (int i = 0; i < comboBox_BUFSIZE->count(); i++){
+        if (comboBox_BUFSIZE->itemText(i) == QString().setNum(SETTING(HASH_BUFFER_SIZE_MB))){
+            comboBox_BUFSIZE->setCurrentIndex(i);
+
+            break;
+        }
+    }
 
     connect(toolButton_ADD, SIGNAL(clicked()), this, SLOT(slotAddExeption()));
     connect(toolButton_EDIT, SIGNAL(clicked()), this, SLOT(slotEditExeption()));
