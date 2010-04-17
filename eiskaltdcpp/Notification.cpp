@@ -169,6 +169,9 @@ void Notification::reloadSounds(){
 }
 
 void Notification::slotExit(){
+    if (WBGET(WB_EXIT_CONFIRM))
+        MainWindow::getInstance()->show();
+
     MainWindow::getInstance()->setUnload(true);
     MainWindow::getInstance()->close();
 }
