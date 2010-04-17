@@ -11,6 +11,7 @@
 #define USERLISTMODEL_H
 
 #include <QAbstractItemModel>
+#include <QSortFilterProxyModel>
 #include <QString>
 #include <QPixmap>
 #include <QList>
@@ -40,6 +41,13 @@ namespace dcpp{
 }
 
 #include <QHash>
+
+class UserListProxyModel: public QSortFilterProxyModel {
+    Q_OBJECT
+
+public:
+    virtual void sort(int column, Qt::SortOrder order);
+};
 
 #define COLUMN_NICK     0
 #define COLUMN_SHARE    1

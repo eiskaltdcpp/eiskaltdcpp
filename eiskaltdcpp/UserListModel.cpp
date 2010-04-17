@@ -19,6 +19,11 @@
 
 #include "WulforUtil.h"
 
+void UserListProxyModel::sort(int column, Qt::SortOrder order){
+    if (sourceModel())
+        sourceModel()->sort(column, order);
+}
+
 UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
     sortColumn = COLUMN_SHARE;
     sortOrder = Qt::DescendingOrder;

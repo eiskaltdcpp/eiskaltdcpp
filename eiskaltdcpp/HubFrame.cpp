@@ -2364,7 +2364,7 @@ void HubFrame::slotFilterTextChanged(){
 
     if (!text.isEmpty()){
         if (!proxy){
-            proxy = new QSortFilterProxyModel(this);
+            proxy = new UserListProxyModel();
             proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
             proxy->setDynamicSortFilter(true);
             proxy->setSourceModel(model);

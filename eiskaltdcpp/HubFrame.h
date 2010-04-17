@@ -307,7 +307,7 @@ private:
 
     // Userlist data and some helpful functions
     UserListModel *model;
-    QSortFilterProxyModel *proxy;
+    UserListProxyModel *proxy;
 };
 
 #endif // HUBFRAME_H
