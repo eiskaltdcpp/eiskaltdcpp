@@ -4352,6 +4352,21 @@ to download from this folder</source>
         <translation>Хадзіць па спасылках</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsSharing.ui" line="274"/>
+        <source>Private page mapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="288"/>
+        <source>Proactive read from disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="305"/>
+        <source>Buffer size (MiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsSharing.ui" line="322"/>
         <source>1</source>
         <translation type="unfinished"></translation>
@@ -4377,23 +4392,8 @@ to download from this folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="305"/>
-        <source>Buffer size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="288"/>
-        <source>Populate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="281"/>
         <source>No reserve</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="274"/>
-        <source>Private mapping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -4295,6 +4295,21 @@ to download from this folder</source>
         <translation>Следовать по символьным ссылкам</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsSharing.ui" line="274"/>
+        <source>Private page mapping</source>
+        <translation>Закрытое отображение страниц</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="288"/>
+        <source>Proactive read from disk</source>
+        <translation>Упреждающее чтение с диска</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="305"/>
+        <source>Buffer size (MiB)</source>
+        <translation>Размер буфера (МиБ)</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsSharing.ui" line="322"/>
         <source>1</source>
         <translation>1</translation>
@@ -4320,24 +4335,9 @@ to download from this folder</source>
         <translation>64</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="305"/>
-        <source>Buffer size</source>
-        <translation>Размер буфера</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="288"/>
-        <source>Populate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="281"/>
         <source>No reserve</source>
         <translation>Без резерва</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="274"/>
-        <source>Private mapping</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="447"/>

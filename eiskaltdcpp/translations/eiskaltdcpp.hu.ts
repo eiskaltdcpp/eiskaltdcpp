@@ -3455,19 +3455,7 @@ hogy letölthessen ebből a könyvtárból</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Buffer size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Populate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No reserve</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Private mapping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3480,6 +3468,18 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private page mapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proactive read from disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffer size (MiB)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

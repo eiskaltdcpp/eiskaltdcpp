@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>430</width>
+    <width>439</width>
     <height>441</height>
    </rect>
   </property>
@@ -271,7 +271,7 @@ to download from this folder</string>
             <item>
              <widget class="QCheckBox" name="checkBox_MAPPRIVATE">
               <property name="text">
-               <string>Private mapping</string>
+               <string>Private page mapping</string>
               </property>
              </widget>
             </item>
@@ -285,7 +285,7 @@ to download from this folder</string>
             <item>
              <widget class="QCheckBox" name="checkBox_MAPPOPULATE">
               <property name="text">
-               <string>Populate</string>
+               <string>Proactive read from disk</string>
               </property>
              </widget>
             </item>
@@ -302,7 +302,7 @@ to download from this folder</string>
                </sizepolicy>
               </property>
               <property name="text">
-               <string>Buffer size</string>
+               <string>Buffer size (MiB)</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
