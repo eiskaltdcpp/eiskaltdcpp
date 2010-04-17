@@ -377,7 +377,7 @@
                <item>
                 <widget class="QSpinBox" name="spinBox_DOWN_LIMIT_NORMAL">
                  <property name="maximum">
-                  <number>15000</number>
+                  <number>125000</number>
                  </property>
                 </widget>
                </item>
@@ -411,7 +411,7 @@
                <item>
                 <widget class="QSpinBox" name="spinBox_UP_LIMIT_NORMAL">
                  <property name="maximum">
-                  <number>15000</number>
+                  <number>125000</number>
                  </property>
                 </widget>
                </item>
