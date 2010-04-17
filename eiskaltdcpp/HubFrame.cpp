@@ -1827,13 +1827,16 @@ void HubFrame::nickCompletion() {
             plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
 
     }
-    else if (!nicks.isEmpty() && nicks.size() < 15){
+    else if (!nicks.isEmpty() && nicks.size() < 40){
         QMenu *m = new QMenu();
 
         foreach (QString nick, nicks)
             m->addAction(nick);
 
-        QAction *ret = m->exec(plainTextEdit_INPUT->cursor().pos());
+        int c_x = plainTextEdit_INPUT->cursorRect().x();
+        int c_y = plainTextEdit_INPUT->cursorRect().y();
+
+        QAction *ret = m->exec(plainTextEdit_INPUT->mapToGlobal(QPoint(c_x, c_y)));
 
         if (ret){
             QString nick = ret->text();
