@@ -46,7 +46,7 @@ TransferView::Menu::Menu():
     QAction *sep1       = new QAction(menu);
     sep1->setSeparator(true);
 
-    QAction *rem_queue  = new QAction(tr("Remove from Queue"), menu);
+    QAction *rem_queue  = new QAction(tr("Remove Source"), menu);
     rem_queue->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
     QAction *sep3       = new QAction(menu);

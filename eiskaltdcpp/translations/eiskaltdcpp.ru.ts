@@ -2277,13 +2277,13 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="268"/>
-        <location filename="../SettingsSharing.cpp" line="297"/>
+        <location filename="../SettingsSharing.cpp" line="295"/>
         <source>Add item</source>
         <translation>Добавить элемент</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="268"/>
-        <location filename="../SettingsSharing.cpp" line="297"/>
+        <location filename="../SettingsSharing.cpp" line="295"/>
         <source>Enter text:</source>
         <translation>Введите текст:</translation>
     </message>
@@ -2389,7 +2389,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="447"/>
+        <location filename="../SettingsSharing.cpp" line="446"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -2445,6 +2445,11 @@ Do you want to stop it?
 </context>
 <context>
     <name>TransferView</name>
+    <message>
+        <location filename="../TransferView.cpp" line="49"/>
+        <source>Remove Source</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../TransferView.cpp" line="280"/>
         <source>Download complete</source>
@@ -2578,11 +2583,6 @@ Do you want to stop it?
         <location filename="../TransferView.cpp" line="43"/>
         <source>Grant extra slot</source>
         <translation>Выдать дополнительный слот</translation>
-    </message>
-    <message>
-        <location filename="../TransferView.cpp" line="49"/>
-        <source>Remove from Queue</source>
-        <translation>Удалить из очереди</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="55"/>

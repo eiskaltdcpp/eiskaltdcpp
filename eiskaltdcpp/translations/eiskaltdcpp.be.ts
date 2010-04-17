@@ -2301,13 +2301,13 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="268"/>
-        <location filename="../SettingsSharing.cpp" line="297"/>
+        <location filename="../SettingsSharing.cpp" line="295"/>
         <source>Add item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="268"/>
-        <location filename="../SettingsSharing.cpp" line="297"/>
+        <location filename="../SettingsSharing.cpp" line="295"/>
         <source>Enter text:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2414,7 +2414,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="447"/>
+        <location filename="../SettingsSharing.cpp" line="446"/>
         <source>Error</source>
         <translation>Памылка</translation>
     </message>
@@ -2498,8 +2498,8 @@ Do you want to stop it?
     </message>
     <message>
         <location filename="../TransferView.cpp" line="49"/>
-        <source>Remove from Queue</source>
-        <translation>Выкрасьліць з чаргі</translation>
+        <source>Remove Source</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="55"/>

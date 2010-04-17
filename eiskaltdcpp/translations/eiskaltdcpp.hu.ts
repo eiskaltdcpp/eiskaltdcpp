@@ -1952,10 +1952,6 @@ Biztosan le akarod állítani?
         <translation>Extra slot biztosítása</translation>
     </message>
     <message>
-        <source>Remove from Queue</source>
-        <translation>Eltávolítás a sorból</translation>
-    </message>
-    <message>
         <source>Force attempt</source>
         <translation>Kényszerítés</translation>
     </message>
@@ -2046,6 +2042,10 @@ Biztosan le akarod állítani?
     <message>
         <source>Upload failed</source>
         <translation>Feltöltés sikertelen</translation>
+    </message>
+    <message>
+        <source>Remove Source</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
