@@ -475,7 +475,7 @@ void MainWindow::initActions(){
 
         fileFileListRefresh = new QAction("", this);
         fileFileListRefresh->setObjectName("fileFileListRefresh");
-        fileFileListRefresh->setShortcut(tr("Ctrl+R"));
+        fileFileListRefresh->setShortcut(tr("Ctrl+E"));
         fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiREFRLIST));
         connect(fileFileListRefresh, SIGNAL(triggered()), this, SLOT(slotFileRefreshShare()));
 
@@ -502,27 +502,31 @@ void MainWindow::initActions(){
 
         hubsHubReconnect = new QAction("", this);
         hubsHubReconnect->setObjectName("hubsHubReconnect");
+        hubsHubReconnect->setShortcut(tr("Ctrl+R"));
         hubsHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
         connect(hubsHubReconnect, SIGNAL(triggered()), this, SLOT(slotHubsReconnect()));
 
         hubsQuickConnect = new QAction("", this);
         hubsQuickConnect->setObjectName("hubsQuickConnect");
-        hubsQuickConnect->setShortcut(tr("Ctrl+H"));
+        hubsQuickConnect->setShortcut(tr("Ctrl+N"));
         hubsQuickConnect->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
         connect(hubsQuickConnect, SIGNAL(triggered()), this, SLOT(slotQC()));
 
         hubsFavoriteHubs = new QAction("", this);
         hubsFavoriteHubs->setObjectName("hubsFavoriteHubs");
+        hubsQuickConnect->setShortcut(tr("Ctrl+H"));
         hubsFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiFAVSERVER));
         connect(hubsFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteHubs()));
 
         hubsPublicHubs = new QAction("", this);
         hubsPublicHubs->setObjectName("hubsPublicHubs");
+        hubsPublicHubs->setShortcut(tr("Ctrl+P"));
         hubsPublicHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
         connect(hubsPublicHubs, SIGNAL(triggered()), this, SLOT(slotHubsPublicHubs()));
 
         hubsFavoriteUsers = new QAction("", this);
         hubsFavoriteUsers->setObjectName("hubsFavoriteUsers");
+        hubsFavoriteUsers->setShortcut(tr("Ctrl+U"));
         hubsFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
         connect(hubsFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteUsers()));
 
