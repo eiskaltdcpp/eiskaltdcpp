@@ -3435,10 +3435,6 @@ hogy letölthessen ebből a könyvtárból</translation>
         <translation type="unfinished">Törlés</translation>
     </message>
     <message>
-        <source>FastHash options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3472,6 +3468,18 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Private mapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FastHash options (restart needed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2218,71 +2218,71 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="109"/>
-        <location filename="../SettingsSharing.cpp" line="195"/>
+        <location filename="../SettingsSharing.cpp" line="111"/>
+        <location filename="../SettingsSharing.cpp" line="197"/>
         <source>Total shared: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="159"/>
-        <location filename="../SettingsSharing.cpp" line="276"/>
+        <location filename="../SettingsSharing.cpp" line="161"/>
+        <location filename="../SettingsSharing.cpp" line="278"/>
         <source>%1 GiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="222"/>
+        <location filename="../SettingsSharing.cpp" line="224"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="222"/>
+        <location filename="../SettingsSharing.cpp" line="224"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="240"/>
+        <location filename="../SettingsSharing.cpp" line="242"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="248"/>
+        <location filename="../SettingsSharing.cpp" line="250"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="261"/>
+        <location filename="../SettingsSharing.cpp" line="263"/>
         <source>Enter virtual path name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="261"/>
+        <location filename="../SettingsSharing.cpp" line="263"/>
         <source>Virtual path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="268"/>
+        <location filename="../SettingsSharing.cpp" line="270"/>
         <source>Enter restriction (in GiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="268"/>
+        <location filename="../SettingsSharing.cpp" line="270"/>
         <source>Restriction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="284"/>
-        <location filename="../SettingsSharing.cpp" line="311"/>
+        <location filename="../SettingsSharing.cpp" line="286"/>
+        <location filename="../SettingsSharing.cpp" line="313"/>
         <source>Add item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="284"/>
-        <location filename="../SettingsSharing.cpp" line="311"/>
+        <location filename="../SettingsSharing.cpp" line="286"/>
+        <location filename="../SettingsSharing.cpp" line="313"/>
         <source>Enter text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="291"/>
+        <location filename="../SettingsSharing.cpp" line="293"/>
         <source>Choose the directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2383,7 +2383,7 @@ Keys:
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="462"/>
+        <location filename="../SettingsSharing.cpp" line="464"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4117,37 +4117,52 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="234"/>
+        <location filename="../ui/UISettingsSharing.ui" line="266"/>
+        <source>FastHash options (restart needed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="327"/>
+        <source>2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="332"/>
+        <source>4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="418"/>
         <source>Auto refresh time (minutes,0 = off)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="300"/>
+        <location filename="../ui/UISettingsSharing.ui" line="253"/>
         <source>Use fast hash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="339"/>
+        <location filename="../ui/UISettingsSharing.ui" line="229"/>
         <source>Share temp files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="346"/>
+        <location filename="../ui/UISettingsSharing.ui" line="236"/>
         <source>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="349"/>
+        <location filename="../ui/UISettingsSharing.ui" line="239"/>
         <source>Run on startup refresh share </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="356"/>
+        <location filename="../ui/UISettingsSharing.ui" line="246"/>
         <source>Auto remove not existing directories</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="326"/>
+        <location filename="../ui/UISettingsSharing.ui" line="216"/>
         <source>Share hidden files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4209,72 +4224,67 @@ to download from this folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="313"/>
+        <location filename="../ui/UISettingsSharing.ui" line="203"/>
         <source>Follow symlinks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="363"/>
-        <source>FastHash options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="389"/>
+        <location filename="../ui/UISettingsSharing.ui" line="322"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="394"/>
+        <location filename="../ui/UISettingsSharing.ui" line="337"/>
         <source>8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="399"/>
+        <location filename="../ui/UISettingsSharing.ui" line="342"/>
         <source>16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="404"/>
+        <location filename="../ui/UISettingsSharing.ui" line="347"/>
         <source>32</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="409"/>
+        <location filename="../ui/UISettingsSharing.ui" line="352"/>
         <source>64</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="417"/>
+        <location filename="../ui/UISettingsSharing.ui" line="305"/>
         <source>Buffer size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="436"/>
+        <location filename="../ui/UISettingsSharing.ui" line="288"/>
         <source>Populate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="443"/>
+        <location filename="../ui/UISettingsSharing.ui" line="281"/>
         <source>No reserve</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="450"/>
+        <location filename="../ui/UISettingsSharing.ui" line="274"/>
         <source>Private mapping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="263"/>
+        <location filename="../ui/UISettingsSharing.ui" line="447"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="205"/>
+        <location filename="../ui/UISettingsSharing.ui" line="389"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="285"/>
+        <location filename="../ui/UISettingsSharing.ui" line="469"/>
         <source>Upload slots</source>
         <translation type="unfinished"></translation>
     </message>
