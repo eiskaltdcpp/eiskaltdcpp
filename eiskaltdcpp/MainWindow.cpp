@@ -514,7 +514,7 @@ void MainWindow::initActions(){
 
         hubsFavoriteHubs = new QAction("", this);
         hubsFavoriteHubs->setObjectName("hubsFavoriteHubs");
-        hubsQuickConnect->setShortcut(tr("Ctrl+H"));
+        hubsFavoriteHubs->setShortcut(tr("Ctrl+H"));
         hubsFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiFAVSERVER));
         connect(hubsFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteHubs()));
 
