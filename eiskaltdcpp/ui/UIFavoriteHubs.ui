@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>320</width>
-    <height>236</height>
+    <width>318</width>
+    <height>234</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,6 +33,9 @@
      </property>
      <property name="dragDropMode">
       <enum>QAbstractItemView::InternalMove</enum>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
      </property>
      <property name="selectionBehavior">
       <enum>QAbstractItemView::SelectRows</enum>

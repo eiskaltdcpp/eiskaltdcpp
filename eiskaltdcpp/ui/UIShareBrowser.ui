@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>282</width>
-    <height>264</height>
+    <width>280</width>
+    <height>262</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -97,6 +97,9 @@
          </property>
          <property name="showDropIndicator" stdset="0">
           <bool>false</bool>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
          </property>
          <property name="selectionMode">
           <enum>QAbstractItemView::ExtendedSelection</enum>
