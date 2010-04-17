@@ -198,7 +198,7 @@ const QPixmap &PMWindow::getPixmap(){
     if (hasMessages)
         return WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE);
     else
-        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER);
+        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUSERS);
 }
 
 void PMWindow::clearChat(){
