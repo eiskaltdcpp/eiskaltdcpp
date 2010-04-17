@@ -359,11 +359,11 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
         {
             if (index.column() == 0){
                 foreach (QString f, checked){
-                    if (fp.startsWith(f))
+                    if (fp.startsWith(f) && fp.length() == f.length())
                         return Qt::Checked;
                 }
 
-                return (checked.contains(fp) ? Qt::Checked : Qt::Unchecked);
+                return (checked.contains(fp)? Qt::Checked : Qt::Unchecked);
             }
 
             break;
