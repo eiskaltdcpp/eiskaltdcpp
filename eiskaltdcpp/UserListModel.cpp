@@ -108,7 +108,11 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
                 ttip += "<b>" + headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->ip + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " +
                         WulforUtil::formatBytes(item->share) + "<br/>";
-                ttip += "<b>" + headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->tag + "<br/>";
+
+                QString tag = item->tag;
+                WulforUtil::getInstance()->textToHtml(tag, true);
+
+                ttip += "<b>" + headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + tag + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->conn + "<br/>";
 
                 if (item->isOp)

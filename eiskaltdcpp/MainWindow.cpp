@@ -454,27 +454,33 @@ void MainWindow::initActions(){
     {
         fileFileListBrowserLocal = new QAction("", this);
         fileFileListBrowserLocal->setShortcut(tr("Ctrl+L"));
+        fileFileListBrowserLocal->setObjectName("fileFileListBrowserLocal");
         fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
 
         fileFileListBrowser = new QAction("", this);
+        fileFileListBrowser->setObjectName("fileFileListBrowser");
         fileFileListBrowser->setIcon(WU->getPixmap(WulforUtil::eiOPENLIST));
         connect(fileFileListBrowser, SIGNAL(triggered()), this, SLOT(slotFileBrowseFilelist()));
 
         fileOpenLogFile = new QAction("", this);
+        fileOpenLogFile->setObjectName("fileOpenLogFile");
         fileOpenLogFile->setIcon(WU->getPixmap(WulforUtil::eiOPEN_LOG_FILE));
         connect(fileOpenLogFile, SIGNAL(triggered()), this, SLOT(slotFileOpenLogFile()));
 
         fileFileListRefresh = new QAction("", this);
+        fileFileListRefresh->setObjectName("fileFileListRefresh");
         fileFileListRefresh->setShortcut(tr("Ctrl+R"));
         fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiREFRLIST));
         connect(fileFileListRefresh, SIGNAL(triggered()), this, SLOT(slotFileRefreshShare()));
 
         fileHashProgress = new QAction("", this);
+        fileHashProgress->setObjectName("fileHashProgress");
         fileHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         connect(fileHashProgress, SIGNAL(triggered()), this, SLOT(slotFileHashProgress()));
 
         fileHideWindow = new QAction(tr("Hide window"), this);
+        fileHideWindow->setObjectName("fileHideWindow");
         fileHideWindow->setShortcut(tr("Esc"));
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
@@ -483,39 +489,47 @@ void MainWindow::initActions(){
             fileHideWindow->setText(tr("Show/hide find frame"));
 
         fileQuit = new QAction("", this);
+        fileQuit->setObjectName("fileQuit");
         fileQuit->setShortcut(tr("Ctrl+Q"));
         fileQuit->setMenuRole(QAction::QuitRole);
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
         connect(fileQuit, SIGNAL(triggered()), this, SLOT(slotExit()));
 
         hubsHubReconnect = new QAction("", this);
+        hubsHubReconnect->setObjectName("hubsHubReconnect");
         hubsHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
         connect(hubsHubReconnect, SIGNAL(triggered()), this, SLOT(slotHubsReconnect()));
 
         hubsQuickConnect = new QAction("", this);
+        hubsQuickConnect->setObjectName("hubsQuickConnect");
         hubsQuickConnect->setShortcut(tr("Ctrl+H"));
         hubsQuickConnect->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
         connect(hubsQuickConnect, SIGNAL(triggered()), this, SLOT(slotQC()));
 
         hubsFavoriteHubs = new QAction("", this);
+        hubsFavoriteHubs->setObjectName("hubsFavoriteHubs");
         hubsFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiFAVSERVER));
         connect(hubsFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteHubs()));
 
         hubsPublicHubs = new QAction("", this);
+        hubsPublicHubs->setObjectName("hubsPublicHubs");
         hubsPublicHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
         connect(hubsPublicHubs, SIGNAL(triggered()), this, SLOT(slotHubsPublicHubs()));
 
         hubsFavoriteUsers = new QAction("", this);
+        hubsFavoriteUsers->setObjectName("hubsFavoriteUsers");
         hubsFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
         connect(hubsFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteUsers()));
 
         toolsOptions = new QAction("", this);
+        toolsOptions->setObjectName("toolsOptions");
         toolsOptions->setShortcut(tr("Ctrl+O"));
         toolsOptions->setMenuRole(QAction::PreferencesRole);
         toolsOptions->setIcon(WU->getPixmap(WulforUtil::eiCONFIGURE));
         connect(toolsOptions, SIGNAL(triggered()), this, SLOT(slotToolsSettings()));
 
         toolsTransfers = new QAction("", this);
+        toolsTransfers->setObjectName("toolsTransfers");
         toolsTransfers->setShortcut(tr("Ctrl+T"));
         toolsTransfers->setIcon(WU->getPixmap(WulforUtil::eiTRANSFER));
         toolsTransfers->setCheckable(true);
@@ -523,35 +537,43 @@ void MainWindow::initActions(){
         //transfer_dock->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
 
         toolsDownloadQueue = new QAction("", this);
+        toolsDownloadQueue->setObjectName("toolsDownloadQueue");
         toolsDownloadQueue->setShortcut(tr("Ctrl+D"));
         toolsDownloadQueue->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
         connect(toolsDownloadQueue, SIGNAL(triggered()), this, SLOT(slotToolsDownloadQueue()));
 
         toolsFinishedDownloads = new QAction("", this);
+        toolsFinishedDownloads->setObjectName("toolsFinishedDownloads");
         toolsFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWNLIST));
         connect(toolsFinishedDownloads, SIGNAL(triggered()), this, SLOT(slotToolsFinishedDownloads()));
 
         toolsFinishedUploads = new QAction("", this);
+        toolsFinishedUploads->setObjectName("toolsFinishedUploads");
         toolsFinishedUploads->setIcon(WU->getPixmap(WulforUtil::eiUPLIST));
         connect(toolsFinishedUploads, SIGNAL(triggered()), this, SLOT(slotToolsFinishedUploads()));
 
         toolsSpy = new QAction("", this);
+        toolsSpy->setObjectName("toolsSpy");
         toolsSpy->setIcon(WU->getPixmap(WulforUtil::eiSPY));
         connect(toolsSpy, SIGNAL(triggered()), this, SLOT(slotToolsSpy()));
 
         toolsAntiSpam = new QAction("", this);
+        toolsAntiSpam->setObjectName("toolsAntiSpam");
         toolsAntiSpam->setIcon(WU->getPixmap(WulforUtil::eiSPAM));
         connect(toolsAntiSpam, SIGNAL(triggered()), this, SLOT(slotToolsAntiSpam()));
 
         toolsIPFilter = new QAction("", this);
+        toolsIPFilter->setObjectName("toolsIPFilter");
         toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
         connect(toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
 
         toolsAwayOn = new QAction("", this);
+        toolsAwayOn->setObjectName("toolsAwayOn");
         toolsAwayOn->setCheckable(true);
         connect(toolsAwayOn, SIGNAL(triggered()), this, SLOT(slotToolsSwitchAway()));
 
         toolsAwayOff = new QAction("", this);
+        toolsAwayOff->setObjectName("toolsAwayOff");
         toolsAwayOff->setCheckable(true);
         connect(toolsAwayOff, SIGNAL(triggered()), this, SLOT(slotToolsSwitchAway()));
 
@@ -580,11 +602,13 @@ void MainWindow::initActions(){
         menuAwayAction->setIcon(QIcon(WU->getPixmap(WulforUtil::eiAWAY)));
 
         toolsSearch = new QAction("", this);
+        toolsSearch->setObjectName("toolsSearch");
         toolsSearch->setShortcut(tr("Ctrl+S"));
         toolsSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
         connect(toolsSearch, SIGNAL(triggered()), this, SLOT(slotToolsSearch()));
 
         toolsHideProgressSpace = new QAction(tr("Hide free space bar"), this);
+        toolsHideProgressSpace->setObjectName("toolsHideProgressSpace");
         if (!WBGET(WB_SHOW_FREE_SPACE))
             toolsHideProgressSpace->setText(tr("Show free space bar"));
 #if (!defined FREE_SPACE_BAR && !defined FREE_SPACE_BAR_C)
@@ -594,27 +618,32 @@ void MainWindow::initActions(){
         connect(toolsHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
 
         toolsHideLastStatus = new QAction(tr("Hide last status message"), this);
+        toolsHideLastStatus->setObjectName("toolsHideLastStatus");
         toolsHideLastStatus->setIcon(WU->getPixmap(WulforUtil::eiSTATUS));
         connect(toolsHideLastStatus, SIGNAL(triggered()), this, SLOT(slotHideLastStatus()));
         if (!WBGET(WB_LAST_STATUS))
             toolsHideLastStatus->setText(tr("Show last status message"));
 
         toolsHideUsersStatisctics = new QAction(tr("Hide users statistics"), this);
+        toolsHideUsersStatisctics->setObjectName("toolsHideUsersStatisctics");
         toolsHideUsersStatisctics->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
         connect(toolsHideUsersStatisctics, SIGNAL(triggered()), this, SLOT(slotHideUsersStatistics()));
         if (!WBGET(WB_USERS_STATISTICS))
             toolsHideUsersStatisctics->setText(tr("Show users statistics"));
 
         chatClear = new QAction("", this);
+        chatClear->setObjectName("chatClear");
         chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
         connect(chatClear, SIGNAL(triggered()), this, SLOT(slotChatClear()));
 
         findInWidget = new QAction("", this);
+        findInWidget->setObjectName("findInWidget");
         findInWidget->setShortcut(tr("Ctrl+F"));
         findInWidget->setIcon(WU->getPixmap(WulforUtil::eiFIND));
         connect(findInWidget, SIGNAL(triggered()), this, SLOT(slotFind()));
 
         chatDisable = new QAction("", this);
+        hubsFavoriteHubs->setObjectName("hubsFavoriteHubs");
         chatDisable->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
         connect(chatDisable, SIGNAL(triggered()), this, SLOT(slotChatDisable()));
 
