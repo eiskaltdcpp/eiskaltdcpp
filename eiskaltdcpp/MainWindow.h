@@ -151,6 +151,7 @@ friend class dcpp::Singleton<MainWindow>;
 
     private slots:
         void slotFileOpenLogFile();
+        void slotFileOpenDownloadDirectory();
         void slotFileBrowseFilelist();
         void slotFileBrowseOwnFilelist();
         void slotFileRefreshShare();
@@ -261,6 +262,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *fileFileListRefresh;
         QAction *fileHashProgress;
         QAction *fileOpenLogFile;
+        QAction *fileOpenDownloadDirectory;
         QAction *fileHideWindow;
         QAction *fileQuit;
 

@@ -468,6 +468,11 @@ void MainWindow::initActions(){
         fileOpenLogFile->setIcon(WU->getPixmap(WulforUtil::eiOPEN_LOG_FILE));
         connect(fileOpenLogFile, SIGNAL(triggered()), this, SLOT(slotFileOpenLogFile()));
 
+        fileOpenDownloadDirectory = new QAction("", this);
+        fileOpenDownloadDirectory->setObjectName("fileOpenDownloadDirectory");
+        fileOpenDownloadDirectory->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+        connect(fileOpenDownloadDirectory, SIGNAL(triggered()), this, SLOT(slotFileOpenDownloadDirectory()));
+
         fileFileListRefresh = new QAction("", this);
         fileFileListRefresh->setObjectName("fileFileListRefresh");
         fileFileListRefresh->setShortcut(tr("Ctrl+R"));
@@ -668,6 +673,7 @@ void MainWindow::initActions(){
                 << fileHashProgress
                 << separator0
                 << fileOpenLogFile
+                << fileOpenDownloadDirectory
                 << separator1
                 << fileHideWindow
                 << separator2
@@ -898,6 +904,8 @@ void MainWindow::retranslateUi(){
         menuFile->setTitle(tr("&File"));
 
         fileOpenLogFile->setText(tr("Open log file"));
+
+        fileOpenDownloadDirectory->setText(tr("Open download directory"));
 
         fileFileListBrowser->setText(tr("Open filelist..."));
 
@@ -1407,6 +1415,13 @@ void MainWindow::slotFileOpenLogFile(){
 
         QDesktopServices::openUrl(f);
     }
+}
+
+void MainWindow::slotFileOpenDownloadDirectory(){
+    QString dir = QString::fromStdString(SETTING(DOWNLOAD_DIRECTORY));
+
+    if (!dir.isEmpty())
+        QDesktopServices::openUrl(dir);
 }
 
 void MainWindow::slotFileBrowseOwnFilelist(){
