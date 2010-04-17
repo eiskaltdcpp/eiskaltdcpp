@@ -1035,8 +1035,6 @@ QString HubFrame::getUserInfo(UserListItem *item){
     if (FavoriteManager::getInstance()->isFavoriteUser(item->ptr))
         ttip += tr("\nFavorite user");
 
-    WulforUtil::getInstance()->textToHtml(ttip, true);
-
     return ttip;
 }
 
