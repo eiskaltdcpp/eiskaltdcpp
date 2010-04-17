@@ -96,13 +96,15 @@ void SettingsSharing::init(){
     checkBox_SHAREHIDDEN->setChecked(BOOLSETTING(SHARE_HIDDEN));
     checkBox_SHARE_TEMP_FILES->setChecked(BOOLSETTING(SHARE_TEMP_FILES));
     checkBox_FOLLOW->setChecked(BOOLSETTING(FOLLOW_LINKS));
-    checkBox_FASTHASH->setChecked(BOOLSETTING(FAST_HASH));
     spinBox_UPLOAD->setValue(SETTING(SLOTS));
     spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
     spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));
     spinBox_REFRESH_TIME->setValue(SETTING(AUTO_REFRESH_TIME));
     checkBox_REFRESH_ON_STARTUP->setChecked(BOOLSETTING(ALLOW_UPDATE_FILELIST_ON_STARTUP));
     checkBox_AUTOREMOVE->setChecked(WBGET(WB_APP_REMOVE_NOT_EX_DIRS));
+
+    checkBox_FASTHASH->setChecked(BOOLSETTING(FAST_HASH));
+    groupBox_FASTHASH->setEnabled(BOOLSETTING(FAST_HASH));
 
     listWidget_SKIPLIST->addItems(_q(SETTING(SKIPLIST_SHARE)).split('|', QString::SkipEmptyParts));
 
