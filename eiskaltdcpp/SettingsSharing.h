@@ -48,6 +48,10 @@ private slots:
     void slotGetName(QModelIndex);
     void slotHeaderMenu();
     void slotRestrictMenu();
+    void slotAddExeption();
+    void slotEditExeption();
+    void slotDeleteExeption();
+    void slotAddDirExeption();
 
 private:
     void init();

@@ -8,11 +8,13 @@
 #include "dcpp/SettingsManager.h"
 #include "dcpp/ShareManager.h"
 
+#include <QListWidgetItem>
 #include <QTreeWidget>
 #include <QList>
 #include <QMenu>
 #include <QAction>
 #include <QFileDialog>
+#include <QInputDialog>
 #include <QDir>
 #include <QFile>
 #include <QTextStream>
@@ -50,11 +52,16 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::SHARE_TEMP_FILES, checkBox_SHARE_TEMP_FILES->isChecked());
     SM->set(SettingsManager::MIN_UPLOAD_SPEED, spinBox_EXTRA->value());
     SM->set(SettingsManager::SLOTS, spinBox_UPLOAD->value());
-    SM->set(SettingsManager::SKIPLIST_SHARE, _tq(lineEdit_SKIPLIST->text()));
     SM->set(SettingsManager::MAX_HASH_SPEED, spinBox_MAXHASHSPEED->value());
     SM->set(SettingsManager::FAST_HASH, checkBox_FASTHASH->isChecked());
     SM->set(SettingsManager::AUTO_REFRESH_TIME, spinBox_REFRESH_TIME->value());
     SM->set(SettingsManager::ALLOW_UPDATE_FILELIST_ON_STARTUP, checkBox_REFRESH_ON_STARTUP->isChecked());
+
+    QStringList list;
+    for (int k = 0; k < listWidget_SKIPLIST->count(); ++k)
+        list << listWidget_SKIPLIST->item(k)->text();
+
+    SM->set(SettingsManager::SKIPLIST_SHARE, _tq(list.join("|")));
 
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
     WBSET(WB_APP_REMOVE_NOT_EX_DIRS, checkBox_AUTOREMOVE->isChecked());
@@ -76,17 +83,24 @@ void SettingsSharing::ok(){
 }
 
 void SettingsSharing::init(){
+    WulforUtil *WU = WulforUtil::getInstance();
+    toolButton_ADD->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
+    toolButton_EDIT->setIcon(WU->getPixmap(WulforUtil::eiEDIT));
+    toolButton_DELETE->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
+    toolButton_BROWSE->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+
     checkBox_SHAREHIDDEN->setChecked(BOOLSETTING(SHARE_HIDDEN));
     checkBox_SHARE_TEMP_FILES->setChecked(BOOLSETTING(SHARE_TEMP_FILES));
     checkBox_FOLLOW->setChecked(BOOLSETTING(FOLLOW_LINKS));
     checkBox_FASTHASH->setChecked(BOOLSETTING(FAST_HASH));
-    lineEdit_SKIPLIST->setText(_q(SETTING(SKIPLIST_SHARE)));
     spinBox_UPLOAD->setValue(SETTING(SLOTS));
     spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
     spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));
     spinBox_REFRESH_TIME->setValue(SETTING(AUTO_REFRESH_TIME));
     checkBox_REFRESH_ON_STARTUP->setChecked(BOOLSETTING(ALLOW_UPDATE_FILELIST_ON_STARTUP));
     checkBox_AUTOREMOVE->setChecked(WBGET(WB_APP_REMOVE_NOT_EX_DIRS));
+
+    listWidget_SKIPLIST->addItems(_q(SETTING(SKIPLIST_SHARE)).split('|', QString::SkipEmptyParts));
 
     label_TOTALSHARED->setText(tr("Total shared: %1")
                                .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
@@ -144,6 +158,12 @@ void SettingsSharing::init(){
     }
 
     treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    connect(toolButton_ADD, SIGNAL(clicked()), this, SLOT(slotAddExeption()));
+    connect(toolButton_EDIT, SIGNAL(clicked()), this, SLOT(slotEditExeption()));
+    connect(toolButton_DELETE, SIGNAL(clicked()), this, SLOT(slotDeleteExeption()));
+    connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotAddDirExeption()));
+    connect(listWidget_SKIPLIST, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(slotEditExeption()));
 
     connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotRestrictMenu()));
     connect(toolButton_RECREATE, SIGNAL(clicked()), this, SLOT(slotRecreateShare()));
@@ -241,6 +261,52 @@ void SettingsSharing::slotRestrictMenu(){
     }
     else if (ret)
         qDeleteAll(selected);
+}
+
+void SettingsSharing::slotAddExeption(){
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Add item"), tr("Enter text:"), QLineEdit::Normal, "", &ok);
+
+    if (ok && !text.isEmpty())
+        listWidget_SKIPLIST->addItem(text);
+}
+
+void SettingsSharing::slotAddDirExeption(){
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Choose the directory"), QDir::home().dirName());
+
+    if (!dir.isEmpty()){
+        if (!dir.endsWith(QDir::separator()))
+            dir += QDir::separator();
+
+        listWidget_SKIPLIST->addItem(dir + "*");
+    }
+}
+
+void SettingsSharing::slotEditExeption(){
+    QListWidgetItem *item = listWidget_SKIPLIST->currentItem();
+
+    if (!item)
+        return;
+
+    // listWidget_SKIPLIST->editItem(item);
+
+    QString old_text = item->text();
+    int row = listWidget_SKIPLIST->row(item);
+    bool ok = false;
+
+    QString new_text = QInputDialog::getText(this, tr("Add item"), tr("Enter text:"), QLineEdit::Normal, old_text, &ok);
+
+    if (ok && !new_text.isEmpty()){
+        listWidget_SKIPLIST->removeItemWidget(item);
+        listWidget_SKIPLIST->insertItem(row, new_text);
+    }
+}
+
+void SettingsSharing::slotDeleteExeption(){
+    QListWidgetItem *item = listWidget_SKIPLIST->currentItem();
+
+    if (item)
+        listWidget_SKIPLIST->removeItemWidget(item);
 }
 
 ShareDirModel::ShareDirModel(QObject *parent){
