@@ -288,8 +288,6 @@ void SettingsSharing::slotEditExeption(){
     if (!item)
         return;
 
-    // listWidget_SKIPLIST->editItem(item);
-
     QString old_text = item->text();
     int row = listWidget_SKIPLIST->row(item);
     bool ok = false;
@@ -297,8 +295,9 @@ void SettingsSharing::slotEditExeption(){
     QString new_text = QInputDialog::getText(this, tr("Add item"), tr("Enter text:"), QLineEdit::Normal, old_text, &ok);
 
     if (ok && !new_text.isEmpty()){
-        listWidget_SKIPLIST->removeItemWidget(item);
+        delete item;
         listWidget_SKIPLIST->insertItem(row, new_text);
+        listWidget_SKIPLIST->setCurrentRow(row);
     }
 }
 
@@ -306,7 +305,7 @@ void SettingsSharing::slotDeleteExeption(){
     QListWidgetItem *item = listWidget_SKIPLIST->currentItem();
 
     if (item)
-        listWidget_SKIPLIST->removeItemWidget(item);
+        delete item;
 }
 
 ShareDirModel::ShareDirModel(QObject *parent){
