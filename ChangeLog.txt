@@ -38,4 +38,3 @@
 * Search spy.
 * IP-filter.
 * Spell-checking using Aspell.
-* etc.
