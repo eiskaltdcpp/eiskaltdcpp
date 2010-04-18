@@ -106,9 +106,9 @@ void FavoriteHubs::init(){
     treeView->setRootIsDecorated(false);
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
-    //treeView->viewport()->setAcceptDrops(true);
-    treeView->setDragEnabled(true);
-    treeView->setAcceptDrops(true);
+    treeView->viewport()->setAcceptDrops(false); // temporary
+    treeView->setDragEnabled(false); // temporary
+    treeView->setAcceptDrops(false); // temporary
     //treeView->setDragDropMode(QAbstractItemView::InternalMove);
 
     MainWindow::getInstance()->addArenaWidget(this);
