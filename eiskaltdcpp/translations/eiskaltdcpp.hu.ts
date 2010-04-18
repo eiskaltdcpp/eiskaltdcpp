@@ -1157,23 +1157,23 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Open download directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltési könyvtár megnyitása</translation>
     </message>
     <message>
         <source>Ctrl+E</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+E</translation>
     </message>
     <message>
         <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+N</translation>
     </message>
     <message>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <source>Ctrl+U</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+U</translation>
     </message>
 </context>
 <context>
@@ -1820,27 +1820,27 @@ Kapcsolók:
     </message>
     <message>
         <source>Add item</source>
-        <translation type="unfinished"></translation>
+        <translation>Elem hozzáadása</translation>
     </message>
     <message>
         <source>Enter text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kifejezés/Szöveg megadása:</translation>
     </message>
     <message>
         <source>Choose the directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvtár kiválasztása</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Átnevezés</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Hiba</translation>
+        <translation>Hiba</translation>
     </message>
     <message>
         <source>Enter new name</source>
-        <translation type="unfinished"></translation>
+        <translation>Új név megadása</translation>
     </message>
 </context>
 <context>
@@ -2077,7 +2077,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Remove Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Forrás eltávolítása</translation>
     </message>
 </context>
 <context>
@@ -3424,47 +3424,47 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Exceptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Kivételek</translation>
     </message>
     <message>
         <source>Don&apos;t share files and folders containing:</source>
-        <translation type="unfinished"></translation>
+        <translation>A következő fájlok és könyvtárak megosztásának tiltása:</translation>
     </message>
     <message>
         <source>Add new</source>
-        <translation type="unfinished">Új hozzáadása</translation>
+        <translation>Új hozzáadása</translation>
     </message>
     <message>
         <source>Select and add the directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvtár kiválasztása és hozzáadása</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>8</source>
-        <translation type="unfinished"></translation>
+        <translation>8</translation>
     </message>
     <message>
         <source>16</source>
-        <translation type="unfinished"></translation>
+        <translation>16</translation>
     </message>
     <message>
         <source>32</source>
-        <translation type="unfinished"></translation>
+        <translation>32</translation>
     </message>
     <message>
         <source>64</source>
-        <translation type="unfinished"></translation>
+        <translation>64</translation>
     </message>
     <message>
         <source>No reserve</source>
@@ -3472,15 +3472,15 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>FastHash options (restart needed)</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyors Indexelés beállítása</translation>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation>2</translation>
     </message>
     <message>
         <source>4</source>
-        <translation type="unfinished"></translation>
+        <translation>4</translation>
     </message>
     <message>
         <source>Private page mapping</source>
@@ -3488,27 +3488,27 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Proactive read from disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Proaktív lemezolvasás</translation>
     </message>
     <message>
         <source>Buffer size (MiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Buffer méret (MiB)</translation>
     </message>
     <message>
         <source>View share in simple mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Megosztás egyszerűsített nézete</translation>
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished">Útvonal</translation>
+        <translation>Útvonal</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Név</translation>
+        <translation>Név</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">Méret</translation>
+        <translation>Méret</translation>
     </message>
 </context>
 <context>
