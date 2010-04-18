@@ -369,7 +369,7 @@ void SettingsSharing::slotSimpleShareModeChanged(){
 }
 
 void SettingsSharing::slotContextMenu(const QPoint &){
-    QList<QTreeWidgetItem*> selected = treeWidget->selectedItems();
+    QList<QTreeWidgetItem*> selected = treeWidget_SIMPLE_MODE->selectedItems();
     QMenu *menu = new QMenu();
     QAction *add_new = NULL, *rem = NULL, *rename = NULL;
     WulforUtil *WU = WulforUtil::getInstance();
@@ -428,7 +428,7 @@ void SettingsSharing::slotContextMenu(const QPoint &){
             return;
         }
 
-        QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
+        QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget_SIMPLE_MODE);
 
         item->setText(0, dir);
         item->setText(1, dir_alias);
