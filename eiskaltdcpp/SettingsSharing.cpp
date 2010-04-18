@@ -137,6 +137,48 @@ void SettingsSharing::init(){
     if (ind >= 0)
         comboBox_BUFSIZE->setCurrentIndex(ind);
 
+    QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
+
+    if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&f);
+        QString line = "";
+        QMap<QString, unsigned> restrict_map;
+
+        while (!(line = stream.readLine(0)).isNull()){
+            QStringList list = line.split(' ');
+
+            if (list.size() < 2)
+                continue;
+
+            bool ok = false;
+            unsigned size = 0;
+
+            size = list.at(0).toUInt(&ok);
+
+            if (!ok)
+                continue;
+
+            QString virt_path = line.remove(0, list.at(0).length() + 1);
+
+            if (!virt_path.startsWith('/'))
+                virt_path.prepend('/');
+
+            if (!virt_path.isEmpty() && size > 0 && !restrict_map.contains(virt_path))
+                restrict_map.insert(virt_path, size);
+        }
+
+        f.close();
+
+        QMap< QString, unsigned>::iterator it = restrict_map.begin();
+        for (; it != restrict_map.end(); ++it){
+            QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
+
+            item->setText(0, it.key());
+            item->setText(1, tr("%1 GiB").arg(it.value()));
+        }
+
+    }
+
     connect(toolButton_ADD, SIGNAL(clicked()), this, SLOT(slotAddExeption()));
     connect(toolButton_EDIT, SIGNAL(clicked()), this, SLOT(slotEditExeption()));
     connect(toolButton_DELETE, SIGNAL(clicked()), this, SLOT(slotDeleteExeption()));
@@ -249,6 +291,9 @@ void SettingsSharing::slotRestrictMenu(){
 
         QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
 
+        if (!virt_path.startsWith('/'))
+            virt_path.prepend('/');
+
         item->setText(0, virt_path);
         item->setText(1, tr("%1 GiB").arg(size));
     }
@@ -314,45 +359,6 @@ void SettingsSharing::slotSimpleShareModeChanged(){
 
             if (!WSGET(WS_SHAREHEADER_STATE).isEmpty())
                 treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toAscii()));
-
-            QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
-
-            if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
-                QTextStream stream(&f);
-                QString line = "";
-                QMap<QString, unsigned> restrict_map;
-
-                while (!(line = stream.readLine(0)).isNull()){
-                    QStringList list = line.split(' ');
-
-                    if (list.size() < 2)
-                        continue;
-
-                    bool ok = false;
-                    unsigned size = 0;
-
-                    size = list.at(0).toUInt(&ok);
-
-                    if (!ok)
-                        continue;
-
-                    QString virt_path = line.remove(0, list.at(0).length() + 1);
-
-                    if (!virt_path.isEmpty() && size > 0 && !restrict_map.contains(virt_path))
-                        restrict_map.insert(virt_path, size);
-                }
-
-                f.close();
-
-                QMap< QString, unsigned>::iterator it = restrict_map.begin();
-                for (; it != restrict_map.end(); ++it){
-                    QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
-
-                    item->setText(0, it.key());
-                    item->setText(1, tr("%1 GiB").arg(it.value()));
-                }
-
-            }
 
             connect(model, SIGNAL(getName(QModelIndex)), this, SLOT(slotGetName(QModelIndex)));
             connect(model, SIGNAL(expandMe(QModelIndex)), treeView, SLOT(expand(QModelIndex)));
