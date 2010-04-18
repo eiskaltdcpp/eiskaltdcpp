@@ -521,17 +521,17 @@
     <message>
         <location filename="../HashProgress.cpp" line="202"/>
         <source>Resume</source>
-        <translation type="unfinished"></translation>
+        <translation>Працягваць</translation>
     </message>
     <message>
         <location filename="../HashProgress.cpp" line="199"/>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Прыпыніць</translation>
     </message>
     <message>
         <location filename="../HashProgress.cpp" line="196"/>
         <source>Start</source>
-        <translation type="unfinished">Пачаць</translation>
+        <translation>Пачаць</translation>
     </message>
     <message>
         <location filename="../HashProgress.cpp" line="102"/>
@@ -542,7 +542,7 @@
     <message>
         <location filename="../HashProgress.cpp" line="77"/>
         <source>Refreshing file list</source>
-        <translation type="unfinished"></translation>
+        <translation>Дапаўняецца сьпіс файлаў</translation>
     </message>
     <message>
         <location filename="../HashProgress.cpp" line="103"/>
@@ -553,7 +553,7 @@
         <location filename="../HashProgress.cpp" line="104"/>
         <location filename="../HashProgress.cpp" line="116"/>
         <source>-:--:--</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../HashProgress.cpp" line="110"/>
@@ -568,7 +568,7 @@
     <message>
         <location filename="../HashProgress.cpp" line="125"/>
         <source>%p% %1 left</source>
-        <translation type="unfinished"></translation>
+        <translation>%p% %1 засталося</translation>
     </message>
     <message>
         <location filename="../HashProgress.cpp" line="129"/>
@@ -686,7 +686,7 @@
     <message>
         <location filename="../HubFrame.cpp" line="891"/>
         <source>Hub Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Мэню асяродку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="949"/>
@@ -1011,12 +1011,13 @@ Favorite user</source>
     <message>
         <location filename="../Magnet.cpp" line="37"/>
         <source>Run search alternatives manually.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???</translatorcomment>
+        <translation>Вы мусіце самастойна запусьціць пошук іншых крыніцаў.</translation>
     </message>
     <message>
         <location filename="../Magnet.cpp" line="40"/>
         <source>Download file via auto search alternatives</source>
-        <translation type="unfinished"></translation>
+        <translation>Самарушна знайсьці крыніцы ды сьцягнуць файл.</translation>
     </message>
     <message>
         <location filename="../Magnet.cpp" line="137"/>
@@ -1273,22 +1274,22 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="478"/>
         <source>Ctrl+E</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="511"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="523"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="529"/>
         <source>Ctrl+U</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="629"/>
@@ -1316,7 +1317,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="912"/>
         <source>Open download directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Адкрыць каталёг сьцягнутага</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="922"/>
@@ -1534,7 +1535,8 @@ Please check your connection settings</source>
     <message>
         <location filename="../Notification.cpp" line="155"/>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>!!!удакладніць знакі прыпынку</translatorcomment>
+        <translation>&lt;b&gt;Хуткасьць:&lt;/b&gt;&lt;br/&gt;сьцягваць — &lt;font color=&quot;green&quot;&gt;%1&lt;/font&gt;, зацягваць — &lt;font color=&quot;red&quot;&gt;%2&lt;/font&gt;.&lt;br/&gt;&lt;b&gt;Статыстыка:&lt;/b&gt;&lt;br/&gt;сьцягнулі &lt;font color=&quot;green&quot;&gt;%3&lt;/font&gt;, зацягнулі &lt;font color=&quot;red&quot;&gt;%4&lt;/font&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1557,7 +1559,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../PMWindow.cpp" line="206"/>
         <source>Chat cleared.</source>
-        <translation type="unfinished">Гаману ачысьцілі.</translation>
+        <translation>Гаману ачысьцілі.</translation>
     </message>
     <message>
         <location filename="../PMWindow.cpp" line="270"/>
@@ -2334,34 +2336,34 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <location filename="../SettingsSharing.cpp" line="261"/>
         <location filename="../SettingsSharing.cpp" line="288"/>
         <source>Add item</source>
-        <translation type="unfinished"></translation>
+        <translation>Дадаць</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="261"/>
         <location filename="../SettingsSharing.cpp" line="288"/>
         <source>Enter text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Упішыце тэкст:</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="268"/>
         <source>Choose the directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Абярыце каталёг</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="381"/>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Даць новы назоў</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="422"/>
         <location filename="../SettingsSharing.cpp" line="458"/>
         <source>Error</source>
-        <translation type="unfinished">Памылка</translation>
+        <translation>Памылка</translation>
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="447"/>
         <source>Enter new name</source>
-        <translation type="unfinished"></translation>
+        <translation>Упішыце новы назоў</translation>
     </message>
 </context>
 <context>
@@ -2546,7 +2548,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="49"/>
         <source>Remove Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Выкрасьліць крыніцу</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="55"/>
@@ -3152,32 +3154,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
         <source>Add new</source>
-        <translation type="unfinished">Дадаць</translation>
+        <translation>Дадаць</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="73"/>
         <source>Change</source>
-        <translation type="unfinished">Зьмяніць</translation>
+        <translation>Зьмяніць</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished">Сьцерці</translation>
+        <translation>Выкрасьліць</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="100"/>
         <source>Connect</source>
-        <translation type="unfinished">Злучыцца</translation>
+        <translation>Злучыцца</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="117"/>
         <source>Move up</source>
-        <translation type="unfinished"></translation>
+        <translation>Вышэй</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="127"/>
         <source>Move down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ніжэй</translation>
     </message>
 </context>
 <context>
@@ -3421,7 +3423,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIMagnet.ui" line="134"/>
         <source>Add to queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Дадаць у чаргу</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="154"/>
@@ -3907,22 +3909,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Window position at startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Разьмешчаньне вакна па запуску</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="111"/>
         <source>Remember window position on exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Памятаць, як было па выхадзе</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="121"/>
         <source>Always hide window to system tray at startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Заўжды хаваць у сыстэмны латок па запуску</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="128"/>
         <source>Always show window at startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Заўжды паказваць вакно па запуску</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="140"/>
@@ -4144,12 +4146,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="94"/>
         <source>Enable notifications with not active main window</source>
-        <translation type="unfinished"></translation>
+        <translation>Дазволяць апавяшчаць, калі галоўнае вакно — нядзейнае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="101"/>
         <source>Enable notifications with active main window</source>
-        <translation type="unfinished"></translation>
+        <translation>Дазволяць апавяшчаць, калі галоўнае вакно — дзейнае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="123"/>
@@ -4262,17 +4264,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="316"/>
         <source>FastHash options (restart needed)</source>
-        <translation type="unfinished"></translation>
+        <translation>Можнасьці хутка ствараць скароты (трэба запусьціць нанова)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="377"/>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="382"/>
         <source>4</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="468"/>
@@ -4302,7 +4304,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="296"/>
         <source>Auto remove not existing directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Самарушна выкрасьляць каталёгі, што не існуюць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="266"/>
@@ -4312,52 +4314,54 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="33"/>
         <source>View share in simple mode</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???простым ці звычайным?</translatorcomment>
+        <translation>Праглядаць абагуленае простым спосабам</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="65"/>
         <source>Path</source>
-        <translation type="unfinished">Шлях</translation>
+        <translation>Шлях</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Name</source>
-        <translation type="unfinished">Назоў</translation>
+        <translation>Назоў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="75"/>
         <source>Size</source>
-        <translation type="unfinished">Памер</translation>
+        <translation>Памер</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="116"/>
         <source>Exceptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Выняткі</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="122"/>
         <source>Don&apos;t share files and folders containing:</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???якія зьмяшчаюць=&gt;назовы якіх зьмяшчаюць</translatorcomment>
+        <translation>Не абагуляць файлы ды тэчкі, якія зьмяшчаюць:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="134"/>
         <source>Add new</source>
-        <translation type="unfinished">Дадаць</translation>
+        <translation>Дадаць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="144"/>
         <source>Select and add the directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Абраць і дадаць каталёг</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="154"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Зьмяніць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="164"/>
         <source>Delete</source>
-        <translation type="unfinished">Сьцерці</translation>
+        <translation>Выкрасьліць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="190"/>
@@ -4396,47 +4400,49 @@ to download from this folder</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="324"/>
         <source>Private page mapping</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>!!!удакладніць сэнс</translatorcomment>
+        <translation>Закрыта адлюстроўваць бачыны</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="338"/>
         <source>Proactive read from disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Загадзя чытаць з дыску</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="355"/>
         <source>Buffer size (MiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Памер буфэра (МіБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="372"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="387"/>
         <source>8</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="392"/>
         <source>16</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="397"/>
         <source>32</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="402"/>
         <source>64</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="331"/>
         <source>No reserve</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???удакладніць сэнс</translatorcomment>
+        <translation>Не запасаць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="497"/>
