@@ -52,6 +52,8 @@ private slots:
     void slotEditExeption();
     void slotDeleteExeption();
     void slotAddDirExeption();
+    void slotSimpleShareModeChanged();
+    void slotContextMenu(const QPoint&);
 
 private:
     void init();

@@ -29,6 +29,8 @@ SettingsSharing::SettingsSharing(QWidget *parent):
 {
     setupUi(this);
 
+    model = NULL;
+
     init();
 }
 
@@ -67,6 +69,11 @@ void SettingsSharing::ok(){
 
     SM->set(SettingsManager::SKIPLIST_SHARE, _tq(list.join("|")));
 
+    WBSET(WB_SIMPLE_SHARE_MODE, checkBox_SIMPLE_SHARE_MODE->isChecked());
+
+    if (checkBox_SIMPLE_SHARE_MODE->isChecked())
+        SM->save();
+
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
     WBSET(WB_APP_REMOVE_NOT_EX_DIRS, checkBox_AUTOREMOVE->isChecked());
 
@@ -88,10 +95,13 @@ void SettingsSharing::ok(){
 
 void SettingsSharing::init(){
     WulforUtil *WU = WulforUtil::getInstance();
+
     toolButton_ADD->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
     toolButton_EDIT->setIcon(WU->getPixmap(WulforUtil::eiEDIT));
     toolButton_DELETE->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
     toolButton_BROWSE->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+
+    toolButton_RECREATE->setIcon(WU->getPixmap(WulforUtil::eiRELOAD));
 
     checkBox_SHAREHIDDEN->setChecked(BOOLSETTING(SHARE_HIDDEN));
     checkBox_SHARE_TEMP_FILES->setChecked(BOOLSETTING(SHARE_TEMP_FILES));
@@ -111,57 +121,11 @@ void SettingsSharing::init(){
     label_TOTALSHARED->setText(tr("Total shared: %1")
                                .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
 
-    model = new ShareDirModel();
-    treeView->setModel(model);
+    checkBox_SIMPLE_SHARE_MODE->setChecked(WBGET(WB_SIMPLE_SHARE_MODE));
+    treeWidget_SIMPLE_MODE->setVisible(WBGET(WB_SIMPLE_SHARE_MODE));
+    treeView->setHidden(WBGET(WB_SIMPLE_SHARE_MODE));
 
-    toolButton_RECREATE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiRELOAD));
-
-    treeView->setSortingEnabled(true);
-    treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
-    treeView->header()->hideSection(1);
-    treeView->header()->hideSection(2);
-
-    if (!WSGET(WS_SHAREHEADER_STATE).isEmpty())
-        treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toAscii()));
-
-    QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
-
-    if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
-        QTextStream stream(&f);
-        QString line = "";
-        QMap<QString, unsigned> restrict_map;
-
-        while (!(line = stream.readLine(0)).isNull()){
-            QStringList list = line.split(' ');
-
-            if (list.size() < 2)
-                continue;
-
-            bool ok = false;
-            unsigned size = 0;
-
-            size = list.at(0).toUInt(&ok);
-
-            if (!ok)
-                continue;
-
-            QString virt_path = line.remove(0, list.at(0).length() + 1);
-
-            if (!virt_path.isEmpty() && size > 0 && !restrict_map.contains(virt_path))
-                restrict_map.insert(virt_path, size);
-        }
-
-        f.close();
-
-        QMap< QString, unsigned>::iterator it = restrict_map.begin();
-        for (; it != restrict_map.end(); ++it){
-            QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
-
-            item->setText(0, it.key());
-            item->setText(1, tr("%1 GiB").arg(it.value()));
-        }
-
-    }
+    treeWidget_SIMPLE_MODE->setContextMenuPolicy(Qt::CustomContextMenu);
 
     treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -169,13 +133,9 @@ void SettingsSharing::init(){
     checkBox_MAPPOPULATE->setChecked(SETTING(HASH_BUFFER_POPULATE));
     checkBox_MAPPRIVATE->setChecked(SETTING(HASH_BUFFER_PRIVATE));
 
-    for (int i = 0; i < comboBox_BUFSIZE->count(); i++){
-        if (comboBox_BUFSIZE->itemText(i) == QString().setNum(SETTING(HASH_BUFFER_SIZE_MB))){
-            comboBox_BUFSIZE->setCurrentIndex(i);
-
-            break;
-        }
-    }
+    int ind = comboBox_BUFSIZE->findText(QString().setNum(SETTING(HASH_BUFFER_SIZE_MB)));
+    if (ind >= 0)
+        comboBox_BUFSIZE->setCurrentIndex(ind);
 
     connect(toolButton_ADD, SIGNAL(clicked()), this, SLOT(slotAddExeption()));
     connect(toolButton_EDIT, SIGNAL(clicked()), this, SLOT(slotEditExeption()));
@@ -185,15 +145,30 @@ void SettingsSharing::init(){
 
     connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotRestrictMenu()));
     connect(toolButton_RECREATE, SIGNAL(clicked()), this, SLOT(slotRecreateShare()));
-    connect(model, SIGNAL(getName(QModelIndex)), this, SLOT(slotGetName(QModelIndex)));
-    connect(model, SIGNAL(expandMe(QModelIndex)), treeView, SLOT(expand(QModelIndex)));
     connect(checkBox_SHAREHIDDEN, SIGNAL(clicked(bool)), this, SLOT(slotShareHidden(bool)));
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
 
-    model->beginExpanding();
+    connect(treeWidget_SIMPLE_MODE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
+    connect(checkBox_SIMPLE_SHARE_MODE, SIGNAL(clicked()), this, SLOT(slotSimpleShareModeChanged()));
+
+    slotSimpleShareModeChanged();
 }
 
 void SettingsSharing::updateShareView(){
+    if (checkBox_SIMPLE_SHARE_MODE->isChecked()){
+        treeWidget_SIMPLE_MODE->clear();
+
+        StringPairList directories = ShareManager::getInstance()->getDirectories();
+        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){
+            QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget_SIMPLE_MODE);
+
+            item->setText(0, it->second.c_str());
+            item->setText(1, it->first.c_str());
+            item->setText(2, Util::formatBytes(ShareManager::getInstance()->getShareSize(it->second)).c_str());
+            item->setText(3, QString().setNum(ShareManager::getInstance()->getShareSize(it->second)));
+        }
+    }
+
     label_TOTALSHARED->setText(tr("Total shared: %1")
                                .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
 }
@@ -324,6 +299,173 @@ void SettingsSharing::slotDeleteExeption(){
 
     if (item)
         delete item;
+}
+
+void SettingsSharing::slotSimpleShareModeChanged(){
+    if (!checkBox_SIMPLE_SHARE_MODE->isChecked()){
+        if (!model){
+            model = new ShareDirModel();
+            treeView->setModel(model);
+
+            treeView->setSortingEnabled(true);
+            treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+            treeView->header()->hideSection(1);
+            treeView->header()->hideSection(2);
+
+            if (!WSGET(WS_SHAREHEADER_STATE).isEmpty())
+                treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toAscii()));
+
+            QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
+
+            if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
+                QTextStream stream(&f);
+                QString line = "";
+                QMap<QString, unsigned> restrict_map;
+
+                while (!(line = stream.readLine(0)).isNull()){
+                    QStringList list = line.split(' ');
+
+                    if (list.size() < 2)
+                        continue;
+
+                    bool ok = false;
+                    unsigned size = 0;
+
+                    size = list.at(0).toUInt(&ok);
+
+                    if (!ok)
+                        continue;
+
+                    QString virt_path = line.remove(0, list.at(0).length() + 1);
+
+                    if (!virt_path.isEmpty() && size > 0 && !restrict_map.contains(virt_path))
+                        restrict_map.insert(virt_path, size);
+                }
+
+                f.close();
+
+                QMap< QString, unsigned>::iterator it = restrict_map.begin();
+                for (; it != restrict_map.end(); ++it){
+                    QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
+
+                    item->setText(0, it.key());
+                    item->setText(1, tr("%1 GiB").arg(it.value()));
+                }
+
+            }
+
+            connect(model, SIGNAL(getName(QModelIndex)), this, SLOT(slotGetName(QModelIndex)));
+            connect(model, SIGNAL(expandMe(QModelIndex)), treeView, SLOT(expand(QModelIndex)));
+
+            model->beginExpanding();
+        }
+        else{
+            model->beginExpanding();
+        }
+    }
+    else{
+        updateShareView();
+    }
+}
+
+void SettingsSharing::slotContextMenu(const QPoint &){
+    QList<QTreeWidgetItem*> selected = treeWidget->selectedItems();
+    QMenu *menu = new QMenu();
+    QAction *add_new = NULL, *rem = NULL, *rename = NULL;
+    WulforUtil *WU = WulforUtil::getInstance();
+
+    add_new = new QAction(WU->getPixmap(WulforUtil::eiEDITADD), tr("Add"), menu);
+    menu->addAction(add_new);
+
+    if (selected.size() == 1){
+        rename = new QAction(WU->getPixmap(WulforUtil::eiEDIT), tr("Rename"), menu);
+        menu->addAction(rename);
+    }
+
+    if (selected.size() > 0){
+        rem = new QAction(WU->getPixmap(WulforUtil::eiEDITDELETE), tr("Remove"), menu);
+        menu->addAction(rem);
+    }
+
+    QAction *res = menu->exec(QCursor::pos());
+
+    delete menu;
+
+    if (!res)
+        return;
+
+    if (res == add_new){
+        QString dir = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
+
+        if (dir.isEmpty())
+            return;
+
+        if (!dir.endsWith(PATH_SEPARATOR))
+            dir += PATH_SEPARATOR_STR;
+
+        bool ok = false;
+        QString dir_alias = QInputDialog::getText(this, tr("Select directory"), tr("Name"),
+                                                  QLineEdit::Normal, QDir(dir).dirName(), &ok);
+
+        dir_alias = dir_alias.trimmed();
+
+        if (!ok || dir_alias.isEmpty())
+            return;
+
+        try
+        {
+            ShareManager::getInstance()->addDirectory(dir.toStdString(), dir_alias.toStdString());
+        }
+        catch (const ShareException &e)
+        {
+            QMessageBox msg_box(QMessageBox::Critical,
+                                tr("Error"),
+                                QString::fromStdString(e.getError()),
+                                QMessageBox::Ok);
+
+            msg_box.exec();
+
+            return;
+        }
+
+        QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
+
+        item->setText(0, dir);
+        item->setText(1, dir_alias);
+        item->setText(2, "");
+        item->setText(3, "");
+    }
+    else if (res == rem){
+        foreach(QTreeWidgetItem *i, selected)
+            ShareManager::getInstance()->removeDirectory(i->text(0).toStdString());
+    }
+    else if (res == rename){
+        QTreeWidgetItem *item = selected.at(0);
+        QString realname = item->text(0);
+        QString virtname = item->text(1);
+        bool ok = false;
+        QString new_virtname = QInputDialog::getText(this, tr("Enter new name"),
+                                                     tr("Name"), QLineEdit::Normal, virtname, &ok);
+
+        if (!ok || new_virtname.isEmpty() || new_virtname == virtname)
+            return;
+
+        try {
+            ShareManager::getInstance()->renameDirectory(realname.toStdString(), new_virtname.toStdString());
+        }
+        catch (const ShareException &e){
+            QMessageBox msg_box(QMessageBox::Critical,
+                                tr("Error"),
+                                QString::fromStdString(e.getError()),
+                                QMessageBox::Ok);
+
+            msg_box.exec();
+
+            return;
+        }
+    }
+
+    updateShareView();
 }
 
 ShareDirModel::ShareDirModel(QObject *parent){

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>439</width>
-    <height>441</height>
+    <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,11 +26,61 @@
       <attribute name="title">
        <string>Basic</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QCheckBox" name="checkBox_SIMPLE_SHARE_MODE">
+         <property name="text">
+          <string>View share in simple mode</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTreeWidget" name="treeWidget_SIMPLE_MODE">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="showDropIndicator" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="rootIsDecorated">
+          <bool>false</bool>
+         </property>
+         <property name="itemsExpandable">
+          <bool>false</bool>
+         </property>
+         <property name="expandsOnDoubleClick">
+          <bool>false</bool>
+         </property>
+         <property name="columnCount">
+          <number>3</number>
+         </property>
+         <attribute name="headerDefaultSectionSize">
+          <number>200</number>
+         </attribute>
+         <attribute name="headerDefaultSectionSize">
+          <number>200</number>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>Path</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Size</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item>
         <widget class="QTreeView" name="treeView"/>
        </item>
-       <item row="1" column="0">
+       <item>
         <widget class="QFrame" name="frame_2">
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -512,6 +562,38 @@ to download from this folder</string>
     <hint type="destinationlabel">
      <x>231</x>
      <y>222</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_SIMPLE_SHARE_MODE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>treeView</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>219</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>219</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_SIMPLE_SHARE_MODE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>treeWidget_SIMPLE_MODE</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>219</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>219</x>
+     <y>138</y>
     </hint>
    </hints>
   </connection>
