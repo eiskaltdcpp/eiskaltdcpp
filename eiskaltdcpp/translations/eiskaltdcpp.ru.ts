@@ -2150,72 +2150,77 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Венгерский</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="143"/>
+        <location filename="../SettingsGUI.cpp" line="69"/>
+        <source>French</source>
+        <translation>Французский</translation>
+    </message>
+    <message>
+        <location filename="../SettingsGUI.cpp" line="145"/>
         <source>Local user</source>
         <translation>Локальный пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="147"/>
+        <location filename="../SettingsGUI.cpp" line="149"/>
         <source>Operator</source>
         <translation>Оператор</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="151"/>
+        <location filename="../SettingsGUI.cpp" line="153"/>
         <source>Bot</source>
         <translation>Бот</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="155"/>
+        <location filename="../SettingsGUI.cpp" line="157"/>
         <source>Private: local user</source>
         <translation>Личный чат: локальный пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="159"/>
+        <location filename="../SettingsGUI.cpp" line="161"/>
         <source>Private: user</source>
         <translation>Личный чат: пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="163"/>
+        <location filename="../SettingsGUI.cpp" line="165"/>
         <source>Chat: Say nick</source>
         <translation>Чат: Ник упомянут</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="167"/>
+        <location filename="../SettingsGUI.cpp" line="169"/>
         <source>Core</source>
         <translation>Ядро</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="171"/>
+        <location filename="../SettingsGUI.cpp" line="173"/>
         <source>Status</source>
         <translation>Статус</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="175"/>
+        <location filename="../SettingsGUI.cpp" line="177"/>
         <source>User</source>
         <translation>Пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="179"/>
+        <location filename="../SettingsGUI.cpp" line="181"/>
         <source>Favorite User</source>
         <translation>Избранный пользователь</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="183"/>
+        <location filename="../SettingsGUI.cpp" line="185"/>
         <source>Time stamp</source>
         <translation>Временная метка</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="187"/>
+        <location filename="../SettingsGUI.cpp" line="189"/>
         <source>Message</source>
         <translation>Сообщение</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="349"/>
+        <location filename="../SettingsGUI.cpp" line="351"/>
         <source>Select translation</source>
         <translation>Выберите перевод</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="349"/>
+        <location filename="../SettingsGUI.cpp" line="351"/>
         <source>Translation (*.qm)</source>
         <translation>Перевод (*.qm)</translation>
     </message>
@@ -2250,92 +2255,92 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     </message>
     <message>
         <location filename="../SettingsSharing.cpp" line="121"/>
-        <location filename="../SettingsSharing.cpp" line="172"/>
+        <location filename="../SettingsSharing.cpp" line="214"/>
         <source>Total shared: %1</source>
         <translation>Всего расшарено: %1</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="253"/>
-        <location filename="../SettingsSharing.cpp" line="352"/>
+        <location filename="../SettingsSharing.cpp" line="177"/>
+        <location filename="../SettingsSharing.cpp" line="298"/>
         <source>%1 GiB</source>
         <translation>%1 ГБ</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="199"/>
-        <location filename="../SettingsSharing.cpp" line="398"/>
-        <location filename="../SettingsSharing.cpp" line="407"/>
+        <location filename="../SettingsSharing.cpp" line="241"/>
+        <location filename="../SettingsSharing.cpp" line="404"/>
+        <location filename="../SettingsSharing.cpp" line="413"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="199"/>
-        <location filename="../SettingsSharing.cpp" line="407"/>
-        <location filename="../SettingsSharing.cpp" line="448"/>
+        <location filename="../SettingsSharing.cpp" line="241"/>
+        <location filename="../SettingsSharing.cpp" line="413"/>
+        <location filename="../SettingsSharing.cpp" line="454"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="217"/>
-        <location filename="../SettingsSharing.cpp" line="377"/>
+        <location filename="../SettingsSharing.cpp" line="259"/>
+        <location filename="../SettingsSharing.cpp" line="383"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="225"/>
-        <location filename="../SettingsSharing.cpp" line="386"/>
+        <location filename="../SettingsSharing.cpp" line="267"/>
+        <location filename="../SettingsSharing.cpp" line="392"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="238"/>
+        <location filename="../SettingsSharing.cpp" line="280"/>
         <source>Enter virtual path name</source>
         <translation>Введите виртуальный путь</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="238"/>
+        <location filename="../SettingsSharing.cpp" line="280"/>
         <source>Virtual path</source>
         <translation>Виртуальный путь</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="245"/>
+        <location filename="../SettingsSharing.cpp" line="287"/>
         <source>Enter restriction (in GiB)</source>
         <translation>Введите ограничение (в ГБ)</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="245"/>
+        <location filename="../SettingsSharing.cpp" line="287"/>
         <source>Restriction</source>
         <translation>Ограничиние</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="261"/>
-        <location filename="../SettingsSharing.cpp" line="288"/>
+        <location filename="../SettingsSharing.cpp" line="306"/>
+        <location filename="../SettingsSharing.cpp" line="333"/>
         <source>Add item</source>
         <translation>Добавить элемент</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="261"/>
-        <location filename="../SettingsSharing.cpp" line="288"/>
+        <location filename="../SettingsSharing.cpp" line="306"/>
+        <location filename="../SettingsSharing.cpp" line="333"/>
         <source>Enter text:</source>
         <translation>Введите текст:</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="268"/>
+        <location filename="../SettingsSharing.cpp" line="313"/>
         <source>Choose the directory</source>
         <translation>Выберите каталог</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="381"/>
+        <location filename="../SettingsSharing.cpp" line="387"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="422"/>
-        <location filename="../SettingsSharing.cpp" line="458"/>
+        <location filename="../SettingsSharing.cpp" line="428"/>
+        <location filename="../SettingsSharing.cpp" line="464"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="447"/>
+        <location filename="../SettingsSharing.cpp" line="453"/>
         <source>Enter new name</source>
         <translation>Введите новое имя</translation>
     </message>
@@ -2436,7 +2441,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="606"/>
+        <location filename="../SettingsSharing.cpp" line="612"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -2788,7 +2793,50 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (версия 0.4.10 и более поздние)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="136"/>
+        <location filename="../ui/UIAbout.ui" line="109"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Translators&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Russian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (for 0.4.10 and later)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Belarusian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (for 1.0.40 and later)&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Hungarian translation&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Akos Berki  aka  sumo&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;husumo@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 2.0.1 and later)&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;French translation&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Alexandre Wallimann  aka  Alex&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;adressalacon@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 2.0.2 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Переводчики&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Русский перевод&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (для 0.4.10 и более поздних)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Белорусский перевод&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (для 1.0.40 и более поздних)&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Венгерский перевод&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Akos Berki  aka  sumo&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;husumo@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (для 2.0.1 и более поздних)&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Французский перевод&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Alexandre Wallimann  aka  Alex&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;adressalacon@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (для 2.0.2 и более поздних)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIAbout.ui" line="142"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -2808,38 +2856,7 @@ p, li { white-space: pre-wrap; }
         <translation>Перевод</translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="109"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Translators&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Russian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (for 0.4.10 and later)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Belarusian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (for 1.0.40 and later)&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Hungarian translation&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Akos Berki aka sumo&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;husumo@gmail.com&amp;gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 2.0.1 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Переводчики&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Русский перевод&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (для 0.4.10 и более поздних)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Белорусский перевод&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (для 1.0.40 и более поздних)&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Венгерский перевод&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Akos Berki aka sumo&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;husumo@gmail.com&amp;gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (для 2.0.1 и более поздних)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIAbout.ui" line="130"/>
+        <location filename="../ui/UIAbout.ui" line="136"/>
         <source>License</source>
         <translation>Лицензия</translation>
     </message>
@@ -4208,17 +4225,17 @@ p, li { white-space: pre-wrap; }
         <translation>Опции быстрого хэширования (требуется перезагрузка)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="377"/>
+        <location filename="../ui/UISettingsSharing.ui" line="370"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="382"/>
+        <location filename="../ui/UISettingsSharing.ui" line="375"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="468"/>
+        <location filename="../ui/UISettingsSharing.ui" line="452"/>
         <source>Auto refresh time (minutes,0 = off)</source>
         <translation>Период автоматического обновления (минут,0 = откл)</translation>
     </message>
@@ -4342,37 +4359,37 @@ to download from this folder</source>
         <translation>Закрытое отображение страниц</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="338"/>
+        <location filename="../ui/UISettingsSharing.ui" line="405"/>
         <source>Proactive read from disk</source>
         <translation>Упреждающее чтение с диска</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="355"/>
+        <location filename="../ui/UISettingsSharing.ui" line="348"/>
         <source>Buffer size (MiB)</source>
         <translation>Размер буфера (МиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="372"/>
+        <location filename="../ui/UISettingsSharing.ui" line="365"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="387"/>
+        <location filename="../ui/UISettingsSharing.ui" line="380"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="392"/>
+        <location filename="../ui/UISettingsSharing.ui" line="385"/>
         <source>16</source>
         <translation>16</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="397"/>
+        <location filename="../ui/UISettingsSharing.ui" line="390"/>
         <source>32</source>
         <translation>32</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="402"/>
+        <location filename="../ui/UISettingsSharing.ui" line="395"/>
         <source>64</source>
         <translation>64</translation>
     </message>
@@ -4382,17 +4399,17 @@ to download from this folder</source>
         <translation>Не использовать резервирование</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="497"/>
+        <location filename="../ui/UISettingsSharing.ui" line="481"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
         <translation>Макс. скорость хэширования (МиБ/с, 0=неогр.)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="439"/>
+        <location filename="../ui/UISettingsSharing.ui" line="423"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Выдавать доп. слот при скорости ниже (КиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="519"/>
+        <location filename="../ui/UISettingsSharing.ui" line="503"/>
         <source>Upload slots</source>
         <translation>Количество слотов отдачи</translation>
     </message>
