@@ -1830,6 +1830,18 @@ Kapcsolók:
         <source>Choose the directory</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Hiba</translation>
+    </message>
+    <message>
+        <source>Enter new name</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShareBrowser</name>
@@ -3481,6 +3493,22 @@ hogy letölthessen ebből a könyvtárból</translation>
     <message>
         <source>Buffer size (MiB)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View share in simple mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished">Útvonal</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Név</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished">Méret</translation>
     </message>
 </context>
 <context>

@@ -2268,77 +2268,99 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>SettingsSharing</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="81"/>
+        <location filename="../SettingsSharing.cpp" line="88"/>
         <source>GiB</source>
         <translation>ГіБ</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="111"/>
-        <location filename="../SettingsSharing.cpp" line="197"/>
+        <location filename="../SettingsSharing.cpp" line="121"/>
+        <location filename="../SettingsSharing.cpp" line="172"/>
         <source>Total shared: %1</source>
         <translation>Разам абагулілі: %1</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="161"/>
-        <location filename="../SettingsSharing.cpp" line="278"/>
+        <location filename="../SettingsSharing.cpp" line="253"/>
+        <location filename="../SettingsSharing.cpp" line="352"/>
         <source>%1 GiB</source>
         <translation>%1 ГіБ</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="224"/>
+        <location filename="../SettingsSharing.cpp" line="199"/>
+        <location filename="../SettingsSharing.cpp" line="398"/>
+        <location filename="../SettingsSharing.cpp" line="407"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="224"/>
+        <location filename="../SettingsSharing.cpp" line="199"/>
+        <location filename="../SettingsSharing.cpp" line="407"/>
+        <location filename="../SettingsSharing.cpp" line="448"/>
         <source>Name</source>
         <translation>Назоў</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="242"/>
+        <location filename="../SettingsSharing.cpp" line="217"/>
+        <location filename="../SettingsSharing.cpp" line="377"/>
         <source>Add</source>
         <translation>Дадаць</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="250"/>
+        <location filename="../SettingsSharing.cpp" line="225"/>
+        <location filename="../SettingsSharing.cpp" line="386"/>
         <source>Remove</source>
         <translation>Выкрасьліць</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="263"/>
+        <location filename="../SettingsSharing.cpp" line="238"/>
         <source>Enter virtual path name</source>
         <translation>Упішыце назоў уяўнага шляху</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="263"/>
+        <location filename="../SettingsSharing.cpp" line="238"/>
         <source>Virtual path</source>
         <translation>Уяўны шлях</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="270"/>
+        <location filename="../SettingsSharing.cpp" line="245"/>
         <source>Enter restriction (in GiB)</source>
         <translation>Упішыце абмежаваньне (у ГіБ)</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="270"/>
+        <location filename="../SettingsSharing.cpp" line="245"/>
         <source>Restriction</source>
         <translation>Абмежаваньне</translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="286"/>
-        <location filename="../SettingsSharing.cpp" line="313"/>
+        <location filename="../SettingsSharing.cpp" line="261"/>
+        <location filename="../SettingsSharing.cpp" line="288"/>
         <source>Add item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="286"/>
-        <location filename="../SettingsSharing.cpp" line="313"/>
+        <location filename="../SettingsSharing.cpp" line="261"/>
+        <location filename="../SettingsSharing.cpp" line="288"/>
         <source>Enter text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SettingsSharing.cpp" line="293"/>
+        <location filename="../SettingsSharing.cpp" line="268"/>
         <source>Choose the directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../SettingsSharing.cpp" line="381"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../SettingsSharing.cpp" line="422"/>
+        <location filename="../SettingsSharing.cpp" line="458"/>
+        <source>Error</source>
+        <translation type="unfinished">Памылка</translation>
+    </message>
+    <message>
+        <location filename="../SettingsSharing.cpp" line="447"/>
+        <source>Enter new name</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2439,7 +2461,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../SettingsSharing.cpp" line="464"/>
+        <location filename="../SettingsSharing.cpp" line="606"/>
         <source>Error</source>
         <translation>Памылка</translation>
     </message>
@@ -3128,32 +3150,32 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubs.ui" line="53"/>
+        <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
         <source>Add new</source>
         <translation type="unfinished">Дадаць</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubs.ui" line="70"/>
+        <location filename="../ui/UIFavoriteHubs.ui" line="73"/>
         <source>Change</source>
         <translation type="unfinished">Зьмяніць</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubs.ui" line="80"/>
+        <location filename="../ui/UIFavoriteHubs.ui" line="83"/>
         <source>Delete</source>
         <translation type="unfinished">Сьцерці</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubs.ui" line="97"/>
+        <location filename="../ui/UIFavoriteHubs.ui" line="100"/>
         <source>Connect</source>
         <translation type="unfinished">Злучыцца</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubs.ui" line="114"/>
+        <location filename="../ui/UIFavoriteHubs.ui" line="117"/>
         <source>Move up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubs.ui" line="124"/>
+        <location filename="../ui/UIFavoriteHubs.ui" line="127"/>
         <source>Move down</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3438,7 +3460,7 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UIPublicHubs.ui" line="86"/>
+        <location filename="../ui/UIPublicHubs.ui" line="95"/>
         <source>X</source>
         <translation></translation>
     </message>
@@ -4233,97 +4255,117 @@ p, li { white-space: pre-wrap; }
         <translation>Галоўныя</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="191"/>
+        <location filename="../ui/UISettingsSharing.ui" line="241"/>
         <source>Advanced</source>
         <translation>Адмысловыя</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="266"/>
+        <location filename="../ui/UISettingsSharing.ui" line="316"/>
         <source>FastHash options (restart needed)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="327"/>
+        <location filename="../ui/UISettingsSharing.ui" line="377"/>
         <source>2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="332"/>
+        <location filename="../ui/UISettingsSharing.ui" line="382"/>
         <source>4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="418"/>
+        <location filename="../ui/UISettingsSharing.ui" line="468"/>
         <source>Auto refresh time (minutes,0 = off)</source>
         <translation>Дапаўняць абагуленае кожныя (у хвілінах; 0=не дапаўняць самарушна)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="253"/>
+        <location filename="../ui/UISettingsSharing.ui" line="303"/>
         <source>Use fast hash</source>
         <translation>Хуткі спосаб ствараць скароты</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="229"/>
+        <location filename="../ui/UISettingsSharing.ui" line="279"/>
         <source>Share temp files</source>
         <translation>Абагуляць часовыя файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="236"/>
+        <location filename="../ui/UISettingsSharing.ui" line="286"/>
         <source>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</source>
         <translation>Калі не задзейнічаць гэтую можнасьць і выйсьці з кліента да таго, як абагуленае скончыла дапаўняцца, памер абагуленага па наступным запуску будзе роўным нулю.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="239"/>
+        <location filename="../ui/UISettingsSharing.ui" line="289"/>
         <source>Run on startup refresh share </source>
         <translation>Дапаўняць абагуленае па запуску</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="246"/>
+        <location filename="../ui/UISettingsSharing.ui" line="296"/>
         <source>Auto remove not existing directories</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="216"/>
+        <location filename="../ui/UISettingsSharing.ui" line="266"/>
         <source>Share hidden files</source>
         <translation>Абагуляць схаваныя файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="66"/>
+        <location filename="../ui/UISettingsSharing.ui" line="33"/>
+        <source>View share in simple mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="65"/>
+        <source>Path</source>
+        <translation type="unfinished">Шлях</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="70"/>
+        <source>Name</source>
+        <translation type="unfinished">Назоў</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="75"/>
+        <source>Size</source>
+        <translation type="unfinished">Памер</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="116"/>
         <source>Exceptions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="72"/>
+        <location filename="../ui/UISettingsSharing.ui" line="122"/>
         <source>Don&apos;t share files and folders containing:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="84"/>
+        <location filename="../ui/UISettingsSharing.ui" line="134"/>
         <source>Add new</source>
         <translation type="unfinished">Дадаць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="94"/>
+        <location filename="../ui/UISettingsSharing.ui" line="144"/>
         <source>Select and add the directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="104"/>
+        <location filename="../ui/UISettingsSharing.ui" line="154"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="114"/>
+        <location filename="../ui/UISettingsSharing.ui" line="164"/>
         <source>Delete</source>
         <translation type="unfinished">Сьцерці</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="140"/>
+        <location filename="../ui/UISettingsSharing.ui" line="190"/>
         <source>Restrictions</source>
         <translation>Абмежаваньні</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="146"/>
+        <location filename="../ui/UISettingsSharing.ui" line="196"/>
         <source>Per folder limit specifies how many files in GiB
 remote user must share the to be able
 to download from this folder</source>
@@ -4332,88 +4374,88 @@ to download from this folder</source>
 каб мець магчымасьць сьцягваць з дадзенае тэчкі</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="167"/>
+        <location filename="../ui/UISettingsSharing.ui" line="217"/>
         <source>Share</source>
         <translation>Абагуленае</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="172"/>
+        <location filename="../ui/UISettingsSharing.ui" line="222"/>
         <source>Restriction</source>
         <translation>Абмежаваньне</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="180"/>
+        <location filename="../ui/UISettingsSharing.ui" line="230"/>
         <source>All changes take effect only after restart</source>
         <translation>Усе зьмяненьні пачнуць дзейнічаць пасьля наступнага запуску</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="203"/>
+        <location filename="../ui/UISettingsSharing.ui" line="253"/>
         <source>Follow symlinks</source>
         <translation>Хадзіць па спасылках</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="274"/>
+        <location filename="../ui/UISettingsSharing.ui" line="324"/>
         <source>Private page mapping</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="288"/>
+        <location filename="../ui/UISettingsSharing.ui" line="338"/>
         <source>Proactive read from disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="305"/>
+        <location filename="../ui/UISettingsSharing.ui" line="355"/>
         <source>Buffer size (MiB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="322"/>
+        <location filename="../ui/UISettingsSharing.ui" line="372"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="337"/>
+        <location filename="../ui/UISettingsSharing.ui" line="387"/>
         <source>8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="342"/>
+        <location filename="../ui/UISettingsSharing.ui" line="392"/>
         <source>16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="347"/>
+        <location filename="../ui/UISettingsSharing.ui" line="397"/>
         <source>32</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="352"/>
+        <location filename="../ui/UISettingsSharing.ui" line="402"/>
         <source>64</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="281"/>
+        <location filename="../ui/UISettingsSharing.ui" line="331"/>
         <source>No reserve</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="447"/>
+        <location filename="../ui/UISettingsSharing.ui" line="497"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
         <translation>Найвялікшая хуткасьць ствараць скароты (МБ/с, 0=не абмяжоўваць)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="389"/>
+        <location filename="../ui/UISettingsSharing.ui" line="439"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translatorcomment>???бясконцая ці нуль?</translatorcomment>
         <translation>Дадаць шчыліну, калі хуткасьць (у КіБ/с) меней за</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="469"/>
+        <location filename="../ui/UISettingsSharing.ui" line="519"/>
         <source>Upload slots</source>
         <translation>Шчылінаў зацягваць файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="48"/>
+        <location filename="../ui/UISettingsSharing.ui" line="98"/>
         <source>Total shared: %1</source>
         <translation>Разам абагулілі: %1</translation>
     </message>
@@ -4426,7 +4468,7 @@ to download from this folder</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UIShareBrowser.ui" line="140"/>
+        <location filename="../ui/UIShareBrowser.ui" line="143"/>
         <source>X</source>
         <translation></translation>
     </message>
