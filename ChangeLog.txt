@@ -1,3 +1,6 @@
+--- 2.0.2 2010-05-18 ---
+* Благодаря Alexandre Wallimann доступен французский перевод.
+
 --- 2.0.1 2010-04-18 ---
 * Added widget with public hubs.
 * Filtering support in basic widgets (Ctrl+F hotkey).

@@ -1,3 +1,6 @@
+--- 2.0.2 2010-05-18 ---
+* Thanks to Alexandre Wallimann the French translation is now available.
+
 --- 2.0.1 2010-04-18 ---
 * Добавлен виджет с публичными хабами.
 * Добавлена возможность фильтрации в основных виджетах (Ctrl+F).
