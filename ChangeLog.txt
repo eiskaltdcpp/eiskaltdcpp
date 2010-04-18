@@ -16,5 +16,26 @@
 * Fixed problems during restoring program from system tray in Gnome and Mac OS X.
 * Added history of sent messages, their number can be configured.
 * Added search history, their number can be configured.
+* Improved configuration of file exceptions from share.
 * Significantly expanded the settings dialog.
 * Lots of bug fixes, etc.
+
+--- 2.0 2010-03-22 ---
+* Migration to the dc++ core (v0.75) and respectively support ADC.
+* Full-featured chat (parsing magnets, links, emoticons, search in the chat, filtering in users list, chat commands).
+* Full-featured search engine and file-browser (lights already shared files, etc.).
+* Group transfers in connection manager.
+* Separate download manager.
+* Download and upload lists.
+* Favourite users (autoslots and etc.); favourite hubs.
+* Text (using default Qt tray messages or using standart D-Bus system manager notices) and sound notifications.
+* Support of themes, icons and emoticon-packs.
+* The ability to not share files by mask.
+* UPnP Support.
+* Substitution tag in favourite hubs.
+* Compulsory indication of external IP-address in favourite hubs.
+* Auto-update external IP through DynDNS in favourite hubs.
+* Search spy.
+* IP-filter.
+* Spell-checking using Aspell.
+* etc.
