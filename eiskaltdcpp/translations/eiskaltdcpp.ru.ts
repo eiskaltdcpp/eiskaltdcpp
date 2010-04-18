@@ -1225,7 +1225,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="912"/>
         <source>Open download directory</source>
-        <translation>Открыть каталог загрузки</translation>
+        <translation>Открыть каталог загрузок</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="922"/>
@@ -3580,7 +3580,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="340"/>
         <source>On/Off speed limits</source>
-        <translation>Включить/выключить ограничение скорости</translation>
+        <translation>Общее ограничение скорости передач</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="373"/>
@@ -3605,7 +3605,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="448"/>
         <source>Alternate restrictions speed from </source>
-        <translation>Другая скорость загрузки в часы от</translation>
+        <translation>Другое ограничение в часы от</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="471"/>
@@ -4379,7 +4379,7 @@ to download from this folder</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="331"/>
         <source>No reserve</source>
-        <translation>Без резерва</translation>
+        <translation>Не использовать резервирование</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="497"/>

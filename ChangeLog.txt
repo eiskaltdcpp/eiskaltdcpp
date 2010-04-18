@@ -1,10 +1,10 @@
 --- 2.0.1 2010-04-18 ---
-* Added a widget with public hubs.
+* Added widget with public hubs.
 * Filtering support in basic widgets (Ctrl+F hotkey).
 * Away mode support.
 * The File menu was splitted into several thematic menus.
 * Added custom scripts examples.
-* Added a status line with the last message on hub.
+* Added status line with the last message on hub.
 * Added fast search panel.
 * Added ability to run several instances of client by different system users.
   Different local ports have to be specified in the settings.
