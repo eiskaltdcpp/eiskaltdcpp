@@ -855,14 +855,14 @@ void MainWindow::initStatusBar(){
     statusDSPLabel->setFrameShape(QFrame::NoFrame);
     statusDSPLabel->setAlignment(Qt::AlignRight);
     statusDSPLabel->setScaledContents(true);
-    statusDSPLabel->setToolTip(tr("Download speed (per sec.)"));
+    statusDSPLabel->setToolTip(tr("Download speed"));
 
     statusUSPLabel = new QLabel(statusBar());
     statusUSPLabel->setFrameShadow(QFrame::Plain);
     statusUSPLabel->setFrameShape(QFrame::NoFrame);
     statusUSPLabel->setAlignment(Qt::AlignRight);
     statusDSPLabel->setScaledContents(true);
-    statusUSPLabel->setToolTip(tr("Upload speed (per sec.)"));
+    statusUSPLabel->setToolTip(tr("Upload speed"));
 
     statusDLabel = new QLabel(statusBar());
     statusDLabel->setFrameShadow(QFrame::Plain);
@@ -1164,13 +1164,13 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
         return;
 
     statusLabel->setText(map["STATS"]);
-    statusUSPLabel->setText(map["USPEED"]);
-    statusDSPLabel->setText(map["DSPEED"]);
+    statusUSPLabel->setText(map["USPEED"]+tr("/s"));
+    statusDSPLabel->setText(map["DSPEED"]+tr("/s"));
     statusDLabel->setText(map["DOWN"]);
     statusULabel->setText(map["UP"]);
 
     if (Notification::getInstance())
-        Notification::getInstance()->setToolTip(map["DSPEED"], map["USPEED"], map["DOWN"], map["UP"]);
+        Notification::getInstance()->setToolTip(map["DSPEED"]+tr("/s"), map["USPEED"]+tr("/s"), map["DOWN"], map["UP"]);
 
     QFontMetrics metrics(font());
 

@@ -894,11 +894,11 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Download speed (per sec.)</source>
-        <translation>Vitesse de téléchargement (par sec.)</translation>
+        <translation type="obsolete">Vitesse de téléchargement (par sec.)</translation>
     </message>
     <message>
         <source>Upload speed (per sec.)</source>
-        <translation>Vitesse d&apos;envoi (par sec.)</translation>
+        <translation type="obsolete">Vitesse d&apos;envoi (par sec.)</translation>
     </message>
     <message>
         <source>Downloaded</source>
@@ -1198,6 +1198,18 @@ Please check your connection settings</source>
     <message>
         <source>Actions</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/s</source>
+        <translation type="unfinished">/s</translation>
     </message>
 </context>
 <context>
@@ -2384,7 +2396,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;French translation&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Alexandre Wallimann  aka  Alex&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;adressalacon@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 2.0.2 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
