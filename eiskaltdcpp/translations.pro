@@ -48,7 +48,8 @@ HEADERS = HEADERS = MainWindow.h \
     SpyModel.h \
     PublicHubs.h \
     PublicHubModel.h \
-    PublicHubsList.h
+    PublicHubsList.h \
+    SideBar.h
 SOURCES = main.cpp \
     Antispam.cpp \
     AntiSpamFrame.cpp \
@@ -98,7 +99,8 @@ SOURCES = main.cpp \
     SpyModel.cpp \
     PublicHubModel.cpp \
     PublicHubs.cpp \
-    PublicHubsList.cpp
+    PublicHubsList.cpp \
+    SideBar.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \

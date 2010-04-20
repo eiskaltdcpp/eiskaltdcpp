@@ -1926,6 +1926,57 @@ Kapcsolók:
     </message>
 </context>
 <context>
+    <name>SideBarModel</name>
+    <message>
+        <source>Hubs</source>
+        <translation type="unfinished">Hubok</translation>
+    </message>
+    <message>
+        <source>Private Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Keresés</translation>
+    </message>
+    <message>
+        <source>Share Browsers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Queue</source>
+        <translation type="unfinished">Letöltési sor</translation>
+    </message>
+    <message>
+        <source>Finished Uploads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finished Downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite Hubs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public Hubs</source>
+        <translation type="unfinished">Publikus hubok</translation>
+    </message>
+    <message>
+        <source>Spy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpyFrame</name>
     <message>
         <source>Stop</source>
@@ -3189,6 +3240,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Always show window at startup</source>
         <translation>Induláskor az ablak automatikusan látható legyen</translation>
+    </message>
+    <message>
+        <source>Use SideBar instead of ToolBar (need restart)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
