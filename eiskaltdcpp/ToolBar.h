@@ -34,6 +34,9 @@ public:
     virtual bool hasWidget(ArenaWidget*) const;
     void mapWidget(ArenaWidget*);
 
+signals:
+    void widgetInserted(ArenaWidget*);
+
 protected:
     virtual bool eventFilter(QObject *, QEvent *);
     virtual void showEvent(QShowEvent *);

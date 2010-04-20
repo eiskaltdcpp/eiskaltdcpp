@@ -1,6 +1,9 @@
 #include "SideBar.h"
 #include "WulforUtil.h"
+#include "WulforSettings.h"
 #include "MainWindow.h"
+
+#include "PMWindow.h"
 
 #define CREATE_ROOT_EL(a, b, c, d, e) \
     do { \
@@ -158,6 +161,9 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
 
         break;
     }
+
+    if (!(typeid(*awgt) == typeid(PMWindow) && WBGET(WB_CHAT_KEEPFOCUS)))
+        emit mapWidget(awgt);
 
     emit layoutChanged();
 }

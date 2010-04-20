@@ -5,6 +5,8 @@
 
 #include "ArenaWidget.h"
 #include "MainWindow.h"
+#include "PMWindow.h"
+#include "WulforSettings.h"
 
 ToolBar::ToolBar(QWidget *parent):
     QToolBar(parent),
@@ -92,8 +94,8 @@ void ToolBar::insertWidget(ArenaWidget *awgt){
         if (tabbar->isHidden())
             tabbar->show();
 
-        /*if (!keepFocus)
-            tabbar->setCurrentIndex(index);*/
+        if (!(typeid(*awgt) == typeid(PMWindow) && WBGET(WB_CHAT_KEEPFOCUS)))
+            tabbar->setCurrentIndex(index);
     }
 }
 
