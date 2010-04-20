@@ -1303,14 +1303,19 @@ Favorite user</source>
         <translation>Главный фрейм</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1179"/>
-        <location filename="../MainWindow.cpp" line="1204"/>
+        <location filename="../MainWindow.cpp" line="1021"/>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="1193"/>
+        <location filename="../MainWindow.cpp" line="1218"/>
         <source>Free %1</source>
         <translation>Свободно %1</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1182"/>
-        <location filename="../MainWindow.cpp" line="1207"/>
+        <location filename="../MainWindow.cpp" line="1196"/>
+        <location filename="../MainWindow.cpp" line="1221"/>
         <source>Free %1 of %2</source>
         <translation>Свободно %1 из %2</translation>
     </message>
@@ -1356,17 +1361,17 @@ Favorite user</source>
         <translation>Загружено (всего):</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1289"/>
+        <location filename="../MainWindow.cpp" line="1303"/>
         <source>Choose file to open</source>
         <translation>Выбор файла для открывания</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="170"/>
+        <location filename="../MainWindow.cpp" line="171"/>
         <source>Exit confirm</source>
         <translation>Подтверждение о закрытии</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="171"/>
+        <location filename="../MainWindow.cpp" line="172"/>
         <source>Exit program?</source>
         <translation>Выйти из программы?</translation>
     </message>
@@ -1381,22 +1386,22 @@ Favorite user</source>
         <translation>Поиск/Фильтр</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1290"/>
+        <location filename="../MainWindow.cpp" line="1304"/>
         <source>Modern XML Filelists</source>
         <translation>Современные XML-списки пользователей</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1291"/>
+        <location filename="../MainWindow.cpp" line="1305"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Современные несжатые XML-списки пользователей</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1292"/>
+        <location filename="../MainWindow.cpp" line="1306"/>
         <source>All files</source>
         <translation>Все файлы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1297"/>
+        <location filename="../MainWindow.cpp" line="1311"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation>Не удалось загрузить список файлов: Недопустимое имя файла</translation>
     </message>
@@ -1474,7 +1479,7 @@ Please check your connection settings</source>
         <translation>О Qt</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="90"/>
+        <location filename="../MainWindow.cpp" line="91"/>
         <source>Ready</source>
         <translation>Готов</translation>
     </message>
@@ -2449,62 +2454,62 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>SideBarModel</name>
     <message>
-        <location filename="../SideBar.cpp" line="21"/>
+        <location filename="../SideBar.cpp" line="24"/>
         <source>Hubs</source>
         <translation type="unfinished">Хабы</translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="22"/>
+        <location filename="../SideBar.cpp" line="25"/>
         <source>Private Messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="23"/>
+        <location filename="../SideBar.cpp" line="26"/>
         <source>Search</source>
         <translation type="unfinished">Поиск</translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="24"/>
+        <location filename="../SideBar.cpp" line="27"/>
         <source>Share Browsers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="25"/>
+        <location filename="../SideBar.cpp" line="28"/>
         <source>Download Queue</source>
         <translation type="unfinished">Очередь загрузок</translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="26"/>
+        <location filename="../SideBar.cpp" line="29"/>
         <source>Finished Uploads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="27"/>
+        <location filename="../SideBar.cpp" line="30"/>
         <source>Finished Downloads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="28"/>
+        <location filename="../SideBar.cpp" line="31"/>
         <source>Favorite Hubs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="29"/>
+        <location filename="../SideBar.cpp" line="32"/>
         <source>Favorite Users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="30"/>
+        <location filename="../SideBar.cpp" line="33"/>
         <source>Public Hubs</source>
         <translation type="unfinished">Публичные хабы</translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="31"/>
+        <location filename="../SideBar.cpp" line="34"/>
         <source>Spy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="83"/>
+        <location filename="../SideBar.cpp" line="86"/>
         <source>Widgets</source>
         <translation type="unfinished"></translation>
     </message>

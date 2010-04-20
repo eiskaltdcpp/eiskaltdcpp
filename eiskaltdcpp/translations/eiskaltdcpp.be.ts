@@ -1045,17 +1045,17 @@ Favorite user</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../MainWindow.cpp" line="90"/>
+        <location filename="../MainWindow.cpp" line="91"/>
         <source>Ready</source>
         <translation>Гатовы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="170"/>
+        <location filename="../MainWindow.cpp" line="171"/>
         <source>Exit confirm</source>
         <translation>Пацьвердзіць, што выходзім</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="171"/>
+        <location filename="../MainWindow.cpp" line="172"/>
         <source>Exit program?</source>
         <translation>Ці выйсьці з праграмы?</translation>
     </message>
@@ -1408,39 +1408,44 @@ Favorite user</source>
         <translation>Галоўнае разьмешчаньне</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1179"/>
-        <location filename="../MainWindow.cpp" line="1204"/>
+        <location filename="../MainWindow.cpp" line="1021"/>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="1193"/>
+        <location filename="../MainWindow.cpp" line="1218"/>
         <source>Free %1</source>
         <translation>Вольных %1</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1182"/>
-        <location filename="../MainWindow.cpp" line="1207"/>
+        <location filename="../MainWindow.cpp" line="1196"/>
+        <location filename="../MainWindow.cpp" line="1221"/>
         <source>Free %1 of %2</source>
         <translation>Вольных %1 з %2</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1289"/>
+        <location filename="../MainWindow.cpp" line="1303"/>
         <source>Choose file to open</source>
         <translation>Абярыце, які файл адкрываць</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1290"/>
+        <location filename="../MainWindow.cpp" line="1304"/>
         <source>Modern XML Filelists</source>
         <translation>Сучасныя XML сьпісы файлаў</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1291"/>
+        <location filename="../MainWindow.cpp" line="1305"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Сучасныя XML сьпісы файлаў (нясьціснутыя)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1292"/>
+        <location filename="../MainWindow.cpp" line="1306"/>
         <source>All files</source>
         <translation>Усе файлы</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1297"/>
+        <location filename="../MainWindow.cpp" line="1311"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation>Не магу прачытаць сьпіс файлаў: хібны назоў сьпісу файлаў</translation>
     </message>
@@ -2476,62 +2481,62 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>SideBarModel</name>
     <message>
-        <location filename="../SideBar.cpp" line="21"/>
+        <location filename="../SideBar.cpp" line="24"/>
         <source>Hubs</source>
         <translation type="unfinished">Асяродкі</translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="22"/>
+        <location filename="../SideBar.cpp" line="25"/>
         <source>Private Messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="23"/>
+        <location filename="../SideBar.cpp" line="26"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="24"/>
+        <location filename="../SideBar.cpp" line="27"/>
         <source>Share Browsers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="25"/>
+        <location filename="../SideBar.cpp" line="28"/>
         <source>Download Queue</source>
         <translation type="unfinished">Чарга сьцягваць файлы</translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="26"/>
+        <location filename="../SideBar.cpp" line="29"/>
         <source>Finished Uploads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="27"/>
+        <location filename="../SideBar.cpp" line="30"/>
         <source>Finished Downloads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="28"/>
+        <location filename="../SideBar.cpp" line="31"/>
         <source>Favorite Hubs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="29"/>
+        <location filename="../SideBar.cpp" line="32"/>
         <source>Favorite Users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="30"/>
+        <location filename="../SideBar.cpp" line="33"/>
         <source>Public Hubs</source>
         <translation type="unfinished">Публічныя асяродкі</translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="31"/>
+        <location filename="../SideBar.cpp" line="34"/>
         <source>Spy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="83"/>
+        <location filename="../SideBar.cpp" line="86"/>
         <source>Widgets</source>
         <translation type="unfinished"></translation>
     </message>

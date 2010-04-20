@@ -1175,6 +1175,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>

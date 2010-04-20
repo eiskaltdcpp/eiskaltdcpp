@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="fr_FR">
 <context>
     <name>DownloadQueue</name>
     <message>
@@ -402,7 +404,7 @@
     </message>
     <message>
         <source>-:--:-- left</source>
-        <translation>-:--:-- restant</translation>
+        <translation type="obsolete">-:--:-- restant</translation>
     </message>
     <message>
         <source>%1 files/h, %2 files left</source>
@@ -414,11 +416,35 @@
     </message>
     <message>
         <source>%1 left</source>
-        <translation>%1 restant</translation>
+        <translation type="obsolete">%1 restant</translation>
     </message>
     <message>
         <source>Done</source>
         <translation>Terminé</translation>
+    </message>
+    <message>
+        <source>Refreshing file list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>-:--:--</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%p% %1 left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Démarrer</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resume</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -613,11 +639,11 @@
     </message>
     <message>
         <source>Chat context</source>
-        <translation>Contexte discussion</translation>
+        <translation type="obsolete">Contexte discussion</translation>
     </message>
     <message>
         <source>Hub context</source>
-        <translation>Contexte serveur</translation>
+        <translation type="obsolete">Contexte serveur</translation>
     </message>
     <message>
         <source>Show widget</source>
@@ -696,6 +722,10 @@ Utilisateur favoris</translation>
     <message>
         <source>Chat enabled.</source>
         <translation>Discussion activée.</translation>
+    </message>
+    <message>
+        <source>Hub Menu</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -782,6 +812,14 @@ Utilisateur favoris</translation>
     <message>
         <source>Select directory</source>
         <translation>Sélectionnez un répertoire</translation>
+    </message>
+    <message>
+        <source>Run search alternatives manually.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download file via auto search alternatives</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -952,7 +990,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Find in chat</source>
-        <translation>Trouver dans la discussion</translation>
+        <translation type="obsolete">Trouver dans la discussion</translation>
     </message>
     <message>
         <source>Disable/enable chat</source>
@@ -988,7 +1026,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Chat cleared.</source>
-        <translation>Discussion vidée.</translation>
+        <translation type="obsolete">Discussion vidée.</translation>
     </message>
     <message>
         <source>Show last status message</source>
@@ -1101,6 +1139,66 @@ Please check your connection settings</source>
         <source>Search Manager: Warning</source>
         <translation>Gestionnaire de recherche: Attention</translation>
     </message>
+    <message>
+        <source>Ctrl+E</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+N</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+P</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+U</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide users statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show users statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear text field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open download directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Away message</source>
+        <translation type="unfinished">Message d&apos;absence</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Away when not visible</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find/Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fast search panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -1111,6 +1209,10 @@ Please check your connection settings</source>
     <message>
         <source>Exit</source>
         <translation>Quitter</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1130,6 +1232,10 @@ Please check your connection settings</source>
     <message>
         <source>User went offline</source>
         <translation>L&apos;utilisateur est hors-ligne</translation>
+    </message>
+    <message>
+        <source>Chat cleared.</source>
+        <translation type="unfinished">Discussion vidée.</translation>
     </message>
 </context>
 <context>
@@ -1223,6 +1329,17 @@ Please check your connection settings</source>
     </message>
 </context>
 <context>
+    <name>PublicHubsList</name>
+    <message>
+        <source>Public hub</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QApplication</name>
     <message>
         <source>Using:
@@ -1231,8 +1348,8 @@ Please check your connection settings</source>
 EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help<byte value="x9"/> Show this message
-  -v, --version<byte value="x9"/> Show version string</source>
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
         <translation>Utilise:(new line)
 (sp)(sp)eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;(new line)
 (sp)(sp)eiskaltdcpp &lt;Key&gt;(new line)
@@ -1660,6 +1777,10 @@ Clés:(new line)
         <source>Translation (*.qm)</source>
         <translation>Traduction (*.qm)</translation>
     </message>
+    <message>
+        <source>French</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsNotification</name>
@@ -1724,6 +1845,30 @@ Clés:(new line)
     <message>
         <source>Restriction</source>
         <translation>Restriction</translation>
+    </message>
+    <message>
+        <source>Add item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter text:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose the directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Erreur</translation>
+    </message>
+    <message>
+        <source>Enter new name</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1805,6 +1950,57 @@ Clés:(new line)
     </message>
 </context>
 <context>
+    <name>SideBarModel</name>
+    <message>
+        <source>Hubs</source>
+        <translation type="unfinished">Serveurs</translation>
+    </message>
+    <message>
+        <source>Private Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Rechercher</translation>
+    </message>
+    <message>
+        <source>Share Browsers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Queue</source>
+        <translation type="unfinished">Liste des téléchargements</translation>
+    </message>
+    <message>
+        <source>Finished Uploads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finished Downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite Hubs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public Hubs</source>
+        <translation type="unfinished">Serveurs publics</translation>
+    </message>
+    <message>
+        <source>Spy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SpyFrame</name>
     <message>
         <source>Stop</source>
@@ -1867,7 +2063,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Remove from Queue</source>
-        <translation>Retirer de la liste</translation>
+        <translation type="obsolete">Retirer de la liste</translation>
     </message>
     <message>
         <source>Force attempt</source>
@@ -1960,6 +2156,10 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>Upload failed</source>
         <translation>Envoi échoué</translation>
+    </message>
+    <message>
+        <source>Remove Source</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2055,7 +2255,7 @@ p, li { white-space: pre-wrap; }(new line)
         <source>Authors</source>
         <translation>Auteurs</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -2134,7 +2334,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Akos Berki aka sumo&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;husumo@gmail.com&amp;gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 2.0.1 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;(new line)
+        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;(new line)
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;(new line)
 p, li { white-space: pre-wrap; }(new line)
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;(new line)
@@ -2164,6 +2364,29 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }(new line)
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;(new line)
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Translators&lt;/span&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Russian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Uladzimir Bely&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br /&gt; (for 0.4.10 and later)&lt;br /&gt;&lt;br /&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Belarusian translation&lt;/span&gt;&lt;br /&gt;&lt;br /&gt; Paval Shalamitski  aka  Klyok&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;i.kliok@gmail.com&amp;gt;&lt;br /&gt; (for 1.0.40 and later)&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;Hungarian translation&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Akos Berki  aka  sumo&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;husumo@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 2.0.1 and later)&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline;&quot;&gt;French translation&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Alexandre Wallimann  aka  Alex&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;lt;adressalacon@gmail.com&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; (for 2.0.2 and later)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2353,6 +2576,30 @@ p, li { white-space: pre-wrap; }(new line)
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Ajouter un nouveau</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished">Changer</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteUsers</name>
@@ -2537,7 +2784,7 @@ p, li { white-space: pre-wrap; }(new line)
     </message>
     <message>
         <source>Download</source>
-        <translation>Téléchargement</translation>
+        <translation type="obsolete">Téléchargement</translation>
     </message>
     <message>
         <source>TTH</source>
@@ -2558,6 +2805,10 @@ p, li { white-space: pre-wrap; }(new line)
     <message>
         <source>Remember my choose</source>
         <translation>Se souvenir du choix</translation>
+    </message>
+    <message>
+        <source>Add to queue</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2580,6 +2831,33 @@ p, li { white-space: pre-wrap; }(new line)
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished">X</translation>
+    </message>
+</context>
+<context>
+    <name>UIPublicHubsList</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Dialogue</translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Ajouter</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2692,7 +2970,7 @@ p, li { white-space: pre-wrap; }(new line)
     </message>
     <message>
         <source>WARNING!!! NOT TESTED!!! NO GARANTEE TO WORK!!!!</source>
-        <translation>ATTENTION !!! NON TESTÉ !!! PAS DE GARANTIE SUR SON FONCTIONNEMENT !!!</translation>
+        <translation type="obsolete">ATTENTION !!! NON TESTÉ !!! PAS DE GARANTIE SUR SON FONCTIONNEMENT !!!</translation>
     </message>
     <message>
         <source>On/Off speed limits</source>
@@ -2984,6 +3262,34 @@ p, li { white-space: pre-wrap; }(new line)
         <source>Do not change focus on new private message</source>
         <translation>Ne pas basculer d&apos;onglet lors de la réception d&apos;un message privé</translation>
     </message>
+    <message>
+        <source>Window position at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember window position on exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always hide window to system tray at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Always show window at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use SideBar instead of ToolBar (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Ctrl+Enter to send messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The height of the text entry field</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -3084,7 +3390,7 @@ p, li { white-space: pre-wrap; }(new line)
     </message>
     <message>
         <source>Enable notifications with visible main window</source>
-        <translation>Activer les notifications quand fenêtre principale visible</translation>
+        <translation type="obsolete">Activer les notifications quand fenêtre principale visible</translation>
     </message>
     <message>
         <source>Show icon in system tray</source>
@@ -3105,6 +3411,14 @@ p, li { white-space: pre-wrap; }(new line)
     <message>
         <source>Use external command</source>
         <translation>Utiliser commande externe</translation>
+    </message>
+    <message>
+        <source>Enable notifications with not active main window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable notifications with active main window</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3186,7 +3500,7 @@ p, li { white-space: pre-wrap; }(new line)
     </message>
     <message>
         <source>Don&apos;t share (group symbol *, separator |)</source>
-        <translation>Ne pas partager (symbol du groupe *, séparateur |)</translation>
+        <translation type="obsolete">Ne pas partager (symbol du groupe *, séparateur |)</translation>
     </message>
     <message>
         <source>Max hash speed (MB/s) (0=infinite)</source>
@@ -3204,12 +3518,130 @@ p, li { white-space: pre-wrap; }(new line)
         <source>Total shared: %1</source>
         <translation>Partage total: %1</translation>
     </message>
+    <message>
+        <source>View share in simple mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished">Chemin</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nom</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished">Taille</translation>
+    </message>
+    <message>
+        <source>Exceptions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Don&apos;t share files and folders containing:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Ajouter un nouveau</translation>
+    </message>
+    <message>
+        <source>Select and add the directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Per folder limit specifies how many files in GiB
+remote user must share the to be able
+to download from this folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run on startup refresh share </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto remove not existing directories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FastHash options (restart needed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private page mapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No reserve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buffer size (MiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>32</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>64</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proactive read from disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto refresh time (minutes,0 = off)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIShareBrowser</name>
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation type="unfinished">X</translation>
     </message>
 </context>
 <context>
@@ -3313,6 +3745,30 @@ p, li { white-space: pre-wrap; }(new line)
     <message>
         <source>User commands</source>
         <translation>Commandes utilisateur</translation>
+    </message>
+    <message>
+        <source>%1 B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 KiB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 MiB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 GiB</source>
+        <translation type="unfinished">%1 GiB</translation>
+    </message>
+    <message>
+        <source>%1 TiB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 PiB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
