@@ -63,6 +63,7 @@ const char * const WB_CHAT_KEEPFOCUS          = "chat-keep-focus";
 const char * const WB_MAINWINDOW_MAXIMIZED    = "mainwindow-maximized";
 const char * const WB_MAINWINDOW_HIDE         = "mainwindow-autohide";
 const char * const WB_MAINWINDOW_REMEMBER     = "mainwindow-remember-position-on-exit";
+const char * const WB_MAINWINDOW_USE_SIDEBAR  = "mainwindow-use-sidebar";
 const char * const WB_SEARCHFILTER_NOFREE     = "search-filter-nofree";
 const char * const WB_SEARCH_DONTHIDEPANEL    = "search-panel-dont-hide";
 const char * const WB_ANTISPAM_ENABLED        = "antispam-enabled";

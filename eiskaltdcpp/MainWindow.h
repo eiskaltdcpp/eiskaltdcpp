@@ -21,6 +21,7 @@
 #include <QKeySequence>
 #include <QToolButton>
 #include <QRegExp>
+#include <QTreeView>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -93,25 +94,11 @@ friend class dcpp::Singleton<MainWindow>;
 
         void beginExit();
 
-        /** Allow widget to be mapped on arena*/
-        void addArenaWidget(ArenaWidget*);
-        /** Disallow widget to be mapped on arena*/
-        void remArenaWidget(ArenaWidget*);
-        /** Show widget on arena */
-        void mapWidgetOnArena(ArenaWidget*);
-        /** Remove widget from arena*/
-        void remWidgetFromArena(ArenaWidget*);
-
         /** */
         void setStatusMessage(QString);
 
         /** */
         void newHubFrame(QString, QString);
-
-        /** */
-        void addArenaWidgetOnToolbar(ArenaWidget*, bool keepFocus = false);
-        /** */
-        void remArenaWidgetFromToolbar(ArenaWidget*);
 
         /** */
         void browseOwnFiles();
@@ -139,7 +126,23 @@ friend class dcpp::Singleton<MainWindow>;
         /** */
         void setUnload(bool b){ isUnload = b; }
 
+        ArenaWidget *widgetForRole(ArenaWidget::Role) const;
+
     public slots:
+        /** Allow widget to be mapped on arena*/
+        void addArenaWidget(ArenaWidget*);
+        /** Disallow widget to be mapped on arena*/
+        void remArenaWidget(ArenaWidget*);
+        /** Show widget on arena */
+        void mapWidgetOnArena(ArenaWidget*);
+        /** Remove widget from arena*/
+        void remWidgetFromArena(ArenaWidget*);
+
+        /** */
+        void addArenaWidgetOnToolbar(ArenaWidget*, bool keepFocus = false);
+        /** */
+        void remArenaWidgetFromToolbar(ArenaWidget*);
+
         void slotChatClear();
 
     protected:
@@ -179,6 +182,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotHideProgressSpace();
         void slotHideLastStatus();
         void slotHideUsersStatistics();
+        void slotSidebarContextMenu();
         void slotExit();
 
         void slotCloseCurrentWidget();
@@ -218,6 +222,7 @@ friend class dcpp::Singleton<MainWindow>;
         void initStatusBar();
         void initSearchBar();
         void initToolbar();
+        void initSideBar();
         void initHotkeys();
 
         void toggleSingletonWidget(ArenaWidget *a);
@@ -239,6 +244,9 @@ friend class dcpp::Singleton<MainWindow>;
         // Widgets
         QDockWidget *arena;
         QDockWidget *transfer_dock;
+        QDockWidget *sideDock;
+
+        QTreeView *sideTree;
 
         ToolBar *tBar;//for tabs
         ToolBar *fBar;//for actions

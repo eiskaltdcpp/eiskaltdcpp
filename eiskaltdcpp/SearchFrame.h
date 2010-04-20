@@ -139,6 +139,7 @@ public:
     QString  getArenaShortTitle();
     QMenu   *getMenu();
     const QPixmap &getPixmap();
+    ArenaWidget::Role role() const { return ArenaWidget::Search; }
 
     void searchAlternates(const QString &);
     void searchFile(const QString &);

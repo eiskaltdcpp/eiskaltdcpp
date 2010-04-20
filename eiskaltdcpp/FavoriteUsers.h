@@ -60,6 +60,7 @@ public:
     virtual QString getArenaShortTitle() { return getArenaTitle(); }
     virtual QMenu *getMenu() { return NULL; }
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFAVUSERS); }
+    ArenaWidget::Role role() const { return ArenaWidget::FavoriteUsers; }
 
 protected:
     virtual void closeEvent(QCloseEvent *);

@@ -147,7 +147,8 @@ HEADERS = MainWindow.h \
     SpellCheck.h \
     PublicHubModel.h \
     PublicHubs.h \
-    PublicHubsList.h
+    PublicHubsList.h \
+    SideBar.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -251,7 +252,8 @@ SOURCES = main.cpp \
     SpellCheck.cpp \
     PublicHubModel.cpp \
     PublicHubs.cpp \
-    PublicHubsList.cpp
+    PublicHubsList.cpp \
+    SideBar.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \

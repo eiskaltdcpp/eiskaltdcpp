@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>418</width>
-    <height>385</height>
+    <width>416</width>
+    <height>383</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -167,6 +167,13 @@
           <widget class="QComboBox" name="comboBox_EMOT"/>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_SIDEBAR">
+         <property name="text">
+          <string>Use SideBar instead of ToolBar (need restart)</string>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer">

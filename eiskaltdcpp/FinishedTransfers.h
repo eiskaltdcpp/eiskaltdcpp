@@ -73,6 +73,8 @@ public:
     QString getArenaTitle(){ return (isUpload? uploadTitle() : downloadTitle()); }
     QString getArenaShortTitle(){ return getArenaTitle(); }
     QMenu *getMenu() { return NULL; }
+    ArenaWidget::Role role() const;
+
     const QPixmap &getPixmap(){
         if (isUpload)
             return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUPLIST);
@@ -388,6 +390,12 @@ private:
 
     FinishedTransfersModel *model;
 };
+
+template <>
+inline ArenaWidget::Role FinishedTransfers<false>::role() const { return ArenaWidget::FinishedDownloads; }
+
+template <>
+inline ArenaWidget::Role FinishedTransfers<true>::role() const { return ArenaWidget::FinishedUploads; }
 
 typedef FinishedTransfers<true>  FinishedUploads;
 typedef FinishedTransfers<false> FinishedDownloads;

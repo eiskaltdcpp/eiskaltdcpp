@@ -49,6 +49,7 @@
 #include "ToolBar.h"
 #include "Magnet.h"
 #include "SpyFrame.h"
+#include "SideBar.h"
 
 #include "dcpp/ShareManager.h"
 
@@ -62,7 +63,14 @@ using namespace std;
 
 MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
-        statusLabel(NULL)
+        statusLabel(NULL),
+        tBar(NULL),
+        fBar(NULL),
+        sBar(NULL),
+        sideDock(NULL),
+        sideTree(NULL),
+        menuPanels(NULL)
+
 {
     exitBegin = false;
     
@@ -366,7 +374,10 @@ void MainWindow::init(){
 
     initSearchBar();
 
-    initToolbar();
+    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+        initToolbar();
+    else
+        initSideBar();
 
     initHotkeys();
 
@@ -398,14 +409,16 @@ void MainWindow::loadSettings(){
     if (!wstate.isEmpty())
         this->restoreState(QByteArray::fromBase64(wstate.toAscii()));
     
-    tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
-    panelsWidgets->setChecked(WBGET(WB_WIDGETS_PANEL_VISIBLE));
-    
-    fBar->setVisible(WBGET(WB_TOOLS_PANEL_VISIBLE));
-    panelsTools->setChecked(WBGET(WB_TOOLS_PANEL_VISIBLE));
+    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR)){
+        tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+        panelsWidgets->setChecked(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
-    sBar->setVisible(WBGET(WB_SEARCH_PANEL_VISIBLE));
-    panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
+        fBar->setVisible(WBGET(WB_TOOLS_PANEL_VISIBLE));
+        panelsTools->setChecked(WBGET(WB_TOOLS_PANEL_VISIBLE));
+
+        sBar->setVisible(WBGET(WB_SEARCH_PANEL_VISIBLE));
+        panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
+    }
 
     menuBar()->setVisible(WBGET(WB_MAIN_MENU_VISIBLE));
 }
@@ -803,11 +816,13 @@ void MainWindow::initMenuBar(){
         menuTools->addActions(toolsMenuActions);
     }
     {
-        menuPanels = new QMenu("", this);
+        if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR)){
+            menuPanels = new QMenu("", this);
 
-        menuPanels->addAction(panelsWidgets);
-        menuPanels->addAction(panelsTools);
-        menuPanels->addAction(panelsSearch);
+            menuPanels->addAction(panelsWidgets);
+            menuPanels->addAction(panelsTools);
+            menuPanels->addAction(panelsSearch);
+        }
     }
     {
         menuAbout = new QMenu("", this);
@@ -820,7 +835,10 @@ void MainWindow::initMenuBar(){
     menuBar()->addMenu(menuHubs);
     menuBar()->addMenu(menuTools);
     menuBar()->addMenu(menuWidgets);
-    menuBar()->addMenu(menuPanels);
+
+    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+        menuBar()->addMenu(menuPanels);
+
     menuBar()->addMenu(menuAbout);
     menuBar()->setContextMenuPolicy(Qt::CustomContextMenu);
 }
@@ -891,6 +909,9 @@ void MainWindow::initStatusBar(){
 }
 
 void MainWindow::initSearchBar(){
+    if (WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+        return;
+
     searchLineEdit = new QLineEdit(this);
     searchToolButton = new QToolButton(this);
 
@@ -969,7 +990,8 @@ void MainWindow::retranslateUi(){
 
         menuWidgets->setTitle(tr("&Widgets"));
 
-        menuPanels->setTitle(tr("&Panels"));
+        if (menuPanels)
+            menuPanels->setTitle(tr("&Panels"));
 
         panelsWidgets->setText(tr("Widgets panel"));
 
@@ -1017,6 +1039,89 @@ void MainWindow::initToolbar(){
     addToolBar(fBar);
     addToolBar(tBar);
     addToolBar(sBar);
+}
+
+void MainWindow::initSideBar(){
+    SideBarModel *model = new SideBarModel(this);
+    sideTree = new QTreeView(this);
+    sideDock = new QDockWidget("", this);
+
+    sideDock->setWidget(sideTree);
+    sideDock->setFeatures(sideDock->features() & (~QDockWidget::DockWidgetClosable));
+    sideDock->setObjectName("sideDock");
+    sideDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    sideTree->setModel(model);
+    sideTree->setItemsExpandable(true);
+    sideTree->setSortingEnabled(false);
+    sideTree->setContextMenuPolicy(Qt::CustomContextMenu);
+    sideTree->expandAll();
+
+    addDockWidget(Qt::LeftDockWidgetArea, sideDock);
+
+    connect(sideTree, SIGNAL(clicked(QModelIndex)),    model, SLOT(slotIndexClicked(QModelIndex)));
+    connect(sideTree, SIGNAL(activated(QModelIndex)),  model, SLOT(slotIndexClicked(QModelIndex)));
+    connect(sideTree, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSidebarContextMenu()));
+    connect(model,    SIGNAL(mapWidget(ArenaWidget*)), this,  SLOT(mapWidgetOnArena(ArenaWidget*)));
+}
+
+ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
+    ArenaWidget *awgt = NULL;
+
+    switch (r){
+    case ArenaWidget::Downloads:
+        {
+            if (!DownloadQueue::getInstance()) DownloadQueue::newInstance();
+            awgt = DownloadQueue::getInstance();
+
+            break;
+        }
+    case ArenaWidget::FinishedUploads:
+        {
+            if (!FinishedUploads::getInstance()) FinishedUploads::newInstance();
+            awgt = FinishedUploads::getInstance();
+
+            break;
+        }
+    case ArenaWidget::FinishedDownloads:
+        {
+            if (!FinishedDownloads::getInstance()) FinishedDownloads::newInstance();
+            awgt = FinishedDownloads::getInstance();
+
+            break;
+        }
+    case ArenaWidget::FavoriteHubs:
+        {
+            if (!FavoriteHubs::getInstance()) FavoriteHubs::newInstance();
+            awgt = FavoriteHubs::getInstance();
+
+            break;
+        }
+    case ArenaWidget::FavoriteUsers:
+        {
+            if (!FavoriteUsers::getInstance()) FavoriteUsers::newInstance();
+            awgt = FavoriteUsers::getInstance();
+
+            break;
+        }
+    case ArenaWidget::PublicHubs:
+        {
+            if (!PublicHubs::getInstance()) PublicHubs::newInstance();
+            awgt = PublicHubs::getInstance();
+
+            break;
+        }
+    case ArenaWidget::Spy:
+        {
+            if (!SpyFrame::getInstance()) SpyFrame::newInstance();
+            awgt = SpyFrame::getInstance();
+
+            break;
+        }
+    default:
+        break;
+    }
+
+    return awgt;
 }
 
 void MainWindow::newHubFrame(QString address, QString enc){
@@ -1194,7 +1299,10 @@ void MainWindow::slotFileBrowseFilelist(){
 }
 
 void MainWindow::redrawToolPanel(){
-    tBar->redraw();
+    if (tBar)
+        tBar->redraw();
+    else if (sideTree)
+        sideTree->repaint();
 
     QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
     QHash<QAction*, ArenaWidget*>::iterator end = menuWidgetsHash.end();
@@ -1238,7 +1346,8 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
 
-    tBar->mapped(awgt);
+    if (tBar)
+        tBar->mapped(awgt);
 
     QWidget *wg = arenaMap[awgt];
     
@@ -1295,7 +1404,12 @@ void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
 
-    tBar->insertWidget(awgt, keepFocus);
+    if (tBar)
+        tBar->insertWidget(awgt, keepFocus);
+    else if (sideTree){
+        SideBarModel *model = reinterpret_cast<SideBarModel*>(sideTree->model());
+        model->insertWidget(awgt);
+    }
 }
 
 void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
@@ -1316,7 +1430,12 @@ void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(false);
 
-    tBar->removeWidget(awgt);
+    if (tBar)
+        tBar->removeWidget(awgt);
+    else if (sideTree){
+        SideBarModel *model = reinterpret_cast<SideBarModel*>(sideTree->model());
+        model->removeWidget(awgt);
+    }
 }
 
 void MainWindow::toggleSingletonWidget(ArenaWidget *a){
@@ -1364,6 +1483,9 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
         menuWidgets->addActions(menuWidgetsActions);
 
         mapWidgetOnArena(a);
+
+        SideBarModel *model = reinterpret_cast<SideBarModel*>(sideTree->model());
+        model->insertWidget(a);
     }
 }
 
@@ -1815,6 +1937,21 @@ void MainWindow::slotUnixSignal(int sig){
 void MainWindow::slotCloseCurrentWidget(){
     if (arena->widget())
         arena->widget()->close();
+}
+
+void MainWindow::slotSidebarContextMenu(){
+    QItemSelectionModel *s_m =sideTree->selectionModel();
+    QModelIndexList selected = s_m->selectedRows(0);
+
+    if (selected.size() < 1)
+        return;
+
+    SideBarItem *item = reinterpret_cast<SideBarItem*>(selected.at(0).internalPointer());
+
+    if (!(item && item->getWidget() && item->getWidget()->getMenu()))
+        return;
+
+    item->getWidget()->getMenu()->exec(QCursor::pos());
 }
 
 void MainWindow::slotAboutQt(){

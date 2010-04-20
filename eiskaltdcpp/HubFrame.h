@@ -185,6 +185,7 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap();
     void CTRL_F_pressed() { slotHideFindFrame(); }
+    ArenaWidget::Role role() const { return ArenaWidget::Hub; }
 
     void disableChat();
     void clearChat();

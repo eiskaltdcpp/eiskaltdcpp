@@ -89,6 +89,7 @@ public:
     QMenu   *getMenu();
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiOWN_FILELIST); }
     void CTRL_F_pressed() { slotFilter(); }
+    ArenaWidget::Role role() const { return ArenaWidget::ShareBrowser; }
 
     bool isFindFrameActivated();
 

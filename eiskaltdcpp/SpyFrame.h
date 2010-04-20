@@ -48,6 +48,7 @@ public:
     QMenu *getMenu() {return NULL; }
     QWidget *getWidget() { return this; }
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSPY); }
+    ArenaWidget::Role role() const { return ArenaWidget::Spy; }
 
 protected:
     virtual void closeEvent(QCloseEvent *);

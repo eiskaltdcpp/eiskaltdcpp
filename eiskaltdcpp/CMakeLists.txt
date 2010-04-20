@@ -58,6 +58,7 @@ set (SRCS   Antispam.cpp
             SettingsSharing.cpp
             ShareBrowser.cpp
             ShellCommandRunner.cpp
+            SideBar.cpp
             SingleInstanceRunner.cpp
             SpyFrame.cpp
             SpyModel.cpp
@@ -103,6 +104,7 @@ set (MOC_HDRS Antispam.h
             SettingsNotification.h
             SettingsPersonal.h
             SettingsSharing.h
+            SideBar.h
             SingleInstanceRunner.h
             QuickConnect.h
             SearchFrame.h

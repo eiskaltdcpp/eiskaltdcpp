@@ -97,6 +97,8 @@ public:
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWNLOAD); }
     void DEL_pressed();
 
+    ArenaWidget::Role role() const { return ArenaWidget::Downloads; }
+
 protected:
     virtual void closeEvent(QCloseEvent*);
     virtual void customEvent(QEvent *);

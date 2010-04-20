@@ -119,6 +119,8 @@ void SettingsGUI::init(){
             radioButton_HIDE->setChecked(true);
         else
             radioButton_SHOW->setChecked(true);
+
+        checkBox_SIDEBAR->setChecked(WBGET(WB_MAINWINDOW_USE_SIDEBAR));
     }
     {//Chat tab
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
@@ -232,6 +234,8 @@ void SettingsGUI::ok(){
 
             EmoticonFactory::getInstance()->load();
         }
+
+        WBSET(WB_MAINWINDOW_USE_SIDEBAR, checkBox_SIDEBAR->isChecked());
     }
     {//Chat tab
         if (WIGET(WI_TEXT_EDIT_HEIGHT) != spinBox_TEXT_EDIT_HEIGHT->value()){

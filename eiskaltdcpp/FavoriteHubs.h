@@ -52,6 +52,7 @@ public:
     QString getArenaShortTitle();
     QMenu *getMenu();
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFAVSERVER); }
+    ArenaWidget::Role role() const { return ArenaWidget::FavoriteHubs; }
 
 protected:
     virtual void closeEvent(QCloseEvent *);

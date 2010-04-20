@@ -9,6 +9,21 @@
 class ArenaWidget
 {
 public:
+    enum Role{
+        Hub=0,
+        PrivateMessage,
+        ShareBrowser,
+        FavoriteHubs,
+        FavoriteUsers,
+        Search,
+        PublicHubs,
+        Downloads,
+        FinishedUploads,
+        FinishedDownloads,
+        Spy,
+        NoRole  //Not valid for widgets
+    };
+
     ArenaWidget();
     virtual ~ArenaWidget();
 
@@ -25,6 +40,8 @@ public:
 
     virtual void setUnload(bool b){ _arenaUnload = b; }
     virtual bool isUnload() const { return _arenaUnload; }
+
+    virtual Role role() const = 0;
 
 private:
     bool _arenaUnload;
