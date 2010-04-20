@@ -143,6 +143,8 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
     if (items.contains(awgt) || !awgt)
         return;
 
+    QModelIndex ind;
+
     switch (awgt->role()){
     case ArenaWidget::Hub:
     case ArenaWidget::PrivateMessage:
@@ -154,16 +156,21 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
 
             items.insert(awgt, i);
 
+            ind = index(i->row(), 0, index(roots[awgt->role()]->row(), 0, QModelIndex()));
+
             break;
         }
     default:
         roots[awgt->role()]->setWdget(awgt);
+        ind = index(roots[awgt->role()]->row(), 0, QModelIndex());
 
         break;
     }
 
-    if (!(typeid(*awgt) == typeid(PMWindow) && WBGET(WB_CHAT_KEEPFOCUS)))
+    if (!(typeid(*awgt) == typeid(PMWindow) && WBGET(WB_CHAT_KEEPFOCUS))){
         emit mapWidget(awgt);
+        emit selectIndex(ind);
+    }
 
     emit layoutChanged();
 }

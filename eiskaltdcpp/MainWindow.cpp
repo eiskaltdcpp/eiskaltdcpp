@@ -375,10 +375,9 @@ void MainWindow::init(){
 
     initSearchBar();
 
-    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
-        initToolbar();
-    else
-        initSideBar();
+    initToolbar();
+
+    initSideBar();
 
     initHotkeys();
 
@@ -1019,6 +1018,12 @@ void MainWindow::initToolbar(){
     fBar->setMovable(true);
     fBar->setFloatable(true);
     fBar->setAllowedAreas(Qt::AllToolBarAreas);
+    fBar->setWindowTitle(tr("Actions"));
+
+    addToolBar(fBar);
+
+    if (WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+        return;
 
     tBar = new ToolBar(this);
     tBar->setObjectName("tBar");
@@ -1045,6 +1050,9 @@ void MainWindow::initToolbar(){
 }
 
 void MainWindow::initSideBar(){
+    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+        return;
+
     SideBarModel *model = new SideBarModel(this);
     sideTree = new QTreeView(this);
     sideDock = new QDockWidget("", this);
@@ -1067,6 +1075,7 @@ void MainWindow::initSideBar(){
     connect(sideTree, SIGNAL(activated(QModelIndex)),  model, SLOT(slotIndexClicked(QModelIndex)));
     connect(sideTree, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSidebarContextMenu()));
     connect(model,    SIGNAL(mapWidget(ArenaWidget*)), this,  SLOT(mapWidgetOnArena(ArenaWidget*)));
+    connect(model,    SIGNAL(selectIndex(QModelIndex)),this,  SLOT(slotSelectSidebarIndex(QModelIndex)));
 }
 
 ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
@@ -1440,7 +1449,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     if (sender() && typeid(*sender()) == typeid(QAction) && a->getWidget()){
         QAction *act = reinterpret_cast<QAction*>(sender());;
 
-        act->setCheckable(true);
+        act->setCheckable(typeid(*wcontainer) == typeid(ToolBar));
 
         a->setToolButton(act);
     }
@@ -1943,6 +1952,12 @@ void MainWindow::slotSidebarContextMenu(){
         return;
 
     item->getWidget()->getMenu()->exec(QCursor::pos());
+}
+
+void MainWindow::slotSelectSidebarIndex(const QModelIndex &index){
+    QItemSelectionModel *s_m =sideTree->selectionModel();
+
+    s_m->select(index, QItemSelectionModel::SelectCurrent);
 }
 
 void MainWindow::slotAboutQt(){

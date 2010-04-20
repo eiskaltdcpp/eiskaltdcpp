@@ -87,6 +87,7 @@ public slots:
 
 signals:
     void mapWidget(ArenaWidget*);
+    void selectIndex(const QModelIndex&);
 
 private:
     QMap <ArenaWidget::Role, SideBarItem*> roots;
