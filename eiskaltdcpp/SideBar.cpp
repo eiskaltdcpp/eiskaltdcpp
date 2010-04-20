@@ -162,8 +162,6 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
     emit layoutChanged();
 }
 
-#include <QtDebug>
-
 void SideBarModel::removeWidget(ArenaWidget *awgt){
     if (!items.contains(awgt) || !awgt)
         return;
@@ -178,8 +176,6 @@ void SideBarModel::removeWidget(ArenaWidget *awgt){
         {
             SideBarItem *root  = roots[awgt->role()];
             SideBarItem *child = items[awgt];
-
-            qDebug() << items;
 
             items.remove(awgt);
 
@@ -200,6 +196,27 @@ void SideBarModel::removeWidget(ArenaWidget *awgt){
     }
 
     emit layoutChanged();
+}
+
+bool SideBarModel::hasWidget(ArenaWidget *awgt) const{
+    if (!awgt)
+        return false;
+
+    bool inRoot = false;
+    QMap<ArenaWidget::Role, SideBarItem*>::const_iterator it = roots.begin();
+    SideBarItem *item = NULL;
+
+    for(; it != roots.end(); ++it){
+        item = it.value();
+
+        if (item->getWidget() == awgt && awgt->getWidget()->isVisible()){
+            inRoot = true;
+
+            break;
+        }
+    }
+
+    return (items.contains(awgt) || inRoot);
 }
 
 void SideBarModel::slotIndexClicked(const QModelIndex &i){

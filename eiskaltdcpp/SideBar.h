@@ -5,6 +5,7 @@
 #include <QMap>
 
 #include "ArenaWidget.h"
+#include "ArenaWidgetContainer.h"
 
 class SideBarItem
 {
@@ -52,7 +53,9 @@ private:
     ArenaWidget *awgt;
 };
 
-class SideBarModel : public QAbstractItemModel
+class SideBarModel :
+        public QAbstractItemModel,
+        public ArenaWidgetContainer
 {
 Q_OBJECT
 
@@ -77,6 +80,7 @@ public:
 
     void removeWidget(ArenaWidget *awgt);
     void insertWidget(ArenaWidget *awgt);
+    bool hasWidget(ArenaWidget *awgt) const;
 
 public slots:
     void slotIndexClicked(const QModelIndex&);

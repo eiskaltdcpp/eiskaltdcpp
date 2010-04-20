@@ -38,6 +38,7 @@
 #include "dcpp/version.h"
 
 #include "ArenaWidget.h"
+#include "ArenaWidgetContainer.h"
 #include "HistoryInterface.h"
 #include "Func.h"
 
@@ -247,6 +248,8 @@ friend class dcpp::Singleton<MainWindow>;
         QDockWidget *sideDock;
 
         QTreeView *sideTree;
+
+        ArenaWidgetContainer *wcontainer;
 
         ToolBar *tBar;//for tabs
         ToolBar *fBar;//for actions

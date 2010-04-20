@@ -80,7 +80,7 @@ void ToolBar::initTabs(){
     addWidget(tabbar);
 }
 
-void ToolBar::insertWidget(ArenaWidget *awgt, bool keepFocus){
+void ToolBar::insertWidget(ArenaWidget *awgt){
     if (!awgt || !awgt->getWidget() || map.contains(awgt))
         return;
 
@@ -92,8 +92,8 @@ void ToolBar::insertWidget(ArenaWidget *awgt, bool keepFocus){
         if (tabbar->isHidden())
             tabbar->show();
 
-        if (!keepFocus)
-            tabbar->setCurrentIndex(index);
+        /*if (!keepFocus)
+            tabbar->setCurrentIndex(index);*/
     }
 }
 
@@ -295,7 +295,7 @@ void ToolBar::mapped(ArenaWidget *awgt){
     blockSignals(false);
 }
 
-bool ToolBar::hasWidget(ArenaWidget *w){
+bool ToolBar::hasWidget(ArenaWidget *w) const{
     return map.contains(w);
 }
 

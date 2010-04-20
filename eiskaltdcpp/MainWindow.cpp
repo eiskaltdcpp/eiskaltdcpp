@@ -69,7 +69,8 @@ MainWindow::MainWindow (QWidget *parent):
         sBar(NULL),
         sideDock(NULL),
         sideTree(NULL),
-        menuPanels(NULL)
+        menuPanels(NULL),
+        wcontainer(NULL)
 
 {
     exitBegin = false;
@@ -1036,6 +1037,8 @@ void MainWindow::initToolbar(){
     sBar->setFloatable(true);
     sBar->setAllowedAreas(Qt::AllToolBarAreas);
 
+    wcontainer = static_cast<ArenaWidgetContainer*>(tBar);
+
     addToolBar(fBar);
     addToolBar(tBar);
     addToolBar(sBar);
@@ -1055,6 +1058,8 @@ void MainWindow::initSideBar(){
     sideTree->setSortingEnabled(false);
     sideTree->setContextMenuPolicy(Qt::CustomContextMenu);
     sideTree->expandAll();
+
+    wcontainer = static_cast<ArenaWidgetContainer*>(model);
 
     addDockWidget(Qt::LeftDockWidgetArea, sideDock);
 
@@ -1404,12 +1409,7 @@ void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
 
-    if (tBar)
-        tBar->insertWidget(awgt, keepFocus);
-    else if (sideTree){
-        SideBarModel *model = reinterpret_cast<SideBarModel*>(sideTree->model());
-        model->insertWidget(awgt);
-    }
+    wcontainer->insertWidget(awgt);
 }
 
 void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
@@ -1430,12 +1430,7 @@ void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(false);
 
-    if (tBar)
-        tBar->removeWidget(awgt);
-    else if (sideTree){
-        SideBarModel *model = reinterpret_cast<SideBarModel*>(sideTree->model());
-        model->removeWidget(awgt);
-    }
+    wcontainer->removeWidget(awgt);
 }
 
 void MainWindow::toggleSingletonWidget(ArenaWidget *a){
@@ -1450,7 +1445,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
         a->setToolButton(act);
     }
 
-    if (tBar->hasWidget(a)){
+    if (wcontainer->hasWidget(a)){
         QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
         for (; it != menuWidgetsHash.end(); ++it){
             if (it.value() == a){
@@ -1465,12 +1460,9 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
             }
         }
 
-        tBar->removeWidget(a);
-        remWidgetFromArena(a);
+        wcontainer->removeWidget(a);
     }
     else {
-        tBar->insertWidget(a);
-
         QAction *act = new QAction(a->getArenaShortTitle(), this);
         act->setIcon(a->getPixmap());
 
@@ -1484,8 +1476,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
 
         mapWidgetOnArena(a);
 
-        SideBarModel *model = reinterpret_cast<SideBarModel*>(sideTree->model());
-        model->insertWidget(a);
+        wcontainer->insertWidget(a);
     }
 }
 

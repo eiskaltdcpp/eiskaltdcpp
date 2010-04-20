@@ -9,12 +9,14 @@
 #include <QList>
 
 #include "ArenaWidget.h"
+#include "ArenaWidgetContainer.h"
 
 class ArenaWidget;
 class MainWindow;
 
 class ToolBar :
-    public QToolBar
+    public QToolBar,
+    public ArenaWidgetContainer
 {
     Q_OBJECT
 
@@ -24,12 +26,12 @@ public:
     ToolBar(QWidget* = NULL);
     virtual ~ToolBar();
 
-    void insertWidget(ArenaWidget*, bool keepFocus = false);
+    void insertWidget(ArenaWidget *a);
     void removeWidget(ArenaWidget*);
     void redraw();
     void initTabs();
 
-    bool hasWidget(ArenaWidget*);
+    virtual bool hasWidget(ArenaWidget*) const;
     void mapWidget(ArenaWidget*);
 
 protected:

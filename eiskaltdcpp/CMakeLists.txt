@@ -12,6 +12,7 @@ set (QT_USE_QTDBUS 1)
 
 include (${QT_USE_FILE})
 set (HDRS   ArenaWidget.h
+            ArenaWidgetContainer.h
             EmoticonObject.h
             Func.h
             HistoryInterface.h
@@ -21,6 +22,7 @@ set (HDRS   ArenaWidget.h
 set (SRCS   Antispam.cpp
             AntiSpamFrame.cpp
             ArenaWidget.cpp
+            ArenaWidgetContainer.cpp
             DownloadQueue.cpp
             DownloadQueueModel.cpp
             EmoticonDialog.cpp
