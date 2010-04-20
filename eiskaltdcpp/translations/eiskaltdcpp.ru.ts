@@ -1305,7 +1305,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1021"/>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Действия</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1193"/>
@@ -2456,62 +2456,62 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../SideBar.cpp" line="24"/>
         <source>Hubs</source>
-        <translation type="unfinished">Хабы</translation>
+        <translation>Хабы</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="25"/>
         <source>Private Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Личные сообщения</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="26"/>
         <source>Search</source>
-        <translation type="unfinished">Поиск</translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="27"/>
         <source>Share Browsers</source>
-        <translation type="unfinished"></translation>
+        <translation>Списки файлов</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="28"/>
         <source>Download Queue</source>
-        <translation type="unfinished">Очередь загрузок</translation>
+        <translation>Очередь загрузок</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="29"/>
         <source>Finished Uploads</source>
-        <translation type="unfinished"></translation>
+        <translation>Завершенные передачи</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="30"/>
         <source>Finished Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Завершенные загрузки</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="31"/>
         <source>Favorite Hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>Избранные хабы</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="32"/>
         <source>Favorite Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Избранные пользователи</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="33"/>
         <source>Public Hubs</source>
-        <translation type="unfinished">Публичные хабы</translation>
+        <translation>Публичные хабы</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="34"/>
         <source>Spy</source>
-        <translation type="unfinished"></translation>
+        <translation>Шпион</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="86"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Виджеты</translation>
     </message>
 </context>
 <context>
@@ -3966,7 +3966,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="174"/>
         <source>Use SideBar instead of ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать боковую панель вместо панели виджетов (требуется перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="195"/>
