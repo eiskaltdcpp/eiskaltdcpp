@@ -2115,7 +2115,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source> (%1%)</source>
-        <translation>(sp)(%1%)</translation>
+        <translation type="unfinished"> (%1%)</translation>
     </message>
     <message>
         <source>Download complete...</source>
@@ -2147,7 +2147,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source> Uploaded %1 (%2%) </source>
-        <translation>(sp)Envoyé %1 (%2%)(sp)</translation>
+        <translation> Envoyé %1 (%2%) </translation>
     </message>
     <message>
         <source>Upload complete</source>
@@ -2214,7 +2214,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source> from %1/%2 user(s)</source>
-        <translation>(sp)depuis %1/%2 utilisateur(s)</translation>
+        <translation type="unfinished"> depuis %1/%2 utilisateur(s)</translation>
     </message>
     <message>
         <source>TTH: </source>
