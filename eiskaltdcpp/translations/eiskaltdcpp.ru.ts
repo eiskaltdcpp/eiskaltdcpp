@@ -3966,12 +3966,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="140"/>
         <source>Icon theme</source>
-        <translation></translation>
+        <translation>Тема иконок</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="156"/>
         <source>Emoticon theme</source>
-        <translation></translation>
+        <translation>Тема смайлов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="174"/>
