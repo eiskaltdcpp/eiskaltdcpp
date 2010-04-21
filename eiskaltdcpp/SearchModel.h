@@ -74,6 +74,7 @@ public:
     QVariant data(int column) const;
     int row() const;
     SearchItem *parent() const;
+    bool exists(const QString &user_cid) const;
 
     unsigned count;
 
@@ -120,7 +121,7 @@ public:
     void setFilterRole(int);
 
     /** */
-    void addResult(
+    bool addResult(
             const QString &file,
             qulonglong size,
             const QString &tth,
@@ -135,7 +136,7 @@ public:
             const bool isDir);
 
     /** */
-    void addResultPtr(const QMap<QString, QVariant>&);
+    bool addResultPtr(const QMap<QString, QVariant>&);
     /** */
     int getSortColumn() const;
     /** */

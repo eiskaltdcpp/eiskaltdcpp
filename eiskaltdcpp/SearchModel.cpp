@@ -322,9 +322,9 @@ void SearchModel::sort(int column, Qt::SortOrder order) {
     emit layoutChanged();
 }
 
-void SearchModel::addResultPtr(const QMap<QString, QVariant> &map){
+bool SearchModel::addResultPtr(const QMap<QString, QVariant> &map){
     try {
-        addResult(map["FILE"].toString(),
+        return addResult(map["FILE"].toString(),
                   map["SIZE"].toULongLong(),
                   map["TTH"].toString(),
                   map["PATH"].toString(),
@@ -337,10 +337,12 @@ void SearchModel::addResultPtr(const QMap<QString, QVariant> &map){
                   map["CID"].toString(),
                   map["ISDIR"].toBool());
     }
-    catch (SearchListException){}
+    catch (SearchListException){
+        return false;
+    }
 }
 
-void SearchModel::addResult
+bool SearchModel::addResult
         (
         const QString &file,
         qulonglong size,
@@ -357,7 +359,7 @@ void SearchModel::addResult
         )
 {
     if (file.isEmpty() || file.isNull())
-        return;
+        return false;
 
     SearchItem *item;
 
@@ -369,10 +371,13 @@ void SearchModel::addResult
 
     SearchItem * parent = NULL;
 
-    if (!isDir && tths.contains(tth))
+    if (!isDir && tths.contains(tth)) {
         parent = tths[tth];
-    else
+        if (parent->exists(cid))
+            return false;
+    } else {
         parent = rootItem;
+    }
 
     QList<QVariant> item_data;
 
@@ -399,7 +404,7 @@ void SearchModel::addResult
         else
             sort(sortColumn, sortOrder);
 
-        return;
+        return true;
     }
 
     if (sortOrder == Qt::AscendingOrder)
@@ -408,6 +413,8 @@ void SearchModel::addResult
         Compare<Qt::DescendingOrder>().insertSorted(sortColumn, rootItem->childItems, item);
 
     emit layoutChanged();
+
+    return true;
 }
 
 int SearchModel::getSortColumn() const {
@@ -539,6 +546,17 @@ int SearchItem::row() const {
         return parentItem->childItems.indexOf(const_cast<SearchItem*>(this));
 
     return 0;
+}
+
+bool SearchItem::exists(const QString &user_cid) const {
+    if (childItems.isEmpty())
+        return cid == user_cid;
+
+    foreach(SearchItem *child, childItems) {
+        if (child->cid == user_cid)
+            return true;
+    }
+    return false;
 }
 
 SearchListException::SearchListException() :

@@ -626,9 +626,8 @@ bool SearchFrame::getWholeDirParams(SearchFrame::VarMap &params, SearchItem *ite
 
 void SearchFrame::addResult(QMap<QString, QVariant> map){
     try {
-        model->addResultPtr(map);
-
-        results++;
+        if (model->addResultPtr(map))
+            results++;
     }
     catch (const SearchListException&){}
 }
