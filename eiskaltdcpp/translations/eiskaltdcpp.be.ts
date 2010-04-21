@@ -1302,12 +1302,12 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="858"/>
         <source>Download speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Хуткасьць сьцягваць</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="865"/>
         <source>Upload speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Хуткасьць зацягваць</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="919"/>
@@ -1410,14 +1410,14 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1021"/>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Дзеяньні</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1167"/>
         <location filename="../MainWindow.cpp" line="1168"/>
         <location filename="../MainWindow.cpp" line="1173"/>
         <source>/s</source>
-        <translation type="unfinished">/с</translation>
+        <translation>/с</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1193"/>
@@ -1492,82 +1492,82 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="1931"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі ласка, паведамляйце пра хібы тут: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt;.&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1934"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Распрацоўнікі&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1936"/>
         <source>&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;Андрэй Карлаў  (Andrey Karlov)&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(галоўны распрацоўнік ад вэрсіі 0.4.10)&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1940"/>
         <source>&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(суправаджальнік і распрацоўнік ад вэрсіі 1.89.0)&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1944"/>
         <source>&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;Яўген Пятроў  (Eugene Petrov)&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(суправаджальнік і распрацоўнік ад вэрсіі 0.4.10)&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1948"/>
         <source>&lt;b&gt;Logo and Splash Screen Logo&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Знак і знак на шыльдзе&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1950"/>
         <source>&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;Уладзімір Белы  (Uladzimir Bely)&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 0.4.10)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1957"/>
         <source>&lt;b&gt;Translators&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Перакладчыкі&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1959"/>
         <source>&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&lt;u&gt;Пераклаў у расейскую&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1961"/>
         <source>&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;Уладзімір Белы  (Uladzimir Bely)&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 0.4.10)&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1965"/>
         <source>&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&lt;u&gt;Пераклаў у беларускую&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1967"/>
         <source>&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;Павал Шаламіцкі  aka  Klyok  (Paval Shalamitski)&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 1.0.40)&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1971"/>
         <source>&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&lt;u&gt;Пераклаў у вугорскую&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1973"/>
         <source>&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.0.1)&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1977"/>
         <source>&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&lt;u&gt;Пераклаў у францускую&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1979"/>
         <source>&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.0.2)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="647"/>
@@ -2270,7 +2270,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsGUI.cpp" line="69"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Француская</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="147"/>
@@ -2570,62 +2570,63 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SideBar.cpp" line="24"/>
         <source>Hubs</source>
-        <translation type="unfinished">Асяродкі</translation>
+        <translation>Асяродкі</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="25"/>
         <source>Private Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Асабістыя паведамленьні</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="26"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Шукаць</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="27"/>
         <source>Share Browsers</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???сьпісы абагуленага?</translatorcomment>
+        <translation>Аглядальнікі абагуленага</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="28"/>
         <source>Download Queue</source>
-        <translation type="unfinished">Чарга сьцягваць файлы</translation>
+        <translation>Чарга сьцягваць файлы</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="29"/>
         <source>Finished Uploads</source>
-        <translation type="unfinished"></translation>
+        <translation>Зацягнутае</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="30"/>
         <source>Finished Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягнутае</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="31"/>
         <source>Favorite Hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>Улюбёныя асяродкі</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="32"/>
         <source>Favorite Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Улюбёнцы</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="33"/>
         <source>Public Hubs</source>
-        <translation type="unfinished">Публічныя асяродкі</translation>
+        <translation>Публічныя асяродкі</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="34"/>
         <source>Spy</source>
-        <translation type="unfinished"></translation>
+        <translation>Шпег</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="86"/>
         <source>Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Ваконцы</translation>
     </message>
 </context>
 <context>
@@ -2944,7 +2945,11 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="61"/>
@@ -4023,7 +4028,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="174"/>
         <source>Use SideBar instead of ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ужываць бакавую паліцу замест паліцы ваконцаў (трэба запусьціць нанова)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="195"/>
