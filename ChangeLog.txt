@@ -1,5 +1,6 @@
 --- 2.0.2 2010-05-18 ---
-* Благодаря Alexandre Wallimann доступен французский перевод.
+* Thanks to Alexandre Wallimann the French translation is now available.
+* Added ability to use the side dock with list of widgets instead of a one-line panel with tabs.
 
 --- 2.0.1 2010-04-18 ---
 * Added widget with public hubs.
