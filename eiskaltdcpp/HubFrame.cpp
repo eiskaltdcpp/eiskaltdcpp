@@ -858,7 +858,7 @@ void HubFrame::init(){
     updater->start();
 
     completer = new QCompleter(this);
-    completer->setMaxVisibleItems(10);
+    // completer->setMaxVisibleItems(10); // This property was introduced in Qt 4.6.
     plainTextEdit_INPUT->setCompleter(completer, model);
 }
 
