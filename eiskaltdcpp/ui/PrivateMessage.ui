@@ -46,7 +46,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QPlainTextEdit" name="plainTextEdit_INPUT">
+       <widget class="ChatEdit" name="plainTextEdit_INPUT">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -104,6 +104,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ChatEdit</class>
+   <extends>QPlainTextEdit</extends>
+   <header>ChatEdit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -11,6 +11,7 @@
 #include <QAction>
 #include <QHash>
 #include <QSortFilterProxyModel>
+#include <QCompleter>
 
 #include "ui_HubFrame.h"
 
@@ -260,7 +261,6 @@ private:
     void follow(string);
 
     void findText(QTextDocument::FindFlags );
-    void nickCompletion();
 
     /** Extracts data from user identity */
     void getParams(UserMap &, const Identity &);
@@ -309,6 +309,8 @@ private:
     // Userlist data and some helpful functions
     UserListModel *model;
     UserListProxyModel *proxy;
+
+    QCompleter * completer;
 };
 
 #endif // HUBFRAME_H

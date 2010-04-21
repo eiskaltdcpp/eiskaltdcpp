@@ -518,13 +518,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         {
             return true;
         }
-        else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab){
-            nickCompletion();
-
-            e->accept();
-
-            return true;
-        }
         else if (static_cast<QLineEdit*>(obj) == lineEdit_FIND){
             bool ret = QWidget::eventFilter(obj, e);
 
@@ -549,8 +542,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
             return true;
         }
-        else if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) && k_e->key() == Qt::Key_Tab)
-            return true;
 
         if (k_e->modifiers() == Qt::ControlModifier){
             if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus){
@@ -865,6 +856,10 @@ void HubFrame::init(){
     load();
 
     updater->start();
+
+    completer = new QCompleter(this);
+    completer->setMaxVisibleItems(10);
+    plainTextEdit_INPUT->setCompleter(completer, model);
 }
 
 void HubFrame::initMenu(){
@@ -1386,6 +1381,8 @@ void HubFrame::addPM(QString cid, QString output){
         if (!WBGET(WB_CHAT_KEEPFOCUS))
             MainWindow::getInstance()->mapWidgetOnArena(p);
 
+        p->setCompleter(completer, model);
+
         p->addOutput(output);
 
         p->setAttribute(Qt::WA_DeleteOnClose);
@@ -1789,74 +1786,6 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
     textEdit_CHAT->setTextCursor(c);
 
     slotFindAll();
-}
-
-void HubFrame::nickCompletion() {
-    int cpos =  plainTextEdit_INPUT->textCursor().position();
-    QString input = plainTextEdit_INPUT->textCursor().block().text().left(cpos);
-
-    if (cpos == 0 || cpos == input.lastIndexOf(QRegExp("\\s")))
-        return;
-
-    int from = input.lastIndexOf(QRegExp("\\s"));
-
-    if (from < 0)
-        from = 0;
-
-    QString matchExp = input.mid(from, cpos - from);
-    matchExp = matchExp.trimmed();
-
-    if (matchExp.isEmpty())
-        return;
-
-    QStringList nicks = model->matchNicksAny(matchExp.toLower());
-
-    if (nicks.size() == 1){
-        QString nick = nicks.at(0);
-
-        int i = matchExp.length();
-
-        while (i > 0){
-            plainTextEdit_INPUT->textCursor().deletePreviousChar();
-            i--;
-        }
-
-        if (plainTextEdit_INPUT->textCursor().position() == 0)
-            plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
-        else
-            plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
-
-    }
-    else if (!nicks.isEmpty() && nicks.size() < 40){
-        QMenu *m = new QMenu();
-
-        foreach (QString nick, nicks)
-            m->addAction(nick);
-
-        int c_x = plainTextEdit_INPUT->cursorRect().x();
-        int c_y = plainTextEdit_INPUT->cursorRect().y();
-
-        QAction *ret = m->exec(plainTextEdit_INPUT->mapToGlobal(QPoint(c_x, c_y)));
-
-        if (ret){
-            QString nick = ret->text();
-            //QString insertion = nick.right(nick.length()-matchExp.length()) + ": ";
-
-            int i = matchExp.length();
-
-            while (i > 0){
-                plainTextEdit_INPUT->textCursor().deletePreviousChar();
-                i--;
-            }
-
-            if (plainTextEdit_INPUT->textCursor().position() == 0)
-                plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
-            else
-                plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
-        }
-
-        delete m;
-    }
 }
 
 void HubFrame::slotActivate(){

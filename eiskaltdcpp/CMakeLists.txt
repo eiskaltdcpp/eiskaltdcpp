@@ -71,7 +71,8 @@ set (SRCS   Antispam.cpp
             UPnPMapper.cpp
             UserListModel.cpp
             WulforSettings.cpp
-            WulforUtil.cpp)
+            WulforUtil.cpp
+            ChatEdit.cpp)
 set (MOC_HDRS Antispam.h
             AntiSpamFrame.h
             DownloadQueue.h
@@ -122,7 +123,8 @@ set (MOC_HDRS Antispam.h
             UPnPMapper.h
             UserListModel.h
             WulforSettings.h
-            WulforUtil.h )
+            WulforUtil.h
+            ChatEdit.h)
 set (UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui
             ui/HubFrame.ui

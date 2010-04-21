@@ -63,6 +63,10 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     reloadSomeSettings();
 }
 
+void PMWindow::setCompleter(QCompleter *completer, UserListModel *model) {
+    plainTextEdit_INPUT->setCompleter(completer, model);
+}
+
 PMWindow::~PMWindow(){
     delete arena_menu;
 }

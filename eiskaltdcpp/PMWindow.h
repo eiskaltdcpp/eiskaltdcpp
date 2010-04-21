@@ -31,6 +31,7 @@ public:
     QMenu   *getMenu();
     const QPixmap &getPixmap();
     ArenaWidget::Role role() const { return ArenaWidget::PrivateMessage; }
+    void setCompleter(QCompleter *, UserListModel *);
 
     void addStatus(QString);
     void sendMessage(QString,bool = false, bool = false);

@@ -166,7 +166,7 @@
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="QPlainTextEdit" name="plainTextEdit_INPUT">
+           <widget class="ChatEdit" name="plainTextEdit_INPUT">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -299,6 +299,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ChatEdit</class>
+   <extends>QPlainTextEdit</extends>
+   <header>ChatEdit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>

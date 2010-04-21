@@ -511,6 +511,19 @@ QStringList UserListModel::matchNicksAny(const QString &part, bool stripTags) co
     return matches;
 }
 
+QStringList UserListModel::findItems(const QString &part, Qt::MatchFlags flags, int column) const
+{
+    QModelIndexList indexes = match(index(0, column, QModelIndex()),
+                                    Qt::DisplayRole, part, -1, flags);
+    QStringList items;
+    for (int i = 0; i < indexes.size(); ++i) {
+        QModelIndex index = indexes.at(i);
+        if (index.isValid())
+            items.append( index.data().toString() );
+    }
+    return items;
+}
+
 UserListItem::UserListItem(UserListItem *parent) :
     isOp(false), px(NULL), parentItem(parent), fav(false)
 {

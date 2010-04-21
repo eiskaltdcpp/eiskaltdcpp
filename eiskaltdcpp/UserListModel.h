@@ -144,6 +144,8 @@ public:
     QStringList matchNicksStartingWith(const QString & part, bool stripTags = false) const;
     QStringList matchNicksAny(const QString &part, bool stripTags = false) const;
 
+    QStringList findItems(const QString &part, Qt::MatchFlags flags, int column) const;
+
     void repaint() { emit layoutChanged(); }
     void repaintData(const QModelIndex &left, const QModelIndex &right){ emit dataChanged(left, right); }
     void needResort();
