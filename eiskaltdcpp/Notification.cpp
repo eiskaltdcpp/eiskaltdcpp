@@ -153,10 +153,15 @@ void Notification::setToolTip(const QString &DSPEED, const QString &USPEED, cons
         return;
 
     QString out = tr("<b>Speed</b><br/>"
-                     "Download: <font color=\"green\">%1</font> Upload: <font color=\"red\">%2</font><br/>"
+                     "Download: <font_color=\"green\">%1</font> "
+                     "Upload: <font_color=\"red\">%2</font><br/>"
                      "<b>Statistics</b><br/>"
-                     "Downloaded: <font color=\"green\">%3</font> Uploaded: <font color=\"red\">%4</font>")
+                     "Downloaded: <font_color=\"green\">%3</font> "
+                     "Uploaded: <font_color=\"red\">%4</font>")
                   .arg(DSPEED).arg(USPEED).arg(DOWN).arg(UP);
+
+    out.replace(" ","&nbsp;");
+    out.replace("_"," ");
 
     tray->setToolTip(out);
 }
