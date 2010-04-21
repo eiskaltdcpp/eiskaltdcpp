@@ -1627,7 +1627,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../Notification.cpp" line="155"/>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Хуткасьць:&lt;/b&gt;&lt;br/&gt;сьцягваць — &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt;, зацягваць — &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;.&lt;br/&gt;&lt;b&gt;Статыстыка:&lt;/b&gt;&lt;br/&gt;сьцягнулі &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt;, зацягнулі &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;.</translation>
     </message>
     <message>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
