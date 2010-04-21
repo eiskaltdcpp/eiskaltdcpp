@@ -81,6 +81,7 @@ public:
     void removeWidget(ArenaWidget *awgt);
     void insertWidget(ArenaWidget *awgt);
     bool hasWidget(ArenaWidget *awgt) const;
+    void mapped(ArenaWidget *awgt);
 
 public slots:
     void slotIndexClicked(const QModelIndex&);

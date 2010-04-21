@@ -1360,8 +1360,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
 
-    if (tBar)
-        tBar->mapped(awgt);
+    wcontainer->mapped(awgt);
 
     QWidget *wg = arenaMap[awgt];
     

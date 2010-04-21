@@ -2544,28 +2544,35 @@ void HubFrame::slotInputContextMenu(){
             sp->suggestions(word, list);
 
             m->addSeparator();
-            QMenu *ss = new QMenu(tr("Suggestions"), this);
             QAction *add_to_dict = new QAction(tr("Add to dictionary"), m);
 
             m->addAction(add_to_dict);
 
-            foreach (QString s, list)
-                ss->addAction(s);
+            QMenu *ss = NULL;
+            if (!list.isEmpty()) {
+                ss = new QMenu(tr("Suggestions"), this);
 
-            m->addMenu(ss);
+
+                foreach (QString s, list)
+                    ss->addAction(s);
+
+                m->addMenu(ss);
+            }
 
             QAction *ret = m->exec(QCursor::pos());
 
             if (ret == add_to_dict)
                 sp->addToDict(word);
-            else if (ret){
+            else if (ss && ret && ret->parent() == ss){
                 c.removeSelectedText();
 
                 c.insertText(ret->text());
             }
 
             m->deleteLater();
-            ss->deleteLater();
+
+            if (ss)
+                ss->deleteLater();
 
             slotInputTextChanged();
         }

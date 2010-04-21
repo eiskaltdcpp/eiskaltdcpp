@@ -232,6 +232,28 @@ bool SideBarModel::hasWidget(ArenaWidget *awgt) const{
     return (items.contains(awgt) || inRoot);
 }
 
+void SideBarModel::mapped(ArenaWidget *awgt){
+    if (!awgt)
+        return;
+
+    QModelIndex s;
+
+    if (items.contains(awgt)){
+        SideBarItem *root  = roots[awgt->role()];
+        SideBarItem *child = items[awgt];
+
+        QModelIndex par_root = index(root->row(), 0, QModelIndex());
+        s = index(child->row(), 0, par_root);
+    }
+    else {
+        SideBarItem *root  = roots[awgt->role()];
+
+        s = index(root->row(), 0, QModelIndex());
+    }
+
+    emit selectIndex(s);
+}
+
 void SideBarModel::slotIndexClicked(const QModelIndex &i){
    if (!(i.isValid() && i.internalPointer()))
        return;
