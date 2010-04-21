@@ -2,10 +2,18 @@
 #define PUBLICHUBMODEL_H
 
 #include <QAbstractItemModel>
+#include <QSortFilterProxyModel>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/FavoriteManager.h"
+
+class PublicHubProxyModel: public QSortFilterProxyModel {
+    Q_OBJECT
+
+public:
+    virtual void sort(int column, Qt::SortOrder order);
+};
 
 #define COLUMN_PHUB_NAME                0
 #define COLUMN_PHUB_DESC                1

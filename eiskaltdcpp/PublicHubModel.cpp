@@ -6,6 +6,11 @@
 #include <QList>
 #include <QStringList>
 
+void PublicHubProxyModel::sort(int column, Qt::SortOrder order){
+    if (sourceModel())
+        sourceModel()->sort(column, order);
+}
+
 PublicHubModel::PublicHubModel(QObject *parent)
     : QAbstractItemModel(parent), sortColumn(-1), sortOrder(Qt::AscendingOrder)
 {

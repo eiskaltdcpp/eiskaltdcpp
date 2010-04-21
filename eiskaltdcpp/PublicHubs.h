@@ -83,7 +83,7 @@ private:
 
     dcpp::HubEntryList entries;
     PublicHubModel *model;
-    QSortFilterProxyModel *proxy;
+    PublicHubProxyModel *proxy;
 };
 
 #endif // PUBLICHUBS_H

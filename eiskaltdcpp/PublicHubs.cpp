@@ -208,7 +208,7 @@ void PublicHubs::slotFilter(){
         proxy = NULL;
     }
     else {
-        proxy = new QSortFilterProxyModel(NULL);
+        proxy = new PublicHubProxyModel();
         proxy->setDynamicSortFilter(true);
         proxy->setFilterFixedString(lineEdit_FILTER->text());
         proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
