@@ -1928,57 +1928,60 @@ void MainWindow::slotAboutClient(){
 
     a.textBrowser_AUTHORS->setText(
             tr("Please use <a href=\"http://code.google.com/p/eiskaltdc/issues/list\">"
-               "http://code.google.com/p/eiskaltdc/issues/list</a> to report bugs.<br/>"
-               "<br/>")+
-            tr("<b>Developers</b><br/>"
-               "<br/>")+
-            tr("&nbsp;Andrey Karlov<br/>"
+               "http://code.google.com/p/eiskaltdc/issues/list</a> to report bugs.<br/>")+
+            tr("<br/>"
+               "<b>Developers</b><br/>")+
+            tr("<br/>"
+               "&nbsp;Andrey Karlov<br/>"
                "&nbsp;&lt;dein.negativ@gmail.com&gt;<br/>"
-               "&nbsp;(main developer 0.4.10 and later)<br/>"
-               "<br/>")+
-            tr("&nbsp;Boris Pek  aka  Tehnick<br/>"
+               "&nbsp;(main developer 0.4.10 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;Boris Pek  aka  Tehnick<br/>"
                "&nbsp;&lt;tehnick-8@mail.ru&gt;<br/>"
-               "&nbsp;(maintainer and developer 1.89.0 and later)<br/>"
-               "<br/>")+
-            tr("&nbsp;Eugene Petrov<br/>"
+               "&nbsp;(maintainer and developer 1.89.0 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;Eugene Petrov<br/>"
                "&nbsp;&lt;dhamp@ya.ru&gt;<br/>"
-               "&nbsp;(maintainer and developer 0.4.10 and later)<br/>"
-               "<br/>")+
-            tr("<b>Logo and Splash Screen Logo</b><br/>"
-               "<br/>")+
-            tr("&nbsp;Uladzimir Bely<br/>"
+               "&nbsp;(maintainer and developer 0.4.10 and later)<br/>")+
+            tr("<br/>"
+               "<b>Logo and Splash Screen Logo</b><br/>")+
+            tr("<br/>"
+               "&nbsp;Uladzimir Bely<br/>"
                "&nbsp;&lt;wiselord1983@gmail.com&gt;<br/>"
-               "&nbsp;(version 0.4.10 and later)<br/>"
-               "")
+               "&nbsp;(version 0.4.10 and later)<br/>")
             );
 
     a.textBrowser_TRANSLATION->setText(
-            tr("<b>Translators</b><br/>"
-               "<br/>")+
-            tr("&nbsp;<u>Russian translation</u><br/>"
-               "<br/>")+
-            tr("&nbsp;Uladzimir Bely<br/>"
+            tr("<b>Translators</b><br/>")+
+            tr("<br/>"
+               "&nbsp;<u>Russian translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Uladzimir Bely<br/>"
                "&nbsp;&lt;wiselord1983@gmail.com&gt;<br/>"
-               "&nbsp;(for 0.4.10 and later)<br/>"
-               "<br/>")+
-            tr("&nbsp;<u>Belarusian translation</u><br/>"
-               "<br/>")+
-            tr("&nbsp;Paval Shalamitski  aka  Klyok<br/>"
+               "&nbsp;(for 0.4.10 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>Belarusian translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Paval Shalamitski  aka  Klyok<br/>"
                "&nbsp;&lt;i.kliok@gmail.com&gt;<br/>"
-               "&nbsp;(for 1.0.40 and later)<br/>"
-               "<br/>")+
-            tr("&nbsp;<u>Hungarian translation</u><br/>"
-               "<br/>")+
-            tr("&nbsp;Akos Berki  aka  sumo<br/>"
+               "&nbsp;(for 1.0.40 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>Hungarian translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Akos Berki  aka  sumo<br/>"
                "&nbsp;&lt;husumo@gmail.com&gt;<br/>"
-               "&nbsp;(for 2.0.1 and later)<br/>"
-               "<br/>")+
-            tr("&nbsp;<u>French translation</u><br/>"
-               "<br/>")+
-            tr("&nbsp;Alexandre Wallimann  aka  Ale<br/>"
+               "&nbsp;(for 2.0.1 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>French translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Alexandre Wallimann  aka  Ale<br/>"
                "&nbsp;&lt;alexandre.wallimann@gmail.com&gt;<br/>"
-               "&nbsp;(for 2.0.2 and later)<br/>"
-               "")
+               "&nbsp;(for 2.0.2 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>Polish translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Arahael<br/>"
+               "&nbsp;(for 2.0.2 and later)<br/>")
             );
 
     a.exec();
