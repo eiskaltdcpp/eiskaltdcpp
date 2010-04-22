@@ -6,6 +6,7 @@
 #include <QItemSelectionModel>
 #include <QFileDialog>
 #include <QClipboard>
+#include <QHeaderView>
 
 #include "DownloadQueueModel.h"
 #include "MainWindow.h"

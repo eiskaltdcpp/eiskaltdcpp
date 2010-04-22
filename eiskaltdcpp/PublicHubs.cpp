@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QItemSelectionModel>
+#include <QHeaderView>
 
 using namespace dcpp;
 

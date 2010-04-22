@@ -341,8 +341,13 @@ void AntiSpam::loadSettings() {
 
 		if (!keys.empty())
 		    keys.clear();
-
-		keys.append(words);
+#if QT_VERSION >= 0x040500
+                    keys.append(words);
+#else
+                    foreach (QString s, words)
+                        keys.append(s);
+#endif
+		
 	    }
         } else if (line.indexOf("|ATTEMPTS|") != -1){
             line = line.right(line.length() - 10);
@@ -396,7 +401,13 @@ void AntiSpam::setKeys(QList<QString> &keys) {
 	return;
 
     this->keys.clear();
+#if QT_VERSION >= 0x040500
     this->keys.append(keys);
+#else
+    foreach (QString s, keys)
+        this->keys.append(s);
+#endif
+    
 }
 
 QList<QString> AntiSpam::getKeys() {

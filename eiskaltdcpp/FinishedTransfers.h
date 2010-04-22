@@ -8,6 +8,7 @@
 #include <QComboBox>
 #include <QItemSelectionModel>
 #include <QDesktopServices>
+#include <QHeaderView>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -266,8 +267,16 @@ private:
                 item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
                 file_list = item->data(COLUMN_FINISHED_PATH).toString();
 
-                if (!file_list.isEmpty())
+                if (!file_list.isEmpty()){
+#if QT_VERSION >= 0x040500
                     files.append(file_list.split("; ", QString::SkipEmptyParts));
+#else
+                    QStringList s = file_list.split("; ", QString::SkipEmptyParts);
+                    foreach (QString i, s)
+                        files.push_back(i);
+#endif
+                }
+                    
             }
         }
 

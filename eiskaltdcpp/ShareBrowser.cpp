@@ -18,6 +18,7 @@
 #include <QTreeView>
 #include <QModelIndex>
 #include <QClipboard>
+#include <QHeaderView>
 
 using namespace dcpp;
 

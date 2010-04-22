@@ -2,6 +2,7 @@
 #define IPFILTERMODEL_H
 
 #include <QAbstractItemModel>
+#include <QHash>
 
 #define COLUMN_RULE_NAME        0
 #define COLUMN_RULE_DIRECTION   1

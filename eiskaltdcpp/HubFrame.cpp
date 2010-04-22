@@ -38,6 +38,7 @@
 #include <QRegExp>
 #include <QScrollBar>
 #include <QShortcut>
+#include <QHeaderView>
 
 #include <QtDebug>
 

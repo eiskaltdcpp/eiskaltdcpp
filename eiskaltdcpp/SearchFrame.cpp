@@ -807,8 +807,9 @@ void SearchFrame::slotStartSearch(){
         while (list.size() > 10)
             list.removeFirst();
 
+#if QT_VERSION >= 0x040500
         list.removeDuplicates();
-
+#endif
         comboBox_SEARCHSTR->clear();
         comboBox_SEARCHSTR->addItems(list);
         comboBox_SEARCHSTR->setCurrentIndex(-1);

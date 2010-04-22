@@ -107,7 +107,7 @@ find_package (ZLIB REQUIRED)
 find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
-find_package (Qt4 4.5 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus REQUIRED )
+find_package (Qt4 4.4 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus REQUIRED )
 find_package (PkgConfig)
 
 if (NOT USE_ASPELL)

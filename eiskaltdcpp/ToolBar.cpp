@@ -47,12 +47,14 @@ void ToolBar::showEvent(QShowEvent *e){
 void ToolBar::initTabs(){
     tabbar = new QTabBar(parentWidget());
     tabbar->setObjectName("arenaTabbar");
+#if QT_VERSION >= 0x040500
     tabbar->setTabsClosable(true);
     tabbar->setDocumentMode(true);
     tabbar->setMovable(true);
-    tabbar->setContextMenuPolicy(Qt::CustomContextMenu);
     tabbar->setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
     tabbar->setExpanding(false);
+#endif
+    tabbar->setContextMenuPolicy(Qt::CustomContextMenu);
     tabbar->setSizePolicy(QSizePolicy::Expanding, tabbar->sizePolicy().verticalPolicy());
 
     tabbar->installEventFilter(this);

@@ -6,6 +6,7 @@
 #include <QMenu>
 #include <QInputDialog>
 #include <QKeyEvent>
+#include <QHeaderView>
 #include <QItemSelectionModel>
 
 #include "dcpp/ClientManager.h"

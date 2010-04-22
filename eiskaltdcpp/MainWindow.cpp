@@ -341,15 +341,21 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
 
 void MainWindow::init(){
     arena = new QDockWidget();
+#if QT_VERSION >= 0x040500
+    arena->setWidget(NULL);
     arena->setFloating(false);
+#endif
     arena->setAllowedAreas(Qt::RightDockWidgetArea);
     arena->setFeatures(QDockWidget::NoDockWidgetFeatures);
     arena->setContextMenuPolicy(Qt::CustomContextMenu);
     arena->setTitleBarWidget(new QWidget(arena));
 
     transfer_dock = new QDockWidget(this);
-    transfer_dock->setObjectName("transfer_dock");
+#if QT_VERSION >= 0x040500
+    transfer_dock->setWidget(NULL);
     transfer_dock->setFloating(false);
+#endif
+    transfer_dock->setObjectName("transfer_dock");
     transfer_dock->setAllowedAreas(Qt::BottomDockWidgetArea);
     transfer_dock->setFeatures(QDockWidget::NoDockWidgetFeatures);
     transfer_dock->setContextMenuPolicy(Qt::CustomContextMenu);

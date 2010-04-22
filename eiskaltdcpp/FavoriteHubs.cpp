@@ -10,6 +10,7 @@
 #include "dcpp/Util.h"
 
 #include <QTreeView>
+#include <QHeaderView>
 #include <QItemSelectionModel>
 #include <QList>
 

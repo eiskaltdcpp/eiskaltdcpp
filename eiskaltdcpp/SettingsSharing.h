@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QDirModel>
 #include <QShowEvent>
+#include <QHeaderView>
 
 #include "ui_UISettingsSharing.h"
 

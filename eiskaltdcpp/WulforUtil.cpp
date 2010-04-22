@@ -24,6 +24,7 @@
 #include <QAbstractItemModel>
 #include <QHostAddress>
 #include <QMenu>
+#include <QHeaderView>
 
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
