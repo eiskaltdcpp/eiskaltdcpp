@@ -141,6 +141,10 @@ void SettingsConnection::init(){
         spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));
         spinBox_TLS->setValue(old_tls = SETTING(TLS_PORT));
     }
+    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) < (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10 + SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10)*10))
+        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL,(SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10 + SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10)*10));
+    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) < (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10 + SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10)*10))
+        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME,(SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10 + SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10)*10));
     checkBox_THROTTLE_ENABLE->setChecked(BOOLSETTING(THROTTLE_ENABLE));
     checkBox_TIME_DEPENDENT_THROTTLE->setChecked(BOOLSETTING(TIME_DEPENDENT_THROTTLE));
     spinBox_DOWN_LIMIT_NORMAL->setValue(SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
@@ -213,6 +217,10 @@ void SettingsConnection::init(){
     connect(checkBox_TIME_DEPENDENT_THROTTLE,SIGNAL(toggled(bool)),this,SLOT(slotTimeThrottle()));
     connect(radioButton_DC, SIGNAL(toggled(bool)), this, SLOT(slotToggleOutgoing()));
     connect(radioButton_SOCKS, SIGNAL(toggled(bool)), this, SLOT(slotToggleOutgoing()));
+    connect(spinBox_DOWN_LIMIT_TIME,SIGNAL(valueChanged(int)),this,SLOT(slotDownLimitTime(int)));
+    connect(spinBox_DOWN_LIMIT_NORMAL,SIGNAL(valueChanged(int)),this,SLOT(slotDownLimitNormal(int)));
+    connect(spinBox_UP_LIMIT_NORMAL,SIGNAL(valueChanged(int)),this,SLOT(slotUpLimitNormal(int)));
+    connect(spinBox_UP_LIMIT_TIME,SIGNAL(valueChanged(int)),this,SLOT(slotUpLimitNormal(int)));
 
     lineEdit_SIP->installEventFilter(this);
     lineEdit_SPORT->installEventFilter(this);
@@ -283,4 +291,25 @@ void SettingsConnection::showMsg(QString msg, QWidget *focusTo){
     if (focusTo)
         focusTo->setFocus();
 }
-
+void SettingsConnection::slotDownLimitNormal(int a){
+    int min = a/10 + a - a/10*10;
+    if (a > min*10)
+     return;
+    spinBox_UP_LIMIT_NORMAL->setMinimum(min);
+}
+void SettingsConnection::slotDownLimitTime(int a){
+    int min = a/10 + a - a/10*10;
+    if (a > min*10)
+     return;
+    spinBox_UP_LIMIT_TIME->setMinimum(min);
+}
+void SettingsConnection::slotUpLimitTime(int a){
+    int b = spinBox_DOWN_LIMIT_TIME->value()/10 + (spinBox_DOWN_LIMIT_TIME->value() - (spinBox_DOWN_LIMIT_TIME->value()/10)*10);
+    if (a < b)
+        spinBox_UP_LIMIT_NORMAL->setValue(b);
+}
+void SettingsConnection::slotUpLimitNormal(int a){
+    int b = spinBox_DOWN_LIMIT_NORMAL->value()/10 + (spinBox_DOWN_LIMIT_NORMAL->value() - (spinBox_DOWN_LIMIT_NORMAL->value()/10)*10);
+    if (a < b)
+        spinBox_UP_LIMIT_NORMAL->setValue(b);
+}

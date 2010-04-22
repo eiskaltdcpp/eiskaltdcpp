@@ -28,6 +28,10 @@ private slots:
     void slotToggleOutgoing();
     void slotThrottle();
     void slotTimeThrottle();
+    void slotDownLimitTime(int a);
+    void slotDownLimitNormal(int a);
+    void slotUpLimitTime(int a);
+    void slotUpLimitNormal(int a);
 
 private:
     void init();

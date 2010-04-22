@@ -1115,25 +1115,27 @@ string Util::translateError(int aError) {
 //[+]IRainman SpeedLimiter
 void Util::checkLimiterSpeed()
 {
-    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) < 5 * UploadManager::getInstance()->getSlots() + 4)
+    int max_up_normal = (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10 + (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10)*10));
+    int max_up_time = (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10 + (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10)*10));
+    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) < max_up_normal)
     {
-        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, 5 * UploadManager::getInstance()->getSlots() + 4);
+        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, max_up_normal);
     }
 
-    if ((SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) > 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL)) || (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) == 0))
+    //if ((SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) > 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL)) || (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) == 0))
+    //{
+        //SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
+    //}
+
+    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) < max_up_time)
     {
-        SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
+        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, max_up_time);
     }
 
-    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) < 5 * UploadManager::getInstance()->getSlots() + 4)
-    {
-        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, 5 * UploadManager::getInstance()->getSlots() + 4);
-    }
-
-    if ((SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) > 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME)) || (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) == 0))
-    {
-        SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
-    }
+    //if ((SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) > 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME)) || (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) == 0))
+    //{
+        //SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
+    //}
 
     if (Util::checkLimiterTime())
     {

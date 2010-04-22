@@ -521,7 +521,7 @@
                   <item>
                    <widget class="QSpinBox" name="spinBox_DOWN_LIMIT_TIME">
                     <property name="maximum">
-                     <number>15000</number>
+                     <number>125000</number>
                     </property>
                    </widget>
                   </item>
@@ -555,7 +555,7 @@
                   <item>
                    <widget class="QSpinBox" name="spinBox_UP_LIMIT_TIME">
                     <property name="maximum">
-                     <number>15000</number>
+                     <number>125000</number>
                     </property>
                    </widget>
                   </item>
@@ -585,6 +585,18 @@
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_18">
+            <property name="text">
+             <string>Restriction of upload speed is associated with restriction of download speed by sly formula:
+download speed/10 + (download speed - (download speed/10)*10)
+Do not try to understand it...</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
          </layout>

@@ -3020,6 +3020,12 @@ p, li { white-space: pre-wrap; }
         <source>to</source>
         <translation>-</translation>
     </message>
+    <message>
+        <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
+download speed/10 + (download speed - (download speed/10)*10)
+Do not try to understand it...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
