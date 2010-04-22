@@ -1833,6 +1833,10 @@ Kapcsolók:
         <source>French</source>
         <translation>Francia</translation>
     </message>
+    <message>
+        <source>Polish</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsNotification</name>

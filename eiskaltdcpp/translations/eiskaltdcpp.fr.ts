@@ -1825,6 +1825,10 @@ Clés:(new line)
         <source>French</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Polish</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsNotification</name>

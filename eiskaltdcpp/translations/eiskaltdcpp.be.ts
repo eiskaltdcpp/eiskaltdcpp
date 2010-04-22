@@ -2277,72 +2277,77 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Француская</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="147"/>
+        <location filename="../SettingsGUI.cpp" line="71"/>
+        <source>Polish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../SettingsGUI.cpp" line="149"/>
         <source>Local user</source>
         <translation>Мясцовы карыстальнік</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="151"/>
+        <location filename="../SettingsGUI.cpp" line="153"/>
         <source>Operator</source>
         <translation>Апэратар</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="155"/>
+        <location filename="../SettingsGUI.cpp" line="157"/>
         <source>Bot</source>
         <translation>Бот</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="159"/>
+        <location filename="../SettingsGUI.cpp" line="161"/>
         <source>Private: local user</source>
         <translation>Асабістае: мясцовы карыстальнік</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="163"/>
+        <location filename="../SettingsGUI.cpp" line="165"/>
         <source>Private: user</source>
         <translation>Асабістае: карыстальнік</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="167"/>
+        <location filename="../SettingsGUI.cpp" line="169"/>
         <source>Chat: Say nick</source>
         <translation>Гамана: сказалі мянушку</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="171"/>
+        <location filename="../SettingsGUI.cpp" line="173"/>
         <source>Core</source>
         <translation>Аснова</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="175"/>
+        <location filename="../SettingsGUI.cpp" line="177"/>
         <source>Status</source>
         <translation>Стан</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="179"/>
+        <location filename="../SettingsGUI.cpp" line="181"/>
         <source>User</source>
         <translation>Карыстальнік</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="183"/>
+        <location filename="../SettingsGUI.cpp" line="185"/>
         <source>Favorite User</source>
         <translation>Улюбёнец</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="187"/>
+        <location filename="../SettingsGUI.cpp" line="189"/>
         <source>Time stamp</source>
         <translation>Часадзнака</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="191"/>
+        <location filename="../SettingsGUI.cpp" line="193"/>
         <source>Message</source>
         <translation>Паведамленьне</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="355"/>
+        <location filename="../SettingsGUI.cpp" line="357"/>
         <source>Select translation</source>
         <translation>Абярыце пераклад</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="355"/>
+        <location filename="../SettingsGUI.cpp" line="357"/>
         <source>Translation (*.qm)</source>
         <translation>Пераклад (*.qm)</translation>
     </message>

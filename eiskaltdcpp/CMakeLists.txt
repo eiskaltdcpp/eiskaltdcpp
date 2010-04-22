@@ -153,7 +153,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISpy.ui
             ui/UITransferView.ui)
 if (NOT linguas)
-set (LANGUAGES en ru be hu fr)
+set (LANGUAGES en ru be hu fr pl)
 else (NOT linguas)
 string(REGEX MATCHALL [a-zA-Z]+
          linguas1 ${linguas})
