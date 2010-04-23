@@ -37,6 +37,11 @@ using namespace dcpp;
 #include <QtDebug>
 #endif
 
+void SearchProxyModel::sort(int column, Qt::SortOrder order){
+    if (sourceModel())
+        sourceModel()->sort(column, order);
+}
+
 SearchModel::SearchModel(QObject *parent):
         QAbstractItemModel(parent),
         sortColumn(COLUMN_SF_ESIZE),
@@ -320,6 +325,19 @@ void SearchModel::sort(int column, Qt::SortOrder order) {
     }
 
     emit layoutChanged();
+}
+
+bool SearchModel::hasChildren(const QModelIndex &parent) const{
+    if (!parent.isValid())
+        return true;
+
+    SearchItem *item = reinterpret_cast<SearchItem*>(parent.internalPointer());
+
+    return (item->childCount() > 0);
+}
+
+bool SearchModel::canFetchMore(const QModelIndex &) const{
+    return true;
 }
 
 bool SearchModel::addResultPtr(const QMap<QString, QVariant> &map){

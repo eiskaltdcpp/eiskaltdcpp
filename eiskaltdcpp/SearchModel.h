@@ -11,6 +11,7 @@
 #define SEARCHRESULTMODEL_H
 
 #include <QAbstractItemModel>
+#include <QSortFilterProxyModel>
 #include <QString>
 #include <QPixmap>
 #include <QList>
@@ -24,6 +25,13 @@
 #include "dcpp/SearchManager.h"
 
 #include <boost/pool/object_pool.hpp>
+
+class SearchProxyModel: public QSortFilterProxyModel {
+    Q_OBJECT
+
+public:
+    virtual void sort(int column, Qt::SortOrder order);
+};
 
 #define COLUMN_SF_COUNT            0
 #define COLUMN_SF_FILENAME         1
@@ -114,6 +122,8 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    virtual bool hasChildren(const QModelIndex &parent) const;
+    virtual bool canFetchMore(const QModelIndex &parent) const;
 
     /** */
     QModelIndex createIndexForItem(SearchItem*);

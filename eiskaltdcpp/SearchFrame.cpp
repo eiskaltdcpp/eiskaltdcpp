@@ -216,7 +216,8 @@ SearchFrame::SearchFrame(QWidget *parent):
         filterShared(SearchFrame::None),
         withFreeSlots(false),
         timer1(NULL),
-        saveFileType(true)
+        saveFileType(true),
+        proxy(NULL)
 {
     setupUi(this);
 
@@ -254,6 +255,7 @@ SearchFrame::~SearchFrame(){
     delete model;
     delete arena_menu;
     delete timer;
+    delete proxy;
 }
 
 void SearchFrame::closeEvent(QCloseEvent *e){
@@ -279,6 +281,8 @@ void SearchFrame::init(){
     timer1->setInterval(1000);
 
     model = new SearchModel(NULL);
+
+    frame_FILTER->setVisible(false);
 
     treeView_RESULTS->setModel(model);
     treeView_RESULTS->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -307,6 +311,7 @@ void SearchFrame::init(){
     connect(comboBox_SEARCHSTR->lineEdit(), SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR, SLOT(setFocus()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR->lineEdit(), SLOT(selectAll()));
+    connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(CTRL_F_pressed()));
 
     MainWindow *mwnd = MainWindow::getInstance();
 
@@ -324,6 +329,36 @@ void SearchFrame::init(){
     timer1->start();
 
     comboBox_SEARCHSTR->setFocus();
+}
+
+void SearchFrame::CTRL_F_pressed(){
+    if (frame_FILTER->isVisible()){
+        treeView_RESULTS->setModel(model);
+
+        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+
+        delete proxy;
+        proxy = NULL;
+    }
+    else {
+        proxy = new SearchProxyModel();
+        proxy->setDynamicSortFilter(true);
+        proxy->setFilterFixedString(lineEdit_FILTER->text());
+        proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+        proxy->setFilterKeyColumn(COLUMN_SF_FILENAME);
+        proxy->setSourceModel(model);
+
+        treeView_RESULTS->setModel(proxy);
+
+        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+
+        lineEdit_FILTER->setFocus();
+
+        if (!lineEdit_FILTER->text().isEmpty())
+            lineEdit_FILTER->selectAll();
+    }
+
+    frame_FILTER->setVisible(!frame_FILTER->isVisible());
 }
 
 void SearchFrame::load(){
@@ -832,7 +867,9 @@ void SearchFrame::slotResultDoubleClicked(const QModelIndex &index){
     if (!index.isValid() || !index.internalPointer())
         return;
 
-    SearchItem *item = reinterpret_cast<SearchItem*>(index.internalPointer());
+    QModelIndex i = proxy? proxy->mapToSource(index) : index;
+
+    SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
     VarMap params;
 
     if (getDownloadParams(params, item)){
@@ -858,6 +895,13 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
     if (list.size() < 1)
         return;
+
+    if (proxy){
+        QModelIndexList _list;
+        foreach (QModelIndex i, list)
+            _list.push_back(proxy->mapToSource(i));
+        list = _list;
+    }
 
     if (!Menu::getInstance())
         Menu::newInstance();

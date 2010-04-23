@@ -1373,21 +1373,23 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
 
+    ArenaWidget::Role role = awgt->role();
+
     HubFrame     *fr = qobject_cast<HubFrame *>(wg);
     PMWindow     *pm = qobject_cast<PMWindow *>(wg);
-    ShareBrowser *sb = qobject_cast<ShareBrowser *>(wg);
-    PublicHubs   *ph = qobject_cast<PublicHubs *>(wg);
 
-    chatClear->setEnabled(fr || pm);
-    findInWidget->setEnabled(fr || sb || ph);
-    chatDisable->setEnabled(fr);
+    bool widgetWithFilter = role == ArenaWidget::Hub || role == ArenaWidget::ShareBrowser || role == ArenaWidget::PublicHubs || role == ArenaWidget::Search;
+
+    chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
+    findInWidget->setEnabled(widgetWithFilter);
+    chatDisable->setEnabled(role == ArenaWidget::Hub);
 
     if (fr)
         fr->slotActivate();
     else if(pm)
         pm->slotActivate();
     else
-        arenaMap[awgt]->setFocus();
+        wg->setFocus();
 }
 
 void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
@@ -1399,10 +1401,6 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
 
     if (arena->widget() == awgt->getWidget())
         arena->widget()->hide();
-
-    /*chatClear->setEnabled(false);
-    findInWidget->setEnabled(false);
-    chatDisable->setEnabled(false);*/
 }
 
 void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){

@@ -28,6 +28,7 @@
 using namespace dcpp;
 
 class SearchModel;
+class SearchProxyModel;
 class SearchItem;
 
 class SearchCustomEvent: public QEvent{
@@ -145,6 +146,9 @@ public:
     void searchFile(const QString &);
     void fastSearch(const QString &, bool);
 
+public slots:
+    void CTRL_F_pressed();
+
 protected:
     virtual void closeEvent(QCloseEvent*);
     virtual void customEvent(QEvent *);
@@ -200,6 +204,7 @@ private:
     bool saveFileType;
 
     SearchModel *model;
+    SearchProxyModel *proxy;
 
     bool isHash;
     int left_pane_old_size;
