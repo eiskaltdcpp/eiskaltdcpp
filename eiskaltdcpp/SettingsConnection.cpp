@@ -220,7 +220,7 @@ void SettingsConnection::init(){
     connect(spinBox_DOWN_LIMIT_TIME,SIGNAL(valueChanged(int)),this,SLOT(slotDownLimitTime(int)));
     connect(spinBox_DOWN_LIMIT_NORMAL,SIGNAL(valueChanged(int)),this,SLOT(slotDownLimitNormal(int)));
     connect(spinBox_UP_LIMIT_NORMAL,SIGNAL(valueChanged(int)),this,SLOT(slotUpLimitNormal(int)));
-    connect(spinBox_UP_LIMIT_TIME,SIGNAL(valueChanged(int)),this,SLOT(slotUpLimitNormal(int)));
+    connect(spinBox_UP_LIMIT_TIME,SIGNAL(valueChanged(int)),this,SLOT(slotUpLimitTime(int)));
 
     lineEdit_SIP->installEventFilter(this);
     lineEdit_SPORT->installEventFilter(this);
