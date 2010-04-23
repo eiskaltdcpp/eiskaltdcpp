@@ -3789,7 +3789,10 @@ p, li { white-space: pre-wrap; }
         <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
 download speed/10 + (download speed - (download speed/10)*10)
 Do not try to understand it...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ograniczenie prędkości wysyłania wiąże się z ograniczeniem prędkości pobierania według wzoru:
+prędkość pobierania/10 + (prędkość pobierania - (prędkość pobierania/10) * 10)
+Nie staraj się zrozumieć ...
+</translation>
     </message>
 </context>
 <context>
