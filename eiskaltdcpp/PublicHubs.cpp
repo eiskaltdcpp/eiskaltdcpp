@@ -52,6 +52,7 @@ PublicHubs::PublicHubs(QWidget *parent) :
     treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
     connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
+    connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotDoubleClicked(QModelIndex)));
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
     connect(comboBox_HUBS, SIGNAL(activated(int)), this, SLOT(slotHubChanged(int)));
@@ -131,6 +132,13 @@ void PublicHubs::slotContextMenu(){
     if (indexes.isEmpty())
         return;
 
+    if (proxy){
+        QModelIndexList list;
+        foreach (QModelIndex i, indexes)
+            list.push_back(proxy->mapToSource(i));
+        indexes = list;
+    }
+
     WulforUtil *WU = WulforUtil::getInstance();
 
     QMenu *m = new QMenu();
@@ -193,6 +201,19 @@ void PublicHubs::slotContextMenu(){
 
 void PublicHubs::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView);
+}
+
+void PublicHubs::slotDoubleClicked(const QModelIndex &index){
+    if (!index.isValid())
+        return;
+
+    QModelIndex i = proxy? proxy->mapToSource(index) : index;
+
+    PublicHubItem * item = reinterpret_cast<PublicHubItem*>(i.internalPointer());
+    MainWindow *MW = MainWindow::getInstance();
+
+    if (item)
+        MW->newHubFrame(item->data(COLUMN_PHUB_ADDRESS).toString(), "");
 }
 
 bool PublicHubs::isFindFrameActivated(){

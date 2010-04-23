@@ -71,6 +71,7 @@ private slots:
     void slotHeaderMenu();
     void slotHubChanged(int);
     void slotFilterColumnChanged();
+    void slotDoubleClicked(const QModelIndex&);
 
 private:
     PublicHubs(QWidget *parent = NULL);

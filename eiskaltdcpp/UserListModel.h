@@ -30,7 +30,7 @@ class WulforUtil;
 
 namespace dcpp{
     inline uint qHash(const boost::intrusive_ptr<dcpp::User> &ptr){
-        ulong key = (unsigned long)(void*)ptr.get();
+        ulong key = (ulong)(void*)ptr.get();
 
         if (sizeof(ulong) > sizeof(uint)) {
             return uint((key >> (8 * sizeof(uint) - 1)) ^ key);
