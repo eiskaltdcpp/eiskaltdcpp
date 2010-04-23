@@ -2533,10 +2533,11 @@ void HubFrame::slotHubMenu(QAction *res){
         StringMap params;
 
         if (WulforUtil::getInstance()->getUserCommandParams(last_user_cmd, params)){
-            UserPtr user = ClientManager::getInstance()->getMe();
+            client->getMyIdentity().getParams(params, "my", true);
+            client->getHubIdentity().getParams(params, "hub", false);
 
-            if (user)
-                ClientManager::getInstance()->userCommand(user, uc, params, true);
+            client->escapeParams(params);
+            client->sendUserCmd(Util::formatParams(uc.getCommand(), params, false));
         }
     }
 }
