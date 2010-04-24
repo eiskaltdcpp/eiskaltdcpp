@@ -35,7 +35,7 @@ void SettingsLog::init(){
     lineEdit_UPFMT->setText(_q(SETTING(LOG_FORMAT_POST_UPLOAD)));
     lineEdit_FILE_UPFMT->setText(_q(SETTING(LOG_FILE_UPLOAD)));
 
-    checkBox_FILELIST->setChecked(BOOLSETTING(LOG_SYSTEM));
+    checkBox_FILELIST->setChecked(BOOLSETTING(LOG_FILELIST_TRANSFERS));
     checkBox_STAT->setChecked(BOOLSETTING(LOG_STATUS_MESSAGES));
     checkBox_SYSTEM->setChecked(BOOLSETTING(LOG_SYSTEM));
 
