@@ -1253,6 +1253,10 @@ Please check your connection settings</source>
         <translatorcomment>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(pour 2.0.2 et plus)&lt;br/&gt;</translatorcomment>
         <translation></translation>
     </message>
+    <message>
+        <source>Widgets side dock</source>
+        <translation>Dock latéral des Widgets</translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -1627,6 +1631,10 @@ Clés:
     <message>
         <source>X</source>
         <translation>X</translation>
+    </message>
+    <message>
+        <source>C</source>
+        <translation>C</translation>
     </message>
 </context>
 <context>
