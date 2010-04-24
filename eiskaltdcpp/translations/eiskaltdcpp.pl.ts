@@ -1285,7 +1285,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="999"/>
         <source>Widgets side dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakładka dokowania panelu bocznego</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1001"/>
@@ -1419,7 +1419,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1991"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polskie&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1993"/>
@@ -2010,7 +2010,7 @@ EiskaltDC++ - program dla systemów UNIX-like, dla protokołu Direct Connect i A
     <message>
         <location filename="../ui/UISearchFrame.ui" line="348"/>
         <source>X</source>
-        <translation type="unfinished">X</translation>
+        <translation>X</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="41"/>
