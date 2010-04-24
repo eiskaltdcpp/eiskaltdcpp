@@ -1426,13 +1426,16 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
 
     UserListItem *item = model->itemForPtr(user);
 
+    QString cid = map["CID"].toString();
+    QString nick = map["NICK"].toString();
+
     if (item){
         bool needresort = false;
         bool isOp = map["ISOP"].toBool();
 
         total_shared -= item->share;
 
-        item->nick = map["NICK"].toString();
+        item->nick = nick;
         item->comm = map["COMM"].toString();
         item->conn = map["CONN"].toString();
         item->email= map["EMAIL"].toString();
@@ -1462,16 +1465,18 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
                 if (showFavJoinsOnly && !FavoriteManager::getInstance()->isFavoriteUser(user))
                     break;
 
-                addStatus(map["NICK"].toString() + tr(" joins the chat"));
+                addStatus(nick + tr(" joins the chat"));
             } while (0);
         }
 
-        model->addUser(map, user);
+        model->addUser(nick, map["SHARE"].toULongLong(),
+                       map["COMM"].toString(), map["TAG"].toString(),
+                       map["CONN"].toString(), map["IP"].toString(),
+                       map["EMAIL"].toString(), map["ISOP"].toBool(),
+                       map["AWAY"].toBool(), map["SPEED"].toString(),
+                       cid, user);
 
-        if (pm.contains(map["NICK"].toString())){
-            QString cid = map["CID"].toString();
-            QString nick = map["NICK"].toString();
-
+        if (pm.contains(nick)){
             PMWindow *wnd = pm[nick];
 
             wnd->cid = cid;

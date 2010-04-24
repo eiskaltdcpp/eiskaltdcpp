@@ -273,7 +273,7 @@ private:
 
     /** Extracts data from user identity */
     void getParams(UserMap &, const Identity &);
-    void on_userUpdated(const VarMap&, const UserPtr&, bool);
+    inline void on_userUpdated(const VarMap&, const UserPtr&, bool) __attribute__((always_inline));
 
     // PM functions
     void addPM(QString, QString);
