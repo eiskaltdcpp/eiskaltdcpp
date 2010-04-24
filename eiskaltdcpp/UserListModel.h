@@ -19,6 +19,10 @@
 #include <QRegExp>
 #include <QTimer>
 
+#ifndef _WIN32
+#include <limits.h>
+#endif
+
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/User.h"
@@ -32,11 +36,18 @@ namespace dcpp{
     inline uint qHash(const boost::intrusive_ptr<dcpp::User> &ptr){
         ulong key = (ulong)(void*)ptr.get();
 
-        if (sizeof(ulong) > sizeof(uint)) {
-            return uint((key >> (8 * sizeof(uint) - 1)) ^ key);
-        } else {
-            return uint(key);
-        }
+#if ULONG_MAX >= 18446744073709551615UL
+        //hash a 64 bit virtual address to a hash table index
+        key = (~key) + (key << 18); // key = (key << 18) - key - 1;
+        key = key ^ (key >> 31);
+        key = key + (key << 2) + (key << 4);
+        key = key ^ (key >> 11);
+        key = key + (key << 6);
+        key = key ^ (key >> 22);
+        return uint(key);
+#else
+        return uint(key);
+#endif
     }
 }
 
