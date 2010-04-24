@@ -1321,7 +1321,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Widgets side dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Navigációs oldalsáv</translation>
     </message>
 </context>
 <context>
@@ -1700,7 +1700,7 @@ Kapcsolók:
     </message>
     <message>
         <source>X</source>
-        <translation type="unfinished">X</translation>
+        <translation>X</translation>
     </message>
 </context>
 <context>
