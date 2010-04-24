@@ -175,6 +175,7 @@ private slots:
     void slotHeaderMenu(const QPoint&);
     void slotToggleSidePanel();
     void slotStartSearch();
+    void slotChangeProxyColumn(int);
 
 private:
     void init();

@@ -271,34 +271,11 @@ void MainWindow::showEvent(QShowEvent *e){
     if (e->spontaneous())
         redrawToolPanel();
 
-    QWidget *wg = arena->widget();
-
-    bool pmw = false, share_browser = false, phubs = false;
-
-    if (wg != 0){
-        if (typeid(*wg) == typeid(PMWindow))
-            pmw = true;
-        else if (typeid(*wg) == typeid(ShareBrowser))
-            share_browser = true;
-        else if (typeid(*wg) == typeid(PublicHubs))
-            phubs = true;
-    }
-
-    HubFrame *fr = HubManager::getInstance()->activeHub();
-
-    bool enable = (fr && (fr == arena->widget()));
-
-    chatClear->setEnabled(enable || pmw);
-    findInWidget->setEnabled(enable || share_browser || phubs);
-    chatDisable->setEnabled(enable);
-
     if (!showMax && w > 0 && h > 0 && w != width() && h != height())
         this->resize(QSize(w, h));
 
     if (showMax)
         showMaximized();
-
-    e->accept();
 
     if (WBGET(WB_APP_AUTO_AWAY)){
         Util::setAway(false);
@@ -307,6 +284,21 @@ void MainWindow::showEvent(QShowEvent *e){
 
     if (transfer_dock->isVisible())
         toolsTransfers->setChecked(true);
+
+    ArenaWidget *awgt = qobject_cast<ArenaWidget*>(arena->widget());
+
+    if (!awgt)
+        return;
+
+    ArenaWidget::Role role = awgt->role();
+
+    bool widgetWithFilter = role == ArenaWidget::Hub || role == ArenaWidget::ShareBrowser || role == ArenaWidget::PublicHubs || role == ArenaWidget::Search;
+
+    chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
+    findInWidget->setEnabled(widgetWithFilter);
+    chatDisable->setEnabled(role == ArenaWidget::Hub);
+
+    e->accept();
 }
 
 void MainWindow::hideEvent(QHideEvent *e){

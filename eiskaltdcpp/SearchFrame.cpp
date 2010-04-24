@@ -282,6 +282,11 @@ void SearchFrame::init(){
 
     model = new SearchModel(NULL);
 
+    for (int i = 0; i < model->columnCount(); i++)
+        comboBox_FILTERCOLUMNS->addItem(model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
+
+    comboBox_FILTERCOLUMNS->setCurrentIndex(COLUMN_SF_FILENAME);
+
     frame_FILTER->setVisible(false);
 
     treeView_RESULTS->setModel(model);
@@ -311,7 +316,10 @@ void SearchFrame::init(){
     connect(comboBox_SEARCHSTR->lineEdit(), SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR, SLOT(setFocus()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR->lineEdit(), SLOT(selectAll()));
-    connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(CTRL_F_pressed()));
+    connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
+    connect(toolButton_FILTERCLEAR, SIGNAL(clicked()), lineEdit_FILTER, SLOT(clear()));
+    connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), lineEdit_FILTER, SLOT(selectAll()));
+    connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), this, SLOT(slotChangeProxyColumn(int)));
 
     MainWindow *mwnd = MainWindow::getInstance();
 
@@ -329,36 +337,6 @@ void SearchFrame::init(){
     timer1->start();
 
     comboBox_SEARCHSTR->setFocus();
-}
-
-void SearchFrame::slotFilter(){
-    if (frame_FILTER->isVisible()){
-        treeView_RESULTS->setModel(model);
-
-        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
-
-        delete proxy;
-        proxy = NULL;
-    }
-    else {
-        proxy = new SearchProxyModel();
-        proxy->setDynamicSortFilter(true);
-        proxy->setFilterFixedString(lineEdit_FILTER->text());
-        proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
-        proxy->setFilterKeyColumn(COLUMN_SF_FILENAME);
-        proxy->setSourceModel(model);
-
-        treeView_RESULTS->setModel(proxy);
-
-        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
-
-        lineEdit_FILTER->setFocus();
-
-        if (!lineEdit_FILTER->text().isEmpty())
-            lineEdit_FILTER->selectAll();
-    }
-
-    frame_FILTER->setVisible(!frame_FILTER->isVisible());
 }
 
 void SearchFrame::load(){
@@ -1259,6 +1237,41 @@ void SearchFrame::slotToggleSidePanel(){
     }
 
     splitter->setSizes(panes);
+}
+
+void SearchFrame::slotFilter(){
+    if (frame_FILTER->isVisible()){
+        treeView_RESULTS->setModel(model);
+
+        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+
+        delete proxy;
+        proxy = NULL;
+    }
+    else {
+        proxy = new SearchProxyModel();
+        proxy->setDynamicSortFilter(true);
+        proxy->setFilterFixedString(lineEdit_FILTER->text());
+        proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+        proxy->setFilterKeyColumn(comboBox_FILTERCOLUMNS->currentIndex());
+        proxy->setSourceModel(model);
+
+        treeView_RESULTS->setModel(proxy);
+
+        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+
+        lineEdit_FILTER->setFocus();
+
+        if (!lineEdit_FILTER->text().isEmpty())
+            lineEdit_FILTER->selectAll();
+    }
+
+    frame_FILTER->setVisible(!frame_FILTER->isVisible());
+}
+
+void SearchFrame::slotChangeProxyColumn(int col){
+    if (proxy)
+        proxy->setFilterKeyColumn(col);
 }
 
 bool SearchFrame::isFindFrameActivated(){
