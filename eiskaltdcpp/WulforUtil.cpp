@@ -282,12 +282,14 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiGV]           = QPixmap(gv_xpm);
     m_PixmapMap[eiHASHING]      = loadPixmap("hashing.png");
     m_PixmapMap[eiHIDEWINDOW]   = loadPixmap("hidewindow.png");
+    m_PixmapMap[eiHUBMSG]       = loadPixmap("hubmsg.png");
     m_PixmapMap[eiICON_APPL]    = loadPixmap("icon_appl.png");
     m_PixmapMap[eiMESSAGE]      = loadPixmap("message.png");
     m_PixmapMap[eiMESSAGE_TRAY_ICON] = loadPixmap("icon_msg.png");
     m_PixmapMap[eiOWN_FILELIST] = loadPixmap("own_filelist.png");
     m_PixmapMap[eiOPENLIST]     = loadPixmap("openlist.png");
     m_PixmapMap[eiOPEN_LOG_FILE]= loadPixmap("log_file.png");
+    m_PixmapMap[eiPMMSG]        = loadPixmap("pmmsg.png");
     m_PixmapMap[eiRECONNECT]    = loadPixmap("reconnect.png");
     m_PixmapMap[eiREFRLIST]     = loadPixmap("refrlist.png");
     m_PixmapMap[eiRELOAD]       = loadPixmap("reload.png");
