@@ -452,6 +452,7 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
         codec(NULL),
         chatDisabled(false),
         hasMessages(false),
+        hasHighlightMessages(false),
         client(NULL)
 {
     setupUi(this);
@@ -777,6 +778,7 @@ void HubFrame::showEvent(QShowEvent *e){
     HubManager::getInstance()->setActiveHub(this);
 
     hasMessages = false;
+    hasHighlightMessages = false;
     MainWindow::getInstance()->redrawToolPanel();
 }
 
@@ -984,8 +986,10 @@ QMenu *HubFrame::getMenu(){
 }
 
 const QPixmap &HubFrame::getPixmap(){
-    if (hasMessages)
+    if (hasHighlightMessages)
         return WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE);
+    else if (hasMessages)
+        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiHUBMSG);
     else
         return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER);
 }
@@ -1631,10 +1635,13 @@ void HubFrame::newMsg(VarMap map){
 
     addOutput(output);
 
-    if (!isVisible()){
+    if (msg_color == WS_CHAT_SAY_NICK && !isVisible())
+        hasHighlightMessages = true;
+
+    if (!isVisible())
         hasMessages = true;
-        MainWindow::getInstance()->redrawToolPanel();
-    }
+
+    MainWindow::getInstance()->redrawToolPanel();
 }
 
 void HubFrame::newPm(VarMap map){

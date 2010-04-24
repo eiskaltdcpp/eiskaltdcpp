@@ -308,6 +308,7 @@ private:
 
     bool chatDisabled;
     bool hasMessages;
+    bool hasHighlightMessages;
 
     QStringList out_messages;
     int out_messages_index;
