@@ -155,8 +155,12 @@ public:
     void searchFile(const QString &);
     void fastSearch(const QString &, bool);
 
+    void CTRL_F_pressed() { slotFilter(); }
+
+    bool isFindFrameActivated();
+
 public slots:
-    void CTRL_F_pressed();
+    void slotFilter();
 
 protected:
     virtual void closeEvent(QCloseEvent*);

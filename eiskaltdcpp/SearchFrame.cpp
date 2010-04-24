@@ -331,7 +331,7 @@ void SearchFrame::init(){
     comboBox_SEARCHSTR->setFocus();
 }
 
-void SearchFrame::CTRL_F_pressed(){
+void SearchFrame::slotFilter(){
     if (frame_FILTER->isVisible()){
         treeView_RESULTS->setModel(model);
 
@@ -1259,6 +1259,10 @@ void SearchFrame::slotToggleSidePanel(){
     }
 
     splitter->setSizes(panes);
+}
+
+bool SearchFrame::isFindFrameActivated(){
+    return (frame_FILTER->isVisible() && lineEdit_FILTER->hasFocus());
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) throw() {

@@ -1798,9 +1798,10 @@ void MainWindow::slotHideMainMenu(){
 void MainWindow::slotHideWindow(){
     QWidget *wg = arena->widget();
 
-    HubFrame *fr = qobject_cast<HubFrame *>(wg);
-    PublicHubs *ph = qobject_cast<PublicHubs *>(wg);
+    HubFrame     *fr = qobject_cast<HubFrame *>(wg);
+    PublicHubs   *ph = qobject_cast<PublicHubs *>(wg);
     ShareBrowser *sb = qobject_cast<ShareBrowser *>(wg);
+    SearchFrame  *sf = qobject_cast<SearchFrame *>(wg);
 
     if (fr){
         if (fr->isFindFrameActivated() && WBGET(WB_TRAY_ENABLED)){
@@ -1829,6 +1830,16 @@ void MainWindow::slotHideWindow(){
         }
         else if (!WBGET(WB_TRAY_ENABLED)){
             sb->slotFilter();
+            return;
+        }
+    }
+    else if (sf){
+        if (sf->isFindFrameActivated()){
+            sf->slotFilter();
+            return;
+        }
+        else if (!WBGET(WB_TRAY_ENABLED)){
+            sf->slotFilter();
             return;
         }
     }
