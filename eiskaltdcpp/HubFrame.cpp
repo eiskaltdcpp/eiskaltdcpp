@@ -997,6 +997,13 @@ const QPixmap &HubFrame::getPixmap(){
 void HubFrame::clearChat(){
     textEdit_CHAT->setHtml("");
     addStatus(tr("Chat cleared."));
+
+    textEdit_CHAT->document()->setDefaultStyleSheet(
+            QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
+            .arg(QApplication::font().family()));
+
+    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
+        EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
 }
 
 void HubFrame::disableChat(){
