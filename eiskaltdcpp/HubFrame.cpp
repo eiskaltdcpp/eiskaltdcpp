@@ -849,8 +849,13 @@ void HubFrame::init(){
 
     plainTextEdit_INPUT->setWordWrapMode(QTextOption::NoWrap);
     plainTextEdit_INPUT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
     plainTextEdit_INPUT->installEventFilter(this);
+
+    textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    textEdit_CHAT->setTabStopWidth(40);
+    textEdit_CHAT->document()->setDefaultStyleSheet(
+            QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
+            .arg(QApplication::font().family()));
 
     initMenu();
 
@@ -987,11 +992,7 @@ const QPixmap &HubFrame::getPixmap(){
 
 void HubFrame::clearChat(){
     textEdit_CHAT->setHtml("");
-
     addStatus(tr("Chat cleared."));
-
-    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
 }
 
 void HubFrame::disableChat(){
@@ -1350,19 +1351,17 @@ void HubFrame::addStatus(QString msg){
     addOutput(status + msg);
 
     status += pure_msg;
-    label_LAST_STATUS->setText(status);
-
     WulforUtil::getInstance()->textToHtml(status, false);
-    label_LAST_STATUS->setToolTip(tr("<b>Last status message on hub:</b><br/>%1").arg(status));
+
+    QString pre = tr("<b>Last status message on hub:</b><br/>%1").replace(" ","&nbsp;");
+
+    label_LAST_STATUS->setText(status);
+    label_LAST_STATUS->setToolTip(pre.arg(status));
 }
 
 void HubFrame::addOutput(QString msg){
-
-    /* This is temporary block. Later we must make it more wise. */
     msg.replace("\r", "");
-    msg.replace("\n", "\n<br/>");
-    msg.replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
-
+    msg = "<pre>" + msg + "</pre>";
     textEdit_CHAT->append(msg);
 }
 
@@ -1622,15 +1621,13 @@ void HubFrame::newMsg(VarMap map){
 
     message = LinkParser::parseForLinks(message, true);
 
-    WulforUtil::getInstance()->textToHtml(nick);
+    WulforUtil::getInstance()->textToHtml(nick, true);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
     output  = time +
               QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
               .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
     output  += message;
-
-    //WulforUtil::getInstance()->textToHtml(output, false);
 
     addOutput(output);
 
@@ -1654,7 +1651,7 @@ void HubFrame::newPm(VarMap map){
 
     message = LinkParser::parseForLinks(message, true);
 
-    WulforUtil::getInstance()->textToHtml(nick);
+    WulforUtil::getInstance()->textToHtml(nick, true);
 
     message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
     full_message  = time +

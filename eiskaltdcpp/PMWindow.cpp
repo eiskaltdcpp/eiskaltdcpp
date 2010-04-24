@@ -38,8 +38,15 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     plainTextEdit_INPUT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     plainTextEdit_INPUT->setContextMenuPolicy(Qt::CustomContextMenu);
     plainTextEdit_INPUT->installEventFilter(this);
+
     textEdit_CHAT->viewport()->installEventFilter(this);
     textEdit_CHAT->viewport()->setMouseTracking(true);
+
+    textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    textEdit_CHAT->setTabStopWidth(40);
+    textEdit_CHAT->document()->setDefaultStyleSheet(
+            QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
+            .arg(QApplication::font().family()));
 
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
@@ -227,8 +234,8 @@ void PMWindow::addStatus(QString msg){
     QString status = "";
     QString nick    = " * ";
 
-    WulforUtil::getInstance()->textToHtml(msg);
-    WulforUtil::getInstance()->textToHtml(nick);
+    WulforUtil::getInstance()->textToHtml(msg, true);
+    WulforUtil::getInstance()->textToHtml(nick, true);
 
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
@@ -242,12 +249,8 @@ void PMWindow::addStatus(QString msg){
 }
 
 void PMWindow::addOutput(QString msg){
-
-    /* This is temporary block. Later we must make it more wise. */
     msg.replace("\r", "");
-    msg.replace("\n", "\n<br/>");
-    msg.replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
-
+    msg = "<pre>" + msg + "</pre>";
     textEdit_CHAT->append(msg);
 
     if (!isVisible()){
