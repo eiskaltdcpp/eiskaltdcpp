@@ -425,6 +425,8 @@ void MainWindow::loadSettings(){
     
     if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
         tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+    else
+        sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
     panelsWidgets->setChecked(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
     menuBar()->setVisible(WBGET(WB_MAIN_MENU_VISIBLE));
