@@ -28,7 +28,8 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
         cid(cid),
         hubUrl(hubUrl),
         arena_menu(NULL),
-        hasMessages(false)
+        hasMessages(false),
+        hasHighlightMessages(false)
 {
     setupUi(this);
 
@@ -157,6 +158,7 @@ void PMWindow::closeEvent(QCloseEvent *c_e){
         unread--;
 
     hasMessages = false;
+    hasHighlightMessages = false;
     MainWindow::getInstance()->redrawToolPanel();
 
     if (unread == 0)
@@ -173,6 +175,7 @@ void PMWindow::showEvent(QShowEvent *e){
             unread--;
 
         hasMessages = false;
+        hasHighlightMessages = false;
         MainWindow::getInstance()->redrawToolPanel();
 
         if (unread == 0)
@@ -206,8 +209,10 @@ QMenu *PMWindow::getMenu(){
 }
 
 const QPixmap &PMWindow::getPixmap(){
-    if (hasMessages)
+    if (hasHighlightMessages)
         return WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE);
+    else if (hasMessages)
+        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiPMMSG);
     else
         return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUSERS);
 }

@@ -1396,6 +1396,9 @@ void HubFrame::addPM(QString cid, QString output){
     else{
         PMMap::iterator it = pm.find(cid);
 
+        if (output.indexOf(_q(client->getMyNick())) >= 0)
+            it.value()->setHasHighlightMessages(true);
+
         it.value()->addOutput(output);
     }
 }
@@ -1640,13 +1643,14 @@ void HubFrame::newMsg(VarMap map){
 
     addOutput(output);
 
-    if (msg_color == WS_CHAT_SAY_NICK && !isVisible())
-        hasHighlightMessages = true;
+    if (!isVisible()){
+        if (msg_color == WS_CHAT_SAY_NICK)
+            hasHighlightMessages = true;
 
-    if (!isVisible())
         hasMessages = true;
 
-    MainWindow::getInstance()->redrawToolPanel();
+        MainWindow::getInstance()->redrawToolPanel();
+    }
 }
 
 void HubFrame::newPm(VarMap map){
