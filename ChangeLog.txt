@@ -4,6 +4,7 @@
 * Added ability to use the side dock with list of widgets instead of a one-line panel with tabs.
 * Added ability to build with Qt >= 4.4.0. Previously required Qt >= 4.5.0.
 * Added filter in search widget.
+* Improvements in notifications about new messages in chat (different icons).
 
 --- 2.0.1 2010-04-18 ---
 * Added widget with public hubs.
