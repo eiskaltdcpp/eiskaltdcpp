@@ -74,7 +74,7 @@ MainWindow::MainWindow (QWidget *parent):
 
 {
     exitBegin = false;
-    
+
     arenaMap.clear();
     arenaWidgets.clear();
 
@@ -422,7 +422,7 @@ void MainWindow::loadSettings(){
 
     sBar->setVisible(WBGET(WB_SEARCH_PANEL_VISIBLE));
     panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
-    
+
     if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
         tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
     else
@@ -1364,7 +1364,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     wcontainer->mapped(awgt);
 
     QWidget *wg = arenaMap[awgt];
-    
+
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
 
@@ -2170,7 +2170,7 @@ bool MainWindow::FreeDiscSpace ( std::string path,  unsigned long long * res, un
                 *res2 =fsp.fsu_blocks*fsp.fsu_blocksize;
                 return true;
         } else {
-                printf("ERROR: no info for free space");
+                printf("ERROR: %s doesn't exist\n",path.c_str());
                 return false;
         }
 #endif //WIN32
