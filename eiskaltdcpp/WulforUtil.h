@@ -93,7 +93,7 @@ public:
         eiOPENLIST,
         eiOPEN_LOG_FILE,
         eiOWN_FILELIST,
-        eiPMMGS,
+        eiPMMSG,
         eiRECONNECT,
         eiREFRLIST,
         eiRELOAD,
