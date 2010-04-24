@@ -2031,7 +2031,7 @@ void HubFrame::slotChatMenu(const QPoint &){
     QString cid = model->CIDforNick(nick);
 
     if (cid.isEmpty()){
-        QMenu *m = textEdit_CHAT->createStandardContextMenu(QCursor::pos());
+        QMenu *m = editor->createStandardContextMenu(QCursor::pos());
         m->exec(QCursor::pos());
 
         delete m;
