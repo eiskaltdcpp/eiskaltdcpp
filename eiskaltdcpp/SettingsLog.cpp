@@ -38,6 +38,7 @@ void SettingsLog::init(){
     checkBox_FILELIST->setChecked(BOOLSETTING(LOG_FILELIST_TRANSFERS));
     checkBox_STAT->setChecked(BOOLSETTING(LOG_STATUS_MESSAGES));
     checkBox_SYSTEM->setChecked(BOOLSETTING(LOG_SYSTEM));
+    checkBox_REPORT_ALTERNATES->setChecked(BOOLSETTING(REPORT_ALTERNATES));
 
     toolButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
@@ -67,6 +68,7 @@ void SettingsLog::ok(){
     sm->set(SettingsManager::LOG_SYSTEM, checkBox_SYSTEM->isChecked());
     sm->set(SettingsManager::LOG_STATUS_MESSAGES, checkBox_STAT->isChecked());
     sm->set(SettingsManager::LOG_FILELIST_TRANSFERS, checkBox_FILELIST->isChecked());
+    sm->set(SettingsManager::REPORT_ALTERNATES, checkBox_REPORT_ALTERNATES->isChecked());
 }
 
 void SettingsLog::slotBrowse(){

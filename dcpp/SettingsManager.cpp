@@ -54,7 +54,7 @@ const string SettingsManager::settingTags[] =
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow", "ClearSearch",
     "BackgroundColor", "TextColor", "UseOemMonoFont", "ShareHidden", "FilterMessages", "MinimizeToTray", "AlwaysTray",
-    "AutoSearch", "TimeStamps", "PopupHubPms", "PopupBotPms", "IgnoreHubPms", "IgnoreBotPms",
+    "AutoSearch","AutoSearchTime", "ReportFoundAlternates", "TimeStamps", "PopupHubPms", "PopupBotPms", "IgnoreHubPms", "IgnoreBotPms",
     "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed", "LogMainChat", "LogPrivateChat",
     "LogDownloads", "LogUploads", "StatusInChat", "ShowJoins",
     "UseSystemIcons", "PopupPMs", "MinUploadSpeed", "GetUserInfo", "UrlHandler", "MainWindowState",
@@ -145,6 +145,8 @@ SettingsManager::SettingsManager()
     setDefault(MINIMIZE_TRAY, true);
     setDefault(ALWAYS_TRAY, true);
     setDefault(AUTO_SEARCH, true);
+    setDefault(AUTO_SEARCH_TIME, 2);
+    setDefault(REPORT_ALTERNATES, true);
     setDefault(TIME_STAMPS, true);
     setDefault(POPUP_HUB_PMS, true);
     setDefault(POPUP_BOT_PMS, true);
@@ -271,7 +273,7 @@ SettingsManager::SettingsManager()
     setDefault(OPEN_NOTEPAD, false);
     setDefault(NO_IP_OVERRIDE, false);
     setDefault(NO_USE_TEMP_DIR, false);
-	setDefault(ALLOW_UPDATE_FILELIST_ON_STARTUP, true);
+    setDefault(ALLOW_UPDATE_FILELIST_ON_STARTUP, true);
     setDefault(SHARE_TEMP_FILES, false);
     setDefault(SEARCH_ONLY_FREE_SLOTS, false);
     setDefault(SEARCH_FILTER_SHARED, true);
