@@ -46,7 +46,7 @@ public:
     void sendMessage(QString,bool = false, bool = false);
     QWidget *inputWidget() const { return plainTextEdit_INPUT; }
 
-    void setHasHighlightMessages(bool h) { hasHighlightMessages = h; }
+    void setHasHighlightMessages(bool h) { hasHighlightMessages = (h && !isVisible()); }
 
 public slots:
     void reloadSomeSettings();
