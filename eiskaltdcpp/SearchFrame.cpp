@@ -217,7 +217,8 @@ SearchFrame::SearchFrame(QWidget *parent):
         withFreeSlots(false),
         timer1(NULL),
         saveFileType(true),
-        proxy(NULL)
+        proxy(NULL),
+        completer(NULL)
 {
     setupUi(this);
 
@@ -251,6 +252,9 @@ SearchFrame::~SearchFrame(){
 
     MainWindow::getInstance()->remArenaWidget(this);
     MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+
+    if (completer)
+        completer->deleteLater();
 
     delete model;
     delete arena_menu;
@@ -360,7 +364,11 @@ void SearchFrame::load(){
     QString raw = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
     QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
-    comboBox_SEARCHSTR->addItems(list);
+    completer = new QCompleter(list, comboBox_SEARCHSTR);
+    completer->setCaseSensitivity(Qt::CaseInsensitive);
+    completer->setWrapAround(false);
+
+    comboBox_SEARCHSTR->setCompleter(completer);
     comboBox_SEARCHSTR->setCurrentIndex(-1);
 }
 
@@ -686,15 +694,12 @@ void SearchFrame::fastSearch(const QString &text, bool isTTH){
 }
 
 void SearchFrame::slotStartSearch(){
-    if (comboBox_SEARCHSTR->currentText().replace(" ","").length() == 0)
+    if (comboBox_SEARCHSTR->currentText().trimmed().isEmpty())
         return;
 
     MainWindow *MW = MainWindow::getInstance();
-    QString s = comboBox_SEARCHSTR->currentText();
+    QString s = comboBox_SEARCHSTR->currentText().trimmed();
     StringList clients;
-
-    if (s.isEmpty())
-        return;
 
     QMap<Client*,HubInfo*>::iterator it = hub_list.begin();
 
@@ -810,12 +815,11 @@ void SearchFrame::slotStartSearch(){
     MW->redrawToolPanel();
 
     { // save search history and update QComboBox items
-        QString     last = comboBox_SEARCHSTR->currentText();
         QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
         QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
-        if (list.indexOf(last) == -1)
-            list << last;
+        if (list.indexOf(s) == -1)
+            list << s;
 
         while (list.size() > 10)
             list.removeFirst();
@@ -823,10 +827,13 @@ void SearchFrame::slotStartSearch(){
 #if QT_VERSION >= 0x040500
         list.removeDuplicates();
 #endif
-        comboBox_SEARCHSTR->clear();
-        comboBox_SEARCHSTR->addItems(list);
-        comboBox_SEARCHSTR->setCurrentIndex(-1);
-        comboBox_SEARCHSTR->setEditText(last);
+        
+        comboBox_SEARCHSTR->setCompleter(NULL);
+        completer->deleteLater();
+        completer = new QCompleter(list, comboBox_SEARCHSTR);
+        completer->setCaseSensitivity(Qt::CaseInsensitive);
+        completer->setWrapAround(false);
+        comboBox_SEARCHSTR->setCompleter(completer);
 
         QString hist = list.join("\n");
         WSSET(WS_SEARCH_HISTORY, hist.toAscii().toBase64());

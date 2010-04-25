@@ -21,6 +21,7 @@
 #include <QCloseEvent>
 #include <QTimer>
 #include <QCustomEvent>
+#include <QCompleter>
 
 #include "ui_UISearchFrame.h"
 #include "ArenaWidget.h"
@@ -212,6 +213,8 @@ private:
 
     QTimer *timer;
     QTimer *timer1;
+
+    QCompleter *completer;
 
     QMenu *arena_menu;
 
