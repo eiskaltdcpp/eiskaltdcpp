@@ -167,10 +167,8 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
         break;
     }
 
-    if (!(typeid(*awgt) == typeid(PMWindow) && WBGET(WB_CHAT_KEEPFOCUS))){
+    if (!(typeid(*awgt) == typeid(PMWindow) && WBGET(WB_CHAT_KEEPFOCUS)))
         emit mapWidget(awgt);
-        emit selectIndex(ind);
-    }
 
     emit layoutChanged();
 }
@@ -178,8 +176,6 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
 void SideBarModel::removeWidget(ArenaWidget *awgt){
     if (!items.contains(awgt) || !awgt)
         return;
-
-    emit layoutAboutToBeChanged();
 
     switch (awgt->role()){
     case ArenaWidget::Hub:
@@ -202,13 +198,14 @@ void SideBarModel::removeWidget(ArenaWidget *awgt){
             }
             endRemoveRows();
 
+            if (root->childCount() > 0)
+                emit mapWidget(root->child(0)->getWidget());
+
             break;
         }
     default:
         break;
     }
-
-    emit layoutChanged();
 }
 
 bool SideBarModel::hasWidget(ArenaWidget *awgt) const{

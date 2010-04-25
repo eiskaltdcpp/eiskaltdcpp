@@ -2019,7 +2019,7 @@ void MainWindow::slotSidebarContextMenu(){
 void MainWindow::slotSelectSidebarIndex(const QModelIndex &index){
     QItemSelectionModel *s_m =sideTree->selectionModel();
 
-    s_m->select(index, QItemSelectionModel::SelectCurrent);
+    s_m->select(index, QItemSelectionModel::Clear|QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
 }
 
 void MainWindow::slotAboutQt(){

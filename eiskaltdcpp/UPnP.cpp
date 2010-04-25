@@ -224,7 +224,7 @@ QString UPnP::getExternalIP(){
 #if _DEBUG_UPNP_
         qDebug() << "No valid forwarding services found.";
 #endif
-        return false;
+        return "";
     }
 
     IXML_Document *doc = NULL;

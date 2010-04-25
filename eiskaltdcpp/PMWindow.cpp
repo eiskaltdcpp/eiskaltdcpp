@@ -197,7 +197,12 @@ QString PMWindow::getArenaTitle(){
 }
 
 QString PMWindow::getArenaShortTitle(){
-    return (cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid;
+    QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid;
+
+    if (WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+        return QString("%1@%2").arg(nick).arg(hubUrl);
+    else
+        return nick;
 }
 
 QWidget *PMWindow::getWidget(){
