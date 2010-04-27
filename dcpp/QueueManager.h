@@ -113,6 +113,8 @@ public:
 	/** @return The highest priority download the user has, PAUSED may also mean no downloads */
 	QueueItem::Priority hasDownload(const UserPtr& aUser) throw();
 
+        bool getQueueInfo(const UserPtr& aUser, string& aTarget, int64_t& aSize, int& aFlags) throw();
+        
 	int countOnlineSources(const string& aTarget);
 
 	void loadQueue() throw();

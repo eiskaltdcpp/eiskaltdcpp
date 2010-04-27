@@ -562,7 +562,21 @@ void TransferView::on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQu
 
     getParams(params, cqi);
 
+    params["FNAME"] = "";
     params["STAT"] = tr("Connecting...");
+
+    if(cqi->getDownload()) {
+        string aTarget; int64_t aSize; int aFlags = 0;
+        if(QueueManager::getInstance()->getQueueInfo(cqi->getUser(), aTarget, aSize, aFlags)) {
+            params["TARGET"] = _q(aTarget);
+            params["ESIZE"] = (qlonglong)aSize;
+
+            if (!aFlags)
+                params["FNAME"] = _q(Util::getFileName(aTarget));
+
+            params["BGROUP"] = !aFlags;
+        }
+    }
 
     typedef Func1<TransferViewModel, VarMap> FUNC;
     FUNC *f = new FUNC(model, &TransferViewModel::addConnection, params);
@@ -571,6 +585,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQu
 }
 
 void TransferView::on(dcpp::ConnectionManagerListener::Connected, dcpp::ConnectionQueueItem* cqi) throw(){
+
     VarMap params;
 
     getParams(params, cqi);

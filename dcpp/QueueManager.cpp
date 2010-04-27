@@ -174,6 +174,19 @@ void QueueManager::FileQueue::move(QueueItem* qi, const string& aTarget) {
     add(qi);
 }
 
+bool QueueManager::getQueueInfo(const UserPtr& aUser, string& aTarget, int64_t& aSize, int& aFlags) throw() {
+    Lock l(cs);
+    QueueItem* qi = userQueue.getNext(aUser);
+    if(qi == NULL)
+        return false;
+
+    aTarget = qi->getTarget();
+    aSize = qi->getSize();
+    aFlags = qi->getFlags();
+
+    return true;
+}
+
 void QueueManager::UserQueue::add(QueueItem* qi) {
     for(QueueItem::SourceConstIter i = qi->getSources().begin(); i != qi->getSources().end(); ++i) {
         add(qi, i->getUser());

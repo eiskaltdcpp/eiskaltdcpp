@@ -319,21 +319,36 @@ void TransferViewModel::addConnection(VarMap params){
     if (params.empty())
         return;
 
+    bool bGroup = false;
     TransferViewItem *i;
-    if (findTransfer(vstr(params["CID"]), vbol(params["DOWN"]), &i))
+    TransferViewItem *to = NULL;
+    bool bDownload = vbol(params["DOWN"]);
+
+    if (findTransfer(vstr(params["CID"]), vbol(params["DOWN"]), &i)) {
         return;
+    } else if (bDownload) {
+        bGroup = vbol(params["BGROUP"]);
+        if (bGroup)
+            to = getParent(vstr(params["TARGET"]), params);
+    }
 
     QList<QVariant> data;
 
-    data << params["USER"] << "" << params["STAT"] << "" << "" << "" << params["HOST"] << "";
-    TransferViewItem *item = new TransferViewItem(data, rootItem);
+    data << params["USER"] << "" << params["STAT"] << "" << "" << params["FNAME"] << params["HOST"] << "";
+    TransferViewItem *item = new TransferViewItem(data, (to && bGroup) ? to : rootItem);
 
     item->download = vbol(params["DOWN"]);
     item->cid = vstr(params["CID"]);
 
+    if (item->download && bGroup)
+        item->target = vstr(params["TARGET"]);
+
     transfer_hash.insertMulti(item->cid, item);
 
-    rootItem->appendChild(item);
+    if (!to)
+        rootItem->appendChild(item);
+    else
+        to->appendChild(item);
 
     emit layoutChanged();
 }
