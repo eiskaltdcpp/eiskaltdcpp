@@ -1704,7 +1704,7 @@ Kapcsolók:
     </message>
     <message>
         <source>C</source>
-        <translation type="unfinished">C</translation>
+        <translation>C</translation>
     </message>
 </context>
 <context>
@@ -3201,15 +3201,15 @@ Ne is próbáld megérteni...</translation>
     </message>
     <message>
         <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
-        <translation type="unfinished"></translation>
+        <translation>Figyelem: a felhasználók fájl-listái konstans módon mindig le lesznek töltve, melőtt a fájlok töltése megkezdődne.</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Haladó</translation>
+        <translation>Haladó</translation>
     </message>
     <message>
         <source>Interval for auto search alternates(minutes)</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternatívák automatikus keresése (keresési intervallum, percben)</translation>
     </message>
 </context>
 <context>
@@ -3396,7 +3396,7 @@ Ne is próbáld megérteni...</translation>
     </message>
     <message>
         <source>Auto search alternates</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatikus alternatíva keresés</translation>
     </message>
 </context>
 <context>
