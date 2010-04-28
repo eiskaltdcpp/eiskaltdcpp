@@ -3128,6 +3128,18 @@ N&apos;essayez pas de comprendre...</translation>
         <source>SFV Check</source>
         <translation>Vérification SFV</translation>
     </message>
+    <message>
+        <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">Avancé</translation>
+    </message>
+    <message>
+        <source>Interval for auto search alternates(minutes)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>
@@ -3309,6 +3321,10 @@ N&apos;essayez pas de comprendre...</translation>
     <message>
         <source>Status messages</source>
         <translation>Messages d&apos;état</translation>
+    </message>
+    <message>
+        <source>Auto search alternates</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

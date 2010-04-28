@@ -1702,6 +1702,10 @@ Kapcsolók:
         <source>X</source>
         <translation>X</translation>
     </message>
+    <message>
+        <source>C</source>
+        <translation type="unfinished">C</translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>
@@ -3195,6 +3199,18 @@ Ne is próbáld megérteni...</translation>
         <source>SFV Check</source>
         <translation>SFV Ellenőrzés</translation>
     </message>
+    <message>
+        <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">Haladó</translation>
+    </message>
+    <message>
+        <source>Interval for auto search alternates(minutes)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>
@@ -3377,6 +3393,10 @@ Ne is próbáld megérteni...</translation>
     <message>
         <source>Text</source>
         <translation>Szöveg</translation>
+    </message>
+    <message>
+        <source>Auto search alternates</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
