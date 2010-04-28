@@ -427,15 +427,20 @@ QString DownloadQueue::getCID(const VarMap &map){
 }
 
 void DownloadQueue::getChilds(DownloadQueueItem *i, QList<DownloadQueueItem *> &list){
-    if (!i || i->childCount() < 1)
+    if (!i)
         return;
 
-    foreach(DownloadQueueItem *ii, i->childItems){
-        if (ii->dir)
-            getChilds(ii, list);
-        else
-            list.push_front(ii);
+    if (!i->dir && !list.contains(i)){
+        list.push_back(i);
+
+        return;
     }
+
+    if (i->childCount() < 1)
+        return;
+
+    foreach(DownloadQueueItem *ii, i->childItems)
+        getChilds(ii, list);
 }
 
 void DownloadQueue::slotContextMenu(const QPoint &){
@@ -449,17 +454,13 @@ void DownloadQueue::slotContextMenu(const QPoint &){
     foreach (QModelIndex i, list){
         DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(i.internalPointer());
 
-        if (!item)
-            continue;
-
-        if (item->dir)
-            getChilds(item, items);
-        else if (!items.contains(item))
-            items.push_front(item);
+        getChilds(item, items);
     }
 
-    DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(list.at(0).internalPointer());
-    DownloadQueueItem *par = item->parent();
+    if (items.isEmpty())
+        return;
+
+    DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(items.at(0));
 
     QString target = item->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + item->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
 
@@ -470,10 +471,6 @@ void DownloadQueue::slotContextMenu(const QPoint &){
     QueueManager *QM = QueueManager::getInstance();
     QVariant arg = menu->getArg();
     VarMap rmap;
-    QueueItem::Priority prio;
-
-    if (!par->childItems.contains(item))
-        return;
 
     switch (act){
         case Menu::Alternates:
