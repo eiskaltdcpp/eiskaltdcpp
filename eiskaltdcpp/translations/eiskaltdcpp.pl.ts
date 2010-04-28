@@ -2015,7 +2015,7 @@ EiskaltDC++ - program dla systemów UNIX-like, dla protokołu Direct Connect i A
     <message>
         <location filename="../ui/UISearchFrame.ui" line="352"/>
         <source>C</source>
-        <translation type="unfinished">C</translation>
+        <translation>C</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="41"/>
@@ -3990,7 +3990,7 @@ Nie staraj się zrozumieć ...
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="636"/>
         <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
-        <translation type="unfinished"></translation>
+        <translation>Uwaga: lista plików użytkownika będzie pobierana przed pobraniem plików od niego.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="647"/>
@@ -4015,12 +4015,12 @@ Nie staraj się zrozumieć ...
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="695"/>
         <source>Advanced</source>
-        <translation type="unfinished">Zaawansowane</translation>
+        <translation>Zaawansowane</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="716"/>
         <source>Interval for auto search alternates(minutes)</source>
-        <translation type="unfinished"></translation>
+        <translation>Min. odstęp automatycznego wyszukiwania (w minutach)</translation>
     </message>
 </context>
 <context>
@@ -4221,7 +4221,7 @@ Nie staraj się zrozumieć ...
     <message>
         <location filename="../ui/UISettingsLog.ui" line="216"/>
         <source>Auto search alternates</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatycznie szukaj alternatywy</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
