@@ -632,6 +632,9 @@
              <property name="text">
               <string>Automatically match queue for auto search hits</string>
              </property>
+             <property name="toolTip">
+              <string>Warning: file-lists of the users will be constantly downloaded before loading files from them.</string>
+             </property>
              <property name="checkState">
               <enum>Checked</enum>
              </property>
