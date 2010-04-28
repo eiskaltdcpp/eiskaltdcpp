@@ -48,11 +48,27 @@ void Notification::enableTray(bool enable){
     else {
         delete tray;
 
-        if (!QSystemTrayIcon::isSystemTrayAvailable()){
-            WBSET(WB_TRAY_ENABLED, false);
+        tray = NULL;
+
+        static bool systemWithoutTray = false;
+
+        if (!QSystemTrayIcon::isSystemTrayAvailable() && !systemWithoutTray){
+            QTimer *timer = new QTimer(this);
+            timer->setSingleShot(true);
+            timer->setInterval(5000);
+
+            systemWithoutTray = true;
+
+            connect(timer, SIGNAL(timeout()), this, SLOT(slotCheckTray()));
+
+            timer->start();
 
             return;
         }
+        else if (!QSystemTrayIcon::isSystemTrayAvailable())
+            return;
+
+        systemWithoutTray = false;
 
         tray = new QSystemTrayIcon(this);
         tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiICON_APPL));
@@ -211,4 +227,15 @@ void Notification::slotCmdFinished(bool, QString){
         r->terminate();
 
     delete r;
+}
+
+void Notification::slotCheckTray(){
+    QTimer *timer = qobject_cast<QTimer*>(sender());
+
+    if (!timer)
+        return;
+
+    enableTray(true);
+
+    timer->deleteLater();
 }

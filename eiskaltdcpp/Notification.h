@@ -92,6 +92,7 @@ private slots:
     void slotShowHide();
     void slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason);
     void slotCmdFinished(bool, QString);
+    void slotCheckTray();
 
 private:
     explicit Notification(QObject *parent = 0);
