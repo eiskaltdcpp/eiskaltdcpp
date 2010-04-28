@@ -115,7 +115,7 @@ void ChatEdit::keyPressEvent(QKeyEvent *e)
         }
     }
 
-    if (!cc || cc->popup()->isVisible() || !hasModifier)
+    if (!cc || !cc->popup()->isVisible() || !hasModifier)
         QPlainTextEdit::keyPressEvent(e);
 
     if (ctrlOrShift && e->text().isEmpty())
