@@ -21,6 +21,7 @@
 
 #include <QItemSelectionModel>
 #include <QModelIndex>
+#include <QClipboard>
 
 TransferView::Menu::Menu():
         menu(NULL)
@@ -43,6 +44,9 @@ TransferView::Menu::Menu():
     QAction *grant      = new QAction(tr("Grant extra slot"), menu);
     grant->setIcon(WU->getPixmap(WulforUtil::eiEDITADD));
 
+    QAction *copy_ip = new QAction(tr("Copy IP-address of user"), menu);
+    copy_ip->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
+
     QAction *sep1       = new QAction(menu);
     sep1->setSeparator(true);
 
@@ -63,6 +67,7 @@ TransferView::Menu::Menu():
     actions.insert(send_pm, SendPM);
     actions.insert(add_to_fav, AddToFav);
     actions.insert(grant, GrantExtraSlot);
+    actions.insert(copy_ip, CopyIp);
     actions.insert(rem_queue, RemoveFromQueue);
     actions.insert(force, Force);
     actions.insert(close, Close);
@@ -72,6 +77,7 @@ TransferView::Menu::Menu():
                                        << send_pm
                                        << add_to_fav
                                        << grant
+                                       << copy_ip
                                        << sep1
                                        << rem_queue
                                        << sep3
@@ -390,6 +396,18 @@ void TransferView::slotContextMenu(const QPoint &){
     {
         foreach(TransferViewItem *i, items)
             grantSlot(i->cid, vstr(i->data(COLUMN_TRANSFER_HOST)));
+
+        break;
+    }
+    case Menu::CopyIp:
+    {
+        QString ip = "";
+
+        foreach(TransferViewItem *i, items)
+            ip = i->data(COLUMN_TRANSFER_IP).toString();
+
+        if (!ip.isEmpty())
+            QApplication::clipboard()->setText(ip, QClipboard::Clipboard);
 
         break;
     }

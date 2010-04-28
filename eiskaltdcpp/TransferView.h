@@ -69,6 +69,7 @@ public:
         SendPM,
         AddToFav,
         GrantExtraSlot,
+        CopyIp,
         RemoveFromQueue,
         Force,
         Close,
