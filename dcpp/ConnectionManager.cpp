@@ -260,6 +260,10 @@ int ConnectionManager::Server::run() throw() {
 			}
 		}
 	}
+
+        if (die)
+           sock.disconnect();
+
 	return 0;
 }
 
