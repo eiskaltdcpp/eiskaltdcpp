@@ -2017,14 +2017,14 @@ Keys:
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="516"/>
-        <location filename="../SearchFrame.cpp" line="806"/>
+        <location filename="../SearchFrame.cpp" line="804"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="520"/>
-        <location filename="../SearchFrame.cpp" line="802"/>
-        <location filename="../SearchFrame.cpp" line="810"/>
+        <location filename="../SearchFrame.cpp" line="800"/>
+        <location filename="../SearchFrame.cpp" line="808"/>
         <source>Search - %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2034,18 +2034,18 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="942"/>
-        <location filename="../SearchFrame.cpp" line="995"/>
+        <location filename="../SearchFrame.cpp" line="940"/>
+        <location filename="../SearchFrame.cpp" line="993"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1218"/>
+        <location filename="../SearchFrame.cpp" line="1216"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1227"/>
+        <location filename="../SearchFrame.cpp" line="1225"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2702,7 +2702,6 @@ Do you want to stop it?
     </message>
     <message>
         <location filename="../TransferView.cpp" line="309"/>
-        <location filename="../TransferView.cpp" line="672"/>
         <source>File list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3463,7 +3462,13 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="160"/>
+        <location filename="../ui/UIMagnet.ui" line="137"/>
+        <source>Adds magnet to download queue. If autosearch for alternatives is enabled
+in options, file will be downloaded without opening search dialog.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIMagnet.ui" line="161"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3498,17 +3503,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="137"/>
-        <source>Adds magnet to download queue. If autosearch for alternatives is enabled in options, file will be downloaded without opening search dialog.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UIMagnet.ui" line="140"/>
+        <location filename="../ui/UIMagnet.ui" line="141"/>
         <source>Add to queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="169"/>
+        <location filename="../ui/UIMagnet.ui" line="170"/>
         <source>Remember my choose</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3611,121 +3611,13 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="74"/>
+        <location filename="../ui/UISettingsConnection.ui" line="73"/>
         <source>Firewall with port forwarding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="57"/>
+        <location filename="../ui/UISettingsConnection.ui" line="56"/>
         <source>Active mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="92"/>
-        <source>Passive mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="107"/>
-        <source>Firewall with UPnP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="132"/>
-        <source>External/WAN IP:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="139"/>
-        <location filename="../ui/UISettingsConnection.ui" line="281"/>
-        <source>000.000.000.000; </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="148"/>
-        <source>TCP port</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="155"/>
-        <source>UDP port</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="162"/>
-        <source>TLS port</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="210"/>
-        <source>Don&apos;t allow Hub/UPnP to override</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="223"/>
-        <source>Outgoing connections</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="243"/>
-        <source>Direct connection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="259"/>
-        <source>SOCKS5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="294"/>
-        <source>IP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="301"/>
-        <source>User</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="308"/>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="315"/>
-        <source>Port</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="328"/>
-        <source>00000; </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="335"/>
-        <source>Use to resolve hostnames</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="362"/>
-        <location filename="../ui/UISettingsConnection.ui" line="377"/>
-        <source>Limits</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="383"/>
-        <source>Enable total speed limit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="491"/>
-        <source>Alternate speed limit at time from </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="416"/>
-        <location filename="../ui/UISettingsConnection.ui" line="567"/>
-        <source>Download</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3735,12 +3627,119 @@ Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
 this option and usually you don&apos;t need to alter anything more in the
 connection settings.
-However, if you have a software firewall installed, you may need
-further configuration in the firewall to allow Internet access for DC++.</source>
+However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="67"/>
+        <location filename="../ui/UISettingsConnection.ui" line="91"/>
+        <source>Passive mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="106"/>
+        <source>Firewall with UPnP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="131"/>
+        <source>External/WAN IP:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="138"/>
+        <location filename="../ui/UISettingsConnection.ui" line="280"/>
+        <source>000.000.000.000; </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="147"/>
+        <source>TCP port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="154"/>
+        <source>UDP port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="161"/>
+        <source>TLS port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="209"/>
+        <source>Don&apos;t allow Hub/UPnP to override</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="222"/>
+        <source>Outgoing connections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="242"/>
+        <source>Direct connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="258"/>
+        <source>SOCKS5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="293"/>
+        <source>IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="300"/>
+        <source>User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="307"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="314"/>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="327"/>
+        <source>00000; </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="334"/>
+        <source>Use to resolve hostnames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="361"/>
+        <location filename="../ui/UISettingsConnection.ui" line="376"/>
+        <source>Limits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="382"/>
+        <source>Enable total speed limit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="490"/>
+        <source>Alternate speed limit at time from </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="415"/>
+        <location filename="../ui/UISettingsConnection.ui" line="566"/>
+        <source>Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="66"/>
         <source>Select this mode if you are behind a firewall (router), and will set up
 the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
@@ -3749,7 +3748,7 @@ Use this mode only if the previous ones are not options for you.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="84"/>
+        <location filename="../ui/UISettingsConnection.ui" line="83"/>
         <source>Select this mode if none of the previous modes apply. In this mode,
 EiskaltDC++ will not try to make inbound connections, only outbound ones.
 This mode carries some serious limitations:
@@ -3759,7 +3758,7 @@ This mode carries some serious limitations:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="99"/>
+        <location filename="../ui/UISettingsConnection.ui" line="98"/>
         <source>Select this mode if you are behind a firewall/router that supports
 the UPnP standard for program auto-configuration.
 Most routers do support UPnP but you may need to enable it
@@ -3769,14 +3768,14 @@ and obtain your external IP address as well.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="238"/>
+        <location filename="../ui/UISettingsConnection.ui" line="237"/>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="253"/>
+        <location filename="../ui/UISettingsConnection.ui" line="252"/>
         <source>Select this mode if you want to make outbound connections through
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
@@ -3784,31 +3783,31 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="430"/>
-        <location filename="../ui/UISettingsConnection.ui" line="464"/>
-        <location filename="../ui/UISettingsConnection.ui" line="581"/>
-        <location filename="../ui/UISettingsConnection.ui" line="615"/>
+        <location filename="../ui/UISettingsConnection.ui" line="429"/>
+        <location filename="../ui/UISettingsConnection.ui" line="463"/>
+        <location filename="../ui/UISettingsConnection.ui" line="580"/>
+        <location filename="../ui/UISettingsConnection.ui" line="614"/>
         <source>KiB/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="450"/>
-        <location filename="../ui/UISettingsConnection.ui" line="601"/>
+        <location filename="../ui/UISettingsConnection.ui" line="449"/>
+        <location filename="../ui/UISettingsConnection.ui" line="600"/>
         <source>Upload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="514"/>
+        <location filename="../ui/UISettingsConnection.ui" line="513"/>
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="528"/>
+        <location filename="../ui/UISettingsConnection.ui" line="527"/>
         <source>hour(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="643"/>
+        <location filename="../ui/UISettingsConnection.ui" line="642"/>
         <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
 download speed/10 + (download speed - (download speed/10)*10)
 Do not try to understand it...</source>
@@ -4063,14 +4062,6 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="670"/>
-        <source>With this option enabled, DC++ will delete a file list whose speed
-was recognized as too slow.
-To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
-or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="687"/>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
@@ -4142,6 +4133,14 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="667"/>
         <source>Remove slow filelists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="670"/>
+        <source>With this option enabled, EiskaltDC++ will delete a file list whose speed
+was recognized as too slow.
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
+or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4606,16 +4605,19 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="137"/>
-        <source>This drop-down contains a number of common upload speeds (in MiB/s), please choose the one closest to your own. Do not put in your download speed; this setting is a measure of how fast a source you are likely to be for other users.</source>
+        <source>This drop-down contains a number of common upload speeds (in MiB/s),
+please choose the one closest to your own.
+Do not put in your download speed; this setting is a measure
+of how fast a source you are likely to be for other users.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="163"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="166"/>
         <source>Default hub encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="150"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="153"/>
         <source>MiB/s</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4686,19 +4688,6 @@ share is complete, share at follow-up activities start nulled.</source>
         <location filename="../ui/UISettingsSharing.ui" line="519"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="543"/>
-        <source>Configure the number of slots that other users can occupy
-to download files from you.
-A remote user can use only one slot for each hub that they&apos;re on with you.
-DC++ supports uploading file lists and files below 64 KiB
-to other DC++ users without requiring a slot.
-There&apos;s a max of 3 connections in addition to normal slots,
-these are called mini slots.
-Note: If a user leaves the hub, DC++ will close his slots;
-if the user is back within 10 minutes, DC++ will grant him a slot.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4814,6 +4803,19 @@ if the user is back within 10 minutes, DC++ will grant him a slot.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="420"/>
         <source>Proactive read from disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="543"/>
+        <source>Configure the number of slots that other users can occupy
+to download files from you. A remote user can use only
+one slot for each hub that they&apos;re on with you.
+EiskaltDC++ supports uploading file lists and files below 64 KiB
+to other DC++ users without requiring a slot.
+There&apos;s a max of 3 connections in addition to normal slots,
+these are called mini slots.
+Note: If a user leaves the hub, EiskaltDC++ will close his slots;
+if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

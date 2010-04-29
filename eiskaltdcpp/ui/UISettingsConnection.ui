@@ -50,8 +50,7 @@ Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
 this option and usually you don't need to alter anything more in the
 connection settings.
-However, if you have a software firewall installed, you may need
-further configuration in the firewall to allow Internet access for DC++.</string>
+However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</string>
                </property>
                <property name="text">
                 <string>Active mode</string>
@@ -61,7 +60,7 @@ further configuration in the firewall to allow Internet access for DC++.</string
                </property>
               </widget>
              </item>
-             <item row="2" column="0">
+             <item row="3" column="0">
               <widget class="QRadioButton" name="radioButton_PORT">
                <property name="toolTip">
                 <string>Select this mode if you are behind a firewall (router), and will set up
@@ -78,7 +77,7 @@ Use this mode only if the previous ones are not options for you.</string>
                </property>
               </widget>
              </item>
-             <item row="4" column="0">
+             <item row="5" column="0">
               <widget class="QRadioButton" name="radioButton_PASSIVE">
                <property name="toolTip">
                 <string>Select this mode if none of the previous modes apply. In this mode,
@@ -93,7 +92,7 @@ This mode carries some serious limitations:
                </property>
               </widget>
              </item>
-             <item row="3" column="0">
+             <item row="2" column="0">
               <widget class="QRadioButton" name="radioButton_UPNP">
                <property name="toolTip">
                 <string>Select this mode if you are behind a firewall/router that supports

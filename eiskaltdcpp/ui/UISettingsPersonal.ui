@@ -134,7 +134,10 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</string>
          </sizepolicy>
         </property>
         <property name="toolTip">
-         <string>This drop-down contains a number of common upload speeds (in MiB/s), please choose the one closest to your own. Do not put in your download speed; this setting is a measure of how fast a source you are likely to be for other users.</string>
+         <string>This drop-down contains a number of common upload speeds (in MiB/s),
+please choose the one closest to your own.
+Do not put in your download speed; this setting is a measure
+of how fast a source you are likely to be for other users.</string>
         </property>
        </widget>
       </item>

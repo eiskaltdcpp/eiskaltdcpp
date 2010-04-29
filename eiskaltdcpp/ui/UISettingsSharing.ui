@@ -541,14 +541,14 @@ if your system becomes slow while hasing files.</string>
           <widget class="QSpinBox" name="spinBox_UPLOAD">
            <property name="toolTip">
             <string>Configure the number of slots that other users can occupy
-to download files from you.
-A remote user can use only one slot for each hub that they're on with you.
-DC++ supports uploading file lists and files below 64 KiB
+to download files from you. A remote user can use only
+one slot for each hub that they're on with you.
+EiskaltDC++ supports uploading file lists and files below 64 KiB
 to other DC++ users without requiring a slot.
 There's a max of 3 connections in addition to normal slots,
 these are called mini slots.
-Note: If a user leaves the hub, DC++ will close his slots;
-if the user is back within 10 minutes, DC++ will grant him a slot.</string>
+Note: If a user leaves the hub, EiskaltDC++ will close his slots;
+if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</string>
            </property>
           </widget>
          </item>

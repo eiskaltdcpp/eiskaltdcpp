@@ -2879,7 +2879,8 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Adds magnet to download queue. If autosearch for alternatives is enabled in options, file will be downloaded without opening search dialog.</source>
+        <source>Adds magnet to download queue. If autosearch for alternatives is enabled
+in options, file will be downloaded without opening search dialog.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3097,16 +3098,6 @@ Ne is próbáld megérteni...</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select this mode if your computer is connected directly to the internet.
-Do not select this mode if you have a router or any external firewall.
-If your computer is not behind a router all you have to do is to choose
-this option and usually you don&apos;t need to alter anything more in the
-connection settings.
-However, if you have a software firewall installed, you may need
-further configuration in the firewall to allow Internet access for DC++.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select this mode if you are behind a firewall (router), and will set up
 the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
@@ -3143,6 +3134,15 @@ Choose this option if unsure.</source>
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select this mode if your computer is connected directly to the internet.
+Do not select this mode if you have a router or any external firewall.
+If your computer is not behind a router all you have to do is to choose
+this option and usually you don&apos;t need to alter anything more in the
+connection settings.
+However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3401,13 +3401,6 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>With this option enabled, DC++ will delete a file list whose speed
-was recognized as too slow.
-To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
-or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
         <translation type="unfinished"></translation>
@@ -3462,6 +3455,13 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled, EiskaltDC++ will delete a file list whose speed
+was recognized as too slow.
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
+or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3790,10 +3790,6 @@ For example: /usr/bin/mplayer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This drop-down contains a number of common upload speeds (in MiB/s), please choose the one closest to your own. Do not put in your download speed; this setting is a measure of how fast a source you are likely to be for other users.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <translation type="unfinished"></translation>
@@ -3806,6 +3802,13 @@ who sends private message to you.</source>
     <message>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This drop-down contains a number of common upload speeds (in MiB/s),
+please choose the one closest to your own.
+Do not put in your download speed; this setting is a measure
+of how fast a source you are likely to be for other users.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4036,14 +4039,14 @@ if your system becomes slow while hasing files.</source>
     </message>
     <message>
         <source>Configure the number of slots that other users can occupy
-to download files from you.
-A remote user can use only one slot for each hub that they&apos;re on with you.
-DC++ supports uploading file lists and files below 64 KiB
+to download files from you. A remote user can use only
+one slot for each hub that they&apos;re on with you.
+EiskaltDC++ supports uploading file lists and files below 64 KiB
 to other DC++ users without requiring a slot.
 There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
-Note: If a user leaves the hub, DC++ will close his slots;
-if the user is back within 10 minutes, DC++ will grant him a slot.</source>
+Note: If a user leaves the hub, EiskaltDC++ will close his slots;
+if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1885,14 +1885,14 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="516"/>
-        <location filename="../SearchFrame.cpp" line="806"/>
+        <location filename="../SearchFrame.cpp" line="804"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation>Слишком быстрая попытка нового поиска, подождите %1 секунд</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="520"/>
-        <location filename="../SearchFrame.cpp" line="802"/>
-        <location filename="../SearchFrame.cpp" line="810"/>
+        <location filename="../SearchFrame.cpp" line="800"/>
+        <location filename="../SearchFrame.cpp" line="808"/>
         <source>Search - %1</source>
         <translation>Поиск - %1</translation>
     </message>
@@ -2037,18 +2037,18 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Хабы</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="942"/>
-        <location filename="../SearchFrame.cpp" line="995"/>
+        <location filename="../SearchFrame.cpp" line="940"/>
+        <location filename="../SearchFrame.cpp" line="993"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1218"/>
+        <location filename="../SearchFrame.cpp" line="1216"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Результаты отсутствуют&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1227"/>
+        <location filename="../SearchFrame.cpp" line="1225"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Найдено: &lt;b&gt;%1&lt;/b&gt;  Отсеяно: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -2764,7 +2764,6 @@ Do you want to stop it?
     </message>
     <message>
         <location filename="../TransferView.cpp" line="309"/>
-        <location filename="../TransferView.cpp" line="672"/>
         <source>File list</source>
         <translation>Список файлов</translation>
     </message>
@@ -2894,7 +2893,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="47"/>
         <source>Copy IP-address of user</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать IP-адрес пользователя</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="59"/>
@@ -3195,18 +3194,18 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="36"/>
         <source>Favorite hub name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя избранного хаба.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="43"/>
         <source>IP address or DNS name of hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>IP адрес или DNS-имя хаба.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="201"/>
         <source>This description will show in the user list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это описание будет выводиться в списке пользователей.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="57"/>
@@ -3276,12 +3275,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="181"/>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Этот ник будет идентифицировать вас при входе на хаб.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="188"/>
         <source>If hub requires password, define it here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если хаб требует пароль, укажите его здесь.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="208"/>
@@ -3565,7 +3564,14 @@ p, li { white-space: pre-wrap; }
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="160"/>
+        <location filename="../ui/UIMagnet.ui" line="137"/>
+        <source>Adds magnet to download queue. If autosearch for alternatives is enabled
+in options, file will be downloaded without opening search dialog.</source>
+        <translation>Добавляет магнет в очередь загрузок. Если включен автопоиск альтернатив
+в настройках, файл будет загружен без открывания диалога поиска.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIMagnet.ui" line="161"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
@@ -3597,20 +3603,20 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIMagnet.ui" line="127"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Открывает диалог поиска и начинает поиск файла.</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="137"/>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled in options, file will be downloaded without opening search dialog.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Добавляет магнет в очередь загрузок. Если в настройках
+включен </translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="140"/>
+        <location filename="../ui/UIMagnet.ui" line="141"/>
         <source>Add to queue</source>
         <translation>Добавить в загрузки</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="169"/>
+        <location filename="../ui/UIMagnet.ui" line="170"/>
         <source>Remember my choose</source>
         <translation>Запомнить мой выбор</translation>
     </message>
@@ -3684,7 +3690,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="44"/>
         <source>IP address of DNS name of hub you want to connect.</source>
-        <translation type="unfinished"></translation>
+        <translation>IP адрес или DNS-имя хаба, к которому вы хотите подключиться.</translation>
     </message>
 </context>
 <context>
@@ -3717,7 +3723,7 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Активный режим</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="74"/>
+        <location filename="../ui/UISettingsConnection.ui" line="73"/>
         <source>Firewall with port forwarding</source>
         <translation>Роутер с пробросом портов</translation>
     </message>
@@ -3726,60 +3732,76 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Пассивный режим</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="57"/>
+        <location filename="../ui/UISettingsConnection.ui" line="56"/>
         <source>Active mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Активный режим</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="92"/>
+        <location filename="../ui/UISettingsConnection.ui" line="91"/>
         <source>Passive mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Пассивный режим</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="107"/>
+        <location filename="../ui/UISettingsConnection.ui" line="106"/>
         <source>Firewall with UPnP</source>
         <translation>Роутер с UPnP</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="132"/>
+        <location filename="../ui/UISettingsConnection.ui" line="131"/>
         <source>External/WAN IP:</source>
         <translation>Внешний IP (WAN):</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="139"/>
-        <location filename="../ui/UISettingsConnection.ui" line="281"/>
+        <location filename="../ui/UISettingsConnection.ui" line="138"/>
+        <location filename="../ui/UISettingsConnection.ui" line="280"/>
         <source>000.000.000.000; </source>
         <translation>000.000.000.000; </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="148"/>
+        <location filename="../ui/UISettingsConnection.ui" line="147"/>
         <source>TCP port</source>
         <translation>TCP порт</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="155"/>
+        <location filename="../ui/UISettingsConnection.ui" line="154"/>
         <source>UDP port</source>
         <translation>UDP порт</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="162"/>
+        <location filename="../ui/UISettingsConnection.ui" line="161"/>
         <source>TLS port</source>
         <translation>TLS порт</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="210"/>
+        <location filename="../ui/UISettingsConnection.ui" line="209"/>
         <source>Don&apos;t allow Hub/UPnP to override</source>
         <translation>Запретить хабу/UPnP переопределять</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="223"/>
+        <location filename="../ui/UISettingsConnection.ui" line="222"/>
         <source>Outgoing connections</source>
         <translation>Исходящие соединения</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="243"/>
+        <location filename="../ui/UISettingsConnection.ui" line="242"/>
         <source>Direct connection</source>
         <translation>Прямое подключение</translation>
+    </message>
+    <message>
+        <source>Select this mode if your computer is connected directly to the internet.
+Do not select this mode if you have a router or any external firewall.
+If your computer is not behind a router all you have to do is to choose
+this option and usually you don&apos;t need to alter anything more in the
+connection settings.
+However, if you have a software firewall installed, you may need
+further configuration in the firewall to allow Internet access for DC++.</source>
+        <translation type="obsolete">Выберите этот режим, если ваш компьютер подключен к интернету напрямую.
+Не выбирайте этот режим, если у вас есть роутер или внешний брандмауэр.
+Если ваш компьютер не находится за роутером всё что вы должны сделать —
+это выбрать эту опцию и обычно больше ничего не делать в настройках
+подключения.
+Однако, если у вас установлен программный брандмауэр, вам, возможно,
+понадобится разрешить доступ программе к сети Интернет.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="48"/>
@@ -3788,126 +3810,148 @@ Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
 this option and usually you don&apos;t need to alter anything more in the
 connection settings.
-However, if you have a software firewall installed, you may need
-further configuration in the firewall to allow Internet access for DC++.</source>
-        <translation type="unfinished"></translation>
+However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
+        <translation>Выберите этот режим, если ваш компьютер подключен к интернету напрямую.
+Не выбирайте этот режим, если у вас есть роутер или внешний брандмауэр.
+Если ваш компьютер не находится за роутером всё что вы должны сделать —
+это выбрать эту опцию и обычно больше ничего не делать в настройках
+подключения.
+Однако, если у вас установлен программный брандмауэр, вам, возможно,
+понадобится разрешить доступ EiskaltDC++ к сети Интернет.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="67"/>
+        <location filename="../ui/UISettingsConnection.ui" line="66"/>
         <source>Select this mode if you are behind a firewall (router), and will set up
 the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите этот режим, если вы находитесь за брандмауэром (роутером) и
+вручную установите пробрасываемые порты TCP, UDP и TLS.
+Вам нужно указать внешний IP адрес вашего роутера, используя настройки
+ниже, если хотите, чтобы загрузка работала правильно.
+Используйте этот режим, если предыдущие вам не подходят.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="84"/>
+        <location filename="../ui/UISettingsConnection.ui" line="83"/>
         <source>Select this mode if none of the previous modes apply. In this mode,
 EiskaltDC++ will not try to make inbound connections, only outbound ones.
 This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите этот режим, если предыдущие вам не подходят. В этом режиме
+EiskaltDC++ не будет пытаться установить исходящее соединение, а только
+принимать входящие. Этот режим обладает некоторыми ограничениями:
+  * только 5 результатов на пользователя при поиске;
+  * вы не сможете скачивать файлы с других пассивных пользователей;
+  * на некоторых хабах вы не сможете искать/скачивать файлы вообще.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="99"/>
+        <location filename="../ui/UISettingsConnection.ui" line="98"/>
         <source>Select this mode if you are behind a firewall/router that supports
 the UPnP standard for program auto-configuration.
 Most routers do support UPnP but you may need to enable it
 in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите этот режим, если вы находитесь за брандмауэром/роутером,
+который поддерживает стандарт UPnP для автонастройки программы.
+Большинство роутеров поддерживают UPnP, но, возможно, вам
+потребуется включить его в настройках роутера.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="238"/>
+        <location filename="../ui/UISettingsConnection.ui" line="237"/>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите этот режим, если у вы можете использовать любые исходящие
+подключения. Это значит - на любой IP-адрес по любому порту.
+Выберите эту опцию, если не уверены.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="253"/>
+        <location filename="../ui/UISettingsConnection.ui" line="252"/>
         <source>Select this mode if you want to make outbound connections through
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите этот режим, если хотите использовать исходящие соединения через
+SOCKS-прокси. С некоторыми оговорками, это работает и для пассивного режима.
+SOCKS5-прокси это не то же самое, что HTTP-прокси.
+Поддержка прокси в DC++ не включает GSSAPI.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="259"/>
+        <location filename="../ui/UISettingsConnection.ui" line="258"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="294"/>
+        <location filename="../ui/UISettingsConnection.ui" line="293"/>
         <source>IP</source>
         <translation>IP</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="301"/>
+        <location filename="../ui/UISettingsConnection.ui" line="300"/>
         <source>User</source>
         <translation>Пользователь</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="308"/>
+        <location filename="../ui/UISettingsConnection.ui" line="307"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="315"/>
+        <location filename="../ui/UISettingsConnection.ui" line="314"/>
         <source>Port</source>
         <translation>Порт</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="328"/>
+        <location filename="../ui/UISettingsConnection.ui" line="327"/>
         <source>00000; </source>
         <translation>00000; </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="335"/>
+        <location filename="../ui/UISettingsConnection.ui" line="334"/>
         <source>Use to resolve hostnames</source>
         <translation>Использовать для определения имён хостов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="362"/>
-        <location filename="../ui/UISettingsConnection.ui" line="377"/>
+        <location filename="../ui/UISettingsConnection.ui" line="361"/>
+        <location filename="../ui/UISettingsConnection.ui" line="376"/>
         <source>Limits</source>
         <translation>Ограничения</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="383"/>
+        <location filename="../ui/UISettingsConnection.ui" line="382"/>
         <source>Enable total speed limit</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить общее ограничение скорости</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="491"/>
+        <location filename="../ui/UISettingsConnection.ui" line="490"/>
         <source>Alternate speed limit at time from </source>
-        <translation type="unfinished"></translation>
+        <translation>Другое ограничение скорости от</translation>
     </message>
     <message>
         <source>On/Off speed limits</source>
         <translation type="obsolete">Общее ограничение скорости передач</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="416"/>
-        <location filename="../ui/UISettingsConnection.ui" line="567"/>
+        <location filename="../ui/UISettingsConnection.ui" line="415"/>
+        <location filename="../ui/UISettingsConnection.ui" line="566"/>
         <source>Download</source>
         <translation>Загрузка</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="430"/>
-        <location filename="../ui/UISettingsConnection.ui" line="464"/>
-        <location filename="../ui/UISettingsConnection.ui" line="581"/>
-        <location filename="../ui/UISettingsConnection.ui" line="615"/>
+        <location filename="../ui/UISettingsConnection.ui" line="429"/>
+        <location filename="../ui/UISettingsConnection.ui" line="463"/>
+        <location filename="../ui/UISettingsConnection.ui" line="580"/>
+        <location filename="../ui/UISettingsConnection.ui" line="614"/>
         <source>KiB/s</source>
         <translation>КиБ/с</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="450"/>
-        <location filename="../ui/UISettingsConnection.ui" line="601"/>
+        <location filename="../ui/UISettingsConnection.ui" line="449"/>
+        <location filename="../ui/UISettingsConnection.ui" line="600"/>
         <source>Upload</source>
         <translation>Отдача</translation>
     </message>
@@ -3916,17 +3960,17 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <translation type="obsolete">Другое ограничение в часы от</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="514"/>
+        <location filename="../ui/UISettingsConnection.ui" line="513"/>
         <source>to</source>
         <translation>до</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="528"/>
+        <location filename="../ui/UISettingsConnection.ui" line="527"/>
         <source>hour(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>час(а,ов)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="643"/>
+        <location filename="../ui/UISettingsConnection.ui" line="642"/>
         <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
 download speed/10 + (download speed - (download speed/10)*10)
 Do not try to understand it...</source>
@@ -4050,7 +4094,8 @@ download speed/10 + (download speed - (download speed/10)*10)
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="449"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверять каждые x секунд, не стала ли скорость источника
+слишком малой. (по умолчанию: 10 сек)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
@@ -4058,56 +4103,69 @@ download speed/10 + (download speed - (download speed/10)*10)
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это другой способ ограничения числа одновременных загрузок,
+основанный на том, что новые загрузки не начинаются, если общая
+скорость текущих загрузок превышает указанный предел. Она
+измеряется в кибибайтах в секунду, значение в нуле отключает
+действие этого ограничения.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта настройка ограничивает число одновременных загрузок.
+Значение 0 означает отсутствие ограничения.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="181"/>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Этот HTTP-прокси будет использоваться только для
+загрузки публичных списков списков хабов.
+Он не используется для загрузок, отдач или подключения к хабам.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="302"/>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлам с размером меньше указанного будет установлен
+Максимальный приоритет. (по умолчанию: 64КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="313"/>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлам с размером ниже указанного, но выше, указанного в опции
+Максимальный будет установлен Высокий приоритет. (по умолчанию: 0КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="324"/>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлам с размером ниже указанного, но выше указанного в опциях Максимальный
+и Высокий, будет установлен Нормальный приоритет. (по умолчанию: 0КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="335"/>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлам с размером ниже указанного, но выше, указанного в опциях Максимальный,
+Высокий и Нормальный, будет установлен Низкий приоритет. (по умолчанию 0КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Если скорость загрузки файла ниже указанной, источник
+будет исключён. (по умолчанию: 1024 Б/с)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="459"/>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Время (в секундах), в течение которого наблюдается низкая скорость, по
+истечении которого источник будет исключён. (по умолчанию: 15 сек)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="470"/>
@@ -4115,18 +4173,23 @@ started before a source can be dropped. (default: 15 s)</source>
 the file was recieved. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимальный интервал времени с последнего поступления данных.
+Нужен для улучшения точности измерения скорости и предотвращает
+исключение источников, которые должны бы были отключиться из-за
+их текущего неактивного состояния. (по умолчанию: 10 сек)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="483"/>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Минимальное количество источников, при котором будет производиться
+исключение медленных источников. (по умолчанию: 1)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="494"/>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Минимальный размер файла (в КиБ) перед исключением источника.
+(по умолчанию: 0КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="510"/>
@@ -4173,28 +4236,34 @@ will be dropped. (default: 1)</source>
         <source>With this enabled, files that are larger than Low prio max size
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если отмечено, файлам с размером, большим чем в опции Низкий
+будет установлен Минимальный приоритет.
+Если отключено, им будет установлен Нормальный приоритет.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="654"/>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта настройка удаляет медленные источники для всех элементов очереди
+(кроме файллистов). Для работы этой опции требуется включение опции
+&quot;Автоматический сброс медленных источников в очереди&quot; или опции
+&quot;Удалять медленные закачки списков файлов&quot; (или обеих опций).</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="670"/>
         <source>With this option enabled, DC++ will delete a file list whose speed
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Если отмечено, EiskaltDC++ будет удалять файллисты, скорость которых
+определена как слишком маленькая.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="687"/>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если отмечено, источники будут только отключаться, но
+не удаляться из очереди загрузок.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="702"/>
@@ -4204,7 +4273,12 @@ The autosearch will find exact matches by searching via hash.
 The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Каждые несколько минут клиент будет искать для файлов в вашей
+Очереди загрузок альтернативные источники загрузки (других пользователей
+с этими файлами). Автопоиск находит альтернативы по хэш-сумме.
+Недостаток в том, что альтернативные источники могут быть и не найдены,
+но при этом будет затруднено использование ручного поиска на хабах,
+на которых установлен интервал между попытками поиска.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="721"/>
@@ -4216,7 +4290,15 @@ for many more files you&apos;re downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation type="unfinished"></translation>
+        <translation>Опция включает автоматическую загрузку файллистов пользователей и
+поиск по ним файлов из вашей Очереди загрузок, если они могут быть
+истолкованы как источники загружаемых вами файлов.
+Если вы скачиваете набор (каталог) файлов, вполне вероятно, что
+пользователь, с которого вы скачиваете один файл, имеет и другие
+необходимые вам файлы. Включите опцию, если не уверены.
+Недостаток опции в том, что могут быть добавлены медленные источники,
+возможно увеличивающие время, необходимое для загрузки,
+и в том, ыто вы скачиваете большое количество файллистов.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="742"/>
@@ -4224,19 +4306,24 @@ and that you&apos;ll download a lot of file lists.</source>
 try to download will be silently skipped.
 Sometimes empty files contain information through their naming.
 However every file, even an empty one, will consume some drive space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если отмечено, при загрузке будут пропущены файлы
+с нулевым размером. Но помните, иногда файлы нулевого
+размера несут информацию посредством своего имени.
+В любом случае, даже пустой файл занимает некоторое место.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="759"/>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если отмечено, файлы, уже имеющиеся в расшаренных вами
+каталогах будут пропускаться при загрузке.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="774"/>
         <source>This option will stop you from downloading files
 which already exist in your queue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если отмечено, загрузка файлов, уже имеющиеся в
+очереди загрузок, будет остановлена.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="789"/>
@@ -4252,7 +4339,16 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Включите эту опцию, если хотите оставить файлы и каталоги в очереди
+загрузок по окончании их загрузки.
+По окончании загрузки элементы очереди загрузки будут иметь статус
+&apos;Завершено&apos; и вы можете удалить их из очереди в любое время.
+Используя эту функцию, вы можете контролировать, какие файлы были
+загружены, без необходимости вызова окна со списком загруженного.
+Имейте в виду, что при физическом удалении файла из их целевого
+расположения соответствующий элемент не будет удалён из очереди.
+Если вы отключите эту опцию, существующие элементы со статусом
+&apos;Завершено&apos; не будут удалены из очереди, вы должны сделать это вручную.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="651"/>
@@ -4263,6 +4359,18 @@ from the queue either, you must do that manually.</source>
         <location filename="../ui/UISettingsDownloads.ui" line="667"/>
         <source>Remove slow filelists</source>
         <translation>Удалять медленные закачки списков файлов</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="670"/>
+        <source>With this option enabled, EiskaltDC++ will delete a file list whose speed
+was recognized as too slow.
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
+or &quot;Remove slow file lists&quot; (or both of them).</source>
+        <translation>Если отмечено, EiskaltDC++ будет удалять файллисты, скорость которых
+определена как слишком маленькая.
+Для работы этой опции требуется включение опции
+&quot;Автоматический сброс медленных источников в очереди&quot; или опции
+&quot;Удалять медленные закачки списков файлов&quot; (или обеих опций).</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="684"/>
@@ -4282,7 +4390,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="836"/>
         <source>Interval for auto search alternates (minutes)</source>
-        <translation type="unfinished"></translation>
+        <translation>Интервал между автопоисками альтернатив (в минутах)</translation>
     </message>
     <message>
         <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
@@ -4400,7 +4508,9 @@ from the queue either, you must do that manually.</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если отмечено, вы будете видеть смайлы даже внутри слов.
+Если не отмечено, вы будете видеть смайлы, если только
+они изолированы от других слов пробелами.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="230"/>
@@ -4471,7 +4581,7 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="213"/>
         <source>Force emoticon parsing</source>
         <translatorcomment>Используется проверка не только на пробелы, но и на символ переноса строки.</translatorcomment>
-        <translation>Принудительная замена смайлов</translation>
+        <translation>Принудительное использование смайлов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="244"/>
@@ -4504,7 +4614,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="29"/>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
-        <translation type="unfinished"></translation>
+        <translation>Все отчёты, генерируемые EiskaltDC++, будут сохранены в этот каталог.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="46"/>
@@ -4643,7 +4753,9 @@ from other words by spaces.</source>
         <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation type="unfinished"></translation>
+        <translation>Если формат ваших звуковых файлов не поддерживается Qt, вы можете
+определить проигрыватель для их воспроизведения.
+Например: /usr/bin/mplayer</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="108"/>
@@ -4688,7 +4800,8 @@ For example: /usr/bin/mplayer</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="38"/>
         <source>This field is for sharing your email address, if you wish it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если хотите, можете указать в этом поле ваш электронный адрес,
+который будет виден другим пользователям.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="61"/>
@@ -4699,19 +4812,24 @@ For example: /usr/bin/mplayer</source>
         <location filename="../ui/UISettingsPersonal.ui" line="45"/>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это описание будет доступно в списке пользователей.
+Оно может быть переопределено для конкретного хаба
+в настройках избранных хабов.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="53"/>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если вы находитесь в режиме &apos;отошёл&apos;, это сообщение будет отослано
+каждому, кто посылает вам личное сообщение.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="68"/>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"></translation>
+        <translation>Этот ник будет идентифицировать вас при входе на хаб.
+Он может быть переопределён для конкретного хаба
+в настройках избранных хабов.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="76"/>
@@ -4731,24 +4849,34 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="118"/>
         <source>Line speed (upload)</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость линии (отдача)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="137"/>
+        <source>This drop-down contains a number of common upload speeds (in MiB/s),
+please choose the one closest to your own.
+Do not put in your download speed; this setting is a measure
+of how fast a source you are likely to be for other users.</source>
+        <translation>Этот выпадающий список содержит несколько типичных значений скорости
+(в МиБ/с), пожалуйста, выберите наиболее соответствующую вашей.
+Не указывайте скорость загрузки; эта настройка просто показывает,
+насколько быстро вы можете раздавать файлы другим пользователям.</translation>
+    </message>
+    <message>
         <source>This drop-down contains a number of common upload speeds (in MiB/s), please choose the one closest to your own. Do not put in your download speed; this setting is a measure of how fast a source you are likely to be for other users.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Этот выпадающий список содержит</translation>
     </message>
     <message>
         <source>Max upload speed</source>
         <translation type="obsolete">Максимальная скорость отдачи</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="163"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="166"/>
         <source>Default hub encoding</source>
         <translation>Кодировка хаба по умолчанию</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="150"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="153"/>
         <source>MiB/s</source>
         <translation>МиБ/с</translation>
     </message>
@@ -4768,7 +4896,8 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation type="unfinished"></translation>
+        <translation>Здесь вы можете указать шаблон для имени файлов, которые
+не хотите расшаривать.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="200"/>
@@ -4778,7 +4907,12 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Определяет ограничение загрузки (в ГиБ) для каждого &quot;виртуального&quot; каталога
+в вашей шаре. Например, если каталог /home/username/Video расшарен
+как &quot;Video&quot;, вы можете указать следующее:
+/Video	10
+Это будет означать, что пользователь, у которого расшарено меньше 10ГиБ,
+не сможет скачать у вас ничего из этого каталога.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="248"/>
@@ -4792,13 +4926,19 @@ the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
-        <translation type="unfinished"></translation>
+        <translation>Расшаривать файлы с атрибутом Скрытый и файлы внутри каталогов
+с этим атрибутом.
+Если опция отключена, файлы, начинающиеся с точки, не будут расшарены.
+Примечание: эта опция требует обновления файллиста, и может
+привести к некоторому притормаживанию клиента.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="300"/>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если не отметить эту опцию, выход из клиента до полного
+завершения обновления шары приведёт к тому, что при следующем
+запуске клиента шара будет отображена как нулевая.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="331"/>
@@ -4819,10 +4959,31 @@ share is complete, share at follow-up activities start nulled.</source>
         <location filename="../ui/UISettingsSharing.ui" line="519"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Здесь вы можете ограничить максимальную скорость хэширования,
+если ваша система притормаживает при хэшировании файлов.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="543"/>
+        <source>Configure the number of slots that other users can occupy
+to download files from you. A remote user can use only
+one slot for each hub that they&apos;re on with you.
+EiskaltDC++ supports uploading file lists and files below 64 KiB
+to other DC++ users without requiring a slot.
+There&apos;s a max of 3 connections in addition to normal slots,
+these are called mini slots.
+Note: If a user leaves the hub, EiskaltDC++ will close his slots;
+if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
+        <translation>Укажите количество доступных другим пользователям ваших слотов
+для загрузки файлов.
+Удалённый пользователь может использовать только один ваш слот
+на одом хабе. EiskaltDC++ поддерживает отдачу файллистов и файлов
+меньше 64КиБ другим пользователям DC++ без занятия слота.
+Доступно 3 таких соединения, помимо обычных слотов;
+они называются минислотами.
+Примечание: Если пользователь покидает хаб, EiskaltDC++ закроет
+его слот, если пользователь вернётся через 10 минут, ему будет выдан слот.</translation>
+    </message>
+    <message>
         <source>Configure the number of slots that other users can occupy
 to download files from you.
 A remote user can use only one slot for each hub that they&apos;re on with you.
@@ -4832,7 +4993,15 @@ There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, DC++ will close his slots;
 if the user is back within 10 minutes, DC++ will grant him a slot.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Укажите количество доступных другим пользователям ваших слотов
+для загрузки файлов.
+Удалённый пользователь может использовать только один ваш слот
+на одом хабе. DC++ поддерживает отдачу файллистов и файлов
+меньше 64КиБ другим пользователям DC++ без занятия слота.
+Доступно 3 таких соединения, помимо обычных слотов;
+они называются минислотами.
+Примечание: Если пользователь покидает хаб, EiskaltDC++ закроет
+его слот, если он вернётся через 10 минут, ему будет выдан слот.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="474"/>
@@ -4951,17 +5120,17 @@ to download from this folder</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="293"/>
         <source>Share temporary files</source>
-        <translation type="unfinished"></translation>
+        <translation>Расшаривать временные файлы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="304"/>
         <source>Run refresh share on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Обновлять шару при запуске программы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="311"/>
         <source>Auto remove non-existing directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматически удалять несуществующие каталоги</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="339"/>
@@ -5015,12 +5184,16 @@ an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
 If the speed of the original uploads increases,
 the granted slot will not be closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если средняя скорость отдачи ниже указанного значения,
+будет выделен дополнительный слот.
+Эти слоты выдаются максимум раз в 30 секунд.
+Если скорость имеющихся отдач возрастёт,
+дополнительные слоты не будут закрыты.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="490"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
-        <translation type="unfinished"></translation>
+        <translation>Здесь можно указать интервал автообновления вашей шары.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="506"/>

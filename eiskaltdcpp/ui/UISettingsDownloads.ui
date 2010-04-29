@@ -667,7 +667,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</string>
               <string>Remove slow filelists</string>
              </property>
              <property name="toolTip">
-              <string>With this option enabled, DC++ will delete a file list whose speed
+              <string>With this option enabled, EiskaltDC++ will delete a file list whose speed
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</string>
