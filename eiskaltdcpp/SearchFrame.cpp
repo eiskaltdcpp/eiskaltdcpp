@@ -563,8 +563,6 @@ void SearchFrame::onHubRemoved(SearchFrame::HubInfo* info){
         hub_list.remove(info->client);
 
         delete info;
-
-        listWidget_HUBS->repaint();
     }
 }
 
@@ -1339,20 +1337,31 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
     FUNC *func = new FUNC(this, &SearchFrame::addResult, map);
 
     QApplication::postEvent(this, new SearchCustomEvent(func));
-    //WulforManager::getInstance()->dispatchClientFunc(func);
 }
 
 void SearchFrame::on(ClientConnected, Client* c) throw(){
-    if (!hub_list.contains(c))
-        onHubAdded(new HubInfo(c, listWidget_HUBS));
+    typedef Func1<SearchFrame, HubInfo* > FUNC;
+
+    if (!hub_list.contains(c)){
+        FUNC *f = new FUNC(this, &SearchFrame::onHubAdded, new HubInfo(c, listWidget_HUBS));
+        QApplication::postEvent(this, new SearchCustomEvent(f));
+    }
 }
 
 void SearchFrame::on(ClientUpdated, Client* c) throw(){
-    if (hub_list.contains(c))
-        onHubChanged(hub_list[c]);
+    typedef Func1<SearchFrame, HubInfo* > FUNC;
+
+    if (hub_list.contains(c)){
+        FUNC *f = new FUNC(this, &SearchFrame::onHubChanged, hub_list[c]);
+        QApplication::postEvent(this, new SearchCustomEvent(f));
+    }
 }
 
 void SearchFrame::on(ClientDisconnected, Client* c) throw(){
-    if (hub_list.contains(c))
-        onHubRemoved(hub_list[c]);
+    typedef Func1<SearchFrame, HubInfo* > FUNC;
+
+    if (hub_list.contains(c)){
+        FUNC *f = new FUNC(this, &SearchFrame::onHubRemoved, hub_list[c]);
+        QApplication::postEvent(this, new SearchCustomEvent(f));
+    }
 }
