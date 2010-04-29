@@ -2229,7 +2229,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Copy IP-address of user</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier l&apos;adresse ip de l&apos;utilisateur</translation>
     </message>
 </context>
 <context>
@@ -2548,23 +2548,23 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Favorite hub name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom du serveur favoris.</translation>
     </message>
     <message>
         <source>IP address or DNS name of hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresse IP ou nom de DNS du serveur.</translation>
     </message>
     <message>
         <source>This description will show in the user list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cette description sera visible dans la liste d&apos;utilisateurs.</translation>
     </message>
     <message>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce surnom vous identifiera lorsque vous vous connectez à un serveur.</translation>
     </message>
     <message>
         <source>If hub requires password, define it here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si le serveur nécessite un mot de passe, précisez-le ici.</translation>
     </message>
 </context>
 <context>
@@ -2805,12 +2805,13 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvre la recherche et recherche le fichier.</translation>
     </message>
     <message>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajoute le magnet à la liste de téléchargement. Si la recherche automatique 
+de sources alternatives est activée, le fichier sera téléchargé sans ouvrir la fenêtre de recherche.</translation>
     </message>
 </context>
 <context>
@@ -2870,7 +2871,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>IP address of DNS name of hub you want to connect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresse IP ou nom de DNS du serveur auquel vous désirez vous connecter.</translation>
     </message>
 </context>
 <context>
@@ -2895,16 +2896,8 @@ in options, file will be downloaded without opening search dialog.</source>
         <translation>Connexions entrantes</translation>
     </message>
     <message>
-        <source>Active</source>
-        <translation type="obsolete">Active</translation>
-    </message>
-    <message>
         <source>Firewall with port forwarding</source>
         <translation>Par-feu avec redirection des ports</translation>
-    </message>
-    <message>
-        <source>Passive</source>
-        <translation type="obsolete">Passive</translation>
     </message>
     <message>
         <source>Firewall with UPnP</source>
@@ -2975,10 +2968,6 @@ in options, file will be downloaded without opening search dialog.</source>
         <translation>Limites</translation>
     </message>
     <message>
-        <source>On/Off speed limits</source>
-        <translation type="obsolete">Limites de vitesse On/Off</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Téléchargement</translation>
     </message>
@@ -2989,10 +2978,6 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <source>Upload</source>
         <translation>Envoi</translation>
-    </message>
-    <message>
-        <source>Alternate restrictions speed from </source>
-        <translation type="obsolete">Alterner les limitations de vitesse entre</translation>
     </message>
     <message>
         <source>to</source>
@@ -3007,24 +2992,20 @@ Vitesse de téléchargement/10 + (vitesse de téléchargement - (vitesse de tél
 N&apos;essayez pas de comprendre...</translation>
     </message>
     <message>
+        <source>Select this mode if your computer is connected directly to the internet.
+Do not select this mode if you have a router or any external firewall.
+If your computer is not behind a router all you have to do is to choose
+this option and usually you don&apos;t need to alter anything more in the
+connection settings.
+However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
+        <translation>Sélectionnez ce mode si votre ordinateur est connecté en direct à Internet.
+Ne sélectionnez pas ce mode si vous possédez un routeur ou tout autre par-feu .
+Si votre ordinateur n&apos;est pas derrière un routeur, il vous suffit de sélectionner cette option en général.
+Toutefois, si vous avez un par-feu d&apos;installé, vous aurez sûrement besoin de le configurer afin de permettre à EiskaltDC++ de se connecter correctement.</translation>
+    </message>
+    <message>
         <source>Active mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Passive mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable total speed limit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alternate speed limit at time from </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>hour(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode Actif</translation>
     </message>
     <message>
         <source>Select this mode if you are behind a firewall (router), and will set up
@@ -3032,7 +3013,11 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionnez ce mode si vous êtes derrière un par-feu (ou routeur), et
+spécifiez vos ports.
+Vous devrez spécifier l&apos;IP externe de votre routeur en utilisant
+les options ci-dessous si vous voulez que les téléchargements fonctionnent correctement.
+Utilisez ce mode seulement si aucun des autres ne vous conviennent.</translation>
     </message>
     <message>
         <source>Select this mode if none of the previous modes apply. In this mode,
@@ -3041,7 +3026,16 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisez ce mode seulement si aucun des autres ne vous conviennent.
+Dans ce mode EiskaltDC++ ne tentera pas de connections entrantes, seulement des sortantes.
+Ce mode est très limité:
+  * Seul 5 résultats par utilisateur lors d&apos;une recherche;
+  * Vous ne pourrez pas télécharger depuis d&apos;autres utilisateurs en mode passif;
+  * Il se peut que vous ne puissiez rechercher et/ou télécharger sur certains serveurs.</translation>
+    </message>
+    <message>
+        <source>Passive mode</source>
+        <translation>Mode passif</translation>
     </message>
     <message>
         <source>Select this mode if you are behind a firewall/router that supports
@@ -3050,29 +3044,42 @@ Most routers do support UPnP but you may need to enable it
 in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionnez ce mode si vous êtes derrière un par-feu/routeur qui 
+supporte le standard UPnP.
+La majorité des routeurs le supporte mais il se peut qu&apos;il soit nécessaire
+de l&apos;activer dans la configuration du routeur.
+Ainsi, EiskaltDC++ pourra automatiquement ouvrir les ports necéssaires 
+et déterminer votre IP externe par la même occasion.</translation>
     </message>
     <message>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionnez ce mode si vous pouvez effectuer des connections sortantes sans restrictions.
+Cela inclut une connection à n&apos;importe quelle IP sur n&apos;importe quel port.
+Choisissez cette option si vous n&apos;êtes pas sûr.</translation>
     </message>
     <message>
         <source>Select this mode if you want to make outbound connections through
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionnez ce mode si vous voulez vous connecter à travers un proxy SOCKS. 
+Les avertissements pour le mode passif sont valables ici.
+Les proxy SOCKS5 sont différents des proxy HTTP.
+Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
-        <source>Select this mode if your computer is connected directly to the internet.
-Do not select this mode if you have a router or any external firewall.
-If your computer is not behind a router all you have to do is to choose
-this option and usually you don&apos;t need to alter anything more in the
-connection settings.
-However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
-        <translation type="unfinished"></translation>
+        <source>Enable total speed limit</source>
+        <translation>Activé la limite de vitesse totale</translation>
+    </message>
+    <message>
+        <source>Alternate speed limit at time from </source>
+        <translation>Alterné la limite de vitesse à une tranche d&apos;horaires depuis </translation>
+    </message>
+    <message>
+        <source>hour(s)</source>
+        <translation>Heure(s)</translation>
     </message>
 </context>
 <context>
@@ -3234,97 +3241,111 @@ However, if you have a software firewall installed, you may need further configu
         <translation>Vérification SFV</translation>
     </message>
     <message>
-        <source>Advanced</source>
-        <translation type="unfinished">Avancé</translation>
-    </message>
-    <message>
-        <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Interval for auto search alternates (minutes)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>This is another method of limiting simultaneous downloads,
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ceci est une autre méthode pour limité les téléchargements simultanés
+désigné pour empêcher de nouveaux téléchargements si vos téléchargements actuels
+dépassent un seuil spécifique. Une valeur de 0 désactive cette limite.</translation>
     </message>
     <message>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ceci limite le nombres de téléchargement simultanés.
+0 veut dire pas de limite.</translation>
     </message>
     <message>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce proxy HTTP sera seulement utilisé pour obtenir 
+la liste publique des serveurs spécifiée ci-dessus.
+Non pas pour les envois, téléchargements, ou connections au serveurs.</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Les fichiers en dessous, ou avec la même taille spécifiée,
+seront marqués avec la priorité la plus haute (64KiB par défaut)</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Les fichiers en dessous, ou avec la même taille, mais au-dessus de Taille Max pour priorité la plus haute, seront marqués comme priorité Haute. (0 KiB par défaut)</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Les fichiers avec la même taille, ou en-dessous, mais au-dessus de Priorité la plus haute et Taille max pour haute priorité, seront marqués comme priorité normale. (0 Kib par défaut)</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Les fichiers avec la même taille ou en-dessous, mais au-dessus de la Priorité la plus haute, Taille max pour priorité Haute ET Normale, seront marqués comme priorité basse. (0 KiB par défaut)</translation>
     </message>
     <message>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Si la vitesse de téléchargement d&apos;un fichier est en-dessous de la valeur indiquée,
+la source sera abandonnée. (1024 B/s par défaut)</translation>
+    </message>
+    <message>
+        <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
+        <translation>Vérifier toute les x secondes si la source est lente. (10s par défaut)</translation>
     </message>
     <message>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Temps (en sec.) qui doit s&apos;écouler depuis que le téléchargement
+a commencé avant qu&apos;une source puisse être abandonnée. (15s par défaut)</translation>
     </message>
     <message>
         <source>This is the maximal time since the last chunk of data for
 the file was recieved. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ceci est le temps maximum écoulé pour la réception du dernier paquet d&apos;un fichier.
+L&apos;objectif est d&apos;améliorer les mesures de vitesses, et d&apos;empêcher la déconnection d&apos;une source 
+dans le cas où elle serait simplement temporairement inactive. (10s par défaut)</translation>
     </message>
     <message>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombres de sources minimum avant qu&apos;une
+quelconque source soit abandonnée. (1 par défaut)</translation>
+    </message>
+    <message>
+        <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
+        <translation>Taille minimum de fichier avant que les sources soient abandonnées (en KiB). (0 KiB par défaut)</translation>
     </message>
     <message>
         <source>With this enabled, files that are larger than Low prio max size
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si activé, les fichiers plus gros que la Taille max de priorité basse
+sont marqués avec la priorité la plus basse.
+Si désactivé, les fichiers seront marqués avec une priorité normale.</translation>
     </message>
     <message>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
+        <translation>Cette option retire les sources lentes depuis la liste de téléchargement (sauf listes de fichiers utilisateurs).
+Pour activé l&apos;abandon automatique, activé soit cette option, soit &quot;Retirer les listes de fichiers lentes &quot; (ou les deux).</translation>
+    </message>
+    <message>
+        <source>With this option enabled, EiskaltDC++ will delete a file list whose speed
+was recognized as too slow.
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
+or &quot;Remove slow file lists&quot; (or both of them).</source>
+        <translation>Si activé, EiskaltDC++ effacera une liste de fichiers utilisateur dont la vitesse
+de téléchargement a été jugé comme trop lente.</translation>
     </message>
     <message>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si activé, les sources seront seulement déconnectées, mais pas complètement supprimées.</translation>
     </message>
     <message>
         <source>Every few minutes, the client will search for files in your
@@ -3333,7 +3354,10 @@ The autosearch will find exact matches by searching via hash.
 The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Régulièrement, le client recherche des sources supplémentaires.
+Mais l&apos;inconvénient est que cela peut vous empêcher d&apos;effectuer 
+des recherches manuelles sur les serveurs limitant le nombre de recherches 
+dans un laps de temps.</translation>
     </message>
     <message>
         <source>Enable to automatically download a user&apos;s list and match them
@@ -3344,24 +3368,29 @@ for many more files you&apos;re downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation type="unfinished"></translation>
+        <translation>Activé pour télécharger automatiquement une liste de fichier utilisateur
+et la faire correspondre avec vos téléchargements en cous.
+Activé-le si vous n&apos;êtes pas sûr.</translation>
     </message>
     <message>
         <source>When this option is enabled, any zero byte files you
 try to download will be silently skipped.
 Sometimes empty files contain information through their naming.
 However every file, even an empty one, will consume some drive space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si activé, tout fichier de taille zéro sera ignoré de manière silencieuse.
+Certains fichiers vides peuvent contenir des informations dans leur noms.</translation>
     </message>
     <message>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si activé, vous ne pourrez pas télécharger des fichiers
+déjà présents dans votre partage.</translation>
     </message>
     <message>
         <source>This option will stop you from downloading files
 which already exist in your queue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si activé, vous ne pourrez pas télécharger de fichiers
+déjà présents dans votre liste d&apos;attente.</translation>
     </message>
     <message>
         <source>Enable this option if you want to keep downloaded files and folders
@@ -3376,14 +3405,17 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si activé, les téléchargements terminés ne disparaissent pas de votre liste d&apos;attente.
+Cela vous permet de garder une trace de vos téléchargements terminés sans
+avoir besoin de vérifier la page de téléchargements terminés dédiée.</translation>
     </message>
     <message>
-        <source>With this option enabled, EiskaltDC++ will delete a file list whose speed
-was recognized as too slow.
-To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
-or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
+        <source>Advanced</source>
+        <translation>Avancé</translation>
+    </message>
+    <message>
+        <source>Interval for auto search alternates (minutes)</source>
+        <translation>Intervalle pour la recherche automatique de sources supplémentaires (minutes)</translation>
     </message>
 </context>
 <context>
@@ -3524,7 +3556,8 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si activé, vous verrez les smileys aussi au sein des mots.
+Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</translation>
     </message>
 </context>
 <context>
@@ -3574,12 +3607,12 @@ from other words by spaces.</source>
         <translation>Messages d&apos;état</translation>
     </message>
     <message>
-        <source>Auto search alternates</source>
-        <translation type="unfinished"></translation>
+        <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
+        <translation>Tout les logs seront stockés dans ce sous répertoire.</translation>
     </message>
     <message>
-        <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
-        <translation type="unfinished"></translation>
+        <source>Auto search alternates</source>
+        <translation>Recherche auto de sources supplémentaires</translation>
     </message>
 </context>
 <context>
@@ -3664,7 +3697,9 @@ from other words by spaces.</source>
         <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation type="unfinished"></translation>
+        <translation>Si votre format de fichier son n&apos;est pas supporté par Qt, vous pouvez
+définir un autre lecteur ici.
+Par exemple: /usr/bin/mplayer</translation>
     </message>
 </context>
 <context>
@@ -3690,10 +3725,6 @@ For example: /usr/bin/mplayer</source>
         <translation>Message d&apos;absence</translation>
     </message>
     <message>
-        <source>Max upload speed</source>
-        <translation type="obsolete">Vitesse d&apos;envoi max</translation>
-    </message>
-    <message>
         <source>Default hub encoding</source>
         <translation>Encodage par défaut des serveurs</translation>
     </message>
@@ -3703,33 +3734,38 @@ For example: /usr/bin/mplayer</source>
     </message>
     <message>
         <source>This field is for sharing your email address, if you wish it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Line speed (upload)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce champs est pour partager votre adresse email si vous le désirez.</translation>
     </message>
     <message>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cette description apparaîtera dans la liste utilisateurs.
+Elle peut être écrasée pour certains serveurs présents dans les favoris.</translation>
     </message>
     <message>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si vous êtes en mode absent, ce message sera envoyé aux personnes
+qui vous enverront des messages privés.</translation>
     </message>
     <message>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce surnom vous identifie sur les serveurs.
+Il peut être personnalisé pour les serveurs présents dans vos favoris.</translation>
+    </message>
+    <message>
+        <source>Line speed (upload)</source>
+        <translation>Vitesse de connexion (envoi)</translation>
     </message>
     <message>
         <source>This drop-down contains a number of common upload speeds (in MiB/s),
 please choose the one closest to your own.
 Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
-        <translation type="unfinished"></translation>
+        <translation>Contient une liste de vitesses connues.
+Choisissez la plus proche de la vôtre.
+Ne mettez pas votre vitesse de téléchargement (!).</translation>
     </message>
 </context>
 <context>
@@ -3745,10 +3781,6 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <source>Use fast hash</source>
         <translation>Utiliser le scan rapide</translation>
-    </message>
-    <message>
-        <source>Share temp files</source>
-        <translation type="obsolete">Partager fichiers temporaires</translation>
     </message>
     <message>
         <source>Share hidden files</source>
@@ -3831,29 +3863,8 @@ of how fast a source you are likely to be for other users.</source>
         <translation>Éffacer</translation>
     </message>
     <message>
-        <source>Per folder limit specifies how many files in GiB
-remote user must share the to be able
-to download from this folder</source>
-        <translation type="obsolete">Pour la limite par répertoire spécifie combien de fichiers en GiB
-l&apos;utilisateur distant doit partager pour pouvoir
-télécharger depuis ce répertoire</translation>
-    </message>
-    <message>
         <source>Advanced</source>
         <translation>Avancé</translation>
-    </message>
-    <message>
-        <source>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</source>
-        <translatorcomment>WTF?</translatorcomment>
-        <translation type="obsolete">Si décoché le client sera ignoré jusqu&apos;à ce que la mise à jour du partage soit terminée, le partage par la suite démarre à 0.</translation>
-    </message>
-    <message>
-        <source>Run on startup refresh share </source>
-        <translation type="obsolete">Rafraîchir le partage au démarrage</translation>
-    </message>
-    <message>
-        <source>Auto remove not existing directories</source>
-        <translation type="obsolete">Retirer automatiquement les répertoires qui n&apos;existent plus</translation>
     </message>
     <message>
         <source>FastHash options (restart needed)</source>
@@ -3861,7 +3872,7 @@ télécharger depuis ce répertoire</translation>
     </message>
     <message>
         <source>Private page mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Arborescence de votre liste</translation>
     </message>
     <message>
         <source>No reserve</source>
@@ -3901,31 +3912,15 @@ télécharger depuis ce répertoire</translation>
     </message>
     <message>
         <source>Proactive read from disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Lecture proactive depuis le disque</translation>
     </message>
     <message>
         <source>Auto refresh time (minutes,0 = off)</source>
         <translation>Rafraichissement auto toutes les (en minutes, 0 = off)</translation>
     </message>
     <message>
-        <source>Share temporary files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Run refresh share on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto remove non-existing directories</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Here you can set time interval of auto refreshing your share.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation type="unfinished"></translation>
+        <translation>Ici vous pouvez choisir des modèles pour les fichiers que vous ne voulez pas partager. </translation>
     </message>
     <message>
         <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
@@ -3934,7 +3929,9 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Détermine la limite de téléchargement en GiB pour tout dossier &quot;virtuel&quot; de votre partage.
+Si vous spécifié par exemple une limite de 10 pour un dossier nommé &quot;Vidéo&quot;, les 
+utilisateurs ayant un partage total inférieur à 10GiB ne pourront pas télécharger depuis ce dossier.</translation>
     </message>
     <message>
         <source>Share files with the Hidden attribute set and files inside directory with
@@ -3942,7 +3939,11 @@ the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
-        <translation type="unfinished"></translation>
+        <translation>Partager les fichiers comme &quot;cachés&quot; ou les fichiers d&apos;un dossier.</translation>
+    </message>
+    <message>
+        <source>Share temporary files</source>
+        <translation>Partager les fichiers temporaires</translation>
     </message>
     <message>
         <source>If with uncheck this you will leave the client until the update
@@ -3950,17 +3951,32 @@ share is complete, share at follow-up activities start nulled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Run refresh share on startup</source>
+        <translation>Mettre à jour le partage au démarrage</translation>
+    </message>
+    <message>
+        <source>Auto remove non-existing directories</source>
+        <translation>Retirer automatiquement les dossiers qui n&apos;existent plus</translation>
+    </message>
+    <message>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
 If the speed of the original uploads increases,
 the granted slot will not be closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si la vitesse moyenne d&apos;envoi descend en dessous du chiffre spécifié,
+un slot supplémentaire sera ouvert.
+Ce slot ne sera pas fermé si la vitesse repasse au dessus du seuil.</translation>
+    </message>
+    <message>
+        <source>Here you can set time interval of auto refreshing your share.</source>
+        <translation>Ici vous pouvez spécifier l&apos;intervale de temps pour le rafraichissement auto de votre partage.</translation>
     </message>
     <message>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous pouvez limiter la vitesse de scan si votre système
+devient trop lent lors du scan de votre partage.</translation>
     </message>
     <message>
         <source>Configure the number of slots that other users can occupy
@@ -3972,7 +3988,13 @@ There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Détermine le nombre de slots disponible pour les utilisateurs
+téléchargement chez vous. L&apos;envoi de liste de fichiers et de tout fichiers
+en dessous de 64 KiB n&apos;occupe pas de slot. Ceci se fait dans une limite de
+trois slots maximum au dessus du nombre de slots spécifié. On les appelle
+les minislots.
+Note: Si un utilisateur quitte le serveur, le slot sera fermé ; s&apos;il revient dans
+les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
 </context>
 <context>
