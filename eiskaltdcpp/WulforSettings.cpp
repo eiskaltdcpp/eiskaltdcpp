@@ -30,6 +30,8 @@ WulforSettings::WulforSettings():
         configFile(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml"),
         tor(0)
 {
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+
     qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
     qApp->installTranslator(&qtTranslator);
 
@@ -168,7 +170,7 @@ void WulforSettings::load(){
 
             for (; it != strmap.end(); ++it){
                 if (xml.findChild(it.key().toStdString()))
-                    setStr(it.key(), QString::fromStdString(xml.getChildData()));
+                    setStr(it.key(), QTextCodec::codecForCStrings()->fromUnicode(xml.getChildData().c_str()));
 
                 xml.resetCurrentChild();
             }
