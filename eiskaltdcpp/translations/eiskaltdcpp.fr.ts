@@ -2227,6 +2227,10 @@ Voulez-vous l&apos;arrêter?</translation>
         <source>Remove Source</source>
         <translation>Retirer la source</translation>
     </message>
+    <message>
+        <source>Copy IP-address of user</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TransferViewModel</name>
@@ -2859,7 +2863,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Active</source>
-        <translation>Active</translation>
+        <translation type="obsolete">Active</translation>
     </message>
     <message>
         <source>Firewall with port forwarding</source>
@@ -2867,7 +2871,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Passive</source>
-        <translation>Passive</translation>
+        <translation type="obsolete">Passive</translation>
     </message>
     <message>
         <source>Firewall with UPnP</source>
@@ -2939,7 +2943,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>On/Off speed limits</source>
-        <translation>Limites de vitesse On/Off</translation>
+        <translation type="obsolete">Limites de vitesse On/Off</translation>
     </message>
     <message>
         <source>Download</source>
@@ -2955,7 +2959,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Alternate restrictions speed from </source>
-        <translation>Alterner les limitations de vitesse entre</translation>
+        <translation type="obsolete">Alterner les limitations de vitesse entre</translation>
     </message>
     <message>
         <source>to</source>
@@ -2968,6 +2972,61 @@ Do not try to understand it...</source>
         <translation>La restriction de vitesse d&apos;envoi est associée à la restriction de vitesse de téléchargement grâce à la formule sly:
 Vitesse de téléchargement/10 + (vitesse de téléchargement - (vitesse de téléchargement/10)*10)
 N&apos;essayez pas de comprendre...</translation>
+    </message>
+    <message>
+        <source>Select this mode if your computer is connected directly to the internet.
+Do not select this mode if you have a router or any external firewall.
+If your computer is not behind a router all you have to do is to choose this option and usually you don&apos;t need to alter anything more in the connection settings.
+However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for DC++.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select this mode if you are behind a firewall (router), and will set up the TCP, UDP and TLS port forwarding on your own.
+You will need to specify the external IP address of your router using the setting below if you want downloads to work properly.
+Use this mode only if the previous ones are not options for you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select this mode if none of the previous modes apply. In this mode, DC++ will not try to make inbound connections, only outbound ones. This mode carries some serious limitations:
+  * only 5 results per user will be returned in response to searches;
+  * you will not be able to download from other passive users;
+  * you may won&apos;t be able to search and/or download on certain hubs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Passive mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select this mode if you are behind a firewall/router that supports the UPnP standard for program auto-configuration. Most routers do support UPnP but you may need to enable it in the router&apos;s configuration page.
+This way DC++ will automatically open the ports it needs and obtain your external IP address as well.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select this mode if you can make unrestricted outbound connections. This includes connecting to any IP address on any port.
+Choose this option if unsure.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select this mode if you want to make outbound connections through a SOCKS proxy. The caveats for Passive mode also apply here.
+SOCKS5 proxies are not the same as HTTP proxies. DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable total speed limit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alternate speed limit at time from </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hour(s)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3129,15 +3188,105 @@ N&apos;essayez pas de comprendre...</translation>
         <translation>Vérification SFV</translation>
     </message>
     <message>
-        <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Advanced</source>
         <translation type="unfinished">Avancé</translation>
     </message>
     <message>
-        <source>Interval for auto search alternates(minutes)</source>
+        <source>This is another method of limiting simultaneous downloads, designed to prevent new downloads if your existing downloads exceed a specific threshold. It&apos;s measured in kibibytes per second, and a value of zero will disable this limit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This limits the number of simultaneous downloads. A value of 0 means no limit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This HTTP proxy will only be used to request the Public Hub List specified above. It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Files with the same or under the entered size will be set to Highest as priority. (default: 64 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Files with the same or under the entered size, but above Highest prio max size, will be set to High as priority. (default: 0 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Files with the same or under the entered size, but above Highest and High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Files with the same or under the entered size, but above Highest, High and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If the download speed of a file is below the entered value, the source will be dropped. (default: 1024 B/s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amount of time (in seconds) that has to pass since the download started before a source can be dropped. (default: 15 s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is the maximal time since the last chunk of data for the file was recieved. It is meant to improve speed measurement accuracy and to prevent dropping sources that are going to be disconnected only because of their current inactivity. (default: 10 s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimum amount of sources before any sources will be dropped. (default: 1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this enabled, files that are larger than Low prio max size are set to Lowest as priority. If disabled, the files will be set to Normal as priority.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This option removes the slow sources for all queue items (except file lists).
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot; or &quot;Remove slow file lists&quot; (or both of them).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled, DC++ will delete a file list whose speed was recognized as too slow.
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot; or &quot;Remove slow file lists&quot; (or both of them).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled, sources will only be disconnected but not removed from the queue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every few minutes, the client will search for files in your Download Queue to find more download locations (more users/sources). The autosearch will find exact matches by searching via hash.  The drawback is that it may won&apos;t find much more sources and will prevent manual searches on hubs where a predefined search interval rule is in effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable to automatically download a user&apos;s list and match them as sources for files in your Download Queue when they&apos;ve been discovered as a source for one of the files you&apos;re downloading. If you download files in sets, that user is probably a source for many more files you&apos;re downloading. Enable if unsure. The drawbacks are that it might add slower sources, possibly increasing the time needed to complete a download, and that you&apos;ll download a lot of file lists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When this option is enabled, any zero byte files you try to download will be silently skipped. Sometimes empty files contain information through their naming. However every file, even an empty one, will consume some drive space.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This option will stop you from downloading files which already exist in one of your shared directories.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This option will stop you from downloading files which already exist in your queue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable this option if you want to keep downloaded files and folders in the download queue after they have been finished. After downloaded the queue items will have &apos;Finished&apos; status and you can delete these finished entries anytime later. Using this function you can keep track of what files are already downloaded right there in the download queue without the need of checking the Finished Downloads window. Note that if you physically move/delete your downloaded files from their target location, it won&apos;t result automatic deletion of the corresponding finished entries from the queue. If you disable this function, it won&apos;t remove existing finished items from the queue either, you must do that manually.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Interval for auto search alternates (minutes)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3275,6 +3424,11 @@ N&apos;essayez pas de comprendre...</translation>
         <source>The height of the text entry field</source>
         <translation>La hauteur du champ d&apos;entrée du texte</translation>
     </message>
+    <message>
+        <source>If checked, you&apos;ll see smiles everywhere, even in the middle of words.
+If unchecked, you&apos;ll see smiles only if they isolated from other words by spaces.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -3324,6 +3478,10 @@ N&apos;essayez pas de comprendre...</translation>
     </message>
     <message>
         <source>Auto search alternates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3405,6 +3563,11 @@ N&apos;essayez pas de comprendre...</translation>
         <source>Enable notifications with active main window</source>
         <translation>Activer les notifications lorsque la fenêtre principale est active</translation>
     </message>
+    <message>
+        <source>If your sound files&apos; format is unsupported by Qt, you can define custom media player here to play them.
+For example: /usr/bin/mplayer</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsPersonal</name>
@@ -3430,7 +3593,7 @@ N&apos;essayez pas de comprendre...</translation>
     </message>
     <message>
         <source>Max upload speed</source>
-        <translation>Vitesse d&apos;envoi max</translation>
+        <translation type="obsolete">Vitesse d&apos;envoi max</translation>
     </message>
     <message>
         <source>Default hub encoding</source>
@@ -3439,6 +3602,26 @@ N&apos;essayez pas de comprendre...</translation>
     <message>
         <source>MiB/s</source>
         <translation>MiB/s</translation>
+    </message>
+    <message>
+        <source>This field is for sharing your email address, if you wish it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This description will show in the user list. It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This nickname, or handle, will identify you when you join a hub. It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line speed (upload)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This drop-down contains a number of common upload speeds (in MiB/s), please choose the one closest to your own. Do not put in your download speed; this setting is a measure of how fast a source you are likely to be for other users.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3457,7 +3640,7 @@ N&apos;essayez pas de comprendre...</translation>
     </message>
     <message>
         <source>Share temp files</source>
-        <translation>Partager fichiers temporaires</translation>
+        <translation type="obsolete">Partager fichiers temporaires</translation>
     </message>
     <message>
         <source>Share hidden files</source>
@@ -3558,11 +3741,11 @@ télécharger depuis ce répertoire</translation>
     </message>
     <message>
         <source>Run on startup refresh share </source>
-        <translation>Rafraîchir le partage au démarrage</translation>
+        <translation type="obsolete">Rafraîchir le partage au démarrage</translation>
     </message>
     <message>
         <source>Auto remove not existing directories</source>
-        <translation>Retirer automatiquement les répertoires qui n&apos;existent plus</translation>
+        <translation type="obsolete">Retirer automatiquement les répertoires qui n&apos;existent plus</translation>
     </message>
     <message>
         <source>FastHash options (restart needed)</source>
@@ -3615,6 +3798,50 @@ télécharger depuis ce répertoire</translation>
     <message>
         <source>Auto refresh time (minutes,0 = off)</source>
         <translation>Rafraichissement auto toutes les (en minutes, 0 = off)</translation>
+    </message>
+    <message>
+        <source>Here you can specify download limit (in GiB) per any &quot;virtual&quot; folder from your share. For example, if you have /home/username/Video folder shared as &quot;Video&quot; you can specify following:
+/Video	10
+It means that any user who have less then 10GiB shared will be unable to download any files from this folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Here you can specify filename templates for files which you don&apos;t want to share. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Share files with the Hidden attribute set and files inside directory with the Hidden attribute set. With this option off, files starting with a . (full stop) will not be shared.
+Note: this option requires a refresh of the file list, and may cause the client to appear to freeze.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Share temporary files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run refresh share on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto remove non-existing directories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If the average upload speed drops below the given number, an additional upload slot will be granted. These slots are granted once every 30 seconds at maximum. If the speed of the original uploads increases, the granted slot will not be closed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Here you can set time interval of auto refreshing your share.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can limit maximum hash speed here if your system becomes slow while hasing files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure the number of slots that other users can occupy to download files from you. A remote user can use only one slot for each hub that they&apos;re on with you. DC++ supports uploading file lists and files below 64 KiB to other DC++ users without requiring a slot. There&apos;s a max of 3 connections in addition to normal slots, these are called mini slots.
+Note: If a user leaves the hub, DC++ will close his slots; if the user is back within 10 minutes, DC++ will grant him a slot.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -44,8 +44,14 @@
              </property>
              <item row="1" column="0">
               <widget class="QRadioButton" name="radioButton_ACTIVE">
+               <property name="toolTip">
+                <string>Select this mode if your computer is connected directly to the internet.
+Do not select this mode if you have a router or any external firewall.
+If your computer is not behind a router all you have to do is to choose this option and usually you don't need to alter anything more in the connection settings.
+However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for DC++.</string>
+               </property>
                <property name="text">
-                <string>Active</string>
+                <string>Active mode</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -54,6 +60,11 @@
              </item>
              <item row="2" column="0">
               <widget class="QRadioButton" name="radioButton_PORT">
+               <property name="toolTip">
+                <string>Select this mode if you are behind a firewall (router), and will set up the TCP, UDP and TLS port forwarding on your own.
+You will need to specify the external IP address of your router using the setting below if you want downloads to work properly.
+Use this mode only if the previous ones are not options for you.</string>
+               </property>
                <property name="text">
                 <string>Firewall with port forwarding</string>
                </property>
@@ -64,13 +75,23 @@
              </item>
              <item row="4" column="0">
               <widget class="QRadioButton" name="radioButton_PASSIVE">
+               <property name="toolTip">
+                <string>Select this mode if none of the previous modes apply. In this mode, DC++ will not try to make inbound connections, only outbound ones. This mode carries some serious limitations:
+  * only 5 results per user will be returned in response to searches;
+  * you will not be able to download from other passive users;
+  * you may won't be able to search and/or download on certain hubs.</string>
+               </property>
                <property name="text">
-                <string>Passive</string>
+                <string>Passive mode</string>
                </property>
               </widget>
              </item>
              <item row="3" column="0">
               <widget class="QRadioButton" name="radioButton_UPNP">
+               <property name="toolTip">
+                <string>Select this mode if you are behind a firewall/router that supports the UPnP standard for program auto-configuration. Most routers do support UPnP but you may need to enable it in the router's configuration page.
+This way DC++ will automatically open the ports it needs and obtain your external IP address as well.</string>
+               </property>
                <property name="text">
                 <string>Firewall with UPnP</string>
                </property>
@@ -202,6 +223,10 @@
              </property>
              <item row="1" column="0">
               <widget class="QRadioButton" name="radioButton_DC">
+               <property name="toolTip">
+                <string>Select this mode if you can make unrestricted outbound connections. This includes connecting to any IP address on any port.
+Choose this option if unsure.</string>
+               </property>
                <property name="text">
                 <string>Direct connection</string>
                </property>
@@ -212,6 +237,10 @@
              </item>
              <item row="2" column="0">
               <widget class="QRadioButton" name="radioButton_SOCKS">
+               <property name="toolTip">
+                <string>Select this mode if you want to make outbound connections through a SOCKS proxy. The caveats for Passive mode also apply here.
+SOCKS5 proxies are not the same as HTTP proxies. DC++'s SOCKS5 support does not include GSSAPI.</string>
+               </property>
                <property name="text">
                 <string>SOCKS5</string>
                </property>
@@ -337,7 +366,7 @@
           <item>
            <widget class="QCheckBox" name="checkBox_THROTTLE_ENABLE">
             <property name="text">
-             <string>On/Off speed limits</string>
+             <string>Enable total speed limit</string>
             </property>
            </widget>
           </item>
@@ -445,7 +474,7 @@
                <item>
                 <widget class="QCheckBox" name="checkBox_TIME_DEPENDENT_THROTTLE">
                  <property name="text">
-                  <string>Alternate restrictions speed from </string>
+                  <string>Alternate speed limit at time from </string>
                  </property>
                 </widget>
                </item>
@@ -476,6 +505,13 @@
                    <widget class="QSpinBox" name="spinBox_BANDWIDTH_LIMIT_END">
                     <property name="maximum">
                      <number>23</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_19">
+                    <property name="text">
+                     <string>hour(s)</string>
                     </property>
                    </widget>
                   </item>

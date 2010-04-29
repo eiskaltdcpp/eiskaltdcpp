@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>374</width>
-    <height>356</height>
+    <height>384</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -309,7 +309,12 @@
            <number>1</number>
           </property>
           <item row="0" column="0">
-           <widget class="QLineEdit" name="lineEdit_SNDCMD"/>
+           <widget class="QLineEdit" name="lineEdit_SNDCMD">
+            <property name="toolTip">
+             <string>If your sound files' format is unsupported by Qt, you can define custom media player here to play them.
+For example: /usr/bin/mplayer</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>

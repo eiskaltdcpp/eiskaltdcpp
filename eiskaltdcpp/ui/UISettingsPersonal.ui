@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>287</width>
-    <height>270</height>
+    <height>299</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -33,10 +33,18 @@
        <number>0</number>
       </property>
       <item row="3" column="0" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_EMAIL"/>
+       <widget class="QLineEdit" name="lineEdit_EMAIL">
+        <property name="toolTip">
+         <string>This field is for sharing your email address, if you wish it.</string>
+        </property>
+       </widget>
       </item>
       <item row="5" column="0" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_DESC"/>
+       <widget class="QLineEdit" name="lineEdit_DESC">
+        <property name="toolTip">
+         <string>This description will show in the user list. It can be overridden on a per-hub basis in the Favorite Hub Properties.</string>
+        </property>
+       </widget>
       </item>
       <item row="7" column="0" colspan="2">
        <widget class="QLineEdit" name="lineEdit_AWAYMSG"/>
@@ -49,7 +57,11 @@
        </widget>
       </item>
       <item row="1" column="0" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_NICK"/>
+       <widget class="QLineEdit" name="lineEdit_NICK">
+        <property name="toolTip">
+         <string>This nickname, or handle, will identify you when you join a hub. It can be overridden on a per-hub basis in the Favorite Hub Properties.</string>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_2">
@@ -96,7 +108,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Max upload speed</string>
+         <string>Line speed (upload)</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -113,6 +125,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>This drop-down contains a number of common upload speeds (in MiB/s), please choose the one closest to your own. Do not put in your download speed; this setting is a measure of how fast a source you are likely to be for other users.</string>
         </property>
        </widget>
       </item>

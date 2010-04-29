@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>416</width>
-    <height>383</height>
+    <height>425</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -204,6 +204,10 @@
        </item>
        <item>
         <widget class="QCheckBox" name="checkBox_EMOTFORCE">
+         <property name="toolTip">
+          <string>If checked, you'll see smiles everywhere, even in the middle of words.
+If unchecked, you'll see smiles only if they isolated from other words by spaces.</string>
+         </property>
          <property name="text">
           <string>Force emoticon parsing</string>
          </property>

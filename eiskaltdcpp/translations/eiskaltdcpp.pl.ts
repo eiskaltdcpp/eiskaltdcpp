@@ -2749,151 +2749,156 @@ Chcesz go zatrzymać?
 <context>
     <name>TransferView</name>
     <message>
-        <location filename="../TransferView.cpp" line="49"/>
+        <location filename="../TransferView.cpp" line="53"/>
         <source>Remove Source</source>
         <translation>Usuń źródło</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="280"/>
+        <location filename="../TransferView.cpp" line="286"/>
         <source>Download complete</source>
         <translation>Pobieranie zakończone</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="303"/>
-        <location filename="../TransferView.cpp" line="654"/>
+        <location filename="../TransferView.cpp" line="309"/>
+        <location filename="../TransferView.cpp" line="672"/>
         <source>File list</source>
         <translation>Lista plików</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="305"/>
+        <location filename="../TransferView.cpp" line="311"/>
         <source>TTH: </source>
         <translation>TTH: </translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="456"/>
+        <location filename="../TransferView.cpp" line="474"/>
         <source>Requesting</source>
         <translation>Żadania</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="470"/>
+        <location filename="../TransferView.cpp" line="488"/>
         <source>Download starting...</source>
         <translation>Pobieranie rozpoczęte...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="491"/>
-        <location filename="../TransferView.cpp" line="705"/>
+        <location filename="../TransferView.cpp" line="509"/>
+        <location filename="../TransferView.cpp" line="723"/>
         <source>[S]</source>
         <translation>[S]</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="493"/>
-        <location filename="../TransferView.cpp" line="707"/>
+        <location filename="../TransferView.cpp" line="511"/>
+        <location filename="../TransferView.cpp" line="725"/>
         <source>[U]</source>
         <translation>[U]</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="497"/>
+        <location filename="../TransferView.cpp" line="515"/>
         <source>[T]</source>
         <translation>[T]</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="499"/>
-        <location filename="../TransferView.cpp" line="710"/>
+        <location filename="../TransferView.cpp" line="517"/>
+        <location filename="../TransferView.cpp" line="728"/>
         <source>[Z]</source>
         <translation>[Z]</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="501"/>
+        <location filename="../TransferView.cpp" line="519"/>
         <source>Downloaded %1</source>
         <translation>Pobrano %1</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="502"/>
+        <location filename="../TransferView.cpp" line="520"/>
         <source> (%1%)</source>
         <translation> (%1%)</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="523"/>
+        <location filename="../TransferView.cpp" line="541"/>
         <source>Download complete...</source>
         <translation>Pobieranie zakończone...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="566"/>
+        <location filename="../TransferView.cpp" line="584"/>
         <source>Connecting...</source>
         <translation>Łączenie...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="593"/>
+        <location filename="../TransferView.cpp" line="611"/>
         <source>Connected</source>
         <translation>Połączono</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="633"/>
+        <location filename="../TransferView.cpp" line="651"/>
         <source>Connecting</source>
         <translation>Łączenie</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="635"/>
+        <location filename="../TransferView.cpp" line="653"/>
         <source>No download slots</source>
         <translation>Brak wolnych slotów</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="637"/>
+        <location filename="../TransferView.cpp" line="655"/>
         <source>Waiting to retry</source>
         <translation>Oczekiwanie na wznowienie</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="684"/>
+        <location filename="../TransferView.cpp" line="702"/>
         <source>Upload starting...</source>
         <translation>Rozpoczęto wysyłanie...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="712"/>
+        <location filename="../TransferView.cpp" line="730"/>
         <source> Uploaded %1 (%2%) </source>
         <translation> Wysłano %1 (%2%) </translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="735"/>
+        <location filename="../TransferView.cpp" line="753"/>
         <source>Upload complete</source>
         <translation>Wysyłanie zakończone</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="750"/>
+        <location filename="../TransferView.cpp" line="768"/>
         <source>Upload failed</source>
         <translation>Wysyłanie nie powiodło się</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="31"/>
+        <location filename="../TransferView.cpp" line="32"/>
         <source>Browse files</source>
         <translation>Przeglądaj pliki</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="34"/>
+        <location filename="../TransferView.cpp" line="35"/>
         <source>Match Queue</source>
         <translation>Porównaj kolejkę</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="37"/>
+        <location filename="../TransferView.cpp" line="38"/>
         <source>Send Private Message</source>
         <translation>Wyślij wiadomość prywatną(PM)</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="40"/>
+        <location filename="../TransferView.cpp" line="41"/>
         <source>Add to favorites</source>
         <translation>Dodaj do ulubionych</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="43"/>
+        <location filename="../TransferView.cpp" line="44"/>
         <source>Grant extra slot</source>
         <translation>Przyznaj extra slot</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="55"/>
+        <location filename="../TransferView.cpp" line="47"/>
+        <source>Copy IP-address of user</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../TransferView.cpp" line="59"/>
         <source>Force attempt</source>
         <translation>Wymuś połączenie</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="58"/>
+        <location filename="../TransferView.cpp" line="62"/>
         <source>Close connection(s)</source>
         <translation>Zamknij połączenie(a)</translation>
     </message>
@@ -3663,144 +3668,206 @@ p, li { white-space: pre-wrap; }
         <translation>Połączenia przychodzące</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="48"/>
         <source>Active</source>
-        <translation>Tryb aktywny</translation>
+        <translation type="obsolete">Tryb aktywny</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="58"/>
+        <location filename="../ui/UISettingsConnection.ui" line="69"/>
         <source>Firewall with port forwarding</source>
         <translation>Firewall z przekierowaniem portów</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="68"/>
         <source>Passive</source>
-        <translation>Tryb pasywny</translation>
+        <translation type="obsolete">Tryb pasywny</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="75"/>
+        <location filename="../ui/UISettingsConnection.ui" line="48"/>
+        <source>Select this mode if your computer is connected directly to the internet.
+Do not select this mode if you have a router or any external firewall.
+If your computer is not behind a router all you have to do is to choose this option and usually you don&apos;t need to alter anything more in the connection settings.
+However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for DC++.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="54"/>
+        <source>Active mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="64"/>
+        <source>Select this mode if you are behind a firewall (router), and will set up the TCP, UDP and TLS port forwarding on your own.
+You will need to specify the external IP address of your router using the setting below if you want downloads to work properly.
+Use this mode only if the previous ones are not options for you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="79"/>
+        <source>Select this mode if none of the previous modes apply. In this mode, DC++ will not try to make inbound connections, only outbound ones. This mode carries some serious limitations:
+  * only 5 results per user will be returned in response to searches;
+  * you will not be able to download from other passive users;
+  * you may won&apos;t be able to search and/or download on certain hubs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="85"/>
+        <source>Passive mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="92"/>
+        <source>Select this mode if you are behind a firewall/router that supports the UPnP standard for program auto-configuration. Most routers do support UPnP but you may need to enable it in the router&apos;s configuration page.
+This way DC++ will automatically open the ports it needs and obtain your external IP address as well.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="96"/>
         <source>Firewall with UPnP</source>
         <translation>Firewall z UPnP</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="100"/>
+        <location filename="../ui/UISettingsConnection.ui" line="121"/>
         <source>External/WAN IP:</source>
         <translation>Zewnętrzne IP (WAN):</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="107"/>
-        <location filename="../ui/UISettingsConnection.ui" line="238"/>
+        <location filename="../ui/UISettingsConnection.ui" line="128"/>
+        <location filename="../ui/UISettingsConnection.ui" line="267"/>
         <source>000.000.000.000; </source>
         <translation>000.000.000.000; </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="116"/>
+        <location filename="../ui/UISettingsConnection.ui" line="137"/>
         <source>TCP port</source>
         <translation>Port TCP</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="123"/>
+        <location filename="../ui/UISettingsConnection.ui" line="144"/>
         <source>UDP port</source>
         <translation>Port UDP</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="130"/>
+        <location filename="../ui/UISettingsConnection.ui" line="151"/>
         <source>TLS port</source>
         <translation>Port TLS</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="178"/>
+        <location filename="../ui/UISettingsConnection.ui" line="199"/>
         <source>Don&apos;t allow Hub/UPnP to override</source>
         <translation>Nie zezwalaj hubowi/UPnP na nadpisywanie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="191"/>
+        <location filename="../ui/UISettingsConnection.ui" line="212"/>
         <source>Outgoing connections</source>
         <translation>Połączenia wychodzące</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="206"/>
+        <location filename="../ui/UISettingsConnection.ui" line="227"/>
+        <source>Select this mode if you can make unrestricted outbound connections. This includes connecting to any IP address on any port.
+Choose this option if unsure.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="231"/>
         <source>Direct connection</source>
         <translation>Połączenie bezpośrednie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="216"/>
+        <location filename="../ui/UISettingsConnection.ui" line="241"/>
+        <source>Select this mode if you want to make outbound connections through a SOCKS proxy. The caveats for Passive mode also apply here.
+SOCKS5 proxies are not the same as HTTP proxies. DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="245"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="251"/>
+        <location filename="../ui/UISettingsConnection.ui" line="280"/>
         <source>IP</source>
         <translation>IP</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="258"/>
+        <location filename="../ui/UISettingsConnection.ui" line="287"/>
         <source>User</source>
         <translation>Użytkownik</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="265"/>
+        <location filename="../ui/UISettingsConnection.ui" line="294"/>
         <source>Password</source>
         <translation>Hasło</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="272"/>
+        <location filename="../ui/UISettingsConnection.ui" line="301"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="285"/>
+        <location filename="../ui/UISettingsConnection.ui" line="314"/>
         <source>00000; </source>
         <translation>00000; </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="292"/>
+        <location filename="../ui/UISettingsConnection.ui" line="321"/>
         <source>Use to resolve hostnames</source>
         <translation>Wykorzystaj do ustalenia hostów</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="319"/>
-        <location filename="../ui/UISettingsConnection.ui" line="334"/>
+        <location filename="../ui/UISettingsConnection.ui" line="348"/>
+        <location filename="../ui/UISettingsConnection.ui" line="363"/>
         <source>Limits</source>
         <translation>Limity</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="340"/>
-        <source>On/Off speed limits</source>
-        <translation>Włącz/wyłącz ograniczenia prędkości</translation>
+        <location filename="../ui/UISettingsConnection.ui" line="369"/>
+        <source>Enable total speed limit</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="373"/>
-        <location filename="../ui/UISettingsConnection.ui" line="517"/>
+        <location filename="../ui/UISettingsConnection.ui" line="477"/>
+        <source>Alternate speed limit at time from </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On/Off speed limits</source>
+        <translation type="obsolete">Włącz/wyłącz ograniczenia prędkości</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="402"/>
+        <location filename="../ui/UISettingsConnection.ui" line="553"/>
         <source>Download</source>
         <translation>Pobieranie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="387"/>
-        <location filename="../ui/UISettingsConnection.ui" line="421"/>
-        <location filename="../ui/UISettingsConnection.ui" line="531"/>
-        <location filename="../ui/UISettingsConnection.ui" line="565"/>
+        <location filename="../ui/UISettingsConnection.ui" line="416"/>
+        <location filename="../ui/UISettingsConnection.ui" line="450"/>
+        <location filename="../ui/UISettingsConnection.ui" line="567"/>
+        <location filename="../ui/UISettingsConnection.ui" line="601"/>
         <source>KiB/s</source>
         <translation>КiB/s</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="407"/>
-        <location filename="../ui/UISettingsConnection.ui" line="551"/>
+        <location filename="../ui/UISettingsConnection.ui" line="436"/>
+        <location filename="../ui/UISettingsConnection.ui" line="587"/>
         <source>Upload</source>
         <translation>Wysyłanie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="448"/>
         <source>Alternate restrictions speed from </source>
-        <translation>Inna prędkość pobierania w godzinach od</translation>
+        <translation type="obsolete">Inna prędkość pobierania w godzinach od</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="471"/>
+        <location filename="../ui/UISettingsConnection.ui" line="500"/>
         <source>to</source>
         <translation>do</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="593"/>
+        <location filename="../ui/UISettingsConnection.ui" line="514"/>
+        <source>hour(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="629"/>
         <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
 download speed/10 + (download speed - (download speed/10)*10)
 Do not try to understand it...</source>
@@ -3843,184 +3910,304 @@ Nie staraj się zrozumieć ...
         <translation>Limity</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="122"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="106"/>
+        <source>This is another method of limiting simultaneous downloads, designed to prevent new downloads if your existing downloads exceed a specific threshold. It&apos;s measured in kibibytes per second, and a value of zero will disable this limit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="116"/>
+        <source>This limits the number of simultaneous downloads. A value of 0 means no limit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="129"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
         <translation>Maksymalna liczba ściąganych plików (0 = nieskończone)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="138"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="145"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
         <translation>Nie ściągaj nic nowego gdy transfer jest mniejszy od (KiB/s, 0 = wył)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="148"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="155"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
         <translation>UWAGA! z powodu zmian prędkości pobierania, brak 100% skuteczności</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="161"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="168"/>
         <source>Public Hub lists</source>
         <translation>Publiczna lista hubów</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="173"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="177"/>
+        <source>This HTTP proxy will only be used to request the Public Hub List specified above. It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="184"/>
         <source>Http proxy (hub list only)</source>
         <translation>HTTP Proxy (tylko dla listy hubów)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="180"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="191"/>
         <source>Configure Public Hub Lists</source>
         <translation>Konfiguruj publiczną lista hubów</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="204"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="215"/>
         <source>Download to</source>
         <translation>Pobierz do</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="256"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="267"/>
         <source>Path</source>
         <translation>Ścieżka</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="261"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="272"/>
         <source>Alias</source>
         <translation>Alias</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="270"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="281"/>
         <source>Queue</source>
         <translation>Kolejka</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="276"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="287"/>
         <source>Auto-priority settings</source>
         <translation>Ustawienia auto-priorytetu (rozmiar pliku w KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="319"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="296"/>
+        <source>Files with the same or under the entered size will be set to Highest as priority. (default: 64 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="306"/>
+        <source>Files with the same or under the entered size, but above Highest prio max size, will be set to High as priority. (default: 0 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="316"/>
+        <source>Files with the same or under the entered size, but above Highest and High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="326"/>
+        <source>Files with the same or under the entered size, but above Highest, High and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="342"/>
         <source>Highest priority max size (KiB)</source>
         <translation>Мaksymalny</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="335"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="358"/>
         <source>High priority max size (KiB)</source>
         <translation>Wysoki</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="351"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="374"/>
         <source>Normal priority max size (KiB)</source>
         <translation>Normalny</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="367"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="390"/>
         <source>Low priority max size (KiB)</source>
         <translation>Niski</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="396"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="419"/>
         <source>Auto-drop settings</source>
         <translation>Ustawienia auto usuwania</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="453"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="428"/>
+        <source>If the download speed of a file is below the entered value, the source will be dropped. (default: 1024 B/s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="438"/>
+        <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="448"/>
+        <source>Amount of time (in seconds) that has to pass since the download started before a source can be dropped. (default: 15 s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="458"/>
+        <source>This is the maximal time since the last chunk of data for the file was recieved. It is meant to improve speed measurement accuracy and to prevent dropping sources that are going to be disconnected only because of their current inactivity. (default: 10 s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="468"/>
+        <source>Minimum amount of sources before any sources will be dropped. (default: 1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="478"/>
+        <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="494"/>
         <source>Drop sources below (B/s)</source>
         <translation>Odrzuć poniżej (B/s)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="469"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="510"/>
         <source>Check every (s)</source>
         <translation>Sprawdź co (sek)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="485"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="526"/>
         <source>Min. elapsed (s)</source>
         <translation>Min czas (sek)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="501"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="542"/>
         <source>Max inactivity (s)</source>
         <translation>Max nieaktywny (sek)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="517"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="558"/>
         <source>Min sources online</source>
         <translation>Min liczba źródeł</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="533"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="574"/>
         <source>Min filesize (KiB)</source>
         <translation>Min rozmiar pliku (KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="562"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="603"/>
         <source>Other options</source>
         <translation>Inne ustawienia</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="578"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="619"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
         <translation>Ustaw najniższy prio dla nowo dodanych plików większy niż rozmiar Niski prio</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="589"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="622"/>
+        <source>With this enabled, files that are larger than Low prio max size are set to Lowest as priority. If disabled, the files will be set to Normal as priority.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="633"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
         <translation>Automatycznie usuwaj powolne źródła dla wszystkich w kolejce (oprócz list plików)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="600"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="636"/>
+        <source>This option removes the slow sources for all queue items (except file lists).
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot; or &quot;Remove slow file lists&quot; (or both of them).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="648"/>
         <source>Remove slow filelists</source>
         <translation>Usuwaj powolne listy plików</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="611"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="651"/>
+        <source>With this option enabled, DC++ will delete a file list whose speed was recognized as too slow.
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot; or &quot;Remove slow file lists&quot; (or both of them).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="663"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
         <translation>Nie usuwaj źródeł podczas automatycznego usuwania, tylko rozłączaj</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="622"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="666"/>
+        <source>With this option enabled, sources will only be disconnected but not removed from the queue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="677"/>
         <source>Automatically search for alternative download locations</source>
         <translation>Automatycznie szukaj alternatywnego źródła pobierania</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="633"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="680"/>
+        <source>Every few minutes, the client will search for files in your Download Queue to find more download locations (more users/sources). The autosearch will find exact matches by searching via hash.  The drawback is that it may won&apos;t find much more sources and will prevent manual searches on hubs where a predefined search interval rule is in effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="691"/>
         <source>Automatically match queue for auto search hits</source>
         <translation>Automatycznie dopasuj pliki z koleki pobierania do wyniku autowyszukiwania</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="636"/>
-        <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
-        <translation>Uwaga: lista plików użytkownika będzie pobierana przed pobraniem plików od niego.</translation>
+        <location filename="../ui/UISettingsDownloads.ui" line="694"/>
+        <source>Enable to automatically download a user&apos;s list and match them as sources for files in your Download Queue when they&apos;ve been discovered as a source for one of the files you&apos;re downloading. If you download files in sets, that user is probably a source for many more files you&apos;re downloading. Enable if unsure. The drawbacks are that it might add slower sources, possibly increasing the time needed to complete a download, and that you&apos;ll download a lot of file lists.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="647"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="786"/>
+        <source>Interval for auto search alternates (minutes)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
+        <translation type="obsolete">Uwaga: lista plików użytkownika będzie pobierana przed pobraniem plików od niego.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="705"/>
         <source>Skip zero-byte files</source>
         <translation>Pomiń pliki 0b</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="658"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="708"/>
+        <source>When this option is enabled, any zero byte files you try to download will be silently skipped. Sometimes empty files contain information through their naming. However every file, even an empty one, will consume some drive space.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="719"/>
         <source>Don&apos;t download files already in share</source>
         <translation>Nie ściągaj plików które znajdują się w udostępnionych</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="669"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="722"/>
+        <source>This option will stop you from downloading files which already exist in one of your shared directories.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="733"/>
         <source>Don&apos;t download files already in the queue</source>
         <translation>Nie ściągaj plików znajdujących się w kolejce do pobrania</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="680"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="736"/>
+        <source>This option will stop you from downloading files which already exist in your queue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="747"/>
         <source>SFV Check</source>
         <translation>Sprawdź SFV</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="695"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="750"/>
+        <source>Enable this option if you want to keep downloaded files and folders in the download queue after they have been finished. After downloaded the queue items will have &apos;Finished&apos; status and you can delete these finished entries anytime later. Using this function you can keep track of what files are already downloaded right there in the download queue without the need of checking the Finished Downloads window. Note that if you physically move/delete your downloaded files from their target location, it won&apos;t result automatic deletion of the corresponding finished entries from the queue. If you disable this function, it won&apos;t remove existing finished items from the queue either, you must do that manually.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="765"/>
         <source>Advanced</source>
         <translation>Zaawansowane</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="716"/>
         <source>Interval for auto search alternates(minutes)</source>
-        <translation>Min. odstęp automatycznego wyszukiwania (w minutach)</translation>
+        <translation type="obsolete">Min. odstęp automatycznego wyszukiwania (w minutach)</translation>
     </message>
 </context>
 <context>
@@ -4101,62 +4288,68 @@ Nie staraj się zrozumieć ...
         <translation>Chat</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="225"/>
+        <location filename="../ui/UISettingsGUI.ui" line="208"/>
+        <source>If checked, you&apos;ll see smiles everywhere, even in the middle of words.
+If unchecked, you&apos;ll see smiles only if they isolated from other words by spaces.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="229"/>
         <source>Show joins only for favorite users</source>
         <translation>Pokaż wejścia tylko ulubionych użytkowników</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="270"/>
+        <location filename="../ui/UISettingsGUI.ui" line="274"/>
         <source>Use Ctrl+Enter to send messages</source>
         <translation>Używaj Ctrl+Enter do wysyłania wiadomości</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="288"/>
+        <location filename="../ui/UISettingsGUI.ui" line="292"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
         <translation>Zapamiętuj wysyłanych wiadomości (0 = nie zapamiętuj)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="343"/>
+        <location filename="../ui/UISettingsGUI.ui" line="347"/>
         <source>The height of the text entry field</source>
         <translation>Wysokość pola tekstowego</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="385"/>
+        <location filename="../ui/UISettingsGUI.ui" line="389"/>
         <source>Colors</source>
         <translation>Kolory</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="391"/>
+        <location filename="../ui/UISettingsGUI.ui" line="395"/>
         <source>Text colors in chat</source>
         <translation>Kolor tekstu na chacie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="413"/>
+        <location filename="../ui/UISettingsGUI.ui" line="417"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Podświetlaj wyniki wyszukiwania</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="419"/>
+        <location filename="../ui/UISettingsGUI.ui" line="423"/>
         <source>Color</source>
         <translation>Kolor</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="439"/>
+        <location filename="../ui/UISettingsGUI.ui" line="443"/>
         <source>Transparency</source>
         <translation>Przeźroczystość</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="215"/>
+        <location filename="../ui/UISettingsGUI.ui" line="219"/>
         <source>Show joins</source>
         <translation>Pokazuj wejścia na chacie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="232"/>
+        <location filename="../ui/UISettingsGUI.ui" line="236"/>
         <source>Show hidden users</source>
         <translation>Pokazuj ukrytych użytkowników</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="317"/>
+        <location filename="../ui/UISettingsGUI.ui" line="321"/>
         <source>Maximum paragraphs</source>
         <translation>Maksymalna ilość lini</translation>
     </message>
@@ -4166,27 +4359,27 @@ Nie staraj się zrozumieć ...
         <translation>Włącz emotikony</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="208"/>
+        <location filename="../ui/UISettingsGUI.ui" line="212"/>
         <source>Force emoticon parsing</source>
         <translation>Wymuszaj wyświetlanie emotikonów</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="239"/>
+        <location filename="../ui/UISettingsGUI.ui" line="243"/>
         <source>Ignore private messages from Hub</source>
         <translation>Ignoruj prywatne wiadomości od huba</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="246"/>
+        <location filename="../ui/UISettingsGUI.ui" line="250"/>
         <source>Ignore private messages from Bot</source>
         <translation>Ignoruj prywatne wiadomości od botów</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="253"/>
+        <location filename="../ui/UISettingsGUI.ui" line="257"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation>Przekieruj wiadomości od botów na chat główny</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="260"/>
+        <location filename="../ui/UISettingsGUI.ui" line="264"/>
         <source>Do not change focus on new private message</source>
         <translation>Nie przełączaj na zakładkę z nową wiadomością prywatną</translation>
     </message>
@@ -4199,27 +4392,32 @@ Nie staraj się zrozumieć ...
         <translation>Formularz</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="42"/>
+        <location filename="../ui/UISettingsLog.ui" line="29"/>
+        <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="46"/>
         <source>Private messages</source>
         <translation>Wiadomości prywatne</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="77"/>
+        <location filename="../ui/UISettingsLog.ui" line="81"/>
         <source>Main chat</source>
         <translation>Chat główny</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="112"/>
+        <location filename="../ui/UISettingsLog.ui" line="116"/>
         <source>Downloads</source>
         <translation>Pobieranie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="147"/>
+        <location filename="../ui/UISettingsLog.ui" line="151"/>
         <source>Uploads</source>
         <translation>Wysyłanie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="216"/>
+        <location filename="../ui/UISettingsLog.ui" line="220"/>
         <source>Auto search alternates</source>
         <translation>Automatycznie szukaj alternatywy</translation>
     </message>
@@ -4229,33 +4427,33 @@ Nie staraj się zrozumieć ...
         <translation>Katalog logów</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="54"/>
-        <location filename="../ui/UISettingsLog.ui" line="89"/>
-        <location filename="../ui/UISettingsLog.ui" line="124"/>
-        <location filename="../ui/UISettingsLog.ui" line="159"/>
+        <location filename="../ui/UISettingsLog.ui" line="58"/>
+        <location filename="../ui/UISettingsLog.ui" line="93"/>
+        <location filename="../ui/UISettingsLog.ui" line="128"/>
+        <location filename="../ui/UISettingsLog.ui" line="163"/>
         <source>File</source>
         <translation>Plik</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="64"/>
-        <location filename="../ui/UISettingsLog.ui" line="99"/>
-        <location filename="../ui/UISettingsLog.ui" line="134"/>
-        <location filename="../ui/UISettingsLog.ui" line="169"/>
+        <location filename="../ui/UISettingsLog.ui" line="68"/>
+        <location filename="../ui/UISettingsLog.ui" line="103"/>
+        <location filename="../ui/UISettingsLog.ui" line="138"/>
+        <location filename="../ui/UISettingsLog.ui" line="173"/>
         <source>Text</source>
         <translation>Теkst</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="196"/>
+        <location filename="../ui/UISettingsLog.ui" line="200"/>
         <source>Own filelist uploads</source>
         <translation>Wysłanie swojej listy plików</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="182"/>
+        <location filename="../ui/UISettingsLog.ui" line="186"/>
         <source>System messages</source>
         <translation>Wiadomości systemowe</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="189"/>
+        <location filename="../ui/UISettingsLog.ui" line="193"/>
         <source>Status messages</source>
         <translation>Statusy</translation>
     </message>
@@ -4331,6 +4529,12 @@ Nie staraj się zrozumieć ...
         <translation>D-Bus</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsNotification.ui" line="314"/>
+        <source>If your sound files&apos; format is unsupported by Qt, you can define custom media player here to play them.
+For example: /usr/bin/mplayer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsNotification.ui" line="108"/>
         <source>Change icon when main window is visible</source>
         <translation>Zmień ikonę gdy widoczne okno główne</translation>
@@ -4371,37 +4575,61 @@ Nie staraj się zrozumieć ...
         <translation>Formularz</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="47"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="38"/>
+        <source>This field is for sharing your email address, if you wish it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsPersonal.ui" line="45"/>
+        <source>This description will show in the user list. It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsPersonal.ui" line="55"/>
         <source>Nick</source>
         <translation>Nick</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="57"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="62"/>
+        <source>This nickname, or handle, will identify you when you join a hub. It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsPersonal.ui" line="69"/>
         <source>E-Mail</source>
         <translation>E-mail</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="64"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="76"/>
         <source>Description</source>
         <translation>Оpis</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="71"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="83"/>
         <source>Away message</source>
         <translation>Wiadomość niedostępności (AWAY)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="99"/>
-        <source>Max upload speed</source>
-        <translation>Maksymalna prędkość wysyłania</translation>
+        <location filename="../ui/UISettingsPersonal.ui" line="111"/>
+        <source>Line speed (upload)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="141"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="130"/>
+        <source>This drop-down contains a number of common upload speeds (in MiB/s), please choose the one closest to your own. Do not put in your download speed; this setting is a measure of how fast a source you are likely to be for other users.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max upload speed</source>
+        <translation type="obsolete">Maksymalna prędkość wysyłania</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsPersonal.ui" line="156"/>
         <source>Default hub encoding</source>
         <translation>Domyślne kodowanie na hubie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="128"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="143"/>
         <source>MiB/s</source>
         <translation>МiB/s</translation>
     </message>
@@ -4414,122 +4642,136 @@ Nie staraj się zrozumieć ...
         <translation>Formularz</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="27"/>
+        <location filename="../ui/UISettingsSharing.ui" line="32"/>
         <source>Basic</source>
         <translation>Podstawowe</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="241"/>
+        <location filename="../ui/UISettingsSharing.ui" line="250"/>
         <source>Advanced</source>
         <translation>Zaawansowane</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="316"/>
+        <location filename="../ui/UISettingsSharing.ui" line="329"/>
         <source>FastHash options (restart needed)</source>
         <translation>Opcje szybkiego indeksowania (wymaga restartu)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="370"/>
+        <location filename="../ui/UISettingsSharing.ui" line="383"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="375"/>
+        <location filename="../ui/UISettingsSharing.ui" line="388"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="452"/>
+        <source>If the average upload speed drops below the given number, an additional upload slot will be granted. These slots are granted once every 30 seconds at maximum. If the speed of the original uploads increases, the granted slot will not be closed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="468"/>
         <source>Auto refresh time (minutes,0 = off)</source>
         <translation>Częstotliwość aktualizacji automatycznych (w minutach, 0 = wył)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="303"/>
+        <location filename="../ui/UISettingsSharing.ui" line="316"/>
         <source>Use fast hash</source>
         <translation>Użyj szybkiego indeksowania plików</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="279"/>
         <source>Share temp files</source>
-        <translation>Udostępniaj pliki tymczasowe</translation>
+        <translation type="obsolete">Udostępniaj pliki tymczasowe</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="286"/>
+        <location filename="../ui/UISettingsSharing.ui" line="299"/>
         <source>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="289"/>
         <source>Run on startup refresh share </source>
-        <translation>Podczas uruchamiania odświerzj listę udostępnionych plików</translation>
+        <translation type="obsolete">Podczas uruchamiania odświerzj listę udostępnionych plików</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="296"/>
         <source>Auto remove not existing directories</source>
-        <translation>Automatycznie usuwaj nie istniejące katalogi</translation>
+        <translation type="obsolete">Automatycznie usuwaj nie istniejące katalogi</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="266"/>
+        <location filename="../ui/UISettingsSharing.ui" line="279"/>
         <source>Share hidden files</source>
         <translation>Udostępnij ukryte pliki</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="33"/>
+        <location filename="../ui/UISettingsSharing.ui" line="38"/>
         <source>View share in simple mode</source>
         <translation>Wyświetlaj udostępnione w trybie prostym</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="65"/>
+        <location filename="../ui/UISettingsSharing.ui" line="20"/>
+        <source>Here you can specify download limit (in GiB) per any &quot;virtual&quot; folder from your share. For example, if you have /home/username/Video folder shared as &quot;Video&quot; you can specify following:
+/Video	10
+It means that any user who have less then 10GiB shared will be unable to download any files from this folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Path</source>
         <translation>Ścieżka</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="70"/>
+        <location filename="../ui/UISettingsSharing.ui" line="75"/>
         <source>Name</source>
         <translation>Nazwa</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="75"/>
+        <location filename="../ui/UISettingsSharing.ui" line="80"/>
         <source>Size</source>
         <translation>Rozmiar</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="116"/>
+        <location filename="../ui/UISettingsSharing.ui" line="121"/>
         <source>Exceptions</source>
         <translation>Wyjątki</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="122"/>
+        <location filename="../ui/UISettingsSharing.ui" line="127"/>
         <source>Don&apos;t share files and folders containing:</source>
         <translation>Nie udostępniaj plików zawierających:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="134"/>
+        <source>Here you can specify filename templates for files which you don&apos;t want to share. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="143"/>
         <source>Add new</source>
         <translation>Dodaj nowy</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="144"/>
+        <location filename="../ui/UISettingsSharing.ui" line="153"/>
         <source>Select and add the directory</source>
         <translation>Wybierz i dodaj katalog</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="154"/>
+        <location filename="../ui/UISettingsSharing.ui" line="163"/>
         <source>Edit</source>
         <translation>Edytuj</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="164"/>
+        <location filename="../ui/UISettingsSharing.ui" line="173"/>
         <source>Delete</source>
         <translation>Usuń</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="190"/>
+        <location filename="../ui/UISettingsSharing.ui" line="199"/>
         <source>Restrictions</source>
         <translation>Limity</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="196"/>
+        <location filename="../ui/UISettingsSharing.ui" line="205"/>
         <source>Per folder limit specifies how many files in GiB
 remote user must share the to be able
 to download from this folder</source>
@@ -4538,87 +4780,124 @@ musi udostępnić podłączający się użytkownik
 aby móc pobrać ten folder</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="217"/>
+        <location filename="../ui/UISettingsSharing.ui" line="226"/>
         <source>Share</source>
         <translation>Udostępnione</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="222"/>
+        <location filename="../ui/UISettingsSharing.ui" line="231"/>
         <source>Restriction</source>
         <translation>Limit</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="230"/>
+        <location filename="../ui/UISettingsSharing.ui" line="239"/>
         <source>All changes take effect only after restart</source>
         <translation>Wszystkie zmiany po ponownym uruchomieniu</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="253"/>
+        <location filename="../ui/UISettingsSharing.ui" line="262"/>
         <source>Follow symlinks</source>
         <translation>Podążaj za dowiązaniami symbolicznymi</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="324"/>
+        <location filename="../ui/UISettingsSharing.ui" line="275"/>
+        <source>Share files with the Hidden attribute set and files inside directory with the Hidden attribute set. With this option off, files starting with a . (full stop) will not be shared.
+Note: this option requires a refresh of the file list, and may cause the client to appear to freeze.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="292"/>
+        <source>Share temporary files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="302"/>
+        <source>Run refresh share on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="309"/>
+        <source>Auto remove non-existing directories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="337"/>
         <source>Private page mapping</source>
         <translation>Prywatne mapowanie stron</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="405"/>
+        <location filename="../ui/UISettingsSharing.ui" line="418"/>
         <source>Proactive read from disk</source>
         <translation>Proactive read from disk</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="348"/>
+        <location filename="../ui/UISettingsSharing.ui" line="536"/>
+        <source>Configure the number of slots that other users can occupy to download files from you. A remote user can use only one slot for each hub that they&apos;re on with you. DC++ supports uploading file lists and files below 64 KiB to other DC++ users without requiring a slot. There&apos;s a max of 3 connections in addition to normal slots, these are called mini slots.
+Note: If a user leaves the hub, DC++ will close his slots; if the user is back within 10 minutes, DC++ will grant him a slot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="361"/>
         <source>Buffer size (MiB)</source>
         <translation>Rozmiar buforu (МiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="365"/>
+        <location filename="../ui/UISettingsSharing.ui" line="378"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="380"/>
+        <location filename="../ui/UISettingsSharing.ui" line="393"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="385"/>
+        <location filename="../ui/UISettingsSharing.ui" line="398"/>
         <source>16</source>
         <translation>16</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="390"/>
+        <location filename="../ui/UISettingsSharing.ui" line="403"/>
         <source>32</source>
         <translation>32</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="395"/>
+        <location filename="../ui/UISettingsSharing.ui" line="408"/>
         <source>64</source>
         <translation>64</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="331"/>
+        <location filename="../ui/UISettingsSharing.ui" line="344"/>
         <source>No reserve</source>
         <translation>nie używaj kopii zapasowej </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="481"/>
+        <location filename="../ui/UISettingsSharing.ui" line="484"/>
+        <source>Here you can set time interval of auto refreshing your share.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="500"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
         <translation>Max. prędkość indeksowania (MB/s, 0=wył).</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="423"/>
+        <location filename="../ui/UISettingsSharing.ui" line="436"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Automatycznie otwieraj dodatkowy slot, jeżeli prędkość jest niższa niż (KiB/s, 0 = wył)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="503"/>
+        <location filename="../ui/UISettingsSharing.ui" line="513"/>
+        <source>You can limit maximum hash speed here if your system becomes slow while hasing files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="526"/>
         <source>Upload slots</source>
         <translation>Dostępne sloty</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="98"/>
+        <location filename="../ui/UISettingsSharing.ui" line="103"/>
         <source>Total shared: %1</source>
         <translation>Udostępnionych: %1</translation>
     </message>
