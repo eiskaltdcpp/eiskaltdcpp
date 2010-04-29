@@ -557,7 +557,7 @@ void SearchFrame::onHubRemoved(SearchFrame::HubInfo* info){
     QMap<Client*,HubInfo*>::const_iterator it = hub_list.find(info->client);
 
     if (it != hub_list.constEnd()){
-        listWidget_HUBS->removeItemWidget(info->item);
+        listWidget_HUBS->takeItem(listWidget_HUBS->row(info->item));
 
         hub_items.remove(info->item);
         hub_list.remove(info->client);
