@@ -12,6 +12,7 @@
 
 #include <QAbstractItemModel>
 #include <QMap>
+#include <QStack>
 
 #include "ArenaWidget.h"
 #include "ArenaWidgetContainer.h"
@@ -100,9 +101,16 @@ signals:
     void selectIndex(const QModelIndex&);
 
 private:
+    void historyPop();
+    void historyPush(ArenaWidget*);
+    bool historyAtTop(ArenaWidget*);
+    void historyPurge(ArenaWidget*);
+
     QMap <ArenaWidget::Role, SideBarItem*> roots;
     QMap <ArenaWidget*, SideBarItem*> items;
     SideBarItem *rootItem;
+
+    QStack<ArenaWidget*> historyStack;
 };
 
 #endif // SIDEBAR_H

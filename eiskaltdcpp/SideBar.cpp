@@ -198,8 +198,10 @@ void SideBarModel::removeWidget(ArenaWidget *awgt){
             }
             endRemoveRows();
 
-            if (root->childCount() > 0)
-                emit mapWidget(root->child(0)->getWidget());
+            if (!historyAtTop(awgt))
+                historyPurge(awgt);
+
+            historyPop();
 
             break;
         }
@@ -248,7 +250,38 @@ void SideBarModel::mapped(ArenaWidget *awgt){
         s = index(root->row(), 0, QModelIndex());
     }
 
+    historyPush(awgt);
+
     emit selectIndex(s);
+}
+
+void SideBarModel::historyPop(){
+    if (historyStack.empty())
+        return;
+
+    historyStack.pop();//remove last widget
+
+    if (historyStack.isEmpty())
+        return;
+
+    ArenaWidget *awgt = historyStack.pop();
+
+    emit mapWidget(awgt);
+}
+
+void SideBarModel::historyPush(ArenaWidget *awgt){
+    historyPurge(awgt);
+
+    historyStack.push(awgt);
+}
+
+bool SideBarModel::historyAtTop(ArenaWidget *awgt){
+    return (!historyStack.isEmpty() && historyStack.top() == awgt);
+}
+
+void SideBarModel::historyPurge(ArenaWidget *awgt){
+    if (historyStack.indexOf(awgt) >= 0)
+        historyStack.remove(historyStack.indexOf(awgt));
 }
 
 void SideBarModel::slotIndexClicked(const QModelIndex &i){
