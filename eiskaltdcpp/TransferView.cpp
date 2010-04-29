@@ -669,7 +669,7 @@ void TransferView::on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem* qi,
 
     QApplication::postEvent(this, new TransferViewCustomEvent(f));
 
-    if (vstr(params["FNAME"]) != tr("File list")){
+    if (!qi->isSet(QueueItem::FLAG_USER_LIST)){//Do not show notify for filelists
         typedef Func1<TransferView, QString> FUNC2;
         FUNC2 *f2 = new FUNC2(this, &TransferView::downloadComplete, _q(qi->getTarget()).split(QDir::separator()).last());
 
