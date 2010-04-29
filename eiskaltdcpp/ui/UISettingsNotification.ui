@@ -311,7 +311,8 @@
           <item row="0" column="0">
            <widget class="QLineEdit" name="lineEdit_SNDCMD">
             <property name="toolTip">
-             <string>If your sound files' format is unsupported by Qt, you can define custom media player here to play them.
+             <string>If your sound files' format is unsupported by Qt, you can define
+custom media player here to play them.
 For example: /usr/bin/mplayer</string>
             </property>
            </widget>

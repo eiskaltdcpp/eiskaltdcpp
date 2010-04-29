@@ -123,6 +123,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="pushButton_SEARCH">
+       <property name="toolTip">
+        <string>Opens search dialog and searches file.</string>
+       </property>
        <property name="text">
         <string>Search</string>
        </property>
@@ -130,6 +133,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_DOWNLOAD">
+       <property name="toolTip">
+        <string>Adds magnet to download queue. If autosearch for alternatives is enabled in options, file will be downloaded without opening search dialog.</string>
+       </property>
        <property name="text">
         <string>Add to queue</string>
        </property>

@@ -205,8 +205,9 @@
        <item>
         <widget class="QCheckBox" name="checkBox_EMOTFORCE">
          <property name="toolTip">
-          <string>If checked, you'll see smiles everywhere, even in the middle of words.
-If unchecked, you'll see smiles only if they isolated from other words by spaces.</string>
+          <string>If checked, you'll see emoticons even in the middle of words.
+If unchecked, you'll see smiles only if they are isolated 
+from other words by spaces.</string>
          </property>
          <property name="text">
           <string>Force emoticon parsing</string>

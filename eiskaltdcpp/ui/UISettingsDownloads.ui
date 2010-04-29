@@ -103,7 +103,10 @@
           <item row="1" column="0">
            <widget class="QSpinBox" name="spinBox_NONEWDL">
             <property name="toolTip">
-             <string>This is another method of limiting simultaneous downloads, designed to prevent new downloads if your existing downloads exceed a specific threshold. It's measured in kibibytes per second, and a value of zero will disable this limit.</string>
+             <string>This is another method of limiting simultaneous downloads,
+designed to prevent new downloads if your existing downloads
+exceed a specific threshold. It's measured in kibibytes per second,
+and a value of zero will disable this limit.</string>
             </property>
             <property name="maximum">
              <number>100000</number>
@@ -113,7 +116,8 @@
           <item row="0" column="0">
            <widget class="QSpinBox" name="spinBox_MAXDL">
             <property name="toolTip">
-             <string>This limits the number of simultaneous downloads. A value of 0 means no limit.</string>
+             <string>This limits the number of simultaneous downloads.
+A value of 0 means no limit.</string>
             </property>
            </widget>
           </item>
@@ -174,7 +178,9 @@
           <item row="1" column="0">
            <widget class="QLineEdit" name="lineEdit_PROXY">
             <property name="toolTip">
-             <string>This HTTP proxy will only be used to request the Public Hub List specified above. It's not used for uploads, downloads, or connecting to a hub.</string>
+             <string>This HTTP proxy will only be used to request
+the Public Hub List specified above.
+It's not used for uploads, downloads, or connecting to a hub.</string>
             </property>
            </widget>
           </item>
@@ -293,7 +299,8 @@
           <item row="0" column="1">
            <widget class="QSpinBox" name="spinBox_HTPMAX">
             <property name="toolTip">
-             <string>Files with the same or under the entered size will be set to Highest as priority. (default: 64 KiB)</string>
+             <string>Files with the same or under the entered size
+will be set to Highest as priority. (default: 64 KiB)</string>
             </property>
             <property name="maximum">
              <number>10000</number>
@@ -303,7 +310,8 @@
           <item row="0" column="4">
            <widget class="QSpinBox" name="spinBox_HPMAX">
             <property name="toolTip">
-             <string>Files with the same or under the entered size, but above Highest prio max size, will be set to High as priority. (default: 0 KiB)</string>
+             <string>Files with the same or under the entered size, but above Highest
+prio max size, will be set to High as priority. (default: 0 KiB)</string>
             </property>
             <property name="maximum">
              <number>10000</number>
@@ -313,7 +321,8 @@
           <item row="1" column="1">
            <widget class="QSpinBox" name="spinBox_NPMAX">
             <property name="toolTip">
-             <string>Files with the same or under the entered size, but above Highest and High prio max size, will be set to Normal as priority. (default: 0 KiB)</string>
+             <string>Files with the same or under the entered size, but above Highest and
+High prio max size, will be set to Normal as priority. (default: 0 KiB)</string>
             </property>
             <property name="maximum">
              <number>10000</number>
@@ -323,7 +332,8 @@
           <item row="1" column="4">
            <widget class="QSpinBox" name="spinBox_LPMAX">
             <property name="toolTip">
-             <string>Files with the same or under the entered size, but above Highest, High and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</string>
+             <string>Files with the same or under the entered size, but above Highest, High
+and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</string>
             </property>
             <property name="maximum">
              <number>10000</number>
@@ -425,7 +435,8 @@
           <item row="0" column="1">
            <widget class="QSpinBox" name="spinBox_DROPSB">
             <property name="toolTip">
-             <string>If the download speed of a file is below the entered value, the source will be dropped. (default: 1024 B/s)</string>
+             <string>If the download speed of a file is below the entered value,
+the source will be dropped. (default: 1024 B/s)</string>
             </property>
             <property name="maximum">
              <number>1000000</number>
@@ -445,7 +456,8 @@
           <item row="1" column="1">
            <widget class="QSpinBox" name="spinBox_MINELAPSED">
             <property name="toolTip">
-             <string>Amount of time (in seconds) that has to pass since the download started before a source can be dropped. (default: 15 s)</string>
+             <string>Amount of time (in seconds) that has to pass since the download
+started before a source can be dropped. (default: 15 s)</string>
             </property>
             <property name="maximum">
              <number>1000</number>
@@ -455,7 +467,10 @@
           <item row="1" column="4">
            <widget class="QSpinBox" name="spinBox_MAXINACT">
             <property name="toolTip">
-             <string>This is the maximal time since the last chunk of data for the file was recieved. It is meant to improve speed measurement accuracy and to prevent dropping sources that are going to be disconnected only because of their current inactivity. (default: 10 s)</string>
+             <string>This is the maximal time since the last chunk of data for
+the file was recieved. It is meant to improve speed measurement
+accuracy and to prevent dropping sources that are going to be
+disconnected only because of their current inactivity. (default: 10 s)</string>
             </property>
             <property name="maximum">
              <number>1000</number>
@@ -465,7 +480,8 @@
           <item row="2" column="1">
            <widget class="QSpinBox" name="spinBox_MINSRCONLINE">
             <property name="toolTip">
-             <string>Minimum amount of sources before any sources will be dropped. (default: 1)</string>
+             <string>Minimum amount of sources before any sources
+will be dropped. (default: 1)</string>
             </property>
             <property name="maximum">
              <number>1000</number>
@@ -619,7 +635,9 @@
               <string>Set lowest priority for newly added files larger than low priority size</string>
              </property>
              <property name="toolTip">
-              <string>With this enabled, files that are larger than Low prio max size are set to Lowest as priority. If disabled, the files will be set to Normal as priority.</string>
+              <string>With this enabled, files that are larger than Low prio max size
+are set to Lowest as priority.
+If disabled, the files will be set to Normal as priority.</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
@@ -634,7 +652,8 @@
              </property>
              <property name="toolTip">
               <string>This option removes the slow sources for all queue items (except file lists).
-To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot; or &quot;Remove slow file lists&quot; (or both of them).</string>
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
+or &quot;Remove slow file lists&quot; (or both of them).</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
@@ -648,8 +667,10 @@ To enable autodrop, turn on either &quot;Autodrop slow sources for all queue ite
               <string>Remove slow filelists</string>
              </property>
              <property name="toolTip">
-              <string>With this option enabled, DC++ will delete a file list whose speed was recognized as too slow.
-To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot; or &quot;Remove slow file lists&quot; (or both of them).</string>
+              <string>With this option enabled, DC++ will delete a file list whose speed
+was recognized as too slow.
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
+or &quot;Remove slow file lists&quot; (or both of them).</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
@@ -663,7 +684,8 @@ To enable autodrop, turn on either &quot;Autodrop slow sources for all queue ite
               <string>Don't remove the source when auto-dropping, only disconnect</string>
              </property>
              <property name="toolTip">
-              <string>With this option enabled, sources will only be disconnected but not removed from the queue.</string>
+              <string>With this option enabled, sources will only be disconnected
+but not removed from the queue.</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
@@ -677,7 +699,12 @@ To enable autodrop, turn on either &quot;Autodrop slow sources for all queue ite
               <string>Automatically search for alternative download locations</string>
              </property>
              <property name="toolTip">
-              <string>Every few minutes, the client will search for files in your Download Queue to find more download locations (more users/sources). The autosearch will find exact matches by searching via hash.  The drawback is that it may won't find much more sources and will prevent manual searches on hubs where a predefined search interval rule is in effect.</string>
+              <string>Every few minutes, the client will search for files in your
+Download Queue to find more download locations (more users/sources).
+The autosearch will find exact matches by searching via hash.
+The drawback is that it may won't find much more sources
+and will prevent manual searches on hubs where
+a predefined search interval rule is in effect.</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
@@ -691,7 +718,14 @@ To enable autodrop, turn on either &quot;Autodrop slow sources for all queue ite
               <string>Automatically match queue for auto search hits</string>
              </property>
              <property name="toolTip">
-              <string>Enable to automatically download a user's list and match them as sources for files in your Download Queue when they've been discovered as a source for one of the files you're downloading. If you download files in sets, that user is probably a source for many more files you're downloading. Enable if unsure. The drawbacks are that it might add slower sources, possibly increasing the time needed to complete a download, and that you'll download a lot of file lists.</string>
+              <string>Enable to automatically download a user's list and match them
+as sources for files in your Download Queue when they've been
+discovered as a source for one of the files you're downloading.
+If you download files in sets, that user is probably a source
+for many more files you're downloading. Enable if unsure.
+The drawbacks are that it might add slower sources, possibly
+increasing the time needed to complete a download,
+and that you'll download a lot of file lists.</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
@@ -705,7 +739,10 @@ To enable autodrop, turn on either &quot;Autodrop slow sources for all queue ite
               <string>Skip zero-byte files</string>
              </property>
              <property name="toolTip">
-              <string>When this option is enabled, any zero byte files you try to download will be silently skipped. Sometimes empty files contain information through their naming. However every file, even an empty one, will consume some drive space.</string>
+              <string>When this option is enabled, any zero byte files you
+try to download will be silently skipped.
+Sometimes empty files contain information through their naming.
+However every file, even an empty one, will consume some drive space.</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
@@ -719,7 +756,8 @@ To enable autodrop, turn on either &quot;Autodrop slow sources for all queue ite
               <string>Don't download files already in share</string>
              </property>
              <property name="toolTip">
-              <string>This option will stop you from downloading files which already exist in one of your shared directories.</string>
+              <string>This option will stop you from downloading files
+which already exist in one of your shared directories.</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
@@ -733,7 +771,8 @@ To enable autodrop, turn on either &quot;Autodrop slow sources for all queue ite
               <string>Don't download files already in the queue</string>
              </property>
              <property name="toolTip">
-              <string>This option will stop you from downloading files which already exist in your queue.</string>
+              <string>This option will stop you from downloading files
+which already exist in your queue.</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
@@ -747,7 +786,18 @@ To enable autodrop, turn on either &quot;Autodrop slow sources for all queue ite
               <string>SFV Check</string>
              </property>
              <property name="toolTip">
-              <string>Enable this option if you want to keep downloaded files and folders in the download queue after they have been finished. After downloaded the queue items will have 'Finished' status and you can delete these finished entries anytime later. Using this function you can keep track of what files are already downloaded right there in the download queue without the need of checking the Finished Downloads window. Note that if you physically move/delete your downloaded files from their target location, it won't result automatic deletion of the corresponding finished entries from the queue. If you disable this function, it won't remove existing finished items from the queue either, you must do that manually.</string>
+              <string>Enable this option if you want to keep downloaded files and folders
+in the download queue after they have been finished.
+After downloaded the queue items will have 'Finished' status
+and you can delete these finished entries anytime later.
+Using this function you can keep track of what files are already
+downloaded right there in the download queue without the need
+of checking the Finished Downloads window.
+Note that if you physically move/delete your downloaded files from
+their target location, it won't result automatic deletion of
+the corresponding finished entries from the queue.
+If you disable this function, it won't remove existing finished items
+from the queue either, you must do that manually.</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>

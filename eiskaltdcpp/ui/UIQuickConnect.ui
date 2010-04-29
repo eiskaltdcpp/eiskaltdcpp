@@ -40,6 +40,9 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="toolTip">
+      <string>IP address of DNS name of hub you want to connect.</string>
+     </property>
      <property name="editable">
       <bool>true</bool>
      </property>

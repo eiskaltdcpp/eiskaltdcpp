@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>359</width>
-    <height>393</height>
+    <height>455</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,13 +31,25 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit_NAME"/>
+       <widget class="QLineEdit" name="lineEdit_NAME">
+        <property name="toolTip">
+         <string>Favorite hub name.</string>
+        </property>
+       </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="lineEdit_ADDRESS"/>
+       <widget class="QLineEdit" name="lineEdit_ADDRESS">
+        <property name="toolTip">
+         <string>IP address or DNS name of hub.</string>
+        </property>
+       </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="lineEdit_DESC"/>
+       <widget class="QLineEdit" name="lineEdit_DESC">
+        <property name="toolTip">
+         <string>This description will show in the user list.</string>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label">
@@ -165,10 +177,16 @@
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <property name="toolTip">
+         <string>This nickname, or handle, will identify you when you join a hub.</string>
+        </property>
        </widget>
       </item>
       <item row="1" column="1">
        <widget class="QLineEdit" name="lineEdit_PASSWORD">
+        <property name="toolTip">
+         <string>If hub requires password, define it here.</string>
+        </property>
         <property name="echoMode">
          <enum>QLineEdit::PasswordEchoOnEdit</enum>
         </property>
@@ -178,6 +196,9 @@
        <widget class="QLineEdit" name="lineEdit_USERDESC">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>This description will show in the user list.</string>
         </property>
        </widget>
       </item>

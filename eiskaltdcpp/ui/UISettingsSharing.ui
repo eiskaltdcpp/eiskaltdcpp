@@ -16,11 +16,6 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
-     <property name="toolTip">
-      <string>Here you can specify download limit (in GiB) per any &quot;virtual&quot; folder from your share. For example, if you have /home/username/Video folder shared as &quot;Video&quot; you can specify following:
-/Video	10
-It means that any user who have less then 10GiB shared will be unable to download any files from this folder.</string>
-     </property>
      <property name="tabShape">
       <enum>QTabWidget::Rounded</enum>
      </property>
@@ -131,7 +126,7 @@ It means that any user who have less then 10GiB shared will be unable to downloa
        <item>
         <widget class="QListWidget" name="listWidget_SKIPLIST">
          <property name="toolTip">
-          <string>Here you can specify filename templates for files which you don't want to share. </string>
+          <string>Here you can specify templates for files you don't want to share. </string>
          </property>
         </widget>
        </item>
@@ -202,9 +197,12 @@ It means that any user who have less then 10GiB shared will be unable to downloa
        <item row="0" column="0">
         <widget class="QTreeWidget" name="treeWidget">
          <property name="toolTip">
-          <string>Per folder limit specifies how many files in GiB
-remote user must share the to be able
-to download from this folder</string>
+          <string>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
+For example, if you have /home/username/Video folder shared as &quot;Video&quot;
+you can specify following:
+/Video	10
+It means that any user who have less then 10GiB shared
+will be unable to download any files from this folder.</string>
          </property>
          <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
@@ -272,8 +270,11 @@ to download from this folder</string>
           </sizepolicy>
          </property>
          <property name="toolTip">
-          <string>Share files with the Hidden attribute set and files inside directory with the Hidden attribute set. With this option off, files starting with a . (full stop) will not be shared.
-Note: this option requires a refresh of the file list, and may cause the client to appear to freeze.</string>
+          <string>Share files with the Hidden attribute set and files inside directory with
+the Hidden attribute set.
+With this option off, files starting with a . (full stop) will not be shared.
+Note: this option requires a refresh of the file list,
+and may cause the client to appear to freeze.</string>
          </property>
          <property name="text">
           <string>Share hidden files</string>
@@ -296,7 +297,8 @@ Note: this option requires a refresh of the file list, and may cause the client 
        <item>
         <widget class="QCheckBox" name="checkBox_REFRESH_ON_STARTUP">
          <property name="toolTip">
-          <string>If with uncheck this you will leave the client until the update share is complete, share at follow-up activities start nulled.</string>
+          <string>If with uncheck this you will leave the client until the update
+share is complete, share at follow-up activities start nulled.</string>
          </property>
          <property name="text">
           <string>Run refresh share on startup</string>
@@ -449,7 +451,11 @@ Note: this option requires a refresh of the file list, and may cause the client 
          <item row="0" column="1">
           <widget class="QSpinBox" name="spinBox_EXTRA">
            <property name="toolTip">
-            <string>If the average upload speed drops below the given number, an additional upload slot will be granted. These slots are granted once every 30 seconds at maximum. If the speed of the original uploads increases, the granted slot will not be closed.</string>
+            <string>If the average upload speed drops below the given number,
+an additional upload slot will be granted.
+These slots are granted once every 30 seconds at maximum.
+If the speed of the original uploads increases,
+the granted slot will not be closed.</string>
            </property>
            <property name="maximum">
             <number>10000</number>
@@ -510,7 +516,8 @@ Note: this option requires a refresh of the file list, and may cause the client 
          <item row="2" column="1">
           <widget class="QSpinBox" name="spinBox_MAXHASHSPEED">
            <property name="toolTip">
-            <string>You can limit maximum hash speed here if your system becomes slow while hasing files.</string>
+            <string>You can limit maximum hash speed here
+if your system becomes slow while hasing files.</string>
            </property>
           </widget>
          </item>
@@ -533,8 +540,15 @@ Note: this option requires a refresh of the file list, and may cause the client 
          <item row="3" column="1">
           <widget class="QSpinBox" name="spinBox_UPLOAD">
            <property name="toolTip">
-            <string>Configure the number of slots that other users can occupy to download files from you. A remote user can use only one slot for each hub that they're on with you. DC++ supports uploading file lists and files below 64 KiB to other DC++ users without requiring a slot. There's a max of 3 connections in addition to normal slots, these are called mini slots.
-Note: If a user leaves the hub, DC++ will close his slots; if the user is back within 10 minutes, DC++ will grant him a slot.</string>
+            <string>Configure the number of slots that other users can occupy
+to download files from you.
+A remote user can use only one slot for each hub that they're on with you.
+DC++ supports uploading file lists and files below 64 KiB
+to other DC++ users without requiring a slot.
+There's a max of 3 connections in addition to normal slots,
+these are called mini slots.
+Note: If a user leaves the hub, DC++ will close his slots;
+if the user is back within 10 minutes, DC++ will grant him a slot.</string>
            </property>
           </widget>
          </item>
