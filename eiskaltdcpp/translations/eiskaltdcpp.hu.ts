@@ -3602,7 +3602,7 @@ from the queue either, you must do that manually.</source>
     </message>
     <message>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see smiles only if they are isolated 
+If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
         <translation type="unfinished"></translation>
     </message>

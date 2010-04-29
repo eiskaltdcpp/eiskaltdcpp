@@ -4393,6 +4393,13 @@ from the queue either, you must do that manually.</source>
         <translation>Chat</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsGUI.ui" line="208"/>
+        <source>If checked, you&apos;ll see emoticons even in the middle of words.
+If unchecked, you&apos;ll see emoticons only if they are isolated 
+from other words by spaces.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsGUI.ui" line="230"/>
         <source>Show joins only for favorite users</source>
         <translation>Pokaż wejścia tylko ulubionych użytkowników</translation>
@@ -4456,13 +4463,6 @@ from the queue either, you must do that manually.</source>
         <location filename="../ui/UISettingsGUI.ui" line="201"/>
         <source>Enable emoticons</source>
         <translation>Włącz emotikony</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="208"/>
-        <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see smiles only if they are isolated 
-from other words by spaces.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="213"/>
