@@ -1,10 +1,11 @@
---- 2.0.2 2010-05-18 ---
+--- 2.0.2 2010-05-03 ---
 * Thanks to Alexandre Wallimann the French translation is now available.
 * Thanks to Arahael the Polish translation is now available.
 * Added ability to use the side dock with list of widgets instead of a one-line panel with tabs.
 * Added ability to build with Qt >= 4.4.0. Previously required Qt >= 4.5.0.
 * Added filter in search widget.
 * Improvements in notifications about new messages in chat (different icons).
+* Fixed bug with fall of program when using search. Bug present in all previous revisions.
 
 --- 2.0.1 2010-04-18 ---
 * Added widget with public hubs.
