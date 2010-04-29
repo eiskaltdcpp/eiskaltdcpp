@@ -226,7 +226,7 @@ struct Compare {
         bool static IPCmp(const UserListItem * l, const UserListItem * r){
             if (l->isOp != r->isOp)
                 return l->isOp;
-            else {
+            else if (!(l->ip.isEmpty() || r->ip.isEmpty())){
                 QString ip1 = l->ip;
                 QString ip2 = r->ip;
 
@@ -251,7 +251,7 @@ struct Compare {
         }
 
         template <typename T>
-        bool static Cmp(const T& l, const T& r);
+        inline bool static Cmp(const T& l, const T& r) __attribute__((always_inline));
 };
 
 template <> template <typename T>
@@ -339,7 +339,7 @@ void UserListModel::removeUser(const UserPtr &ptr) {
 
     beginRemoveRows(QModelIndex(), index, index);
 
-    UserListItem *item = users.value(ptr);
+    UserListItem *item = iter.value();
 
     nicks.remove(item->nick);
 
@@ -425,7 +425,9 @@ void UserListModel::addUser(const QString& nick,
 }
 
 UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){
-    UserListItem *item = (users.contains(ptr))? (users.value(ptr)) : (NULL);
+    USRMap::iterator iter = users.find(ptr);
+
+    UserListItem *item = (iter != users.end())? (iter.value()) : (NULL);
 
     return item;
 }
