@@ -2083,7 +2083,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished">Hozzáadás a kedvencekhez</translation>
+        <translation>Hozzáadás a kedvencekhez</translation>
     </message>
 </context>
 <context>
@@ -3682,7 +3682,7 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     </message>
     <message>
         <source>Show icon in system tray</source>
-        <translation type="unfinished">Ikon mutatása a rendszer-tálcán</translation>
+        <translation>Ikon mutatása a rendszer-tálcán</translation>
     </message>
 </context>
 <context>
