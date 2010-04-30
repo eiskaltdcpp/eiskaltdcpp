@@ -7,6 +7,7 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/FavoriteManager.h"
+#include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"
 
 #include <QTreeView>
@@ -176,7 +177,7 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     initHubEditor(editor);
 
     editor.checkBox_AUTOCONNECT->setChecked(map["AUTO"].toBool());
-    editor.checkBox_NICK->setChecked(map["NICK"].toString() != "");
+    editor.checkBox_NICK->setChecked(map["NICK"].toString() != "" && map["NICK"].toString() != _q(SETTING(NICK)));
     editor.checkBox_USERDESC->setChecked(map["UDESC"].toString() != "");
 
     if (map["ENC"].toString() == tr("System default"))
@@ -236,7 +237,6 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
     map["ADDR"]     = editor.lineEdit_ADDRESS->text();
     map["DESC"]     = editor.lineEdit_DESC->text();
     map["AUTO"]     = editor.checkBox_AUTOCONNECT->isChecked();
-    map["NICK"]     = editor.lineEdit_NICK->text();
     map["PASS"]     = editor.lineEdit_PASSWORD->text();
     map["IIP"]      = editor.checkBox_USEINTERNET->isChecked();
     map["DCHAT"]    = editor.checkBox_DISABLECHAT->isChecked();
@@ -250,6 +250,11 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
         map["TAG"] = editor.comboBox_CID->currentText();
     else
         map["TAG"] = editor.comboBox_CID->itemText(0);
+
+    if (editor.checkBox_NICK->isChecked() && !editor.lineEdit_NICK->text().isEmpty())
+        map["NICK"] = editor.lineEdit_NICK->text();
+    else
+        map["NICK"] = "";
 
     if (editor.comboBox_ENC->currentText() != tr("System default")){
         QString enc = WU->qtEnc2DcEnc(editor.comboBox_ENC->currentText());
