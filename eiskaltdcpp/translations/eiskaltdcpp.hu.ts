@@ -614,7 +614,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>User not found.</source>
-        <translation>Felhasználó nem található.</translation>
+        <translation type="obsolete">Felhasználó nem található.</translation>
     </message>
     <message>
         <source> has been added to favorites.</source>
@@ -1145,7 +1145,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Clear text field</source>
-        <translation>Szövegmező törlése</translation>
+        <translation type="obsolete">Szövegmező törlése</translation>
     </message>
     <message>
         <source>Open download directory</source>
@@ -1704,7 +1704,7 @@ Kapcsolók:
     </message>
     <message>
         <source>C</source>
-        <translation>C</translation>
+        <translation type="obsolete">C</translation>
     </message>
 </context>
 <context>
@@ -2080,6 +2080,10 @@ Kapcsolók:
     <message>
         <source>Select directory</source>
         <translation>Könyvtár kiválasztása</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished">Hozzáadás a kedvencekhez</translation>
     </message>
 </context>
 <context>
@@ -2774,11 +2778,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Clear filter</source>
-        <translation>Filter törlése</translation>
+        <translation type="obsolete">Filter törlése</translation>
     </message>
     <message>
         <source>c</source>
-        <translation>c</translation>
+        <translation type="obsolete">c</translation>
     </message>
     <message>
         <source>Last status message on hub</source>
@@ -3650,7 +3654,7 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
     </message>
     <message>
         <source>Window position at startup</source>
-        <translation>Ablak pozíció induláskor</translation>
+        <translation type="obsolete">Ablak pozíció induláskor</translation>
     </message>
     <message>
         <source>Remember window position on exit</source>
@@ -3675,6 +3679,10 @@ from other words by spaces.</source>
         <translation>Ha be van jelölve, akkor a hangulatjelek láthatóak lesznek akár a szavak közepén is.
 Ha nincs bejelölve, a hangulatjelek csak akkor látszódnak majd,
 ha egy szünettel el vannak választva a szavaktól.</translation>
+    </message>
+    <message>
+        <source>Show icon in system tray</source>
+        <translation type="unfinished">Ikon mutatása a rendszer-tálcán</translation>
     </message>
 </context>
 <context>
@@ -3744,7 +3752,7 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     </message>
     <message>
         <source>Show icon in system tray</source>
-        <translation>Ikon mutatása a rendszer-tálcán</translation>
+        <translation type="obsolete">Ikon mutatása a rendszer-tálcán</translation>
     </message>
     <message>
         <source>Ask confirm before exit</source>

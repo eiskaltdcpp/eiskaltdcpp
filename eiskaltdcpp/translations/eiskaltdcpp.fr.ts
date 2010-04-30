@@ -654,7 +654,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>User not found.</source>
-        <translation>Utilisateur non trouvé.</translation>
+        <translation type="obsolete">Utilisateur non trouvé.</translation>
     </message>
     <message>
         <source> has been added to favorites.</source>
@@ -1142,7 +1142,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Clear text field</source>
-        <translation>Vider le champ</translation>
+        <translation type="obsolete">Vider le champ</translation>
     </message>
     <message>
         <source>Open download directory</source>
@@ -1634,7 +1634,7 @@ Clés:
     </message>
     <message>
         <source>C</source>
-        <translation>C</translation>
+        <translation type="obsolete">C</translation>
     </message>
 </context>
 <context>
@@ -2010,6 +2010,10 @@ Clés:
     <message>
         <source>Select directory</source>
         <translation>Sélectionner répertoire</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation type="unfinished">Ajouter aux favoris</translation>
     </message>
 </context>
 <context>
@@ -2703,11 +2707,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Clear filter</source>
-        <translation>Vider le filtre</translation>
+        <translation type="obsolete">Vider le filtre</translation>
     </message>
     <message>
         <source>c</source>
-        <translation>c</translation>
+        <translation type="obsolete">c</translation>
     </message>
     <message>
         <source>Last status message on hub</source>
@@ -3526,7 +3530,7 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
     </message>
     <message>
         <source>Window position at startup</source>
-        <translation>Position de la fenêtre au démarrage</translation>
+        <translation type="obsolete">Position de la fenêtre au démarrage</translation>
     </message>
     <message>
         <source>Remember window position on exit</source>
@@ -3558,6 +3562,10 @@ If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
         <translation>Si activé, vous verrez les smileys aussi au sein des mots.
 Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</translation>
+    </message>
+    <message>
+        <source>Show icon in system tray</source>
+        <translation type="unfinished">Montrer l&apos;icône dans le systray</translation>
     </message>
 </context>
 <context>
@@ -3667,7 +3675,7 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
     </message>
     <message>
         <source>Show icon in system tray</source>
-        <translation>Montrer l&apos;icône dans le systray</translation>
+        <translation type="obsolete">Montrer l&apos;icône dans le systray</translation>
     </message>
     <message>
         <source>Sound</source>
