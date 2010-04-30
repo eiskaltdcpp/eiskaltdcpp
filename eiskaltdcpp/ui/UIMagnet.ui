@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>438</width>
-    <height>231</height>
+    <width>436</width>
+    <height>229</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -46,7 +46,7 @@
        </widget>
       </item>
       <item row="3" column="1" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_FNAME">
+       <widget class="LineEdit" name="lineEdit_FNAME">
         <property name="readOnly">
          <bool>false</bool>
         </property>
@@ -67,7 +67,7 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QLineEdit" name="lineEdit_FPATH"/>
+       <widget class="LineEdit" name="lineEdit_FPATH"/>
       </item>
       <item row="5" column="0">
        <widget class="QLabel" name="label_1">
@@ -173,6 +173,13 @@ in options, file will be downloaded without opening search dialog.</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>LineEdit.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>pushButton_CANCEL</tabstop>
   <tabstop>pushButton_SEARCH</tabstop>

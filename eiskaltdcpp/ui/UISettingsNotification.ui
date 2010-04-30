@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>374</width>
-    <height>384</height>
+    <width>372</width>
+    <height>382</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -197,7 +197,7 @@
               <number>1</number>
              </property>
              <item row="0" column="0">
-              <widget class="QLineEdit" name="lineEdit_SNDNICKSAY"/>
+              <widget class="LineEdit" name="lineEdit_SNDNICKSAY"/>
              </item>
              <item row="0" column="1">
               <widget class="QPushButton" name="pushButton_TESTNICKSAY">
@@ -229,7 +229,7 @@
               <number>1</number>
              </property>
              <item row="0" column="0">
-              <widget class="QLineEdit" name="lineEdit_SNDPM"/>
+              <widget class="LineEdit" name="lineEdit_SNDPM"/>
              </item>
              <item row="0" column="1">
               <widget class="QPushButton" name="pushButton_TESTPM">
@@ -261,7 +261,7 @@
               <number>1</number>
              </property>
              <item row="0" column="0">
-              <widget class="QLineEdit" name="lineEdit_SNDTRDONE"/>
+              <widget class="LineEdit" name="lineEdit_SNDTRDONE"/>
              </item>
              <item row="0" column="1">
               <widget class="QPushButton" name="pushButton_TESTTR">
@@ -309,7 +309,7 @@
            <number>1</number>
           </property>
           <item row="0" column="0">
-           <widget class="QLineEdit" name="lineEdit_SNDCMD">
+           <widget class="LineEdit" name="lineEdit_SNDCMD">
             <property name="toolTip">
              <string>If your sound files' format is unsupported by Qt, you can define
 custom media player here to play them.
@@ -326,6 +326,13 @@ For example: /usr/bin/mplayer</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>LineEdit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>

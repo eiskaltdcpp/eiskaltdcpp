@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>287</width>
-    <height>299</height>
+    <width>285</width>
+    <height>297</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -33,14 +33,14 @@
        <number>0</number>
       </property>
       <item row="3" column="0" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_EMAIL">
+       <widget class="LineEdit" name="lineEdit_EMAIL">
         <property name="toolTip">
          <string>This field is for sharing your email address, if you wish it.</string>
         </property>
        </widget>
       </item>
       <item row="5" column="0" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_DESC">
+       <widget class="LineEdit" name="lineEdit_DESC">
         <property name="toolTip">
          <string>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</string>
@@ -48,7 +48,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</string>
        </widget>
       </item>
       <item row="7" column="0" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_AWAYMSG">
+       <widget class="LineEdit" name="lineEdit_AWAYMSG">
         <property name="toolTip">
          <string>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</string>
@@ -63,7 +63,7 @@ who sends private message to you.</string>
        </widget>
       </item>
       <item row="1" column="0" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_NICK">
+       <widget class="LineEdit" name="lineEdit_NICK">
         <property name="toolTip">
          <string>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</string>
@@ -201,6 +201,13 @@ of how fast a source you are likely to be for other users.</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>LineEdit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
