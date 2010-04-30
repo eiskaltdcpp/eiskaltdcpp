@@ -1113,29 +1113,20 @@ string Util::translateError(int aError) {
 #endif // _WIN32
 }
 //[+]IRainman SpeedLimiter
-void Util::checkLimiterSpeed()
-{
+void Util::checkLimiterSpeed() {
     int max_up_normal = (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10 + (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10)*10));
+
     int max_up_time = (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10 + (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10)*10));
+
     if (SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) < max_up_normal)
     {
         SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, max_up_normal);
     }
 
-    //if ((SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) > 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL)) || (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) == 0))
-    //{
-        //SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
-    //}
-
     if (SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) < max_up_time)
     {
         SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, max_up_time);
     }
-
-    //if ((SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) > 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME)) || (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) == 0))
-    //{
-        //SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, 7 * SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
-    //}
 
     if (Util::checkLimiterTime())
     {
@@ -1147,10 +1138,12 @@ void Util::checkLimiterSpeed()
         SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
         SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
     }
+    /*printf("down/up: %d/%d \ndown/up time: %d/%d \ndown/up normal: %d/%d \n",SETTING(MAX_DOWNLOAD_SPEED_LIMIT),
+    SETTING(MAX_UPLOAD_SPEED_LIMIT),SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME),SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME),
+    SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL),SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));*/
 }
 
-bool Util::checkLimiterTime()
-{
+bool Util::checkLimiterTime() {
     if (!SETTING(TIME_DEPENDENT_THROTTLE))
         return false;
 

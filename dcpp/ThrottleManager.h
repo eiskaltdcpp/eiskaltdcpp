@@ -31,7 +31,7 @@
  * Inspired by Token Bucket algorithm: http://en.wikipedia.org/wiki/Token_bucket
  */
 namespace dcpp{
-#define CONDWAIT_TIMEOUT 250
+
     class ThrottleManager : public Singleton<ThrottleManager>, private TimerManagerListener
     {
     private:
@@ -93,14 +93,7 @@ namespace dcpp{
             if (!BOOLSETTING(THROTTLE_ENABLE))
                 return;
 
-            // alternative limiter
-            if (Util::checkLimiterTime()) {
-                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
-                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME));
-            } else {
-                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
-                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
-            }
+            Util::checkLimiterSpeed();
         }
 
         void on(TimerManagerListener::Second, uint32_t aTick) throw() {
