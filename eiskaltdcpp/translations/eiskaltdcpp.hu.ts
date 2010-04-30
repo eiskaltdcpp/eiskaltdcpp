@@ -5,7 +5,7 @@
     <name>DownloadQueue</name>
     <message>
         <source>Search for alternates</source>
-        <translation>Alternatíva keresése</translation>
+        <translation>Alternatívák keresése</translation>
     </message>
     <message>
         <source>Copy magnet</source>
@@ -1003,11 +1003,11 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>About EiskaltDC++</source>
-        <translation>Az EiskaltDC++-ról</translation>
+        <translation>Névjegy: EiskaltDC++</translation>
     </message>
     <message>
         <source>About Qt</source>
-        <translation>A Qt-ról</translation>
+        <translation>Névjegy: Qt</translation>
     </message>
     <message>
         <source>Main layout</source>
@@ -2300,7 +2300,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Copy IP-address of user</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználó IP címének másolása</translation>
     </message>
 </context>
 <context>
@@ -2619,23 +2619,23 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Favorite hub name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kedvenc hubnév.</translation>
     </message>
     <message>
         <source>IP address or DNS name of hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>A hub IP címe, vagy DNS neve.</translation>
     </message>
     <message>
         <source>This description will show in the user list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a leírás jelenik meg a felhasználói listában.</translation>
     </message>
     <message>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a nick lesz használva, ha a csatlakozol a hubhoz.</translation>
     </message>
     <message>
         <source>If hub requires password, define it here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha a hub jelszót kér (ha regisztrálva vagy a hubon), add meg itt.</translation>
     </message>
 </context>
 <context>
@@ -2876,12 +2876,13 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresési ablak megnyitása és fájlok keresése.</translation>
     </message>
     <message>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnetlink hozzáadása a letöltési sorhoz. Ha az alternatívák automatikus keresése
+be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a keresési ablak megnyitása nélkül.</translation>
     </message>
 </context>
 <context>
@@ -2941,7 +2942,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>IP address of DNS name of hub you want to connect.</source>
-        <translation type="unfinished"></translation>
+        <translation>A hub IP címe, vagy DNS neve, amihez csatlakozni szeretnél.</translation>
     </message>
 </context>
 <context>
@@ -3079,23 +3080,23 @@ Ne is próbáld megérteni...</translation>
     </message>
     <message>
         <source>Active mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktív mód</translation>
     </message>
     <message>
         <source>Passive mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Passzív mód</translation>
     </message>
     <message>
         <source>Enable total speed limit</source>
-        <translation type="unfinished"></translation>
+        <translation>Teljes sebességkorlátozás engedélyezése</translation>
     </message>
     <message>
         <source>Alternate speed limit at time from </source>
-        <translation type="unfinished"></translation>
+        <translation>Alternatív sebesség-korlát használata a következő időben </translation>
     </message>
     <message>
         <source>hour(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>óra</translation>
     </message>
     <message>
         <source>Select this mode if you are behind a firewall (router), and will set up
@@ -3103,7 +3104,11 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Válaszd ezt az opciót ha külső tűzfal (router) mögött vagy, és magadnak állítod be
+a TCP, UDP és a TLS portokat forwardolással.
+A helyes működés érdekében figyelj arra, hogy a kliensedben és a routerben a portok
+egyezzenek meg, valamint a routeredben helyesen add meg a géped belső IP címét.
+A kliens beállításainál ügyelj a külső IP cím helyes megadására.</translation>
     </message>
     <message>
         <source>Select this mode if none of the previous modes apply. In this mode,
@@ -3112,7 +3117,13 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak akkor válaszd ezt az opciót, ha egyik sem működik ezen kívül.
+Ezzel a beállítással az EiskaltDC++ nem fog a bejövő kapcsolatokra figyelni,
+csak a kimenőket kezeli.
+Éppen ezért komoly korlátozások léphetnek fel:
+  * keresésnél csak 5 találat jelenik majd meg felhasználónként;
+  * más passzív felhasználótól nem fogsz tudni letölteni egyáltalán;
+  * elképzelhető, hogy a keresés és/vagy a letöltés nem fog működni a hubokon.</translation>
     </message>
     <message>
         <source>Select this mode if you are behind a firewall/router that supports
@@ -3121,20 +3132,29 @@ Most routers do support UPnP but you may need to enable it
 in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation type="unfinished"></translation>
+        <translation>Válaszd ezt az opciót, ha olyan külső tűzfal/router mögött vagy,
+ami támogatja az UPnP szabványt a programok automatikus konfigurálásához.
+A legtöbb router támogatja az UPnP szabványt, de elképzelhető, hogy ezt neked kell
+engedélyezned a router konfigurációs felületén.
+Ezzel a beállítással az EiskaltDC++ automatikusan megnyitja a megfelelő portokat,
+és a külső IP címet is meghatározza.</translation>
     </message>
     <message>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Válaszd ezt az opciót, ha létre tudsz hozni korlátozások nélküli kimenő kapcsolatokat.
+Ezzel lehetőség nyílik kapcsolódni bármilyen porton bármilyen IP címhez.
+Válaszd ezt a lehetőséget ha bizonytalan vagy.</translation>
     </message>
     <message>
         <source>Select this mode if you want to make outbound connections through
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation type="unfinished"></translation>
+        <translation>Válaszd ezt az opciót, ha a kimenő kapcsolatokat egy SOCKS proxy segítségével szeretnéd létrehozni.
+A passzív mód hátrányai itt is érvényesek. A SOCKS5 proxy nem azonos a HTTP proxyval.
+Az EiskaltDC++ SOCKS5 támogatása nem tartalmazza a GSSAPI modult.</translation>
     </message>
     <message>
         <source>Select this mode if your computer is connected directly to the internet.
@@ -3143,7 +3163,12 @@ If your computer is not behind a router all you have to do is to choose
 this option and usually you don&apos;t need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
-        <translation type="unfinished"></translation>
+        <translation>Válaszd ezt a módot, ha a számítógéped közvetlenül csatlakozik az internethez.
+Ha routerrel, vagy bármilyen külső tűzfallal rendelkezel, ne ezt válaszd.
+Ha a számítógéped nincs router mögött, nincs más teendőd csak válaszd ezt az opciót,
+és nem kell mást tenned a kapcsolat beállításai között.
+Ezen túl, ha telepítve van valamilyen szoftveres tűzfalprogram a számítógépedre, győződj meg arról,
+hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsolat a tűzfalon.</translation>
     </message>
 </context>
 <context>
@@ -3318,92 +3343,116 @@ However, if you have a software firewall installed, you may need further configu
     </message>
     <message>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ellenőrzés minden x másodpercben, ha a forrás túl lassú. (alapértelmezés: 10 s)</translation>
     </message>
     <message>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimum fájlméret, mielőtt a forrás eldobásra kerül (KiB-ban). (alapértelmezés: 0 KiB)</translation>
     </message>
     <message>
         <source>Interval for auto search alternates (minutes)</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternatívák automatikus keresése (keresési intervallum, percben)</translation>
     </message>
     <message>
         <source>This is another method of limiting simultaneous downloads,
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Egy másik lehetőség az egyszerre történő letöltések korlátozására.
+Megakadályozza újabb letöltések elindulását, ha a meglévő letöltések együttes sebessége meghalad egy megadott határt.
+A sebességet KiB/mp-ben kell megadni, nulla érték kikapcsolja ezt a korlátozó lehetőséget.
+Megjegyés: a változó letöltési sebességek miatt a korlátozó funkció nem 100%-ig pontos.</translation>
     </message>
     <message>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a limit az egyszerre folytatható letöltések száma.
+Ha a megadott érték 0, akkor nincs limit.</translation>
     </message>
     <message>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a HTTP proxy kizárólag a beállításokban megadott
+Publikus Hublisták eléréséhez lesz használva.
+Nem használható le, vagy feltöltéshez, vagy hubhoz való kapcsolódáshoz.</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Az itt meghatározott méretű, vagy annál kisebb fájlok,
+legmagasabb prioritásra lesznek beállítva. (alapértelmezés: 64 KiB)</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Az itt megadott mérettel egyező, vagy annál nagyobb fájlok,
+de még így is kisebbek mint a legmagasabb prioritású fájlok maximális mérete,
+magas prioritásra lesznek állítva. (alapértelmezés: 0 KiB)</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Az itt megadott méretű, vagy annál nagyobb fájlok,
+de még így is kisebbek, mint a legmagasabb és a magas prioritású fájlok
+maximális mérete, normál prioritásúra lesznek állítva. (alapértelmezett: 0 KiB)</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Az itt megadott méretű, vagy annál nagyobb fájlok, de még így is kisebbek,
+mint a legmagasabb, magas és normál prioritású fájlok maximális mérete,
+alacsony prioritásúra lesznek állítva. (alapértelmezés: 0 KiB)</translation>
     </message>
     <message>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha a fájl letöltési sebessége alacsonyabb a megadott értéknél,
+akkor a forrás dobva lesz. (alapértelmezés: 1024 B/s)</translation>
     </message>
     <message>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Meghatározott idő (másodpercben) aminek el kell telnie a letöltés
+megkezdése előtt, mielőtt a forrás eldobható. (alapértelmezett: 15 s)</translation>
     </message>
     <message>
         <source>This is the maximal time since the last chunk of data for
 the file was recieved. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a maximális idő ami eltellhet két adatcsomag érkezése között.
+A beállítás a sebességmérés pontosságát hivatott javítani, annak érdekében,
+hogy az egyes források szétkapcsolása ne történjen meg,
+ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünetek keletkeznek.
+(alapértelmezés: 10 s)</translation>
     </message>
     <message>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Az a minimális mennyiségű online lévő forrás, ami után egy fájl forrásai eldobhatóak.
+(alapértelmezés: 1)</translation>
     </message>
     <message>
         <source>With this enabled, files that are larger than Low prio max size
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha ez az opció engedélyezve van, akkor azok a fájlok amik nagyobbak
+az alacsony prioritású fájlok maximális méreténél, legalacsonyabb prioritásúra lesznek állítva.
+Ha nem engedélyezett, akkor ezek a fájlok normál prioritásra lesznek álítva.</translation>
     </message>
     <message>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
+        <translation>Engedélyezi a lassú forrásoknak a letöltési sor összes eleméből való eltávolítását (a fájl-listákra kivételével).
+Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források automatikus eldobása a sor minden elemében (fájl-listák kivételével)&quot;
+és a &quot;Lassú fájl-listák eltávolítása&quot; beállítások közül az egyiknek (vagy mindkettőnek) engedélyezve kell lennie.</translation>
     </message>
     <message>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezt engedélyezve az lassú források eldobása helyett csak szétkapcsolás történik.</translation>
     </message>
     <message>
         <source>Every few minutes, the client will search for files in your
@@ -3412,7 +3461,11 @@ The autosearch will find exact matches by searching via hash.
 The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezt engedélyezve néhány percenként automatikus felhasználó / forrás keresés történik a letöltési sorban levő elemekhez.
+A keresés hash alapján történik. Hátránya, hogy a keresés nem mindíg talál sokkal több új forrást a fájlokhoz,
+ellenben megakadályozhatha a normál keresést olyan hubokon, ahol meghatározott maximális keresési gyakoriság szabályok vannak érvényben.
+Az állandó automatikus keresés korlátozható keresésből hozzáadott maximális források számának megadásával,
+az &quot;Alternatívák automatikus keresése (keresési intervallum, percben)&quot; beállításban.</translation>
     </message>
     <message>
         <source>Enable to automatically download a user&apos;s list and match them
@@ -3423,24 +3476,30 @@ for many more files you&apos;re downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekapcsolásával minden egyes új forrás találatakor a forrás fájl-listája letöltődik és egyeztetésre kerül a teljes letöltési sorral.
+Több egymással kapcsolatban álló fájl (teljes könyvtár) egyszerre történő letöltésekor gyakran előfordulhat,
+hogy egy fájlhoz talált új forrás megosztása a többi fájlt is tartalmazza.
+Ennek automatikus ellenőrzése történik meg. Ha nem vagy biztos a jelentésében inkább engedélyezd.
+Hátránya, hogy esetleg lassú forrásokat is hozzáadhat a letöltési sorban lévő fájlokhoz, valamint hogy sok fájl-lista letöltést kezdeményez.</translation>
     </message>
     <message>
         <source>When this option is enabled, any zero byte files you
 try to download will be silently skipped.
 Sometimes empty files contain information through their naming.
 However every file, even an empty one, will consume some drive space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hatására a nulla hosszúságú fájlok nem kerülnek letöltésre.
+Néha az üres fájlok neve is tartalmazhat hasznos információt,
+de jó tudni, hogy még a nulla hosszúságú fájl is foglal némi lemezterületet.</translation>
     </message>
     <message>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Megakadályozza a már megosztott fájloknak a letöltését (letöltési sorhoz való hozzáadását).</translation>
     </message>
     <message>
         <source>This option will stop you from downloading files
 which already exist in your queue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Megakadályozza a már a letöltési sorban lévő fájloknak az újbóli hozzáadását.</translation>
     </message>
     <message>
         <source>Enable this option if you want to keep downloaded files and folders
@@ -3455,14 +3514,23 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Engedélyezd ezt az opciót ha szeretnéd hogy a már letöltődött fájlok és mappák a letöltési sorban maradjanak.
+Ebben az esetben miután letöltődtek, a fájlok mellett a &apos;Befejezve&apos; állapotjelzés jelenik meg
+és később szükség esetén bármikor kézzel törölhetőek a sorból.
+A funkció lehetővé teszi annak figyelését hogy mely fájlok töltődtek már le és melyek nem,
+anélkül hogy a &quot;Befejezett letöltések&quot; ablakot meg kéne nyitni.
+Fontos tudni, hogy a befejezett fájlok fizikai törlése vagy elmozdítása a célterületről
+nem törli automatikusan annak bejegyzését a letöltési sorból.
+Ezen kívül a funkció kikapcsolása nem törli a már meglévő befejezett elemeket sem a sorból - ezeket kézzel kell kitörölnöd.</translation>
     </message>
     <message>
         <source>With this option enabled, EiskaltDC++ will delete a file list whose speed
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekapcsolásával megtörténik a lassúnak ítélt fájl-listák automatikus eltávolítása.
+Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források automatikus eldobása a sor minden elemében (fájl-listák kivételével)&quot;
+és a &quot;Lassú fájl-listák eltávolítása&quot; beállítások közül az egyiknek (vagy mindkettőnek) engedélyezve kell lennie.</translation>
     </message>
 </context>
 <context>
@@ -3604,7 +3672,9 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha be van jelölve, akkor a hangulatjelek láthatóak lesznek akár a szavak közepén is.
+Ha nincs bejelölve, a hangulatjelek csak akkor látszódnak majd,
+ha egy szünettel el vannak választva a szavaktól.</translation>
     </message>
 </context>
 <context>
@@ -3659,7 +3729,7 @@ from other words by spaces.</source>
     </message>
     <message>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
-        <translation type="unfinished"></translation>
+        <translation>Minden EiskaltDC++ által generált log a program alkönyvtárában lesz tárolva.</translation>
     </message>
 </context>
 <context>
@@ -3744,7 +3814,9 @@ from other words by spaces.</source>
         <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha a megadott hangfájl formátuma nem támogatott a Qt által,
+lehetőség van megadni külső lejátszó programot is a megfelelő lejátszás érdekében.
+Például: /usr/bin/mplayer</translation>
     </message>
 </context>
 <context>
@@ -3783,33 +3855,38 @@ For example: /usr/bin/mplayer</source>
     </message>
     <message>
         <source>This field is for sharing your email address, if you wish it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Az ebben a mezőben megadott e-mail cím megosztásra kerül, így mindenki láthatja azt.</translation>
     </message>
     <message>
         <source>Line speed (upload)</source>
-        <translation type="unfinished"></translation>
+        <translation>Feltöltési sávszélesség</translation>
     </message>
     <message>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a leírás megjelenik a felhasználók listájában.
+Hubonként megváltoztatható a &quot;Kedvenc Hubok&quot; tulajdonságaiban.</translation>
     </message>
     <message>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez az üzenet jelenik meg ha valaki privát üzenetet küld neked mialatt Away-módban vagy.</translation>
     </message>
     <message>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"></translation>
+        <translation>A nicknév azonosít, amikor belépsz egy hubra.
+Az általánosan használt nick hubonként megváltoztatható a &quot;Kedvenc Hubok&quot; tulajdonságaiban.</translation>
     </message>
     <message>
         <source>This drop-down contains a number of common upload speeds (in MiB/s),
 please choose the one closest to your own.
 Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
-        <translation type="unfinished"></translation>
+        <translation>A legördülő menü számos gyakori feltöltési sebesség-értéket tartalmaz MiB/mp-ben megadva.
+A saját feltöltési sávszélességedhez legközelebbi értéket válaszd.
+Ne a letöltésed sebességét add meg itt, ez az adat másoknak adja meg,
+hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.</translation>
     </message>
 </context>
 <context>
@@ -3832,7 +3909,7 @@ of how fast a source you are likely to be for other users.</source>
     </message>
     <message>
         <source>Follow symlinks</source>
-        <translation>Szimbóikus linkek követése</translation>
+        <translation>Szimbólikus linkek követése</translation>
     </message>
     <message>
         <source>Share temp files</source>
@@ -3984,23 +4061,24 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Share temporary files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ideiglenes fájlok megosztása</translation>
     </message>
     <message>
         <source>Run refresh share on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Megosztás frissítése a program indításakor</translation>
     </message>
     <message>
         <source>Auto remove non-existing directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem létező könyvtárak automatikus eltávolítása</translation>
     </message>
     <message>
         <source>Here you can set time interval of auto refreshing your share.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a beállítás szabályozza, hogy mennyi időnként lesz a megosztásod automatikusan újra ellenőrizve
+az újabb vagy megváltozott tartalom indexelése céljából.</translation>
     </message>
     <message>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation type="unfinished"></translation>
+        <translation>Példákkal megadható, hogy milyen fájlok ne legyen megosztva (regexp használtata lehetséges). </translation>
     </message>
     <message>
         <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
@@ -4009,7 +4087,12 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Speciális korlátozás megadása (GiB-ban) minden &quot;virtuális&quot; könyvtárhoz a magosztásban.
+Például, ha a megosztásba kerül a /home/felhasználónév/Video könyvtár &quot;Video&quot; néven,
+a következő megadásával akalmazható a speciális korlátozás:
+/Video	10
+Ez azt jelenti, hogy bármelyik felhasználónak, akinek a megosztása kevesebb, mint 10GiB
+a letöltés nem lesz lehetséges a megadott könyvtárból.</translation>
     </message>
     <message>
         <source>Share files with the Hidden attribute set and files inside directory with
@@ -4017,7 +4100,9 @@ the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
-        <translation type="unfinished"></translation>
+        <translation>Engedélyezi a rejtett attribútumú fájlok ill. a rejtett könyvtárak tartalmának megosztását is.
+Ha ki van kapcsolva, a ponttal (.) kezdődő fájlok sem lesznek megosztva. 
+Az opció megváltoztatása a fájl-lista frissítését eredményezi, ezért ekkor előforduihat, hogy a program átmeneti ideig nem reagál.</translation>
     </message>
     <message>
         <source>If with uncheck this you will leave the client until the update
@@ -4030,12 +4115,17 @@ an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
 If the speed of the original uploads increases,
 the granted slot will not be closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha az átlagos feltöltési sebesség a megadott alá megy, akkor automatikusan egy további feltöltési slot nyílik.
+Újabb slot maximálisan 30 másodpercenként válik szabaddá.
+Ha a korábbi feltöltések sebessége újból növekedni kezd, a már kiadott extra slotok nem lesznek visszavéve.</translation>
     </message>
     <message>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezzel a MiB/mp-ben megadott sebességgel fogja az EiskaltDC++ indexelni a fájlaidat.
+Alapesetben az indexelés sebességét csak a meghajtók sebessége korlátozza,
+ezzel a beállítással az indexelés lassabra vehető, így kevésbe terheli le a rendszert.
+A &quot;normális&quot; indexelési sebesség kb. 20 és 50 MiB között mozog másodpercenként.</translation>
     </message>
     <message>
         <source>Configure the number of slots that other users can occupy
@@ -4047,7 +4137,15 @@ There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
-        <translation type="unfinished"></translation>
+        <translation>A többi felhasználó által elfoglalható feltöltési slotok számának beállítása.
+Minden veled azonos hubra kapcsolódott felhasználó hubonként maximum egy slotot kaphat.
+A fájl-listák és a &quot;64 KiB&quot; alatti méretű fájlok feltöltéséhez nincs szükség slot kérelemre.
+Az utóbbi fájlok feltöltésére egyszerre maximum 3 kapcsolati lehetőség (un. mini slot) áll fenn.
+Megjegyzés : ha egy felhasználó lekapcsolódik a hubról, az EiskaltDC++ lezárja a slotjait.
+Ha 10 percen belül visszatér, automatikusan visszakapja a slotját.
+Mindez akkor történik meg ha &quot;A hubról lelépő felhasználók szétkapcsolása&quot; nevű beállítás engedélyezett.
+Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglalhatja,
+így ezesetben előfordulhat, hogy átmeneti ideig a beállítottnál nagyobb számú feltöltési slot nyílik meg.</translation>
     </message>
 </context>
 <context>
