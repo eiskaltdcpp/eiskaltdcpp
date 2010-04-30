@@ -2,6 +2,7 @@
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 #include "MainWindow.h"
+#include "Notification.h"
 #include "EmoticonFactory.h"
 
 #include <QListWidgetItem>
@@ -13,6 +14,7 @@
 #include <QFileDialog>
 #include <QDir>
 #include <QFile>
+#include <QSystemTrayIcon>
 
 #ifndef CLIENT_ICONS_DIR
 #define CLIENT_ICONS_DIR ""
@@ -122,6 +124,9 @@ void SettingsGUI::init(){
         else
             radioButton_SHOW->setChecked(true);
 
+        groupBox_TRAY->setChecked(WBGET(WB_TRAY_ENABLED));
+        groupBox_TRAY->setEnabled(QSystemTrayIcon::isSystemTrayAvailable());
+
         checkBox_SIDEBAR->setChecked(WBGET(WB_MAINWINDOW_USE_SIDEBAR));
     }
     {//Chat tab
@@ -230,6 +235,12 @@ void SettingsGUI::ok(){
 
         WBSET(WB_MAINWINDOW_REMEMBER, radioButton_REMEMBER->isChecked());
         WBSET(WB_MAINWINDOW_HIDE, radioButton_HIDE->isChecked());
+
+        if (WBGET(WB_TRAY_ENABLED) != groupBox_TRAY->isChecked()){
+            WBSET(WB_TRAY_ENABLED, groupBox_TRAY->isChecked());
+
+            Notify->enableTray(WBGET(WB_TRAY_ENABLED));
+        }
 
         if (WSGET(WS_APP_EMOTICON_THEME) != comboBox_EMOT->currentText()){
             WSSET(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>372</width>
-    <height>382</height>
+    <width>374</width>
+    <height>333</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,16 +24,6 @@
        <string>Text</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QCheckBox" name="checkBox_TRAY">
-         <property name="text">
-          <string>Show icon in system tray</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QCheckBox" name="checkBox_EXIT_CONFIRM">
          <property name="text">
