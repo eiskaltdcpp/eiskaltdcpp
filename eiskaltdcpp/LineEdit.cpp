@@ -12,7 +12,9 @@ LineEdit::LineEdit(QWidget *parent) :
 
     label = new QLabel(this);
     label->setPixmap(pxm);
+    label->setCursor(Qt::PointingHandCursor);
     label->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    label->hide();
     label->installEventFilter(this);
 
     connect(this, SIGNAL(clearEdit()), this, SLOT(clear()));
@@ -28,6 +30,21 @@ void LineEdit::resizeEvent(QResizeEvent *e){
 
     updateGeometry();
     updateStyles();
+}
+
+void LineEdit::focusInEvent(QFocusEvent *e){
+    label->show();
+
+    updateGeometry();
+    updateStyles();
+
+    QLineEdit::focusInEvent(e);
+}
+
+void LineEdit::focusOutEvent(QFocusEvent *e){
+    label->hide();
+
+    QLineEdit::focusOutEvent(e);
 }
 
 bool LineEdit::eventFilter(QObject *obj, QEvent *e){
@@ -53,7 +70,7 @@ QSize LineEdit::sizeHint() const{
 }
 
 void LineEdit::updateGeometry(){
-    label->setGeometry(width()-pxm.width()-margin*2, -1+(height()-pxm.height())/2, pxm.width()+margin, height());
+    label->setGeometry(width()-pxm.width()-margin*2, 0, pxm.width()+margin, height());
 }
 
 void LineEdit::updateStyles(){
