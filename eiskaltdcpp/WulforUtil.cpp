@@ -894,6 +894,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx){
 
             if (raw_name.contains("\\")){
                 QStringList submenus = raw_name.split("\\", QString::SkipEmptyParts);
+                if (!submenus.isEmpty()){
                 QString name = submenus.takeLast();
                 QString key = "";
                 QMenu *parent = usr_menu;
@@ -916,15 +917,17 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx){
 
                 action = new QAction(name, parent);
                 parent->addAction(action);
+                }
             }
             else{
                 action = new QAction(_q(uc.getName()), usr_menu);
                 usr_menu->addAction(action);
             }
-
-            action->setToolTip(_q(uc.getCommand()));
-            action->setStatusTip(_q(uc.getName()));
-            action->setData(_q(uc.getHub()));
+            if (action) {
+                action->setToolTip(_q(uc.getCommand()));
+                action->setStatusTip(_q(uc.getName()));
+                action->setData(_q(uc.getHub()));
+            }
 
         }
     }
