@@ -17,8 +17,6 @@ LineEdit::LineEdit(QWidget *parent) :
     label->hide();
     label->installEventFilter(this);
 
-    connect(this, SIGNAL(clearEdit()), this, SLOT(clear()));
-
     //setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
 
     updateGeometry();
@@ -54,7 +52,7 @@ bool LineEdit::eventFilter(QObject *obj, QEvent *e){
     switch (e->type()){
     case QEvent::MouseButtonPress:
         {
-            emit clearEdit();
+            clear();
 
             break;
         }
@@ -74,8 +72,6 @@ void LineEdit::updateGeometry(){
 }
 
 void LineEdit::updateStyles(){
-    pxm = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITCLEAR);
-
     label->setStyleSheet(QString("QLabel { margin-left: %1; }").arg(margin));
     setStyleSheet(QString("QLineEdit{ padding-right: %1; }").arg(label->width()+margin));
 
