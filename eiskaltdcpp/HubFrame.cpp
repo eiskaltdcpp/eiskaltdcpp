@@ -491,6 +491,8 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     setAttribute(Qt::WA_DeleteOnClose);
 
     out_messages_index = 0;
+
+    FavoriteManager::getInstance()->addListener(this);
 }
 
 
@@ -726,6 +728,8 @@ void HubFrame::closeEvent(QCloseEvent *e){
     MW->remArenaWidgetFromToolbar(this);
     MW->remWidgetFromArena(this);
     MW->remArenaWidget(this);
+
+    FavoriteManager::getInstance()->removeListener(this);
 
     client->removeListener(this);
     HubManager::getInstance()->unregisterHubUrl(_q(client->getHubUrl()));
@@ -1551,40 +1555,56 @@ void HubFrame::addUserToFav(const QString& id){
     if (id.isEmpty())
         return;
 
-    QString message = tr("User not found.");
     string cid = id.toStdString();
 
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
 
     if (user){
-        if (user != ClientManager::getInstance()->getMe() && !FavoriteManager::getInstance()->isFavoriteUser(user)){
+        if (user != ClientManager::getInstance()->getMe() && !FavoriteManager::getInstance()->isFavoriteUser(user))
             FavoriteManager::getInstance()->addFavoriteUser(user);
-
-            message = WulforUtil::getInstance()->getNicks(id) + tr(" has been added to favorites.");
-        }
     }
-
-    MainWindow::getInstance()->setStatusMessage(message);
 }
 
 void HubFrame::delUserFromFav(const QString& id){
     if (id.isEmpty())
         return;
 
-    QString message = tr("User not found.");
     string cid = id.toStdString();
 
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
 
     if (user){
-        if (user != ClientManager::getInstance()->getMe() && FavoriteManager::getInstance()->isFavoriteUser(user)){
+        if (user != ClientManager::getInstance()->getMe() && FavoriteManager::getInstance()->isFavoriteUser(user))
             FavoriteManager::getInstance()->removeFavoriteUser(user);
-
-            message = WulforUtil::getInstance()->getNicks(id) + tr(" has been removed from favorites.");
-        }
     }
+}
 
-    MainWindow::getInstance()->setStatusMessage(message);
+void HubFrame::changeFavStatus(QString id) {
+    if (id.isEmpty())
+        return;
+
+    UserPtr user = ClientManager::getInstance()->findUser(CID(id.toStdString()));
+
+    if (user) {
+        UserListItem *item = NULL;
+        if (model)
+            item = model->itemForPtr(user);
+
+        bool bFav = FavoriteManager::getInstance()->isFavoriteUser(user);
+
+        if (item) {
+            item->fav = bFav;
+            QModelIndex ixb = model->index(item->row(), COLUMN_NICK);
+            QModelIndex ixe = model->index(item->row(), COLUMN_EMAIL);
+
+            model->repaintData(ixb, ixe);
+        }
+
+        QString message = WulforUtil::getInstance()->getNicks(id) +
+                (bFav ? tr(" has been added to favorites.") : tr(" has been removed from favorites."));
+
+        MainWindow::getInstance()->setStatusMessage(message);
+    }
 }
 
 void HubFrame::delUserFromQueue(const QString& id){
@@ -1966,8 +1986,6 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
                 if (item)
                     addUserToFav(item->cid);
-
-                item->fav = true;
             }
 
             break;
@@ -1979,8 +1997,6 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
                 if (item)
                     delUserFromFav(item->cid);
-
-                item->fav = false;
             }
 
             break;
@@ -2560,6 +2576,22 @@ void HubFrame::slotHubMenu(QAction *res){
             client->sendUserCmd(Util::formatParams(uc.getCommand(), params, false));
         }
     }
+}
+
+void HubFrame::on(FavoriteManagerListener::UserAdded, const FavoriteUser& aUser) throw() {
+    QString cid = _q(aUser.getUser()->getCID().toBase32());
+    typedef Func1<HubFrame, QString> FUNC;
+    FUNC *func = new FUNC(this, &HubFrame::changeFavStatus, cid);
+
+    QApplication::postEvent(this, new UserCustomEvent(func));
+}
+
+void HubFrame::on(FavoriteManagerListener::UserRemoved, const FavoriteUser& aUser) throw() {
+    QString cid = _q(aUser.getUser()->getCID().toBase32());
+    typedef Func1<HubFrame, QString> FUNC;
+    FUNC *func = new FUNC(this, &HubFrame::changeFavStatus, cid);
+
+    QApplication::postEvent(this, new UserCustomEvent(func));
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){

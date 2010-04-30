@@ -49,7 +49,7 @@ public:
     static const QEvent::Type EventUpdUser  = static_cast<QEvent::Type>(1213);
 
     FavUserEvent(): QEvent(EventAddUser) {}
-    FavUserEvent(const QString &stat): QEvent(EventUpdUser), stat(stat) {}
+    FavUserEvent(const dcpp::CID &cid, const QString &stat): QEvent(EventUpdUser), cid(cid), stat(stat) {}
     FavUserEvent(const dcpp::CID &cid):QEvent(EventRemUser), cid(cid) {}
     virtual ~FavUserEvent() { }
 

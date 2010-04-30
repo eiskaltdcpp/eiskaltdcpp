@@ -234,13 +234,14 @@ void FavoriteUsersModel::addUser(const FavoriteUsersModel::VarMap &params){
     emit layoutChanged();
 }
 
-void FavoriteUsersModel::updateUserStatus(const QString &cid, const QString &stat){
+void FavoriteUsersModel::updateUserStatus(const QString &cid, const QString &stat, const QString &hubUrl){
     if (cid.isEmpty() || !itemHash.contains(cid))
         return;
 
     FavoriteUserItem *i = itemHash.value(cid);
 
     i->updateColumn(COLUMN_USER_SEEN, stat);
+    i->updateColumn(COLUMN_USER_HOST, hubUrl);
 }
 
 void FavoriteUsersModel::removeUser(const QString &cid){

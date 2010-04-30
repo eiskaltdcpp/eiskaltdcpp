@@ -101,6 +101,7 @@ class HubFrame :
         public  QWidget,
         private Ui::UIHubFrame,
         private dcpp::ClientListener,
+        private FavoriteManagerListener,
         public  ArenaWidget
 {
     Q_OBJECT
@@ -252,6 +253,7 @@ private:
     void grantSlot(const QString&);
     void addUserToFav(const QString&);
     void delUserFromFav(const QString&);
+    void changeFavStatus(QString);
     void delUserFromQueue(const QString&);
     void addAsFavorite();
 
@@ -277,6 +279,10 @@ private:
 
     // PM functions
     void addPM(QString, QString);
+
+    // FavoriteManagerListener
+    virtual void on(FavoriteManagerListener::UserAdded, const FavoriteUser& /*aUser*/) throw();
+    virtual void on(FavoriteManagerListener::UserRemoved, const FavoriteUser& /*aUser*/) throw();
 
     // ClientListener interface
     virtual void on(ClientListener::Connecting, Client*) throw();

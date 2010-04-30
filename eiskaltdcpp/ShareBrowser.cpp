@@ -5,6 +5,7 @@
 #include "SearchFrame.h"
 
 #include "dcpp/SettingsManager.h"
+#include "dcpp/FavoriteManager.h"
 
 #if (HAVE_MALLOC_TRIM)
 #include <malloc.h>
@@ -51,14 +52,19 @@ ShareBrowser::Menu::Menu(){
     alter->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
     QAction *magnet  = new QAction(tr("Copy magnet"), menu);
     magnet->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
+    QAction *sep1    = new QAction(menu);
+    QAction *add_to_fav = new QAction(tr("Add to favorites"), menu);
+    add_to_fav->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
 
     actions.insert(down, Download);
     actions.insert(alter, Alternates);
     actions.insert(magnet, Magnet);
+    actions.insert(add_to_fav, AddToFav);
 
     sep->setSeparator(true);
+    sep1->setSeparator(true);
 
-    menu->addActions(QList<QAction*>() << down << sep << alter << magnet);
+    menu->addActions(QList<QAction*>() << down << sep << alter << magnet << sep1 << add_to_fav);
     menu->insertMenu(sep, down_to);
 }
 
@@ -576,6 +582,13 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             magnets = magnets.trimmed();
 
             qApp->clipboard()->setText(magnets, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::AddToFav:
+        {
+            if (user && user != ClientManager::getInstance()->getMe())
+                FavoriteManager::getInstance()->addFavoriteUser(user);
 
             break;
         }

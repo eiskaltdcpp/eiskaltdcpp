@@ -71,7 +71,7 @@ public:
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
     void addUser(const VarMap&);
-    void updateUserStatus(const QString &, const QString &);
+    void updateUserStatus(const QString &, const QString &, const QString &);
     void removeUser(const QString &);
 
     FavoriteUserItem *itemForCID(const QString &cid){
