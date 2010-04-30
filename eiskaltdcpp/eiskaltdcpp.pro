@@ -149,7 +149,8 @@ HEADERS = MainWindow.h \
     PublicHubs.h \
     PublicHubsList.h \
     SideBar.h \
-    ArenaWidgetContainer.h
+    ArenaWidgetContainer.h \
+    LineEdit.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -255,7 +256,8 @@ SOURCES = main.cpp \
     PublicHubs.cpp \
     PublicHubsList.cpp \
     SideBar.cpp \
-    ArenaWidgetContainer.cpp
+    ArenaWidgetContainer.cpp \
+    LineEdit.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \

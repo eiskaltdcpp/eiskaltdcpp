@@ -49,6 +49,7 @@
 #include "ArenaWidget.h"
 #include "ArenaWidgetContainer.h"
 #include "HistoryInterface.h"
+#include "LineEdit.h"
 #include "Func.h"
 
 #include "ui_UIAbout.h"
@@ -265,8 +266,7 @@ friend class dcpp::Singleton<MainWindow>;
         ToolBar *fBar;//for actions
         ToolBar *sBar;//for fast search
 
-        QLineEdit   *searchLineEdit;
-        QToolButton *searchToolButton;
+        LineEdit   *searchLineEdit;
 
         QLabel *statusLabel;
         QLabel *statusDSPLabel;

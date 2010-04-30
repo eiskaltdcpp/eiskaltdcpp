@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>280</width>
-    <height>262</height>
+    <width>278</width>
+    <height>260</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -135,7 +135,7 @@
            <number>0</number>
           </property>
           <item row="0" column="0">
-           <widget class="QLineEdit" name="lineEdit_FILTER"/>
+           <widget class="LineEdit" name="lineEdit_FILTER"/>
           </item>
           <item row="0" column="1">
            <widget class="QToolButton" name="toolButton_CLOSEFILTER">
@@ -153,6 +153,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>LineEdit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -321,7 +321,6 @@ void SearchFrame::init(){
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR, SLOT(setFocus()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR->lineEdit(), SLOT(selectAll()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
-    connect(toolButton_FILTERCLEAR, SIGNAL(clicked()), lineEdit_FILTER, SLOT(clear()));
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), lineEdit_FILTER, SLOT(selectAll()));
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), this, SLOT(slotChangeProxyColumn(int)));
 

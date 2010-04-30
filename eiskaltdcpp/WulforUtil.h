@@ -68,6 +68,7 @@ public:
         eiEDITADD,
         eiEDITCOPY,
         eiEDITDELETE,
+        eiEDITCLEAR,
         eiEMOTICON,
         eiERASER,
         eiEXIT,

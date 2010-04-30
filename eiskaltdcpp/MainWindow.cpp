@@ -907,15 +907,9 @@ void MainWindow::initStatusBar(){
 }
 
 void MainWindow::initSearchBar(){
-    searchLineEdit = new QLineEdit(this);
-    searchToolButton = new QToolButton(this);
-
-    searchToolButton->setText("c");
-    searchToolButton->setToolTip(tr("Clear text field"));
-    searchToolButton->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiERASER));
+    searchLineEdit = new LineEdit(this);
 
     connect(searchLineEdit,   SIGNAL(returnPressed()), this, SLOT(slotToolsSearch()));
-    connect(searchToolButton, SIGNAL(clicked()), searchLineEdit, SLOT(clear()));
 }
 
 void MainWindow::retranslateUi(){
@@ -1033,7 +1027,6 @@ void MainWindow::initToolbar(){
 
     sBar = new ToolBar(this);
     sBar->setObjectName("sBar");
-    sBar->addWidget(searchToolButton);
     sBar->addWidget(searchLineEdit);
     sBar->setContextMenuPolicy(Qt::CustomContextMenu);
     sBar->setMovable(true);

@@ -40,6 +40,7 @@ set (SRCS   Antispam.cpp
             IPFilter.cpp
             IPFilterFrame.cpp
             IPFilterModel.cpp
+            LineEdit.cpp
             Magnet.cpp
             MainWindow.cpp
             Notification.cpp
@@ -92,6 +93,7 @@ set (MOC_HDRS Antispam.h
             IPFilter.h
             IPFilterFrame.h
             IPFilterModel.h
+            LineEdit.h
             Magnet.h
             MainWindow.h
             Notification.h
