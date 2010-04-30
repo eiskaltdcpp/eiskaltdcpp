@@ -102,6 +102,8 @@ private:
 
     QSystemTrayIcon *tray;
     NotifyModule *notify;
+
+    int checkSystemTrayCounter;
 };
 
 #define Notify Notification::getInstance()

@@ -24,6 +24,8 @@ Notification::Notification(QObject *parent) :
 {
     switchModule(static_cast<unsigned>(WIGET(WI_NOTIFY_MODULE)));
 
+    checkSystemTrayCounter = 0;
+
     reloadSounds();
 }
 
@@ -50,25 +52,26 @@ void Notification::enableTray(bool enable){
 
         tray = NULL;
 
-        static bool systemWithoutTray = false;
-
-        if (!QSystemTrayIcon::isSystemTrayAvailable() && !systemWithoutTray){
+        if (!QSystemTrayIcon::isSystemTrayAvailable() && checkSystemTrayCounter < 12){
             QTimer *timer = new QTimer(this);
             timer->setSingleShot(true);
             timer->setInterval(5000);
-
-            systemWithoutTray = true;
 
             connect(timer, SIGNAL(timeout()), this, SLOT(slotCheckTray()));
 
             timer->start();
 
+            ++checkSystemTrayCounter;
+
             return;
         }
-        else if (!QSystemTrayIcon::isSystemTrayAvailable())
-            return;
+        else if (!QSystemTrayIcon::isSystemTrayAvailable()){
+            MainWindow::getInstance()->show();
 
-        systemWithoutTray = false;
+            return;
+        }
+
+        checkSystemTrayCounter = 0;
 
         tray = new QSystemTrayIcon(this);
         tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiICON_APPL));
