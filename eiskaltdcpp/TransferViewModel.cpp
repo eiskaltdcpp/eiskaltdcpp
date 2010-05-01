@@ -77,13 +77,15 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
     switch(role) {
         case Qt::DecorationRole:
         {
-            if (index.column() != 0)
+            if (index.column() != COLUMN_TRANSFER_USERS && index.column() != COLUMN_TRANSFER_FNAME)
                 break;
 
-            if (item->download)
+            if (item->download && index.column() == COLUMN_TRANSFER_USERS)
                 return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWN).scaled(18, 18);
-            else
+            else if (index.column() != COLUMN_TRANSFER_FNAME)
                 return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUP).scaled(18, 18);
+            else
+                return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_TRANSFER_FNAME).toString()).scaled(16, 16);
         }
         case Qt::DisplayRole:
         {
