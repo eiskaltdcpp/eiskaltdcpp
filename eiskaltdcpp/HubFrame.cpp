@@ -193,7 +193,8 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        user_menu = buildUserCmdMenu(_q(client->getHubUrl()));
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
+                        UserCommand::CONTEXT_CHAT);
         menu->addMenu(user_menu);
     }
 
@@ -267,7 +268,8 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty() && !pmw){
-        user_menu = buildUserCmdMenu(_q(client->getHubUrl()));
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
+                        UserCommand::CONTEXT_CHAT);
         menu->addMenu(user_menu);
     }
 
@@ -308,21 +310,6 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     }
     else
         return None;
-}
-
-QMenu *HubFrame::Menu::buildUserCmdMenu(const QString &hub){
-    if (hub.isEmpty())
-        return NULL;
-
-    QMenu *menu = new QMenu();
-    menu->setTitle(tr("Commands"));
-
-    QMenu *tmp = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << hub, UserCommand::CONTEXT_CHAT);
-
-    if (tmp)
-        menu->addMenu(tmp);
-
-    return menu;
 }
 
 QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
