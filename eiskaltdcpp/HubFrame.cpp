@@ -1962,7 +1962,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 if (item)
                     ttip += getUserInfo(item) + "\n";
 
-                ttip += "\n\n";
+                ttip += "\n";
             }
 
             if (!ttip.isEmpty())
