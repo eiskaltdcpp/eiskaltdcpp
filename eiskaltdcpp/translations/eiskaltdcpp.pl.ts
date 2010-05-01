@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="pl_PL" sourcelanguage="en">
 <context>
@@ -851,27 +851,27 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="97"/>
         <source>Nick</source>
-        <translation type="unfinished">Nick</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="98"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="99"/>
         <source>Share</source>
-        <translation type="unfinished">Udostępnione</translation>
+        <translation>Udostępnione</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="100"/>
         <source>Tag</source>
-        <translation type="unfinished">Тag</translation>
+        <translation>Тag</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="102"/>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Wszystkie</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="905"/>
@@ -1361,7 +1361,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1517"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation></translation>
+        <translation>Pliki log (*.log);;Wszystkie pliki (*.*)</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1928"/>
@@ -1889,7 +1889,7 @@ Keys:
   eiskaltdcpp &lt;Кlucz&gt;
 EiskaltDC++ - program dla systemów UNIX-like, dla protokołu Direct Connect i ADC.
 
-Ключи:
+Opcje:
   -h, --help	 Pokaż pomoc
   -v, --version	 Pokaż wersję</translation>
     </message>
@@ -2613,7 +2613,7 @@ EiskaltDC++ - program dla systemów UNIX-like, dla protokołu Direct Connect i A
     <message>
         <location filename="../ShareBrowser.cpp" line="56"/>
         <source>Add to favorites</source>
-        <translation type="unfinished">Dodaj do ulubionych</translation>
+        <translation>Dodaj do ulubionych</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="99"/>
@@ -2920,7 +2920,7 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../TransferView.cpp" line="47"/>
         <source>Copy IP-address of user</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiuj adres IP użytkownika</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="59"/>
@@ -3221,18 +3221,18 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="36"/>
         <source>Favorite hub name.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa ulubionego huba.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="43"/>
         <source>IP address or DNS name of hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adres IP lub adres DNS huba.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="201"/>
         <source>This description will show in the user list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ten opis pokaże się na liście użytkowników</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="57"/>
@@ -3302,12 +3302,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="181"/>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nick z którym będziesz przebywał na hubie.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="188"/>
         <source>If hub requires password, define it here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeśli hub wymaga hasła, wpisz je tutaj.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="208"/>
@@ -3592,7 +3592,8 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIMagnet.ui" line="137"/>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaje magnet-link do kolejki pobierania. Jeśli autowyszukiwania alternatyw są włączone
+w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="161"/>
@@ -3627,7 +3628,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIMagnet.ui" line="127"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwiera okno wyszukiwania i wyszukuje plików</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="141"/>
@@ -3709,7 +3710,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="44"/>
         <source>IP address of DNS name of hub you want to connect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adres IP lub adres DNS huba z którym chcesz się połączyć</translation>
     </message>
 </context>
 <context>
@@ -3753,12 +3754,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="56"/>
         <source>Active mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Tryb aktywny</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="91"/>
         <source>Passive mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Tryb pasywny</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="106"/>
@@ -3814,7 +3815,11 @@ If your computer is not behind a router all you have to do is to choose
 this option and usually you don&apos;t need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz ten tryb, jeśli komputer jest podłączony bezpośrednio do Internetu.
+Nie należy wybrać tego trybu, jeśli masz router lub zewnętrznego firewalla.
+Jeżeli komputer nie jest za routerem wszystko co musisz zrobić, to wybrać
+tą opcję i zazwyczaj nie trzeba zmieniać nic więcej w ustawieniach połączenia.
+Jednakże, jeśli masz zainstalowane oprogramowanie firewall, może być konieczna konfiguracja firewalla w celu umożliwienia dostępu do internetu dla EiskaltDC++.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="66"/>
@@ -3823,7 +3828,11 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz ten tryb jeśli jesteś za zaporą sieciową (router), i ustaw
+przekierowanie portów TCP, UDP i TLS na własną rękę.
+Musisz określić zewnętrzny adres IP routera za pomocą
+ustawień poniżej, jeśli chcesz by ściąganie plików działało prawidłowo.
+Używaj tego trybu tylko wtedy, gdy poprzednie nie są dla Ciebie.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="83"/>
@@ -3833,7 +3842,12 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz ten tryb, jeśli żadny z powyższych sposobów nie ma zastosowania. 
+W tym trybie, EiskaltDC++ nie będzie się starał utworzyć połączeń przychodzących, tylko wychodzące.
+Tym trybie niesie poważne ograniczenia:
+  * Tylko 5 wyników dla każdego użytkownika będzie zwracane w odpowiedzi na wyszukiwanie;
+  * Nie będziesz mógł pobierać od innych pasywnych użytkowników;
+  * Możesz nie będzie w stanie wyszukiwać i/lub pobierać z niektórych hubów.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="98"/>
@@ -3843,14 +3857,20 @@ Most routers do support UPnP but you may need to enable it
 in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz ten tryb jeśli jesteś za firewallem lub routerem, który obsługuje
+standard UPnP w auto-konfiguracji.
+Większość routerów nie obsługują UPnP, ale może musisz ją włączyć w kongiguracji routera. 
+W ten sposób EiskaltDC++ automatycznie otworzy porty potrzebne
+do uzyskać zewnętrznego adresu IP.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="237"/>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz ten tryb, jeśli masz nieograniczone połączenia wychodzące.
+Obejmuje to połączenia z dowolnym adresem IP na dowolnym porcie.
+Wybierz tę opcję, jeśli nie jesteś pewien.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="252"/>
@@ -3858,7 +3878,9 @@ Choose this option if unsure.</source>
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz ten tryb, jeśli chcesz, aby połączenia wychodzące 
+nawiązywane były przez proxy SOCKS. Proxy SOCKS5 nie są takie same jak proxy HTTP.
+Wsparcie SOCKS5 dla DC++ nie obejmuje GSSAPI.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="258"/>
@@ -3904,12 +3926,12 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="382"/>
         <source>Enable total speed limit</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz ograniczenie prędkości</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="490"/>
         <source>Alternate speed limit at time from </source>
-        <translation type="unfinished"></translation>
+        <translation>Inna prędkość w godzinach od</translation>
     </message>
     <message>
         <source>On/Off speed limits</source>
@@ -3947,7 +3969,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="527"/>
         <source>hour(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>godzin(y)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="642"/>
@@ -4075,7 +4097,7 @@ Nie staraj się zrozumieć ...
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="449"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprawdzaj co X sekund jeśli źródło jest wolne. (domyślnie: 10 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
@@ -4083,56 +4105,68 @@ Nie staraj się zrozumieć ...
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jest to kolejna metoda ograniczenia jednoczesnego pobierania plików,
+mająca na celu zapobieganięciunowe pobierania plików, jeśli istniejące pobierania
+przekracza określonegy próg. Jest to mierzone w kilobitach na sekundę,
+i wartości zero spowoduje wyłączenie tego limitu.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>To ogranicza liczbę równoczesnych pobierań plików.
+Wartość 0 oznacza brak limitu.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="181"/>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy XTTP będzie wykożystane tylko
+do pobrania listy hubów.
+Nie jest wykorzystywane do wysyłania, pobierania plików i połączeń z hubem.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="302"/>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Na pliki o tem samym lub większym rozmiarze
+zostanie ustawiony najwyższy priorytet. (domyślnie: 64 KB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="313"/>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Na pliki o tem samym lub mniejszym rozmiarze, ale poniżej
+maksymalnego priorytetu, zostanie ustawiony najwyższy priorytet. (domyślnie: 0 KB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="324"/>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Na pliki o tem samym lub mniejszym rozmiarze, ale poniżej
+najwyższego i maksymalnego priorytetu, zostanie ustawiony najwyższy priorytet. (Domyślnie: 0 KB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="335"/>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Na pliki o tem samym lub mniejszym rozmiarze, ale poniżej
+normalnego priorytetu, zostanie ustawiony najniższy priorytet</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeżeli prędkość pobieranego pliku będzie poniżej wprowadzonej wartości,
+źródło zostanie pominięte. (domyślnie: 1024 B/s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="459"/>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Czas (w sekundach), który musi upłynąć od rozpoczęcia
+pobierania przed usunięciem źródła. (domyślnie: 15 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="470"/>
@@ -4140,18 +4174,22 @@ started before a source can be dropped. (default: 15 s)</source>
 the file was recieved. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksymalny odstęp czasu od ostatniego otrzymania danych.
+Na potrzebę poprawy dokładności pomiaru prędkości i zapobiega
+wyłączeniu źródeł, które powinny zostać odłączony z powodu
+statusu nieaktywności. (domyślnie: 10 sekund)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="483"/>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimalna liczba źródeł,
+przed usunięciem źródeł. (domyślnie: 1)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="494"/>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimalny rozmiar pliku przed usunięciem źródła (w KiB). (domyślnie: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="510"/>
@@ -4198,20 +4236,25 @@ will be dropped. (default: 1)</source>
         <source>With this enabled, files that are larger than Low prio max size
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeśli włączone, pliki o rozmiarze większym niż najniższy priorytet
+ustawi na najniższy priorytetowe.
+Jeśli wyłączone, zostanie ustawiony normalny priorytet..</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="654"/>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta opcja usuwa wolne źródła z kolejce pobierania (z wyjątkiem listę plików). 
+Skorzystanie z tej opcji wymaga włączenia opcji &quot;Automatycznie usuń wolne źródła z kolejki&quot; 
+lub opcja &quot;Usuń wolne listy pobierania plików&quot; (lub obie opcje).</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="687"/>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Po włączeniu tej opcji, źródła będą odłączane
+ale nie usuwane z kolejki.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="702"/>
@@ -4307,7 +4350,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="836"/>
         <source>Interval for auto search alternates (minutes)</source>
-        <translation type="unfinished"></translation>
+        <translation>Przerwa w autowyszukiwaniu alternatywy (w minutach)</translation>
     </message>
     <message>
         <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
@@ -4494,7 +4537,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Show icon in system tray</source>
-        <translation type="unfinished">Pokaż ikonę w tacce systemowej</translation>
+        <translation>Pokaż ikonę w tacce systemowej</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="216"/>
