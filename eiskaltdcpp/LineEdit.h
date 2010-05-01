@@ -25,6 +25,7 @@ public:
     virtual ~LineEdit() { label->deleteLater(); }
 
     virtual QSize sizeHint() const;
+    virtual QSizePolicy sizePolicy() const;
 
 protected:
     virtual void resizeEvent(QResizeEvent *);
@@ -35,12 +36,16 @@ protected:
 signals:
     void clearEdit();
 
+private slots:
+    void slotTextChanged();
+
 private:
     void updateStyles();
     void updateGeometry();
 
     QLabel *label;
     QPixmap pxm;
+    int parentHeight;
 };
 
 #endif // LINEEDIT_H
