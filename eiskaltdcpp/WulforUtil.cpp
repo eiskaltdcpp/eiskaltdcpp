@@ -242,8 +242,8 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
 }
 #if defined(Q_WS_X11) && QT_VERSION >= 0x040600
 static const int PXMTHEMESIDE = 22;
-#define FROMTHEME(a) QIcon::fromTheme((a)).pixmap(PXMTHEMESIDE, PXMTHEMESIDE)
-#define FROMTHEME_SIDE(a, b) QIcon::fromTheme((a)).pixmap((b), (b))
+#define FROMTHEME(a, b) QIcon::fromTheme((a), loadPixmap((b))).pixmap(PXMTHEMESIDE, PXMTHEMESIDE)
+#define FROMTHEME_SIDE(a, b, c) QIcon::fromTheme((a), loadPixmap((c))).pixmap((b), (b))
 #define HASICONTHEME
 #endif
 
@@ -255,40 +255,40 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap.clear();
 
 #ifdef HASICONTHEME
-    m_PixmapMap[eiAWAY]         = FROMTHEME("user-away");
-    m_PixmapMap[eiBOOKMARK_ADD] = FROMTHEME("bookmark-new");
-    m_PixmapMap[eiCLEAR]        = FROMTHEME("edit-clear");
-    m_PixmapMap[eiCONFIGURE]    = FROMTHEME("configure");
-    m_PixmapMap[eiCONNECT]      = FROMTHEME("network-connect");
-    m_PixmapMap[eiCONNECT_NO]   = FROMTHEME("network-disconnect");
-    m_PixmapMap[eiDOWN]         = FROMTHEME("arrow-down");
-    m_PixmapMap[eiDOWNLIST]     = FROMTHEME("arrow-down-double");
-    m_PixmapMap[eiDOWNLOAD]     = FROMTHEME("download");
-    m_PixmapMap[eiDOWNLOAD_AS]  = FROMTHEME("download");
-    m_PixmapMap[eiEDIT]         = FROMTHEME("document-properties");
-    m_PixmapMap[eiEDITADD]      = FROMTHEME("list-add");
-    m_PixmapMap[eiEDITCOPY]     = FROMTHEME("edit-copy");
-    m_PixmapMap[eiEDITDELETE]   = FROMTHEME("list-remove");
-    m_PixmapMap[eiEDITCLEAR]    = FROMTHEME_SIDE("edit-clear-locationbar-rtl", 16);
-    m_PixmapMap[eiEMOTICON]     = FROMTHEME("emoticon");
-    m_PixmapMap[eiEXIT]         = FROMTHEME("application-exit");
-    m_PixmapMap[eiFILECLOSE]    = FROMTHEME("edit-delete");
-    m_PixmapMap[eiFILEFIND]     = FROMTHEME("edit-find");
-    m_PixmapMap[eiFILTER]       = FROMTHEME("view-filter");
-    m_PixmapMap[eiFOLDER_BLUE]  = FROMTHEME("folder-blue");
-    m_PixmapMap[eiHIDEWINDOW]   = FROMTHEME("view-close");
-    m_PixmapMap[eiUP]           = FROMTHEME("arrow-up");
-    m_PixmapMap[eiUPLIST]       = FROMTHEME("arrow-up-double");
-    m_PixmapMap[eiZOOM_IN]      = FROMTHEME("zoom-in");
-    m_PixmapMap[eiZOOM_OUT]     = FROMTHEME("zoom-out");
+    m_PixmapMap[eiAWAY]         = FROMTHEME("user-away", "away");
+    m_PixmapMap[eiBOOKMARK_ADD] = FROMTHEME("bookmark-new", "bookmark_add.png");
+    m_PixmapMap[eiCLEAR]        = FROMTHEME("edit-clear", "clear.png");
+    m_PixmapMap[eiCONFIGURE]    = FROMTHEME("configure", "configure.png");
+    m_PixmapMap[eiCONNECT]      = FROMTHEME("network-connect", "connect.png");
+    m_PixmapMap[eiCONNECT_NO]   = FROMTHEME("network-disconnect", "connect_no.png");
+    m_PixmapMap[eiDOWN]         = FROMTHEME("arrow-down", "down.png");
+    m_PixmapMap[eiDOWNLIST]     = FROMTHEME("arrow-down-double", "downlist.png");
+    m_PixmapMap[eiDOWNLOAD]     = FROMTHEME("download", "download.png");
+    m_PixmapMap[eiDOWNLOAD_AS]  = FROMTHEME("download", "download_as.png");
+    m_PixmapMap[eiEDIT]         = FROMTHEME("document-properties", "edit.png");
+    m_PixmapMap[eiEDITADD]      = FROMTHEME("list-add", "editadd.png");
+    m_PixmapMap[eiEDITCOPY]     = FROMTHEME("edit-copy", "editcopy.png");
+    m_PixmapMap[eiEDITDELETE]   = FROMTHEME("list-remove", "editdelete.png");
+    m_PixmapMap[eiEDITCLEAR]    = FROMTHEME_SIDE("edit-clear-locationbar-rtl", 16, "edit-clear.png");
+    m_PixmapMap[eiEMOTICON]     = FROMTHEME("emoticon", "emoticon.png");
+    m_PixmapMap[eiEXIT]         = FROMTHEME("application-exit", "exit.png");
+    m_PixmapMap[eiFILECLOSE]    = FROMTHEME("edit-delete", "fileclose.png");
+    m_PixmapMap[eiFILEFIND]     = FROMTHEME("edit-find", "filefind.png");
+    m_PixmapMap[eiFILTER]       = FROMTHEME("view-filter", "filter.png");
+    m_PixmapMap[eiFOLDER_BLUE]  = FROMTHEME("folder-blue", "folder_blue.png");
+    m_PixmapMap[eiHIDEWINDOW]   = FROMTHEME("view-close", "hidewindow.png");
+    m_PixmapMap[eiUP]           = FROMTHEME("arrow-up", "up.png");
+    m_PixmapMap[eiUPLIST]       = FROMTHEME("arrow-up-double", "uplist.png");
+    m_PixmapMap[eiZOOM_IN]      = FROMTHEME("zoom-in", "zoom-in.png");
+    m_PixmapMap[eiZOOM_OUT]     = FROMTHEME("zoom-out", "zoom-out.png");
 
-    m_PixmapMap[eiFILETYPE_APPLICATION] = FROMTHEME("application-x-executable");
-    m_PixmapMap[eiFILETYPE_ARCHIVE]     = FROMTHEME("application-x-archive");
-    m_PixmapMap[eiFILETYPE_DOCUMENT]    = FROMTHEME("text-x-generic");
-    m_PixmapMap[eiFILETYPE_MP3]         = FROMTHEME("audio-x-generic");
-    m_PixmapMap[eiFILETYPE_PICTURE]     = FROMTHEME("image-x-generic");
-    m_PixmapMap[eiFILETYPE_UNKNOWN]     = FROMTHEME("unknown");
-    m_PixmapMap[eiFILETYPE_VIDEO]       = FROMTHEME("video-x-generic");
+    m_PixmapMap[eiFILETYPE_APPLICATION] = FROMTHEME("application-x-executable", "filetype-application.png");
+    m_PixmapMap[eiFILETYPE_ARCHIVE]     = FROMTHEME("application-x-archive", "filetype-archive.png");
+    m_PixmapMap[eiFILETYPE_DOCUMENT]    = FROMTHEME("text-x-generic", "filetype-document.png");
+    m_PixmapMap[eiFILETYPE_MP3]         = FROMTHEME("audio-x-generic", "filetype-audio.png");
+    m_PixmapMap[eiFILETYPE_PICTURE]     = FROMTHEME("image-x-generic", "filetype-picture.png");
+    m_PixmapMap[eiFILETYPE_UNKNOWN]     = FROMTHEME("unknown", "filetype-unknown.png");
+    m_PixmapMap[eiFILETYPE_VIDEO]       = FROMTHEME("video-x-generic", "filetype-video.png");
 #else
     m_PixmapMap[eiAWAY]         = loadPixmap("away");
     m_PixmapMap[eiBOOKMARK_ADD] = loadPixmap("bookmark_add.png");

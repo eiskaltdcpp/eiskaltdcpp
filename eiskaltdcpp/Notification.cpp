@@ -128,8 +128,12 @@ void Notification::showMessage(Notification::Type t, const QString &title, const
             if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
                 break;
 
-            if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS)))
+            if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS))){
                 tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE_TRAY_ICON));
+
+                if (MainWindow::getInstance()->isVisible())
+                    QApplication::alert(MainWindow::getInstance(), 0);
+            }
 
             if (notify)
                 notify->showMessage(title, msg, tray);

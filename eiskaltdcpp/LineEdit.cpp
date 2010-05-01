@@ -63,13 +63,13 @@ bool LineEdit::eventFilter(QObject *obj, QEvent *e){
 
 QSize LineEdit::sizeHint() const{
     ensurePolished();
-    QFontMetrics fm(font());
+
     int h = parentHeight;
-    int w = fm.width(QLatin1Char('x')) * 17 + 2*margin + textMargins().left()+ textMargins().right();
+    int w = QLineEdit::sizeHint().width();
     QStyleOptionFrameV2 opt;
+
     initStyleOption(&opt);
-    return (style()->sizeFromContents(QStyle::CT_LineEdit, &opt, QSize(w, h).
-                                      expandedTo(QApplication::globalStrut()), this));
+    return (style()->sizeFromContents(QStyle::CT_LineEdit, &opt, QSize(w, h).expandedTo(QApplication::globalStrut()), this));
 }
 
 QSizePolicy LineEdit::sizePolicy() const{
