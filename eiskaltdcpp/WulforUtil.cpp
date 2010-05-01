@@ -240,6 +240,12 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
 
     return userIconCache[x][y];
 }
+#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+static const int PXMTHEMESIDE = 22;
+#define FROMTHEME(a) QIcon::fromTheme((a)).pixmap(PXMTHEMESIDE, PXMTHEMESIDE)
+#define FROMTHEME_SIDE(a, b) QIcon::fromTheme((a)).pixmap((b), (b))
+#define HASICONTHEME
+#endif
 
 bool WulforUtil::loadIcons(){
     m_bError = false;
@@ -248,10 +254,44 @@ bool WulforUtil::loadIcons(){
 
     m_PixmapMap.clear();
 
+#ifdef HASICONTHEME
+    m_PixmapMap[eiAWAY]         = FROMTHEME("user-away");
+    m_PixmapMap[eiBOOKMARK_ADD] = FROMTHEME("bookmark-new");
+    m_PixmapMap[eiCLEAR]        = FROMTHEME("edit-clear");
+    m_PixmapMap[eiCONFIGURE]    = FROMTHEME("configure");
+    m_PixmapMap[eiCONNECT]      = FROMTHEME("network-connect");
+    m_PixmapMap[eiCONNECT_NO]   = FROMTHEME("network-disconnect");
+    m_PixmapMap[eiDOWN]         = FROMTHEME("arrow-down");
+    m_PixmapMap[eiDOWNLIST]     = FROMTHEME("arrow-down-double");
+    m_PixmapMap[eiDOWNLOAD]     = FROMTHEME("download");
+    m_PixmapMap[eiDOWNLOAD_AS]  = FROMTHEME("download");
+    m_PixmapMap[eiEDIT]         = FROMTHEME("document-properties");
+    m_PixmapMap[eiEDITADD]      = FROMTHEME("list-add");
+    m_PixmapMap[eiEDITCOPY]     = FROMTHEME("edit-copy");
+    m_PixmapMap[eiEDITDELETE]   = FROMTHEME("list-remove");
+    m_PixmapMap[eiEDITCLEAR]    = FROMTHEME_SIDE("edit-clear-locationbar-rtl", 16);
+    m_PixmapMap[eiEMOTICON]     = FROMTHEME("emoticon");
+    m_PixmapMap[eiEXIT]         = FROMTHEME("application-exit");
+    m_PixmapMap[eiFILECLOSE]    = FROMTHEME("edit-delete");
+    m_PixmapMap[eiFILEFIND]     = FROMTHEME("edit-find");
+    m_PixmapMap[eiFILTER]       = FROMTHEME("view-filter");
+    m_PixmapMap[eiFOLDER_BLUE]  = FROMTHEME("folder-blue");
+    m_PixmapMap[eiHIDEWINDOW]   = FROMTHEME("view-close");
+    m_PixmapMap[eiUP]           = FROMTHEME("arrow-up");
+    m_PixmapMap[eiUPLIST]       = FROMTHEME("arrow-up-double");
+    m_PixmapMap[eiZOOM_IN]      = FROMTHEME("zoom-in");
+    m_PixmapMap[eiZOOM_OUT]     = FROMTHEME("zoom-out");
+
+    m_PixmapMap[eiFILETYPE_APPLICATION] = FROMTHEME("application-x-executable");
+    m_PixmapMap[eiFILETYPE_ARCHIVE]     = FROMTHEME("application-x-archive");
+    m_PixmapMap[eiFILETYPE_DOCUMENT]    = FROMTHEME("text-x-generic");
+    m_PixmapMap[eiFILETYPE_MP3]         = FROMTHEME("audio-x-generic");
+    m_PixmapMap[eiFILETYPE_PICTURE]     = FROMTHEME("image-x-generic");
+    m_PixmapMap[eiFILETYPE_UNKNOWN]     = FROMTHEME("unknown");
+    m_PixmapMap[eiFILETYPE_VIDEO]       = FROMTHEME("video-x-generic");
+#else
     m_PixmapMap[eiAWAY]         = loadPixmap("away");
-    m_PixmapMap[eiBALL_GREEN]   = loadPixmap("ball_green.png");
     m_PixmapMap[eiBOOKMARK_ADD] = loadPixmap("bookmark_add.png");
-    m_PixmapMap[eiCHAT]         = loadPixmap("chat.png");
     m_PixmapMap[eiCLEAR]        = loadPixmap("clear.png");
     m_PixmapMap[eiCONFIGURE]    = loadPixmap("configure.png");
     m_PixmapMap[eiCONNECT]      = loadPixmap("connect.png");
@@ -266,23 +306,39 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiEDITDELETE]   = loadPixmap("editdelete.png");
     m_PixmapMap[eiEDITCLEAR]    = loadPixmap("edit-clear.png");
     m_PixmapMap[eiEMOTICON]     = loadPixmap("emoticon.png");
-    m_PixmapMap[eiERASER]       = loadPixmap("eraser.png");
     m_PixmapMap[eiEXIT]         = loadPixmap("exit.png");
+    m_PixmapMap[eiFILECLOSE]    = loadPixmap("fileclose.png");
+    m_PixmapMap[eiFILEFIND]     = loadPixmap("filefind.png");
+    m_PixmapMap[eiFILTER]       = loadPixmap("filter.png");
+    m_PixmapMap[eiFOLDER_BLUE]  = loadPixmap("folder_blue.png");
+    m_PixmapMap[eiHIDEWINDOW]   = loadPixmap("hidewindow.png");
+    m_PixmapMap[eiUP]           = loadPixmap("up.png");
+    m_PixmapMap[eiUPLIST]       = loadPixmap("uplist.png");
+    m_PixmapMap[eiZOOM_IN]      = loadPixmap("zoom-in.png");
+    m_PixmapMap[eiZOOM_OUT]     = loadPixmap("zoom-out.png");
+
+    m_PixmapMap[eiFILETYPE_APPLICATION] = loadPixmap("filetype-application.png");
+    m_PixmapMap[eiFILETYPE_ARCHIVE]     = loadPixmap("filetype-archive.png");
+    m_PixmapMap[eiFILETYPE_DOCUMENT]    = loadPixmap("filetype-document.png");
+    m_PixmapMap[eiFILETYPE_MP3]         = loadPixmap("filetype-audio.png");
+    m_PixmapMap[eiFILETYPE_PICTURE]     = loadPixmap("filetype-picture.png");
+    m_PixmapMap[eiFILETYPE_UNKNOWN]     = loadPixmap("filetype-unknown.png");
+    m_PixmapMap[eiFILETYPE_VIDEO]       = loadPixmap("filetype-video.png");
+#endif
+
+    m_PixmapMap[eiBALL_GREEN]   = loadPixmap("ball_green.png");
+    m_PixmapMap[eiCHAT]         = loadPixmap("chat.png");
+    m_PixmapMap[eiERASER]       = loadPixmap("eraser.png");
     m_PixmapMap[eiFAV]          = loadPixmap("fav.png");
     m_PixmapMap[eiFAVADD]       = loadPixmap("favadd.png");
     m_PixmapMap[eiFAVREM]       = loadPixmap("favrem.png");
     m_PixmapMap[eiFAVSERVER]    = loadPixmap("favserver.png");
     m_PixmapMap[eiFAVUSERS]     = loadPixmap("favusers.png");
-    m_PixmapMap[eiFILECLOSE]    = loadPixmap("fileclose.png");
-    m_PixmapMap[eiFILEFIND]     = loadPixmap("filefind.png");
-    m_PixmapMap[eiFILTER]       = loadPixmap("filter.png");
     m_PixmapMap[eiFIND]         = loadPixmap("find.png");
-    m_PixmapMap[eiFOLDER_BLUE]  = loadPixmap("folder_blue.png");
     m_PixmapMap[eiFREESPACE]    = loadPixmap("freespace.png");
     m_PixmapMap[eiGUI]          = loadPixmap("gui.png");
     m_PixmapMap[eiGV]           = QPixmap(gv_xpm);
     m_PixmapMap[eiHASHING]      = loadPixmap("hashing.png");
-    m_PixmapMap[eiHIDEWINDOW]   = loadPixmap("hidewindow.png");
     m_PixmapMap[eiHUBMSG]       = loadPixmap("hubmsg.png");
     m_PixmapMap[eiICON_APPL]    = loadPixmap("icon_appl.png");
     m_PixmapMap[eiMESSAGE]      = loadPixmap("message.png");
@@ -297,23 +353,11 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiSERVER]       = loadPixmap("server.png");
     m_PixmapMap[eiSPAM]         = loadPixmap("spam.png");
     m_PixmapMap[eiSPY]          = loadPixmap("spy.png");
-    m_PixmapMap[eiSPLASH]       = loadPixmap("splash.png");
+    m_PixmapMap[eiSPLASH]       = QPixmap();
     m_PixmapMap[eiSTATUS]       = loadPixmap("status.png");
     m_PixmapMap[eiTRANSFER]     = loadPixmap("transfer.png");
-    m_PixmapMap[eiUP]           = loadPixmap("up.png");
-    m_PixmapMap[eiUPLIST]       = loadPixmap("uplist.png");
     m_PixmapMap[eiUSERS]        = loadPixmap("users.png");
-    m_PixmapMap[eiZOOM_IN]      = loadPixmap("zoom-in.png");
-    m_PixmapMap[eiZOOM_OUT]     = loadPixmap("zoom-out.png");
     m_PixmapMap[eiQT_LOGO]      = loadPixmap("qt-logo.png");
-
-    m_PixmapMap[eiFILETYPE_APPLICATION] = loadPixmap("filetype-application.png");
-    m_PixmapMap[eiFILETYPE_ARCHIVE]     = loadPixmap("filetype-archive.png");
-    m_PixmapMap[eiFILETYPE_DOCUMENT]    = loadPixmap("filetype-document.png");
-    m_PixmapMap[eiFILETYPE_MP3]         = loadPixmap("filetype-audio.png");
-    m_PixmapMap[eiFILETYPE_PICTURE]     = loadPixmap("filetype-picture.png");
-    m_PixmapMap[eiFILETYPE_UNKNOWN]     = loadPixmap("filetype-unknown.png");
-    m_PixmapMap[eiFILETYPE_VIDEO]       = loadPixmap("filetype-video.png");
 
     return !m_bError;
 }
