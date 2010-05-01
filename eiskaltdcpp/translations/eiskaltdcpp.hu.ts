@@ -712,6 +712,30 @@ Kedvenc felhasználó</translation>
         <source>Hub Menu</source>
         <translation>Hub Menü</translation>
     </message>
+    <message>
+        <source>Nick</source>
+        <translation type="unfinished">Nick</translation>
+    </message>
+    <message>
+        <source>IP</source>
+        <translation type="unfinished">IP</translation>
+    </message>
+    <message>
+        <source>Share</source>
+        <translation type="unfinished">Megosztás</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation type="unfinished">Tag</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy data</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>

@@ -104,7 +104,7 @@ HubFrame::Menu::Menu(){
     QMenu *menuCopyData = new QMenu(NULL);
     menuCopyData->addActions(QList<QAction*>() << copy_data_nick << copy_data_ip << copy_data_share << copy_data_tag << sep4 << copy_data_all);
 
-    QAction *copy_data   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy user data"), NULL);
+    QAction *copy_data   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy data"), NULL);
     copy_data->setMenu(menuCopyData);
     // end submenu
 
