@@ -714,27 +714,27 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Nick</source>
-        <translation type="unfinished">Nick</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation type="unfinished">Megosztás</translation>
+        <translation>Megosztás</translation>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished">Tag</translation>
+        <translation>Tag</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Minden</translation>
     </message>
     <message>
         <source>Copy data</source>
-        <translation type="unfinished"></translation>
+        <translation>Adat másolása</translation>
     </message>
 </context>
 <context>
