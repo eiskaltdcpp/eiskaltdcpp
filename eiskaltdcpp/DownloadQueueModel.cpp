@@ -85,9 +85,9 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
         case Qt::DecorationRole:
         {
             if (item->dir && index.column() == COLUMN_DOWNLOADQUEUE_NAME)
-                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE);
+                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
             else if (index.column() == COLUMN_DOWNLOADQUEUE_NAME)
-                return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_DOWNLOADQUEUE_NAME).toString());
+                return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_DOWNLOADQUEUE_NAME).toString()).scaled(16, 16);
         }
         case Qt::DisplayRole:
         {

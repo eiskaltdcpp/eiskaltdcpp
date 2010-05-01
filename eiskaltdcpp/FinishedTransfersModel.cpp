@@ -101,7 +101,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
         {
             if (rootItem == fileItem){
                 if (index.column() == COLUMN_FINISHED_NAME)
-                    return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_FINISHED_TARGET).toString());
+                    return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_FINISHED_TARGET).toString()).scaled(16, 16);
             }
 
             break;
