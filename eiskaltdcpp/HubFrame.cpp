@@ -70,7 +70,7 @@ HubFrame::Menu::Menu(){
 
     last_user_cmd = "";
 
-    //Userlist actions
+    // Userlist actions
     QAction *copy_text   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy"), NULL);
     QAction *copy_nick   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy nick"), NULL);
     QAction *find        = new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Show in list"), NULL);
@@ -82,7 +82,7 @@ HubFrame::Menu::Menu(){
     QAction *grant_slot  = new QAction(WU->getPixmap(WulforUtil::eiEDITADD), tr("Grant slot"), NULL);
     QAction *rem_queue   = new QAction(WU->getPixmap(WulforUtil::eiEDITDELETE), tr("Remove from Queue"), NULL);
 
-    //Chat actions
+    // Chat actions
     QAction *sep1        = new QAction(NULL);
     QAction *clear_chat  = new QAction(WU->getPixmap(WulforUtil::eiCLEAR), tr("Clear chat"), NULL);
     QAction *find_in_chat= new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Find in chat"), NULL);
@@ -93,7 +93,22 @@ HubFrame::Menu::Menu(){
     QAction *zoom_in     = new QAction(WU->getPixmap(WulforUtil::eiZOOM_IN), tr("Zoom In"), NULL);
     QAction *zoom_out    = new QAction(WU->getPixmap(WulforUtil::eiZOOM_OUT), tr("Zoom Out"), NULL);
 
-    sep1->setSeparator(true), sep2->setSeparator(true), sep3->setSeparator(true);
+    // submenu copy_data for user list
+    QAction *copy_data_nick  = new QAction(tr("Nick"), NULL);
+    QAction *copy_data_ip    = new QAction(tr("IP"), NULL);
+    QAction *copy_data_share = new QAction(tr("Share"), NULL);
+    QAction *copy_data_tag   = new QAction(tr("Tag"), NULL);
+    QAction *sep4            = new QAction(NULL);
+    QAction *copy_data_all   = new QAction(tr("All"), NULL);
+
+    QMenu *menuCopyData = new QMenu(NULL);
+    menuCopyData->addActions(QList<QAction*>() << copy_data_nick << copy_data_ip << copy_data_share << copy_data_tag << sep4 << copy_data_all);
+
+    QAction *copy_data   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy user data"), NULL);
+    copy_data->setMenu(menuCopyData);
+    // end submenu
+
+    sep1->setSeparator(true), sep2->setSeparator(true), sep3->setSeparator(true), sep4->setSeparator(true);
 
     actions << copy_text
             << copy_nick
@@ -121,8 +136,7 @@ HubFrame::Menu::Menu(){
             << fav_add
             << fav_del
             << grant_slot
-            << copy_text
-            << copy_nick
+            << copy_data
             << match_queue
             << rem_queue;
 
@@ -150,6 +164,12 @@ HubFrame::Menu::Menu(){
     chat_actions_map.insert(select_all, SelectAllChat);
     chat_actions_map.insert(zoom_in, ZoomInChat);
     chat_actions_map.insert(zoom_out, ZoomOutChat);
+
+    chat_actions_map.insert(copy_data_nick,  CopyNick);
+    chat_actions_map.insert(copy_data_ip,    CopyIP);
+    chat_actions_map.insert(copy_data_share, CopyShare);
+    chat_actions_map.insert(copy_data_tag,   CopyTag);
+    chat_actions_map.insert(copy_data_all,   CopyText);
 }
 
 
@@ -184,6 +204,8 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
 
     if (actions.contains(res))
         return static_cast<Action>(actions.indexOf(res));
+    else if (chat_actions_map.contains(res))
+        return chat_actions_map[res];
     else if (res && !res->toolTip().isEmpty()){//User command{
         last_user_cmd = res->toolTip();
         QString cmd_name = res->statusTip();
@@ -1940,7 +1962,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 if (item)
                     ttip += getUserInfo(item) + "\n";
 
-                ttip += "\n";
+                ttip += "\n\n";
             }
 
             if (!ttip.isEmpty())
@@ -1960,6 +1982,60 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
                 if (item)
                     ret += item->nick;
+            }
+
+            QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::CopyIP:
+        {
+            QString ret = "";
+
+            foreach(QModelIndex i, list){
+                item = reinterpret_cast<UserListItem*>(i.internalPointer());
+
+                if (ret.length() > 0)
+                    ret += "\n";
+
+                if (item)
+                    ret += item->ip;
+            }
+
+            QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::CopyShare:
+        {
+            QString ret = "";
+
+            foreach(QModelIndex i, list){
+                item = reinterpret_cast<UserListItem*>(i.internalPointer());
+
+                if (ret.length() > 0)
+                    ret += "\n";
+
+                if (item)
+                    ret += WulforUtil::formatBytes(item->share);
+            }
+
+            QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::CopyTag:
+        {
+            QString ret = "";
+
+            foreach(QModelIndex i, list){
+                item = reinterpret_cast<UserListItem*>(i.internalPointer());
+
+                if (ret.length() > 0)
+                    ret += "\n";
+
+                if (item)
+                    ret += item->tag;
             }
 
             QApplication::clipboard()->setText(ret, QClipboard::Clipboard);

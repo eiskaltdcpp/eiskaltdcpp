@@ -133,7 +133,12 @@ class HubFrame :
             ZoomInChat,
             ZoomOutChat,
 
-            None
+            None,
+
+            /** Additional actions for userlist */
+            CopyIP,
+            CopyShare,
+            CopyTag
         };
 
         Menu();
