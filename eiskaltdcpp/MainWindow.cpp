@@ -861,34 +861,33 @@ void MainWindow::initStatusBar(){
     statusDSPLabel->setFrameShadow(QFrame::Plain);
     statusDSPLabel->setFrameShape(QFrame::NoFrame);
     statusDSPLabel->setAlignment(Qt::AlignRight);
-    statusDSPLabel->setScaledContents(true);
     statusDSPLabel->setToolTip(tr("Download speed"));
 
     statusUSPLabel = new QLabel(statusBar());
     statusUSPLabel->setFrameShadow(QFrame::Plain);
     statusUSPLabel->setFrameShape(QFrame::NoFrame);
     statusUSPLabel->setAlignment(Qt::AlignRight);
-    statusDSPLabel->setScaledContents(true);
     statusUSPLabel->setToolTip(tr("Upload speed"));
 
     statusDLabel = new QLabel(statusBar());
     statusDLabel->setFrameShadow(QFrame::Plain);
     statusDLabel->setFrameShape(QFrame::NoFrame);
     statusDLabel->setAlignment(Qt::AlignRight);
-    statusDLabel->setScaledContents(true);
     statusDLabel->setToolTip(tr("Downloaded"));
 
     statusULabel = new QLabel(statusBar());
     statusULabel->setFrameShadow(QFrame::Plain);
     statusULabel->setFrameShape(QFrame::NoFrame);
     statusULabel->setAlignment(Qt::AlignRight);
-    statusULabel->setScaledContents(true);
     statusULabel->setToolTip(tr("Uploaded"));
 
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
     msgLabel->setFrameShape(QFrame::NoFrame);
     msgLabel->setAlignment(Qt::AlignLeft);
+    msgLabel->setWordWrap(true);
+    msgLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+
 #if (defined FREE_SPACE_BAR || defined FREE_SPACE_BAR_C)
     progressSpace = new QProgressBar(this);
     progressSpace->setMaximum(100);
@@ -1231,7 +1230,25 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
 }
 
 void MainWindow::setStatusMessage(QString msg){
+    QString pre = tr("<b>Last kernel message:</b><br/>%1").replace(" ","&nbsp;");
+
+    msgLabel->setToolTip(pre.arg(msg));
+
+#if defined(Q_WS_X11) || defined(Q_WS_MAC)
+    QChar s = QDir::separator();
+    if (msg.count(s) >= 2){
+        int a = msg.indexOf(s);
+        int b = msg.lastIndexOf(s);
+        msg.remove(a, b-a+1);
+        msgLabel->setText(msg);
+    }
+    else
+        msgLabel->setText(msg);
+#else
     msgLabel->setText(msg);
+#endif
+
+    msgLabel->setMaximumHeight(statusLabel->height());
 }
 
 void MainWindow::autoconnect(){
