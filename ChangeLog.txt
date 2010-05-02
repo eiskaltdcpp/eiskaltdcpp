@@ -1,4 +1,4 @@
---- 2.0.2 2010-05-03 ---
+--- 2.0.2 2010-05-04 ---
 * Thanks to Alexandre Wallimann the French translation is now available.
 * Thanks to Arahael the Polish translation is now available.
 * Added ability to use the side dock with list of widgets instead of a one-line panel with tabs.
