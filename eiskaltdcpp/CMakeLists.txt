@@ -197,6 +197,8 @@ foreach (LANGUAGE ${LANGUAGES})
                 MAIN_DEPENDENCY ${TS})
 endforeach()
 
+set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc)
+
 add_custom_target (
         translations_qt
         COMMAND ${QT_LUPDATE_EXECUTABLE} ${HEADERS} ${SOURCES} -ts ${TRANSLATIONS})
@@ -211,6 +213,13 @@ if (UNIX)
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE eiskaltdcpp.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+endif (UNIX)
+
+if (UNIX)
+  EXECUTE_PROCESS (
+    COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} -o default.rcc
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
+  )
 endif (UNIX)
 
 include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
@@ -247,8 +256,19 @@ add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
                 ${HDRS}
                 ${MOC_HDRS}
                 ${TRANSLATIONS}
-                translations)
-add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}" -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}" -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}" -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}" )
+                translations
+                )
+add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}" 
+                          -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}" 
+                          -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}" 
+                          -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
+                )
+
+if (APPLE)
+  add_definitions(        -DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
+else (APPLE)
+  add_definitions(        -DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/resources")
+endif (APPLE)
 
 if (APPLE)
 target_link_libraries (eiskaltdcpp ${LIBS} dcpp iconv intl upnp ixml)
@@ -275,7 +295,8 @@ if (NOT APPLE)
   install (FILES icons/icon_128x128.png DESTINATION share/pixmaps/ RENAME eiskaltdcpp.png)
   install (FILES ../eiskaltdcpp.desktop DESTINATION share/applications)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
-  INSTALL (FILES eiskaltdcpp.1.gz DESTINATION share/man/man1)
+  install (FILES eiskaltdcpp.1.gz DESTINATION share/man/man1)
+  install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/resources)
 
 endif (NOT APPLE)
 
@@ -317,7 +338,8 @@ if (APPLE)
   install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/pixmaps/ RENAME eiskaltdcpp.png)
   install (FILES ../eiskaltdcpp.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
-  INSTALL (FILES eiskaltdcpp.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+  install (FILES eiskaltdcpp.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+  install (FILES default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 
   install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
 

@@ -187,6 +187,9 @@ private:
     PixmapMap m_PixmapMap;
     bool m_bError;
 
+    QPixmap FROMTHEME(const QString &name, bool resource);
+    QPixmap FROMTHEME_SIDE(const QString &name, bool resource, const int side);
+
     QString findAppIconsPath();
 
     QString app_icons_path;

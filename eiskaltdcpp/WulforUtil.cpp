@@ -25,6 +25,7 @@
 #include <QHostAddress>
 #include <QMenu>
 #include <QHeaderView>
+#include <QResource>
 
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
@@ -41,6 +42,11 @@
 #ifndef CLIENT_SOUNDS_DIR
 #define CLIENT_SOUNDS_DIR ""
 #endif
+
+#ifndef CLIENT_RES_DIR
+#define CLIENT_RES_DIR ""
+#endif
+
 
 using namespace dcpp;
 
@@ -166,12 +172,6 @@ QString WulforUtil::findAppIconsPath(){
     if (QDir(settings_path).exists())
         return settings_path;
 
-    settings_path = QDir::homePath()+QString(".dc/icons/appl/" + icon_theme);
-    settings_path = QDir::toNativeSeparators(settings_path);
-
-    if (QDir(settings_path).exists())
-        return settings_path;
-
     settings_path = CLIENT_ICONS_DIR "/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
 
@@ -240,124 +240,112 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
 
     return userIconCache[x][y];
 }
-#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+
 static const int PXMTHEMESIDE = 22;
-#define FROMTHEME(a, b) QIcon::fromTheme((a), loadPixmap((b))).pixmap(PXMTHEMESIDE, PXMTHEMESIDE)
-#define FROMTHEME_SIDE(a, b, c) QIcon::fromTheme((a), loadPixmap((c))).pixmap((b), (b))
-//#define HASICONTHEME
+QPixmap WulforUtil::FROMTHEME(const QString &name, bool resource){
+    if (resource){
+        return QIcon(":/"+name+".png").pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
+    }
+    else{
+#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+        //return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
 #endif
+        return loadPixmap(name+".png");
+    }
+}
+
+QPixmap WulforUtil::FROMTHEME_SIDE(const QString &name, bool resource, const int side){
+    if (resource)
+        return QIcon(":/"+name+".png").pixmap(side, side);
+    else{
+#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+        //return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
+#endif
+        return loadPixmap(name+".png").scaled(side, side);
+    }
+}
 
 bool WulforUtil::loadIcons(){
     m_bError = false;
+
+    QString icon_theme = WSGET(WS_APP_ICONTHEME);
+    QString fname = CLIENT_RES_DIR"/"+icon_theme+".rcc";
+    bool resourceFound = false;
+
+    if (QFile(fname).exists())
+        resourceFound = QResource::registerResource(fname);
 
     app_icons_path = findAppIconsPath();
 
     m_PixmapMap.clear();
 
-#ifdef HASICONTHEME
-    m_PixmapMap[eiAWAY]         = FROMTHEME("im-user-away", "im-user-away.png");
-    m_PixmapMap[eiBOOKMARK_ADD] = FROMTHEME("bookmark-new", "bookmark-new.png");
-    m_PixmapMap[eiCLEAR]        = FROMTHEME("edit-clear", "edit-clear.png");
-    m_PixmapMap[eiCONFIGURE]    = FROMTHEME("configure", "configure.png");
-    m_PixmapMap[eiCONNECT]      = FROMTHEME("network-connect", "network-connect.png");
-    m_PixmapMap[eiCONNECT_NO]   = FROMTHEME("network-disconnect", "network-disconnect.png");
-    m_PixmapMap[eiDOWN]         = FROMTHEME("go-down", "go-down.png");
-    m_PixmapMap[eiDOWNLIST]     = FROMTHEME("go-down-search", "go-down-search.png");
-    m_PixmapMap[eiDOWNLOAD]     = FROMTHEME("download", "download.png");
-    m_PixmapMap[eiDOWNLOAD_AS]  = FROMTHEME("download", "download.png");
-    m_PixmapMap[eiEDIT]         = FROMTHEME("document-edit", "document-edit.png");
-    m_PixmapMap[eiEDITADD]      = FROMTHEME("list-add", "list-add.png");
-    m_PixmapMap[eiEDITCOPY]     = FROMTHEME("edit-copy", "edit-copy.png");
-    m_PixmapMap[eiEDITDELETE]   = FROMTHEME("edit-delete", "edit-delete.png");
-    m_PixmapMap[eiEDITCLEAR]    = FROMTHEME_SIDE("edit-clear-locationbar-rtl", 16, "edit-clear-locationbar-rtl.png");
-    m_PixmapMap[eiEMOTICON]     = FROMTHEME("face-smile", "face-smile.png");
-    m_PixmapMap[eiEXIT]         = FROMTHEME("application-exit", "application-exit.png");
-    m_PixmapMap[eiFILECLOSE]    = FROMTHEME("dialog-close", "dialog-close.png");
-    m_PixmapMap[eiFILEFIND]     = FROMTHEME("edit-find", "edit-find.png");
-    m_PixmapMap[eiFILTER]       = FROMTHEME("view-filter", "view-filter.png");
-    m_PixmapMap[eiFOLDER_BLUE]  = FROMTHEME("folder-blue", "folder_blue.png");
-    m_PixmapMap[eiHIDEWINDOW]   = FROMTHEME("view-close", "view-close.png");
-    m_PixmapMap[eiUP]           = FROMTHEME("go-up", "go-up.png");
-    m_PixmapMap[eiUPLIST]       = FROMTHEME("go-up-search", "go-up-search.png");
-    m_PixmapMap[eiZOOM_IN]      = FROMTHEME("zoom-in", "zoom-in.png");
-    m_PixmapMap[eiZOOM_OUT]     = FROMTHEME("zoom-out", "zoom-out.png");
+    m_PixmapMap[eiAWAY]         = FROMTHEME("im-user-away", resourceFound);
+    m_PixmapMap[eiBOOKMARK_ADD] = FROMTHEME("bookmark-new", resourceFound);
+    m_PixmapMap[eiCLEAR]        = FROMTHEME("edit-clear",   resourceFound);
+    m_PixmapMap[eiCONFIGURE]    = FROMTHEME("configure",    resourceFound);
+    m_PixmapMap[eiCONNECT]      = FROMTHEME("network-connect", resourceFound);
+    m_PixmapMap[eiCONNECT_NO]   = FROMTHEME("network-disconnect", resourceFound);
+    m_PixmapMap[eiDOWN]         = FROMTHEME("go-down", resourceFound);
+    m_PixmapMap[eiDOWNLIST]     = FROMTHEME("go-down-search", resourceFound);
+    m_PixmapMap[eiDOWNLOAD]     = FROMTHEME("download", resourceFound);
+    m_PixmapMap[eiDOWNLOAD_AS]  = FROMTHEME("download", resourceFound);
+    m_PixmapMap[eiEDIT]         = FROMTHEME("document-edit", resourceFound);
+    m_PixmapMap[eiEDITADD]      = FROMTHEME("list-add", resourceFound);
+    m_PixmapMap[eiEDITCOPY]     = FROMTHEME("edit-copy", resourceFound);
+    m_PixmapMap[eiEDITDELETE]   = FROMTHEME("edit-delete", resourceFound);
+    m_PixmapMap[eiEDITCLEAR]    = FROMTHEME_SIDE("edit-clear-locationbar-rtl", resourceFound, 16);
+    m_PixmapMap[eiEMOTICON]     = FROMTHEME("face-smile", resourceFound);
+    m_PixmapMap[eiEXIT]         = FROMTHEME("application-exit", resourceFound);
+    m_PixmapMap[eiFILECLOSE]    = FROMTHEME("dialog-close", resourceFound);
+    m_PixmapMap[eiFILEFIND]     = FROMTHEME("edit-find", resourceFound);
+    m_PixmapMap[eiFILTER]       = FROMTHEME("view-filter", resourceFound);
+    m_PixmapMap[eiFOLDER_BLUE]  = FROMTHEME("folder-blue", resourceFound);
+    m_PixmapMap[eiHIDEWINDOW]   = FROMTHEME("view-close", resourceFound);
+    m_PixmapMap[eiUP]           = FROMTHEME("go-up", resourceFound);
+    m_PixmapMap[eiUPLIST]       = FROMTHEME("go-up-search", resourceFound);
+    m_PixmapMap[eiZOOM_IN]      = FROMTHEME("zoom-in", resourceFound);
+    m_PixmapMap[eiZOOM_OUT]     = FROMTHEME("zoom-out", resourceFound);
 
-    m_PixmapMap[eiFILETYPE_APPLICATION] = FROMTHEME("application-x-executable", "application-x-executable.png");
-    m_PixmapMap[eiFILETYPE_ARCHIVE]     = FROMTHEME("application-x-archive", "application-x-archive.png");
-    m_PixmapMap[eiFILETYPE_DOCUMENT]    = FROMTHEME("text-x-generic", "text-x-generic.png");
-    m_PixmapMap[eiFILETYPE_MP3]         = FROMTHEME("audio-x-generic", "audio-x-generic.png");
-    m_PixmapMap[eiFILETYPE_PICTURE]     = FROMTHEME("image-x-generic", "image-x-generic.png");
-    m_PixmapMap[eiFILETYPE_UNKNOWN]     = FROMTHEME("unknown", "unknown.png");
-    m_PixmapMap[eiFILETYPE_VIDEO]       = FROMTHEME("video-x-generic", "video-x-generic.png");
-#else
-    m_PixmapMap[eiAWAY]         = loadPixmap("im-user-away.png");
-    m_PixmapMap[eiBOOKMARK_ADD] = loadPixmap("bookmark-new.png");
-    m_PixmapMap[eiCLEAR]        = loadPixmap("edit-clear.png");
-    m_PixmapMap[eiCONFIGURE]    = loadPixmap("configure.png");
-    m_PixmapMap[eiCONNECT]      = loadPixmap("network-connect.png");
-    m_PixmapMap[eiCONNECT_NO]   = loadPixmap("network-disconnect.png");
-    m_PixmapMap[eiDOWN]         = loadPixmap("go-down.png");
-    m_PixmapMap[eiDOWNLIST]     = loadPixmap("go-down-search.png");
-    m_PixmapMap[eiDOWNLOAD]     = loadPixmap("download.png");
-    m_PixmapMap[eiDOWNLOAD_AS]  = loadPixmap("download.png");
-    m_PixmapMap[eiEDIT]         = loadPixmap("document-edit.png");
-    m_PixmapMap[eiEDITADD]      = loadPixmap("list-add.png");
-    m_PixmapMap[eiEDITCOPY]     = loadPixmap("edit-copy.png");
-    m_PixmapMap[eiEDITDELETE]   = loadPixmap("edit-delete.png");
-    m_PixmapMap[eiEDITCLEAR]    = loadPixmap("edit-clear-locationbar-rtl.png");
-    m_PixmapMap[eiEMOTICON]     = loadPixmap("face-smile.png");
-    m_PixmapMap[eiEXIT]         = loadPixmap("application-exit.png");
-    m_PixmapMap[eiFILECLOSE]    = loadPixmap("dialog-close.png");
-    m_PixmapMap[eiFILEFIND]     = loadPixmap("edit-find.png");
-    m_PixmapMap[eiFILTER]       = loadPixmap("view-filter.png");
-    m_PixmapMap[eiFOLDER_BLUE]  = loadPixmap("folder_blue.png");
-    m_PixmapMap[eiHIDEWINDOW]   = loadPixmap("view-close.png");
-    m_PixmapMap[eiUP]           = loadPixmap("go-up.png");
-    m_PixmapMap[eiUPLIST]       = loadPixmap("go-up-search.png");
-    m_PixmapMap[eiZOOM_IN]      = loadPixmap("zoom-in.png");
-    m_PixmapMap[eiZOOM_OUT]     = loadPixmap("zoom-out.png");
+    m_PixmapMap[eiFILETYPE_APPLICATION] = FROMTHEME("application-x-executable", resourceFound);
+    m_PixmapMap[eiFILETYPE_ARCHIVE]     = FROMTHEME("application-x-archive", resourceFound);
+    m_PixmapMap[eiFILETYPE_DOCUMENT]    = FROMTHEME("text-x-generic", resourceFound);
+    m_PixmapMap[eiFILETYPE_MP3]         = FROMTHEME("audio-x-generic", resourceFound);
+    m_PixmapMap[eiFILETYPE_PICTURE]     = FROMTHEME("image-x-generic", resourceFound);
+    m_PixmapMap[eiFILETYPE_UNKNOWN]     = FROMTHEME("unknown", resourceFound);
+    m_PixmapMap[eiFILETYPE_VIDEO]       = FROMTHEME("video-x-generic", resourceFound);
 
-    m_PixmapMap[eiFILETYPE_APPLICATION] = loadPixmap("application-x-executable.png");
-    m_PixmapMap[eiFILETYPE_ARCHIVE]     = loadPixmap("application-x-archive.png");
-    m_PixmapMap[eiFILETYPE_DOCUMENT]    = loadPixmap("text-x-generic.png");
-    m_PixmapMap[eiFILETYPE_MP3]         = loadPixmap("audio-x-generic.png");
-    m_PixmapMap[eiFILETYPE_PICTURE]     = loadPixmap("image-x-generic.png");
-    m_PixmapMap[eiFILETYPE_UNKNOWN]     = loadPixmap("unknown.png");
-    m_PixmapMap[eiFILETYPE_VIDEO]       = loadPixmap("video-x-generic.png");
-#endif
-
-    m_PixmapMap[eiBALL_GREEN]   = loadPixmap("ball_green.png");
-    m_PixmapMap[eiCHAT]         = loadPixmap("chat.png");
-    m_PixmapMap[eiERASER]       = loadPixmap("eraser.png");
-    m_PixmapMap[eiFAV]          = loadPixmap("fav.png");
-    m_PixmapMap[eiFAVADD]       = loadPixmap("favadd.png");
-    m_PixmapMap[eiFAVREM]       = loadPixmap("favrem.png");
-    m_PixmapMap[eiFAVSERVER]    = loadPixmap("favserver.png");
-    m_PixmapMap[eiFAVUSERS]     = loadPixmap("favusers.png");
-    m_PixmapMap[eiFIND]         = loadPixmap("find.png");
-    m_PixmapMap[eiFREESPACE]    = loadPixmap("freespace.png");
-    m_PixmapMap[eiGUI]          = loadPixmap("gui.png");
+    m_PixmapMap[eiBALL_GREEN]   = FROMTHEME("ball_green", resourceFound);
+    m_PixmapMap[eiCHAT]         = FROMTHEME("chat", resourceFound);
+    m_PixmapMap[eiERASER]       = FROMTHEME("eraser", resourceFound);
+    m_PixmapMap[eiFAV]          = FROMTHEME("fav", resourceFound);
+    m_PixmapMap[eiFAVADD]       = FROMTHEME("favadd", resourceFound);
+    m_PixmapMap[eiFAVREM]       = FROMTHEME("favrem", resourceFound);
+    m_PixmapMap[eiFAVSERVER]    = FROMTHEME("favserver", resourceFound);
+    m_PixmapMap[eiFAVUSERS]     = FROMTHEME("favusers", resourceFound);
+    m_PixmapMap[eiFIND]         = FROMTHEME("find", resourceFound);
+    m_PixmapMap[eiFREESPACE]    = FROMTHEME("freespace", resourceFound);
+    m_PixmapMap[eiGUI]          = FROMTHEME("gui", resourceFound);
     m_PixmapMap[eiGV]           = QPixmap(gv_xpm);
-    m_PixmapMap[eiHASHING]      = loadPixmap("hashing.png");
-    m_PixmapMap[eiHUBMSG]       = loadPixmap("hubmsg.png");
-    m_PixmapMap[eiICON_APPL]    = loadPixmap("icon_appl.png");
-    m_PixmapMap[eiMESSAGE]      = loadPixmap("message.png");
-    m_PixmapMap[eiMESSAGE_TRAY_ICON] = loadPixmap("icon_msg.png");
-    m_PixmapMap[eiOWN_FILELIST] = loadPixmap("own_filelist.png");
-    m_PixmapMap[eiOPENLIST]     = loadPixmap("openlist.png");
-    m_PixmapMap[eiOPEN_LOG_FILE]= loadPixmap("log_file.png");
-    m_PixmapMap[eiPMMSG]        = loadPixmap("pmmsg.png");
-    m_PixmapMap[eiRECONNECT]    = loadPixmap("reconnect.png");
-    m_PixmapMap[eiREFRLIST]     = loadPixmap("refrlist.png");
-    m_PixmapMap[eiRELOAD]       = loadPixmap("reload.png");
-    m_PixmapMap[eiSERVER]       = loadPixmap("server.png");
-    m_PixmapMap[eiSPAM]         = loadPixmap("spam.png");
-    m_PixmapMap[eiSPY]          = loadPixmap("spy.png");
+    m_PixmapMap[eiHASHING]      = FROMTHEME("hashing", resourceFound);
+    m_PixmapMap[eiHUBMSG]       = FROMTHEME("hubmsg", resourceFound);
+    m_PixmapMap[eiICON_APPL]    = FROMTHEME("icon_appl", resourceFound);
+    m_PixmapMap[eiMESSAGE]      = FROMTHEME("message", resourceFound);
+    m_PixmapMap[eiMESSAGE_TRAY_ICON] = FROMTHEME("icon_msg", resourceFound);
+    m_PixmapMap[eiOWN_FILELIST] = FROMTHEME("own_filelist", resourceFound);
+    m_PixmapMap[eiOPENLIST]     = FROMTHEME("openlist", resourceFound);
+    m_PixmapMap[eiOPEN_LOG_FILE]= FROMTHEME("log_file", resourceFound);
+    m_PixmapMap[eiPMMSG]        = FROMTHEME("pmmsg", resourceFound);
+    m_PixmapMap[eiRECONNECT]    = FROMTHEME("reconnect", resourceFound);
+    m_PixmapMap[eiREFRLIST]     = FROMTHEME("refrlist", resourceFound);
+    m_PixmapMap[eiRELOAD]       = FROMTHEME("reload", resourceFound);
+    m_PixmapMap[eiSERVER]       = FROMTHEME("server", resourceFound);
+    m_PixmapMap[eiSPAM]         = FROMTHEME("spam", resourceFound);
+    m_PixmapMap[eiSPY]          = FROMTHEME("spy", resourceFound);
     m_PixmapMap[eiSPLASH]       = QPixmap();
-    m_PixmapMap[eiSTATUS]       = loadPixmap("status.png");
-    m_PixmapMap[eiTRANSFER]     = loadPixmap("transfer.png");
-    m_PixmapMap[eiUSERS]        = loadPixmap("users.png");
-    m_PixmapMap[eiQT_LOGO]      = loadPixmap("qt-logo.png");
+    m_PixmapMap[eiSTATUS]       = FROMTHEME("status", resourceFound);
+    m_PixmapMap[eiTRANSFER]     = FROMTHEME("transfer", resourceFound);
+    m_PixmapMap[eiUSERS]        = FROMTHEME("users", resourceFound);
+    m_PixmapMap[eiQT_LOGO]      = FROMTHEME("qt-logo", resourceFound);
 
     return !m_bError;
 }
