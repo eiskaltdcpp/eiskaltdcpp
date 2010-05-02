@@ -309,6 +309,17 @@ void SearchFrame::init(){
     for (int i = 0; i < icons.size(); i++)
         comboBox_FILETYPES->setItemIcon(i, WulforUtil::getInstance()->getPixmap(icons.at(i)));
 
+    QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
+    QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+
+    QMenu *m = new QMenu();
+
+    foreach (QString s, list)
+        m->addAction(s);
+
+    lineEdit_SEARCHSTR->setMenu(m);
+    lineEdit_SEARCHSTR->setPixmap(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
     connect(pushButton_CLEAR, SIGNAL(clicked()), this, SLOT(slotClear()));
@@ -317,16 +328,14 @@ void SearchFrame::init(){
     connect(treeView_RESULTS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(timer1, SIGNAL(timeout()), this, SLOT(slotTimer()));
     connect(pushButton_SIDEPANEL, SIGNAL(clicked()), this, SLOT(slotToggleSidePanel()));
-    connect(comboBox_SEARCHSTR->lineEdit(), SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
-    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR, SLOT(setFocus()));
-    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), comboBox_SEARCHSTR->lineEdit(), SLOT(selectAll()));
+    connect(lineEdit_SEARCHSTR, SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
+    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(setFocus()));
+    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(selectAll()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), lineEdit_FILTER, SLOT(selectAll()));
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), this, SLOT(slotChangeProxyColumn(int)));
 
     MainWindow *mwnd = MainWindow::getInstance();
-
-    comboBox_SEARCHSTR->installEventFilter(this);
 
     load();
 
@@ -339,7 +348,7 @@ void SearchFrame::init(){
 
     timer1->start();
 
-    comboBox_SEARCHSTR->setFocus();
+    lineEdit_SEARCHSTR->setFocus();
 }
 
 void SearchFrame::load(){
@@ -363,12 +372,11 @@ void SearchFrame::load(){
     QString raw = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
     QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
-    completer = new QCompleter(list, comboBox_SEARCHSTR);
+    completer = new QCompleter(list, lineEdit_SEARCHSTR);
     completer->setCaseSensitivity(Qt::CaseInsensitive);
     completer->setWrapAround(false);
 
-    comboBox_SEARCHSTR->setCompleter(completer);
-    comboBox_SEARCHSTR->setCurrentIndex(-1);
+    lineEdit_SEARCHSTR->setCompleter(completer);
 }
 
 void SearchFrame::save(){
@@ -654,7 +662,7 @@ void SearchFrame::searchAlternates(const QString &tth){
     if (tth.isEmpty())
         return;
 
-    comboBox_SEARCHSTR->setEditText(tth);
+    lineEdit_SEARCHSTR->setText(tth);
     comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_TTH);
     lineEdit_SIZE->setText("");
 
@@ -667,7 +675,7 @@ void SearchFrame::searchFile(const QString &file){
     if (file.isEmpty())
         return;
 
-    comboBox_SEARCHSTR->setEditText(file);
+    lineEdit_SEARCHSTR->setText(file);
     comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_ANY);
     lineEdit_SIZE->setText("");
 
@@ -685,17 +693,17 @@ void SearchFrame::fastSearch(const QString &text, bool isTTH){
     else
         comboBox_FILETYPES->setCurrentIndex(8); // set type "TTH"
 
-    comboBox_SEARCHSTR->setEditText(text);
+    lineEdit_SEARCHSTR->setText(text);
 
     slotStartSearch();
 }
 
 void SearchFrame::slotStartSearch(){
-    if (comboBox_SEARCHSTR->currentText().trimmed().isEmpty())
+    if (lineEdit_SEARCHSTR->text().trimmed().isEmpty())
         return;
 
     MainWindow *MW = MainWindow::getInstance();
-    QString s = comboBox_SEARCHSTR->currentText().trimmed();
+    QString s = lineEdit_SEARCHSTR->text().trimmed();
     StringList clients;
 
     QMap<Client*,HubInfo*>::iterator it = hub_list.begin();
@@ -734,8 +742,14 @@ void SearchFrame::slotStartSearch(){
     if (!searchHistory.contains(s)){
         searchHistory.push_front(s);
 
-        comboBox_SEARCHSTR->clear();
-        comboBox_SEARCHSTR->addItems(searchHistory);
+        lineEdit_SEARCHSTR->clear();
+
+        QMenu *m = new QMenu();
+
+        foreach (QString s, searchHistory)
+            m->addAction(s);
+
+        lineEdit_SEARCHSTR->setMenu(m);
     }
 
     {
@@ -825,12 +839,18 @@ void SearchFrame::slotStartSearch(){
         list.removeDuplicates();
 #endif
         
-        comboBox_SEARCHSTR->setCompleter(NULL);
-        completer->deleteLater();
-        completer = new QCompleter(list, comboBox_SEARCHSTR);
+        lineEdit_SEARCHSTR->setCompleter(NULL);
+        completer = new QCompleter(list, lineEdit_SEARCHSTR);
         completer->setCaseSensitivity(Qt::CaseInsensitive);
         completer->setWrapAround(false);
-        comboBox_SEARCHSTR->setCompleter(completer);
+        lineEdit_SEARCHSTR->setCompleter(completer);
+
+        QMenu *m = new QMenu();
+
+        foreach (QString s, list)
+            m->addAction(s);
+
+        lineEdit_SEARCHSTR->setMenu(m);
 
         QString hist = list.join("\n");
         WSSET(WS_SEARCH_HISTORY, hist.toAscii().toBase64());
@@ -839,7 +859,7 @@ void SearchFrame::slotStartSearch(){
 
 void SearchFrame::slotClear(){
     model->clearModel();
-    comboBox_SEARCHSTR->setEditText("");
+    lineEdit_SEARCHSTR->clear();
     lineEdit_SIZE->setText("");
 
     dropped = results = 0;

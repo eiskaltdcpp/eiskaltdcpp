@@ -9,7 +9,7 @@
 static const int margin = 3;
 
 LineEdit::LineEdit(QWidget *parent) :
-    QLineEdit(parent)
+        QLineEdit(parent), menu(NULL), role(LineEdit::InsertText)
 {
     pxm = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITCLEAR);
 
@@ -27,6 +27,13 @@ LineEdit::LineEdit(QWidget *parent) :
     updateStyles();
 
     slotTextChanged();
+}
+
+LineEdit::~LineEdit(){
+    label->deleteLater();
+
+    if (menu)
+        menu->deleteLater();
 }
 
 void LineEdit::resizeEvent(QResizeEvent *e){
@@ -50,7 +57,16 @@ bool LineEdit::eventFilter(QObject *obj, QEvent *e){
     switch (e->type()){
     case QEvent::MouseButtonPress:
         {
-            clear();
+            if (!menu)
+                clear();
+            else{
+                QAction *act = menu->exec(label->mapToGlobal(QPoint(label->x(), label->y()+label->height())));
+
+                if (act && role == InsertText)
+                    setText(act->text());
+                else if (act)
+                    emit menuAction(act);
+            }
 
             break;
         }
@@ -85,12 +101,38 @@ void LineEdit::updateStyles(){
     setStyleSheet(QString("QLineEdit{ padding-right: %1; }").arg(label->width()+margin));
 }
 
+void LineEdit::setPixmap(const QPixmap &px){
+    pxm = px;
+
+    label->setPixmap(px);
+
+    updateGeometry();
+    updateStyles();
+}
+
+void LineEdit::setMenu(QMenu *m){
+    if (menu)
+        menu->deleteLater();
+
+    menu = m;
+
+    if (menu){
+        menu->setParent(NULL);
+
+        slotTextChanged();
+    }
+}
+
+void LineEdit::setMenuRole(LineEdit::MenuRole r){
+    role = r;
+}
+
 void LineEdit::slotTextChanged(){
-    if (text().isEmpty())
-        label->hide();
-    else{
+    if (menu || !text().isEmpty()){
         label->show();
 
         updateGeometry();
     }
+    else
+        label->hide();
 }

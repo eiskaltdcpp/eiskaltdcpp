@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>555</width>
-    <height>467</height>
+    <width>553</width>
+    <height>465</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,19 +39,6 @@
        <widget class="QPushButton" name="pushButton_SEARCH">
         <property name="text">
          <string>Search</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="10">
-       <widget class="QComboBox" name="comboBox_SEARCHSTR">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="editable">
-         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -134,6 +121,9 @@
          <string>Show/Hide side panel</string>
         </property>
        </widget>
+      </item>
+      <item row="2" column="10">
+       <widget class="LineEdit" name="lineEdit_SEARCHSTR"/>
       </item>
      </layout>
     </widget>

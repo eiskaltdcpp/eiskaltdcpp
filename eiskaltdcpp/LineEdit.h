@@ -15,14 +15,24 @@
 #include <QResizeEvent>
 #include <QEvent>
 #include <QPixmap>
+#include <QMenu>
 #include <QFocusEvent>
 
 class LineEdit : public QLineEdit
 {
 Q_OBJECT
 public:
+    enum MenuRole{
+        InsertText=0,
+        EmitSignal
+    };
+
     explicit LineEdit(QWidget *parent = 0);
-    virtual ~LineEdit() { label->deleteLater(); }
+    virtual ~LineEdit();
+
+    virtual void setPixmap(const QPixmap&);
+    virtual void setMenu(QMenu*);
+    virtual void setMenuRole(LineEdit::MenuRole);
 
     virtual QSize sizeHint() const;
     virtual QSizePolicy sizePolicy() const;
@@ -35,6 +45,7 @@ protected:
 
 signals:
     void clearEdit();
+    void menuAction(QAction*);
 
 private slots:
     void slotTextChanged();
@@ -45,6 +56,10 @@ private:
 
     QLabel *label;
     QPixmap pxm;
+
+    QMenu *menu;
+    MenuRole role;
+
     int parentHeight;
 };
 

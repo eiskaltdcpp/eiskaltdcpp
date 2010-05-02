@@ -244,7 +244,7 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
 static const int PXMTHEMESIDE = 22;
 #define FROMTHEME(a, b) QIcon::fromTheme((a), loadPixmap((b))).pixmap(PXMTHEMESIDE, PXMTHEMESIDE)
 #define FROMTHEME_SIDE(a, b, c) QIcon::fromTheme((a), loadPixmap((c))).pixmap((b), (b))
-#define HASICONTHEME
+//#define HASICONTHEME
 #endif
 
 bool WulforUtil::loadIcons(){
