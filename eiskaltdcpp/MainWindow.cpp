@@ -1720,7 +1720,7 @@ void MainWindow::slotPanelMenuActionClicked(){
         return;
 
     if (act == panelsWidgets){
-        if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+        if (tBar)
             tBar->setVisible(panelsWidgets->isChecked());
         else
             sideDock->setVisible(panelsWidgets->isChecked());
