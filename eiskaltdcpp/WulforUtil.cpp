@@ -819,6 +819,34 @@ QString WulforUtil::getHubNames(const QString &cid){
     return getHubNames(CID(_tq(cid)));
 }
 
+QString WulforUtil::compactToolTipText(QString text, int maxlen, QString sep)
+{
+    int len = text.size();
+
+    if (len <= maxlen)
+        return text;
+
+    int n = 0;
+    int k = maxlen;
+
+    while((len-k) > 0){
+        if(text.at(k) == ' ' || (k == n))
+        {
+            if(k == n)
+                k += maxlen;
+
+            text.insert(k+1,sep);
+
+            len++;
+            k += maxlen + 1;
+            n += maxlen + 1;
+        }
+        else k--;
+    }
+
+    return text;
+}
+
 void WulforUtil::headerMenu(QTreeView *tree){
     if (!tree || !tree->model() || !tree->header())
         return;

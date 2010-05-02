@@ -163,6 +163,8 @@ public:
     QString getHubNames(const dcpp::UserPtr&);
     QString getHubNames(const QString&);
 
+    QString compactToolTipText(QString, int, QString);
+
     std::string getInternetIP() const { return _tq(internetIP); }
 
     QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx);

@@ -1,4 +1,5 @@
 #include "ToolBar.h"
+#include "WulforUtil.h"
 
 #include <QMenu>
 #include <QMouseEvent>
@@ -215,7 +216,7 @@ void ToolBar::redraw(){
 
     for (; it != map.end(); ++it){
         tabbar->setTabText(it.value(), it.key()->getArenaShortTitle().left(32));
-        tabbar->setTabToolTip(it.value(), compactToolTipText(it.key()->getArenaTitle()));
+        tabbar->setTabToolTip(it.value(), WulforUtil::getInstance()->compactToolTipText(it.key()->getArenaTitle(), 60, "\n"));
         tabbar->setTabIcon(it.value(), it.key()->getPixmap());
     }
 
@@ -245,36 +246,6 @@ void ToolBar::prevTab(){
         tabbar->setCurrentIndex(tabbar->currentIndex()-1);
     else
         tabbar->setCurrentIndex(tabbar->count()-1);
-}
-
-QString ToolBar::compactToolTipText(QString text)
-{
-    int maxlen = 60;
-
-    int len = text.size();
-
-    if (len <= maxlen)
-        return text;
-
-    int n = 0;
-    int k = maxlen;
-
-    while((len-k) > 0){
-        if(text.at(k) == ' ' || (k == n))
-        {
-            if(k == n)
-                k += maxlen;
-
-            text.insert(k+1,'\n');
-
-            len++;
-            k += maxlen + 1;
-            n += maxlen + 1;
-        }
-        else k--;
-    }
-
-    return text;
 }
 
 void ToolBar::rebuildIndexes(int removed){

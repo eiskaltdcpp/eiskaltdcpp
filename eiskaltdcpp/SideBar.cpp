@@ -74,6 +74,12 @@ QVariant SideBarModel::data(const QModelIndex &index, int role) const
         case Qt::ForegroundRole:
         case Qt::BackgroundColorRole:
         case Qt::ToolTipRole:
+        {
+            if (!item->getWidget())
+                return item->title;
+            else if (item->getWidget())
+                return WulforUtil::getInstance()->compactToolTipText(item->getWidget()->getArenaTitle(), 60, "\n");
+        }
             break;
     }
 
