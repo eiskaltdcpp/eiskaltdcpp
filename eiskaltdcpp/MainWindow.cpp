@@ -1232,21 +1232,8 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
 void MainWindow::setStatusMessage(QString msg){
     QString pre = tr("<b>Last kernel message:</b><br/>%1").replace(" ","&nbsp;");
 
-    msgLabel->setToolTip(pre.arg(msg));
-
-#if defined(Q_WS_X11) || defined(Q_WS_MAC)
-    QChar s = QDir::separator();
-    if (msg.count(s) >= 2){
-        int a = msg.indexOf(s);
-        int b = msg.lastIndexOf(s);
-        msg.remove(a, b-a+1);
-        msgLabel->setText(msg);
-    }
-    else
-        msgLabel->setText(msg);
-#else
     msgLabel->setText(msg);
-#endif
+    msgLabel->setToolTip(pre.arg(msg));
 
     msgLabel->setMaximumHeight(statusLabel->height());
 }
