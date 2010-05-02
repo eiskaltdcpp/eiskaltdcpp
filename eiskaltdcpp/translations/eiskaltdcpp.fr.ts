@@ -628,7 +628,7 @@
     </message>
     <message>
         <source>Commands</source>
-        <translation>Commandes</translation>
+        <translation type="obsolete">Commandes</translation>
     </message>
     <message>
         <source>Show widget</source>
@@ -1280,6 +1280,10 @@ Please check your connection settings</source>
     <message>
         <source>Widgets side dock</source>
         <translation>Dock latéral des Widgets</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

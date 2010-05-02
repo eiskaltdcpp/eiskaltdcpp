@@ -508,7 +508,7 @@
     </message>
     <message>
         <source>Commands</source>
-        <translation>Felhasználói parancsok</translation>
+        <translation type="obsolete">Felhasználói parancsok</translation>
     </message>
     <message>
         <source>Hub menu</source>
@@ -1346,6 +1346,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>Widgets side dock</source>
         <translation>Navigációs oldalsáv</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
