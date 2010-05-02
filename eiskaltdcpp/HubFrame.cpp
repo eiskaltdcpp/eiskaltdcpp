@@ -1357,27 +1357,38 @@ void HubFrame::addStatus(QString msg){
     if (chatDisabled)
         return;
 
-    QString pure_msg = msg;
+    QString pure_msg;
+    QString short_msg = "";
     QString status = "";
     QString nick    = " * ";
 
-    pure_msg = LinkParser::parseForLinks(msg, false);
-    msg      = LinkParser::parseForLinks(msg, true);
+    QStringList lines = msg.split(QRegExp("[\\n\\r\\f]+"), QString::SkipEmptyParts);
+    for (int i = 0; i < lines.size(); ++i) {
+        if (lines.at(i).contains(QRegExp("\\w+"))) {
+            short_msg = lines.at(i);
+            break;
+        }
+    }
+    if (short_msg.isEmpty() && !lines.isEmpty())
+        short_msg = lines.first();
+
+    pure_msg  = LinkParser::parseForLinks(msg, false);
+    short_msg = LinkParser::parseForLinks(short_msg, false);
+    msg       = LinkParser::parseForLinks(msg, true);
 
     pure_msg        = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + pure_msg + "</font>";
+    short_msg       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + short_msg + "</font>";
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
-
-    status = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
+    status   = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
 
     addOutput(status + msg);
+    label_LAST_STATUS->setText(status + short_msg);
 
     status += pure_msg;
     WulforUtil::getInstance()->textToHtml(status, false);
 
     QString pre = tr("<b>Last status message on hub:</b><br/>%1").replace(" ","&nbsp;");
-
-    label_LAST_STATUS->setText(status);
     label_LAST_STATUS->setToolTip(pre.arg(status));
 }
 
