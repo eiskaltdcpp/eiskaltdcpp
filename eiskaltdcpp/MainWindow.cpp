@@ -330,6 +330,16 @@ void MainWindow::customEvent(QEvent *e){
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *e){
+    if (qobject_cast<QTreeView*>(obj) != sideTree)
+        return QMainWindow::eventFilter(obj, e);
+
+    if (e->type() == QEvent::Resize){
+        sideTree->setColumnWidth(0, sideTree->width()-22);
+        sideTree->setColumnWidth(1, 22);
+
+        return true;
+    }
+
     return QMainWindow::eventFilter(obj, e);
 }
 
@@ -1059,7 +1069,9 @@ void MainWindow::initSideBar(){
     sideTree->setItemsExpandable(true);
     sideTree->setSortingEnabled(false);
     sideTree->setContextMenuPolicy(Qt::CustomContextMenu);
+    sideTree->setItemDelegate(new SideBarDelegate(sideTree));
     sideTree->expandAll();
+    sideTree->installEventFilter(this);
 
     wcontainer = static_cast<ArenaWidgetContainer*>(model);
 

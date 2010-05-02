@@ -13,9 +13,23 @@
 #include <QAbstractItemModel>
 #include <QMap>
 #include <QStack>
+#include <QStyledItemDelegate>
+#include <QStyleOptionViewItem>
 
 #include "ArenaWidget.h"
 #include "ArenaWidgetContainer.h"
+
+class SideBarDelegate:
+        public QStyledItemDelegate
+{
+    Q_OBJECT
+
+public:
+    SideBarDelegate(QObject* = NULL);
+    virtual ~SideBarDelegate();
+
+    virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
+};
 
 class SideBarItem
 {
@@ -38,7 +52,7 @@ public:
     }
 
     int columnCount() const{
-        return 1;
+        return 2;
     }
 
     int row() const{
