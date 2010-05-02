@@ -1349,7 +1349,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Utolsó kernelüzenet:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
 </context>
 <context>
