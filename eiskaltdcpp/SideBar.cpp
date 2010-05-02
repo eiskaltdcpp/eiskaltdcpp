@@ -60,9 +60,6 @@ QVariant SideBarModel::data(const QModelIndex &index, int role) const
     switch(role) {
         case Qt::DecorationRole:
         {
-            if (index.column() != 0)
-                break;
-
             if (!item->getWidget())
                 return item->pixmap.scaled(18, 18);
             else if (item->getWidget())
@@ -70,9 +67,6 @@ QVariant SideBarModel::data(const QModelIndex &index, int role) const
         }
         case Qt::DisplayRole:
         {
-            if (index.column() != 0)
-                break;
-
             if (!item->getWidget())
                 return item->title;
             else if (item->getWidget())
@@ -305,12 +299,6 @@ void SideBarModel::slotIndexClicked(const QModelIndex &i){
    SideBarItem *item = reinterpret_cast<SideBarItem*>(i.internalPointer());
    ArenaWidget *awgt = item->getWidget();
 
-   if (i.column() == 1 && awgt){
-       awgt->getWidget()->close();
-
-       return;
-   }
-
    if (items.contains(awgt))
        emit mapWidget(awgt);
    else {
@@ -330,34 +318,33 @@ SideBarDelegate::~SideBarDelegate(){
 }
 
 void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
-    if (index.column() != 1){
+    bool showCloseBtn = false;
+    SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
+    ArenaWidget *awgt = item->getWidget();
+
+    if (awgt){
+        switch (awgt->role()){
+            case ArenaWidget::Hub:
+            case ArenaWidget::PrivateMessage:
+            case ArenaWidget::Search:
+            case ArenaWidget::ShareBrowser:
+                showCloseBtn = true;
+            default:
+                break;
+        }
+    }
+
+    if (!((option.state & (QStyle::State_MouseOver | QStyle::State_Selected)) && showCloseBtn)){
         QStyledItemDelegate::paint(painter, option, index);
 
         return;
     }
-
-    if (!(option.state & (QStyle::State_Selected | QStyle::State_MouseOver))){
-        QStyledItemDelegate::paint(painter, option, index);
-
-        return;
-    }
-
-    if (option.state & QStyle::State_Selected)
-        painter->fillRect(option.rect, option.palette.highlight());
-
-    /*QStyleOptionButton buttonOption;
-    buttonOption.text = "";
-    buttonOption.rect = option.rect;
-    buttonOption.state = option.state;
-    buttonOption.fontMetrics = QApplication::fontMetrics();
-    buttonOption.direction = QApplication::layoutDirection();
-
-    QApplication::style()->drawControl(QStyle::CE_PushButton, &buttonOption, painter);*/
-
-    QStyledItemDelegate::paint(painter, option, index);
 
     QPixmap px = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE).scaled(16, 16);
-    QApplication::style()->drawItemPixmap(painter, option.rect, Qt::AlignVCenter | Qt::AlignCenter, px);
+    QRect textRect = option.rect;
+    textRect.setX(textRect.x()+option.rect.width()-px.width());
+    textRect.setWidth(px.width());
 
-    return;
+    QStyledItemDelegate::paint(painter, option, index);
+    QApplication::style()->drawItemPixmap(painter, textRect, Qt::AlignVCenter | Qt::AlignCenter, px);
 }

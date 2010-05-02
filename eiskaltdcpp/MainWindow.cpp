@@ -330,16 +330,6 @@ void MainWindow::customEvent(QEvent *e){
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *e){
-    if (qobject_cast<QTreeView*>(obj) != sideTree)
-        return QMainWindow::eventFilter(obj, e);
-
-    if (e->type() == QEvent::Resize){
-        sideTree->setColumnWidth(0, sideTree->width()-22);
-        sideTree->setColumnWidth(1, 22);
-
-        return true;
-    }
-
     return QMainWindow::eventFilter(obj, e);
 }
 
@@ -1071,12 +1061,12 @@ void MainWindow::initSideBar(){
     sideTree->setContextMenuPolicy(Qt::CustomContextMenu);
     sideTree->setItemDelegate(new SideBarDelegate(sideTree));
     sideTree->expandAll();
-    sideTree->installEventFilter(this);
 
     wcontainer = static_cast<ArenaWidgetContainer*>(model);
 
     addDockWidget(Qt::LeftDockWidgetArea, sideDock);
 
+    connect(sideTree, SIGNAL(clicked(QModelIndex)),     this, SLOT(slotSidebarHook(QModelIndex)));
     connect(sideTree, SIGNAL(clicked(QModelIndex)),    model, SLOT(slotIndexClicked(QModelIndex)));
     connect(sideTree, SIGNAL(activated(QModelIndex)),  model, SLOT(slotIndexClicked(QModelIndex)));
     connect(sideTree, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSidebarContextMenu()));
@@ -2032,6 +2022,27 @@ void MainWindow::slotSidebarContextMenu(){
         return;
 
     item->getWidget()->getMenu()->exec(QCursor::pos());
+}
+
+void MainWindow::slotSidebarHook(const QModelIndex &index){
+    QPoint p = sideTree->mapToParent(QCursor::pos());
+
+    if ((sideTree->width() - p.x()) <= 18){//18 is a close button size
+        SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
+
+        if (item->getWidget()){
+            switch (item->getWidget()->role()){
+            case ArenaWidget::Hub:
+            case ArenaWidget::PrivateMessage:
+            case ArenaWidget::Search:
+            case ArenaWidget::ShareBrowser:
+                item->getWidget()->getWidget()->close();
+                break;
+            default:
+                break;
+            }
+        }
+    }
 }
 
 void MainWindow::slotSelectSidebarIndex(const QModelIndex &index){

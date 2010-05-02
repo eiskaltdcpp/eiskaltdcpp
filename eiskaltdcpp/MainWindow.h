@@ -194,6 +194,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotHideLastStatus();
         void slotHideUsersStatistics();
         void slotSidebarContextMenu();
+        void slotSidebarHook(const QModelIndex&);
         void slotSelectSidebarIndex(const QModelIndex&);
         void slotExit();
 

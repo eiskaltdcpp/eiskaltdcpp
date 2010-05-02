@@ -52,7 +52,7 @@ public:
     }
 
     int columnCount() const{
-        return 2;
+        return 1;
     }
 
     int row() const{
