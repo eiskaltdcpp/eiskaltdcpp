@@ -1466,7 +1466,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1233"/>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Апошняе паведамленьне асновы:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1302"/>
@@ -3823,7 +3823,7 @@ in options, file will be downloaded without opening search dialog.</source>
         <location filename="../ui/UISettingsConnection.ui" line="131"/>
         <source>External/WAN IP:</source>
         <translatorcomment>???вот із &quot;WAN&quot;?</translatorcomment>
-        <translation>Вонкавы/WAN IP:</translation>
+        <translation>Вонкавая/WAN IP:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="138"/>
@@ -3869,8 +3869,14 @@ If your computer is not behind a router all you have to do is to choose
 this option and usually you don&apos;t need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
-        <translation type="unfinished">Абярыце гэты спосаб, калі ваш асьветар наўпрост злучаецца са словасьветам.
-</translation>
+        <translation>Абярыце гэты спосаб, калі ваш асьветар наўпрост злучаецца са словасьветам.
+Не абірайце гэты спосаб, калі вы маеце маршрутавальнік або нейкую вонкавую
+сетказаслону.
+Калі ваш асьветар ня месьціцца за сетказаслонаю, усё, што вы мусіце зрабіць — 
+гэта абраць гэтую можнасьць: звычайна вам не спатрэбіцца зьмяняць нешта яшчэ
+ў наладжваньнях злучэньня.
+Але калі вы маеце ўсталяванаю праграмную сетказаслону, вам можа спатрэбіцца
+дадаткова наладзіць сетказаслону, каб дазволіць EiskaltDC++ мець доступ у словасьвет.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="66"/>
@@ -3879,7 +3885,13 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі вы месьціцеся за сетказаслонаю (маршрутавальнікам), абярыце гэты спосаб
+і вызначце самастойна порты TCP, UDP і TLS, якія будуць перасылацца.
+А каб мець магчымасьць без перашкод сьцягваць файлы, вы мусіце таксама
+вызначыць вонкавую адрэсу IP вашага маршрутавальніку з дапамогаю
+наладжваньняў, якія вы можаце пабачыць ніжэй.
+
+Карыстайцеся гэтым спосабам толькі калі папярэднія вам не пасуюць.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="83"/>
@@ -3889,7 +3901,13 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Абярыце гэты спосаб, калі аніводны з папярэдніх вам не пасуе.
+Калі EiskaltDC++ злучаецца нядзейным спосабам, ён не спрабуе
+ствараць выходныя злучэньні, а толькі прымае ўваходныя.
+Гэты спосаб мае істотныя абмежаваньні:
+ — ад кожнага карыстальніка вяртаецца толькі пяць адказаў на запыт пошуку;
+ — вы ня зможаце сьцягваць у іншых нядзейных карыстальнікаў;
+ — на пэўных асяродках вы ўвогуле ня зможаце шукаць і (або) сьцягваць файлы.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="98"/>
@@ -3899,14 +3917,23 @@ Most routers do support UPnP but you may need to enable it
 in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation type="unfinished"></translation>
+        <translation>Абярыце гэты спосаб, калі вы месьціцеся за сетказаслонаю
+або маршрутавальнікам, які падтрымвае стандарт UPnP
+на самарушнае наладжваньне праграмы.
+Большасьць маршрутавальнікаў падтрымваюць UPnP, але вам
+можа спатрэбіцца задзейнічаць гэта на бачыне наладжваньняў
+маршрутавальніку.
+Такім чынам EiskaltDC++ будзе самарушна адкрываць порты,
+у якіх маецца патрэба, і таксама атрымваць вашую вонкавую адрэсу IP.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="237"/>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Абярыце гэты спосаб, калі вы можаце неабмежавана ствараць выходныя
+злучэньні: злучацца з хоць-якою адрэсаю IP на хоць-якім порце.
+Аддайце перавагу гэтаму спосабу, калі вы ня маеце ўпэўненасьці, што абраць.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="252"/>
