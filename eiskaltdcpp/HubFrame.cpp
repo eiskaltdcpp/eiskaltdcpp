@@ -2819,7 +2819,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
 
     if (BOOLSETTING(LOG_MAIN_CHAT)){
         StringMap params;
-        params["message"] = msg;
+        params["message"] = Util::formatMessage(user.getIdentity().getNick(), msg, thirdPerson);
         client->getHubIdentity().getParams(params, "hub", false);
         params["hubURL"] = client->getHubUrl();
         client->getMyIdentity().getParams(params, "my", true);
@@ -2907,7 +2907,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 
     if (BOOLSETTING(LOG_PRIVATE_CHAT)){
         StringMap params;
-        params["message"] = msg;
+        params["message"] = Util::formatMessage(from.getIdentity().getNick(), msg, thirdPerson);
         params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
         params["hubURL"] = Util::toString(ClientManager::getInstance()->getHubs(id));
         params["userCID"] = id.toBase32();
