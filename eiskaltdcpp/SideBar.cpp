@@ -340,13 +340,30 @@ void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         return;
     }
 
-    QPixmap px = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE).scaled(16, 16);
+    QPixmap px = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     QRect pxRect = option.rect;
     pxRect.setX(pxRect.x()+option.rect.width()-px.width()-4);
     pxRect.setWidth(px.width());
 
-    QStyledItemDelegate::paint(painter, option, index);
-    QApplication::style()->drawItemPixmap(painter, pxRect, Qt::AlignVCenter | Qt::AlignRight, px);
+    QStyleOptionButton btnOption;
+    btnOption.state         = option.state & ~(QStyle::State_Selected | QStyle::State_MouseOver);
+    btnOption.direction     = QApplication::layoutDirection();
+    btnOption.rect          = pxRect;
+    btnOption.fontMetrics   = QApplication::fontMetrics();
+    btnOption.features      = QStyleOptionButton::Flat;
+    btnOption.icon          = px;
+    btnOption.iconSize      = px.size();
+    btnOption.palette       = option.palette;
+
+    if (option.state & QStyle::State_Selected)
+        painter->fillRect(pxRect, option.palette.highlight());
+
+    QStyleOptionViewItem opt = option;
+    opt.state = opt.state & ~QStyle::State_MouseOver;
+    opt.rect.setWidth(opt.rect.width()-px.width());
+
+    QStyledItemDelegate::paint(painter, opt, index);
+    QApplication::style()->drawControl(QStyle::CE_PushButton, &btnOption, painter);
 }
 
 QSize SideBarDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const{
