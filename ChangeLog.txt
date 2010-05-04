@@ -6,6 +6,7 @@
 * Added filter in search widget.
 * Improvements in notifications about new messages in chat (different icons).
 * Fixed bug with fall of program when using search. Bug present in all previous revisions.
+* Changed default logs format.
 
 --- 2.0.1 2010-04-18 ---
 * Added widget with public hubs.
