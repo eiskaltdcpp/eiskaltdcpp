@@ -1960,6 +1960,10 @@ void MainWindow::slotAboutClient(){
                "&nbsp;&lt;dhamp@ya.ru&gt;<br/>"
                "&nbsp;(maintainer and developer 0.4.10 and later)<br/>")+
             tr("<br/>"
+               "&nbsp;Alexandr Tkachev<br/>"
+               "&nbsp;&lt;tka4ev@gmail.com&gt;<br/>"
+               "&nbsp;(developer 2.0.3 and later)<br/>")+
+            tr("<br/>"
                "<b>Logo and Splash Screen Logo</b><br/>")+
             tr("<br/>"
                "&nbsp;Uladzimir Bely<br/>"
