@@ -3941,7 +3941,11 @@ Choose this option if unsure.</source>
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation type="unfinished"></translation>
+        <translation>Абярыце гэты спосаб, калі хочаце ствараць выходныя злучэньні
+праз пасродак SOCKS. Абмежаваньні нядзейнага спосабу будуць
+дзейнічаць і тут таксама.
+Пасродкі SOCKS5 — гэта ня тое самае, што пасродкі HTTP.
+Падтрымка SOCKS5 пратаколам DC++ не ўлучае падтрымкі GSSAPI.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="258"/>
@@ -4082,7 +4086,7 @@ Do not try to understand it...</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="149"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
-        <translation>Не пачынаць сьцягваць новае, калі хуткасьць перавышае (КіБ/с, 0 = бясконцая)</translation>
+        <translation>Не пачынаць сьцягваць новае, калі хуткасьць перавышае (КіБ/с, 0 = бясконцасьць)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="159"/>
@@ -4158,7 +4162,8 @@ Do not try to understand it...</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="449"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Спраўджваць, ці крыніца павольная, кожныя &lt;i&gt;x&lt;/i&gt; сэкундаў.
+(Прадвызначана: 10 с.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
@@ -4166,56 +4171,79 @@ Do not try to understand it...</source>
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???</translatorcomment>
+        <translation>Гэта іншы спосаб абмяжоўваць колькасьць файлаў, якія адначасова
+сьцягваюцца: калі бягучая хуткасьць сьцягваць перавышае вызначаны парог
+(вымяраецца ў кібібайтах за сэкунду), новае сьцягвацца ня будзе.
+Калі значэньне парога пакінуць роўным нулю, абмежаваньне дзейнічаць ня будзе.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Гэта абмяжоўвае колькасьць файлаў, якія адначасова сьцягваюцца.
+Калі пакінуць гэтае значэньне роўным нулю, абмежаваньне дзейнічаць ня будзе.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="181"/>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation type="unfinished"></translation>
+        <translation>Гэты пасродак HTTP будзе ўжывацца толькі каб запытвацца
+на сьпісы публічных асяродкаў, вызначаныя ніжэй.
+Гэты пасродак ня будзе выкарыстоўвацца, каб сьцягваць і
+зацягваць файлы або злучацца з асяродкам.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="302"/>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы, памер якіх роўны ці меншы за гэтае значэньне,
+будуць мець найвышэйшае пяршынства.
+(Прадвызначана: 64 КіБ.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="313"/>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы, памер якіх роўны ці меншы за гэтае значэньне,
+але большы за памер для найвышэйшага пяршынства,
+будуць мець высокае пяршынства.
+(Прадвызначана: 0 КіБ.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="324"/>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы, памер якіх роўны ці меншы за гэтае значэньне,
+але большы за памер для найвышэйшага і высокага пяршынства,
+будуць мець звычайнае пяршынства.
+(Прадвызначана: 0 КіБ.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="335"/>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы, памер якіх роўны ці меншы за гэтае значэньне,
+але большы за памер для найвышэйшага, высокага ды звычайнага
+пяршынства, будуць мець нізкае пяршынства.
+(Прадвызначана: 0 КіБ.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі хуткасьць сьцягваць файл зь нейкае крыніцы будзе
+меншаю за гэтае значэньне, такую крыніцу адкінем.
+(Прадвызначана: 1024 Б/с.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="459"/>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Адтэрміноўка: час (у сэкундах), які мусіць мінуць (пасьля таго,
+як пачалі сьцягваць) перад тым, як адкінем крыніцу.
+(Прадвызначана: 15 с.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="470"/>
@@ -4223,18 +4251,27 @@ started before a source can be dropped. (default: 15 s)</source>
 the file was recieved. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Найбольшая велічыня прамежку часу, які мінуў пасьля таго,
+як атрымалі апошні кавалак файла. Гэта трэба, каб павялічыць
+дакладнасьць, зь якою вымяраецца хуткасьць, і засьцерагчы
+крыніцы, каб яны не адкідаліся толькі праз тое, што зараз яны
+ня дзейнічаюць.
+(Прадвызначана: 10 с.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="483"/>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Найменшая колькасьць крыніцаў, у якой ужо можна было
+адкінуць хоць адну крыніцу.
+(Прадвызначана: 1.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="494"/>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Найменшы памер файла, каб можна было
+адкінуць хоць адну крыніцу.
+(Прадвызначана: 0.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="510"/>
@@ -4281,20 +4318,27 @@ will be dropped. (default: 1)</source>
         <source>With this enabled, files that are larger than Low prio max size
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі гэта задзейнічаць, файлы, што маюць памер, большы за памер
+для нізкага пяршынства, будуць мець найніжэйшае пяршынства.
+Калі гэта не задзейнічаць, яны будуць мець звычайнае пяршынства.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="654"/>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"></translation>
+        <translation>Гэтая можнасьць выкрасьляе усе павольныя крыніцы з усіх пунктаў чаргі
+(акрамя сьпісаў файлаў).
+Каб крыніцы самарушна адкідаліся, задзейнічайце або “Самарушна адкідаць
+павольныя крыніцы ва ўсіх пунктах чаргі”, або “Выкрасьляць павольныя сьпісы файлаў”
+(ці абедзьве гэтыя можнасьці).</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="687"/>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі задзейнічаць гэтую можнасьць, будзем толькі адлучацца
+ад крыніцаў, а не выкрасьляць іх з чаргі.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="702"/>
@@ -4304,7 +4348,13 @@ The autosearch will find exact matches by searching via hash.
 The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Кожныя некалькі хвілінаў кліент шукацьме файлы, што стаяць у вашае
+чарзе сьцягваць, каб выявіць новыя мейсцы, адкуль можна сьцягнуць
+(болей карыстальнікаў, болей крыніцаў).
+Файлы самарушна шукаюцца па дакладным супадзеньні скароту (TTH).
+Амоўны бок — тое, што можа не знайсьціся нашмат болей крыніцаў,
+а толькі створацца перашкоды карыстальніку самастойна шукаць
+файлы на асяродках, на якіх абмяжоўваецца прамежак між пошукамі.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="721"/>
@@ -4316,7 +4366,16 @@ for many more files you&apos;re downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation type="unfinished"></translation>
+        <translation>Дазволіць самарушна сьцягваць сьпіс файлаў карыстальніка
+ды параўноўваць яго з вашаю чаргою сьцягваць файлы,
+каб вызначыць, ці можа гэты карыстальнік быць крыніцаю
+іншых файлаў з вашае чаргі.
+Калі вы сьцягваеце нейкі набор файлаў, карыстальнік можа быць
+крыніцаю шмат якіх іншых файлаў, якія вы сьцягваеце.
+Задзейнічайце гэта, калі ня маеце ўпэўненасьці.
+Адмоўны бок: могуць дадавацца павольныя крыніцы, якія павялічаць
+агульны час, за які сьцягнуцца файлы. Да таго ж, вы будзеце
+сьцягваць шмат сьпісаў файлаў.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="742"/>
@@ -4324,19 +4383,24 @@ and that you&apos;ll download a lot of file lists.</source>
 try to download will be silently skipped.
 Sometimes empty files contain information through their naming.
 However every file, even an empty one, will consume some drive space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі задзейнічаць гэтую можнасьць, усе файлы, што маюць нулявы памер,
+будуць незаўважна прапускацца.
+Часам пустыя файлы зьмяшчаюць каштоўныя зьвесткі ў сваіх назовах.
+Тым ня менш, кожны файл, нават пусты, займае нейкую прастору на дыску.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="759"/>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Гэтая можнасьць спыніць сьцягваць файлы, якія ўжо
+маюцца ў адным з каталёгаў, якія вы абагулілі.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="774"/>
         <source>This option will stop you from downloading files
 which already exist in your queue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Гэтая можнасьць спыніць сьцягваць файлы, які ўжо
+маюцца ў чарзе.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="789"/>
