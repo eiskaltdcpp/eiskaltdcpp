@@ -341,10 +341,22 @@ void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     }
 
     QPixmap px = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE).scaled(16, 16);
-    QRect textRect = option.rect;
-    textRect.setX(textRect.x()+option.rect.width()-px.width());
-    textRect.setWidth(px.width());
+    QRect pxRect = option.rect;
+    pxRect.setX(pxRect.x()+option.rect.width()-px.width()-4);
+    pxRect.setWidth(px.width());
 
     QStyledItemDelegate::paint(painter, option, index);
-    QApplication::style()->drawItemPixmap(painter, textRect, Qt::AlignVCenter | Qt::AlignCenter, px);
+    QApplication::style()->drawItemPixmap(painter, pxRect, Qt::AlignVCenter | Qt::AlignRight, px);
+}
+
+QSize SideBarDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const{
+    QVariant value = index.data(Qt::SizeHintRole);
+    if (value.isValid())
+        return qvariant_cast<QSize>(value);
+
+    static const int MARGIN = 1;
+    static const int PXHEIGHT = 16;
+    static const int HEIGHT = PXHEIGHT+MARGIN*2;
+
+    return QSize( 200, HEIGHT );
 }

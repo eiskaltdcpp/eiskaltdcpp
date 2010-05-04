@@ -29,6 +29,7 @@ public:
     virtual ~SideBarDelegate();
 
     virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
 class SideBarItem

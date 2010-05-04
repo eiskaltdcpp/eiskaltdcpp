@@ -1354,6 +1354,9 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     if (!arenaWidgets.contains(awgt))
         return;
 
+    if (arena->widget() == awgt->getWidget())
+        return;
+
     if (arena->widget())
         arena->widget()->hide();
 
@@ -2025,7 +2028,7 @@ void MainWindow::slotSidebarContextMenu(){
 }
 
 void MainWindow::slotSidebarHook(const QModelIndex &index){
-    QPoint p = sideTree->mapToParent(QCursor::pos());
+    QPoint p = sideTree->mapFromGlobal(QCursor::pos());
 
     if ((sideTree->width() - p.x()) <= 18){//18 is a close button size
         SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());

@@ -839,11 +839,10 @@ void SearchFrame::slotStartSearch(){
         list.removeDuplicates();
 #endif
         
-        lineEdit_SEARCHSTR->setCompleter(NULL);
-        completer = new QCompleter(list, lineEdit_SEARCHSTR);
+        /*completer = new QCompleter(list, lineEdit_SEARCHSTR);
         completer->setCaseSensitivity(Qt::CaseInsensitive);
         completer->setWrapAround(false);
-        lineEdit_SEARCHSTR->setCompleter(completer);
+        lineEdit_SEARCHSTR->setCompleter(completer);*/
 
         QMenu *m = new QMenu();
 
