@@ -22,8 +22,7 @@
 using namespace dcpp;
 
 Magnet::Magnet(QWidget *parent) :
-    QDialog(parent),
-    t(NULL)
+    QDialog(parent)
 {
     setupUi(this);
 
@@ -32,7 +31,7 @@ Magnet::Magnet(QWidget *parent) :
     connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
-    connect(pushButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
+    connect(pushButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
     if (!SETTING(AUTO_SEARCH)){
         pushButton_DOWNLOAD->setToolTip(tr("Run search alternatives manually."));
     }
@@ -41,9 +40,7 @@ Magnet::Magnet(QWidget *parent) :
     }
 }
 
-Magnet::~Magnet(){
-    delete t;
-}
+Magnet::~Magnet() {}
 
 void Magnet::customEvent(QEvent *e){
     if (e->type() == MagnetCustomEvent::Event){
@@ -129,9 +126,7 @@ void Magnet::download(){
     QString name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + fname.split(QDir::separator(), QString::SkipEmptyParts).last();
     qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
     try {
-        UserPtr dummyuser(new User(CID::generate()));
-        QueueManager::getInstance()->add(_tq(name), size, TTHValue(_tq(tth)), dummyuser, "");
-        QueueManager::getInstance()->removeSource(_tq(name), dummyuser, QueueItem::Source::FLAG_REMOVED);
+        QueueManager::getInstance()->add(_tq(name), size, TTHValue(_tq(tth)), UserPtr(), "");
     }
     catch (const std::exception& e){
         QMessageBox::critical(this, tr("Error"), tr("Some error ocurred when starting download:\n %1").arg(e.what()));
@@ -142,12 +137,6 @@ void Magnet::download(){
     QApplication::postEvent(this, new MagnetCustomEvent(f));
 
 
-}
-
-void Magnet::timeout(){
-    QMessageBox::information(this, tr(""), tr("Search Manager not ready. Please, try again later."));
-
-    accept();
 }
 
 void Magnet::slotBrowse(){

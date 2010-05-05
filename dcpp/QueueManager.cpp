@@ -581,6 +581,7 @@ string QueueManager::getListPath(const UserPtr& user) {
 void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& root, const UserPtr& aUser, const string& hubHint,
     int aFlags /* = 0 */, bool addBad /* = true */) throw(QueueException, FileException)
 {
+    bool newItem = false;
     bool wantConnection = true;
 
     // Check that we're not downloading from ourselves...
@@ -624,6 +625,8 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
         if(q == NULL) {
             q = fileQueue.add(target, aSize, aFlags, QueueItem::DEFAULT, tempTarget, GET_TIME(), root);
             fire(QueueManagerListener::Added(), q);
+
+            newItem = !q->isSet(QueueItem::FLAG_USER_LIST);
         } else {
             if(q->getSize() != aSize) {
                 throw QueueException(_("A file with a different size already exists in the queue"));
@@ -638,11 +641,16 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
                 return;
         }
 
-        wantConnection = addSource(q, aUser, addBad ? QueueItem::Source::FLAG_MASK : 0);
+        wantConnection = aUser && addSource(q, aUser, addBad ? QueueItem::Source::FLAG_MASK : 0);
     }
 
     if(wantConnection && aUser->isOnline())
         ConnectionManager::getInstance()->getDownloadConnection(aUser, hubHint);
+
+    // auto search, prevent DEADLOCK
+    if(newItem && BOOLSETTING(AUTO_SEARCH)){
+        SearchManager::getInstance()->search(TTHValue(root).toBase32(), 0, SearchManager::TYPE_TTH, SearchManager::SIZE_DONTCARE, "auto");
+    }
 }
 
 void QueueManager::readd(const string& target, const UserPtr& aUser, const string& hubHint) throw(QueueException) {
@@ -700,6 +708,9 @@ bool QueueManager::addSource(QueueItem* qi, const UserPtr& aUser, Flags::MaskTyp
     bool wantConnection = (qi->getPriority() != QueueItem::PAUSED) && !userQueue.getRunning(aUser);
 
     if(qi->isSource(aUser)) {
+        if(qi->isSet(QueueItem::FLAG_USER_LIST)) {
+            return wantConnection;
+        }
         throw QueueException(str(F_("Duplicate source: %1%") % Util::getFileName(qi->getTarget())));
     }
 
@@ -709,8 +720,13 @@ bool QueueManager::addSource(QueueItem* qi, const UserPtr& aUser, Flags::MaskTyp
 
     qi->addSource(aUser);
 
+/* имхо условие вредное даже, а если у юзера по ошибке выставлен пассив? а как же юзеры с локалки?
+   в strongdc и производных тоже вырезано.
+
     if(aUser->isSet(User::PASSIVE) && !ClientManager::getInstance()->isActive() ) {
         qi->removeSource(aUser, QueueItem::Source::FLAG_PASSIVE);
+*/
+    if(qi->isFinished()) {
         wantConnection = false;
     } else {
         userQueue.add(qi, aUser);

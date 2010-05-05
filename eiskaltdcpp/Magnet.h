@@ -12,7 +12,6 @@
 
 #include <QDialog>
 #include <QEvent>
-#include <QTimer>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -52,11 +51,7 @@ protected:
 private slots:
     void search();
     void download();
-    void timeout();
-        void slotBrowse();
-
-private:
-    QTimer *t;
+    void slotBrowse();
 };
 
 #endif // MAGNET_H

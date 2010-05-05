@@ -239,7 +239,7 @@ void ShareBrowser::save(){
     WSSET(WS_SHARE_RPANE_STATE, treeView_RPANE->header()->saveState().toBase64());
 
     WISET(WI_SHARE_RPANE_WIDTH, treeView_RPANE->width());
-    WISET(WI_SHARE_WIDTH, width());
+    WISET(WI_SHARE_WIDTH, treeView_RPANE->width() + treeView_LPANE->width());
 }
 
 QString ShareBrowser::getArenaTitle(){

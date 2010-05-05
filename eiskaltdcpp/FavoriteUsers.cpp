@@ -215,7 +215,7 @@ void FavoriteUsers::slotContextMenu(){
         return;
 
     QMenu *menu = new QMenu(this);
-    menu->setAttribute(Qt::WA_DeleteOnClose, true);
+    menu->deleteLater();
 
     QAction *remove = new QAction(tr("Remove"), menu);
     remove->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE));

@@ -26,6 +26,7 @@
 #include <QMenu>
 #include <QHeaderView>
 #include <QResource>
+#include <QTimer>
 
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
