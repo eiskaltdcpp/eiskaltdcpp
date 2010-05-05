@@ -112,7 +112,6 @@ find_package (PkgConfig)
 
 if (NOT USE_ASPELL)
     option(USE_ASPELL "Use aspell for spellchecking")
-    unset (USE_ASPELL)
     if(USE_ASPELL EQUAL 0)
     else(USE_ASPELL EQUAL 0)
         find_package (ASPELL)
