@@ -88,14 +88,23 @@ namespace dcpp{
         }
 
         // TimerManagerListener
-        void on(TimerManagerListener::Minute, uint32_t aTick) throw()//[+] IRainman, merge
+        void on(TimerManagerListener::Minute, uint32_t aTick) throw()
         {
             if (!BOOLSETTING(THROTTLE_ENABLE))
                 return;
 
             checkLimiterSpeed();
         }
-
+        void checkLimiterSpeed() {
+            if (checkLimiterTime()) {
+                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
+                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME));
+            } else {
+                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
+                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
+            }
+            //printf("down/up: %d/%d \ndown/up time: %d/%d \ndown/up normal: %d/%d \n", SETTING(MAX_DOWNLOAD_SPEED_LIMIT), SETTING(MAX_UPLOAD_SPEED_LIMIT), SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME), SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME), SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL), SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
+        }
         bool checkLimiterTime() {
             if (!SETTING(TIME_DEPENDENT_THROTTLE))
                 return false;
@@ -153,16 +162,6 @@ namespace dcpp{
             }
         }
     public:
-        void checkLimiterSpeed() {
-            if (checkLimiterTime()) {
-                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
-                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME));
-            } else {
-                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
-                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
-            }
-            //printf("down/up: %d/%d \ndown/up time: %d/%d \ndown/up normal: %d/%d \n", SETTING(MAX_DOWNLOAD_SPEED_LIMIT), SETTING(MAX_UPLOAD_SPEED_LIMIT), SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME), SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME), SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL), SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
-        }
         /*
         * Throttles traffic and reads a packet from the network
         */
