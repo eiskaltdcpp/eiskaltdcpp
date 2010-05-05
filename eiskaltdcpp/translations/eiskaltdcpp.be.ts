@@ -1045,7 +1045,7 @@ Favorite user</source>
     <message>
         <location filename="../Magnet.cpp" line="40"/>
         <source>Download file via auto search alternatives</source>
-        <translation>Самарушна знайсьці крыніцы ды сьцягнуць файл.</translation>
+        <translation>Самарушна знайсьці крыніцы ды сьцягнуць файл</translation>
     </message>
     <message>
         <location filename="../Magnet.cpp" line="137"/>
@@ -1554,7 +1554,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="1962"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(распрацоўнік ад вэрсіі 2.0.3)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1966"/>
@@ -4898,7 +4898,8 @@ For example: /usr/bin/mplayer</source>
         <location filename="../ui/UISettingsPersonal.ui" line="45"/>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished">Гэтае апісаньне будзе паказвацца ў сьпісе карыстальнікаў.
+        <translatorcomment>!!!дадаць зразумеласьці да перакладу</translatorcomment>
+        <translation>Гэтае апісаньне будзе паказвацца ў сьпісе карыстальнікаў.
 Яно можа замяняцца на апісаньне, што можа вызначацца асобна
 для кожнага асяродку: ва ўласьцівасьцях асяродку ў ваконцы
 “Улюбёныя асяродкі”.</translation>
@@ -4907,13 +4908,18 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <location filename="../ui/UISettingsPersonal.ui" line="53"/>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі вы ў стане “адыйшоў”, гэтае паведамленьне будзе дасылацца
+кожнаму, хто дашле вам асабістае паведамленьне.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="68"/>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>!!!дадаць зразумеласьці</translatorcomment>
+        <translation>Гэтая мянушка будзе атаясьняць вас, калі вы далучаецеся да асяродку.
+Яна можа замяніцца на мянушку, што можа вызначацца асобна
+для кожнага асяродку: ва ўласьцівасьцях асяродку ў ваконцы
+“Улюбёныя асяродкі”.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="76"/>
@@ -4933,7 +4939,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="118"/>
         <source>Line speed (upload)</source>
-        <translation type="unfinished"></translation>
+        <translation>Хуткасьць лініі (зацягваць)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="137"/>
@@ -4941,7 +4947,10 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
 please choose the one closest to your own.
 Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
-        <translation type="unfinished"></translation>
+        <translation>Гэты выпадальны сьпіс зьмяшчае шэраг агульнапрынятых хуткасьцяў зацягваць
+(у МіБ/с). Калі ласка, абярыце адну, што болей адпавядае вашае хуткасьці.
+Не трэба выкарыстоўваць тут значэньне хуткасьці сьцягваць: гэтыя наладжваньні
+паказваюць іншым карыстальнікам, наколькі хуткаю крыніцаю вы можаце быць.</translation>
     </message>
     <message>
         <source>Max upload speed</source>
@@ -4973,7 +4982,8 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation type="unfinished"></translation>
+        <translation>Тут вы можаце вызначыць шаблёны да назоваў файлаў,
+якія вы не жадаеце абагуляць.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="200"/>
@@ -4983,7 +4993,12 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вызначае абмежаваньні сьцягваць (у ГіБ) на кожную ўяўную тэчку вашага
+абагуленага. Напрыклад, калі вы абагулілі /home/карыстальнік/Відэа як “Відэа”,
+вы можаце вызначыць наступнае:
+/Відэа	10
+Гэта значыць, што мець магчымасьць сьцягваць файлы з гэтае тэчкі
+будуць толькі тыя карыстальнікі, якія абагулілі ня меней за 10 ГіБ,</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="248"/>
@@ -4997,13 +5012,21 @@ the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>!!!удакладніць пераклад attribute, freeze, refresh</translatorcomment>
+        <translation>Абагуляць файлы, што маюць азнаку “схаваны” ды файлы ў каталёгах,
+якія маюць азнаку “схаваны”.
+Калі гэтую можнасьць не задзейнічаць, файл, якія пачынаюцца з кропкі
+(“.”), абагуляцца ня будуць.
+Уважце: гэтая можнасьць патрабуе дапоўніць сьпіс файлаў, і пакуль гэта
+робіцца, вам можа падацца, што кліент “завіс”.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="300"/>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі не задзейнічаць гэтую можнасьць і выйсьці  з кліенту
+не дачакаўшыся, як скончыць дапаўняцца абагуленае, тады
+памер абагуленага па наступным запуску будзе роўным нулю.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="331"/>
@@ -5024,7 +5047,8 @@ share is complete, share at follow-up activities start nulled.</source>
         <location filename="../ui/UISettingsSharing.ui" line="519"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі вашая сыстэма запавольваецца, калі ствараюцца скароты,
+дык вы можаце тут абмежаваць хуткасьць, зь якою яны ствараюцца.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="543"/>
@@ -5037,7 +5061,15 @@ There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вызначце колькасьць шчылінаў, якія могуць заняць іншыя карыстальнікі,
+каб сьцягваць з вас файлы. Аддалены карыстальнік можа ўжываць толькі
+адну шчыліну на кожным асяродку, дзе ён вас бачыць.
+EiskaltDC++ падтрымвае зацягваць сьпісы файлаў і файлы, меншыя за 64 КіБ,
+іншым карыстальнікам DC++ без таго, каб патрабаваць шчыліну.
+Найбольшая колькасьць дадатковаых да звычайных шчылінаў злучэньняў — 3.
+Такія злучэньні называюцца мінішчылінамі.
+Уважце: калі карыстальнік сыходзіць з асяродку, EiskaltDC++ закрывае ягоныя шчыліны,
+а калі карыстальнік вяртаецца цягам 10 хвілінаў, EiskaltDC++ дадае яму шчыліну.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="474"/>
@@ -5158,17 +5190,17 @@ to download from this folder</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="293"/>
         <source>Share temporary files</source>
-        <translation type="unfinished"></translation>
+        <translation>Абагуляць часовыя файлы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="304"/>
         <source>Run refresh share on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Дапаўняць абагуленае па запуску</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="311"/>
         <source>Auto remove non-existing directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Самарушна выкрасьляць каталёгі, што не існуюць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="339"/>
@@ -5224,12 +5256,17 @@ an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
 If the speed of the original uploads increases,
 the granted slot will not be closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі сярэдняя хуткасьць зацягваць робіцца меншаю за гэтае значэньне,
+будзе давацца адна дадатковая шчыліна зацягваць файлы.
+Гэтыя шчыліны выдаюцца не часьцей, як адзін раз на 30 сэкундаў.
+Калі хуткасьць зацягваць павялічыцца, дададзеная шчыліна
+не закрыецца.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="490"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
-        <translation type="unfinished"></translation>
+        <translation>Тут вы можаце вызначыць прамежак між спробамі самарушна
+дапоўніць абагуленае.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="506"/>
