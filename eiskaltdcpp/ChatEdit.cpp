@@ -95,10 +95,17 @@ void ChatEdit::keyPressEvent(QKeyEvent *e)
                        !ctrlOrShift;
 
     if (e->key() == Qt::Key_Tab) {
-        if (!toPlainText().isEmpty())
+        if (!toPlainText().isEmpty()) {
+            if (cc && cc->popup()->isVisible()) {
+                int row = cc->popup()->currentIndex().row() + 1;
+                if (cc->completionModel()->rowCount() == row)
+                    row = 0;
+                cc->popup()->setCurrentIndex(cc->completionModel()->index(row, 0));
+            }
             e->accept();
-        else
+        } else {
             e->ignore();
+        }
         return;
     }
 
