@@ -101,8 +101,7 @@
     <message>
         <location filename="../DownloadQueue.cpp" line="362"/>
         <source>CRC32 inconsistency (SFV-Check)</source>
-        <translatorcomment>як перакласьці SFV-Check???</translatorcomment>
-        <translation>Разыходжаньне CRC32</translation>
+        <translation>Разыходжаньне CRC32 (спраўджваньне SFV)</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="364"/>
@@ -119,7 +118,7 @@
     <message>
         <location filename="../DownloadQueue.cpp" line="368"/>
         <source>Remote client does not fully support TTH - cannot download</source>
-        <translation>Нельга сьцягнуць: другі кліент ня цалкам падтрымлівае скароты TTH</translation>
+        <translation>Нельга сьцягнуць: другі кліент ня цалкам падтрымвае скароты TTH</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="375"/>
@@ -322,7 +321,7 @@
         <location filename="../FavoriteHubs.cpp" line="259"/>
         <source>System default</source>
         <translatorcomment>???Прадвызначаная</translatorcomment>
-        <translation>Звычайная</translation>
+        <translation>Звычайны</translation>
     </message>
     <message>
         <location filename="../FavoriteHubs.cpp" line="315"/>
@@ -2370,7 +2369,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsGUI.cpp" line="41"/>
         <source>Default (need to restart)</source>
-        <translation>Звычайная (трэба запусьціць нанова)</translation>
+        <translation>Звычайнае (трэба запусьціць нанова)</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="63"/>
@@ -2491,7 +2490,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsPersonal.cpp" line="57"/>
         <source>System default</source>
-        <translation>Звычайная ў сыстэме</translation>
+        <translation>Звычайны ў сыстэме</translation>
     </message>
 </context>
 <context>
@@ -3290,6 +3289,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="201"/>
         <source>This description will show in the user list.</source>
+        <translatorcomment>!!!аднолькавае тлумачэньне да палей “апісаньне” асяродку й карыстальніка</translatorcomment>
         <translation>Гэтае апісаньне будзе паказвацца ў сьпісе карыстальнікаў.</translation>
     </message>
     <message>
@@ -3894,7 +3894,7 @@ Use this mode only if the previous ones are not options for you.</source>
 і вызначце самастойна порты TCP, UDP і TLS, якія будуць перасылацца.
 А каб мець магчымасьць без перашкод сьцягваць файлы, вы мусіце таксама
 вызначыць вонкавую адрэсу IP вашага маршрутавальніку з дапамогаю
-наладжваньняў, якія вы можаце пабачыць ніжэй.
+наладжваньняў, якія вы можаце пабачыць праваруч.
 
 Карыстайцеся гэтым спосабам толькі калі папярэднія вам не пасуюць.</translation>
     </message>
@@ -4195,7 +4195,7 @@ A value of 0 means no limit.</source>
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
         <translation>Гэты пасродак HTTP будзе ўжывацца толькі каб запытвацца
-на сьпісы публічных асяродкаў, вызначаныя ніжэй.
+на сьпісы публічных асяродкаў, якія вызначаюцца праваруч.
 Гэты пасродак ня будзе выкарыстоўвацца, каб сьцягваць і
 зацягваць файлы або злучацца з асяродкам.</translation>
     </message>
@@ -4332,7 +4332,7 @@ If disabled, the files will be set to Normal as priority.</source>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation>Гэтая можнасьць выкрасьляе усе павольныя крыніцы з усіх пунктаў чаргі
+        <translation>Гэтая можнасьць выкрасьляе ўсе павольныя крыніцы з усіх пунктаў чаргі
 (акрамя сьпісаў файлаў).
 Каб крыніцы самарушна адкідаліся, задзейнічайце або “Самарушна адкідаць
 павольныя крыніцы ва ўсіх пунктах чаргі”, або “Выкрасьляць павольныя сьпісы файлаў”
@@ -5015,10 +5015,10 @@ and may cause the client to appear to freeze.</source>
         <translatorcomment>!!!удакладніць пераклад attribute, freeze, refresh</translatorcomment>
         <translation>Абагуляць файлы, што маюць азнаку “схаваны” ды файлы ў каталёгах,
 якія маюць азнаку “схаваны”.
-Калі гэтую можнасьць не задзейнічаць, файл, якія пачынаюцца з кропкі
+Калі гэтую можнасьць не задзейнічаць, файлы, якія пачынаюцца з кропкі
 (“.”), абагуляцца ня будуць.
-Уважце: гэтая можнасьць патрабуе дапоўніць сьпіс файлаў, і пакуль гэта
-робіцца, вам можа падацца, што кліент “завіс”.</translation>
+Уважце: гэтая можнасьць патрабуе дапоўніць сьпіс файлаў, і пакуль ён
+дапаўняецца, вам можа падацца, што кліент “завіс”.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="300"/>
