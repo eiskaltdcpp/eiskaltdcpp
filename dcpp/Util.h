@@ -203,9 +203,9 @@ public:
     static string formatBytes(int64_t aBytes);
 
     static string formatExactSize(int64_t aBytes);
-	//static string getShortTimeString(time_t t = time(NULL));
-	static time_t getStartTime() { return startTime; }
-	static time_t getUpTime() { return time(NULL) - Util::getStartTime(); }
+    //static string getShortTimeString(time_t t = time(NULL));
+    static time_t getStartTime() { return startTime; }
+    static time_t getUpTime() { return time(NULL) - Util::getStartTime(); }
     static string formatSeconds(int64_t aSec) {
         char buf[64];
         snprintf(buf, sizeof(buf), "%01lu:%02d:%02d", (unsigned long)(aSec / (60*60)), (int)((aSec / 60) % 60), (int)(aSec % 60));
@@ -398,10 +398,6 @@ public:
     static uint32_t rand(uint32_t high) { return rand() % high; }
     static uint32_t rand(uint32_t low, uint32_t high) { return rand(high-low) + low; }
     static double randd() { return ((double)rand()) / ((double)0xffffffff); }
-    //[+]IRainman SpeedLimiter
-        static void checkLimiterSpeed();
-        static bool checkLimiterTime();
-    //[~]IRainman SpeedLimiter
 
 private:
     /** In local mode, all config and temp files are kept in the same dir as the executable */
@@ -413,7 +409,7 @@ private:
     static bool manualAway;
     static string awayMsg;
     static time_t awayTime;
-	static time_t startTime;
+    static time_t startTime;
     typedef map<uint32_t, uint16_t> CountryList;
     typedef CountryList::iterator CountryIter;
 

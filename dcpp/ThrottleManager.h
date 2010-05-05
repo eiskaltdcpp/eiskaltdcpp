@@ -93,9 +93,21 @@ namespace dcpp{
             if (!BOOLSETTING(THROTTLE_ENABLE))
                 return;
 
-            Util::checkLimiterSpeed();
+            checkLimiterSpeed();
         }
 
+        bool checkLimiterTime() {
+            if (!SETTING(TIME_DEPENDENT_THROTTLE))
+                return false;
+
+            time_t currentTime;
+            time(&currentTime);
+            int currentHour = localtime(&currentTime)->tm_hour;
+            return ((SETTING(BANDWIDTH_LIMIT_START) < SETTING(BANDWIDTH_LIMIT_END) &&
+             currentHour >= SETTING(BANDWIDTH_LIMIT_START) && currentHour < SETTING(BANDWIDTH_LIMIT_END)) ||
+            (SETTING(BANDWIDTH_LIMIT_START) > SETTING(BANDWIDTH_LIMIT_END) &&
+             (currentHour >= SETTING(BANDWIDTH_LIMIT_START) || currentHour < SETTING(BANDWIDTH_LIMIT_END))));
+        }
         void on(TimerManagerListener::Second, uint32_t aTick) throw() {
             if (!BOOLSETTING(THROTTLE_ENABLE))
                 return;
@@ -141,10 +153,19 @@ namespace dcpp{
             }
         }
     public:
-
+        void checkLimiterSpeed() {
+            if (checkLimiterTime()) {
+                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
+                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME));
+            } else {
+                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
+                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
+            }
+            //printf("down/up: %d/%d \ndown/up time: %d/%d \ndown/up normal: %d/%d \n", SETTING(MAX_DOWNLOAD_SPEED_LIMIT), SETTING(MAX_UPLOAD_SPEED_LIMIT), SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME), SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME), SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL), SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
+        }
         /*
- * Throttles traffic and reads a packet from the network
- */
+        * Throttles traffic and reads a packet from the network
+        */
         int read(Socket* sock, void* buffer, size_t len) {
             int64_t readSize = -1;
             size_t downs = DownloadManager::getInstance()->getDownloadCount();
@@ -178,9 +199,9 @@ namespace dcpp{
         }
 
         /*
-     * Limits a traffic and writes a packet to the network
-     * We must handle this a little bit differently than downloads, because of that stupidity in OpenSSL
-     */
+        * Limits a traffic and writes a packet to the network
+        * We must handle this a little bit differently than downloads, because of that stupidity in OpenSSL
+        */
         int write(Socket* sock, void* buffer, size_t& len) {
             bool gotToken = false;
             size_t ups = UploadManager::getInstance()->getUploadCount();

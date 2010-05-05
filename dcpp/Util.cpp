@@ -1112,49 +1112,5 @@ string Util::translateError(int aError) {
     return Text::toUtf8(strerror(aError));
 #endif // _WIN32
 }
-//[+]IRainman SpeedLimiter
-void Util::checkLimiterSpeed() {
-    int max_up_normal = (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10 + (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL)/10)*10));
-
-    int max_up_time = (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10 + (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) - (SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME)/10)*10));
-
-    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) < max_up_normal)
-    {
-        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, max_up_normal);
-    }
-
-    if (SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) < max_up_time)
-    {
-        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, max_up_time);
-    }
-
-    if (Util::checkLimiterTime())
-    {
-        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
-        SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME));
-    }
-    else
-    {
-        SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
-        SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
-    }
-    /*printf("down/up: %d/%d \ndown/up time: %d/%d \ndown/up normal: %d/%d \n",SETTING(MAX_DOWNLOAD_SPEED_LIMIT),
-    SETTING(MAX_UPLOAD_SPEED_LIMIT),SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME),SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME),
-    SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL),SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));*/
-}
-
-bool Util::checkLimiterTime() {
-    if (!SETTING(TIME_DEPENDENT_THROTTLE))
-        return false;
-
-    time_t currentTime;
-    time(&currentTime);
-    int currentHour = localtime(&currentTime)->tm_hour;
-    return ((SETTING(BANDWIDTH_LIMIT_START) < SETTING(BANDWIDTH_LIMIT_END) &&
-             currentHour >= SETTING(BANDWIDTH_LIMIT_START) && currentHour < SETTING(BANDWIDTH_LIMIT_END)) ||
-            (SETTING(BANDWIDTH_LIMIT_START) > SETTING(BANDWIDTH_LIMIT_END) &&
-             (currentHour >= SETTING(BANDWIDTH_LIMIT_START) || currentHour < SETTING(BANDWIDTH_LIMIT_END))));
-}
-//[~]IRainman SpeedLimiter
 
 } // namespace dcpp

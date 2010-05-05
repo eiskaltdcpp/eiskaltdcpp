@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>675</width>
-    <height>419</height>
+    <width>691</width>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -634,18 +634,6 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
               </widget>
              </item>
             </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_18">
-            <property name="text">
-             <string>Restriction of upload speed is associated with restriction of download speed by sly formula:
-download speed/10 + (download speed - (download speed/10)*10)
-Do not try to understand it...</string>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
            </widget>
           </item>
          </layout>
