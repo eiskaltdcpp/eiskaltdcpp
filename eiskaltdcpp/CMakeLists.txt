@@ -154,13 +154,14 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIShareBrowser.ui
             ui/UISpy.ui
             ui/UITransferView.ui)
+option(LANGUAGES "Using translations")
 if (NOT linguas)
-set (LANGUAGES en ru be hu fr pl)
+set (LANGUAGES en ru be hu fr pl CACHE STRING "Using translations" FORCE)
 else (NOT linguas)
 string(REGEX MATCHALL [a-zA-Z]+
          linguas1 ${linguas})
 #message(STATUS ${linguas1})
-set (LANGUAGES ${linguas1})
+set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
 endif (NOT linguas)
 
 if (USE_ASPELL)
@@ -258,9 +259,9 @@ add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
                 ${TRANSLATIONS}
                 translations
                 )
-add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}" 
-                          -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}" 
-                          -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}" 
+add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
+                          -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
+                          -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
                           -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
                 )
 
