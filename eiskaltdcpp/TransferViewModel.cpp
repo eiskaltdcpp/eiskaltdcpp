@@ -17,6 +17,7 @@
 #include <QSize>
 #include <QStyleOptionProgressBar>
 #include <QHash>
+#include <QColorGroup>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -81,9 +82,9 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
                 break;
 
             if (item->download && index.column() == COLUMN_TRANSFER_USERS)
-                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWN).scaled(18, 18);
+                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWN).scaled(18, 18, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
             else if (index.column() != COLUMN_TRANSFER_FNAME)
-                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUP).scaled(18, 18);
+                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUP).scaled(18, 18, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
             else
                 return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_TRANSFER_FNAME).toString()).scaled(16, 16);
         }
@@ -748,6 +749,20 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
         return;
     }
 
+    TransferViewItem *item = reinterpret_cast<TransferViewItem*>(index.internalPointer());
+
+    if (!item){
+        QStyledItemDelegate::paint(painter, option, index);
+        return;
+    }
+
+    QPalette pal = option.palette;
+
+    if (item->download)
+        pal.setColor(QPalette::Highlight, QColor(0x4C, 0xC3, 0x5C));
+    else
+        pal.setColor(QPalette::Highlight, QColor(0xBF, 0x40, 0x40));
+
     QStyleOptionProgressBarV2 progressBarOption;
     progressBarOption.state = QStyle::State_Enabled;
     progressBarOption.direction = QApplication::layoutDirection();
@@ -757,16 +772,9 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     progressBarOption.maximum = 100;
     progressBarOption.textAlignment = Qt::AlignCenter;
     progressBarOption.textVisible = true;
-
-    TransferViewItem *item = reinterpret_cast<TransferViewItem*>(index.internalPointer());
-
-    if (!item){
-        QStyledItemDelegate::paint(painter, option, index);
-        return;
-    }
+    progressBarOption.palette = pal;
 
     double percent = item->percent;
-
     QString status = item->data(COLUMN_TRANSFER_STATS).toString();
 
     progressBarOption.text = status;
