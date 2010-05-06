@@ -526,7 +526,9 @@ FavoriteHubItem *FavoriteHubs::getItem(){
     QItemSelectionModel *s_model = treeView->selectionModel();
     QModelIndexList list = s_model->selectedRows(0);
 
-    FavoriteHubItem *item = static_cast<FavoriteHubItem*>(list.at(0).internalPointer());
+    FavoriteHubItem *item = NULL;
+    if (!list.isEmpty())
+        item = static_cast<FavoriteHubItem*>(list.first().internalPointer());
 
     return item;
 }
