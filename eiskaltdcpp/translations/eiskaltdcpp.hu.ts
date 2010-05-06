@@ -5,18 +5,18 @@
     <name>AntiSpam</name>
     <message>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Hello, ez az AntiSpam robot. Szóval a kérdés &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
     <name>Compare</name>
     <message>
         <source>Inncorrect column %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem helyes oszlop %1</translation>
     </message>
     <message>
         <source>Unknown column %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ismeretlen oszlop %1</translation>
     </message>
 </context>
 <context>
@@ -131,7 +131,7 @@
     </message>
     <message>
         <source>%1 of %2 user(s) online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 felhasználó online a %2 -ból/ből</translation>
     </message>
 </context>
 <context>
@@ -760,31 +760,31 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Kedvencek</translation>
     </message>
     <message>
         <source>%1 become offline</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 offline</translation>
     </message>
     <message>
         <source>%1 become online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 online</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapcsolódás %1 -hez/hoz</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapcsolódva %1 -hez/hoz</translation>
     </message>
     <message>
         <source>Fail: %1...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sikertelen: %1...</translation>
     </message>
     <message>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bocs, de a &quot;%1&quot; nicket már más használja.</translation>
     </message>
 </context>
 <context>
@@ -3768,7 +3768,7 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     </message>
     <message>
         <source>Highlight favorite users in user list</source>
-        <translation type="unfinished"></translation>
+        <translation>Kedvenc felhasználók kiemelése a felhasználói listában</translation>
     </message>
 </context>
 <context>
@@ -3914,11 +3914,11 @@ Például: /usr/bin/mplayer</translation>
     </message>
     <message>
         <source>Favorite user join/part</source>
-        <translation type="unfinished"></translation>
+        <translation>Kedvenc felhasználó ki/belépése</translation>
     </message>
     <message>
         <source>Favorite user event</source>
-        <translation type="unfinished"></translation>
+        <translation>Kedvenc felhasználói esemény</translation>
     </message>
 </context>
 <context>
