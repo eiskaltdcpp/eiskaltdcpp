@@ -48,6 +48,8 @@ public:
 
     void setHasHighlightMessages(bool h) { hasHighlightMessages = (h && !isVisible()); }
 
+    bool hasNewMessages() { return (hasMessages || hasHighlightMessages); }
+
 public slots:
     void reloadSomeSettings();
     void slotActivate();

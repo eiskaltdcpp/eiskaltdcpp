@@ -1322,10 +1322,21 @@ void MainWindow::redrawToolPanel(){
     QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
     QHash<QAction*, ArenaWidget*>::iterator end = menuWidgetsHash.end();
 
+    PMWindow *pm = NULL;
+    bool has_unread = false;
+
     for(; it != end; ++it){//also redraw all widget menu items
         it.key()->setText(it.value()->getArenaShortTitle());
         it.key()->setIcon(it.value()->getPixmap());
+
+        pm = qobject_cast<PMWindow *>(it.key());
+        if (pm)
+            if (pm->hasNewMessages())
+                has_unread = true;
     }
+
+    if (has_unread)
+        Notify->resetTrayIcon();
 }
 
 void MainWindow::addArenaWidget(ArenaWidget *wgt){
