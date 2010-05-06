@@ -22,8 +22,6 @@
 
 using namespace dcpp;
 
-int PMWindow::unread = 0;
-
 PMWindow::PMWindow(QString cid, QString hubUrl):
         cid(cid),
         hubUrl(hubUrl),
@@ -154,15 +152,9 @@ void PMWindow::closeEvent(QCloseEvent *c_e){
     MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
     MainWindow::getInstance()->remArenaWidget(this);
 
-    if (hasMessages)
-        unread--;
-
     hasMessages = false;
     hasHighlightMessages = false;
     MainWindow::getInstance()->redrawToolPanel();
-
-    if (unread == 0)
-        Notify->resetTrayIcon();
 
     c_e->accept();
 }
@@ -171,15 +163,9 @@ void PMWindow::showEvent(QShowEvent *e){
     e->accept();
 
     if (isVisible()){
-        if (hasMessages)
-            unread--;
-
         hasMessages = false;
         hasHighlightMessages = false;
         MainWindow::getInstance()->redrawToolPanel();
-
-        if (unread == 0)
-            Notify->resetTrayIcon();
     }
 }
 
@@ -269,7 +255,6 @@ void PMWindow::addOutput(QString msg){
 
     if (!isVisible()){
         hasMessages = true;
-        unread++;
         MainWindow::getInstance()->redrawToolPanel();
     }
 }

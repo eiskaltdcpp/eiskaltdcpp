@@ -1329,7 +1329,7 @@ void MainWindow::redrawToolPanel(){
         it.key()->setText(it.value()->getArenaShortTitle());
         it.key()->setIcon(it.value()->getPixmap());
 
-        pm = qobject_cast<PMWindow *>(it.key());
+        pm = qobject_cast<PMWindow *>(arenaMap[it.value()]);
         if (pm)
             if (pm->hasNewMessages())
                 has_unread = true;
