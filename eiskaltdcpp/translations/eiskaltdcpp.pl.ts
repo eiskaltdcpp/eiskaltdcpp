@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="pl_PL" sourcelanguage="en">
 <context>
@@ -6,7 +6,7 @@
     <message>
         <location filename="../Antispam.cpp" line="150"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Cześć, to jest bot AntiSpam. Więc pytaniem jest &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -15,12 +15,12 @@
         <location filename="../DownloadQueueModel.cpp" line="212"/>
         <location filename="../FileBrowserModel.cpp" line="134"/>
         <source>Inncorrect column %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolumna niepoprawna %1</translation>
     </message>
     <message>
         <location filename="../UserListModel.cpp" line="213"/>
         <source>Unknown column %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolumna niewiadoma %1</translation>
     </message>
 </context>
 <context>
@@ -33,7 +33,7 @@
     <message>
         <location filename="../DownloadQueue.cpp" line="329"/>
         <source>%1 of %2 user(s) online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 z %2 użytkownik(ów) online</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="331"/>
@@ -58,7 +58,7 @@
     <message>
         <location filename="../DownloadQueue.cpp" line="363"/>
         <source>Full tree does not match TTH root</source>
-        <translation type="unfinished"></translation>
+        <translation>Drzewo katalogu nie odpowiada TTH</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="365"/>
@@ -672,7 +672,7 @@
     <message>
         <location filename="../HubFrame.cpp" line="107"/>
         <source>Copy data</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiuj informacje</translation>
     </message>
     <message>
         <source>Commands</source>
@@ -903,12 +903,12 @@ Ulubiony użytkownik</translation>
         <location filename="../HubFrame.cpp" line="724"/>
         <location filename="../HubFrame.cpp" line="1515"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Ulubione</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="724"/>
         <source>%1 become offline</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 się w trybie offline</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="895"/>
@@ -965,7 +965,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="1515"/>
         <source>%1 become online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 są online</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1528"/>
@@ -985,22 +985,22 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="2676"/>
         <source>Connecting to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Podłączanie do %1</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2685"/>
         <source>Connected to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Podłączony do %1</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2748"/>
         <source>Fail: %1...</source>
-        <translation type="unfinished"></translation>
+        <translation>Niepowodzenie: %1...</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2930"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Miestety ale nick &quot;%1&quot; jest używany przez innego użytkownika.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2940"/>
@@ -1422,7 +1422,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1235"/>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Ostatbie wiadomości jądra:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1546"/>
@@ -1447,17 +1447,17 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1965"/>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(utrzymanie i rozwój wersji 1.89.0 i późniejszych)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(opiekun i deweloper wersji 1.89.0 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1969"/>
         <source>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(utrzymanie i rozwój wersji 0.4.10 i późniejszych)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(opiekun i deweloper wersji 0.4.10 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1973"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(deweloper wersji 2.0.3 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1977"/>
@@ -4334,7 +4334,10 @@ The autosearch will find exact matches by searching via hash.
 The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Co kilka minut klient będzie wyszukiwał plików
+z Twojej kolejki Pobierania, aby znaleść wiecej lokalizacji (użytkowników/źródeł).
+Autowyszukiwanie znajduje dokładnie pasujące alternatywy obliczając hash pliku.
+Wadą jest to, że może nie znaleźć więcej źródeł pomimo wyszukiwania manualnego.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="721"/>
@@ -4547,7 +4550,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="261"/>
         <source>Highlight favorite users in user list</source>
-        <translation type="unfinished"></translation>
+        <translation>Podświetl ulubionego użytkownika na liście użytkowników</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="285"/>
@@ -4650,7 +4653,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="29"/>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wszystkie logi generowane przez EiskaltDC++ znajdą się w tym podkatalogu.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="46"/>
@@ -4757,7 +4760,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="70"/>
         <source>Favorite user join/part</source>
-        <translation type="unfinished"></translation>
+        <translation>Ulubiony użytkownik wszedł/wyszedł</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="77"/>
@@ -4792,7 +4795,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="283"/>
         <source>Favorite user event</source>
-        <translation type="unfinished"></translation>
+        <translation>Akcja ulubionego użytkownika</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="343"/>
@@ -4844,7 +4847,7 @@ For example: /usr/bin/mplayer</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="38"/>
         <source>This field is for sharing your email address, if you wish it.</source>
-        <translation type="unfinished"></translation>
+        <translation>W tym polu udostępniasz swoj adres email, jeśli tego chcesz.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="61"/>
@@ -4855,19 +4858,22 @@ For example: /usr/bin/mplayer</source>
         <location filename="../ui/UISettingsPersonal.ui" line="45"/>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"></translation>
+        <translation>Opis ten pojawi się na liście użytkowników.
+Można go zmienić w ustawieniach Hubów ulubionych.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="53"/>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeśli jesteś w trybie niedostępności (AWAY), to ta wiadomość zostanie
+wysłana do wszystkich który wyślą do Ciebie prywatną wiadomość.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="68"/>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nick którego będziesz używał(a) na hubach.
+Można go zmienić w ustawieniach Hubów ulubionych.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="76"/>
@@ -4887,7 +4893,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="118"/>
         <source>Line speed (upload)</source>
-        <translation type="unfinished"></translation>
+        <translation>Prędkość wysyłania</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="137"/>
@@ -4927,7 +4933,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation type="unfinished"></translation>
+        <translation>Tutaj możesz określić szablony plików nie chcesz udostępniać</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="200"/>
@@ -4937,7 +4943,13 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Określ limit pobierania (w GiB) dla wszystkich "wirtualnych" folderów
+z Twoimi udostępnionymi plikami.
+Przykład: Jeśli udostępniasz folder /home/nazwa_użytkownika/Video" jako "Video"
+możesz określić gonastępująco:
+/Video 10
+Oznacza to, że każdy użytkownik, który posiada mniej niż 10 Gib
+nie będzie mógł pobierać plików z tego folderu.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="248"/>
@@ -4951,13 +4963,17 @@ the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
-        <translation type="unfinished"></translation>
+        <translation>Udostępniaj pliki ukryte i pliki z ukrytych folderów.
+Wyłączenie tej opcji spowoduje że pliki zaczynające się od . (kropki) nie będą udostępniane.
+Uwaga: ustawienie tej opcji wymaga odświeżenia listy udostępnianych plików,
+i może spowodować zamrożenie sę klienta.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="300"/>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeśli to odznaczysz lista plików nie będzie uaktualniania
+podczas uruchamiania klienta.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="331"/>
@@ -4978,7 +4994,8 @@ share is complete, share at follow-up activities start nulled.</source>
         <location filename="../ui/UISettingsSharing.ui" line="519"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Możesz ograniczyć szybkość hashowania plików
+jeśli Twoj system spowalnia kiedy je hashujesz.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="543"/>
@@ -4991,7 +5008,15 @@ There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Określ ilość slotów jakie mogą zajmować użytkowanicy
+pobierający pliki od Ciebie. Zdalnyt użytkowanik może zajmować tylko jeden slot
+na każdym hubie na którym przebywacie razem.
+EiskaltDC++ obsługuje przesyłanie listy plików i plików poniżej 64 KiB
+do innych użytkowników DC++ bez potrzeby zajmowania przez nich slota.
+Są to maksymalnie 3 połączenia oprócz normalnych slotów,
+nazywane są mini slotami.
+Uwaga: Jeśli użytkownik opuści hub, EiskaltDC++ zamknie jego slot;
+jeżeli użytkownik powróci na hub w ciągu 10 minut, EiskaltDC++ przyzna mu extra slot.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="474"/>
@@ -5106,17 +5131,17 @@ aby móc pobrać ten folder</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="293"/>
         <source>Share temporary files</source>
-        <translation type="unfinished"></translation>
+        <translation>Udostępniaj pliki tymczasowe</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="304"/>
         <source>Run refresh share on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Podczas uruchamiania odświerzj listę udostępnionych plików</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="311"/>
         <source>Auto remove non-existing directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatycznie usuwaj nie istniejące katalogi</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="339"/>
@@ -5175,7 +5200,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="490"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutaj możesz określić przedział czasowy auto odświeżania Twojej listy plików.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="506"/>
