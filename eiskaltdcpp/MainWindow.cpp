@@ -1335,7 +1335,7 @@ void MainWindow::redrawToolPanel(){
                 has_unread = true;
     }
 
-    if (has_unread)
+    if (!has_unread)
         Notify->resetTrayIcon();
 }
 
