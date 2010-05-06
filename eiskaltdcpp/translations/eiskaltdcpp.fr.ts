@@ -2,6 +2,24 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="fr_FR">
 <context>
+    <name>AntiSpam</name>
+    <message>
+        <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Compare</name>
+    <message>
+        <source>Inncorrect column %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown column %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DownloadQueue</name>
     <message>
         <source>Search for alternates</source>
@@ -110,6 +128,10 @@
     <message>
         <source>Download Queue</source>
         <translation>Liste des téléchargements</translation>
+    </message>
+    <message>
+        <source>%1 of %2 user(s) online</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -736,6 +758,34 @@ Utilisateur favoris</translation>
         <source>Copy data</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 become offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 become online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fail: %1...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -816,7 +866,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Search Manager not ready. Please, try again later.</source>
-        <translation>Module de recherche indisponible. Veuillez réessayer plus tard.</translation>
+        <translation type="obsolete">Module de recherche indisponible. Veuillez réessayer plus tard.</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -3023,7 +3073,7 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
         <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
 download speed/10 + (download speed - (download speed/10)*10)
 Do not try to understand it...</source>
-        <translation>La restriction de vitesse d&apos;envoi est associée à la restriction de vitesse de téléchargement grâce à la formule sly:
+        <translation type="obsolete">La restriction de vitesse d&apos;envoi est associée à la restriction de vitesse de téléchargement grâce à la formule sly:
 Vitesse de téléchargement/10 + (vitesse de téléchargement - (vitesse de téléchargement/10)*10)
 N&apos;essayez pas de comprendre...</translation>
     </message>
@@ -3599,6 +3649,10 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
         <source>Show icon in system tray</source>
         <translation type="unfinished">Montrer l&apos;icône dans le systray</translation>
     </message>
+    <message>
+        <source>Highlight favorite users in user list</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -3740,6 +3794,14 @@ For example: /usr/bin/mplayer</source>
         <translation>Si votre format de fichier son n&apos;est pas supporté par Qt, vous pouvez
 définir un autre lecteur ici.
 Par exemple: /usr/bin/mplayer</translation>
+    </message>
+    <message>
+        <source>Favorite user join/part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite user event</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

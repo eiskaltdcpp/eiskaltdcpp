@@ -721,7 +721,7 @@ void HubFrame::customEvent(QEvent *e){
         }
 
         if (FavoriteManager::getInstance()->isFavoriteUser(u_e->getUser()))
-            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), QString("%1 become offline").arg(model->itemForPtr(u_e->getUser())->nick));
+            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become offline").arg(model->itemForPtr(u_e->getUser())->nick));
 
         model->removeUser(u_e->getUser());
     }
@@ -1512,7 +1512,7 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
                        cid, user);
 
         if (FavoriteManager::getInstance()->isFavoriteUser(user))
-            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), QString("%1 become online").arg(nick));
+            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become online").arg(nick));
 
         if (pm.contains(nick)){
             PMWindow *wnd = pm[nick];
@@ -2673,7 +2673,7 @@ void HubFrame::on(FavoriteManagerListener::UserRemoved, const FavoriteUser& aUse
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
-    QString status = QString("Connecting to %1").arg(QString::fromStdString(client->getHubUrl()));
+    QString status = tr("Connecting to %1").arg(QString::fromStdString(client->getHubUrl()));
 
     typedef Func1<HubFrame, QString> FUNC;
     FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
@@ -2682,7 +2682,7 @@ void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
 }
 
 void HubFrame::on(ClientListener::Connected, Client*) throw(){
-    QString status = QString("Connected to %1").arg(QString::fromStdString(client->getHubUrl()));
+    QString status = tr("Connected to %1").arg(QString::fromStdString(client->getHubUrl()));
 
     typedef Func1<HubFrame, QString> FUNC;
     FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
@@ -2745,7 +2745,7 @@ void HubFrame::on(ClientListener::Redirect, Client*, const string &link) throw()
 }
 
 void HubFrame::on(ClientListener::Failed, Client*, const string &msg) throw(){
-    QString status = QString("Fail: %1...").arg(_q(msg));
+    QString status = tr("Fail: %1...").arg(_q(msg));
 
     typedef Func1<HubFrame, QString> FUNC;
     FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
@@ -2927,7 +2927,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 }
 
 void HubFrame::on(ClientListener::NickTaken, Client*) throw(){
-    QString status = QString("Sorry, but nick \"%1\" is already taken by another user.").arg(client->getCurrentNick().c_str());
+    QString status = tr("Sorry, but nick \"%1\" is already taken by another user.").arg(client->getCurrentNick().c_str());
 
     typedef Func1<HubFrame, QString> FUNC;
     FUNC *func = new FUNC(this, &HubFrame::addStatus, status);

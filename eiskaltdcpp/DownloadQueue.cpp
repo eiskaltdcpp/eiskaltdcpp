@@ -326,8 +326,7 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
     sources[_q(item->getTarget())] = source;
 
     if (item->isWaiting())
-        params["STATUS"] = QString("%1 of %2 user(s) online").arg(online)
-                                                             .arg(item->getSources().size());
+        params["STATUS"] = tr("%1 of %2 user(s) online").arg(online).arg(item->getSources().size());
     else
         params["STATUS"] = tr("Running...");
 

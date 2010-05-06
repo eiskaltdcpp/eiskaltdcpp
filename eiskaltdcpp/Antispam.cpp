@@ -147,7 +147,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
     else {
         sandbox[cid] = 0;
 
-        QString question = QString("Hi, this is AntiSpam bot. So question is \"%1\"").arg(phrase);
+        QString question = tr("Hi, this is AntiSpam bot. So question is \"%1\"").arg(phrase);
 
         ClientManager::getInstance()->privateMessage(user, _tq(question), false, hubUrl.toStdString());
     }

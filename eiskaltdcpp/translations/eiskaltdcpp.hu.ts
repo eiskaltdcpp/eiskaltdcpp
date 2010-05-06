@@ -2,6 +2,24 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="hu_HU" sourcelanguage="en_US">
 <context>
+    <name>AntiSpam</name>
+    <message>
+        <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Compare</name>
+    <message>
+        <source>Inncorrect column %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown column %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DownloadQueue</name>
     <message>
         <source>Search for alternates</source>
@@ -110,6 +128,10 @@
     <message>
         <source>Download Queue</source>
         <translation>Letöltési sor</translation>
+    </message>
+    <message>
+        <source>%1 of %2 user(s) online</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -736,6 +758,34 @@ Kedvenc felhasználó</translation>
         <source>Copy data</source>
         <translation>Adat másolása</translation>
     </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 become offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 become online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fail: %1...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -816,7 +866,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Search Manager not ready. Please, try again later.</source>
-        <translation>A kereső nem áll készen. Kérlek próbáld újra később.</translation>
+        <translation type="obsolete">A kereső nem áll készen. Kérlek próbáld újra később.</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -3110,7 +3160,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
         <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
 download speed/10 + (download speed - (download speed/10)*10)
 Do not try to understand it...</source>
-        <translation>A feltöltési sebesség korlátozása összefüggésben áll a letöltési sebességgel a következő formula szerint:
+        <translation type="obsolete">A feltöltési sebesség korlátozása összefüggésben áll a letöltési sebességgel a következő formula szerint:
 letöltési sebesség/10 + (letöltési sebesség - (letöltési sebesség/10)*10)
 Ne is próbáld megérteni...</translation>
     </message>
@@ -3716,6 +3766,10 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
         <source>Show icon in system tray</source>
         <translation>Ikon mutatása a rendszer-tálcán</translation>
     </message>
+    <message>
+        <source>Highlight favorite users in user list</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -3857,6 +3911,14 @@ For example: /usr/bin/mplayer</source>
         <translation>Ha a megadott hangfájl formátuma nem támogatott a Qt által,
 lehetőség van megadni külső lejátszó programot is a megfelelő lejátszás érdekében.
 Például: /usr/bin/mplayer</translation>
+    </message>
+    <message>
+        <source>Favorite user join/part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite user event</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
