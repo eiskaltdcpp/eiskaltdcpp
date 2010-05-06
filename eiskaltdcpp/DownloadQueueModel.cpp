@@ -209,7 +209,7 @@ struct Compare {
                      return AttrCmp<COLUMN_DOWNLOADQUEUE_USER>;
             }
 
-            Q_ASSERT_X(false, "getAttrComp", QString("Inncorrect column %1").arg(column));
+            Q_ASSERT_X(false, "getAttrComp", QString("Inncorrect column %1").arg(column).toAscii().constData());
             return 0;
         }
         template <int i>

@@ -131,7 +131,7 @@ struct Compare {
                     return AttrCmp<COLUMN_FILEBROWSER_TTH>;
             }
 
-            Q_ASSERT_X(false, "getAttrComp", tr("Inncorrect column %1").arg(column).toAscii().constData());
+            Q_ASSERT_X(false, "getAttrComp", QString("Inncorrect column %1").arg(column).toAscii().constData());
             return 0;
         }
         template <int i>

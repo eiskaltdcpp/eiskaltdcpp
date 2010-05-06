@@ -210,7 +210,7 @@ struct Compare {
                     return IPCmp;
                     break;
             }
-            Q_ASSERT_X(false, "getAttrComp", tr("Unknown column %1").arg(column).toLocal8Bit().constData());
+            Q_ASSERT_X(false, "getAttrComp", QString("Unknown column %1").arg(column).toAscii().constData());
             return 0;
         }
         template <typename T, T (UserListItem::*attr)>
