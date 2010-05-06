@@ -30,6 +30,7 @@ void SettingsNotification::init(){
         checkBox_ANY->setChecked(emap & Notification::ANY);
         checkBox_PM->setChecked(emap & Notification::PM);
         checkBox_TRDONE->setChecked(emap & Notification::TRANSFER);
+        checkBox_FAVJOIN->setChecked(emap & Notification::FAVORITE);
         checkBox_MWACTIVE->setChecked(WBGET(WB_NOTIFY_SHOW_ON_ACTIVE));
         checkBox_MWVISIBLE->setChecked(WBGET(WB_NOTIFY_SHOW_ON_VISIBLE));
         checkBox_CHICON->setChecked(WBGET(WB_NOTIFY_CH_ICON_ALWAYS));
@@ -46,10 +47,11 @@ void SettingsNotification::init(){
         QString decoded = QByteArray::fromBase64(encoded.toAscii());
         QStringList sounds = decoded.split("\n");
 
-        if (sounds.size() == 3){
+        if (sounds.size() == 4){
             lineEdit_SNDNICKSAY->setText(sounds.at(0));
             lineEdit_SNDPM->setText(sounds.at(1));
             lineEdit_SNDTRDONE->setText(sounds.at(2));
+            lineEdit_FAV->setText(sounds.at(3));
         }
 
         groupBox_SND->setChecked(WBGET(WB_NOTIFY_SND_ENABLED));
@@ -62,19 +64,23 @@ void SettingsNotification::init(){
         groupBox_NICK->setChecked(emap & Notification::NICKSAY);
         groupBox_PM->setChecked(emap & Notification::PM);
         groupBox_TR->setChecked(emap & Notification::TRANSFER);
+        groupBox_FAV->setChecked(emap & Notification::FAVORITE);
     }
 
     toolButton_BRWNICK->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
     toolButton_BRWPM->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
     toolButton_BRWTR->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+    toolButton_BRWFAV->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
     connect(toolButton_BRWNICK, SIGNAL(clicked()), this, SLOT(slotBrowseFile()));
     connect(toolButton_BRWPM,   SIGNAL(clicked()), this, SLOT(slotBrowseFile()));
     connect(toolButton_BRWTR,   SIGNAL(clicked()), this, SLOT(slotBrowseFile()));
+    connect(toolButton_BRWFAV,  SIGNAL(clicked()), this, SLOT(slotBrowseFile()));
 
     connect(pushButton_TESTNICKSAY, SIGNAL(clicked()), this, SLOT(slotTest()));
     connect(pushButton_TESTPM,      SIGNAL(clicked()), this, SLOT(slotTest()));
     connect(pushButton_TESTTR,      SIGNAL(clicked()), this, SLOT(slotTest()));
+    connect(pushButton_TESTFAV,     SIGNAL(clicked()), this, SLOT(slotTest()));
 
     connect(groupBox_SNDCMD, SIGNAL(toggled(bool)), this, SLOT(slotToggleSndCmd(bool)));
 }
@@ -123,6 +129,9 @@ void SettingsNotification::ok(){
         if (checkBox_PM->isChecked())
             emap |= Notification::PM;
 
+        if (checkBox_FAVJOIN->isChecked())
+            emap |= Notification::FAVORITE;
+
         WISET(WI_NOTIFY_EVENTMAP, emap);
         WISET(WI_NOTIFY_MODULE, comboBox->currentIndex());
 
@@ -133,7 +142,8 @@ void SettingsNotification::ok(){
 
         sounds += lineEdit_SNDNICKSAY->text() + "\n";
         sounds += lineEdit_SNDPM->text() + "\n";
-        sounds += lineEdit_SNDTRDONE->text();
+        sounds += lineEdit_SNDTRDONE->text() + "\n";
+        sounds += lineEdit_FAV->text();
 
         WSSET(WS_NOTIFY_SOUNDS, sounds.toAscii().toBase64());
         WBSET(WB_NOTIFY_SND_ENABLED, groupBox_SND->isChecked());
@@ -153,6 +163,9 @@ void SettingsNotification::ok(){
 
         if (groupBox_PM->isChecked())
             emap |= Notification::PM;
+
+        if (groupBox_FAV->isChecked())
+            emap |= Notification::FAVORITE;
 
         WISET(WI_NOTIFY_SNDMAP, emap);
     }
@@ -176,6 +189,8 @@ void SettingsNotification::slotBrowseFile(){
         lineEdit_SNDPM->setText(f);
     else if (btn == toolButton_BRWTR)
         lineEdit_SNDTRDONE->setText(f);
+    else if (btn == toolButton_BRWFAV)
+        lineEdit_FAV->setText(f);
 }
 
 void SettingsNotification::slotTest(){
@@ -187,6 +202,8 @@ void SettingsNotification::slotTest(){
         playFile(lineEdit_SNDPM->text());
     else if (btn == pushButton_TESTTR)
         playFile(lineEdit_SNDTRDONE->text());
+    else if (btn == pushButton_TESTFAV)
+        playFile(lineEdit_FAV->text());
 }
 
 void SettingsNotification::slotToggleSndCmd(bool checked){

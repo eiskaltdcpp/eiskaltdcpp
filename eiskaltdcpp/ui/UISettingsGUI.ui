@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>412</width>
-    <height>385</height>
+    <width>468</width>
+    <height>395</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -252,6 +252,13 @@ from other words by spaces.</string>
         <widget class="QCheckBox" name="checkBox_IGNOREPMBOT">
          <property name="text">
           <string>Ignore private messages from Bot</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_HIGHLIGHTFAVS">
+         <property name="text">
+          <string>Highlight favorite users in user list</string>
          </property>
         </widget>
        </item>

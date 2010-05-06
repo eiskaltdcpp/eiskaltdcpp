@@ -145,7 +145,7 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
             QFont font;
             font.setBold(true);
 
-            if (item->fav)
+            if (item->fav && WBGET(WB_CHAT_HIGHLIGHT_FAVS))
                 return font;
 
             break;

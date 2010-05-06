@@ -720,6 +720,9 @@ void HubFrame::customEvent(QEvent *e){
             pm.remove(cid);
         }
 
+        if (FavoriteManager::getInstance()->isFavoriteUser(u_e->getUser()))
+            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), QString("%1 become offline").arg(model->itemForPtr(u_e->getUser())->nick));
+
         model->removeUser(u_e->getUser());
     }
     else if (e->type() == UserCustomEvent::Event){
@@ -1507,6 +1510,9 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
                        map["EMAIL"].toString(), map["ISOP"].toBool(),
                        map["AWAY"].toBool(), map["SPEED"].toString(),
                        cid, user);
+
+        if (FavoriteManager::getInstance()->isFavoriteUser(user))
+            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), QString("%1 become online").arg(nick));
 
         if (pm.contains(nick)){
             PMWindow *wnd = pm[nick];
