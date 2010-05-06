@@ -9,17 +9,6 @@
     </message>
 </context>
 <context>
-    <name>Compare</name>
-    <message>
-        <source>Inncorrect column %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unknown column %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DownloadQueue</name>
     <message>
         <source>Search for alternates</source>

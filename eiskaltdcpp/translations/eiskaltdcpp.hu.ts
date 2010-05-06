@@ -12,11 +12,11 @@
     <name>Compare</name>
     <message>
         <source>Inncorrect column %1</source>
-        <translation>Nem helyes oszlop %1</translation>
+        <translation type="obsolete">Nem helyes oszlop %1</translation>
     </message>
     <message>
         <source>Unknown column %1</source>
-        <translation>Ismeretlen oszlop %1</translation>
+        <translation type="obsolete">Ismeretlen oszlop %1</translation>
     </message>
 </context>
 <context>

@@ -10,20 +10,6 @@
     </message>
 </context>
 <context>
-    <name>Compare</name>
-    <message>
-        <location filename="../DownloadQueueModel.cpp" line="212"/>
-        <location filename="../FileBrowserModel.cpp" line="134"/>
-        <source>Inncorrect column %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../UserListModel.cpp" line="213"/>
-        <source>Unknown column %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DownloadQueue</name>
     <message>
         <location filename="../DownloadQueue.cpp" line="33"/>

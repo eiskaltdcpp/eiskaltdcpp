@@ -6,21 +6,7 @@
     <message>
         <location filename="../Antispam.cpp" line="150"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Compare</name>
-    <message>
-        <location filename="../DownloadQueueModel.cpp" line="212"/>
-        <location filename="../FileBrowserModel.cpp" line="134"/>
-        <source>Inncorrect column %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../UserListModel.cpp" line="213"/>
-        <source>Unknown column %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Привет, это антиспам-бот. Вопрос: &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -33,7 +19,7 @@
     <message>
         <location filename="../DownloadQueue.cpp" line="329"/>
         <source>%1 of %2 user(s) online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 из %2 пользователей в сети</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="331"/>
@@ -903,12 +889,12 @@ Favorite user</source>
         <location filename="../HubFrame.cpp" line="724"/>
         <location filename="../HubFrame.cpp" line="1515"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Избранные</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="724"/>
         <source>%1 become offline</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 выходит из сети</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="895"/>
@@ -965,12 +951,12 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="1515"/>
         <source>%1 become online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 входит в сеть</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1528"/>
         <source>User online.</source>
-        <translation>Пользователь онлайн.</translation>
+        <translation>Пользователь в сети.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2597"/>
@@ -985,22 +971,22 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="2676"/>
         <source>Connecting to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Подключение к %1</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2685"/>
         <source>Connected to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Подключен к %1</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2748"/>
         <source>Fail: %1...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка: %1...</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2930"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Извините, но ник &quot;%1&quot; уже занят другим пользователем.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2940"/>
@@ -4831,7 +4817,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="70"/>
         <source>Favorite user join/part</source>
-        <translation type="unfinished"></translation>
+        <translation>Вход/выход избранного пользователя</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="77"/>
@@ -4866,7 +4852,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="283"/>
         <source>Favorite user event</source>
-        <translation type="unfinished"></translation>
+        <translation>Действие избранного пользователя</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="343"/>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="pl_PL" sourcelanguage="en">
 <context>
@@ -12,15 +12,12 @@
 <context>
     <name>Compare</name>
     <message>
-        <location filename="../DownloadQueueModel.cpp" line="212"/>
-        <location filename="../FileBrowserModel.cpp" line="134"/>
         <source>Inncorrect column %1</source>
-        <translation>Kolumna niepoprawna %1</translation>
+        <translation type="obsolete">Kolumna niepoprawna %1</translation>
     </message>
     <message>
-        <location filename="../UserListModel.cpp" line="213"/>
         <source>Unknown column %1</source>
-        <translation>Kolumna niewiadoma %1</translation>
+        <translation type="obsolete">Kolumna niewiadoma %1</translation>
     </message>
 </context>
 <context>
@@ -4943,9 +4940,9 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation>Określ limit pobierania (w GiB) dla wszystkich "wirtualnych" folderów
+        <translation>Określ limit pobierania (w GiB) dla wszystkich &quot;wirtualnych&quot; folderów
 z Twoimi udostępnionymi plikami.
-Przykład: Jeśli udostępniasz folder /home/nazwa_użytkownika/Video" jako "Video"
+Przykład: Jeśli udostępniasz folder /home/nazwa_użytkownika/Video&quot; jako &quot;Video&quot;
 możesz określić gonastępująco:
 /Video 10
 Oznacza to, że każdy użytkownik, który posiada mniej niż 10 Gib
