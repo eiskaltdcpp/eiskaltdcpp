@@ -2,7 +2,7 @@ project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6)
 set (PROJECT_NAME_GLOBAL eiskaltdcpp)
 
-set (VERSION "2.0.0")
+set (VERSION "2.0.x")
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
 include (CheckFunctionExists)
