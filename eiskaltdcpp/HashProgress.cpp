@@ -132,7 +132,7 @@ void HashProgress::timerTick(){
         //progress->setValue(10000); // generates anoying blinking 0 -> 100%
         file->setText(tr("Done"));
     } else {
-        QString fname = QString::fromStdString(Text::toT(path));
+        QString fname = QString::fromStdString(path);
         QFontMetrics metrics(font());
 
         file->setToolTip(fname);

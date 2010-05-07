@@ -2118,7 +2118,7 @@ void MainWindow::prevMsg(){
 }
 
 void MainWindow::on(dcpp::LogManagerListener::Message, time_t t, const std::string& m) throw(){
-    QTextCodec *codec = QTextCodec::codecForLocale();
+    QTextCodec *codec = QTextCodec::codecForName("UTF-8");
 
     typedef Func1<MainWindow, QString> FUNC;
     FUNC *func = new FUNC(this, &MainWindow::setStatusMessage, codec->toUnicode(m.c_str()));

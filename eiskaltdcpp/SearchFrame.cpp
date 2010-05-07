@@ -1320,8 +1320,8 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
     }
     else {
         for(TStringIter j = currentSearch.begin(); j != currentSearch.end(); ++j) {
-            if((*j->begin() != ('-') && Util::findSubString(aResult->getFile(), Text::fromT(*j)) == tstring::npos) ||
-               (*j->begin() == ('-') && j->size() != 1 && Util::findSubString(aResult->getFile(), Text::fromT(j->substr(1))) != tstring::npos)
+            if((*j->begin() != ('-') && Util::findSubString(aResult->getFile(), *j) == tstring::npos) ||
+               (*j->begin() == ('-') && j->size() != 1 && Util::findSubString(aResult->getFile(), j->substr(1)) != tstring::npos)
               )
            {
                     dropped++;
