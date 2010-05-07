@@ -905,7 +905,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="724"/>
         <source>%1 become offline</source>
-        <translation>%1 się w trybie offline</translation>
+        <translation>%1 offline</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="895"/>
@@ -962,7 +962,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="1515"/>
         <source>%1 become online</source>
-        <translation>%1 są online</translation>
+        <translation>%1 online</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1528"/>
@@ -997,7 +997,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="2930"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation>Miestety ale nick &quot;%1&quot; jest używany przez innego użytkownika.</translation>
+        <translation>Niestety ale nick &quot;%1&quot; jest używany przez innego użytkownika.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2940"/>
@@ -1419,7 +1419,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1235"/>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation>&lt;b&gt;Ostatbie wiadomości jądra:&lt;/b&gt;&lt;br/&gt;%1</translation>
+        <translation>&lt;b&gt;Ostatnie wiadomości jądra:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1546"/>
@@ -4942,7 +4942,7 @@ It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
         <translation>Określ limit pobierania (w GiB) dla wszystkich &quot;wirtualnych&quot; folderów
 z Twoimi udostępnionymi plikami.
-Przykład: Jeśli udostępniasz folder /home/nazwa_użytkownika/Video&quot; jako &quot;Video&quot;
+Przykład: Jeśli udostępniasz folder /home/nazwa_użytkownika/Video jako &quot;Video&quot;
 możesz określić gonastępująco:
 /Video 10
 Oznacza to, że każdy użytkownik, który posiada mniej niż 10 Gib
