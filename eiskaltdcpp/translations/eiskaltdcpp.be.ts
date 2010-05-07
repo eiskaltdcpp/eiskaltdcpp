@@ -6,7 +6,7 @@
     <message>
         <location filename="../Antispam.cpp" line="150"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Вас вітае бот супраць лухты. Такім чынам, пытаньне наступнае: “%1”</translation>
     </message>
 </context>
 <context>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../DownloadQueue.cpp" line="329"/>
         <source>%1 of %2 user(s) online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 з %2 карыстальнікаў далучаныя</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="331"/>
@@ -863,7 +863,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="1515"/>
         <source>%1 become online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 далучаецца</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1528"/>
@@ -955,32 +955,32 @@ Favorite user</source>
         <location filename="../HubFrame.cpp" line="724"/>
         <location filename="../HubFrame.cpp" line="1515"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Улюбёнцы</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="724"/>
         <source>%1 become offline</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 адлучаецца</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2676"/>
         <source>Connecting to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Злучаемся з %1…</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2685"/>
         <source>Connected to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Злучыліся з %1</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2748"/>
         <source>Fail: %1...</source>
-        <translation type="unfinished"></translation>
+        <translation>Не ўдалося: %1…</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2930"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбачайце, але мянушку “%1” ўжо заняў іншы карыстальнік.</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2940"/>
@@ -3424,7 +3424,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="181"/>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
-        <translation>Гэтая мянушка будзе атаясьняць вас, калі вы ўваходзіце на асяродак.</translation>
+        <translation>Гэтая мянушка будзе атаясьняць вас, калі вы далучаецеся да асяродку.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="188"/>
@@ -4644,12 +4644,13 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="233"/>
         <source>Show joins only for favorite users</source>
         <translatorcomment>???</translatorcomment>
-        <translation>Паказваць, толькі калі ўвайшоў ці выйшаў улюбёнец</translation>
+        <translation>Паказваць, толькі калі далучыўся ці адлучыўся ўлюбёнец</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="261"/>
         <source>Highlight favorite users in user list</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???“вылучаць”?</translatorcomment>
+        <translation>Вылучаць улюбёнцаў у сьпісе карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="285"/>
@@ -4695,7 +4696,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="223"/>
         <source>Show joins</source>
-        <translation>Паказваць, калі хто ўваходзіць</translation>
+        <translation>Паказваць, калі хто далучаецца</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
@@ -4860,7 +4861,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="70"/>
         <source>Favorite user join/part</source>
-        <translation type="unfinished"></translation>
+        <translation>Улюбёнец далучыўся або адлучыўся</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="77"/>
@@ -4895,7 +4896,8 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="283"/>
         <source>Favorite user event</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???удакладніць кантэкст слова “event”</translatorcomment>
+        <translation>Улюбёнец далучыўся або адлучыўся</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="343"/>
@@ -5461,7 +5463,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../UserListModel.cpp" line="167"/>
         <source>Share</source>
-        <translation>Доля</translation>
+        <translation>Абагуленае</translation>
     </message>
     <message>
         <location filename="../UserListModel.cpp" line="168"/>
