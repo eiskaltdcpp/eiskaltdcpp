@@ -772,11 +772,11 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Kapcsolódás %1 -hez/hoz</translation>
+        <translation>Kapcsolódás: %1</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>Kapcsolódva %1 -hez/hoz</translation>
+        <translation>Kapcsolódva: %1</translation>
     </message>
     <message>
         <source>Fail: %1...</source>
