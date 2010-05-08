@@ -664,7 +664,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Enter password</source>
-        <translation>Jelszó megadása</translation>
+        <translation type="obsolete">Jelszó megadása</translation>
     </message>
     <message>
         <source>Password</source>
@@ -1878,6 +1878,10 @@ Kapcsolók:
         <source>Logs</source>
         <translation>Logok</translation>
     </message>
+    <message>
+        <source>User Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsConnection</name>
@@ -2450,6 +2454,25 @@ Biztosan le akarod állítani?
     <message>
         <source>Finished</source>
         <translation>Befejezve</translation>
+    </message>
+</context>
+<context>
+    <name>UCModel</name>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Név</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub</source>
+        <translation type="unfinished">Hub</translation>
+    </message>
+    <message>
+        <source>Separator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4251,6 +4274,33 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
 </context>
 <context>
+    <name>UISettingsUC</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Hozzáadás</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">Fel</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">Le</translation>
+    </message>
+</context>
+<context>
     <name>UIShareBrowser</name>
     <message>
         <source>Form</source>
@@ -4289,6 +4339,81 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <source>Form</source>
         <translation>Átvitelek</translation>
+    </message>
+</context>
+<context>
+    <name>UIUserCommands</name>
+    <message>
+        <source>New command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chat</source>
+        <translation type="unfinished">Chat</translation>
+    </message>
+    <message>
+        <source>Raw</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Context</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub</source>
+        <translation type="unfinished">Hub</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Keresés</translation>
+    </message>
+    <message>
+        <source>User</source>
+        <translation type="unfinished">Felhasználó</translation>
+    </message>
+    <message>
+        <source>Filebrowser</source>
+        <translation type="unfinished">Fájlböngésző</translation>
+    </message>
+    <message>
+        <source>Parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Név</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send once per nick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Result</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

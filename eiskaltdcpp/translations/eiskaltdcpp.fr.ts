@@ -693,7 +693,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Enter password</source>
-        <translation>Saisissez le mot de passe</translation>
+        <translation type="obsolete">Saisissez le mot de passe</translation>
     </message>
     <message>
         <source>Password</source>
@@ -1797,6 +1797,10 @@ Clés:
         <source>Logs</source>
         <translation>Logs</translation>
     </message>
+    <message>
+        <source>User Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsConnection</name>
@@ -2368,6 +2372,25 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>Finished</source>
         <translation>Terminé</translation>
+    </message>
+</context>
+<context>
+    <name>UCModel</name>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nom</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub</source>
+        <translation type="unfinished">Serveur</translation>
+    </message>
+    <message>
+        <source>Separator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4089,6 +4112,33 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
 </context>
 <context>
+    <name>UISettingsUC</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulaire</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Ajouter</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished">Changer</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">Haut</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">Bas</translation>
+    </message>
+</context>
+<context>
     <name>UIShareBrowser</name>
     <message>
         <source>Form</source>
@@ -4127,6 +4177,81 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
+    </message>
+</context>
+<context>
+    <name>UIUserCommands</name>
+    <message>
+        <source>New command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chat</source>
+        <translation type="unfinished">Discussion</translation>
+    </message>
+    <message>
+        <source>Raw</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Context</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub</source>
+        <translation type="unfinished">Serveur</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Rechercher</translation>
+    </message>
+    <message>
+        <source>User</source>
+        <translation type="unfinished">Utilisateur</translation>
+    </message>
+    <message>
+        <source>Filebrowser</source>
+        <translation type="unfinished">Navigateur de fichiers</translation>
+    </message>
+    <message>
+        <source>Parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Nom</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send once per nick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Result</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

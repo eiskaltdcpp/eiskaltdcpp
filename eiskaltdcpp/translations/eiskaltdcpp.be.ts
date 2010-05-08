@@ -916,9 +916,8 @@ Favorite user</source>
         <translation>Даслалі захаванае гасло…</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1802"/>
         <source>Enter password</source>
-        <translation>Упішыце гасло</translation>
+        <translation type="obsolete">Упішыце гасло</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1802"/>
@@ -2322,46 +2321,51 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../Settings.cpp" line="18"/>
+        <location filename="../Settings.cpp" line="19"/>
         <source>Options</source>
         <translation>Можнасьці</translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="31"/>
+        <location filename="../Settings.cpp" line="32"/>
         <source>Personal</source>
         <translatorcomment>???Асабістыя [можнасьці]</translatorcomment>
         <translation>Асабістыя</translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="36"/>
+        <location filename="../Settings.cpp" line="37"/>
         <source>Connection</source>
         <translation>Злучэньне</translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="41"/>
+        <location filename="../Settings.cpp" line="42"/>
         <source>Downloads</source>
         <translatorcomment>???Сьцягваць</translatorcomment>
         <translation>Сьцягванае</translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="46"/>
+        <location filename="../Settings.cpp" line="47"/>
         <source>Sharing</source>
         <translation>Абагуленае</translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="51"/>
+        <location filename="../Settings.cpp" line="52"/>
         <source>GUI</source>
         <translation>Інтэрфэйс</translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="56"/>
+        <location filename="../Settings.cpp" line="57"/>
         <source>Notifications</source>
         <translation>Апавяшчэньні</translation>
     </message>
     <message>
-        <location filename="../Settings.cpp" line="61"/>
+        <location filename="../Settings.cpp" line="62"/>
         <source>Logs</source>
         <translation>Журналы</translation>
+    </message>
+    <message>
+        <location filename="../Settings.cpp" line="67"/>
+        <source>User Commands</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3098,6 +3102,29 @@ Do you want to stop it?
         <location filename="../TransferViewModel.cpp" line="598"/>
         <source>Finished</source>
         <translation>Скончылі</translation>
+    </message>
+</context>
+<context>
+    <name>UCModel</name>
+    <message>
+        <location filename="../UCModel.cpp" line="72"/>
+        <source>Name</source>
+        <translation type="unfinished">Назоў</translation>
+    </message>
+    <message>
+        <location filename="../UCModel.cpp" line="73"/>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../UCModel.cpp" line="74"/>
+        <source>Hub</source>
+        <translation type="unfinished">Асяродак</translation>
+    </message>
+    <message>
+        <location filename="../UCModel.cpp" line="140"/>
+        <source>Separator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5356,6 +5383,39 @@ the granted slot will not be closed.</source>
     </message>
 </context>
 <context>
+    <name>UISettingsUC</name>
+    <message>
+        <location filename="../ui/UISettingsUC.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsUC.ui" line="42"/>
+        <source>Add</source>
+        <translation type="unfinished">Дадаць</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsUC.ui" line="49"/>
+        <source>Change</source>
+        <translation type="unfinished">Зьмяніць</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsUC.ui" line="56"/>
+        <source>Remove</source>
+        <translation type="unfinished">Выкрасьліць</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsUC.ui" line="63"/>
+        <source>Up</source>
+        <translation type="unfinished">Вышэй</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsUC.ui" line="83"/>
+        <source>Down</source>
+        <translation type="unfinished">Ніжэй</translation>
+    </message>
+</context>
+<context>
     <name>UIShareBrowser</name>
     <message>
         <location filename="../ui/UIShareBrowser.ui" line="20"/>
@@ -5403,6 +5463,99 @@ the granted slot will not be closed.</source>
         <location filename="../ui/UITransferView.ui" line="20"/>
         <source>Form</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>UIUserCommands</name>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="14"/>
+        <source>New command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="23"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="32"/>
+        <source>Separator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="42"/>
+        <source>Chat</source>
+        <translation type="unfinished">Гамана</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="49"/>
+        <source>Raw</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="56"/>
+        <source>PM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="66"/>
+        <source>Context</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="75"/>
+        <source>Hub</source>
+        <translation type="unfinished">Асяродак</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="82"/>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="89"/>
+        <source>User</source>
+        <translation type="unfinished">Карыстальнік</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="96"/>
+        <source>Filebrowser</source>
+        <translation type="unfinished">Аглядальнік файлаў</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="106"/>
+        <source>Parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="139"/>
+        <source>Name</source>
+        <translation type="unfinished">Назоў</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="146"/>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="153"/>
+        <source>Hub address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="160"/>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="167"/>
+        <source>Send once per nick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIUserCommands.ui" line="191"/>
+        <source>Result</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
