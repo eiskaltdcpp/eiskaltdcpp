@@ -163,7 +163,7 @@ set (UI_FORMS ui/UIAbout.ui
             )
 option(LANGUAGES "Using translations")
 if (NOT linguas)
-set (LANGUAGES en ru be hu fr pl CACHE STRING "Using translations" FORCE)
+set (LANGUAGES en ru be hu fr pl sr CACHE STRING "Using translations" FORCE)
 else (NOT linguas)
 string(REGEX MATCHALL [a-zA-Z]+
          linguas1 ${linguas})

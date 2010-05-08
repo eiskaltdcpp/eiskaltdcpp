@@ -141,4 +141,5 @@ TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.be.ts \
                translations/eiskaltdcpp.hu.ts \
                translations/eiskaltdcpp.fr.ts \
-               translations/eiskaltdcpp.pl.ts
+               translations/eiskaltdcpp.pl.ts \
+               translations/eiskaltdcpp.sr.ts
