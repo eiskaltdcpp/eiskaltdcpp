@@ -1799,7 +1799,7 @@ void HubFrame::getPassword(){
         addStatus(tr("Stored password sent..."));
     }
     else if (client && client->isConnected()){
-        QString pass = QInputDialog::getText(this, tr("Enter password") +" - " +  _q(client->getHubUrl()), tr("Password"), QLineEdit::Password);
+        QString pass = QInputDialog::getText(this, _q(client->getHubUrl()), tr("Password"), QLineEdit::Password);
 
         if (!pass.isEmpty()){
             client->setPassword(pass.toStdString());
