@@ -1926,6 +1926,10 @@ Clés:
         <source>Polish</source>
         <translation>Polonais</translation>
     </message>
+    <message>
+        <source>Serbian</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsNotification</name>

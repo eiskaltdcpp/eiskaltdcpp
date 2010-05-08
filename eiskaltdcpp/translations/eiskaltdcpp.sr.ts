@@ -1,4 +1,13 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
+<context>
+    <name>AntiSpam</name>
+    <message>
+        <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>DownloadQueue</name>
     <message>
@@ -109,6 +118,10 @@
     <message>
         <source>Download Queue</source>
         <translation>Red za preuzimanje</translation>
+    </message>
+    <message>
+        <source>%1 of %2 user(s) online</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -700,7 +713,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Enter password</source>
-        <translation>Unesi lozinku</translation>
+        <translation type="obsolete">Unesi lozinku</translation>
     </message>
     <message>
         <source>Password</source>
@@ -725,6 +738,34 @@ Omiljeni korisnik</translation>
     <message>
         <source>Chat enabled.</source>
         <translation>Razgovor omogućen</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 become offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 become online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fail: %1...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -814,7 +855,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Search Manager not ready. Please, try again later.</source>
-        <translation>Pretraga nije spremna. Probajte kasnije.</translation>
+        <translation type="obsolete">Pretraga nije spremna. Probajte kasnije.</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -1423,8 +1464,8 @@ Please check your connection settings</source>
 EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help<byte value="x9"/> Show this message
-  -v, --version<byte value="x9"/> Show version string</source>
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
         <translation>Upotreba:(new line)
 (sp)(sp)eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
 (sp)(sp)eiskaltdcpp &lt;Key&gt;
@@ -1739,6 +1780,10 @@ Keys:
         <source>Logs</source>
         <translation>Logovi</translation>
     </message>
+    <message>
+        <source>User Commands</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsConnection</name>
@@ -1863,6 +1908,10 @@ Keys:
     <message>
         <source>Translation (*.qm)</source>
         <translation>Prevod (*.qm)</translation>
+    </message>
+    <message>
+        <source>Serbian</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2310,6 +2359,25 @@ Da li želite da zaustavite?</translation>
     <message>
         <source>Finished</source>
         <translation>Završeno</translation>
+    </message>
+</context>
+<context>
+    <name>UCModel</name>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Ime</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub</source>
+        <translation type="unfinished">Hab</translation>
+    </message>
+    <message>
+        <source>Separator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3087,7 +3155,7 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
         <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
 download speed/10 + (download speed - (download speed/10)*10)
 Do not try to understand it...</source>
-        <translation>Ograničenje brzina otpremanja je povezano sa ograničenjem brzina preuzimanja:
+        <translation type="obsolete">Ograničenje brzina otpremanja je povezano sa ograničenjem brzina preuzimanja:
 brzina preuzimanja/10 + (brzina preuzimanja - (brzina preuzimanja/10)*10)
 Ne pokušavaje da razumete...</translation>
     </message>
@@ -3599,6 +3667,10 @@ od drugih reči sa razmakom.</translation>
         <source>Do not change focus on new private message</source>
         <translation>Ne menjaj fokus na novu privatnu poruku</translation>
     </message>
+    <message>
+        <source>Highlight favorite users in user list</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -3737,6 +3809,14 @@ Na primer: /usr/bin/mplayer</translation>
         <source>Use external command</source>
         <translation>Koristi spoljnu komandu</translation>
     </message>
+    <message>
+        <source>Favorite user join/part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite user event</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsPersonal</name>
@@ -3820,7 +3900,7 @@ Nemojte stavljati u svoju brzinu preuzimanja; ova postavka je mera.</translation
         <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
 For example, if you have /home/username/Video folder shared as &quot;Video&quot;
 you can specify following:
-/Video<byte value="x9"/>10
+/Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
         <translation>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.(new line)
@@ -4045,6 +4125,33 @@ odobreni slot neće biti zatvoren.
     </message>
 </context>
 <context>
+    <name>UISettingsUC</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Oblik</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Dodaj</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished">Promeni</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">Gore</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">Dole</translation>
+    </message>
+</context>
+<context>
     <name>UIShareBrowser</name>
     <message>
         <source>Form</source>
@@ -4083,6 +4190,81 @@ odobreni slot neće biti zatvoren.
     <message>
         <source>Form</source>
         <translation>Oblik</translation>
+    </message>
+</context>
+<context>
+    <name>UIUserCommands</name>
+    <message>
+        <source>New command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chat</source>
+        <translation type="unfinished">Razgovor</translation>
+    </message>
+    <message>
+        <source>Raw</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Context</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub</source>
+        <translation type="unfinished">Hab</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Pretraži</translation>
+    </message>
+    <message>
+        <source>User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filebrowser</source>
+        <translation type="unfinished">Pregledač fajlova</translation>
+    </message>
+    <message>
+        <source>Parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished">Ime</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send once per nick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Result</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
