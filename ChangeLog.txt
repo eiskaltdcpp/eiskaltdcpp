@@ -1,6 +1,7 @@
 --- 2.0.3 2010-06-24 ---
 * Fixed display of unread messages using the tray icon.
 * Fixed potential problems with search using locales other than UTF-8.
+* Added graphical configuration of user commands in the Settings dialog. (In previous versions it was necessary to edit xml-config manually)
 
 --- 2.0.2 2010-05-04 ---
 * Thanks to Alexandre Wallimann the French translation is now available.
