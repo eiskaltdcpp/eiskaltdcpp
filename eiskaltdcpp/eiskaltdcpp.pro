@@ -150,7 +150,9 @@ HEADERS = MainWindow.h \
     PublicHubsList.h \
     SideBar.h \
     ArenaWidgetContainer.h \
-    LineEdit.h
+    LineEdit.h \
+    SettingsUC.h \
+    UCModel.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -257,7 +259,9 @@ SOURCES = main.cpp \
     PublicHubsList.cpp \
     SideBar.cpp \
     ArenaWidgetContainer.cpp \
-    LineEdit.cpp
+    LineEdit.cpp \
+    SettingsUC.cpp \
+    UCModel.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \
@@ -286,4 +290,5 @@ FORMS = ui/HubFrame.ui \
     ui/UISpy.ui \
     ui/UIPublicHubs.ui \
     ui/UIPublicHubsList.ui \
-    ui/UIUserCommands.ui
+    ui/UIUserCommands.ui \
+    ui/UISettingsUC.ui

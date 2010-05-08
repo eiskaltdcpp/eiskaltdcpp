@@ -49,7 +49,9 @@ HEADERS = HEADERS = MainWindow.h \
     PublicHubs.h \
     PublicHubModel.h \
     PublicHubsList.h \
-    SideBar.h
+    SideBar.h \
+    SettingsUC.h \
+    UCModel.h
 SOURCES = main.cpp \
     Antispam.cpp \
     AntiSpamFrame.cpp \
@@ -100,7 +102,9 @@ SOURCES = main.cpp \
     PublicHubModel.cpp \
     PublicHubs.cpp \
     PublicHubsList.cpp \
-    SideBar.cpp
+    SideBar.cpp \
+    SettingsUC.cpp \
+    UCModel.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \
@@ -129,7 +133,9 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UISettingsGUI.ui \
     ui/UISpy.ui \
     ui/UIPublicHubs.ui \
-    ui/UIPublicHubsList.ui
+    ui/UIPublicHubsList.ui \
+    ui/UISettingsUC.ui \
+    ui/UIUserCommands.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.ru.ts \
                translations/eiskaltdcpp.be.ts \

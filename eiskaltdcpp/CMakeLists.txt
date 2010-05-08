@@ -59,6 +59,7 @@ set (SRCS   Antispam.cpp
             SettingsNotification.cpp
             SettingsPersonal.cpp
             SettingsSharing.cpp
+            SettingsUC.cpp
             ShareBrowser.cpp
             ShellCommandRunner.cpp
             SideBar.cpp
@@ -68,6 +69,7 @@ set (SRCS   Antispam.cpp
             ToolBar.cpp
             TransferView.cpp
             TransferViewModel.cpp
+            UCModel.cpp
             UPnP.cpp
             UPnPMapper.cpp
             UserListModel.cpp
@@ -109,6 +111,7 @@ set (MOC_HDRS Antispam.h
             SettingsNotification.h
             SettingsPersonal.h
             SettingsSharing.h
+            SettingsUC.h
             SideBar.h
             SingleInstanceRunner.h
             QuickConnect.h
@@ -121,6 +124,7 @@ set (MOC_HDRS Antispam.h
             ToolBar.h
             TransferView.h
             TransferViewModel.h
+            UCModel.h
             UPnP.h
             UPnPMapper.h
             UserListModel.h
@@ -153,7 +157,10 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsSharing.ui
             ui/UIShareBrowser.ui
             ui/UISpy.ui
-            ui/UITransferView.ui)
+            ui/UITransferView.ui
+            ui/UISettingsUC.ui
+            ui/UIUserCommands.ui
+            )
 option(LANGUAGES "Using translations")
 if (NOT linguas)
 set (LANGUAGES en ru be hu fr pl CACHE STRING "Using translations" FORCE)

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>287</width>
-    <height>401</height>
+    <width>291</width>
+    <height>429</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="margin">
     <number>2</number>
    </property>
-   <item row="0" column="0">
+   <item row="0" column="0" colspan="2">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string>Type</string>
@@ -60,7 +60,7 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="1" column="0" colspan="2">
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
       <string>Context</string>
@@ -100,7 +100,7 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="2" column="0" colspan="2">
     <widget class="QGroupBox" name="groupBox_3">
      <property name="title">
       <string>Parameters</string>
@@ -109,59 +109,59 @@
       <property name="margin">
        <number>2</number>
       </property>
-      <item row="1" column="0">
+      <item row="1" column="1">
        <widget class="LineEdit" name="lineEdit_NAME">
         <property name="enabled">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item row="3" column="1">
        <widget class="LineEdit" name="lineEdit_CMD">
         <property name="enabled">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
+      <item row="5" column="1">
        <widget class="LineEdit" name="lineEdit_HUB"/>
       </item>
-      <item row="7" column="0">
+      <item row="7" column="1">
        <widget class="LineEdit" name="lineEdit_TO">
         <property name="enabled">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
+      <item row="0" column="1">
        <widget class="QLabel" name="label">
         <property name="text">
          <string>Name</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="2" column="1">
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>Command</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="4" column="1">
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string>Hub address</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
+      <item row="6" column="1">
        <widget class="QLabel" name="label_4">
         <property name="text">
          <string>To</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
+      <item row="8" column="1">
        <widget class="QCheckBox" name="checkBox_SENDONCE">
         <property name="text">
          <string>Send once per nick</string>
@@ -171,10 +171,24 @@
      </layout>
     </widget>
    </item>
-   <item row="3" column="0">
+   <item row="4" column="0" colspan="2">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="lineEdit_RESULT">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>Result</string>
      </property>
     </widget>
    </item>

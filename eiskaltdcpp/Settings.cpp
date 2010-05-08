@@ -6,6 +6,7 @@
 #include "SettingsGUI.h"
 #include "SettingsNotification.h"
 #include "SettingsLog.h"
+#include "SettingsUC.h"
 
 #include "WulforUtil.h"
 
@@ -63,6 +64,11 @@ void Settings::init(){
     connect(this, SIGNAL(timeToDie()), logs, SLOT(ok()));
     widgets.insert(item, 6);
 
+    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiUSERS), tr("User Commands"), listWidget);
+    SettingsUC *ucs = new SettingsUC(this);
+    connect(this, SIGNAL(timeToDie()), ucs, SLOT(ok()));
+    widgets.insert(item, 7);
+
     stackedWidget->insertWidget(0, personal);
     stackedWidget->insertWidget(1, connection);
     stackedWidget->insertWidget(2, downloads);
@@ -70,6 +76,7 @@ void Settings::init(){
     stackedWidget->insertWidget(4, gui);
     stackedWidget->insertWidget(5, notify);
     stackedWidget->insertWidget(6, logs);
+    stackedWidget->insertWidget(7, ucs);
 
     stackedWidget->setCurrentIndex(0);
 
