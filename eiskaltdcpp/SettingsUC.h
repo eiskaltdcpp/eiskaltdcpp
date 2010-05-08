@@ -17,12 +17,19 @@ public:
 
 signals:
     void remUC(const QModelIndex&);
+    void changeUC(const QModelIndex&);
+    void upUC(const QModelIndex&);
+    void downUC(const QModelIndex&);
 
 public slots:
     void ok();
 
 private slots:
     void slotRemClicked();
+    void slotChangeClicked();
+    void slotDownClicked();
+    void slotUpClicked();
+    void slotSelect(const QModelIndex&);
 
 private:
     QModelIndex selectedIndex();

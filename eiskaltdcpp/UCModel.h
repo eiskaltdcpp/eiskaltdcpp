@@ -82,6 +82,9 @@ public:
     void loadUC();
     void addUC(const dcpp::UserCommand &cmd);
 
+signals:
+    void selectIndex(const QModelIndex&);
+
 public slots:
     void newUC();
     void changeUC(const QModelIndex&);
@@ -90,6 +93,8 @@ public slots:
     void moveDown(const QModelIndex&);
 
 private:
+    void initDlgFromItem(UCDialog&, const UCItem&);
+
     UCItem *rootItem;
 };
 

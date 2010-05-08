@@ -205,7 +205,7 @@
  <connections>
   <connection>
    <sender>radioButton_CHAT</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_NAME</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -221,7 +221,7 @@
   </connection>
   <connection>
    <sender>radioButton_CHAT</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_CMD</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -237,7 +237,7 @@
   </connection>
   <connection>
    <sender>radioButton_RAW</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_NAME</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -253,7 +253,7 @@
   </connection>
   <connection>
    <sender>radioButton_RAW</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_CMD</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -269,7 +269,7 @@
   </connection>
   <connection>
    <sender>radioButton_PM</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_NAME</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -285,7 +285,7 @@
   </connection>
   <connection>
    <sender>radioButton_PM</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_CMD</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -301,7 +301,7 @@
   </connection>
   <connection>
    <sender>radioButton_PM</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_TO</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -317,7 +317,7 @@
   </connection>
   <connection>
    <sender>radioButton_SEP</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_NAME</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
@@ -333,7 +333,7 @@
   </connection>
   <connection>
    <sender>radioButton_SEP</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_CMD</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
@@ -349,7 +349,7 @@
   </connection>
   <connection>
    <sender>radioButton_SEP</sender>
-   <signal>clicked(bool)</signal>
+   <signal>toggled(bool)</signal>
    <receiver>lineEdit_TO</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
@@ -370,8 +370,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>152</x>
-     <y>389</y>
+     <x>154</x>
+     <y>426</y>
     </hint>
     <hint type="destinationlabel">
      <x>285</x>
@@ -386,8 +386,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>256</x>
-     <y>380</y>
+     <x>258</x>
+     <y>426</y>
     </hint>
     <hint type="destinationlabel">
      <x>287</x>

@@ -2,6 +2,8 @@
 #include "MainWindow.h"
 #include "WulforUtil.h"
 
+#include <QRegExp>
+
 #include "dcpp/NmdcHub.h"
 
 using namespace dcpp;
@@ -164,7 +166,38 @@ void UCModel::newUC(){
 }
 
 void UCModel::changeUC(const QModelIndex &i){
+    if (!i.isValid())
+        return;
 
+    UCItem *item = reinterpret_cast<UCItem*>(i.internalPointer());
+
+    if (!rootItem->childItems.contains(item))
+        return;
+
+    UCDialog ucd(MainWindow::getInstance());
+
+    initDlgFromItem(ucd, *item);
+
+    if (ucd.exec() == QDialog::Accepted){
+        UserCommand uc;
+        FavoriteManager::getInstance()->getUserCommand(item->id, uc);
+
+        uc.setName(_tq(ucd.getName()));
+        uc.setCommand(_tq(ucd.getCmd()));
+        uc.setHub(_tq(ucd.getHub()));
+        uc.setType(ucd.getType());
+        uc.setCtx(ucd.getCtx());
+        FavoriteManager::getInstance()->updateUserCommand(uc);
+
+        item->name = ((uc.getType() == dcpp::UserCommand::TYPE_SEPARATOR)? tr("Separator") : _q(uc.getName()));
+        item->comm = _q(uc.getCommand());
+        item->hub  = _q(uc.getHub());
+        item->id   = uc.getId();
+        item->type = uc.getType();
+        item->ctx  = uc.getCtx();
+
+        emit layoutChanged();
+    }
 }
 
 void UCModel::remUC(const QModelIndex &i){
@@ -185,11 +218,90 @@ void UCModel::remUC(const QModelIndex &i){
 }
 
 void UCModel::moveUp(const QModelIndex &i){
+    if (!i.isValid())
+        return;
 
+    UCItem *item = reinterpret_cast<UCItem*>(i.internalPointer());
+
+    if (!rootItem->childItems.contains(item) || item->row() == 0)
+        return;
+
+    emit layoutAboutToBeChanged();
+    int r = item->row();
+    rootItem->childItems.removeAt(r);
+    rootItem->childItems.insert(r-1, item);
+    emit layoutChanged();
+
+    FavoriteManager::getInstance()->moveUserCommand(item->id, -1);
+
+    emit selectIndex(index(item->row(), 0, QModelIndex()));
 }
 
 void UCModel::moveDown(const QModelIndex &i){
+    if (!i.isValid())
+        return;
 
+    UCItem *item = reinterpret_cast<UCItem*>(i.internalPointer());
+
+    if (!rootItem->childItems.contains(item) || item->row() == rootItem->childCount()-1)
+        return;
+
+    emit layoutAboutToBeChanged();
+    int r = item->row();
+    rootItem->childItems.removeAt(r);
+    rootItem->childItems.insert(r+1, item);
+    emit layoutChanged();
+
+    FavoriteManager::getInstance()->moveUserCommand(item->id, 1);
+
+    emit selectIndex(index(item->row(), 0, QModelIndex()));
+}
+
+void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
+    unsigned long ctx   = item.ctx;
+    unsigned long type  = item.type;
+    QString name        = item.name;
+    QString comm        = item.comm;
+    QString hub         = item.hub;
+
+    if (type == 1){
+        dlg.radioButton_RAW->toggle();
+        dlg.lineEdit_CMD->setText(comm);
+    }
+    else if (type == 2 && comm.startsWith("<%[myNI]> ")){
+        dlg.radioButton_CHAT->toggle();
+
+        int from = QString("<%[myNI]> ").length();
+        QString cmd = comm.mid(from, comm.length()-from-1);
+
+        cmd = _q(NmdcHub::validateMessage(_tq(cmd), true));
+
+        dlg.lineEdit_CMD->setText(cmd);
+    }
+    else if (type == 3 && comm.startsWith("$To: ") && comm.indexOf(" From: %[myNI] $<%[myNI]> ") > 0){
+        QRegExp reg_exp("^\\$To: ([^\t]+) From: %\\[myNI\\] \\$<%\\[myNI\\]> ([^\t^|]+)");
+        (void)reg_exp.indexIn(comm);
+        QStringList list = reg_exp.capturedTexts();
+
+        if (list.size() != 3)
+            return;
+
+        dlg.radioButton_PM->toggle();
+        dlg.lineEdit_CMD->setText(list.at(2));
+        dlg.lineEdit_TO->setText(list.at(1));
+    }
+    else{
+        dlg.radioButton_SEP->toggle();
+        dlg.lineEdit_CMD->clear();
+    }
+
+    dlg.lineEdit_HUB->setText(hub);
+    dlg.lineEdit_NAME->setText(name);
+
+    dlg.checkBox_FB->setChecked(ctx & UserCommand::CONTEXT_FILELIST);
+    dlg.checkBox_HUB->setChecked(ctx & UserCommand::CONTEXT_HUB);
+    dlg.checkBox_USER->setChecked(ctx & UserCommand::CONTEXT_CHAT);
+    dlg.checkBox_SEARCH->setChecked(ctx & UserCommand::CONTEXT_SEARCH);
 }
 
 UCItem::UCItem(UCItem *parent) :
