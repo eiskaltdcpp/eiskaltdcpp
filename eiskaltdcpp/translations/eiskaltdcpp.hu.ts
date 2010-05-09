@@ -1880,7 +1880,7 @@ Kapcsolók:
     </message>
     <message>
         <source>User Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználói parancsok</translation>
     </message>
 </context>
 <context>
@@ -2009,7 +2009,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Serbian</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerb</translation>
     </message>
 </context>
 <context>
@@ -2464,19 +2464,19 @@ Biztosan le akarod állítani?
     <name>UCModel</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Név</translation>
+        <translation>Név</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Parancs</translation>
     </message>
     <message>
         <source>Hub</source>
-        <translation type="unfinished">Hub</translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Elválasztó</translation>
     </message>
 </context>
 <context>
@@ -4281,27 +4281,27 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <name>UISettingsUC</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználó parancsok</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Hozzáadás</translation>
+        <translation>Hozzáadás</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished">Fel</translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished">Le</translation>
+        <translation>Le</translation>
     </message>
 </context>
 <context>
@@ -4349,75 +4349,75 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <name>UIUserCommands</name>
     <message>
         <source>New command</source>
-        <translation type="unfinished"></translation>
+        <translation>Új parancs</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Típus</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Elválasztó</translation>
     </message>
     <message>
         <source>Chat</source>
-        <translation type="unfinished">Chat</translation>
+        <translation>Chat</translation>
     </message>
     <message>
         <source>Raw</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyers parancs</translation>
     </message>
     <message>
         <source>PM</source>
-        <translation type="unfinished"></translation>
+        <translation>Privát üzenet</translation>
     </message>
     <message>
         <source>Context</source>
-        <translation type="unfinished"></translation>
+        <translation>Környezet</translation>
     </message>
     <message>
         <source>Hub</source>
-        <translation type="unfinished">Hub</translation>
+        <translation>Hub menü</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Keresés</translation>
+        <translation>Kereső menü</translation>
     </message>
     <message>
         <source>User</source>
-        <translation type="unfinished">Felhasználó</translation>
+        <translation>Felhasználói menü</translation>
     </message>
     <message>
         <source>Filebrowser</source>
-        <translation type="unfinished">Fájlböngésző</translation>
+        <translation>Fájl-lista menü</translation>
     </message>
     <message>
         <source>Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Paraméterek</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Név</translation>
+        <translation>Név</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Parancs</translation>
     </message>
     <message>
         <source>Hub address</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub cím</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Címzett</translation>
     </message>
     <message>
         <source>Send once per nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Nickenként egyszer küldje el</translation>
     </message>
     <message>
         <source>Result</source>
-        <translation type="unfinished"></translation>
+        <translation>Eredmény</translation>
     </message>
 </context>
 <context>
