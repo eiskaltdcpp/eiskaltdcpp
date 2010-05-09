@@ -109,6 +109,8 @@ public:
     GETSET(string, currentNick, CurrentNick);
     GETSET(string, currentDescription, CurrentDescription);
 
+    string getFavIp() const { return externalIP; }
+
     /** Reload details from favmanager or settings */
     void reloadSettings(bool updateNick);
 protected:

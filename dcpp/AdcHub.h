@@ -73,7 +73,6 @@ private:
 	uint32_t sid;
 
 	static const string CLIENT_PROTOCOL;
-	static const string CLIENT_PROTOCOL_TEST;
 	static const string SECURE_CLIENT_PROTOCOL_TEST;
 	static const string ADCS_FEATURE;
 	static const string TCP4_FEATURE;

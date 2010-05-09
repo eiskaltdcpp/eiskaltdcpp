@@ -39,6 +39,7 @@ namespace Text {
 
 const string utf8 = "utf-8"; // optimization
 string systemCharset;
+string hubDefaultCharset;
 
 void initialize() {
 	setlocale(LC_ALL, "");

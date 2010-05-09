@@ -178,7 +178,7 @@ string ClientManager::findHubEncoding(const string& aUrl) const {
 			return (*i)->getEncoding();
 		}
 	}
-	return Text::systemCharset;
+	return Text::hubDefaultCharset;
 }
 
 UserPtr ClientManager::findLegacyUser(const string& aNick) const throw() {

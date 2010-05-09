@@ -71,6 +71,8 @@ int main(int argc, char *argv[])
 
     WulforUtil::newInstance();
 
+	Text::hubDefaultCharset = WulforUtil::getInstance()->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE)).toStdString();
+
     if (WulforUtil::getInstance()->loadUserIcons())
         std::cout << "UserList icons has been loaded" << std::endl;
 

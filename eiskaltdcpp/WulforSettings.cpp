@@ -187,7 +187,7 @@ void WulforSettings::load(){
         }
     }
     catch (Exception ex){
-    }
+	}
 }
 
 void WulforSettings::save(){

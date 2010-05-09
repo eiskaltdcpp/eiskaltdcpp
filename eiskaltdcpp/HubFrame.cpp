@@ -705,11 +705,13 @@ void HubFrame::customEvent(QEvent *e){
 
         total_shared -= u_e->getShare();
 
-        QString cid = _q(u_e->getUser()->getCID().toBase32());
+        UserPtr user = u_e->getUser();
+        QString cid = _q(user->getCID().toBase32());
+        QString nick = model->itemForPtr(user)->nick;
+
         if (pm.contains(cid)){
             pmUserOffline(cid);
 
-            QString nick = model->itemForPtr(u_e->getUser())->nick;
             PMWindow *pmw = pm[cid];
 
             pm.insert(nick, pmw);
@@ -720,10 +722,20 @@ void HubFrame::customEvent(QEvent *e){
             pm.remove(cid);
         }
 
-        if (FavoriteManager::getInstance()->isFavoriteUser(u_e->getUser()))
-            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become offline").arg(model->itemForPtr(u_e->getUser())->nick));
+        if (WulforSettings::getInstance()->getBool(WB_CHAT_SHOW_JOINS)){
+            do {
+                if (WulforSettings::getInstance()->getBool(WB_CHAT_SHOW_JOINS_FAV) &&
+                    !FavoriteManager::getInstance()->isFavoriteUser(user))
+                    break;
 
-        model->removeUser(u_e->getUser());
+                addStatus(nick + tr(" left the chat"));
+            } while (0);
+        }
+
+        if (FavoriteManager::getInstance()->isFavoriteUser(user))
+            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become offline").arg(nick));
+
+        model->removeUser(user);
     }
     else if (e->type() == UserCustomEvent::Event){
         UserCustomEvent *u_e = reinterpret_cast<UserCustomEvent*>(e);

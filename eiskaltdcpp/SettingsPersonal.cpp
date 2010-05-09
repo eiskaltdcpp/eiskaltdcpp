@@ -33,6 +33,7 @@ void SettingsPersonal::ok(){
     SM->set(SettingsManager::DEFAULT_AWAY_MESSAGE, lineEdit_AWAYMSG->text().toStdString());
 
     WSSET(WS_DEFAULT_LOCALE, comboBox_ENC->currentText());
+    Text::hubDefaultCharset = WulforUtil::getInstance()->qtEnc2DcEnc(comboBox_ENC->currentText()).toStdString();
 
     SM->save();
 

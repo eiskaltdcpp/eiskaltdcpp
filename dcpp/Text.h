@@ -36,6 +36,7 @@ namespace dcpp {
 namespace Text {
 	extern const string utf8;
 	extern string systemCharset;
+	extern string hubDefaultCharset;
 
 	void initialize();
 

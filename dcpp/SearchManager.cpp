@@ -229,6 +229,12 @@ void SearchManager::onData(const uint8_t* buf, size_t aLen, const string& remote
 			user = ClientManager::getInstance()->findLegacyUser(nick);
 			if(!user)
 				return;
+
+			if (url.empty()) {
+				StringList urls = ClientManager::getInstance()->getHubs(user->getCID());
+				if (!urls.empty())
+					url = urls.at(0);
+			}
 		}
 
 		string tth;
