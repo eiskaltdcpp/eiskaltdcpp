@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp" 1 "07 May 2010"
+.TH "eiskaltdcpp" 1 "09 May 2010"
 .SH "NAME"
 EiskaltDC++ \- graphical client for Direct Connect which uses Qt libraries
 .SH "SYNOPSIS"
@@ -79,7 +79,7 @@ Zoom in text in the chat
 Zoom out text in the chat
 .TP
 .B "Ctrl+Mousewheel"
-Change font size in chat
+Change font size in the chat
 .TP
 .B "Alt+<0-9>"
 Go to one of the first ten widgets. Available only if widget panel is used, not working in mode of sidebar.
@@ -126,6 +126,12 @@ Delete selected items. Now available in Download Queue widget.
 /pm <nick> - begin private chat with user
 .br
 /sh <command> - start command and redirect output to the chat
+.br
+/ws <option> [value] - edit config (~/.eiskaltdc++/EiskaltDC++.xml), also you can edit it manually
+    For example:
+    /ws chat-dbl-click-action <0-2> (double click)
+    /ws chat-mdl-click-action <0-2> (middle click)
+    0 - insert nick into input widget, 1 - get file list, 2 - private message
 .SH "FILES"
 .TP
 .B "~/.eiskaltdc++"
