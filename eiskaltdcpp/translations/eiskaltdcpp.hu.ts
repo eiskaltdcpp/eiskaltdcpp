@@ -788,7 +788,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source> left the chat</source>
-        <translation type="unfinished"></translation>
+        <translation> kilépett a hubról</translation>
     </message>
 </context>
 <context>
@@ -2017,7 +2017,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukrán</translation>
     </message>
 </context>
 <context>
