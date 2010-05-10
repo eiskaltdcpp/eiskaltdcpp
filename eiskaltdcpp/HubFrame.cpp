@@ -2840,6 +2840,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
         params["message"] = Util::formatMessage(user.getIdentity().getNick(), msg, thirdPerson);
         client->getHubIdentity().getParams(params, "hub", false);
         params["hubURL"] = client->getHubUrl();
+        params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user).getIp();
         client->getMyIdentity().getParams(params, "my", true);
         LOG(LogManager::CHAT, params);
     }
@@ -2931,6 +2932,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
         params["userCID"] = id.toBase32();
         params["userNI"] = ClientManager::getInstance()->getNicks(id)[0];
         params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
+        params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user).getIp();
         LOG(LogManager::PM, params);
     }
 
