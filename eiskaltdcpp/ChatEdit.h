@@ -53,6 +53,8 @@ protected:
     void keyPressEvent(QKeyEvent *);
     void keyReleaseEvent(QKeyEvent *);
     void focusInEvent(QFocusEvent *);
+    void dropEvent(QDropEvent *);
+    void dragEnterEvent(QDragEnterEvent *e);
 
 private slots:
     void insertCompletion(const QModelIndex &);

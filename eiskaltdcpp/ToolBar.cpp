@@ -32,6 +32,29 @@ bool ToolBar::eventFilter(QObject *obj, QEvent *e){
                 slotClose(index);
         }
     }
+    else if (e->type() == QEvent::DragEnter && reinterpret_cast<QTabBar*>(obj) == tabbar) {
+        QDragEnterEvent *m_e = reinterpret_cast<QDragEnterEvent*>(e);
+        m_e->acceptProposedAction();
+
+        int tab = tabbar->tabAt(m_e->pos());
+        if (tab >=0 && tab != tabbar->currentIndex())
+            slotIndexChanged(tab);
+
+        return true;
+    }
+    else if (e->type() == QEvent::DragMove && reinterpret_cast<QTabBar*>(obj) == tabbar) {
+        QDragMoveEvent *m_e = reinterpret_cast<QDragMoveEvent*>(e);
+
+        int tab = tabbar->tabAt(m_e->pos());
+        if (tab >=0) {
+            m_e->acceptProposedAction();
+            if (tab != tabbar->currentIndex())
+                slotIndexChanged(tab);
+        } else {
+            m_e->setDropAction(Qt::IgnoreAction);
+        }
+        return true;
+    }
 
     return QToolBar::eventFilter(obj, e);
 }
@@ -57,6 +80,7 @@ void ToolBar::initTabs(){
 #endif
     tabbar->setContextMenuPolicy(Qt::CustomContextMenu);
     tabbar->setSizePolicy(QSizePolicy::Expanding, tabbar->sizePolicy().verticalPolicy());
+    tabbar->setAcceptDrops(true);
 
     tabbar->installEventFilter(this);
 

@@ -57,6 +57,11 @@ TTHValue HashManager::getTTH(const string& aFileName, int64_t aSize) throw(HashE
     return *tth;
 }
 
+const TTHValue* HashManager::getFileTTHif(const string& aFileName) {
+    Lock l(cs);
+    return store.getTTH(aFileName);
+}
+
 bool HashManager::getTree(const TTHValue& root, TigerTree& tt) {
     Lock l(cs);
     return store.getTree(root, tt);

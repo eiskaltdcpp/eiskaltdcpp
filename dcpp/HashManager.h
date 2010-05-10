@@ -67,6 +67,9 @@ public:
 	/** @return TTH root */
 	TTHValue getTTH(const string& aFileName, int64_t aSize) throw(HashException);
 
+	/** eiskaltdc++ **/
+	const TTHValue* getFileTTHif(const string& aFileName);
+
 	bool getTree(const TTHValue& root, TigerTree& tt);
 
 	/** Return block size of the tree associated with root, or 0 if no such tree is in the store */

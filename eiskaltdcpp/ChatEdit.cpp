@@ -1,9 +1,14 @@
 #include "ChatEdit.h"
+#include "WulforUtil.h"
+
+#include "dcpp/HashManager.h"
 
 #include <QCompleter>
 #include <QKeyEvent>
 #include <QScrollBar>
 #include <QTextBlock>
+#include <QUrl>
+#include <QFileInfo>
 
 ChatEdit::ChatEdit(QWidget *parent) : QPlainTextEdit(parent), cc(NULL)
 {}
@@ -192,4 +197,59 @@ void ChatEdit::complete()
                 + cc->popup()->verticalScrollBar()->sizeHint().width());
 
     cc->complete(cr);
+}
+
+void ChatEdit::dragEnterEvent(QDragEnterEvent *e)
+{
+    if (e->mimeData()->hasUrls() || e->mimeData()->hasText()) {
+        e->acceptProposedAction();
+    } else {
+        e->ignore();
+    }
+}
+
+void ChatEdit::dropEvent(QDropEvent *e)
+{
+    if (e->mimeData()->hasUrls()) {
+
+        e->setDropAction(Qt::IgnoreAction);
+
+        QStringList fileNames;
+        foreach (QUrl url, e->mimeData()->urls()) {
+            QString urlStr = url.toString();
+            do {
+                if (url.scheme() != "file")
+                    break;
+
+                QString str = url.toLocalFile();
+
+                if (!str.isEmpty()) {
+                    QFileInfo fi(str);
+                    if (!fi.isFile())
+                        break;
+
+                    const TTHValue *tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
+                    if (tth != NULL)
+                        urlStr = WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32()));
+                }
+            } while(false);
+
+            if (!urlStr.isEmpty())
+                fileNames << urlStr;
+        }
+
+        if (!fileNames.isEmpty()) {
+
+            QString dropText = (fileNames.count() == 1) ? fileNames.last() : "\n" + fileNames.join("\n");
+
+            QMimeData mime;
+            mime.setText(dropText);
+            QDropEvent drop(e->pos(), Qt::CopyAction, &mime, e->mouseButtons(),
+                            e->keyboardModifiers(), e->type());
+
+            QPlainTextEdit::dropEvent(&drop);
+            return;
+        }
+    }
+    QPlainTextEdit::dropEvent(e);
 }
