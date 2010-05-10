@@ -673,12 +673,12 @@
     <message>
         <location filename="../HubFrame.cpp" line="97"/>
         <source>Nick</source>
-        <translation>Мянушка</translation>
+        <translation>Мянушку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="98"/>
         <source>IP</source>
-        <translation></translation>
+        <translation>Адрэсу IP</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="99"/>
@@ -688,13 +688,13 @@
     <message>
         <location filename="../HubFrame.cpp" line="100"/>
         <source>Tag</source>
-        <translation>Бірка</translation>
+        <translation>Бірку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="102"/>
         <source>All</source>
         <translatorcomment>???Усё?</translatorcomment>
-        <translation>Усе</translation>
+        <translation>Усё</translation>
     </message>
     <message>
         <source>Commands</source>
@@ -948,7 +948,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="107"/>
         <source>Copy data</source>
-        <translation>Перапісаць дадзеныя</translation>
+        <translation>Перапісаць зьвесткі</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="724"/>
@@ -1247,7 +1247,7 @@ Favorite user</source>
         <location filename="../MainWindow.cpp" line="928"/>
         <location filename="../MainWindow.cpp" line="1546"/>
         <source>Open log file</source>
-        <translation>Адкрыць файл журналу</translation>
+        <translation>Адкрыць файл справаздачы</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="932"/>
@@ -1570,7 +1570,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="1546"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation>Файлы журналу (*.log);;Усе файлы (*.*)</translation>
+        <translation>Файлы справаздачы (*.log);;Усе файлы (*.*)</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1957"/>
@@ -2305,7 +2305,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SearchModel.cpp" line="55"/>
         <source>IP</source>
-        <translation></translation>
+        <translation>Адрэса IP</translation>
     </message>
     <message>
         <location filename="../SearchModel.cpp" line="55"/>
@@ -2360,12 +2360,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../Settings.cpp" line="62"/>
         <source>Logs</source>
-        <translation>Журналы</translation>
+        <translation>Справаздачы</translation>
     </message>
     <message>
         <location filename="../Settings.cpp" line="67"/>
         <source>User Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Загады карыстальніка</translation>
     </message>
 </context>
 <context>
@@ -2456,7 +2456,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsGUI.cpp" line="75"/>
         <source>Serbian</source>
-        <translation type="unfinished"></translation>
+        <translation>Сэрбская</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="157"/>
@@ -3068,7 +3068,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferViewModel.cpp" line="40"/>
         <source>IP</source>
-        <translation></translation>
+        <translation>Адрэса IP</translation>
     </message>
     <message>
         <location filename="../TransferViewModel.cpp" line="94"/>
@@ -3114,23 +3114,23 @@ Do you want to stop it?
     <message>
         <location filename="../UCModel.cpp" line="74"/>
         <source>Name</source>
-        <translation type="unfinished">Назоў</translation>
+        <translation>Назоў</translation>
     </message>
     <message>
         <location filename="../UCModel.cpp" line="75"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Загад</translation>
     </message>
     <message>
         <location filename="../UCModel.cpp" line="76"/>
         <source>Hub</source>
-        <translation type="unfinished">Асяродак</translation>
+        <translation>Асяродак</translation>
     </message>
     <message>
         <location filename="../UCModel.cpp" line="142"/>
         <location filename="../UCModel.cpp" line="192"/>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Аддзяляльнік</translation>
     </message>
 </context>
 <context>
@@ -3402,7 +3402,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="95"/>
         <source>External IP</source>
-        <translation>Вонкавы IP</translation>
+        <translation>Вонкавая IP</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="106"/>
@@ -3473,7 +3473,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="215"/>
         <source>User description</source>
         <translatorcomment>???Апісаньне карыстальніка</translatorcomment>
-        <translation>Апісаньне</translation>
+        <translation>Апісаньне карыстальніка</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="222"/>
@@ -3511,12 +3511,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="117"/>
         <source>Move up</source>
-        <translation>Вышэй</translation>
+        <translation>Пасунуць угору</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="127"/>
         <source>Move down</source>
-        <translation>Ніжэй</translation>
+        <translation>Пасунуць долу</translation>
     </message>
 </context>
 <context>
@@ -3686,12 +3686,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIIPFilter.ui" line="119"/>
         <source>UP</source>
-        <translation>Вышэй</translation>
+        <translation>Угору</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="126"/>
         <source>DOWN</source>
-        <translation>Ніжэй</translation>
+        <translation>Да-долу</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="133"/>
@@ -3821,12 +3821,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
-        <translation>Вышэй</translation>
+        <translation>Угору</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="30"/>
         <source>Down</source>
-        <translation>Ніжэй</translation>
+        <translation>Да-долу</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="69"/>
@@ -4041,7 +4041,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="293"/>
         <source>IP</source>
-        <translation>IP</translation>
+        <translation>Адрэса IP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="300"/>
@@ -4066,7 +4066,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="334"/>
         <source>Use to resolve hostnames</source>
-        <translation>Ужываць, каб даведвацца на назвы вузлоў</translation>
+        <translation>Высьвятляць назвы вузлоў праз гэты пасродак</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="361"/>
@@ -4787,7 +4787,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="29"/>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
-        <translation>Усе журналы, якія створыць EiskaltDC++, будуць ляжаць у гэтым каталёгу.</translation>
+        <translation>Усе справаздачы, якія створыць EiskaltDC++, будуць ляжаць у гэтым каталёгу.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="46"/>
@@ -4817,7 +4817,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
         <source>Log directory</source>
-        <translation>Каталёг журналаў</translation>
+        <translation>Каталёг справаздачаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="58"/>
@@ -5393,32 +5393,32 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="42"/>
         <source>Add</source>
-        <translation type="unfinished">Дадаць</translation>
+        <translation>Дадаць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="49"/>
         <source>Change</source>
-        <translation type="unfinished">Зьмяніць</translation>
+        <translation>Зьмяніць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="56"/>
         <source>Remove</source>
-        <translation type="unfinished">Выкрасьліць</translation>
+        <translation>Выкрасьліць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="63"/>
         <source>Up</source>
-        <translation type="unfinished">Вышэй</translation>
+        <translation>Угору</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="83"/>
         <source>Down</source>
-        <translation type="unfinished">Ніжэй</translation>
+        <translation>Да-долу</translation>
     </message>
 </context>
 <context>
@@ -5476,92 +5476,98 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="14"/>
         <source>New command</source>
-        <translation type="unfinished"></translation>
+        <translation>Новы загад</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="23"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Від</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="32"/>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Аддзяляльнік</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="42"/>
         <source>Chat</source>
-        <translation type="unfinished">Гамана</translation>
+        <translation>Гамана</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="49"/>
         <source>Raw</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>!!!удакладніць пераклад</translatorcomment>
+        <translation>Сыры</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="56"/>
         <source>PM</source>
-        <translation type="unfinished"></translation>
+        <translation>Паведамленьне</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="66"/>
         <source>Context</source>
-        <translation type="unfinished"></translation>
+        <translation>Дзе ўжываецца</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">Асяродак</translation>
+        <translatorcomment>???“Мэню асяродку”?</translatorcomment>
+        <translation>Мэню асяродку</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???“Мэню пошуку”?</translatorcomment>
+        <translation>Вынікі пошуку</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="89"/>
         <source>User</source>
-        <translation type="unfinished">Карыстальнік</translation>
+        <translatorcomment>???“Мэню карыстальніка”?</translatorcomment>
+        <translation>Мэню карыстальніка</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
         <source>Filebrowser</source>
-        <translation type="unfinished">Аглядальнік файлаў</translation>
+        <translation>Аглядальнік файлаў</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="106"/>
         <source>Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Азначэньне</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="139"/>
         <source>Name</source>
-        <translation type="unfinished">Назоў</translation>
+        <translation>Назоў</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="146"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Загад</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="153"/>
         <source>Hub address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрэса асяродку</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="160"/>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???удакладніць сэнс</translatorcomment>
+        <translation>Каму</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="167"/>
         <source>Send once per nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Адсылаць адзін раз на кожную мянушку</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="191"/>
         <source>Result</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>!!!удакладніць сэнс</translatorcomment>
+        <translation>Вынік</translation>
     </message>
 </context>
 <context>
@@ -5569,7 +5575,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../UPnPMapper.cpp" line="61"/>
         <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation>Не ўдалося атрымаць вонкавы IP праз UPnP. Калі ласка, вызначце яго самастойна.</translation>
+        <translation>Не ўдалося атрымаць вонкавую адрэсу IP праз UPnP. Калі ласка, вызначце яе самастойна.</translation>
     </message>
     <message>
         <location filename="../UPnPMapper.cpp" line="67"/>
@@ -5627,7 +5633,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../UserListModel.cpp" line="168"/>
         <source>IP</source>
-        <translation></translation>
+        <translation>Адрэса IP</translation>
     </message>
 </context>
 <context>
