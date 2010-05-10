@@ -786,6 +786,10 @@ Kedvenc felhasználó</translation>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Bocs, de a &quot;%1&quot; nicket már más használja.</translation>
     </message>
+    <message>
+        <source> left the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -2010,6 +2014,10 @@ Kapcsolók:
     <message>
         <source>Serbian</source>
         <translation>Szerb</translation>
+    </message>
+    <message>
+        <source>Ukrainian</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

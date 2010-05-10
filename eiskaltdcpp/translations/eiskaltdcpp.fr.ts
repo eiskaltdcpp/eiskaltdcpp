@@ -775,6 +775,10 @@ Utilisateur favoris</translation>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source> left the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -1928,6 +1932,10 @@ Clés:
     </message>
     <message>
         <source>Serbian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ukrainian</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -142,4 +142,5 @@ TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.hu.ts \
                translations/eiskaltdcpp.fr.ts \
                translations/eiskaltdcpp.pl.ts \
-               translations/eiskaltdcpp.sr.ts
+               translations/eiskaltdcpp.sr.ts \
+               translations/eiskaltdcpp.ua.ts
