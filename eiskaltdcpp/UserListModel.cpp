@@ -186,32 +186,16 @@ struct Compare {
 
     private:
         typedef bool (*AttrComp)(const UserListItem* l, const UserListItem* r);
-        AttrComp static getAttrComp(int column) {
-            switch (column) {
-                case COLUMN_NICK:
-                    return AttrCmp<QString, &UserListItem::nick>;
-                    break;
-                case COLUMN_COMMENT:
-                    return AttrCmp<QString, &UserListItem::comm>;
-                    break;
-                case COLUMN_TAG:
-                    return AttrCmp<QString, &UserListItem::tag>;
-                    break;
-                case COLUMN_CONN:
-                    return AttrCmp<QString, &UserListItem::conn>;
-                    break;
-                case COLUMN_EMAIL:
-                    return AttrCmp<QString, &UserListItem::email>;
-                    break;
-                case COLUMN_SHARE:
-                    return AttrCmp<qulonglong, &UserListItem::share>;
-                    break;
-                case COLUMN_IP:
-                    return IPCmp;
-                    break;
-            }
-            Q_ASSERT_X(false, "getAttrComp", QString("Unknown column %1").arg(column).toAscii().constData());
-            return 0;
+        AttrComp static getAttrComp(const int column) {
+            static AttrComp attrs[7] = { AttrCmp<QString, &UserListItem::nick>,
+                                         AttrCmp<qulonglong, &UserListItem::share>,
+                                         AttrCmp<QString, &UserListItem::comm>,
+                                         AttrCmp<QString, &UserListItem::tag>,
+                                         AttrCmp<QString, &UserListItem::conn>,
+                                         IPCmp,
+                                         AttrCmp<QString, &UserListItem::email> };
+
+            return attrs[column];//column number checked in UserListModel::sort
         }
         template <typename T, T (UserListItem::*attr)>
         bool static AttrCmp(const UserListItem * l, const UserListItem * r) {
@@ -281,10 +265,8 @@ void UserListModel::sort(int column, Qt::SortOrder order) {
     sortColumn = column;
     sortOrder = order;
 
-    if (column < 0) // sorting disabled
-    {
+    if (column < 0 || column > columnCount() - 1)
         return;
-    }
 
     emit layoutAboutToBeChanged();
 

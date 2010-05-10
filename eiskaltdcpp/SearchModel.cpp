@@ -244,37 +244,23 @@ struct Compare {
 
     private:
         typedef bool (*AttrComp)(const SearchItem * l, const SearchItem * r);
-        AttrComp static getAttrComp(int column) {
-            switch (column){
-                case COLUMN_SF_FILENAME:
-                    return AttrCmp<COLUMN_SF_FILENAME>;
-                case COLUMN_SF_EXTENSION:
-                    return AttrCmp<COLUMN_SF_EXTENSION>;
-                case COLUMN_SF_TTH:
-                    return AttrCmp<COLUMN_SF_TTH>;
-                case COLUMN_SF_PATH:
-                    return AttrCmp<COLUMN_SF_PATH>;
-                case COLUMN_SF_NICK:
-                    return AttrCmp<COLUMN_SF_NICK>;
-                case COLUMN_SF_IP:
-                    return AttrCmp<COLUMN_SF_IP>;
-                case COLUMN_SF_HUB:
-                    return AttrCmp<COLUMN_SF_HUB>;
-                case COLUMN_SF_HOST:
-                    return AttrCmp<COLUMN_SF_HOST>;
-                case COLUMN_SF_SIZE:
-                    return NumCmp<COLUMN_SF_ESIZE>;
-                case COLUMN_SF_ESIZE:
-                    return NumCmp<COLUMN_SF_ESIZE>;
-                case COLUMN_SF_COUNT:
-                    return NumCmp<COLUMN_SF_COUNT>;
-                case COLUMN_SF_FREESLOTS:
-                    return NumCmp<COLUMN_SF_FREESLOTS>;
-                case COLUMN_SF_ALLSLOTS:
-                    return NumCmp<COLUMN_SF_ALLSLOTS>;
-            }
+        AttrComp static getAttrComp(const int column) {
+            static AttrComp attrs[13] = {   NumCmp<COLUMN_SF_COUNT>,
+                                            AttrCmp<COLUMN_SF_FILENAME>,
+                                            AttrCmp<COLUMN_SF_EXTENSION>,
+                                            NumCmp<COLUMN_SF_ESIZE>,
+                                            NumCmp<COLUMN_SF_ESIZE>,
+                                            AttrCmp<COLUMN_SF_TTH>,
+                                            AttrCmp<COLUMN_SF_PATH>,
+                                            AttrCmp<COLUMN_SF_NICK>,
+                                            NumCmp<COLUMN_SF_FREESLOTS>,
+                                            NumCmp<COLUMN_SF_ALLSLOTS>,
+                                            AttrCmp<COLUMN_SF_IP>,
+                                            AttrCmp<COLUMN_SF_HUB>,
+                                            AttrCmp<COLUMN_SF_HOST>
+                                        };
 
-            throw SearchListException(QString("%1:%2 invalid sort column: %3").arg(__func__).arg(__LINE__).arg(column), SearchListException::Sort);
+            return attrs[column];//column number checked in SearchModel::sort
         }
         template <int i>
         bool static AttrCmp(const SearchItem * l, const SearchItem * r) {
@@ -307,10 +293,9 @@ bool inline Compare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
 void SearchModel::sort(int column, Qt::SortOrder order) {
     sortColumn = column;
     sortOrder = order;
-#ifdef _DEBUG_MODEL_
-    if (sortColumn != column)
-        qDebug() << "Sorting by " << column << " column and " << WulforUtil::getInstance()->sortOrderToInt(order) << " order.";
-#endif
+
+    if (sortColumn < 0 || sortColumn > columnCount()-1)
+        return;
 
     emit layoutAboutToBeChanged();
 
