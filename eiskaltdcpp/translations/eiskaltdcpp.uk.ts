@@ -6,32 +6,7 @@
     <message>
         <location filename="../Antispam.cpp" line="150"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>CustomFontModel</name>
-    <message>
-        <location filename="../CustomFontModel.cpp" line="29"/>
-        <location filename="../CustomFontModel.cpp" line="90"/>
-        <source>Description</source>
-        <translation type="unfinished">Опис</translation>
-    </message>
-    <message>
-        <location filename="../CustomFontModel.cpp" line="29"/>
-        <location filename="../CustomFontModel.cpp" line="90"/>
-        <source>Font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../CustomFontModel.cpp" line="33"/>
-        <source>Application</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../CustomFontModel.cpp" line="34"/>
-        <source>Public Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Привіт, це антиспам бот. Запитання &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -44,7 +19,7 @@
     <message>
         <location filename="../DownloadQueue.cpp" line="329"/>
         <source>%1 of %2 user(s) online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 із %2 користувачів онлайн</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="331"/>
@@ -181,67 +156,67 @@
     <name>DownloadQueueModel</name>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="53"/>
-        <location filename="../DownloadQueueModel.cpp" line="235"/>
+        <location filename="../DownloadQueueModel.cpp" line="248"/>
         <source>Name</source>
         <translation>Ім&apos;я</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="53"/>
-        <location filename="../DownloadQueueModel.cpp" line="235"/>
+        <location filename="../DownloadQueueModel.cpp" line="248"/>
         <source>Status</source>
         <translation>Статус</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="53"/>
-        <location filename="../DownloadQueueModel.cpp" line="235"/>
+        <location filename="../DownloadQueueModel.cpp" line="248"/>
         <source>Size</source>
         <translation>Розмір</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="53"/>
-        <location filename="../DownloadQueueModel.cpp" line="235"/>
+        <location filename="../DownloadQueueModel.cpp" line="248"/>
         <source>Downloaded</source>
         <translation>Завантажено</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="54"/>
-        <location filename="../DownloadQueueModel.cpp" line="236"/>
+        <location filename="../DownloadQueueModel.cpp" line="249"/>
         <source>Priority</source>
         <translation>Пріоритет</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="54"/>
-        <location filename="../DownloadQueueModel.cpp" line="236"/>
+        <location filename="../DownloadQueueModel.cpp" line="249"/>
         <source>User</source>
         <translation>Користувач</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="54"/>
-        <location filename="../DownloadQueueModel.cpp" line="236"/>
+        <location filename="../DownloadQueueModel.cpp" line="249"/>
         <source>Path</source>
         <translation>Шлях</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="54"/>
-        <location filename="../DownloadQueueModel.cpp" line="236"/>
+        <location filename="../DownloadQueueModel.cpp" line="249"/>
         <source>Exact size</source>
         <translation>Точний розмір</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="55"/>
-        <location filename="../DownloadQueueModel.cpp" line="237"/>
+        <location filename="../DownloadQueueModel.cpp" line="250"/>
         <source>Errors</source>
         <translation>Помилки</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="55"/>
-        <location filename="../DownloadQueueModel.cpp" line="237"/>
+        <location filename="../DownloadQueueModel.cpp" line="250"/>
         <source>Added</source>
         <translation>Додано</translation>
     </message>
     <message>
         <location filename="../DownloadQueueModel.cpp" line="55"/>
-        <location filename="../DownloadQueueModel.cpp" line="237"/>
+        <location filename="../DownloadQueueModel.cpp" line="250"/>
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
@@ -434,25 +409,25 @@
     <name>FileBrowserModel</name>
     <message>
         <location filename="../FileBrowserModel.cpp" line="34"/>
-        <location filename="../FileBrowserModel.cpp" line="164"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>Name</source>
         <translation>Ім&apos;я</translation>
     </message>
     <message>
         <location filename="../FileBrowserModel.cpp" line="34"/>
-        <location filename="../FileBrowserModel.cpp" line="164"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>Size</source>
         <translation>Розмір</translation>
     </message>
     <message>
         <location filename="../FileBrowserModel.cpp" line="34"/>
-        <location filename="../FileBrowserModel.cpp" line="164"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>Exact size</source>
         <translation>Точний розмір</translation>
     </message>
     <message>
         <location filename="../FileBrowserModel.cpp" line="34"/>
-        <location filename="../FileBrowserModel.cpp" line="164"/>
+        <location filename="../FileBrowserModel.cpp" line="170"/>
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
@@ -609,74 +584,74 @@
 <context>
     <name>HubFrame</name>
     <message>
-        <location filename="../HubFrame.cpp" line="910"/>
+        <location filename="../HubFrame.cpp" line="904"/>
         <source>Hub menu</source>
         <translation>Меню хаба</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="912"/>
+        <location filename="../HubFrame.cpp" line="906"/>
         <source>Reconnect</source>
         <translation>Перепідключитися</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="916"/>
+        <location filename="../HubFrame.cpp" line="910"/>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="984"/>
-        <location filename="../HubFrame.cpp" line="1002"/>
+        <location filename="../HubFrame.cpp" line="978"/>
+        <location filename="../HubFrame.cpp" line="996"/>
         <source>Not connected</source>
         <translation>Не підключено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1134"/>
-        <location filename="../HubFrame.cpp" line="1136"/>
-        <location filename="../HubFrame.cpp" line="1249"/>
-        <location filename="../HubFrame.cpp" line="1251"/>
+        <location filename="../HubFrame.cpp" line="1128"/>
+        <location filename="../HubFrame.cpp" line="1130"/>
+        <location filename="../HubFrame.cpp" line="1243"/>
+        <location filename="../HubFrame.cpp" line="1245"/>
         <source>Away mode off</source>
         <translation>Режим відсутності вимкнено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1148"/>
-        <location filename="../HubFrame.cpp" line="1150"/>
+        <location filename="../HubFrame.cpp" line="1142"/>
+        <location filename="../HubFrame.cpp" line="1144"/>
         <source>Away mode on: </source>
         <translation>Режим відсутності увімкнено: </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1168"/>
-        <location filename="../HubFrame.cpp" line="1170"/>
+        <location filename="../HubFrame.cpp" line="1162"/>
+        <location filename="../HubFrame.cpp" line="1164"/>
         <source>Aliases not found.</source>
         <translation>Псевдоніми не знайдені.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1190"/>
-        <location filename="../HubFrame.cpp" line="1192"/>
+        <location filename="../HubFrame.cpp" line="1184"/>
+        <location filename="../HubFrame.cpp" line="1186"/>
         <source>Alias removed.</source>
         <translation>Псевдонім видалено.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1203"/>
-        <location filename="../HubFrame.cpp" line="1205"/>
-        <location filename="../HubFrame.cpp" line="1212"/>
-        <location filename="../HubFrame.cpp" line="1214"/>
+        <location filename="../HubFrame.cpp" line="1197"/>
+        <location filename="../HubFrame.cpp" line="1199"/>
+        <location filename="../HubFrame.cpp" line="1206"/>
+        <location filename="../HubFrame.cpp" line="1208"/>
         <source>Invalid alias syntax.</source>
         <translation>Неправильний синтаксис для псевдоніму.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1222"/>
-        <location filename="../HubFrame.cpp" line="1224"/>
+        <location filename="../HubFrame.cpp" line="1216"/>
+        <location filename="../HubFrame.cpp" line="1218"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Псевдонім %1 =&gt; %2 був доданий</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1257"/>
-        <location filename="../HubFrame.cpp" line="1259"/>
+        <location filename="../HubFrame.cpp" line="1251"/>
+        <location filename="../HubFrame.cpp" line="1253"/>
         <source>Chat has been cleared</source>
         <translation>Чат очищено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1071"/>
+        <location filename="../HubFrame.cpp" line="1065"/>
         <source>Hub role: Operator</source>
         <translation>Роль на хабі: Оператор</translation>
     </message>
@@ -690,48 +665,48 @@
         <translation type="obsolete">Команды</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1073"/>
+        <location filename="../HubFrame.cpp" line="1067"/>
         <source>Hub role: User</source>
         <translation>Роль на хабі: Користувач</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1076"/>
+        <location filename="../HubFrame.cpp" line="1070"/>
         <source>
 Favorite user</source>
         <translation>
 Обраний користувач</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1240"/>
-        <location filename="../HubFrame.cpp" line="1242"/>
+        <location filename="../HubFrame.cpp" line="1234"/>
+        <location filename="../HubFrame.cpp" line="1236"/>
         <source>Aspell switched %1</source>
         <translation>Aspell %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1240"/>
-        <location filename="../HubFrame.cpp" line="1242"/>
+        <location filename="../HubFrame.cpp" line="1234"/>
+        <location filename="../HubFrame.cpp" line="1236"/>
         <source>on</source>
         <translation>увімкнено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1240"/>
-        <location filename="../HubFrame.cpp" line="1242"/>
+        <location filename="../HubFrame.cpp" line="1234"/>
+        <location filename="../HubFrame.cpp" line="1236"/>
         <source>off</source>
         <translation>вимкнено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1521"/>
+        <location filename="../HubFrame.cpp" line="1515"/>
         <source> joins the chat</source>
         <translation> входить у чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1570"/>
-        <location filename="../HubFrame.cpp" line="1582"/>
+        <location filename="../HubFrame.cpp" line="1564"/>
+        <location filename="../HubFrame.cpp" line="1576"/>
         <source>User not found</source>
         <translation>Користувача не знайдено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1589"/>
+        <location filename="../HubFrame.cpp" line="1583"/>
         <source>Slot granted to </source>
         <translation>Слот віддано </translation>
     </message>
@@ -740,17 +715,17 @@ Favorite user</source>
         <translation type="obsolete">Пользователь не найден.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1646"/>
+        <location filename="../HubFrame.cpp" line="1640"/>
         <source> has been added to favorites.</source>
         <translation> був доданий до обраних.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1646"/>
+        <location filename="../HubFrame.cpp" line="1640"/>
         <source> has been removed from favorites.</source>
         <translation> був видалений з обраних.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1785"/>
+        <location filename="../HubFrame.cpp" line="1779"/>
         <source>User offline.</source>
         <translation>Користувач не в мережі.</translation>
     </message>
@@ -759,48 +734,48 @@ Favorite user</source>
         <translation type="obsolete">Введіть пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1820"/>
+        <location filename="../HubFrame.cpp" line="1814"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1879"/>
+        <location filename="../HubFrame.cpp" line="1873"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Користувачів: %1 | Загальна шара: %2</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1031"/>
+        <location filename="../HubFrame.cpp" line="1025"/>
         <source>Chat cleared.</source>
         <translation>Чат очищено.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1043"/>
+        <location filename="../HubFrame.cpp" line="1037"/>
         <source>Chat disabled.</source>
         <translation>Чат відключено.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1050"/>
+        <location filename="../HubFrame.cpp" line="1044"/>
         <source>Chat enabled.</source>
         <translation>Чат включено.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1677"/>
+        <location filename="../HubFrame.cpp" line="1671"/>
         <source>Favorite hub added.</source>
         <translation>Хаб доданий до обраних.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1680"/>
+        <location filename="../HubFrame.cpp" line="1674"/>
         <source>Favorite hub already exists.</source>
         <translation>Хаб вже є в обраних.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1834"/>
-        <location filename="../HubFrame.cpp" line="2750"/>
+        <location filename="../HubFrame.cpp" line="1828"/>
+        <location filename="../HubFrame.cpp" line="2744"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Отримано запит перенаправлення до вже підключеного хабу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1817"/>
+        <location filename="../HubFrame.cpp" line="1811"/>
         <source>Stored password sent...</source>
         <translation>Відправлено збережений пароль...</translation>
     </message>
@@ -912,31 +887,31 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="731"/>
         <source> left the chat</source>
-        <translation type="unfinished"></translation>
+        <translation> залишив чат</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="736"/>
-        <location filename="../HubFrame.cpp" line="1533"/>
+        <location filename="../HubFrame.cpp" line="1527"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Обрані</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="736"/>
         <source>%1 become offline</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 залишає мережу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="913"/>
+        <location filename="../HubFrame.cpp" line="907"/>
         <source>Show widget</source>
         <translation>Показати віджет</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="926"/>
+        <location filename="../HubFrame.cpp" line="920"/>
         <source>Hub Menu</source>
         <translation>Меню хаба</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1308"/>
+        <location filename="../HubFrame.cpp" line="1302"/>
         <source>/aspell on/off - enable/disable spell checking
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - remove alias
@@ -973,52 +948,52 @@ Favorite user</source>
 /sh &lt;command&gt; - виконати зовнішню команду з виводом у чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1412"/>
+        <location filename="../HubFrame.cpp" line="1406"/>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;Останнє статусне повідомлення на хабі:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1533"/>
+        <location filename="../HubFrame.cpp" line="1527"/>
         <source>%1 become online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 входить у мережу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1546"/>
+        <location filename="../HubFrame.cpp" line="1540"/>
         <source>User online.</source>
         <translation>Користувач онлайн.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2615"/>
+        <location filename="../HubFrame.cpp" line="2609"/>
         <source>Suggestions</source>
         <translation>Варіанти</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2609"/>
+        <location filename="../HubFrame.cpp" line="2603"/>
         <source>Add to dictionary</source>
         <translation>Додати до словника</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2694"/>
+        <location filename="../HubFrame.cpp" line="2688"/>
         <source>Connecting to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Connecting to %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2703"/>
+        <location filename="../HubFrame.cpp" line="2697"/>
         <source>Connected to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>З&apos;єднано з %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2766"/>
+        <location filename="../HubFrame.cpp" line="2760"/>
         <source>Fail: %1...</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка: %1...</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2950"/>
+        <location filename="../HubFrame.cpp" line="2944"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вибачте, але нік &quot;%1&quot; використовується іншим користувачем.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2960"/>
+        <location filename="../HubFrame.cpp" line="2954"/>
         <source>Search flood detected: %1</source>
         <translation>Пошуковий флуд виявлено: %1</translation>
     </message>
@@ -1139,185 +1114,185 @@ Favorite user</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../MainWindow.cpp" line="554"/>
+        <location filename="../MainWindow.cpp" line="549"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="475"/>
+        <location filename="../MainWindow.cpp" line="470"/>
         <source>Ctrl+L</source>
         <translation>Ctrl+L</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="524"/>
+        <location filename="../MainWindow.cpp" line="519"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="536"/>
+        <location filename="../MainWindow.cpp" line="531"/>
         <source>Ctrl+H</source>
         <translation>Ctrl+H</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="561"/>
+        <location filename="../MainWindow.cpp" line="556"/>
         <source>Ctrl+T</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="569"/>
+        <location filename="../MainWindow.cpp" line="564"/>
         <source>Ctrl+D</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="634"/>
+        <location filename="../MainWindow.cpp" line="629"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="506"/>
-        <location filename="../MainWindow.cpp" line="1723"/>
+        <location filename="../MainWindow.cpp" line="501"/>
+        <location filename="../MainWindow.cpp" line="1718"/>
         <source>Hide window</source>
         <translation>Згорнути вікно до трею</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="508"/>
+        <location filename="../MainWindow.cpp" line="503"/>
         <source>Esc</source>
         <translation>Esc</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="513"/>
-        <location filename="../MainWindow.cpp" line="1721"/>
+        <location filename="../MainWindow.cpp" line="508"/>
+        <location filename="../MainWindow.cpp" line="1716"/>
         <source>Show/hide find frame</source>
         <translation>Показати/приховати пошуковий фрейм</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="638"/>
-        <location filename="../MainWindow.cpp" line="1877"/>
+        <location filename="../MainWindow.cpp" line="633"/>
+        <location filename="../MainWindow.cpp" line="1872"/>
         <source>Hide free space bar</source>
         <translation>Приховати індикатор вільного місця</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="641"/>
-        <location filename="../MainWindow.cpp" line="1872"/>
+        <location filename="../MainWindow.cpp" line="636"/>
+        <location filename="../MainWindow.cpp" line="1867"/>
         <source>Show free space bar</source>
         <translation>Показати індикатор вільного місця</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="517"/>
+        <location filename="../MainWindow.cpp" line="512"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="881"/>
+        <location filename="../MainWindow.cpp" line="876"/>
         <source>Downloaded</source>
         <translation>Завантажено</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="887"/>
+        <location filename="../MainWindow.cpp" line="882"/>
         <source>Uploaded</source>
         <translation>Віддано</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="903"/>
+        <location filename="../MainWindow.cpp" line="898"/>
         <source>Space free</source>
         <translation>Вільного місця на диску</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="931"/>
+        <location filename="../MainWindow.cpp" line="926"/>
         <source>&amp;File</source>
         <translation>&amp;Файл</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="983"/>
+        <location filename="../MainWindow.cpp" line="978"/>
         <source>Options</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="933"/>
-        <location filename="../MainWindow.cpp" line="1551"/>
+        <location filename="../MainWindow.cpp" line="928"/>
+        <location filename="../MainWindow.cpp" line="1546"/>
         <source>Open log file</source>
         <translation>Відкрити лог-файл</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="937"/>
+        <location filename="../MainWindow.cpp" line="932"/>
         <source>Open filelist...</source>
         <translation>Відкрити перелік файлів...</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="939"/>
+        <location filename="../MainWindow.cpp" line="934"/>
         <source>Open own filelist</source>
         <translation>Cвій перелік файлів</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="943"/>
+        <location filename="../MainWindow.cpp" line="938"/>
         <source>Hash progress</source>
         <translation>Прогрес хешування</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="969"/>
+        <location filename="../MainWindow.cpp" line="964"/>
         <source>Search Spy</source>
         <translation>Пошуковий шпигун</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="953"/>
+        <location filename="../MainWindow.cpp" line="948"/>
         <source>Public hubs</source>
         <translation>Публічні хаби</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="985"/>
+        <location filename="../MainWindow.cpp" line="980"/>
         <source>Search</source>
         <translation>Пошук</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="957"/>
+        <location filename="../MainWindow.cpp" line="952"/>
         <source>Quick connect</source>
         <translation>Швидке підключення</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="497"/>
+        <location filename="../MainWindow.cpp" line="492"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="530"/>
+        <location filename="../MainWindow.cpp" line="525"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="542"/>
+        <location filename="../MainWindow.cpp" line="537"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="548"/>
+        <location filename="../MainWindow.cpp" line="543"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="648"/>
-        <location filename="../MainWindow.cpp" line="1891"/>
+        <location filename="../MainWindow.cpp" line="643"/>
+        <location filename="../MainWindow.cpp" line="1886"/>
         <source>Hide last status message</source>
         <translation>Приховати останнє статусне повідомлення</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="655"/>
-        <location filename="../MainWindow.cpp" line="1911"/>
+        <location filename="../MainWindow.cpp" line="650"/>
+        <location filename="../MainWindow.cpp" line="1906"/>
         <source>Hide users statistics</source>
         <translation>Приховати статистику користувачів</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="660"/>
-        <location filename="../MainWindow.cpp" line="1909"/>
+        <location filename="../MainWindow.cpp" line="655"/>
+        <location filename="../MainWindow.cpp" line="1904"/>
         <source>Show users statistics</source>
         <translation>Показати статистику користувачів</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="869"/>
+        <location filename="../MainWindow.cpp" line="864"/>
         <source>Download speed</source>
         <translation>Швидкість завантаження</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="875"/>
+        <location filename="../MainWindow.cpp" line="870"/>
         <source>Upload speed</source>
         <translation>Швидкість віддачі</translation>
     </message>
@@ -1326,223 +1301,218 @@ Favorite user</source>
         <translation type="obsolete">Очистить текстовое поле</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="935"/>
+        <location filename="../MainWindow.cpp" line="930"/>
         <source>Open download directory</source>
         <translation>Відкрити теку завантажень</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="945"/>
+        <location filename="../MainWindow.cpp" line="940"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="947"/>
+        <location filename="../MainWindow.cpp" line="942"/>
         <source>&amp;Hubs</source>
         <translation>&amp;Хаби</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="959"/>
+        <location filename="../MainWindow.cpp" line="954"/>
         <source>&amp;Tools</source>
         <translation>&amp;Інструменти</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="977"/>
+        <location filename="../MainWindow.cpp" line="972"/>
         <source>On</source>
         <translation>Увімк</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="979"/>
+        <location filename="../MainWindow.cpp" line="974"/>
         <source>Off</source>
         <translation>Вимк</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="981"/>
+        <location filename="../MainWindow.cpp" line="976"/>
         <source>Away when not visible</source>
         <translation>Увімкнути, коли вікно приховано</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="987"/>
+        <location filename="../MainWindow.cpp" line="982"/>
         <source>Clear chat</source>
         <translation>Очистити чат</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="991"/>
+        <location filename="../MainWindow.cpp" line="986"/>
         <source>Disable/enable chat</source>
         <translation>Увімкнути/вимкнути чат</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="993"/>
+        <location filename="../MainWindow.cpp" line="988"/>
         <source>&amp;Widgets</source>
         <translation>&amp;Віджети</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="995"/>
+        <location filename="../MainWindow.cpp" line="990"/>
         <source>&amp;Panels</source>
         <translation>&amp;Панелі</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="998"/>
+        <location filename="../MainWindow.cpp" line="993"/>
         <source>Widgets panel</source>
         <translation>Панель віджетів</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1000"/>
+        <location filename="../MainWindow.cpp" line="995"/>
         <source>Widgets side dock</source>
         <translation>Бокова панель віджетів</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1002"/>
+        <location filename="../MainWindow.cpp" line="997"/>
         <source>Tools panel</source>
         <translation>Панель інструментів</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1004"/>
+        <location filename="../MainWindow.cpp" line="999"/>
         <source>Fast search panel</source>
         <translation>Панель швидкого пошуку</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1006"/>
+        <location filename="../MainWindow.cpp" line="1001"/>
         <source>&amp;Help</source>
         <translation>&amp;Допомога</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1013"/>
+        <location filename="../MainWindow.cpp" line="1008"/>
         <source>Main layout</source>
         <translation>Головний фрейм</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1025"/>
+        <location filename="../MainWindow.cpp" line="1020"/>
         <source>Actions</source>
         <translation>Дії</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1168"/>
+        <location filename="../MainWindow.cpp" line="1163"/>
+        <location filename="../MainWindow.cpp" line="1164"/>
         <location filename="../MainWindow.cpp" line="1169"/>
-        <location filename="../MainWindow.cpp" line="1174"/>
         <source>/s</source>
         <translation>/c</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1194"/>
-        <location filename="../MainWindow.cpp" line="1219"/>
+        <location filename="../MainWindow.cpp" line="1189"/>
+        <location filename="../MainWindow.cpp" line="1214"/>
         <source>Free %1</source>
         <translation>Вільно %1</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1197"/>
-        <location filename="../MainWindow.cpp" line="1222"/>
+        <location filename="../MainWindow.cpp" line="1192"/>
+        <location filename="../MainWindow.cpp" line="1217"/>
         <source>Free %1 of %2</source>
         <translation>Вільно %1 з %2</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1240"/>
+        <location filename="../MainWindow.cpp" line="1235"/>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;Останнє повідомлення ядра:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1551"/>
+        <location filename="../MainWindow.cpp" line="1546"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1962"/>
+        <location filename="../MainWindow.cpp" line="1957"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation>Використайте &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; для повідомлення про помилки.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1964"/>
+        <location filename="../MainWindow.cpp" line="1959"/>
         <source>&lt;br/&gt;&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&lt;b&gt;Розробники&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1966"/>
+        <location filename="../MainWindow.cpp" line="1961"/>
         <source>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(головний розробник 0.4.10 і більш пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1970"/>
+        <location filename="../MainWindow.cpp" line="1965"/>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(супроводження і розробка 1.89.0 і більш пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1974"/>
+        <location filename="../MainWindow.cpp" line="1969"/>
         <source>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(супроводження і розробка 0.4.10 і більш пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1978"/>
+        <location filename="../MainWindow.cpp" line="1973"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(розробник 2.0.3 та більш пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1982"/>
+        <location filename="../MainWindow.cpp" line="1977"/>
         <source>&lt;br/&gt;&lt;b&gt;Logo and Splash Screen Logo&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&lt;b&gt;Логотип і завантажувальна заставка&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1984"/>
+        <location filename="../MainWindow.cpp" line="1979"/>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версія 0.4.10 і більш пізніші)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1991"/>
+        <location filename="../MainWindow.cpp" line="1986"/>
         <source>&lt;b&gt;Translators&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Перекладачі&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1992"/>
+        <location filename="../MainWindow.cpp" line="1987"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Російський переклад&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1994"/>
+        <location filename="../MainWindow.cpp" line="1989"/>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 0.4.10 в бвльш пвзнвших)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1998"/>
+        <location filename="../MainWindow.cpp" line="1993"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Білоруський переклад&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2000"/>
+        <location filename="../MainWindow.cpp" line="1995"/>
         <source>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 1.0.40 і більш пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2004"/>
+        <location filename="../MainWindow.cpp" line="1999"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Венгерський переклад&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2006"/>
+        <location filename="../MainWindow.cpp" line="2001"/>
         <source>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.1 і більш пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2010"/>
+        <location filename="../MainWindow.cpp" line="2005"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Французький переклад&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2012"/>
+        <location filename="../MainWindow.cpp" line="2007"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.2 і більш пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2016"/>
+        <location filename="../MainWindow.cpp" line="2011"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Польський переклад&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2018"/>
+        <location filename="../MainWindow.cpp" line="2013"/>
         <source>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(для 2.0.2 і більш пізніших)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <location filename="../MainWindow.cpp" line="2046"/>
-        <source>Close all</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;&lt;br/&gt;</source>
@@ -1609,43 +1579,43 @@ Favorite user</source>
         <translation type="obsolete">&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.2 и более поздних)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="653"/>
-        <location filename="../MainWindow.cpp" line="1889"/>
+        <location filename="../MainWindow.cpp" line="648"/>
+        <location filename="../MainWindow.cpp" line="1884"/>
         <source>Show last status message</source>
         <translation>Показати останнє статусне повідомлення</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1949"/>
+        <location filename="../MainWindow.cpp" line="1944"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
         <translation>EiskaltDC++ - графічний клієнт для протоколів Direct Connect і ADC.</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1950"/>
+        <location filename="../MainWindow.cpp" line="1945"/>
         <source>DC++ core version:</source>
         <translation>Версія ядра DC++:</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1952"/>
+        <location filename="../MainWindow.cpp" line="1947"/>
         <source>(modified)</source>
         <translation>(змінене)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1953"/>
+        <location filename="../MainWindow.cpp" line="1948"/>
         <source>Home page:</source>
         <translation>Домашня сторінка:</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1956"/>
+        <location filename="../MainWindow.cpp" line="1951"/>
         <source>Total up:</source>
         <translation>Віддано (всього):</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1958"/>
+        <location filename="../MainWindow.cpp" line="1953"/>
         <source>Total down:</source>
         <translation>Завантажено (всього):</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1309"/>
+        <location filename="../MainWindow.cpp" line="1304"/>
         <source>Choose file to open</source>
         <translation>Вибір файлу для відкриття</translation>
     </message>
@@ -1660,46 +1630,46 @@ Favorite user</source>
         <translation>Вийти з програми?</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="975"/>
+        <location filename="../MainWindow.cpp" line="970"/>
         <source>Away message</source>
         <translation>Повідомлення про відсутність</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="989"/>
+        <location filename="../MainWindow.cpp" line="984"/>
         <source>Find/Filter</source>
         <translation>Пошук/Фільтр</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1310"/>
+        <location filename="../MainWindow.cpp" line="1305"/>
         <source>Modern XML Filelists</source>
         <translation>Сучасні XML-списки користувачів</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1311"/>
+        <location filename="../MainWindow.cpp" line="1306"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Сучасні нестиснуті XML-списки користувачів</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1312"/>
+        <location filename="../MainWindow.cpp" line="1307"/>
         <source>All files</source>
         <translation>Усі файли</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1317"/>
+        <location filename="../MainWindow.cpp" line="1312"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation>Не вдалося завантажити список файлів: Недопустиме ім&apos;я файлу</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1518"/>
-        <location filename="../MainWindow.cpp" line="1525"/>
+        <location filename="../MainWindow.cpp" line="1513"/>
+        <location filename="../MainWindow.cpp" line="1520"/>
         <source>Cannot listen socket because: 
 </source>
         <translation>Неможливо використати сокет. Причини: 
 </translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1518"/>
-        <location filename="../MainWindow.cpp" line="1525"/>
+        <location filename="../MainWindow.cpp" line="1513"/>
+        <location filename="../MainWindow.cpp" line="1520"/>
         <source>
 
 Please check your connection settings</source>
@@ -1708,57 +1678,57 @@ Please check your connection settings</source>
 Будь ласка, перевірте налаштування підключення</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1520"/>
+        <location filename="../MainWindow.cpp" line="1515"/>
         <source>Connection Manager: Warning</source>
         <translation>Менеджер підключень: попередження</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1527"/>
+        <location filename="../MainWindow.cpp" line="1522"/>
         <source>Search Manager: Warning</source>
         <translation>Менджер пошуку: попередження</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="961"/>
+        <location filename="../MainWindow.cpp" line="956"/>
         <source>Transfers</source>
         <translation>Список передач</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="669"/>
+        <location filename="../MainWindow.cpp" line="664"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="863"/>
+        <location filename="../MainWindow.cpp" line="858"/>
         <source>Counts</source>
         <translation>Лічильник</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="949"/>
+        <location filename="../MainWindow.cpp" line="944"/>
         <source>Reconnect to hub</source>
         <translation>Перепідключитися до хабу</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="963"/>
+        <location filename="../MainWindow.cpp" line="958"/>
         <source>Download queue</source>
         <translation>Черга завантажень</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="951"/>
+        <location filename="../MainWindow.cpp" line="946"/>
         <source>Favourite hubs</source>
         <translation>Обрані хаби</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="955"/>
+        <location filename="../MainWindow.cpp" line="950"/>
         <source>Favourite users</source>
         <translation>Обрані користувачі</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1008"/>
+        <location filename="../MainWindow.cpp" line="1003"/>
         <source>About EiskaltDC++</source>
         <translation>Про EiskaltDC++</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1010"/>
+        <location filename="../MainWindow.cpp" line="1005"/>
         <source>About Qt</source>
         <translation>Про Qt</translation>
     </message>
@@ -1768,27 +1738,27 @@ Please check your connection settings</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="965"/>
+        <location filename="../MainWindow.cpp" line="960"/>
         <source>Finished downloads</source>
         <translation>Список завантаженого</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="941"/>
+        <location filename="../MainWindow.cpp" line="936"/>
         <source>Refresh share</source>
         <translation>Оновити шару</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="967"/>
+        <location filename="../MainWindow.cpp" line="962"/>
         <source>Finished uploads</source>
         <translation>Список відданого</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="971"/>
+        <location filename="../MainWindow.cpp" line="966"/>
         <source>AntiSpam module</source>
         <translation>Модуль антиспаму</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="973"/>
+        <location filename="../MainWindow.cpp" line="968"/>
         <source>IPFilter module</source>
         <translation>IP-фільтр</translation>
     </message>
@@ -2374,7 +2344,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../Settings.cpp" line="67"/>
         <source>User Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Команди користувача</translation>
     </message>
     <message>
         <location filename="../Settings.cpp" line="19"/>
@@ -2432,117 +2402,117 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
 <context>
     <name>SettingsGUI</name>
     <message>
-        <location filename="../SettingsGUI.cpp" line="42"/>
+        <location filename="../SettingsGUI.cpp" line="41"/>
         <source>Default (need to restart)</source>
         <translation>Системна (потрібен перезапуск)</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="64"/>
+        <location filename="../SettingsGUI.cpp" line="63"/>
         <source>English</source>
         <translation>Англійська</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="66"/>
+        <location filename="../SettingsGUI.cpp" line="65"/>
         <source>Russian</source>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="68"/>
+        <location filename="../SettingsGUI.cpp" line="67"/>
         <source>Belarusian</source>
         <translation>Білоруська</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="70"/>
+        <location filename="../SettingsGUI.cpp" line="69"/>
         <source>Hungarian</source>
         <translation>Венгерська</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="72"/>
+        <location filename="../SettingsGUI.cpp" line="71"/>
         <source>French</source>
         <translation>Французька</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="74"/>
+        <location filename="../SettingsGUI.cpp" line="73"/>
         <source>Polish</source>
         <translation>Польська</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="76"/>
+        <location filename="../SettingsGUI.cpp" line="75"/>
         <source>Serbian</source>
-        <translation type="unfinished"></translation>
+        <translation>Сербська</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="78"/>
+        <location filename="../SettingsGUI.cpp" line="77"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="160"/>
+        <location filename="../SettingsGUI.cpp" line="159"/>
         <source>Local user</source>
         <translation>Локальний користувач</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="164"/>
+        <location filename="../SettingsGUI.cpp" line="163"/>
         <source>Operator</source>
         <translation>Оператор</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="168"/>
+        <location filename="../SettingsGUI.cpp" line="167"/>
         <source>Bot</source>
         <translation>Бот</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="172"/>
+        <location filename="../SettingsGUI.cpp" line="171"/>
         <source>Private: local user</source>
         <translation>Приватний чат: локальний користувач</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="176"/>
+        <location filename="../SettingsGUI.cpp" line="175"/>
         <source>Private: user</source>
         <translation>Приватний чат: користувач</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="180"/>
+        <location filename="../SettingsGUI.cpp" line="179"/>
         <source>Chat: Say nick</source>
         <translation>Чат: Нік згадано</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="184"/>
+        <location filename="../SettingsGUI.cpp" line="183"/>
         <source>Core</source>
         <translation>Ядро</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="188"/>
+        <location filename="../SettingsGUI.cpp" line="187"/>
         <source>Status</source>
         <translation>Статус</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="192"/>
+        <location filename="../SettingsGUI.cpp" line="191"/>
         <source>User</source>
         <translation>Користувач</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="196"/>
+        <location filename="../SettingsGUI.cpp" line="195"/>
         <source>Favorite User</source>
         <translation>Обраний користувач</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="200"/>
+        <location filename="../SettingsGUI.cpp" line="199"/>
         <source>Time stamp</source>
         <translation>Тимчасова мітка</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="204"/>
+        <location filename="../SettingsGUI.cpp" line="203"/>
         <source>Message</source>
         <translation>Повідомлення</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="384"/>
+        <location filename="../SettingsGUI.cpp" line="374"/>
         <source>Select translation</source>
         <translation>Виберіть переклад</translation>
     </message>
     <message>
-        <location filename="../SettingsGUI.cpp" line="384"/>
+        <location filename="../SettingsGUI.cpp" line="374"/>
         <source>Translation (*.qm)</source>
         <translation>Переклад (*.qm)</translation>
     </message>
@@ -3091,34 +3061,34 @@ Do you want to stop it?
         <translation>/c</translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="519"/>
+        <location filename="../TransferViewModel.cpp" line="543"/>
         <source>Downloaded </source>
         <translation>Завантажено </translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="521"/>
+        <location filename="../TransferViewModel.cpp" line="545"/>
         <source>Waiting for slot </source>
         <translation>Очікування слота </translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="524"/>
+        <location filename="../TransferViewModel.cpp" line="548"/>
         <source> from %1/%2 user(s)</source>
         <translation> від %1/%2 користувача(ів)</translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="570"/>
-        <location filename="../TransferViewModel.cpp" line="574"/>
+        <location filename="../TransferViewModel.cpp" line="594"/>
+        <location filename="../TransferViewModel.cpp" line="598"/>
         <source>Finished</source>
         <translation>Завершено</translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="270"/>
+        <location filename="../TransferViewModel.cpp" line="294"/>
         <source>File list</source>
         <translation>Перелік файлів</translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="531"/>
-        <location filename="../TransferViewModel.cpp" line="533"/>
+        <location filename="../TransferViewModel.cpp" line="555"/>
+        <location filename="../TransferViewModel.cpp" line="557"/>
         <source>TTH: </source>
         <translation>TTH: </translation>
     </message>
@@ -3128,23 +3098,23 @@ Do you want to stop it?
     <message>
         <location filename="../UCModel.cpp" line="74"/>
         <source>Name</source>
-        <translation type="unfinished">Ім&apos;я</translation>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <location filename="../UCModel.cpp" line="75"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Команди</translation>
     </message>
     <message>
         <location filename="../UCModel.cpp" line="76"/>
         <source>Hub</source>
-        <translation type="unfinished">Хаб</translation>
+        <translation>Хаб</translation>
     </message>
     <message>
         <location filename="../UCModel.cpp" line="142"/>
         <location filename="../UCModel.cpp" line="192"/>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Роздільник</translation>
     </message>
 </context>
 <context>
@@ -4679,7 +4649,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="261"/>
         <source>Highlight favorite users in user list</source>
-        <translation type="unfinished"></translation>
+        <translation>Підсвічування результатів пошуку в чаті</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="285"/>
@@ -4720,11 +4690,6 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="454"/>
         <source>Transparency</source>
         <translation>Прозорість</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="497"/>
-        <source>Fonts</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="223"/>
@@ -4895,7 +4860,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="70"/>
         <source>Favorite user join/part</source>
-        <translation type="unfinished"></translation>
+        <translation>Вхід/вихід обраного користувача</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="77"/>
@@ -4930,7 +4895,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="283"/>
         <source>Favorite user event</source>
-        <translation type="unfinished"></translation>
+        <translation>Дія обраного користувача</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="343"/>
@@ -5405,32 +5370,32 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="42"/>
         <source>Add</source>
-        <translation type="unfinished">Додати</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="49"/>
         <source>Change</source>
-        <translation type="unfinished">Змінити</translation>
+        <translation>Змінити</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="56"/>
         <source>Remove</source>
-        <translation type="unfinished">Видалити</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="63"/>
         <source>Up</source>
-        <translation type="unfinished">Вгору</translation>
+        <translation>Вгору</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="83"/>
         <source>Down</source>
-        <translation type="unfinished">Вниз</translation>
+        <translation>Вниз</translation>
     </message>
 </context>
 <context>
@@ -5487,92 +5452,92 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="14"/>
         <source>New command</source>
-        <translation type="unfinished"></translation>
+        <translation>Нова команда</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="23"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="32"/>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Роздільник</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="42"/>
         <source>Chat</source>
-        <translation type="unfinished">Чат</translation>
+        <translation>Чат</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="49"/>
         <source>Raw</source>
-        <translation type="unfinished"></translation>
+        <translation>Сирі команди</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="56"/>
         <source>PM</source>
-        <translation type="unfinished"></translation>
+        <translation>Приватне повідомлення</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="66"/>
         <source>Context</source>
-        <translation type="unfinished"></translation>
+        <translation>Контекст</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">Хаб</translation>
+        <translation>Хаб</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
         <source>Search</source>
-        <translation type="unfinished">Пошук</translation>
+        <translation>Пошук</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="89"/>
         <source>User</source>
-        <translation type="unfinished">Користувач</translation>
+        <translation>Користувач</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
         <source>Filebrowser</source>
-        <translation type="unfinished">Оглядач файлів</translation>
+        <translation>Оглядач файлів</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="106"/>
         <source>Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="139"/>
         <source>Name</source>
-        <translation type="unfinished">Ім&apos;я</translation>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="146"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Команда</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="153"/>
         <source>Hub address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса хабу</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="160"/>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Для</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="167"/>
         <source>Send once per nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Надсилати по одній на нік</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="191"/>
         <source>Result</source>
-        <translation type="unfinished"></translation>
+        <translation>Результат</translation>
     </message>
 </context>
 <context>
