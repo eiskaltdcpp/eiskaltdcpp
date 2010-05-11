@@ -2,6 +2,7 @@
 * Fixed display of unread messages using the tray icon.
 * Fixed potential problems with search using locales other than UTF-8. (Now kernel takes default encoding specified in the preferences rather than local ones, as it was before)
 * Added graphical configuration of user commands in the Settings dialog. (In previous versions it was necessary to edit xml-config manually)
+* Thanks to Dmytro Demenko the Ukrainian translation is now available.
 
 --- 2.0.2 2010-05-04 ---
 * Thanks to Alexandre Wallimann the French translation is now available.
