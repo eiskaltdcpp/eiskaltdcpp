@@ -189,6 +189,11 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
     saveSettings();
 
+    if (sideDock)
+        sideDock->hide();
+
+    transfer_dock->hide();
+
     blockSignals(true);
 
     if (TransferView::getInstance()){
@@ -2036,7 +2041,24 @@ void MainWindow::slotSidebarContextMenu(){
 
     SideBarItem *item = reinterpret_cast<SideBarItem*>(selected.at(0).internalPointer());
 
-    if (!(item && item->getWidget() && item->getWidget()->getMenu()))
+    if (item && item->childCount() > 0){
+        QMenu *m = new QMenu(this);
+        m->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close all"));
+
+        if (m->exec(QCursor::pos())){
+            QList<SideBarItem*> childs = item->childItems;
+
+            foreach (SideBarItem *i, childs){
+                if (i && i->getWidget())
+                    i->getWidget()->getWidget()->close();
+            }
+        }
+
+        m->deleteLater();
+
+        return;
+    }
+    else if (!(item && item->getWidget() && item->getWidget()->getMenu()))
         return;
 
     item->getWidget()->getMenu()->exec(QCursor::pos());

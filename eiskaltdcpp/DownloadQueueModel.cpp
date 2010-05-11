@@ -183,34 +183,21 @@ struct Compare {
 
     private:
         typedef bool (*AttrComp)(const DownloadQueueItem * l, const DownloadQueueItem * r);
-        AttrComp static getAttrComp(int column) {
-            switch (column){
-                 case COLUMN_DOWNLOADQUEUE_ESIZE:
-                     return NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>;
-                 case COLUMN_DOWNLOADQUEUE_SIZE:
-                     return NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>;
-                 case COLUMN_DOWNLOADQUEUE_DOWN:
-                     return NumCmp<COLUMN_DOWNLOADQUEUE_DOWN>;
-                 case COLUMN_DOWNLOADQUEUE_NAME:
-                     return AttrCmp<COLUMN_DOWNLOADQUEUE_NAME>;
-                 case COLUMN_DOWNLOADQUEUE_ADDED:
-                     return AttrCmp<COLUMN_DOWNLOADQUEUE_ADDED>;
-                 case COLUMN_DOWNLOADQUEUE_ERR:
-                     return AttrCmp<COLUMN_DOWNLOADQUEUE_ERR>;
-                 case COLUMN_DOWNLOADQUEUE_PRIO:
-                     return NumCmp<COLUMN_DOWNLOADQUEUE_PRIO>;
-                 case COLUMN_DOWNLOADQUEUE_PATH:
-                     return AttrCmp<COLUMN_DOWNLOADQUEUE_PATH>;
-                 case COLUMN_DOWNLOADQUEUE_STATUS:
-                     return AttrCmp<COLUMN_DOWNLOADQUEUE_DOWN>;
-                 case COLUMN_DOWNLOADQUEUE_TTH:
-                     return AttrCmp<COLUMN_DOWNLOADQUEUE_TTH>;
-                 default:
-                     return AttrCmp<COLUMN_DOWNLOADQUEUE_USER>;
-            }
+        AttrComp static getAttrComp(const int column) {
+            static AttrComp attrs[11] = {   AttrCmp<COLUMN_DOWNLOADQUEUE_NAME>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
+                                            NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
+                                            NumCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
+                                            NumCmp<COLUMN_DOWNLOADQUEUE_PRIO>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_USER>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_PATH>,
+                                            NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_ERR>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_ADDED>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_TTH>
+                                        };
 
-            Q_ASSERT_X(false, "getAttrComp", QString("Inncorrect column %1").arg(column).toAscii().constData());
-            return 0;
+            return attrs[column];
         }
         template <int i>
         bool static AttrCmp(const DownloadQueueItem * l, const DownloadQueueItem * r) {
@@ -320,10 +307,7 @@ void DownloadQueueModel::sort(int column, Qt::SortOrder order) {
     sortColumn = column;
     sortOrder = order;
 
-    if (!rootItem || rootItem->childItems.empty())
-        return;
-
-    if (column == -1)
+    if (!rootItem || rootItem->childItems.empty() || column < 0 || column > columnCount()-1)
         return;
 
     emit layoutAboutToBeChanged();

@@ -119,20 +119,14 @@ struct Compare {
 
     private:
         typedef bool (*AttrComp)(const FileBrowserItem * l, const FileBrowserItem * r);
-        AttrComp static getAttrComp(int column) {
-            switch (column){
-                case COLUMN_FILEBROWSER_NAME:
-                    return AttrCmp<COLUMN_FILEBROWSER_NAME>;
-                case COLUMN_FILEBROWSER_ESIZE:
-                    return NumCmp<COLUMN_FILEBROWSER_ESIZE>;
-                case COLUMN_FILEBROWSER_SIZE:
-                    return NumCmp<COLUMN_FILEBROWSER_ESIZE>;
-                case COLUMN_FILEBROWSER_TTH:
-                    return AttrCmp<COLUMN_FILEBROWSER_TTH>;
-            }
+        AttrComp static getAttrComp(const int column) {
+            static AttrComp attrs[4] = {    AttrCmp<COLUMN_FILEBROWSER_NAME>,
+                                            NumCmp<COLUMN_FILEBROWSER_ESIZE>,
+                                            NumCmp<COLUMN_FILEBROWSER_ESIZE>,
+                                            AttrCmp<COLUMN_FILEBROWSER_TTH>
+                                       };
 
-            Q_ASSERT_X(false, "getAttrComp", QString("Inncorrect column %1").arg(column).toAscii().constData());
-            return 0;
+            return attrs[column];
         }
         template <int i>
         bool static AttrCmp(const FileBrowserItem * l, const FileBrowserItem * r) {
@@ -224,7 +218,7 @@ int FileBrowserModel::rowCount(const QModelIndex &parent) const
 }
 
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i){
-    if (column == -1 || !i || i->childCount() == 0)
+    if (column < 0 || !i || i->childCount() == 0)
         return;
 
     if (order == Qt::AscendingOrder)
@@ -240,10 +234,7 @@ void FileBrowserModel::sort(int column, Qt::SortOrder order) {
     sortColumn = column;
     sortOrder = order;
 
-    if (!rootItem || rootItem->childItems.empty())
-        return;
-
-    if (column == -1)
+    if (!rootItem || rootItem->childItems.empty() || column < 0 || column > columnCount()-1)
         return;
 
     emit layoutAboutToBeChanged();

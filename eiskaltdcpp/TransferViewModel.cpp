@@ -145,29 +145,18 @@ struct Compare {
 
     private:
         typedef bool (*AttrComp)(const TransferViewItem * l, const TransferViewItem * r);
-        AttrComp static getAttrComp(int column) {
-            switch (column){
-                 case COLUMN_TRANSFER_SIZE:
-                     return NumCmp<COLUMN_TRANSFER_SIZE>;
-                 case COLUMN_TRANSFER_SPEED:
-                     return NumCmp<COLUMN_TRANSFER_SPEED>;
-                 case COLUMN_TRANSFER_FNAME:
-                     return AttrCmp<COLUMN_TRANSFER_FNAME>;
-                 case COLUMN_TRANSFER_HOST:
-                     return AttrCmp<COLUMN_TRANSFER_HOST>;
-                 case COLUMN_TRANSFER_IP:
-                     return AttrCmp<COLUMN_TRANSFER_IP>;
-                 case COLUMN_TRANSFER_TLEFT:
-                     return NumCmp<COLUMN_TRANSFER_TLEFT>;
-                 case COLUMN_TRANSFER_STATS:
-                     return AttrCmp<COLUMN_TRANSFER_STATS>;
-                 case COLUMN_TRANSFER_USERS:
-                     return AttrCmp<COLUMN_TRANSFER_USERS>;
-                 default:
-                     return AttrCmp<COLUMN_TRANSFER_USERS>;
-            }
+        AttrComp static getAttrComp(const int column) {
+            static AttrComp attrs[8] = {   AttrCmp<COLUMN_TRANSFER_USERS>,
+                                           NumCmp<COLUMN_TRANSFER_SPEED>,
+                                           AttrCmp<COLUMN_TRANSFER_STATS>,
+                                           NumCmp<COLUMN_TRANSFER_SIZE>,
+                                           NumCmp<COLUMN_TRANSFER_TLEFT>,
+                                           AttrCmp<COLUMN_TRANSFER_FNAME>,
+                                           AttrCmp<COLUMN_TRANSFER_HOST>,
+                                           AttrCmp<COLUMN_TRANSFER_IP>
+                                       };
 
-            return 0;
+            return attrs[column];
         }
         template <int i>
         bool static AttrCmp(const TransferViewItem * l, const TransferViewItem * r) {
@@ -256,30 +245,17 @@ void TransferViewModel::sort(int column, Qt::SortOrder order) {
     sortColumn = column;
     sortOrder = order;
 
-    if (!rootItem || rootItem->childItems.empty())
+    if (!rootItem || rootItem->childItems.empty() || column < 0 || column > columnCount()-1)
         return;
 
-    if (column == -1)
-        return;
-
-    QHash<TransferViewItem*, QModelIndex> hash;
-
-    for (int i = 0; i < rootItem->childCount(); i++){
-        hash.insert(rootItem->child(i), createIndex(i, 0, rootItem->child(i)));
-    }
-
-    //emit layoutAboutToBeChanged();
+    emit layoutAboutToBeChanged();
 
     if (order == Qt::AscendingOrder)
         Compare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
     else if (order == Qt::DescendingOrder)
         Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
 
-    //emit layoutChanged();
-
-    for (int i = 0; i < rootItem->childCount(); i++){
-        changePersistentIndex(hash.value(rootItem->child(i)), createIndex(i, 0, rootItem->child(i)));
-    }
+    emit layoutChanged();
 }
 
 void TransferViewModel::initTransfer(VarMap params){
