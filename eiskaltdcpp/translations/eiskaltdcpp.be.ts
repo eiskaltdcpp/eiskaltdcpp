@@ -15,23 +15,23 @@
         <location filename="../CustomFontModel.cpp" line="29"/>
         <location filename="../CustomFontModel.cpp" line="90"/>
         <source>Description</source>
-        <translation type="unfinished">Апісаньне</translation>
+        <translation>Апісаньне</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="29"/>
         <location filename="../CustomFontModel.cpp" line="90"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрыфт</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="33"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Прыстасаваньне</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="34"/>
         <source>Public Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Агульная гамана</translation>
     </message>
 </context>
 <context>
@@ -728,7 +728,7 @@
     <message>
         <location filename="../HubFrame.cpp" line="910"/>
         <source>Hub menu</source>
-        <translation>Мэню асяродка</translation>
+        <translation>Мэню асяродку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="912"/>
@@ -978,7 +978,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="731"/>
         <source> left the chat</source>
-        <translation type="unfinished"></translation>
+        <translation> выходзіць з гаманы</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="736"/>
@@ -994,7 +994,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="2694"/>
         <source>Connecting to %1</source>
-        <translation>Злучаемся з %1…</translation>
+        <translation>Злучаемся з %1</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2703"/>
@@ -1700,7 +1700,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="2046"/>
         <source>Close all</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыць усе</translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;&lt;br/&gt;</source>
@@ -2496,7 +2496,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsGUI.cpp" line="78"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Украінская</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="160"/>
@@ -3830,7 +3830,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="92"/>
         <source>Go to hub</source>
-        <translation>Ісьці да асяродка</translation>
+        <translation>Ісьці да асяродку</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="99"/>
@@ -4769,7 +4769,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="497"/>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрыфты</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="223"/>
@@ -4789,7 +4789,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="247"/>
         <source>Ignore private messages from Hub</source>
-        <translation>Не зважаць на асабістыя паведамленьні ад асяродка</translation>
+        <translation>Не зважаць на асабістыя паведамленьні ад асяродку</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="254"/>
@@ -5092,7 +5092,7 @@ Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
         <translation>Гэты выпадальны сьпіс зьмяшчае шэраг агульнапрынятых хуткасьцяў зацягваць
 (у МіБ/с). Калі ласка, абярыце адну, што болей адпавядае вашае хуткасьці.
-Не трэба выкарыстоўваць тут значэньне хуткасьці сьцягваць: гэтыя наладжваньні
+Ня трэба выкарыстоўваць тут значэньне хуткасьці сьцягваць: гэтыя наладжваньні
 паказваюць іншым карыстальнікам, наколькі хуткаю крыніцаю вы можаце быць.</translation>
     </message>
     <message>
@@ -5141,7 +5141,7 @@ will be unable to download any files from this folder.</source>
 вы можаце вызначыць наступнае:
 /Відэа	10
 Гэта значыць, што мець магчымасьць сьцягваць файлы з гэтае тэчкі
-будуць толькі тыя карыстальнікі, якія абагулілі ня меней за 10 ГіБ,</translation>
+будуць толькі тыя карыстальнікі, якія абагулілі ня меней за 10 ГіБ.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="248"/>
