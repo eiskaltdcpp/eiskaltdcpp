@@ -26,23 +26,23 @@
         <location filename="../CustomFontModel.cpp" line="29"/>
         <location filename="../CustomFontModel.cpp" line="90"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Opis</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="29"/>
         <location filename="../CustomFontModel.cpp" line="90"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Czcionka</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="33"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplikacja</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="34"/>
         <source>Public Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Czat publiczny</translation>
     </message>
 </context>
 <context>
@@ -923,7 +923,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="731"/>
         <source> left the chat</source>
-        <translation type="unfinished"></translation>
+        <translation> opuścił chat</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="736"/>
@@ -1553,7 +1553,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="2046"/>
         <source>Close all</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamknij wszystkie</translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;&lt;br/&gt;</source>
@@ -2481,7 +2481,7 @@ Opcje:
     <message>
         <location filename="../SettingsGUI.cpp" line="78"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukraiński</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="160"/>
@@ -4665,7 +4665,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="497"/>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Czcionki</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="223"/>
@@ -5226,7 +5226,7 @@ aby móc pobrać ten folder</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="420"/>
         <source>Proactive read from disk</source>
-        <translation>Proactive read from disk</translation>
+        <translation>Aktywnie odczytuj z dysku</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="363"/>
