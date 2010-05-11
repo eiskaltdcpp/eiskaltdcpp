@@ -23,6 +23,7 @@ set (SRCS   Antispam.cpp
             AntiSpamFrame.cpp
             ArenaWidget.cpp
             ArenaWidgetContainer.cpp
+            CustomFontModel.cpp
             DownloadQueue.cpp
             DownloadQueueModel.cpp
             EmoticonDialog.cpp
@@ -78,6 +79,7 @@ set (SRCS   Antispam.cpp
             ChatEdit.cpp)
 set (MOC_HDRS Antispam.h
             AntiSpamFrame.h
+            CustomFontModel.h
             DownloadQueue.h
             DownloadQueueModel.h
             EmoticonDialog.h

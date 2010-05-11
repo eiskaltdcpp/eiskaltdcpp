@@ -4,6 +4,7 @@
 #include "MainWindow.h"
 #include "Notification.h"
 #include "EmoticonFactory.h"
+#include "CustomFontModel.h"
 
 #include <QListWidgetItem>
 #include <QPixmap>
@@ -211,6 +212,13 @@ void SettingsGUI::init(){
 
         horizontalSlider_H_COLOR->setValue(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
     }
+    {// Fonts tab
+        CustomFontModel *model = new CustomFontModel(this);
+        tableView->setModel(model);
+
+        connect(tableView, SIGNAL(doubleClicked(QModelIndex)), model, SLOT(itemDoubleClicked(QModelIndex)));
+        connect(this, SIGNAL(saveFonts()), model, SLOT(ok()));
+    }
 
     connect(checkBox_EMOT, SIGNAL(toggled(bool)), checkBox_EMOTFORCE, SLOT(setEnabled(bool)));
     connect(pushButton_TEST, SIGNAL(clicked()), this, SLOT(slotTestAppTheme()));
@@ -296,6 +304,8 @@ void SettingsGUI::ok(){
         WSSET(WS_CHAT_FIND_COLOR,       h_color.name());
         WISET(WI_CHAT_FIND_COLOR_ALPHA, horizontalSlider_H_COLOR->value());
     }
+
+    emit saveFonts();
 }
 
 void SettingsGUI::slotChatColorItemClicked(QListWidgetItem *item){

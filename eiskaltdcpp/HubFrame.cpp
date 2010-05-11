@@ -854,6 +854,12 @@ void HubFrame::init(){
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
     toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
 
+    QString custom_font_desc = WSGET(WS_CHAT_FONT);
+    QFont custom_font;
+
+    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc))
+        textEdit_CHAT->setFont(custom_font);
+
     connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));

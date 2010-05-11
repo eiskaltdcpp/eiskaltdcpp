@@ -52,6 +52,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_CHAT_MSG_COLOR,        qApp->palette().text().color().name());
         strmap.insert(WS_CHAT_USERLIST_STATE,   "");
         strmap.insert(WS_CHAT_CMD_ALIASES,      "");
+        strmap.insert(WS_CHAT_FONT,             "");
         strmap.insert(WS_QCONNECT_HISTORY,      "");
         strmap.insert(WS_DEFAULT_LOCALE,        "UTF-8");
         strmap.insert(WS_DQUEUE_STATE,          "");

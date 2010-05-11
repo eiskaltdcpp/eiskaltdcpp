@@ -36,6 +36,9 @@ private slots:
     void slotGetColor();
     void slotSetTransparency(int);
 
+signals:
+    void saveFonts();
+
 public slots:
     void ok();
 

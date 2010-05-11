@@ -152,7 +152,8 @@ HEADERS = MainWindow.h \
     ArenaWidgetContainer.h \
     LineEdit.h \
     SettingsUC.h \
-    UCModel.h
+    UCModel.h \
+    CustomFontModel.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -261,7 +262,8 @@ SOURCES = main.cpp \
     ArenaWidgetContainer.cpp \
     LineEdit.cpp \
     SettingsUC.cpp \
-    UCModel.cpp
+    UCModel.cpp \
+    CustomFontModel.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \

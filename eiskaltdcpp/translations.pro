@@ -51,7 +51,8 @@ HEADERS = HEADERS = MainWindow.h \
     PublicHubsList.h \
     SideBar.h \
     SettingsUC.h \
-    UCModel.h
+    UCModel.h \
+    CustomFontModel.h
 SOURCES = main.cpp \
     Antispam.cpp \
     AntiSpamFrame.cpp \
@@ -104,7 +105,8 @@ SOURCES = main.cpp \
     PublicHubsList.cpp \
     SideBar.cpp \
     SettingsUC.cpp \
-    UCModel.cpp
+    UCModel.cpp \
+    CustomFontModel.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \
