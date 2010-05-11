@@ -9,6 +9,25 @@
     </message>
 </context>
 <context>
+    <name>CustomFontModel</name>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Description</translation>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public Chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DownloadQueue</name>
     <message>
         <source>Search for alternates</source>
@@ -1330,6 +1349,10 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close all</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3675,6 +3698,10 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
     </message>
     <message>
         <source>Highlight favorite users in user list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fonts</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

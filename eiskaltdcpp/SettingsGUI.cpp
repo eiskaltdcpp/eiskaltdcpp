@@ -74,7 +74,7 @@ void SettingsGUI::init(){
                 lang = tr("Polish");
             else if (f == "eiskaltdcpp.sr.qm")
                 lang = tr("Serbian");
-            else if (f == "eiskaltdcpp.ua.qm")
+            else if (f == "eiskaltdcpp.uk.qm")
                 lang = tr("Ukrainian");
 
             if (!lang.isEmpty()){
