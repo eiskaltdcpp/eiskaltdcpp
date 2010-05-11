@@ -908,7 +908,7 @@ void MainWindow::initStatusBar(){
     WBSET(WB_SHOW_FREE_SPACE, false);
 #endif //FREE_SPACE_BAR || FREE_SPACE_BAR_C
 
-    statusBar()->addWidget(msgLabel);
+    statusBar()->addWidget(msgLabel, 1);
     statusBar()->addPermanentWidget(statusDLabel);
     statusBar()->addPermanentWidget(statusULabel);
     statusBar()->addPermanentWidget(statusDSPLabel);
@@ -1201,6 +1201,8 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
             progressSpace->setFormat(format);
             progressSpace->setToolTip(tooltip);
             progressSpace->setValue(static_cast<unsigned>(percent));
+
+            progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 20 : progressSpace->width());
         }
 #elif defined FREE_SPACE_BAR_C
     std::string s = SETTING(DOWNLOAD_DIRECTORY);
@@ -1226,6 +1228,8 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
             progressSpace->setFormat(format);
             progressSpace->setToolTip(tooltip);
             progressSpace->setValue(static_cast<unsigned>(percent));
+
+            progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 20 : progressSpace->width());
 #endif //FREE_SPACE_BAR
     }
 
@@ -1239,6 +1243,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
 void MainWindow::setStatusMessage(QString msg){
     QString pre = tr("<b>Last kernel message:</b><br/>%1").replace(" ","&nbsp;");
 
+    WulforUtil::getInstance()->textToHtml(msg, false);
     msgLabel->setText(msg);
     msgLabel->setToolTip(pre.arg(msg));
 
