@@ -2548,7 +2548,7 @@ void HubFrame::slotInputTextChanged(){
         return;
 
     SpellCheck *sp = SpellCheck::getInstance();
-    QStringList words = line.split(QRegExp("\\W+"), QString::SkipEmptyParts);
+    QStringList words = line.split(QRegExp("\\s+"), QString::SkipEmptyParts);
 
     if (words.isEmpty())
         return;
@@ -2565,7 +2565,7 @@ void HubFrame::slotInputTextChanged(){
 
     bool ok = false;
     foreach (QString s, words){
-        if (s.toLongLong(&ok) && ok)
+        if ((s.toLongLong(&ok) && ok) || !QUrl(s).scheme().isEmpty())
             continue;
 
         if (plainTextEdit_INPUT->find(s) && !sp->ok(s)){
