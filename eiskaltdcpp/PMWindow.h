@@ -61,6 +61,7 @@ private slots:
     void slotHub();
     void slotShare();
     void slotSmile();
+    void slotFontChanged(const QString&, const QString&);
 
 signals:
     void privateMessageClosed(QString);

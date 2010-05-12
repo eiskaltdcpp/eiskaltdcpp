@@ -51,6 +51,9 @@ public:
     /** */
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
+signals:
+    void fontChanged(const QString &key, const QString &value);
+
 public slots:
     void itemDoubleClicked(const QModelIndex&);
     void ok();

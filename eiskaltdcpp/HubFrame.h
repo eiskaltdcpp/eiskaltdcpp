@@ -244,6 +244,7 @@ private slots:
     void slotStatusLinkOpen(const QString &url);
     void slotHubMenu(QAction*);
     void slotSmile();
+    void slotFontChanged(const QString &, const QString &);
 
 private:
     // Chat functions

@@ -53,6 +53,12 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
     toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
 
+    QString custom_font_desc = WSGET(WS_CHAT_PM_FONT);
+    QFont custom_font;
+
+    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc))
+        textEdit_CHAT->setFont(custom_font);
+
     arena_menu = new QMenu(tr("Private message"));
     QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
@@ -63,6 +69,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
     connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SIGNAL(inputTextChanged()));
     connect(plainTextEdit_INPUT, SIGNAL(customContextMenuRequested(QPoint)), this, SIGNAL(inputTextMenu()));
+    connect(WulforSettings::getInstance(), SIGNAL(fontChanged(QString,QString)), this, SLOT(slotFontChanged(QString,QString)));
 
     out_messages_index = 0;
 
@@ -372,4 +379,10 @@ void PMWindow::slotSmile(){
     }
 
     delete dialog;
+}
+
+void PMWindow::slotFontChanged(const QString &key, const QString &value){
+    QFont f;
+    if (key == WS_CHAT_PM_FONT && f.fromString(value))
+        textEdit_CHAT->setFont(f);
 }

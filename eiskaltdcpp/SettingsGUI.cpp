@@ -216,6 +216,8 @@ void SettingsGUI::init(){
         CustomFontModel *model = new CustomFontModel(this);
         tableView->setModel(model);
 
+        tableView->horizontalHeader()->restoreState(QByteArray::fromBase64(WSGET(WS_SETTINGS_GUI_FONTS_STATE).toAscii()));
+
         connect(tableView, SIGNAL(doubleClicked(QModelIndex)), model, SLOT(itemDoubleClicked(QModelIndex)));
         connect(this, SIGNAL(saveFonts()), model, SLOT(ok()));
     }
@@ -304,6 +306,8 @@ void SettingsGUI::ok(){
         WSSET(WS_CHAT_FIND_COLOR,       h_color.name());
         WISET(WI_CHAT_FIND_COLOR_ALPHA, horizontalSlider_H_COLOR->value());
     }
+
+    WSSET(WS_SETTINGS_GUI_FONTS_STATE, tableView->horizontalHeader()->saveState().toBase64());
 
     emit saveFonts();
 }

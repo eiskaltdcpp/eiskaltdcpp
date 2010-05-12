@@ -30,8 +30,12 @@ CustomFontModel::CustomFontModel(QObject *parent)
 
     rootItem = new CustomFontItem(rootData, NULL);
 
-    addNewFont(WS_APP_FONT, tr("Application"));
-    addNewFont(WS_CHAT_FONT, tr("Public Chat"));
+    addNewFont(WS_APP_FONT,         tr("Application"));
+    addNewFont(WS_CHAT_FONT,        tr("Public Chat: Chat"));
+    addNewFont(WS_CHAT_ULIST_FONT,  tr("Public Chat: Userlist"));
+    addNewFont(WS_CHAT_PM_FONT,     tr("Private Chat"));
+
+    connect(this, SIGNAL(fontChanged(QString,QString)), WulforSettings::getInstance(), SIGNAL(fontChanged(QString,QString)));
 }
 
 CustomFontModel::~CustomFontModel()
@@ -184,8 +188,11 @@ void CustomFontModel::itemDoubleClicked(const QModelIndex &i){
 
 void CustomFontModel::ok(){
     foreach (CustomFontItem *i, rootItem->childItems){
-        if (!i->custom_font.isEmpty())
+        if (!i->custom_font.isEmpty()){
             WSSET(i->key.toAscii().constData(), i->custom_font);
+
+            emit fontChanged(i->key, i->custom_font);
+        }
     }
 }
 

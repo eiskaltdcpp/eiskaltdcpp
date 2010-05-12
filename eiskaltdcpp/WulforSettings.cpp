@@ -53,6 +53,8 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_CHAT_USERLIST_STATE,   "");
         strmap.insert(WS_CHAT_CMD_ALIASES,      "");
         strmap.insert(WS_CHAT_FONT,             "");
+        strmap.insert(WS_CHAT_ULIST_FONT,       "");
+        strmap.insert(WS_CHAT_PM_FONT,          "");
         strmap.insert(WS_QCONNECT_HISTORY,      "");
         strmap.insert(WS_DEFAULT_LOCALE,        "UTF-8");
         strmap.insert(WS_DQUEUE_STATE,          "");
@@ -82,6 +84,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_APP_DYNDNS_SERVER,     "checkip.dyndns.org");
         strmap.insert(WS_APP_DYNDNS_INDEX,      "/index.html");
         strmap.insert(WS_PUBLICHUBS_STATE,      "");
+        strmap.insert(WS_SETTINGS_GUI_FONTS_STATE, "");
 
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP,   static_cast<int>(true));
         intmap.insert(WB_SHOW_FREE_SPACE,       static_cast<int>(true));
@@ -149,6 +152,8 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_NOTIFY_SNDMAP,         0x0F);// 0b00001111, all events
         intmap.insert(WI_OUT_IN_HIST,           50);//number of output messages in history
     }
+
+    connect(this, SIGNAL(fontChanged(QString,QString)), this, SLOT(slotFontChanged(QString,QString)));
 }
 
 WulforSettings::~WulforSettings(){
@@ -318,4 +323,13 @@ void WulforSettings::setInt(QString key, int value) throw (WulforSettings::BadKe
 
 void WulforSettings::setBool(QString key, bool value) throw (WulforSettings::BadKey){
     setInt(key, static_cast<int>(value));
+}
+
+void WulforSettings::slotFontChanged(const QString &key, const QString &value){
+    if (key == WS_APP_FONT){
+        QFont f;
+
+        if (f.fromString(value))
+            qApp->setFont(f);
+    }
 }

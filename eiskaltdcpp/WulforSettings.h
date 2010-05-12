@@ -35,6 +35,8 @@ const char * const WS_CHAT_SAY_NICK           = "chat-say-mynick";
 const char * const WS_CHAT_USERLIST_STATE     = "chat-userlist-saved-state";
 const char * const WS_CHAT_CMD_ALIASES        = "chat-cmd-aliases";
 const char * const WS_CHAT_FONT               = "chat-font";
+const char * const WS_CHAT_ULIST_FONT         = "chat-userlist-font";
+const char * const WS_CHAT_PM_FONT            = "chat-pm-font";
 const char * const WS_QCONNECT_HISTORY        = "qc-history";
 const char * const WS_DEFAULT_LOCALE          = "default_locale";
 const char * const WS_DQUEUE_STATE            = "dqueue-state";
@@ -64,6 +66,7 @@ const char * const WS_APP_EMOTICON_THEME      = "app-emoticon-theme";
 const char * const WS_APP_DYNDNS_SERVER       = "app-dyndns-server";
 const char * const WS_APP_DYNDNS_INDEX        = "app-dyndns-server-index";
 const char * const WS_PUBLICHUBS_STATE        = "publichubs-state";
+const char * const WS_SETTINGS_GUI_FONTS_STATE= "settings-gui-fonts-state";
 const char * const WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";
 const char * const WB_SHOW_FREE_SPACE         = "show-free-space";
 const char * const WB_CHAT_SHOW_JOINS         = "chat-show-joins";
@@ -161,6 +164,12 @@ public:
     void    setBool(QString, bool)throw(BadKey);
 
     void    parseCmd(const QString &);
+
+signals:
+    void fontChanged(const QString &key, const QString &value);
+
+private slots:
+    void slotFontChanged(const QString &key, const QString &value);
 
 private:
     WulforSettings();

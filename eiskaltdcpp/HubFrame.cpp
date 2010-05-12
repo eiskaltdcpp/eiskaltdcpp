@@ -857,6 +857,11 @@ void HubFrame::init(){
     if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc))
         textEdit_CHAT->setFont(custom_font);
 
+    custom_font_desc = WSGET(WS_CHAT_ULIST_FONT);
+
+    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc))
+        treeView_USERS->setFont(custom_font);
+
     connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
@@ -870,6 +875,7 @@ void HubFrame::init(){
     connect(comboBox_COLUMNS, SIGNAL(activated(int)), this, SLOT(slotFilterTextChanged()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
     connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
+    connect(WulforSettings::getInstance(), SIGNAL(fontChanged(QString,QString)), this, SLOT(slotFontChanged(QString,QString)));
 
 #ifdef USE_ASPELL
     connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SLOT(slotInputTextChanged()));
@@ -2669,6 +2675,14 @@ void HubFrame::slotHubMenu(QAction *res){
             client->sendUserCmd(Util::formatParams(uc.getCommand(), params, false));
         }
     }
+}
+
+void HubFrame::slotFontChanged(const QString &key, const QString &value){
+    QFont f;
+    if (key == WS_CHAT_FONT && f.fromString(value))
+        textEdit_CHAT->setFont(f);
+    else if (key == WS_CHAT_ULIST_FONT && f.fromString(value))
+        treeView_USERS->setFont(f);
 }
 
 void HubFrame::on(FavoriteManagerListener::UserAdded, const FavoriteUser& aUser) throw() {
