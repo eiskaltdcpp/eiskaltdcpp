@@ -1243,7 +1243,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
 void MainWindow::setStatusMessage(QString msg){
     QString pre = tr("<b>Last kernel message:</b><br/>%1").replace(" ","&nbsp;");
 
-    WulforUtil::getInstance()->textToHtml(msg, false);
+    WulforUtil::getInstance()->textToHtml(msg, true);
     msgLabel->setText(msg);
     msgLabel->setToolTip(pre.arg(msg));
 
