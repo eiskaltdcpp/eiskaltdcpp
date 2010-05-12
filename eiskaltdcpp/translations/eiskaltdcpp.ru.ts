@@ -15,23 +15,23 @@
         <location filename="../CustomFontModel.cpp" line="29"/>
         <location filename="../CustomFontModel.cpp" line="90"/>
         <source>Description</source>
-        <translation type="unfinished">Описание</translation>
+        <translation>Описание</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="29"/>
         <location filename="../CustomFontModel.cpp" line="90"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="33"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Приложение</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="34"/>
         <source>Public Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Общий чат</translation>
     </message>
 </context>
 <context>
@@ -912,7 +912,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="731"/>
         <source> left the chat</source>
-        <translation type="unfinished"></translation>
+        <translation> покидает чат</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="736"/>
@@ -1542,7 +1542,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="2046"/>
         <source>Close all</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть все</translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;&lt;br/&gt;</source>
@@ -2374,7 +2374,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../Settings.cpp" line="67"/>
         <source>User Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Команды пользователя</translation>
     </message>
     <message>
         <location filename="../Settings.cpp" line="19"/>
@@ -2469,12 +2469,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../SettingsGUI.cpp" line="76"/>
         <source>Serbian</source>
-        <translation type="unfinished"></translation>
+        <translation>Сербский</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="78"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Украинский</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="160"/>
@@ -3128,23 +3128,23 @@ Do you want to stop it?
     <message>
         <location filename="../UCModel.cpp" line="74"/>
         <source>Name</source>
-        <translation type="unfinished">Имя</translation>
+        <translation>Имя</translation>
     </message>
     <message>
         <location filename="../UCModel.cpp" line="75"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Команда</translation>
     </message>
     <message>
         <location filename="../UCModel.cpp" line="76"/>
         <source>Hub</source>
-        <translation type="unfinished">Хаб</translation>
+        <translation>Хаб</translation>
     </message>
     <message>
         <location filename="../UCModel.cpp" line="142"/>
         <location filename="../UCModel.cpp" line="192"/>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Разделитель</translation>
     </message>
 </context>
 <context>
@@ -3973,7 +3973,7 @@ However, if you have a software firewall installed, you may need further configu
         <translation>Выберите этот режим, если ваш компьютер подключен к интернету напрямую.
 Не выбирайте этот режим, если у вас есть роутер или внешний брандмауэр.
 Если ваш компьютер не находится за роутером всё что вы должны сделать —
-это выбрать эту опцию и обычно больше ничего не делать в настройках
+это выбрать эту опцию и обычно больше ничего не менять в настройках
 подключения.
 Однако, если у вас установлен программный брандмауэр, вам, возможно,
 понадобится разрешить доступ EiskaltDC++ к сети Интернет.</translation>
@@ -3988,7 +3988,7 @@ Use this mode only if the previous ones are not options for you.</source>
         <translation>Выберите этот режим, если вы находитесь за брандмауэром (роутером) и
 вручную установите пробрасываемые порты TCP, UDP и TLS.
 Вам нужно указать внешний IP адрес вашего роутера, используя настройки
-ниже, если хотите, чтобы загрузка работала правильно.
+ниже, если вы хотите, чтобы загрузка работала правильно.
 Используйте этот режим, если предыдущие вам не подходят.</translation>
     </message>
     <message>
@@ -4026,7 +4026,7 @@ and obtain your external IP address as well.</source>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation>Выберите этот режим, если у вы можете использовать любые исходящие
+        <translation>Выберите этот режим, если вы можете использовать любые исходящие
 подключения. Это значит - на любой IP-адрес по любому порту.
 Выберите эту опцию, если не уверены.</translation>
     </message>
@@ -4724,7 +4724,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="497"/>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифты</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="223"/>
@@ -5405,32 +5405,32 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="42"/>
         <source>Add</source>
-        <translation type="unfinished">Добавить</translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="49"/>
         <source>Change</source>
-        <translation type="unfinished">Изменить</translation>
+        <translation>Изменить</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="56"/>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="63"/>
         <source>Up</source>
-        <translation type="unfinished">Вверх</translation>
+        <translation>Вверх</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="83"/>
         <source>Down</source>
-        <translation type="unfinished">Вниз</translation>
+        <translation>Вниз</translation>
     </message>
 </context>
 <context>
@@ -5487,92 +5487,92 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="14"/>
         <source>New command</source>
-        <translation type="unfinished"></translation>
+        <translation>Новая команда</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="23"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="32"/>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Разделитель</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="42"/>
         <source>Chat</source>
-        <translation type="unfinished">Чат</translation>
+        <translation>Команда чата</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="49"/>
         <source>Raw</source>
-        <translation type="unfinished"></translation>
+        <translation>Raw-команды</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="56"/>
         <source>PM</source>
-        <translation type="unfinished"></translation>
+        <translation>Личное сообщение</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="66"/>
         <source>Context</source>
-        <translation type="unfinished"></translation>
+        <translation>Контекст</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">Хаб</translation>
+        <translation>Меню хаба</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
         <source>Search</source>
-        <translation type="unfinished">Поиск</translation>
+        <translation>Меню поиска</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="89"/>
         <source>User</source>
-        <translation type="unfinished">Пользователь</translation>
+        <translation>Меню пользователя</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
         <source>Filebrowser</source>
-        <translation type="unfinished">Браузер файлов</translation>
+        <translation>Браузер файлов</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="106"/>
         <source>Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметры</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="139"/>
         <source>Name</source>
-        <translation type="unfinished">Имя</translation>
+        <translation>Название</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="146"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Команда</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="153"/>
         <source>Hub address</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес хаба</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="160"/>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>К</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="167"/>
         <source>Send once per nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Послать по разу каждому нику</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="191"/>
         <source>Result</source>
-        <translation type="unfinished"></translation>
+        <translation>Результат</translation>
     </message>
 </context>
 <context>
