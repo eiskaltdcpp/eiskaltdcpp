@@ -921,7 +921,7 @@ void WulforUtil::slotHttpTimer(){
     http->request(header);
 }
 
-QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx){
+QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* parent){
     if (hub_list.empty())
         return NULL;
 
@@ -931,7 +931,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx){
     foreach (QString s, hub_list)
         hubs.push_back(s.toStdString());
 
-    QMenu *usr_menu = new QMenu(tr("User commands"));
+    QMenu *usr_menu = new QMenu(tr("User commands"), parent);
     UserCommand::List commands = FavoriteManager::getInstance()->getUserCommands(ctx, hubs);
     bool separator = false;
 

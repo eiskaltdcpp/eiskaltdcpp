@@ -2052,11 +2052,12 @@ void MainWindow::slotSidebarContextMenu(){
 
     SideBarItem *item = reinterpret_cast<SideBarItem*>(selected.at(0).internalPointer());
 
+    QMenu *menu = NULL;
     if (item && item->childCount() > 0){
-        QMenu *m = new QMenu(this);
-        m->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close all"));
+        menu = new QMenu(this);
+        menu->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close all"));
 
-        if (m->exec(QCursor::pos())){
+        if (menu->exec(QCursor::pos())){
             QList<SideBarItem*> childs = item->childItems;
 
             foreach (SideBarItem *i, childs){
@@ -2065,14 +2066,14 @@ void MainWindow::slotSidebarContextMenu(){
             }
         }
 
-        m->deleteLater();
+        menu->deleteLater();
 
         return;
     }
-    else if (!(item && item->getWidget() && item->getWidget()->getMenu()))
+    else if (!(item && item->getWidget() && (menu = item->getWidget()->getMenu())))
         return;
 
-    item->getWidget()->getMenu()->exec(QCursor::pos());
+    menu->exec(QCursor::pos());
 }
 
 void MainWindow::slotSidebarHook(const QModelIndex &index){

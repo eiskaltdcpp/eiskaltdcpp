@@ -218,7 +218,7 @@ void ChatEdit::dropEvent(QDropEvent *e)
         foreach (QUrl url, e->mimeData()->urls()) {
             QString urlStr = url.toString();
             do {
-                if (url.scheme() != "file")
+                if (url.scheme().toLower() != "file")
                     break;
 
                 QString str = url.toLocalFile();

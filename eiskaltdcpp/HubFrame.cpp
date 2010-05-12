@@ -231,11 +231,8 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
         else
             return None;
     }
-    else{
-        delete user_menu;
-
+    else
         return None;
-    }
 }
 
 QString HubFrame::Menu::getLastUserCmd() const{
@@ -891,14 +888,14 @@ void HubFrame::init(){
             QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
             .arg(QApplication::font().family()));
 
-    initMenu();
-
     load();
 
     updater->start();
 
     completer = new QCompleter(this);
-    // completer->setMaxVisibleItems(10); // This property was introduced in Qt 4.6.
+#if QT_VERSION >= 0x040600
+    completer->setMaxVisibleItems(10); // This property was introduced in Qt 4.6.
+#endif
     plainTextEdit_INPUT->setCompleter(completer, model);
 }
 
@@ -920,7 +917,7 @@ void HubFrame::initMenu(){
                          );
 
     if (client && client->isConnected()){
-        QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(QList<QString>() << _q(client->getHubUrl()), UserCommand::CONTEXT_HUB);
+        QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(QList<QString>() << _q(client->getHubUrl()), UserCommand::CONTEXT_HUB, arenaMenu);
 
         if (u_c){
             u_c->setTitle(tr("Hub Menu"));
