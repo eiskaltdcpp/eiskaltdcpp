@@ -53,7 +53,7 @@ class SpyModel : public QAbstractItemModel
 public:
 
     SpyModel(QObject *parent = 0);
-    ~SpyModel();
+    virtual ~SpyModel();
 
     /** */
     QVariant data(const QModelIndex &, int) const;

@@ -80,7 +80,7 @@ class DownloadQueueModel: public QAbstractItemModel
     Q_OBJECT
 public:
     DownloadQueueModel(QObject* = NULL);
-    ~DownloadQueueModel();
+    virtual ~DownloadQueueModel();
 
     /** */
     QVariant data(const QModelIndex &, int) const;

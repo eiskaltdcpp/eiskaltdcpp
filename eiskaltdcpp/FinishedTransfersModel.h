@@ -60,7 +60,7 @@ public:
     };
 
     FinishedTransfersModel(QObject *parent = 0);
-    ~FinishedTransfersModel();
+    virtual ~FinishedTransfersModel();
 
     /** */
     QVariant data(const QModelIndex &, int) const;

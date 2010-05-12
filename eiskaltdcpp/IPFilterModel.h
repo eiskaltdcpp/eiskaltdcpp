@@ -46,7 +46,7 @@ Q_OBJECT
 
 public:
     IPFilterModel(QObject *parent = 0);
-    ~IPFilterModel();
+    virtual ~IPFilterModel();
 
     /** */
     QVariant data(const QModelIndex &, int) const;

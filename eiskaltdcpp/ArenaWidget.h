@@ -34,7 +34,6 @@ public:
     };
 
     ArenaWidget();
-    virtual ~ArenaWidget();
 
     virtual QWidget *getWidget() = 0;
     virtual QString getArenaTitle() = 0;
@@ -51,6 +50,9 @@ public:
     virtual bool isUnload() const { return _arenaUnload; }
 
     virtual Role role() const = 0;
+
+protected:
+    ~ArenaWidget();
 
 private:
     bool _arenaUnload;

@@ -80,7 +80,7 @@ class TransferViewModel: public QAbstractItemModel
 
 public:
     TransferViewModel(QObject* = NULL);
-    ~TransferViewModel();
+    virtual ~TransferViewModel();
 
     /** */
     QVariant data(const QModelIndex &, int) const;

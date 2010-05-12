@@ -72,7 +72,7 @@ class SearchItem
 
 public:
     SearchItem(const QList<QVariant> &data, SearchItem *parent = 0);
-    ~SearchItem();
+    virtual ~SearchItem();
 
     void appendChild(SearchItem *child);
 

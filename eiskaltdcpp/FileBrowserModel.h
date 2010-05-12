@@ -62,7 +62,7 @@ class FileBrowserModel: public QAbstractItemModel
     Q_OBJECT
 public:
     FileBrowserModel(QObject* = NULL);
-    ~FileBrowserModel();
+    virtual ~FileBrowserModel();
 
     /** */
     QVariant data(const QModelIndex &, int) const;
