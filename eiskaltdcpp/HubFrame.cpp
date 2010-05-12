@@ -19,6 +19,7 @@
 #include "dcpp/User.h"
 #include "dcpp/UserCommand.h"
 #include "dcpp/CID.h"
+#include "dcpp/HashManager.h"
 
 #if HAVE_MALLOC_TRIM
 #include <malloc.h>
@@ -2349,6 +2350,24 @@ void HubFrame::slotShellFinished(bool ok, QString output){
     if (ok){
         HubFrame *fr = qobject_cast<HubFrame *>(sender()->parent());
         PMWindow *pm = qobject_cast<PMWindow *>(sender()->parent());
+
+        int pos = 0;
+        QRegExp rx("(\\$magnet:('[^']+'|\\S+))");
+        while ((pos = output.indexOf(rx, pos)) >= 0) {
+            QFileInfo fi(rx.cap(2).replace("'", ""));
+            if (fi.isDir() || !fi.exists()) {
+                pos++;
+                continue;
+            }
+
+            const TTHValue *tth = HashManager::getInstance()->getFileTTHif(fi.absoluteFilePath().toStdString());
+            if (tth != NULL) {
+                QString urlStr = WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32()));
+                output.replace(pos, rx.cap(1).length(), urlStr);
+            } else {
+                output.replace(pos, rx.cap(1).length(), tr("not shared"));
+            }
+        }
 
         if (fr == this)
             sendChat(output, false, false);
