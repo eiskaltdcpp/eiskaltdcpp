@@ -2022,7 +2022,13 @@ void MainWindow::slotAboutClient(){
                "&nbsp;<u>Polish translation</u><br/>")+
             tr("<br/>"
                "&nbsp;Arahael<br/>"
-               "&nbsp;(for 2.0.2 and later)<br/>")
+               "&nbsp;(for 2.0.2 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>Ukrainian translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Dmytro Demenko<br/>"
+               "&nbsp;&lt;dmytro.demenko@gmail.com&gt;<br/>"
+               "&nbsp;(for 2.0.3 and later)<br/>")
             );
 
     a.exec();
