@@ -165,12 +165,12 @@
     <message>
         <location filename="../DownloadQueue.cpp" line="63"/>
         <source>Browse files</source>
-        <translation>Przeglądaj pliki</translation>
+        <translation>Pobierz listę plików</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="64"/>
         <source>Send private message</source>
-        <translation>Wyślij wiadomość prywatną(PM)</translation>
+        <translation>Wyślij wiadomość prywatną</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="69"/>
@@ -833,7 +833,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="77"/>
         <source>Browse files</source>
-        <translation>Przeglądaj pliki</translation>
+        <translation>Pobierz listę plików</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="78"/>
@@ -843,7 +843,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="79"/>
         <source>Private Message</source>
-        <translation>Wiadomość prywatna</translation>
+        <translation>Wyślij wiadomość prywatną</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="80"/>
@@ -1558,7 +1558,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="2028"/>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dla wersji 2.0.2 i późniejszych)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dla wersji 2.0.3 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2057"/>
@@ -1837,7 +1837,7 @@ Należy sprawdzić ustawienia połączeń</translation>
     <message>
         <location filename="../PMWindow.cpp" line="56"/>
         <source>Private message</source>
-        <translation>Wiadomość prywatna</translation>
+        <translation>Wyślij wiadomość prywatną</translation>
     </message>
     <message>
         <location filename="../PMWindow.cpp" line="57"/>
@@ -2244,7 +2244,7 @@ Opcje:
     <message>
         <location filename="../SearchFrame.cpp" line="59"/>
         <source>Browse files</source>
-        <translation>Przeglądaj pliki</translation>
+        <translation>Pobierz listę plików</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="62"/>
@@ -2254,7 +2254,7 @@ Opcje:
     <message>
         <location filename="../SearchFrame.cpp" line="65"/>
         <source>Send Private Message</source>
-        <translation>Wyślij wiadomość prywatną(PM)</translation>
+        <translation>Wyślij wiadomość prywatną</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="68"/>
@@ -3022,7 +3022,7 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../TransferView.cpp" line="32"/>
         <source>Browse files</source>
-        <translation>Przeglądaj pliki</translation>
+        <translation>Pobierz listę plików</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="35"/>
@@ -3032,7 +3032,7 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../TransferView.cpp" line="38"/>
         <source>Send Private Message</source>
-        <translation>Wyślij wiadomość prywatną(PM)</translation>
+        <translation>Wyślij wiadomość prywatną</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="41"/>
@@ -3065,7 +3065,7 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../TransferViewModel.cpp" line="39"/>
         <source>Users</source>
-        <translation>Użytkowników</translation>
+        <translation>Użytkownicy</translation>
     </message>
     <message>
         <location filename="../TransferViewModel.cpp" line="39"/>
@@ -4834,7 +4834,7 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsNotification.ui" line="56"/>
         <location filename="../ui/UISettingsNotification.ui" line="219"/>
         <source>Private message</source>
-        <translation>Wiadomość prywatna</translation>
+        <translation>Wyślij wiadomość prywatną</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="63"/>
@@ -5420,7 +5420,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="56"/>
         <source>PM</source>
-        <translation>Prywatna wiadomość (PM)</translation>
+        <translation>Wiadomość prywatna</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="66"/>
