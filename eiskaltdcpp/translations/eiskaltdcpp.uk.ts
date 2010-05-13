@@ -15,23 +15,23 @@
         <location filename="../CustomFontModel.cpp" line="29"/>
         <location filename="../CustomFontModel.cpp" line="90"/>
         <source>Description</source>
-        <translation type="unfinished">Опис</translation>
+        <translation>Опис</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="29"/>
         <location filename="../CustomFontModel.cpp" line="90"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="33"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Додаток</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="34"/>
         <source>Public Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Публічний чат</translation>
     </message>
 </context>
 <context>
@@ -1542,17 +1542,17 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="2026"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Український переклад&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2028"/>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.3 й пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2057"/>
         <source>Close all</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрити все</translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;&lt;br/&gt;</source>
@@ -4734,7 +4734,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="497"/>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="223"/>
