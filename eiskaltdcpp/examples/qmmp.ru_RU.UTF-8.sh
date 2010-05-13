@@ -6,7 +6,7 @@
 ## License: Public Domain
 
 ## Depends: sh, qmmp
-## Notes: в qmmp должен быть включен модуль MPRIS в qmmp.
+## Notes: MPRIS plugin must be enabled in qmmp settings
 
 ## Examples:
 # output in console:
