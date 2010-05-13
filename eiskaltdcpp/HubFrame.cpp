@@ -2352,17 +2352,21 @@ void HubFrame::slotShellFinished(bool ok, QString output){
         PMWindow *pm = qobject_cast<PMWindow *>(sender()->parent());
 
         int pos = 0;
-        QRegExp rx("(\\$magnet:('[^']+'|\\S+))");
+        QRegExp rx("(<magnet(?:\\s+show=([^>]+))?>(.+)</magnet>)");
+        rx.setMinimal(true);
         while ((pos = output.indexOf(rx, pos)) >= 0) {
-            QFileInfo fi(rx.cap(2).replace("'", ""));
+            QFileInfo fi(rx.cap(3));
             if (fi.isDir() || !fi.exists()) {
                 pos++;
                 continue;
             }
+            QString name = fi.fileName();
+            if (!rx.cap(2).isEmpty())
+                name = rx.cap(2);
 
             const TTHValue *tth = HashManager::getInstance()->getFileTTHif(fi.absoluteFilePath().toStdString());
             if (tth != NULL) {
-                QString urlStr = WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32()));
+                QString urlStr = WulforUtil::getInstance()->makeMagnet(name, fi.size(), _q(tth->toBase32()));
                 output.replace(pos, rx.cap(1).length(), urlStr);
             } else {
                 output.replace(pos, rx.cap(1).length(), tr("not shared"));
