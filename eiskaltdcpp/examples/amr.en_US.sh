@@ -28,7 +28,7 @@ then
 # You can use <magnet show=NAME_TO_SHOW>PATH_TO_FILE</magnet> or just <magnet>PATH_TO_FILE</magnet>
 # If you want to do this, uncomment 2 lines below:
 
-#	location=$(echo "$nowPlaying" | sed -ne 's/^location: file:\/\/\(.*\)$/\1/p' | sed -e's/%\([0-9A-Fa-f][0-9A-Fa-f]\)/\\\\\x\1/g' | xargs echo -e )
+#	location=$(echo "$nowPlaying" | sed -ne 's/^location: file:\/\/\(.*\)$/\1/p' | sed -e s/\'/\\\\\'/g -e 's/%\([0-9A-Fa-f][0-9A-Fa-f]\)/\\\\\x\1/g' | xargs echo -e )
 #	message="/me is listening now: $artist - $title (<magnet>$location</magnet>)"
 fi
 
