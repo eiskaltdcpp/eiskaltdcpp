@@ -23,7 +23,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Public Chat</source>
+        <source>Public Chat: Chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public Chat: Userlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Chat</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -790,6 +798,10 @@ Omiljeni korisnik</translation>
         <source> left the chat</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>not shared</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -1348,6 +1360,14 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ADLSearch</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2174,6 +2194,10 @@ Keys:
         <source>Widgets</source>
         <translation>Vidžeti</translation>
     </message>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -2926,7 +2950,11 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>Remember my choose</source>
-        <translation>Zapamti moje izabrano</translation>
+        <translation type="obsolete">Zapamti moje izabrano</translation>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

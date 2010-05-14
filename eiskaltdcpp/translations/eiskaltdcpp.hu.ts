@@ -35,7 +35,19 @@
     </message>
     <message>
         <source>Public Chat</source>
-        <translation>Publikus chat</translation>
+        <translation type="obsolete">Publikus chat</translation>
+    </message>
+    <message>
+        <source>Public Chat: Chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public Chat: Userlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Chat</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -809,6 +821,10 @@ Kedvenc felhasználó</translation>
         <source> left the chat</source>
         <translation> kilépett a hubról</translation>
     </message>
+    <message>
+        <source>not shared</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -1439,6 +1455,14 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.3 és újabb&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>Ctrl+A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2272,6 +2296,10 @@ Kapcsolók:
         <source>Widgets</source>
         <translation>Ablakok</translation>
     </message>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3020,7 +3048,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Remember my choose</source>
-        <translation>Emlékezz a választásra</translation>
+        <translation type="obsolete">Emlékezz a választásra</translation>
     </message>
     <message>
         <source>Add to queue</source>
@@ -3035,6 +3063,10 @@ p, li { white-space: pre-wrap; }
 in options, file will be downloaded without opening search dialog.</source>
         <translation>Magnetlink hozzáadása a letöltési sorhoz. Ha az alternatívák automatikus keresése
 be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a keresési ablak megnyitása nélkül.</translation>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

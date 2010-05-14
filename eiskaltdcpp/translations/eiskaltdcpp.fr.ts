@@ -23,7 +23,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Public Chat</source>
+        <source>Public Chat: Chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public Chat: Userlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Chat</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -798,6 +806,10 @@ Utilisateur favoris</translation>
         <source> left the chat</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>not shared</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -1361,6 +1373,14 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ADLSearch</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2191,6 +2211,10 @@ Clés:
         <source>Widgets</source>
         <translation>Widgets</translation>
     </message>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -2938,7 +2962,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Remember my choose</source>
-        <translation>Se souvenir du choix</translation>
+        <translation type="obsolete">Se souvenir du choix</translation>
     </message>
     <message>
         <source>Add to queue</source>
@@ -2953,6 +2977,10 @@ p, li { white-space: pre-wrap; }
 in options, file will be downloaded without opening search dialog.</source>
         <translation>Ajoute le magnet à la liste de téléchargement. Si la recherche automatique 
 de sources alternatives est activée, le fichier sera téléchargé sans ouvrir la fenêtre de recherche.</translation>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

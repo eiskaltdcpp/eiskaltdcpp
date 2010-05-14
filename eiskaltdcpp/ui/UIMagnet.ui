@@ -167,7 +167,7 @@ in options, file will be downloaded without opening search dialog.</string>
    <item>
     <widget class="QCheckBox" name="checkBox_Remember">
      <property name="text">
-      <string>Remember my choose</string>
+      <string>Remember my choice</string>
      </property>
     </widget>
    </item>
