@@ -29,7 +29,7 @@ then
 # If you want to do this, uncomment 2 lines below:
 
 #	location=$(echo "$nowPlaying" | sed -ne 's/^location: file:\/\/\(.*\)$/\1/p' | sed -e s/\'/\\\\\'/g -e 's/%\([0-9A-Fa-f][0-9A-Fa-f]\)/\\\\\x\1/g' | xargs echo -e )
-#	message="/me is listening now: $artist - $title (<magnet>$location</magnet>)"
+#	message="/me is listening now: $artist - $title ( <magnet>$location</magnet> )"
 fi
 
 echo "$message"
