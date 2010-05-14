@@ -4,8 +4,9 @@
 
 ## Author: WiseLord
 ## License: Public Domain
+## Version: 0.2
 
-## Depends: bash, amarok2
+## Depends: sh, amarok2
 
 ## Examples:
 # output in console:
@@ -13,10 +14,11 @@
 # output in eiskaltdcpp chat:
 # [17:45:03] * WiseLord is listening now: Therion - Midgård
 
-if [ -n "$(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.GetMetadata)" ]
+nowPlaying=$(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.GetMetadata 2>/dev/null)
+if [ -n "$nowPlaying" ]
 then
-	title=$(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.GetMetadata | sed -e '/^title/ !d' -e s/'title: '//)
-	artist=$(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.GetMetadata | sed -e '/^artist/ !d' -e s/'artist: '//)
+	title=$(echo "$nowPlaying" | sed -ne 's/^title: \(.*\)$/\1/p')
+	artist=$(echo "$nowPlaying" | sed -ne 's/^artist: \(.*\)$/\1/p')
 	echo /me is listening now: $artist - $title
 else
 	echo /me is listening silence now
