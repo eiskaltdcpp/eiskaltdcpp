@@ -1,0 +1,94 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
+#ifndef ADLS_H
+#define ADLS_H
+
+#include <QWidget>
+#include <QMap>
+#include <QCloseEvent>
+
+#include "ui_UIADLSearch.h"
+#include "ui_UIADLSearchEditor.h"
+#include "ArenaWidget.h"
+#include "WulforUtil.h"
+
+#include "dcpp/stdinc.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/Singleton.h"
+
+class ADLSModel;
+class ADLSItem;
+
+using namespace dcpp;
+
+class ADLSEditor:
+        public QDialog,
+        public Ui::UIADLSEditor
+{
+    public:
+        ADLSEditor(QWidget *parent = NULL):
+                QDialog(parent)
+        {
+            setupUi(this);
+        }
+};
+
+class ADLS :
+        public QWidget,
+        private Ui::UIADLS,
+        public ArenaWidget,
+        public dcpp::Singleton<ADLS>
+{
+    Q_OBJECT
+    Q_INTERFACES(ArenaWidget)
+
+    friend class dcpp::Singleton<ADLS>;
+
+    typedef QMap<QString,QVariant> StrMap;
+public:
+    QWidget *getWidget();
+    QString getArenaTitle();
+    QString getArenaShortTitle();
+    QMenu *getMenu();
+    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSPY); }
+    ArenaWidget::Role role() const { return ArenaWidget::ADLS; }
+
+protected:
+    virtual void closeEvent(QCloseEvent *);
+
+private slots:
+    void slotContexMenu(const QPoint&);
+    void slotClicked(const QModelIndex&);
+    void slotDblClicked();
+    void slotHeaderMenu();
+
+    void slotAdd_newButtonClicked();
+    void slotChangeButtonClicked();
+    void slotRemoveButtonClicked();
+    void slotConnectButtonClicked();
+    void slotUpButtonClicked();
+    void slotDownButtonClicked();
+
+private:
+    ADLS(QWidget* = NULL);
+    virtual ~ADLS();
+
+    void load();
+    void save();
+
+    void init();
+
+    ADLSItem *getItem();
+
+    ADLSModel *model;
+
+};
+
+#endif // ADLS_H

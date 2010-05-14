@@ -183,6 +183,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsSwitchAway();
         void slotToolsAutoAway();
         void slotToolsSearch();
+        void slotToolsADLS();
         void slotToolsSettings();
         void slotToolsTransfer(bool);
         void slotPanelMenuActionClicked();
@@ -297,6 +298,7 @@ friend class dcpp::Singleton<MainWindow>;
 
         QMenu   *menuTools;
         QAction *toolsSearch;
+        QAction *toolsADLS;
         QAction *toolsTransfers;
         QAction *toolsDownloadQueue;
         QAction *toolsFinishedDownloads;

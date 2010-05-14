@@ -19,7 +19,10 @@ set (HDRS   ArenaWidget.h
             PMWindow.h
             PoolAlloc.h
             Version.h)
-set (SRCS   Antispam.cpp
+set (SRCS
+            ADLS.cpp
+            ADLSModel.cpp
+            Antispam.cpp
             AntiSpamFrame.cpp
             ArenaWidget.cpp
             ArenaWidgetContainer.cpp
@@ -77,7 +80,10 @@ set (SRCS   Antispam.cpp
             WulforSettings.cpp
             WulforUtil.cpp
             ChatEdit.cpp)
-set (MOC_HDRS Antispam.h
+set (MOC_HDRS
+            ADLS.h
+            ADLSModel.h
+            Antispam.h
             AntiSpamFrame.h
             CustomFontModel.h
             DownloadQueue.h
@@ -135,6 +141,8 @@ set (MOC_HDRS Antispam.h
             ChatEdit.h)
 set (UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui
+            ui/UIADLSearch.ui
+            ui/UIADLSearchEditor.ui
             ui/HubFrame.ui
             ui/PrivateMessage.ui
             ui/UIDownloadQueue.ui

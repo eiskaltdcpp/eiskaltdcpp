@@ -25,6 +25,7 @@ public:
         FavoriteHubs,
         FavoriteUsers,
         Search,
+        ADLS,
         PublicHubs,
         Downloads,
         FinishedUploads,

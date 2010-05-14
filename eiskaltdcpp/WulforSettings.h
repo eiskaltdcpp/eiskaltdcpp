@@ -50,6 +50,7 @@ const char * const WS_SHARE_RPANE_STATE       = "share-rpane-state";
 const char * const WS_FTRANSFERS_USERS_STATE  = "finished-u-state";
 const char * const WS_FTRANSFERS_FILES_STATE  = "finished-f-state";
 const char * const WS_FAV_HUBS_STATE          = "fav-hubs-state";
+const char * const WS_ADLS_STATE          = "adls-state";
 const char * const WS_APP_THEME               = "app-theme-name";
 const char * const WS_APP_FONT                = "app-font-name";
 const char * const WS_NOTIFY_SOUNDS           = "notify-sound-files";

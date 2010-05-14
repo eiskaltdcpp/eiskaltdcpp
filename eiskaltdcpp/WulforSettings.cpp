@@ -68,6 +68,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_FTRANSFERS_FILES_STATE,"");
         strmap.insert(WS_FTRANSFERS_USERS_STATE,"");
         strmap.insert(WS_FAV_HUBS_STATE,        "");
+        strmap.insert(WS_ADLS_STATE,        "");
         strmap.insert(WS_APP_THEME,             "");
         strmap.insert(WS_APP_FONT,              "");
         strmap.insert(WS_APP_ICONTHEME,         "default");
