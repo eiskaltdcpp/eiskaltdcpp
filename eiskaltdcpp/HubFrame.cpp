@@ -2682,7 +2682,7 @@ void HubFrame::slotHubMenu(QAction *res){
         QString cmd_name = res->statusTip();
         QString hub = res->data().toString();
 
-        int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), client->getHubUrl());
+        int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
         UserCommand uc;
 
         if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))

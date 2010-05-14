@@ -769,12 +769,8 @@ void WulforUtil::splitMagnet(const QString &magnet, int64_t &size, QString &tth,
     if (url.hasQueryItem("xl"))
         size = url.queryItemValue("xl").toLongLong();
 
-    if (url.hasQueryItem("xt")){
-        tth = url.queryItemValue("xt");
-
-        if (tth.startsWith("urn:tree:tiger:"))
-            tth.remove(0, strlen("urn:tree:tiger:"));
-    }
+    if (url.hasQueryItem("xt"))
+        tth = magnet.mid(magnet.indexOf("urn:tree:tiger:") + 15, 39);
 }
 
 int WulforUtil::sortOrderToInt(Qt::SortOrder order){
