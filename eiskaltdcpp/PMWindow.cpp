@@ -43,9 +43,6 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
 
     textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     textEdit_CHAT->setTabStopWidth(40);
-    textEdit_CHAT->document()->setDefaultStyleSheet(
-            QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
-            .arg(QApplication::font().family()));
 
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
