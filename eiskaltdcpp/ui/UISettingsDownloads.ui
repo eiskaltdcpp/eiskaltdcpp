@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
-    <height>426</height>
+    <width>538</width>
+    <height>424</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -798,6 +798,14 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</string>
+             </property>
+             <property name="checkState">
+              <enum>Checked</enum>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Keep downloaded filelists</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
