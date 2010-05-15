@@ -118,10 +118,11 @@ protected:
     virtual void on(dcpp::QueueManagerListener::SourcesUpdated, dcpp::QueueItem *item) throw();
     virtual void on(dcpp::QueueManagerListener::StatusUpdated, dcpp::QueueItem *item) throw();
 
-private slots:
+private Q_SLOTS:
     void slotContextMenu(const QPoint&);
     void slotCollapseRow(const QModelIndex &);
     void slotHeaderMenu(const QPoint&);
+    void slotUpdateStats(quint64 files, quint64 size);
 
 private:
     DownloadQueue(QWidget* = NULL);

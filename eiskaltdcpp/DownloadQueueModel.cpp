@@ -47,7 +47,7 @@ static inline void printRoot(DownloadQueueItem *i, const QString &dlmtr){
 #endif
 
 DownloadQueueModel::DownloadQueueModel(QObject *parent)
-    : QAbstractItemModel(parent), iconsScaled(false)
+    : QAbstractItemModel(parent), iconsScaled(false), total_files(0), total_size(0)
 {
     QList<QVariant> rootData;
     rootData << tr("Name") << tr("Status") << tr("Size") << tr("Downloaded")
@@ -353,6 +353,11 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
         emit needExpand(stack.pop());
     }
 
+    total_files++;
+    total_size += childData.at(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
+
+    emit updateStats(total_files, total_size);
+
     repaint();
 
     return child;
@@ -369,6 +374,8 @@ void DownloadQueueModel::updItem(const QMap<QString, QVariant> &map){
 
     item = target;
 
+    total_size -= item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
+
     item->updateColumn(COLUMN_DOWNLOADQUEUE_STATUS, map["STATUS"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_DOWN, (map["DOWN"].toLongLong() > 0? map["DOWN"] : 0));
     item->updateColumn(COLUMN_DOWNLOADQUEUE_ESIZE, map["ESIZE"].toULongLong() > 0? map["ESIZE"] : 0);
@@ -376,6 +383,11 @@ void DownloadQueueModel::updItem(const QMap<QString, QVariant> &map){
     item->updateColumn(COLUMN_DOWNLOADQUEUE_PRIO, map["PRIO"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_USER, map["USERS"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_ERR, map["ERRORS"]);
+
+    total_size += item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
+
+    emit updateStats(total_files, total_size);
+    emit layoutChanged();
 }
 
 bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
@@ -389,6 +401,9 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
 
     if (!target)
         return false;
+
+    total_size -= target->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
+    total_files--;
 
     if (item->childCount() > 1){
         beginRemoveRows(createIndexForItem(item), target->row(), target->row());
@@ -426,6 +441,8 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
             delete _t;
         }
     }
+
+    emit updateStats(total_files, total_size);
 
     return true;
 }

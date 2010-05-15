@@ -259,10 +259,13 @@ void DownloadQueue::init(){
     treeView_TARGET->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_TARGET->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    label_STATS->hide();
+
     connect(treeView_TARGET, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_TARGET->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(queue_model, SIGNAL(needExpand(QModelIndex)), treeView_TARGET, SLOT(expand(QModelIndex)));
     connect(queue_model, SIGNAL(rowRemoved(QModelIndex)), this, SLOT(slotCollapseRow(QModelIndex)));
+    connect(queue_model, SIGNAL(updateStats(quint64,quint64)), this, SLOT(slotUpdateStats(quint64,quint64)));
 
     menu = new Menu();
 
@@ -621,6 +624,19 @@ void DownloadQueue::slotCollapseRow(const QModelIndex &row){
 
 void DownloadQueue::slotHeaderMenu(const QPoint&){
     WulforUtil::headerMenu(treeView_TARGET);
+}
+
+void DownloadQueue::slotUpdateStats(quint64 files, quint64 size){
+    if (size < 0)
+        size = 0;
+
+    if (files == size && size == 0)
+        label_STATS->hide();
+
+    if (label_STATS->isHidden())
+        label_STATS->show();
+
+    label_STATS->setText(QString("Total files: <b>%1</b> Total size: <b>%2</b>").arg(files).arg(WulforUtil::formatBytes(size)));
 }
 
 void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw(){

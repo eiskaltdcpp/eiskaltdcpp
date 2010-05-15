@@ -134,8 +134,14 @@ public Q_SLOTS:
 Q_SIGNALS:
     void rowRemoved(const QModelIndex &parent);
     void needExpand(const QModelIndex &item);
+    void updateStats(quint64 files, quint64 size);
 
 private:
+    /** */
+    quint64 total_files;
+    /** */
+    quint64 total_size;
+    /** */
     DownloadQueueItem *findTarget(const DownloadQueueItem*, const QString&);
     /** */
     int sortColumn;
