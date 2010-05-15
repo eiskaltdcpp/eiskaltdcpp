@@ -278,6 +278,8 @@ private:
 
     void findText(QTextDocument::FindFlags );
 
+    void updateStyles();
+
     /** Extracts data from user identity */
     void getParams(UserMap &, const Identity &);
     inline void on_userUpdated(const VarMap&, const UserPtr&, bool) __attribute__((always_inline));

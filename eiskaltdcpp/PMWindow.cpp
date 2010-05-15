@@ -44,27 +44,13 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     textEdit_CHAT->setTabStopWidth(40);
 
+    updateStyles();
+
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
 
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
     toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
-
-    QString custom_font_desc = WSGET(WS_CHAT_PM_FONT);
-    QFont custom_font;
-
-    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc)){
-        textEdit_CHAT->document()->setDefaultStyleSheet(
-                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1'; font-size: %2pt; }")
-                                                        .arg(custom_font.family()).arg(custom_font.pointSize())
-                                                       );
-    }
-    else {
-        textEdit_CHAT->document()->setDefaultStyleSheet(
-                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
-                                                        .arg(QApplication::font().family())
-                                                       );
-    }
 
     arena_menu = new QMenu(tr("Private message"));
     QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
@@ -223,12 +209,28 @@ void PMWindow::clearChat(){
     textEdit_CHAT->setHtml("");
     addStatus(tr("Chat cleared."));
 
-    textEdit_CHAT->document()->setDefaultStyleSheet(
-            QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
-            .arg(QApplication::font().family()));
+    updateStyles();
 
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
+}
+
+void PMWindow::updateStyles(){
+    QString custom_font_desc = WSGET(WS_CHAT_PM_FONT);
+    QFont custom_font;
+
+    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc)){
+        textEdit_CHAT->document()->setDefaultStyleSheet(
+                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1'; font-size: %2pt; }")
+                                                        .arg(custom_font.family()).arg(custom_font.pointSize())
+                                                       );
+    }
+    else {
+        textEdit_CHAT->document()->setDefaultStyleSheet(
+                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
+                                                        .arg(QApplication::font().family())
+                                                       );
+    }
 }
 
 void PMWindow::addStatusMessage(QString msg){
@@ -389,11 +391,8 @@ void PMWindow::slotSmile(){
 }
 
 void PMWindow::slotFontChanged(const QString &key, const QString &value){
-    QFont f;
-    if (key == WS_CHAT_PM_FONT && f.fromString(value)){
-        textEdit_CHAT->document()->setDefaultStyleSheet(
-                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1'; font-size: %2pt; }")
-                                                        .arg(f.family()).arg(f.pointSize())
-                                                       );
-    }
+    Q_UNUSED(value);
+
+    if (key == WS_CHAT_PM_FONT)
+        updateStyles();
 }

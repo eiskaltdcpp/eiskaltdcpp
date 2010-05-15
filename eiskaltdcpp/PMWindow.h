@@ -77,6 +77,8 @@ private:
     void addStatusMessage(QString);
     void addOutput(QString);
 
+    void updateStyles();
+
     bool hasMessages;
     bool hasHighlightMessages;
 

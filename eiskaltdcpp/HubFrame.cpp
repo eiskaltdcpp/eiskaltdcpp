@@ -852,27 +852,6 @@ void HubFrame::init(){
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
     toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
 
-    QString custom_font_desc = WSGET(WS_CHAT_FONT);
-    QFont custom_font;
-
-    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc)){
-        textEdit_CHAT->document()->setDefaultStyleSheet(
-                QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1'; font-size: %2pt; }")
-                                                        .arg(custom_font.family()).arg(custom_font.pointSize())
-                                                       );
-    }
-    else {
-        textEdit_CHAT->document()->setDefaultStyleSheet(
-                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
-                                                        .arg(QApplication::font().family())
-                                                       );
-    }
-
-    custom_font_desc = WSGET(WS_CHAT_ULIST_FONT);
-
-    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc))
-        treeView_USERS->setFont(custom_font);
-
     connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
@@ -901,6 +880,7 @@ void HubFrame::init(){
 
     textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     textEdit_CHAT->setTabStopWidth(40);
+    updateStyles();
 
     load();
 
@@ -1041,9 +1021,7 @@ void HubFrame::clearChat(){
     textEdit_CHAT->setHtml("");
     addStatus(tr("Chat cleared."));
 
-    textEdit_CHAT->document()->setDefaultStyleSheet(
-            QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
-            .arg(QApplication::font().family()));
+    updateStyles();
 
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
@@ -1882,6 +1860,29 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
     slotFindAll();
 }
 
+void HubFrame::updateStyles(){
+    QString custom_font_desc = WSGET(WS_CHAT_FONT);
+    QFont custom_font;
+
+    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc)){
+        textEdit_CHAT->document()->setDefaultStyleSheet(
+                QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1'; font-size: %2pt; }")
+                                                        .arg(custom_font.family()).arg(custom_font.pointSize())
+                                                       );
+    }
+    else {
+        textEdit_CHAT->document()->setDefaultStyleSheet(
+                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
+                                                        .arg(QApplication::font().family())
+                                                       );
+    }
+
+    custom_font_desc = WSGET(WS_CHAT_ULIST_FONT);
+
+    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc))
+        treeView_USERS->setFont(custom_font);
+}
+
 void HubFrame::slotActivate(){
     plainTextEdit_INPUT->setFocus();
 }
@@ -2708,15 +2709,10 @@ void HubFrame::slotHubMenu(QAction *res){
 }
 
 void HubFrame::slotFontChanged(const QString &key, const QString &value){
-    QFont f;
-    if (key == WS_CHAT_FONT && f.fromString(value)){
-        textEdit_CHAT->document()->setDefaultStyleSheet(
-                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1'; font-size: %2pt; }")
-                                                        .arg(f.family()).arg(f.pointSize())
-                                                       );
-    }
-    else if (key == WS_CHAT_ULIST_FONT && f.fromString(value))
-        treeView_USERS->setFont(f);
+    Q_UNUSED(value);
+
+    if (key == WS_CHAT_FONT || key == WS_CHAT_ULIST_FONT)
+        updateStyles();
 }
 
 void HubFrame::on(FavoriteManagerListener::UserAdded, const FavoriteUser& aUser) throw() {
