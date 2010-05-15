@@ -855,8 +855,18 @@ void HubFrame::init(){
     QString custom_font_desc = WSGET(WS_CHAT_FONT);
     QFont custom_font;
 
-    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc))
-        textEdit_CHAT->setFont(custom_font);
+    if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc)){
+        textEdit_CHAT->document()->setDefaultStyleSheet(
+                QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1'; font-size: %2pt; }")
+                                                        .arg(custom_font.family()).arg(custom_font.pointSize())
+                                                       );
+    }
+    else {
+        textEdit_CHAT->document()->setDefaultStyleSheet(
+                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
+                                                        .arg(QApplication::font().family())
+                                                       );
+    }
 
     custom_font_desc = WSGET(WS_CHAT_ULIST_FONT);
 
@@ -891,9 +901,6 @@ void HubFrame::init(){
 
     textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     textEdit_CHAT->setTabStopWidth(40);
-    textEdit_CHAT->document()->setDefaultStyleSheet(
-            QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1' }")
-            .arg(QApplication::font().family()));
 
     load();
 
@@ -2702,8 +2709,12 @@ void HubFrame::slotHubMenu(QAction *res){
 
 void HubFrame::slotFontChanged(const QString &key, const QString &value){
     QFont f;
-    if (key == WS_CHAT_FONT && f.fromString(value))
-        textEdit_CHAT->setFont(f);
+    if (key == WS_CHAT_FONT && f.fromString(value)){
+        textEdit_CHAT->document()->setDefaultStyleSheet(
+                                                        QString("pre { margin:0px; white-space:pre-wrap; font-family:'%1'; font-size: %2pt; }")
+                                                        .arg(f.family()).arg(f.pointSize())
+                                                       );
+    }
     else if (key == WS_CHAT_ULIST_FONT && f.fromString(value))
         treeView_USERS->setFont(f);
 }
