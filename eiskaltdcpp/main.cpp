@@ -45,10 +45,7 @@ void parseCmdLine(const QStringList &);
 void installHandlers();
 
 #ifdef FORCE_XDG
-#include <boost/filesystem.hpp>
-#include <boost/filesystem/path.hpp>
-#include <boost/filesystem/operations.hpp>
-
+#include <QTextStream>
 void migrateConfig();
 #endif
 
@@ -197,41 +194,39 @@ void installHandlers(){
 
 #endif
 
-#ifdef FORCE_XDG
+//#ifdef FORCE_XDG
 
-void copy_directory( const boost::filesystem::path &from_dir_ph, const boost::filesystem::path &to_dir_ph)
-{
-    if(!boost::filesystem::exists(from_dir_ph) || !boost::filesystem::is_directory(from_dir_ph) || boost::filesystem::exists(to_dir_ph))
+void copy(const QDir &from, const QDir &to){
+    if (!from.exists() || to.exists())
         return;
 
-    struct stat from_stat;
+    QString to_path = to.absolutePath();
+    QString from_path = from.absolutePath();
 
-    if ( (::stat( from_dir_ph.string().c_str(), &from_stat ) != 0) || (::mkdir(to_dir_ph.native_directory_string().c_str(), from_stat.st_mode)!=0))
-        throw std::exception();
-}
+    if (!to_path.endsWith(QDir::separator()))
+        to_path += QDir::separator();
 
-void copy( const boost::filesystem::path & from_ph, const boost::filesystem::path & to_ph ) {
-    if((boost::filesystem::exists(to_ph) && !boost::filesystem::is_directory(to_ph)) || (!boost::filesystem::exists(from_ph)))
-        return;
+    if (!from_path.endsWith(QDir::separator()))
+        from_path += QDir::separator();
 
-    if(!boost::filesystem::is_directory(from_ph)) {
-        if(boost::filesystem::exists(to_ph))
-            boost::filesystem::copy_file(from_ph,to_ph/from_ph.leaf());
-        else
-            boost::filesystem::copy_file(from_ph,to_ph);
+    foreach (QString s, from.entryList(QDir::Dirs)){
+        QDir new_dir(to_path+s);
+
+        if (new_dir.exists())
+            continue;
+        else{
+            if (!new_dir.mkpath(new_dir.absolutePath()))
+                continue;
+
+            copy(QDir(from_path+s), new_dir);
+        }
     }
-    else {
-        boost::filesystem::path destination;
 
-        if(!boost::filesystem::exists(to_ph))
-            destination=to_ph;
-        else
-            destination=to_ph/from_ph.leaf();
+    foreach (QString f, from.entryList(QDir::Files)){
+        QFile orig(from_path+f);
 
-        copy_directory(from_ph,destination);
-
-        for(boost::filesystem::directory_iterator i(from_ph); i!=boost::filesystem::directory_iterator(); ++i)
-            copy(*i,destination/i->leaf());
+        if (!orig.copy(to_path+f))
+            continue;
     }
 }
 
@@ -249,12 +244,46 @@ void migrateConfig(){
 
     try{
         printf("Migrating to XDG paths...\n");
-        copy(boost::filesystem::path(old_config), boost::filesystem::path(new_config));
+
+        copy(QDir(old_config.c_str()), QDir(new_config.c_str()));
+
+        QFile orig(old_config.c_str()+QString("DCPlusPlus.xml"));
+        QFile new_file(old_config.c_str()+QString("DCPlusPlus.xml.new"));
+
+        if (!(orig.open(QIODevice::ReadOnly | QIODevice::Text) && new_file.open(QIODevice::WriteOnly | QIODevice::Text))){
+            orig.close();
+            new_file.close();
+
+            printf("Migration failed.\n");
+
+            return;
+        }
+
+        QTextStream rstream(&orig);
+        QTextStream wstream(&new_file);
+
+        QString line = "";
+        while (!rstream.atEnd()){
+            line = rstream.readLine();
+
+            line.replace(old_config.c_str(), new_config.c_str());
+
+            wstream << line;
+        }
+
+        wstream.flush();
+
+        orig.close();
+        new_file.close();
+
+        orig.remove();
+        new_file.rename(orig.fileName());
+
         printf("Ok. Migrated.\n");
     }
     catch(const std::exception&){
         printf("Migration failed.\n");
     }
 }
-#endif
+//#endif
 
