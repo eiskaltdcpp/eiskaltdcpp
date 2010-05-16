@@ -60,7 +60,7 @@ bool LineEdit::eventFilter(QObject *obj, QEvent *e){
             if (!menu)
                 clear();
             else{
-                QAction *act = menu->exec(label->mapToGlobal(QPoint(label->x(), label->y()+label->height())));
+                QAction *act = menu->exec(QCursor::pos());
 
                 if (act && role == InsertText)
                     setText(act->text());

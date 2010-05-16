@@ -1576,10 +1576,11 @@ void MainWindow::slotFileOpenLogFile(){
 }
 
 void MainWindow::slotFileOpenDownloadDirectory(){
-    QString dir = QString::fromStdString(SETTING(DOWNLOAD_DIRECTORY));
+    QString directory = QString::fromStdString(SETTING(DOWNLOAD_DIRECTORY));
 
-    if (!dir.isEmpty())
-        QDesktopServices::openUrl(dir);
+    directory.prepend( directory.startsWith("/")? ("file://") : ("file:///"));
+
+    QDesktopServices::openUrl(QUrl::fromEncoded(directory.toUtf8()));
 }
 
 void MainWindow::slotFileBrowseOwnFilelist(){
