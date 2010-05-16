@@ -39,15 +39,15 @@
     </message>
     <message>
         <source>Public Chat: Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Publikus Chat: Chat</translation>
     </message>
     <message>
         <source>Public Chat: Userlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Publikus Chat: Felhasználói lista</translation>
     </message>
     <message>
         <source>Private Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Privát Chat</translation>
     </message>
 </context>
 <context>
@@ -823,7 +823,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>not shared</source>
-        <translation type="unfinished"></translation>
+        <translation>nincs megosztva</translation>
     </message>
 </context>
 <context>
@@ -1458,11 +1458,11 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+A</translation>
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>ADL-Keresés</translation>
     </message>
 </context>
 <context>
@@ -2298,7 +2298,7 @@ Kapcsolók:
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>ADL-Keresés</translation>
     </message>
 </context>
 <context>
@@ -3066,7 +3066,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"></translation>
+        <translation>Emlékezz a választásomra</translation>
     </message>
 </context>
 <context>
@@ -3718,7 +3718,7 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
     </message>
     <message>
         <source>Keep downloaded filelists</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltött fájl-listák megtartása</translation>
     </message>
 </context>
 <context>
