@@ -74,6 +74,9 @@ QVariant SideBarModel::data(const QModelIndex &index, int role) const
                 return item->getWidget()->getArenaShortTitle();
         }
         case Qt::TextAlignmentRole:
+        {
+            return static_cast<uint>(Qt::AlignLeft | Qt::AlignVCenter);
+        }
         case Qt::ForegroundRole:
         case Qt::BackgroundColorRole:
         case Qt::ToolTipRole:
@@ -373,8 +376,8 @@ QSize SideBarDelegate::sizeHint(const QStyleOptionViewItem &option, const QModel
         return qvariant_cast<QSize>(value);
 
     static const int MARGIN = 1;
-    static const int PXHEIGHT = 16;
-    static const int HEIGHT = PXHEIGHT+MARGIN*2;
+    static const int PXHEIGHT = option.fontMetrics.height();
+    static const int HEIGHT = PXHEIGHT+MARGIN*4;
 
     return QSize( 200, HEIGHT );
 }

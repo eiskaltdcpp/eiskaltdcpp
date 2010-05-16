@@ -362,14 +362,8 @@ void TransferViewModel::updateTransfer(VarMap params){
             rootItem->appendChild(item);
     }
 
-    if (item->parent() != rootItem && rootItem->childItems.contains(item->parent())){
-        if (params.contains("FPOS"))
-            item->parent()->dpos = vlng(params["FPOS"]);
-
-        updateParent(item->parent());
-    }
-
-    emit layoutChanged();
+    if (item->parent() != rootItem && rootItem->childItems.contains(item->parent()) && params.contains("FPOS"))
+        item->parent()->dpos = vlng(params["FPOS"]);
 }
 
 void TransferViewModel::removeTransfer(VarMap params){
@@ -479,6 +473,13 @@ void TransferViewModel::moveTransfer(TransferViewItem *item, TransferViewItem *f
         to->appendChild(item);
     }
     endInsertColumns();
+}
+
+void TransferViewModel::updateParents(){
+    foreach(TransferViewItem *i, rootItem->childItems)
+        updateParent(i);
+
+    emit layoutChanged();
 }
 
 void TransferViewModel::updateParent(TransferViewItem *p){

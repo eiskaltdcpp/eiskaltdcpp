@@ -110,6 +110,8 @@ public:
     void updateTransferPos(VarMap, qint64);
     /** */
     void finishParent(VarMap);
+    /** */
+    void updateParents();
 
     /** */
     bool findTransfer(const QString &, bool, TransferViewItem**);
