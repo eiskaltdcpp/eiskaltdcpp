@@ -31,17 +31,17 @@
     <message>
         <location filename="../CustomFontModel.cpp" line="34"/>
         <source>Public Chat: Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Публічний чат: Чат</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="35"/>
         <source>Public Chat: Userlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Публічний чат: Список користувачів</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="36"/>
         <source>Private Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Приватний чат</translation>
     </message>
     <message>
         <source>Public Chat</source>
@@ -1004,7 +1004,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="2380"/>
         <source>not shared</source>
-        <translation type="unfinished"></translation>
+        <translation>не розшарено</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2649"/>
@@ -1382,7 +1382,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="995"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>ADLS-пошук</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="997"/>
@@ -1696,7 +1696,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="562"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+A</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="983"/>
@@ -2839,7 +2839,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../SideBar.cpp" line="30"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>ADLS-пошук</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="31"/>
@@ -3811,7 +3811,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIMagnet.ui" line="170"/>
         <source>Remember my choice</source>
-        <translation type="unfinished"></translation>
+        <translation>Запам&apos;ятати мій вибір</translation>
     </message>
     <message>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled in options, file will be downloaded without opening search dialog.</source>
@@ -4598,7 +4598,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="808"/>
         <source>Keep downloaded filelists</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберігати завантажені списки файлів</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="844"/>
