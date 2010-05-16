@@ -247,8 +247,8 @@ void migrateConfig(){
 
         copy(QDir(old_config.c_str()), QDir(new_config.c_str()));
 
-        QFile orig(old_config.c_str()+QString("DCPlusPlus.xml"));
-        QFile new_file(old_config.c_str()+QString("DCPlusPlus.xml.new"));
+        QFile orig(new_config.c_str()+QString("DCPlusPlus.xml"));
+        QFile new_file(new_config.c_str()+QString("DCPlusPlus.xml.new"));
 
         if (!(orig.open(QIODevice::ReadOnly | QIODevice::Text) && new_file.open(QIODevice::WriteOnly | QIODevice::Text))){
             orig.close();
@@ -268,7 +268,7 @@ void migrateConfig(){
 
             line.replace(old_config.c_str(), new_config.c_str());
 
-            wstream << line;
+            wstream << line << "\n";
         }
 
         wstream.flush();
