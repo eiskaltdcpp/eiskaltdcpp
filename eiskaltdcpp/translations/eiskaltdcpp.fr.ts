@@ -3586,6 +3586,10 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
         <source>Interval for auto search alternates (minutes)</source>
         <translation>Intervalle pour la recherche automatique de sources supplémentaires (minutes)</translation>
     </message>
+    <message>
+        <source>Keep downloaded filelists</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>

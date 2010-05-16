@@ -3716,6 +3716,10 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
 Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források automatikus eldobása a sor minden elemében (fájl-listák kivételével)&quot;
 és a &quot;Lassú fájl-listák eltávolítása&quot; beállítások közül az egyiknek (vagy mindkettőnek) engedélyezve kell lennie.</translation>
     </message>
+    <message>
+        <source>Keep downloaded filelists</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>

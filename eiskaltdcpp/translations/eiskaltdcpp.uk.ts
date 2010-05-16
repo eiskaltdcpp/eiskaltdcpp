@@ -51,62 +51,62 @@
 <context>
     <name>DownloadQueue</name>
     <message>
-        <location filename="../DownloadQueue.cpp" line="324"/>
+        <location filename="../DownloadQueue.cpp" line="327"/>
         <source>No users...</source>
         <translation>Немає користувачів...</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="329"/>
+        <location filename="../DownloadQueue.cpp" line="332"/>
         <source>%1 of %2 user(s) online</source>
         <translation>%1 із %2 користувачів онлайн</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="331"/>
+        <location filename="../DownloadQueue.cpp" line="334"/>
         <source>Running...</source>
         <translation>Виконується...</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="357"/>
+        <location filename="../DownloadQueue.cpp" line="360"/>
         <source>File not available</source>
         <translation>Файл не доступний</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="359"/>
+        <location filename="../DownloadQueue.cpp" line="362"/>
         <source>Passive user</source>
         <translation>Пасивний користувач</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="361"/>
+        <location filename="../DownloadQueue.cpp" line="364"/>
         <source>CRC32 inconsistency (SFV-Check)</source>
         <translation>Невідповідність CRC32 суми</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="363"/>
+        <location filename="../DownloadQueue.cpp" line="366"/>
         <source>Full tree does not match TTH root</source>
         <translation>Список не відповідає TTH-хешу</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="365"/>
+        <location filename="../DownloadQueue.cpp" line="368"/>
         <source>Source too slow</source>
         <translation>Джерело надто повільне</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="367"/>
+        <location filename="../DownloadQueue.cpp" line="370"/>
         <source>Remote client does not fully support TTH - cannot download</source>
         <translation>Віддалений клієнт не повністю підтримує) TTH - завантаження неможливе</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="374"/>
+        <location filename="../DownloadQueue.cpp" line="377"/>
         <source>No errors</source>
         <translation>Помилок нема</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="502"/>
+        <location filename="../DownloadQueue.cpp" line="505"/>
         <source>Choose filename</source>
         <translation>Вкажіть ім&apos;я файлу</translation>
     </message>
     <message>
-        <location filename="../DownloadQueue.cpp" line="502"/>
+        <location filename="../DownloadQueue.cpp" line="505"/>
         <source>All files (*.*)</source>
         <translation>Усі файли (*.*)</translation>
     </message>
@@ -623,74 +623,74 @@
 <context>
     <name>HubFrame</name>
     <message>
-        <location filename="../HubFrame.cpp" line="914"/>
+        <location filename="../HubFrame.cpp" line="901"/>
         <source>Hub menu</source>
         <translation>Меню хаба</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="916"/>
+        <location filename="../HubFrame.cpp" line="903"/>
         <source>Reconnect</source>
         <translation>Перепідключитися</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="920"/>
+        <location filename="../HubFrame.cpp" line="907"/>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="988"/>
-        <location filename="../HubFrame.cpp" line="1006"/>
+        <location filename="../HubFrame.cpp" line="975"/>
+        <location filename="../HubFrame.cpp" line="993"/>
         <source>Not connected</source>
         <translation>Не підключено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1138"/>
-        <location filename="../HubFrame.cpp" line="1140"/>
-        <location filename="../HubFrame.cpp" line="1253"/>
-        <location filename="../HubFrame.cpp" line="1255"/>
+        <location filename="../HubFrame.cpp" line="1123"/>
+        <location filename="../HubFrame.cpp" line="1125"/>
+        <location filename="../HubFrame.cpp" line="1238"/>
+        <location filename="../HubFrame.cpp" line="1240"/>
         <source>Away mode off</source>
         <translation>Режим відсутності вимкнено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1152"/>
-        <location filename="../HubFrame.cpp" line="1154"/>
+        <location filename="../HubFrame.cpp" line="1137"/>
+        <location filename="../HubFrame.cpp" line="1139"/>
         <source>Away mode on: </source>
         <translation>Режим відсутності увімкнено: </translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1172"/>
-        <location filename="../HubFrame.cpp" line="1174"/>
+        <location filename="../HubFrame.cpp" line="1157"/>
+        <location filename="../HubFrame.cpp" line="1159"/>
         <source>Aliases not found.</source>
         <translation>Псевдоніми не знайдені.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1194"/>
-        <location filename="../HubFrame.cpp" line="1196"/>
+        <location filename="../HubFrame.cpp" line="1179"/>
+        <location filename="../HubFrame.cpp" line="1181"/>
         <source>Alias removed.</source>
         <translation>Псевдонім видалено.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1207"/>
-        <location filename="../HubFrame.cpp" line="1209"/>
-        <location filename="../HubFrame.cpp" line="1216"/>
-        <location filename="../HubFrame.cpp" line="1218"/>
+        <location filename="../HubFrame.cpp" line="1192"/>
+        <location filename="../HubFrame.cpp" line="1194"/>
+        <location filename="../HubFrame.cpp" line="1201"/>
+        <location filename="../HubFrame.cpp" line="1203"/>
         <source>Invalid alias syntax.</source>
         <translation>Неправильний синтаксис для псевдоніму.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1226"/>
-        <location filename="../HubFrame.cpp" line="1228"/>
+        <location filename="../HubFrame.cpp" line="1211"/>
+        <location filename="../HubFrame.cpp" line="1213"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Псевдонім %1 =&gt; %2 був доданий</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1261"/>
-        <location filename="../HubFrame.cpp" line="1263"/>
+        <location filename="../HubFrame.cpp" line="1246"/>
+        <location filename="../HubFrame.cpp" line="1248"/>
         <source>Chat has been cleared</source>
         <translation>Чат очищено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1075"/>
+        <location filename="../HubFrame.cpp" line="1060"/>
         <source>Hub role: Operator</source>
         <translation>Роль на хабі: Оператор</translation>
     </message>
@@ -704,48 +704,48 @@
         <translation type="obsolete">Команды</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1077"/>
+        <location filename="../HubFrame.cpp" line="1062"/>
         <source>Hub role: User</source>
         <translation>Роль на хабі: Користувач</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1080"/>
+        <location filename="../HubFrame.cpp" line="1065"/>
         <source>
 Favorite user</source>
         <translation>
 Обраний користувач</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1244"/>
-        <location filename="../HubFrame.cpp" line="1246"/>
+        <location filename="../HubFrame.cpp" line="1229"/>
+        <location filename="../HubFrame.cpp" line="1231"/>
         <source>Aspell switched %1</source>
         <translation>Aspell %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1244"/>
-        <location filename="../HubFrame.cpp" line="1246"/>
+        <location filename="../HubFrame.cpp" line="1229"/>
+        <location filename="../HubFrame.cpp" line="1231"/>
         <source>on</source>
         <translation>увімкнено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1244"/>
-        <location filename="../HubFrame.cpp" line="1246"/>
+        <location filename="../HubFrame.cpp" line="1229"/>
+        <location filename="../HubFrame.cpp" line="1231"/>
         <source>off</source>
         <translation>вимкнено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1525"/>
+        <location filename="../HubFrame.cpp" line="1510"/>
         <source> joins the chat</source>
         <translation> входить у чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1574"/>
-        <location filename="../HubFrame.cpp" line="1586"/>
+        <location filename="../HubFrame.cpp" line="1559"/>
+        <location filename="../HubFrame.cpp" line="1571"/>
         <source>User not found</source>
         <translation>Користувача не знайдено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1593"/>
+        <location filename="../HubFrame.cpp" line="1578"/>
         <source>Slot granted to </source>
         <translation>Слот віддано </translation>
     </message>
@@ -754,17 +754,17 @@ Favorite user</source>
         <translation type="obsolete">Пользователь не найден.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1650"/>
+        <location filename="../HubFrame.cpp" line="1635"/>
         <source> has been added to favorites.</source>
         <translation> був доданий до обраних.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1650"/>
+        <location filename="../HubFrame.cpp" line="1635"/>
         <source> has been removed from favorites.</source>
         <translation> був видалений з обраних.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1789"/>
+        <location filename="../HubFrame.cpp" line="1774"/>
         <source>User offline.</source>
         <translation>Користувач не в мережі.</translation>
     </message>
@@ -773,48 +773,48 @@ Favorite user</source>
         <translation type="obsolete">Введіть пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1824"/>
+        <location filename="../HubFrame.cpp" line="1809"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1883"/>
+        <location filename="../HubFrame.cpp" line="1891"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Користувачів: %1 | Загальна шара: %2</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1035"/>
+        <location filename="../HubFrame.cpp" line="1022"/>
         <source>Chat cleared.</source>
         <translation>Чат очищено.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1047"/>
+        <location filename="../HubFrame.cpp" line="1032"/>
         <source>Chat disabled.</source>
         <translation>Чат відключено.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1054"/>
+        <location filename="../HubFrame.cpp" line="1039"/>
         <source>Chat enabled.</source>
         <translation>Чат включено.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1681"/>
+        <location filename="../HubFrame.cpp" line="1666"/>
         <source>Favorite hub added.</source>
         <translation>Хаб доданий до обраних.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1684"/>
+        <location filename="../HubFrame.cpp" line="1669"/>
         <source>Favorite hub already exists.</source>
         <translation>Хаб вже є в обраних.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1838"/>
-        <location filename="../HubFrame.cpp" line="2784"/>
+        <location filename="../HubFrame.cpp" line="1823"/>
+        <location filename="../HubFrame.cpp" line="2791"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Отримано запит перенаправлення до вже підключеного хабу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1821"/>
+        <location filename="../HubFrame.cpp" line="1806"/>
         <source>Stored password sent...</source>
         <translation>Відправлено збережений пароль...</translation>
     </message>
@@ -930,7 +930,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="734"/>
-        <location filename="../HubFrame.cpp" line="1537"/>
+        <location filename="../HubFrame.cpp" line="1522"/>
         <source>Favorites</source>
         <translation>Обрані</translation>
     </message>
@@ -940,17 +940,17 @@ Favorite user</source>
         <translation>%1 залишає мережу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="917"/>
+        <location filename="../HubFrame.cpp" line="904"/>
         <source>Show widget</source>
         <translation>Показати віджет</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="930"/>
+        <location filename="../HubFrame.cpp" line="917"/>
         <source>Hub Menu</source>
         <translation>Меню хаба</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1312"/>
+        <location filename="../HubFrame.cpp" line="1297"/>
         <source>/aspell on/off - enable/disable spell checking
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - remove alias
@@ -987,57 +987,57 @@ Favorite user</source>
 /sh &lt;command&gt; - виконати зовнішню команду з виводом у чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1416"/>
+        <location filename="../HubFrame.cpp" line="1401"/>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;Останнє статусне повідомлення на хабі:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1537"/>
+        <location filename="../HubFrame.cpp" line="1522"/>
         <source>%1 become online</source>
         <translation>%1 входить у мережу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1550"/>
+        <location filename="../HubFrame.cpp" line="1535"/>
         <source>User online.</source>
         <translation>Користувач онлайн.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2372"/>
+        <location filename="../HubFrame.cpp" line="2380"/>
         <source>not shared</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2641"/>
+        <location filename="../HubFrame.cpp" line="2649"/>
         <source>Suggestions</source>
         <translation>Варіанти</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2635"/>
+        <location filename="../HubFrame.cpp" line="2643"/>
         <source>Add to dictionary</source>
         <translation>Додати до словника</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2728"/>
+        <location filename="../HubFrame.cpp" line="2735"/>
         <source>Connecting to %1</source>
         <translation>Connecting to %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2737"/>
+        <location filename="../HubFrame.cpp" line="2744"/>
         <source>Connected to %1</source>
         <translation>З&apos;єднано з %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2800"/>
+        <location filename="../HubFrame.cpp" line="2807"/>
         <source>Fail: %1...</source>
         <translation>Помилка: %1...</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2984"/>
+        <location filename="../HubFrame.cpp" line="2991"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Вибачте, але нік &quot;%1&quot; використовується іншим користувачем.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2994"/>
+        <location filename="../HubFrame.cpp" line="3001"/>
         <source>Search flood detected: %1</source>
         <translation>Пошуковий флуд виявлено: %1</translation>
     </message>
@@ -1857,27 +1857,27 @@ Please check your connection settings</source>
 <context>
     <name>PMWindow</name>
     <message>
-        <location filename="../PMWindow.cpp" line="62"/>
+        <location filename="../PMWindow.cpp" line="55"/>
         <source>Private message</source>
         <translation>Приватне повідомлення</translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="63"/>
+        <location filename="../PMWindow.cpp" line="56"/>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="189"/>
+        <location filename="../PMWindow.cpp" line="182"/>
         <source> on hub </source>
         <translation> на хабі </translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="217"/>
+        <location filename="../PMWindow.cpp" line="210"/>
         <source>Chat cleared.</source>
         <translation>Чат очищено.</translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="283"/>
+        <location filename="../PMWindow.cpp" line="292"/>
         <source>User went offline</source>
         <translation>Користувач залишив хаб</translation>
     </message>
@@ -2009,7 +2009,7 @@ Please check your connection settings</source>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../main.cpp" line="148"/>
+        <location filename="../main.cpp" line="161"/>
         <source>Using:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Key&gt;
@@ -2442,28 +2442,28 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
 <context>
     <name>SettingsDownloads</name>
     <message>
-        <location filename="../SettingsDownloads.cpp" line="141"/>
-        <location filename="../SettingsDownloads.cpp" line="174"/>
+        <location filename="../SettingsDownloads.cpp" line="142"/>
+        <location filename="../SettingsDownloads.cpp" line="175"/>
         <source>Select directory</source>
         <translation>Вкажіть теку</translation>
     </message>
     <message>
-        <location filename="../SettingsDownloads.cpp" line="156"/>
+        <location filename="../SettingsDownloads.cpp" line="157"/>
         <source>New</source>
         <translation>Додати</translation>
     </message>
     <message>
-        <location filename="../SettingsDownloads.cpp" line="162"/>
+        <location filename="../SettingsDownloads.cpp" line="163"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../SettingsDownloads.cpp" line="169"/>
+        <location filename="../SettingsDownloads.cpp" line="170"/>
         <source>Enter alias for directory</source>
         <translation>Вкажіть псевдонім для теки</translation>
     </message>
     <message>
-        <location filename="../SettingsDownloads.cpp" line="169"/>
+        <location filename="../SettingsDownloads.cpp" line="170"/>
         <source>Alias</source>
         <translation>Псевдонім</translation>
     </message>
@@ -4596,7 +4596,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation>Автоматично налаштовувати чергу для результатів автопошуку</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="836"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="808"/>
+        <source>Keep downloaded filelists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="844"/>
         <source>Interval for auto search alternates (minutes)</source>
         <translation>Інтервал між автопошуками альтернатив (у хвилинах)</translation>
     </message>
@@ -4625,7 +4630,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation>Перевірка SFV</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="815"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="823"/>
         <source>Advanced</source>
         <translation>Продвинуті</translation>
     </message>
@@ -5733,12 +5738,12 @@ the granted slot will not be closed.</source>
         <translation>%1 ПіБ</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="798"/>
+        <location filename="../WulforUtil.cpp" line="794"/>
         <source>Offline</source>
         <translation>Не в мережі</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="934"/>
+        <location filename="../WulforUtil.cpp" line="930"/>
         <source>User commands</source>
         <translation>Команди користувача</translation>
     </message>

@@ -3591,6 +3591,10 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <source>Advanced</source>
         <translation>Napredno</translation>
     </message>
+    <message>
+        <source>Keep downloaded filelists</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>
