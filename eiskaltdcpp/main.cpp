@@ -43,6 +43,15 @@ void parseCmdLine(const QStringList &);
 #include <signal.h>
 
 void installHandlers();
+
+#ifdef FORCE_XDG
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
+
+void migrateConfig();
+#endif
+
 #endif
 
 int main(int argc, char *argv[])
@@ -58,6 +67,10 @@ int main(int argc, char *argv[])
         return 0;
 
     installHandlers();
+
+#ifdef FORCE_XDG
+    migrateConfig();
+#endif
 
     dcpp::startup(callBack, NULL);
     dcpp::TimerManager::getInstance()->start();
@@ -182,5 +195,66 @@ void installHandlers(){
     std::cout << "Signal handlers installed." << std::endl;
 }
 
+#endif
+
+#ifdef FORCE_XDG
+
+void copy_directory( const boost::filesystem::path &from_dir_ph, const boost::filesystem::path &to_dir_ph)
+{
+    if(!boost::filesystem::exists(from_dir_ph) || !boost::filesystem::is_directory(from_dir_ph) || boost::filesystem::exists(to_dir_ph))
+        return;
+
+    struct stat from_stat;
+
+    if ( (::stat( from_dir_ph.string().c_str(), &from_stat ) != 0) || (::mkdir(to_dir_ph.native_directory_string().c_str(), from_stat.st_mode)!=0))
+        throw std::exception();
+}
+
+void copy( const boost::filesystem::path & from_ph, const boost::filesystem::path & to_ph ) {
+    if((boost::filesystem::exists(to_ph) && !boost::filesystem::is_directory(to_ph)) || (!boost::filesystem::exists(from_ph)))
+        return;
+
+    if(!boost::filesystem::is_directory(from_ph)) {
+        if(boost::filesystem::exists(to_ph))
+            boost::filesystem::copy_file(from_ph,to_ph/from_ph.leaf());
+        else
+            boost::filesystem::copy_file(from_ph,to_ph);
+    }
+    else {
+        boost::filesystem::path destination;
+
+        if(!boost::filesystem::exists(to_ph))
+            destination=to_ph;
+        else
+            destination=to_ph/from_ph.leaf();
+
+        copy_directory(from_ph,destination);
+
+        for(boost::filesystem::directory_iterator i(from_ph); i!=boost::filesystem::directory_iterator(); ++i)
+            copy(*i,destination/i->leaf());
+    }
+}
+
+void migrateConfig(){
+    const char* home_ = getenv("HOME");
+    string home = home_ ? Text::toUtf8(home_) : "/tmp/";
+    string old_config = home + "/.eiskaltdc++/";
+
+    const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
+    string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
+    string new_config = xdg_config_home + "/eiskaltdc++/";
+
+    if (!QDir().exists(old_config.c_str()) || QDir().exists(new_config.c_str()))
+        return;
+
+    try{
+        printf("Migrating to XDG paths...\n");
+        copy(boost::filesystem::path(old_config), boost::filesystem::path(new_config));
+        printf("Ok. Migrated.\n");
+    }
+    catch(const std::exception&){
+        printf("Migration failed.\n");
+    }
+}
 #endif
 

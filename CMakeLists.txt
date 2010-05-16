@@ -109,6 +109,7 @@ find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
 find_package (Qt4 4.4 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus REQUIRED )
 find_package (PkgConfig)
+find_package (Boost COMPONENTS filesystem system)
 
 if (NOT USE_ASPELL)
     option(USE_ASPELL "Use aspell for spellchecking")
