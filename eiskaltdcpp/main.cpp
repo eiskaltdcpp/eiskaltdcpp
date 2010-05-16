@@ -241,7 +241,7 @@ void migrateConfig(){
 
     if (!QDir().exists(old_config.c_str()) || QDir().exists(new_config.c_str())){
         if (!QDir().exists(new_config.c_str())){
-            old_config = "/etc/eiskaltdc++/";
+            old_config = _DATADIR + string("/config/");
 
             if (!QDir().exists(old_config.c_str()))
                 return;
