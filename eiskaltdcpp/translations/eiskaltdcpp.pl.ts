@@ -42,17 +42,17 @@
     <message>
         <location filename="../CustomFontModel.cpp" line="34"/>
         <source>Public Chat: Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Chat publiczny: Chat</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="35"/>
         <source>Public Chat: Userlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Chat publiczny: Lista użytkowników</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="36"/>
         <source>Private Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Chat prywatny</translation>
     </message>
     <message>
         <source>Public Chat</source>
@@ -1015,7 +1015,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../HubFrame.cpp" line="2380"/>
         <source>not shared</source>
-        <translation type="unfinished"></translation>
+        <translation>nie udostępnione</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2649"/>
@@ -1393,7 +1393,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="995"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukaj ADL</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="997"/>
@@ -1707,7 +1707,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="562"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+A</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="983"/>
@@ -2846,7 +2846,7 @@ Opcje:
     <message>
         <location filename="../SideBar.cpp" line="30"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukaj ADL</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="31"/>
@@ -3823,7 +3823,7 @@ w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     <message>
         <location filename="../ui/UIMagnet.ui" line="170"/>
         <source>Remember my choice</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamiętaj mój wybór</translation>
     </message>
     <message>
         <source>Remember my choose</source>
@@ -4541,7 +4541,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="808"/>
         <source>Keep downloaded filelists</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachowaj ściągnięte listy plików</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="844"/>
