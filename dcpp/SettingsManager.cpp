@@ -131,7 +131,7 @@ SettingsManager::SettingsManager()
     }
 
     setDefault(DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS));
-    setDefault(TEMP_DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_USER_LOCAL) + "Incomplete" PATH_SEPARATOR_STR);
+    setDefault(TEMP_DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS) + "Incomplete" PATH_SEPARATOR_STR);
     setDefault(SLOTS, 5);
     setDefault(TCP_PORT, 0);
     setDefault(UDP_PORT, 0);

@@ -131,6 +131,9 @@ endif (USE_ASPELL)
 #if (NOT (LOCAL_BOOST EQUAL 0))
 #set (LOCAL_BOOST 1)
 #endif (NOT (LOCAL_BOOST EQUAL 0))
+
+option (FORCE_XDG "Respect freedesktop.org standards" ON)
+
 option (FREE_SPACE_BAR "Use for show free space on volume boost libs")
 option (FREE_SPACE_BAR_C "Use for show free space on volume small c lib")
 if (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
@@ -287,6 +290,10 @@ endif (HAVE_IFADDRS_H)
 if (ICONV_SECOND_ARGUMENT_IS_CONST)
   add_definitions (-DICONV_CONST=const)
 endif (ICONV_SECOND_ARGUMENT_IS_CONST)
+
+if (FORCE_XDG)
+  add_definitions (-DFORCE_XDG)
+endif (FORCE_XDG)
 
 set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -DQT_NO_DEBUG -O3 -fomit-frame-pointer -pipe")
 set(CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3 -pipe")

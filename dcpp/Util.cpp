@@ -155,7 +155,14 @@ void Util::initialize() {
     const char* home_ = getenv("HOME");
     string home = home_ ? Text::toUtf8(home_) : "/tmp/";
 
+#ifdef FORCE_XDG
+    const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
+    string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
+    paths[PATH_USER_CONFIG] = xdg_config_home + "/eiskaltdc++/";
+    printf("$XDG_CONFIG_HOME: %s\n", paths[PATH_USER_CONFIG].c_str());
+#else
     paths[PATH_USER_CONFIG] = home + "/.eiskaltdc++/";
+#endif
 
     loadBootConfig();
 
@@ -174,7 +181,15 @@ void Util::initialize() {
     // @todo paths[PATH_RESOURCES] = <replace from sconscript?>;
     // @todo paths[PATH_LOCALE] = <replace from sconscript?>;
 
+#ifdef FORCE_XDG
+    const char *xdg_config_down_ = getenv("XDG_DOWNLOAD_DIR");
+    string xdg_config_down = xdg_config_down_? (Text::toUtf8(xdg_config_down_)+"/") : (home+"/Downloads/");
+    paths[PATH_DOWNLOADS] = xdg_config_down;
+    printf("$XDG_DOWNLOAD_DIR: %s\n", paths[PATH_DOWNLOADS].c_str());
+#else
     paths[PATH_DOWNLOADS] = home + "/Downloads/";
+#endif
+
 #endif
 
     paths[PATH_FILE_LISTS] = paths[PATH_USER_LOCAL] + "FileLists" PATH_SEPARATOR_STR;
