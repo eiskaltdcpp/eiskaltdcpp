@@ -376,8 +376,8 @@ QSize SideBarDelegate::sizeHint(const QStyleOptionViewItem &option, const QModel
         return qvariant_cast<QSize>(value);
 
     static const int MARGIN = 1;
-    static const int PXHEIGHT = option.fontMetrics.height();
-    static const int HEIGHT = PXHEIGHT+MARGIN*4;
+    const int PXHEIGHT = option.fontMetrics.height() > 16? option.fontMetrics.height() : 16;
+    const int HEIGHT = PXHEIGHT+MARGIN*4;
 
     return QSize( 200, HEIGHT );
 }
