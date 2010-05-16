@@ -194,7 +194,7 @@ void installHandlers(){
 
 #endif
 
-//#ifdef FORCE_XDG
+#ifdef FORCE_XDG
 
 void copy(const QDir &from, const QDir &to){
     if (!from.exists() || to.exists())
@@ -285,5 +285,5 @@ void migrateConfig(){
         printf("Migration failed.\n");
     }
 }
-//#endif
+#endif
 
