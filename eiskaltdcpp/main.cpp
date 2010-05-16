@@ -239,8 +239,16 @@ void migrateConfig(){
     string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
     string new_config = xdg_config_home + "/eiskaltdc++/";
 
-    if (!QDir().exists(old_config.c_str()) || QDir().exists(new_config.c_str()))
-        return;
+    if (!QDir().exists(old_config.c_str()) || QDir().exists(new_config.c_str())){
+        if (!QDir().exists(new_config.c_str())){
+            old_config = "/etc/eiskaltdc++/";
+
+            if (!QDir().exists(old_config.c_str()))
+                return;
+        }
+        else
+            return;
+    }
 
     try{
         printf("Migrating to XDG paths...\n");
