@@ -16,14 +16,16 @@
 # For amarok: Native
 # For dragon (KDE Dragon Player): Native
 # For mpd (Music Player Daemon): http://mpd.wikia.com/wiki/Client:MpDris
+# For songbird: http://addons.songbirdnest.com/addon/1626
+# For clementine: Native since 0.3
+# For exaile: Plugin. See http://www.exaile.org/wiki/KDE_and_MPRIS_plugin
 #
 # See also:
 # http://xmms2.org/wiki/MPRIS
 # http://incise.org/mpris-remote.html
-#
-#
 
-PLAYERS="amarok audacious qmmp mpd xmms2 dragon vlc";
+
+PLAYERS="amarok audacious qmmp mpd xmms2 dragon vlc songbird clementine exaile";
 
 CONFIG_FILE="$HOME/.eiskaltdc++/mpris_now_playing.conf";
 
@@ -38,10 +40,11 @@ for P in $PLAYERS; do
 	then
 		METAINFO=$(qdbus $DBUS $METADATA_CALL 2>/dev/null);
 		PLAYER=$P;
-		TITLE=$(echo "$METAINFO"  | sed -e '/^title: / !d' -e s/'title: '//);
+		TITLE=$(echo "$METAINFO" | sed -e '/^title: / !d' -e s/'title: '//);
 		ARTIST=$(echo "$METAINFO" | sed -e '/^artist: / !d' -e s/'artist: '//);
-		ALBUM=$(echo "$METAINFO"  | sed -e '/^album: / !d' -e s/'album: '//);
-		GENRE=$(echo "$METAINFO"  | sed -e '/^genre: / !d' -e s/'genre: '//);
+		ALBUM=$(echo "$METAINFO" | sed -e '/^album: / !d' -e s/'album: '//);
+		GENRE=$(echo "$METAINFO" | sed -e '/^genre: / !d' -e s/'genre: '//);
+		LOCATION=$(echo "$METAINFO" | sed -e '/^location: file:\/\// !d' -e s/'location: file:\/\/'//); # Works only for local files.
 		break;
 	fi
 done
@@ -61,6 +64,9 @@ case $PLAYER in
 	vlc)
 		PLAYER="VLC";
 		;;
+	clementine)
+		PLAYER="Clementine";
+		;;
 esac
 
 # Trying to load home config
@@ -73,9 +79,9 @@ then
 	echo "#" >> $CONFIG_FILE;
 	echo "if [ \$PLAYER ]" >> $CONFIG_FILE;
 	echo "then" >> $CONFIG_FILE;
-	echo "	NOW_LISTENING_TO=\"/me is listening to \$ARTIST - \$TITLE (\$ALBUM) via \$PLAYER\"" >> $CONFIG_FILE;
+	echo "	NOW_LISTENING_TO=\"/me is listening to \$ARTIST - \$TITLE (\$ALBUM) via \$PLAYER <magnet>\$LOCATION</magnet>\"" >> $CONFIG_FILE;
 	echo "else" >> $CONFIG_FILE;
-	echo "	NOW_LISTENING_TO=\"/me is listening mouse clicks\"" >> $CONFIG_FILE;
+	echo "	NOW_LISTENING_TO=\"/me is listening to mouse clicks\"" >> $CONFIG_FILE;
 	echo "fi" >> $CONFIG_FILE;
 fi
 
@@ -89,3 +95,4 @@ then
 else
 	echo "/me is fool.";
 fi
+
