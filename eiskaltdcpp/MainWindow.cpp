@@ -1212,7 +1212,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
             progressSpace->setToolTip(tooltip);
             progressSpace->setValue(static_cast<unsigned>(percent));
 
-            progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 20 : progressSpace->width());
+            progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 40 : progressSpace->width());
         }
 #elif defined FREE_SPACE_BAR_C
     std::string s = SETTING(DOWNLOAD_DIRECTORY);
@@ -1239,7 +1239,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
             progressSpace->setToolTip(tooltip);
             progressSpace->setValue(static_cast<unsigned>(percent));
 
-            progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 20 : progressSpace->width());
+            progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 40 : progressSpace->width());
 #endif //FREE_SPACE_BAR
     }
 
