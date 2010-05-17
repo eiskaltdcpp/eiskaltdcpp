@@ -306,7 +306,7 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
    )
-message(STATUS "CMAKE use in build this libs(and headers):
+message(STATUS "CMAKE will use this libs(and headers) during build:
 
                 upnp (headers): ${UPNP_LIBRARY} (${UPNP_INCLUDE_DIR})
                 boost (headers): ${Boost_LIBRARIES} (${Boost_INCLUDE_DIR})
