@@ -1205,7 +1205,7 @@ Ulubiony użytkownik</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="507"/>
-        <location filename="../MainWindow.cpp" line="1744"/>
+        <location filename="../MainWindow.cpp" line="1745"/>
         <source>Hide window</source>
         <translation>Minimalizuj okno</translation>
     </message>
@@ -1216,19 +1216,19 @@ Ulubiony użytkownik</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="514"/>
-        <location filename="../MainWindow.cpp" line="1742"/>
+        <location filename="../MainWindow.cpp" line="1743"/>
         <source>Show/hide find frame</source>
         <translation>Pokaż/ukryj ramkę wyszukiwania</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="645"/>
-        <location filename="../MainWindow.cpp" line="1898"/>
+        <location filename="../MainWindow.cpp" line="1899"/>
         <source>Hide free space bar</source>
         <translation>Ukryj pasek wolnego miejsca</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="648"/>
-        <location filename="../MainWindow.cpp" line="1893"/>
+        <location filename="../MainWindow.cpp" line="1894"/>
         <source>Show free space bar</source>
         <translation>Pokaż pasek wolnego miejsca</translation>
     </message>
@@ -1325,19 +1325,19 @@ Ulubiony użytkownik</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="655"/>
-        <location filename="../MainWindow.cpp" line="1912"/>
+        <location filename="../MainWindow.cpp" line="1913"/>
         <source>Hide last status message</source>
         <translation>Ukryj ostatnie statusy</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="662"/>
-        <location filename="../MainWindow.cpp" line="1932"/>
+        <location filename="../MainWindow.cpp" line="1933"/>
         <source>Hide users statistics</source>
         <translation>Ukryj statystyki użytkowników</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="667"/>
-        <location filename="../MainWindow.cpp" line="1930"/>
+        <location filename="../MainWindow.cpp" line="1931"/>
         <source>Show users statistics</source>
         <translation>Pokaż statystyki użytkowników</translation>
     </message>
@@ -1480,112 +1480,122 @@ Ulubiony użytkownik</translation>
         <translation>Pliki log (*.log);;Wszystkie pliki (*.*)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1983"/>
+        <location filename="../MainWindow.cpp" line="1984"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation>Użyj &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; do zgłaszania błędów.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1985"/>
+        <location filename="../MainWindow.cpp" line="1986"/>
         <source>&lt;br/&gt;&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&lt;b&gt;Deweloperzy&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1987"/>
+        <location filename="../MainWindow.cpp" line="1988"/>
         <source>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(główny deweloper wersji 0.4.10 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1991"/>
+        <location filename="../MainWindow.cpp" line="1992"/>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(opiekun i deweloper wersji 1.89.0 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1995"/>
+        <location filename="../MainWindow.cpp" line="1996"/>
         <source>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(opiekun i deweloper wersji 0.4.10 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1999"/>
+        <location filename="../MainWindow.cpp" line="2000"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(deweloper wersji 2.0.3 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2003"/>
+        <location filename="../MainWindow.cpp" line="2004"/>
         <source>&lt;br/&gt;&lt;b&gt;Logo and Splash Screen Logo&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&lt;b&gt;Logo i Splash Screen&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2005"/>
+        <location filename="../MainWindow.cpp" line="2006"/>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(wersja 0.4.10, i późniejsze)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2012"/>
+        <location filename="../MainWindow.cpp" line="2013"/>
         <source>&lt;b&gt;Translators&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Tłumaczenia&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2013"/>
+        <location filename="../MainWindow.cpp" line="2014"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Rosyjskie&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2015"/>
+        <location filename="../MainWindow.cpp" line="2016"/>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dla wersji 0.4.10 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2019"/>
+        <location filename="../MainWindow.cpp" line="2020"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Białoruskie&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2021"/>
+        <location filename="../MainWindow.cpp" line="2022"/>
         <source>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dla wersji 1.4.10 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2025"/>
+        <location filename="../MainWindow.cpp" line="2026"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Węgierskie&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2027"/>
+        <location filename="../MainWindow.cpp" line="2028"/>
         <source>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dla wersji 2.0.1 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2031"/>
+        <location filename="../MainWindow.cpp" line="2032"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Francuskie&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2033"/>
+        <location filename="../MainWindow.cpp" line="2034"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dla wersji 2.0.2 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2037"/>
+        <location filename="../MainWindow.cpp" line="2038"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polskie&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2039"/>
+        <location filename="../MainWindow.cpp" line="2040"/>
         <source>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(dla wersji 2.0.2 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2042"/>
+        <location filename="../MainWindow.cpp" line="2043"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukraińskie&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2044"/>
+        <location filename="../MainWindow.cpp" line="2045"/>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dla wersji 2.0.3 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="2074"/>
+        <location filename="../MainWindow.cpp" line="2049"/>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="2051"/>
+        <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../MainWindow.cpp" line="2081"/>
         <source>Close all</source>
         <translation>Zamknij wszystkie</translation>
     </message>
@@ -1655,37 +1665,37 @@ Ulubiony użytkownik</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="660"/>
-        <location filename="../MainWindow.cpp" line="1910"/>
+        <location filename="../MainWindow.cpp" line="1911"/>
         <source>Show last status message</source>
         <translation>Pokaż ostatnie statusy</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1970"/>
+        <location filename="../MainWindow.cpp" line="1971"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
         <translation>EiskaltDC++ - graficzny klient Direct Connect i ADC.</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1971"/>
+        <location filename="../MainWindow.cpp" line="1972"/>
         <source>DC++ core version:</source>
         <translation>Wersja DC++:</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1973"/>
+        <location filename="../MainWindow.cpp" line="1974"/>
         <source>(modified)</source>
         <translation>(Zmodyfikowana)</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1974"/>
+        <location filename="../MainWindow.cpp" line="1975"/>
         <source>Home page:</source>
         <translation>Strona domowa:</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1977"/>
+        <location filename="../MainWindow.cpp" line="1978"/>
         <source>Total up:</source>
         <translation>Wysłano:</translation>
     </message>
     <message>
-        <location filename="../MainWindow.cpp" line="1979"/>
+        <location filename="../MainWindow.cpp" line="1980"/>
         <source>Total down:</source>
         <translation>Pobrano:</translation>
     </message>
@@ -2016,7 +2026,7 @@ Należy sprawdzić ustawienia połączeń</translation>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../main.cpp" line="161"/>
+        <location filename="../main.cpp" line="158"/>
         <source>Using:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Key&gt;
@@ -2884,7 +2894,7 @@ Opcje:
         <translation>Szpieg</translation>
     </message>
     <message>
-        <location filename="../SideBar.cpp" line="95"/>
+        <location filename="../SideBar.cpp" line="98"/>
         <source>Widgets</source>
         <translation>Zakładki</translation>
     </message>
@@ -2972,13 +2982,13 @@ Chcesz go zatrzymać?
     </message>
     <message>
         <location filename="../TransferView.cpp" line="509"/>
-        <location filename="../TransferView.cpp" line="723"/>
+        <location filename="../TransferView.cpp" line="728"/>
         <source>[S]</source>
         <translation>[S]</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="511"/>
-        <location filename="../TransferView.cpp" line="725"/>
+        <location filename="../TransferView.cpp" line="730"/>
         <source>[U]</source>
         <translation>[U]</translation>
     </message>
@@ -2989,7 +2999,7 @@ Chcesz go zatrzymać?
     </message>
     <message>
         <location filename="../TransferView.cpp" line="517"/>
-        <location filename="../TransferView.cpp" line="728"/>
+        <location filename="../TransferView.cpp" line="733"/>
         <source>[Z]</source>
         <translation>[Z]</translation>
     </message>
@@ -3004,52 +3014,52 @@ Chcesz go zatrzymać?
         <translation> (%1%)</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="541"/>
+        <location filename="../TransferView.cpp" line="546"/>
         <source>Download complete...</source>
         <translation>Pobieranie zakończone...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="584"/>
+        <location filename="../TransferView.cpp" line="589"/>
         <source>Connecting...</source>
         <translation>Łączenie...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="611"/>
+        <location filename="../TransferView.cpp" line="616"/>
         <source>Connected</source>
         <translation>Połączono</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="651"/>
+        <location filename="../TransferView.cpp" line="656"/>
         <source>Connecting</source>
         <translation>Łączenie</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="653"/>
+        <location filename="../TransferView.cpp" line="658"/>
         <source>No download slots</source>
         <translation>Brak wolnych slotów</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="655"/>
+        <location filename="../TransferView.cpp" line="660"/>
         <source>Waiting to retry</source>
         <translation>Oczekiwanie na wznowienie</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="702"/>
+        <location filename="../TransferView.cpp" line="707"/>
         <source>Upload starting...</source>
         <translation>Rozpoczęto wysyłanie...</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="730"/>
+        <location filename="../TransferView.cpp" line="735"/>
         <source> Uploaded %1 (%2%) </source>
         <translation> Wysłano %1 (%2%) </translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="753"/>
+        <location filename="../TransferView.cpp" line="763"/>
         <source>Upload complete</source>
         <translation>Wysyłanie zakończone</translation>
     </message>
     <message>
-        <location filename="../TransferView.cpp" line="768"/>
+        <location filename="../TransferView.cpp" line="778"/>
         <source>Upload failed</source>
         <translation>Wysyłanie nie powiodło się</translation>
     </message>
@@ -3142,23 +3152,23 @@ Chcesz go zatrzymać?
         <translation>/s</translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="519"/>
+        <location filename="../TransferViewModel.cpp" line="520"/>
         <source>Downloaded </source>
         <translation>Pobranо </translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="521"/>
+        <location filename="../TransferViewModel.cpp" line="522"/>
         <source>Waiting for slot </source>
         <translation>Oczekiwanie na slot </translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="524"/>
+        <location filename="../TransferViewModel.cpp" line="525"/>
         <source> from %1/%2 user(s)</source>
         <translation> od %1/%2 użytkownika()</translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="570"/>
-        <location filename="../TransferViewModel.cpp" line="574"/>
+        <location filename="../TransferViewModel.cpp" line="571"/>
+        <location filename="../TransferViewModel.cpp" line="575"/>
         <source>Finished</source>
         <translation>Ukończono</translation>
     </message>
@@ -3168,8 +3178,8 @@ Chcesz go zatrzymać?
         <translation>Lista plików</translation>
     </message>
     <message>
-        <location filename="../TransferViewModel.cpp" line="531"/>
-        <location filename="../TransferViewModel.cpp" line="533"/>
+        <location filename="../TransferViewModel.cpp" line="532"/>
+        <location filename="../TransferViewModel.cpp" line="534"/>
         <source>TTH: </source>
         <translation>TTH: </translation>
     </message>

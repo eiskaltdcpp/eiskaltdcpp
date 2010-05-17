@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
 <context>
     <name>AntiSpam</name>
     <message>
@@ -22,7 +24,19 @@
     </message>
     <message>
         <source>Public Chat</source>
-        <translation>Javni razgovor</translation>
+        <translation type="obsolete">Javni razgovor</translation>
+    </message>
+    <message>
+        <source>Public Chat: Chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Public Chat: Userlist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Chat</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -783,6 +797,10 @@ Omiljeni korisnik</translation>
         <source>Chat enabled.</source>
         <translation>Razgovor omogućen.</translation>
     </message>
+    <message>
+        <source>not shared</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -1342,6 +1360,22 @@ Molim proverite podešavanja vaše veze</translation>
         <source>Close all</source>
         <translation>Zatvori sve</translation>
     </message>
+    <message>
+        <source>Ctrl+A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -1491,8 +1525,8 @@ Molim proverite podešavanja vaše veze</translation>
 EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help<byte value="x9"/> Show this message
-  -v, --version<byte value="x9"/> Show version string</source>
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
         <translation>Upotreba:(new line)
 (sp)(sp)eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
 (sp)(sp)eiskaltdcpp &lt;Key&gt;
@@ -2165,6 +2199,10 @@ Keys:
     <message>
         <source>Widgets</source>
         <translation>Vidžeti</translation>
+    </message>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2918,7 +2956,11 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>Remember my choose</source>
-        <translation>Zapamti moje izabrano</translation>
+        <translation type="obsolete">Zapamti moje izabrano</translation>
+    </message>
+    <message>
+        <source>Remember my choice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3541,6 +3583,10 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <source>Advanced</source>
         <translation>Napredno</translation>
     </message>
+    <message>
+        <source>Keep downloaded filelists</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>
@@ -3921,7 +3967,7 @@ Nemojte stavljati u svoju brzinu preuzimanja; ova postavka je mera.</translation
         <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
 For example, if you have /home/username/Video folder shared as &quot;Video&quot;
 you can specify following:
-/Video<byte value="x9"/>10
+/Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
         <translation>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.(new line)
@@ -4384,4 +4430,3 @@ odobreni slot neće biti zatvoren.</translation>
     </message>
 </context>
 </TS>
-
