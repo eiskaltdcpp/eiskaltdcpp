@@ -3,6 +3,7 @@
 * Fixed potential problems with search using locales other than UTF-8. (Now kernel takes default encoding specified in the preferences rather than local ones, as it was before)
 * Added graphical configuration of user commands in the Settings dialog. (In previous versions it was necessary to edit xml-config manually)
 * Thanks to Dmytro Demenko the Ukrainian translation is now available.
+* Thanks to Miroslav Petrovic the Serbian translation is now available.
 * Preferences moved to $XDG_CONFIG_HOME/eiskaltdc++/ directory (environment variable $XDG_CONFIG_HOME mostly often defined as ~/.config/). Preferences directory will be automatically moved at first start after the upgrade. Using $XDG_CONFIG_HOME can be disabled during the configuration, see file INSTALL.
 * Added ability to place templates with predefined program settings to /usr/share/eiskaltdcpp/config/ directory (depends on cmake options, see file INSTALL). This templates (instead of default settings) will be copied to personal user preferences directory when you first start program.
 * Added drag'n'drop of files to messages input field. If file is shared, magnet link will be placed to input field instead of file path.
