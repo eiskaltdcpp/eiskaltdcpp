@@ -1,38 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0">
+<!DOCTYPE TS><TS>
 <context>
     <name>AntiSpam</name>
     <message>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Zdravo, ovo Je antispam bot. Dakle, pitanje Je &quot;% 1&quot;</translation>
     </message>
 </context>
 <context>
     <name>CustomFontModel</name>
     <message>
         <source>Description</source>
-        <translation type="unfinished">Opis</translation>
+        <translation>Opis</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Font</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Program</translation>
     </message>
     <message>
-        <source>Public Chat: Chat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Public Chat: Userlist</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Private Chat</source>
-        <translation type="unfinished"></translation>
+        <source>Public Chat</source>
+        <translation>Javni razgovor</translation>
     </message>
 </context>
 <context>
@@ -83,8 +73,7 @@
     </message>
     <message>
         <source>Send private message</source>
-        <translation>Pošalji privatnu poruku
-</translation>
+        <translation>Pošalji privatnu poruku</translation>
     </message>
     <message>
         <source>Remove source</source>
@@ -103,6 +92,10 @@
         <translation>Nema korisnika...</translation>
     </message>
     <message>
+        <source>%1 of %2 user(s) online</source>
+        <translation>%1 do %2 korisnika na vezi</translation>
+    </message>
+    <message>
         <source>Running...</source>
         <translation>Radeći...</translation>
     </message>
@@ -116,11 +109,11 @@
     </message>
     <message>
         <source>CRC32 inconsistency (SFV-Check)</source>
-        <translation>CRC32 inconsistency (SFV-Check)</translation>
+        <translation>CRC32 nesaglasno (SFV-Check)</translation>
     </message>
     <message>
         <source>Full tree does not match TTH root</source>
-        <translation>Full tree does not match TTH root</translation>
+        <translation></translation>
     </message>
     <message>
         <source>Source too slow</source>
@@ -128,7 +121,7 @@
     </message>
     <message>
         <source>Remote client does not fully support TTH - cannot download</source>
-        <translation>Remote client does not fully support TTH - cannot download</translation>
+        <translation>Udaljeni klijent ne podržava u potpunosti TTH - ne može preuzimati</translation>
     </message>
     <message>
         <source>No errors</source>
@@ -145,10 +138,6 @@
     <message>
         <source>Download Queue</source>
         <translation>Red za preuzimanje</translation>
-    </message>
-    <message>
-        <source>%1 of %2 user(s) online</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -199,7 +188,7 @@
     </message>
     <message>
         <source>No errors</source>
-        <translation>Bez breške</translation>
+        <translation>Bez grešaka</translation>
     </message>
     <message>
         <source>&lt;b&gt;Added: &lt;/b&gt; %1
@@ -278,7 +267,7 @@
     <name>FavoriteHubs</name>
     <message>
         <source>Favorite hubs</source>
-        <translation>Omiljeni hab</translation>
+        <translation>Omiljeni habovi</translation>
     </message>
     <message>
         <source>System default</source>
@@ -366,11 +355,11 @@
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation>Završeno otpremanje</translation>
+        <translation>Završeno otpremanja</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation>Završeno preuzimanje</translation>
+        <translation>Završeno preuzimanja</translation>
     </message>
 </context>
 <context>
@@ -388,7 +377,7 @@
     <name>FinishedTransfersModel</name>
     <message>
         <source>User</source>
-        <translation>User</translation>
+        <translation>Korisnik</translation>
     </message>
     <message>
         <source>Files</source>
@@ -400,7 +389,7 @@
     </message>
     <message>
         <source>Transferred</source>
-        <translation>Prenosi</translation>
+        <translation>Preneseno</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -467,7 +456,7 @@
     </message>
     <message>
         <source>%1/s, %2 left, %3 shared</source>
-        <translation>%1/s, %2 left, %3 shared</translation>
+        <translation>%1/s, %2 left, %3 deljeno</translation>
     </message>
     <message>
         <source>%p% %1 left</source>
@@ -561,6 +550,18 @@
         <translation>Sve</translation>
     </message>
     <message>
+        <source> left the chat</source>
+        <translation>napustio razgovor</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>%1 become offline</source>
+        <translation>%1 postao van veze</translation>
+    </message>
+    <message>
         <source>Hub menu</source>
         <translation>Hab meni</translation>
     </message>
@@ -606,7 +607,7 @@
     </message>
     <message>
         <source>Alias %1 =&gt; %2 has been added</source>
-        <translation>Pseudonim %1 =&gt; %2 has been added</translation>
+        <translation>Pseudonim %1 =&gt; %2 bio dodat</translation>
     </message>
     <message>
         <source>Aspell switched %1</source>
@@ -622,7 +623,7 @@
     </message>
     <message>
         <source>Chat has been cleared</source>
-        <translation>Chat has been cleared</translation>
+        <translation>Razgovor je bio opozvan</translation>
     </message>
     <message>
         <source>/aspell on/off - enable/disable spell checking
@@ -642,31 +643,35 @@
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation>/aspell on/off - enable/disable spell checking(new line)
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND(new line)
-/alias purge &lt;ALIAS_NAME&gt; - remove alias(new line)
-/alias list - list all aliases(new line)
-/away &lt;message&gt; - set away-mode on/off(new line)
-/back - set away-mode off(new line)
-/browse &lt;nick&gt; - browse user files(new line)
-/clear - clear chat window(new line)
-/magnet - default action with magnet (0-ask, 1-search, 2-download)(new line)
-/close - close this hub(new line)
-/fav - add this hub to favorites(new line)
-/grant &lt;nick&gt; - grant extra slot to user(new line)
-/help, /?, /h - show this help(new line)
-/info &lt;nick&gt; - show info about user(new line)
-/me - say a third person(new line)
-/pm &lt;nick&gt; - begin private chat with user(new line)
+        <translation>/aspell on/off - enable/disable spell checking
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - remove alias
+/alias list - list all aliases
+/away &lt;message&gt; - set away-mode on/off
+/back - set away-mode off
+/browse &lt;nick&gt; - browse user files
+/clear - clear chat window
+/magnet - default action with magnet (0-ask, 1-search, 2-download)
+/close - close this hub
+/fav - add this hub to favorites
+/grant &lt;nick&gt; - grant extra slot to user
+/help, /?, /h - show this help
+/info &lt;nick&gt; - show info about user
+/me - say a third person
+/pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</translation>
+        <translation>&lt;b&gt;Poslednja poruka na habu:&lt;/b&gt;&lt;br/&gt;%1</translation>
+    </message>
+    <message>
+        <source>%1 become online</source>
+        <translation>%1 postaje na vezi</translation>
     </message>
     <message>
         <source>User online.</source>
-        <translation>Korisnik na vezi</translation>
+        <translation>Korisnik na vezi.</translation>
     </message>
     <message>
         <source>Suggestions</source>
@@ -677,8 +682,24 @@
         <translation>Dodaj u rečnik</translation>
     </message>
     <message>
+        <source>Connecting to %1</source>
+        <translation>Povezivanje na  %1</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Povezano na  %1</translation>
+    </message>
+    <message>
+        <source>Fail: %1...</source>
+        <translation>Ne: %1...</translation>
+    </message>
+    <message>
+        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
+        <translation> Izvini, ali nadimak &quot;%1&quot; je već uzeo drugi korisnik.</translation>
+    </message>
+    <message>
         <source>Search flood detected: %1</source>
-        <translation>Search flood detected: %1</translation>
+        <translation>Fludovanje otkriveno: %1</translation>
     </message>
     <message>
         <source>Hub role: Operator</source>
@@ -704,7 +725,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source> joins the chat</source>
-        <translation>(sp)Pridruži se razgovoru</translation>
+        <translation>  Pridruži se razgovoru</translation>
     </message>
     <message>
         <source>User not found</source>
@@ -712,15 +733,15 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Slot granted to </source>
-        <translation>Slot odobren (sp)</translation>
+        <translation>Slot odobren </translation>
     </message>
     <message>
         <source> has been added to favorites.</source>
-        <translation>(sp)dodat u favorite.</translation>
+        <translation> Dodat u favorite.</translation>
     </message>
     <message>
         <source> has been removed from favorites.</source>
-        <translation>(sp)uklonjen iz favorita.</translation>
+        <translation> Uklonjen iz favorita.</translation>
     </message>
     <message>
         <source>Favorite hub added.</source>
@@ -728,19 +749,15 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Favorite hub already exists.</source>
-        <translation>Omiljeni hab već postoji</translation>
+        <translation>Omiljeni hab već postoji.</translation>
     </message>
     <message>
         <source>User offline.</source>
-        <translation>Korisnik nije povezan</translation>
+        <translation>Korisnik nije povezan.</translation>
     </message>
     <message>
         <source>Stored password sent...</source>
         <translation>Sačuvana lozinka poslata...</translation>
-    </message>
-    <message>
-        <source>Enter password</source>
-        <translation type="obsolete">Unesi lozinku</translation>
     </message>
     <message>
         <source>Password</source>
@@ -748,7 +765,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Redirect request received to a hub that&apos;s already connected</source>
-        <translation>Redirect request received to a hub that&apos;s already connected</translation>
+        <translation>Preusmeravanje zahteva primljenog na hab koji je već povezan</translation>
     </message>
     <message>
         <source>Users count: %1 | Total share: %2</source>
@@ -756,51 +773,15 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Chat cleared.</source>
-        <translation>Razgovor opozvan</translation>
+        <translation>Razgovor opozvan.</translation>
     </message>
     <message>
         <source>Chat disabled.</source>
-        <translation>Razgovor onemogućen</translation>
+        <translation>Razgovor onemogućen.</translation>
     </message>
     <message>
         <source>Chat enabled.</source>
-        <translation>Razgovor omogućen</translation>
-    </message>
-    <message>
-        <source>Favorites</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 become offline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 become online</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connecting to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connected to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fail: %1...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> left the chat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>not shared</source>
-        <translation type="unfinished"></translation>
+        <translation>Razgovor omogućen.</translation>
     </message>
 </context>
 <context>
@@ -885,12 +866,8 @@ Omiljeni korisnik</translation>
     <message>
         <source>Some error ocurred when starting download:
  %1</source>
-        <translation>Greške prilikom preuzimanja fajla:(nova linija)
+        <translation>Greške prilikom preuzimanja fajla:
 %1</translation>
-    </message>
-    <message>
-        <source>Search Manager not ready. Please, try again later.</source>
-        <translation type="obsolete">Pretraga nije spremna. Probajte kasnije.</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -1073,11 +1050,11 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Widgets panel</source>
-        <translation>Vidžet paneli</translation>
+        <translation>Panel vidžeta</translation>
     </message>
     <message>
         <source>Tools panel</source>
-        <translation>Alatni panel</translation>
+        <translation>Panel alata</translation>
     </message>
     <message>
         <source>Free %1</source>
@@ -1201,11 +1178,11 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Widgets side dock</source>
-        <translation>Vidžet dok</translation>
+        <translation>Vidžet traka</translation>
     </message>
     <message>
         <source>Fast search panel</source>
-        <translation>Brzi pretraga panel</translation>
+        <translation>Panel brze pretrage</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -1258,13 +1235,16 @@ Omiljeni korisnik</translation>
     <message>
         <source>Cannot listen socket because: 
 </source>
-        <translation>Cannot listen socket because: </translation>
+        <translation>Ne mogu slušati ulaz jer:
+</translation>
     </message>
     <message>
         <source>
 
 Please check your connection settings</source>
-        <translation>Molim proverite podešavanja vaše veze</translation>
+        <translation>
+
+Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>Connection Manager: Warning</source>
@@ -1284,19 +1264,19 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(glavni  programer 0.4.10 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek(sp)(sp)aka(sp)(sp)Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek aka Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(programer i održavanje 1.89.0 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(programer i održavanje 0.4.10 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(programer 2.0.3 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&lt;b&gt;Logo and Splash Screen Logo&lt;/b&gt;&lt;br/&gt;</source>
@@ -1304,7 +1284,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(verzija 0.4.10 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Translators&lt;/b&gt;&lt;br/&gt;</source>
@@ -1316,7 +1296,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(za 0.4.10 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;</source>
@@ -1324,7 +1304,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Paval Shalamitski(sp)(sp)aka(sp)(sp)Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Paval Shalamitski aka Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(za 1.0.40 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;</source>
@@ -1332,7 +1312,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Akos Berki(sp)(sp)aka(sp)(sp)sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Akos Berki aka sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(za 2.0.1 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</source>
@@ -1340,7 +1320,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann(sp)(sp)aka(sp)(sp)Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann aka Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(za 2.0.2 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</source>
@@ -1348,27 +1328,19 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>Close all</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(za 2.0.2 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrainski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(za 2.0.3 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <source>Close all</source>
+        <translation>Zatvori sve</translation>
     </message>
 </context>
 <context>
@@ -1383,7 +1355,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
-        <translation>&lt;b&gt;Brzina&lt;/b&gt;&lt;br/&gt;Preuzimanje: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Otpremanje: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistike&lt;/b&gt;&lt;br/&gt;Preuzimanje: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Otpremljeno: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</translation>
+        <translation>&lt;b&gt;Brzina&lt;/b&gt;&lt;br/&gt;Preuzimanje: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Otpremanje: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistike&lt;/b&gt;&lt;br/&gt;Preuzeto: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Otpremljeno: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</translation>
     </message>
 </context>
 <context>
@@ -1398,7 +1370,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source> on hub </source>
-        <translation>(sp)na habu(sp)</translation>
+        <translation>   na habu  </translation>
     </message>
     <message>
         <source>Chat cleared.</source>
@@ -1519,8 +1491,8 @@ Please check your connection settings</source>
 EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
+  -h, --help<byte value="x9"/> Show this message
+  -v, --version<byte value="x9"/> Show version string</source>
         <translation>Upotreba:(new line)
 (sp)(sp)eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
 (sp)(sp)eiskaltdcpp &lt;Key&gt;
@@ -1591,7 +1563,7 @@ Keys:
     </message>
     <message>
         <source>Show/Hide side panel</source>
-        <translation>Pokaži/sakrij panel</translation>
+        <translation>Pokaži/sakrij  panel</translation>
     </message>
     <message>
         <source>Hubs</source>
@@ -1743,7 +1715,7 @@ Keys:
     </message>
     <message>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
-        <translation>Pronadjeno: &lt;b&gt;%1&lt;/b&gt;(sp)(sp)Ispalo: &lt;b&gt;%2&lt;/b&gt;</translation>
+        <translation>Pronadjeno: &lt;b&gt;%1&lt;/b&gt;     Ispalo: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1809,7 @@ Keys:
     </message>
     <message>
         <source>User Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Korisn. komande</translation>
     </message>
 </context>
 <context>
@@ -1909,12 +1881,20 @@ Keys:
         <translation>Poljski</translation>
     </message>
     <message>
+        <source>Serbian</source>
+        <translation>Srpski</translation>
+    </message>
+    <message>
+        <source>Ukrainian</source>
+        <translation>Ukrainski</translation>
+    </message>
+    <message>
         <source>Local user</source>
         <translation>Lokalni korisnik</translation>
     </message>
     <message>
         <source>Operator</source>
-        <translation>Operator</translation>
+        <translation>Operater</translation>
     </message>
     <message>
         <source>Bot</source>
@@ -1938,7 +1918,7 @@ Keys:
     </message>
     <message>
         <source>Status</source>
-        <translation>Status</translation>
+        <translation>Stanje</translation>
     </message>
     <message>
         <source>User</source>
@@ -1963,14 +1943,6 @@ Keys:
     <message>
         <source>Translation (*.qm)</source>
         <translation>Prevod (*.qm)</translation>
-    </message>
-    <message>
-        <source>Serbian</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2094,11 +2066,11 @@ Keys:
     </message>
     <message>
         <source>Listing: </source>
-        <translation>Listing:</translation>
+        <translation>Listing: </translation>
     </message>
     <message>
         <source>Total share size: %1;  Files: %2</source>
-        <translation>Ukupno deljena veličina: %1;(sp)(sp)Files: %2</translation>
+        <translation>Ukupno deljena veličina: %1;  Fajlovi: %2</translation>
     </message>
     <message>
         <source>Filebrowser</source>
@@ -2193,10 +2165,6 @@ Keys:
     <message>
         <source>Widgets</source>
         <translation>Vidžeti</translation>
-    </message>
-    <message>
-        <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2318,7 +2286,7 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <source> (%1%)</source>
-        <translation>(sp)(%1%)</translation>
+        <translation>  (%1%)</translation>
     </message>
     <message>
         <source>Download complete...</source>
@@ -2350,7 +2318,7 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <source> Uploaded %1 (%2%) </source>
-        <translation>(sp)Otpremljeno %1 (%2%)(sp)</translation>
+        <translation> Otpremljeno %1 (%2%)  </translation>
     </message>
     <message>
         <source>Upload complete</source>
@@ -2405,19 +2373,19 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <source>Downloaded </source>
-        <translation>Preuzeto(sp)</translation>
+        <translation>Preuzeto </translation>
     </message>
     <message>
         <source>Waiting for slot </source>
-        <translation>Čekanje na slot(sp)</translation>
+        <translation>Čekanje na slot </translation>
     </message>
     <message>
         <source> from %1/%2 user(s)</source>
-        <translation>(sp)od %1/%2 user(s)</translation>
+        <translation> od %1/%2 korisnik(a)</translation>
     </message>
     <message>
         <source>TTH: </source>
-        <translation>TTH:</translation>
+        <translation>TTH: </translation>
     </message>
     <message>
         <source>Finished</source>
@@ -2428,19 +2396,19 @@ Da li želite da zaustavite?</translation>
     <name>UCModel</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Ime</translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Komanda</translation>
     </message>
     <message>
         <source>Hub</source>
-        <translation type="unfinished">Hab</translation>
+        <translation>Hab</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Razdvajač</translation>
     </message>
 </context>
 <context>
@@ -2459,10 +2427,10 @@ Da li želite da zaustavite?</translation>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;(new line)
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;(new line)
-p, li { white-space: pre-wrap; }(new line)
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;(new line)
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -2485,7 +2453,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Copyright (c) 2009-2010(sp)(sp)Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Copyright (c) 2009-2010 Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
@@ -2594,7 +2562,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Move user to &quot;Black&quot; list</source>
-        <translation>Pomeri korisnika na &quot;Crnu&quot; listu</translation>
+        <translation>Move user to &quot;Black&quot; list</translation>
     </message>
 </context>
 <context>
@@ -2620,7 +2588,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Favorite hub name.</source>
-        <translation>Omiljeni hab</translation>
+        <translation>Omiljeni hab.</translation>
     </message>
     <message>
         <source>IP address or DNS name of hub.</source>
@@ -2660,7 +2628,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>++ V:0.75 </source>
-        <translation>++ V:0.75(sp)</translation>
+        <translation>++ V:0.75 </translation>
     </message>
     <message>
         <source>StrgDC++ V:2.30</source>
@@ -2668,19 +2636,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>ApexDC++ V: 1.2.2 </source>
-        <translation>ApexDC++ V: 1.2.2(sp)</translation>
+        <translation>ApexDC++ V: 1.2.2 </translation>
     </message>
     <message>
         <source>FlylinkDC++ V:(r500) </source>
-        <translation>FlylinkDC++ V:(r500)(sp)</translation>
+        <translation>FlylinkDC++ V:(r500)  </translation>
     </message>
     <message>
         <source>HomeDC++ V:2.22 </source>
-        <translation>HomeDC++ V:2.22(sp)</translation>
+        <translation>HomeDC++ V:2.22  </translation>
     </message>
     <message>
         <source>000.000.000.000; </source>
-        <translation>000.000.000.000;(sp)</translation>
+        <translation>000.000.000.000;  </translation>
     </message>
     <message>
         <source>Auto update from Internet</source>
@@ -2807,11 +2775,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Find: </source>
-        <translation>Nadji:</translation>
+        <translation>Nadji: </translation>
     </message>
     <message>
         <source>Previous (Shift+F3)</source>
-        <translation>Pprethodno (Shift+F3)</translation>
+        <translation>Prethodno (Shift+F3)</translation>
     </message>
     <message>
         <source>&lt;</source>
@@ -2950,11 +2918,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>Remember my choose</source>
-        <translation type="obsolete">Zapamti moje izabrano</translation>
-    </message>
-    <message>
-        <source>Remember my choice</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamti moje izabrano</translation>
     </message>
 </context>
 <context>
@@ -3073,7 +3037,7 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
     </message>
     <message>
         <source>000.000.000.000; </source>
-        <translation>000.000.000.000;(sp)</translation>
+        <translation>000.000.000.000;  </translation>
     </message>
     <message>
         <source>TCP port</source>
@@ -3109,7 +3073,7 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
     </message>
     <message>
         <source>User</source>
-        <translation>Korisnik</translation>
+        <translation>User</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3121,7 +3085,7 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
     </message>
     <message>
         <source>00000; </source>
-        <translation>00000;(sp)</translation>
+        <translation>00000;  </translation>
     </message>
     <message>
         <source>Use to resolve hostnames</source>
@@ -3153,9 +3117,7 @@ Use this mode only if the previous ones are not options for you.</source>
 sa prosledjivanjem TCP, UDP i TLS.
 Moraćete da navedete svoju spoljnu IP adresu rutera
 ako želite da ispravno radi preuzimanje.
-Koristite ovaj režim samo ako prethodne opcije nisu za vas.
-
-</translation>
+Koristite ovaj režim samo ako prethodne opcije nisu za vas.</translation>
     </message>
     <message>
         <source>Select this mode if none of the previous modes apply. In this mode,
@@ -3167,7 +3129,6 @@ This mode carries some serious limitations:
         <translation>Izaberite ovaj režim ako ništa od prethodnih nije primenljivo. U ovom modu,
 EiskaltDC++ neće probati dolazeće veze, nego samo odlazeće.
 Ovaj režim nosi neka ozbiljna ograničenja.
-
 </translation>
     </message>
     <message>
@@ -3218,14 +3179,6 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
         <source>hour(s)</source>
         <translation>sat(i)</translation>
     </message>
-    <message>
-        <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
-download speed/10 + (download speed - (download speed/10)*10)
-Do not try to understand it...</source>
-        <translation type="obsolete">Ograničenje brzina otpremanja je povezano sa ograničenjem brzina preuzimanja:
-brzina preuzimanja/10 + (brzina preuzimanja - (brzina preuzimanja/10)*10)
-Ne pokušavaje da razumete...</translation>
-    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -3239,7 +3192,7 @@ Ne pokušavaje da razumete...</translation>
     </message>
     <message>
         <source>Directories</source>
-        <translation>Fascikla</translation>
+        <translation>Fascikle</translation>
     </message>
     <message>
         <source>Download directory</source>
@@ -3354,8 +3307,7 @@ biće postavljeni sa najvećim prioriterom. (podrazumevano: 64 KiB)</translation
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
         <translation>Fajlovi sa istom ili ispod unete veličine, ali iznad najviše
-veličine, biće postavljeni sa visokim prioritetom.  (podrazumevano: 0 KiB)
-</translation>
+veličine, biće postavljeni sa visokim prioritetom.  (podrazumevano: 0 KiB)</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest and
@@ -3428,7 +3380,7 @@ bude odbačen. (podrazumevano: 1)</translation>
     </message>
     <message>
         <source>Other options</source>
-        <translation>Druga opcije</translation>
+        <translation>Druge opcije</translation>
     </message>
     <message>
         <source>Set lowest priority for newly added files larger than low priority size</source>
@@ -3468,9 +3420,7 @@ Red preuzimanja će naći više lokacija za preuzimanje.
 Auto pretraga će naći tačne pogotke preko hash pretrage.
 Nedostatak je da ne može naći mnogo više izvora
 i da će sprečiti ručno pretraživanje haba gde je unapred
-definisan tražeći interval.
-
-</translation>
+definisan tražeći interval.</translation>
     </message>
     <message>
         <source>Enable to automatically download a user&apos;s list and match them
@@ -3591,10 +3541,6 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <source>Advanced</source>
         <translation>Napredno</translation>
     </message>
-    <message>
-        <source>Keep downloaded filelists</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>
@@ -3648,7 +3594,7 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>Use SideBar instead of ToolBar (need restart)</source>
-        <translation>Koristite sidebar umesto trake alatki (potreban restart)</translation>
+        <translation>Koristite bočnu traku umesto trake alata (potreban restart)</translation>
     </message>
     <message>
         <source>Chat</source>
@@ -3665,6 +3611,10 @@ od drugih reči sa razmakom.</translation>
     <message>
         <source>Show joins only for favorite users</source>
         <translation>Prikaži pristupanje samo za omiljene korisnike</translation>
+    </message>
+    <message>
+        <source>Highlight favorite users in user list</source>
+        <translation>Istakni omiljene korisnike u korisničkoj listi</translation>
     </message>
     <message>
         <source>Use Ctrl+Enter to send messages</source>
@@ -3688,7 +3638,7 @@ od drugih reči sa razmakom.</translation>
     </message>
     <message>
         <source>Highlighting of search results in the chat</source>
-        <translation>Isticanje rezultata pretrage u razgovor</translation>
+        <translation>Isticanje rezultata pretrage u razgovoru</translation>
     </message>
     <message>
         <source>Color</source>
@@ -3697,6 +3647,10 @@ od drugih reči sa razmakom.</translation>
     <message>
         <source>Transparency</source>
         <translation>Providnost</translation>
+    </message>
+    <message>
+        <source>Fonts</source>
+        <translation>Fontovi</translation>
     </message>
     <message>
         <source>Show joins</source>
@@ -3737,14 +3691,6 @@ od drugih reči sa razmakom.</translation>
     <message>
         <source>Do not change focus on new private message</source>
         <translation>Ne menjaj fokus na novu privatnu poruku</translation>
-    </message>
-    <message>
-        <source>Highlight favorite users in user list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fonts</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3795,7 +3741,7 @@ od drugih reči sa razmakom.</translation>
     </message>
     <message>
         <source>System messages</source>
-        <translation>Sistem poruka</translation>
+        <translation>Sistem poruke</translation>
     </message>
     <message>
         <source>Status messages</source>
@@ -3833,6 +3779,10 @@ od drugih reči sa razmakom.</translation>
         <translation>Transfer završen</translation>
     </message>
     <message>
+        <source>Favorite user join/part</source>
+        <translation>Omiljeni korisnik pristup/prekid</translation>
+    </message>
+    <message>
         <source>Allow other types of notifications</source>
         <translation>Dozvoli druge vrste obaveštavanja</translation>
     </message>
@@ -3850,17 +3800,21 @@ od drugih reči sa razmakom.</translation>
     </message>
     <message>
         <source>Default (Qt)</source>
-        <translation>Default (Qt)</translation>
+        <translation>Podrazumevani(Qt)</translation>
     </message>
     <message>
         <source>D-Bus</source>
         <translation>D-Bus</translation>
     </message>
     <message>
+        <source>Favorite user event</source>
+        <translation>Radnja omiljenog korisnika</translation>
+    </message>
+    <message>
         <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation>Ako format tvog zvučnog fajla nije podržan u Qt, možeš definisati
+        <translation>Ako format tvog zvučnog fajla nije podržan u Qt, možeš odrediti
 drugi muzički plejer da ga emituje
 Na primer: /usr/bin/mplayer</translation>
     </message>
@@ -3883,14 +3837,6 @@ Na primer: /usr/bin/mplayer</translation>
     <message>
         <source>Use external command</source>
         <translation>Koristi spoljnu komandu</translation>
-    </message>
-    <message>
-        <source>Favorite user join/part</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Favorite user event</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3975,7 +3921,7 @@ Nemojte stavljati u svoju brzinu preuzimanja; ova postavka je mera.</translation
         <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
 For example, if you have /home/username/Video folder shared as &quot;Video&quot;
 you can specify following:
-/Video	10
+/Video<byte value="x9"/>10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
         <translation>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.(new line)
@@ -3998,13 +3944,12 @@ and may cause the client to appear to freeze.</source>
         <translation>Delite fajlove sa atributom Skriveni i fajlove unutar fascikli koje su postavljene
 kao Skrivene.
 Uz ovu opciju fajlovi koji počinju sa . (tačka) neće biti deljeni.
-Napomena: ova opcija zahteva i osvežavanje fajl liste.
-</translation>
+Napomena: ova opcija zahteva i osvežavanje fajl liste.</translation>
     </message>
     <message>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation>Akoi sključite ovo, vi  ćete ostaviti kliJenta do kompletnog
+        <translation>Ako sključite ovo, vi  ćete ostaviti kliJenta do kompletnog
 ažuriranja deljenog. </translation>
     </message>
     <message>
@@ -4022,7 +3967,7 @@ ažuriranja deljenog. </translation>
     <message>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation>Možeš limitirati brzinu osvežavanja ovde(new line)
+        <translation>Možeš limitirati brzinu osvežavanja ovde
 ako tvoj sistem počinje sporo.</translation>
     </message>
     <message>
@@ -4095,7 +4040,7 @@ ako tvoj sistem počinje sporo.</translation>
     </message>
     <message>
         <source>Follow symlinks</source>
-        <translation>Prati symlinks</translation>
+        <translation>Prati sim. linkove</translation>
     </message>
     <message>
         <source>Share temporary files</source>
@@ -4111,7 +4056,7 @@ ako tvoj sistem počinje sporo.</translation>
     </message>
     <message>
         <source>Private page mapping</source>
-        <translation>Privatna stana mapiranja</translation>
+        <translation>Privatna strana mapiranja</translation>
     </message>
     <message>
         <source>Proactive read from disk</source>
@@ -4127,14 +4072,14 @@ There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
-        <translation>Configure the number of slots that other users can occupy(new line)
-to download files from you. A remote user can use only(new line)
-one slot for each hub that they&apos;re on with you.(new line)
-EiskaltDC++ supports uploading file lists and files below 64 KiB(new line)
-to other DC++ users without requiring a slot.(new line)
-There&apos;s a max of 3 connections in addition to normal slots,(new line)
-these are called mini slots.(new line)
-Note: If a user leaves the hub, EiskaltDC++ will close his slots;(new line)
+        <translation>Configure the number of slots that other users can occupy
+to download files from you. A remote user can use only
+one slot for each hub that they&apos;re on with you.
+EiskaltDC++ supports uploading file lists and files below 64 KiB
+to other DC++ users without requiring a slot.
+There&apos;s a max of 3 connections in addition to normal slots,
+these are called mini slots.
+Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</translation>
     </message>
     <message>
@@ -4175,8 +4120,7 @@ the granted slot will not be closed.</source>
 dodatni slot će biti odobren.
 Ovi slotovi se dodeljuju jednom svakih 30 sekundi maksimum.
 Ako se originalna brzina otpremanja poveća,
-odobreni slot neće biti zatvoren.
-</translation>
+odobreni slot neće biti zatvoren.</translation>
     </message>
     <message>
         <source>Here you can set time interval of auto refreshing your share.</source>
@@ -4203,27 +4147,27 @@ odobreni slot neće biti zatvoren.
     <name>UISettingsUC</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Oblik</translation>
+        <translation>Oblik</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Dodaj</translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">Promeni</translation>
+        <translation>Promeni</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukloni</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished">Gore</translation>
+        <translation>Gore</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished">Dole</translation>
+        <translation>Dole</translation>
     </message>
 </context>
 <context>
@@ -4271,82 +4215,82 @@ odobreni slot neće biti zatvoren.
     <name>UIUserCommands</name>
     <message>
         <source>New command</source>
-        <translation type="unfinished"></translation>
+        <translation>Nova komanda</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Tip</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Razdvajač</translation>
     </message>
     <message>
         <source>Chat</source>
-        <translation type="unfinished">Razgovor</translation>
+        <translation>Razgovor</translation>
     </message>
     <message>
         <source>Raw</source>
-        <translation type="unfinished"></translation>
+        <translation>Raw</translation>
     </message>
     <message>
         <source>PM</source>
-        <translation type="unfinished"></translation>
+        <translation>PP</translation>
     </message>
     <message>
         <source>Context</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontekst</translation>
     </message>
     <message>
         <source>Hub</source>
-        <translation type="unfinished">Hab</translation>
+        <translation>Hab</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Pretraži</translation>
+        <translation>Pretraži</translation>
     </message>
     <message>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Korisnik</translation>
     </message>
     <message>
         <source>Filebrowser</source>
-        <translation type="unfinished">Pregledač fajlova</translation>
+        <translation>Pregledač fajlova</translation>
     </message>
     <message>
         <source>Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Parametri</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Ime</translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Komanda</translation>
     </message>
     <message>
         <source>Hub address</source>
-        <translation type="unfinished"></translation>
+        <translation>Hab adresa</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>Za</translation>
     </message>
     <message>
         <source>Send once per nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Pošalji jednom za nadimak</translation>
     </message>
     <message>
         <source>Result</source>
-        <translation type="unfinished"></translation>
+        <translation>Rezultat</translation>
     </message>
 </context>
 <context>
     <name>UPnPMapper</name>
     <message>
         <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation>Neuspelo dobijanje spoljne IP preko (sp)(sp)UPnP. Molimo da postavite sami.</translation>
+        <translation>Neuspelo dobijanje spoljne IP preko       UPnP. Molimo da postavite sami.</translation>
     </message>
     <message>
         <source>Failed to create port mappings. Please set up your NAT yourself.</source>
@@ -4357,11 +4301,11 @@ odobreni slot neće biti zatvoren.
     <name>UserListModel</name>
     <message>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: Operator</source>
-        <translation>&lt;b&gt;Hab uloga&lt;/b&gt;: Operator</translation>
+        <translation>&lt;b&gt;Hab uloga&lt;/b&gt;: Operater</translation>
     </message>
     <message>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: User</source>
-        <translation>&lt;b&gt;Hab uloba&lt;/b&gt;: Korisnik</translation>
+        <translation>&lt;b&gt;Hab uloga&lt;/b&gt;: Korisnik</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&lt;b&gt;Favorite user&lt;/b&gt;</source>
@@ -4440,3 +4384,4 @@ odobreni slot neće biti zatvoren.
     </message>
 </context>
 </TS>
+
