@@ -801,6 +801,18 @@ Omiljeni korisnik</translation>
         <source>not shared</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>AntiSpam</source>
+        <translation type="unfinished">AntiSpam</translation>
+    </message>
+    <message>
+        <source>Add to Black</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to White</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
