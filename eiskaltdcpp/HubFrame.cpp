@@ -199,15 +199,31 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
         menu->addMenu(user_menu);
     }
 
+    QMenu *antispam_menu = NULL;
+
+    if (AntiSpam::getInstance()){
+        antispam_menu = new QMenu(NULL);
+        antispam_menu->setTitle(tr("AntiSpam"));
+
+        antispam_menu->addAction(tr("Add to Black"))->setData(static_cast<int>(AntiSpamBlack));
+        antispam_menu->addAction(tr("Add to White"))->setData(static_cast<int>(AntiSpamWhite));
+
+        menu->addMenu(antispam_menu);
+    }
+
     QAction *res = menu->exec(QCursor::pos());
 
     if (user_menu)
         user_menu->deleteLater();
+    if (antispam_menu)
+        antispam_menu->deleteLater();
 
     if (actions.contains(res))
         return static_cast<Action>(actions.indexOf(res));
     else if (chat_actions_map.contains(res))
         return chat_actions_map[res];
+    else if (antispam_menu && antispam_menu->actions().contains(res))
+        return static_cast<HubFrame::Menu::Action>(res->data().toInt());
     else if (res && !res->toolTip().isEmpty()){//User command{
         last_user_cmd = res->toolTip();
         QString cmd_name = res->statusTip();
@@ -271,6 +287,18 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         menu->addMenu(user_menu);
     }
 
+    QMenu *antispam_menu = NULL;
+
+    if (AntiSpam::getInstance()){
+        antispam_menu = new QMenu(NULL);
+        antispam_menu->setTitle(tr("AntiSpam"));
+
+        antispam_menu->addAction(tr("Add to Black"))->setData(static_cast<int>(AntiSpamBlack));
+        antispam_menu->addAction(tr("Add to White"))->setData(static_cast<int>(AntiSpamWhite));
+
+        menu->addMenu(antispam_menu);
+    }
+
     QAction *res = menu->exec(QCursor::pos());
 
     if (user_menu)
@@ -282,6 +310,8 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         return static_cast<Action>(actions.indexOf(res));
     else if (chat_actions_map.contains(res))
         return chat_actions_map[res];
+    else if (antispam_menu && antispam_menu->actions().contains(res))
+        return static_cast<HubFrame::Menu::Action>(res->data().toInt());
     else if (res && !res->toolTip().isEmpty()){//User command
         last_user_cmd = res->toolTip();
         QString cmd_name = res->statusTip();
@@ -2131,6 +2161,31 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
             break;
         }
+        case Menu::AntiSpamWhite:
+        {
+
+            if (AntiSpam::getInstance()){
+                foreach(QModelIndex i, list){
+                    item = reinterpret_cast<UserListItem*>(i.internalPointer());
+
+                    (*AntiSpam::getInstance()) << eIN_WHITE << item->nick;
+                }
+            }
+
+            break;
+        }
+        case Menu::AntiSpamBlack:
+        {
+            if (AntiSpam::getInstance()){
+                foreach(QModelIndex i, list){
+                    item = reinterpret_cast<UserListItem*>(i.internalPointer());
+
+                    (*AntiSpam::getInstance()) << eIN_BLACK << item->nick;
+                }
+            }
+
+            break;
+        }
         default:
         {
             break;
@@ -2327,6 +2382,20 @@ void HubFrame::slotChatMenu(const QPoint &){
         case Menu::ZoomOutChat:
         {
             editor->zoomOut();
+
+            break;
+        }
+        case Menu::AntiSpamWhite:
+        {
+            if (AntiSpam::getInstance())
+                (*AntiSpam::getInstance()) << eIN_WHITE << nick;
+
+            break;
+        }
+        case Menu::AntiSpamBlack:
+        {
+            if (AntiSpam::getInstance())
+                (*AntiSpam::getInstance()) << eIN_BLACK << nick;
 
             break;
         }

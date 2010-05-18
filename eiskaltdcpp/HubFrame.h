@@ -138,7 +138,11 @@ class HubFrame :
             /** Additional actions for userlist */
             CopyIP,
             CopyShare,
-            CopyTag
+            CopyTag,
+
+            /** Additional actions for AntiSpam */
+            AntiSpamWhite,
+            AntiSpamBlack
         };
 
         Menu();
