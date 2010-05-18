@@ -8,6 +8,7 @@
 * Added ability to place templates with predefined program settings to /usr/share/eiskaltdcpp/config/ directory (depends on cmake options, see file INSTALL). This templates (instead of default settings) will be copied to personal user preferences directory when you first start program.
 * Added drag'n'drop of files to messages input field. If file is shared, magnet link will be placed to input field instead of file path.
 * Chat command /sh now supports macro <magnet show=alternative filename>path to file</magnet>. You can find how to use it in 'examples' directory.
+* Improved anti-spam module, all the previously planned functionality is now available.
 
 --- 2.0.2 2010-05-04 ---
 * Thanks to Alexandre Wallimann the French translation is now available.
