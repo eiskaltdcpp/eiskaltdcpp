@@ -2922,25 +2922,31 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
         return;
 
     VarMap map;
+    CID id           = user.getUser()->getCID();
+    QString nick     =  _q(from.getIdentity().getNick());
+    bool isInSandBox = false;
+    bool isEcho      = (from.getUser() == ClientManager::getInstance()->getMe());
+    bool hasPMWindow = pm.contains(_q(id.toBase32()));//PMWindow is created
 
-    CID id = user.getUser()->getCID();
+    if (AntiSpam::getInstance())
+        isInSandBox = AntiSpam::getInstance()->isInSandBox(_q(id.toBase32()));
 
-    QString nick =  _q(from.getIdentity().getNick());
+    if (AntiSpam::getInstance() && !isEcho){
+        do {
+            if (hasPMWindow)
+                break;
 
-    if (AntiSpam::getInstance()){
-        /*QString cid = (from.getUser() == ClientManager::getInstance()->getMe())? _q(to.getIdentity().getNick()):_q(from.getIdentity().getNick());
-        QString nick = WulforUtil::getInstance()->getNicks(cid);
-
-        if (!AntiSpam::getInstance()->isInAny(nick)){
-            AntiSpam::getInstance()->checkUser(cid, _q(msg), _q(client->getHubUrl()));
-
-            if (AntiSpam::getInstance()->isInBlack(nick) || !AntiSpam::getInstance()->isInAny(nick))
+            if (AntiSpam::getInstance()->isInBlack(nick))
                 return;
-        }*/
+            else if (!AntiSpam::getInstance()->isInAny(nick)){
+                AntiSpam::getInstance()->checkUser(_q(id.toBase32()), _q(msg), _q(client->getHubUrl()));
 
-        if (AntiSpam::getInstance()->isInBlack(nick))
-            return;
+                return;
+            }
+        } while (0);
     }
+    else if (isEcho && isInSandBox && !hasPMWindow)
+        return;
 
     map["NICK"]  = nick;
     map["MSG"]   = _q(msg);

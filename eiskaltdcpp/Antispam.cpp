@@ -94,20 +94,24 @@ void AntiSpam::slotObjectChangeState(QString obj, AntiSpamObjectState from, Anti
 
 }
 
-bool AntiSpam::isInAny(QString obj) {
+bool AntiSpam::isInAny(const QString &obj) const {
     return ( isInBlack(obj) || isInGray(obj) || isInWhite(obj));
 }
 
-bool AntiSpam::isInBlack(QString obj) {
+bool AntiSpam::isInBlack(const QString &obj) const {
     return (black_list.contains(obj));
 }
 
-bool AntiSpam::isInGray(QString obj) {
+bool AntiSpam::isInGray(const QString &obj) const {
     return ( gray_list.contains(obj));
 }
 
-bool AntiSpam::isInWhite(QString obj) {
+bool AntiSpam::isInWhite(const QString &obj) const {
     return ( white_list.contains(obj));
+}
+
+bool AntiSpam::isInSandBox(const QString &obj_cid) const {
+    return sandbox.contains(obj_cid);
 }
 
 void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &hubUrl){
@@ -130,12 +134,16 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
             if (key.toUpper() == msg.toUpper()){
                 (*this) << eIN_GRAY << WulforUtil::getInstance()->getNicks(cid);
 
+                sandbox.remove(cid);
+
                 return;
             }
         }
 
         if (counter > try_count){
             (*this) << eIN_BLACK << WulforUtil::getInstance()->getNicks(cid);
+
+            sandbox.remove(cid);
 
             return;
         }
@@ -396,7 +404,7 @@ void AntiSpam::setPhrase(QString &phrase) {
         this->phrase = phrase;
 }
 
-void AntiSpam::setKeys(QList<QString> &keys) {
+void AntiSpam::setKeys(const QList<QString> &keys) {
     if (keys.empty())
 	return;
 

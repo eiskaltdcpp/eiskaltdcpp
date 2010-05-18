@@ -379,7 +379,8 @@ QString WulforUtil::getNicks(const QString &cid){
 }
 
 QString WulforUtil::getNicks(const CID &cid){
-    return QString::fromStdString(Util::toString(ClientManager::getInstance()->getNicks(cid)));
+    const dcpp::Identity &user = ClientManager::getInstance()->getOnlineUserIdentity(ClientManager::getInstance()->getUser(cid));
+    return _q(user.getNick());
 }
 
 void WulforUtil::textToHtml(QString &str, bool print){

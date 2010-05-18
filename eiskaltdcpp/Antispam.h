@@ -33,10 +33,11 @@ class AntiSpam :
 
     friend class dcpp::Singleton<AntiSpam>;
 public:
-    bool isInBlack(QString);
-    bool isInWhite(QString);
-    bool isInGray(QString);
-    bool isInAny(QString);
+    bool isInBlack(const QString&) const;
+    bool isInWhite(const QString&) const;
+    bool isInGray (const QString&) const;
+    bool isInAny  (const QString&) const;
+    bool isInSandBox(const QString&) const;
 
     void move(QString, AntiSpamObjectState);
 
@@ -63,7 +64,7 @@ public:
     QString getPhrase() const;
     void setPhrase(QString &phrase);
     QList<QString> getKeys();
-    void setKeys(QList<QString> &keys);
+    void setKeys(const QList<QString> &keys);
 
     void setAttempts(int);
     int  getAttempts() const;
@@ -88,7 +89,6 @@ private:
     void saveBlack();
     void saveWhite();
     void saveGray();
-
 
     void readFile(QString, QList<QString>&);
     void saveFile(QString, QList<QString>&);
