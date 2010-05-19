@@ -2648,7 +2648,7 @@ void HubFrame::slotInputTextChanged(){
         return;
 
     SpellCheck *sp = SpellCheck::getInstance();
-    QStringList words = line.split(QRegExp("\\s+"), QString::SkipEmptyParts);
+    QStringList words = line.split(QRegExp("\\W+"), QString::SkipEmptyParts);
 
     if (words.isEmpty())
         return;
