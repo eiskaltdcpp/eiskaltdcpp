@@ -742,8 +742,6 @@ void SearchFrame::slotStartSearch(){
     if (!searchHistory.contains(s)){
         searchHistory.push_front(s);
 
-        lineEdit_SEARCHSTR->clear();
-
         QMenu *m = new QMenu();
 
         foreach (QString s, searchHistory)
