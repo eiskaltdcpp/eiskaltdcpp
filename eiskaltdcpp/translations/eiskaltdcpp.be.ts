@@ -31,17 +31,17 @@
     <message>
         <location filename="../CustomFontModel.cpp" line="34"/>
         <source>Public Chat: Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Агульная гамана: гамана</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="35"/>
         <source>Public Chat: Userlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Агульная гамана: сьпіс карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../CustomFontModel.cpp" line="36"/>
         <source>Private Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Асабістая гамана</translation>
     </message>
     <message>
         <source>Public Chat</source>
@@ -993,19 +993,19 @@ Favorite user</source>
         <location filename="../HubFrame.cpp" line="206"/>
         <location filename="../HubFrame.cpp" line="294"/>
         <source>AntiSpam</source>
-        <translation type="unfinished">Супраць лухты</translation>
+        <translation>Супраць лухты</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="208"/>
         <location filename="../HubFrame.cpp" line="296"/>
         <source>Add to Black</source>
-        <translation type="unfinished"></translation>
+        <translation>Дадаць у чорны сьпіс</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="209"/>
         <location filename="../HubFrame.cpp" line="297"/>
         <source>Add to White</source>
-        <translation type="unfinished"></translation>
+        <translation>Дадаць у белы сьпіс</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="759"/>
@@ -1026,7 +1026,7 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="2449"/>
         <source>not shared</source>
-        <translation type="unfinished"></translation>
+        <translation>не абагулілі</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="2804"/>
@@ -1319,7 +1319,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="562"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="945"/>
@@ -1497,7 +1497,8 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="995"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>(ADLSearch = Automatic Directory Listing Search)</translatorcomment>
+        <translation>Самарушна шукаць у сьпісах</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="997"/>
@@ -1757,12 +1758,12 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="2049"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Пераклаў у сэрбскую&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2051"/>
         <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.0.3)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2081"/>
@@ -2891,7 +2892,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SideBar.cpp" line="30"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>Самарушна шукаць у сьпісах</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="31"/>
@@ -3889,7 +3890,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIMagnet.ui" line="170"/>
         <source>Remember my choice</source>
-        <translation type="unfinished"></translation>
+        <translation>Запомніць, што я абраў</translation>
     </message>
     <message>
         <source>Remember my choose</source>
@@ -4617,7 +4618,6 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translatorcomment>???удакладніць адпаведнасьць “Finished” перакладу “Скончанае&quot;</translatorcomment>
         <translation>Задзейнічайце гэтую можнасьць, калі вы хочаце пакідаць у чарзе
 ўжо сьцягнутыя файлы ды тэчкі.
 Сьцягнутыя пункты чаргі перайдуць у стан “Скончылі”, а вы зможаце
@@ -4673,7 +4673,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="808"/>
         <source>Keep downloaded filelists</source>
-        <translation type="unfinished"></translation>
+        <translation>Захоўваць сьцягнутыя сьпісы файлаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="844"/>
