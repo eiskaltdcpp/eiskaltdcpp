@@ -5,98 +5,38 @@
     <name>AntiSpam</name>
     <message>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Hi, ceci est le robot antispam. Donc la question est &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
     <name>CustomFontModel</name>
     <message>
         <source>Description</source>
-        <translation type="unfinished">Description</translation>
+        <translation>Description</translation>
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Police</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Application</translation>
     </message>
     <message>
         <source>Public Chat: Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Chat public: Chat</translation>
     </message>
     <message>
         <source>Public Chat: Userlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Chat public: Liste d&apos;utilisateurs</translation>
     </message>
     <message>
         <source>Private Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Chat privé</translation>
     </message>
 </context>
 <context>
     <name>DownloadQueue</name>
-    <message>
-        <source>Search for alternates</source>
-        <translation>Rechercher d&apos;autres sources</translation>
-    </message>
-    <message>
-        <source>Copy magnet</source>
-        <translation>Copier le magnet</translation>
-    </message>
-    <message>
-        <source>Rename/Move</source>
-        <translation>Renommer/Déplacer</translation>
-    </message>
-    <message>
-        <source>Set priority</source>
-        <translation>Définir la priorité</translation>
-    </message>
-    <message>
-        <source>Paused</source>
-        <translation>Pause</translation>
-    </message>
-    <message>
-        <source>Lowest</source>
-        <translation>Le plus bas</translation>
-    </message>
-    <message>
-        <source>Low</source>
-        <translation>Bas</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation>Normal</translation>
-    </message>
-    <message>
-        <source>High</source>
-        <translation>Élevé</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation>Le plus élevé</translation>
-    </message>
-    <message>
-        <source>Browse files</source>
-        <translation>Parcourir les fichiers</translation>
-    </message>
-    <message>
-        <source>Send private message</source>
-        <translation>Envoyer un message privé</translation>
-    </message>
-    <message>
-        <source>Remove source</source>
-        <translation>Retirer la source</translation>
-    </message>
-    <message>
-        <source>Remove user</source>
-        <translation>Retirer l&apos;utilisateur</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Retirer</translation>
-    </message>
     <message>
         <source>No users...</source>
         <translation>Pas d&apos;utilisateurs...</translation>
@@ -142,12 +82,71 @@
         <translation>Tous les fichiers (*.*)</translation>
     </message>
     <message>
-        <source>Download Queue</source>
-        <translation>Liste des téléchargements</translation>
+        <source>%1 of %2 user(s) online</source>
+        <translation>%1 de %2 utilisateur(s) en ligne</translation>
+    </message>
+</context>
+<context>
+    <name>DownloadQueue::Menu</name>
+    <message>
+        <source>Search for alternates</source>
+        <translation>Rechercher d&apos;autres sources</translation>
     </message>
     <message>
-        <source>%1 of %2 user(s) online</source>
-        <translation type="unfinished"></translation>
+        <source>Copy magnet</source>
+        <translation>Copier le magnet</translation>
+    </message>
+    <message>
+        <source>Rename/Move</source>
+        <translation>Renommer/Déplacer</translation>
+    </message>
+    <message>
+        <source>Set priority</source>
+        <translation>Définir la priorité</translation>
+    </message>
+    <message>
+        <source>Paused</source>
+        <translation>En pause</translation>
+    </message>
+    <message>
+        <source>Lowest</source>
+        <translation>Le plus bas</translation>
+    </message>
+    <message>
+        <source>Low</source>
+        <translation>Bas</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation>Élevé</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation>Le plus élevé</translation>
+    </message>
+    <message>
+        <source>Browse files</source>
+        <translation>Parcourir les fichiers</translation>
+    </message>
+    <message>
+        <source>Send private message</source>
+        <translation>Envoyer un message privé</translation>
+    </message>
+    <message>
+        <source>Remove source</source>
+        <translation>Retirer la source</translation>
+    </message>
+    <message>
+        <source>Remove user</source>
+        <translation>Retirer l&apos;utilisateur</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Retirer</translation>
     </message>
 </context>
 <context>
@@ -319,10 +318,6 @@
         <source>Grant/Remove slot</source>
         <translation>Donner/Retirer un slot</translation>
     </message>
-    <message>
-        <source>Favourite users</source>
-        <translation>Utilisateurs favoris</translation>
-    </message>
 </context>
 <context>
     <name>FavoriteUsersModel</name>
@@ -371,17 +366,6 @@
     <message>
         <source>Finished downloads</source>
         <translation>Téléchargements terminés</translation>
-    </message>
-</context>
-<context>
-    <name>FinishedTransfers</name>
-    <message>
-        <source>Open file</source>
-        <translation>Ouvrir le fichier</translation>
-    </message>
-    <message>
-        <source>Open directory</source>
-        <translation>Ouvrir le dossier</translation>
     </message>
 </context>
 <context>
@@ -481,66 +465,6 @@
 <context>
     <name>HubFrame</name>
     <message>
-        <source>Copy nick</source>
-        <translation>Copier le surnom</translation>
-    </message>
-    <message>
-        <source>Show in list</source>
-        <translation>Montrer sur la liste</translation>
-    </message>
-    <message>
-        <source>Browse files</source>
-        <translation>Parcourir les fichiers</translation>
-    </message>
-    <message>
-        <source>Match Queue</source>
-        <translation>Correspondre avec les téléchargements</translation>
-    </message>
-    <message>
-        <source>Private Message</source>
-        <translation>Message Privé</translation>
-    </message>
-    <message>
-        <source>Add to Favorites</source>
-        <translation>Ajouter aux favoris</translation>
-    </message>
-    <message>
-        <source>Remove from Favorites</source>
-        <translation>Retirer des favoris</translation>
-    </message>
-    <message>
-        <source>Grant slot</source>
-        <translation>Donner un slot</translation>
-    </message>
-    <message>
-        <source>Remove from Queue</source>
-        <translation>Retirer de la liste</translation>
-    </message>
-    <message>
-        <source>Clear chat</source>
-        <translation>Vider la discussion</translation>
-    </message>
-    <message>
-        <source>Find in chat</source>
-        <translation>Trouver dans la discussion</translation>
-    </message>
-    <message>
-        <source>Disable/Enable chat</source>
-        <translation>Désactiver/Activer la discussion</translation>
-    </message>
-    <message>
-        <source>Select all</source>
-        <translation>Tout sélectionner</translation>
-    </message>
-    <message>
-        <source>Zoom In</source>
-        <translation>Zoom avant</translation>
-    </message>
-    <message>
-        <source>Zoom Out</source>
-        <translation>Zoom arrière</translation>
-    </message>
-    <message>
         <source>Hub menu</source>
         <translation>Menu serveur</translation>
     </message>
@@ -601,42 +525,6 @@
         <translation>Discussion vidée</translation>
     </message>
     <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation>/aspell on/off - active/désactive vérification orthographique
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - créé un alias /ALIAS_NAME en /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - retire l&apos;alias
-/alias list - liste tous les aliases
-/away &lt;message&gt; - mode absent on/off
-/back - mode absent off
-/browse &lt;nick&gt; - parcourir liste de l&apos;utilisateur
-/clear - vide la fenêtre de discussion
-/magnet - actions par défaut avec le magnet (0-demander, 1-chercher, 2-télécharger)
-/close - ferme ce serveur
-/fav - ajoute ce serveur aux favoris
-/grant &lt;nick&gt; - donne un slot à l&apos;utilisateur
-/help, /?, /h - affiche cette aide
-/info &lt;nick&gt; - affiche les infos de l&apos;utilisateur
-/me - parle à la troisième personne
-/pm &lt;nick&gt; - commence une discussion privée avec l&apos;utilisateur
-/sh &lt;command&gt; - lance une commande et renvoie sa sortie vers la discussion</translation>
-    </message>
-    <message>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;Dernier message d&apos;état du serveur:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
@@ -661,14 +549,6 @@
         <translation>Rôle: Opérateur</translation>
     </message>
     <message>
-        <source>Copy</source>
-        <translation>Copier</translation>
-    </message>
-    <message>
-        <source>Commands</source>
-        <translation type="obsolete">Commandes</translation>
-    </message>
-    <message>
         <source>Show widget</source>
         <translation>Montrer le widget</translation>
     </message>
@@ -689,10 +569,6 @@ Utilisateur favoris</translation>
     <message>
         <source>Slot granted to </source>
         <translation>Slot donné à </translation>
-    </message>
-    <message>
-        <source>User not found.</source>
-        <translation type="obsolete">Utilisateur non trouvé.</translation>
     </message>
     <message>
         <source> has been added to favorites.</source>
@@ -717,10 +593,6 @@ Utilisateur favoris</translation>
     <message>
         <source>Stored password sent...</source>
         <translation>Mot de passe envoyé...</translation>
-    </message>
-    <message>
-        <source>Enter password</source>
-        <translation type="obsolete">Saisissez le mot de passe</translation>
     </message>
     <message>
         <source>Password</source>
@@ -751,76 +623,143 @@ Utilisateur favoris</translation>
         <translation>Menu Serveur</translation>
     </message>
     <message>
-        <source>Nick</source>
-        <translation type="unfinished">Surnom</translation>
-    </message>
-    <message>
-        <source>IP</source>
-        <translation type="unfinished">IP</translation>
-    </message>
-    <message>
-        <source>Share</source>
-        <translation type="unfinished">Partage</translation>
-    </message>
-    <message>
-        <source>Tag</source>
-        <translation type="unfinished">Tag</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copy data</source>
-        <translation type="unfinished"></translation>
+        <source> left the chat</source>
+        <translation> a quitté le chat</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Favoris</translation>
     </message>
     <message>
         <source>%1 become offline</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 sont hors-ligne</translation>
     </message>
     <message>
         <source>%1 become online</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connecting to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connected to %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fail: %1...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> left the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 sont en ligne</translation>
     </message>
     <message>
         <source>not shared</source>
-        <translation type="unfinished"></translation>
+        <translation>non partagé</translation>
+    </message>
+    <message>
+        <source>Connecting to %1</source>
+        <translation>Connection à %1</translation>
+    </message>
+    <message>
+        <source>Connected to %1</source>
+        <translation>Connecté à %1</translation>
+    </message>
+    <message>
+        <source>Fail: %1...</source>
+        <translation>Échec: %1...</translation>
+    </message>
+    <message>
+        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
+        <translation>Désolé, mais le surnom &quot;%1&quot; est déjà utilisé.</translation>
+    </message>
+</context>
+<context>
+    <name>HubFrame::Menu</name>
+    <message>
+        <source>Copy</source>
+        <translation>Copier</translation>
+    </message>
+    <message>
+        <source>Copy nick</source>
+        <translation>Copier le surnom</translation>
+    </message>
+    <message>
+        <source>Show in list</source>
+        <translation>Montrer sur la liste</translation>
+    </message>
+    <message>
+        <source>Browse files</source>
+        <translation>Parcourir les fichiers</translation>
+    </message>
+    <message>
+        <source>Match Queue</source>
+        <translation>Correspondre avec les téléchargements</translation>
+    </message>
+    <message>
+        <source>Private Message</source>
+        <translation>Message Privé</translation>
+    </message>
+    <message>
+        <source>Add to Favorites</source>
+        <translation>Ajouter aux favoris</translation>
+    </message>
+    <message>
+        <source>Remove from Favorites</source>
+        <translation>Retirer des favoris</translation>
+    </message>
+    <message>
+        <source>Grant slot</source>
+        <translation>Donner un slot</translation>
+    </message>
+    <message>
+        <source>Remove from Queue</source>
+        <translation>Retirer de la liste</translation>
+    </message>
+    <message>
+        <source>Clear chat</source>
+        <translation>Vider la discussion</translation>
+    </message>
+    <message>
+        <source>Find in chat</source>
+        <translation>Trouver dans la discussion</translation>
+    </message>
+    <message>
+        <source>Disable/Enable chat</source>
+        <translation>Désactiver/Activer la discussion</translation>
+    </message>
+    <message>
+        <source>Select all</source>
+        <translation>Tout sélectionner</translation>
+    </message>
+    <message>
+        <source>Zoom In</source>
+        <translation>Zoom avant</translation>
+    </message>
+    <message>
+        <source>Zoom Out</source>
+        <translation>Zoom arrière</translation>
+    </message>
+    <message>
+        <source>Nick</source>
+        <translation>Surnom</translation>
+    </message>
+    <message>
+        <source>IP</source>
+        <translation>IP</translation>
+    </message>
+    <message>
+        <source>Share</source>
+        <translation>Partage</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Tag</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Tout</translation>
+    </message>
+    <message>
+        <source>Copy data</source>
+        <translation>Copier les données</translation>
     </message>
     <message>
         <source>AntiSpam</source>
-        <translation type="unfinished">AntiSpam</translation>
+        <translation>AntiSpam</translation>
     </message>
     <message>
         <source>Add to Black</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter à la liste noire</translation>
     </message>
     <message>
         <source>Add to White</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter à la liste blanche</translation>
     </message>
 </context>
 <context>
@@ -899,10 +838,6 @@ Utilisateur favoris</translation>
  %1</source>
         <translation>Des erreurs sont survenues lors du téléchargement:(newline)
 %1</translation>
-    </message>
-    <message>
-        <source>Search Manager not ready. Please, try again later.</source>
-        <translation type="obsolete">Module de recherche indisponible. Veuillez réessayer plus tard.</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -1251,10 +1186,6 @@ Please check your connection settings</source>
         <translation>Vitesse d&apos;envoi</translation>
     </message>
     <message>
-        <source>Clear text field</source>
-        <translation type="obsolete">Vider le champ</translation>
-    </message>
-    <message>
         <source>Open download directory</source>
         <translation>Ouvrir le répertoire de téléchargement</translation>
     </message>
@@ -1360,7 +1291,6 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
-        <translatorcomment>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(pour 2.0.2 et plus)&lt;br/&gt;</translatorcomment>
         <translation></translation>
     </message>
     <message>
@@ -1368,40 +1298,40 @@ Please check your connection settings</source>
         <translation>Dock latéral des Widgets</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Close all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+A</translation>
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>ADLSearch</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
+        <translation>&lt;b&gt;Dernier message du noyau:&lt;/b&gt;&lt;br/&gt;%1</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dévelopeur 2.0.3 et plus)&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Traduction Ukrainienne&lt;/u&gt;&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.0.3 et plus)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Traduction Serbe&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.0.3 et plus)&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>Close all</source>
+        <translation>Fermer tout</translation>
     </message>
 </context>
 <context>
@@ -1526,10 +1456,6 @@ Please check your connection settings</source>
     <message>
         <source>Hub list loaded from cache...</source>
         <translation>Liste de serveurs chargée depuis le cache...</translation>
-    </message>
-    <message>
-        <source>Public Hubs</source>
-        <translation>Serveurs publics</translation>
     </message>
 </context>
 <context>
@@ -1687,8 +1613,47 @@ Clés:
         <translation>Ne pas cacher le panneau lors d&apos;un recherche</translation>
     </message>
     <message>
+        <source>Search window</source>
+        <translation>Fenêtre de recherche</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Fermer</translation>
+    </message>
+    <message>
+        <source>Searching too soon, next search in %1 second</source>
+        <translation>Recherche trop rapide, prochaine recherche dans %1 secondes</translation>
+    </message>
+    <message>
+        <source>Search - %1</source>
+        <translation>Recherche - %1</translation>
+    </message>
+    <message>
+        <source>Ready to search...</source>
+        <translation>Prêt à rechercher...</translation>
+    </message>
+    <message>
+        <source>Select directory</source>
+        <translation>Sélectionner répertoire</translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;No results&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Pas de résultats&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
+        <translation>Trouvé: &lt;b&gt;%1&lt;/b&gt;  Laissé: &lt;b&gt;%2&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+</context>
+<context>
+    <name>SearchFrame::Menu</name>
+    <message>
         <source>Download</source>
-        <translation>Télécharger</translation>
+        <translation>Téléchargement</translation>
     </message>
     <message>
         <source>Download to</source>
@@ -1732,7 +1697,7 @@ Clés:
     </message>
     <message>
         <source>Remove from Queue</source>
-        <translation>Retirer de la liste des téléchargements</translation>
+        <translation>Retirer de la liste</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -1741,46 +1706,6 @@ Clés:
     <message>
         <source>Browse</source>
         <translation>Parcourir</translation>
-    </message>
-    <message>
-        <source>Search window</source>
-        <translation>Fenêtre de recherche</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Fermer</translation>
-    </message>
-    <message>
-        <source>Searching too soon, next search in %1 second</source>
-        <translation>Recherche trop rapide, prochaine recherche dans %1 secondes</translation>
-    </message>
-    <message>
-        <source>Search - %1</source>
-        <translation>Recherche - %1</translation>
-    </message>
-    <message>
-        <source>Ready to search...</source>
-        <translation>Prêt à rechercher...</translation>
-    </message>
-    <message>
-        <source>Select directory</source>
-        <translation>Sélectionner répertoire</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;No results&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Pas de résultats&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
-        <translation>Trouvé: &lt;b&gt;%1&lt;/b&gt;  Laissé: &lt;b&gt;%2&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <source>C</source>
-        <translation type="obsolete">C</translation>
     </message>
 </context>
 <context>
@@ -1874,7 +1799,7 @@ Clés:
     </message>
     <message>
         <source>User Commands</source>
-        <translation type="unfinished"></translation>
+        <translation>Commandes utilisateur</translation>
     </message>
 </context>
 <context>
@@ -2003,11 +1928,11 @@ Clés:
     </message>
     <message>
         <source>Serbian</source>
-        <translation type="unfinished"></translation>
+        <translation>Serbe</translation>
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukrainien</translation>
     </message>
 </context>
 <context>
@@ -2102,26 +2027,6 @@ Clés:
 <context>
     <name>ShareBrowser</name>
     <message>
-        <source>Download</source>
-        <translation>Télécharger</translation>
-    </message>
-    <message>
-        <source>Download to</source>
-        <translation>Télécharger vers</translation>
-    </message>
-    <message>
-        <source>Search for alternates</source>
-        <translation>Rechercher d&apos;autres sources</translation>
-    </message>
-    <message>
-        <source>Copy magnet</source>
-        <translation>Copier magnet</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>Parcourir</translation>
-    </message>
-    <message>
         <source>Own files</source>
         <translation>Fichiers personnels</translation>
     </message>
@@ -2169,9 +2074,32 @@ Clés:
         <source>Select directory</source>
         <translation>Sélectionner répertoire</translation>
     </message>
+</context>
+<context>
+    <name>ShareBrowser::Menu</name>
+    <message>
+        <source>Download</source>
+        <translation>Téléchargement</translation>
+    </message>
+    <message>
+        <source>Download to</source>
+        <translation>Télécharger vers</translation>
+    </message>
+    <message>
+        <source>Search for alternates</source>
+        <translation>Rechercher d&apos;autres sources</translation>
+    </message>
+    <message>
+        <source>Copy magnet</source>
+        <translation>Copier le magnet</translation>
+    </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished">Ajouter aux favoris</translation>
+        <translation>Ajouter aux favoris</translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation>Parcourir</translation>
     </message>
 </context>
 <context>
@@ -2233,7 +2161,7 @@ Clés:
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>ADLSearch</translation>
     </message>
 </context>
 <context>
@@ -2277,34 +2205,6 @@ Voulez-vous l&apos;arrêter?</translation>
 </context>
 <context>
     <name>TransferView</name>
-    <message>
-        <source>Browse files</source>
-        <translation>Parcourir les fichiers</translation>
-    </message>
-    <message>
-        <source>Match Queue</source>
-        <translation>Correspondre avec les téléchargements</translation>
-    </message>
-    <message>
-        <source>Send Private Message</source>
-        <translation>Envoyer message privé</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation>Ajouter aux favoris</translation>
-    </message>
-    <message>
-        <source>Grant extra slot</source>
-        <translation>Donner un slot</translation>
-    </message>
-    <message>
-        <source>Force attempt</source>
-        <translation>Forcer une tentative</translation>
-    </message>
-    <message>
-        <source>Close connection(s)</source>
-        <translation>Fermer la/les connection(s)</translation>
-    </message>
     <message>
         <source>Download complete</source>
         <translation>Téléchargement terminé</translation>
@@ -2389,13 +2289,44 @@ Voulez-vous l&apos;arrêter?</translation>
         <source>Upload failed</source>
         <translation>Envoi échoué</translation>
     </message>
+</context>
+<context>
+    <name>TransferView::Menu</name>
+    <message>
+        <source>Browse files</source>
+        <translation>Parcourir les fichiers</translation>
+    </message>
+    <message>
+        <source>Match Queue</source>
+        <translation>Correspondre avec les téléchargements</translation>
+    </message>
+    <message>
+        <source>Send Private Message</source>
+        <translation>Envoyer message privé</translation>
+    </message>
+    <message>
+        <source>Add to favorites</source>
+        <translation>Ajouter aux favoris</translation>
+    </message>
+    <message>
+        <source>Grant extra slot</source>
+        <translation>Donner un slot</translation>
+    </message>
+    <message>
+        <source>Copy IP-address of user</source>
+        <translation>Copier l&apos;adresse ip de l&apos;utilisateur</translation>
+    </message>
     <message>
         <source>Remove Source</source>
         <translation>Retirer la source</translation>
     </message>
     <message>
-        <source>Copy IP-address of user</source>
-        <translation>Copier l&apos;adresse ip de l&apos;utilisateur</translation>
+        <source>Force attempt</source>
+        <translation>Forcer une tentative</translation>
+    </message>
+    <message>
+        <source>Close connection(s)</source>
+        <translation>Fermer la/les connection(s)</translation>
     </message>
 </context>
 <context>
@@ -2465,19 +2396,19 @@ Voulez-vous l&apos;arrêter?</translation>
     <name>UCModel</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nom</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Commande</translation>
     </message>
     <message>
         <source>Hub</source>
-        <translation type="unfinished">Serveur</translation>
+        <translation>Serveur</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Séparateur</translation>
     </message>
 </context>
 <context>
@@ -2887,14 +2818,6 @@ p, li { white-space: pre-wrap; }
         <translation>X</translation>
     </message>
     <message>
-        <source>Clear filter</source>
-        <translation type="obsolete">Vider le filtre</translation>
-    </message>
-    <message>
-        <source>c</source>
-        <translation type="obsolete">c</translation>
-    </message>
-    <message>
         <source>Last status message on hub</source>
         <translation>Dernier message d&apos;état du serveur</translation>
     </message>
@@ -2981,10 +2904,6 @@ p, li { white-space: pre-wrap; }
         <translation>Taille</translation>
     </message>
     <message>
-        <source>Remember my choose</source>
-        <translation type="obsolete">Se souvenir du choix</translation>
-    </message>
-    <message>
         <source>Add to queue</source>
         <translation>Ajouter à la liste d&apos;attente</translation>
     </message>
@@ -3000,7 +2919,7 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"></translation>
+        <translation>Se souvenir du choix</translation>
     </message>
 </context>
 <context>
@@ -3171,14 +3090,6 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <message>
         <source>to</source>
         <translation>et</translation>
-    </message>
-    <message>
-        <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
-download speed/10 + (download speed - (download speed/10)*10)
-Do not try to understand it...</source>
-        <translation type="obsolete">La restriction de vitesse d&apos;envoi est associée à la restriction de vitesse de téléchargement grâce à la formule sly:
-Vitesse de téléchargement/10 + (vitesse de téléchargement - (vitesse de téléchargement/10)*10)
-N&apos;essayez pas de comprendre...</translation>
     </message>
     <message>
         <source>Select this mode if your computer is connected directly to the internet.
@@ -3608,7 +3519,7 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
     </message>
     <message>
         <source>Keep downloaded filelists</source>
-        <translation type="unfinished"></translation>
+        <translation>Garder les listes de fichiers téléchargées</translation>
     </message>
 </context>
 <context>
@@ -3718,10 +3629,6 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
         <translation>Ne pas basculer d&apos;onglet lors de la réception d&apos;un message privé</translation>
     </message>
     <message>
-        <source>Window position at startup</source>
-        <translation type="obsolete">Position de la fenêtre au démarrage</translation>
-    </message>
-    <message>
         <source>Remember window position on exit</source>
         <translation>Se souvenir de la position en quittant</translation>
     </message>
@@ -3754,15 +3661,15 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
     </message>
     <message>
         <source>Show icon in system tray</source>
-        <translation type="unfinished">Montrer l&apos;icône dans le systray</translation>
+        <translation>Montrer l&apos;icône dans la zone de notification</translation>
     </message>
     <message>
         <source>Highlight favorite users in user list</source>
-        <translation type="unfinished"></translation>
+        <translation>Surligné les utilisateurs favoris dans la liste des utilisateurs</translation>
     </message>
     <message>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Polices</translation>
     </message>
 </context>
 <context>
@@ -3871,10 +3778,6 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
         <translation>Changer icône lorsque la fenêtre principale est visible</translation>
     </message>
     <message>
-        <source>Show icon in system tray</source>
-        <translation type="obsolete">Montrer l&apos;icône dans le systray</translation>
-    </message>
-    <message>
         <source>Sound</source>
         <translation>Son</translation>
     </message>
@@ -3908,11 +3811,11 @@ Par exemple: /usr/bin/mplayer</translation>
     </message>
     <message>
         <source>Favorite user join/part</source>
-        <translation type="unfinished"></translation>
+        <translation>Connexion/déconnexion d&apos;un utilisateur favoris</translation>
     </message>
     <message>
         <source>Favorite user event</source>
-        <translation type="unfinished"></translation>
+        <translation>Évènement d&apos;un utilisateur</translation>
     </message>
 </context>
 <context>
@@ -4161,7 +4064,7 @@ and may cause the client to appear to freeze.</source>
     <message>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si décoché, le client restera inactif jusqu&apos;à ce que le partage soit complet.</translation>
     </message>
     <message>
         <source>Run refresh share on startup</source>
@@ -4214,27 +4117,27 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <name>UISettingsUC</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Formulaire</translation>
+        <translation>Formulaire</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Ajouter</translation>
+        <translation>Ajouter</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">Changer</translation>
+        <translation>Changer</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Retirer</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished">Haut</translation>
+        <translation>Haut</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished">Bas</translation>
+        <translation>Bas</translation>
     </message>
 </context>
 <context>
@@ -4282,75 +4185,75 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <name>UIUserCommands</name>
     <message>
         <source>New command</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouvelle commande</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Séparateur</translation>
     </message>
     <message>
         <source>Chat</source>
-        <translation type="unfinished">Discussion</translation>
+        <translation>Discussion</translation>
     </message>
     <message>
         <source>Raw</source>
-        <translation type="unfinished"></translation>
+        <translation>Brut</translation>
     </message>
     <message>
         <source>PM</source>
-        <translation type="unfinished"></translation>
+        <translation>MP</translation>
     </message>
     <message>
         <source>Context</source>
-        <translation type="unfinished"></translation>
+        <translation>Contexte</translation>
     </message>
     <message>
         <source>Hub</source>
-        <translation type="unfinished">Serveur</translation>
+        <translation>Serveur</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Rechercher</translation>
+        <translation>Rechercher</translation>
     </message>
     <message>
         <source>User</source>
-        <translation type="unfinished">Utilisateur</translation>
+        <translation>Utilisateur</translation>
     </message>
     <message>
         <source>Filebrowser</source>
-        <translation type="unfinished">Navigateur de fichiers</translation>
+        <translation>Navigateur de fichiers</translation>
     </message>
     <message>
         <source>Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">Nom</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Commande</translation>
     </message>
     <message>
         <source>Hub address</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresse du serveur</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"></translation>
+        <translation>À</translation>
     </message>
     <message>
         <source>Send once per nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoyer une fois par surnom</translation>
     </message>
     <message>
         <source>Result</source>
-        <translation type="unfinished"></translation>
+        <translation>Résultat</translation>
     </message>
 </context>
 <context>
@@ -4362,6 +4265,21 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>Failed to create port mappings. Please set up your NAT yourself.</source>
         <translation>Échec de découverte des ports. Veuillez configurer manuellement.</translation>
+    </message>
+</context>
+<context>
+    <name>Ui</name>
+    <message>
+        <source>Favourite users</source>
+        <translation>Utilisateurs favoris</translation>
+    </message>
+    <message>
+        <source>Search Spy</source>
+        <translation>Espion de recherches</translation>
+    </message>
+    <message>
+        <source>Public Hubs</source>
+        <translation>Serveurs publics</translation>
     </message>
 </context>
 <context>
@@ -4448,6 +4366,21 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>%1 PiB</source>
         <translation>%1 PiB</translation>
+    </message>
+</context>
+<context>
+    <name>dcpp</name>
+    <message>
+        <source>Open file</source>
+        <translation>Ouvrir le fichier</translation>
+    </message>
+    <message>
+        <source>Open directory</source>
+        <translation>Ouvrir le dossier</translation>
+    </message>
+    <message>
+        <source>Download Queue</source>
+        <translation>Liste des téléchargements</translation>
     </message>
 </context>
 </TS>
