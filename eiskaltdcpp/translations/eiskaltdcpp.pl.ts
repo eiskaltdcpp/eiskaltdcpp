@@ -938,19 +938,19 @@ Ulubiony użytkownik</translation>
         <location filename="../HubFrame.cpp" line="206"/>
         <location filename="../HubFrame.cpp" line="294"/>
         <source>AntiSpam</source>
-        <translation type="unfinished">AntiSpam</translation>
+        <translation>AntiSpam</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="208"/>
         <location filename="../HubFrame.cpp" line="296"/>
         <source>Add to Black</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj do czarnej listy</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="209"/>
         <location filename="../HubFrame.cpp" line="297"/>
         <source>Add to White</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj do białej listy</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="759"/>
@@ -1605,12 +1605,12 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="2049"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbskie&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2051"/>
         <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dla wersji 2.0.3 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2081"/>
