@@ -182,6 +182,8 @@ private:
     void clearUserIconCache();
     void initFileTypes();
 
+    static QString formatBytes(int64_t bytes, int base);
+
     QPixmap loadPixmap(const QString& file);
 
     PixmapMap m_PixmapMap;

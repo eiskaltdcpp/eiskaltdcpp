@@ -4593,27 +4593,47 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>%1 B</source>
-        <translation>%1 B</translation>
+        <translation type="unfinished">%1 B</translation>
     </message>
     <message>
         <source>%1 KiB</source>
-        <translation>%1 KiB</translation>
+        <translation type="unfinished">%1 KiB</translation>
     </message>
     <message>
         <source>%1 MiB</source>
-        <translation>%1 MiB</translation>
+        <translation type="unfinished">%1 MiB</translation>
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation type="unfinished">%1 GiB</translation>
     </message>
     <message>
         <source>%1 TiB</source>
-        <translation>%1 TiB</translation>
+        <translation type="unfinished">%1 TiB</translation>
     </message>
     <message>
         <source>%1 PiB</source>
-        <translation>%1 PiB</translation>
+        <translation type="unfinished">%1 PiB</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 TB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 PB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

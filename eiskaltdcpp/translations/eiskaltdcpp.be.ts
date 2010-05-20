@@ -2161,15 +2161,15 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="523"/>
-        <location filename="../SearchFrame.cpp" line="817"/>
+        <location filename="../SearchFrame.cpp" line="815"/>
         <source>Searching too soon, next search in %1 second</source>
         <translatorcomment>!!!множны лік</translatorcomment>
         <translation>Занадта часта шукаем, наступны раз паспрабуем праз %1 сэкундаў</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="527"/>
-        <location filename="../SearchFrame.cpp" line="813"/>
-        <location filename="../SearchFrame.cpp" line="821"/>
+        <location filename="../SearchFrame.cpp" line="811"/>
+        <location filename="../SearchFrame.cpp" line="819"/>
         <source>Search - %1</source>
         <translation>Шукаем — %1</translation>
     </message>
@@ -2180,18 +2180,18 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Можна шукаць…</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="958"/>
-        <location filename="../SearchFrame.cpp" line="1011"/>
+        <location filename="../SearchFrame.cpp" line="956"/>
+        <location filename="../SearchFrame.cpp" line="1009"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1234"/>
+        <location filename="../SearchFrame.cpp" line="1232"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Вынікаў няма&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1243"/>
+        <location filename="../SearchFrame.cpp" line="1241"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translatorcomment>???Прапусьцілі</translatorcomment>
         <translation>Знайшлі: &lt;b&gt;%1&lt;/b&gt;  Адкінулі: &lt;b&gt;%2&lt;/b&gt;</translation>
@@ -5775,42 +5775,68 @@ the granted slot will not be closed.</source>
         <translation>Упішыце значэньне парамэтру</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="727"/>
-        <source>%1 B</source>
-        <translation>%1 Б</translation>
-    </message>
-    <message>
         <location filename="../WulforUtil.cpp" line="729"/>
-        <source>%1 KiB</source>
-        <translation>%1 КіБ</translation>
+        <location filename="../WulforUtil.cpp" line="743"/>
+        <source>%1 B</source>
+        <translation type="unfinished">%1 Б</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="731"/>
-        <source>%1 MiB</source>
-        <translation>%1 МіБ</translation>
+        <source>%1 KiB</source>
+        <translation type="unfinished">%1 КіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="733"/>
-        <source>%1 GiB</source>
-        <translation>%1 ГіБ</translation>
+        <source>%1 MiB</source>
+        <translation type="unfinished">%1 МіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="735"/>
-        <source>%1 TiB</source>
-        <translation>%1 ТіБ</translation>
+        <source>%1 GiB</source>
+        <translation type="unfinished">%1 ГіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="737"/>
-        <source>%1 PiB</source>
-        <translation>%1 ПіБ</translation>
+        <source>%1 TiB</source>
+        <translation type="unfinished">%1 ТіБ</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="795"/>
+        <location filename="../WulforUtil.cpp" line="739"/>
+        <source>%1 PiB</source>
+        <translation type="unfinished">%1 ПіБ</translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="745"/>
+        <source>%1 KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="747"/>
+        <source>%1 MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="749"/>
+        <source>%1 GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="751"/>
+        <source>%1 TB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="753"/>
+        <source>%1 PB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WulforUtil.cpp" line="819"/>
         <source>Offline</source>
         <translation>Адлучаны</translation>
     </message>
     <message>
-        <location filename="../WulforUtil.cpp" line="931"/>
+        <location filename="../WulforUtil.cpp" line="955"/>
         <source>User commands</source>
         <translation>Загады карыстальніка</translation>
     </message>
