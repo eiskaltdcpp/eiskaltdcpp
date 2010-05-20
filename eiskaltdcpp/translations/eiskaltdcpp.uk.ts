@@ -927,19 +927,19 @@ Favorite user</source>
         <location filename="../HubFrame.cpp" line="206"/>
         <location filename="../HubFrame.cpp" line="294"/>
         <source>AntiSpam</source>
-        <translation type="unfinished">Антиспам</translation>
+        <translation>Антиспам</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="208"/>
         <location filename="../HubFrame.cpp" line="296"/>
         <source>Add to Black</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати до чорного списку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="209"/>
         <location filename="../HubFrame.cpp" line="297"/>
         <source>Add to White</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати до білого списку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="759"/>
@@ -5739,57 +5739,57 @@ the granted slot will not be closed.</source>
         <location filename="../WulforUtil.cpp" line="729"/>
         <location filename="../WulforUtil.cpp" line="743"/>
         <source>%1 B</source>
-        <translation type="unfinished">%1 Б</translation>
+        <translation>%1 Б</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="731"/>
         <source>%1 KiB</source>
-        <translation type="unfinished">%1 КіБ</translation>
+        <translation>%1 КіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="733"/>
         <source>%1 MiB</source>
-        <translation type="unfinished">%1 МіБ</translation>
+        <translation>%1 МіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="735"/>
         <source>%1 GiB</source>
-        <translation type="unfinished">%1 ГіБ</translation>
+        <translation>%1 ГіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="737"/>
         <source>%1 TiB</source>
-        <translation type="unfinished">%1 ТіБ</translation>
+        <translation>%1 ТіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="739"/>
         <source>%1 PiB</source>
-        <translation type="unfinished">%1 ПіБ</translation>
+        <translation>%1 ПіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="745"/>
         <source>%1 KB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 КБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="747"/>
         <source>%1 MB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 МБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="749"/>
         <source>%1 GB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ГБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="751"/>
         <source>%1 TB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ТБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="753"/>
         <source>%1 PB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ПБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="819"/>
