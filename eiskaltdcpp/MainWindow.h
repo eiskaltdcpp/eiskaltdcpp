@@ -31,6 +31,7 @@
 #include <QToolButton>
 #include <QRegExp>
 #include <QTreeView>
+#include <QMetaType>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -153,6 +154,11 @@ friend class dcpp::Singleton<MainWindow>;
         void addArenaWidgetOnToolbar(ArenaWidget*, bool keepFocus = false);
         /** */
         void remArenaWidgetFromToolbar(ArenaWidget*);
+
+        /** */
+        void addActionOnToolBar(QAction*);
+        /** */
+        void remActionFromToolbar(QAction*);
 
         void slotChatClear();
 
@@ -352,6 +358,8 @@ friend class dcpp::Singleton<MainWindow>;
         ArenaWidgetList arenaWidgets;
         ArenaWidgetMap arenaMap;
 };
+
+Q_DECLARE_METATYPE(MainWindow*)
 
 class EiskaltApp: public QApplication{
 Q_OBJECT

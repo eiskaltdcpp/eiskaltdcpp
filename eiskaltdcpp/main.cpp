@@ -12,6 +12,7 @@ using namespace std;
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
 
+#include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 #include "UPnP.h"
@@ -26,10 +27,13 @@ using namespace std;
 #include "SpellCheck.h"
 #endif
 
+#ifdef USE_JS
+#include <QtScript/QScriptEngine>
+#include <QtScript/QScriptValue>
+#endif
+
 #include <QApplication>
 #include <QMainWindow>
-
-#include "MainWindow.h"
 
 void callBack(void* x, const std::string& a)
 {

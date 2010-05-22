@@ -10,6 +10,10 @@ set (QT_USE_QTNETWORK 1)
 set (QT_USE_QTXML 1)
 set (QT_USE_QTDBUS 1)
 
+if (USE_JS)
+  set (QT_USE_QTSCRIPT  1)
+endif (USE_JS)
+
 include (${QT_USE_FILE})
 set (HDRS   ArenaWidget.h
             ArenaWidgetContainer.h

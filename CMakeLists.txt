@@ -107,7 +107,13 @@ find_package (ZLIB REQUIRED)
 find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
-find_package (Qt4 4.4 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus REQUIRED )
+
+if (NOT USE_JS)
+  find_package (Qt4 4.4 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus REQUIRED)
+else (NOT USE_JS)
+  find_package (Qt4 4.4 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus QtScript REQUIRED)
+endif (NOT USE_JS)
+
 find_package (PkgConfig)
 
 if (NOT USE_ASPELL)
@@ -294,6 +300,10 @@ endif (ICONV_SECOND_ARGUMENT_IS_CONST)
 if (FORCE_XDG)
   add_definitions (-DFORCE_XDG)
 endif (FORCE_XDG)
+
+if (USE_JS)
+  add_definitions (-DUSE_JS)
+endif (USE_JS)
 
 set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -DQT_NO_DEBUG -O3 -fomit-frame-pointer -pipe")
 set(CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3 -pipe")

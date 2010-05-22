@@ -1474,6 +1474,24 @@ void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
     wcontainer->removeWidget(awgt);
 }
 
+void MainWindow::addActionOnToolBar(QAction *new_act){
+    if (!fBar || toolBarActions.contains(new_act))
+        return;
+
+    fBar->insertAction(toolBarActions.last(), new_act);
+    toolBarActions.append(new_act);
+}
+
+void MainWindow::remActionFromToolbar(QAction *act){
+    if (!fBar || !toolBarActions.contains(act))
+        return;
+
+    qDebug() << Q_FUNC_INFO;
+
+    fBar->removeAction(act);
+    toolBarActions.removeAt(toolBarActions.indexOf(act));
+}
+
 void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     if (!a)
         return;
