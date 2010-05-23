@@ -87,67 +87,67 @@
     </message>
     <message>
         <source>Search for alternates</source>
-        <translation type="unfinished">Rechercher d&apos;autres sources</translation>
+        <translation>Rechercher d&apos;autres sources</translation>
     </message>
     <message>
         <source>Copy magnet</source>
-        <translation type="unfinished">Copier le magnet</translation>
+        <translation>Copier le magnet</translation>
     </message>
     <message>
         <source>Rename/Move</source>
-        <translation type="unfinished">Renommer/Déplacer</translation>
+        <translation>Renommer/Déplacer</translation>
     </message>
     <message>
         <source>Set priority</source>
-        <translation type="unfinished">Définir la priorité</translation>
+        <translation>Définir la priorité</translation>
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished">En pause</translation>
+        <translation>En pause</translation>
     </message>
     <message>
         <source>Lowest</source>
-        <translation type="unfinished">Le plus bas</translation>
+        <translation>Le plus bas</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished">Bas</translation>
+        <translation>Bas</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished">Normal</translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished">Élevé</translation>
+        <translation>Élevé</translation>
     </message>
     <message>
         <source>Highest</source>
-        <translation type="unfinished">Le plus élevé</translation>
+        <translation>Le plus élevé</translation>
     </message>
     <message>
         <source>Browse files</source>
-        <translation type="unfinished">Parcourir les fichiers</translation>
+        <translation>Parcourir les fichiers</translation>
     </message>
     <message>
         <source>Send private message</source>
-        <translation type="unfinished">Envoyer un message privé</translation>
+        <translation>Envoyer un message privé</translation>
     </message>
     <message>
         <source>Remove source</source>
-        <translation type="unfinished">Retirer la source</translation>
+        <translation>Retirer la source</translation>
     </message>
     <message>
         <source>Remove user</source>
-        <translation type="unfinished">Retirer l&apos;utilisateur</translation>
+        <translation>Retirer l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Retirer</translation>
     </message>
     <message>
         <source>Download Queue</source>
-        <translation type="unfinished">Liste des téléchargements</translation>
+        <translation>Liste des téléchargements</translation>
     </message>
 </context>
 <context>
@@ -384,7 +384,7 @@
     </message>
     <message>
         <source>Favourite users</source>
-        <translation type="unfinished">Utilisateurs favoris</translation>
+        <translation>Utilisateurs favoris</translation>
     </message>
 </context>
 <context>
@@ -440,11 +440,11 @@
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation type="unfinished">Ouvrir le fichier</translation>
+        <translation>Ouvrir le fichier</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation type="unfinished">Ouvrir le dossier</translation>
+        <translation>Ouvrir le dossier</translation>
     </message>
 </context>
 <context>
@@ -739,103 +739,103 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copier</translation>
+        <translation>Copier</translation>
     </message>
     <message>
         <source>Copy nick</source>
-        <translation type="unfinished">Copier le surnom</translation>
+        <translation>Copier le surnom</translation>
     </message>
     <message>
         <source>Show in list</source>
-        <translation type="unfinished">Montrer sur la liste</translation>
+        <translation>Montrer dans la liste</translation>
     </message>
     <message>
         <source>Browse files</source>
-        <translation type="unfinished">Parcourir les fichiers</translation>
+        <translation>Parcourir les fichiers</translation>
     </message>
     <message>
         <source>Match Queue</source>
-        <translation type="unfinished">Correspondre avec les téléchargements</translation>
+        <translation>Correspondre avec les téléchargements</translation>
     </message>
     <message>
         <source>Private Message</source>
-        <translation type="unfinished">Message Privé</translation>
+        <translation>Message Privé</translation>
     </message>
     <message>
         <source>Add to Favorites</source>
-        <translation type="unfinished">Ajouter aux favoris</translation>
+        <translation>Ajouter aux favoris</translation>
     </message>
     <message>
         <source>Remove from Favorites</source>
-        <translation type="unfinished">Retirer des favoris</translation>
+        <translation>Retirer des favoris</translation>
     </message>
     <message>
         <source>Grant slot</source>
-        <translation type="unfinished">Donner un slot</translation>
+        <translation>Donner un slot</translation>
     </message>
     <message>
         <source>Remove from Queue</source>
-        <translation type="unfinished">Retirer de la liste</translation>
+        <translation>Retirer de la liste</translation>
     </message>
     <message>
         <source>Clear chat</source>
-        <translation type="unfinished">Vider la discussion</translation>
+        <translation>Vider la discussion</translation>
     </message>
     <message>
         <source>Find in chat</source>
-        <translation type="unfinished">Trouver dans la discussion</translation>
+        <translation>Trouver dans la discussion</translation>
     </message>
     <message>
         <source>Disable/Enable chat</source>
-        <translation type="unfinished">Désactiver/Activer la discussion</translation>
+        <translation>Désactiver/Activer la discussion</translation>
     </message>
     <message>
         <source>Select all</source>
-        <translation type="unfinished">Tout sélectionner</translation>
+        <translation>Tout sélectionner</translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation type="unfinished">Zoom avant</translation>
+        <translation>Zoom avant</translation>
     </message>
     <message>
         <source>Zoom Out</source>
-        <translation type="unfinished">Zoom arrière</translation>
+        <translation>Zoom arrière</translation>
     </message>
     <message>
         <source>Nick</source>
-        <translation type="unfinished">Surnom</translation>
+        <translation>Surnom</translation>
     </message>
     <message>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation type="unfinished">Partage</translation>
+        <translation>Partage</translation>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished">Tag</translation>
+        <translation>Tag</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Tout</translation>
+        <translation>Tout</translation>
     </message>
     <message>
         <source>Copy data</source>
-        <translation type="unfinished">Copier les données</translation>
+        <translation>Copier les données</translation>
     </message>
     <message>
         <source>AntiSpam</source>
-        <translation type="unfinished">AntiSpam</translation>
+        <translation>AntiSpam</translation>
     </message>
     <message>
         <source>Add to Black</source>
-        <translation type="unfinished">Ajouter à la liste noire</translation>
+        <translation>Ajouter à la liste noire</translation>
     </message>
     <message>
         <source>Add to White</source>
-        <translation type="unfinished">Ajouter à la liste blanche</translation>
+        <translation>Ajouter à la liste blanche</translation>
     </message>
     <message>
         <source>/aspell on/off - enable/disable spell checking
@@ -855,7 +855,23 @@ Utilisateur favoris</translation>
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - active/désactive la vérification orthographique
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - retirer l&apos;alias
+/alias list - lister tous les alias
+/away &lt;message&gt; - définir le mode absent on/off
+/back - désactive le mode absent
+/browse &lt;nick&gt; - parcourir les fichiers de l&apos;utilisateur
+/clear - vide la fenêtre de discussion
+/magnet - default action with magnet (0-ask, 1-search, 2-download)
+/close - ferme le hub
+/fav - ajoute le serveur aux favoris
+/grant &lt;nick&gt; - donne un slot à l&apos;utilisateur
+/help, /?, /h - montre cette aide
+/info &lt;nick&gt; - montre les infos de l&apos;utilisateur
+/me - parler à la troisième personne
+/pm &lt;nick&gt; - démarre une discussion privée avec l&apos;utilisateur
+/sh &lt;command&gt; - lance une commande et redirige son résultat vers le chat</translation>
     </message>
 </context>
 <context>
@@ -1658,7 +1674,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Public Hubs</source>
-        <translation type="unfinished">Serveurs publics</translation>
+        <translation>Serveurs publics</translation>
     </message>
 </context>
 <context>
@@ -1853,59 +1869,59 @@ Clés:
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished">Téléchargement</translation>
+        <translation>Téléchargement</translation>
     </message>
     <message>
         <source>Download to</source>
-        <translation type="unfinished">Télécharger vers</translation>
+        <translation>Télécharger vers</translation>
     </message>
     <message>
         <source>Download Whole Directory</source>
-        <translation type="unfinished">Télécharger le répertoire entier</translation>
+        <translation>Télécharger le répertoire entier</translation>
     </message>
     <message>
         <source>Download Whole Directory to</source>
-        <translation type="unfinished">Télécharger le répertoire entier vers</translation>
+        <translation>Télécharger le répertoire entier vers</translation>
     </message>
     <message>
         <source>Search TTH</source>
-        <translation type="unfinished">Rechercher le TTH</translation>
+        <translation>Rechercher le TTH</translation>
     </message>
     <message>
         <source>Copy magnet</source>
-        <translation type="unfinished">Copier le magnet</translation>
+        <translation>Copier le magnet</translation>
     </message>
     <message>
         <source>Browse files</source>
-        <translation type="unfinished">Parcourir les fichiers</translation>
+        <translation>Parcourir les fichiers</translation>
     </message>
     <message>
         <source>Match Queue</source>
-        <translation type="unfinished">Correspondre avec les téléchargements</translation>
+        <translation>Correspondre avec les téléchargements</translation>
     </message>
     <message>
         <source>Send Private Message</source>
-        <translation type="unfinished">Envoyer message privé</translation>
+        <translation>Envoyer message privé</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished">Ajouter aux favoris</translation>
+        <translation>Ajouter aux favoris</translation>
     </message>
     <message>
         <source>Grant extra slot</source>
-        <translation type="unfinished">Donner un slot</translation>
+        <translation>Donner un slot</translation>
     </message>
     <message>
         <source>Remove from Queue</source>
-        <translation type="unfinished">Retirer de la liste</translation>
+        <translation>Retirer de la liste</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Retirer</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Parcourir</translation>
+        <translation>Parcourir</translation>
     </message>
 </context>
 <context>
@@ -2335,27 +2351,27 @@ Clés:
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished">Téléchargement</translation>
+        <translation>Téléchargement</translation>
     </message>
     <message>
         <source>Download to</source>
-        <translation type="unfinished">Télécharger vers</translation>
+        <translation>Télécharger vers</translation>
     </message>
     <message>
         <source>Search for alternates</source>
-        <translation type="unfinished">Rechercher d&apos;autres sources</translation>
+        <translation>Rechercher d&apos;autres sources</translation>
     </message>
     <message>
         <source>Copy magnet</source>
-        <translation type="unfinished">Copier le magnet</translation>
+        <translation>Copier le magnet</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished">Ajouter aux favoris</translation>
+        <translation>Ajouter aux favoris</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Parcourir</translation>
+        <translation>Parcourir</translation>
     </message>
 </context>
 <context>
@@ -2574,39 +2590,39 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Browse files</source>
-        <translation type="unfinished">Parcourir les fichiers</translation>
+        <translation>Parcourir les fichiers</translation>
     </message>
     <message>
         <source>Match Queue</source>
-        <translation type="unfinished">Correspondre avec les téléchargements</translation>
+        <translation>Correspondre avec les téléchargements</translation>
     </message>
     <message>
         <source>Send Private Message</source>
-        <translation type="unfinished">Envoyer message privé</translation>
+        <translation>Envoyer message privé</translation>
     </message>
     <message>
         <source>Add to favorites</source>
-        <translation type="unfinished">Ajouter aux favoris</translation>
+        <translation>Ajouter aux favoris</translation>
     </message>
     <message>
         <source>Grant extra slot</source>
-        <translation type="unfinished">Donner un slot</translation>
+        <translation>Donner un slot</translation>
     </message>
     <message>
         <source>Copy IP-address of user</source>
-        <translation type="unfinished">Copier l&apos;adresse ip de l&apos;utilisateur</translation>
+        <translation>Copier l&apos;adresse ip de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Remove Source</source>
-        <translation type="unfinished">Retirer la source</translation>
+        <translation>Retirer la source</translation>
     </message>
     <message>
         <source>Force attempt</source>
-        <translation type="unfinished">Forcer une tentative</translation>
+        <translation>Forcer une tentative</translation>
     </message>
     <message>
         <source>Close connection(s)</source>
-        <translation type="unfinished">Fermer la/les connection(s)</translation>
+        <translation>Fermer la/les connection(s)</translation>
     </message>
 </context>
 <context>
@@ -4664,47 +4680,47 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>%1 B</source>
-        <translation type="unfinished">%1 B</translation>
+        <translation>%1 B</translation>
     </message>
     <message>
         <source>%1 KiB</source>
-        <translation type="unfinished">%1 KiB</translation>
+        <translation>%1 KiB</translation>
     </message>
     <message>
         <source>%1 MiB</source>
-        <translation type="unfinished">%1 MiB</translation>
+        <translation>%1 MiB</translation>
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation type="unfinished">%1 GiB</translation>
+        <translation>%1 GiB</translation>
     </message>
     <message>
         <source>%1 TiB</source>
-        <translation type="unfinished">%1 TiB</translation>
+        <translation>%1 TiB</translation>
     </message>
     <message>
         <source>%1 PiB</source>
-        <translation type="unfinished">%1 PiB</translation>
+        <translation>%1 PiB</translation>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>%1 TB</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>%1 PB</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
