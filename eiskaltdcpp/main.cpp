@@ -60,11 +60,6 @@ int main(int argc, char *argv[])
     EiskaltApp app(argc, argv);
     int ret = 0;
 
-    QDBusInterface iface("org.kde.amarok", "/Player", "org.freedesktop.MediaPlayer", QDBusConnection::sessionBus());
-    QList< QVariant > answer = iface.call("GetMetadata").arguments();
-
-    qDebug() << answer;
-
     parseCmdLine(qApp->arguments());
 
     SingleInstanceRunner runner;
