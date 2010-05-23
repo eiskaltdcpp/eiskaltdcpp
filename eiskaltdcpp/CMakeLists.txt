@@ -189,13 +189,13 @@ else (NOT linguas)
 endif (NOT linguas)
 
 if (USE_ASPELL)
-  set (SRCS ${SRCS} SpellCheck.cpp ScriptManagerDialog.cpp)
-  set (MOC_HDRS ${MOC_HDRS} SpellCheck.h ScriptManagerDialog.h)
+  set (SRCS ${SRCS} SpellCheck.cpp)
+  set (MOC_HDRS ${MOC_HDRS} SpellCheck.h)
 endif (USE_ASPELL)
 
 if (USE_JS)
-  set (SRCS ${SRCS} ScriptEngine.cpp)
-  set (MOC_HDRS ${MOC_HDRS} ScriptEngine.h)
+  set (SRCS ${SRCS} ScriptEngine.cpp ScriptManagerDialog.cpp)
+  set (MOC_HDRS ${MOC_HDRS} ScriptEngine.h ScriptManagerDialog.h)
 endif (USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})

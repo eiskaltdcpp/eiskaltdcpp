@@ -7,7 +7,7 @@
 #include <QTextStream>
 
 #ifndef CLIENT_SCRIPTS_DIR
-#define CLIENT_SCRIPTS_DIR
+#define CLIENT_SCRIPTS_DIR ""
 #endif
 
 ScriptManagerDialog::ScriptManagerDialog(QWidget *parent) :
