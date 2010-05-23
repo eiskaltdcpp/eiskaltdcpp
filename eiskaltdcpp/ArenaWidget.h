@@ -14,6 +14,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QPixmap>
+#include <QMetaType>
 
 class ArenaWidget
 {
@@ -62,4 +63,39 @@ private:
 };
 
 Q_DECLARE_INTERFACE (ArenaWidget, "com.NegatiV.EiskaltDCPP.ArenaWidget/1.0")
+
+class ScriptWidget :
+    public QObject,
+    public ArenaWidget
+{
+Q_OBJECT
+public:
+    ScriptWidget();
+    virtual ~ScriptWidget();
+
+    Q_PROPERTY(QString  title READ getArenaTitle WRITE setArenaTitle)
+    Q_PROPERTY(QString  shortTitle READ getArenaShortTitle WRITE setArenaShortTitle)
+    Q_PROPERTY(QWidget* widget READ getWidget WRITE setWidget)
+    Q_PROPERTY(QMenu*   menu READ getMenu WRITE setMenu)
+
+public Q_SLOTS:
+    virtual QWidget *getWidget();
+    virtual QString getArenaTitle();
+    virtual QString getArenaShortTitle();
+    virtual QMenu *getMenu();
+
+    virtual void  setWidget(QWidget*);
+    virtual void  setArenaTitle(QString);
+    virtual void  setArenaShortTitle(QString);
+    virtual void  setMenu(QMenu*);
+
+private:
+    QWidget *_wgt;
+    QString _arenaTitle;
+    QString _arenaShortTitle;
+    QMenu *_menu;
+};
+
+Q_DECLARE_METATYPE(ScriptWidget*)
+
 #endif // ARENAWIDGET_H

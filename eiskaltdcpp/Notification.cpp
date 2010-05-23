@@ -115,7 +115,8 @@ void Notification::switchModule(int m){
         notify = new DBusNotifyModule();
 }
 
-void Notification::showMessage(Notification::Type t, const QString &title, const QString &msg){
+void Notification::showMessage(int t, const QString &title, const QString &msg){
+    qDebug() << Q_FUNC_INFO;
     if (WBGET(WB_NOTIFY_ENABLED)){
         do {
             if (title.isEmpty() || msg.isEmpty())

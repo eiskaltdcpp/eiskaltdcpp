@@ -15,8 +15,7 @@ if (USE_JS)
 endif (USE_JS)
 
 include (${QT_USE_FILE})
-set (HDRS   ArenaWidget.h
-            ArenaWidgetContainer.h
+set (HDRS   ArenaWidgetContainer.h
             EmoticonObject.h
             Func.h
             HistoryInterface.h
@@ -89,6 +88,7 @@ set (MOC_HDRS
             ADLSModel.h
             Antispam.h
             AntiSpamFrame.h
+	    ArenaWidget.h
             CustomFontModel.h
             DownloadQueue.h
             DownloadQueueModel.h

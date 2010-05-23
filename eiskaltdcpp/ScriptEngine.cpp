@@ -200,6 +200,13 @@ static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngi
 
         obj = qobject_cast<QObject*>(FavoriteUsers::getInstance());
     }
+    else if (className == "Notification"){
+        if (Notification::getInstance()){
+            engine->globalObject().setProperty("NOTIFY_ANY", (int)Notification::ANY);
+
+            obj = qobject_cast<QObject*>(Notification::getInstance());
+        }
+    }
     else if (className == "HubManager"){
         if (!HubManager::getInstance())
             HubManager::newInstance();

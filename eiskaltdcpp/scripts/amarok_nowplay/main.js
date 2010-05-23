@@ -5,7 +5,7 @@ function shellDone(ok, msg){
   var hubMgr = new HubManager();
   var activeHub = hubMgr.getHubObject();
 
-  if (ok)
+  if (ok && (activeHub != null))
     activeHub.sendMsg(msg);
 }
 

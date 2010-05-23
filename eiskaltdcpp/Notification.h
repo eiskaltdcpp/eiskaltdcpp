@@ -77,7 +77,6 @@ enum Type{
 };
 
     void enableTray(bool);
-    void showMessage(Type t, const QString&, const QString&);
     void setToolTip(const QString &, const QString &, const QString &, const QString &);
     void reloadSounds();
     void resetTrayIcon(){
@@ -87,6 +86,7 @@ enum Type{
 
 public slots:
     void switchModule(int);
+    void showMessage(int t, const QString&, const QString&);
 
 private slots:
     void slotExit();
@@ -108,5 +108,8 @@ private:
 };
 
 #define Notify Notification::getInstance()
+
+Q_DECLARE_METATYPE(Notification*)
+Q_DECLARE_METATYPE(Notification::Type)
 
 #endif // NOTIFICATION_H
