@@ -8,9 +8,12 @@
 #include "Notification.h"
 #include "HubFrame.h"
 #include "SearchFrame.h"
+#include "WulforSettings.h"
 
 #include <QProcess>
 #include <QDir>
+#include <QFile>
+#include <QTextStream>
 #include <QtDebug>
 
 #ifndef CLIENT_SCRIPTS_DIR
@@ -20,30 +23,78 @@
 static QScriptValue shellExec(QScriptContext*, QScriptEngine*);
 static QScriptValue staticMemberConstructor(QScriptContext*, QScriptEngine*);
 static QScriptValue dynamicMemberConstructor(QScriptContext*, QScriptEngine*);
+static QScriptValue importExtension(QScriptContext*, QScriptEngine*);
 
 ScriptEngine::ScriptEngine() :
         QObject(NULL)
 {
-    prepareThis();
+    loadScripts();
 }
 
 ScriptEngine::~ScriptEngine(){
-
+    stopScripts();
 }
 
-void ScriptEngine::importExtension(const QString &name){
-    static QStringList allowedExtensions = QStringList() << "qt.core" << "qt.gui" << "qt.network" << "qt.xml";
+void ScriptEngine::loadScripts(){
+    QStringList enabled = QString(QByteArray::fromBase64(WSGET(WS_APP_ENABLED_SCRIPTS).toAscii())).split("\n");
 
-    if (!allowedExtensions.contains(name) || importedExtensions.contains(name))
+    foreach (QString s, enabled)
+        loadScript(s);
+}
+
+void ScriptEngine::loadScript(const QString &path){
+    QFile f(path);
+
+    if (!(f.exists() && f.open(QIODevice::ReadOnly)))
         return;
 
-    if (engine.importExtension(name).isUndefined())
-        importedExtensions << name;
-    else
-        qDebug() << QString("ScriptEngine> Warning! %1 not found!").arg(name);
+    ScriptObject *obj = new ScriptObject;
+    obj->path = path;
+
+    QTextStream stream(&f);
+    QString data = stream.readAll();
+
+    prepareThis(obj->engine);
+
+    scripts.insert(path, obj);
+
+    qDebug() << QString("ScriptEngine> Starting %1 ...").arg(path).toAscii().constData();
+
+    obj->engine.evaluate(data);
+
+    if (obj->engine.hasUncaughtException()){
+        foreach (QString s, obj->engine.uncaughtExceptionBacktrace())
+            qDebug() << s;
+    }
 }
 
-void ScriptEngine::prepareThis(){
+void ScriptEngine::stopScripts(){
+    QMap<QString, ScriptObject*> s = scripts;
+    QMap<QString, ScriptObject*>::iterator it = s.begin();
+
+    for (; it != s.end(); ++it)
+        stopScript(it.key());
+
+    scripts.clear();
+}
+
+void ScriptEngine::stopScript(const QString &path){
+    if (!scripts.contains(path))
+        return;
+
+    ScriptObject *obj = scripts.value(path);
+
+    if (obj->engine.isEvaluating())
+        obj->engine.abortEvaluation();
+
+    scripts.remove(path);
+
+    qDebug() << QString("ScriptEngine> Stopping %1 ...").arg(path).toAscii().constData();
+
+    delete obj;
+}
+
+void ScriptEngine::prepareThis(QScriptEngine &engine){
     setObjectName("ScriptEngine");
 
     QScriptValue me = engine.newQObject(this);
@@ -55,14 +106,19 @@ void ScriptEngine::prepareThis(){
     QScriptValue shellEx = engine.newFunction(shellExec);
     engine.globalObject().setProperty("shellExec", shellEx);
 
+    QScriptValue import = engine.newFunction(importExtension);
+    engine.globalObject().setProperty("Import", import);
+
     QScriptValue MW = engine.newQObject(MainWindow::getInstance());//MainWindow already initialized
     engine.globalObject().setProperty("MainWindow", MW);
 
-    registerStaticMembers();
-    registerDynamicMembers();
+    registerStaticMembers(engine);
+    registerDynamicMembers(engine);
+
+    engine.setProcessEventsInterval(100);
 }
 
-void ScriptEngine::registerStaticMembers(){
+void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
     static QStringList staticMembers = QStringList() << "AntiSpam" << "DownloadQueue" << "FavoriteHubs" << "FavoriteUsers"
                                        << "Notification";
 
@@ -75,7 +131,7 @@ void ScriptEngine::registerStaticMembers(){
     }
 }
 
-void ScriptEngine::registerDynamicMembers(){
+void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
     static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame";
 
     foreach( QString cl, dynamicMembers ) {
@@ -178,4 +234,21 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
     }
 
     return engine->newQObject(obj);
+}
+
+static QScriptValue importExtension(QScriptContext *context, QScriptEngine *engine){
+    static QStringList allowedExtensions = QStringList() << "qt.core" << "qt.gui" << "qt.network" << "qt.xml" << "qt.dbus";
+
+    if (context->argumentCount() != 1)
+        return QScriptValue();
+
+    const QString name = context->argument(0).toString();
+
+    if (!allowedExtensions.contains(name))
+        return QScriptValue();
+
+    if (!engine->importExtension(name).isUndefined())
+        qDebug() << QString("ScriptEngine> Warning! %1 not found!").arg(name);
+
+    return QScriptValue();
 }

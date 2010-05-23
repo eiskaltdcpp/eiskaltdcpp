@@ -53,6 +53,7 @@ const char * const WS_FAV_HUBS_STATE          = "fav-hubs-state";
 const char * const WS_ADLS_STATE          = "adls-state";
 const char * const WS_APP_THEME               = "app-theme-name";
 const char * const WS_APP_FONT                = "app-font-name";
+const char * const WS_APP_ENABLED_SCRIPTS     = "app-enabled-scripts";
 const char * const WS_NOTIFY_SOUNDS           = "notify-sound-files";
 const char * const WS_NOTIFY_SND_CMD          = "notify-sound-cmd";
 const char * const WS_FAVUSERS_STATE          = "favoriteusers-state";

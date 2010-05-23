@@ -52,6 +52,10 @@
 #include "SpyFrame.h"
 #include "SideBar.h"
 
+#ifdef USE_JS
+#include "ScriptManagerDialog.h"
+#endif
+
 #include "dcpp/ShareManager.h"
 
 #include "UPnPMapper.h"
@@ -619,6 +623,12 @@ void MainWindow::initActions(){
         toolsAutoAway->setChecked(WBGET(WB_APP_AUTO_AWAY));
         connect(toolsAutoAway, SIGNAL(triggered()), this, SLOT(slotToolsAutoAway()));
 
+#ifdef USE_JS
+        toolsJS = new QAction("", this);
+        toolsJS->setObjectName("toolsJS");
+        connect(toolsJS, SIGNAL(triggered()), this, SLOT(slotToolsJS()));
+#endif
+
         menuAwayAction = new QAction("", this);
         // submenu
         QAction *away_sep = new QAction("", this);
@@ -735,6 +745,10 @@ void MainWindow::initActions(){
                 << toolsHideProgressSpace
                 << toolsHideLastStatus
                 << toolsHideUsersStatisctics
+#ifdef USE_JS
+                << separator5
+                << toolsJS
+#endif
                 << separator4
                 << toolsOptions;
 
@@ -995,6 +1009,10 @@ void MainWindow::retranslateUi(){
         toolsSearch->setText(tr("Search"));
 
         toolsADLS->setText(tr("ADLSearch"));
+
+#ifdef USE_JS
+        toolsJS->setText(tr("Scripts Manager"));
+#endif
 
         chatClear->setText(tr("Clear chat"));
 
@@ -1730,6 +1748,12 @@ void MainWindow::slotToolsSwitchAway(){
 
     Util::setAway(away);
     Util::setManualAway(away);
+}
+
+void MainWindow::slotToolsJS(){
+#ifdef USE_JS
+    ScriptManagerDialog(this).exec();
+#endif
 }
 
 void MainWindow::slotHubsFavoriteHubs(){

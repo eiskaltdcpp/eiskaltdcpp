@@ -9,10 +9,16 @@
 
 #include <QList>
 #include <QStringList>
+#include <QMap>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
+
+struct ScriptObject {
+    QScriptEngine engine;
+    QString path;
+};
 
 class ScriptEngine :
         public QObject,
@@ -26,7 +32,10 @@ public:
 signals:
 
 public slots:
-    void importExtension(const QString &name);
+    void loadScripts();
+    void loadScript(const QString&);
+    void stopScripts();
+    void stopScript(const QString&);
 
 private:
     ScriptEngine();
@@ -35,13 +44,11 @@ private:
     ScriptEngine(const ScriptEngine&) {}
     ScriptEngine &operator =(const ScriptEngine&){}
 
-    void prepareThis();
-    void registerStaticMembers();
-    void registerDynamicMembers();
+    void prepareThis(QScriptEngine &);
+    void registerStaticMembers(QScriptEngine &);
+    void registerDynamicMembers(QScriptEngine &);
 
-    QScriptEngine engine;
-
-    QStringList importedExtensions;
+    QMap<QString, ScriptObject*> scripts;
 };
 
 Q_DECLARE_METATYPE(ScriptEngine*)

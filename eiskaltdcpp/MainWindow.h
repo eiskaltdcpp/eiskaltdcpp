@@ -191,6 +191,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsSearch();
         void slotToolsADLS();
         void slotToolsSettings();
+        void slotToolsJS();
         void slotToolsTransfer(bool);
         void slotPanelMenuActionClicked();
         void slotWidgetsToggle();
@@ -324,6 +325,9 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsHideLastStatus;
         QAction *toolsHideUsersStatisctics;
         QAction *toolsOptions;
+#ifdef USE_JS
+        QAction *toolsJS;
+#endif
 
         QMenu   *menuPanels;
         QAction *panelsWidgets;

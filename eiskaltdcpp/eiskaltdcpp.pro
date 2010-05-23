@@ -154,7 +154,8 @@ HEADERS = MainWindow.h \
     SettingsUC.h \
     UCModel.h \
     CustomFontModel.h \
-    ScriptEngine.h
+    ScriptEngine.h \
+    ScriptManagerDialog.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -265,7 +266,8 @@ SOURCES = main.cpp \
     SettingsUC.cpp \
     UCModel.cpp \
     CustomFontModel.cpp \
-    ScriptEngine.cpp
+    ScriptEngine.cpp \
+    ScriptManagerDialog.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \
@@ -295,4 +297,5 @@ FORMS = ui/HubFrame.ui \
     ui/UIPublicHubs.ui \
     ui/UIPublicHubsList.ui \
     ui/UIUserCommands.ui \
-    ui/UISettingsUC.ui
+    ui/UISettingsUC.ui \
+    ui/UIScriptManager.ui

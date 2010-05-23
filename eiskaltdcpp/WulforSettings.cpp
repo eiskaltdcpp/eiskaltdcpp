@@ -84,6 +84,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_APP_ASPELL_LANG,       "");
         strmap.insert(WS_APP_DYNDNS_SERVER,     "checkip.dyndns.org");
         strmap.insert(WS_APP_DYNDNS_INDEX,      "/index.html");
+        strmap.insert(WS_APP_ENABLED_SCRIPTS,   "");
         strmap.insert(WS_PUBLICHUBS_STATE,      "");
         strmap.insert(WS_SETTINGS_GUI_FONTS_STATE, "");
 
