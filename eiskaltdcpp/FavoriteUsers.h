@@ -15,6 +15,7 @@
 #include <QCloseEvent>
 #include <QHash>
 #include <QTreeWidgetItem>
+#include <QMetaType>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -101,5 +102,7 @@ private:
 
     FavoriteUsersModel *model;
 };
+
+Q_DECLARE_METATYPE (FavoriteUsers*)
 
 #endif // FAVORITEUSERS_H

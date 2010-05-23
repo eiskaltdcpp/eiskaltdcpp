@@ -340,6 +340,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
 }
 
 void MainWindow::init(){
+    setObjectName("MainWindow");
+
     arena = new QDockWidget();
 #if QT_VERSION >= 0x040500
     arena->setWidget(NULL);

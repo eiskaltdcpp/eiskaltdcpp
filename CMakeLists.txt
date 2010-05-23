@@ -284,6 +284,7 @@ endif (UNIX)
 set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/ts")
 set (CLIENT_SOUNDS_DEST "${CLIENT_DATA_DIR}/sounds")
 set (CLIENT_ICONS_DEST "${CLIENT_DATA_DIR}/icons")
+set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/scripts")
 
 add_definitions (-pipe -O2 -I. -fno-builtin -D_FILE_OFFSET_BITS=64
                  -D_REENTRANT -D_DATADIR="${_DATADIR}"

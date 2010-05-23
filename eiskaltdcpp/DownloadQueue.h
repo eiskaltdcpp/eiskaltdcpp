@@ -16,6 +16,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QMap>
+#include <QMetaType>
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
@@ -152,5 +153,7 @@ private:
     SourceMap sources;
     SourceMap badSources;
 };
+
+Q_DECLARE_METATYPE(DownloadQueue*)
 
 #endif // DOWNLOADQUEUE_H

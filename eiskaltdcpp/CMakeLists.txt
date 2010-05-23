@@ -175,33 +175,32 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsUC.ui
             ui/UIUserCommands.ui
             )
+
 option(LANGUAGES "Using translations")
+
 if (NOT linguas)
-set (LANGUAGES be en fr hu pl ru sr uk CACHE STRING "Using translations" FORCE)
+  set (LANGUAGES be en fr hu pl ru sr uk CACHE STRING "Using translations" FORCE)
 else (NOT linguas)
-string(REGEX MATCHALL [a-zA-Z]+
+  string(REGEX MATCHALL [a-zA-Z]+
          linguas1 ${linguas})
-#message(STATUS ${linguas1})
-set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
+  #message(STATUS ${linguas1})
+  set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
 endif (NOT linguas)
 
 if (USE_ASPELL)
   set (SRCS ${SRCS} SpellCheck.cpp)
   set (MOC_HDRS ${MOC_HDRS} SpellCheck.h)
 endif (USE_ASPELL)
+
+if (USE_JS)
+  set (SRCS ${SRCS} ScriptEngine.cpp)
+  set (MOC_HDRS ${MOC_HDRS} ScriptEngine.h)
+endif (USE_JS)
+
 foreach (LANGUAGE ${LANGUAGES})
-set (COMPILED_TRANSLATIONS ${COMPILED_TRANSLATIONS} ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.qm)
-#message (STATUS ${COMPILED_TRANSLATIONS})
+  set (COMPILED_TRANSLATIONS ${COMPILED_TRANSLATIONS} ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.qm)
+  #message (STATUS ${COMPILED_TRANSLATIONS})
 endforeach()
-#set (PO_FILES po/ru.po)
-#set (PO_FILES po/be.po)
-
-#set (MO_FILES ${CMAKE_CURRENT_SOURCE_DIR}/po/en.mo
-#              ${CMAKE_CURRENT_SOURCE_DIR}/po/be.mo
-#              ${CMAKE_CURRENT_SOURCE_DIR}/po/ru.mo)
-
-#GETTEXT_CREATE_TRANSLATIONS ( po/ru.po ALL ${PO_FILES})
-#GETTEXT_CREATE_TRANSLATIONS ( po/be.po ALL ${PO_FILES})
 
 #Create moc files
 QT4_WRAP_CPP (M_SRCS ${MOC_HDRS})
@@ -248,12 +247,13 @@ include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${
 set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
 if (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
-add_definitions (-DFREE_SPACE_BAR)
-set (LIBS ${LIBS} ${Boost_LIBRARIES})
+  add_definitions (-DFREE_SPACE_BAR)
+  set (LIBS ${LIBS} ${Boost_LIBRARIES})
 endif (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
+
 if (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
-add_definitions (-DFREE_SPACE_BAR_C)
-set (LIBS ${LIBS} gnu)
+  add_definitions (-DFREE_SPACE_BAR_C)
+  set (LIBS ${LIBS} gnu)
 endif (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
 
 if (USE_ASPELL)
@@ -286,6 +286,10 @@ add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                           -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
                 )
 
+if (USE_JS)
+  add_definitions (-DCLIENT_SCRIPTS_DIR="${CLIENT_SCRIPTS_DEST}")
+endif (USE_JS)
+
 if (APPLE)
   add_definitions(        -DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
 else (APPLE)
@@ -293,9 +297,9 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-target_link_libraries (eiskaltdcpp ${LIBS} dcpp iconv intl upnp ixml)
+  target_link_libraries (eiskaltdcpp ${LIBS} dcpp iconv intl upnp ixml)
 else (APPLE)
-target_link_libraries (eiskaltdcpp ${LIBS} dcpp)
+  target_link_libraries (eiskaltdcpp ${LIBS} dcpp)
 endif (APPLE)
 
   set_property (TARGET eiskaltdcpp PROPERTY OUTPUT_NAME ${PROJECT_NAME_GLOBAL})
@@ -306,6 +310,11 @@ endif (APPLE)
 if (NOT APPLE)
 
   install (DIRECTORY icons/appl icons/emot icons/user DESTINATION ${CLIENT_ICONS_DEST} PATTERN ".svn" EXCLUDE)
+
+  if (USE_JS)
+    install (DIRECTORY scripts/ DESTINATION ${CLIENT_DATA_DIR}/scripts FILE_PERMISSIONS FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE PATTERN ".svn" EXCLUDE )
+  endif (USE_JS)
+
   install (DIRECTORY examples/ DESTINATION ${CLIENT_DATA_DIR}/examples FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE PATTERN ".svn" EXCLUDE )
   install (FILES icons/icon_128x128.png DESTINATION share/icons/hicolor/128x128/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_64x64.png DESTINATION share/icons/hicolor/64x64/apps RENAME eiskaltdcpp.png)

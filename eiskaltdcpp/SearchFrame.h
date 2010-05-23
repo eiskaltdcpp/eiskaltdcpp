@@ -22,6 +22,7 @@
 #include <QTimer>
 #include <QCustomEvent>
 #include <QCompleter>
+#include <QMetaType>
 
 #include "ui_UISearchFrame.h"
 #include "ArenaWidget.h"
@@ -238,5 +239,7 @@ private:
     void onHubChanged(HubInfo* info);
     void onHubRemoved(HubInfo* info);
 };
+
+Q_DECLARE_METATYPE(SearchFrame*)
 
 #endif // SEARCHFRAME_H

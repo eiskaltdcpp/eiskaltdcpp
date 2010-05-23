@@ -21,6 +21,7 @@
 #include <QHash>
 #include <QSortFilterProxyModel>
 #include <QCompleter>
+#include <QMetaType>
 
 #include "ui_HubFrame.h"
 
@@ -339,5 +340,7 @@ private:
 
     QCompleter * completer;
 };
+
+Q_DECLARE_METATYPE(HubFrame*)
 
 #endif // HUBFRAME_H

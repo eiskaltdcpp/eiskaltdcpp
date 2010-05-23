@@ -28,8 +28,7 @@ using namespace std;
 #endif
 
 #ifdef USE_JS
-#include <QtScript/QScriptEngine>
-#include <QtScript/QScriptValue>
+#include "ScriptEngine.h"
 #endif
 
 #include <QApplication>
@@ -120,6 +119,10 @@ int main(int argc, char *argv[])
     MainWindow::getInstance()->autoconnect();
     MainWindow::getInstance()->parseCmdLine();
 
+#ifdef USE_JS
+    ScriptEngine::newInstance();
+#endif
+
     if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
         MainWindow::getInstance()->show();
 
@@ -141,6 +144,10 @@ int main(int argc, char *argv[])
     UPnP::deleteInstance();
 
     Notification::deleteInstance();
+
+#ifdef USE_JS
+    ScriptEngine::deleteInstance();
+#endif
 
     MainWindow::deleteInstance();
 

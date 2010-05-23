@@ -13,6 +13,7 @@
 #include <QWidget>
 #include <QMap>
 #include <QCloseEvent>
+#include <QMetaType>
 
 #include "ui_UIFavoriteHubs.h"
 #include "ui_UIFavoriteHubEditor.h"
@@ -103,5 +104,7 @@ private:
     virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) throw();
     virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) throw();
 };
+
+Q_DECLARE_METATYPE (FavoriteHubs*)
 
 #endif // FAVORITEHUBS_H

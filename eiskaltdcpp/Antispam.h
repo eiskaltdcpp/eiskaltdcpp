@@ -13,6 +13,7 @@
 #include <QObject>
 #include <QList>
 #include <QMap>
+#include <QMetaType>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -109,5 +110,7 @@ public slots:
     void slotObjectChangeState(QString obj, AntiSpamObjectState from, AntiSpamObjectState to);
 
 };
+
+Q_DECLARE_METATYPE(AntiSpam*)
 
 #endif // DCANTISPAM_H

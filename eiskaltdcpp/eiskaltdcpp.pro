@@ -153,7 +153,8 @@ HEADERS = MainWindow.h \
     LineEdit.h \
     SettingsUC.h \
     UCModel.h \
-    CustomFontModel.h
+    CustomFontModel.h \
+    ScriptEngine.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -263,7 +264,8 @@ SOURCES = main.cpp \
     LineEdit.cpp \
     SettingsUC.cpp \
     UCModel.cpp \
-    CustomFontModel.cpp
+    CustomFontModel.cpp \
+    ScriptEngine.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \
