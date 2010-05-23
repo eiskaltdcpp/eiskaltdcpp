@@ -187,7 +187,6 @@ public:
     HubFrame(QWidget *parent, QString, QString);
     ~HubFrame();
 
-    void addStatus(QString);
     bool parseForCmd(QString, QWidget *);
 
     void createPMWindow(const QString&);
@@ -207,10 +206,12 @@ public:
     void CTRL_F_pressed() { slotHideFindFrame(); }
     ArenaWidget::Role role() const { return ArenaWidget::Hub; }
 
+public slots:
     void disableChat();
     void clearChat();
+    void addStatus(QString);
+    void sendMsg(const QString&);
 
-public slots:
     void reloadSomeSettings();
     void slotHideFindFrame();
     void slotActivate();

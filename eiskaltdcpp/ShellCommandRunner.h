@@ -32,13 +32,13 @@ public:
     /** destructor */
     virtual ~ShellCommandRunner();
 
+public Q_SLOTS:
     /** the method that runs in the thread */
     virtual void run();
-
     /** Cancel the shell command e.g. if the chat is closed */
     void cancel();
 
-signals:
+Q_SIGNALS:
     /** emitted when the command has finished */
     void finished(bool ok, QString output);
 

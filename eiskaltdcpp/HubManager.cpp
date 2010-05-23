@@ -53,3 +53,7 @@ QList<HubFrame*> HubManager::getHubs() const {
 HubFrame *HubManager::activeHub() const {
     return active;
 }
+
+QObject *HubManager::getHubObject(){
+    return qobject_cast<QObject*>(activeHub());
+}

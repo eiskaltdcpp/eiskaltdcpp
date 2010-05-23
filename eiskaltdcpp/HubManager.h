@@ -12,6 +12,7 @@
 
 #include <QObject>
 #include <QHash>
+#include <QMetaType>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -33,6 +34,9 @@ public:
     QList<HubFrame*> getHubs() const;
     HubFrame *activeHub() const;
 
+public Q_SLOTS:
+    QObject *getHubObject();
+
 private:
     explicit HubManager();
     virtual ~HubManager();
@@ -44,5 +48,7 @@ private:
     HubHash hubs;
     HubFrame *active;
 };
+
+Q_DECLARE_METATYPE(HubManager*)
 
 #endif // HUBMANAGER_H

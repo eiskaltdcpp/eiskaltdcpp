@@ -1097,6 +1097,10 @@ QString HubFrame::getUserInfo(UserListItem *item){
     return ttip;
 }
 
+void HubFrame::sendMsg(const QString &msg){
+    sendChat(msg, false, false);
+}
+
 void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
     if (!client || !client->isConnected() || msg.isEmpty() || msg.isNull())
         return;

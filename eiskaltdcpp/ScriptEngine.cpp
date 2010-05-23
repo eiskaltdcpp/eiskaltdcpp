@@ -7,7 +7,9 @@
 #include "FavoriteUsers.h"
 #include "Notification.h"
 #include "HubFrame.h"
+#include "HubManager.h"
 #include "SearchFrame.h"
+#include "ShellCommandRunner.h"
 #include "WulforSettings.h"
 
 #include <QProcess>
@@ -120,7 +122,7 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
 
 void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
     static QStringList staticMembers = QStringList() << "AntiSpam" << "DownloadQueue" << "FavoriteHubs" << "FavoriteUsers"
-                                       << "Notification";
+                                       << "Notification" << "HubManager";
 
     foreach( QString cl, staticMembers ) {
         qDebug() << QString("ScriptEngine> Register static class %1...").arg(cl).toAscii().constData();
@@ -132,7 +134,7 @@ void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
 }
 
 void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
-    static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame";
+    static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame" << "ShellCommandRunner";
 
     foreach( QString cl, dynamicMembers ) {
         qDebug() << QString("ScriptEngine> Register dynamic class %1...").arg(cl).toAscii().constData();
@@ -198,6 +200,12 @@ static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngi
 
         obj = qobject_cast<QObject*>(FavoriteUsers::getInstance());
     }
+    else if (className == "HubManager"){
+        if (!HubManager::getInstance())
+            HubManager::newInstance();
+
+        obj = qobject_cast<QObject*>(HubManager::getInstance());
+    }
 
     return engine->newQObject(obj);
 }
@@ -231,6 +239,20 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
         fr->setAttribute(Qt::WA_DeleteOnClose);
 
         obj = qobject_cast<QObject*>(fr);
+    }
+    else if (className == "ShellCommandRunner"){
+        if (context->argumentCount() >= 1){
+            QString cmd = context->argument(0).toString();
+            QStringList args = QStringList();
+
+            for (int i = 1; i < context->argumentCount(); i++)
+                args.push_back(context->argument(i).toString());
+
+            ShellCommandRunner *runner = new ShellCommandRunner(cmd, args, MainWindow::getInstance());
+            runner->connect(runner, SIGNAL(finished(bool,QString)), runner, SLOT(deleteLater()));
+
+            obj = qobject_cast<QObject*>(runner);
+        }
     }
 
     return engine->newQObject(obj);
