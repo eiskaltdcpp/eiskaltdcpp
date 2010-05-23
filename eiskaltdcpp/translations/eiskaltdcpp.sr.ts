@@ -1388,6 +1388,10 @@ Molim proverite podešavanja vaše veze</translation>
         <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Scripts Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -1547,6 +1551,13 @@ EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC pr
 Keys:
 (sp)(sp)-h, --help(tab) Prikaži ovu poruku
 (sp)(sp)-v, --version(tab) Prikaži verziju</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptManagerDialog</name>
+    <message>
+        <source>Script Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3033,6 +3044,13 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <source>IP address of DNS name of hub you want to connect.</source>
         <translation>IP adresa haba na koji želiš da se povežeš.</translation>
+    </message>
+</context>
+<context>
+    <name>UIScriptManager</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Dijalog</translation>
     </message>
 </context>
 <context>

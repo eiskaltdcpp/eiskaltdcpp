@@ -1548,6 +1548,10 @@ Please check your connection settings</source>
         <source>Close all</source>
         <translation>Fermer tout</translation>
     </message>
+    <message>
+        <source>Scripts Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -1707,6 +1711,13 @@ EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les proto
 Clés:
   -h, --help(tab) Montre ce message
   -v, --version(tab) Montre la version de la chaîne</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptManagerDialog</name>
+    <message>
+        <source>Script Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3315,6 +3326,13 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <message>
         <source>IP address of DNS name of hub you want to connect.</source>
         <translation>Adresse IP ou nom de DNS du serveur auquel vous désirez vous connecter.</translation>
+    </message>
+</context>
+<context>
+    <name>UIScriptManager</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Dialogue</translation>
     </message>
 </context>
 <context>

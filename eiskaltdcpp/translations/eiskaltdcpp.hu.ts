@@ -1484,6 +1484,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Scripts Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -1647,6 +1651,13 @@ Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az A
 Kapcsolók:
   -h, --help	 Help megjelenítése
   -v, --version  Verzióinformáció mutatása</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptManagerDialog</name>
+    <message>
+        <source>Script Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3147,6 +3158,13 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <source>IP address of DNS name of hub you want to connect.</source>
         <translation>A hub IP címe, vagy DNS neve, amihez csatlakozni szeretnél.</translation>
+    </message>
+</context>
+<context>
+    <name>UIScriptManager</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Beállítások</translation>
     </message>
 </context>
 <context>
