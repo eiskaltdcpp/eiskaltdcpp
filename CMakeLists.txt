@@ -306,6 +306,10 @@ if (USE_JS)
   add_definitions (-DUSE_JS)
 endif (USE_JS)
 
+if (USE_ICON_THEME)
+ add_definitions(-DUSE_ICON_THEME )
+endif (USE_SYSTEM_ICONS)
+
 set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -DQT_NO_DEBUG -O3 -fomit-frame-pointer -pipe")
 set(CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3 -pipe")
 
