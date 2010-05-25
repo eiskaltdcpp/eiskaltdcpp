@@ -11,7 +11,7 @@
 * Improved anti-spam module, all the previously planned functionality is now available.
 * Added option to change the representation of size (kibibyte (KiB) <=> kilobyte (KB), etc.), see man-page.
 * QtScript basic support (-DUSE_JS:BOOL=1 to enable)
-* Support for system icon theme (-USE_ICON_THEME:BOOL=1 to enable)
+* Support for system icon theme (-DUSE_ICON_THEME:BOOL=1 to enable)
 
 --- 2.0.2 2010-05-04 ---
 * Thanks to Alexandre Wallimann the French translation is now available.
