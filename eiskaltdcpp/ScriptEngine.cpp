@@ -12,6 +12,8 @@
 #include "ShellCommandRunner.h"
 #include "WulforSettings.h"
 
+#include "dcpp/HashManager.h"
+
 #include <QProcess>
 #include <QDir>
 #include <QFile>
@@ -23,6 +25,7 @@
 #endif
 
 static QScriptValue shellExec(QScriptContext*, QScriptEngine*);
+static QScriptValue getMagnets(QScriptContext*, QScriptEngine*);
 static QScriptValue staticMemberConstructor(QScriptContext*, QScriptEngine*);
 static QScriptValue dynamicMemberConstructor(QScriptContext*, QScriptEngine*);
 static QScriptValue importExtension(QScriptContext*, QScriptEngine*);
@@ -93,6 +96,9 @@ void ScriptEngine::stopScript(const QString &path){
 
     qDebug() << QString("ScriptEngine> Stopping %1 ...").arg(path).toAscii().constData();
 
+    if (obj->engine.hasUncaughtException())
+        qDebug() << obj->engine.uncaughtExceptionBacktrace();
+
     delete obj;
 }
 
@@ -107,6 +113,9 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
 
     QScriptValue shellEx = engine.newFunction(shellExec);
     engine.globalObject().setProperty("shellExec", shellEx);
+
+    QScriptValue getMagnet = engine.newFunction(getMagnets);
+    engine.globalObject().setProperty("getMagnets", getMagnet);
 
     QScriptValue import = engine.newFunction(importExtension);
     engine.globalObject().setProperty("Import", import);
@@ -164,6 +173,41 @@ static QScriptValue shellExec(QScriptContext *ctx, QScriptEngine *engine){
     return QScriptValue();
 }
 
+static QScriptValue getMagnets(QScriptContext *ctx, QScriptEngine *engine){
+    Q_UNUSED(engine);
+
+    if (ctx->argumentCount() < 1)
+        return QScriptValue();
+
+    QStringList files;
+
+    for (int i = 0; i < ctx->argumentCount(); i++)
+        files.push_back(ctx->argument(i).toString());
+
+    QStringList magnets;
+
+    foreach (QString f, files){
+        QFile file(f);
+
+        if (!file.exists())
+            continue;
+
+        const dcpp::TTHValue *tth = dcpp::HashManager::getInstance()->getFileTTHif(_tq(f));
+
+        if (tth != NULL)
+            magnets.push_back(WulforUtil::getInstance()->makeMagnet(f.split(QDir::separator(), QString::SkipEmptyParts).last(),
+                                                                    file.size(),
+                                                                    _q(tth->toBase32())
+                                                                    ));
+    }
+
+    QScriptValue array = engine->newArray(magnets.size());
+
+    for (int i = 0; i < magnets.length(); i++)
+        array.setProperty(i, QScriptValue(magnets.at(i)));
+
+    return array;
+}
 
 static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngine *engine){
     QScriptValue self = context->callee();
