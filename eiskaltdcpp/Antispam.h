@@ -42,17 +42,6 @@ public:
 
     void move(QString, AntiSpamObjectState);
 
-    void addToBlack(const QList<QString> &list);
-    void addToWhite(const QList<QString> &list);
-    void addToGray(const QList<QString> &list);
-    void remFromBlack(const QList<QString> &list);
-    void remFromWhite(const QList<QString> &list);
-    void remFromGray(const QList<QString> &list);
-    void clearBlack();
-    void clearGray();
-    void clearWhite();
-    void clearAll();
-
     QList<QString> getBlack();
     QList<QString> getGray();
     QList<QString> getWhite();
@@ -75,6 +64,18 @@ public:
     friend AntiSpam& operator<<(AntiSpam&, AntiSpamObjectState);
     friend AntiSpam& operator<<(AntiSpam&, const QList<QString>&);
     friend AntiSpam& operator<<(AntiSpam&, const QString&);
+
+public slots:
+    void addToBlack(const QList<QString> &list);
+    void addToWhite(const QList<QString> &list);
+    void addToGray(const QList<QString> &list);
+    void remFromBlack(const QList<QString> &list);
+    void remFromWhite(const QList<QString> &list);
+    void remFromGray(const QList<QString> &list);
+    void clearBlack();
+    void clearGray();
+    void clearWhite();
+    void clearAll();
 
 private:
 
