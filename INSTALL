@@ -8,6 +8,7 @@ bzip2
 zlib
 libaspell (optional, see cmake keys)
 libboost-system, libboost-filesystem, libboost-date-time (>=1.34.1) (optional, see cmake keys)
+libqt4-script (>= 4.4.0) (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -51,6 +52,10 @@ Keys for cmake:
 -DFORCE_XDG=ON/OFF (default: ON)
     use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables
     see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
+-DUSE_JS:BOOL=1 (default: BOOL=0)
+    Enable/disable QtScript basic support
+-DUSE_ICON_THEME:BOOL=1 (default: BOOL=0)
+    Using system icon theme. Work only with Qt >= 4.6.0 and only in KDE and Gnome.
 -DCMAKE_INSTALL_PREFIX=<prefix for install> (default: /usr/local)
     .
 -DESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
