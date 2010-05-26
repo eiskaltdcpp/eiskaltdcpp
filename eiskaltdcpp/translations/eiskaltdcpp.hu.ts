@@ -827,15 +827,15 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>AntiSpam</source>
-        <translation type="unfinished">AntiSpam</translation>
+        <translation>AntiSpam</translation>
     </message>
     <message>
         <source>Add to Black</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás a fekete-listához</translation>
     </message>
     <message>
         <source>Add to White</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás a fehér-listához</translation>
     </message>
 </context>
 <context>
@@ -1478,15 +1478,15 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Szerb fordítás&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.3 és újabb)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>Scripts Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Script kezelő</translation>
     </message>
 </context>
 <context>
@@ -1657,7 +1657,7 @@ Kapcsolók:
     <name>ScriptManagerDialog</name>
     <message>
         <source>Script Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Script kezelő</translation>
     </message>
 </context>
 <context>
@@ -3164,7 +3164,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <name>UIScriptManager</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Beállítások</translation>
+        <translation>Beállítások</translation>
     </message>
 </context>
 <context>
@@ -4611,47 +4611,47 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>%1 B</source>
-        <translation type="unfinished">%1 B</translation>
+        <translation>%1 B</translation>
     </message>
     <message>
         <source>%1 KiB</source>
-        <translation type="unfinished">%1 KiB</translation>
+        <translation>%1 KiB</translation>
     </message>
     <message>
         <source>%1 MiB</source>
-        <translation type="unfinished">%1 MiB</translation>
+        <translation>%1 MiB</translation>
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation type="unfinished">%1 GiB</translation>
+        <translation>%1 GiB</translation>
     </message>
     <message>
         <source>%1 TiB</source>
-        <translation type="unfinished">%1 TiB</translation>
+        <translation>%1 TiB</translation>
     </message>
     <message>
         <source>%1 PiB</source>
-        <translation type="unfinished">%1 PiB</translation>
+        <translation>%1 PiB</translation>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 KB</translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 MB</translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 GB</translation>
     </message>
     <message>
         <source>%1 TB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 TB</translation>
     </message>
     <message>
         <source>%1 PB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 PB</translation>
     </message>
 </context>
 </TS>
