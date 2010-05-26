@@ -10,8 +10,16 @@
 #include <QUrl>
 #include <QFileInfo>
 
-ChatEdit::ChatEdit(QWidget *parent) : QPlainTextEdit(parent), cc(NULL)
-{}
+ChatEdit::ChatEdit(QWidget *parent) : QTextEdit(parent), cc(NULL)
+{
+    setMinimumHeight(10);
+
+    setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    connect(this, SIGNAL(textChanged()), this, SLOT(recalculateGeometry()));
+}
 
 ChatEdit::~ChatEdit()
 {}
@@ -35,6 +43,21 @@ void ChatEdit::setCompleter(QCompleter *completer, UserListModel *model)
 
     QObject::connect(cc, SIGNAL(activated(const QModelIndex&)),
                      this, SLOT(insertCompletion(const QModelIndex&)));
+}
+
+QSize ChatEdit::minimumSizeHint() const{
+    QSize sh = QTextEdit::minimumSizeHint();
+    sh.setHeight(fontMetrics().height() + 1);
+    sh += QSize(0, QFrame::lineWidth() * 2);
+    return sh;
+}
+
+QSize ChatEdit::sizeHint() const{
+    QSize sh = QTextEdit::sizeHint();
+    sh.setHeight(int(document()->documentLayout()->documentSize().height()));
+    sh += QSize(0, QFrame::lineWidth() * 2);
+    ((QTextEdit*)this)->setMaximumHeight(sh.height());
+    return sh;
 }
 
 void ChatEdit::insertCompletion(const QModelIndex & index)
@@ -89,7 +112,7 @@ void ChatEdit::focusInEvent(QFocusEvent *e)
     if (cc)
         cc->setWidget(this);
 
-    QPlainTextEdit::focusInEvent(e);
+    QTextEdit::focusInEvent(e);
 }
 
 void ChatEdit::keyPressEvent(QKeyEvent *e)
@@ -128,7 +151,7 @@ void ChatEdit::keyPressEvent(QKeyEvent *e)
     }
 
     if (!cc || !cc->popup()->isVisible() || !hasModifier)
-        QPlainTextEdit::keyPressEvent(e);
+        QTextEdit::keyPressEvent(e);
 
     if (ctrlOrShift && e->text().isEmpty())
         return;
@@ -247,9 +270,14 @@ void ChatEdit::dropEvent(QDropEvent *e)
             QDropEvent drop(e->pos(), Qt::CopyAction, &mime, e->mouseButtons(),
                             e->keyboardModifiers(), e->type());
 
-            QPlainTextEdit::dropEvent(&drop);
+            QTextEdit::dropEvent(&drop);
             return;
         }
     }
-    QPlainTextEdit::dropEvent(e);
+    QTextEdit::dropEvent(e);
+}
+
+void ChatEdit::updateScrollBar(){
+    setVerticalScrollBarPolicy(sizeHint().height() > height() ? Qt::ScrollBarAlwaysOn : Qt::ScrollBarAlwaysOff);
+    ensureCursorVisible();
 }

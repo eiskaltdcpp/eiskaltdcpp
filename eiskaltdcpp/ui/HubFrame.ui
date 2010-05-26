@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>355</width>
-    <height>222</height>
+    <width>353</width>
+    <height>220</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -149,7 +149,7 @@
        <item>
         <widget class="QFrame" name="frame_INPUT">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -173,6 +173,12 @@
           </item>
           <item row="0" column="0">
            <widget class="ChatEdit" name="plainTextEdit_INPUT">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="maximumSize">
              <size>
               <width>16777215</width>

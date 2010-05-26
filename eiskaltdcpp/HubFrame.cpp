@@ -553,7 +553,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
     if (e->type() == QEvent::KeyRelease){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
+        if ((static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT) &&
             (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
             (k_e->modifiers() != Qt::ShiftModifier))
         {
@@ -572,7 +572,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
     else if (e->type() == QEvent::KeyPress){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
+        if ((static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT) &&
             (!WBGET(WB_USE_CTRL_ENTER) || k_e->modifiers() == Qt::ControlModifier) &&
             ((k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) && k_e->modifiers() != Qt::ShiftModifier) ||
              (k_e->key() == Qt::Key_Enter && k_e->modifiers() == Qt::KeypadModifier))
@@ -990,8 +990,6 @@ void HubFrame::load(){
 }
 
 void HubFrame::reloadSomeSettings(){
-    plainTextEdit_INPUT->setMaximumHeight(WIGET(WI_TEXT_EDIT_HEIGHT));
-
     label_USERSTATE->setVisible(WBGET(WB_USERS_STATISTICS));
 
     label_LAST_STATUS->setVisible(WBGET(WB_LAST_STATUS));
@@ -2642,7 +2640,7 @@ void HubFrame::slotSmile(){
 void HubFrame::slotInputTextChanged(){
 #ifdef USE_ASPELL
     PMWindow *p = qobject_cast<PMWindow*>(sender());
-    QPlainTextEdit *plainTextEdit_INPUT = (p)? qobject_cast<QPlainTextEdit*>(p->inputWidget()) : this->plainTextEdit_INPUT;
+    QTextEdit *plainTextEdit_INPUT = (p)? qobject_cast<QTextEdit*>(p->inputWidget()) : this->plainTextEdit_INPUT;
 
     if (!plainTextEdit_INPUT)
         return;
@@ -2685,7 +2683,7 @@ void HubFrame::slotInputTextChanged(){
 
 void HubFrame::slotInputContextMenu(){
     PMWindow *p = qobject_cast<PMWindow*>(sender());
-    QPlainTextEdit *plainTextEdit_INPUT = (p)? qobject_cast<QPlainTextEdit*>(p->inputWidget()) : this->plainTextEdit_INPUT;
+    QTextEdit *plainTextEdit_INPUT = (p)? qobject_cast<QTextEdit*>(p->inputWidget()) : this->plainTextEdit_INPUT;
 
     if (!plainTextEdit_INPUT)
         return;

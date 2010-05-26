@@ -1,7 +1,8 @@
 #ifndef CHATEDIT_H
 #define CHATEDIT_H
 
-#include <QPlainTextEdit>
+#include <QTextEdit>
+#include <QAbstractTextDocumentLayout>
 #include <QStringListModel>
 
 #include <QDebug>
@@ -39,7 +40,7 @@ public:
     }
 };
 
-class ChatEdit : public QPlainTextEdit
+class ChatEdit : public QTextEdit
 {
     Q_OBJECT
 
@@ -49,6 +50,9 @@ public:
 
     void setCompleter(QCompleter *, UserListModel *);
 
+    QSize minimumSizeHint() const;
+    QSize sizeHint() const;
+
 protected:
     void keyPressEvent(QKeyEvent *);
     void keyReleaseEvent(QKeyEvent *);
@@ -56,8 +60,10 @@ protected:
     void dropEvent(QDropEvent *);
     void dragEnterEvent(QDragEnterEvent *e);
 
-private slots:
+private Q_SLOTS:
     void insertCompletion(const QModelIndex &);
+    void recalculateGeometry() { updateGeometry(); updateScrollBar(); }
+    void updateScrollBar();
 
 private:
     QString textUnderCursor() const;

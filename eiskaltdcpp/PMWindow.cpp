@@ -81,7 +81,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
     if (e->type() == QEvent::KeyRelease){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
+        if ((static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT) &&
             (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
             (k_e->modifiers() == Qt::NoModifier))
         {
@@ -91,7 +91,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
     else if (e->type() == QEvent::KeyPress){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if ((static_cast<QPlainTextEdit*>(obj) == plainTextEdit_INPUT) &&
+        if ((static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT) &&
             (!WBGET(WB_USE_CTRL_ENTER) || k_e->modifiers() == Qt::ControlModifier) &&
             ((k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) && k_e->modifiers() != Qt::ShiftModifier) ||
             (k_e->key() == Qt::Key_Enter && k_e->modifiers() == Qt::KeypadModifier))
@@ -174,8 +174,6 @@ void PMWindow::slotActivate(){
 }
 
 void PMWindow::reloadSomeSettings(){
-    if (plainTextEdit_INPUT->maximumHeight() != WIGET(WI_TEXT_EDIT_HEIGHT))
-        plainTextEdit_INPUT->setMaximumHeight(WIGET(WI_TEXT_EDIT_HEIGHT));
 }
 
 QString PMWindow::getArenaTitle(){
