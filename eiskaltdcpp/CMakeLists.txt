@@ -194,8 +194,14 @@ if (USE_ASPELL)
 endif (USE_ASPELL)
 
 if (USE_JS)
-  set (SRCS ${SRCS} ScriptEngine.cpp ScriptManagerDialog.cpp)
-  set (MOC_HDRS ${MOC_HDRS} ScriptEngine.h ScriptManagerDialog.h)
+  set (SRCS ${SRCS} 
+	    scriptengine/MainWindowScript.cpp 
+	    scriptengine/ScriptEngine.cpp 
+	    ScriptManagerDialog.cpp)
+  set (MOC_HDRS ${MOC_HDRS} 
+		scriptengine/MainWindowScript.h
+		scriptengine/ScriptEngine.h 
+		ScriptManagerDialog.h)
 endif (USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})
@@ -244,7 +250,7 @@ if (UNIX)
   )
 endif (UNIX)
 
-include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
+include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}  "${PROJECT_SOURCE_DIR}/scriptengine" ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
 if (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)

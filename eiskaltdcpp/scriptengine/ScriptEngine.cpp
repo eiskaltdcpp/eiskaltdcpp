@@ -12,6 +12,8 @@
 #include "ShellCommandRunner.h"
 #include "WulforSettings.h"
 
+#include "scriptengine/MainWindowScript.h"
+
 #include "dcpp/HashManager.h"
 
 #include <QProcess>
@@ -105,7 +107,7 @@ void ScriptEngine::stopScript(const QString &path){
 void ScriptEngine::prepareThis(QScriptEngine &engine){
     setObjectName("ScriptEngine");
 
-    QScriptValue me = engine.newQObject(this);
+    QScriptValue me = engine.newQObject(&engine);
     engine.globalObject().setProperty(objectName(), me);
 
     QScriptValue scriptsPath = QScriptValue(&engine, QString(CLIENT_SCRIPTS_DIR)+QDir::separator());
@@ -143,7 +145,7 @@ void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
 }
 
 void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
-    static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame" << "ShellCommandRunner";
+    static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame" << "ShellCommandRunner" << "MainWindowScript";
 
     foreach( QString cl, dynamicMembers ) {
         qDebug() << QString("ScriptEngine> Register dynamic class %1...").arg(cl).toAscii().constData();
@@ -304,6 +306,9 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
 
             obj = qobject_cast<QObject*>(runner);
         }
+    }
+    else if (className == "MainWindowScript"){
+        obj = qobject_cast<QObject*>(new MainWindowScript(engine, MainWindow::getInstance()));
     }
 
     return engine->newQObject(obj);

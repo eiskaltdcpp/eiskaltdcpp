@@ -1109,6 +1109,13 @@ void MainWindow::initSideBar(){
     connect(model,    SIGNAL(selectIndex(QModelIndex)),this,  SLOT(slotSelectSidebarIndex(QModelIndex)));
 }
 
+QObject *MainWindow::getToolBar(){
+    if (!fBar)
+        return NULL;
+
+    return qobject_cast<QObject*>(reinterpret_cast<QToolBar*>(fBar->qt_metacast("QToolBar")));
+}
+
 ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
     ArenaWidget *awgt = NULL;
 

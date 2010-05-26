@@ -104,6 +104,8 @@ friend class dcpp::Singleton<MainWindow>;
         typedef QList<ArenaWidget*> ArenaWidgetList;
         typedef QMap<ArenaWidget*, QWidget*> ArenaWidgetMap;
 
+        Q_PROPERTY (QObject* ToolBar READ getToolBar);
+
         void beginExit();
 
         /** */
@@ -154,6 +156,8 @@ friend class dcpp::Singleton<MainWindow>;
         void addArenaWidgetOnToolbar(ArenaWidget*, bool keepFocus = false);
         /** */
         void remArenaWidgetFromToolbar(ArenaWidget*);
+
+        QObject *getToolBar();
 
         /** */
         void addActionOnToolBar(QAction*);
