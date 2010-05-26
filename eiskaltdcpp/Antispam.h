@@ -34,12 +34,6 @@ class AntiSpam :
 
     friend class dcpp::Singleton<AntiSpam>;
 public:
-    bool isInBlack(const QString&) const;
-    bool isInWhite(const QString&) const;
-    bool isInGray (const QString&) const;
-    bool isInAny  (const QString&) const;
-    bool isInSandBox(const QString&) const;
-
     void move(QString, AntiSpamObjectState);
 
     QList<QString> getBlack();
@@ -66,6 +60,11 @@ public:
     friend AntiSpam& operator<<(AntiSpam&, const QString&);
 
 public slots:
+    bool isInBlack(const QString&) const;
+    bool isInWhite(const QString&) const;
+    bool isInGray (const QString&) const;
+    bool isInAny  (const QString&) const;
+    bool isInSandBox(const QString&) const;
     void addToBlack(const QList<QString> &list);
     void addToWhite(const QList<QString> &list);
     void addToGray(const QList<QString> &list);

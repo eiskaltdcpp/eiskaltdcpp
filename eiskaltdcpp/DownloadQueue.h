@@ -119,6 +119,16 @@ protected:
     virtual void on(dcpp::QueueManagerListener::SourcesUpdated, dcpp::QueueItem *item) throw();
     virtual void on(dcpp::QueueManagerListener::StatusUpdated, dcpp::QueueItem *item) throw();
 
+public Q_SLOTS:
+    QStringList getSources();
+    void removeTarget(const QString&);
+    void removeSource(const QString&, const QString&);
+
+signals:
+    void added  (const QString&);
+    void moved  (const QString&);
+    void removed(const QString&);
+
 private Q_SLOTS:
     void slotContextMenu(const QPoint&);
     void slotCollapseRow(const QModelIndex &);

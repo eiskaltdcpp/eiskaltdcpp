@@ -383,6 +383,49 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
 
 }
 
+QStringList DownloadQueue::getSources(){
+    SourceMap::iterator s_it = sources.begin();
+    QStringList ret;
+
+    for (; s_it != sources.end(); ++s_it){
+        QString target = s_it.key();
+        QString users;
+        QMap<QString, QString>::iterator it = s_it.value().begin();
+
+        for (; it != s_it.value().end(); ++it){
+            users += it.key() + "(" + it.value() + ") ";
+        }
+
+        ret.push_back(target + "::" + users);
+    }
+
+    return ret;
+}
+
+void DownloadQueue::removeTarget(const QString &target){
+    QueueManager *QM = QueueManager::getInstance();
+
+    try {
+        QM->remove(target.toStdString());
+    }
+    catch (const Exception&){}
+}
+
+void DownloadQueue::removeSource(const QString &cid, const QString &target){
+    QueueManager *QM = QueueManager::getInstance();
+
+    if (sources.contains(target) && !cid.isEmpty()){
+        UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
+
+        if (user){
+            try {
+                QM->removeSource(user, QueueItem::Source::FLAG_REMOVED);
+            }
+            catch (const Exception&){}
+        }
+    }
+}
+
 void DownloadQueue::loadList(){
     VarMap params;
 
@@ -646,6 +689,8 @@ void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw(){
     AddFileFunc *f = new AddFileFunc(this, &DownloadQueue::addFile, params);
 
     QApplication::postEvent(this, new DownloadQueueCustomEvent(f));
+
+    emit added(_q(item->getTargetFileName()));
 }
 
 void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const std::string &oldTarget) throw(){
@@ -657,6 +702,8 @@ void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const std::
 
     QApplication::postEvent(this, new DownloadQueueCustomEvent(rmf));
     QApplication::postEvent(this, new DownloadQueueCustomEvent(addf));
+
+    emit moved(_q(item->getTargetFileName()));
 }
 
 void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) throw(){
@@ -666,6 +713,8 @@ void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) throw(){
     RemFileFunc *rmf  = new RemFileFunc(this, &DownloadQueue::remFile, params);
 
     QApplication::postEvent(this, new DownloadQueueCustomEvent(rmf));
+
+    emit removed(_q(item->getTargetFileName()));
 }
 
 void DownloadQueue::on(QueueManagerListener::SourcesUpdated, QueueItem *item) throw(){
