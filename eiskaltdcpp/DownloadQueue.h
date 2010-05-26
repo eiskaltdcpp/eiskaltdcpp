@@ -126,7 +126,7 @@ public Q_SLOTS:
 
 signals:
     void added  (const QString&);
-    void moved  (const QString&);
+    void moved  (const QString&, const QString&);
     void removed(const QString&);
 
 private Q_SLOTS:

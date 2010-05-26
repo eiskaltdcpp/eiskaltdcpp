@@ -703,7 +703,7 @@ void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const std::
     QApplication::postEvent(this, new DownloadQueueCustomEvent(rmf));
     QApplication::postEvent(this, new DownloadQueueCustomEvent(addf));
 
-    emit moved(_q(item->getTargetFileName()));
+    emit moved(_q(oldTarget), _q(item->getTargetFileName()));
 }
 
 void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) throw(){
