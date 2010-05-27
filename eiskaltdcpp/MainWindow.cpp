@@ -333,7 +333,7 @@ void MainWindow::customEvent(QEvent *e){
     if (e->type() == MainWindowCustomEvent::Event){
         MainWindowCustomEvent *c_e = reinterpret_cast<MainWindowCustomEvent*>(e);
 
-        c_e->func()->call();
+        (*c_e->func())();
     }
 
     e->accept();

@@ -22,43 +22,20 @@
 #ifndef WULFOR_FUNC_HH
 #define WULFOR_FUNC_HH
 
+#include "dcpp/stdinc.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/FastAlloc.h"
+
 class FuncBase
 {
 	public:
 		FuncBase() {}
 		virtual ~FuncBase() {}
-		virtual void call() = 0;
-};
-
-class BFuncBase{
-public:
-    BFuncBase() {}
-
-    virtual ~BFuncBase() {}
-    virtual bool call() = 0;
-};
-
-template <class c>
-class BFunc0:
-    public BFuncBase
-{
-public:
-    BFunc0(c *obj, bool (c::*func)() const){
-        this->obj = obj;
-        this->func = func;
-    }
-
-    bool call() {
-        return (*obj.*func)();
-    }
-
-private:
-    c *obj;
-    bool (c::*func)() const;
+                virtual void operator()() = 0;
 };
 
 template<class c>
-class Func0: public FuncBase
+class Func0: public FuncBase, public dcpp::FastAlloc< Func0<c> >
 {
 	public:
 		Func0(c *obj, void (c::*func)())
@@ -67,7 +44,7 @@ class Func0: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)();
 		}
 
@@ -77,7 +54,7 @@ class Func0: public FuncBase
 };
 
 template<class c, typename p1>
-class Func1: public FuncBase
+class Func1: public FuncBase, public dcpp::FastAlloc< Func1<c,p1> >
 {
 	public:
 		Func1(c *obj, void (c::*func)(p1), p1 param1):
@@ -87,7 +64,7 @@ class Func1: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)(_param1);
 		}
 
@@ -98,7 +75,7 @@ class Func1: public FuncBase
 };
 
 template<class c, typename p1, typename p2>
-class Func2: public FuncBase
+class Func2: public FuncBase, public dcpp::FastAlloc< Func2<c,p1,p2> >
 {
 	public:
 		Func2(c *obj, void (c::*func)(p1, p2), p1 param1, p2 param2):
@@ -109,7 +86,7 @@ class Func2: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)(_param1, _param2);
 		}
 
@@ -121,7 +98,7 @@ class Func2: public FuncBase
 };
 
 template<class c, typename p1, typename p2, typename p3>
-class Func3: public FuncBase
+class Func3: public FuncBase, public dcpp::FastAlloc< Func3<c,p1,p2,p3> >
 {
 	public:
 		Func3(c *obj, void (c::*func)(p1, p2, p3), p1 param1, p2 param2, p3 param3):
@@ -133,7 +110,7 @@ class Func3: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)(_param1, _param2, _param3);
 		}
 
@@ -160,7 +137,7 @@ class Func4: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)(_param1, _param2, _param3, _param4);
 		}
 
@@ -189,7 +166,7 @@ class Func5: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)(_param1, _param2, _param3, _param4, _param5);
 		}
 
@@ -220,7 +197,7 @@ class Func6: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)(_param1, _param2, _param3, _param4, _param5, _param6);
 		}
 
@@ -253,7 +230,7 @@ class Func7: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)(_param1, _param2, _param3, _param4, _param5, _param6, _param7);
 		}
 
@@ -290,7 +267,7 @@ class Func8: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)(_param1, _param2, _param3, _param4, _param5, _param6,
 				_param7, _param8);
 		}
@@ -330,7 +307,7 @@ class Func9: public FuncBase
 			this->func = func;
 		}
 
-		void call() {
+                void operator()() {
 			(*obj.*func)(_param1, _param2, _param3, _param4, _param5, _param6,
 				_param7, _param8, _param9);
 		}

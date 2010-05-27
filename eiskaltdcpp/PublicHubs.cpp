@@ -87,7 +87,7 @@ void PublicHubs::customEvent(QEvent *e){
     if (e->type() == PublicHubsCustomEvent::Event){
         PublicHubsCustomEvent *c_e = reinterpret_cast<PublicHubsCustomEvent*>(e);
 
-        c_e->func()->call();
+        (*c_e->func())();
     }
 
     e->accept();

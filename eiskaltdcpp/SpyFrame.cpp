@@ -68,7 +68,7 @@ void SpyFrame::customEvent(QEvent *e){
     if (e->type() == SpyFrameCustomEvent::Event){
         SpyFrameCustomEvent *c_e = reinterpret_cast<SpyFrameCustomEvent*>(e);
 
-        c_e->func()->call();
+        (*c_e->func())();
 
         e->accept();
     }

@@ -768,7 +768,7 @@ void HubFrame::customEvent(QEvent *e){
     else if (e->type() == UserCustomEvent::Event){
         UserCustomEvent *u_e = reinterpret_cast<UserCustomEvent*>(e);
 
-        u_e->func()->call();
+        (*u_e->func())();
     }
 
     e->accept();

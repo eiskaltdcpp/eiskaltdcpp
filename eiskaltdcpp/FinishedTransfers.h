@@ -97,7 +97,7 @@ protected:
         if (e->type() == FinishedTransfersCustomEvent::Event){
             FinishedTransfersCustomEvent *c_e = reinterpret_cast<FinishedTransfersCustomEvent*>(e);
 
-            c_e->func()->call();
+            (*c_e->func())();
         }
 
         e->accept();

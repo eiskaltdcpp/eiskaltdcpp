@@ -274,7 +274,7 @@ void SearchFrame::customEvent(QEvent *e){
     if (e->type() == SearchCustomEvent::Event){
         SearchCustomEvent *u_e = reinterpret_cast<SearchCustomEvent*>(e);
 
-        u_e->func()->call();
+        (*u_e->func())();
     }
 
     e->accept();

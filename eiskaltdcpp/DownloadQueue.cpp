@@ -207,7 +207,7 @@ void DownloadQueue::customEvent(QEvent *e){
     if (e->type() == DownloadQueueCustomEvent::Event){
         DownloadQueueCustomEvent *c_e = reinterpret_cast<DownloadQueueCustomEvent*>(e);
 
-        c_e->func()->call();
+        (*c_e->func())();
     }
 
     e->accept();

@@ -46,7 +46,7 @@ void Magnet::customEvent(QEvent *e){
     if (e->type() == MagnetCustomEvent::Event){
         MagnetCustomEvent *c_e = reinterpret_cast<MagnetCustomEvent*>(e);
 
-        c_e->func()->call();
+        (*c_e->func())();
     }
 
     e->accept();

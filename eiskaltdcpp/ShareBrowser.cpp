@@ -33,7 +33,7 @@ ShareBrowserLoader::~ShareBrowserLoader(){
 
 void ShareBrowserLoader::run(){
     if (func)
-        func->call();
+        (*func)();
 
     emit finished();
 }

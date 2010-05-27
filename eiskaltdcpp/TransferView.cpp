@@ -147,7 +147,7 @@ void TransferView::customEvent(QEvent *e){
     if (e->type() == TransferViewCustomEvent::Event){
         TransferViewCustomEvent *u_e = reinterpret_cast<TransferViewCustomEvent*>(e);
 
-        u_e->func()->call();
+        (*u_e->func())();
     }
 
     e->accept();
