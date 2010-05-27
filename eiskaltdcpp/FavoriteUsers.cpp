@@ -137,6 +137,42 @@ void FavoriteUsers::getParams(VarMap &params, const FavoriteUser &user){
     params["SLOT"]  = user.isSet(FavoriteUser::FLAG_GRANTSLOT);
 }
 
+bool FavoriteUsers::addUserToFav(const QString &id){
+    if (id.isEmpty())
+        return false;
+
+    string cid = id.toStdString();
+
+    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+
+    if (user){
+        if (user != ClientManager::getInstance()->getMe() && !FavoriteManager::getInstance()->isFavoriteUser(user))
+            FavoriteManager::getInstance()->addFavoriteUser(user);
+    }
+
+    return true;
+}
+
+bool FavoriteUsers::remUserFromFav(const QString &id){
+    if (id.isEmpty())
+        return false;
+
+    string cid = id.toStdString();
+
+    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+
+    if (user){
+        if (user != ClientManager::getInstance()->getMe() && FavoriteManager::getInstance()->isFavoriteUser(user))
+            FavoriteManager::getInstance()->removeFavoriteUser(user);
+    }
+
+    return true;
+}
+
+QStringList FavoriteUsers::getUsers() const {
+    return model->getUsers();
+}
+
 void FavoriteUsers::addUser(const VarMap &params){
     model->addUser(params);
 }

@@ -81,6 +81,8 @@ public:
         return NULL;
     }
 
+    QStringList getUsers() const;
+
     void repaint();
 private:
     Qt::SortOrder sortOrder;

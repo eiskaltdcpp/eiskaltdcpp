@@ -136,7 +136,6 @@ void SettingsGUI::init(){
     }
     {//Chat tab
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
-        spinBox_TEXT_EDIT_HEIGHT->setValue(WIGET(WI_TEXT_EDIT_HEIGHT));
         spinBox_PARAGRAPHS->setValue(WIGET(WI_CHAT_MAXPARAGRAPHS));
 
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
@@ -266,11 +265,6 @@ void SettingsGUI::ok(){
         WBSET(WB_MAINWINDOW_USE_SIDEBAR, checkBox_SIDEBAR->isChecked());
     }
     {//Chat tab
-        if (WIGET(WI_TEXT_EDIT_HEIGHT) != spinBox_TEXT_EDIT_HEIGHT->value()){
-            WISET(WI_TEXT_EDIT_HEIGHT, spinBox_TEXT_EDIT_HEIGHT->value());
-            MainWindow::getInstance()->reloadSomeSettings();
-        }
-
         WISET(WI_OUT_IN_HIST, spinBox_OUT_IN_HIST->value());
         WISET(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());
 

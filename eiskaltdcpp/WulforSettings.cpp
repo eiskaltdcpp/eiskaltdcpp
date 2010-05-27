@@ -146,7 +146,6 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_SEARCH_SORT_ORDER,     0);
         intmap.insert(WI_SEARCH_SHARED_ACTION,  0);
         intmap.insert(WI_SEARCH_LAST_TYPE,      0);
-        intmap.insert(WI_TEXT_EDIT_HEIGHT,      35);
         intmap.insert(WI_TRANSFER_HEIGHT,       -1);
         intmap.insert(WI_SHARE_RPANE_WIDTH,     -1);
         intmap.insert(WI_SHARE_WIDTH,           -1);
@@ -180,7 +179,7 @@ void WulforSettings::load(){
 
             for (; it != strmap.end(); ++it){
                 if (xml.findChild(it.key().toStdString()))
-                    setStr(it.key(), QTextCodec::codecForCStrings()->fromUnicode(xml.getChildData().c_str()));
+                        setStr(it.key(), QTextCodec::codecForCStrings()->fromUnicode(xml.getChildData().c_str()));
 
                 xml.resetCurrentChild();
             }
@@ -195,8 +194,7 @@ void WulforSettings::load(){
             }
         }
     }
-    catch (Exception ex){
-	}
+    catch (Exception &ex){}
 }
 
 void WulforSettings::save(){
@@ -294,14 +292,14 @@ void WulforSettings::loadTheme(){
 
 QString WulforSettings::getStr(QString key) throw (WulforSettings::BadKey){
     if (!strmap.contains(key))
-        throw BadKey();
+        throw BadKey(key);
 
     return strmap.value(key);
 }
 
 int WulforSettings::getInt(QString key) throw (WulforSettings::BadKey){
     if (!intmap.contains(key))
-       throw BadKey();
+       throw BadKey(key);
 
     return intmap.value(key);
 }
@@ -312,14 +310,14 @@ bool WulforSettings::getBool(QString key) throw (WulforSettings::BadKey){
 
 void WulforSettings::setStr(QString key, QString value) throw (WulforSettings::BadKey){
     if (!strmap.contains(key))
-        throw BadKey();
+        throw BadKey(key);
 
     strmap[key] = value;
 }
 
 void WulforSettings::setInt(QString key, int value) throw (WulforSettings::BadKey){
     if (!intmap.contains(key))
-       throw BadKey();
+       throw BadKey(key);
 
     intmap[key] = value;
 }

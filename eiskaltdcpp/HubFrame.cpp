@@ -1753,7 +1753,14 @@ void HubFrame::newPm(VarMap map){
     if (nick != _q(client->getMyNick()))
         Notification::getInstance()->showMessage(Notification::PM, nick, message);
 
-    nick = map["3RD"].toBool()? ("* " + nick + " ") : ("<" + nick + "> ");
+    bool third = map["3RD"].toBool();
+
+    if (message.startsWith("/me ")){
+        message.remove(0, 4);
+        third = true;
+    }
+
+    nick = third? ("* " + nick + " ") : ("<" + nick + "> ");
 
     message = LinkParser::parseForLinks(message, true);
 

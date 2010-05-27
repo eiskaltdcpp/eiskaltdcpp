@@ -81,7 +81,12 @@ protected:
     virtual void on(UserRemoved, const dcpp::FavoriteUser& aUser) throw();
     virtual void on(StatusChanged, const dcpp::UserPtr& aUser) throw();
 
-private slots:
+public Q_SLOTS:
+    bool addUserToFav(const QString &id);
+    bool remUserFromFav(const QString &id);
+    QStringList getUsers() const;
+
+private Q_SLOTS:
     void slotContextMenu();
     void slotHeaderMenu();
     void slotAutoGrant(bool b){ WBSET(WB_FAVUSERS_AUTOGRANT, b); }

@@ -244,6 +244,21 @@ void FavoriteUsersModel::updateUserStatus(const QString &cid, const QString &sta
     i->updateColumn(COLUMN_USER_HOST, hubUrl);
 }
 
+QStringList FavoriteUsersModel::getUsers() const{
+    QStringList list;
+
+    for (int i = 0; i < rootItem->childCount(); i++){
+        FavoriteUserItem *item = rootItem->child(i);
+        QString nick = item->data(COLUMN_USER_NICK).toString();
+        QString cid  = item->cid;
+        QString hub  = item->data(COLUMN_USER_HOST).toString();
+
+        list.push_back(nick + ";" + cid + ";" + hub);
+    }
+
+    return list;
+}
+
 void FavoriteUsersModel::removeUser(const QString &cid){
     if (cid.isEmpty() || !itemHash.contains(cid))
         return;
