@@ -16,8 +16,12 @@ function actionClicked(){
   shell.run();
 }
 
-var act = new QAction("Amarok", MainWindow);
-act.icon = new QIcon(SCRIPTS_PATH+"amarok_nowplay/amarok.png");
-act.triggered.connect(actionClicked);
+var a = new MainWindowScript();
+a.addToolButton("Amarok", "Amarok", new QIcon(SCRIPTS_PATH+"amarok_nowplay/amarok.png"));
 
-MainWindow.addActionOnToolBar(act);
+MainWindow.ToolBar.Amarok.triggered.connect(actionClicked);
+
+function deinit(){
+  a.remToolButton("Amarok");
+}
+

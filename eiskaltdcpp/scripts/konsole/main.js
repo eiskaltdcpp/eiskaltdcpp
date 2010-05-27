@@ -5,8 +5,11 @@ function actionClicked(){
   shellExec("konsole");
 }
 
-var act = new QAction("Konsole", MainWindow);
-act.icon = new QIcon(SCRIPTS_PATH+"konsole/konsole.png");
-act.triggered.connect(actionClicked);
+var a = new MainWindowScript();
+a.addToolButton("Konsole", "Konsole", new QIcon(SCRIPTS_PATH+"konsole/konsole.png"));
 
-MainWindow.addActionOnToolBar(act);
+MainWindow.ToolBar.Konsole.triggered.connect(actionClicked);
+
+function deinit(){
+  a.remToolButton("Konsole");
+}

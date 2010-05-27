@@ -142,7 +142,7 @@ friend class dcpp::Singleton<MainWindow>;
 
         ArenaWidget *widgetForRole(ArenaWidget::Role) const;
 
-    public slots:
+    public Q_SLOTS:
         /** Allow widget to be mapped on arena*/
         void addArenaWidget(ArenaWidget*);
         /** Disallow widget to be mapped on arena*/
@@ -162,7 +162,7 @@ friend class dcpp::Singleton<MainWindow>;
         /** */
         void addActionOnToolBar(QAction*);
         /** */
-        void remActionFromToolbar(QAction*);
+        void remActionFromToolBar(QAction*);
 
         void slotChatClear();
 
@@ -173,7 +173,7 @@ friend class dcpp::Singleton<MainWindow>;
         virtual void customEvent(QEvent *);
         virtual bool eventFilter(QObject *, QEvent *);
 
-    private slots:
+    private Q_SLOTS:
         void slotFileOpenLogFile();
         void slotFileOpenDownloadDirectory();
         void slotFileBrowseFilelist();

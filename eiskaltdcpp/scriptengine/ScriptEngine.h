@@ -31,11 +31,14 @@ public:
 
 signals:
 
-public slots:
+public Q_SLOTS:
     void loadScripts();
     void loadScript(const QString&);
     void stopScripts();
     void stopScript(const QString&);
+
+private Q_SLOTS:
+    void slotWSKeyChanged(const QString &key, const QString &value);
 
 private:
     ScriptEngine();

@@ -1509,11 +1509,9 @@ void MainWindow::addActionOnToolBar(QAction *new_act){
     toolBarActions.append(new_act);
 }
 
-void MainWindow::remActionFromToolbar(QAction *act){
+void MainWindow::remActionFromToolBar(QAction *act){
     if (!fBar || !toolBarActions.contains(act))
         return;
-
-    qDebug() << Q_FUNC_INFO;
 
     fBar->removeAction(act);
     toolBarActions.removeAt(toolBarActions.indexOf(act));

@@ -313,6 +313,8 @@ void WulforSettings::setStr(QString key, QString value) throw (WulforSettings::B
         throw BadKey(key);
 
     strmap[key] = value;
+
+    emit strValueChanged(key, value);
 }
 
 void WulforSettings::setInt(QString key, int value) throw (WulforSettings::BadKey){
@@ -320,6 +322,8 @@ void WulforSettings::setInt(QString key, int value) throw (WulforSettings::BadKe
        throw BadKey(key);
 
     intmap[key] = value;
+
+    emit intValueChanged(key, value);
 }
 
 void WulforSettings::setBool(QString key, bool value) throw (WulforSettings::BadKey){

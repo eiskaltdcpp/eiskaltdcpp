@@ -35,6 +35,8 @@ static QScriptValue importExtension(QScriptContext*, QScriptEngine*);
 ScriptEngine::ScriptEngine() :
         QObject(NULL)
 {
+    connect (WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotWSKeyChanged(QString,QString)));
+
     loadScripts();
 }
 
@@ -90,6 +92,8 @@ void ScriptEngine::stopScript(const QString &path){
         return;
 
     ScriptObject *obj = scripts.value(path);
+
+    obj->engine.globalObject().property("deinit").call();
 
     if (obj->engine.isEvaluating())
         obj->engine.abortEvaluation();
@@ -153,6 +157,26 @@ void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
         QScriptValue ct = engine.newFunction(dynamicMemberConstructor);
         ct.setProperty("className", cl);
         engine.globalObject().setProperty(cl, ct);
+    }
+}
+
+void ScriptEngine::slotWSKeyChanged(const QString &key, const QString &value){
+    if (key == WS_APP_ENABLED_SCRIPTS){
+        QStringList enabled = QString(QByteArray::fromBase64(value.toAscii())).split("\n", QString::SkipEmptyParts);
+        QMap<QString, ScriptObject*>::iterator it;
+
+        foreach (QString script, enabled){
+            it = scripts.find(script);
+
+            if (it == scripts.end())
+                loadScript(script);
+        }
+
+        QMap<QString, ScriptObject*> copy = scripts;
+        for (it = copy.begin(); it != copy.end(); ++it){
+            if (!enabled.contains(it.key()))
+                stopScript(it.key());
+        }
     }
 }
 

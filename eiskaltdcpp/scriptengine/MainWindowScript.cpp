@@ -1,6 +1,8 @@
 #include "MainWindowScript.h"
 #include "MainWindow.h"
 
+#include <QtDebug>
+
 MainWindowScript::MainWindowScript(QScriptEngine *engine, QObject *parent) :
     engine(engine),
     QObject(parent)
@@ -15,7 +17,13 @@ MainWindowScript::~MainWindowScript(){
 bool MainWindowScript::addToolButton(const QString &name, const QString &title, const QIcon &icon){
     QScriptValue mwToolBar = engine->globalObject().property("MainWindow").property("ToolBar");
 
-    Q_ASSERT_X(!mwToolBar.isUndefined(), Q_FUNC_INFO, "MainWindow.ToolBar is undefined");
+    if(mwToolBar.isUndefined()){
+        qDebug() << engine->currentContext()->backtrace();
+
+        engine->abortEvaluation();
+
+        return false;
+    }
 
     QAction *act = new QAction(icon, title, MainWindow::getInstance());
     actions.insert(name, act);
@@ -31,7 +39,13 @@ bool MainWindowScript::addToolButton(const QString &name, const QString &title, 
 bool MainWindowScript::remToolButton(const QString &name){
     QScriptValue mwToolBar = engine->globalObject().property("MainWindow").property("ToolBar");
 
-    Q_ASSERT_X(!mwToolBar.isUndefined(), Q_FUNC_INFO, "MainWindow.ToolBar is undefined");
+    if(mwToolBar.isUndefined()){
+        qDebug() << engine->currentContext()->backtrace();
+
+        engine->abortEvaluation();
+
+        return false;
+    }
 
     if (mwToolBar.property(name).isUndefined() || !actions.contains(name))
         return false;
@@ -41,7 +55,7 @@ bool MainWindowScript::remToolButton(const QString &name){
     QScriptValue act_val();
     mwToolBar.setProperty(name, act_val);
 
-    MainWindow::getInstance()->remActionFromToolbar(act);
+    MainWindow::getInstance()->remActionFromToolBar(act);
 
     return true;
 }

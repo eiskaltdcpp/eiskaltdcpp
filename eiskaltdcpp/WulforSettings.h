@@ -163,6 +163,9 @@ public:
     void loadTranslation();
     void loadTheme();
 
+    void    parseCmd(const QString &);
+
+public Q_SLOTS:
     QString getStr(QString) throw(BadKey);
     int     getInt(QString) throw(BadKey);
     bool    getBool(QString)throw(BadKey);
@@ -171,12 +174,12 @@ public:
     void    setInt (QString, int) throw(BadKey);
     void    setBool(QString, bool)throw(BadKey);
 
-    void    parseCmd(const QString &);
-
-signals:
+Q_SIGNALS:
     void fontChanged(const QString &key, const QString &value);
+    void intValueChanged(const QString &key, int value);
+    void strValueChanged(const QString &key, const QString &value);
 
-private slots:
+private Q_SLOTS:
     void slotFontChanged(const QString &key, const QString &value);
 
 private:
