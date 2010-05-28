@@ -51,6 +51,21 @@
     </message>
 </context>
 <context>
+    <name>DialogScriptConsole</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Beállítások</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Indítás</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Állj</translation>
+    </message>
+</context>
+<context>
     <name>DownloadQueue</name>
     <message>
         <source>Search for alternates</source>
@@ -1488,6 +1503,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Scripts Manager</source>
         <translation>Script kezelő</translation>
     </message>
+    <message>
+        <source>Script Console</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -1651,6 +1670,13 @@ Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az A
 Kapcsolók:
   -h, --help	 Help megjelenítése
   -v, --version  Verzióinformáció mutatása</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptConsole</name>
+    <message>
+        <source>Script Console</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3872,7 +3898,7 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
     </message>
     <message>
         <source>The height of the text entry field</source>
-        <translation>A szövegbeviteli mező magassága</translation>
+        <translation type="obsolete">A szövegbeviteli mező magassága</translation>
     </message>
     <message>
         <source>Window position at startup</source>

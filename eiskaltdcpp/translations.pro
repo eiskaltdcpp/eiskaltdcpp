@@ -53,7 +53,8 @@ HEADERS = HEADERS = MainWindow.h \
     SettingsUC.h \
     UCModel.h \
     CustomFontModel.h \
-    ScriptManagerDialog.h
+    ScriptManagerDialog.h \
+    scriptengine/ScriptConsole.h
 SOURCES = main.cpp \
     Antispam.cpp \
     AntiSpamFrame.cpp \
@@ -108,7 +109,8 @@ SOURCES = main.cpp \
     SettingsUC.cpp \
     UCModel.cpp \
     CustomFontModel.cpp \
-    ScriptManagerDialog.cpp
+    ScriptManagerDialog.cpp \
+    scriptengine/ScriptConsole.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \
@@ -140,7 +142,8 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UIPublicHubsList.ui \
     ui/UISettingsUC.ui \
     ui/UIUserCommands.ui \
-    ui/UIScriptManager.ui
+    ui/UIScriptManager.ui \
+    ui/UIDialogScriptConsole.ui
 TRANSLATIONS = translations/eiskaltdcpp.en.ts \
                translations/eiskaltdcpp.ru.ts \
                translations/eiskaltdcpp.be.ts \

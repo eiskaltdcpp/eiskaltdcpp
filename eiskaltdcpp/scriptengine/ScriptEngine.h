@@ -36,6 +36,7 @@ public Q_SLOTS:
     void loadScript(const QString&);
     void stopScripts();
     void stopScript(const QString&);
+    void prepareThis(QScriptEngine &);
 
 private Q_SLOTS:
     void slotWSKeyChanged(const QString &key, const QString &value);
@@ -47,7 +48,6 @@ private:
     ScriptEngine(const ScriptEngine&) {}
     ScriptEngine &operator =(const ScriptEngine&){}
 
-    void prepareThis(QScriptEngine &);
     void registerStaticMembers(QScriptEngine &);
     void registerDynamicMembers(QScriptEngine &);
 

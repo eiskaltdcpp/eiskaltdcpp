@@ -40,6 +40,21 @@
     </message>
 </context>
 <context>
+    <name>DialogScriptConsole</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Dijalog</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Start</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Stop</translation>
+    </message>
+</context>
+<context>
     <name>DownloadQueue</name>
     <message>
         <source>Search for alternates</source>
@@ -1392,6 +1407,10 @@ Molim proverite podešavanja vaše veze</translation>
         <source>Scripts Manager</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Script Console</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -1551,6 +1570,13 @@ EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC pr
 Keys:
 (sp)(sp)-h, --help(tab) Prikaži ovu poruku
 (sp)(sp)-v, --version(tab) Prikaži verziju</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptConsole</name>
+    <message>
+        <source>Script Console</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3702,7 +3728,7 @@ od drugih reči sa razmakom.</translation>
     </message>
     <message>
         <source>The height of the text entry field</source>
-        <translation>Visina polja za unos teksta</translation>
+        <translation type="obsolete">Visina polja za unos teksta</translation>
     </message>
     <message>
         <source>Colors</source>

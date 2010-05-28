@@ -1,10 +1,15 @@
 #include "ScriptManagerDialog.h"
 #include "WulforSettings.h"
+#include "WulforUtil.h"
 
 #include <QDir>
 #include <QFile>
 #include <QIcon>
 #include <QTextStream>
+
+#include "dcpp/stdinc.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/Util.h"
 
 #ifndef CLIENT_SCRIPTS_DIR
 #define CLIENT_SCRIPTS_DIR ""
@@ -133,15 +138,21 @@ QModelIndex ScriptManagerModel::parent(const QModelIndex & ) const {
 }
 
 void ScriptManagerModel::load(){
-    QDir dir(CLIENT_SCRIPTS_DIR);
-
-    if (!dir.exists())
-        return;
-
     enabled = QString(QByteArray::fromBase64(WSGET(WS_APP_ENABLED_SCRIPTS).toAscii())).split("\n");
 
-    foreach (QString d, dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot))
-        loadDir(QString(CLIENT_SCRIPTS_DIR)+QDir::separator()+d);
+    QDir dir(CLIENT_SCRIPTS_DIR);
+
+    if (dir.exists()){
+        foreach (QString d, dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot))
+            loadDir(QString(CLIENT_SCRIPTS_DIR)+QDir::separator()+d);
+    }
+
+    dir = QDir(_q(dcpp::Util::getPath(dcpp::Util::PATH_USER_CONFIG)+"scripts"));
+
+    if (dir.exists()){
+        foreach (QString d, dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot))
+            loadDir(QString(CLIENT_SCRIPTS_DIR)+QDir::separator()+d);
+    }
 }
 
 void ScriptManagerModel::loadDir(const QString &path){

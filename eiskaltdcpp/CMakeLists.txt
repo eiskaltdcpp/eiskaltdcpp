@@ -175,6 +175,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsUC.ui
             ui/UIUserCommands.ui
 	    ui/UIScriptManager.ui
+	    ui/UIDialogScriptConsole.ui
             )
 
 option(LANGUAGES "Using translations")
@@ -195,12 +196,16 @@ endif (USE_ASPELL)
 
 if (USE_JS)
   set (SRCS ${SRCS} 
-	    scriptengine/MainWindowScript.cpp 
-	    scriptengine/ScriptEngine.cpp 
+	    scriptengine/MainWindowScript.cpp
+	    scriptengine/ScriptConsole.cpp
+	    scriptengine/ScriptEngine.cpp
+	    scriptengine/ScriptConsole.cpp
 	    ScriptManagerDialog.cpp)
   set (MOC_HDRS ${MOC_HDRS} 
 		scriptengine/MainWindowScript.h
+		scriptengine/ScriptConsole.h
 		scriptengine/ScriptEngine.h 
+		scriptengine/ScriptConsole.h
 		ScriptManagerDialog.h)
 endif (USE_JS)
 

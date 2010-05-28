@@ -54,6 +54,7 @@
 
 #ifdef USE_JS
 #include "ScriptManagerDialog.h"
+#include "scriptengine/ScriptConsole.h"
 #endif
 
 #include "dcpp/ShareManager.h"
@@ -627,6 +628,10 @@ void MainWindow::initActions(){
         toolsJS = new QAction("", this);
         toolsJS->setObjectName("toolsJS");
         connect(toolsJS, SIGNAL(triggered()), this, SLOT(slotToolsJS()));
+
+        toolsJSConsole = new QAction("", this);
+        toolsJSConsole->setObjectName("toolsJSConsole");
+        connect(toolsJSConsole, SIGNAL(triggered()), this, SLOT(slotToolsJSConsole()));
 #endif
 
         menuAwayAction = new QAction("", this);
@@ -748,6 +753,7 @@ void MainWindow::initActions(){
 #ifdef USE_JS
                 << separator5
                 << toolsJS
+                << toolsJSConsole
 #endif
                 << separator4
                 << toolsOptions;
@@ -1012,6 +1018,8 @@ void MainWindow::retranslateUi(){
 
 #ifdef USE_JS
         toolsJS->setText(tr("Scripts Manager"));
+
+        toolsJSConsole->setText(tr("Script Console"));
 #endif
 
         chatClear->setText(tr("Clear chat"));
@@ -1758,6 +1766,14 @@ void MainWindow::slotToolsSwitchAway(){
 void MainWindow::slotToolsJS(){
 #ifdef USE_JS
     ScriptManagerDialog(this).exec();
+#endif
+}
+
+void MainWindow::slotToolsJSConsole(){
+#ifdef USE_JS
+    ScriptConsole sc(this);
+    sc.setWindowModality(Qt::NonModal);
+    sc.exec();
 #endif
 }
 

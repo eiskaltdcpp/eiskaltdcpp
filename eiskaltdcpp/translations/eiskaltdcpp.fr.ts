@@ -36,6 +36,21 @@
     </message>
 </context>
 <context>
+    <name>DialogScriptConsole</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Dialogue</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished">Démarrer</translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Arrêt</translation>
+    </message>
+</context>
+<context>
     <name>DownloadQueue</name>
     <message>
         <source>No users...</source>
@@ -1552,6 +1567,10 @@ Please check your connection settings</source>
         <source>Scripts Manager</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Script Console</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -1711,6 +1730,13 @@ EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les proto
 Clés:
   -h, --help(tab) Montre ce message
   -v, --version(tab) Montre la version de la chaîne</translation>
+    </message>
+</context>
+<context>
+    <name>ScriptConsole</name>
+    <message>
+        <source>Script Console</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4003,7 +4029,7 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
     </message>
     <message>
         <source>The height of the text entry field</source>
-        <translation>La hauteur du champ d&apos;entrée du texte</translation>
+        <translation type="obsolete">La hauteur du champ d&apos;entrée du texte</translation>
     </message>
     <message>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
