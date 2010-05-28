@@ -50,7 +50,7 @@ public:
         args << QVariantMap();
         args << 5000;
 
-        iface.callWithArgumentList(QDBus::Block, "Notify", args);
+        iface.callWithArgumentList(QDBus::NoBlock, "Notify", args);
     }
 };
 

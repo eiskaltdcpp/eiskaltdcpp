@@ -116,7 +116,6 @@ void Notification::switchModule(int m){
 }
 
 void Notification::showMessage(int t, const QString &title, const QString &msg){
-    qDebug() << Q_FUNC_INFO;
     if (WBGET(WB_NOTIFY_ENABLED)){
         do {
             if (title.isEmpty() || msg.isEmpty())

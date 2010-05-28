@@ -33,6 +33,7 @@ using namespace std;
 
 #include <QApplication>
 #include <QMainWindow>
+#include <QRegExp>
 #include <QtDBus>
 
 void callBack(void* x, const std::string& a)
@@ -282,11 +283,13 @@ void migrateConfig(){
         QTextStream rstream(&orig);
         QTextStream wstream(&new_file);
 
+        QRegExp replace_str(">/(\\S+)/\\.eiskaltdc\\+\\+/<");
         QString line = "";
+
         while (!rstream.atEnd()){
             line = rstream.readLine();
 
-            line.replace(old_config.c_str(), new_config.c_str());
+            line.replace(replace_str, ">"+QString(new_config.c_str())+"<");
 
             wstream << line << "\n";
         }
