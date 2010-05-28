@@ -283,13 +283,13 @@ void migrateConfig(){
         QTextStream rstream(&orig);
         QTextStream wstream(&new_file);
 
-        QRegExp replace_str(">/(\\S+)/\\.eiskaltdc\\+\\+/<");
+        QRegExp replace_str("/(\\S+)/\\.eiskaltdc\\+\\+/");
         QString line = "";
 
         while (!rstream.atEnd()){
             line = rstream.readLine();
 
-            line.replace(replace_str, ">"+QString(new_config.c_str())+"<");
+            line.replace(replace_str, QString(new_config.c_str()));
 
             wstream << line << "\n";
         }
