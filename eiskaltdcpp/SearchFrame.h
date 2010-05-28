@@ -92,6 +92,7 @@ class SearchFrame : public QWidget,
         QMenu *buildUserCmdMenu(QList<QString> hubs);
         QMap<QString, QString> ucParams;
         QString getDownloadToPath() {return downToPath; }
+        void addTempPath(const QString &path);
 
     private:
         Menu();
@@ -101,6 +102,7 @@ class SearchFrame : public QWidget,
         QList<QAction*> action_list;
 
         QString downToPath;
+        static QStringList temp_pathes;
 
         QMenu *menu;
         QMenu *down_to;

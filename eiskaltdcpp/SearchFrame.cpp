@@ -30,6 +30,8 @@
 
 using namespace dcpp;
 
+QStringList SearchFrame::Menu::temp_pathes  = QStringList();
+
 SearchFrame::Menu::Menu(){
     WulforUtil *WU = WulforUtil::getInstance();
 
@@ -132,6 +134,25 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
 
+    if (!temp_pathes.isEmpty()){
+        foreach (QString t, temp_pathes){
+            QAction *act = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
+            act->setToolTip(t);
+            act->setData(t);
+
+            down_to->addAction(act);
+
+            QAction *act1 = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
+            act1->setToolTip(t);
+            act1->setData(t);
+
+            down_wh_to->addAction(act1);
+        }
+
+        down_to->addSeparator();
+        down_wh_to->addSeparator();
+    }
+
     if (a.size() == p.size() && !a.isEmpty()){
         for (int i = 0; i < a.size(); i++){
             QAction *act = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
@@ -144,6 +165,9 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
 
             down_wh_to->addAction(act1);
         }
+
+        down_to->addSeparator();
+        down_wh_to->addSeparator();
     }
 
     QAction *browse = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
@@ -203,6 +227,11 @@ QMenu *SearchFrame::Menu::buildUserCmdMenu(QList<QString> hub_list){
         return NULL;
 
     return WulforUtil::getInstance()->buildUserCmdMenu(hub_list, UserCommand::CONTEXT_SEARCH);
+}
+
+void SearchFrame::Menu::addTempPath(const QString &path){
+    if (!temp_pathes.contains(path) && !path.isEmpty() && QDir(path).exists())
+        temp_pathes.push_front(path);
 }
 
 SearchFrame::SearchFrame(QWidget *parent):
@@ -952,8 +981,11 @@ void SearchFrame::slotContextMenu(const QPoint &){
             static QString old_target = QDir::homePath();
             QString target = Menu::getInstance()->getDownloadToPath();
 
-            if (!QDir(target).exists() || target.isEmpty())
+            if (!QDir(target).exists() || target.isEmpty()){
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
+
+                Menu::getInstance()->addTempPath(target);
+            }
 
             if (target.isEmpty())
                 break;
@@ -1005,8 +1037,11 @@ void SearchFrame::slotContextMenu(const QPoint &){
             static QString old_target = QDir::homePath();
             QString target = Menu::getInstance()->getDownloadToPath();
 
-            if (!QDir(target).exists())
+            if (!QDir(target).exists()){
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
+
+                Menu::getInstance()->addTempPath(target);
+            }
 
             if (target.isEmpty())
                 break;

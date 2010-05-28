@@ -118,15 +118,15 @@ int main(int argc, char *argv[])
     Notification::newInstance();
     Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
 
+    if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
+        MainWindow::getInstance()->show();
+
     MainWindow::getInstance()->autoconnect();
     MainWindow::getInstance()->parseCmdLine();
 
 #ifdef USE_JS
     ScriptEngine::newInstance();
 #endif
-
-    if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
-        MainWindow::getInstance()->show();
 
     ret = app.exec();
 

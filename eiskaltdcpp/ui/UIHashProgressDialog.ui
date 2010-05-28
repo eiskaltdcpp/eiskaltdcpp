@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>522</width>
-    <height>162</height>
+    <width>520</width>
+    <height>128</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -95,6 +95,9 @@
     <widget class="QLabel" name="file">
      <property name="text">
       <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
    </item>

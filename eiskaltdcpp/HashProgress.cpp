@@ -137,14 +137,14 @@ void HashProgress::timerTick(){
 
         file->setToolTip(fname);
 
-        if (metrics.width(fname) > file->width()*2/3){
+        if (metrics.width(fname) > file->width()*3/4){
             QStringList parts = fname.split(QDir::separator(), QString::SkipEmptyParts);
 
             if (parts.size() > 1){
                 QString out = "";
 
                 for (int i = (parts.size()-1); i >= 0; i--){
-                    if (metrics.width(out+parts.at(i)+QDir::separator()) < file->width()*2/3){
+                    if (metrics.width(out+parts.at(i)+QDir::separator()) < file->width()*3/4){
                         out = parts.at(i) + (out.isEmpty()? out : (QDir::separator() + out));
                     }
                     else{
