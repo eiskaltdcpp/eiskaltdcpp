@@ -103,11 +103,11 @@ bool AntiSpam::isInBlack(const QString &obj) const {
 }
 
 bool AntiSpam::isInGray(const QString &obj) const {
-    return ( gray_list.contains(obj));
+    return ( gray_list.contains(obj) || WBGET(WB_ANTISPAM_AS_FILTER));
 }
 
 bool AntiSpam::isInWhite(const QString &obj) const {
-    return ( white_list.contains(obj));
+    return ( white_list.contains(obj) || WBGET(WB_ANTISPAM_AS_FILTER));
 }
 
 bool AntiSpam::isInSandBox(const QString &obj_cid) const {

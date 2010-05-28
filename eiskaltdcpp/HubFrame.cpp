@@ -3016,7 +3016,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 
             if (AntiSpam::getInstance()->isInBlack(nick))
                 return;
-            else if (!AntiSpam::getInstance()->isInAny(nick)){
+            else if (!(AntiSpam::getInstance()->isInWhite(nick) || AntiSpam::getInstance()->isInGray(nick))){
                 AntiSpam::getInstance()->checkUser(_q(id.toBase32()), _q(msg), _q(client->getHubUrl()));
 
                 return;
