@@ -16,6 +16,7 @@
 #include <QDir>
 #include <QFile>
 #include <QSystemTrayIcon>
+#include <QHeaderView>
 
 #ifndef CLIENT_ICONS_DIR
 #define CLIENT_ICONS_DIR ""
