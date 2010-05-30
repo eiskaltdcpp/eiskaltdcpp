@@ -734,7 +734,7 @@ void MainWindow::initActions(){
                 << hubsFavoriteUsers;
 
         toolsMenuActions << toolsSearch
-                << toolsADLS
+                //<< toolsADLS
                 << separator0
                 << toolsTransfers
                 << toolsDownloadQueue
