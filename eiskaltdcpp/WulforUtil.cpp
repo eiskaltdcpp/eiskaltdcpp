@@ -319,6 +319,7 @@ bool WulforUtil::loadIcons(){
 
     m_PixmapMap[eiBALL_GREEN]   = FROMTHEME("ball_green", resourceFound);
     m_PixmapMap[eiCHAT]         = FROMTHEME("chat", resourceFound);
+    m_PixmapMap[eiCONSOLE]      = FROMTHEME("console", resourceFound);
     m_PixmapMap[eiERASER]       = FROMTHEME("eraser", resourceFound);
     m_PixmapMap[eiFAV]          = FROMTHEME("fav", resourceFound);
     m_PixmapMap[eiFAVADD]       = FROMTHEME("favadd", resourceFound);
@@ -337,6 +338,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiOWN_FILELIST] = FROMTHEME("own_filelist", resourceFound);
     m_PixmapMap[eiOPENLIST]     = FROMTHEME("openlist", resourceFound);
     m_PixmapMap[eiOPEN_LOG_FILE]= FROMTHEME("log_file", resourceFound);
+    m_PixmapMap[eiPLUGIN]       = FROMTHEME("plugin", resourceFound);
     m_PixmapMap[eiPMMSG]        = FROMTHEME("pmmsg", resourceFound);
     m_PixmapMap[eiRECONNECT]    = FROMTHEME("reconnect", resourceFound);
     m_PixmapMap[eiREFRLIST]     = FROMTHEME("refrlist", resourceFound);

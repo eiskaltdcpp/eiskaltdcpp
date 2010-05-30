@@ -53,17 +53,17 @@
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Диалог</translation>
+        <translation>Диалог</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="40"/>
         <source>Start</source>
-        <translation type="unfinished">Старт</translation>
+        <translation>Старт</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="47"/>
         <source>Stop</source>
-        <translation type="unfinished">Стоп</translation>
+        <translation>Стоп</translation>
     </message>
 </context>
 <context>
@@ -1422,12 +1422,12 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1020"/>
         <source>Scripts Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление скриптами</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1022"/>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Консоль JavaScript</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1025"/>
@@ -2088,7 +2088,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../scriptengine/ScriptConsole.cpp" line="11"/>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Консоль JavaScript</translation>
     </message>
 </context>
 <context>
@@ -2096,7 +2096,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../ScriptManagerDialog.cpp" line="28"/>
         <source>Script Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление скриптами</translation>
     </message>
 </context>
 <context>
@@ -3975,7 +3975,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Диалог</translation>
+        <translation>Диалог</translation>
     </message>
 </context>
 <context>

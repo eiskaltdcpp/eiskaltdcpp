@@ -627,10 +627,12 @@ void MainWindow::initActions(){
 #ifdef USE_JS
         toolsJS = new QAction("", this);
         toolsJS->setObjectName("toolsJS");
+        toolsJS->setIcon(WU->getPixmap(WulforUtil::eiPLUGIN));
         connect(toolsJS, SIGNAL(triggered()), this, SLOT(slotToolsJS()));
 
         toolsJSConsole = new QAction("", this);
         toolsJSConsole->setObjectName("toolsJSConsole");
+        toolsJSConsole->setIcon(WU->getPixmap(WulforUtil::eiCONSOLE));
         connect(toolsJSConsole, SIGNAL(triggered()), this, SLOT(slotToolsJSConsole()));
 #endif
 
