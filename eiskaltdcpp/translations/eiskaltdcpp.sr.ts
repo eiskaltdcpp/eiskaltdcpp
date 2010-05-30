@@ -1392,10 +1392,6 @@ Molim proverite podešavanja vaše veze</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2248,10 +2244,6 @@ Keys:
     <message>
         <source>Widgets</source>
         <translation>Vidžeti</translation>
-    </message>
-    <message>
-        <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

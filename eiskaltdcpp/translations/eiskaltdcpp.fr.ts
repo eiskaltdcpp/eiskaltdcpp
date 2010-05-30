@@ -1533,7 +1533,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation>ADLSearch</translation>
+        <translation type="obsolete">ADLSearch</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
@@ -2497,7 +2497,7 @@ Clés:
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation>ADLSearch</translation>
+        <translation type="obsolete">ADLSearch</translation>
     </message>
 </context>
 <context>

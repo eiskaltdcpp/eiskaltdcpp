@@ -1489,7 +1489,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation>ADL-Keresés</translation>
+        <translation type="obsolete">ADL-Keresés</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
@@ -2355,7 +2355,7 @@ Kapcsolók:
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation>ADL-Keresés</translation>
+        <translation type="obsolete">ADL-Keresés</translation>
     </message>
 </context>
 <context>
