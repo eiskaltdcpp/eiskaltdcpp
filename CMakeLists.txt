@@ -108,6 +108,7 @@ find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
 
+option (USE_JS "QtScript support")
 if (NOT USE_JS)
   find_package (Qt4 4.4 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus REQUIRED)
 else (NOT USE_JS)
