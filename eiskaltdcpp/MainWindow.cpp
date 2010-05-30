@@ -38,7 +38,7 @@
 #include "ShareBrowser.h"
 #include "QuickConnect.h"
 #include "SearchFrame.h"
-#include "ADLS.h"
+//#include "ADLS.h"
 #include "Settings.h"
 #include "FavoriteHubs.h"
 #include "PublicHubs.h"
@@ -1014,7 +1014,7 @@ void MainWindow::retranslateUi(){
 
         toolsSearch->setText(tr("Search"));
 
-        toolsADLS->setText(tr("ADLSearch"));
+        //toolsADLS->setText(tr("ADLSearch"));
 
 #ifdef USE_JS
         toolsJS->setText(tr("Scripts Manager"));
@@ -1674,11 +1674,11 @@ void MainWindow::slotHubsReconnect(){
         fr->reconnect();
 }
 void MainWindow::slotToolsADLS(){
-    if (!ADLS::getInstance())
+    /*if (!ADLS::getInstance())
         ADLS::newInstance();
 
     toggleSingletonWidget(ADLS::getInstance());
-
+    */
 }
 void MainWindow::slotToolsSearch(){
     SearchFrame *sf = new SearchFrame();

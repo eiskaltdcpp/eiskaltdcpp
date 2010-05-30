@@ -196,12 +196,14 @@ endif (USE_ASPELL)
 
 if (USE_JS)
   set (SRCS ${SRCS} 
+	    scriptengine/ClientManagerScript.cpp
 	    scriptengine/MainWindowScript.cpp
 	    scriptengine/ScriptConsole.cpp
 	    scriptengine/ScriptEngine.cpp
 	    scriptengine/ScriptConsole.cpp
 	    ScriptManagerDialog.cpp)
   set (MOC_HDRS ${MOC_HDRS} 
+		scriptengine/ClientManagerScript.h
 		scriptengine/MainWindowScript.h
 		scriptengine/ScriptConsole.h
 		scriptengine/ScriptEngine.h 

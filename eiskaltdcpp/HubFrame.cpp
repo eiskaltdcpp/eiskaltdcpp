@@ -907,6 +907,7 @@ void HubFrame::init(){
     plainTextEdit_INPUT->setWordWrapMode(QTextOption::NoWrap);
     plainTextEdit_INPUT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     plainTextEdit_INPUT->installEventFilter(this);
+    plainTextEdit_INPUT->setAcceptRichText(false);
 
     textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     textEdit_CHAT->setTabStopWidth(40);

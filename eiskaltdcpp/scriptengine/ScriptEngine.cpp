@@ -12,6 +12,7 @@
 #include "ShellCommandRunner.h"
 #include "WulforSettings.h"
 
+#include "scriptengine/ClientManagerScript.h"
 #include "scriptengine/MainWindowScript.h"
 
 #include "dcpp/HashManager.h"
@@ -42,6 +43,8 @@ ScriptEngine::ScriptEngine() :
 
 ScriptEngine::~ScriptEngine(){
     stopScripts();
+
+    ClientManagerScript::deleteInstance();
 }
 
 void ScriptEngine::loadScripts(){
@@ -137,7 +140,7 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
 
 void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
     static QStringList staticMembers = QStringList() << "AntiSpam" << "DownloadQueue" << "FavoriteHubs" << "FavoriteUsers"
-                                       << "Notification" << "HubManager";
+                                       << "Notification" << "HubManager" << "ClientManagerScript";
 
     foreach( QString cl, staticMembers ) {
         qDebug() << QString("ScriptEngine> Register static class %1...").arg(cl).toAscii().constData();
@@ -282,6 +285,12 @@ static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngi
             HubManager::newInstance();
 
         obj = qobject_cast<QObject*>(HubManager::getInstance());
+    }
+    else if (className == "ClientManagerScript"){
+        if (!ClientManagerScript::getInstance())
+            ClientManagerScript::newInstance();
+
+        obj = qobject_cast<QObject*>(ClientManagerScript::getInstance());
     }
 
     return engine->newQObject(obj);
