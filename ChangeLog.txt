@@ -13,7 +13,7 @@
 * Added QtScript basic support (disabled by default, see file INSTALL).
 * Added support for system icon theme (disabled by default, see file INSTALL).
 * Added some JS-script examples (LogViewer, Amarok: Now Playing, Konsole), improved interaction with DC++ core and client.
-* Autoresizing input widget in Hub frame.
+* Auto-resizing input widget in chats. (Use Shift+Enter for carriage return)
 * Bugfixes.
 
 --- 2.0.2 2010-05-04 ---
