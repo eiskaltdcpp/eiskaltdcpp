@@ -1,0 +1,4 @@
+auth=Andrey Karlov
+name=LogViewer
+desc=Simple script that collects logs
+icon=log_file.png

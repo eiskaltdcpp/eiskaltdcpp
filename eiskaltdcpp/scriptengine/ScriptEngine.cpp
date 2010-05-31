@@ -13,9 +13,9 @@
 #include "WulforSettings.h"
 
 #include "scriptengine/ClientManagerScript.h"
+#include "scriptengine/HashManagerScript.h"
+#include "scriptengine/LogManagerScript.h"
 #include "scriptengine/MainWindowScript.h"
-
-#include "dcpp/HashManager.h"
 
 #include <QProcess>
 #include <QDir>
@@ -45,6 +45,7 @@ ScriptEngine::~ScriptEngine(){
     stopScripts();
 
     ClientManagerScript::deleteInstance();
+    HashManagerScript::deleteInstance();
 }
 
 void ScriptEngine::loadScripts(){
@@ -67,6 +68,9 @@ void ScriptEngine::loadScript(const QString &path){
     QString data = stream.readAll();
 
     prepareThis(obj->engine);
+
+    QScriptValue scriptPath = QScriptValue(&obj->engine, path.left(path.lastIndexOf(QDir::separator())) + QDir::separator());
+    obj->engine.globalObject().setProperty("SCRIPT_PATH", scriptPath);
 
     scripts.insert(path, obj);
 
@@ -139,12 +143,11 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
 }
 
 void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
-    static QStringList staticMembers = QStringList() << "AntiSpam" << "DownloadQueue" << "FavoriteHubs" << "FavoriteUsers"
-                                       << "Notification" << "HubManager" << "ClientManagerScript";
+    static QStringList staticMembers = QStringList() << "AntiSpam"          << "DownloadQueue"  << "FavoriteHubs"
+                                                     << "Notification"      << "HubManager"     << "ClientManagerScript"
+                                                     << "LogManagerScript"  << "FavoriteUsers"  << "HashManagerScript";
 
     foreach( QString cl, staticMembers ) {
-        qDebug() << QString("ScriptEngine> Register static class %1...").arg(cl).toAscii().constData();
-
         QScriptValue ct = engine.newFunction(staticMemberConstructor);
         ct.setProperty("className", cl);
         engine.globalObject().setProperty(cl, ct);
@@ -155,8 +158,6 @@ void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
     static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame" << "ShellCommandRunner" << "MainWindowScript";
 
     foreach( QString cl, dynamicMembers ) {
-        qDebug() << QString("ScriptEngine> Register dynamic class %1...").arg(cl).toAscii().constData();
-
         QScriptValue ct = engine.newFunction(dynamicMemberConstructor);
         ct.setProperty("className", cl);
         engine.globalObject().setProperty(cl, ct);
@@ -287,10 +288,31 @@ static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngi
         obj = qobject_cast<QObject*>(HubManager::getInstance());
     }
     else if (className == "ClientManagerScript"){
-        if (!ClientManagerScript::getInstance())
+        if (!ClientManagerScript::getInstance()){
             ClientManagerScript::newInstance();
 
+            ClientManagerScript::getInstance()->moveToThread(MainWindow::getInstance()->thread());
+        }
+
         obj = qobject_cast<QObject*>(ClientManagerScript::getInstance());
+    }
+    else if (className == "HashManagerScript"){
+        if (!HashManagerScript::getInstance()){
+            HashManagerScript::newInstance();
+
+            HashManagerScript::getInstance()->moveToThread(MainWindow::getInstance()->thread());
+        }
+
+        obj = qobject_cast<QObject*>(HashManagerScript::getInstance());
+    }
+    else if (className == "LogManagerScript"){
+        if (!LogManagerScript::getInstance()){
+            LogManagerScript::newInstance();
+
+            LogManagerScript::getInstance()->moveToThread(MainWindow::getInstance()->thread());
+        }
+
+        obj = qobject_cast<QObject*>(LogManagerScript::getInstance());
     }
 
     return engine->newQObject(obj);
@@ -348,18 +370,13 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
 }
 
 static QScriptValue importExtension(QScriptContext *context, QScriptEngine *engine){
-    static QStringList allowedExtensions = QStringList() << "qt.core" << "qt.gui" << "qt.network" << "qt.xml" << "qt.dbus";
-
     if (context->argumentCount() != 1)
         return QScriptValue();
 
     const QString name = context->argument(0).toString();
 
-    if (!allowedExtensions.contains(name))
-        return QScriptValue();
-
     if (!engine->importExtension(name).isUndefined())
-        qDebug() << QString("ScriptEngine> Warning! %1 not found!").arg(name);
+        qDebug() << QString("ScriptEngine> Warning! %1 not found!").arg(name).toAscii().constData();
 
     return QScriptValue();
 }

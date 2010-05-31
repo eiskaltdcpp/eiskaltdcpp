@@ -158,7 +158,9 @@ HEADERS = MainWindow.h \
     ScriptManagerDialog.h \
     scriptengine/MainWindowScript.h \
     scriptengine/ScriptConsole.h \
-    scriptengine/ClientManagerScript.h
+    scriptengine/ClientManagerScript.h \
+    scriptengine/HashManagerScript.h \
+    scriptengine/LogManagerScript.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -273,7 +275,9 @@ SOURCES = main.cpp \
     ScriptManagerDialog.cpp \
     scriptengine/MainWindowScript.cpp \
     scriptengine/ScriptConsole.cpp \
-    scriptengine/ClientManagerScript.cpp
+    scriptengine/ClientManagerScript.cpp \
+    scriptengine/HashManagerScript.cpp \
+    scriptengine/LogManagerScript.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \

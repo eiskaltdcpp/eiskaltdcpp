@@ -6,6 +6,7 @@
 #include <QFile>
 #include <QIcon>
 #include <QTextStream>
+#include <QtDebug>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -151,7 +152,7 @@ void ScriptManagerModel::load(){
 
     if (dir.exists()){
         foreach (QString d, dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot))
-            loadDir(QString(CLIENT_SCRIPTS_DIR)+QDir::separator()+d);
+            loadDir(_q(dcpp::Util::getPath(dcpp::Util::PATH_USER_CONFIG))+"scripts"+QDir::separator()+d);
     }
 }
 
