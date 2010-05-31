@@ -53,17 +53,17 @@
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Діалог</translation>
+        <translation>Діалог</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="40"/>
         <source>Start</source>
-        <translation type="unfinished">Старт</translation>
+        <translation>Старт</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="47"/>
         <source>Stop</source>
-        <translation type="unfinished">Стоп</translation>
+        <translation>Стоп</translation>
     </message>
 </context>
 <context>
@@ -1422,12 +1422,12 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1020"/>
         <source>Scripts Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Керування скриптами</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1022"/>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Консоль JavaScript</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1025"/>
@@ -2088,7 +2088,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../scriptengine/ScriptConsole.cpp" line="11"/>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Консоль JavaScript</translation>
     </message>
 </context>
 <context>
@@ -2096,7 +2096,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../ScriptManagerDialog.cpp" line="28"/>
         <source>Script Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Керування скриптами</translation>
     </message>
 </context>
 <context>
@@ -3975,7 +3975,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Діалог</translation>
+        <translation>Діалог</translation>
     </message>
 </context>
 <context>
@@ -5250,8 +5250,8 @@ and may cause the client to appear to freeze.</source>
         <location filename="../ui/UISettingsSharing.ui" line="300"/>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation>Якщо не відмітити цю опцію, вихід з клвєнта до повного
-завершення оновленин шари призведе до того, що при наступному
+        <translation>Якщо не відмітити цю опцію, вихід із клієнта до повного
+завершення оновлення шари призведе до того, що при наступному
 запуску клієнта шара буде відображена як нульова.</translation>
     </message>
     <message>
