@@ -386,10 +386,7 @@ void SearchFrame::load(){
 
     filterShared = static_cast<SearchFrame::AlreadySharedAction>(WIGET(WI_SEARCH_SHARED_ACTION));
 
-    if (filterShared == SearchFrame::Filter)
-        radioButton_SHAREDHIDE->setChecked(true);
-    else if (filterShared == SearchFrame::Highlight)
-        radioButton_SHAREDHIGHLIGHT->setChecked(true);
+    comboBox_SHARED->setCurrentIndex(static_cast<int>(filterShared));
 
     checkBox_FILTERSLOTS->setChecked(WBGET(WB_SEARCHFILTER_NOFREE));
     checkBox_HIDEPANEL->setChecked(WBGET(WB_SEARCH_DONTHIDEPANEL));
@@ -807,12 +804,7 @@ void SearchFrame::slotStartSearch(){
     int ftype = comboBox_FILETYPES->currentIndex();
     isHash = (ftype == SearchManager::TYPE_TTH);
 
-    filterShared = SearchFrame::None;
-
-    if (radioButton_SHAREDHIDE->isChecked())
-        filterShared = SearchFrame::Filter;
-    else if (radioButton_SHAREDHIGHLIGHT->isChecked())
-        filterShared = SearchFrame::Highlight;
+    filterShared = static_cast<AlreadySharedAction>(comboBox_SHARED->currentIndex());
 
     withFreeSlots = checkBox_FILTERSLOTS->isChecked();
 

@@ -6,14 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>553</width>
-    <height>465</height>
+    <width>573</width>
+    <height>522</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_6">
+   <property name="horizontalSpacing">
+    <number>1</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>2</number>
+   </property>
+   <property name="margin">
+    <number>2</number>
+   </property>
    <item row="0" column="0">
     <widget class="QFrame" name="frame">
      <property name="minimumSize">
@@ -35,6 +44,9 @@
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="margin">
+       <number>1</number>
+      </property>
       <item row="2" column="11">
        <widget class="QPushButton" name="pushButton_SEARCH">
         <property name="text">
@@ -153,12 +165,15 @@
        </size>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
+       <property name="margin">
+        <number>0</number>
+       </property>
        <item row="5" column="0" colspan="3">
         <widget class="QListWidget" name="listWidget_HUBS">
          <property name="minimumSize">
@@ -248,44 +263,48 @@
        <item row="1" column="0" colspan="2">
         <widget class="LineEdit" name="lineEdit_SIZE"/>
        </item>
-       <item row="3" column="0" colspan="3">
-        <widget class="QGroupBox" name="groupBox">
-         <property name="title">
-          <string>Already shared files</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="1" column="0">
-           <widget class="QRadioButton" name="radioButton_SHAREDHIDE">
-            <property name="text">
-             <string>Hide</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QRadioButton" name="radioButton_SHAREDHIGHLIGHT">
-            <property name="text">
-             <string>Highlight</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QRadioButton" name="radioButton_SHAREDNONE">
-            <property name="text">
-             <string>Do nothing</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
        <item row="6" column="0" colspan="3">
         <widget class="QCheckBox" name="checkBox_HIDEPANEL">
          <property name="text">
           <string>Don't hide this panel when search</string>
          </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="3">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
+         <property name="title">
+          <string>Already shared files</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <property name="margin">
+           <number>1</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QComboBox" name="comboBox_SHARED">
+            <item>
+             <property name="text">
+              <string>Do nothing</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Hide</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Highlight</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
