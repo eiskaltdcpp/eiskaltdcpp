@@ -482,6 +482,30 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
     return output;
 }
 
+void HubFrame::LinkParser::parseForMagnetAlias(QString &output){
+    int pos = 0;
+    QRegExp rx("(<magnet(?:\\s+show=([^>]+))?>(.+)</magnet>)");
+    rx.setMinimal(true);
+    while ((pos = output.indexOf(rx, pos)) >= 0) {
+        QFileInfo fi(rx.cap(3));
+        if (fi.isDir() || !fi.exists()) {
+            pos++;
+            continue;
+        }
+        QString name = fi.fileName();
+        if (!rx.cap(2).isEmpty())
+            name = rx.cap(2);
+
+        const TTHValue *tth = HashManager::getInstance()->getFileTTHif(fi.absoluteFilePath().toStdString());
+        if (tth != NULL) {
+            QString urlStr = WulforUtil::getInstance()->makeMagnet(name, fi.size(), _q(tth->toBase32()));
+            output.replace(pos, rx.cap(1).length(), urlStr);
+        } else {
+            output.replace(pos, rx.cap(1).length(), tr("not shared"));
+        }
+    }
+}
+
 HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
         QWidget(parent),
         total_shared(0),
@@ -2438,27 +2462,7 @@ void HubFrame::slotShellFinished(bool ok, QString output){
         HubFrame *fr = qobject_cast<HubFrame *>(sender()->parent());
         PMWindow *pm = qobject_cast<PMWindow *>(sender()->parent());
 
-        int pos = 0;
-        QRegExp rx("(<magnet(?:\\s+show=([^>]+))?>(.+)</magnet>)");
-        rx.setMinimal(true);
-        while ((pos = output.indexOf(rx, pos)) >= 0) {
-            QFileInfo fi(rx.cap(3));
-            if (fi.isDir() || !fi.exists()) {
-                pos++;
-                continue;
-            }
-            QString name = fi.fileName();
-            if (!rx.cap(2).isEmpty())
-                name = rx.cap(2);
-
-            const TTHValue *tth = HashManager::getInstance()->getFileTTHif(fi.absoluteFilePath().toStdString());
-            if (tth != NULL) {
-                QString urlStr = WulforUtil::getInstance()->makeMagnet(name, fi.size(), _q(tth->toBase32()));
-                output.replace(pos, rx.cap(1).length(), urlStr);
-            } else {
-                output.replace(pos, rx.cap(1).length(), tr("not shared"));
-            }
-        }
+        LinkParser::parseForMagnetAlias(output);
 
         if (fr == this)
             sendChat(output, false, false);

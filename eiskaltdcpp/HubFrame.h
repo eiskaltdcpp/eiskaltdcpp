@@ -171,15 +171,15 @@ class HubFrame :
         static Menu *instance;
     };
 
+public:
     class LinkParser{
     public:
        static QString parseForLinks(QString, bool);
-
+       static void parseForMagnetAlias(QString &output);//find and replace <magnet ...></magnet> sections
     private:
        static QStringList link_types;
     };
 
-public:
     typedef QMap<QString, PMWindow*> PMMap;
     typedef QHash<QString, QVariant > VarMap;
     typedef QList<ShellCommandRunner*> ShellList;

@@ -26,12 +26,10 @@ function LogDialog(parent) {
 LogDialog.prototype = new QWidget();
 
 LogDialog.prototype.newMessage = function(timeStamp, message) {
-  print(timeStamp + " " + message);
+  message = LinkParser.parse(message);
 
-  message.replace("<", "&lt;");
-  message.replace(">", "&gt;");
-  message.replace("&", "&amp;");
-  
+  print(message);  
+
   this.textEdit_OUTPUT.append("<b>[" + timeStamp +"]</b> " + message); 
 }
 
@@ -43,7 +41,7 @@ function actionClicked(){
 
 var a = new MainWindowScript();
 a.addToolButton("LogViewer", "LogViewer", new 
-QIcon(SCRIPT_PATH+"log_file.png"));
+QIcon(SCRIPTS_PATH+"logmanager/log_file.png"));//or SCRIPT_PATH+"log_file.png"
 
 MainWindow.ToolBar.LogViewer.triggered.connect(actionClicked);
 

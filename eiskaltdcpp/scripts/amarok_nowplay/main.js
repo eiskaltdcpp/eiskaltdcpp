@@ -5,6 +5,8 @@ function shellDone(ok, msg){
   var hubMgr = new HubManager();
   var activeHub = hubMgr.getHubObject();
 
+  msg = LinkParser.parseMagnetAlias(msg);
+
   if (ok && (activeHub != null))
     activeHub.sendMsg(msg);
 }

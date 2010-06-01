@@ -32,6 +32,8 @@ static QScriptValue getMagnets(QScriptContext*, QScriptEngine*);
 static QScriptValue staticMemberConstructor(QScriptContext*, QScriptEngine*);
 static QScriptValue dynamicMemberConstructor(QScriptContext*, QScriptEngine*);
 static QScriptValue importExtension(QScriptContext*, QScriptEngine*);
+static QScriptValue parseChatLinks(QScriptContext*, QScriptEngine*);
+static QScriptValue parseMagnetAlias(QScriptContext*, QScriptEngine*);
 
 ScriptEngine::ScriptEngine() :
         QObject(NULL)
@@ -135,6 +137,15 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
 
     QScriptValue MW = engine.newQObject(MainWindow::getInstance());//MainWindow already initialized
     engine.globalObject().setProperty("MainWindow", MW);
+
+    QScriptValue linkParser = engine.newObject();
+    engine.globalObject().setProperty("LinkParser", linkParser);
+    QScriptValue linkParser_parse = engine.newFunction(parseChatLinks);
+    QScriptValue linkParser_parseMagnet = engine.newFunction(parseMagnetAlias);
+    linkParser.setProperty("parse", linkParser_parse);
+    linkParser.setProperty("parseMagnetAlias", linkParser_parseMagnet);
+
+    engine.globalObject().setProperty("LinkParser", linkParser);
 
     registerStaticMembers(engine);
     registerDynamicMembers(engine);
@@ -379,4 +390,22 @@ static QScriptValue importExtension(QScriptContext *context, QScriptEngine *engi
         qDebug() << QString("ScriptEngine> Warning! %1 not found!").arg(name).toAscii().constData();
 
     return QScriptValue();
+}
+
+static QScriptValue parseChatLinks(QScriptContext *ctx, QScriptEngine *engine){
+    if (ctx->argumentCount() != 1)
+        return engine->undefinedValue();
+
+    return QScriptValue(HubFrame::LinkParser::parseForLinks(ctx->argument(0).toString(), 0));
+}
+
+static QScriptValue parseMagnetAlias(QScriptContext *ctx, QScriptEngine *engine) {
+    if (ctx->argumentCount() != 1)
+        return engine->undefinedValue();
+
+    QString output = ctx->argument(0).toString();
+
+    HubFrame::LinkParser::parseForMagnetAlias(output);
+
+    return output;
 }
