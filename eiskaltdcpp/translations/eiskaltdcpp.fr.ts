@@ -39,15 +39,15 @@
     <name>DialogScriptConsole</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Dialogue</translation>
+        <translation>Dialogue</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Démarrer</translation>
+        <translation>Démarrer</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Arrêt</translation>
+        <translation>Arrêt</translation>
     </message>
 </context>
 <context>
@@ -1565,11 +1565,11 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Scripts Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionnaire de script</translation>
     </message>
     <message>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Console de script</translation>
     </message>
 </context>
 <context>
@@ -1736,14 +1736,14 @@ Clés:
     <name>ScriptConsole</name>
     <message>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Console de script</translation>
     </message>
 </context>
 <context>
     <name>ScriptManagerDialog</name>
     <message>
         <source>Script Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionnaire de script</translation>
     </message>
 </context>
 <context>
@@ -3358,7 +3358,7 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <name>UIScriptManager</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Dialogue</translation>
+        <translation>Dialogue</translation>
     </message>
 </context>
 <context>
