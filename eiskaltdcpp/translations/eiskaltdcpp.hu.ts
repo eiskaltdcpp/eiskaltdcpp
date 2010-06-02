@@ -54,15 +54,15 @@
     <name>DialogScriptConsole</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Beállítások</translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Indítás</translation>
+        <translation>Indítás</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Állj</translation>
+        <translation>Állj</translation>
     </message>
 </context>
 <context>
@@ -1505,7 +1505,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Script konzol</translation>
     </message>
 </context>
 <context>
@@ -1676,7 +1676,7 @@ Kapcsolók:
     <name>ScriptConsole</name>
     <message>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Script konzol</translation>
     </message>
 </context>
 <context>
