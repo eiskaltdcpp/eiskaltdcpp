@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0">
+<!DOCTYPE TS><TS>
 <context>
     <name>AntiSpam</name>
     <message>
@@ -28,37 +26,37 @@
     </message>
     <message>
         <source>Public Chat: Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Javni Razgovor: Razgovor</translation>
     </message>
     <message>
         <source>Public Chat: Userlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Javni Razgovor: Korsnièka lista</translation>
     </message>
     <message>
         <source>Private Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Privatni razgovor</translation>
     </message>
 </context>
 <context>
     <name>DialogScriptConsole</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Dijalog</translation>
+        <translation>Dijalog</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">Start</translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Stop</translation>
+        <translation>Stop</translation>
     </message>
 </context>
 <context>
     <name>DownloadQueue</name>
     <message>
         <source>Search for alternates</source>
-        <translation>TraÅ¾i  alternativu</translation>
+        <translation>Trai  alternativu</translation>
     </message>
     <message>
         <source>Copy magnet</source>
@@ -78,7 +76,7 @@
     </message>
     <message>
         <source>Lowest</source>
-        <translation>NajniÅ¾i</translation>
+        <translation>Najnii</translation>
     </message>
     <message>
         <source>Low</source>
@@ -94,27 +92,27 @@
     </message>
     <message>
         <source>Highest</source>
-        <translation>NajviÅ¡i</translation>
+        <translation>Najviši</translation>
     </message>
     <message>
         <source>Browse files</source>
-        <translation>TraÅ¾i fajlove</translation>
+        <translation>Trai fajlove</translation>
     </message>
     <message>
         <source>Send private message</source>
-        <translation>PoÅ¡alji privatnu poruku</translation>
+        <translation>Pošalji privatnu poruku</translation>
     </message>
     <message>
         <source>Remove source</source>
-        <translation>ObriÅ¡i izvor</translation>
+        <translation>Obriši izvor</translation>
     </message>
     <message>
         <source>Remove user</source>
-        <translation>ObriÅ¡i korisnika</translation>
+        <translation>Obriši korisnika</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>ObriÅ¡i</translation>
+        <translation>Obriši</translation>
     </message>
     <message>
         <source>No users...</source>
@@ -126,7 +124,7 @@
     </message>
     <message>
         <source>Running...</source>
-        <translation>RadeÄ‡i...</translation>
+        <translation>Radeæi...</translation>
     </message>
     <message>
         <source>File not available</source>
@@ -150,11 +148,11 @@
     </message>
     <message>
         <source>Remote client does not fully support TTH - cannot download</source>
-        <translation>Udaljeni klijent ne podrÅ¾ava u potpunosti TTH - ne moÅ¾e preuzimati</translation>
+        <translation>Udaljeni klijent ne podrava u potpunosti TTH - ne moe preuzimati</translation>
     </message>
     <message>
         <source>No errors</source>
-        <translation>Bez greÅ¡aka</translation>
+        <translation>Bez grešaka</translation>
     </message>
     <message>
         <source>Choose filename</source>
@@ -181,7 +179,7 @@
     </message>
     <message>
         <source>Size</source>
-        <translation>VeliÄina</translation>
+        <translation>Velièina</translation>
     </message>
     <message>
         <source>Downloaded</source>
@@ -201,11 +199,11 @@
     </message>
     <message>
         <source>Exact size</source>
-        <translation>TaÄna veliÄina</translation>
+        <translation>Taèna velièina</translation>
     </message>
     <message>
         <source>Errors</source>
-        <translation>GreÅ¡ke</translation>
+        <translation>Greške</translation>
     </message>
     <message>
         <source>Added</source>
@@ -217,7 +215,7 @@
     </message>
     <message>
         <source>No errors</source>
-        <translation>Bez greÅ¡aka</translation>
+        <translation>Bez grešaka</translation>
     </message>
     <message>
         <source>&lt;b&gt;Added: &lt;/b&gt; %1
@@ -226,7 +224,7 @@
 </source>
         <translation>&lt;b&gt;Dodato: &lt;/b&gt; %1
 &lt;b&gt;Putanja: &lt;/b&gt; %2
-&lt;b&gt;GreÅ¡ke: &lt;/b&gt; %3</translation>
+&lt;b&gt;Greške: &lt;/b&gt; %3</translation>
     </message>
     <message>
         <source>Paused</source>
@@ -234,11 +232,11 @@
     </message>
     <message>
         <source>Lowest</source>
-        <translation>NajniÅ¾i</translation>
+        <translation>Najnii</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation>NiÅ¾i</translation>
+        <translation>Nii</translation>
     </message>
     <message>
         <source>High</source>
@@ -246,7 +244,7 @@
     </message>
     <message>
         <source>Highest</source>
-        <translation>NajviÅ¡i</translation>
+        <translation>Najviši</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -312,11 +310,11 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation>ObriÅ¡i</translation>
+        <translation>Obriši</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>PoveÅ¾i </translation>
+        <translation>Povei </translation>
     </message>
 </context>
 <context>
@@ -369,11 +367,11 @@
     </message>
     <message>
         <source>Size</source>
-        <translation>VeliÄina</translation>
+        <translation>Velièina</translation>
     </message>
     <message>
         <source>Exact size</source>
-        <translation>TaÄna veliÄina</translation>
+        <translation>Taèna velièina</translation>
     </message>
     <message>
         <source>TTH</source>
@@ -384,11 +382,11 @@
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation>ZavrÅ¡eno otpremanja</translation>
+        <translation>Završena otpremanja</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation>ZavrÅ¡eno preuzimanja</translation>
+        <translation>Završena preuzimanja</translation>
     </message>
 </context>
 <context>
@@ -469,7 +467,7 @@
     </message>
     <message>
         <source>Refreshing file list</source>
-        <translation>OsveÅ¾i fajl listu</translation>
+        <translation>Osvei fajl listu</translation>
     </message>
     <message>
         <source>-.-- B/s, %1 left</source>
@@ -504,7 +502,7 @@
     </message>
     <message>
         <source>Show in list</source>
-        <translation>PrikaÅ¾i u listi</translation>
+        <translation>Prikai u listi</translation>
     </message>
     <message>
         <source>Browse files</source>
@@ -512,7 +510,7 @@
     </message>
     <message>
         <source>Match Queue</source>
-        <translation>SloÅ¾i red</translation>
+        <translation>Sloi red</translation>
     </message>
     <message>
         <source>Private Message</source>
@@ -536,15 +534,15 @@
     </message>
     <message>
         <source>Clear chat</source>
-        <translation>OÄisti razgovor</translation>
+        <translation>Oèisti razgovor</translation>
     </message>
     <message>
         <source>Find in chat</source>
-        <translation>PronaÄ‡i u razgovoru</translation>
+        <translation>Pronaæi u razgovoru</translation>
     </message>
     <message>
         <source>Disable/Enable chat</source>
-        <translation>OnemoguÄ‡i/OmoguÄ‡i razgovor</translation>
+        <translation>Onemoguæi/Omoguæi razgovor</translation>
     </message>
     <message>
         <source>Select all</source>
@@ -552,7 +550,7 @@
     </message>
     <message>
         <source>Zoom In</source>
-        <translation>PoveÄ‡aj</translation>
+        <translation>Poveæaj</translation>
     </message>
     <message>
         <source>Zoom Out</source>
@@ -596,7 +594,7 @@
     </message>
     <message>
         <source>Reconnect</source>
-        <translation>Ponovo poveÅ¾i</translation>
+        <translation>Ponovo povei</translation>
     </message>
     <message>
         <source>Close</source>
@@ -616,7 +614,7 @@
     </message>
     <message>
         <source>Away mode off</source>
-        <translation>ReÅ¾im iskljuÄen</translation>
+        <translation>Reim iskljuèen</translation>
     </message>
     <message>
         <source>Away mode on: </source>
@@ -644,11 +642,11 @@
     </message>
     <message>
         <source>on</source>
-        <translation>UkljuÄi</translation>
+        <translation>Ukljuèi</translation>
     </message>
     <message>
         <source>off</source>
-        <translation>IskljuÄi</translation>
+        <translation>Iskljuèi</translation>
     </message>
     <message>
         <source>Chat has been cleared</source>
@@ -708,7 +706,7 @@
     </message>
     <message>
         <source>Add to dictionary</source>
-        <translation>Dodaj u reÄnik</translation>
+        <translation>Dodaj u reènik</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
@@ -724,7 +722,7 @@
     </message>
     <message>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation> Izvini, ali nadimak &quot;%1&quot; je veÄ‡ uzeo drugi korisnik.</translation>
+        <translation> Izvini, ali nadimak &quot;%1&quot; je veæ uzeo drugi korisnik.</translation>
     </message>
     <message>
         <source>Search flood detected: %1</source>
@@ -744,7 +742,7 @@
     </message>
     <message>
         <source>Show widget</source>
-        <translation>PokaÅ¾i widÅ¾et</translation>
+        <translation>Pokai widet</translation>
     </message>
     <message>
         <source>
@@ -754,7 +752,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source> joins the chat</source>
-        <translation>  PridruÅ¾i se razgovoru</translation>
+        <translation>  Pridrui se razgovoru</translation>
     </message>
     <message>
         <source>User not found</source>
@@ -778,7 +776,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Favorite hub already exists.</source>
-        <translation>Omiljeni hab veÄ‡ postoji.</translation>
+        <translation>Omiljeni hab veæ postoji.</translation>
     </message>
     <message>
         <source>User offline.</source>
@@ -786,7 +784,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Stored password sent...</source>
-        <translation>SaÄuvana lozinka poslata...</translation>
+        <translation>Saèuvana lozinka poslata...</translation>
     </message>
     <message>
         <source>Password</source>
@@ -794,7 +792,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Redirect request received to a hub that&apos;s already connected</source>
-        <translation>Preusmeravanje zahteva primljenog na hab koji je veÄ‡ povezan</translation>
+        <translation>Preusmeravanje zahteva primljenog na hab koji je veæ povezan</translation>
     </message>
     <message>
         <source>Users count: %1 | Total share: %2</source>
@@ -806,46 +804,46 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Chat disabled.</source>
-        <translation>Razgovor onemoguÄ‡en.</translation>
+        <translation>Razgovor onemoguæen.</translation>
     </message>
     <message>
         <source>Chat enabled.</source>
-        <translation>Razgovor omoguÄ‡en.</translation>
+        <translation>Razgovor omoguæen.</translation>
     </message>
     <message>
         <source>not shared</source>
-        <translation type="unfinished"></translation>
+        <translation>nije deljeno</translation>
     </message>
     <message>
         <source>AntiSpam</source>
-        <translation type="unfinished">AntiSpam</translation>
+        <translation>AntiSpam</translation>
     </message>
     <message>
         <source>Add to Black</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj na crnu</translation>
     </message>
     <message>
         <source>Add to White</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj na belu</translation>
     </message>
 </context>
 <context>
     <name>IPFilter</name>
     <message>
         <source>Nothing to export.</source>
-        <translation>NiÅ¡ta za izvoz.</translation>
+        <translation>Ništa za izvoz.</translation>
     </message>
     <message>
         <source>Unable to export settings.</source>
-        <translation>NemoguÄ‡ izvoz podeÅ¡avanja.</translation>
+        <translation>Nemoguæ izvoz podešavanja.</translation>
     </message>
     <message>
         <source>Nothing to import.</source>
-        <translation>NiÅ¡ta za uvoz.</translation>
+        <translation>Ništa za uvoz.</translation>
     </message>
     <message>
         <source>Invalid signature.</source>
-        <translation>NevaÅ¾eÄ‡i potpis.</translation>
+        <translation>Nevaeæi potpis.</translation>
     </message>
 </context>
 <context>
@@ -860,7 +858,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Delete rule</source>
-        <translation>ObriÅ¡i pravila</translation>
+        <translation>Obriši pravila</translation>
     </message>
     <message>
         <source>Enter new rule</source>
@@ -898,7 +896,7 @@ Omiljeni korisnik</translation>
     <name>Magnet</name>
     <message>
         <source>Run search alternatives manually.</source>
-        <translation>Pokreni pretragu naizmeniÄno.</translation>
+        <translation>Pokreni pretragu naizmenièno.</translation>
     </message>
     <message>
         <source>Download file via auto search alternatives</source>
@@ -906,12 +904,12 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>GreÅ¡ka</translation>
+        <translation>Greška</translation>
     </message>
     <message>
         <source>Some error ocurred when starting download:
  %1</source>
-        <translation>GreÅ¡ke prilikom preuzimanja fajla:
+        <translation>Greške prilikom preuzimanja fajla:
 %1</translation>
     </message>
     <message>
@@ -971,7 +969,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Show/hide find frame</source>
-        <translation>PokaÅ¾i/sakrij naÄ‡i okvir</translation>
+        <translation>Pokai/sakrij naæi okvir</translation>
     </message>
     <message>
         <source>Hide free space bar</source>
@@ -979,7 +977,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Show free space bar</source>
-        <translation>PokaÅ¾i bar slobodnog prostora</translation>
+        <translation>Pokai bar slobodnog prostora</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -1007,7 +1005,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>PodeÅ¡avanja</translation>
+        <translation>Podešavanja</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -1023,7 +1021,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Refresh share</source>
-        <translation>OsveÅ¾i deljeno</translation>
+        <translation>Osvei deljeno</translation>
     </message>
     <message>
         <source>Hash progress</source>
@@ -1039,15 +1037,15 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation>ZavrÅ¡eno preuzimanje</translation>
+        <translation>Završeno preuzimanje</translation>
     </message>
     <message>
         <source>Finished uploads</source>
-        <translation>ZavrÅ¡eno otpremanje</translation>
+        <translation>Završeno otpremanje</translation>
     </message>
     <message>
         <source>Search Spy</source>
-        <translation>Pretraga Å¡pijuna</translation>
+        <translation>Pretraga špijuna</translation>
     </message>
     <message>
         <source>AntiSpam module</source>
@@ -1079,15 +1077,15 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Clear chat</source>
-        <translation>OÄisti razgovor</translation>
+        <translation>Oèisti razgovor</translation>
     </message>
     <message>
         <source>Disable/enable chat</source>
-        <translation>OnemoguÄ‡i/OmoguÄ‡i razgovor</translation>
+        <translation>Onemoguæi/Omoguæi razgovor</translation>
     </message>
     <message>
         <source>&amp;Widgets</source>
-        <translation>&amp;VidÅ¾eti</translation>
+        <translation>&amp;Videti</translation>
     </message>
     <message>
         <source>&amp;Panels</source>
@@ -1095,7 +1093,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Widgets panel</source>
-        <translation>Panel vidÅ¾eta</translation>
+        <translation>Panel videta</translation>
     </message>
     <message>
         <source>Tools panel</source>
@@ -1115,11 +1113,11 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Show last status message</source>
-        <translation>PokaÅ¾i poslednju statusnu poruku</translation>
+        <translation>Pokai poslednju statusnu poruku</translation>
     </message>
     <message>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation>EiskaltDC++ je grafiÄki klijent za Direktno Povezivanje i ADC protokol.</translation>
+        <translation>EiskaltDC++ je grafièki klijent za Direktno Povezivanje i ADC protokol.</translation>
     </message>
     <message>
         <source>DC++ core version:</source>
@@ -1143,7 +1141,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Reconnect to hub</source>
-        <translation>Ponovo poveÅ¾i na hab</translation>
+        <translation>Ponovo povei na hab</translation>
     </message>
     <message>
         <source>Counts</source>
@@ -1159,11 +1157,11 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>PretraÅ¾i</translation>
+        <translation>Pretrai</translation>
     </message>
     <message>
         <source>Quick connect</source>
-        <translation>Brzo poveÅ¾i</translation>
+        <translation>Brzo povei</translation>
     </message>
     <message>
         <source>Ctrl+E</source>
@@ -1187,7 +1185,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Show users statistics</source>
-        <translation>PokaÅ¾i statistiku korisnika</translation>
+        <translation>Pokai statistiku korisnika</translation>
     </message>
     <message>
         <source>Download speed</source>
@@ -1207,11 +1205,11 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>On</source>
-        <translation>UkljuÄi</translation>
+        <translation>Ukljuèi</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation>IskljuÄi</translation>
+        <translation>Iskljuèi</translation>
     </message>
     <message>
         <source>Away when not visible</source>
@@ -1219,11 +1217,11 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Find/Filter</source>
-        <translation>PronaÄ‡i/Filter</translation>
+        <translation>Pronaæi/Filter</translation>
     </message>
     <message>
         <source>Widgets side dock</source>
-        <translation>VidÅ¾et traka</translation>
+        <translation>Videt traka</translation>
     </message>
     <message>
         <source>Fast search panel</source>
@@ -1231,7 +1229,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;PomoÄ‡</translation>
+        <translation>&amp;Pomoæ</translation>
     </message>
     <message>
         <source>About EiskaltDC++</source>
@@ -1275,12 +1273,12 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Unable to load file list: Invalid file list name</source>
-        <translation>Nije moguÄ‡e uÄitati fajl listu: NevaÅ¾eÄ‡e ime fajl liste</translation>
+        <translation>Nije moguæe uèitati fajl listu: Nevaeæe ime fajl liste</translation>
     </message>
     <message>
         <source>Cannot listen socket because: 
 </source>
-        <translation>Ne mogu sluÅ¡ati ulaz jer:
+        <translation>Ne mogu slušati ulaz jer:
 </translation>
     </message>
     <message>
@@ -1289,19 +1287,19 @@ Omiljeni korisnik</translation>
 Please check your connection settings</source>
         <translation>
 
-Molim proverite podeÅ¡avanja vaÅ¡e veze</translation>
+Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>Connection Manager: Warning</source>
-        <translation>MenadÅ¾er povezivanja: Upozorenje</translation>
+        <translation>Menader povezivanja: Upozorenje</translation>
     </message>
     <message>
         <source>Search Manager: Warning</source>
-        <translation>MenadÅ¾er pretrage: Upozorenje</translation>
+        <translation>Menader pretrage: Upozorenje</translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation>Koristite &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; za prijavljivanje greÅ¡aka.&lt;br/&gt;</translation>
+        <translation>Koristite &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; za prijavljivanje grešaka.&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
@@ -1313,11 +1311,11 @@ Molim proverite podeÅ¡avanja vaÅ¡e veze</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek aka Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(programer i odrÅ¾avanje 1.89.0 i kasnije)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek aka Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(programer i odravanje 1.89.0 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(programer i odrÅ¾avanje 0.4.10 i kasnije)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(programer i odravanje 0.4.10 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
@@ -1389,30 +1387,30 @@ Molim proverite podeÅ¡avanja vaÅ¡e veze</translation>
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+A</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Srpski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Miroslav Petroviæ&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(za 2.0.3 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>Scripts Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Menader skripti</translation>
     </message>
     <message>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Skripta konzole</translation>
     </message>
 </context>
 <context>
     <name>Notification</name>
     <message>
         <source>Show/Hide window</source>
-        <translation>PrikaÅ¾i/Sakrij prozor</translation>
+        <translation>Prikai/Sakrij prozor</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -1466,7 +1464,7 @@ Molim proverite podeÅ¡avanja vaÅ¡e veze</translation>
     </message>
     <message>
         <source>Country</source>
-        <translation>DrÅ¾ava</translation>
+        <translation>Drava</translation>
     </message>
     <message>
         <source>Shared</source>
@@ -1505,7 +1503,7 @@ Molim proverite podeÅ¡avanja vaÅ¡e veze</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>PoveÅ¾i </translation>
+        <translation>Povei </translation>
     </message>
     <message>
         <source>Add to favorites</source>
@@ -1529,7 +1527,7 @@ Molim proverite podeÅ¡avanja vaÅ¡e veze</translation>
     </message>
     <message>
         <source>Hub list loaded from cache...</source>
-        <translation>Hab lista uÄitana iz keÅ¡a...</translation>
+        <translation>Hab lista uèitana iz keša...</translation>
     </message>
     <message>
         <source>Public Hubs</source>
@@ -1556,30 +1554,30 @@ Molim proverite podeÅ¡avanja vaÅ¡e veze</translation>
 EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
+  -h, --help<byte value="x9"/> Show this message
+  -v, --version<byte value="x9"/> Show version string</source>
         <translation>Upotreba:(new line)
 (sp)(sp)eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
 (sp)(sp)eiskaltdcpp &lt;Key&gt;
 EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC protokol. 
 
 Keys:
-(sp)(sp)-h, --help(tab) PrikaÅ¾i ovu poruku
-(sp)(sp)-v, --version(tab) PrikaÅ¾i verziju</translation>
+(sp)(sp)-h, --help(tab) Prikai ovu poruku
+(sp)(sp)-v, --version(tab) Prikai verziju</translation>
     </message>
 </context>
 <context>
     <name>ScriptConsole</name>
     <message>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Skripta konzole</translation>
     </message>
 </context>
 <context>
     <name>ScriptManagerDialog</name>
     <message>
         <source>Script Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Menader skripti</translation>
     </message>
 </context>
 <context>
@@ -1590,11 +1588,11 @@ Keys:
     </message>
     <message>
         <source>Search</source>
-        <translation>PretraÅ¾i</translation>
+        <translation>Pretrai</translation>
     </message>
     <message>
         <source>Search for</source>
-        <translation>PretraÅ¾i za</translation>
+        <translation>Pretrai za</translation>
     </message>
     <message>
         <source>Any</source>
@@ -1602,7 +1600,7 @@ Keys:
     </message>
     <message>
         <source>Audio</source>
-        <translation>ZvuÄni</translation>
+        <translation>Zvuèni</translation>
     </message>
     <message>
         <source>Compressed</source>
@@ -1614,7 +1612,7 @@ Keys:
     </message>
     <message>
         <source>Executable</source>
-        <translation>IzvrÅ¡ni</translation>
+        <translation>Izvršni</translation>
     </message>
     <message>
         <source>Picture</source>
@@ -1638,11 +1636,11 @@ Keys:
     </message>
     <message>
         <source>Clear</source>
-        <translation>OÄisti</translation>
+        <translation>Oèisti</translation>
     </message>
     <message>
         <source>Show/Hide side panel</source>
-        <translation>PokaÅ¾i/sakrij  panel</translation>
+        <translation>Pokai/sakrij  panel</translation>
     </message>
     <message>
         <source>Hubs</source>
@@ -1654,7 +1652,7 @@ Keys:
     </message>
     <message>
         <source>Size</source>
-        <translation>VeliÄina</translation>
+        <translation>Velièina</translation>
     </message>
     <message>
         <source>B</source>
@@ -1682,11 +1680,11 @@ Keys:
     </message>
     <message>
         <source>At most</source>
-        <translation>NajveÄ‡a</translation>
+        <translation>Najveæa</translation>
     </message>
     <message>
         <source>Already shared files</source>
-        <translation>VeÄ‡ deljeni fajlovi</translation>
+        <translation>Veæ deljeni fajlovi</translation>
     </message>
     <message>
         <source>Hide</source>
@@ -1698,11 +1696,11 @@ Keys:
     </message>
     <message>
         <source>Do nothing</source>
-        <translation>Ne radi niÅ¡ta</translation>
+        <translation>Ne radi ništa</translation>
     </message>
     <message>
         <source>Don&apos;t hide this panel when search</source>
-        <translation>Ne krij ovaj panel kad se pretraÅ¾uje</translation>
+        <translation>Ne krij ovaj panel kad se pretrauje</translation>
     </message>
     <message>
         <source>X</source>
@@ -1726,7 +1724,7 @@ Keys:
     </message>
     <message>
         <source>Search TTH</source>
-        <translation>PretraÅ¾i TTH</translation>
+        <translation>Pretrai TTH</translation>
     </message>
     <message>
         <source>Copy magnet</source>
@@ -1738,11 +1736,11 @@ Keys:
     </message>
     <message>
         <source>Match Queue</source>
-        <translation>SloÅ¾i red</translation>
+        <translation>Sloi red</translation>
     </message>
     <message>
         <source>Send Private Message</source>
-        <translation>PoÅ¡alji privatnu poruku</translation>
+        <translation>Pošalji privatnu poruku</translation>
     </message>
     <message>
         <source>Add to favorites</source>
@@ -1766,7 +1764,7 @@ Keys:
     </message>
     <message>
         <source>Search window</source>
-        <translation>PretraÅ¾i prozor</translation>
+        <translation>Pretrai prozor</translation>
     </message>
     <message>
         <source>Close</source>
@@ -1774,11 +1772,11 @@ Keys:
     </message>
     <message>
         <source>Searching too soon, next search in %1 second</source>
-        <translation>PretraÅ¾ivanje prerano, sledeÄ‡a pretraga u %1 second</translation>
+        <translation>Pretraivanje prerano, sledeæa pretraga u %1 second</translation>
     </message>
     <message>
         <source>Search - %1</source>
-        <translation>PretraÅ¾i - %1</translation>
+        <translation>Pretrai - %1</translation>
     </message>
     <message>
         <source>Ready to search...</source>
@@ -1801,7 +1799,7 @@ Keys:
     <name>SearchModel</name>
     <message>
         <source>Count</source>
-        <translation>BrojaÄ</translation>
+        <translation>Brojaè</translation>
     </message>
     <message>
         <source>File</source>
@@ -1813,11 +1811,11 @@ Keys:
     </message>
     <message>
         <source>Size</source>
-        <translation>VeliÄina</translation>
+        <translation>Velièina</translation>
     </message>
     <message>
         <source>Exact size</source>
-        <translation>TaÄna  veliÄina</translation>
+        <translation>Taèna  velièina</translation>
     </message>
     <message>
         <source>TTH</source>
@@ -1856,11 +1854,11 @@ Keys:
     <name>Settings</name>
     <message>
         <source>Options</source>
-        <translation>PodeÅ¡avanja</translation>
+        <translation>Podešavanja</translation>
     </message>
     <message>
         <source>Personal</source>
-        <translation>LiÄno</translation>
+        <translation>Lièno</translation>
     </message>
     <message>
         <source>Connection</source>
@@ -1876,11 +1874,11 @@ Keys:
     </message>
     <message>
         <source>GUI</source>
-        <translation>SuÄelje</translation>
+        <translation>Suèelje</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation>ObaveÅ¡tenja</translation>
+        <translation>Obaveštenja</translation>
     </message>
     <message>
         <source>Logs</source>
@@ -1899,7 +1897,7 @@ Keys:
     </message>
     <message>
         <source>No valid SOCKS5 server IP found!</source>
-        <translation>Nema pronadjenih vaÅ¾eÄ‡ih SOCKS5 server IP!</translation>
+        <translation>Nema pronadjenih vaeæih SOCKS5 server IP!</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -1918,7 +1916,7 @@ Keys:
     </message>
     <message>
         <source>Delete</source>
-        <translation>ObriÅ¡i</translation>
+        <translation>Obriši</translation>
     </message>
     <message>
         <source>Enter alias for directory</source>
@@ -1981,11 +1979,11 @@ Keys:
     </message>
     <message>
         <source>Private: local user</source>
-        <translation>LiÄno: lokalni korisnik</translation>
+        <translation>Lièno: lokalni korisnik</translation>
     </message>
     <message>
         <source>Private: user</source>
-        <translation>LiÄno: korisnik</translation>
+        <translation>Lièno: korisnik</translation>
     </message>
     <message>
         <source>Chat: Say nick</source>
@@ -2070,7 +2068,7 @@ Keys:
     </message>
     <message>
         <source>Remove</source>
-        <translation>ObriÅ¡i</translation>
+        <translation>Obriši</translation>
     </message>
     <message>
         <source>Enter virtual path name</source>
@@ -2082,11 +2080,11 @@ Keys:
     </message>
     <message>
         <source>Enter restriction (in GiB)</source>
-        <translation>Usnesi ograniÄenje  (u GiB)</translation>
+        <translation>Usnesi ogranièenje  (u GiB)</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>OgraniÄenje</translation>
+        <translation>Ogranièenje</translation>
     </message>
     <message>
         <source>Add item</source>
@@ -2106,7 +2104,7 @@ Keys:
     </message>
     <message>
         <source>Error</source>
-        <translation>GreÅ¡ka</translation>
+        <translation>Greška</translation>
     </message>
     <message>
         <source>Enter new name</source>
@@ -2125,7 +2123,7 @@ Keys:
     </message>
     <message>
         <source>Search for alternates</source>
-        <translation>TraÅ¾i alternativu</translation>
+        <translation>Trai alternativu</translation>
     </message>
     <message>
         <source>Copy magnet</source>
@@ -2149,11 +2147,11 @@ Keys:
     </message>
     <message>
         <source>Total share size: %1;  Files: %2</source>
-        <translation>Ukupno deljena veliÄina: %1;  Fajlovi: %2</translation>
+        <translation>Ukupno deljena velièina: %1;  Fajlovi: %2</translation>
     </message>
     <message>
         <source>Filebrowser</source>
-        <translation>PregledaÄ fajlova</translation>
+        <translation>Pregledaè fajlova</translation>
     </message>
     <message>
         <source>Close</source>
@@ -2165,11 +2163,11 @@ Keys:
     </message>
     <message>
         <source>Size</source>
-        <translation>VeliÄina</translation>
+        <translation>Velièina</translation>
     </message>
     <message>
         <source>Exact size</source>
-        <translation>TaÄna veliÄina</translation>
+        <translation>Taèna velièina</translation>
     </message>
     <message>
         <source>TTH</source>
@@ -2177,7 +2175,7 @@ Keys:
     </message>
     <message>
         <source>Total size: %1</source>
-        <translation>Ukupna veliÄina: %1</translation>
+        <translation>Ukupna velièina: %1</translation>
     </message>
     <message>
         <source>; Selected: %1</source>
@@ -2192,7 +2190,7 @@ Keys:
     <name>ShareDirModel</name>
     <message>
         <source>Error</source>
-        <translation>GreÅ¡ka</translation>
+        <translation>Greška</translation>
     </message>
 </context>
 <context>
@@ -2207,11 +2205,11 @@ Keys:
     </message>
     <message>
         <source>Search</source>
-        <translation>PretraÅ¾i</translation>
+        <translation>Pretrai</translation>
     </message>
     <message>
         <source>Share Browsers</source>
-        <translation>Deljeni pregledaÄi</translation>
+        <translation>Deljeni pregledaèi</translation>
     </message>
     <message>
         <source>Download Queue</source>
@@ -2219,11 +2217,11 @@ Keys:
     </message>
     <message>
         <source>Finished Uploads</source>
-        <translation>ZavrÅ¡eno otpremanje</translation>
+        <translation>Završeno otpremanje</translation>
     </message>
     <message>
         <source>Finished Downloads</source>
-        <translation>ZavÅ¡eno preuzimanje</translation>
+        <translation>Zavšeno preuzimanje</translation>
     </message>
     <message>
         <source>Favorite Hubs</source>
@@ -2239,11 +2237,11 @@ Keys:
     </message>
     <message>
         <source>Spy</source>
-        <translation>Å pijun</translation>
+        <translation>Špijun</translation>
     </message>
     <message>
         <source>Widgets</source>
-        <translation>VidÅ¾eti</translation>
+        <translation>Videti</translation>
     </message>
 </context>
 <context>
@@ -2257,9 +2255,9 @@ Keys:
 It will continue to work when the widget is hidden.
 Do you want to stop it?
 </source>
-        <translation>Pretraga Å¡pijuna sada radi.
-BiÄ‡e nastavljeno da radi kad widÅ¾et bude skriven.
-Da li Å¾elite da zaustavite?</translation>
+        <translation>Pretraga špijuna sada radi.
+Biæe nastavljeno da radi kad widet bude skriven.
+Da li elite da zaustavite?</translation>
     </message>
     <message>
         <source>Start</source>
@@ -2267,22 +2265,22 @@ Da li Å¾elite da zaustavite?</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>PretraÅ¾i</translation>
+        <translation>Pretrai</translation>
     </message>
     <message>
         <source>Search Spy</source>
-        <translation>Pretraga Å¡pijuna</translation>
+        <translation>Pretraga špijuna</translation>
     </message>
 </context>
 <context>
     <name>SpyModel</name>
     <message>
         <source>Count</source>
-        <translation>BrojaÄ</translation>
+        <translation>Brojaè</translation>
     </message>
     <message>
         <source>Search string</source>
-        <translation>PretraÅ¾i nisku</translation>
+        <translation>Pretrai nisku</translation>
     </message>
 </context>
 <context>
@@ -2293,11 +2291,11 @@ Da li Å¾elite da zaustavite?</translation>
     </message>
     <message>
         <source>Match Queue</source>
-        <translation>SloÅ¾i red</translation>
+        <translation>Sloi red</translation>
     </message>
     <message>
         <source>Send Private Message</source>
-        <translation>PoÅ¡alji privatnu poruku</translation>
+        <translation>Pošalji privatnu poruku</translation>
     </message>
     <message>
         <source>Add to favorites</source>
@@ -2313,11 +2311,11 @@ Da li Å¾elite da zaustavite?</translation>
     </message>
     <message>
         <source>Remove Source</source>
-        <translation>ObriÅ¡i izvor</translation>
+        <translation>Obriši izvor</translation>
     </message>
     <message>
         <source>Force attempt</source>
-        <translation>Prisilan pokuÅ¡aj</translation>
+        <translation>Prisilan pokušaj</translation>
     </message>
     <message>
         <source>Close connection(s)</source>
@@ -2341,7 +2339,7 @@ Da li Å¾elite da zaustavite?</translation>
     </message>
     <message>
         <source>Download starting...</source>
-        <translation>Preuzimanje poÄinje...</translation>
+        <translation>Preuzimanje poèinje...</translation>
     </message>
     <message>
         <source>[S]</source>
@@ -2389,11 +2387,11 @@ Da li Å¾elite da zaustavite?</translation>
     </message>
     <message>
         <source>Waiting to retry</source>
-        <translation>ÄŒekanje na ponavljanje</translation>
+        <translation>Èekanje na ponavljanje</translation>
     </message>
     <message>
         <source>Upload starting...</source>
-        <translation>Otpremanje poÄinje...</translation>
+        <translation>Otpremanje poèinje...</translation>
     </message>
     <message>
         <source> Uploaded %1 (%2%) </source>
@@ -2424,7 +2422,7 @@ Da li Å¾elite da zaustavite?</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>VeliÄina</translation>
+        <translation>Velièina</translation>
     </message>
     <message>
         <source>Time left</source>
@@ -2456,7 +2454,7 @@ Da li Å¾elite da zaustavite?</translation>
     </message>
     <message>
         <source>Waiting for slot </source>
-        <translation>ÄŒekanje na slot </translation>
+        <translation>Èekanje na slot </translation>
     </message>
     <message>
         <source> from %1/%2 user(s)</source>
@@ -2468,7 +2466,7 @@ Da li Å¾elite da zaustavite?</translation>
     </message>
     <message>
         <source>Finished</source>
-        <translation>ZavrÅ¡eno</translation>
+        <translation>Završeno</translation>
     </message>
 </context>
 <context>
@@ -2487,7 +2485,7 @@ Da li Å¾elite da zaustavite?</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation>RazdvajaÄ</translation>
+        <translation>Razdvajaè</translation>
     </message>
 </context>
 <context>
@@ -2577,15 +2575,15 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Key</source>
-        <translation>KljuÄ</translation>
+        <translation>Kljuè</translation>
     </message>
     <message>
         <source>Attempts</source>
-        <translation>PokuÅ¡aji</translation>
+        <translation>Pokušaji</translation>
     </message>
     <message>
         <source>Enable AntiSpam</source>
-        <translation>OmoguÄ‡i AntiSpam</translation>
+        <translation>Omoguæi AntiSpam</translation>
     </message>
     <message>
         <source>OK</source>
@@ -2663,7 +2661,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Autoconnect on startup</source>
-        <translation>PoveÅ¾i na startu</translation>
+        <translation>Povei na startu</translation>
     </message>
     <message>
         <source>Favorite hub name.</source>
@@ -2675,7 +2673,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>This description will show in the user list.</source>
-        <translation>Ovaj opis Ä‡e se pojaviti u listi korisnika.</translation>
+        <translation>Ovaj opis æe se pojaviti u listi korisnika.</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2735,7 +2733,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Disable chat</source>
-        <translation>IskljuÄi razgovor</translation>
+        <translation>Iskljuèi razgovor</translation>
     </message>
     <message>
         <source>Identification</source>
@@ -2743,7 +2741,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
-        <translation>Ovo korisniÄno ime Ä‡e biti identifikovano kad pristupiÅ¡ na hab.</translation>
+        <translation>Ovo korisnièno ime æe biti identifikovano kad pristupiš na hab.</translation>
     </message>
     <message>
         <source>If hub requires password, define it here.</source>
@@ -2755,7 +2753,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>User description</source>
-        <translation>KorisniÄki opis</translation>
+        <translation>Korisnièki opis</translation>
     </message>
     <message>
         <source>Password</source>
@@ -2778,11 +2776,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Delete</source>
-        <translation>ObriÅ¡i</translation>
+        <translation>Obriši</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>PoveÅ¾i</translation>
+        <translation>Povei</translation>
     </message>
     <message>
         <source>Move up</source>
@@ -2820,11 +2818,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Show</source>
-        <translation>PokaÅ¾i</translation>
+        <translation>Pokai</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>OÄisti</translation>
+        <translation>Oèisti</translation>
     </message>
 </context>
 <context>
@@ -2949,7 +2947,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Enable IPFilter</source>
-        <translation>OmoguÄ‡i IPFilter</translation>
+        <translation>Omoguæi IPFilter</translation>
     </message>
 </context>
 <context>
@@ -2961,15 +2959,15 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
-        <translation>Dodaje magnet link u red za preuzimanje. Fajl Ä‡e biti preuzet bez otvaranja dijaloga za pretragu.</translation>
+        <translation>Dodaje magnet link u red za preuzimanje. Fajl æe biti preuzet bez otvaranja dijaloga za pretragu.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>OtkaÅ¾i</translation>
+        <translation>Otkai</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>PretraÅ¾i</translation>
+        <translation>Pretrai</translation>
     </message>
     <message>
         <source>TTH</source>
@@ -2985,7 +2983,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>Size</source>
-        <translation>VeliÄina</translation>
+        <translation>Velièina</translation>
     </message>
     <message>
         <source>Opens search dialog and searches file.</source>
@@ -3001,7 +2999,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamti moj izbor</translation>
     </message>
 </context>
 <context>
@@ -3016,7 +3014,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>User share</source>
-        <translation>KorisniÄki udeo</translation>
+        <translation>Korisnièki udeo</translation>
     </message>
 </context>
 <context>
@@ -3050,25 +3048,25 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation>ObriÅ¡i</translation>
+        <translation>Obriši</translation>
     </message>
 </context>
 <context>
     <name>UIQuickConnect</name>
     <message>
         <source>Quick connect</source>
-        <translation>Brzo poveÅ¾i</translation>
+        <translation>Brzo povei</translation>
     </message>
     <message>
         <source>IP address of DNS name of hub you want to connect.</source>
-        <translation>IP adresa haba na koji Å¾eliÅ¡ da se poveÅ¾eÅ¡.</translation>
+        <translation>IP adresa haba na koji eliš da se poveeš.</translation>
     </message>
 </context>
 <context>
     <name>UIScriptManager</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Dijalog</translation>
+        <translation>Dijalog</translation>
     </message>
 </context>
 <context>
@@ -3094,11 +3092,11 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>Firewall with port forwarding</source>
-        <translation>ZaÅ¡titini zid sa prosledjivanjem porta</translation>
+        <translation>Zaštitini zid sa prosledjivanjem porta</translation>
     </message>
     <message>
         <source>Active mode</source>
-        <translation>Aktivan reÅ¾im</translation>
+        <translation>Aktivan reim</translation>
     </message>
     <message>
         <source>Select this mode if your computer is connected directly to the internet.
@@ -3107,19 +3105,19 @@ If your computer is not behind a router all you have to do is to choose
 this option and usually you don&apos;t need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
-        <translation>Izaberi ovaj reÅ¾im ako je tvoj kompjuter povezan direktno na internet.
-Nemojte da izaberete ovaj reÅ¾im ako imate ruter ili neki spoljni zaÅ¡titni zid.
-Ako vaÅ¡ raÄunar nije iza rutera, sve Å¡to treba da uradite je da izaberete
-ovu opciju i obiÄno ne treba viÅ¡e menjati parametre veze.
-Medjutim, ako imate softverski zaÅ¡titni zid instaliran, moÅ¾da je potrebna dodatna konfiguracija zaÅ¡titnog zida za pristup EiskaltDC++.</translation>
+        <translation>Izaberi ovaj reim ako je tvoj kompjuter povezan direktno na internet.
+Nemojte da izaberete ovaj reim ako imate ruter ili neki spoljni zaštitni zid.
+Ako vaš raèunar nije iza rutera, sve što treba da uradite je da izaberete
+ovu opciju i obièno ne treba više menjati parametre veze.
+Medjutim, ako imate softverski zaštitni zid instaliran, moda je potrebna dodatna konfiguracija zaštitnog zida za pristup EiskaltDC++.</translation>
     </message>
     <message>
         <source>Passive mode</source>
-        <translation>Pasivan reÅ¾im</translation>
+        <translation>Pasivan reim</translation>
     </message>
     <message>
         <source>Firewall with UPnP</source>
-        <translation>ZaÅ¡titni zid sa UPnP</translation>
+        <translation>Zaštitni zid sa UPnP</translation>
     </message>
     <message>
         <source>External/WAN IP:</source>
@@ -3179,19 +3177,19 @@ Medjutim, ako imate softverski zaÅ¡titni zid instaliran, moÅ¾da je potrebna doda
     </message>
     <message>
         <source>Use to resolve hostnames</source>
-        <translation>Koristi za reÅ¡avanje host imena</translation>
+        <translation>Koristi za rešavanje host imena</translation>
     </message>
     <message>
         <source>Limits</source>
-        <translation>OgraniÄenja</translation>
+        <translation>Ogranièenja</translation>
     </message>
     <message>
         <source>Enable total speed limit</source>
-        <translation>OmoguÄ‡i ukupno ograniÄenje brzine</translation>
+        <translation>Omoguæi ukupno ogranièenje brzine</translation>
     </message>
     <message>
         <source>Alternate speed limit at time from </source>
-        <translation>Alternativno ograniÄenje brzine na vreme od</translation>
+        <translation>Alternativno ogranièenje brzine na vreme od</translation>
     </message>
     <message>
         <source>Download</source>
@@ -3203,11 +3201,11 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation>Izaberite ovaj reÅ¾im ako se nalazite iza zaÅ¡titnog zida i podesite
+        <translation>Izaberite ovaj reim ako se nalazite iza zaštitnog zida i podesite
 sa prosledjivanjem TCP, UDP i TLS.
-MoraÄ‡ete da navedete svoju spoljnu IP adresu rutera
-ako Å¾elite da ispravno radi preuzimanje.
-Koristite ovaj reÅ¾im samo ako prethodne opcije nisu za vas.</translation>
+Moraæete da navedete svoju spoljnu IP adresu rutera
+ako elite da ispravno radi preuzimanje.
+Koristite ovaj reim samo ako prethodne opcije nisu za vas.</translation>
     </message>
     <message>
         <source>Select this mode if none of the previous modes apply. In this mode,
@@ -3216,9 +3214,9 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation>Izaberite ovaj reÅ¾im ako niÅ¡ta od prethodnih nije primenljivo. U ovom modu,
-EiskaltDC++ neÄ‡e probati dolazeÄ‡e veze, nego samo odlazeÄ‡e.
-Ovaj reÅ¾im nosi neka ozbiljna ograniÄenja.
+        <translation>Izaberite ovaj reim ako ništa od prethodnih nije primenljivo. U ovom modu,
+EiskaltDC++ neæe probati dolazeæe veze, nego samo odlazeæe.
+Ovaj reim nosi neka ozbiljna ogranièenja.
 </translation>
     </message>
     <message>
@@ -3228,19 +3226,19 @@ Most routers do support UPnP but you may need to enable it
 in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation>Izaberite ovaj reÅ¾im ako ste iza zaÅ¡titnog zida koji podrÅ¾ava
+        <translation>Izaberite ovaj reim ako ste iza zaštitnog zida koji podrava
 UPnP standard za program autokonfiguracije.
-VeÄ‡ina rutera ne podrÅ¾ava UPnP, pa Ä‡ete morati da to omoguÄ‡ite 
+Veæina rutera ne podrava UPnP, pa æete morati da to omoguæite 
 na ruterovoj konfiguracionoj stranici.
-Na taj naÄin EiskaldDC++ Ä‡e automatski otvoriti portove i
+Na taj naèin EiskaldDC++ æe automatski otvoriti portove i
 dobiti svoju spoljnu IP adresu.</translation>
     </message>
     <message>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation>Izaberite ovaj reÅ¾im ako moÅ¾ete napraviti neograniÄen broj spoljnih konekcija.
-Ovo ukljuÄuje povezivanje na bilo koju IP adresu i bilo koji port.
+        <translation>Izaberite ovaj reim ako moete napraviti neogranièen broj spoljnih konekcija.
+Ovo ukljuèuje povezivanje na bilo koju IP adresu i bilo koji port.
 Izaberite ovu opciju, ako niste sigurni.</translation>
     </message>
     <message>
@@ -3248,10 +3246,10 @@ Izaberite ovu opciju, ako niste sigurni.</translation>
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation>Izaberite ovaj reÅ¾im ako Å¾elite da napravite izlazne konekcije kroz
-SOCKS proxy. Napomene za pasivan reÅ¾im se primenjuju ovde.
+        <translation>Izaberite ovaj reim ako elite da napravite izlazne konekcije kroz
+SOCKS proxy. Napomene za pasivan reim se primenjuju ovde.
 SOCKS5 proxies nisu isti kao za HTTP proxies.
-DC++&apos;s SOCKS5 podrÅ¡ka ne obuhvata GSSAPI.</translation>
+DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
     </message>
     <message>
         <source>KiB/s</source>
@@ -3290,19 +3288,19 @@ DC++&apos;s SOCKS5 podrÅ¡ka ne obuhvata GSSAPI.</translation>
     </message>
     <message>
         <source>Use unfinished downloads directory</source>
-        <translation>Koristi fasciklu za nedovrÅ¡ena preuzimanja</translation>
+        <translation>Koristi fasciklu za nedovršena preuzimanja</translation>
     </message>
     <message>
         <source>Limits</source>
-        <translation>OgraniÄenja</translation>
+        <translation>Ogranièenja</translation>
     </message>
     <message>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
-        <translation>Maksimum istovremenih preuzimanja (0 = beskonaÄno)</translation>
+        <translation>Maksimum istovremenih preuzimanja (0 = beskonaèno)</translation>
     </message>
     <message>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
-        <translation>Nema novih preuzimanja ako brzina prelazi (KiB/s, 0 = beskonaÄno)</translation>
+        <translation>Nema novih preuzimanja ako brzina prelazi (KiB/s, 0 = beskonaèno)</translation>
     </message>
     <message>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
@@ -3318,7 +3316,7 @@ DC++&apos;s SOCKS5 podrÅ¡ka ne obuhvata GSSAPI.</translation>
     </message>
     <message>
         <source>Configure Public Hub Lists</source>
-        <translation>KonfiguriÅ¡i javne hab liste </translation>
+        <translation>Konfiguriši javne hab liste </translation>
     </message>
     <message>
         <source>Download to</source>
@@ -3338,27 +3336,27 @@ DC++&apos;s SOCKS5 podrÅ¡ka ne obuhvata GSSAPI.</translation>
     </message>
     <message>
         <source>Auto-priority settings</source>
-        <translation>PodeÅ¡avanja prioriteta</translation>
+        <translation>Podešavanja prioriteta</translation>
     </message>
     <message>
         <source>Highest priority max size (KiB)</source>
-        <translation>NajviÅ¡i prioritet max veliÄina (KiB)</translation>
+        <translation>Najviši prioritet max velièina (KiB)</translation>
     </message>
     <message>
         <source>High priority max size (KiB)</source>
-        <translation>Visok prioritet max veliÄina (KiB)</translation>
+        <translation>Visok prioritet max velièina (KiB)</translation>
     </message>
     <message>
         <source>Normal priority max size (KiB)</source>
-        <translation>Normalan prioritet max veliÄina (KiB)</translation>
+        <translation>Normalan prioritet max velièina (KiB)</translation>
     </message>
     <message>
         <source>Low priority max size (KiB)</source>
-        <translation>Nizak prioritet max veliÄina (KiB)</translation>
+        <translation>Nizak prioritet max velièina (KiB)</translation>
     </message>
     <message>
         <source>Auto-drop settings</source>
-        <translation>PodeÅ¡avanja prekida</translation>
+        <translation>Podešavanja prekida</translation>
     </message>
     <message>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
@@ -3369,60 +3367,60 @@ DC++&apos;s SOCKS5 podrÅ¡ka ne obuhvata GSSAPI.</translation>
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation>Ovo je joÅ¡ jedan od naÄina ograniÄavanja istovremenog preuzimanja,
-dizajniran da spreÄi nova preuzimanja ako postojeÄ‡e preuzimanje
-prelazi odredjeni prag. Vrednost nula Ä‡e onemoguÄ‡iti ovo ograniÄenje.</translation>
+        <translation>Ovo je još jedan od naèina ogranièavanja istovremenog preuzimanja,
+dizajniran da spreèi nova preuzimanja ako postojeæe preuzimanje
+prelazi odredjeni prag. Vrednost nula æe onemoguæiti ovo ogranièenje.</translation>
     </message>
     <message>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
-        <translation>Ovo ograniÄava broj istovremenih preuzimanja.
-Vrednost 0 znaÄi da nema ograniÄenja.</translation>
+        <translation>Ovo ogranièava broj istovremenih preuzimanja.
+Vrednost 0 znaèi da nema ogranièenja.</translation>
     </message>
     <message>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation>Ovaj HTTP proxy Ä‡e biti koriÅ¡Ä‡en samo na zahrev
+        <translation>Ovaj HTTP proxy æe biti korišæen samo na zahrev
 javne hab liste.
 Ne koristi se za otpremanje, preuzimanje ili povezivanje na hab.</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation>Fajlovi sa istom ili ispod unete veliÄine 
-biÄ‡e postavljeni sa najveÄ‡im prioriterom. (podrazumevano: 64 KiB)</translation>
+        <translation>Fajlovi sa istom ili ispod unete velièine 
+biæe postavljeni sa najveæim prioriterom. (podrazumevano: 64 KiB)</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
-        <translation>Fajlovi sa istom ili ispod unete veliÄine, ali iznad najviÅ¡e
-veliÄine, biÄ‡e postavljeni sa visokim prioritetom.  (podrazumevano: 0 KiB)</translation>
+        <translation>Fajlovi sa istom ili ispod unete velièine, ali iznad najviše
+velièine, biæe postavljeni sa visokim prioritetom.  (podrazumevano: 0 KiB)</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
-        <translation>Fajlovi sa istom ili ispod unete veliÄine, ali iznad najviÅ¡e i visoke
-veliÄine, biÄ‡e postavljeni sa normalnim prioritetom.  (podrazumevano: 0 KiB)
+        <translation>Fajlovi sa istom ili ispod unete velièine, ali iznad najviše i visoke
+velièine, biæe postavljeni sa normalnim prioritetom.  (podrazumevano: 0 KiB)
 </translation>
     </message>
     <message>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
-        <translation>Fajlovi sa istom ili ispod unete veliÄine, ali iznad najviÅ¡e, visoke
- i normalne veliÄine, biÄ‡e postavljeni sa niskim prioritetom.  (podrazumevano: 0 KiB)</translation>
+        <translation>Fajlovi sa istom ili ispod unete velièine, ali iznad najviše, visoke
+ i normalne velièine, biæe postavljeni sa niskim prioritetom.  (podrazumevano: 0 KiB)</translation>
     </message>
     <message>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
         <translation>Ako je  brzina preuzimanja fajla ispod unete vrednosti,
-izvor Ä‡e biti odbaÄen.  (podrazumevano: 1024 B/s)</translation>
+izvor æe biti odbaèen.  (podrazumevano: 1024 B/s)</translation>
     </message>
     <message>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
-        <translation>KoliÄina vremena (u sekundama) koja mora da prodje od pokretanja
-preuzimanja  izvor moÅ¾e da povuÄe. (podrazumevano: 15 s)</translation>
+        <translation>Kolièina vremena (u sekundama) koja mora da prodje od pokretanja
+preuzimanja  izvor moe da povuèe. (podrazumevano: 15 s)</translation>
     </message>
     <message>
         <source>This is the maximal time since the last chunk of data for
@@ -3430,19 +3428,19 @@ the file was recieved. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
         <translation>Ovo je maksimalno vreme od poslednjeg fajla
-koji je bio primljen. Namenjeno je da se poboljÅ¡a brzina merenja i
-kako bi se spreÄilo ispuÅ¡tanje izvora koji Ä‡e biti iskljuÄen samo 
+koji je bio primljen. Namenjeno je da se poboljša brzina merenja i
+kako bi se spreèilo ispuštanje izvora koji æe biti iskljuèen samo 
 zbog njegove trenutne neaktivnosti. (podrazumevano: 10 s)</translation>
     </message>
     <message>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
-        <translation>Minimalni iznos izvora pre nego Å¡to bilo koji izvor
-bude odbaÄen. (podrazumevano: 1)</translation>
+        <translation>Minimalni iznos izvora pre nego što bilo koji izvor
+bude odbaèen. (podrazumevano: 1)</translation>
     </message>
     <message>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
-        <translation>Minimalna veliÄina fajla pre nego izvori budu odbaÄeni (u KiB). (podrazumevano: 0 KiB)</translation>
+        <translation>Minimalna velièina fajla pre nego izvori budu odbaèeni (u KiB). (podrazumevano: 0 KiB)</translation>
     </message>
     <message>
         <source>Drop sources below (B/s)</source>
@@ -3466,7 +3464,7 @@ bude odbaÄen. (podrazumevano: 1)</translation>
     </message>
     <message>
         <source>Min filesize (KiB)</source>
-        <translation>Min veliÄina fajla (KiB)</translation>
+        <translation>Min velièina fajla (KiB)</translation>
     </message>
     <message>
         <source>Other options</source>
@@ -3474,28 +3472,28 @@ bude odbaÄen. (podrazumevano: 1)</translation>
     </message>
     <message>
         <source>Set lowest priority for newly added files larger than low priority size</source>
-        <translation>Postavi najniÅ¾i prioritet za novo dodate fajlove veÄ‡i od veliÄine niskog prioriteta</translation>
+        <translation>Postavi najnii prioritet za novo dodate fajlove veæi od velièine niskog prioriteta</translation>
     </message>
     <message>
         <source>With this enabled, files that are larger than Low prio max size
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
-        <translation>Sa ovim omoguÄ‡enjem, fajlovi koji su veÄ‡i od Low prio max veliÄine
-su postavljene na najniÅ¾i prioritet.
-Ako je iskljuÄeno, fajlovi Ä‡e biti postavljeni na normalni prioritet.</translation>
+        <translation>Sa ovim omoguæenjem, fajlovi koji su veæi od Low prio max velièine
+su postavljene na najnii prioritet.
+Ako je iskljuèeno, fajlovi æe biti postavljeni na normalni prioritet.</translation>
     </message>
     <message>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation>Ova opcija uklanja spore izvore na redu (osim fajl liste).
-Da bi omoguÄ‡ili autodrop, ukljuÄite ili &quot;&quot;Prekini spore izvore za sve stavke&quot;
+Da bi omoguæili autodrop, ukljuèite ili &quot;&quot;Prekini spore izvore za sve stavke&quot;
 ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
-        <translation>Sa ovom opcijom omoguÄ‡enom, izvori Ä‡e biti samo iskljuÄeni
+        <translation>Sa ovom opcijom omoguæenom, izvori æe biti samo iskljuèeni
 ali ne i uklonjeni iz reda.</translation>
     </message>
     <message>
@@ -3505,12 +3503,12 @@ The autosearch will find exact matches by searching via hash.
 The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
-        <translation>Svakih nekoliko minuta, klijent Ä‡e traÅ¾iti svoje fajlove
-Red preuzimanja Ä‡e naÄ‡i viÅ¡e lokacija za preuzimanje.
-Auto pretraga Ä‡e naÄ‡i taÄne pogotke preko hash pretrage.
-Nedostatak je da ne moÅ¾e naÄ‡i mnogo viÅ¡e izvora
-i da Ä‡e spreÄiti ruÄno pretraÅ¾ivanje haba gde je unapred
-definisan traÅ¾eÄ‡i interval.</translation>
+        <translation>Svakih nekoliko minuta, klijent æe traiti svoje fajlove
+Red preuzimanja æe naæi više lokacija za preuzimanje.
+Auto pretraga æe naæi taène pogotke preko hash pretrage.
+Nedostatak je da ne moe naæi mnogo više izvora
+i da æe spreèiti ruèno pretraivanje haba gde je unapred
+definisan traeæi interval.</translation>
     </message>
     <message>
         <source>Enable to automatically download a user&apos;s list and match them
@@ -3521,35 +3519,35 @@ for many more files you&apos;re downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation>OmoguÄ‡iti da automatsko preuzimanje korisniÄkih lista odgovara njima
+        <translation>Omoguæiti da automatsko preuzimanje korisnièkih lista odgovara njima
 kao izvor fajlova u tvom Redu za preuzimanje.
 Ako preuzimate fajlove u setovima, taj korisnik je i verovatno izvor
-mnogo viÅ¡e fajlova koje ste preuzeli. OmoguÄ‡i ako niste sigurni.
-Nedostaci mogu biti verovatno sporiji izvori, poveÄ‡avanje
-vremena koje je potrebno da se zavrÅ¡i preuzimanje i
- da Ä‡ete preuzeti mnoge fajl liste.</translation>
+mnogo više fajlova koje ste preuzeli. Omoguæi ako niste sigurni.
+Nedostaci mogu biti verovatno sporiji izvori, poveæavanje
+vremena koje je potrebno da se završi preuzimanje i
+ da æete preuzeti mnoge fajl liste.</translation>
     </message>
     <message>
         <source>When this option is enabled, any zero byte files you
 try to download will be silently skipped.
 Sometimes empty files contain information through their naming.
 However every file, even an empty one, will consume some drive space.</source>
-        <translation>Kad je ova opcija omoguÄ‡ena, nula bajtni fajlovi koji
-probaju  preuzimanje biÄ‡e tiho preskoÄeni.
-Ponekad prazni fajlovi sadrÅ¾e informacije o svojim imenovanjima.
-Medjutim, svaki fajl, Äak i prazan, Ä‡e zauzimati neki prostor na disku.</translation>
+        <translation>Kad je ova opcija omoguæena, nula bajtni fajlovi koji
+probaju  preuzimanje biæe tiho preskoèeni.
+Ponekad prazni fajlovi sadre informacije o svojim imenovanjima.
+Medjutim, svaki fajl, èak i prazan, æe zauzimati neki prostor na disku.</translation>
     </message>
     <message>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
-        <translation>Ova opcija Ä‡e zaustaviti preuzimanje fajlova
-koji veÄ‡ postoje u jednoj od deljenih fascikli.</translation>
+        <translation>Ova opcija æe zaustaviti preuzimanje fajlova
+koji veæ postoje u jednoj od deljenih fascikli.</translation>
     </message>
     <message>
         <source>This option will stop you from downloading files
 which already exist in your queue.</source>
-        <translation>Ova opcija Ä‡e zaustaviti preuzimanje fajlova
-koji veÄ‡ stoje u redu.</translation>
+        <translation>Ova opcija æe zaustaviti preuzimanje fajlova
+koji veæ stoje u redu.</translation>
     </message>
     <message>
         <source>Enable this option if you want to keep downloaded files and folders
@@ -3564,18 +3562,18 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation>OmogucÌite ovu opciJu ako Å¾elite da zadrÅ¾ite preuzete datoteke i fascikle 
-u Redu preuzimanja nakon Å¡to su zavrÅ¡ili.
-Nakon preuzimanja stavke cÌe imati &apos;Finished&apos; status
-i moÅ¾ete da izbriÅ¡ete ove  unose u bilo koJe vreme kasniJe.
-KoriÅ¡cÌenjem ove funkciJe moÅ¾ete da pratite koje datoteke su vecÌ
+        <translation>Omoguc?ite ovu opciJu ako elite da zadrite preuzete datoteke i fascikle 
+u Redu preuzimanja nakon što su završili.
+Nakon preuzimanja stavke c?e imati &apos;Finished&apos; status
+i moete da izbrišete ove  unose u bilo koJe vreme kasniJe.
+Korišc?enjem ove funkciJe moete da pratite koje datoteke su vec?
 preuzete i stoje u redu preuzimanje bez potrebe, a i
 proveriti u prozoru Fihished Download.
-ImaJte na umu da ako ste fiziÄki pomerili/brisali vaÅ¡e preuzete fajlove sa
-svoJe ciljane lokaciJe, to necÌe dovesti do automatskog brisanja 
+ImaJte na umu da ako ste fizièki pomerili/brisali vaše preuzete fajlove sa
+svoJe ciljane lokaciJe, to nec?e dovesti do automatskog brisanja 
 unosa iz reda.
-Ako onemogucÌite ovu funkciJu, to necÌe ukloniti postojecÌe zavrÅ¡ene stavke 
-iz reda, veÄ‡ to morate da uradite  ruÄno.</translation>
+Ako onemoguc?ite ovu funkciJu, to nec?e ukloniti postojec?e završene stavke 
+iz reda, veæ to morate da uradite  ruèno.</translation>
     </message>
     <message>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
@@ -3590,38 +3588,38 @@ iz reda, veÄ‡ to morate da uradite  ruÄno.</translation>
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation>Sa ovom omoguÄ‡enom opcijom, EiskaltDC++ Ä‡e obrisati fajl liste Äija brzina
+        <translation>Sa ovom omoguæenom opcijom, EiskaltDC++ æe obrisati fajl liste èija brzina
 je prepoznata kao veoma spora.
-Da bi omoguÄ‡ili autodrop, ukljuÄite ili &quot;Prekini spore izvore za sve stavke&quot;
+Da bi omoguæili autodrop, ukljuèite ili &quot;Prekini spore izvore za sve stavke&quot;
 ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
-        <translation>Ne uklanjaj izvor kod prekida, samo iskljuÄi</translation>
+        <translation>Ne uklanjaj izvor kod prekida, samo iskljuèi</translation>
     </message>
     <message>
         <source>Automatically search for alternative download locations</source>
-        <translation>Automatski traÅ¾i alternativne lokacije za preuzimanje</translation>
+        <translation>Automatski trai alternativne lokacije za preuzimanje</translation>
     </message>
     <message>
         <source>Automatically match queue for auto search hits</source>
-        <translation>Automatsko podeÅ¡avanje reda za auto pretragu</translation>
+        <translation>Automatsko podešavanje reda za auto pretragu</translation>
     </message>
     <message>
         <source>Interval for auto search alternates (minutes)</source>
-        <translation>Interval za naizmeniÄnu automatsku pretragu (minuti)</translation>
+        <translation>Interval za naizmeniènu automatsku pretragu (minuti)</translation>
     </message>
     <message>
         <source>Skip zero-byte files</source>
-        <translation>PreskoÄi nulte fajlove</translation>
+        <translation>Preskoèi nulte fajlove</translation>
     </message>
     <message>
         <source>Don&apos;t download files already in share</source>
-        <translation>Ne preuzimaj fajlove veÄ‡ deljene</translation>
+        <translation>Ne preuzimaj fajlove veæ deljene</translation>
     </message>
     <message>
         <source>Don&apos;t download files already in the queue</source>
-        <translation>Ne preuzimaj fajlove veÄ‡ u redu</translation>
+        <translation>Ne preuzimaj fajlove veæ u redu</translation>
     </message>
     <message>
         <source>SFV Check</source>
@@ -3633,7 +3631,7 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>Keep downloaded filelists</source>
-        <translation type="unfinished"></translation>
+        <translation>Èuvaj preuzete fajl liste</translation>
     </message>
 </context>
 <context>
@@ -3648,7 +3646,7 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>Language file</source>
-        <translation>JeziÄki fajl</translation>
+        <translation>Jezièki fajl</translation>
     </message>
     <message>
         <source>Theme</source>
@@ -3660,7 +3658,7 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>Application font</source>
-        <translation>Font suÄelja</translation>
+        <translation>Font suèelja</translation>
     </message>
     <message>
         <source>Change</source>
@@ -3676,7 +3674,7 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>Always show window at startup</source>
-        <translation>Uvek prikaÅ¾i prozor pri startovanju</translation>
+        <translation>Uvek prikai prozor pri startovanju</translation>
     </message>
     <message>
         <source>Icon theme</source>
@@ -3688,7 +3686,7 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>Use SideBar instead of ToolBar (need restart)</source>
-        <translation>Koristite boÄnu traku umesto trake alata (potreban restart)</translation>
+        <translation>Koristite boènu traku umesto trake alata (potreban restart)</translation>
     </message>
     <message>
         <source>Chat</source>
@@ -3698,17 +3696,17 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
-        <translation>Ako ukljuÄite, videÄ‡ete emotikone i u sredini reÄi
-ako iskljuÄite, videÄ‡ete ih samo ako su odvojeni
-od drugih reÄi sa razmakom.</translation>
+        <translation>Ako ukljuèite, videæete emotikone i u sredini reèi
+ako iskljuèite, videæete ih samo ako su odvojeni
+od drugih reèi sa razmakom.</translation>
     </message>
     <message>
         <source>Show joins only for favorite users</source>
-        <translation>PrikaÅ¾i pristupanje samo za omiljene korisnike</translation>
+        <translation>Prikai pristupanje samo za omiljene korisnike</translation>
     </message>
     <message>
         <source>Highlight favorite users in user list</source>
-        <translation>Istakni omiljene korisnike u korisniÄkoj listi</translation>
+        <translation>Istakni omiljene korisnike u korisnièkoj listi</translation>
     </message>
     <message>
         <source>Use Ctrl+Enter to send messages</source>
@@ -3748,11 +3746,11 @@ od drugih reÄi sa razmakom.</translation>
     </message>
     <message>
         <source>Show joins</source>
-        <translation>PrikaÅ¾i pristupanja</translation>
+        <translation>Prikai pristupanja</translation>
     </message>
     <message>
         <source>Show hidden users</source>
-        <translation>PrikaÅ¾i skrivene korisnike</translation>
+        <translation>Prikai skrivene korisnike</translation>
     </message>
     <message>
         <source>Maximum paragraphs</source>
@@ -3760,11 +3758,11 @@ od drugih reÄi sa razmakom.</translation>
     </message>
     <message>
         <source>Enable emoticons</source>
-        <translation>OmoguÄ‡i emotikone</translation>
+        <translation>Omoguæi emotikone</translation>
     </message>
     <message>
         <source>Show icon in system tray</source>
-        <translation>PrikaÅ¾i ikonu u sistemskoj kaseti</translation>
+        <translation>Prikai ikonu u sistemskoj kaseti</translation>
     </message>
     <message>
         <source>Force emoticon parsing</source>
@@ -3772,11 +3770,11 @@ od drugih reÄi sa razmakom.</translation>
     </message>
     <message>
         <source>Ignore private messages from Hub</source>
-        <translation>IngnoriÅ¡i privatne hab poruke</translation>
+        <translation>Ingnoriši privatne hab poruke</translation>
     </message>
     <message>
         <source>Ignore private messages from Bot</source>
-        <translation>IgnoriÅ¡i privatne bot poruke</translation>
+        <translation>Ignoriši privatne bot poruke</translation>
     </message>
     <message>
         <source>Redirect messages from Bot to the main chat</source>
@@ -3795,7 +3793,7 @@ od drugih reÄi sa razmakom.</translation>
     </message>
     <message>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
-        <translation>Svi logovi generisani od EiskaltDC++ Ä‡e biti stavljeni u ovu podfasciklu.</translation>
+        <translation>Svi logovi generisani od EiskaltDC++ æe biti stavljeni u ovu podfasciklu.</translation>
     </message>
     <message>
         <source>Private messages</source>
@@ -3858,7 +3856,7 @@ od drugih reÄi sa razmakom.</translation>
     </message>
     <message>
         <source>Enable notifications</source>
-        <translation>OmoguÄ‡i obaveÅ¡tenja</translation>
+        <translation>Omoguæi obaveštenja</translation>
     </message>
     <message>
         <source>Your nick is mentioned in main chat</source>
@@ -3870,7 +3868,7 @@ od drugih reÄi sa razmakom.</translation>
     </message>
     <message>
         <source>Transfer done</source>
-        <translation>Transfer zavrÅ¡en</translation>
+        <translation>Transfer završen</translation>
     </message>
     <message>
         <source>Favorite user join/part</source>
@@ -3878,19 +3876,19 @@ od drugih reÄi sa razmakom.</translation>
     </message>
     <message>
         <source>Allow other types of notifications</source>
-        <translation>Dozvoli druge vrste obaveÅ¡tavanja</translation>
+        <translation>Dozvoli druge vrste obaveštavanja</translation>
     </message>
     <message>
         <source>Enable notifications with not active main window</source>
-        <translation>OmoguÄ‡i obaveÅ¡tenja sa neaktivnim glavnim prozorom</translation>
+        <translation>Omoguæi obaveštenja sa neaktivnim glavnim prozorom</translation>
     </message>
     <message>
         <source>Enable notifications with active main window</source>
-        <translation>OmoguÄ‡i obaveÅ¡tenja sa aktivnim glavnim prozorom</translation>
+        <translation>Omoguæi obaveštenja sa aktivnim glavnim prozorom</translation>
     </message>
     <message>
         <source>Notification module</source>
-        <translation>Modul obaveÅ¡tenja</translation>
+        <translation>Modul obaveštenja</translation>
     </message>
     <message>
         <source>Default (Qt)</source>
@@ -3908,8 +3906,8 @@ od drugih reÄi sa razmakom.</translation>
         <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation>Ako format tvog zvuÄnog fajla nije podrÅ¾an u Qt, moÅ¾eÅ¡ odrediti
-drugi muziÄki plejer da ga emituje
+        <translation>Ako format tvog zvuènog fajla nije podran u Qt, moeš odrediti
+drugi muzièki plejer da ga emituje
 Na primer: /usr/bin/mplayer</translation>
     </message>
     <message>
@@ -3922,7 +3920,7 @@ Na primer: /usr/bin/mplayer</translation>
     </message>
     <message>
         <source>Enable sounds</source>
-        <translation>OmoguÄ‡i zvuk</translation>
+        <translation>Omoguæi zvuk</translation>
     </message>
     <message>
         <source>Test</source>
@@ -3941,7 +3939,7 @@ Na primer: /usr/bin/mplayer</translation>
     </message>
     <message>
         <source>This field is for sharing your email address, if you wish it.</source>
-        <translation>Ovo polje je za deljenje vaÅ¡e e-mail adrese, ako to Å¾elite.</translation>
+        <translation>Ovo polje je za deljenje vaše e-mail adrese, ako to elite.</translation>
     </message>
     <message>
         <source>Nick</source>
@@ -3950,18 +3948,18 @@ Na primer: /usr/bin/mplayer</translation>
     <message>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation>Ovaj opis Ä‡e se pojaviti u listi korisnika.</translation>
+        <translation>Ovaj opis æe se pojaviti u listi korisnika.</translation>
     </message>
     <message>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation>Ako ste u gostujuÄ‡em reÅ¾imu, ova poruka Ä‡e biti poslata svima
+        <translation>Ako ste u gostujuæem reimu, ova poruka æe biti poslata svima
 koji vam budu poslali privatnu poruku.</translation>
     </message>
     <message>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation>Ovaj nadimak Ä‡e biti identifikovan kada se prikljuÄite na hab.</translation>
+        <translation>Ovaj nadimak æe biti identifikovan kada se prikljuèite na hab.</translation>
     </message>
     <message>
         <source>E-Mail</source>
@@ -3984,8 +3982,8 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
 please choose the one closest to your own.
 Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
-        <translation>Ovaj izbor sadrÅ¾i niz zajedniÄkih brzina otpremanja (u MiB/s),
-molimo vas da izaberete najbljiÅ¾i svom.
+        <translation>Ovaj izbor sadri niz zajednièkih brzina otpremanja (u MiB/s),
+molimo vas da izaberete najbljii svom.
 Nemojte stavljati u svoju brzinu preuzimanja; ova postavka je mera.</translation>
     </message>
     <message>
@@ -4009,13 +4007,13 @@ Nemojte stavljati u svoju brzinu preuzimanja; ova postavka je mera.</translation
     </message>
     <message>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation>Ovde moÅ¾ete da navedete Å¡ablone za fajlove koje ne Å¾elite da delite.</translation>
+        <translation>Ovde moete da navedete šablone za fajlove koje ne elite da delite.</translation>
     </message>
     <message>
         <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
 For example, if you have /home/username/Video folder shared as &quot;Video&quot;
 you can specify following:
-/Video	10
+/Video<byte value="x9"/>10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
         <translation>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.(new line)
@@ -4037,14 +4035,14 @@ Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
         <translation>Delite fajlove sa atributom Skriveni i fajlove unutar fascikli koje su postavljene
 kao Skrivene.
-Uz ovu opciju fajlovi koji poÄinju sa . (taÄka) neÄ‡e biti deljeni.
-Napomena: ova opcija zahteva i osveÅ¾avanje fajl liste.</translation>
+Uz ovu opciju fajlovi koji poèinju sa . (taèka) neæe biti deljeni.
+Napomena: ova opcija zahteva i osveavanje fajl liste.</translation>
     </message>
     <message>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation>Ako skljuÄite ovo, vi  cÌete ostaviti kliJenta do kompletnog
-aÅ¾uriranja deljenog. </translation>
+        <translation>Ako skljuèite ovo, vi  c?ete ostaviti kliJenta do kompletnog
+auriranja deljenog. </translation>
     </message>
     <message>
         <source>FastHash options (restart needed)</source>
@@ -4061,12 +4059,12 @@ aÅ¾uriranja deljenog. </translation>
     <message>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation>MoÅ¾eÅ¡ limitirati brzinu osveÅ¾avanja ovde
-ako tvoj sistem poÄinje sporo.</translation>
+        <translation>Moeš limitirati brzinu osveavanja ovde
+ako tvoj sistem poèinje sporo.</translation>
     </message>
     <message>
         <source>Auto refresh time (minutes,0 = off)</source>
-        <translation>Vreme auto osveÅ¾avanja  (minutes,0 = off)</translation>
+        <translation>Vreme auto osveavanja  (minutes,0 = off)</translation>
     </message>
     <message>
         <source>Use fast hash</source>
@@ -4078,7 +4076,7 @@ ako tvoj sistem poÄinje sporo.</translation>
     </message>
     <message>
         <source>View share in simple mode</source>
-        <translation>Pogledaj deljeno na jednostavan naÄin</translation>
+        <translation>Pogledaj deljeno na jednostavan naèin</translation>
     </message>
     <message>
         <source>Path</source>
@@ -4090,7 +4088,7 @@ ako tvoj sistem poÄinje sporo.</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>VeliÄina</translation>
+        <translation>Velièina</translation>
     </message>
     <message>
         <source>Exceptions</source>
@@ -4098,7 +4096,7 @@ ako tvoj sistem poÄinje sporo.</translation>
     </message>
     <message>
         <source>Don&apos;t share files and folders containing:</source>
-        <translation>Nemoj deliti fajlove i foldere koji sadrÅ¾e:</translation>
+        <translation>Nemoj deliti fajlove i foldere koji sadre:</translation>
     </message>
     <message>
         <source>Add new</source>
@@ -4114,11 +4112,11 @@ ako tvoj sistem poÄinje sporo.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>ObriÅ¡i</translation>
+        <translation>Obriši</translation>
     </message>
     <message>
         <source>Restrictions</source>
-        <translation>OgraniÄenja</translation>
+        <translation>Ogranièenja</translation>
     </message>
     <message>
         <source>Share</source>
@@ -4126,11 +4124,11 @@ ako tvoj sistem poÄinje sporo.</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>OgraniÄenje</translation>
+        <translation>Ogranièenje</translation>
     </message>
     <message>
         <source>All changes take effect only after restart</source>
-        <translation>Sve promene stupiÄ‡e tek posle ponovnog pokretanja</translation>
+        <translation>Sve promene stupiæe tek posle ponovnog pokretanja</translation>
     </message>
     <message>
         <source>Follow symlinks</source>
@@ -4142,11 +4140,11 @@ ako tvoj sistem poÄinje sporo.</translation>
     </message>
     <message>
         <source>Run refresh share on startup</source>
-        <translation>Pokreni osveÅ¾avanje deljenog po startovanju</translation>
+        <translation>Pokreni osveavanje deljenog po startovanju</translation>
     </message>
     <message>
         <source>Auto remove non-existing directories</source>
-        <translation>Auto brisanje nepostojeÄ‡ih fascikli</translation>
+        <translation>Auto brisanje nepostojeæih fascikli</translation>
     </message>
     <message>
         <source>Private page mapping</source>
@@ -4154,7 +4152,7 @@ ako tvoj sistem poÄinje sporo.</translation>
     </message>
     <message>
         <source>Proactive read from disk</source>
-        <translation>Proaktivno proÄitati sa diska</translation>
+        <translation>Proaktivno proèitati sa diska</translation>
     </message>
     <message>
         <source>Configure the number of slots that other users can occupy
@@ -4178,7 +4176,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
     </message>
     <message>
         <source>Buffer size (MiB)</source>
-        <translation>VeliÄina bafera (MiB)</translation>
+        <translation>Velièina bafera (MiB)</translation>
     </message>
     <message>
         <source>1</source>
@@ -4210,15 +4208,15 @@ an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
 If the speed of the original uploads increases,
 the granted slot will not be closed.</source>
-        <translation>Ako proseÄna brzina otpremanja padne ispod zadatog broja,
-dodatni slot Ä‡e biti odobren.
+        <translation>Ako proseèna brzina otpremanja padne ispod zadatog broja,
+dodatni slot æe biti odobren.
 Ovi slotovi se dodeljuju jednom svakih 30 sekundi maksimum.
-Ako se originalna brzina otpremanja poveÄ‡a,
-odobreni slot neÄ‡e biti zatvoren.</translation>
+Ako se originalna brzina otpremanja poveæa,
+odobreni slot neæe biti zatvoren.</translation>
     </message>
     <message>
         <source>Here you can set time interval of auto refreshing your share.</source>
-        <translation>Ovde se moÅ¾e postaviti interval za auto obnavljanje deljenog.</translation>
+        <translation>Ovde se moe postaviti interval za auto obnavljanje deljenog.</translation>
     </message>
     <message>
         <source>Max hash speed (MB/s) (0=infinite)</source>
@@ -4295,7 +4293,7 @@ odobreni slot neÄ‡e biti zatvoren.</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>OÄisti</translation>
+        <translation>Oèisti</translation>
     </message>
 </context>
 <context>
@@ -4317,7 +4315,7 @@ odobreni slot neÄ‡e biti zatvoren.</translation>
     </message>
     <message>
         <source>Separator</source>
-        <translation>RazdvajaÄ</translation>
+        <translation>Razdvajaè</translation>
     </message>
     <message>
         <source>Chat</source>
@@ -4341,7 +4339,7 @@ odobreni slot neÄ‡e biti zatvoren.</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>PretraÅ¾i</translation>
+        <translation>Pretrai</translation>
     </message>
     <message>
         <source>User</source>
@@ -4349,7 +4347,7 @@ odobreni slot neÄ‡e biti zatvoren.</translation>
     </message>
     <message>
         <source>Filebrowser</source>
-        <translation>PregledaÄ fajlova</translation>
+        <translation>Pregledaè fajlova</translation>
     </message>
     <message>
         <source>Parameters</source>
@@ -4373,7 +4371,7 @@ odobreni slot neÄ‡e biti zatvoren.</translation>
     </message>
     <message>
         <source>Send once per nick</source>
-        <translation>PoÅ¡alji jednom za nadimak</translation>
+        <translation>Pošalji jednom za nadimak</translation>
     </message>
     <message>
         <source>Result</source>
@@ -4446,27 +4444,27 @@ odobreni slot neÄ‡e biti zatvoren.</translation>
     </message>
     <message>
         <source>%1 B</source>
-        <translation type="unfinished">%1 B</translation>
+        <translation>%1 B</translation>
     </message>
     <message>
         <source>%1 KiB</source>
-        <translation type="unfinished">%1 KiB</translation>
+        <translation>%1 KiB</translation>
     </message>
     <message>
         <source>%1 MiB</source>
-        <translation type="unfinished">%1 MiB</translation>
+        <translation>%1 MiB</translation>
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation type="unfinished">%1 GiB</translation>
+        <translation>%1 GiB</translation>
     </message>
     <message>
         <source>%1 TiB</source>
-        <translation type="unfinished">%1 TiB</translation>
+        <translation>%1 TiB</translation>
     </message>
     <message>
         <source>%1 PiB</source>
-        <translation type="unfinished">%1 PiB</translation>
+        <translation>%1 PiB</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -4474,27 +4472,27 @@ odobreni slot neÄ‡e biti zatvoren.</translation>
     </message>
     <message>
         <source>User commands</source>
-        <translation>KorisniÄke komande</translation>
+        <translation>Korisnièke komande</translation>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 KB</translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 MB</translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 GB</translation>
     </message>
     <message>
         <source>%1 TB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 TB</translation>
     </message>
     <message>
         <source>%1 PB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 PB</translation>
     </message>
 </context>
 </TS>
