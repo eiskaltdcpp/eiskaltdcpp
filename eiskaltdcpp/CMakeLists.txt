@@ -195,7 +195,7 @@ if (USE_ASPELL)
 endif (USE_ASPELL)
 
 if (USE_JS)
-  set (SRCS ${SRCS} 
+  set (SRCS ${SRCS}
 	    scriptengine/ClientManagerScript.cpp
 	    scriptengine/HashManagerScript.cpp
 	    scriptengine/LogManagerScript.cpp
@@ -204,13 +204,13 @@ if (USE_JS)
 	    scriptengine/ScriptEngine.cpp
 	    scriptengine/ScriptConsole.cpp
 	    ScriptManagerDialog.cpp)
-  set (MOC_HDRS ${MOC_HDRS} 
+  set (MOC_HDRS ${MOC_HDRS}
 		scriptengine/ClientManagerScript.h
 		scriptengine/HashManagerScript.h
 		scriptengine/LogManagerScript.h
 		scriptengine/MainWindowScript.h
 		scriptengine/ScriptConsole.h
-		scriptengine/ScriptEngine.h 
+		scriptengine/ScriptEngine.h
 		scriptengine/ScriptConsole.h
 		ScriptManagerDialog.h)
 endif (USE_JS)

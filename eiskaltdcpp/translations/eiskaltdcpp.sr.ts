@@ -1278,7 +1278,7 @@ Omiljeni korisnik</translation>
         <translation>Nije mogu�e u�itati fajl listu: Neva�e�e ime fajl liste</translation>
     </message>
     <message>
-        <source>Cannot listen socket because: 
+        <source>Cannot listen socket because:
 </source>
         <translation>Ne mogu slu�ati ulaz jer:
 </translation>
@@ -1561,7 +1561,7 @@ Keys:
         <translation>Upotreba:(new line)
 (sp)(sp)eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
 (sp)(sp)eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC protokol. 
+EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC protokol.
 
 Keys:
 (sp)(sp)-h, --help(tab) Prika�i ovu poruku
@@ -3230,7 +3230,7 @@ This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
         <translation>Izaberite ovaj re�im ako ste iza za�titnog zida koji podr�ava
 UPnP standard za program autokonfiguracije.
-Ve�ina rutera ne podr�ava UPnP, pa �ete morati da to omogu�ite 
+Ve�ina rutera ne podr�ava UPnP, pa �ete morati da to omogu�ite
 na ruterovoj konfiguracionoj stranici.
 Na taj na�in EiskaldDC++ �e automatski otvoriti portove i
 dobiti svoju spoljnu IP adresu.</translation>
@@ -3390,7 +3390,7 @@ Ne koristi se za otpremanje, preuzimanje ili povezivanje na hab.</translation>
     <message>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation>Fajlovi sa istom ili ispod unete veli�ine 
+        <translation>Fajlovi sa istom ili ispod unete veli�ine
 bi�e postavljeni sa najve�im prioriterom. (podrazumevano: 64 KiB)</translation>
     </message>
     <message>
@@ -3431,7 +3431,7 @@ accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
         <translation>Ovo je maksimalno vreme od poslednjeg fajla
 koji je bio primljen. Namenjeno je da se pobolj�a brzina merenja i
-kako bi se spre�ilo ispu�tanje izvora koji �e biti isklju�en samo 
+kako bi se spre�ilo ispu�tanje izvora koji �e biti isklju�en samo
 zbog njegove trenutne neaktivnosti. (podrazumevano: 10 s)</translation>
     </message>
     <message>
@@ -3564,7 +3564,7 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation>Omoguc?ite ovu opciJu ako �elite da zadr�ite preuzete datoteke i fascikle 
+        <translation>Omoguc?ite ovu opciJu ako �elite da zadr�ite preuzete datoteke i fascikle
 u Redu preuzimanja nakon �to su zavr�ili.
 Nakon preuzimanja stavke c?e imati &apos;Finished&apos; status
 i mo�ete da izbri�ete ove  unose u bilo koJe vreme kasniJe.
@@ -3572,9 +3572,9 @@ Kori�c?enjem ove funkciJe mo�ete da pratite koje datoteke su vec?
 preuzete i stoje u redu preuzimanje bez potrebe, a i
 proveriti u prozoru Fihished Download.
 ImaJte na umu da ako ste fizi�ki pomerili/brisali va�e preuzete fajlove sa
-svoJe ciljane lokaciJe, to nec?e dovesti do automatskog brisanja 
+svoJe ciljane lokaciJe, to nec?e dovesti do automatskog brisanja
 unosa iz reda.
-Ako onemoguc?ite ovu funkciJu, to nec?e ukloniti postojec?e zavr�ene stavke 
+Ako onemoguc?ite ovu funkciJu, to nec?e ukloniti postojec?e zavr�ene stavke
 iz reda, ve� to morate da uradite  ru�no.</translation>
     </message>
     <message>
@@ -3696,7 +3696,7 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated 
+If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
         <translation>Ako uklju�ite, vide�ete emotikone i u sredini re�i
 ako isklju�ite, vide�ete ih samo ako su odvojeni
