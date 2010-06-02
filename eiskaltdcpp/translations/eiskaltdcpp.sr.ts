@@ -30,7 +30,7 @@
     </message>
     <message>
         <source>Public Chat: Userlist</source>
-        <translation>Javni Razgovor: Korsnièka lista</translation>
+        <translation>Javni Razgovor: Korisnièka lista</translation>
     </message>
     <message>
         <source>Private Chat</source>
