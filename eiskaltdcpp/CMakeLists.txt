@@ -368,7 +368,7 @@ if (APPLE)
   set (MACOSX_BUNDLE_INFO_STRING "DC and ADC client")
   set (MACOSX_BUNDLE_ICON_FILE icon_128x128.icns)
 
-# doesn’t work this way :(
+# doesn't work this way :(
 #  set (MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
   set_target_properties(eiskaltdcpp PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
 
