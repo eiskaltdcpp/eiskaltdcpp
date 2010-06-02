@@ -34,6 +34,8 @@ static QScriptValue dynamicMemberConstructor(QScriptContext*, QScriptEngine*);
 static QScriptValue importExtension(QScriptContext*, QScriptEngine*);
 static QScriptValue parseChatLinks(QScriptContext*, QScriptEngine*);
 static QScriptValue parseMagnetAlias(QScriptContext*, QScriptEngine*);
+static QScriptValue eval(QScriptContext*, QScriptEngine*);
+static QScriptValue includeFile(QScriptContext*, QScriptEngine*);
 
 ScriptEngine::ScriptEngine() :
         QObject(NULL)
@@ -60,7 +62,7 @@ void ScriptEngine::loadScripts(){
 void ScriptEngine::loadScript(const QString &path){
     QFile f(path);
 
-    if (!(f.exists() && f.open(QIODevice::ReadOnly)))
+    if (!(f.exists() && f.open(QIODevice::ReadOnly)) || scripts.contains(path))
         return;
 
     ScriptObject *obj = new ScriptObject;
@@ -124,34 +126,40 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
     engine.globalObject().setProperty(objectName(), me);
 
     QScriptValue scriptsPath = QScriptValue(&engine, QString(CLIENT_SCRIPTS_DIR)+QDir::separator());
-    engine.globalObject().setProperty("SCRIPTS_PATH", scriptsPath);
+    engine.globalObject().setProperty("SCRIPTS_PATH", scriptsPath, QScriptValue::ReadOnly);
 
     QScriptValue shellEx = engine.newFunction(shellExec);
-    engine.globalObject().setProperty("shellExec", shellEx);
+    engine.globalObject().setProperty("shellExec", shellEx, QScriptValue::ReadOnly);
 
     QScriptValue getMagnet = engine.newFunction(getMagnets);
-    engine.globalObject().setProperty("getMagnets", getMagnet);
+    engine.globalObject().setProperty("getMagnets", getMagnet, QScriptValue::ReadOnly);
 
     QScriptValue import = engine.newFunction(importExtension);
-    engine.globalObject().setProperty("Import", import);
+    engine.globalObject().setProperty("Import", import, QScriptValue::ReadOnly);
+
+    QScriptValue include = engine.newFunction(includeFile);
+    engine.globalObject().setProperty("Include", include, QScriptValue::ReadOnly);
+
+    QScriptValue evalStr = engine.newFunction(eval);
+    engine.globalObject().setProperty("Eval", evalStr, QScriptValue::ReadOnly);
 
     QScriptValue MW = engine.newQObject(MainWindow::getInstance());//MainWindow already initialized
-    engine.globalObject().setProperty("MainWindow", MW);
+    engine.globalObject().setProperty("MainWindow", MW, QScriptValue::ReadOnly);
 
     QScriptValue WU = engine.newQObject(WulforUtil::getInstance());//WulforUtil already initialized
-    engine.globalObject().setProperty("WulforUtil", WU);
+    engine.globalObject().setProperty("WulforUtil", WU, QScriptValue::ReadOnly);
 
     QScriptValue WS = engine.newQObject(WulforSettings::getInstance());//WulforSettings already initialized
-    engine.globalObject().setProperty("WulforSettings", WS);
+    engine.globalObject().setProperty("WulforSettings", WS, QScriptValue::ReadOnly);
 
     QScriptValue linkParser = engine.newObject();
-    engine.globalObject().setProperty("LinkParser", linkParser);
+    engine.globalObject().setProperty("LinkParser", linkParser, QScriptValue::ReadOnly);
     QScriptValue linkParser_parse = engine.newFunction(parseChatLinks);
     QScriptValue linkParser_parseMagnet = engine.newFunction(parseMagnetAlias);
-    linkParser.setProperty("parse", linkParser_parse);
-    linkParser.setProperty("parseMagnetAlias", linkParser_parseMagnet);
+    linkParser.setProperty("parse", linkParser_parse, QScriptValue::ReadOnly);
+    linkParser.setProperty("parseMagnetAlias", linkParser_parseMagnet, QScriptValue::ReadOnly);
 
-    engine.globalObject().setProperty("LinkParser", linkParser);
+    engine.globalObject().setProperty("LinkParser", linkParser, QScriptValue::ReadOnly);
 
     registerStaticMembers(engine);
     registerDynamicMembers(engine);
@@ -166,8 +174,8 @@ void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
 
     foreach( QString cl, staticMembers ) {
         QScriptValue ct = engine.newFunction(staticMemberConstructor);
-        ct.setProperty("className", cl);
-        engine.globalObject().setProperty(cl, ct);
+        ct.setProperty("className", cl, QScriptValue::ReadOnly);
+        engine.globalObject().setProperty(cl, ct, QScriptValue::ReadOnly);
     }
 }
 
@@ -176,8 +184,8 @@ void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
 
     foreach( QString cl, dynamicMembers ) {
         QScriptValue ct = engine.newFunction(dynamicMemberConstructor);
-        ct.setProperty("className", cl);
-        engine.globalObject().setProperty(cl, ct);
+        ct.setProperty("className", cl, QScriptValue::ReadOnly);
+        engine.globalObject().setProperty(cl, ct, QScriptValue::ReadOnly);
     }
 }
 
@@ -414,4 +422,39 @@ static QScriptValue parseMagnetAlias(QScriptContext *ctx, QScriptEngine *engine)
     HubFrame::LinkParser::parseForMagnetAlias(output);
 
     return output;
+}
+
+static QScriptValue eval(QScriptContext *ctx, QScriptEngine *engine){
+    if (ctx->argumentCount() < 1)
+        return engine->undefinedValue();
+
+    QString content = ctx->argument(0).toString();
+    QScriptValue ret = engine->evaluate(content);
+
+    if (engine->hasUncaughtException())
+        qDebug() << engine->uncaughtExceptionBacktrace();
+
+    return ret;
+}
+
+static QScriptValue includeFile(QScriptContext *ctx, QScriptEngine *engine){
+    if (ctx->argumentCount() < 1)
+        return engine->undefinedValue();
+
+    QString path = ctx->argument(0).toString();
+
+    QFile f(path);
+
+    if (!(f.exists() && f.open(QIODevice::ReadOnly)))
+        return engine->undefinedValue();
+
+    QTextStream stream(&f);
+    QString data = stream.readAll();
+
+    QScriptValue ret = engine->evaluate(data);
+
+    if (engine->hasUncaughtException())
+        qDebug() << engine->uncaughtExceptionBacktrace();
+
+    return ret;
 }

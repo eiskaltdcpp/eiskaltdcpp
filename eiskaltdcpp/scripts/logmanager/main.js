@@ -28,8 +28,6 @@ LogDialog.prototype = new QWidget();
 LogDialog.prototype.newMessage = function(timeStamp, message) {
   message = LinkParser.parse(message);
 
-  print(message);  
-
   this.textEdit_OUTPUT.append("<b>[" + timeStamp +"]</b> " + message); 
 }
 
