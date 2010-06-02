@@ -138,6 +138,12 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
     QScriptValue MW = engine.newQObject(MainWindow::getInstance());//MainWindow already initialized
     engine.globalObject().setProperty("MainWindow", MW);
 
+    QScriptValue WU = engine.newQObject(WulforUtil::getInstance());//WulforUtil already initialized
+    engine.globalObject().setProperty("WulforUtil", WU);
+
+    QScriptValue WS = engine.newQObject(WulforSettings::getInstance());//WulforSettings already initialized
+    engine.globalObject().setProperty("WulforSettings", WS);
+
     QScriptValue linkParser = engine.newObject();
     engine.globalObject().setProperty("LinkParser", linkParser);
     QScriptValue linkParser_parse = engine.newFunction(parseChatLinks);

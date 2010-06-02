@@ -171,7 +171,7 @@ public:
 
     QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* = 0);
 
-private slots:
+private Q_SLOTS:
     void slotHttpDone(bool);
     void slotHttpTimer();
 
