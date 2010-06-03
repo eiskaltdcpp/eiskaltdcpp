@@ -1446,7 +1446,11 @@ void HubFrame::addStatus(QString msg){
     pure_msg        = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + pure_msg + "</font>";
     short_msg       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + short_msg + "</font>";
     msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
-    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
+    QString time    = "";
+
+    if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
+        time = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP)) + "]</font>";
+
     status   = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
 
     addOutput(status + msg);
@@ -1846,7 +1850,10 @@ void HubFrame::pmUserEvent(QString cid, QString e){
     QString nick    = " * ";
 
     QString msg     = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + e + "</font>";
-    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" +QDateTime::currentDateTime().toString("hh:mm:ss") + "]</font>";
+    QString time    = "";
+
+    if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
+        time = "<font color=\""+WSGET(WS_CHAT_TIME_COLOR)+">["+QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP))+"]</font>";
 
     output = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
     output += msg;
@@ -2941,7 +2948,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
 
     map["NICK"] = _q(user.getIdentity().getNick());
     map["MSG"]  = _q(msg.c_str());
-    map["TIME"] = QDateTime::currentDateTime().toString("hh:mm:ss");
+    map["TIME"] = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
 
     QString color = WS_CHAT_USER_COLOR;
 
@@ -3033,7 +3040,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 
     map["NICK"]  = nick;
     map["MSG"]   = _q(msg);
-    map["TIME"]  = QDateTime::currentDateTime().toString("hh:mm:ss");
+    map["TIME"]  = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
 
     QString color = WS_CHAT_PRIV_USER_COLOR;
 

@@ -37,6 +37,7 @@ const char * const WS_CHAT_CMD_ALIASES        = "chat-cmd-aliases";
 const char * const WS_CHAT_FONT               = "chat-font";
 const char * const WS_CHAT_ULIST_FONT         = "chat-userlist-font";
 const char * const WS_CHAT_PM_FONT            = "chat-pm-font";
+const char * const WS_CHAT_TIMESTAMP          = "chat-timestamp";
 const char * const WS_QCONNECT_HISTORY        = "qc-history";
 const char * const WS_DEFAULT_LOCALE          = "default_locale";
 const char * const WS_DQUEUE_STATE            = "dqueue-state";
