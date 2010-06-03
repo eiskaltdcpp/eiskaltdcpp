@@ -339,11 +339,11 @@ void SearchFrame::init(){
         comboBox_FILETYPES->setItemIcon(i, WulforUtil::getInstance()->getPixmap(icons.at(i)));
 
     QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
-    QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
     QMenu *m = new QMenu();
 
-    foreach (QString s, list)
+    foreach (QString s, searchHistory)
         m->addAction(s);
 
     lineEdit_SEARCHSTR->setMenu(m);
@@ -774,6 +774,12 @@ void SearchFrame::slotStartSearch(){
             m->addAction(s);
 
         lineEdit_SEARCHSTR->setMenu(m);
+
+        if (searchHistory.count() > 10)
+            searchHistory.removeLast();
+
+        QString hist = searchHistory.join("\n");
+        WSSET(WS_SEARCH_HISTORY, hist.toAscii().toBase64());
     }
 
     {
@@ -831,7 +837,8 @@ void SearchFrame::slotStartSearch(){
 
         arena_title = tr("Search - %1").arg(s);
 
-    } else {
+    }
+    else {
         int32_t waitFor = SearchManager::getInstance()->timeToSearch();
         QString msg = tr("Searching too soon, next search in %1 second").arg(waitFor);
 
@@ -843,36 +850,6 @@ void SearchFrame::slotStartSearch(){
     }
 
     MW->redrawToolPanel();
-
-    { // save search history and update QComboBox items
-        QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
-        QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
-
-        if (list.indexOf(s) == -1)
-            list << s;
-
-        while (list.size() > 10)
-            list.removeFirst();
-
-#if QT_VERSION >= 0x040500
-        list.removeDuplicates();
-#endif
-        
-        /*completer = new QCompleter(list, lineEdit_SEARCHSTR);
-        completer->setCaseSensitivity(Qt::CaseInsensitive);
-        completer->setWrapAround(false);
-        lineEdit_SEARCHSTR->setCompleter(completer);*/
-
-        QMenu *m = new QMenu();
-
-        foreach (QString s, list)
-            m->addAction(s);
-
-        lineEdit_SEARCHSTR->setMenu(m);
-
-        QString hist = list.join("\n");
-        WSSET(WS_SEARCH_HISTORY, hist.toAscii().toBase64());
-    }
 }
 
 void SearchFrame::slotClear(){

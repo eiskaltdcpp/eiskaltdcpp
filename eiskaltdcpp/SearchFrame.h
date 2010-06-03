@@ -212,7 +212,7 @@ private:
     QMap<QListWidgetItem*, HubInfo*> hub_items;
     QMap<Client*, HubInfo*> hub_list;
 
-    QList<QString> searchHistory;
+    QStringList searchHistory;
 
     QTimer *timer;
     QTimer *timer1;

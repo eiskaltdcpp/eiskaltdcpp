@@ -373,7 +373,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 QString toshow = link;
 
                 if (linktype == "http://"  || linktype == "https://" || linktype == "ftp://")
-                    toshow = QUrl::fromEncoded(link.toAscii()).toString();
+                    toshow = QUrl::fromEncoded(link.toUtf8()).toString();
 
                 if (linktype == "magnet:"){
                     QUrl url;

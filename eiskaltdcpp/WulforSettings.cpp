@@ -19,6 +19,7 @@
 #include <QFont>
 #include <QStyle>
 #include <QBrush>
+#include <QUrl>
 
 #ifndef CLIENT_TRANSLATIONS_DIR
 #define CLIENT_TRANSLATIONS_DIR ""
@@ -31,6 +32,10 @@ WulforSettings::WulforSettings():
         tor(0)
 {
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+
+    QStringList idns = QUrl::idnWhitelist();
+    idns.push_back("рф");
+    QUrl::setIdnWhitelist(idns);
 
     qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
     qApp->installTranslator(&qtTranslator);
