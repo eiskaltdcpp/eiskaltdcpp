@@ -260,8 +260,13 @@ bool inline Compare<Qt::DescendingOrder>::Cmp(const QString& l, const QString& r
 
 } //namespace
 
+typedef Compare<Qt::AscendingOrder>     AscendingCompare;
+typedef Compare<Qt::DescendingOrder>    DescendingCompare;
 
 void UserListModel::sort(int column, Qt::SortOrder order) {
+    static AscendingCompare  acomp = AscendingCompare();
+    static DescendingCompare dcomp = DescendingCompare();
+
     sortColumn = column;
     sortOrder = order;
 
@@ -271,9 +276,9 @@ void UserListModel::sort(int column, Qt::SortOrder order) {
     emit layoutAboutToBeChanged();
 
     if (order == Qt::AscendingOrder)
-        Compare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
+        acomp.sort(column, rootItem->childItems);
     else if (order == Qt::DescendingOrder)
-        Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
+        dcomp.sort(column, rootItem->childItems);
 
     emit layoutChanged();
 }
@@ -356,6 +361,9 @@ void UserListModel::addUser(const QString& nick,
                             const QString& cid,
                             const UserPtr &ptr)
 {
+    static AscendingCompare  acomp = AscendingCompare();
+    static DescendingCompare dcomp = DescendingCompare();
+
     if (users.contains(ptr))
         return;
 
@@ -393,9 +401,9 @@ void UserListModel::addUser(const QString& nick,
     QList<UserListItem*>::iterator it = rootItem->childItems.end();
 
     if (sortOrder == Qt::AscendingOrder)
-        it = Compare<Qt::AscendingOrder>().insertSorted(sortColumn, rootItem->childItems, item);
+        it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
     else if (sortOrder == Qt::DescendingOrder)
-        it = Compare<Qt::DescendingOrder>().insertSorted(sortColumn, rootItem->childItems, item);
+        it = dcomp.insertSorted(sortColumn, rootItem->childItems, item);
 
     const int pos = it - rootItem->childItems.begin();
 

@@ -43,7 +43,6 @@ template<class T> T* Singleton<T>::instance = NULL;
 
 template<class T>
 inline T* Singleton<T>::getInstance(){
-        dcassert(instance);
         return instance;
 }
 
