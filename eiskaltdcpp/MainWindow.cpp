@@ -84,6 +84,19 @@ MainWindow::MainWindow (QWidget *parent):
     arenaMap.clear();
     arenaWidgets.clear();
 
+    if (WBGET(WB_ANTISPAM_ENABLED)){
+        AntiSpam::newInstance();
+
+        AntiSpam::getInstance()->loadLists();
+        AntiSpam::getInstance()->loadSettings();
+    }
+
+    if (WBGET(WB_IPFILTER_ENABLED)){
+        IPFilter::newInstance();
+
+        IPFilter::getInstance()->loadList();
+    }
+
     init();
 
     retranslateUi();
@@ -103,19 +116,6 @@ MainWindow::MainWindow (QWidget *parent):
     blockSignals(true);
     toolsTransfers->setChecked(transfer_dock->isVisible());
     blockSignals(false);
-
-    if (WBGET(WB_ANTISPAM_ENABLED)){
-        AntiSpam::newInstance();
-
-        AntiSpam::getInstance()->loadLists();
-        AntiSpam::getInstance()->loadSettings();
-    }
-
-    if (WBGET(WB_IPFILTER_ENABLED)){
-        IPFilter::newInstance();
-
-        IPFilter::getInstance()->loadList();
-    }
 
     QFont f;
 
@@ -602,11 +602,15 @@ void MainWindow::initActions(){
         toolsAntiSpam = new QAction("", this);
         toolsAntiSpam->setObjectName("toolsAntiSpam");
         toolsAntiSpam->setIcon(WU->getPixmap(WulforUtil::eiSPAM));
+        toolsAntiSpam->setCheckable(true);
+        toolsAntiSpam->setChecked(AntiSpam::getInstance() != NULL);
         connect(toolsAntiSpam, SIGNAL(triggered()), this, SLOT(slotToolsAntiSpam()));
 
         toolsIPFilter = new QAction("", this);
         toolsIPFilter->setObjectName("toolsIPFilter");
         toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
+        toolsIPFilter->setCheckable(true);
+        toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
         connect(toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
 
         toolsAwayOn = new QAction("", this);
@@ -1746,12 +1750,16 @@ void MainWindow::slotToolsAntiSpam(){
     AntiSpamFrame fr(this);
 
     fr.exec();
+
+    toolsAntiSpam->setChecked(AntiSpam::getInstance() != NULL);
 }
 
 void MainWindow::slotToolsIPFilter(){
     IPFilterFrame fr(this);
 
     fr.exec();
+
+    toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
 }
 
 void MainWindow::slotToolsAutoAway(){
