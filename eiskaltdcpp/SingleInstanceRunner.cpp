@@ -12,7 +12,7 @@ SingleInstanceRunner::SingleInstanceRunner()
 #ifndef WIN32
     char *user = getenv("USER");
     QString login = user;
-    uint hash = qHash(login);
+    quint32 hash = qHash(login);
     EISKALTPORT = (hash >> 16) + 4098;
 
     printf("Internal server running on %i\n", EISKALTPORT);

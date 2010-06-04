@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 
     WulforUtil::newInstance();
 
-	Text::hubDefaultCharset = WulforUtil::getInstance()->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE)).toStdString();
+    Text::hubDefaultCharset = WulforUtil::getInstance()->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE)).toStdString();
 
     if (WulforUtil::getInstance()->loadUserIcons())
         std::cout << "UserList icons has been loaded" << std::endl;
@@ -168,26 +168,13 @@ int main(int argc, char *argv[])
 void parseCmdLine(const QStringList &args){
     foreach (QString arg, args){
         if (arg == "-h" || arg == "--help"){
-            QString msg = QApplication::tr("Using:\n"
-                            "  eiskaltdcpp <magnet link> <dchub://link> <adc(s)://link>\n"
-                            "  eiskaltdcpp <Key>\n"
-                            "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
-                            "\n"
-                            "Keys:\n"
-                            "  -h, --help\t Show this message\n"
-                            "  -v, --version\t Show version string"
-                            );
-
-            std::cout << msg.toAscii().constData() << std::endl;
+            About().printHelp();
 
             exit(0);
         }
         else if (arg == "-v" || arg == "--version"){
-#ifndef DCPP_REVISION
-            printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
-#else
-            printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
-#endif
+            About().printVersion();
+
             exit(0);
         }
     }

@@ -1,4 +1,27 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
+<context>
+    <name>About</name>
+    <message>
+        <source>Using:
+  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Key&gt;
+EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished">Upotreba:(new line)
+(sp)(sp)eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+(sp)(sp)eiskaltdcpp &lt;Key&gt;
+EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC protokol. 
+
+Keys:
+(sp)(sp)-h, --help(tab) Prikaži ovu poruku
+(sp)(sp)-v, --version(tab) Prikaži verziju</translation>
+    </message>
+</context>
 <context>
     <name>AntiSpam</name>
     <message>
@@ -1554,9 +1577,9 @@ Molim proverite podešavanja vaše veze</translation>
 EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help<byte value="x9"/> Show this message
-  -v, --version<byte value="x9"/> Show version string</source>
-        <translation>Upotreba:(new line)
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="obsolete">Upotreba:(new line)
 (sp)(sp)eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
 (sp)(sp)eiskaltdcpp &lt;Key&gt;
 EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC protokol. 
@@ -4013,7 +4036,7 @@ Nemojte stavljati u svoju brzinu preuzimanja; ova postavka je mera.</translation
         <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
 For example, if you have /home/username/Video folder shared as &quot;Video&quot;
 you can specify following:
-/Video<byte value="x9"/>10
+/Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
         <translation>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.(new line)

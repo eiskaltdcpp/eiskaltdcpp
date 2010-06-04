@@ -52,6 +52,7 @@
 #include "HistoryInterface.h"
 #include "LineEdit.h"
 #include "Func.h"
+#include "Version.h"
 
 #include "ui_UIAbout.h"
 
@@ -84,7 +85,29 @@ class About:
 Q_OBJECT
 
 public:
-    About(QWidget *parent): QDialog(parent){ setupUi(this); }
+    About(QWidget *parent = NULL): QDialog(parent){ setupUi(this); }
+
+    void printHelp() const {
+        QString msg =   tr("Using:\n"
+                        "  eiskaltdcpp <magnet link> <dchub://link> <adc(s)://link>\n"
+                        "  eiskaltdcpp <Key>\n"
+                        "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
+                        "\n"
+                        "Keys:\n"
+                        "  -h, --help\t Show this message\n"
+                        "  -v, --version\t Show version string"
+                        );
+
+        printf("%s\n", msg.toUtf8().constData());
+    }
+
+    void printVersion() const {
+#ifndef DCPP_REVISION
+        printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+#else
+        printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
+#endif
+    }
 };
 
 class MainWindow:

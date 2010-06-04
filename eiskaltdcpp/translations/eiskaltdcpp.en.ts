@@ -2,6 +2,21 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="en_US">
 <context>
+    <name>About</name>
+    <message>
+        <location filename="../MainWindow.h" line="91"/>
+        <source>Using:
+  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Key&gt;
+EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AntiSpam</name>
     <message>
         <location filename="../Antispam.cpp" line="158"/>
@@ -758,7 +773,7 @@
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="788"/>
-        <location filename="../HubFrame.cpp" line="1579"/>
+        <location filename="../HubFrame.cpp" line="1583"/>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
@@ -884,17 +899,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1458"/>
+        <location filename="../HubFrame.cpp" line="1462"/>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1579"/>
+        <location filename="../HubFrame.cpp" line="1583"/>
         <source>%1 become online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1592"/>
+        <location filename="../HubFrame.cpp" line="1596"/>
         <source>User online.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -904,37 +919,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2732"/>
+        <location filename="../HubFrame.cpp" line="2739"/>
         <source>Suggestions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2726"/>
+        <location filename="../HubFrame.cpp" line="2733"/>
         <source>Add to dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2818"/>
+        <location filename="../HubFrame.cpp" line="2825"/>
         <source>Connecting to %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2827"/>
+        <location filename="../HubFrame.cpp" line="2834"/>
         <source>Connected to %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2890"/>
+        <location filename="../HubFrame.cpp" line="2897"/>
         <source>Fail: %1...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="3080"/>
+        <location filename="../HubFrame.cpp" line="3087"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="3090"/>
+        <location filename="../HubFrame.cpp" line="3097"/>
         <source>Search flood detected: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -965,64 +980,64 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1567"/>
+        <location filename="../HubFrame.cpp" line="1571"/>
         <source> joins the chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1616"/>
-        <location filename="../HubFrame.cpp" line="1628"/>
+        <location filename="../HubFrame.cpp" line="1620"/>
+        <location filename="../HubFrame.cpp" line="1632"/>
         <source>User not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1635"/>
+        <location filename="../HubFrame.cpp" line="1639"/>
         <source>Slot granted to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1692"/>
+        <location filename="../HubFrame.cpp" line="1696"/>
         <source> has been added to favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1692"/>
+        <location filename="../HubFrame.cpp" line="1696"/>
         <source> has been removed from favorites.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1723"/>
+        <location filename="../HubFrame.cpp" line="1727"/>
         <source>Favorite hub added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1726"/>
+        <location filename="../HubFrame.cpp" line="1730"/>
         <source>Favorite hub already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1838"/>
+        <location filename="../HubFrame.cpp" line="1842"/>
         <source>User offline.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1870"/>
+        <location filename="../HubFrame.cpp" line="1877"/>
         <source>Stored password sent...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1873"/>
+        <location filename="../HubFrame.cpp" line="1880"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1887"/>
-        <location filename="../HubFrame.cpp" line="2874"/>
+        <location filename="../HubFrame.cpp" line="1894"/>
+        <location filename="../HubFrame.cpp" line="2881"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1955"/>
+        <location filename="../HubFrame.cpp" line="1962"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1812,7 +1827,7 @@ Please check your connection settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="290"/>
+        <location filename="../PMWindow.cpp" line="296"/>
         <source>User went offline</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1938,21 +1953,6 @@ Please check your connection settings</source>
     <message>
         <location filename="../PublicHubsList.cpp" line="62"/>
         <source>Link</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QApplication</name>
-    <message>
-        <location filename="../main.cpp" line="171"/>
-        <source>Using:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
-
-Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2212,14 +2212,14 @@ Keys:
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="549"/>
-        <location filename="../SearchFrame.cpp" line="836"/>
+        <location filename="../SearchFrame.cpp" line="843"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="553"/>
-        <location filename="../SearchFrame.cpp" line="832"/>
-        <location filename="../SearchFrame.cpp" line="840"/>
+        <location filename="../SearchFrame.cpp" line="838"/>
+        <location filename="../SearchFrame.cpp" line="847"/>
         <source>Search - %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2229,18 +2229,18 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="977"/>
-        <location filename="../SearchFrame.cpp" line="1033"/>
+        <location filename="../SearchFrame.cpp" line="954"/>
+        <location filename="../SearchFrame.cpp" line="1010"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1259"/>
+        <location filename="../SearchFrame.cpp" line="1236"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1268"/>
+        <location filename="../SearchFrame.cpp" line="1245"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>

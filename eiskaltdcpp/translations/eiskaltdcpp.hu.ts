@@ -2,6 +2,27 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="hu_HU" sourcelanguage="en_US">
 <context>
+    <name>About</name>
+    <message>
+        <source>Using:
+  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Key&gt;
+EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished">Használat:
+  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Kapcsoló&gt;
+Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
+
+Kapcsolók:
+  -h, --help	 Help megjelenítése
+  -v, --version  Verzióinformáció mutatása</translation>
+    </message>
+</context>
+<context>
     <name>AntiSpam</name>
     <message>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
@@ -1662,7 +1683,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Használat:
+        <translation type="obsolete">Használat:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Kapcsoló&gt;
 Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.

@@ -2,6 +2,28 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="pl_PL" sourcelanguage="en">
 <context>
+    <name>About</name>
+    <message>
+        <location filename="../MainWindow.h" line="91"/>
+        <source>Using:
+  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Key&gt;
+EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished">Zastosowanie:
+  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Кlucz&gt;
+EiskaltDC++ - program dla systemów UNIX-like, dla protokołu Direct Connect i ADC.
+
+Opcje:
+  -h, --help	 Pokaż pomoc
+  -v, --version	 Pokaż wersję</translation>
+    </message>
+</context>
+<context>
     <name>AntiSpam</name>
     <message>
         <location filename="../Antispam.cpp" line="158"/>
@@ -763,18 +785,18 @@ Ulubiony użytkownik</translation>
         <translation>wyłączony</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1567"/>
+        <location filename="../HubFrame.cpp" line="1571"/>
         <source> joins the chat</source>
         <translation> dołączył do chatu</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1616"/>
-        <location filename="../HubFrame.cpp" line="1628"/>
+        <location filename="../HubFrame.cpp" line="1620"/>
+        <location filename="../HubFrame.cpp" line="1632"/>
         <source>User not found</source>
         <translation>Użytkownik nieznaleziony</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1635"/>
+        <location filename="../HubFrame.cpp" line="1639"/>
         <source>Slot granted to </source>
         <translation>Slot przyznany dla </translation>
     </message>
@@ -783,17 +805,17 @@ Ulubiony użytkownik</translation>
         <translation type="obsolete">Użytkownik nieznaleziony.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1692"/>
+        <location filename="../HubFrame.cpp" line="1696"/>
         <source> has been added to favorites.</source>
         <translation> został(a) dodany do ulubionych.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1692"/>
+        <location filename="../HubFrame.cpp" line="1696"/>
         <source> has been removed from favorites.</source>
         <translation> został(a) usunięty(a) z ulubionych.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1838"/>
+        <location filename="../HubFrame.cpp" line="1842"/>
         <source>User offline.</source>
         <translation>Użytkownik niedostępny.</translation>
     </message>
@@ -802,12 +824,12 @@ Ulubiony użytkownik</translation>
         <translation type="obsolete">Wprowadź hasło</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1873"/>
+        <location filename="../HubFrame.cpp" line="1880"/>
         <source>Password</source>
         <translation>Hasło</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1955"/>
+        <location filename="../HubFrame.cpp" line="1962"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Użytkowników: %1 | Ogólnie udostępnione: %2</translation>
     </message>
@@ -827,23 +849,23 @@ Ulubiony użytkownik</translation>
         <translation>Czat włączony.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1723"/>
+        <location filename="../HubFrame.cpp" line="1727"/>
         <source>Favorite hub added.</source>
         <translation>Dodano do ulubionych hubów.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1726"/>
+        <location filename="../HubFrame.cpp" line="1730"/>
         <source>Favorite hub already exists.</source>
         <translation>Ten hub istnieje już na liście ulubionych.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1887"/>
-        <location filename="../HubFrame.cpp" line="2874"/>
+        <location filename="../HubFrame.cpp" line="1894"/>
+        <location filename="../HubFrame.cpp" line="2881"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Prośba o przekierowanie do huba, z którym jest już połączony</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1870"/>
+        <location filename="../HubFrame.cpp" line="1877"/>
         <source>Stored password sent...</source>
         <translation>Przechowywane hasło wysłane...</translation>
     </message>
@@ -977,7 +999,7 @@ Ulubiony użytkownik</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="788"/>
-        <location filename="../HubFrame.cpp" line="1579"/>
+        <location filename="../HubFrame.cpp" line="1583"/>
         <source>Favorites</source>
         <translation>Ulubione</translation>
     </message>
@@ -1034,17 +1056,17 @@ Ulubiony użytkownik</translation>
 /sh &lt;command&gt; - wykonaj komendę i przekaż wynik na chat</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1458"/>
+        <location filename="../HubFrame.cpp" line="1462"/>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;Osatnie statusy na hubie:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1579"/>
+        <location filename="../HubFrame.cpp" line="1583"/>
         <source>%1 become online</source>
         <translation>%1 online</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1592"/>
+        <location filename="../HubFrame.cpp" line="1596"/>
         <source>User online.</source>
         <translation>Użytkownik dostępny.</translation>
     </message>
@@ -1054,37 +1076,37 @@ Ulubiony użytkownik</translation>
         <translation>nie udostępnione</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2732"/>
+        <location filename="../HubFrame.cpp" line="2739"/>
         <source>Suggestions</source>
         <translation>Sugestie</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2726"/>
+        <location filename="../HubFrame.cpp" line="2733"/>
         <source>Add to dictionary</source>
         <translation>Dodaj do słownika</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2818"/>
+        <location filename="../HubFrame.cpp" line="2825"/>
         <source>Connecting to %1</source>
         <translation>Podłączanie do %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2827"/>
+        <location filename="../HubFrame.cpp" line="2834"/>
         <source>Connected to %1</source>
         <translation>Podłączony do %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2890"/>
+        <location filename="../HubFrame.cpp" line="2897"/>
         <source>Fail: %1...</source>
         <translation>Niepowodzenie: %1...</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="3080"/>
+        <location filename="../HubFrame.cpp" line="3087"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Niestety ale nick &quot;%1&quot; jest używany przez innego użytkownika.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="3090"/>
+        <location filename="../HubFrame.cpp" line="3097"/>
         <source>Search flood detected: %1</source>
         <translation>Wykryty flood zapytań: %1</translation>
     </message>
@@ -1939,7 +1961,7 @@ Należy sprawdzić ustawienia połączeń</translation>
         <translation>Chat wyczyszczony.</translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="290"/>
+        <location filename="../PMWindow.cpp" line="296"/>
         <source>User went offline</source>
         <translation>Użytkownik jest offline</translation>
     </message>
@@ -2071,7 +2093,6 @@ Należy sprawdzić ustawienia połączeń</translation>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../main.cpp" line="171"/>
         <source>Using:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Key&gt;
@@ -2080,7 +2101,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Zastosowanie:
+        <translation type="obsolete">Zastosowanie:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Кlucz&gt;
 EiskaltDC++ - program dla systemów UNIX-like, dla protokołu Direct Connect i ADC.
@@ -2120,14 +2141,14 @@ Opcje:
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="549"/>
-        <location filename="../SearchFrame.cpp" line="836"/>
+        <location filename="../SearchFrame.cpp" line="843"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation>Zbyt szybkie próby wyszukiwania, proszę czekać %1 sekund</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="553"/>
-        <location filename="../SearchFrame.cpp" line="832"/>
-        <location filename="../SearchFrame.cpp" line="840"/>
+        <location filename="../SearchFrame.cpp" line="838"/>
+        <location filename="../SearchFrame.cpp" line="847"/>
         <source>Search - %1</source>
         <translation>Wyszukiwanie - %1</translation>
     </message>
@@ -2271,18 +2292,18 @@ Opcje:
         <translation>Huby</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="977"/>
-        <location filename="../SearchFrame.cpp" line="1033"/>
+        <location filename="../SearchFrame.cpp" line="954"/>
+        <location filename="../SearchFrame.cpp" line="1010"/>
         <source>Select directory</source>
         <translation>Wybierz katalog</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1259"/>
+        <location filename="../SearchFrame.cpp" line="1236"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Brak wyników&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1268"/>
+        <location filename="../SearchFrame.cpp" line="1245"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Znaleziono: &lt;b&gt;%1&lt;/b&gt;  Odrzucono: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>

@@ -2,6 +2,27 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="fr_FR">
 <context>
+    <name>About</name>
+    <message>
+        <source>Using:
+  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Key&gt;
+EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished">Utilise:
+  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Key&gt;
+EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les protocoles Direct Connect et ADC.
+
+Clés:
+  -h, --help(tab) Montre ce message
+  -v, --version(tab) Montre la version de la chaîne</translation>
+    </message>
+</context>
+<context>
     <name>AntiSpam</name>
     <message>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
@@ -1722,7 +1743,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Utilise:
+        <translation type="obsolete">Utilise:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Key&gt;
 EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les protocoles Direct Connect et ADC.

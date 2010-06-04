@@ -2,6 +2,28 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ru_RU" sourcelanguage="en">
 <context>
+    <name>About</name>
+    <message>
+        <location filename="../MainWindow.h" line="91"/>
+        <source>Using:
+  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Key&gt;
+EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation>Использование:
+  eiskaltdcpp &lt;magnet-ссылка&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp &lt;Ключ&gt;
+EiskaltDC++ - программа для UNIX-систем, для работы с Direct Connect и ADC протоколами.
+
+Ключи:
+  -h, --help	 Показать это сообщение
+  -v, --version	 Показать версию</translation>
+    </message>
+</context>
+<context>
     <name>AntiSpam</name>
     <message>
         <location filename="../Antispam.cpp" line="158"/>
@@ -752,18 +774,18 @@ Favorite user</source>
         <translation>выключен</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1567"/>
+        <location filename="../HubFrame.cpp" line="1571"/>
         <source> joins the chat</source>
         <translation> входит в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1616"/>
-        <location filename="../HubFrame.cpp" line="1628"/>
+        <location filename="../HubFrame.cpp" line="1620"/>
+        <location filename="../HubFrame.cpp" line="1632"/>
         <source>User not found</source>
         <translation>Пользователь не найден</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1635"/>
+        <location filename="../HubFrame.cpp" line="1639"/>
         <source>Slot granted to </source>
         <translation>Слот отдан </translation>
     </message>
@@ -772,17 +794,17 @@ Favorite user</source>
         <translation type="obsolete">Пользователь не найден.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1692"/>
+        <location filename="../HubFrame.cpp" line="1696"/>
         <source> has been added to favorites.</source>
         <translation> был добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1692"/>
+        <location filename="../HubFrame.cpp" line="1696"/>
         <source> has been removed from favorites.</source>
         <translation> был удалён из избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1838"/>
+        <location filename="../HubFrame.cpp" line="1842"/>
         <source>User offline.</source>
         <translation>Пользователь не в сети.</translation>
     </message>
@@ -791,12 +813,12 @@ Favorite user</source>
         <translation type="obsolete">Введите пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1873"/>
+        <location filename="../HubFrame.cpp" line="1880"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1955"/>
+        <location filename="../HubFrame.cpp" line="1962"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Пользователей: %1 | Общая шара: %2</translation>
     </message>
@@ -816,23 +838,23 @@ Favorite user</source>
         <translation>Чат включен.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1723"/>
+        <location filename="../HubFrame.cpp" line="1727"/>
         <source>Favorite hub added.</source>
         <translation>Хаб добавлен в избранные.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1726"/>
+        <location filename="../HubFrame.cpp" line="1730"/>
         <source>Favorite hub already exists.</source>
         <translation>Хаб уже есть в избранных.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1887"/>
-        <location filename="../HubFrame.cpp" line="2874"/>
+        <location filename="../HubFrame.cpp" line="1894"/>
+        <location filename="../HubFrame.cpp" line="2881"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получен запрос перенаправления к уже подключенному хабу</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1870"/>
+        <location filename="../HubFrame.cpp" line="1877"/>
         <source>Stored password sent...</source>
         <translation>Отправлен сохраненный пароль...</translation>
     </message>
@@ -966,7 +988,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="788"/>
-        <location filename="../HubFrame.cpp" line="1579"/>
+        <location filename="../HubFrame.cpp" line="1583"/>
         <source>Favorites</source>
         <translation>Избранные</translation>
     </message>
@@ -1023,17 +1045,17 @@ Favorite user</source>
 /sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1458"/>
+        <location filename="../HubFrame.cpp" line="1462"/>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;Последнее статусное сообщение на хабе:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1579"/>
+        <location filename="../HubFrame.cpp" line="1583"/>
         <source>%1 become online</source>
         <translation>%1 входит в сеть</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="1592"/>
+        <location filename="../HubFrame.cpp" line="1596"/>
         <source>User online.</source>
         <translation>Пользователь в сети.</translation>
     </message>
@@ -1043,37 +1065,37 @@ Favorite user</source>
         <translation>не расшарено</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2732"/>
+        <location filename="../HubFrame.cpp" line="2739"/>
         <source>Suggestions</source>
         <translation>Варианты</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2726"/>
+        <location filename="../HubFrame.cpp" line="2733"/>
         <source>Add to dictionary</source>
         <translation>Добавить в словарь</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2818"/>
+        <location filename="../HubFrame.cpp" line="2825"/>
         <source>Connecting to %1</source>
         <translation>Подключение к %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2827"/>
+        <location filename="../HubFrame.cpp" line="2834"/>
         <source>Connected to %1</source>
         <translation>Подключен к %1</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="2890"/>
+        <location filename="../HubFrame.cpp" line="2897"/>
         <source>Fail: %1...</source>
         <translation>Ошибка: %1...</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="3080"/>
+        <location filename="../HubFrame.cpp" line="3087"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Извините, но ник &quot;%1&quot; уже занят другим пользователем.</translation>
     </message>
     <message>
-        <location filename="../HubFrame.cpp" line="3090"/>
+        <location filename="../HubFrame.cpp" line="3097"/>
         <source>Search flood detected: %1</source>
         <translation>Поисковый флуд обнаружен: %1</translation>
     </message>
@@ -1932,7 +1954,7 @@ Please check your connection settings</source>
         <translation>Чат очищен.</translation>
     </message>
     <message>
-        <location filename="../PMWindow.cpp" line="290"/>
+        <location filename="../PMWindow.cpp" line="296"/>
         <source>User went offline</source>
         <translation>Пользователь покинул хаб</translation>
     </message>
@@ -2064,7 +2086,6 @@ Please check your connection settings</source>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../main.cpp" line="171"/>
         <source>Using:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Key&gt;
@@ -2073,7 +2094,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Использование:
+        <translation type="obsolete">Использование:
   eiskaltdcpp &lt;magnet-ссылка&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Ключ&gt;
 EiskaltDC++ - программа для UNIX-систем, для работы с Direct Connect и ADC протоколами.
@@ -2113,14 +2134,14 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="549"/>
-        <location filename="../SearchFrame.cpp" line="836"/>
+        <location filename="../SearchFrame.cpp" line="843"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation>Слишком быстрая попытка нового поиска, подождите %1 секунд</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="553"/>
-        <location filename="../SearchFrame.cpp" line="832"/>
-        <location filename="../SearchFrame.cpp" line="840"/>
+        <location filename="../SearchFrame.cpp" line="838"/>
+        <location filename="../SearchFrame.cpp" line="847"/>
         <source>Search - %1</source>
         <translation>Поиск - %1</translation>
     </message>
@@ -2264,18 +2285,18 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Хабы</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="977"/>
-        <location filename="../SearchFrame.cpp" line="1033"/>
+        <location filename="../SearchFrame.cpp" line="954"/>
+        <location filename="../SearchFrame.cpp" line="1010"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1259"/>
+        <location filename="../SearchFrame.cpp" line="1236"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Результаты отсутствуют&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../SearchFrame.cpp" line="1268"/>
+        <location filename="../SearchFrame.cpp" line="1245"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Найдено: &lt;b&gt;%1&lt;/b&gt;  Отсеяно: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
