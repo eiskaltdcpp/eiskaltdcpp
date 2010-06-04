@@ -13,7 +13,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished">Використання:
+        <translation>Використання:
   eiskaltdcpp &lt;magnet-посилання&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Ключ&gt;
 EiskaltDC++ - програма для UNIX-систем, для роботи з Direct Connect і ADC протоколами.
