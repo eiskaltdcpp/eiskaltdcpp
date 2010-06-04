@@ -1,6 +1,6 @@
-Release EiskaltDC++ 2.0.3
+Release EiskaltDC++ 2.0.4
 
-* AntiSpam
+* Daemon
+* GTK front-end
 * ADL-Search
-* User Commands
-
+* Extend script engine functionality
