@@ -13,7 +13,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished">Як карыстацца:
+        <translation>Як карыстацца:
   eiskaltdcpp &lt;магніт-спасылка&gt; &lt;dchub://спасылка&gt; &lt;adc(s)://спасылка&gt;
   eiskaltdcpp &lt;Ключ&gt;
 EiskaltDC++ — гэта праграма для сыстэмаў, падобных да UNIX, якая выкарыстоўвае пратаколы Direct Connect і ADC.
@@ -75,17 +75,17 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Сьпіс публічных асяродкаў</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="40"/>
         <source>Start</source>
-        <translation type="unfinished">Пачаць</translation>
+        <translation>Пачаць</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="47"/>
         <source>Stop</source>
-        <translation type="unfinished">Спыніць</translation>
+        <translation>Спыніць</translation>
     </message>
 </context>
 <context>
@@ -1542,12 +1542,12 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1022"/>
         <source>Scripts Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Кіраўнік скрыптоў</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1024"/>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Кансоль скрыптоў</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1027"/>
@@ -2128,7 +2128,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../scriptengine/ScriptConsole.cpp" line="11"/>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Кансоль скрыптоў</translation>
     </message>
 </context>
 <context>
@@ -2136,7 +2136,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../ScriptManagerDialog.cpp" line="29"/>
         <source>Script Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Кіраўнік скрыптоў</translation>
     </message>
 </context>
 <context>
@@ -3264,7 +3264,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferViewModel.cpp" line="522"/>
         <source>Waiting for slot </source>
-        <translation>Чакаем на шчыліну</translation>
+        <translation>Чакаем на шчыліну </translation>
     </message>
     <message>
         <location filename="../TransferViewModel.cpp" line="525"/>
@@ -4037,7 +4037,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Сьпіс публічных асяродкаў</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -5848,57 +5848,57 @@ the granted slot will not be closed.</source>
         <location filename="../WulforUtil.cpp" line="733"/>
         <location filename="../WulforUtil.cpp" line="747"/>
         <source>%1 B</source>
-        <translation type="unfinished">%1 Б</translation>
+        <translation>%1 Б</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="735"/>
         <source>%1 KiB</source>
-        <translation type="unfinished">%1 КіБ</translation>
+        <translation>%1 КіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="737"/>
         <source>%1 MiB</source>
-        <translation type="unfinished">%1 МіБ</translation>
+        <translation>%1 МіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="739"/>
         <source>%1 GiB</source>
-        <translation type="unfinished">%1 ГіБ</translation>
+        <translation>%1 ГіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="741"/>
         <source>%1 TiB</source>
-        <translation type="unfinished">%1 ТіБ</translation>
+        <translation>%1 ТіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="743"/>
         <source>%1 PiB</source>
-        <translation type="unfinished">%1 ПіБ</translation>
+        <translation>%1 ПіБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="749"/>
         <source>%1 KB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 КБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="751"/>
         <source>%1 MB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 КБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="753"/>
         <source>%1 GB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ГБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="755"/>
         <source>%1 TB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ТБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="757"/>
         <source>%1 PB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ПБ</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="823"/>
