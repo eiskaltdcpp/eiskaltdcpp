@@ -62,6 +62,7 @@ public:
     bool download;
     bool fail;
     QString cid;
+    QString tth;
     QString target;
     qlonglong dpos;
     double percent;

@@ -356,6 +356,8 @@ void TransferViewModel::updateTransfer(VarMap params){
         item->target = vstr(params["TARGET"]);
     if (params.contains("FAIL"))
         item->fail = vbol(params["FAIL"]);
+    if (params.contains("TTH"))
+        item->tth = vstr(params["TTH"]);
 
     if (!vbol(params["DOWN"])){
         if (!rootItem->childItems.contains(item))
@@ -653,6 +655,7 @@ TransferViewItem::TransferViewItem(const TransferViewItem &item){
     percent = item.percent;
     dpos = item.dpos;
     fail = item.fail;
+    tth = item.tth;
 }
 void TransferViewItem::operator=(const TransferViewItem &item){
     itemData = item.itemData;
@@ -662,6 +665,7 @@ void TransferViewItem::operator=(const TransferViewItem &item){
     percent = item.percent;
     dpos = item.dpos;
     fail = item.fail;
+    tth = item.tth;
 }
 
 TransferViewItem::~TransferViewItem()

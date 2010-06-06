@@ -7,6 +7,7 @@
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "Notification.h"
+#include "SearchFrame.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/User.h"
@@ -22,6 +23,7 @@
 #include <QItemSelectionModel>
 #include <QModelIndex>
 #include <QClipboard>
+#include <QMessageBox>
 
 TransferView::Menu::Menu():
         menu(NULL)
@@ -31,6 +33,9 @@ TransferView::Menu::Menu():
 
     QAction *browse     = new QAction(tr("Browse files"), menu);
     browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
+
+    QAction *search     = new QAction(tr("Search Alternates"), menu);
+    search->setIcon(WU->getPixmap(WulforUtil::eiFIND));
 
     QAction *match      = new QAction(tr("Match Queue"), menu);
     match->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
@@ -71,8 +76,10 @@ TransferView::Menu::Menu():
     actions.insert(rem_queue, RemoveFromQueue);
     actions.insert(force, Force);
     actions.insert(close, Close);
+    actions.insert(search, SearchAlternates);
 
     menu->addActions(QList<QAction*>() << browse
+                                       //<< search
                                        << match
                                        << send_pm
                                        << add_to_fav
@@ -282,6 +289,14 @@ void TransferView::closeConection(const QString &cid, bool download){
     catch (const Exception&){}
 }
 
+void TransferView::searchAlternates(const QString &tth){
+    if (tth.isEmpty())
+        return;
+
+    SearchFrame *sfr = new SearchFrame();
+    sfr->searchAlternates(tth);
+}
+
 void TransferView::downloadComplete(QString target){
     Notification::getInstance()->showMessage(Notification::TRANSFER, tr("Download complete"), target);
 }
@@ -332,6 +347,7 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Transfer 
     params["HOST"]  = _q(trf->getUserConnection().getHubUrl());
     params["PERC"]  = percent;
     params["DOWN"]  = true;
+    params["TTH"] = _q(trf->getTTH().toBase32());
 }
 
 void TransferView::slotContextMenu(const QPoint &){
@@ -379,6 +395,22 @@ void TransferView::slotContextMenu(const QPoint &){
     {
         foreach(TransferViewItem *i, items)
             getFileList(i->cid, vstr(i->data(COLUMN_TRANSFER_HOST)));
+
+        break;
+    }
+    case Menu::SearchAlternates:
+    {
+        QStringList tths;
+
+        foreach(TransferViewItem *i, items){
+            if (i->download && !tths.contains(i->tth))
+                tths.push_back(i->tth);
+            else if (!i->download)
+                QMessageBox::information(this, tr("Transfer View"), tr("You cannot search alternates for uploads!"), QMessageBox::Ok);
+        }
+
+        foreach (QString tth, tths)
+            searchAlternates(tth);
 
         break;
     }

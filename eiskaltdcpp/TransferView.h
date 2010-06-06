@@ -65,6 +65,7 @@ class Menu{
 public:
     enum Action {
         Browse=0,
+        SearchAlternates,
         MatchQueue,
         SendPM,
         AddToFav,
@@ -102,6 +103,7 @@ protected:
     void removeFromQueue(const QString&);
     void forceAttempt(const QString&);
     void closeConection(const QString &, bool);
+    void searchAlternates(const QString &tth);
     // DownloadManager
     virtual void on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) throw();
     virtual void on(dcpp::DownloadManagerListener::Starting, dcpp::Download* dl) throw();

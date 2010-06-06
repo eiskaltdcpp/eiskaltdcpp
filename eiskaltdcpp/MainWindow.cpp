@@ -1687,8 +1687,6 @@ void MainWindow::slotToolsADLS(){
 void MainWindow::slotToolsSearch(){
     SearchFrame *sf = new SearchFrame();
 
-    sf->setAttribute(Qt::WA_DeleteOnClose);
-
     QLineEdit *le = qobject_cast<QLineEdit *>(sender());
 
     if (le == searchLineEdit){

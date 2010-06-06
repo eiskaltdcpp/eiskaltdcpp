@@ -372,6 +372,8 @@ void SearchFrame::init(){
     mwnd->addArenaWidgetOnToolbar(this);
     mwnd->mapWidgetOnArena(this);
 
+    setAttribute(Qt::WA_DeleteOnClose);
+
     QList<int> panes = splitter->sizes();
     left_pane_old_size = panes[0];
 
