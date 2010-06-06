@@ -369,8 +369,18 @@ void FinishedTransfersModel::addFile(QMap<QString, QVariant> params){
     if (!item)
         return;
 
-    for (int i = 0; i < fileItem->columnCount(); i++)
-        item->updateColumn(i, params[file_header_table[i]]);
+    for (int i = 0; i < fileItem->columnCount(); i++){
+        if (file_header_table[i] == "USERS"){
+            QString users = params[file_header_table[i]].toString();
+
+            if (users.trimmed().isEmpty() || users.trimmed().isNull())
+                continue;
+            else
+                item->updateColumn(i, users);
+        }
+        else
+            item->updateColumn(i, params[file_header_table[i]]);
+    }
 
     emit layoutChanged();
 }
@@ -381,8 +391,18 @@ void FinishedTransfersModel::addUser(QMap<QString, QVariant>params){
     if (!item)
         return;
 
-    for (int i = 0; i < userItem->columnCount(); i++)
-        item->updateColumn(i, params[user_header_table[i]]);
+    for (int i = 0; i < userItem->columnCount(); i++){
+        if (user_header_table[i] == "NICK"){
+            QString user = params[user_header_table[i]].toString();
+
+            if (user.trimmed().isEmpty() || user.trimmed().isNull())
+                continue;
+            else
+                item->updateColumn(i, user);
+        }
+        else
+            item->updateColumn(i, params[user_header_table[i]]);
+    }
 
     emit layoutChanged();
 }

@@ -312,7 +312,11 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Transfer 
     else
         params["FNAME"] = _q(Util::getFileName(trf->getPath()));
 
-    params["USER"]  = WU->getNicks(user->getCID());
+    QString nick = WU->getNicks(user->getCID());
+
+    if (!(nick.isEmpty() || nick.isNull()))//Do not update user nick if user is offline
+        params["USER"]  = nick;
+
     params["HUB"]   = WU->getHubNames(user);
     params["PATH"]  = _q(Util::getFilePath(trf->getPath()));
     params["ESIZE"] = (qlonglong)trf->getSize();
