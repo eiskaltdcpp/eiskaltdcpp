@@ -52,16 +52,17 @@
 #include "HistoryInterface.h"
 #include "LineEdit.h"
 #include "Func.h"
-#include "Version.h"
 
 #include "ui_UIAbout.h"
-
-using namespace dcpp;
 
 class FavoriteHubs;
 class DownloadQueue;
 class ToolBar;
 class MainWindow;
+
+extern const char * const EISKALTDCPP_VERSION;
+extern const char * const EISKALTDCPP_VERSION_SFX;
+extern const char * const EISKALTDCPP_WND_TITLE;
 
 class QProgressBar;
 
@@ -112,10 +113,10 @@ public:
 
 class MainWindow:
         public QMainWindow,
-        public dcpp::Singleton<MainWindow>,
-        private LogManagerListener,
-        private TimerManagerListener,
-        private QueueManagerListener
+        public  dcpp::Singleton<MainWindow>,
+        private dcpp::LogManagerListener,
+        private dcpp::TimerManagerListener,
+        private dcpp::QueueManagerListener
 {
     Q_OBJECT
 
@@ -257,7 +258,7 @@ friend class dcpp::Singleton<MainWindow>;
         /** TimerManagerListener */
         virtual void on(dcpp::TimerManagerListener::Second, uint32_t) throw();
         /** QueueManagerListener */
-        virtual void on(dcpp::QueueManagerListener::Finished, QueueItem*, const std::string&, int64_t) throw();
+        virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem*, const std::string&, int64_t) throw();
         //
         void showShareBrowser(dcpp::UserPtr, QString, QString);
 

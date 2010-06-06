@@ -63,8 +63,6 @@
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 
-#include "Version.h"
-
 using namespace std;
 
 MainWindow::MainWindow (QWidget *parent):
