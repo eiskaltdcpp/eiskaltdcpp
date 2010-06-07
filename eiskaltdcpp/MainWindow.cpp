@@ -962,7 +962,7 @@ void MainWindow::initSearchBar(){
 void MainWindow::retranslateUi(){
     //Retranslate menu actions
     {
-        menuFile->setTitle(tr("&File"));
+        menuFile->setTitle(tr("&EiskaltDC++"));
 
         fileOpenLogFile->setText(tr("Open log file"));
 
