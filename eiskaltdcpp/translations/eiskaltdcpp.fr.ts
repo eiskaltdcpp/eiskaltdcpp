@@ -1592,6 +1592,14 @@ Please check your connection settings</source>
         <source>Script Console</source>
         <translation>Console de script</translation>
     </message>
+    <message>
+        <source>Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -3932,6 +3940,10 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
     <message>
         <source>Keep downloaded filelists</source>
         <translation>Garder les listes de fichiers téléchargées</translation>
+    </message>
+    <message>
+        <source>Compressed transfer</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

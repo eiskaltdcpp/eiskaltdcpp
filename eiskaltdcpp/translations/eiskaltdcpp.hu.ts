@@ -1528,6 +1528,14 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Script Console</source>
         <translation>Script konzol</translation>
     </message>
+    <message>
+        <source>Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -3816,6 +3824,10 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
     <message>
         <source>Keep downloaded filelists</source>
         <translation>Letöltött fájl-listák megtartása</translation>
+    </message>
+    <message>
+        <source>Compressed transfer</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

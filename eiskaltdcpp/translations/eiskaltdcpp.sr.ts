@@ -1428,6 +1428,14 @@ Molim proverite podešavanja vaše veze</translation>
         <source>Script Console</source>
         <translation>Skripta konzole</translation>
     </message>
+    <message>
+        <source>Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -3667,6 +3675,10 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     <message>
         <source>Keep downloaded filelists</source>
         <translation>Čuvaj preuzete fajl liste</translation>
+    </message>
+    <message>
+        <source>Compressed transfer</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
