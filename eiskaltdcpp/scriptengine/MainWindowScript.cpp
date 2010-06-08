@@ -25,7 +25,11 @@ bool MainWindowScript::addToolButton(const QString &name, const QString &title, 
         return false;
     }
 
+    if (name.isEmpty())
+        return false;
+
     QAction *act = new QAction(icon, title, MainWindow::getInstance());
+    act->setObjectName("scriptToolbarButton"+name);
     actions.insert(name, act);
 
     QScriptValue act_val = engine->newQObject(act);

@@ -71,6 +71,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_SHARE_LPANE_STATE,     "");
         strmap.insert(WS_SHARE_RPANE_STATE,     "");
         strmap.insert(WS_MAINWINDOW_STATE,      "");
+        strmap.insert(WS_MAINWINDOW_TOOLBAR_ACTS,"");
         strmap.insert(WS_FTRANSFERS_FILES_STATE,"");
         strmap.insert(WS_FTRANSFERS_USERS_STATE,"");
         strmap.insert(WS_FAV_HUBS_STATE,        "");

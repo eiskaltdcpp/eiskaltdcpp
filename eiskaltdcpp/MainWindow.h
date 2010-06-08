@@ -226,6 +226,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotWidgetsToggle();
         void slotQC();
         void slotHideMainMenu();
+        void slotShowMainMenu();
         void slotHideWindow();
         void slotHideProgressSpace();
         void slotHideLastStatus();
@@ -234,6 +235,8 @@ friend class dcpp::Singleton<MainWindow>;
         void slotSidebarHook(const QModelIndex&);
         void slotSelectSidebarIndex(const QModelIndex&);
         void slotExit();
+        void slotToolbarCustomization();
+        void slotToolbarCustomizerDone(const QList<QAction*> &enabled);
 
         void slotCloseCurrentWidget();
 

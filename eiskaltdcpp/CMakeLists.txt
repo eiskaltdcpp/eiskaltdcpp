@@ -23,6 +23,7 @@ set (HDRS   ArenaWidgetContainer.h
             PoolAlloc.h
             Version.h)
 set (SRCS
+	    ActionCustomizer.cpp
             ADLS.cpp
             ADLSModel.cpp
             Antispam.cpp
@@ -84,6 +85,7 @@ set (SRCS
             WulforUtil.cpp
             ChatEdit.cpp)
 set (MOC_HDRS
+	    ActionCustomizer.h
             ADLS.h
             ADLSModel.h
             Antispam.h
@@ -176,6 +178,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIUserCommands.ui
 	    ui/UIScriptManager.ui
 	    ui/UIDialogScriptConsole.ui
+	    ui/UIActionCustomizer.ui
             )
 
 option(LANGUAGES "Using translations")

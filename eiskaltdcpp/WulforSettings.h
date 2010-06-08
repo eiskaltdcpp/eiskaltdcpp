@@ -46,6 +46,7 @@ const char * const WS_SEARCH_HISTORY          = "search-history";
 const char * const WS_TRANSLATION_FILE        = "translation-file";
 const char * const WS_TRANSFERS_STATE         = "transfer-state";
 const char * const WS_MAINWINDOW_STATE        = "mainwindow-state";
+const char * const WS_MAINWINDOW_TOOLBAR_ACTS = "mainwindow-toolbar-enabled-actions";
 const char * const WS_SHARE_LPANE_STATE       = "share-lpane-state";
 const char * const WS_SHARE_RPANE_STATE       = "share-rpane-state";
 const char * const WS_FTRANSFERS_USERS_STATE  = "finished-u-state";

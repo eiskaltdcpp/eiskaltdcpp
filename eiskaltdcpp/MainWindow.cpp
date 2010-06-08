@@ -51,6 +51,7 @@
 #include "Magnet.h"
 #include "SpyFrame.h"
 #include "SideBar.h"
+#include "ActionCustomizer.h"
 
 #ifdef USE_JS
 #include "ScriptManagerDialog.h"
@@ -705,18 +706,25 @@ void MainWindow::initActions(){
         connect(chatDisable, SIGNAL(triggered()), this, SLOT(slotChatDisable()));
 
         QAction *separator0 = new QAction("", this);
+        separator0->setObjectName("separator0");
         separator0->setSeparator(true);
         QAction *separator1 = new QAction("", this);
+        separator1->setObjectName("separator1");
         separator1->setSeparator(true);
         QAction *separator2 = new QAction("", this);
+        separator2->setObjectName("separator2");
         separator2->setSeparator(true);
         QAction *separator3 = new QAction("", this);
+        separator3->setObjectName("separator3");
         separator3->setSeparator(true);
         QAction *separator4 = new QAction("", this);
+        separator4->setObjectName("separator4");
         separator4->setSeparator(true);
         QAction *separator5 = new QAction("", this);
+        separator5->setObjectName("separator5");
         separator5->setSeparator(true);
         QAction *separator6 = new QAction("", this);
+        separator6->setObjectName("separator6");
         separator6->setSeparator(true);
 
         fileMenuActions << fileFileListBrowser
@@ -1060,12 +1068,28 @@ void MainWindow::retranslateUi(){
 void MainWindow::initToolbar(){
     fBar = new ToolBar(this);
     fBar->setObjectName("fBar");
-    fBar->addActions(toolBarActions);
+
+    QStringList enabled_actions = QString(QByteArray::fromBase64(WSGET(WS_MAINWINDOW_TOOLBAR_ACTS).toAscii())).split(";", QString::SkipEmptyParts);
+
+    if (enabled_actions.isEmpty())
+        fBar->addActions(toolBarActions);
+    else {
+        foreach (QString objName, enabled_actions){
+            QAction *act = findChild<QAction*>(objName);
+
+            if (act)
+                fBar->addAction(act);
+        }
+    }
+
     fBar->setContextMenuPolicy(Qt::CustomContextMenu);
     fBar->setMovable(true);
     fBar->setFloatable(true);
     fBar->setAllowedAreas(Qt::AllToolBarAreas);
     fBar->setWindowTitle(tr("Actions"));
+
+    connect(fBar, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotToolbarCustomization()));
+
     addToolBar(fBar);
 
     if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR)){
@@ -1597,6 +1621,8 @@ void MainWindow::toggleMainMenu(bool showMenu){
                 m->addAction(a);
 
             compactMenus->setMenu(m);
+
+            connect(compactMenus, SIGNAL(triggered()), this, SLOT(slotShowMainMenu()));
         }
 
         if (fBar)
@@ -1933,6 +1959,15 @@ void MainWindow::slotHideMainMenu(){
     toggleMainMenu(!menuBar()->isVisible());
 }
 
+void MainWindow::slotShowMainMenu() {
+    QAction *act = qobject_cast<QAction*>(sender());
+
+    if (!(act && act->menu()))
+        return;
+
+    act->menu()->exec(QCursor::pos());
+}
+
 void MainWindow::slotHideWindow(){
     QWidget *wg = arena->widget();
 
@@ -2045,6 +2080,36 @@ void MainWindow::slotExit(){
     setUnload(true);
 
     close();
+}
+
+void MainWindow::slotToolbarCustomization() {
+    QMenu *m = new QMenu(this);
+    m->addAction(tr("Customize"));
+    QAction *ret = m->exec(QCursor::pos());
+
+    m->deleteLater();
+
+    if (ret){
+        ActionCustomizer customizer(toolBarActions, fBar->actions(), this);
+        connect(&customizer, SIGNAL(done(QList<QAction*>)), this, SLOT(slotToolbarCustomizerDone(QList<QAction*>)));
+
+        customizer.exec();
+    }
+}
+
+void MainWindow::slotToolbarCustomizerDone(const QList<QAction*> &enabled){
+    fBar->clear();
+    QStringList enabled_list;
+
+    foreach (QAction *act, enabled){
+        if (!act)
+            continue;
+
+        fBar->addAction(act);
+        enabled_list.push_back(act->objectName());
+    }
+
+    WSSET(WS_MAINWINDOW_TOOLBAR_ACTS, enabled_list.join(";").toAscii().toBase64());
 }
 
 void MainWindow::slotAboutClient(){
