@@ -432,7 +432,8 @@ void MainWindow::loadSettings(){
         sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
     panelsWidgets->setChecked(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
-    menuBar()->setVisible(WBGET(WB_MAIN_MENU_VISIBLE));
+    if (!WBGET(WB_MAIN_MENU_VISIBLE))
+        toggleMainMenu(false);
 }
 
 void MainWindow::saveSettings(){
@@ -1576,6 +1577,35 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     }
 }
 
+void MainWindow::toggleMainMenu(bool showMenu){
+    static QAction *compactMenus = NULL;
+
+    menuBar()->setVisible(showMenu);
+
+    if (showMenu){
+        if (compactMenus && fBar)
+            fBar->removeAction(compactMenus);
+    }
+    else {
+        if (!compactMenus && fBar){
+            compactMenus = new QAction(tr("Menu"), this);
+            compactMenus->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDIT));
+
+            QMenu *m = new QMenu(this);
+
+            foreach (QAction *a, menuBar()->actions())
+                m->addAction(a);
+
+            compactMenus->setMenu(m);
+        }
+
+        if (fBar)
+            fBar->insertAction(toolBarActions.first(), compactMenus);
+    }
+
+    WBSET(WB_MAIN_MENU_VISIBLE, showMenu);
+}
+
 void MainWindow::startSocket(){
     SearchManager::getInstance()->disconnect();
     ConnectionManager::getInstance()->disconnect();
@@ -1900,9 +1930,7 @@ void MainWindow::slotQC(){
 }
 
 void MainWindow::slotHideMainMenu(){
-    bool b = menuBar()->isVisible();
-    menuBar()->setVisible(!b);
-    WBSET(WB_MAIN_MENU_VISIBLE, !b);
+    toggleMainMenu(!menuBar()->isVisible());
 }
 
 void MainWindow::slotHideWindow(){

@@ -276,6 +276,7 @@ friend class dcpp::Singleton<MainWindow>;
         void initHotkeys();
 
         void toggleSingletonWidget(ArenaWidget *a);
+        void toggleMainMenu(bool);
 
         void updateStatus(QMap<QString,QString>);
 #ifdef FREE_SPACE_BAR_C
