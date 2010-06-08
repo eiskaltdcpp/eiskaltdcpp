@@ -8,7 +8,7 @@
 #--------------------------------------------------#
 # Author:  GoTLiuM InSPiRiT <gotlium@gmail.com>
 # Date:    28.05.2010
-# License: GPL (http://www.opensource.org/licenses/gpl-license.php)
+# License: GPL-2 (http://opensource.org/licenses/gpl-2.0.php)
 #--------------------------------------------------#
 #--------------------------------------------------#
 
