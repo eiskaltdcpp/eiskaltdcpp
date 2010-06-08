@@ -2682,6 +2682,18 @@ Voulez-vous l&apos;arrêter?</translation>
         <source>Close connection(s)</source>
         <translation>Fermer la/les connection(s)</translation>
     </message>
+    <message>
+        <source>Search Alternates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transfer View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot search alternates for uploads!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TransferView::Menu</name>

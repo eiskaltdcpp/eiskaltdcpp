@@ -2428,6 +2428,18 @@ Da li želite da zaustavite?</translation>
         <source>Upload failed</source>
         <translation>Otpremanje nije uspelo</translation>
     </message>
+    <message>
+        <source>Search Alternates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transfer View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot search alternates for uploads!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TransferViewModel</name>

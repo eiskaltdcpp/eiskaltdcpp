@@ -2541,6 +2541,18 @@ Biztosan le akarod állítani?
         <source>Copy IP-address of user</source>
         <translation>Felhasználó IP címének másolása</translation>
     </message>
+    <message>
+        <source>Search Alternates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transfer View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot search alternates for uploads!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TransferViewModel</name>

@@ -79,7 +79,7 @@ TransferView::Menu::Menu():
     actions.insert(search, SearchAlternates);
 
     menu->addActions(QList<QAction*>() << browse
-                                       //<< search
+                                       << search
                                        << match
                                        << send_pm
                                        << add_to_fav
