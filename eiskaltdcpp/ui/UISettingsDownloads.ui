@@ -811,6 +811,17 @@ from the queue either, you must do that manually.</string>
               <enum>Checked</enum>
              </property>
             </item>
+            <item>
+             <property name="text">
+              <string>Compressed transfer</string>
+             </property>
+             <property name="checkState">
+              <enum>Checked</enum>
+             </property>
+             <property name="flags">
+              <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>
