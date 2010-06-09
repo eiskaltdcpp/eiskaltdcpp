@@ -1,3 +1,7 @@
+--- 2.0.3 2010-09-xx ---
+* Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
+* Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
+
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.
 * Fixed potential problems with search using locales other than UTF-8. (Now kernel takes default encoding specified in the preferences rather than local ones, as it was before)
