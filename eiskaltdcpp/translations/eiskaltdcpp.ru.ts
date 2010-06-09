@@ -1533,7 +1533,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1615"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Меню</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1677"/>
@@ -1543,7 +1543,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="2087"/>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
+        <translation>Настроить</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2148"/>
@@ -3057,12 +3057,12 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="409"/>
         <source>Transfer View</source>
-        <translation type="unfinished"></translation>
+        <translation>Просмотр передач</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="409"/>
         <source>You cannot search alternates for uploads!</source>
-        <translation type="unfinished"></translation>
+        <translation>Нельзя искать альтернативы для отдач!</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="510"/>
@@ -3165,7 +3165,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="37"/>
         <source>Search Alternates</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск альтернатив</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="40"/>
@@ -4727,7 +4727,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="816"/>
         <source>Compressed transfer</source>
-        <translation type="unfinished"></translation>
+        <translation>Сжатые передачи</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="855"/>
