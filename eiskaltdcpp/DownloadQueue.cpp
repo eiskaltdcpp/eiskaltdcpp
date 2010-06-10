@@ -266,6 +266,8 @@ void DownloadQueue::init(){
     connect(queue_model, SIGNAL(needExpand(QModelIndex)), treeView_TARGET, SLOT(expand(QModelIndex)));
     connect(queue_model, SIGNAL(rowRemoved(QModelIndex)), this, SLOT(slotCollapseRow(QModelIndex)));
     connect(queue_model, SIGNAL(updateStats(quint64,quint64)), this, SLOT(slotUpdateStats(quint64,quint64)));
+    connect(pushButton_EXPAND,      SIGNAL(clicked()), treeView_TARGET, SLOT(expandAll()));
+    connect(pushButton_COLLAPSE,    SIGNAL(clicked()), treeView_TARGET, SLOT(collapseAll()));
 
     menu = new Menu();
 
@@ -670,7 +672,7 @@ void DownloadQueue::slotHeaderMenu(const QPoint&){
 }
 
 void DownloadQueue::slotUpdateStats(quint64 files, quint64 size){
-    if (size < 0)
+    if (static_cast<qint64>(size) < 0)
         size = 0;
 
     if (files == size && size == 0)

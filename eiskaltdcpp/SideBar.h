@@ -30,6 +30,9 @@ public:
 
     virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+
+protected:
+    void drawBackground(QPainter*, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
 class SideBarItem

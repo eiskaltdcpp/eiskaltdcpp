@@ -341,18 +341,6 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
     child = new DownloadQueueItem(childData, droot);
     droot->appendChild(child);
 
-    QStack<QModelIndex> stack;
-    QModelIndex i= createIndexForItem(droot);
-
-    while (i.isValid()){
-        stack.push(i);
-        i = i.parent();
-    }
-
-    while (!stack.isEmpty()){
-        emit needExpand(stack.pop());
-    }
-
     total_files++;
     total_size += childData.at(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
 
