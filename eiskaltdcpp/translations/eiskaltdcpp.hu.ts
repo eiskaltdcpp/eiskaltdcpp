@@ -1530,11 +1530,11 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Menü</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
+        <translation>Tesztreszabás</translation>
     </message>
 </context>
 <context>
@@ -2551,15 +2551,15 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Search Alternates</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternatívák keresése</translation>
     </message>
     <message>
         <source>Transfer View</source>
-        <translation type="unfinished"></translation>
+        <translation>Átvitelek</translation>
     </message>
     <message>
         <source>You cannot search alternates for uploads!</source>
-        <translation type="unfinished"></translation>
+        <translation>Feltöltésekhez nem kereshető alternatíva!</translation>
     </message>
 </context>
 <context>
@@ -3827,7 +3827,7 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
     </message>
     <message>
         <source>Compressed transfer</source>
-        <translation type="unfinished"></translation>
+        <translation>Tömörített átvitel</translation>
     </message>
 </context>
 <context>
