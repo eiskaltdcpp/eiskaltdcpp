@@ -27,14 +27,14 @@
 * $ sudo apt-get install php5-cli
 *
 * Добавьте псевдонимы (команды в чате):
-* /alias p::/sh  /usr/share/eiskaltdcpp/commands.ru_RU.UTF-8.php
-* /alias u::/sh  /usr/share/eiskaltdcpp/commands.ru_RU.UTF-8.php uptime
-* /alias b::/sh  /usr/share/eiskaltdcpp/commands.ru_RU.UTF-8.php black
-* /alias r::/sh  /usr/share/eiskaltdcpp/commands.ru_RU.UTF-8.php ratio
-* /alias t::/sh  /usr/share/eiskaltdcpp/commands.ru_RU.UTF-8.php torrent
-* /alias ps::/sh /usr/share/eiskaltdcpp/commands.ru_RU.UTF-8.php process
-* /alias pn::/sh /usr/share/eiskaltdcpp/commands.ru_RU.UTF-8.php ping
-* /alias ip::/sh /usr/share/eiskaltdcpp/commands.ru_RU.UTF-8.php ip
+* /alias p::/sh  /usr/share/eiskaltdcpp/examples/commands.ru_RU.UTF-8.php
+* /alias u::/sh  /usr/share/eiskaltdcpp/examples/commands.ru_RU.UTF-8.php uptime
+* /alias b::/sh  /usr/share/eiskaltdcpp/examples/commands.ru_RU.UTF-8.php black
+* /alias r::/sh  /usr/share/eiskaltdcpp/examples/commands.ru_RU.UTF-8.php ratio
+* /alias t::/sh  /usr/share/eiskaltdcpp/examples/commands.ru_RU.UTF-8.php torrent
+* /alias ps::/sh /usr/share/eiskaltdcpp/examples/commands.ru_RU.UTF-8.php process
+* /alias pn::/sh /usr/share/eiskaltdcpp/examples/commands.ru_RU.UTF-8.php ping
+* /alias ip::/sh /usr/share/eiskaltdcpp/examples/commands.ru_RU.UTF-8.php ip
 *
 * Теперь в чате будут доступны команды:
 * /p  - то что играет в rhythmbox или в totem
