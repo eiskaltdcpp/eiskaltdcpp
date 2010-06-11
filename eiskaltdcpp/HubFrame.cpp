@@ -1755,9 +1755,13 @@ void HubFrame::newMsg(VarMap map){
     WulforUtil::getInstance()->textToHtml(nick, true);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
-    output  = time +
-              QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
-              .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
+
+    output  += time;
+    if (WBGET(WB_SHOW_IP_IN_CHAT))
+        output  += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["I4"].toString() + "]</font>";
+
+    output  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
+               .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
     output  += message;
 
     addOutput(output);
@@ -1796,10 +1800,13 @@ void HubFrame::newPm(VarMap map){
     WulforUtil::getInstance()->textToHtml(nick, true);
 
     message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
-    full_message  = time +
-                    QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
-                    .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
-    full_message += message;
+    full_message  += time;
+    if (WBGET(WB_SHOW_IP_IN_CHAT))
+        full_message += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["I4"].toString() + "]</font>";
+
+    full_message  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
+                     .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
+    full_message  += message;
 
     WulforUtil::getInstance()->textToHtml(full_message, false);
 
@@ -2966,6 +2973,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
 
     map["CLR"] = color;
     map["3RD"] = thirdPerson;
+    map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(user).getIp());
 
     typedef Func1<HubFrame, VarMap> FUNC;
     FUNC *func = new FUNC(this, &HubFrame::newMsg, map);

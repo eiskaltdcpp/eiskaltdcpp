@@ -75,7 +75,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_FTRANSFERS_FILES_STATE,"");
         strmap.insert(WS_FTRANSFERS_USERS_STATE,"");
         strmap.insert(WS_FAV_HUBS_STATE,        "");
-        strmap.insert(WS_ADLS_STATE,        "");
+        strmap.insert(WS_ADLS_STATE,            "");
         strmap.insert(WS_APP_THEME,             "");
         strmap.insert(WS_APP_FONT,              "");
         strmap.insert(WS_APP_ICONTHEME,         "default");
@@ -115,6 +115,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_IPFILTER_ENABLED,      static_cast<int>(false));
         intmap.insert(WB_TRAY_ENABLED,          static_cast<int>(true));
         intmap.insert(WB_EXIT_CONFIRM,          static_cast<int>(false));
+        intmap.insert(WB_SHOW_IP_IN_CHAT,       static_cast<int>(false));
         intmap.insert(WB_SHOW_HIDDEN_USERS,     static_cast<int>(false));
         intmap.insert(WB_SHOW_JOINS,            static_cast<int>(false));
         intmap.insert(WB_NOTIFY_ENABLED,        static_cast<int>(true));

@@ -142,6 +142,7 @@ void SettingsGUI::init(){
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
         checkBox_JOINSFAV->setChecked(WBGET(WB_CHAT_SHOW_JOINS_FAV));
         checkBox_CHATHIDDEN->setChecked(WBGET(WB_SHOW_HIDDEN_USERS));
+        checkBox_CHAT_SHOW_IP->setChecked(WBGET(WB_SHOW_IP_IN_CHAT));
         checkBox_IGNOREPMHUB->setChecked(BOOLSETTING(IGNORE_HUB_PMS));
         checkBox_IGNOREPMBOT->setChecked(BOOLSETTING(IGNORE_BOT_PMS));
         checkBox_REDIRECTPMBOT->setChecked(WBGET(WB_CHAT_REDIRECT_BOT_PMS));
@@ -270,6 +271,7 @@ void SettingsGUI::ok(){
         WISET(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());
 
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());
+        WBSET(WB_SHOW_IP_IN_CHAT, checkBox_CHAT_SHOW_IP->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS_FAV, checkBox_JOINSFAV->isChecked());
         WBSET(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());

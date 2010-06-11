@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>462</width>
-    <height>391</height>
+    <height>408</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -238,6 +238,13 @@ from other words by spaces.</string>
         <widget class="QCheckBox" name="checkBox_CHATHIDDEN">
          <property name="text">
           <string>Show hidden users</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_CHAT_SHOW_IP">
+         <property name="text">
+          <string>Show ip-addresses of users in chat</string>
          </property>
         </widget>
        </item>

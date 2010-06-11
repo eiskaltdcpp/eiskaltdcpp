@@ -89,6 +89,7 @@ const char * const WB_ANTISPAM_AS_FILTER      = "antispam-as-filter";
 const char * const WB_IPFILTER_ENABLED        = "ipfilter-enabled";
 const char * const WB_TRAY_ENABLED            = "systemtray-enabled";
 const char * const WB_EXIT_CONFIRM            = "exit-confirm";
+const char * const WB_SHOW_IP_IN_CHAT         = "show-ip-in-chat";
 const char * const WB_SHOW_HIDDEN_USERS       = "show-hidden-users";
 const char * const WB_SHOW_JOINS              = "show-joins";
 const char * const WB_LAST_STATUS             = "last-status";
