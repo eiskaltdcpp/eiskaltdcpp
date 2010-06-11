@@ -701,7 +701,7 @@ void MainWindow::initActions(){
         connect(findInWidget, SIGNAL(triggered()), this, SLOT(slotFind()));
 
         chatDisable = new QAction("", this);
-        hubsFavoriteHubs->setObjectName("hubsFavoriteHubs");
+        chatDisable->setObjectName("chatDisable");
         chatDisable->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
         connect(chatDisable, SIGNAL(triggered()), this, SLOT(slotChatDisable()));
 
@@ -1613,6 +1613,7 @@ void MainWindow::toggleMainMenu(bool showMenu){
     else {
         if (!compactMenus && fBar){
             compactMenus = new QAction(tr("Menu"), this);
+            compactMenus->setObjectName("compactMenus");
             compactMenus->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDIT));
 
             QMenu *m = new QMenu(this);

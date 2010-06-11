@@ -28,7 +28,7 @@ ActionCustomizer::ActionCustomizer(const QList<QAction*> &available, const QList
         if (act->isSeparator())
             item->setText(tr("-- Separator --"));
 
-        enabled_items.insert(item, act);
+        avail_items.insert(item, act);
     }
 
     connect(pushButton_DOWN,    SIGNAL(clicked()), this, SLOT(moveDown()));
