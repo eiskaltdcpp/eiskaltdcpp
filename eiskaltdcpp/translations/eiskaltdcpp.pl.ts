@@ -13,9 +13,9 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished">Zastosowanie:
+        <translation>Zastosowanie:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Кlucz&gt;
+  eiskaltdcpp &lt;opcje&gt;
 EiskaltDC++ - program dla systemów UNIX-like, dla protokołu Direct Connect i ADC.
 
 Opcje:
@@ -86,17 +86,17 @@ Opcje:
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Dialog</translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="40"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="47"/>
         <source>Stop</source>
-        <translation type="unfinished">Stop</translation>
+        <translation>Stop</translation>
     </message>
 </context>
 <context>
@@ -1455,12 +1455,12 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1033"/>
         <source>Scripts Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Menadżer skryptów</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1035"/>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Konsola skryptów</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1038"/>
@@ -1544,7 +1544,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1616"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1684"/>
@@ -1554,7 +1554,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../MainWindow.cpp" line="2094"/>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostosuj</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2155"/>
@@ -2113,7 +2113,7 @@ Keys:
   -v, --version	 Show version string</source>
         <translation type="obsolete">Zastosowanie:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Кlucz&gt;
+  eiskaltdcpp &lt;opcje&gt;
 EiskaltDC++ - program dla systemów UNIX-like, dla protokołu Direct Connect i ADC.
 
 Opcje:
@@ -2126,7 +2126,7 @@ Opcje:
     <message>
         <location filename="../scriptengine/ScriptConsole.cpp" line="11"/>
         <source>Script Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Konsola skryptów</translation>
     </message>
 </context>
 <context>
@@ -2134,7 +2134,7 @@ Opcje:
     <message>
         <location filename="../ScriptManagerDialog.cpp" line="29"/>
         <source>Script Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Menadżer skryptów</translation>
     </message>
 </context>
 <context>
@@ -3064,12 +3064,12 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../TransferView.cpp" line="409"/>
         <source>Transfer View</source>
-        <translation type="unfinished"></translation>
+        <translation>Widok transferów</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="409"/>
         <source>You cannot search alternates for uploads!</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie możesz wyszukiwać alternatyw dla pików wysyłanych!</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="510"/>
@@ -3172,7 +3172,7 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../TransferView.cpp" line="37"/>
         <source>Search Alternates</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukaj alternatywy</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="40"/>
@@ -3504,12 +3504,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
         <source>Expand all</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozwiń wszystko</translation>
     </message>
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="54"/>
         <source>Collapse all</source>
-        <translation type="unfinished"></translation>
+        <translation>Zwiń wszystko</translation>
     </message>
 </context>
 <context>
@@ -4033,7 +4033,7 @@ w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Dialog</translation>
+        <translation>Dialog</translation>
     </message>
 </context>
 <context>
@@ -4680,7 +4680,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="816"/>
         <source>Compressed transfer</source>
-        <translation type="unfinished"></translation>
+        <translation>Transfer skompresowany</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="855"/>
@@ -4812,7 +4812,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="247"/>
         <source>Show ip-addresses of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż adres IP użytkowników na chacie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="268"/>
@@ -5751,57 +5751,57 @@ the granted slot will not be closed.</source>
         <location filename="../WulforUtil.cpp" line="733"/>
         <location filename="../WulforUtil.cpp" line="747"/>
         <source>%1 B</source>
-        <translation type="unfinished">%1 B</translation>
+        <translation>%1 B</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="735"/>
         <source>%1 KiB</source>
-        <translation type="unfinished">%1 KiB</translation>
+        <translation>%1 KiB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="737"/>
         <source>%1 MiB</source>
-        <translation type="unfinished">%1 МiB</translation>
+        <translation>%1 МiB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="739"/>
         <source>%1 GiB</source>
-        <translation type="unfinished">%1 GiB</translation>
+        <translation>%1 GiB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="741"/>
         <source>%1 TiB</source>
-        <translation type="unfinished">%1 TiB</translation>
+        <translation>%1 TiB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="743"/>
         <source>%1 PiB</source>
-        <translation type="unfinished">%1 PiB</translation>
+        <translation>%1 PiB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="749"/>
         <source>%1 KB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 KB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="751"/>
         <source>%1 MB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 MB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="753"/>
         <source>%1 GB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 GB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="755"/>
         <source>%1 TB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 TB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="757"/>
         <source>%1 PB</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 PB</translation>
     </message>
     <message>
         <location filename="../WulforUtil.cpp" line="823"/>
