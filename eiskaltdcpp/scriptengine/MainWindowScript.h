@@ -26,10 +26,13 @@ public:
 public slots:
     bool addToolButton(const QString &name, const QString &title, const QIcon &icon);
     bool remToolButton(const QString &name);
+    bool addMenu(QMenu *menu);
+    bool remMenu(QMenu *menu);
 
 private:
     QScriptEngine *engine;
     QMap<QString, QAction*> actions;
+    QMap<QMenu*, QAction*> menus;
 };
 
 #endif // MAINWINDOWSCRIPT_H

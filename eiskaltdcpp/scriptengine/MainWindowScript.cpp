@@ -14,7 +14,7 @@ MainWindowScript::~MainWindowScript(){
 
 }
 
-bool MainWindowScript::addToolButton(const QString &name, const QString &title, const QIcon &icon){
+bool MainWindowScript::addToolButton(const QString &name, const QString &title, const QIcon &icon) {
     QScriptValue mwToolBar = engine->globalObject().property("MainWindow").property("ToolBar");
 
     if(mwToolBar.isUndefined()){
@@ -40,7 +40,7 @@ bool MainWindowScript::addToolButton(const QString &name, const QString &title, 
     return true;
 }
 
-bool MainWindowScript::remToolButton(const QString &name){
+bool MainWindowScript::remToolButton(const QString &name) {
     QScriptValue mwToolBar = engine->globalObject().property("MainWindow").property("ToolBar");
 
     if(mwToolBar.isUndefined()){
@@ -56,10 +56,48 @@ bool MainWindowScript::remToolButton(const QString &name){
 
     QAction *act = actions.value(name);
 
-    QScriptValue act_val();
+    QScriptValue act_val = engine->undefinedValue();
     mwToolBar.setProperty(name, act_val);
 
     MainWindow::getInstance()->remActionFromToolBar(act);
+    actions.remove(name);
+
+    act->deleteLater();
+
+    return true;
+}
+
+bool MainWindowScript::addMenu(QMenu *menu) {
+    if (!menu || menus.contains(menu) || menu->title().isEmpty())
+        return false;
+
+    QMenuBar *menuBar = MainWindow::getInstance()->menuBar();
+    QAction *act = menuBar->addMenu(menu);
+
+    MainWindow::getInstance()->toggleMainMenu(menuBar->isVisible());//update menus
+
+    menus.insert(menu, act);
+
+    QScriptValue menu_val = engine->newQObject(menu);
+    engine->globalObject().property("MainWindow").property("MenuBar").setProperty(menu->title(), menu_val);
+
+    return true;
+}
+
+bool MainWindowScript::remMenu(QMenu *menu) {
+    if (!(menu && menus.contains(menu)))
+        return false;
+
+    QMenuBar *menuBar = MainWindow::getInstance()->menuBar();
+    menuBar->removeAction(menus[menu]);
+
+    menus.remove(menu);
+
+    menu->deleteLater();
+
+    engine->globalObject().property("MainWindow").property("MenuBar").setProperty(menu->title(), engine->undefinedValue());
+
+    MainWindow::getInstance()->toggleMainMenu(menuBar->isVisible());//update menus
 
     return true;
 }

@@ -155,15 +155,15 @@ public:
     const QPixmap &getPixmap();
     ArenaWidget::Role role() const { return ArenaWidget::Search; }
 
-    void searchAlternates(const QString &);
-    void searchFile(const QString &);
-    void fastSearch(const QString &, bool);
-
     void CTRL_F_pressed() { slotFilter(); }
 
     bool isFindFrameActivated();
 
-public slots:
+public Q_SLOTS:
+    void searchAlternates(const QString &);
+    void searchFile(const QString &);
+    void fastSearch(const QString &, bool);
+
     void slotFilter();
 
 protected:

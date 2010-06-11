@@ -129,6 +129,7 @@ friend class dcpp::Singleton<MainWindow>;
         typedef QMap<ArenaWidget*, QWidget*> ArenaWidgetMap;
 
         Q_PROPERTY (QObject* ToolBar READ getToolBar);
+        Q_PROPERTY (QMenuBar* MenuBar READ menuBar);
 
         void beginExit();
 
@@ -187,6 +188,9 @@ friend class dcpp::Singleton<MainWindow>;
         void addActionOnToolBar(QAction*);
         /** */
         void remActionFromToolBar(QAction*);
+
+        /** */
+        void toggleMainMenu(bool);
 
         void slotChatClear();
 
@@ -279,7 +283,6 @@ friend class dcpp::Singleton<MainWindow>;
         void initHotkeys();
 
         void toggleSingletonWidget(ArenaWidget *a);
-        void toggleMainMenu(bool);
 
         void updateStatus(QMap<QString,QString>);
 #ifdef FREE_SPACE_BAR_C

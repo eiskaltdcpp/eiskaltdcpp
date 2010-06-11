@@ -1611,10 +1611,16 @@ void MainWindow::toggleMainMenu(bool showMenu){
             fBar->removeAction(compactMenus);
     }
     else {
-        if (!compactMenus && fBar){
-            compactMenus = new QAction(tr("Menu"), this);
-            compactMenus->setObjectName("compactMenus");
-            compactMenus->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDIT));
+        if (fBar){
+            if (!compactMenus){
+                compactMenus = new QAction(tr("Menu"), this);
+                compactMenus->setObjectName("compactMenus");
+                compactMenus->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDIT));
+            }
+            else {
+                compactMenus->menu()->deleteLater();
+                compactMenus->setMenu(NULL);
+            }
 
             QMenu *m = new QMenu(this);
 
