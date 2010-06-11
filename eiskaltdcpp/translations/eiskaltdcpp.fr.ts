@@ -2984,6 +2984,14 @@ p, li { white-space: pre-wrap; }
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
+    <message>
+        <source>Expand all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse all</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
@@ -4094,6 +4102,10 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
     <message>
         <source>Fonts</source>
         <translation>Polices</translation>
+    </message>
+    <message>
+        <source>Show ip-addresses of users in chat</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

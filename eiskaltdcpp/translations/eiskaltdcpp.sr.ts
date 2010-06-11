@@ -2691,6 +2691,14 @@ p, li { white-space: pre-wrap; }
         <source>Form</source>
         <translation>Oblik</translation>
     </message>
+    <message>
+        <source>Expand all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse all</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
@@ -3830,6 +3838,10 @@ od drugih reči sa razmakom.</translation>
     <message>
         <source>Do not change focus on new private message</source>
         <translation>Ne menjaj fokus na novu privatnu poruku</translation>
+    </message>
+    <message>
+        <source>Show ip-addresses of users in chat</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

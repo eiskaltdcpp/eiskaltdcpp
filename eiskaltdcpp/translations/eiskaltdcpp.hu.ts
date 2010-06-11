@@ -2804,6 +2804,14 @@ p, li { white-space: pre-wrap; }
         <source>Form</source>
         <translation>Letöltési sor</translation>
     </message>
+    <message>
+        <source>Expand all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collapse all</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
@@ -3984,6 +3992,10 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     <message>
         <source>Fonts</source>
         <translation>Betűtípusok</translation>
+    </message>
+    <message>
+        <source>Show ip-addresses of users in chat</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
