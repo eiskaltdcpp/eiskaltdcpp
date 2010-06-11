@@ -51,6 +51,8 @@ class WulforUtil :
 friend class dcpp::Singleton<WulforUtil>;
 
 public:
+    Q_ENUMS (Icons)
+
     enum Icons {
         eiAWAY = 0,
         eiBALL_GREEN,
@@ -128,9 +130,7 @@ public:
     bool loadIcons();
 
     QPixmap *getUserIcon(const UserPtr&, bool, bool, const QString&);
-    const QPixmap &getPixmap(Icons);
 
-    QString getNicks(const QString&);
     QString getNicks(const CID &cid);
 
     const QString &getIconsPath() { return app_icons_path; }
@@ -144,8 +144,6 @@ public:
     QString qtEnc2DcEnc(QString);
     QString dcEnc2QtEnc(QString);
     QStringList encodings();
-
-    bool openUrl(const QString&);
     
     bool getUserCommandParams(QString, dcpp::StringMap &);
 
@@ -170,6 +168,11 @@ public:
     std::string getInternetIP() const { return _tq(internetIP); }
 
     QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* = 0);
+
+public Q_SLOTS:
+    const QPixmap &getPixmap(Icons);
+    QString getNicks(const QString&);
+    bool openUrl(const QString&);
 
 private Q_SLOTS:
     void slotHttpDone(bool);
@@ -212,5 +215,8 @@ private:
     QTimer *http_timer;
     QString internetIP;
 };
+
+Q_DECLARE_METATYPE(WulforUtil*);
+Q_DECLARE_METATYPE(WulforUtil::Icons);
 
 #endif // WULFORUTIL_H

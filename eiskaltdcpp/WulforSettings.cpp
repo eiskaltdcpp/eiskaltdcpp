@@ -298,25 +298,25 @@ void WulforSettings::loadTheme(){
     }
 }
 
-QString WulforSettings::getStr(QString key) throw (WulforSettings::BadKey){
+QString WulforSettings::getStr(const QString & key) throw (WulforSettings::BadKey){
     if (!strmap.contains(key))
         throw BadKey(key);
 
     return strmap.value(key);
 }
 
-int WulforSettings::getInt(QString key) throw (WulforSettings::BadKey){
+int WulforSettings::getInt(const QString & key) throw (WulforSettings::BadKey){
     if (!intmap.contains(key))
        throw BadKey(key);
 
     return intmap.value(key);
 }
 
-bool WulforSettings::getBool(QString key) throw (WulforSettings::BadKey){
+bool WulforSettings::getBool(const QString & key) throw (WulforSettings::BadKey){
     return (static_cast<bool>(getInt(key)));
 }
 
-void WulforSettings::setStr(QString key, QString value) throw (WulforSettings::BadKey){
+void WulforSettings::setStr(const QString & key, const QString &value) throw (WulforSettings::BadKey){
     if (!strmap.contains(key))
         throw BadKey(key);
 
@@ -325,7 +325,7 @@ void WulforSettings::setStr(QString key, QString value) throw (WulforSettings::B
     emit strValueChanged(key, value);
 }
 
-void WulforSettings::setInt(QString key, int value) throw (WulforSettings::BadKey){
+void WulforSettings::setInt(const QString & key, int value) throw (WulforSettings::BadKey){
     if (!intmap.contains(key))
        throw BadKey(key);
 
@@ -334,7 +334,7 @@ void WulforSettings::setInt(QString key, int value) throw (WulforSettings::BadKe
     emit intValueChanged(key, value);
 }
 
-void WulforSettings::setBool(QString key, bool value) throw (WulforSettings::BadKey){
+void WulforSettings::setBool(const QString & key, bool value) throw (WulforSettings::BadKey){
     setInt(key, static_cast<int>(value));
 }
 

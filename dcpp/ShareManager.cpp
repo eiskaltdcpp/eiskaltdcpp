@@ -764,7 +764,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
         {
             if (Wildcard::patternMatch(aName + name , l_skip_list, '|'))
             {
-                LogManager::getInstance()->message(str(F_("User has choosen not to share file: %1%%2% (Size: %3% B)")
+                LogManager::getInstance()->message(str(F_("User has chosen not to share file: %1%%2% (Size: %3% B)")
                 % aName % name % Util::toString(i->getSize())));
                 continue;
             }
@@ -785,7 +785,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
                 ) {
                 if (!BOOLSETTING(SHARE_TEMP_FILES) &&
                     (Util::stricmp(l_ext.c_str(), ".dctmp") == 0)) {
-                    LogManager::getInstance()->message(str(F_("User has choosen not to share temp file: %1%%2% (Size: %3% B)")
+                    LogManager::getInstance()->message(str(F_("User has chosen not to share temp file: %1%%2% (Size: %3% B)")
                     % aName % name % Util::toString(i->getSize())));
                     continue;
                 }

@@ -170,7 +170,8 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
 void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
     static QStringList staticMembers = QStringList() << "AntiSpam"          << "DownloadQueue"  << "FavoriteHubs"
                                                      << "Notification"      << "HubManager"     << "ClientManagerScript"
-                                                     << "LogManagerScript"  << "FavoriteUsers"  << "HashManagerScript";
+                                                     << "LogManagerScript"  << "FavoriteUsers"  << "HashManagerScript"
+                                                     << "WulforUtil"        << "WulforSettings";
 
     foreach( QString cl, staticMembers ) {
         QScriptValue ct = engine.newFunction(staticMemberConstructor);
@@ -264,6 +265,11 @@ static QScriptValue getMagnets(QScriptContext *ctx, QScriptEngine *engine){
     return array;
 }
 
+QScriptValue wulforUtilQObjectConstructor(QScriptContext *context, QScriptEngine *engine){
+    Q_UNUSED(context);
+    return engine->newQObject(WulforUtil::getInstance());
+}
+
 static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngine *engine){
     QScriptValue self = context->callee();
     const QString className = self.property("className").toString();
@@ -339,6 +345,14 @@ static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngi
 
         obj = qobject_cast<QObject*>(LogManagerScript::getInstance());
     }
+    else if (className == "WulforUtil"){
+        QScriptValue ctor = engine->newFunction(wulforUtilQObjectConstructor);
+        QScriptValue metaObject = engine->newQMetaObject(&WulforUtil::staticMetaObject, ctor);
+
+        return metaObject;
+    }
+    else if (className == "WulforSettings")
+        obj = qobject_cast<QObject*>(WulforSettings::getInstance());
 
     return engine->newQObject(obj);
 }
