@@ -243,6 +243,10 @@ from other words by spaces.</string>
        </item>
        <item>
         <widget class="QCheckBox" name="checkBox_CHAT_SHOW_IP">
+         <property name="toolTip">
+          <string>Depending on hub configuration: information about 
+them is usually available only to operators</string>
+         </property>
          <property name="text">
           <string>Show ip-addresses of users in chat</string>
          </property>

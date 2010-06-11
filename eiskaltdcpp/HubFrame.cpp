@@ -1757,7 +1757,7 @@ void HubFrame::newMsg(VarMap map){
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
 
     output  += time;
-    if (WBGET(WB_SHOW_IP_IN_CHAT))
+    if (WBGET(WB_SHOW_IP_IN_CHAT) && !map["I4"].toString().isEmpty())
         output  += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["I4"].toString() + "]</font>";
 
     output  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
@@ -1801,7 +1801,7 @@ void HubFrame::newPm(VarMap map){
 
     message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
     full_message  += time;
-    if (WBGET(WB_SHOW_IP_IN_CHAT))
+    if (WBGET(WB_SHOW_IP_IN_CHAT) && !map["I4"].toString().isEmpty())
         full_message += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["I4"].toString() + "]</font>";
 
     full_message  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
