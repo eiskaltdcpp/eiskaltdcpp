@@ -1793,7 +1793,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1034"/>
         <source>Copy window title</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать заголовок окна</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1050"/>
@@ -3502,12 +3502,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
         <source>Expand all</source>
-        <translation type="unfinished"></translation>
+        <translation>Раскрыть все</translation>
     </message>
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="54"/>
         <source>Collapse all</source>
-        <translation type="unfinished"></translation>
+        <translation>Свернуть все</translation>
     </message>
 </context>
 <context>
@@ -4877,12 +4877,13 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="247"/>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Зависит от настроек хаба: информация о них 
+обычно доступна только операторам</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="251"/>
         <source>Show ip-addresses of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать ip-адреса пользователей в чате</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="272"/>
