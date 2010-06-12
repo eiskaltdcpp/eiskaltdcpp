@@ -175,16 +175,26 @@ void Notification::setToolTip(const QString &DSPEED, const QString &USPEED, cons
     if (!WBGET(WB_TRAY_ENABLED) || !tray)
         return;
 
+#ifdef Q_WS_X11
     QString out = tr("<b>Speed</b><br/>"
                      "Download: <font_color=\"green\">%1</font> "
                      "Upload: <font_color=\"red\">%2</font><br/>"
                      "<b>Statistics</b><br/>"
                      "Downloaded: <font_color=\"green\">%3</font> "
                      "Uploaded: <font_color=\"red\">%4</font>")
-                  .arg(DSPEED).arg(USPEED).arg(DOWN).arg(UP);
+            .arg(DSPEED).arg(USPEED).arg(DOWN).arg(UP);
 
     out.replace(" ","&nbsp;");
     out.replace("_"," ");
+#else
+    QString out = tr("Speed\n"
+                     "Download: %1 "
+                     "Upload: %2\n"
+                     "Statistics\n"
+                     "Downloaded: %3 "
+                     "Uploaded: %4")
+            .arg(DSPEED).arg(USPEED).arg(DOWN).arg(UP);
+#endif
 
     tray->setToolTip(out);
 }
