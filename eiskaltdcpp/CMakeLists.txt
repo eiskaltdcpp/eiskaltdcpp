@@ -181,22 +181,27 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIActionCustomizer.ui
             )
 
-option(LANGUAGES "Using translations")
+option (LANGUAGES "Using translations")
 
-if (NOT DEFINED linguas)
-  set (LANGUAGES be en fr hu pl ru sr uk CACHE STRING "Using translations" FORCE)
-else (NOT DEFINED linguas)
-    if (NOT linguas)
-    set (LANGUAGES "")
-    message (STATUS ${LANGUAGES})
-    else (NOT linguas)
-    string(REGEX MATCHALL [a-zA-Z_]+
-         linguas1 ${linguas})
-    message(STATUS ${linguas1})
-    set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
-    endif(NOT linguas)
-endif (NOT DEFINED linguas)
-
+if (NOT linguas)
+  set (LANGUAGES
+  be
+  en
+  fr
+  hu
+  pl
+  ru
+  sr
+  uk
+  CACHE STRING "Using translations" FORCE)
+elseif (linguas STREQUAL null)
+        set (LANGUAGES "" CACHE STRING "Using translations" FORCE)
+else (NOT linguas)
+        string(REGEX MATCHALL [a-zA-Z_]+
+                    linguas1 ${linguas})
+        set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
+endif (NOT linguas)
+message (STATUS ${LANGUAGES})
 if (USE_ASPELL)
   set (SRCS ${SRCS} SpellCheck.cpp)
   set (MOC_HDRS ${MOC_HDRS} SpellCheck.h)
