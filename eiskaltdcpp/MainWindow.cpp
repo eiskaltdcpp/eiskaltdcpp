@@ -862,9 +862,6 @@ void MainWindow::initMenuBar(){
 #ifdef Q_WS_MAC
     setMenuBar(new QMenuBar());
     menuBar()->setParent(NULL);
-
-    setUnifiedTitleAndToolBarOnMac(true);
-
     connect(this, SIGNAL(destroyed()), menuBar(), SLOT(deleteLater()));
 #endif
 
