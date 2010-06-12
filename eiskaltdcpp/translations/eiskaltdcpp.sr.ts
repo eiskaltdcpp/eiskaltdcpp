@@ -1455,6 +1455,13 @@ Molim proverite podešavanja vaše veze</translation>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
         <translation>&lt;b&gt;Brzina&lt;/b&gt;&lt;br/&gt;Preuzimanje: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Otpremanje: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistike&lt;/b&gt;&lt;br/&gt;Preuzeto: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Otpremljeno: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</translation>
     </message>
+    <message>
+        <source>Speed
+Download: %1 Upload: %2
+Statistics
+Downloaded: %3 Uploaded: %4</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PMWindow</name>
