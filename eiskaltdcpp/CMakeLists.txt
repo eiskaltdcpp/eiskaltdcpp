@@ -182,9 +182,7 @@ set (UI_FORMS ui/UIAbout.ui
             )
 
 option (LANGUAGES "Using translations")
-
-if (NOT linguas)
-  set (LANGUAGES
+set (AllLanguages
   be
   en
   fr
@@ -193,15 +191,22 @@ if (NOT linguas)
   ru
   sr
   uk
-  CACHE STRING "Using translations" FORCE)
-elseif (linguas STREQUAL null)
-        set (LANGUAGES "" CACHE STRING "Using translations" FORCE)
-else (NOT linguas)
-        string(REGEX MATCHALL [a-zA-Z_]+
-                    linguas1 ${linguas})
-        set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
-endif (NOT linguas)
+  )
+if (NOT DEFINED linguas)
+  set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
+else (NOT DEFINED linguas)
+  if (NOT linguas)
+    set (LANGUAGES "" CACHE STRING "Using translations" FORCE)
+  elseif (linguas STREQUAL *)
+        set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
+  else (NOT linguas)
+    string(REGEX MATCHALL [a-zA-Z_]+
+           linguas1 ${linguas})
+    set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
+  endif (NOT linguas)
+endif (NOT DEFINED linguas)
 message (STATUS ${LANGUAGES})
+
 if (USE_ASPELL)
   set (SRCS ${SRCS} SpellCheck.cpp)
   set (MOC_HDRS ${MOC_HDRS} SpellCheck.h)
