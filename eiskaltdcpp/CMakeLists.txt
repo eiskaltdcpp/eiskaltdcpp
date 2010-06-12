@@ -23,7 +23,7 @@ set (HDRS   ArenaWidgetContainer.h
             PoolAlloc.h
             Version.h)
 set (SRCS
-	    ActionCustomizer.cpp
+        ActionCustomizer.cpp
             ADLS.cpp
             ADLSModel.cpp
             Antispam.cpp
@@ -85,12 +85,12 @@ set (SRCS
             WulforUtil.cpp
             ChatEdit.cpp)
 set (MOC_HDRS
-	    ActionCustomizer.h
+        ActionCustomizer.h
             ADLS.h
             ADLSModel.h
             Antispam.h
             AntiSpamFrame.h
-	    ArenaWidget.h
+        ArenaWidget.h
             CustomFontModel.h
             DownloadQueue.h
             DownloadQueueModel.h
@@ -176,21 +176,26 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UITransferView.ui
             ui/UISettingsUC.ui
             ui/UIUserCommands.ui
-	    ui/UIScriptManager.ui
-	    ui/UIDialogScriptConsole.ui
-	    ui/UIActionCustomizer.ui
+        ui/UIScriptManager.ui
+        ui/UIDialogScriptConsole.ui
+        ui/UIActionCustomizer.ui
             )
 
 option(LANGUAGES "Using translations")
 
-if (NOT linguas)
+if (NOT DEFINED linguas)
   set (LANGUAGES be en fr hu pl ru sr uk CACHE STRING "Using translations" FORCE)
-else (NOT linguas)
-  string(REGEX MATCHALL [a-zA-Z]+
+else (NOT DEFINED linguas)
+    if (NOT linguas)
+    set (LANGUAGES "")
+    message (STATUS ${LANGUAGES})
+    else (NOT linguas)
+    string(REGEX MATCHALL [a-zA-Z_]+
          linguas1 ${linguas})
-  #message(STATUS ${linguas1})
-  set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
-endif (NOT linguas)
+    message(STATUS ${linguas1})
+    set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
+    endif(NOT linguas)
+endif (NOT DEFINED linguas)
 
 if (USE_ASPELL)
   set (SRCS ${SRCS} SpellCheck.cpp)
@@ -199,23 +204,23 @@ endif (USE_ASPELL)
 
 if (USE_JS)
   set (SRCS ${SRCS}
-	    scriptengine/ClientManagerScript.cpp
-	    scriptengine/HashManagerScript.cpp
-	    scriptengine/LogManagerScript.cpp
-	    scriptengine/MainWindowScript.cpp
-	    scriptengine/ScriptConsole.cpp
-	    scriptengine/ScriptEngine.cpp
-	    scriptengine/ScriptConsole.cpp
-	    ScriptManagerDialog.cpp)
+        scriptengine/ClientManagerScript.cpp
+        scriptengine/HashManagerScript.cpp
+        scriptengine/LogManagerScript.cpp
+        scriptengine/MainWindowScript.cpp
+        scriptengine/ScriptConsole.cpp
+        scriptengine/ScriptEngine.cpp
+        scriptengine/ScriptConsole.cpp
+        ScriptManagerDialog.cpp)
   set (MOC_HDRS ${MOC_HDRS}
-		scriptengine/ClientManagerScript.h
-		scriptengine/HashManagerScript.h
-		scriptengine/LogManagerScript.h
-		scriptengine/MainWindowScript.h
-		scriptengine/ScriptConsole.h
-		scriptengine/ScriptEngine.h
-		scriptengine/ScriptConsole.h
-		ScriptManagerDialog.h)
+        scriptengine/ClientManagerScript.h
+        scriptengine/HashManagerScript.h
+        scriptengine/LogManagerScript.h
+        scriptengine/MainWindowScript.h
+        scriptengine/ScriptConsole.h
+        scriptengine/ScriptEngine.h
+        scriptengine/ScriptConsole.h
+        ScriptManagerDialog.h)
 endif (USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})
