@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# This scrip is disigned to show what is playing now in a mpris compatible media player
+# This script is designed to show what is playing now in a mpris compatible media player
 #
-# Author: Vovochka404 (vovochka13 (at) gmail.com)
+# Authors: Vovochka404 (vovochka13 (at) gmail.com), Nikoli <nikoli[at]lavabit.com>
 # License: Public Domain
 # Depends: bash, qdbus
 #
@@ -10,8 +10,8 @@
 # /me is listening to Three Days Grace - Wake Up (Three Days Grace) via Amarok
 #
 # Player support:
-# For qmmp: preference -> modules -> general -> module MPRIS
-# For vlc: preference (full view) -> interface -> interface control -> use dbus
+# For qmmp: Settings -> Plugins -> General -> MPRIS plugin
+# For vlc: Preferences (full view) -> Interface -> Control interface -> D-bus control interface
 # For audacious: Native
 # For amarok: Native
 # For dragon (KDE Dragon Player): Native
@@ -25,74 +25,69 @@
 # http://incise.org/mpris-remote.html
 
 
-PLAYERS="amarok audacious qmmp mpd xmms2 dragon vlc songbird clementine exaile";
+PLAYERS="amarok audacious qmmp mpd xmms2 dragon vlc songbird clementine exaile"
 
-CONFIG_FILE="$HOME/.eiskaltdc++/mpris_now_playing.conf";
+CONFIG_FILE="${HOME}/.config/eiskaltdc++/mpris_now_playing.conf"
 
 METADATA_CALL="/Player org.freedesktop.MediaPlayer.GetMetadata"
-PLAYER='';
+PLAYER=''
+declare -A tag
 
 # Trying to detect mpris compatible player and get info.
-
-for P in $PLAYERS; do
-	DBUS=`qdbus | grep "org.mpris.$P" | awk '{print $1}'`;
-	if [[ $DBUS && $(qdbus $DBUS $METADATA_CALL 2>/dev/null) ]]
+for P in ${PLAYERS}; do
+	DBUS="$(qdbus | grep "org.mpris.${P}" | awk '{print $1}')"
+	if [[ "${DBUS}" && $(qdbus "${DBUS}" ${METADATA_CALL} 2>/dev/null) ]]
 	then
-		METAINFO=$(qdbus $DBUS $METADATA_CALL 2>/dev/null);
-		PLAYER=$P;
-		TITLE=$(echo "$METAINFO" | sed -e '/^title: / !d' -e s/'title: '//);
-		ARTIST=$(echo "$METAINFO" | sed -e '/^artist: / !d' -e s/'artist: '//);
-		ALBUM=$(echo "$METAINFO" | sed -e '/^album: / !d' -e s/'album: '//);
-		GENRE=$(echo "$METAINFO" | sed -e '/^genre: / !d' -e s/'genre: '//);
-		LOCATION=$(echo "$METAINFO" | sed -e '/^location: file:\/\// !d' -e s/'location: file:\/\/'//); # Works only for local files.
-		break;
+		METAINFO="$(qdbus "${DBUS}" ${METADATA_CALL} 2>/dev/null)"
+		PLAYER="${P}"
+		for i in album artist genre title; do
+			tag[${i}]="$(echo "${METAINFO}"	| sed -e "/^${i}: / !d" -e "s/^${i}: //")"
+		done
+		# Works only for local files:
+		LOCATION="$(echo "${METAINFO}" | sed -e '/^location: file:\/\// !d' -e 's/location: file:\/\///')"
 	fi
 done
 
 # Some beautiful names for players
-
-case $PLAYER in
+case ${PLAYER} in
 	amarok)
-		PLAYER="Amarok";
+		PLAYER="Amarok"
 		;;
 	audacious)
-		PLAYER="Audacious2";
+		PLAYER="Audacious2"
 		;;
 	dragon)
-		PLAYER="Dragon Player";
+		PLAYER="Dragon Player"
 		;;
 	vlc)
-		PLAYER="VLC";
+		PLAYER="VLC"
 		;;
 	clementine)
-		PLAYER="Clementine";
+		PLAYER="Clementine"
 		;;
 esac
 
 # Trying to load home config
 
-if [ ! -e $CONFIG_FILE ]
+# If got no config file, let's write basic config.
+[ ! -e "${CONFIG_FILE}" ] && cat >> "${CONFIG_FILE}" << _EOF_
+#
+# This is an example config for mpris_now_playing script
+#
+if [ "\${PLAYER}" ]
 then
-# Got no config file. Let's write basic config.
-	echo "#" >> $CONFIG_FILE;
-	echo "# This is an example config for mpris_now_playing scrip" >> $CONFIG_FILE;
-	echo "#" >> $CONFIG_FILE;
-	echo "if [ \$PLAYER ]" >> $CONFIG_FILE;
-	echo "then" >> $CONFIG_FILE;
-	echo "	NOW_LISTENING_TO=\"/me is listening to \$ARTIST - \$TITLE (\$ALBUM) via \$PLAYER <magnet>\$LOCATION</magnet>\"" >> $CONFIG_FILE;
-	echo "else" >> $CONFIG_FILE;
-	echo "	NOW_LISTENING_TO=\"/me is listening to mouse clicks\"" >> $CONFIG_FILE;
-	echo "fi" >> $CONFIG_FILE;
+	NOW_LISTENING_TO="/me is listening to \${tag[artist]} - \${tag[title]} (\${tag[album]}) via \${PLAYER} <magnet>\${LOCATION}</magnet>"
+else
+	NOW_LISTENING_TO="/me is listening to mouse clicks"
 fi
+_EOF_
 
-. $CONFIG_FILE;
+. "${CONFIG_FILE}"
 
 # Let's test what we'he got
-
-if [ "$NOW_LISTENING_TO" ]
+if [ "${NOW_LISTENING_TO}" ]
 then
-	echo "$NOW_LISTENING_TO";
+	echo "${NOW_LISTENING_TO}"
 else
-	echo "/me is fool.";
+	echo "/me is..."
 fi
-

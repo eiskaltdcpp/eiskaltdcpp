@@ -13,6 +13,5 @@
 # output in eiskaltdcpp chat:
 # [10:57:03] * Ben_Vladen Audacious playing now: Rammstein - Sonne
 
-au=$(audtool2 --current-song)
-echo "/me Audacious playing now: $au"
-
+au="$(audtool2 --current-song)"
+echo "/me Audacious playing now: ${au}"

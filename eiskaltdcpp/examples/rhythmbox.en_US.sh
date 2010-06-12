@@ -13,6 +13,5 @@
 # output in eiskaltdcpp chat:
 # [10:57:01] * Ben_Vladen Rhythmbox playing now: Rammstein - Sonne
 
-rh=$(rhythmbox-client --print-playing)
-echo "/me Rhythmbox playing now: $rh"
-
+rh="$(rhythmbox-client --print-playing)"
+echo "/me Rhythmbox playing now: ${rh}"

@@ -13,6 +13,5 @@
 # output in eiskaltdcpp chat:
 # [17:45:03] * dhampire listening now Blind Guardian - The Quest For Tanelorn
 
-mpc=$(mpc --format "%artist% - %title%" | head -n 1)
-echo "/me listening now $mpc"
-
+mpc="$(mpc --format "%artist% - %title%" | head -n 1)"
+echo "/me listening now ${mpc}"

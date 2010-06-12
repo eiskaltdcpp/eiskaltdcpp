@@ -15,14 +15,13 @@
 # output in eiskaltdcpp chat:
 # [13:53:44] *  ** visual слушает Orjan Nilsen - So Long Radio
 
-export DISPLAY=:0
+export DISPLAY=":0"
 MESSAGE=""
-NOWPLAYING=`qdbus org.mpris.qmmp /Player org.freedesktop.MediaPlayer.GetMetadata`
-if [ $? = 0 ] && [ -n "$NOWPLAYING" ]; then
-ARTIST=`echo "$NOWPLAYING" | sed -ne 's/^artist: \(.*\)$/\1/p'`
-TRACK=`echo "$NOWPLAYING" | sed -ne 's/^title: \(.*\)$/\1/p'`
-MESSAGE="слушает $ARTIST - $TRACK"
+NOWPLAYING="$(qdbus org.mpris.qmmp /Player org.freedesktop.MediaPlayer.GetMetadata)"
+if [ $? = 0 ] && [ -n "${NOWPLAYING}" ]; then
+ARTIST="$(echo "${NOWPLAYING}"	| sed -ne 's/^artist: \(.*\)$/\1/p')"
+TRACK="$(echo "${NOWPLAYING}"	| sed -ne 's/^title: \(.*\)$/\1/p')"
+MESSAGE="слушает ${ARTIST} - ${TRACK}"
 fi
 
-echo -e "/me $MESSAGE"
-
+echo -e "/me ${MESSAGE}"
