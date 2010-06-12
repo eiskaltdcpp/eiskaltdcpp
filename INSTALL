@@ -48,10 +48,10 @@ Keys for cmake:
 -DLOCAL_BOOST:BOOL=1 (default: BOOL=0)
     use local boost headers
 -Dlinguas:STRING="needed translations, separator ' '" (default: NOT SET)
-    example:
+    examples:
     -Dlinguas="en ru" - installing ru and en translations
     -Dlinguas= and -Dlingaus="" - install all translations
-    -Dlinguas="null" - don't install all translations
+    -Dlinguas="null" - don't install any translation
 -DFORCE_XDG=ON/OFF (default: ON)
     use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables
     see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
