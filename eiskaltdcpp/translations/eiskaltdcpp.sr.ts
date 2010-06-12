@@ -1436,6 +1436,10 @@ Molim proverite podešavanja vaše veze</translation>
         <source>Customize</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Copy window title</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -3841,6 +3845,11 @@ od drugih reči sa razmakom.</translation>
     </message>
     <message>
         <source>Show ip-addresses of users in chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Depending on hub configuration: information about 
+them is usually available only to operators</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

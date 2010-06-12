@@ -1536,6 +1536,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Customize</source>
         <translation>Tesztreszabás</translation>
     </message>
+    <message>
+        <source>Copy window title</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -3995,6 +3999,11 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     </message>
     <message>
         <source>Show ip-addresses of users in chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Depending on hub configuration: information about 
+them is usually available only to operators</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

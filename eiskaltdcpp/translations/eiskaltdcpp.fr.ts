@@ -1600,6 +1600,10 @@ Please check your connection settings</source>
         <source>Customize</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Copy window title</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Notification</name>
@@ -4105,6 +4109,11 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
     </message>
     <message>
         <source>Show ip-addresses of users in chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Depending on hub configuration: information about 
+them is usually available only to operators</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
