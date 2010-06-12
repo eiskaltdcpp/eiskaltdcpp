@@ -2,6 +2,7 @@
 * Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
 * Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
 * Added option to display the ip-addresses of users in the chat. (Depending on hub configuration: information about them is usually available only to operators)
+* Fixed a problem with minimum width of main window in Mac OS X.
 
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.
