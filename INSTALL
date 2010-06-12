@@ -47,7 +47,7 @@ Keys for cmake:
     .
 -DLOCAL_BOOST:BOOL=1 (default: BOOL=0)
     use local boost headers
--Dlinguas:STRING="needed translations, separator ' '" (default: NOT SET)
+-Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
     examples:
     -Dlinguas="en ru" - install ru and en translations
     -Dlingaus="*"     - install all translations
