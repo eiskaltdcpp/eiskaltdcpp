@@ -12,6 +12,7 @@
 #include <QtDebug>
 #include <QTextCodec>
 #include <QMessageBox>
+#include <QClipboard>
 #include <QKeyEvent>
 #include <QFileDialog>
 #include <QProgressBar>
@@ -557,6 +558,11 @@ void MainWindow::initActions(){
         hubsFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
         connect(hubsFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteUsers()));
 
+        toolsCopyWindowTitle = new QAction("", this);
+        toolsCopyWindowTitle->setObjectName("toolsCopyWindowTitle");
+        toolsCopyWindowTitle->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
+        connect(toolsCopyWindowTitle, SIGNAL(triggered()), this, SLOT(slotToolsCopyWindowTitle()));
+
         toolsOptions = new QAction("", this);
         toolsOptions->setObjectName("toolsOptions");
         toolsOptions->setShortcut(tr("Ctrl+O"));
@@ -764,11 +770,13 @@ void MainWindow::initActions(){
                 << toolsHideLastStatus
                 << toolsHideUsersStatisctics
 #ifdef USE_JS
-                << separator5
+                << separator6
                 << toolsJS
                 << toolsJSConsole
 #endif
                 << separator4
+                << toolsCopyWindowTitle
+                << separator5
                 << toolsOptions;
 
         toolBarActions << toolsOptions
@@ -1022,6 +1030,8 @@ void MainWindow::retranslateUi(){
         toolsAwayOff->setText(tr("Off"));
 
         toolsAutoAway->setText(tr("Away when not visible"));
+
+        toolsCopyWindowTitle->setText(tr("Copy window title"));
 
         toolsOptions->setText(tr("Options"));
 
@@ -1865,6 +1875,13 @@ void MainWindow::slotHubsFavoriteUsers(){
         FavoriteUsers::newInstance();
 
     toggleSingletonWidget(FavoriteUsers::getInstance());
+}
+
+void MainWindow::slotToolsCopyWindowTitle(){
+    QString text = windowTitle();
+
+    if (!text.isEmpty())
+        QApplication::clipboard()->setText(text, QClipboard::Clipboard);
 }
 
 void MainWindow::slotToolsSettings(){

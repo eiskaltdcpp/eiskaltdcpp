@@ -222,6 +222,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsAutoAway();
         void slotToolsSearch();
         void slotToolsADLS();
+        void slotToolsCopyWindowTitle();
         void slotToolsSettings();
         void slotToolsJS();
         void slotToolsJSConsole();
@@ -360,6 +361,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsHideProgressSpace;
         QAction *toolsHideLastStatus;
         QAction *toolsHideUsersStatisctics;
+        QAction *toolsCopyWindowTitle;
         QAction *toolsOptions;
 #ifdef USE_JS
         QAction *toolsJS;
