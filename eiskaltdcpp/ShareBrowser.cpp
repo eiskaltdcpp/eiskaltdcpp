@@ -652,8 +652,8 @@ void ShareBrowser::slotLoaderFinish(){
     treeView_LPANE->resizeColumnToContents(1);*/
 
     MainWindow::getInstance()->addArenaWidget(this);
-    MainWindow::getInstance()->mapWidgetOnArena(this);
     MainWindow::getInstance()->addArenaWidgetOnToolbar(this);
+    MainWindow::getInstance()->mapWidgetOnArena(this);
 
 }
 

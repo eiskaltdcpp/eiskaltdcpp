@@ -71,6 +71,7 @@ using namespace std;
 MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
         statusLabel(NULL),
+        tBar(NULL),
         fBar(NULL),
         sBar(NULL),
         sideDock(NULL),
