@@ -12,7 +12,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished">Utilise:
+        <translation>Utilise:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Key&gt;
 EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les protocoles Direct Connect et ADC.
@@ -1594,15 +1594,15 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
+        <translation>Personnaliser</translation>
     </message>
     <message>
         <source>Copy window title</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier le titre de la fenêtre</translation>
     </message>
 </context>
 <context>
@@ -1624,7 +1624,10 @@ Please check your connection settings</source>
 Download: %1 Upload: %2
 Statistics
 Downloaded: %3 Uploaded: %4</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse
+Téléchargement: %1 Envoi: %2
+Statistiques
+Téléchargé: %3 Envoyé: %4</translation>
     </message>
 </context>
 <context>
@@ -2703,15 +2706,15 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Search Alternates</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechercher d&apos;autres sources</translation>
     </message>
     <message>
         <source>Transfer View</source>
-        <translation type="unfinished"></translation>
+        <translation>Vu des transferts</translation>
     </message>
     <message>
         <source>You cannot search alternates for uploads!</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous ne pouvez pas rechercher d&apos;autres sources pour des envois!</translation>
     </message>
 </context>
 <context>
@@ -2997,11 +3000,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Expand all</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout ouvrir</translation>
     </message>
     <message>
         <source>Collapse all</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout fermer</translation>
     </message>
 </context>
 <context>
@@ -3962,7 +3965,7 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
     </message>
     <message>
         <source>Compressed transfer</source>
-        <translation type="unfinished"></translation>
+        <translation>Transfert compressé</translation>
     </message>
 </context>
 <context>
@@ -4116,12 +4119,12 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
     </message>
     <message>
         <source>Show ip-addresses of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Montrer l&apos;adresse IP des utilisateurs dans la discussion</translation>
     </message>
     <message>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Dépend de la configuration du serveur concerné: Les informations sont généralement disponibles pour les opérateurs seulement</translation>
     </message>
 </context>
 <context>
