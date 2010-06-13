@@ -193,6 +193,7 @@ option (LANGUAGES "Using translations")
 set (AllLanguages
   be
   en
+  es
   fr
   hu
   pl

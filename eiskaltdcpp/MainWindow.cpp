@@ -2229,7 +2229,13 @@ void MainWindow::slotAboutClient(){
             tr("<br/>"
                "&nbsp;Miroslav Petrovic<br/>"
                "&nbsp;&lt;miroslav031@gmail.com&gt;<br/>"
-               "&nbsp;(for 2.0.3 and later)<br/>")
+               "&nbsp;(for 2.0.3 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>Spanish translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Gustavo Alvarez aka sL1pKn07<br/>"
+               "&nbsp;&lt;sl1pkn07@gmail.com&gt;<br/>"
+               "&nbsp;(for 2.0.4 and later)<br/>")
             );
 
     a.exec();
