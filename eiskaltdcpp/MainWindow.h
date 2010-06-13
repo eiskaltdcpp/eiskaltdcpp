@@ -59,6 +59,7 @@ class FavoriteHubs;
 class DownloadQueue;
 class ToolBar;
 class MainWindow;
+class MultiLineToolBar;
 
 extern const char * const EISKALTDCPP_VERSION;
 extern const char * const EISKALTDCPP_VERSION_SFX;
@@ -308,7 +309,7 @@ friend class dcpp::Singleton<MainWindow>;
 
         ArenaWidgetContainer *wcontainer;
 
-        ToolBar *tBar;//for tabs
+        MultiLineToolBar *tBar;
         ToolBar *fBar;//for actions
         ToolBar *sBar;//for fast search
 

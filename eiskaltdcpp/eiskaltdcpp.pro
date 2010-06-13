@@ -161,7 +161,11 @@ HEADERS = MainWindow.h \
     scriptengine/ClientManagerScript.h \
     scriptengine/HashManagerScript.h \
     scriptengine/LogManagerScript.h \
-    ActionCustomizer.h
+    ActionCustomizer.h \
+    TabButton.h \
+    TabFrame.h \
+    FlowLayout.h \
+    MultiLineToolBar.h
 SOURCES = main.cpp \
     MainWindow.cpp \
     ../dcpp/HashManager.cpp \
@@ -279,7 +283,11 @@ SOURCES = main.cpp \
     scriptengine/ClientManagerScript.cpp \
     scriptengine/HashManagerScript.cpp \
     scriptengine/LogManagerScript.cpp \
-    ActionCustomizer.cpp
+    ActionCustomizer.cpp \
+    TabButton.cpp \
+    TabFrame.cpp \
+    FlowLayout.cpp \
+    MultiLineToolBar.cpp
 FORMS = ui/HubFrame.ui \
     ui/UIHashProgressDialog.ui \
     ui/PrivateMessage.ui \

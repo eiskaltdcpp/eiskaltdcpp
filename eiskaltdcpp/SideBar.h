@@ -110,6 +110,7 @@ public:
     void insertWidget(ArenaWidget *awgt);
     bool hasWidget(ArenaWidget *awgt) const;
     void mapped(ArenaWidget *awgt);
+    void redraw() { emit layoutChanged(); }
 
 public slots:
     void slotIndexClicked(const QModelIndex&);

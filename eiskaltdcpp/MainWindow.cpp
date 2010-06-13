@@ -53,6 +53,7 @@
 #include "SpyFrame.h"
 #include "SideBar.h"
 #include "ActionCustomizer.h"
+#include "MultiLineToolBar.h"
 
 #ifdef USE_JS
 #include "ScriptManagerDialog.h"
@@ -70,7 +71,6 @@ using namespace std;
 MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
         statusLabel(NULL),
-        tBar(NULL),
         fBar(NULL),
         sBar(NULL),
         sideDock(NULL),
@@ -160,9 +160,6 @@ MainWindow::~MainWindow(){
 
     delete fBar;
     delete sBar;
-
-    if (tBar)
-        delete tBar;
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
@@ -428,10 +425,9 @@ void MainWindow::loadSettings(){
     sBar->setVisible(WBGET(WB_SEARCH_PANEL_VISIBLE));
     panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
 
-    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
-        tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
-    else
+    if (WBGET(WB_MAINWINDOW_USE_SIDEBAR))
         sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+
     panelsWidgets->setChecked(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
     if (!WBGET(WB_MAIN_MENU_VISIBLE))
@@ -848,9 +844,10 @@ void MainWindow::initHotkeys(){
     del         = new QShortcut(QKeySequence(Qt::Key_Delete), this);
 
     if (tBar){
-        connect(ctrl_pgdown, SIGNAL(activated()), tBar, SLOT(nextTab()));
-        connect(ctrl_pgup,   SIGNAL(activated()), tBar, SLOT(prevTab()));
+        connect(ctrl_pgdown, SIGNAL(activated()), tBar, SIGNAL(nextTab()));
+        connect(ctrl_pgup,   SIGNAL(activated()), tBar, SIGNAL(prevTab()));
     }
+
     connect(ctrl_down,   SIGNAL(activated()), this, SLOT(nextMsg()));
     connect(ctrl_up,     SIGNAL(activated()), this, SLOT(prevMsg()));
     connect(ctrl_w,      SIGNAL(activated()), this, SLOT(slotCloseCurrentWidget()));
@@ -1100,16 +1097,14 @@ void MainWindow::initToolbar(){
     addToolBar(fBar);
 
     if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR)){
-        tBar = new ToolBar(this);
-        tBar->setObjectName("tBar");
-        tBar->initTabs();
+
+        tBar = new MultiLineToolBar(this);
         tBar->setContextMenuPolicy(Qt::CustomContextMenu);
-        tBar->setMovable(true);
-        tBar->setFloatable(true);
-        tBar->setAllowedAreas(Qt::AllToolBarAreas);
+        tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+
+        addToolBar(tBar);
 
         wcontainer = static_cast<ArenaWidgetContainer*>(tBar);
-        addToolBar(tBar);
     }
 
     sBar = new ToolBar(this);
@@ -1236,9 +1231,9 @@ void MainWindow::newHubFrame(QString address, QString enc){
     fr->setAttribute(Qt::WA_DeleteOnClose);
 
     addArenaWidget(fr);
-    mapWidgetOnArena(fr);
-
     addArenaWidgetOnToolbar(fr);
+
+    mapWidgetOnArena(fr);
 }
 
 void MainWindow::updateStatus(QMap<QString, QString> map){
@@ -1405,10 +1400,7 @@ void MainWindow::slotFileBrowseFilelist(){
 }
 
 void MainWindow::redrawToolPanel(){
-    if (tBar)
-        tBar->redraw();
-    else if (sideTree)
-        sideTree->repaint();
+    wcontainer->redraw();
 
     QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
     QHash<QAction*, ArenaWidget*>::iterator end = menuWidgetsHash.end();
@@ -1421,9 +1413,9 @@ void MainWindow::redrawToolPanel(){
         it.key()->setIcon(it.value()->getPixmap());
 
         pm = qobject_cast<PMWindow *>(arenaMap[it.value()]);
-        if (pm)
-            if (pm->hasNewMessages())
-                has_unread = true;
+
+        if (pm && pm->hasNewMessages())
+            has_unread = true;
     }
 
     if (!has_unread)
@@ -1456,11 +1448,10 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     if (!arenaWidgets.contains(awgt))
         return;
 
-    if (arena->widget() == awgt->getWidget())
+    if (arena->widget() == awgt->getWidget()){
+        wcontainer->mapped(awgt);
         return;
-
-    if (arena->widget())
-        arena->widget()->hide();
+    }
 
     arena->setWidget(arenaMap[awgt]);
 
@@ -1605,6 +1596,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
         mapWidgetOnArena(a);
 
         wcontainer->insertWidget(a);
+        wcontainer->mapped(a);
     }
 }
 

@@ -19,6 +19,8 @@ public:
     virtual void insertWidget(ArenaWidget *awgt) = 0;
     virtual bool hasWidget(ArenaWidget *awgt) const = 0;
     virtual void mapped(ArenaWidget *awgt) = 0;
+
+    virtual void redraw() {}
 };
 
 #endif // ARENAWIDGETCONTAINER_H

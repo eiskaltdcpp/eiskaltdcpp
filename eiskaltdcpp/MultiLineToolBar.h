@@ -1,0 +1,36 @@
+#ifndef MULTILINETOOLBAR_H
+#define MULTILINETOOLBAR_H
+
+#include <QToolBar>
+
+#include "ArenaWidget.h"
+#include "ArenaWidgetContainer.h"
+#include "TabFrame.h"
+
+/** Wrapper for TabFrame */
+class MultiLineToolBar :
+        public QToolBar,
+        public ArenaWidgetContainer
+{
+Q_OBJECT
+public:
+    explicit MultiLineToolBar(QWidget *parent = 0);
+    virtual ~MultiLineToolBar();
+
+    virtual void removeWidget(ArenaWidget *awgt);
+    virtual void insertWidget(ArenaWidget *awgt);
+    virtual bool hasWidget(ArenaWidget *awgt) const;
+    virtual void redraw();
+
+signals:
+    void nextTab();
+    void prevTab();
+
+public Q_SLOTS:
+    virtual void mapped(ArenaWidget *awgt);
+
+private:
+    TabFrame *frame;
+};
+
+#endif // MULTILINETOOLBAR_H
