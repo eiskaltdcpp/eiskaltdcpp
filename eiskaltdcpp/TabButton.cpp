@@ -18,6 +18,7 @@ TabButton::TabButton(QWidget *parent) :
     setFlat(true);
     setCheckable(true);
     setAutoExclusive(true);
+    setAutoDefault(false);
 
     parentHeight = QPushButton::sizeHint().height();
 
@@ -30,6 +31,7 @@ TabButton::TabButton(QWidget *parent) :
     px_label->setFixedSize(QSize(18, 18));
     px_label->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
 
+    installEventFilter(this);
     label->installEventFilter(this);
 
     updateGeometry();
@@ -44,8 +46,10 @@ void TabButton::resizeEvent(QResizeEvent *e){
 bool TabButton::eventFilter(QObject *obj, QEvent *e){
     bool ret = QPushButton::eventFilter(obj, e);
 
-    if (obj == static_cast<QLabel*>(obj)){
-        if (e->type() == QEvent::MouseButtonPress)
+    if (e->type() == QEvent::MouseButtonPress){
+        QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
+
+        if ((m_e->button() == Qt::MidButton) || (label == static_cast<QLabel*>(obj)))
             emit closeRequest();
     }
 

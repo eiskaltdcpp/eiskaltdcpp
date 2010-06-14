@@ -186,6 +186,8 @@ void TabFrame::closeRequsted() {
     ArenaWidget *awgt = const_cast<ArenaWidget*>(tbtn_map[btn]);
 
     awgt->getWidget()->close();
+
+    redraw();
 }
 
 void TabFrame::nextTab(){
