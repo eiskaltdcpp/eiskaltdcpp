@@ -83,13 +83,16 @@ void TabFrame::insertWidget(ArenaWidget *awgt){
 
     TabButton *btn = new TabButton();
     btn->setText(awgt->getArenaShortTitle());
+    btn->setToolTip(awgt->getArenaTitle());
     btn->setWidgetIcon(awgt->getPixmap());
+    btn->setContextMenuPolicy(Qt::CustomContextMenu);
 
     fr_layout->addWidget(btn);
 
     awgt_map.insert(awgt, btn);
     tbtn_map.insert(btn, awgt);
 
+    connect(btn, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
     connect(btn, SIGNAL(clicked()), this, SLOT(buttonClicked()));
     connect(btn, SIGNAL(closeRequest()), this, SLOT(closeRequsted()));
 }
@@ -109,12 +112,24 @@ void TabFrame::mapped(ArenaWidget *awgt){
 
 void TabFrame::redraw() {
     QMap<TabButton*, ArenaWidget*>::iterator it = tbtn_map.begin();
+    int maxWidth = 0;
 
     for  (; it != tbtn_map.end(); ++it){
         TabButton *btn = const_cast<TabButton*>(it.key());
         ArenaWidget *awgt = const_cast<ArenaWidget*>(it.value());
 
         btn->setWidgetIcon(awgt->getPixmap());
+        btn->setToolTip(awgt->getArenaTitle());
+
+        maxWidth = qMax(maxWidth, btn->normalWidth());//recalculate maximal width
+    }
+
+    TabButton::setMaxWidth(maxWidth);
+
+    for  (it = tbtn_map.begin(); it != tbtn_map.end(); ++it){
+        TabButton *btn = const_cast<TabButton*>(it.key());
+
+        btn->resetGeometry();
     }
 }
 
@@ -231,4 +246,16 @@ void TabFrame::slotShorcuts(){
 
         MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[next]);
     }
+}
+
+void TabFrame::slotContextMenu() {
+    TabButton *btn = qobject_cast<TabButton*>(sender());
+
+    if (!(btn && tbtn_map.contains(btn)))
+        return;
+
+    ArenaWidget *awgt = const_cast<ArenaWidget*>(tbtn_map[btn]);
+
+    if (awgt && awgt->getMenu())
+        awgt->getMenu()->exec(btn->mapToGlobal(btn->rect().bottomLeft()));
 }

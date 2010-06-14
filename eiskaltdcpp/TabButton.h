@@ -15,6 +15,11 @@ public:
 
     QSize sizeHint() const;
     void setWidgetIcon(const QPixmap &px);
+    void resetGeometry() { updateGeometry(); }
+    int normalWidth() const;
+    int normalHeight() const;
+
+    static void setMaxWidth(int w) { maxWidth = (w >= 0)? w : 0; }
 
 protected:
     virtual void resizeEvent(QResizeEvent *);
@@ -30,6 +35,7 @@ private:
     QLabel *label;
     QLabel *px_label;
     int parentHeight;
+    static int maxWidth;
 };
 
 #endif // TABBUTTON_H

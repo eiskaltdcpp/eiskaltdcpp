@@ -10,6 +10,7 @@
 #include "WulforUtil.h"
 
 static int margin = 2;
+int TabButton::maxWidth = 0;
 
 TabButton::TabButton(QWidget *parent) :
     QPushButton(parent)
@@ -54,12 +55,27 @@ bool TabButton::eventFilter(QObject *obj, QEvent *e){
 QSize TabButton::sizeHint() const {
     ensurePolished();
 
-    int h = parentHeight;
-    int w = QPushButton::sizeHint().width();
-    QStyleOptionButton opt;
+    int h = normalHeight();
+    int w = normalWidth();
+
+    maxWidth = qMax(w, maxWidth);
+
+    return QSize(maxWidth, h);
+
+    /*QStyleOptionButton opt;
 
     initStyleOption(&opt);
-    return (style()->sizeFromContents(QStyle::CT_PushButton, &opt, QSize(w, h).expandedTo(QApplication::globalStrut()), this));
+    return (style()->sizeFromContents(QStyle::CT_PushButton, &opt, QSize(w, h).expandedTo(QApplication::globalStrut()), this));*/
+}
+
+int TabButton::normalWidth() const {
+    QFontMetrics metrics = qApp->fontMetrics();
+
+    return label->width()+px_label->width()+metrics.width(text())+margin*3;
+}
+
+int TabButton::normalHeight() const {
+    return ((label->height()+px_label->height())/2)+contentsMargins().top()+contentsMargins().bottom()+margin;
 }
 
 void TabButton::setWidgetIcon(const QPixmap &px){
