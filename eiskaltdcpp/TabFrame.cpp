@@ -3,6 +3,7 @@
 #include "FlowLayout.h"
 #include "TabButton.h"
 #include "MainWindow.h"
+#include "WulforUtil.h"
 
 #include <QtGui>
 #include <QPushButton>
@@ -82,8 +83,8 @@ void TabFrame::insertWidget(ArenaWidget *awgt){
         return;
 
     TabButton *btn = new TabButton();
-    btn->setText(awgt->getArenaShortTitle());
-    btn->setToolTip(awgt->getArenaTitle());
+    btn->setText(awgt->getArenaShortTitle().left(32));
+    btn->setToolTip(WulforUtil::getInstance()->compactToolTipText(awgt->getArenaTitle(), 60, "\n"));
     btn->setWidgetIcon(awgt->getPixmap());
     btn->setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -118,8 +119,9 @@ void TabFrame::redraw() {
         TabButton *btn = const_cast<TabButton*>(it.key());
         ArenaWidget *awgt = const_cast<ArenaWidget*>(it.value());
 
+        btn->setText(awgt->getArenaShortTitle().left(32));
+        btn->setToolTip(WulforUtil::getInstance()->compactToolTipText(awgt->getArenaTitle(), 60, "\n"));
         btn->setWidgetIcon(awgt->getPixmap());
-        btn->setToolTip(awgt->getArenaTitle());
 
         maxWidth = qMax(maxWidth, btn->normalWidth());//recalculate maximal width
     }

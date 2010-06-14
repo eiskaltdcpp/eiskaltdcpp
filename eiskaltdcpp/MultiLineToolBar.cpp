@@ -9,6 +9,8 @@ MultiLineToolBar::MultiLineToolBar(QWidget *parent) :
 
     addWidget(frame);
 
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+
     connect(this, SIGNAL(nextTab()), frame, SLOT(nextTab()));
     connect(this, SIGNAL(prevTab()), frame, SLOT(prevTab()));
 }
