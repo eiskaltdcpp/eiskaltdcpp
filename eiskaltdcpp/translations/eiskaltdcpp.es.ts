@@ -4,7 +4,7 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../MainWindow.h" line="92"/>
+        <location filename="../MainWindow.h" line="93"/>
         <source>Using:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Key&gt;
@@ -1476,7 +1476,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../MainWindow.cpp" line="2158"/>
         <source>Total down:</source>
-        <translation>total bajado:</translation>
+        <translation>Total bajado:</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="995"/>
@@ -2212,7 +2212,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../SearchFrame.cpp" line="49"/>
         <source>Download Whole Directory to</source>
-        <translation>Descargar todo el directorio a</translation>
+        <translation>Descargar todo el directorio en</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="55"/>
@@ -3021,7 +3021,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../TransferView.cpp" line="524"/>
         <source>Download starting...</source>
-        <translation>empezando descarga...</translation>
+        <translation>Empezando descarga...</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="545"/>
@@ -3578,7 +3578,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="117"/>
         <source>Move up</source>
-        <translation>Mover Arriba</translation>
+        <translation>Mover arriba</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="127"/>
