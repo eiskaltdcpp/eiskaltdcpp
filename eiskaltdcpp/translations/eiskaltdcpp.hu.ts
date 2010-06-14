@@ -1538,15 +1538,15 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Copy window title</source>
-        <translation type="unfinished"></translation>
+        <translation>Címsor másolása</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Spanish translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Spanyol fordítás&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.4 és újabb)&lt;br/&gt;</translation>
     </message>
 </context>
 <context>
@@ -1572,7 +1572,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
 Download: %1 Upload: %2
 Statistics
 Downloaded: %3 Uploaded: %4</source>
-        <translation type="unfinished"></translation>
+        <translation>Sebesség
+Letöltés: %1 Feltöltés: %2
+Statisztika
+Letöltve: %3 Feltöltve %4</translation>
     </message>
 </context>
 <context>
@@ -2181,7 +2184,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanyol</translation>
     </message>
 </context>
 <context>
@@ -2829,11 +2832,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Expand all</source>
-        <translation type="unfinished"></translation>
+        <translation>Kibontás mind</translation>
     </message>
     <message>
         <source>Collapse all</source>
-        <translation type="unfinished"></translation>
+        <translation>Összecsukás mind</translation>
     </message>
 </context>
 <context>
@@ -4018,7 +4021,7 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     </message>
     <message>
         <source>Show ip-addresses of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználók IP címének mutatása a chaten</translation>
     </message>
     <message>
         <source>Depending on hub configuration: information about 
