@@ -1560,7 +1560,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     if (sender() && typeid(*sender()) == typeid(QAction) && a->getWidget()){
         QAction *act = reinterpret_cast<QAction*>(sender());;
 
-        act->setCheckable(typeid(*wcontainer) == typeid(ToolBar));
+        act->setCheckable(true);
 
         a->setToolButton(act);
     }

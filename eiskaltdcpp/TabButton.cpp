@@ -75,7 +75,11 @@ int TabButton::normalWidth() const {
 }
 
 int TabButton::normalHeight() const {
+#if QT_VERSION >= 0x040600
     return ((label->height()+px_label->height())/2)+contentsMargins().top()+contentsMargins().bottom()+margin;
+#else
+    return ((label->height()+px_label->height())/2)+2+margin;
+#endif
 }
 
 void TabButton::setWidgetIcon(const QPixmap &px){
