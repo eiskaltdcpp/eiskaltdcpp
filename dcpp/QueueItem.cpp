@@ -70,14 +70,16 @@ const string& QueueItem::getTempTarget() {
     if(!isSet(QueueItem::FLAG_USER_LIST) && tempTarget.empty()) {
         if(!SETTING(TEMP_DOWNLOAD_DIRECTORY).empty() && (File::getSize(getTarget()) == -1)) {
 #ifdef _WIN32
-            //TODO <сделать загрузку без temp диры>
+            //TODO download without temp dir {need check}
             dcpp::StringMap sm;
             if(target.length() >= 3 && target[1] == ':' && target[2] == '\\')
                 sm["targetdrive"] = target.substr(0, 3);
             else
                 sm["targetdrive"] = Util::getPath(Util::PATH_USER_LOCAL).substr(0, 3);
-            setTempTarget(Util::formatParams(SETTING(TEMP_DOWNLOAD_DIRECTORY), sm, false) + getTempName(getTargetFileName(), getTTH()));
-            // </сделать загрузку без temp диры>
+            if (SETTING(NO_USE_TEMP_DIR))
+                setTempTarget(Util::formatParams(target, sm, false) + getTempName("", getTTH()));
+            else
+                setTempTarget(Util::formatParams(SETTING(TEMP_DOWNLOAD_DIRECTORY), sm, false) + getTempName(getTargetFileName(), getTTH()));
 #else //_WIN32
             if (SETTING(NO_USE_TEMP_DIR))
                 setTempTarget(target + getTempName("", getTTH()));
