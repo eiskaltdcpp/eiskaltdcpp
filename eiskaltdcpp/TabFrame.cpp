@@ -8,10 +8,11 @@
 #include <QtGui>
 #include <QPushButton>
 
-
 TabFrame::TabFrame(QWidget *parent) :
     QFrame(parent)
 {
+    setAcceptDrops(true);
+
     fr_layout = new FlowLayout(this);
     fr_layout->setContentsMargins(0, 0, 0, 0);
 
@@ -96,6 +97,7 @@ void TabFrame::insertWidget(ArenaWidget *awgt){
     connect(btn, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
     connect(btn, SIGNAL(clicked()), this, SLOT(buttonClicked()));
     connect(btn, SIGNAL(closeRequest()), this, SLOT(closeRequsted()));
+    connect(btn, SIGNAL(dropped(TabButton*)), this, SLOT(slotDropped(TabButton*)));
 }
 
 bool TabFrame::hasWidget(ArenaWidget *awgt) const{
@@ -267,6 +269,15 @@ void TabFrame::slotContextMenu() {
 
     if (awgt && awgt->getMenu())
         awgt->getMenu()->exec(btn->mapToGlobal(btn->rect().bottomLeft()));
+}
+
+void TabFrame::slotDropped(TabButton *dropped){
+    TabButton *on = qobject_cast<TabButton*>(sender());
+
+    if (!(on && dropped && on != dropped))
+        return;
+
+    fr_layout->place(on, dropped);
 }
 
 void TabFrame::moveLeft(){

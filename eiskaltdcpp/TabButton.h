@@ -2,6 +2,10 @@
 #define TABBUTTON_H
 
 #include <QPushButton>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QDragMoveEvent>
+#include <QMouseEvent>
 
 class QResizeEvent;
 class QLabel;
@@ -24,9 +28,16 @@ public:
 protected:
     virtual void resizeEvent(QResizeEvent *);
     virtual bool eventFilter(QObject *, QEvent *);
+    virtual void dragEnterEvent(QDragEnterEvent *);
+    virtual void dragMoveEvent(QDragMoveEvent *);
+    virtual void dropEvent(QDropEvent *);
+    virtual void mousePressEvent(QMouseEvent *e);
+    virtual void mouseReleaseEvent(QMouseEvent *e);
+    virtual void mouseMoveEvent(QMouseEvent *e);
 
 signals:
     void closeRequest();
+    void dropped(TabButton*);
 
 private:
     void updateStyles();
@@ -35,6 +46,7 @@ private:
     QLabel *label;
     QLabel *px_label;
     int parentHeight;
+    bool isLeftBtnHold;
     static int maxWidth;
 };
 

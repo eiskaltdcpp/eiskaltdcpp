@@ -156,6 +156,35 @@ QSize FlowLayout::minimumSize() const {
     return size;
 }
 
+void FlowLayout::place(QWidget *on, QWidget *what){
+    if (!(on && what))
+        return;
+
+    QLayoutItem *i_on = NULL;
+    QLayoutItem *i_what = NULL;
+
+    foreach (QLayoutItem *item, itemList) {
+        if (item->widget() == on)
+            i_on = item;
+        else if (item->widget() == what)
+            i_what = item;
+
+        if (i_on && i_what)
+            break;
+    }
+
+    if (!(i_on && i_what))
+        return;
+
+    int index_on = itemList.indexOf(i_on);
+    int index_what = itemList.indexOf(i_what);
+
+    itemList.takeAt(index_what);
+    itemList.insert(index_on, i_what);
+
+    doLayout(geometry(), false);
+}
+
 int FlowLayout::doLayout(const QRect &rect, bool testOnly) const {
     int left, top, right, bottom;
     getContentsMargins(&left, &top, &right, &bottom);

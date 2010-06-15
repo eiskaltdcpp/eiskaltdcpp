@@ -42,6 +42,7 @@ private Q_SLOTS:
     void closeRequsted();
     void slotShorcuts();
     void slotContextMenu();
+    void slotDropped(TabButton*);
 
 protected:
     virtual void resizeEvent(QResizeEvent *e);

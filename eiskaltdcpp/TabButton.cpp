@@ -9,16 +9,19 @@
 
 #include "WulforUtil.h"
 
+#include <QDataStream>
+
 static int margin = 2;
 int TabButton::maxWidth = 0;
 
 TabButton::TabButton(QWidget *parent) :
-    QPushButton(parent)
+    QPushButton(parent), isLeftBtnHold(false)
 {
     setFlat(true);
     setCheckable(true);
     setAutoExclusive(true);
     setAutoDefault(false);
+    setAcceptDrops(true);
 
     parentHeight = QPushButton::sizeHint().height();
 
@@ -54,6 +57,81 @@ bool TabButton::eventFilter(QObject *obj, QEvent *e){
     }
 
     return ret;
+}
+
+void TabButton::dragEnterEvent(QDragEnterEvent *event){
+    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void TabButton::dragMoveEvent(QDragMoveEvent *event){
+    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void TabButton::dropEvent(QDropEvent *e){
+    if (qobject_cast<TabButton*>(e->source()) && this != qobject_cast<TabButton*>(e->source()))
+        emit dropped(qobject_cast<TabButton*>(e->source()));
+
+    e->ignore();
+}
+
+void TabButton::mousePressEvent(QMouseEvent *e){
+    QPushButton::mousePressEvent(e);
+
+    emit clicked();
+
+    if (e->button() == Qt::LeftButton)
+        isLeftBtnHold = true;
+}
+
+void TabButton::mouseMoveEvent(QMouseEvent *e){
+    if (!isLeftBtnHold){
+        QPushButton::mouseMoveEvent(e);
+
+        return;
+    }
+
+    QPixmap pxm = QPixmap();
+    pxm = QPixmap::grabWidget(this, rect());
+
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+    stream << pxm << QPoint(mapFromGlobal(QCursor::pos()));
+
+    QMimeData *mimeData = new QMimeData();
+    mimeData->setData("application/x-dnditemdata", data);
+
+    QDrag *drag = new QDrag(this);
+    drag->setMimeData(mimeData);
+    drag->setPixmap(pxm);
+    drag->setHotSpot(mapFromGlobal(QCursor::pos()));
+
+    drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction);
+
+    e->accept();
+}
+
+void TabButton::mouseReleaseEvent(QMouseEvent *e){
+    QPushButton::mouseReleaseEvent(e);
+
+    isLeftBtnHold = false;
 }
 
 QSize TabButton::sizeHint() const {

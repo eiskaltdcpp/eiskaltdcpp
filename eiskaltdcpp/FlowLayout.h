@@ -67,6 +67,8 @@ public:
     QSize sizeHint() const;
     QLayoutItem *takeAt(int index);
 
+    void place(QWidget *on, QWidget *what);
+
     bool moveRight(QLayoutItem*);
     bool moveLeft (QLayoutItem*);
 
