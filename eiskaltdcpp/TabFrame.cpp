@@ -34,6 +34,15 @@ TabFrame::TabFrame(QWidget *parent) :
 
         connect(s, SIGNAL(activated()), this, SLOT(slotShorcuts()));
     }
+
+    ctrl_left    = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Left),   this);
+    ctrl_right   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Right),  this);
+
+    ctrl_left->setContext(Qt::ApplicationShortcut);
+    ctrl_right->setContext(Qt::ApplicationShortcut);
+
+    connect(ctrl_left,   SIGNAL(activated()), this, SLOT(slotMoveLeft()));
+    connect(ctrl_right,  SIGNAL(activated()), this, SLOT(slotMoveRight()));
 }
 
 
@@ -262,4 +271,30 @@ void TabFrame::slotContextMenu() {
 
     if (awgt && awgt->getMenu())
         awgt->getMenu()->exec(btn->mapToGlobal(btn->rect().bottomLeft()));
+}
+
+void TabFrame::slotMoveLeft(){
+    for (int i = 0; i < fr_layout->count(); i++){
+        QLayoutItem *item = const_cast<QLayoutItem*>(fr_layout->itemAt(i));
+        TabButton *t = qobject_cast<TabButton*>(item->widget());
+
+        if (t && t->isChecked()){
+            fr_layout->moveLeft(item);
+
+            break;
+        }
+    }
+}
+
+void TabFrame::slotMoveRight(){
+    for (int i = 0; i < fr_layout->count(); i++){
+        QLayoutItem *item = const_cast<QLayoutItem*>(fr_layout->itemAt(i));
+        TabButton *t = qobject_cast<TabButton*>(item->widget());
+
+        if (t && t->isChecked()){
+            fr_layout->moveRight(item);
+
+            break;
+        }
+    }
 }

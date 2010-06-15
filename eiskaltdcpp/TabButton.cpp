@@ -62,9 +62,11 @@ QSize TabButton::sizeHint() const {
     int h = normalHeight();
     int w = normalWidth();
 
-    maxWidth = qMax(w, maxWidth);
+    return QSize(w, h);
 
-    return QSize(maxWidth, h);
+    /*maxWidth = qMax(w, maxWidth);
+
+    return QSize(maxWidth, h);*/
 
     /*QStyleOptionButton opt;
 

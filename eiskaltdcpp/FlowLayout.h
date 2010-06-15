@@ -67,6 +67,9 @@ public:
     QSize sizeHint() const;
     QLayoutItem *takeAt(int index);
 
+    bool moveRight(QLayoutItem*);
+    bool moveLeft (QLayoutItem*);
+
 private:
     int doLayout(const QRect &rect, bool testOnly) const;
     int smartSpacing(QStyle::PixelMetric pm) const;

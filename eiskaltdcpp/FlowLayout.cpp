@@ -118,6 +118,34 @@ QSize FlowLayout::sizeHint() const {
     return minimumSize();
 }
 
+bool FlowLayout::moveLeft(QLayoutItem *item){
+    const int index = itemList.indexOf(item);
+
+    if (index <= 0)
+        return false;
+
+    itemList.takeAt(index);
+    itemList.insert(index-1, item);
+
+    doLayout(geometry(), false);
+
+    return true;
+}
+
+bool FlowLayout::moveRight(QLayoutItem *item){
+    const int index = itemList.indexOf(item);
+
+    if ((index < 0) || (index >= itemList.count()-1))
+        return false;
+
+    itemList.takeAt(index);
+    itemList.insert(index+1, item);
+
+    doLayout(geometry(), false);
+
+    return true;
+}
+
 QSize FlowLayout::minimumSize() const {
     QSize size;
     QLayoutItem *item;
