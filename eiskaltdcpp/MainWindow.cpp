@@ -842,11 +842,15 @@ void MainWindow::initHotkeys(){
     ctrl_up     = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Up), this);
     ctrl_w      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_W), this);
     ctrl_m      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_M), this);
+    alt_left    = new QShortcut(QKeySequence(Qt::ALT  + Qt::Key_Left), this);
+    alt_right   = new QShortcut(QKeySequence(Qt::ALT  + Qt::Key_Right), this);
     del         = new QShortcut(QKeySequence(Qt::Key_Delete), this);
 
     if (tBar){
         connect(ctrl_pgdown, SIGNAL(activated()), tBar, SIGNAL(nextTab()));
         connect(ctrl_pgup,   SIGNAL(activated()), tBar, SIGNAL(prevTab()));
+        connect(alt_left,    SIGNAL(activated()), tBar, SIGNAL(moveTabLeft()));
+        connect(alt_right,   SIGNAL(activated()), tBar, SIGNAL(moveTabRight()));
     }
 
     connect(ctrl_down,   SIGNAL(activated()), this, SLOT(nextMsg()));

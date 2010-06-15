@@ -381,6 +381,8 @@ friend class dcpp::Singleton<MainWindow>;
         QShortcut *ctrl_down;
         QShortcut *ctrl_w;
         QShortcut *ctrl_m;
+        QShortcut *alt_left;
+        QShortcut *alt_right;
         QShortcut *del;
 
         QAction *chatDisable;

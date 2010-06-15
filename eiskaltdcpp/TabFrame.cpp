@@ -34,15 +34,6 @@ TabFrame::TabFrame(QWidget *parent) :
 
         connect(s, SIGNAL(activated()), this, SLOT(slotShorcuts()));
     }
-
-    ctrl_left    = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Left),   this);
-    ctrl_right   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Right),  this);
-
-    ctrl_left->setContext(Qt::ApplicationShortcut);
-    ctrl_right->setContext(Qt::ApplicationShortcut);
-
-    connect(ctrl_left,   SIGNAL(activated()), this, SLOT(slotMoveLeft()));
-    connect(ctrl_right,  SIGNAL(activated()), this, SLOT(slotMoveRight()));
 }
 
 
@@ -115,7 +106,10 @@ void TabFrame::mapped(ArenaWidget *awgt){
     if (!awgt_map.contains(awgt))
         return;
 
-    const_cast<TabButton*>(awgt_map.value(awgt))->setChecked(true);
+    TabButton *btn = const_cast<TabButton*>(awgt_map.value(awgt));
+
+    btn->setChecked(true);
+    btn->setFocus();
 
     historyPush(awgt);
 }
@@ -182,6 +176,8 @@ void TabFrame::buttonClicked(){
 
     if (!(btn && tbtn_map.contains(btn)))
         return;
+
+    btn->setFocus();
 
     MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[btn]);
 }
@@ -273,7 +269,7 @@ void TabFrame::slotContextMenu() {
         awgt->getMenu()->exec(btn->mapToGlobal(btn->rect().bottomLeft()));
 }
 
-void TabFrame::slotMoveLeft(){
+void TabFrame::moveLeft(){
     for (int i = 0; i < fr_layout->count(); i++){
         QLayoutItem *item = const_cast<QLayoutItem*>(fr_layout->itemAt(i));
         TabButton *t = qobject_cast<TabButton*>(item->widget());
@@ -286,7 +282,7 @@ void TabFrame::slotMoveLeft(){
     }
 }
 
-void TabFrame::slotMoveRight(){
+void TabFrame::moveRight(){
     for (int i = 0; i < fr_layout->count(); i++){
         QLayoutItem *item = const_cast<QLayoutItem*>(fr_layout->itemAt(i));
         TabButton *t = qobject_cast<TabButton*>(item->widget());

@@ -13,6 +13,8 @@ MultiLineToolBar::MultiLineToolBar(QWidget *parent) :
 
     connect(this, SIGNAL(nextTab()), frame, SLOT(nextTab()));
     connect(this, SIGNAL(prevTab()), frame, SLOT(prevTab()));
+    connect(this, SIGNAL(moveTabLeft()), frame, SLOT(moveLeft()));
+    connect(this, SIGNAL(moveTabRight()), frame, SLOT(moveRight()));
 }
 
 MultiLineToolBar::~MultiLineToolBar(){

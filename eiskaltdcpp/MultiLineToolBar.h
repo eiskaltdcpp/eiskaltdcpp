@@ -25,6 +25,8 @@ public:
 signals:
     void nextTab();
     void prevTab();
+    void moveTabRight();
+    void moveTabLeft();
 
 public Q_SLOTS:
     virtual void mapped(ArenaWidget *awgt);

@@ -34,14 +34,14 @@ public Q_SLOTS:
     virtual void mapped(ArenaWidget *awgt);
     virtual void nextTab();
     virtual void prevTab();
+    void moveRight();
+    void moveLeft();
 
 private Q_SLOTS:
     void buttonClicked();
     void closeRequsted();
     void slotShorcuts();
     void slotContextMenu();
-    void slotMoveRight();
-    void slotMoveLeft();
 
 protected:
     virtual void resizeEvent(QResizeEvent *e);
@@ -57,8 +57,6 @@ private:
     QList<QShortcut*> shortcuts;
     QMap<ArenaWidget*, TabButton*> awgt_map;
     QMap<TabButton*, ArenaWidget*> tbtn_map;
-    QShortcut *ctrl_left;
-    QShortcut *ctrl_right;
 };
 
 #endif // TabFrame_H
