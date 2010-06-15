@@ -49,7 +49,7 @@ void TabButton::resizeEvent(QResizeEvent *e){
 bool TabButton::eventFilter(QObject *obj, QEvent *e){
     bool ret = QPushButton::eventFilter(obj, e);
 
-    if (e->type() == QEvent::MouseButtonPress){
+    if (e->type() == QEvent::MouseButtonRelease){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
 
         if ((m_e->button() == Qt::MidButton) || (label == static_cast<QLabel*>(obj)))
