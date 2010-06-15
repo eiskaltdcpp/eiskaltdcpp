@@ -41,9 +41,7 @@ void SettingsConnection::ok(){
 
     if (active){
         QString ip = lineEdit_WANIP->text();
-#ifdef DEBUG_CONNECTION
-        qDebug() << ip;
-#endif
+
         if (!validateIp(ip))
             ip = "";
 
@@ -54,21 +52,13 @@ void SettingsConnection::ok(){
         else
             SM->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);
 
-        if (spinBox_TCP->value() > 1023 && spinBox_UDP->value() > 1023 && spinBox_TLS->value() > 1023) {
-            SM->set(SettingsManager::TCP_PORT, spinBox_TCP->value());
-            SM->set(SettingsManager::UDP_PORT, spinBox_UDP->value());
-            SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
-        } else {
-            SM->set(SettingsManager::TCP_PORT, 3030);
-            SM->set(SettingsManager::UDP_PORT, 3030);
-            SM->set(SettingsManager::TLS_PORT, 3031);
-            showMsg(tr("You enter ports with number < 1024, ports numbers set to default."));
-        }
+        SM->set(SettingsManager::TCP_PORT, spinBox_TCP->value());
+        SM->set(SettingsManager::UDP_PORT, spinBox_UDP->value());
+        SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
+
         ip.replace(" ", "");
         ip = ip.trimmed();
-#ifdef DEBUG_CONNECTION
-        qDebug() << ip;
-#endif
+
         SM->set(SettingsManager::EXTERNAL_IP, ip.toStdString());
         SM->set(SettingsManager::NO_IP_OVERRIDE, checkBox_DONTOVERRIDE->checkState() == Qt::Checked);
     }
@@ -105,16 +95,7 @@ void SettingsConnection::ok(){
 
     if (SETTING(OUTGOING_CONNECTIONS) != type)
         Socket::socksUpdated();
-#ifdef DEBUG_CONNECTION
-    qDebug() << SETTING(THROTTLE_ENABLE) << "->" << checkBox_THROTTLE_ENABLE->isChecked();
-    qDebug() << SETTING(TIME_DEPENDENT_THROTTLE) << "->"<< checkBox_TIME_DEPENDENT_THROTTLE->isChecked();
-    qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_DOWN_LIMIT_NORMAL->value();
-    qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL) << "->" << spinBox_UP_LIMIT_NORMAL->value();
-    qDebug() << SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_DOWN_LIMIT_TIME->value();
-    qDebug() << SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME) << "->" << spinBox_UP_LIMIT_TIME->value();
-    qDebug() << SETTING(BANDWIDTH_LIMIT_START) << "->" << spinBox_BANDWIDTH_LIMIT_START->value();
-    qDebug() << SETTING(BANDWIDTH_LIMIT_END) << "->" << spinBox_BANDWIDTH_LIMIT_END->value();
-#endif
+
     SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
     SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
     SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, spinBox_DOWN_LIMIT_NORMAL->value());
@@ -127,17 +108,20 @@ void SettingsConnection::ok(){
     if (old_mode != SETTING(INCOMING_CONNECTIONS) || old_tcp != (SETTING(TCP_PORT))
         || old_udp != (SETTING(UDP_PORT)) || old_tls != (SETTING(TLS_PORT)))
     {
+        if (!(old_tcp < 1024 || old_tls < 1024 || old_udp < 1024) &&
+            (SETTING(TCP_PORT) < 1024 || SETTING(UDP_PORT) < 1024 || SETTING(TLS_PORT)))
+            showMsg(tr("Program need root privileges to open ports less than 1024"), NULL);
+
         MainWindow::getInstance()->startSocket();
     }
 }
 
 void SettingsConnection::init(){
     lineEdit_WANIP->setText(QString::fromStdString(SETTING(EXTERNAL_IP)));
-    if (SETTING(TCP_PORT) > 1023 && SETTING(UDP_PORT) > 1023 && SETTING(TLS_PORT) > 1023) {
-        spinBox_TCP->setValue(old_tcp = SETTING(TCP_PORT));
-        spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));
-        spinBox_TLS->setValue(old_tls = SETTING(TLS_PORT));
-    }
+
+    spinBox_TCP->setValue(old_tcp = SETTING(TCP_PORT));
+    spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));
+    spinBox_TLS->setValue(old_tls = SETTING(TLS_PORT));
 
     checkBox_THROTTLE_ENABLE->setChecked(BOOLSETTING(THROTTLE_ENABLE));
     checkBox_TIME_DEPENDENT_THROTTLE->setChecked(BOOLSETTING(TIME_DEPENDENT_THROTTLE));
