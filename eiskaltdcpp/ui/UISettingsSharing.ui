@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>437</width>
-    <height>388</height>
+    <width>440</width>
+    <height>457</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,6 +47,9 @@
          </property>
          <property name="itemsExpandable">
           <bool>false</bool>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
          </property>
          <property name="expandsOnDoubleClick">
           <bool>false</bool>
