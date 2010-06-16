@@ -138,7 +138,7 @@ Opciones:
     <message>
         <location filename="../DownloadQueue.cpp" line="63"/>
         <source>Browse files</source>
-        <translation>Navegar por los archivos</translation>
+        <translation>Explorar archivos</translation>
     </message>
     <message>
         <location filename="../DownloadQueue.cpp" line="64"/>
@@ -670,7 +670,7 @@ Opciones:
     <message>
         <location filename="../HubFrame.cpp" line="78"/>
         <source>Browse files</source>
-        <translation>Navegar por los archivos</translation>
+        <translation>Explorar archivos</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="79"/>
@@ -911,7 +911,7 @@ Opciones:
 /alias list - listar todos los Alias
 /away &lt;message&gt; - establece el modo ausente en encendido/apagado
 /back - apaga el modo ausente
-/browse &lt;nick&gt; - navega por los ficheros del usuario
+/browse &lt;nick&gt; - explorar ficheros del usuario
 /clear - limpia la ventana del chat
 /magnet - acción predeterminada del imán (0-pregunta, 1-busca, 2-descarga)
 /close - cierra este Hub
@@ -2227,7 +2227,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../SearchFrame.cpp" line="61"/>
         <source>Browse files</source>
-        <translation>Navegar por los archivos</translation>
+        <translation>Explorar archivos</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="64"/>
@@ -2263,7 +2263,7 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../SearchFrame.cpp" line="173"/>
         <location filename="../SearchFrame.cpp" line="176"/>
         <source>Browse</source>
-        <translation>Navegar</translation>
+        <translation>Explorar</translation>
     </message>
     <message>
         <location filename="../SearchFrame.cpp" line="238"/>
@@ -2748,7 +2748,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../ShareBrowser.cpp" line="99"/>
         <source>Browse</source>
-        <translation>Navegar</translation>
+        <translation>Explorar</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="145"/>
@@ -2768,7 +2768,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../ShareBrowser.cpp" line="198"/>
         <source>Filebrowser</source>
-        <translation>Navegador de Archivos</translation>
+        <translation>Explorador de Archivos</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="200"/>
@@ -2844,7 +2844,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../SideBar.cpp" line="29"/>
         <source>Share Browsers</source>
-        <translation>compartir navegadores</translation>
+        <translation>Compartir Explorador</translation>
     </message>
     <message>
         <location filename="../SideBar.cpp" line="31"/>
@@ -2941,7 +2941,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../TransferView.cpp" line="34"/>
         <source>Browse files</source>
-        <translation>Navegar por los archivos</translation>
+        <translation>Explorar archivos</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="37"/>
@@ -5491,7 +5491,7 @@ el Slot concedido no será cerrado.</translation>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
         <source>Filebrowser</source>
-        <translation>Navegador de Archivos</translation>
+        <translation>Explorador de Archivos</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="106"/>
