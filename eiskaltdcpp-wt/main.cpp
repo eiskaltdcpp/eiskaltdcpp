@@ -1,11 +1,11 @@
-/* 
- * File:   main.cpp
- * Author: negativ
- *
- * Created on 17 Июнь 2010 г., 16:13
- */
-
 #include <stdlib.h>
+
+#include "dcpp/stdinc.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/forward.h"
+#include "dcpp/FavoriteManager.h"
+#include "dcpp/ClientManager.h"
+#include "dcpp/ConnectionManager.h"
 
 #include <Wt/WApplication>
 #include <Wt/WContainerWidget>
@@ -20,6 +20,15 @@
 #include "SearchFrame.h"
 
 using namespace Wt;
+using namespace dcpp;
+
+void callBack(void* x, const std::string& a)
+{
+    std::cout << "Loading: " << a << std::endl;
+}
+
+void autoconnect();
+void startSocket();
 
 class WApp: public Wt::WApplication{
 public:
@@ -92,6 +101,73 @@ Wt::WApplication *createApplication(const Wt::WEnvironment& env)
 }
 
 int main(int argc, char** argv) {
-    return Wt::WRun(argc, argv, &createApplication);
+    dcpp::startup(callBack, NULL);
+
+    startSocket();
+
+    autoconnect();
+
+    ClientManager* clientMgr = ClientManager::getInstance();
+
+    clientMgr->lock();
+    Client::List& clients = clientMgr->getClients();
+
+    for(Client::List::iterator it = clients.begin(); it != clients.end(); ++it) {
+        Client* client = *it;
+
+        if(!client->isConnected())
+            continue;
+
+        std::cout << client->getAddress().c_str() << std::endl;
+    }
+
+    clientMgr->unlock();
+
+    int ret = Wt::WRun(argc, argv, &createApplication);
+
+    dcpp::shutdown();
+
+    return ret;
+}
+
+void autoconnect(){
+    const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
+
+    for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
+        FavoriteHubEntry* entry = *i;
+
+        if (entry->getConnect()) {
+            if (entry->getNick().empty() && SETTING(NICK).empty())
+                continue;
+
+            std::string enc = entry->getEncoding();
+            std::string serv = entry->getServer();
+
+            Client *client = ClientManager::getInstance()->getClient(serv);
+            client->setEncoding(enc);      
+            client->setPassword(entry->getPassword());
+            client->password(entry->getPassword());
+
+            client->connect();
+        }
+    }
+}
+
+void startSocket(){
+    SearchManager::getInstance()->disconnect();
+    ConnectionManager::getInstance()->disconnect();
+
+    if (ClientManager::getInstance()->isActive()) {
+        try {
+            ConnectionManager::getInstance()->listen();
+        } catch(const Exception &e) {
+            printf("%s %s %s\n", "Cannot listen socket because: \n", e.getError().c_str(), "\n\nPlease check your connection settings");
+        }
+        try {
+            SearchManager::getInstance()->listen();
+        } catch(const Exception &e) {
+            printf("%s %s %s\n", "Cannot listen socket because: \n", e.getError().c_str(), "\n\nPlease check your connection settings");
+        }
+    }
 }
 

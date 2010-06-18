@@ -8,6 +8,14 @@
 #ifndef _SEARCHFRAME_H
 #define	_SEARCHFRAME_H
 
+#include "dcpp/stdinc.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/ClientManager.h"
+#include "dcpp/SearchManager.h"
+#include "dcpp/SearchResult.h"
+#include "dcpp/StringTokenizer.h"
+#include "dcpp/Encoder.h"
+
 #include <Wt/WContainerWidget>
 #include <Wt/WLabel>
 #include <Wt/WPushButton>
@@ -19,14 +27,22 @@
 
 #include "SearchModel.h"
 
-class SearchFrame: public Wt::WContainerWidget {
+class SearchFrame:
+        public Wt::WContainerWidget,
+        private dcpp::SearchManagerListener
+{
 public:
     SearchFrame(Wt::WContainerWidget *parent = 0);
     virtual ~SearchFrame();
 
+protected:
+    virtual void on(dcpp::SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) throw();
+
 private:
     SearchFrame(const SearchFrame& orig);
     SearchFrame& operator=(const SearchFrame&){}
+
+    void startSearch();
 
     Wt::WContainerWidget *container;
     Wt::WVBoxLayout *vlayout;
@@ -38,6 +54,9 @@ private:
     Wt::WTreeView *view;
 
     SearchModel *model;
+
+    std::string token;
+    dcpp::TStringList currentSearch;
 };
 
 #endif	/* _SEARCHFRAME_H */

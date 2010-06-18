@@ -13,6 +13,13 @@ using namespace Wt;
 
 SearchModel::SearchModel(WObject *parent) : WAbstractItemModel(parent) {
     rootItem = new SearchModelItem();
+
+    timer = new WTimer(this);
+    timer->setInterval(3000);
+    timer->setSingleShot(false);
+    timer->timeout().connect(this, &SearchModel::tick);
+
+    timer->start();
 }
 
 SearchModel::~SearchModel() {
@@ -155,5 +162,14 @@ void SearchModel::sort(int column, SortOrder order){
     else
         Compare<AscendingOrder>().sort(column, rootItem->childs);
 
+    layoutChanged().emit();
+}
+
+void SearchModel::addResult(SearchModelItem *item){
+    if (item)
+        rootItem->append(item);
+}
+
+void SearchModel::tick() {
     layoutChanged().emit();
 }

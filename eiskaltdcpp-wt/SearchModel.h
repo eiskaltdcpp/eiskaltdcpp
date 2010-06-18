@@ -12,6 +12,7 @@
 #include <Wt/WAbstractItemModel>
 #include <Wt/WModelIndex>
 #include <Wt/WString>
+#include <Wt/WTimer>
 
 #include <boost/any.hpp>
 
@@ -90,12 +91,17 @@ public:
     virtual Wt::WModelIndex index(int row, int column, const Wt::WModelIndex  &parent = Wt::WModelIndex()) const;
 
     virtual void sort(int column, Wt::SortOrder order = Wt::AscendingOrder);
+
+    virtual void addResult(SearchModelItem *item);
     
 private:
     SearchModel(const SearchModel& orig){}
     SearchModel& operator =(const SearchModel&){}
 
+    void tick();
+
     SearchModelItem *rootItem;
+    Wt::WTimer *timer;
 };
 
 #endif	/* _WMYMODEL_H */
