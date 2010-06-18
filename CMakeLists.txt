@@ -119,6 +119,8 @@ else (NOT USE_JS)
   find_package (Qt4 4.4 COMPONENTS QtCore QtGui QtXml QtNetwork QtDBus QtScript REQUIRED)
 endif (NOT USE_JS)
 
+option (USE_WT "WebControl" OFF)
+
 find_package (PkgConfig)
 
 if (NOT USE_ASPELL)
@@ -339,7 +341,10 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
 
 add_subdirectory (dcpp)
 add_subdirectory (eiskaltdcpp)
-add_subdirectory (eiskaltdcpp-wt)
+
+if (USE_WT)
+  add_subdirectory (eiskaltdcpp-wt)
+endif (USE_WT)
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
