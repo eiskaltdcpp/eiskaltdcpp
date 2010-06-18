@@ -42,7 +42,7 @@ set (SRCS
             FileBrowserModel.cpp
             FinishedTransfers.cpp
             FinishedTransfersModel.cpp
-	    FlowLayout.cpp
+            FlowLayout.cpp
             HashProgress.cpp
             HubFrame.cpp
             HubManager.cpp
@@ -52,7 +52,7 @@ set (SRCS
             LineEdit.cpp
             Magnet.cpp
             MainWindow.cpp
-	    MultiLineToolBar.cpp
+            MultiLineToolBar.cpp
             Notification.cpp
             PMWindow.cpp
             PublicHubs.cpp
@@ -76,8 +76,8 @@ set (SRCS
             SingleInstanceRunner.cpp
             SpyFrame.cpp
             SpyModel.cpp
-	    TabButton.cpp
-	    TabFrame.cpp
+            TabButton.cpp
+            TabFrame.cpp
             ToolBar.cpp
             TransferView.cpp
             TransferViewModel.cpp
@@ -107,7 +107,7 @@ set (MOC_HDRS
             FileBrowserModel.h
             FinishedTransfers.h
             FinishedTransfersModel.h
-	    FlowLayout.h
+            FlowLayout.h
             HashProgress.h
             HubFrame.h
             HubManager.h
@@ -117,7 +117,7 @@ set (MOC_HDRS
             LineEdit.h
             Magnet.h
             MainWindow.h
-	    MultiLineToolBar.h
+            MultiLineToolBar.h
             Notification.h
             PMWindow.h
             PublicHubs.h
@@ -141,8 +141,8 @@ set (MOC_HDRS
             ShellCommandRunner.h
             SpyFrame.h
             SpyModel.h
-	    TabButton.h
-	    TabFrame.h
+            TabButton.h
+            TabFrame.h
             ToolBar.h
             TransferView.h
             TransferViewModel.h
@@ -214,7 +214,7 @@ else (NOT DEFINED linguas)
     set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
   endif (NOT linguas)
 endif (NOT DEFINED linguas)
-message (STATUS ${LANGUAGES})
+message (STATUS "Translations: ${LANGUAGES}")
 
 if (USE_ASPELL)
   set (SRCS ${SRCS} SpellCheck.cpp)
