@@ -1,0 +1,833 @@
+        <div class="body-wrap">
+        <div class="top-tools">
+            <a class="inner-link" href="#Ext.Updater-props"><img src="../resources/images/default/s.gif" class="item-icon icon-prop">Properties</a>
+            <a class="inner-link" href="#Ext.Updater-methods"><img src="../resources/images/default/s.gif" class="item-icon icon-method">Methods</a>
+            <a class="inner-link" href="#Ext.Updater-events"><img src="../resources/images/default/s.gif" class="item-icon icon-event">Events</a>
+                            <a class="inner-link" href="#Ext.Updater-configs"><img src="../resources/images/default/s.gif" class="item-icon icon-config">Config Options</a>
+                        <a class="bookmark" href="../docs/?class=Ext.Updater"><img src="../resources/images/default/s.gif" class="item-icon icon-fav">Direct Link</a>
+        </div>
+                <div class="inheritance res-block">
+<pre class="res-block-inner"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a>
+  <img src="resources/elbow-end.gif"/>Updater</pre></div>
+                <h1>Class Ext.Updater</h1>
+        <table cellspacing="0">
+            <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/core/UpdateManager.js" target="_blank">UpdateManager.js</a></td></tr>
+            <tr><td class="label">Class:</td><td class="hd-info">Updater</td></tr>
+                                    <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
+                    </table>
+        <div class="description">
+            Provides AJAX-style update for Element object.<br><br>
+Usage:<br>
+<pre><code><i>// Get it from a Ext.Element object</i>
+<b>var</b> el = Ext.get(<em>"foo"</em>);
+<b>var</b> mgr = el.getUpdater();
+mgr.update({
+url: <em>"http:<i>//myserver.com/index.php"</em>, </i>
+params: {
+param1: <em>"foo"</em>,
+param2: <em>"bar"</em>
+}
+});
+...
+mgr.formUpdate(<em>"myFormId"</em>, <em>"http:<i>//myserver.com/index.php"</em>);</i>
+<br>
+<i>// or directly (returns the same Updater instance)</i>
+<b>var</b> mgr = <b>new</b> Ext.Updater(<em>"myElementId"</em>);
+mgr.startAutoRefresh(60, <em>"http:<i>//myserver.com/index.php"</em>);</i>
+mgr.on(<em>"update"</em>, myFcnNeedsToKnow);
+<br>
+   <i>// short handed call directly from the element object</i>
+   Ext.get(<em>"foo"</em>).load({
+        url: <em>"bar.php"</em>,
+        scripts: true,
+        params: <em>"param1=foo&amp;param2=bar"</em>,
+        text: <em>"Loading Foo..."</em>
+   });</code></pre>        </div>
+        
+        <div class="hr"></div>
+                <a id="Ext.Updater-configs"></a>
+        <h2>Config Options</h2>
+        <table cellspacing="0" class="member-table">
+            <tr>
+                <th class="sig-header" colspan="2">Config Options</th>
+                <th class="msource-header">Defined By</th>
+            </tr>
+                <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-listeners"></a>
+            <b>listeners</b> : Object            <div class="mdesc">
+                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+            <div class="long">
+                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
+    </tr>
+            </table>
+                <a id="Ext.Updater-props"></a>
+        <h2>Public Properties</h2>
+                <table cellspacing="0" class="member-table">
+            <tr>
+                <th class="sig-header" colspan="2">Property</th>
+                <th class="msource-header">Defined By</th>
+            </tr>
+                <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-defaultUrl"></a>
+            <b>defaultUrl</b> : String            <div class="mdesc">
+                            Cached url to use for refreshes. Overwritten every time update() is called unless "discardUrl" param is set to true.                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-disableCaching"></a>
+            <b>disableCaching</b> : Boolean            <div class="mdesc">
+                        <div class="short">Whether to append unique parameter on get request to disable caching (Defaults to Ext.Updater.defaults.disableCaching...</div>
+            <div class="long">
+                Whether to append unique parameter on get request to disable caching (Defaults to Ext.Updater.defaults.disableCaching or false).            </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-el"></a>
+            <b>el</b> : Ext.Element            <div class="mdesc">
+                            The Element object                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-formUpdateDelegate"></a>
+            <b>formUpdateDelegate</b> : Function            <div class="mdesc">
+                        <div class="short">Delegate for formUpdate() prebound to "this", use myUpdater.formUpdateDelegate.createCallback(arg1, arg2) to bind arg...</div>
+            <div class="long">
+                Delegate for formUpdate() prebound to "this", use myUpdater.formUpdateDelegate.createCallback(arg1, arg2) to bind arguments            </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-indicatorText"></a>
+            <b>indicatorText</b> : String            <div class="mdesc">
+                        <div class="short">Text for loading indicator (Defaults to Ext.Updater.defaults.indicatorText or '&lt;div class="loading-indicator"&gt;L...</div>
+            <div class="long">
+                Text for loading indicator (Defaults to Ext.Updater.defaults.indicatorText or '&lt;div class="loading-indicator"&gt;Loading...&lt;/div&gt;').            </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-loadScripts"></a>
+            <b>loadScripts</b> : Boolean            <div class="mdesc">
+                            True to process scripts in the output (Defaults to Ext.Updater.defaults.loadScripts (false)).                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-refreshDelegate"></a>
+            <b>refreshDelegate</b> : Function            <div class="mdesc">
+                            Delegate for refresh() prebound to "this", use myUpdater.refreshDelegate.createCallback(arg1, arg2) to bind arguments                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-renderer"></a>
+            <b>renderer</b> : Object            <div class="mdesc">
+                            The renderer for this Updater. Defaults to <a ext:cls="Ext.Updater.BasicRenderer" href="output/Ext.Updater.BasicRenderer.html">Ext.Updater.BasicRenderer</a>.                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-showLoadIndicator"></a>
+            <b>showLoadIndicator</b> : String            <div class="mdesc">
+                            Whether to show indicatorText when loading (Defaults to Ext.Updater.defaults.showLoadIndicator or true).                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-sslBlankUrl"></a>
+            <b>sslBlankUrl</b> : String            <div class="mdesc">
+                            Blank page URL to use with SSL file uploads (Defaults to Ext.Updater.defaults.sslBlankUrl or "about:blank").                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-timeout"></a>
+            <b>timeout</b> : Number            <div class="mdesc">
+                            Timeout for requests or form posts in seconds (Defaults to Ext.Updater.defaults.timeout or 30 seconds).                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-transaction"></a>
+            <b>transaction</b> : Object            <div class="mdesc">
+                            Transaction object of current executing transaction                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-updateDelegate"></a>
+            <b>updateDelegate</b> : Function            <div class="mdesc">
+                            Delegate for update() prebound to "this", use myUpdater.updateDelegate.createCallback(arg1, arg2) to bind arguments                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+            </table>
+                <a id="Ext.Updater-methods"></a>
+        <h2>Public Methods</h2>
+                <table cellspacing="0" class="member-table">
+            <tr>
+                <th class="sig-header" colspan="2">Method</th>
+                <th class="msource-header">Defined By</th>
+            </tr>
+                <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-Updater"></a>
+            <b>Updater</b>(&nbsp;<code>Mixed el</code>, <span class="optional" title="Optional">[<code>Boolean forceNew</code>]</span>&nbsp;)            <div class="mdesc">
+                        <div class="short">Create new Updater directly.</div>
+            <div class="long">
+                Create new Updater directly.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>el</code> : Mixed<div class="sub-desc">The element to update</div></li><li><code>forceNew</code> : Boolean<div class="sub-desc">(optional) By default the constructor checks to see if the passed element already has an Updater and if it does it returns the same instance. This will skip that check (useful for extending this class).</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code></code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-Updater.updateElement"></a>
+            <b>Updater.updateElement</b>(&nbsp;<code>Mixed el</code>, <code>String url</code>, <span class="optional" title="Optional">[<code>String/Object params</code>]</span>, <span class="optional" title="Optional">[<code>Object options</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Deprecated. &lt;static&gt; Static convenience method. This method is deprecated in favor of el.load({url:'foo.php', ....</div>
+            <div class="long">
+                <b>Deprecated.</b> &lt;static&gt; Static convenience method. This method is deprecated in favor of el.load({url:'foo.php', ...}).
+Usage:
+<pre><code>Ext.Updater.updateElement(<em>"my-div"</em>, <em>"stuff.php"</em>);</code></pre>    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>el</code> : Mixed<div class="sub-desc">The element to update</div></li><li><code>url</code> : String<div class="sub-desc">The url</div></li><li><code>params</code> : String/Object<div class="sub-desc">(optional) Url encoded param string or an object of name/value pairs</div></li><li><code>options</code> : Object<div class="sub-desc">(optional) A config object with any of the Updater properties you want to set - for example: {disableCaching:true, indicatorText: "Loading data..."}</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-abort"></a>
+            <b>abort</b>() : void            <div class="mdesc">
+                        <div class="short">Aborts the executing transaction</div>
+            <div class="long">
+                Aborts the executing transaction    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-addEvents"></a>
+            <b>addEvents</b>(&nbsp;<code>Object object</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Used to define events on this Observable</div>
+            <div class="long">
+                Used to define events on this Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>object</code> : Object<div class="sub-desc">The object with the events defined</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#addEvents" href="output/Ext.util.Observable.html#addEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-addListener"></a>
+            <b>addListener</b>(&nbsp;<code>String eventName</code>, <code>Function handler</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>, <span class="optional" title="Optional">[<code>Object options</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Appends an event handler to this component</div>
+            <div class="long">
+                Appends an event handler to this component    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>eventName</code> : String<div class="sub-desc">The type of event to listen for</div></li><li><code>handler</code> : Function<div class="sub-desc">The method the event invokes</div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope in which to execute the handler
+function. The handler function's "this" context.</div></li><li><code>options</code> : Object<div class="sub-desc">(optional) An object containing handler configuration
+properties. This may contain any of the following properties:<ul>
+<li><b>scope</b> : Object<p class="sub-desc">The scope in which to execute the handler function. The handler function's "this" context.</p></li>
+<li><b>delay</b> : Number<p class="sub-desc">The number of milliseconds to delay the invocation of the handler after the event fires.</p></li>
+<li><b>single</b> : Boolean<p class="sub-desc">True to add a handler to handle just the next firing of the event, and then remove itself.</p></li>
+<li><b>buffer</b> : Number<p class="sub-desc">Causes the handler to be scheduled to run in an <a ext:cls="Ext.util.DelayedTask" href="output/Ext.util.DelayedTask.html">Ext.util.DelayedTask</a> delayed
+by the specified number of milliseconds. If the event fires again within that time, the original
+handler is <em>not</em> invoked, but the new handler is scheduled in its place.</p></li>
+</ul><br>
+<p>
+<b>Combining Options</b><br>
+Using the options argument, it is possible to combine different types of listeners:<br>
+<br>
+A normalized, delayed, one-time listener that auto stops the event and passes a custom argument (forumId)
+<pre><code>el.on(<em>'click'</em>, <b>this</b>.onClick, <b>this</b>, {
+    single: true,
+    delay: 100,
+    forumId: 4
+});</code></pre>
+<p>
+<b>Attaching multiple handlers in 1 call</b><br>
+The method also allows for a single argument to be passed which is a config object containing properties
+which specify multiple handlers.
+<p>
+<pre><code>foo.on({
+    <em>'click'</em> : {
+        fn: <b>this</b>.onClick,
+        scope: <b>this</b>,
+        delay: 100
+    },
+    <em>'mouseover'</em> : {
+        fn: <b>this</b>.onMouseOver,
+        scope: <b>this</b>
+    },
+    <em>'mouseout'</em> : {
+        fn: <b>this</b>.onMouseOut,
+        scope: <b>this</b>
+    }
+});</code></pre>
+<p>
+Or a shorthand syntax:<br>
+<pre><code>foo.on({
+    <em>'click'</em> : <b>this</b>.onClick,
+    <em>'mouseover'</em> : <b>this</b>.onMouseOver,
+    <em>'mouseout'</em> : <b>this</b>.onMouseOut,
+     scope: <b>this</b>
+});</code></pre></div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#addListener" href="output/Ext.util.Observable.html#addListener">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-fireEvent"></a>
+            <b>fireEvent</b>(&nbsp;<code>String eventName</code>, <code>Object... args</code>&nbsp;) : Boolean            <div class="mdesc">
+                        <div class="short">Fires the specified event with the passed parameters (minus the event name).</div>
+            <div class="long">
+                Fires the specified event with the passed parameters (minus the event name).    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>eventName</code> : String<div class="sub-desc"></div></li><li><code>args</code> : Object...<div class="sub-desc">Variable number of parameters are passed to handlers</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Boolean</code><div class="sub-desc">returns false if any of the handlers return false otherwise it returns true</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#fireEvent" href="output/Ext.util.Observable.html#fireEvent">Observable</a></td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-formUpdate"></a>
+            <b>formUpdate</b>(&nbsp;<code>String/HTMLElement form</code>, <span class="optional" title="Optional">[<code>String url</code>]</span>, <span class="optional" title="Optional">[<code>Boolean reset</code>]</span>, <span class="optional" title="Optional">[<code>Function callback</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Performs an async form post, updating this element with the response. If the form has the attribute enctype="multipar...</div>
+            <div class="long">
+                Performs an async form post, updating this element with the response. If the form has the attribute enctype="multipart/form-data", it assumes it's a file upload.
+Uses this.sslBlankUrl for SSL file uploads to prevent IE security warning.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>form</code> : String/HTMLElement<div class="sub-desc">The form Id or form element</div></li><li><code>url</code> : String<div class="sub-desc">(optional) The url to pass the form to. If omitted the action attribute on the form will be used.</div></li><li><code>reset</code> : Boolean<div class="sub-desc">(optional) Whether to try to reset the form after the update</div></li><li><code>callback</code> : Function<div class="sub-desc">(optional) Callback when transaction is complete. The following
+parameters are passed:<ul>
+<li><b>el</b> : Ext.Element<p class="sub-desc">The Element being updated.</p></li>
+<li><b>success</b> : Boolean<p class="sub-desc">True for success, false for failure.</p></li>
+<li><b>response</b> : XMLHttpRequest<p class="sub-desc">The XMLHttpRequest which processed the update.</p></li></ul></div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-getEl"></a>
+            <b>getEl</b>() : Ext.Element            <div class="mdesc">
+                        <div class="short">Get the Element this Updater is bound to</div>
+            <div class="long">
+                Get the Element this Updater is bound to    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Ext.Element</code><div class="sub-desc">The element</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-hasListener"></a>
+            <b>hasListener</b>(&nbsp;<code>String eventName</code>&nbsp;) : Boolean            <div class="mdesc">
+                        <div class="short">Checks to see if this object has any listeners for a specified event</div>
+            <div class="long">
+                Checks to see if this object has any listeners for a specified event    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>eventName</code> : String<div class="sub-desc">The name of the event to check for</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Boolean</code><div class="sub-desc">True if the event is being listened for, else false</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#hasListener" href="output/Ext.util.Observable.html#hasListener">Observable</a></td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-isUpdating"></a>
+            <b>isUpdating</b>() : Boolean            <div class="mdesc">
+                        <div class="short">Returns true if an update is in progress</div>
+            <div class="long">
+                Returns true if an update is in progress    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Boolean</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-on"></a>
+            <b>on</b>(&nbsp;<code>String eventName</code>, <code>Function handler</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>, <span class="optional" title="Optional">[<code>Object options</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Appends an event handler to this element (shorthand for addListener)</div>
+            <div class="long">
+                Appends an event handler to this element (shorthand for addListener)    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>eventName</code> : String<div class="sub-desc">The type of event to listen for</div></li><li><code>handler</code> : Function<div class="sub-desc">The method the event invokes</div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope in which to execute the handler
+function. The handler function's "this" context.</div></li><li><code>options</code> : Object<div class="sub-desc">(optional)</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-purgeListeners"></a>
+            <b>purgeListeners</b>() : void            <div class="mdesc">
+                        <div class="short">Removes all listeners for this object</div>
+            <div class="long">
+                Removes all listeners for this object    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-refresh"></a>
+            <b>refresh</b>(&nbsp;<span class="optional" title="Optional">[<code>Function callback</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Refresh the element with the last used url or defaultUrl. If there is no url, it returns immediately</div>
+            <div class="long">
+                Refresh the element with the last used url or defaultUrl. If there is no url, it returns immediately    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>callback</code> : Function<div class="sub-desc">(optional) Callback when transaction is complete - called with signature (oElement, bSuccess)</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-removeListener"></a>
+            <b>removeListener</b>(&nbsp;<code>String eventName</code>, <code>Function handler</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Removes a listener</div>
+            <div class="long">
+                Removes a listener    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>eventName</code> : String<div class="sub-desc">The type of event to listen for</div></li><li><code>handler</code> : Function<div class="sub-desc">The handler to remove</div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope (this object) for the handler</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-resumeEvents"></a>
+            <b>resumeEvents</b>() : void            <div class="mdesc">
+                        <div class="short">Resume firing events. (see <a ext:cls="Ext.util.Observable" ext:member="suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">suspendEvents</a>)</div>
+            <div class="long">
+                Resume firing events. (see <a ext:cls="Ext.util.Observable" ext:member="suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">suspendEvents</a>)    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-setDefaultUrl"></a>
+            <b>setDefaultUrl</b>(&nbsp;<code>String/Function defaultUrl</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Set the defaultUrl used for updates</div>
+            <div class="long">
+                Set the defaultUrl used for updates    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>defaultUrl</code> : String/Function<div class="sub-desc">The url or a function to call to get the url</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-setRenderer"></a>
+            <b>setRenderer</b>(&nbsp;<code>Object renderer</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Set the content renderer for this Updater. See <a ext:cls="Ext.Updater.BasicRenderer" ext:member="render" href="output/Ext.Updater.BasicRenderer.html#render">Ext.Updater.BasicRenderer.render</a> for more details.</div>
+            <div class="long">
+                Set the content renderer for this Updater. See <a ext:cls="Ext.Updater.BasicRenderer" ext:member="render" href="output/Ext.Updater.BasicRenderer.html#render">Ext.Updater.BasicRenderer.render</a> for more details.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>renderer</code> : Object<div class="sub-desc">The object implementing the render() method</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-showLoading"></a>
+            <b>showLoading</b>() : void            <div class="mdesc">
+                        <div class="short">Called to update the element to "Loading" state. Override to perform custom action.</div>
+            <div class="long">
+                Called to update the element to "Loading" state. Override to perform custom action.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-startAutoRefresh"></a>
+            <b>startAutoRefresh</b>(&nbsp;<code>Number interval</code>, <span class="optional" title="Optional">[<code>String/Function url</code>]</span>, <span class="optional" title="Optional">[<code>String/Object params</code>]</span>, <span class="optional" title="Optional">[<code>Function callback</code>]</span>, <span class="optional" title="Optional">[<code>Boolean refreshNow</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Set this element to auto refresh.</div>
+            <div class="long">
+                Set this element to auto refresh.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>interval</code> : Number<div class="sub-desc">How often to update (in seconds).</div></li><li><code>url</code> : String/Function<div class="sub-desc">(optional) The url for this request or a function to call to get the url (Defaults to the last used url)</div></li><li><code>params</code> : String/Object<div class="sub-desc">(optional) The parameters to pass as either a url encoded string "&param1=1&param2=2" or as an object {param1: 1, param2: 2}</div></li><li><code>callback</code> : Function<div class="sub-desc">(optional) Callback when transaction is complete - called with signature (oElement, bSuccess)</div></li><li><code>refreshNow</code> : Boolean<div class="sub-desc">(optional) Whether to execute the refresh now, or wait the interval</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-stopAutoRefresh"></a>
+            <b>stopAutoRefresh</b>() : void            <div class="mdesc">
+                        <div class="short">Stop auto refresh on this element.</div>
+            <div class="long">
+                Stop auto refresh on this element.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-suspendEvents"></a>
+            <b>suspendEvents</b>() : void            <div class="mdesc">
+                        <div class="short">Suspend the firing of all events. (see <a ext:cls="Ext.util.Observable" ext:member="resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">resumeEvents</a>)</div>
+            <div class="long">
+                Suspend the firing of all events. (see <a ext:cls="Ext.util.Observable" ext:member="resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">resumeEvents</a>)    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-un"></a>
+            <b>un</b>(&nbsp;<code>String eventName</code>, <code>Function handler</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Removes a listener (shorthand for removeListener)</div>
+            <div class="long">
+                Removes a listener (shorthand for removeListener)    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>eventName</code> : String<div class="sub-desc">The type of event to listen for</div></li><li><code>handler</code> : Function<div class="sub-desc">The handler to remove</div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope (this object) for the handler</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#un" href="output/Ext.util.Observable.html#un">Observable</a></td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-update"></a>
+            <b>update</b>(&nbsp;<code>Object options</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Performs an asynchronous request, updating this element with the response.
+If params are specified it uses POST, othe...</div>
+            <div class="long">
+                Performs an <b>asynchronous</b> request, updating this element with the response.
+If params are specified it uses POST, otherwise it uses GET.<br><br>
+<b>NB:</b> Due to the asynchronous nature of remote server requests, the Element
+will not have been fully updated when the function returns. To postprocess the returned
+data, use the callback option, or an <b><tt>update</tt></b> event handler.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>options</code> : Object<div class="sub-desc">A config object containing any of the following options:<ul>
+<li>url : <b>String/Function</b><p class="sub-desc">The URL to
+request or a function which <i>returns</i> the URL.</p></li>
+<li>method : <b>String</b><p class="sub-desc">The HTTP method to
+use. Defaults to POST if params are present, or GET if not.</p></li>
+<li>params : <b>String/Object/Function</b><p class="sub-desc">The
+parameters to pass to the server. These may be specified as a urlencoded
+string, or as an object containing properties which represent parameters,
+or as a function, which returns an object.</p></li>
+<li>scripts : <b>Boolean</b><p class="sub-desc">If <tt>true</tt>
+any &lt;script&gt; tags embedded in the response text will be extracted
+and executed. If this option is specified, the callback will be
+called <i>after</i> the execution of the scripts.</p></li>
+<li>callback : <b>Function</b><p class="sub-desc">A function to
+be called when the response from the server arrives. The following
+parameters are passed:<ul>
+<li><b>el</b> : Ext.Element<p class="sub-desc">The Element being updated.</p></li>
+<li><b>success</b> : Boolean<p class="sub-desc">True for success, false for failure.</p></li>
+<li><b>response</b> : XMLHttpRequest<p class="sub-desc">The XMLHttpRequest which processed the update.</p></li>
+<li><b>options</b> : Object<p class="sub-desc">The config object passed to the update call.</p></li></ul>
+</p></li>
+<li>scope : <b>Object</b><p class="sub-desc">The scope in which
+to execute the callback (The callback's <tt>this</tt> reference.) If the
+<tt>params</tt> option is a function, this scope is used for that function also.</p></li>
+<li>discardUrl : <b>Boolean</b><p class="sub-desc">If not passed
+as <tt>false</tt> the URL of this request becomes the default URL for
+this Updater object, and will be subsequently used in <a ext:cls="Ext.Updater" ext:member="refresh" href="output/Ext.Updater.html#refresh">refresh</a>
+calls.</p></li>
+<li>timeout : <b>Number</b><p class="sub-desc">The timeout to use
+when waiting for a response.</p></li>
+<li>nocache : <b>Boolean</b><p class="sub-desc">Only needed for GET
+requests, this option causes an extra, generated parameter to be passed
+to defeat caching.</p></li></ul>
+<p>
+For example:
+<pre><code>um.update({
+    url: <em>"your-url.php"</em>,
+    params: {param1: <em>"foo"</em>, param2: <em>"bar"</em>}, <i>// or a URL encoded string</i>
+    callback: yourFunction,
+    scope: yourObject, <i>//(optional scope)  </i>
+    discardUrl: false, 
+    nocache: false,
+    text: <em>"Loading..."</em>,
+    timeout: 30,
+    scripts: false <i>// Save time by avoiding RegExp execution.</i>
+});</code></pre></div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+            </table>
+                <a id="Ext.Updater-events"></a>
+        <h2>Public Events</h2>
+                <table cellspacing="0" class="member-table">
+            <tr>
+                <th class="sig-header" colspan="2">Event</th>
+                <th class="msource-header">Defined By</th>
+            </tr>
+                <tr class="event-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-beforeupdate"></a>
+            <b>beforeupdate</b> : (&nbsp;<code>Ext.Element el</code>, <code>String/Object/Function url</code>, <code>String/Object params</code>&nbsp;)            <div class="mdesc">
+                        <div class="short">Fired before an update is made, return false from your handler and the update is cancelled.</div>
+            <div class="long">
+                Fired before an update is made, return false from your handler and the update is cancelled.    <div class="mdetail-params">
+        <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
+        <ul><li><code>el</code> : Ext.Element<div class="sub-desc"></div></li><li><code>url</code> : String/Object/Function<div class="sub-desc"></div></li><li><code>params</code> : String/Object<div class="sub-desc"></div></li>        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="event-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-failure"></a>
+            <b>failure</b> : (&nbsp;<code>Ext.Element el</code>, <code>Object oResponseObject</code>&nbsp;)            <div class="mdesc">
+                        <div class="short">Fired on update failure.</div>
+            <div class="long">
+                Fired on update failure.    <div class="mdetail-params">
+        <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
+        <ul><li><code>el</code> : Ext.Element<div class="sub-desc"></div></li><li><code>oResponseObject</code> : Object<div class="sub-desc">The response Object</div></li>        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="event-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Updater-update"></a>
+            <b>update</b> : (&nbsp;<code>Ext.Element el</code>, <code>Object oResponseObject</code>&nbsp;)            <div class="mdesc">
+                        <div class="short">Fired after successful update is made.</div>
+            <div class="long">
+                Fired after successful update is made.    <div class="mdetail-params">
+        <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
+        <ul><li><code>el</code> : Ext.Element<div class="sub-desc"></div></li><li><code>oResponseObject</code> : Object<div class="sub-desc">The response Object</div></li>        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+            </table>
+        
+        </div>

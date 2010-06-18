@@ -1,0 +1,30 @@
+/* additional style rules for ie */
+
+/*
+ * WCalendar
+ */
+
+.Wt-cal td div {
+    zoom: 1;
+}
+
+/*
+ * WItemDelegate
+ */
+.Wt-delegate-edit input {
+    font-size: 9pt;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/*
+ * WTreeView
+ */
+/* nodes */
+.Wt-treeview .Wt-expand {
+    background: url(nav-plus.gif) no-repeat 0 center;
+}
+
+.Wt-treeview .Wt-collapse {
+    background: url(nav-minus.gif) no-repeat 0 center;
+}

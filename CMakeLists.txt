@@ -339,6 +339,8 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
 
 add_subdirectory (dcpp)
 add_subdirectory (eiskaltdcpp)
+add_subdirectory (eiskaltdcpp-wt)
+
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
