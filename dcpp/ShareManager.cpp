@@ -760,12 +760,16 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
             continue;
         if(!BOOLSETTING(FOLLOW_LINKS) && i->isLink())
             continue;
+
+        int64_t size = i->getSize();
+        string fileName = aName + name;
+
         if (l_skip_list.size())
         {
-            if (Wildcard::patternMatch(aName + name , l_skip_list, '|'))
+            if (Wildcard::patternMatch(fileName , l_skip_list, '|'))
             {
-                LogManager::getInstance()->message(str(F_("User has chosen not to share file: %1%%2% (Size: %3% B)")
-                % aName % name % Util::toString(i->getSize())));
+                LogManager::getInstance()->message(str(F_("User has chosen not to share file: %1% (Size: %2%)")
+                % Util::addBrackets(fileName) % Util::formatBytes(size)));
                 continue;
             }
         }
@@ -785,12 +789,10 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
                 ) {
                 if (!BOOLSETTING(SHARE_TEMP_FILES) &&
                     (Util::stricmp(l_ext.c_str(), ".dctmp") == 0)) {
-                    LogManager::getInstance()->message(str(F_("User has chosen not to share temp file: %1%%2% (Size: %3% B)")
-                    % aName % name % Util::toString(i->getSize())));
+                    LogManager::getInstance()->message(str(F_("User has chosen not to share temp file: %1% (Size: %2%)")
+                    % Util::addBrackets(fileName) % Util::formatBytes(size)));
                     continue;
                 }
-                int64_t size = i->getSize();
-                string fileName = aName + name;
                 if(Util::stricmp(fileName, SETTING(TLS_PRIVATE_KEY_FILE)) == 0) {
                     continue;
                 }

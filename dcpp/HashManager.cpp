@@ -837,6 +837,9 @@ int HashManager::Hasher::run() {
                 size_t n = 0;
                 TigerTree fastTTH(bs);
                 tth = &fastTTH;
+
+                LogManager::getInstance()->message(str(F_("Hashing file: %1% (Size: %2%)")
+                % Util::addBrackets(fname) % Util::formatBytes(size)));
 #ifdef _WIN32
                 if(!virtualBuf || !BOOLSETTING(FAST_HASH) || !fastHash(fname, buf, fastTTH, size, xcrc32)) {
 #else
