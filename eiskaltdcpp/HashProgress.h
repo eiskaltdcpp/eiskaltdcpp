@@ -25,6 +25,8 @@ class HashProgress :
 public:
     HashProgress(QWidget* = NULL);
     virtual ~HashProgress();
+    enum { IDLE, RUNNING, PAUSED };
+    static unsigned getHashStatus();
 
 public slots:
     void slotAutoClose(bool);

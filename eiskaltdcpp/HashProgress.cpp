@@ -11,9 +11,7 @@
 
 using namespace dcpp;
 
-enum { IDLE, RUNNING, PAUSED };
-
-unsigned getHashStatus() {
+unsigned HashProgress::getHashStatus() {
     ShareManager *SM = ShareManager::getInstance();
     HashManager *HM = HashManager::getInstance();
 	if( SM->isRefreshing() )

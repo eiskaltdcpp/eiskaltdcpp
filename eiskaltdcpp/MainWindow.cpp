@@ -1319,6 +1319,25 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
 
         act->setChecked(true);
     }
+
+    // Update hash-progress status, to be extended.
+    switch( HashProgress::getHashStatus() ) {
+    case HashProgress::IDLE:
+        fileFileListRefresh->setEnabled(true);
+        //qDebug("idle");
+        break;
+    case HashProgress::PAUSED:
+        fileFileListRefresh->setEnabled(false);
+        //qDebug("paused");
+        break;
+    case HashProgress::RUNNING:
+        fileFileListRefresh->setEnabled(false);
+        //qDebug("running");
+        break;
+    default:
+        //qDebug("unknown");
+        break;
+    }
 }
 
 void MainWindow::setStatusMessage(QString msg){

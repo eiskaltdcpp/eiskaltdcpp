@@ -16,5 +16,5 @@ add_library (dcpp SHARED ${dcpp_srcs})
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES} ${OPENSSL_LIBRARIES})
 
 install (TARGETS dcpp
-	 LIBRARY DESTINATION lib
-	 BUNDLE DESTINATION . )
+     LIBRARY DESTINATION ${LIBDIR}
+     BUNDLE DESTINATION . )
