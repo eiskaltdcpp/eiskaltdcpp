@@ -1450,6 +1450,13 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
 </context>
 <context>
+    <name>MultiLineToolBar</name>
+    <message>
+        <source>Show close buttons</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Notification</name>
     <message>
         <source>Show/Hide window</source>
@@ -1483,7 +1490,7 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source> on hub </source>
-        <translation>   na habu  </translation>
+        <translation type="obsolete">   na habu  </translation>
     </message>
     <message>
         <source>Chat cleared.</source>
@@ -1492,6 +1499,10 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <source>User went offline</source>
         <translation>Korisnik je napustio hab</translation>
+    </message>
+    <message>
+        <source>%1 on hub %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1943,7 +1954,7 @@ Keys:
     <name>SettingsConnection</name>
     <message>
         <source>You enter ports with number &lt; 1024, ports numbers set to default.</source>
-        <translation>Unesi portove sa brojem &lt; 1024, brojeve portova postaviti kao podrazumevane.</translation>
+        <translation type="obsolete">Unesi portove sa brojem &lt; 1024, brojeve portova postaviti kao podrazumevane.</translation>
     </message>
     <message>
         <source>No valid SOCKS5 server IP found!</source>
@@ -1952,6 +1963,10 @@ Keys:
     <message>
         <source>Warning</source>
         <translation>Upozorenje</translation>
+    </message>
+    <message>
+        <source>Program need root privileges to open ports less than 1024</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1550,6 +1550,13 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
 </context>
 <context>
+    <name>MultiLineToolBar</name>
+    <message>
+        <source>Show close buttons</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Notification</name>
     <message>
         <source>Show/Hide window</source>
@@ -1590,7 +1597,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source> on hub </source>
-        <translation> on hub </translation>
+        <translation type="obsolete"> on hub </translation>
     </message>
     <message>
         <source>User went offline</source>
@@ -1599,6 +1606,10 @@ Letöltve: %3 Feltöltve %4</translation>
     <message>
         <source>Chat cleared.</source>
         <translation>Chat törölve.</translation>
+    </message>
+    <message>
+        <source>%1 on hub %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2054,7 +2065,7 @@ Kapcsolók:
     <name>SettingsConnection</name>
     <message>
         <source>You enter ports with number &lt; 1024, ports numbers set to default.</source>
-        <translation>Az általad megadott port &lt; 1024, a portok az alapértelmezés szerint beálítva.</translation>
+        <translation type="obsolete">Az általad megadott port &lt; 1024, a portok az alapértelmezés szerint beálítva.</translation>
     </message>
     <message>
         <source>No valid SOCKS5 server IP found!</source>
@@ -2063,6 +2074,10 @@ Kapcsolók:
     <message>
         <source>Warning</source>
         <translation>Figyelmeztetés</translation>
+    </message>
+    <message>
+        <source>Program need root privileges to open ports less than 1024</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

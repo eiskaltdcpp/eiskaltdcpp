@@ -110,7 +110,8 @@ SOURCES = main.cpp \
     UCModel.cpp \
     CustomFontModel.cpp \
     ScriptManagerDialog.cpp \
-    scriptengine/ScriptConsole.cpp
+    scriptengine/ScriptConsole.cpp \
+    MultiLineToolBar.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \

@@ -1614,6 +1614,13 @@ Please check your connection settings</source>
     </message>
 </context>
 <context>
+    <name>MultiLineToolBar</name>
+    <message>
+        <source>Show close buttons</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Notification</name>
     <message>
         <source>Show/Hide window</source>
@@ -1650,7 +1657,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source> on hub </source>
-        <translation>sur le serveur</translation>
+        <translation type="obsolete">sur le serveur</translation>
     </message>
     <message>
         <source>User went offline</source>
@@ -1659,6 +1666,10 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <source>Chat cleared.</source>
         <translation>Discussion vidée.</translation>
+    </message>
+    <message>
+        <source>%1 on hub %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2169,7 +2180,7 @@ Clés:
     <name>SettingsConnection</name>
     <message>
         <source>You enter ports with number &lt; 1024, ports numbers set to default.</source>
-        <translation>Entrez des ports &lt; 1024, nombres de ports appliqués par défaut.</translation>
+        <translation type="obsolete">Entrez des ports &lt; 1024, nombres de ports appliqués par défaut.</translation>
     </message>
     <message>
         <source>No valid SOCKS5 server IP found!</source>
@@ -2178,6 +2189,10 @@ Clés:
     <message>
         <source>Warning</source>
         <translation>Attention</translation>
+    </message>
+    <message>
+        <source>Program need root privileges to open ports less than 1024</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
