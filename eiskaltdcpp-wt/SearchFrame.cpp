@@ -67,6 +67,8 @@ SearchFrame::SearchFrame(Wt::WContainerWidget *parent): WContainerWidget(parent)
         view->resize(WLength(100, WLength::Percentage), WLength(100, WLength::Percentage));
 
         vlayout->addWidget(view, 5);
+
+        view->setColumnWidth(0, WLength(30, WLength::Pixel));
     }
 
     SearchManager::getInstance()->addListener(this);
@@ -150,8 +152,27 @@ void SearchFrame::startSearch() {
 void SearchFrame::on(SearchManagerListener::SR, const SearchResultPtr& aResult) throw(){
     SearchModelItem *item = new SearchModelItem();
 
-    item->file = WString::fromUTF8(aResult->getFileName(), false);
-    item->path = WString::fromUTF8(aResult->getFile(), false);
+    WString s =  WString::fromUTF8(aResult->getFileName(), false);
+    WString fname = "";
+    WString path = "";
+    TStringList list;
+
+    {
+        list = StringTokenizer<tstring>(s.toUTF8(), '\\').getTokens();
+        fname = WString::fromUTF8(list.at(list.size()-1));
+
+        //strip out terms beginning with -
+        for(TStringList::iterator si = list.begin(); si != (--list.end()); ) {
+            path += (WString::fromUTF8(*si) + "\\");
+
+            ++si;
+        }
+
+        token = (Util::toString(Util::rand()));
+    }
+
+    item->file = fname;
+    item->path = path;
     item->size = aResult->getSize();
     item->tth  = WString::fromUTF8(aResult->getTTH().toBase32(), false);
     item->cid  = WString::fromUTF8(aResult->getUser()->getCID().toBase32(), false);

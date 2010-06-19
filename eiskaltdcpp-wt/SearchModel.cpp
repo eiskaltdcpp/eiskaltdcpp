@@ -6,6 +6,7 @@
  */
 
 #include "SearchModel.h"
+#include "Utils.h"
 
 #include <stdio.h>
 
@@ -41,7 +42,7 @@ int SearchModel::rowCount(const Wt::WModelIndex& parent) const{
 }
 
 int SearchModel::columnCount(const WModelIndex& parent) const{
-    return 4;
+    return 5;
 }
 
 WModelIndex SearchModel::parent(const WModelIndex  &index) const{
@@ -65,14 +66,21 @@ boost::any SearchModel::data(const WModelIndex  &index, int role) const{
     const int column = index.column();
 
     if (role == DisplayRole){
-        if (column == 0)
+        if (column == 1)
             return boost::any(item->file);
-        else if (column == 1)
-            return boost::any(item->size);
         else if (column == 2)
+            return boost::any(Utils::formatBytes(item->size));
+        else if (column == 3)
             return boost::any(item->path);
-        else
+        else if (column == 4)
             return boost::any(item->tth);
+    }
+    else if (role == CheckStateRole){
+        std::vector<SearchModelItem*>::const_iterator begin = checkedItems.begin();
+        std::vector<SearchModelItem*>::const_iterator end   = checkedItems.end();
+
+        if (column == 0)
+            return ((std::find(begin, end, item) == checkedItems.end())? Unchecked : Checked);
     }
 
     return boost::any();
@@ -80,14 +88,16 @@ boost::any SearchModel::data(const WModelIndex  &index, int role) const{
 
 boost::any SearchModel::headerData(int section, Orientation  orientation, int role) const {
     if (orientation == Horizontal && role == DisplayRole){
-        if (section == 0)
+        if (section == 1)
             return boost::any(WString("File"));
-        else if (section == 1)
-            return boost::any(WString("Size"));
         else if (section == 2)
+            return boost::any(WString("Size"));
+        else if (section == 3)
             return boost::any(WString("Path"));
-        else
+        else if (section == 4)
             return boost::any(WString("TTH"));
+        else
+            return boost::any(WString(""));
     }
 
     return boost::any();
@@ -163,6 +173,36 @@ void SearchModel::sort(int column, SortOrder order){
         Compare<AscendingOrder>().sort(column, rootItem->childs);
 
     layoutChanged().emit();
+}
+
+bool SearchModel::setData(const WModelIndex &index, const boost::any &value, int role){
+    if (role != CheckStateRole || index.column() != 0)
+        return WAbstractItemModel::setData(index, value, role);
+
+    SearchModelItem *item = reinterpret_cast<SearchModelItem*>(index.internalPointer());
+    std::vector<SearchModelItem*>::iterator begin = checkedItems.begin();
+    std::vector<SearchModelItem*>::iterator end   = checkedItems.end();
+    std::vector<SearchModelItem*>::iterator it = std::find(begin, end, item);
+
+    bool checked = (it != checkedItems.end());
+
+    if (checked){
+        std::remove(it, it, *it);
+    }
+    else {
+        checkedItems.push_back(item);
+    }
+
+    return true;
+}
+
+WFlags<ItemFlag> SearchModel::flags(const WModelIndex &index) const{
+    WFlags<ItemFlag> _flags = WAbstractItemModel::flags(index);
+
+    if (index.column() == 0)
+        _flags |= ItemIsUserCheckable;
+
+    return _flags;
 }
 
 void SearchModel::addResult(SearchModelItem *item){

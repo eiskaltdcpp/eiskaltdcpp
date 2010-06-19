@@ -82,15 +82,13 @@ public:
 
     virtual int columnCount(const Wt::WModelIndex &parent = Wt::WModelIndex()) const;
     virtual int rowCount (const Wt::WModelIndex  &parent = Wt::WModelIndex()) const;
-
     virtual Wt::WModelIndex parent(const Wt::WModelIndex  &index) const;
-
     virtual boost::any data(const Wt::WModelIndex  &index, int role = Wt::DisplayRole) const;
     virtual boost::any headerData(int section, Wt::Orientation  orientation = Wt::Horizontal, int role = Wt::DisplayRole) const;
-
     virtual Wt::WModelIndex index(int row, int column, const Wt::WModelIndex  &parent = Wt::WModelIndex()) const;
-
     virtual void sort(int column, Wt::SortOrder order = Wt::AscendingOrder);
+    virtual bool setData(const Wt::WModelIndex &index, const boost::any &value, int role);
+    Wt::WFlags<Wt::ItemFlag> flags(const Wt::WModelIndex &index) const;
 
     virtual void addResult(SearchModelItem *item);
     
@@ -101,6 +99,9 @@ private:
     void tick();
 
     SearchModelItem *rootItem;
+
+    std::vector<SearchModelItem*> checkedItems;
+
     Wt::WTimer *timer;
 };
 

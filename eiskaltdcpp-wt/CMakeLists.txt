@@ -10,9 +10,11 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${Wt_INCLUDE_DIR})
 
 set (HDRS   SearchFrame.h
-	    SearchModel.h)
+	    SearchModel.h
+	    Utils.h)
 set (SRCS   SearchFrame.cpp
-	    SearchModel.cpp)
+	    SearchModel.cpp
+	    Utils.cpp)
 
 
 include_directories (${Wt_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}  ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
@@ -41,7 +43,7 @@ else (APPLE)
   target_link_libraries (eiskaltdcpp-wt ${LIBS} dcpp)
 endif (APPLE)
 
-  set_property (TARGET eiskaltdcpp-wt PROPERTY OUTPUT_NAME ${PROJECT_NAME_GLOBAL})
+  set_property (TARGET eiskaltdcpp-wt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-wt")
   install (TARGETS eiskaltdcpp-wt
     RUNTIME DESTINATION bin
     BUNDLE DESTINATION . )
