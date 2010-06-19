@@ -89,7 +89,9 @@ HEADERS = ../dcpp/HashBloom.h \
     ../dcpp/HashManagerListener.h \
     SearchFrame.h \
     SearchModel.h \
-    Utils.h
+    Utils.h \
+    DownloadQueue.h \
+    DownloadQueueModel.h
 SOURCES = main.cpp \
     ../dcpp/HashManager.cpp \
     ../dcpp/SettingsManager.cpp \
@@ -144,4 +146,6 @@ SOURCES = main.cpp \
     ../dcpp/ZUtils.cpp \
     SearchFrame.cpp \
     SearchModel.cpp \
-    Utils.cpp
+    Utils.cpp \
+    DownloadQueue.cpp \
+    DownloadQueueModel.cpp

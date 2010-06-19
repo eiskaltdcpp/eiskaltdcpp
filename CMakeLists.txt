@@ -120,6 +120,7 @@ else (NOT USE_JS)
 endif (NOT USE_JS)
 
 option (USE_WT "WebControl" OFF)
+option (USE_QT "Qt interface" ON)
 
 find_package (PkgConfig)
 
@@ -340,7 +341,10 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
                 ")
 
 add_subdirectory (dcpp)
-add_subdirectory (eiskaltdcpp)
+
+if (USE_QT)
+  add_subdirectory (eiskaltdcpp)
+endif (USE_QT)
 
 if (USE_WT)
   add_subdirectory (eiskaltdcpp-wt)

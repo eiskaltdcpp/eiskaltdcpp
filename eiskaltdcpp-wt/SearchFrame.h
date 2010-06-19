@@ -51,6 +51,7 @@ private:
     Wt::WComboBox *comboBox_TYPE;
     Wt::WLineEdit *lineEdit_SEARCH;
     Wt::WPushButton *pushButton_SEARCH;
+    Wt::WPushButton *pushButton_DOWNLOAD;
     Wt::WTreeView *view;
 
     SearchModel *model;

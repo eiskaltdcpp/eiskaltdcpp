@@ -48,15 +48,20 @@ SearchFrame::SearchFrame(Wt::WContainerWidget *parent): WContainerWidget(parent)
         lineEdit_SEARCH = new WLineEdit();
         lineEdit_SEARCH->setStyleClass("search-edit");
         lineEdit_SEARCH->setEmptyText("Search for...");
+        lineEdit_SEARCH->enterPressed().connect(this, &SearchFrame::startSearch);
+        lineEdit_SEARCH->enterPressed().preventDefaultAction(true);
 
         pushButton_SEARCH = new WPushButton("Search");
         pushButton_SEARCH->setStyleClass("search-button");
         pushButton_SEARCH->clicked().connect(this, &SearchFrame::startSearch);
 
+        pushButton_DOWNLOAD = new WPushButton("Download selected");
+
         container->addWidget(label1);
         container->addWidget(comboBox_TYPE);
         container->addWidget(lineEdit_SEARCH);
         container->addWidget(pushButton_SEARCH);
+        container->addWidget(pushButton_DOWNLOAD);
 
         hlayout->addWidget(container, 1, AlignLeft);
     }
@@ -78,7 +83,7 @@ SearchFrame::SearchFrame(const SearchFrame& orig) {
 }
 
 SearchFrame::~SearchFrame() {
-    delete container;
+    /*delete container;
     delete vlayout;
     delete hlayout;
     delete label1;
@@ -87,7 +92,7 @@ SearchFrame::~SearchFrame() {
     delete pushButton_SEARCH;
     delete view;
 
-    delete model;
+    delete model;*/
 }
 
 void SearchFrame::startSearch() {

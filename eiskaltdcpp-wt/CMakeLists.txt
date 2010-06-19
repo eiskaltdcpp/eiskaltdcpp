@@ -9,10 +9,14 @@ find_package (Wt REQUIRED)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${Wt_INCLUDE_DIR})
 
-set (HDRS   SearchFrame.h
+set (HDRS   DownloadQueue.h
+	    DownloadQueueModel.h
+	    SearchFrame.h
 	    SearchModel.h
 	    Utils.h)
-set (SRCS   SearchFrame.cpp
+set (SRCS   DownloadQueue.cpp
+	    DownloadQueueModel.cpp
+	    SearchFrame.cpp
 	    SearchModel.cpp
 	    Utils.cpp)
 

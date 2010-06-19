@@ -18,6 +18,8 @@
 #include <Wt/WString>
 
 #include "SearchFrame.h"
+#include "DownloadQueue.h"
+#include "Utils.h"
 
 using namespace Wt;
 using namespace dcpp;
@@ -43,36 +45,40 @@ public:
         search_btn = toolbar->addButton("Search");
         search_btn->setIcon("resources/edit-find.png");
 
-        another_btn = toolbar->addButton("Another");
-        another_btn->setIcon("resources/edit-find.png");
+        download_btn = toolbar->addButton("Download Queue");
+        download_btn->setIcon("resources/download.png");
 
-        root()->addWidget(sfr = new SearchFrame());
+        currentWidget = NULL;
 
-        currentWidget = sfr;
-        another_widget = new WContainerWidget();
+        sfr = new SearchFrame();
+        dq = new DownloadQueue();
 
         search_btn->clicked().connect(this, &WApp::showSearchFrame);
-        another_btn->clicked().connect(this, &WApp::showAnotherFrame);
+        download_btn->clicked().connect(this, &WApp::showAnotherFrame);
     }
 
     void showSearchFrame(){
         if (currentWidget == sfr)
             return;
 
-        root()->removeWidget(currentWidget);
+        if (currentWidget)
+            root()->removeWidget(currentWidget);
+
         root()->addWidget(sfr);
 
         currentWidget = sfr;
     }
 
     void showAnotherFrame(){
-        if (currentWidget == another_widget)
+        if (currentWidget == dq)
             return;
 
-        root()->removeWidget(currentWidget);
-        root()->addWidget(another_widget);
+        if (currentWidget)
+            root()->removeWidget(currentWidget);
 
-        currentWidget = another_widget;
+        root()->addWidget(dq);
+
+        currentWidget = dq;
     }
 
     virtual ~WApp() {
@@ -83,10 +89,10 @@ public:
 private:
     Ext::ToolBar *toolbar;
     Ext::Button *search_btn;
-    Ext::Button *another_btn;
+    Ext::Button *download_btn;
 
     SearchFrame *sfr;
-    WContainerWidget *another_widget;
+    DownloadQueue *dq;
 
     WContainerWidget *currentWidget;
 };
@@ -97,10 +103,13 @@ Wt::WApplication *createApplication(const Wt::WEnvironment& env)
    * You could read information from the environment to decide whether
    * the user has permission to start a new application
    */
+
   return new WApp(env);
 }
 
 int main(int argc, char** argv) {
+    Utils::init();
+
     dcpp::startup(callBack, NULL);
 
     startSocket();

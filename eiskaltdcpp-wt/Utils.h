@@ -9,11 +9,17 @@
 class Utils
 {
 public:
-    Utils();
-
+    static void init();
     static Wt::WString formatBytes(long long aBytes);
+    static Wt::WString getFileImage(const Wt::WString &file);
 
 private:
+    Utils(){}
+    Utils(const Utils&){}
+    Utils &operator=(const Utils&){}
+    virtual ~Utils(){}
+
+
     static std::map< Wt::WString, Wt::WString > fileTypes;
 };
 

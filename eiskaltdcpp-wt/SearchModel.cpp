@@ -82,6 +82,13 @@ boost::any SearchModel::data(const WModelIndex  &index, int role) const{
         if (column == 0)
             return ((std::find(begin, end, item) == checkedItems.end())? Unchecked : Checked);
     }
+    else if (role == DecorationRole){
+        if (column == 1){
+            WString img = Utils::getFileImage(item->file).toUTF8();
+
+            return boost::any(img);
+        }
+    }
 
     return boost::any();
 }
