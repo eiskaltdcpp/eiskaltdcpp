@@ -13,7 +13,12 @@ endif (HAVE_ADDRS_H EQUAL 1)
 include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR})
 
 add_library (dcpp SHARED ${dcpp_srcs})
-target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES} ${OPENSSL_LIBRARIES})
+
+if (APPLE)
+  target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES} ${OPENSSL_LIBRARIES} iconv intl)
+else (APPLE)
+  target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES} ${OPENSSL_LIBRARIES})
+endif (APPLE)
 
 install (TARGETS dcpp
      LIBRARY DESTINATION ${LIBDIR}
