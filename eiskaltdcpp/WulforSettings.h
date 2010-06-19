@@ -105,6 +105,7 @@ static const QString & WB_APP_ENABLE_EMOTICON     = "app-enable-emoticon";
 static const QString & WB_APP_FORCE_EMOTICONS     = "app-force-find-emoticons";
 static const QString & WB_APP_ENABLE_ASPELL       = "app-enable-aspell";
 static const QString & WB_APP_AUTO_AWAY           = "app-auto-away";
+static const QString & WB_APP_TBAR_SHOW_CL_BTNS   = "app-toolbar-show-close-buttons";
 static const QString & WB_APP_REMOVE_NOT_EX_DIRS  = "app-auto-rem-not-exsisting-dirs";
 static const QString & WB_WIDGETS_PANEL_VISIBLE   = "widgets-panel-visible";
 static const QString & WB_TOOLS_PANEL_VISIBLE     = "tools-panel-visible";

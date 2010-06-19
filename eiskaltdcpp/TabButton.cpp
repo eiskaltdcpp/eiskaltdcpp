@@ -8,6 +8,7 @@
 #include <QApplication>
 
 #include "WulforUtil.h"
+#include "WulforSettings.h"
 
 #include <QDataStream>
 
@@ -150,7 +151,10 @@ QSize TabButton::sizeHint() const {
 int TabButton::normalWidth() const {
     QFontMetrics metrics = qApp->fontMetrics();
 
-    return LABELWIDTH*2+metrics.width(text())+margin*3;
+    if (WBGET(WB_APP_TBAR_SHOW_CL_BTNS))
+        return LABELWIDTH*2+metrics.width(text())+margin*3;
+    else
+        return LABELWIDTH+metrics.width(text())+margin*5;
 }
 
 int TabButton::normalHeight() const {
@@ -168,11 +172,23 @@ void TabButton::setWidgetIcon(const QPixmap &px){
 void TabButton::updateStyles() {
     label->setStyleSheet(QString("QLabel { margin-left: %1; }").arg(margin));
     px_label->setStyleSheet(QString("QLabel { margin-right: %1; }").arg(margin));
-    setStyleSheet(QString("QPushButton { padding-right: %1; padding-left: %1;}").arg(LABELWIDTH));
+
+    if (WBGET(WB_APP_TBAR_SHOW_CL_BTNS))
+        setStyleSheet(QString("QPushButton { padding-right: %1; padding-left: %1;}").arg(LABELWIDTH));
+    else
+        setStyleSheet(QString("QPushButton { padding-left: %1; padding-left: %1;}").arg(LABELWIDTH));
 }
 
 void TabButton::updateGeometry() {
-    label->setGeometry(width()-LABELWIDTH-margin*2, (height()-LABELWIDTH)/2, LABELWIDTH, LABELWIDTH);
+    if (WBGET(WB_APP_TBAR_SHOW_CL_BTNS)){
+        if (!label->isVisible())
+            label->show();
+
+        label->setGeometry(width()-LABELWIDTH-margin*2, (height()-LABELWIDTH)/2, LABELWIDTH, LABELWIDTH);
+    }
+    else
+        label->hide();
+
     px_label->setGeometry(margin*2, (height()-LABELWIDTH)/2, LABELWIDTH, LABELWIDTH);
 
     updateStyles();

@@ -130,6 +130,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_APP_ENABLE_ASPELL,     static_cast<int>(true));
         intmap.insert(WB_APP_REMOVE_NOT_EX_DIRS,static_cast<int>(true));
         intmap.insert(WB_APP_AUTO_AWAY,         static_cast<int>(false));
+        intmap.insert(WB_APP_TBAR_SHOW_CL_BTNS, static_cast<int>(true));
         intmap.insert(WB_WIDGETS_PANEL_VISIBLE, static_cast<int>(true));
         intmap.insert(WB_TOOLS_PANEL_VISIBLE,   static_cast<int>(true));
         intmap.insert(WB_SEARCH_PANEL_VISIBLE,  static_cast<int>(false));

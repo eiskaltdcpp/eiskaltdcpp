@@ -31,6 +31,9 @@ signals:
 public Q_SLOTS:
     virtual void mapped(ArenaWidget *awgt);
 
+private Q_SLOTS:
+    void slotContextMenu();
+
 private:
     TabFrame *frame;
 };

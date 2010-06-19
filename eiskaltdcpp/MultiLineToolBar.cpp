@@ -1,4 +1,7 @@
 #include "MultiLineToolBar.h"
+#include "WulforSettings.h"
+
+#include <QMenu>
 
 MultiLineToolBar::MultiLineToolBar(QWidget *parent) :
     QToolBar(parent)
@@ -9,12 +12,14 @@ MultiLineToolBar::MultiLineToolBar(QWidget *parent) :
 
     addWidget(frame);
 
-    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    setContextMenuPolicy(Qt::CustomContextMenu);
 
     connect(this, SIGNAL(nextTab()), frame, SLOT(nextTab()));
     connect(this, SIGNAL(prevTab()), frame, SLOT(prevTab()));
     connect(this, SIGNAL(moveTabLeft()), frame, SLOT(moveLeft()));
     connect(this, SIGNAL(moveTabRight()), frame, SLOT(moveRight()));
+    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
 }
 
 MultiLineToolBar::~MultiLineToolBar(){
@@ -39,4 +44,22 @@ void MultiLineToolBar::mapped(ArenaWidget *awgt) {
 
 void MultiLineToolBar::redraw() {
     frame->redraw();
+}
+
+void MultiLineToolBar::slotContextMenu(){
+    QMenu *m = new QMenu(this);
+    QAction *act = new QAction(tr("Show close buttons"), m);
+
+    act->setCheckable(true);
+    act->setChecked(WBGET(WB_APP_TBAR_SHOW_CL_BTNS));
+
+    m->addAction(act);
+
+    if (m->exec(QCursor::pos()) != NULL){
+        WBSET(WB_APP_TBAR_SHOW_CL_BTNS, act->isChecked());
+
+        redraw();
+    }
+
+    m->deleteLater();
 }
