@@ -68,6 +68,7 @@ public:
     Wt::WString path;
     Wt::WString tth;
     Wt::WString cid;
+    Wt::WString host;
     unsigned long size;
 
 private:

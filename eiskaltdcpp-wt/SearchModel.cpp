@@ -42,7 +42,7 @@ int SearchModel::rowCount(const Wt::WModelIndex& parent) const{
 }
 
 int SearchModel::columnCount(const WModelIndex& parent) const{
-    return 5;
+    return 6;
 }
 
 WModelIndex SearchModel::parent(const WModelIndex  &index) const{
@@ -74,6 +74,8 @@ boost::any SearchModel::data(const WModelIndex  &index, int role) const{
             return boost::any(item->path);
         else if (column == 4)
             return boost::any(item->tth);
+        else if (column == 5)
+            return boost::any(item->host);
     }
     else if (role == CheckStateRole){
         std::vector<SearchModelItem*>::const_iterator begin = checkedItems.begin();
@@ -103,6 +105,8 @@ boost::any SearchModel::headerData(int section, Orientation  orientation, int ro
             return boost::any(WString("Path"));
         else if (section == 4)
             return boost::any(WString("TTH"));
+        else if (section == 5)
+            return boost::any(WString("Host"));
         else
             return boost::any(WString(""));
     }
@@ -142,10 +146,12 @@ namespace {
         typedef bool (*AttrComp)(const SearchModelItem * l, const SearchModelItem * r);
 
         AttrComp static getAttrComp(const int column) {
-            static AttrComp attrs[4] = { AttrCmp<WString, &SearchModelItem::file>,
+            static AttrComp attrs[6] = { AttrCmp<WString, &SearchModelItem::file>,
+                                         AttrCmp<WString, &SearchModelItem::file>,
                                          AttrCmp<unsigned long, &SearchModelItem::size>,
                                          AttrCmp<WString, &SearchModelItem::path>,
-                                         AttrCmp<WString, &SearchModelItem::tth>};
+                                         AttrCmp<WString, &SearchModelItem::tth>,
+                                         AttrCmp<WString, &SearchModelItem::host>};
 
             return attrs[column]; //column number checked in SearchModel::sort
         }

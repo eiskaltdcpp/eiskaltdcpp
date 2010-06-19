@@ -174,6 +174,7 @@ void SearchFrame::on(SearchManagerListener::SR, const SearchResultPtr& aResult) 
     item->size = aResult->getSize();
     item->tth  = WString::fromUTF8(aResult->getTTH().toBase32(), false);
     item->cid  = WString::fromUTF8(aResult->getUser()->getCID().toBase32(), false);
+    item->host = WString::fromUTF8(aResult->getHubURL(), false);
 
     model->addResult(item);
 }
