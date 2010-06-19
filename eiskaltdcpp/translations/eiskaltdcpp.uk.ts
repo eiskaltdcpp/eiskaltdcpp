@@ -1939,7 +1939,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MultiLineToolBar.cpp" line="51"/>
         <source>Show close buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати кнопки закриття</translation>
     </message>
 </context>
 <context>
@@ -1990,7 +1990,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../PMWindow.cpp" line="184"/>
         <source>%1 on hub %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 на хабі %2</translation>
     </message>
     <message>
         <source> on hub </source>
@@ -2575,7 +2575,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../SettingsConnection.cpp" line="113"/>
         <source>Program need root privileges to open ports less than 1024</source>
-        <translation type="unfinished"></translation>
+        <translation>Програмі потрібні привілеї root, щоб відкрити порти нижче 1024</translation>
     </message>
     <message>
         <location filename="../SettingsConnection.cpp" line="263"/>
