@@ -204,11 +204,12 @@ void TabFrame::nextTab(){
         TabButton *t = qobject_cast<TabButton*>(fr_layout->itemAt(i)->widget());
 
         if (t && t->isChecked()){
-            if (i == (fr_layout->count()-1))
-                return;
+            if (i == (fr_layout->count()-1)){
+                next = qobject_cast<TabButton*>(fr_layout->itemAt(0)->widget());
+                break;
+            }
 
             next = qobject_cast<TabButton*>(fr_layout->itemAt(i+1)->widget());
-
             break;
         }
     }
@@ -226,11 +227,12 @@ void TabFrame::prevTab(){
         TabButton *t = qobject_cast<TabButton*>(fr_layout->itemAt(i)->widget());
 
         if (t && t->isChecked()){
-            if (i == 0)
-                return;
+            if (i == 0){
+                next = qobject_cast<TabButton*>(fr_layout->itemAt(fr_layout->count()-1)->widget());
+                break;
+            }
 
             next = qobject_cast<TabButton*>(fr_layout->itemAt(i-1)->widget());
-
             break;
         }
     }
