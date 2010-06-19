@@ -22,6 +22,8 @@ endif (APPLE)
 
 if (NOT APPLE)
 install (TARGETS dcpp
-     LIBRARY DESTINATION ${LIBDIR})
-     #BUNDLE DESTINATION . )
-endif(NOT APPLE)
+            LIBRARY DESTINATION ${LIBDIR})
+else (NOT APPLE)
+install (TARGETS dcpp
+            BUNDLE DESTINATION . )
+endif (NOT APPLE)
