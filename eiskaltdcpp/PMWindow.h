@@ -84,6 +84,7 @@ private:
 
     QString cid;
     QString hubUrl;
+    QString nick_;
     QMenu *arena_menu;
 
     QStringList out_messages;

@@ -177,13 +177,19 @@ void PMWindow::reloadSomeSettings(){
 }
 
 QString PMWindow::getArenaTitle(){
-    return ((cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid) + tr(" on hub ") + hubUrl;
+    QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid;
+
+    nick_ = nick.isEmpty()? nick_ : nick;
+
+    return (tr("%1 on hub %2").arg(nick_).arg(hubUrl));
 }
 
 QString PMWindow::getArenaShortTitle(){
     QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid;
 
-    return nick;
+    nick_ = nick.isEmpty()? nick_ : nick;
+
+    return nick_;
 }
 
 QWidget *PMWindow::getWidget(){

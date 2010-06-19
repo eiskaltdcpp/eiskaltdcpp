@@ -1,10 +1,3 @@
-/* 
- * File:   SearchFrame.cpp
- * Author: negativ
- * 
- * Created on 18 Июнь 2010 г., 12:34
- */
-
 #include "SearchFrame.h"
 
 #include <stdio.h>
