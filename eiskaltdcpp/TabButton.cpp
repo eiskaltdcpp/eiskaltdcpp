@@ -173,10 +173,24 @@ void TabButton::updateStyles() {
     label->setStyleSheet(QString("QLabel { margin-left: %1; }").arg(margin));
     px_label->setStyleSheet(QString("QLabel { margin-right: %1; }").arg(margin));
 
-    if (WBGET(WB_APP_TBAR_SHOW_CL_BTNS))
-        setStyleSheet(QString("QPushButton { padding-right: %1; padding-left: %1;}").arg(LABELWIDTH));
-    else
-        setStyleSheet(QString("QPushButton { padding-left: %1; padding-left: %1;}").arg(LABELWIDTH));
+    QString styleText_pressed = "QPushButton:checked {\n";
+    QString styleText_button = "QPushButton {\n";
+
+    if (WBGET(WB_APP_TBAR_SHOW_CL_BTNS)){
+        styleText_pressed += QString("padding-right: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
+        styleText_button += QString("padding-right: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
+    }
+    else{
+        styleText_pressed += QString("padding-left: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
+        styleText_button += QString("padding-left: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
+    }
+
+    styleText_pressed += QString("border-width: 1px; border-color: %1; border-style: outset; border-radius: 5;\n").arg(palette().highlight().color().name());
+
+    styleText_button    += "}\n";
+    styleText_pressed   += "}\n";
+
+    setStyleSheet(styleText_button + styleText_pressed);
 }
 
 void TabButton::updateGeometry() {
