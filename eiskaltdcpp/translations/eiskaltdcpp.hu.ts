@@ -1553,7 +1553,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <name>MultiLineToolBar</name>
     <message>
         <source>Show close buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezárási gombok mutatása</translation>
     </message>
 </context>
 <context>
@@ -1609,7 +1609,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>%1 on hub %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 a következő hubon: %2</translation>
     </message>
 </context>
 <context>
@@ -2077,7 +2077,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Program need root privileges to open ports less than 1024</source>
-        <translation type="unfinished"></translation>
+        <translation>A programnak root privilégiumra van szüksége az 1024 alatti portok megnyitásához</translation>
     </message>
 </context>
 <context>
