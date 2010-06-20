@@ -98,9 +98,19 @@ macro(GETTEXT_FIND_RUNTIME_LIBRARY)
   endif(HAVE_GETTEXT)
 
   mark_as_advanced(GETTEXT_INTL_LIBRARY)
-  if(GETTEXT_INTL_LIBRARY)
+  #if(GETTEXT_INTL_LIBRARY)
+    #set (potential_lib_dirs "/usr/lib")
+    if (APPLE)
+    string(REPLACE libintl.dylib "" GETTEXT_INTL_PATH ${GETTEXT_INTL_LIBRARY})
+   # message(STATUS "${GETTEXT_INTL_PATH}")
+    set(GETTEXT_LDFLAGS "-L${GETTEXT_INTL_PATH}" "-lintl")
+    set(GETTEXT_LIBRARIES ${GETTEXT_LIBRARIES} ${GETTEXT_LDFLAGS})
+    else (APPLE)
     set(GETTEXT_LIBRARIES ${GETTEXT_LIBRARIES} ${GETTEXT_INTL_LIBRARY})
-  endif(GETTEXT_INTL_LIBRARY)
+    endif (APPLE)
+
+
+  #endif(GETTEXT_INTL_LIBRARY)
 
   # The gettext asprintf library
   # Actually not useful as it does not seem to exist on Unix

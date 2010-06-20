@@ -339,7 +339,7 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
                 openssl (headers): ${OPENSSL_LIBRARIES} (${OPENSSL_INCLUDE_DIR})
                 iconv (headers): ${ICONV_LIBRARIES} (${ICONV_INCLUDE_DIR})
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
-                gettext (headers): ${GETTEXT_LIBRARIES} ${GETTEXT_INTL_LIBRARY} (${GETTEXT_INCLUDE_DIR})
+                gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
                 ")
 add_subdirectory (dcpp)
 

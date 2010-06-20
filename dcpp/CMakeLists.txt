@@ -10,12 +10,17 @@ include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DI
 
 add_library (dcpp SHARED ${dcpp_srcs})
 
-target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES} ${OPENSSL_LIBRARIES} ${ICONV_LIBRARIES} ${GETTEXT_LIBRARIES} ${GETTEXT_INTL_LIBRARY}) #iconv intl)
+if (APPLE)
+target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
+${OPENSSL_LIBRARIES} ${ICONV_LIBRARIES} ${GETTEXT_LIBRARIES} libintl iconv)
+else (APPLE)
+target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
+${OPENSSL_LIBRARIES} ${ICONV_LIBRARIES} ${GETTEXT_LIBRARIES})
+endif (APPLE)
 
-if (NOT APPLE)
+if (APPLE)
+set (LIBDIR .)
+endif(APPLE)
+
 install (TARGETS dcpp
             LIBRARY DESTINATION ${LIBDIR})
-else (NOT APPLE)
-install (TARGETS dcpp
-            BUNDLE DESTINATION . )
-endif (NOT APPLE)
