@@ -342,7 +342,7 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-  target_link_libraries (eiskaltdcpp ${LIBS} dcpp iconv intl upnp ixml)
+  target_link_libraries (eiskaltdcpp ${LIBS} dcpp iconv upnp ixml)
 else (APPLE)
   target_link_libraries (eiskaltdcpp ${LIBS} dcpp)
 endif (APPLE)

@@ -110,6 +110,7 @@ find_package (BZip2 REQUIRED)
 find_package (ZLIB REQUIRED)
 find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)
+set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 find_package (Gettext REQUIRED)
 
 option (USE_JS "QtScript support")
@@ -299,7 +300,7 @@ add_definitions (-pipe -O2 -I. -fno-builtin -D_FILE_OFFSET_BITS=64
                  -DNDEBUG -DBUILDING_DCPP)
 
 if (HAVE_IFADDRS_H)
-  add_definitions (-DHAVE_IFADDRS_H -DHAVE_IF_ADDRS_H)
+  add_definitions (-DHAVE_IFADDRS_H )
 endif (HAVE_IFADDRS_H)
 
 if (ICONV_SECOND_ARGUMENT_IS_CONST)
@@ -338,8 +339,8 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
                 openssl (headers): ${OPENSSL_LIBRARIES} (${OPENSSL_INCLUDE_DIR})
                 iconv (headers): ${ICONV_LIBRARIES} (${ICONV_INCLUDE_DIR})
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
+                gettext (headers): ${GETTEXT_LIBRARIES} ${GETTEXT_INTL_LIBRARY} (${GETTEXT_INCLUDE_DIR})
                 ")
-
 add_subdirectory (dcpp)
 
 if (USE_QT)
