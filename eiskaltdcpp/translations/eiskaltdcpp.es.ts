@@ -820,7 +820,7 @@ Opciones:
     <message>
         <location filename="../HubFrame.cpp" line="1115"/>
         <source>Hub role: User</source>
-        <translation>Rol del Hub: usuario</translation>
+        <translation>Rol del Hub: Usuario</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1180"/>
@@ -1060,7 +1060,7 @@ Usuario favorito</translation>
         <location filename="../HubFrame.cpp" line="1901"/>
         <location filename="../HubFrame.cpp" line="2888"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
-        <translation>Petición de re dirección recibió un Hub al que ya está conectado</translation>
+        <translation>La petición de re-dirección recibió un Hub al que ya está conectado</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="1969"/>
@@ -1702,7 +1702,7 @@ Por favor verifica sus opciones de conexión</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1664"/>
         <source>Search Manager: Warning</source>
-        <translation>Mándame de búsqueda: Advertencia</translation>
+        <translation>Manager de búsqueda: Advertencia</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2105"/>
@@ -3092,7 +3092,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../TransferView.cpp" line="696"/>
         <source>Waiting to retry</source>
-        <translation>Esperando al re-intento</translation>
+        <translation>Esperando al reintento</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="743"/>
@@ -4289,7 +4289,7 @@ el soporte SOCKS5 del DC++ no incluye soporte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="449"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation>Chequear cada x segundo(s) si la fuente es lenta (por defecto: 10 s)</translation>
+        <translation>Chequear cada &quot;X&quot; segundo(s) si la fuente es lenta (por defecto: 10 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
