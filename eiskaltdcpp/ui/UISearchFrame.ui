@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>573</width>
-    <height>522</height>
+    <width>571</width>
+    <height>520</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,14 +54,31 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="9">
+      <item row="2" column="8">
        <widget class="QLabel" name="label">
         <property name="text">
          <string>Search for</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="6">
+      <item row="2" column="12">
+       <widget class="QPushButton" name="pushButton_CLEAR">
+        <property name="text">
+         <string>Clear</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="13">
+       <widget class="QPushButton" name="pushButton_SIDEPANEL">
+        <property name="text">
+         <string>Show/Hide side panel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="10">
+       <widget class="LineEdit" name="lineEdit_SEARCHSTR"/>
+      </item>
+      <item row="2" column="9">
        <widget class="QComboBox" name="comboBox_FILETYPES">
         <property name="currentIndex">
          <number>0</number>
@@ -112,30 +129,6 @@
          </property>
         </item>
        </widget>
-      </item>
-      <item row="2" column="5">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>File type</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="12">
-       <widget class="QPushButton" name="pushButton_CLEAR">
-        <property name="text">
-         <string>Clear</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="13">
-       <widget class="QPushButton" name="pushButton_SIDEPANEL">
-        <property name="text">
-         <string>Show/Hide side panel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="10">
-       <widget class="LineEdit" name="lineEdit_SEARCHSTR"/>
       </item>
      </layout>
     </widget>

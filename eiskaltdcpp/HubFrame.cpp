@@ -957,13 +957,22 @@ void HubFrame::initMenu(){
 
     QAction *reconnect = new QAction(WU->getPixmap(WulforUtil::eiRECONNECT), tr("Reconnect"), arenaMenu);
     QAction *show_wnd  = new QAction(WU->getPixmap(WulforUtil::eiCHAT), tr("Show widget"), arenaMenu);
+    QAction *addToFav  = new QAction(WU->getPixmap(WulforUtil::eiFAVSERVER), tr("Add to Favorites"), arenaMenu);
+    QMenu   *copyInfo  = new QMenu(tr("Copy"), arenaMenu);
+    QAction *copyIP    = copyInfo->addAction(tr("Hub IP"));
+    QAction *copyURL   = copyInfo->addAction(tr("Hub URL"));
+    QAction *copyTitle = copyInfo->addAction(tr("Hub Title"));
+
     QAction *sep       = new QAction(arenaMenu);
     sep->setSeparator(true);
     QAction *close_wnd = new QAction(WU->getPixmap(WulforUtil::eiEXIT), tr("Close"), arenaMenu);
 
     arenaMenu->addActions(QList<QAction*>() << reconnect
                                             << show_wnd
+                                            << addToFav
                          );
+
+    arenaMenu->addMenu(copyInfo);
 
     if (client && client->isConnected()){
         QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(QList<QString>() << _q(client->getHubUrl()), UserCommand::CONTEXT_HUB, arenaMenu);
@@ -979,9 +988,13 @@ void HubFrame::initMenu(){
 
     arenaMenu->addActions(QList<QAction*>() << sep << close_wnd);
 
-    connect(reconnect, SIGNAL(triggered()), this, SLOT(slotReconnect()));
-    connect(show_wnd, SIGNAL(triggered()), this, SLOT(slotShowWnd()));
-    connect(close_wnd, SIGNAL(triggered()), this, SLOT(slotClose()));
+    connect(reconnect,  SIGNAL(triggered()), this, SLOT(slotReconnect()));
+    connect(show_wnd,   SIGNAL(triggered()), this, SLOT(slotShowWnd()));
+    connect(addToFav,   SIGNAL(triggered()), this, SLOT(addAsFavorite()));
+    connect(copyIP,     SIGNAL(triggered()), this, SLOT(slotCopyHubIP()));
+    connect(copyTitle,  SIGNAL(triggered()), this, SLOT(slotCopyHubTitle()));
+    connect(copyURL,    SIGNAL(triggered()), this, SLOT(slotCopyHubURL()));
+    connect(close_wnd,  SIGNAL(triggered()), this, SLOT(slotClose()));
 }
 
 
@@ -2810,6 +2823,24 @@ void HubFrame::slotFontChanged(const QString &key, const QString &value){
 
     if (key == WS_CHAT_FONT || key == WS_CHAT_ULIST_FONT)
         updateStyles();
+}
+
+void HubFrame::slotCopyHubIP(){
+    if (client && client->isConnected()){
+        qApp->clipboard()->setText(_q(client->getIp()), QClipboard::Clipboard);
+    }
+}
+
+void HubFrame::slotCopyHubTitle(){
+    if (client && client->isConnected()){
+        qApp->clipboard()->setText(QString("%1 - %2").arg(_q(client->getHubName())).arg(_q(client->getHubDescription())), QClipboard::Clipboard);
+    }
+}
+
+void HubFrame::slotCopyHubURL(){
+    if (client && client->isConnected()){
+        qApp->clipboard()->setText(_q(client->getHubUrl()), QClipboard::Clipboard);
+    }
 }
 
 void HubFrame::on(FavoriteManagerListener::UserAdded, const FavoriteUser& aUser) throw() {

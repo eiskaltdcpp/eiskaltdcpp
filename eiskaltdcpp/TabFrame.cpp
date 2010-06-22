@@ -271,6 +271,13 @@ void TabFrame::slotContextMenu() {
 
     if (awgt && awgt->getMenu())
         awgt->getMenu()->exec(btn->mapToGlobal(btn->rect().bottomLeft()));
+    else if (awgt && awgt->getWidget()){
+        QMenu *m = new QMenu(this);
+        m->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close"));
+
+        if (m->exec(QCursor::pos()))
+            awgt->getWidget()->close();
+    }
 }
 
 void TabFrame::slotDropped(TabButton *dropped){

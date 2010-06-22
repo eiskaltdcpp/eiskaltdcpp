@@ -229,7 +229,7 @@ protected:
     virtual void save();
     virtual void load();
 
-private slots:
+private Q_SLOTS:
     void slotUsersUpdated();
     void slotReconnect();
     void slotMapOnArena();
@@ -251,14 +251,9 @@ private slots:
     void slotHubMenu(QAction*);
     void slotSmile();
     void slotFontChanged(const QString &, const QString &);
-
-private:
-    // Chat functions
-    void addOutput(QString);
-
-    // GUI setup functions
-    void init();
-    void initMenu();
+    void slotCopyHubURL();
+    void slotCopyHubTitle();
+    void slotCopyHubIP();
 
     void browseUserFiles(const QString&, bool=false);
     void grantSlot(const QString&);
@@ -267,6 +262,14 @@ private:
     void changeFavStatus(QString);
     void delUserFromQueue(const QString&);
     void addAsFavorite();
+
+private:
+    // Chat functions
+    void addOutput(QString);
+
+    // GUI setup functions
+    void init();
+    void initMenu();
 
     QString getUserInfo(UserListItem *item);
 

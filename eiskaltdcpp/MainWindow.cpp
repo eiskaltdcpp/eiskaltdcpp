@@ -2300,10 +2300,21 @@ void MainWindow::slotSidebarContextMenu(){
 
         return;
     }
-    else if (!(item && item->getWidget() && (menu = item->getWidget()->getMenu())))
-        return;
+    else if (item && item->getWidget()){
+        menu = item->getWidget()->getMenu();
 
-    menu->exec(QCursor::pos());
+        if(!menu){
+            menu = new QMenu(this);
+            menu->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close"));
+
+            if (menu->exec(QCursor::pos()))
+                item->getWidget()->getWidget()->close();
+
+            menu->deleteLater();
+        }
+        else
+            menu->exec(QCursor::pos());
+    }
 }
 
 void MainWindow::slotSidebarHook(const QModelIndex &index){
