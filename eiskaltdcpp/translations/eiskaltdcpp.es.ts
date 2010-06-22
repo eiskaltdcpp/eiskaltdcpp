@@ -652,7 +652,7 @@ Opciones:
     <message>
         <location filename="../HashProgress.cpp" line="133"/>
         <source>Done</source>
-        <translation>Hecho</translation>
+        <translation>Completado</translation>
     </message>
 </context>
 <context>
@@ -1418,7 +1418,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1058"/>
         <source>Widgets panel</source>
-        <translation>panel de Widgets</translation>
+        <translation>Panel de Widgets</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1062"/>
@@ -1481,7 +1481,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../MainWindow.cpp" line="999"/>
         <source>Reconnect to hub</source>
-        <translation>Re-conectado al Hub</translation>
+        <translation>Re-conexión con el Hub</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="913"/>
@@ -1973,7 +1973,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../PublicHubs.cpp" line="46"/>
         <source>Downloading public hub list...</source>
-        <translation>Descargando lista de Hubs públicos..</translation>
+        <translation>Descargando lista de Hubs públicos...</translation>
     </message>
     <message>
         <location filename="../PublicHubs.cpp" line="145"/>
@@ -2486,7 +2486,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../SettingsGUI.cpp" line="43"/>
         <source>Default (need to restart)</source>
-        <translation>Pro defecto (se necesita reiniciar)</translation>
+        <translation>Por defecto (se necesita reiniciar)</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="65"/>
@@ -2566,7 +2566,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../SettingsGUI.cpp" line="187"/>
         <source>Core</source>
-        <translation></translation>
+        <translation>Núcleo</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="191"/>
@@ -3135,7 +3135,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../TransferViewModel.cpp" line="39"/>
         <source>Size</source>
-        <translation></translation>
+        <translation>Tamaño</translation>
     </message>
     <message>
         <location filename="../TransferViewModel.cpp" line="40"/>
@@ -3975,7 +3975,7 @@ However, if you have a software firewall installed, you may need further configu
         <translation>Seleccionar este modo si su equipo se conecta directamente a internet.
 No seleccionar este modo cuando usted tenga un router o un cortafuegos externo.
 Si su equipo no está detrás de un router deberá elegir esta opción.
-Con esta opción por lo general no necesita modificar nada más en las configuraciones de conexión.
+Con esta opción, por lo general, no necesitará modificar nada más en las configuraciones de conexión.
 Sin embargo, si tiene instalado algún software de cortafuegos, necesita configurar dicho cortafuegos
 para que EiskaltDC++ pueda tener acceso a internet.</translation>
     </message>
@@ -4023,7 +4023,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="222"/>
         <source>Outgoing connections</source>
-        <translation>conexiones en marcha</translation>
+        <translation>Conexiones de Salida</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="242"/>
@@ -4063,7 +4063,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="334"/>
         <source>Use to resolve hostnames</source>
-        <translation>Usar para resolver hostnames</translation>
+        <translation>Utilice los nombres de host</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="361"/>
@@ -4096,8 +4096,7 @@ the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
         <translation>Seleccionar este modo si está detrás de un cortafuegos o router, deberá configurar
 los puertos TCP, UDP y TLS de reenvío a su gusto.
-Usted necesitará especificar la dirección IP que use su router
-si usted no puede descargar adecuadamente.
+Si no descarga adecuadamente necesitará especificar la dirección IP que use su router.
 Usar esta opción solo si no ha funcionado otras opciones.</translation>
     </message>
     <message>
@@ -4136,7 +4135,7 @@ This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
         <translation>Seleccione este modo si usted está conectado a una conexión de salida sin restricciones
 Esto incluye conexiones a todas las direcciones IP en todos los puertos.
-Elija esta opcion si no está seguro.</translation>
+Elija esta opcion si no está seguro del tipo de conexión que dispone.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="252"/>
@@ -4145,9 +4144,9 @@ a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <translation>Selecciona este modo cuando se encuentre conectado a través de un proxy SOCKS.
-las advertencias del modo pasivo también se aplican aquí
-un proxy SOCKS5 no son iguales a un proxy HTTP.
-el soporte SOCKS5 del DC++ no incluye soporte GSSAPI.</translation>
+Las advertencias del modo pasivo también se aplican aquí
+Un proxy SOCKS5 no es igual que un proxy HTTP.
+El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="429"/>
@@ -4199,7 +4198,7 @@ el soporte SOCKS5 del DC++ no incluye soporte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="84"/>
         <source>Use unfinished downloads directory</source>
-        <translation>Usar directorio de descarga sin completar</translation>
+        <translation>Usar directorio para archivos Incompletos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="97"/>
@@ -4234,7 +4233,7 @@ el soporte SOCKS5 del DC++ no incluye soporte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="197"/>
         <source>Configure Public Hub Lists</source>
-        <translation>configurar lista de de hubs públicos</translation>
+        <translation>Configurar lista de de hubs públicos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="221"/>
@@ -4521,17 +4520,16 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation>Habilitar esta opción si desea conservar los archivos y carpetas descargados
-en la cola de descarga después de haber sido terminado.
-Después de descargar los elementos de la cola se ponen en estado &quot;Terminado&quot;
-y se puede eliminar de la lista estos archivos en cualquier momento.
+        <translation>cHabilitar esta opción si desea conservar los archivos y carpetas descargados
+en la cola de descarga después de haber sido terminada.
+Después de descargar los elementos de la cola se pondrán en estado &quot;Terminado&quot;
+y puedá eliminar de la lista estos archivos en cualquier momento.
 Con esta función puede realizar un seguimiento de lo que los archivos ya están
-descargados en la cola de descarga sin necesidad
-de controlar la ventana de Descargas terminadas.
+descargados sin necesidad de controlar la ventana de Descargas terminadas.
 Tenga en cuenta que si usted mueve/elimina físicamente los archivos descargados desde
-su ubicación de destino, no dará lugar a la eliminación automática de
-las entradas correspondientes de la cola.
-Si deshabilita esta función, no se eliminarán los actuales archivos acabados
+su ubicación de destino, no dará lugar a la eliminación automática 
+de las entradas correspondientes de la cola.
+Si deshabilita esta función, no se eliminarán los actuales archivos terminados
 en la cola, o bien, debe eliminarlos manualmente.</translation>
     </message>
     <message>
@@ -4699,8 +4697,8 @@ Si es de-seleccionado, Verá los emorticonos solo cuando estén solos entre las 
         <location filename="../ui/UISettingsGUI.ui" line="247"/>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
-        <translation>Dependiendo de la configuración del Hub: la información acerca de dicho Hub.
-Solo estará disponible para los operadores</translation>
+        <translation>Dependiendo de la configuración del Hub: la información
+solo estará disponible para los operadores</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="251"/>
@@ -4720,7 +4718,7 @@ Solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="314"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
-        <translation>Recordar mensajes  salientes (0= no recordar)</translation>
+        <translation>Recordar mensajes salientes (0= no recordar)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="379"/>
@@ -4760,12 +4758,12 @@ Solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="240"/>
         <source>Show hidden users</source>
-        <translation>mostrar usuarios ocultos</translation>
+        <translation>Mostrar usuarios ocultos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="343"/>
         <source>Maximum paragraphs</source>
-        <translation>apartados máximos</translation>
+        <translation>Apartados máximos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="204"/>
@@ -4775,7 +4773,7 @@ Solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Show icon in system tray</source>
-        <translation>mostrar iconos en la barra de sistema</translation>
+        <translation>Mostrar icono en la barra de sistema</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="216"/>
@@ -4795,7 +4793,7 @@ Solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="279"/>
         <source>Redirect messages from Bot to the main chat</source>
-        <translation>Re-direccionar mensajes desde el bot  al chat principal</translation>
+        <translation>Re-direccionar mensajes desde el bot al chat principal</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="286"/>
@@ -4897,7 +4895,7 @@ Solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="40"/>
         <source>Enable notifications</source>
-        <translation>Habilitar modificaciones</translation>
+        <translation>Habilitar notificaciones</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="49"/>
@@ -4920,7 +4918,7 @@ Solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="70"/>
         <source>Favorite user join/part</source>
-        <translation>Unión/Salida de  Usuario favorito</translation>
+        <translation>Unión/Salida de usuario favorito</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="77"/>
@@ -5155,7 +5153,7 @@ si su sistema se vuelve lento cuando se hashean archivos.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="477"/>
         <source>Auto refresh time (minutes,0 = off)</source>
-        <translation>Tiempo de auto-refresco (minutes, 0 = apagado)</translation>
+        <translation>Tiempo de auto-refresco (minutos, 0 = apagado)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="321"/>
@@ -5195,7 +5193,7 @@ si su sistema se vuelve lento cuando se hashean archivos.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="125"/>
         <source>Don&apos;t share files and folders containing:</source>
-        <translation>no compartir archivos y directorios que contengan:</translation>
+        <translation>No compartir archivos y directorios que contengan:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="141"/>
@@ -5278,14 +5276,14 @@ There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
-        <translation>Configura el numero de Slots que pueden ser usados por otros usuarios
-para descargar sus archivos. Cada usuario remoto solo puede usar un Slot
-por Hub al que esté conectado.
+        <translation>Configura el numero de Slots que pueden ser usados por otros usuarios para descargar sus archivos.
+Cada usuario remoto solo puede usar un Slot por Hub al que esté conectado.
 EiskaltDC++ soporta subidas de listas de archivo menores a 64KiB hacia otro usuario del DC++
 sin tener que que tener un Slot libre.
 Hay un máximo de 3 conexiones aparte de los Slots normales, estos son llamados &quot;minislots&quot;
+
 Nota: si un usuario deja el Hub, EiskaltDC++ cierra dicho slot; si el usuario vuelve a los 10 minutos,
-EiskaltDC++ le vuelve a conceder un Slot.</translation>
+EiskaltDC++ le vuelve a conceder un Slot a dicho usuario.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="366"/>
@@ -5320,7 +5318,7 @@ EiskaltDC++ le vuelve a conceder un Slot.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="349"/>
         <source>No reserve</source>
-        <translation>Sin reserva</translation>
+        <translation>No reservar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="457"/>
@@ -5329,11 +5327,9 @@ an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
 If the speed of the original uploads increases,
 the granted slot will not be closed.</source>
-        <translation>si la velocidad de subida cae por debajo del numero dado,
-se concederá un Slot adicional.
-estos Slots se conceden una vez por cada 30 segundos como máximo.
-si la velocidad de subida original es incrementada,
-el Slot concedido no será cerrado.</translation>
+        <translation>Si la velocidad de subida cae por debajo del numero dado, se concederá un Slot adicional.
+Estos Slots se conceden una vez cada 30 segundos como máximo.
+Si la velocidad de subida original es incrementada, el Slot concedido no será cerrado.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="493"/>
@@ -5348,7 +5344,7 @@ el Slot concedido no será cerrado.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Abrir automáticamente slot si la velocidad está por debajo de (KiB/s, 0 = sin limite)</translation>
+        <translation>Abrir automáticamente Slot si la velocidad está por debajo de (KiB/s, 0 = sin limite)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="536"/>
@@ -5541,7 +5537,7 @@ el Slot concedido no será cerrado.</translation>
     <message>
         <location filename="../UPnPMapper.cpp" line="61"/>
         <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation>Falló al coger IP externa via  UPnP. Por favor, Establézcala usted mismo.</translation>
+        <translation>Falló al coger IP externa via UPnP. Por favor, Establézcala usted mismo.</translation>
     </message>
     <message>
         <location filename="../UPnPMapper.cpp" line="67"/>
