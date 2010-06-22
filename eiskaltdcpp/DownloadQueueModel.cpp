@@ -318,6 +318,8 @@ void DownloadQueueModel::sort(int column, Qt::SortOrder order) {
 }
 
 DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &map){
+    static quint64 counter = 0;
+
     DownloadQueueItem *droot = createPath(map["PATH"].toString());
 
     if (!droot)
@@ -346,7 +348,12 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
 
     emit updateStats(total_files, total_size);
 
+    counter++;
+
     repaint();
+
+    if ((counter % 100) == 0)
+        QApplication::processEvents();
 
     return child;
 }
