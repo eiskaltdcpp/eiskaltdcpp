@@ -7,6 +7,8 @@
 #include "ArenaWidgetContainer.h"
 #include "TabFrame.h"
 
+class QWheelEvent;
+
 /** Wrapper for TabFrame */
 class MultiLineToolBar :
         public QToolBar,
@@ -21,6 +23,9 @@ public:
     virtual void insertWidget(ArenaWidget *awgt);
     virtual bool hasWidget(ArenaWidget *awgt) const;
     virtual void redraw();
+
+protected:
+    virtual void wheelEvent(QWheelEvent *);
 
 signals:
     void nextTab();

@@ -2,6 +2,7 @@
 #include "WulforSettings.h"
 
 #include <QMenu>
+#include <QWheelEvent>
 
 MultiLineToolBar::MultiLineToolBar(QWidget *parent) :
     QToolBar(parent)
@@ -24,6 +25,15 @@ MultiLineToolBar::MultiLineToolBar(QWidget *parent) :
 
 MultiLineToolBar::~MultiLineToolBar(){
     frame->deleteLater();
+}
+
+void MultiLineToolBar::wheelEvent(QWheelEvent *e){
+    e->ignore();
+
+    if (e->delta() > 0)
+        emit nextTab();
+    else if (e->delta() < 0)
+        emit prevTab();
 }
 
 void MultiLineToolBar::removeWidget(ArenaWidget *awgt){
