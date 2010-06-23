@@ -85,7 +85,7 @@ void SettingsSharing::ok(){
         QTextStream stream(&f);
 
         foreach (QTreeWidgetItem *i, items)
-            stream << i->text(1).left(i->text(1).indexOf(tr("GiB"))) << i->text(0) << '\n';
+            stream << (i->text(1).left(i->text(1).indexOf(" ")) + " ") << i->text(0) << '\n';
 
         stream.flush();
 
