@@ -135,7 +135,13 @@ void SettingsGUI::init(){
         groupBox_TRAY->setChecked(WBGET(WB_TRAY_ENABLED));
         groupBox_TRAY->setEnabled(QSystemTrayIcon::isSystemTrayAvailable());
 
-        checkBox_SIDEBAR->setChecked(WBGET(WB_MAINWINDOW_USE_SIDEBAR));
+        if (WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+            comboBox_TABBAR->setCurrentIndex(2);
+        else if (WBGET(WB_MAINWINDOW_USE_M_TABBAR))
+            comboBox_TABBAR->setCurrentIndex(1);
+        else
+            comboBox_TABBAR->setCurrentIndex(0);
+
     }
     {//Chat tab
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
@@ -266,7 +272,18 @@ void SettingsGUI::ok(){
             EmoticonFactory::getInstance()->load();
         }
 
-        WBSET(WB_MAINWINDOW_USE_SIDEBAR, checkBox_SIDEBAR->isChecked());
+        if (comboBox_TABBAR->currentIndex() == 2){
+            WBSET(WB_MAINWINDOW_USE_SIDEBAR, true);
+            WBSET(WB_MAINWINDOW_USE_M_TABBAR, false);
+        }
+        else if (comboBox_TABBAR->currentIndex() == 1){
+            WBSET(WB_MAINWINDOW_USE_SIDEBAR, false);
+            WBSET(WB_MAINWINDOW_USE_M_TABBAR, true);
+        }
+        else{
+            WBSET(WB_MAINWINDOW_USE_SIDEBAR, false);
+            WBSET(WB_MAINWINDOW_USE_M_TABBAR, false);
+        }
     }
     {//Chat tab
         WISET(WI_OUT_IN_HIST, spinBox_OUT_IN_HIST->value());

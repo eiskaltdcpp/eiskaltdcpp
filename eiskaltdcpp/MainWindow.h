@@ -309,9 +309,10 @@ friend class dcpp::Singleton<MainWindow>;
 
         ArenaWidgetContainer *wcontainer;
 
-        MultiLineToolBar *tBar;
-        ToolBar *fBar;//for actions
-        ToolBar *sBar;//for fast search
+        MultiLineToolBar *mBar; // multi-line ToolBar
+        ToolBar *tBar; // default ToolBar
+        ToolBar *fBar; //for actions
+        ToolBar *sBar; //for fast search
 
         LineEdit   *searchLineEdit;
 

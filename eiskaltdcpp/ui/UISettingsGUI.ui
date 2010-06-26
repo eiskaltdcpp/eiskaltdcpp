@@ -172,10 +172,22 @@
         </layout>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_SIDEBAR">
-         <property name="text">
-          <string>Use SideBar instead of ToolBar (need restart)</string>
-         </property>
+        <widget class="QComboBox" name="comboBox_TABBAR">
+         <item>
+          <property name="text">
+           <string>Use default ToolBar (need restart)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Use multi-line ToolBar (need restart)</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Use SideBar instead of ToolBar (need restart)</string>
+          </property>
+         </item>
         </widget>
        </item>
        <item>

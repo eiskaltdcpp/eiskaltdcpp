@@ -81,6 +81,7 @@ static const QString & WB_CHAT_HIGHLIGHT_FAVS     = "chat-highlight-favs";
 static const QString & WB_MAINWINDOW_MAXIMIZED    = "mainwindow-maximized";
 static const QString & WB_MAINWINDOW_HIDE         = "mainwindow-autohide";
 static const QString & WB_MAINWINDOW_REMEMBER     = "mainwindow-remember-position-on-exit";
+static const QString & WB_MAINWINDOW_USE_M_TABBAR = "mainwindow-use-multi-line-tabbar";
 static const QString & WB_MAINWINDOW_USE_SIDEBAR  = "mainwindow-use-sidebar";
 static const QString & WB_SEARCHFILTER_NOFREE     = "search-filter-nofree";
 static const QString & WB_SEARCH_DONTHIDEPANEL    = "search-panel-dont-hide";

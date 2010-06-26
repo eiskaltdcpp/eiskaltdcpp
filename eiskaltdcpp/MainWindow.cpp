@@ -72,6 +72,7 @@ MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
         statusLabel(NULL),
         tBar(NULL),
+        mBar(NULL),
         fBar(NULL),
         sBar(NULL),
         sideDock(NULL),
@@ -426,8 +427,12 @@ void MainWindow::loadSettings(){
     sBar->setVisible(WBGET(WB_SEARCH_PANEL_VISIBLE));
     panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
 
-    if (WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+    if (sideDock)
         sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+    else if (mBar)
+        mBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+    else if (tBar)
+        tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
     panelsWidgets->setChecked(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
@@ -852,6 +857,12 @@ void MainWindow::initHotkeys(){
         connect(alt_left,    SIGNAL(activated()), tBar, SIGNAL(moveTabLeft()));
         connect(alt_right,   SIGNAL(activated()), tBar, SIGNAL(moveTabRight()));
     }
+    else if (mBar){
+        connect(ctrl_pgdown, SIGNAL(activated()), mBar, SIGNAL(nextTab()));
+        connect(ctrl_pgup,   SIGNAL(activated()), mBar, SIGNAL(prevTab()));
+        connect(alt_left,    SIGNAL(activated()), mBar, SIGNAL(moveTabLeft()));
+        connect(alt_right,   SIGNAL(activated()), mBar, SIGNAL(moveTabRight()));
+    }
 
     connect(ctrl_down,   SIGNAL(activated()), this, SLOT(nextMsg()));
     connect(ctrl_up,     SIGNAL(activated()), this, SLOT(prevMsg()));
@@ -1101,11 +1112,24 @@ void MainWindow::initToolbar(){
 
     addToolBar(fBar);
 
-    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR)){
+    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR) && WBGET(WB_MAINWINDOW_USE_M_TABBAR)){
 
-        tBar = new MultiLineToolBar(this);
+        mBar = new MultiLineToolBar(this);
+        mBar->setContextMenuPolicy(Qt::CustomContextMenu);
+
+        addToolBar(mBar);
+
+        wcontainer = static_cast<ArenaWidgetContainer*>(mBar);
+    }
+    else if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR) && !WBGET(WB_MAINWINDOW_USE_M_TABBAR)){
+
+        tBar = new ToolBar(this);
+        tBar->setObjectName("tBar");
+        tBar->initTabs();
+        tBar->setMovable(true);
+        tBar->setFloatable(true);
+        tBar->setAllowedAreas(Qt::AllToolBarAreas);
         tBar->setContextMenuPolicy(Qt::CustomContextMenu);
-        tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
         addToolBar(tBar);
 
@@ -1929,7 +1953,9 @@ void MainWindow::slotPanelMenuActionClicked(){
     if (act == panelsWidgets){
         if (tBar)
             tBar->setVisible(panelsWidgets->isChecked());
-        else
+        else if (mBar)
+            mBar->setVisible(panelsWidgets->isChecked());
+        else if (sideDock)
             sideDock->setVisible(panelsWidgets->isChecked());
         WBSET(WB_WIDGETS_PANEL_VISIBLE, panelsWidgets->isChecked());
     }
