@@ -849,6 +849,18 @@ Omiljeni korisnik</translation>
         <source>Add to White</source>
         <translation>Dodaj na belu</translation>
     </message>
+    <message>
+        <source>Hub IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub Title</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -1448,6 +1460,10 @@ Molim proverite podešavanja vaše veze</translation>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Zatvori</translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -1693,7 +1709,7 @@ Keys:
     </message>
     <message>
         <source>File type</source>
-        <translation>Tip fajla</translation>
+        <translation type="obsolete">Tip fajla</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2113,7 +2129,7 @@ Keys:
     <name>SettingsSharing</name>
     <message>
         <source>GiB</source>
-        <translation>GiB</translation>
+        <translation type="obsolete">GiB</translation>
     </message>
     <message>
         <source>Total shared: %1</source>
@@ -3884,6 +3900,14 @@ od drugih reči sa razmakom.</translation>
     <message>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use default ToolBar (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use multi-line ToolBar (need restart)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

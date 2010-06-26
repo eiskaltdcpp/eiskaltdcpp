@@ -873,6 +873,18 @@ Kedvenc felhasználó</translation>
         <source>Add to White</source>
         <translation>Hozzáadás a fehér-listához</translation>
     </message>
+    <message>
+        <source>Hub IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub Title</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -1548,6 +1560,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.4 és újabb)&lt;br/&gt;</translation>
     </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Bezárás</translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -1800,7 +1816,7 @@ Kapcsolók:
     </message>
     <message>
         <source>File type</source>
-        <translation>Fájl típus</translation>
+        <translation type="obsolete">Fájl típus</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2236,7 +2252,7 @@ Kapcsolók:
     </message>
     <message>
         <source>GiB</source>
-        <translation>GiB</translation>
+        <translation type="obsolete">GiB</translation>
     </message>
     <message>
         <source>%1 GiB</source>
@@ -4041,6 +4057,14 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     <message>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use default ToolBar (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use multi-line ToolBar (need restart)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -909,6 +909,18 @@ Utilisateur favoris</translation>
 /pm &lt;nick&gt; - démarre une discussion privée avec l&apos;utilisateur
 /sh &lt;command&gt; - lance une commande et redirige son résultat vers le chat</translation>
     </message>
+    <message>
+        <source>Hub IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub Title</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubFrame::Menu</name>
@@ -1612,6 +1624,10 @@ Please check your connection settings</source>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -1860,7 +1876,7 @@ Clés:
     </message>
     <message>
         <source>File type</source>
-        <translation>Type de fichier</translation>
+        <translation type="obsolete">Type de fichier</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2339,7 +2355,7 @@ Clés:
     <name>SettingsSharing</name>
     <message>
         <source>GiB</source>
-        <translation>GiB</translation>
+        <translation type="obsolete">GiB</translation>
     </message>
     <message>
         <source>Total shared: %1</source>
@@ -4152,6 +4168,14 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
         <translation>Dépend de la configuration du serveur concerné: Les informations sont généralement disponibles pour les opérateurs seulement</translation>
+    </message>
+    <message>
+        <source>Use default ToolBar (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use multi-line ToolBar (need restart)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
