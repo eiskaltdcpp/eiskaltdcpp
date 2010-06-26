@@ -37,6 +37,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     plainTextEdit_INPUT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     plainTextEdit_INPUT->setContextMenuPolicy(Qt::CustomContextMenu);
     plainTextEdit_INPUT->installEventFilter(this);
+    plainTextEdit_INPUT->setAcceptRichText(false);
 
     textEdit_CHAT->viewport()->installEventFilter(this);
     textEdit_CHAT->viewport()->setMouseTracking(true);
