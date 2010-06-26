@@ -805,17 +805,17 @@ Opciones:
     <message>
         <location filename="../HubFrame.cpp" line="962"/>
         <source>Hub IP</source>
-        <translation type="unfinished"></translation>
+        <translation>IP del Hub</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="963"/>
         <source>Hub URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Web del Hub</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="964"/>
         <source>Hub Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Título del hub</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="968"/>
@@ -1859,7 +1859,7 @@ Por favor verifica sus opciones de conexión</translation>
     <message>
         <location filename="../MainWindow.cpp" line="2334"/>
         <source>Close</source>
-        <translation type="unfinished">Cerrar</translation>
+        <translation>Cerrar</translation>
     </message>
 </context>
 <context>
@@ -4689,12 +4689,12 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="178"/>
         <source>Use default ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar Barra de tareas por defecto</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="183"/>
         <source>Use multi-line ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar Barra de tareas multilinea (se necesita reiniciar)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="188"/>
