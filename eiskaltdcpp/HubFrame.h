@@ -197,6 +197,9 @@ public:
 
     inline void reconnect() { slotReconnect(); }
 
+    // PM functions
+    void addPM(QString, QString);
+
     // Arena Widget interface
     QWidget *getWidget();
     QString getArenaTitle();
@@ -206,7 +209,9 @@ public:
     void CTRL_F_pressed() { slotHideFindFrame(); }
     ArenaWidget::Role role() const { return ArenaWidget::Hub; }
 
-public slots:
+    QString getCIDforNick(QString nick) { return model->CIDforNick(nick); }
+
+public Q_SLOTS:
     void disableChat();
     void clearChat();
     void addStatus(QString);
@@ -217,6 +222,8 @@ public slots:
     void slotActivate();
     void nextMsg();
     void prevMsg();
+
+    void browseUserFiles(const QString&, bool=false);
 
 protected:
     virtual bool eventFilter(QObject *, QEvent *);
@@ -255,7 +262,6 @@ private Q_SLOTS:
     void slotCopyHubTitle();
     void slotCopyHubIP();
 
-    void browseUserFiles(const QString&, bool=false);
     void grantSlot(const QString&);
     void addUserToFav(const QString&);
     void delUserFromFav(const QString&);
@@ -292,9 +298,6 @@ private:
     /** Extracts data from user identity */
     void getParams(UserMap &, const Identity &);
     inline void on_userUpdated(const VarMap&, const UserPtr&, bool) __attribute__((always_inline));
-
-    // PM functions
-    void addPM(QString, QString);
 
     // FavoriteManagerListener
     virtual void on(FavoriteManagerListener::UserAdded, const FavoriteUser& /*aUser*/) throw();

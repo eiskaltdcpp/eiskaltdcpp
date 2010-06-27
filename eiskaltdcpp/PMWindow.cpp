@@ -13,6 +13,7 @@
 #include "dcpp/QueueManager.h"
 #include "dcpp/User.h"
 
+#include <QTextBlock>
 #include <QKeyEvent>
 #include <QMouseEvent>
 #include <QEvent>
@@ -142,6 +143,38 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
             textEdit_CHAT->viewport()->setCursor(Qt::PointingHandCursor);
         else
             textEdit_CHAT->viewport()->setCursor(Qt::IBeamCursor);
+    }
+    else if (e->type() == QEvent::MouseButtonDblClick){
+        HubFrame *fr = HubManager::getInstance()->getHub(hubUrl);
+
+        QString nick = "";
+        QString cid = "";
+        QTextCursor cursor = textEdit_CHAT->textCursor();
+
+        QString pressedParagraph = cursor.block().text();
+
+        int l = pressedParagraph.indexOf("<");
+        int r = pressedParagraph.indexOf(">");
+
+        if ((l < r) && fr){
+            nick = pressedParagraph.mid(l+1, r-l-1);
+            cid = fr->getCIDforNick(nick);
+        }
+
+        if (!cid.isEmpty()){
+            if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1 && fr)
+                fr->browseUserFiles(cid, false);
+            else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && fr)
+                fr->addPM(cid, "");
+            else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://")){
+                if (plainTextEdit_INPUT->textCursor().position() == 0)
+                    plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                else
+                    plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
+
+                plainTextEdit_INPUT->setFocus();
+            }
+        }
     }
 
     return QWidget::eventFilter(obj, e);
