@@ -799,17 +799,17 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../HubFrame.cpp" line="962"/>
         <source>Hub IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрэсу IP асяродку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="963"/>
         <source>Hub URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Спасылку URL асяродку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="964"/>
         <source>Hub Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Загаловак асяродку</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="968"/>
@@ -1365,7 +1365,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1044"/>
         <source>Copy window title</source>
-        <translation type="unfinished"></translation>
+        <translation>Перапісаць загаловак вакна</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1046"/>
@@ -1691,7 +1691,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1663"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Мэню</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1698"/>
@@ -1729,7 +1729,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="2150"/>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
+        <translation>Наставіць</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2211"/>
@@ -1849,12 +1849,12 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="2282"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Spanish translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Пераклаў у гішпанскую&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2284"/>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.0.4)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="2314"/>
@@ -1864,7 +1864,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MainWindow.cpp" line="2334"/>
         <source>Close</source>
-        <translation type="unfinished">Закрыць</translation>
+        <translation>Закрыць</translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;&lt;br/&gt;</source>
@@ -1978,7 +1978,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../MultiLineToolBar.cpp" line="61"/>
         <source>Show close buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказваць гузікі “закрыць”</translation>
     </message>
 </context>
 <context>
@@ -2004,7 +2004,10 @@ Please check your connection settings</source>
 Download: %1 Upload: %2
 Statistics
 Downloaded: %3 Uploaded: %4</source>
-        <translation type="unfinished"></translation>
+        <translation>Хуткасьць:
+сьцягваць — %1, зацягваць — %2.
+Статыстыка:
+сьцягнулі %3, зацягнулі %4.</translation>
     </message>
     <message>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
@@ -2027,7 +2030,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../PMWindow.cpp" line="185"/>
         <source>%1 on hub %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 на асяродку %2</translation>
     </message>
     <message>
         <source> on hub </source>
@@ -2615,7 +2618,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsConnection.cpp" line="113"/>
         <source>Program need root privileges to open ports less than 1024</source>
-        <translation type="unfinished"></translation>
+        <translation>Каб адкрыць порты, меншыя за 1024, праграме патрабуюцца прывілеі спраўніка (root)</translation>
     </message>
     <message>
         <location filename="../SettingsConnection.cpp" line="263"/>
@@ -2703,7 +2706,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../SettingsGUI.cpp" line="81"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Гішпанская</translation>
     </message>
     <message>
         <location filename="../SettingsGUI.cpp" line="169"/>
@@ -3132,7 +3135,7 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="37"/>
         <source>Search Alternates</source>
-        <translation type="unfinished"></translation>
+        <translation>Шукаць іншыя крыніцы</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="40"/>
@@ -3192,12 +3195,13 @@ Do you want to stop it?
     <message>
         <location filename="../TransferView.cpp" line="409"/>
         <source>Transfer View</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???“Сьпіс перадаванага”?</translatorcomment>
+        <translation>Сьпіс перадаванага</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="409"/>
         <source>You cannot search alternates for uploads!</source>
-        <translation type="unfinished"></translation>
+        <translation>Нельга шукаць іншыя крыніцы на файлы, якія &lt;i&gt;зацягваюцца&lt;/i&gt;!</translation>
     </message>
     <message>
         <location filename="../TransferView.cpp" line="510"/>
@@ -3606,12 +3610,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
         <source>Expand all</source>
-        <translation type="unfinished"></translation>
+        <translation>Разгарнуць усё</translation>
     </message>
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="54"/>
         <source>Collapse all</source>
-        <translation type="unfinished"></translation>
+        <translation>Згарнуць усё</translation>
     </message>
 </context>
 <context>
@@ -4848,7 +4852,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="816"/>
         <source>Compressed transfer</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьціскаць перадаванае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="855"/>
@@ -4952,12 +4956,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="178"/>
         <source>Use default ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ужываць звычайную паліцу ваконцаў (трэба запусьціць нанова)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="183"/>
         <source>Use multi-line ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ужываць шматрадковую паліцу ваконцаў (трэба запусьціць нанова)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="188"/>
@@ -4989,12 +4993,13 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="259"/>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Залежыць ад настаўленьняў асяродку: звычайна
+зьвесткі пра адрэсы IP могуць бачыць толькі апэратары.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="263"/>
         <source>Show ip-addresses of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказваць адрэсы IP ў гамане</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="284"/>
