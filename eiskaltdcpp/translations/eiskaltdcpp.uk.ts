@@ -1007,17 +1007,17 @@ Favorite user</source>
     <message>
         <location filename="../HubFrame.cpp" line="962"/>
         <source>Hub IP</source>
-        <translation type="unfinished"></translation>
+        <translation>ІР хабу</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="963"/>
         <source>Hub URL</source>
-        <translation type="unfinished"></translation>
+        <translation>URL хабу</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="964"/>
         <source>Hub Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Заголовок хабу</translation>
     </message>
     <message>
         <location filename="../HubFrame.cpp" line="981"/>
@@ -1695,7 +1695,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="2334"/>
         <source>Close</source>
-        <translation type="unfinished">Закрити</translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;&lt;br/&gt;</source>
@@ -4914,12 +4914,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="178"/>
         <source>Use default ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати стандартну панель табів (потрібний перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="183"/>
         <source>Use multi-line ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати багаторядкову панель табів (потрібний перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="188"/>
