@@ -911,15 +911,15 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Hub IP</source>
-        <translation type="unfinished"></translation>
+        <translation>IP serveur</translation>
     </message>
     <message>
         <source>Hub URL</source>
-        <translation type="unfinished"></translation>
+        <translation>URL serveur</translation>
     </message>
     <message>
         <source>Hub Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom serveur</translation>
     </message>
 </context>
 <context>
@@ -1618,22 +1618,22 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Spanish translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Traduction Espagnol&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.0.4 et plus)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fermer</translation>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
     <message>
         <source>Show close buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Montrer les boutons de fermeture</translation>
     </message>
 </context>
 <context>
@@ -1685,7 +1685,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>%1 on hub %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 sur le serveur %2</translation>
     </message>
 </context>
 <context>
@@ -2208,7 +2208,7 @@ Clés:
     </message>
     <message>
         <source>Program need root privileges to open ports less than 1024</source>
-        <translation type="unfinished"></translation>
+        <translation>Le logiciel nécessite des droits root pour ouvrir des ports en dessous de 1024</translation>
     </message>
 </context>
 <context>
@@ -2330,7 +2330,7 @@ Clés:
     </message>
     <message>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation>Espagnol</translation>
     </message>
 </context>
 <context>
@@ -4171,11 +4171,11 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Use default ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser la barre d&apos;outils par défaut (redémarrage nécessaire)</translation>
     </message>
     <message>
         <source>Use multi-line ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser la barre d&apos;outils multi-ligne (nécessite un redémarrage)</translation>
     </message>
 </context>
 <context>
