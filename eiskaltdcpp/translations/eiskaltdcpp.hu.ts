@@ -875,15 +875,15 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Hub IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub IP</translation>
     </message>
     <message>
         <source>Hub URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub URL</translation>
     </message>
     <message>
         <source>Hub Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub Címsor</translation>
     </message>
 </context>
 <context>
@@ -1562,7 +1562,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Bezárás</translation>
+        <translation>Bezárás</translation>
     </message>
 </context>
 <context>
@@ -4057,15 +4057,16 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     <message>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>A hub beállításaitól függ: a szükséges információkat 
+ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
     </message>
     <message>
         <source>Use default ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Alapértelmezett ToolBar használata (újraindítás szükséges)</translation>
     </message>
     <message>
         <source>Use multi-line ToolBar (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Többsoros ToolBar használata (újraindítás szükséges)</translation>
     </message>
 </context>
 <context>
