@@ -133,9 +133,9 @@ SettingsManager::SettingsManager()
     setDefault(DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS));
     setDefault(TEMP_DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS) + "Incomplete" PATH_SEPARATOR_STR);
     setDefault(SLOTS, 5);
-    setDefault(TCP_PORT, 0);
-    setDefault(UDP_PORT, 0);
-    setDefault(TLS_PORT, 0);
+    setDefault(TCP_PORT, 3000);
+    setDefault(UDP_PORT, 3000);
+    setDefault(TLS_PORT, 3001);
     setDefault(INCOMING_CONNECTIONS, INCOMING_DIRECT);
     setDefault(OUTGOING_CONNECTIONS, OUTGOING_DIRECT);
     setDefault(AUTO_FOLLOW, true);
