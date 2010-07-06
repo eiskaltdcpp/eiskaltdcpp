@@ -83,6 +83,12 @@ void SettingsNotification::init(){
     connect(pushButton_TESTFAV,     SIGNAL(clicked()), this, SLOT(slotTest()));
 
     connect(groupBox_SNDCMD, SIGNAL(toggled(bool)), this, SLOT(slotToggleSndCmd(bool)));
+
+#ifdef DBUS_NOTIFY
+    frame->setVisible(true);
+#else
+    frame->setVisible(false);
+#endif
 }
 
 void SettingsNotification::playFile(const QString &file){
