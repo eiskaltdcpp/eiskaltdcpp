@@ -73,15 +73,15 @@ else (USE_LIBUPNP)
 message (STATUS "Building without UPNP support")
 endif (USE_LIBUPNP)
 
-find_package (Qt4 4.4 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
 option (DBUS_NOTIFY "QtDbus support" ON)
 if (DBUS_NOTIFY)
-find_package (Qt4 4.4 COMPONENTS QtDBus  REQUIRED)
+find_package (Qt4 4.4.0 COMPONENTS QtDBus REQUIRED)
 endif (DBUS_NOTIFY)
 
 option (USE_JS "QtScript support")
 if (USE_JS)
-  find_package (Qt4 4.4 COMPONENTS QtScript REQUIRED)
+  find_package (Qt4 4.4.0 COMPONENTS QtScript REQUIRED)
 endif (USE_JS)
 
 option (USE_WT "WebControl" OFF)
