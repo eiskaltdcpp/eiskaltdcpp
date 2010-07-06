@@ -12,8 +12,10 @@
 
 #include <QObject>
 #include <QSystemTrayIcon>
+#ifdef DBUS_NOTIFY
 #include <QtDBus>
-
+#endif
+#include <QTimer>
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
@@ -34,7 +36,7 @@ public:
             tray->showMessage(title, msg, QSystemTrayIcon::Information, 5000);
     }
 };
-
+#ifdef DBUS_NOTIFY
 class DBusNotifyModule: public NotifyModule {
 public:
     void showMessage(const QString &title, const QString &msg, QObject *){
@@ -53,7 +55,7 @@ public:
         iface.callWithArgumentList(QDBus::NoBlock, "Notify", args);
     }
 };
-
+#endif
 class Notification :
         public QObject,
         public dcpp::Singleton<Notification>

@@ -3,12 +3,14 @@ cmake_minimum_required (VERSION 2.6)
 if (FREE_SPACE_BAR_C)
 add_subdirectory(gnulib)
 endif (FREE_SPACE_BAR_C)
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set (QT_USE_QTNETWORK 1)
 set (QT_USE_QTXML 1)
+
+if (DBUS_NOTIFY)
 set (QT_USE_QTDBUS 1)
+endif (DBUS_NOTIFY)
 
 if (USE_JS)
   set (QT_USE_QTSCRIPT  1)

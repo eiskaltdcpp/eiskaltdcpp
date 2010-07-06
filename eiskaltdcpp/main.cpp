@@ -36,7 +36,10 @@ using namespace std;
 #include <QApplication>
 #include <QMainWindow>
 #include <QRegExp>
+
+#ifdef DBUS_NOTIFY
 #include <QtDBus>
+#endif
 
 void callBack(void* x, const std::string& a)
 {

@@ -111,8 +111,13 @@ void Notification::switchModule(int m){
 
     if (t == QtNotify)
         notify = new QtNotifyModule();
+#ifdef DBUS_NOTIFY
     else
         notify = new DBusNotifyModule();
+#else
+    else
+        notify = new QtNotifyModule();
+#endif
 }
 
 void Notification::showMessage(int t, const QString &title, const QString &msg){
