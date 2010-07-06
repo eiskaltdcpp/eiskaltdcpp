@@ -15,8 +15,10 @@ using namespace std;
 #include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
+#ifdef USE_LIBUPNP
 #include "UPnP.h"
 #include "UPnPMapper.h"
+#endif
 #include "HubManager.h"
 #include "Notification.h"
 #include "SingleInstanceRunner.h"
@@ -93,11 +95,11 @@ int main(int argc, char *argv[])
 
     if (WulforUtil::getInstance()->loadIcons())
         std::cout << "Application icons has been loaded" << std::endl;
-
+#ifdef USE_LIBUPNP
     UPnP::newInstance();
     UPnP::getInstance()->start();
     UPnPMapper::newInstance();
-
+#endif
     HubManager::newInstance();
 
     MainWindow::newInstance();
@@ -140,11 +142,11 @@ int main(int argc, char *argv[])
     if (SpellCheck::getInstance())
         SpellCheck::deleteInstance();
 #endif
-
+#ifdef USE_LIBUPNP
     UPnPMapper::deleteInstance();
     UPnP::getInstance()->stop();
     UPnP::deleteInstance();
-
+#endif
     Notification::deleteInstance();
 
 #ifdef USE_JS

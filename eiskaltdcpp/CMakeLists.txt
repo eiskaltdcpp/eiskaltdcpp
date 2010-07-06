@@ -82,8 +82,7 @@ set (SRCS
             TransferView.cpp
             TransferViewModel.cpp
             UCModel.cpp
-            UPnP.cpp
-            UPnPMapper.cpp
+
             UserListModel.cpp
             WulforSettings.cpp
             WulforUtil.cpp
@@ -147,8 +146,7 @@ set (MOC_HDRS
             TransferView.h
             TransferViewModel.h
             UCModel.h
-            UPnP.h
-            UPnPMapper.h
+
             UserListModel.h
             WulforSettings.h
             WulforUtil.h
@@ -220,7 +218,10 @@ if (USE_ASPELL)
   set (SRCS ${SRCS} SpellCheck.cpp)
   set (MOC_HDRS ${MOC_HDRS} SpellCheck.h)
 endif (USE_ASPELL)
-
+if (USE_LIBUPNP)
+    set (SRCS ${SRCS} UPnP.cpp UPnPMapper.cpp)
+    set (MOC_HDRS  ${MOC_HDRS} UPnP.h UPnPMapper.h)
+endif (USE_LIBUPNP)
 if (USE_JS)
   set (SRCS ${SRCS}
         scriptengine/ClientManagerScript.cpp
@@ -288,9 +289,13 @@ if (UNIX)
   )
 endif (UNIX)
 
-include_directories (${QT_INCLUDES} ${UPNP_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}  "${PROJECT_SOURCE_DIR}/scriptengine" ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
-set (LIBS ${LIBS} ${QT_LIBRARIES} ${UPNP_LIBRARY} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
-
+include_directories (${QT_INCLUDES} ${PROJECT_SOURCE_DIR}  "${PROJECT_SOURCE_DIR}/scriptengine" ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
+set (LIBS ${LIBS} ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
+if (USE_LIBUPNP) 
+include_directories (${UPNP_INCLUDE_DIR})
+set (LIBS ${LIBS} ${UPNP_LIBRARY})
+add_definitions (-DUSE_LIBUPNP)
+endif (USE_LIBUPNP)
 if (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
   add_definitions (-DFREE_SPACE_BAR)
   set (LIBS ${LIBS} ${Boost_LIBRARIES})

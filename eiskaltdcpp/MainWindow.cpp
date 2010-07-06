@@ -61,8 +61,9 @@
 #endif
 
 #include "dcpp/ShareManager.h"
-
+#ifdef USE_LIBUPNP
 #include "UPnPMapper.h"
+#endif
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 
@@ -1701,8 +1702,9 @@ void MainWindow::startSocket(){
             QMessageBox::warning(this, tr("Search Manager: Warning"), msg, QMessageBox::Ok);
         }
     }
-
+#ifdef USE_LIBUPNP
     UPnPMapper::getInstance()->forward();
+#endif
 }
 
 void MainWindow::showShareBrowser(dcpp::UserPtr usr, QString file, QString jump_to){

@@ -55,6 +55,8 @@ Keys for cmake:
 -DFORCE_XDG=ON/OFF (default: ON)
     use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables
     see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
+-DUSE_LIBUPNP=ON/OFF (default: NOT SET)
+  use or not use libupnp
 -DUSE_JS:BOOL=1 (default: BOOL=0)
     Enable/disable QtScript basic support
 -DUSE_ICON_THEME:BOOL=1 (default: BOOL=0)

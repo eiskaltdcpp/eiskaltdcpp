@@ -6,7 +6,7 @@ else (APPLE)
   set (PROJECT_NAME_GLOBAL eiskaltdcpp)
 endif (APPLE)
 
-set (VERSION "2.0.x")
+set (VERSION "2.0.x") 
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
 include (CheckFunctionExists)
@@ -34,56 +34,6 @@ include (CheckCXXSourceCompiles)
 #    SET (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -ltcmalloc_and_profiler")
 #ENDIF (GPTOOLS_CPU_AND_MEM)
 
-if (ICONV_INCLUDE_DIR AND ICONV_LIBRARIES)
-  # Already in cache, be silent
-  set(ICONV_FIND_QUIETLY TRUE)
-endif (ICONV_INCLUDE_DIR AND ICONV_LIBRARIES)
-
-find_path(ICONV_INCLUDE_DIR iconv.h)
-
-find_library(ICONV_LIBRARIES NAMES iconv libiconv libiconv-2 c)
-
-if (ICONV_INCLUDE_DIR AND ICONV_LIBRARIES)
-   set (ICONV_FOUND TRUE)
-endif (ICONV_INCLUDE_DIR AND ICONV_LIBRARIES)
-
-set(CMAKE_REQUIRED_INCLUDES ${ICONV_INCLUDE_DIR})
-set(CMAKE_REQUIRED_LIBRARIES ${ICONV_LIBRARIES})
-
-if (ICONV_FOUND)
-  check_cxx_source_compiles("
-  #include <iconv.h>
-  int main(){
-    iconv_t conv = 0;
-    const char* in = 0;
-    size_t ilen = 0;
-    char* out = 0;
-    size_t olen = 0;
-    iconv(conv, &in, &ilen, &out, &olen);
-    return 0;
-  }
-" ICONV_SECOND_ARGUMENT_IS_CONST )
-endif (ICONV_FOUND)
-
-set (CMAKE_REQUIRED_INCLUDES)
-set (CMAKE_REQUIRED_LIBRARIES)
-
-if (ICONV_FOUND)
-  if (NOT ICONV_FIND_QUIETLY)
-    message (STATUS "Found Iconv: ${ICONV_LIBRARIES}")
-  endif (NOT ICONV_FIND_QUIETLY)
-else (ICONV_FOUND)
-  if (Iconv_FIND_REQUIRED)
-    message (FATAL_ERROR "Could not find Iconv")
-  endif (Iconv_FIND_REQUIRED)
-endif (ICONV_FOUND)
-
-MARK_AS_ADVANCED(
-  ICONV_INCLUDE_DIR
-  ICONV_LIBRARIES
-  ICONV_SECOND_ARGUMENT_IS_CONST
-)
-
 CHECK_INCLUDE_FILE (malloc.h HAVE_MALLOC_H)
 CHECK_INCLUDE_FILE (dlfcn.h HAVE_DLFCN_H)
 CHECK_INCLUDE_FILE (inttypes.h HAVE_INTTYPES_H)
@@ -106,12 +56,19 @@ CHECK_INCLUDE_FILE (sys/statvfs.h STAT_STATVFS)
 CHECK_INCLUDE_FILES ("sys/socket.h;net/if.h;ifaddrs.h;sys/types.h" HAVE_ADDRS_H)
 CHECK_INCLUDE_FILES ("sys/types.h;sys/statvfs.h;limits.h;stdbool.h;stdint.h" FS_USAGE_C)
 
+find_package (PkgConfig)
 find_package (BZip2 REQUIRED)
 find_package (ZLIB REQUIRED)
 find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)
 set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 find_package (Gettext REQUIRED)
+find_package (Iconv REQUIRED)
+
+option (USE_LIBUPNP "Libupnp" ON)
+if (USE_LIBUPNP)
+find_package (LibUpnp REQUIRED)
+endif (USE_LIBUPNP)
 
 option (USE_JS "QtScript support")
 if (NOT USE_JS)
@@ -122,8 +79,6 @@ endif (NOT USE_JS)
 
 option (USE_WT "WebControl" OFF)
 option (USE_QT "Qt interface" ON)
-
-find_package (PkgConfig)
 
 if (NOT USE_ASPELL)
     option(USE_ASPELL "Use aspell for spellchecking")
@@ -205,40 +160,6 @@ FIND_PROGRAM (TAR_CMD tar)
 set (Boost_INCLUDEDIR "./")
 message (STATUS "USED LOCAL BOOST HEADERS")
 endif(LOCAL_BOOST)
-
-pkg_check_modules (PC_UPNP REQUIRED libupnp)
-
-set (UPNP_DEFINITIONS ${PC_UPNP_CFLAGS_OTHER})
-
-find_path(UPNP_INCLUDE_DIR upnp/upnp.h
-   HINTS
-   ${PC_UPNP_INCLUDEDIR}
-   ${PC_UPNP_INCLUDE_DIRS}
-   PATH_SUFFIXES upnp)
-find_library(UPNP_UPNP_LIBRARY upnp
-   HINTS
-   ${PC_UPNP_LIBDIR}
-   ${PC_UPNP_LIBRARY_DIRS})
-find_library(UPNP_IXML_LIBRARY ixml
-   HINTS
-   ${PC_UPNP_LIBDIR}
-   ${PC_UPNP_LIBRARY_DIRS})
-find_library(UPNP_THREADUTIL_LIBRARY threadutil
-   HINTS
-   ${PC_UPNP_LIBDIR}
-   ${PC_UPNP_LIBRARY_DIRS})
-
-if (UPNP_INCLUDE_DIR AND UPNP_UPNP_LIBRARY)
-    set (UPNP_FOUND 1)
-endif (UPNP_INCLUDE_DIR AND UPNP_UPNP_LIBRARY)
-
-if (UPNP_FOUND)
-    set (UPNP_LIBRARY ${UPNP_UPNP_LIBRARY} ${UPNP_IXML_LIBRARY} ${UPNP_THREADUTIL_LIBRARY} ${PC_UPNP_LDFLAGS})
-    message (STATUS "Found the upnp libraries at ${UPNP_LIBRARY}")
-    message (STATUS "Found the upnp headers at ${UPNP_INCLUDE_DIR}")
-else (UPNP_FOUND)
-    message (STATUS "Could not find upnp")
-endif (UPNP_FOUND)
 
 if (NOT CMAKE_INSTALL_PREFIX)
   set (CMAKE_INSTALL_PREFIX "/usr")

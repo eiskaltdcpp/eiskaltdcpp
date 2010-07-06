@@ -49,9 +49,10 @@ void SettingsConnection::ok(){
             SM->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
         else if (radioButton_PORT->isChecked())
             SM->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_NAT);
+#ifdef USE_LIBUPNP
         else
             SM->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);
-
+#endif
         SM->set(SettingsManager::TCP_PORT, spinBox_TCP->value());
         SM->set(SettingsManager::UDP_PORT, spinBox_UDP->value());
         SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
@@ -154,13 +155,18 @@ void SettingsConnection::init(){
 
             break;
         }
+#ifdef USE_LIBUPNP
     case SettingsManager::INCOMING_FIREWALL_UPNP:
         {
             radioButton_UPNP->setChecked(true);
 
             break;
         }
+#endif
     }
+#ifndef USE_UPNP
+    radioButton_UPNP->setEnabled(false);
+#endif
 
     lineEdit_SIP->setText(QString::fromStdString(SETTING(SOCKS_SERVER)));
     lineEdit_SUSR->setText(QString::fromStdString(SETTING(SOCKS_USER)));
@@ -190,7 +196,9 @@ void SettingsConnection::init(){
     connect(radioButton_ACTIVE, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
     connect(radioButton_PORT, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
     connect(radioButton_PASSIVE, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
+#ifdef USE_LIBUPNP
     connect(radioButton_UPNP, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
+#endif
     connect(checkBox_THROTTLE_ENABLE,SIGNAL(toggled(bool)),this,SLOT(slotThrottle()));
     connect(checkBox_TIME_DEPENDENT_THROTTLE,SIGNAL(toggled(bool)),this,SLOT(slotTimeThrottle()));
     connect(radioButton_DC, SIGNAL(toggled(bool)), this, SLOT(slotToggleOutgoing()));
@@ -211,8 +219,9 @@ void SettingsConnection::init(){
     radioButton_PASSIVE->installEventFilter(this);
     radioButton_PORT->installEventFilter(this);
     radioButton_SOCKS->installEventFilter(this);
+#ifdef USE_LIBUPNP
     radioButton_UPNP->installEventFilter(this);
-
+#endif
     checkBox_DONTOVERRIDE->installEventFilter(this);
     checkBox_RESOLVE->installEventFilter(this);
 }
