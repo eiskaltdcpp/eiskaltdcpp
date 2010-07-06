@@ -2,7 +2,7 @@
 Program Depends
 *******************************************************************************
 libqtcore4, libqtgui4, libqt4-network, libqt4-xml, libqt4-dbus (>= 4.4.0)
-libupnp (=1.6.* only)
+libupnp (=1.6.* only) (optional, see cmake keys)
 libssl (>= 0.9.8)
 bzip2
 zlib
@@ -16,11 +16,12 @@ Build Depends
 *******************************************************************************
 qt4 (>=4.4.0)
 cmake (>= 2.6.0)
-libupnp-dev (=1.6.* only)
+libupnp-dev (=1.6.* only) (optional, see cmake keys)
 libboost-dev (headers only)
 bzip2
 zlib
 gcc
+gettext
 libaspell-dev (optional, see cmake keys)
 libboost-dev (headers only) (optional, see cmake keys)
 libboost-date-time-dev, libboost-filesystem-dev, libboost-system-dev (optional, see cmake keys)
