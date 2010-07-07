@@ -1369,7 +1369,7 @@ void MainWindow::updateHashProgressStatus() {
     case HashProgress::IDLE:
         fileFileListRefresh->setEnabled(true);
         {
-            progress_dialog()->resetProgress(); // Here dialog wil be actually created
+            progress_dialog()->resetProgress(); // Here dialog will be actually created
             progressHashing->hide();
         }
         //qDebug("idle");
