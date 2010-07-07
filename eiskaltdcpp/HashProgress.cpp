@@ -41,6 +41,7 @@ HashProgress::HashProgress(QWidget *parent):
     setupUi(this);
 
     setWindowModality(Qt::ApplicationModal);
+    setAttribute( Qt::WA_QuitOnClose, false ); // Very important, wo this line app exits then hide
 
     HashManager::getInstance()->setPriority(Thread::NORMAL);
 
@@ -54,12 +55,22 @@ HashProgress::HashProgress(QWidget *parent):
     timer->start();
 }
 
+void HashProgress::resetProgress() {
+        startBytes = 0;
+        startFiles = 0;
+        startTime  = 0;
+}
+
 HashProgress::~HashProgress(){
     timer->stop();//really need?
 
     delete timer;
 
     HashManager::getInstance()->setPriority(Thread::LOW);
+}
+
+float HashProgress::getProgress() {
+	return static_cast<float>( progress->value() )/progress->maximum();
 }
 
 void HashProgress::timerTick(){

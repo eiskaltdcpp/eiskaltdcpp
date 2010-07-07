@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 
+#include <QPainter>
 #include <QPushButton>
 #include <QSize>
 #include <QModelIndex>
@@ -141,6 +142,8 @@ MainWindow::MainWindow (QWidget *parent):
             }
         }
     }
+
+    progress_dialog = new HashProgress(this);
 }
 
 MainWindow::~MainWindow(){
@@ -964,6 +967,15 @@ void MainWindow::initStatusBar(){
     WBSET(WB_SHOW_FREE_SPACE, false);
 #endif //FREE_SPACE_BAR || FREE_SPACE_BAR_C
 
+    progressHashing = new QProgressBar(this);
+    progressHashing->setMaximum(100);
+    progressHashing->setMinimum(0);
+    progressHashing->setAlignment( Qt::AlignHCenter );
+    progressHashing->setFixedHeight(18);
+    progressHashing->setToolTip(tr("Hashing progress"));
+    progressHashing->hide();
+
+    statusBar()->addWidget(progressHashing);
     statusBar()->addWidget(msgLabel, 1);
     statusBar()->addPermanentWidget(statusDLabel);
     statusBar()->addPermanentWidget(statusULabel);
@@ -1339,18 +1351,34 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
         act->setChecked(true);
     }
 
-    // Update hash-progress status, to be extended.
+    updateHashProgressStatus();
+}
+
+void MainWindow::updateHashProgressStatus() {
+
     switch( HashProgress::getHashStatus() ) {
     case HashProgress::IDLE:
         fileFileListRefresh->setEnabled(true);
+        {
+            progress_dialog->resetProgress();
+            progressHashing->hide();
+        }
         //qDebug("idle");
         break;
     case HashProgress::PAUSED:
         fileFileListRefresh->setEnabled(false);
+        progressHashing->setFormat(tr("Paused"));
+        progressHashing->show();
         //qDebug("paused");
         break;
     case HashProgress::RUNNING:
         fileFileListRefresh->setEnabled(false);
+        {
+            int progress = static_cast<int>( progress_dialog->getProgress()*100 );
+            progressHashing->setFormat(tr("%p%"));
+            progressHashing->setValue( progress );
+            progressHashing->show();
+        }
         //qDebug("running");
         break;
     default:
@@ -1765,16 +1793,15 @@ void MainWindow::slotFileRefreshShare(){
     SM->setDirty();
     SM->refresh(true);
 
-    HashProgress progress(this);
-    progress.slotAutoClose(true);
-
-    progress.exec();
+    updateHashProgressStatus();
+    progress_dialog->resetProgress();
+    progress_dialog->slotAutoClose(true);
+    progress_dialog->show();
 }
 
 void MainWindow::slotFileHashProgress(){
-    HashProgress progress(this);
-
-    progress.exec();
+    progress_dialog->slotAutoClose(false);
+    progress_dialog->show();
 }
 
 void MainWindow::slotHubsReconnect(){

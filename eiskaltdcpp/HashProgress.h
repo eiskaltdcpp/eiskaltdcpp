@@ -27,10 +27,13 @@ public:
     virtual ~HashProgress();
     enum { IDLE, RUNNING, PAUSED };
     static unsigned getHashStatus();
+    float getProgress();
 
 public slots:
     void slotAutoClose(bool);
 
+    void resetProgress();
+    
 private slots:
     void timerTick();
     void slotStart();

@@ -112,6 +112,8 @@ public:
     }
 };
 
+class HashProgress;
+
 class MainWindow:
         public QMainWindow,
         public  dcpp::Singleton<MainWindow>,
@@ -290,6 +292,8 @@ friend class dcpp::Singleton<MainWindow>;
 #ifdef FREE_SPACE_BAR_C
         static bool FreeDiscSpace ( std::string path, unsigned long long * res, unsigned long long * res2);
 #endif
+        HashProgress *progress_dialog;
+        void updateHashProgressStatus();
         bool isUnload;
         bool exitBegin;
 
@@ -324,6 +328,7 @@ friend class dcpp::Singleton<MainWindow>;
         QLabel *statusTRLabel;
         QLabel *msgLabel;
         QProgressBar *progressSpace;
+        QProgressBar *progressHashing;
 
         QMenu   *menuFile;
         QAction *fileFileListBrowser;
