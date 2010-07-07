@@ -289,11 +289,11 @@ friend class dcpp::Singleton<MainWindow>;
         void toggleSingletonWidget(ArenaWidget *a);
 
         void updateStatus(QMap<QString,QString>);
+        void updateHashProgressStatus();
 #ifdef FREE_SPACE_BAR_C
         static bool FreeDiscSpace ( std::string path, unsigned long long * res, unsigned long long * res2);
 #endif
-        HashProgress *progress_dialog;
-        void updateHashProgressStatus();
+        HashProgress *progress_dialog(); // Lazy initialization for _progress_dialog;
         bool isUnload;
         bool exitBegin;
 
@@ -329,6 +329,7 @@ friend class dcpp::Singleton<MainWindow>;
         QLabel *msgLabel;
         QProgressBar *progressSpace;
         QProgressBar *progressHashing;
+        HashProgress *_progress_dialog; // Hashing progress dialog
 
         QMenu   *menuFile;
         QAction *fileFileListBrowser;

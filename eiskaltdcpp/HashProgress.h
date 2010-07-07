@@ -25,15 +25,14 @@ class HashProgress :
 public:
     HashProgress(QWidget* = NULL);
     virtual ~HashProgress();
-    enum { IDLE, RUNNING, PAUSED };
+    enum { IDLE, RUNNING, LISTUPDATE, PAUSED };
     static unsigned getHashStatus();
     float getProgress();
 
 public slots:
     void slotAutoClose(bool);
-
     void resetProgress();
-    
+
 private slots:
     void timerTick();
     void slotStart();

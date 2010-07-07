@@ -77,6 +77,7 @@ MainWindow::MainWindow (QWidget *parent):
         mBar(NULL),
         fBar(NULL),
         sBar(NULL),
+        _progress_dialog(NULL),
         sideDock(NULL),
         sideTree(NULL),
         menuPanels(NULL),
@@ -143,7 +144,14 @@ MainWindow::MainWindow (QWidget *parent):
         }
     }
 
-    progress_dialog = new HashProgress(this);
+}
+
+HashProgress* MainWindow::progress_dialog() {
+    if( _progress_dialog == NULL ) {
+        _progress_dialog = new HashProgress(this);
+        //qDebug("Lazy initializtion of progress_dialog");
+    }
+    return _progress_dialog;
 }
 
 MainWindow::~MainWindow(){
@@ -956,6 +964,7 @@ void MainWindow::initStatusBar(){
     progressSpace = new QProgressBar(this);
     progressSpace->setMaximum(100);
     progressSpace->setMinimum(0);
+    progressSpace->setAlignment( Qt::AlignHCenter );
     progressSpace->setMinimumWidth(100);
     progressSpace->setMaximumWidth(250);
     progressSpace->setFixedHeight(18);
@@ -1360,21 +1369,33 @@ void MainWindow::updateHashProgressStatus() {
     case HashProgress::IDLE:
         fileFileListRefresh->setEnabled(true);
         {
-            progress_dialog->resetProgress();
+            progress_dialog()->resetProgress(); // Here dialog wil be actually created
             progressHashing->hide();
         }
         //qDebug("idle");
         break;
+    case HashProgress::LISTUPDATE:
+        fileFileListRefresh->setEnabled(false);
+        {
+            progressHashing->setValue( 100 );
+            progressHashing->setFormat(tr("List update"));
+            progressHashing->show();
+        }
+        //qDebug("listupdate");
+        break;
     case HashProgress::PAUSED:
         fileFileListRefresh->setEnabled(false);
-        progressHashing->setFormat(tr("Paused"));
-        progressHashing->show();
+        {
+            progressHashing->setValue( 100 );
+            progressHashing->setFormat(tr("Paused"));
+            progressHashing->show();
+        }
         //qDebug("paused");
         break;
     case HashProgress::RUNNING:
         fileFileListRefresh->setEnabled(false);
         {
-            int progress = static_cast<int>( progress_dialog->getProgress()*100 );
+            int progress = static_cast<int>( progress_dialog()->getProgress()*100 );
             progressHashing->setFormat(tr("%p%"));
             progressHashing->setValue( progress );
             progressHashing->show();
@@ -1794,14 +1815,14 @@ void MainWindow::slotFileRefreshShare(){
     SM->refresh(true);
 
     updateHashProgressStatus();
-    progress_dialog->resetProgress();
-    progress_dialog->slotAutoClose(true);
-    progress_dialog->show();
+    progress_dialog()->resetProgress();
+    progress_dialog()->slotAutoClose(true);
+    progress_dialog()->show();
 }
 
 void MainWindow::slotFileHashProgress(){
-    progress_dialog->slotAutoClose(false);
-    progress_dialog->show();
+    progress_dialog()->slotAutoClose(false);
+    progress_dialog()->show();
 }
 
 void MainWindow::slotHubsReconnect(){

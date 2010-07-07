@@ -13,22 +13,22 @@ using namespace dcpp;
 
 unsigned HashProgress::getHashStatus() {
     ShareManager *SM = ShareManager::getInstance();
-    HashManager *HM = HashManager::getInstance();
-	if( SM->isRefreshing() )
-		return RUNNING;
+    HashManager  *HM = HashManager::getInstance();
+    if( SM->isRefreshing() )
+        return LISTUPDATE;
 
-	if( HM->isHashingPaused() )
-		return PAUSED;
+    if( HM->isHashingPaused() )
+        return PAUSED;
 
     string path;
     int64_t bytes = 0;
     size_t files = 0;
-	HM->getStats(path, bytes, files);
-	
-	if( bytes != 0 || files != 0 )
-		return RUNNING;
+    HM->getStats(path, bytes, files);
 
-	return IDLE;
+    if( bytes != 0 || files != 0 )
+        return RUNNING;
+
+    return IDLE;
 }
 
 HashProgress::HashProgress(QWidget *parent):
@@ -70,7 +70,7 @@ HashProgress::~HashProgress(){
 }
 
 float HashProgress::getProgress() {
-	return static_cast<float>( progress->value() )/progress->maximum();
+    return static_cast<float>( progress->value() )/progress->maximum();
 }
 
 void HashProgress::timerTick(){
@@ -176,17 +176,21 @@ void HashProgress::timerTick(){
 
 void HashProgress::slotStart(){
     ShareManager *SM = ShareManager::getInstance();
-    HashManager *HM = HashManager::getInstance();
+    HashManager  *HM = HashManager::getInstance();
     switch( getHashStatus() ) {
     case IDLE:
             SM->setDirty();
             SM->refresh(true);
             break;
+    case LISTUPDATE:
     case RUNNING:
-            HM->pauseHashing();HashManager::getInstance()->setPriority(Thread::IDLE);
+            HM->pauseHashing();
+            HM->setPriority(Thread::IDLE);
             break;
     case PAUSED:
-            HM->resumeHashing();HashManager::getInstance()->setPriority(Thread::NORMAL);
+            HM->resumeHashing();
+            HM->setPriority(Thread::NORMAL);
+            break;
     }
     stateButton();
 }
@@ -198,11 +202,13 @@ void HashProgress::slotAutoClose(bool b){
     checkBox->setChecked(b);
     blockSignals(false);
 }
+
 void HashProgress::stateButton(){
     switch( getHashStatus() ) {
     case IDLE:
         pushButton_START->setText(tr("Start"));
         break;
+    case LISTUPDATE:
     case RUNNING:
         pushButton_START->setText(tr("Pause"));
         break;
