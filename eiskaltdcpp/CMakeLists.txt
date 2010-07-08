@@ -10,6 +10,7 @@ set (QT_USE_QTXML 1)
 
 if (DBUS_NOTIFY)
 set (QT_USE_QTDBUS 1)
+add_definitions (-DDBUS_NOTIFY)
 endif (DBUS_NOTIFY)
 
 if (USE_JS)

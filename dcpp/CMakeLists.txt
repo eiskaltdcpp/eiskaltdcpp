@@ -13,15 +13,19 @@ set (LINK STATIC)
 set (WIN32_LIBS -lwsock32)
 endif (WIN32)
 
+if (NOT LINK)
+set (LINK SHARED)
+endif (NOT LINK)
+
 add_library (dcpp ${LINK} ${dcpp_srcs})
 
-if (APPLE)
+#if (APPLE)
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
-${OPENSSL_LIBRARIES} ${ICONV_LIBRARIES} ${GETTEXT_LIBRARIES} iconv)
-else (APPLE)
-target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
-${OPENSSL_LIBRARIES} ${ICONV_LIBRARIES} ${GETTEXT_LIBRARIES} ${WIN32_LIBS})
-endif (APPLE)
+${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS})
+#else (APPLE)
+#target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
+#${OPENSSL_LIBRARIES} ${ICONV_LIBRARIES} ${GETTEXT_LIBRARIES} ${WIN32_LIBS})
+#endif (APPLE)
 
 if (APPLE)
 set (LIBDIR1 .)
