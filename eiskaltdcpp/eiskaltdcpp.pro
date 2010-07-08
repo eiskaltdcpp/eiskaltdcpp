@@ -321,3 +321,7 @@ FORMS = ui/HubFrame.ui \
     ui/UIScriptManager.ui \
     ui/UIDialogScriptConsole.ui \
     ui/UIActionCustomizer.ui
+
+win32 {
+ SOURCES += openssl/applink.c
+}

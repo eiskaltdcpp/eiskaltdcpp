@@ -812,9 +812,10 @@ int HashManager::Hasher::run() {
                 virtualBuf = true;
                 buf = (uint8_t*)VirtualAlloc(NULL, 2*BUF_SIZE, MEM_COMMIT, PAGE_READWRITE);
             }
-#endif
+#else
             static const int64_t BUF_BYTES = (SETTING(HASH_BUFFER_SIZE_MB) >= 1)? SETTING(HASH_BUFFER_SIZE_MB)*1024*1024 : 0x800000;
             static const int64_t BUF_SIZE = BUF_BYTES - (BUF_BYTES % getpagesize());
+#endif
 
             if(buf == NULL) {
                 virtualBuf = false;

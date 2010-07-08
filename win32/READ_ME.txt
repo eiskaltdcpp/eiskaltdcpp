@@ -64,7 +64,7 @@ qt-sdk-win-opensource-*
 Win32OpenSSL-*
 cmake-*
 
-  * Unpack boost-* archive to the root directory of eiskaltdcpp sources.
+  * Unpack files from boost-* archive to %QTSDKDIR%\mingw\include\.
 
   * Unpack files from mingw-* archives to %QTSDKDIR%\mingw\
 

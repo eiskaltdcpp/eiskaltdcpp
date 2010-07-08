@@ -73,7 +73,9 @@ int main(int argc, char *argv[])
     if (runner.isServerRunning(qApp->arguments()))
         return 0;
 
+#ifndef WIN32
     installHandlers();
+#endif
 
 #ifdef FORCE_XDG
     migrateConfig();

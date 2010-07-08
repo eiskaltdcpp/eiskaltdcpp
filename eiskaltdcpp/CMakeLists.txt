@@ -293,7 +293,7 @@ endif (UNIX)
 
 include_directories (${QT_INCLUDES} ${PROJECT_SOURCE_DIR}  "${PROJECT_SOURCE_DIR}/scriptengine" ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
-if (USE_LIBUPNP) 
+if (USE_LIBUPNP)
 include_directories (${UPNP_INCLUDE_DIR})
 set (LIBS ${LIBS} ${UPNP_LIBRARY})
 add_definitions (-DUSE_LIBUPNP)

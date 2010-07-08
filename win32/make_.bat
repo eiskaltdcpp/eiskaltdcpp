@@ -9,5 +9,5 @@ set PATH=%PATH%;%SystemRoot%\System32
 set QMAKESPEC=win32-g++
 
 
-mingw32-make
+mingw32-make -j2
 

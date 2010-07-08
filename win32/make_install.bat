@@ -9,6 +9,10 @@ set PATH=%PATH%;%SystemRoot%\System32
 set QMAKESPEC=win32-g++
 
 
+mingw32-make -k install
+strip "C:\Program Files\eiskaltdcpp\bin\eiskaltdcpp.exe"
+
+
 mkdir EiskaltDC++
 copy /Y "%QTDIR%\bin\mingwm10.dll" .\EiskaltDC++\
 copy /Y "%QTDIR%\bin\QtCore4.dll" .\EiskaltDC++\
