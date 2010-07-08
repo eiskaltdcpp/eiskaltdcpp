@@ -9,13 +9,17 @@ set PATH=%PATH%;%SystemRoot%\System32
 set QMAKESPEC=win32-g++
 
 
+set TARGET="C:\Program Files\eiskaltdcpp"
+
+
 mingw32-make -k install
-strip "C:\Program Files\eiskaltdcpp\bin\eiskaltdcpp.exe"
+strip "%TARGET%\bin\eiskaltdcpp.exe"
 
 
-mkdir EiskaltDC++
-copy /Y "%QTDIR%\bin\mingwm10.dll" .\EiskaltDC++\
-copy /Y "%QTDIR%\bin\QtCore4.dll" .\EiskaltDC++\
-copy /Y "%QTDIR%\bin\QtNetwork4.dll" .\EiskaltDC++\
-copy /Y "%QTDIR%\bin\QtSql4.dll" .\EiskaltDC++\
+copy /Y "%QTDIR%\bin\mingwm10.dll" "%TARGET%\bin"
+copy /Y "%QTDIR%\bin\QtCore4.dll" "%TARGET%\bin"
+copy /Y "%QTDIR%\bin\QtGui4.dll" "%TARGET%\bin"
+copy /Y "%QTDIR%\bin\QtNetwork4.dll" "%TARGET%\bin"
+copy /Y "%QTDIR%\bin\QtXml4.dll" "%TARGET%\bin"
+
 
