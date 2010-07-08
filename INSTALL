@@ -6,6 +6,7 @@ libupnp (=1.6.* only) (optional, see cmake keys)
 libssl (>= 0.9.8)
 bzip2
 zlib
+iconv (libc on GNU/Linux)
 libaspell (optional, see cmake keys)
 libboost-system, libboost-filesystem, libboost-date-time (>=1.34.1) (optional, see cmake keys)
 libqt4-script (>= 4.4.0) (optional, see cmake keys)
@@ -22,6 +23,7 @@ bzip2
 zlib
 gcc
 gettext
+iconv (libc on GNU/Linux)
 libaspell-dev (optional, see cmake keys)
 libboost-dev (headers only) (optional, see cmake keys)
 libboost-date-time-dev, libboost-filesystem-dev, libboost-system-dev (optional, see cmake keys)
