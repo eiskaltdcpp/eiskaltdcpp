@@ -6,7 +6,7 @@ else (APPLE)
   set (PROJECT_NAME_GLOBAL eiskaltdcpp)
 endif (APPLE)
 
-set (VERSION "2.0.x") 
+set (VERSION "2.0.x")
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
 include (CheckFunctionExists)

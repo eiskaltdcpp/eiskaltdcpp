@@ -33,11 +33,11 @@
 #include <fnmatch.h>
 #endif
 
-#ifdef _WIN32
-#include "../zlib/zlib.h"
-#else
+//#ifdef _WIN32
+//#include "../zlib/zlib.h"
+//#else
 #include <zlib.h>
-#endif
+//#endif
 
 namespace dcpp {
 

@@ -30,11 +30,11 @@
 
 #include <openssl/bn.h>
 
-#ifdef _WIN32
-#include "../bzip2/bzlib.h"
-#else
+//#ifdef _WIN32
+//#include "../bzip2/bzlib.h"
+//#else
 #include <bzlib.h>
-#endif
+//#endif
 
 namespace dcpp {
 

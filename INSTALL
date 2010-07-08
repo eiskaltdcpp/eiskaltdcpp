@@ -91,3 +91,10 @@ Mac OS X specific notes
 # For generate native bundle on Mac OS X use:
 cpack -G DragNDrop
 
+
+*******************************************************************************
+MS Windows specific notes
+*******************************************************************************
+Instructions are available in the file: win32/READ_ME.txt
+
+

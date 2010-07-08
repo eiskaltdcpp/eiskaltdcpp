@@ -84,9 +84,7 @@ void SettingsNotification::init(){
 
     connect(groupBox_SNDCMD, SIGNAL(toggled(bool)), this, SLOT(slotToggleSndCmd(bool)));
 
-#ifdef DBUS_NOTIFY
-    frame->setVisible(true);
-#else
+#ifndef DBUS_NOTIFY
     frame->setVisible(false);
 #endif
 }
