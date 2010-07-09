@@ -25,7 +25,7 @@ add_library (dcpp ${LINK} ${dcpp_srcs})
 
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
 ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS})
-
+set_target_properties(dcpp PROPERTIES VERSION ${VERSION})
 if (APPLE)
 set (LIBDIR1 .)
 set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
@@ -33,6 +33,6 @@ endif(APPLE)
 
 if (LINK STREQUAL SHARED)
 install (TARGETS dcpp
-            LIBRARY DESTINATION ${LIBDIR}
+            LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP
             BUNDLE DESTINATION ${LIBDIR1})
 endif (LINK STREQUAL SHARED)

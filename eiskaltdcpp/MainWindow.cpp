@@ -530,6 +530,11 @@ void MainWindow::initActions(){
         fileHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         connect(fileHashProgress, SIGNAL(triggered()), this, SLOT(slotFileHashProgress()));
 
+        fileRefreshShareHashProgress = new QAction("", this);
+        fileRefreshShareHashProgress->setObjectName("fileRefreshShareHashProgress");
+        fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
+        connect(fileRefreshShareHashProgress, SIGNAL(triggered()), this, SLOT(slotFileRefreshShareHashProgress()));
+
         fileHideWindow = new QAction(tr("Hide window"), this);
         fileHideWindow->setObjectName("fileHideWindow");
         fileHideWindow->setShortcut(tr("Esc"));
@@ -802,6 +807,7 @@ void MainWindow::initActions(){
                 << fileFileListBrowserLocal
                 << fileFileListRefresh
                 << fileHashProgress
+                << fileRefreshShareHashProgress
                 << separator1
                 << hubsHubReconnect
                 << hubsQuickConnect
@@ -1023,6 +1029,8 @@ void MainWindow::retranslateUi(){
         fileFileListRefresh->setText(tr("Refresh share"));
 
         fileHashProgress->setText(tr("Hash progress"));
+
+        fileRefreshShareHashProgress->setText(tr("Refresh share")+" / "+tr("Hash progress"));
 
         fileQuit->setText(tr("Quit"));
 
@@ -1369,10 +1377,12 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
 }
 
 void MainWindow::updateHashProgressStatus() {
+    WulforUtil *WU = WulforUtil::getInstance();
 
     switch( HashProgress::getHashStatus() ) {
     case HashProgress::IDLE:
         fileFileListRefresh->setEnabled(true);
+        fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiREFRLIST));
         {
             progress_dialog()->resetProgress(); // Here dialog will be actually created
             progressHashing->hide();
@@ -1381,6 +1391,7 @@ void MainWindow::updateHashProgressStatus() {
         break;
     case HashProgress::LISTUPDATE:
         fileFileListRefresh->setEnabled(false);
+        fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         {
             progressHashing->setValue( 100 );
             progressHashing->setFormat(tr("List update"));
@@ -1390,6 +1401,7 @@ void MainWindow::updateHashProgressStatus() {
         break;
     case HashProgress::PAUSED:
         fileFileListRefresh->setEnabled(false);
+        fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         {
             progressHashing->setValue( 100 );
             progressHashing->setFormat(tr("Paused"));
@@ -1399,6 +1411,7 @@ void MainWindow::updateHashProgressStatus() {
         break;
     case HashProgress::RUNNING:
         fileFileListRefresh->setEnabled(false);
+        fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         {
             int progress = static_cast<int>( progress_dialog()->getProgress()*100 );
             progressHashing->setFormat(tr("%p%"));
@@ -1828,6 +1841,29 @@ void MainWindow::slotFileRefreshShare(){
 void MainWindow::slotFileHashProgress(){
     progress_dialog()->slotAutoClose(false);
     progress_dialog()->show();
+}
+
+void MainWindow::slotFileRefreshShareHashProgress(){
+    switch( HashProgress::getHashStatus() ) {
+    case HashProgress::IDLE:
+    {
+        ShareManager *SM = ShareManager::getInstance();
+
+        SM->setDirty();
+        SM->refresh(true);
+
+        updateHashProgressStatus();
+        progress_dialog()->resetProgress();
+    }
+        break;
+    case HashProgress::LISTUPDATE:
+    case HashProgress::PAUSED:
+    case HashProgress::RUNNING:
+        slotFileHashProgress();
+        break;
+    default:
+        break;
+    }
 }
 
 void MainWindow::slotHubsReconnect(){
