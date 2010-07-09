@@ -66,14 +66,19 @@ cmake-*
 
   * Unpack files from boost-* archive to %QTSDKDIR%\mingw\include\.
 
-  * Unpack files from mingw-* archives to %QTSDKDIR%\mingw\
+  * Unpack files from mingw-* archives to appropriate subdirectories in %QTSDKDIR%\mingw\
+    ( i.e. bzlib.h shoud go to %QTSDKDIR%\mingw\include\
+           libbz2.a         to %QTSDKDIR%\mingw\lib\
+           mgwbz2-1.dll     to %QTSDKDIR%\mingw\bin\ )
 
   * Unpack files from gettext-* and libiconv-* archives to %QTSDKDIR%\mingw\
 
-  * Edit the files and run them:
-configure.bat
-make_.bat
-make_install.bat
+
+  * Check variables.bat for correct paths and run:
+  
+     configure.bat
+     build.bat
+     install.bat
 
   * Program with all necessary files is now available in EiskaltDC++ directory.
 

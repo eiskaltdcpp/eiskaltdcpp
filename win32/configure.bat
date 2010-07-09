@@ -1,15 +1,6 @@
-set QTSDKDIR=C:\Qt\2010.01
-set CMAKEDIR="C:\Program Files\CMake 2.8"
+call "variables.bat"
 
+echo "#define BOOST_VERSION 000000" > "%MINGW%\include\boost\version.hpp"
 
-set QTDIR=%QTSDKDIR%\qt
-set PATH=%QTDIR%\bin
-set PATH=%PATH%;%QTSDKDIR%\bin
-set PATH=%PATH%;%QTSDKDIR%\mingw\bin
-set PATH=%PATH%;%SystemRoot%\System32
-set PATH=%PATH%;%CMAKEDIR%\bin
-set QMAKESPEC=win32-g++
-
-
-cmake -DUSE_ASPELL:BOOL=0 -DUSE_LIBUPNP=OFF -DFORCE_XDG=OFF -DFREE_SPACE_BAR_C:BOOL=1 ..
+cmake -G "MinGW Makefiles" -DCMAKE_FIND_ROOT_PATH="%MINGW%" -DUSE_ASPELL=OFF -DUSE_LIBUPNP=OFF -DDBUS_NOTIFY=OFF -DFORCE_XDG=OFF -DFREE_SPACE_BAR_C=OFF ..
 
