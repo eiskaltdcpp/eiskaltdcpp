@@ -352,6 +352,10 @@ void MainWindow::customEvent(QEvent *e){
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *e){
+    if( obj == progressHashing && e->type() == QEvent::MouseButtonDblClick ) {
+        slotFileHashProgress();
+        return true;
+    }
     return QMainWindow::eventFilter(obj, e);
 }
 
@@ -983,6 +987,7 @@ void MainWindow::initStatusBar(){
     progressHashing->setFixedHeight(18);
     progressHashing->setToolTip(tr("Hashing progress"));
     progressHashing->hide();
+    progressHashing->installEventFilter( this );
 
     statusBar()->addWidget(progressHashing);
     statusBar()->addWidget(msgLabel, 1);
