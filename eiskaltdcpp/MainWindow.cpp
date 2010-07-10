@@ -1013,7 +1013,7 @@ void MainWindow::retranslateUi(){
 
         fileFileListBrowserLocal->setText(tr("Open own filelist"));
 
-        fileRefreshShareHashProgress->setText(tr("Refresh share")+" / "+tr("Hash progress"));
+        fileRefreshShareHashProgress->setText(tr("Refresh share"));
 
         fileQuit->setText(tr("Quit"));
 
@@ -1365,6 +1365,7 @@ void MainWindow::updateHashProgressStatus() {
     switch( HashProgress::getHashStatus() ) {
     case HashProgress::IDLE:
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiREFRLIST));
+        fileRefreshShareHashProgress->setText(tr("Refresh share"));
         {
             progress_dialog()->resetProgress(); // Here dialog will be actually created
             progressHashing->hide();
@@ -1373,6 +1374,7 @@ void MainWindow::updateHashProgressStatus() {
         break;
     case HashProgress::LISTUPDATE:
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
+        fileRefreshShareHashProgress->setText(tr("Hash progress"));
         {
             progressHashing->setValue( 100 );
             progressHashing->setFormat(tr("List update"));
@@ -1382,6 +1384,7 @@ void MainWindow::updateHashProgressStatus() {
         break;
     case HashProgress::PAUSED:
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
+        fileRefreshShareHashProgress->setText(tr("Hash progress"));
         {
             progressHashing->setValue( 100 );
             progressHashing->setFormat(tr("Paused"));
@@ -1391,6 +1394,7 @@ void MainWindow::updateHashProgressStatus() {
         break;
     case HashProgress::RUNNING:
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
+        fileRefreshShareHashProgress->setText(tr("Hash progress"));
         {
             int progress = static_cast<int>( progress_dialog()->getProgress()*100 );
             progressHashing->setFormat(tr("%p%"));

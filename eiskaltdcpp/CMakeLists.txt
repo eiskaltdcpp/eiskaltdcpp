@@ -90,6 +90,9 @@ set (SRCS
             WulforSettings.cpp
             WulforUtil.cpp
             ChatEdit.cpp)
+if (WIN32)
+set (SRCS ${SRCS} openssl/applink.c)
+endif (WIN32)
 set (MOC_HDRS
             ActionCustomizer.h
             ADLS.h
