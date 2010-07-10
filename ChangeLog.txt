@@ -6,6 +6,11 @@
 * Multi-line widgets panel (tabs).
 * Added ability to hide close buttons from tabs (see context menu on multi-line widgets panel).
 * Thanks to Gustavo Alvarez the Spanish translation is now available.
+* libdcpp library was separated from the basic binary file for unix-like systems.
+* Added ability to build program without libupnp and QtDBus (see file INSTALL).
+* Added ability to build program on MS Windows (see file win32/READ_ME.txt).
+* Added a hash progress indicator in the status line. Combined menu 'Refresh share' and 'Hash progress'.
+* Extended settings dialog.
 
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.

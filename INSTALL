@@ -11,6 +11,8 @@ libaspell (optional, see cmake keys)
 libboost-system, libboost-filesystem, libboost-date-time (>=1.34.1) (optional, see cmake keys)
 libqt4-script (>= 4.4.0) (optional, see cmake keys)
 libqt4-dbus (>= 4.4.0) (optional, see cmake keys)
+
+
 *******************************************************************************
 Build Depends
 *******************************************************************************
@@ -60,7 +62,7 @@ Keys for cmake:
 -DUSE_LIBUPNP=ON/OFF (default: ON)
   use or not use libupnp
 -DDBUS_NOTIFY (default: ON)
-  use or not use qtdbus module 
+  use or not use QtDBus module
 -DUSE_JS:BOOL=1 (default: BOOL=0)
     Enable/disable QtScript basic support
 -DUSE_ICON_THEME:BOOL=1 (default: BOOL=0)
