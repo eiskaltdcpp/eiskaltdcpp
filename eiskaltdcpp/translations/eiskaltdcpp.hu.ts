@@ -1564,6 +1564,22 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
+    <message>
+        <source>Hashing progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paused</source>
+        <translation type="unfinished">Megállítva</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -4067,6 +4083,18 @@ ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
     <message>
         <source>Use multi-line ToolBar (need restart)</source>
         <translation>Többsoros ToolBar használata (újraindítás szükséges)</translation>
+    </message>
+    <message>
+        <source>Separator in chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>,</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

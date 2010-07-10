@@ -1464,6 +1464,22 @@ Molim proverite podešavanja vaše veze</translation>
         <source>Close</source>
         <translation type="unfinished">Zatvori</translation>
     </message>
+    <message>
+        <source>Hashing progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paused</source>
+        <translation type="unfinished">Pauzirano</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -3908,6 +3924,18 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Use multi-line ToolBar (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separator in chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>,</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

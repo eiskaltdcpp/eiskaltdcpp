@@ -1628,6 +1628,22 @@ Please check your connection settings</source>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
+    <message>
+        <source>Hashing progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paused</source>
+        <translation type="unfinished">En pause</translation>
+    </message>
+    <message>
+        <source>%p%</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -4176,6 +4192,18 @@ them is usually available only to operators</source>
     <message>
         <source>Use multi-line ToolBar (need restart)</source>
         <translation>Utiliser la barre d&apos;outils multi-ligne (nécessite un redémarrage)</translation>
+    </message>
+    <message>
+        <source>Separator in chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>,</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
