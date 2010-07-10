@@ -10,5 +10,5 @@ set PATH=%PATH%;%SystemRoot%\System32
 set QMAKESPEC=win32-g++
 
 
-set TARGET="%SystemDrive%\Program Files\Eiskaltdc++"
+set TARGET="%ProgramFiles%\Eiskaltdc++"
 
