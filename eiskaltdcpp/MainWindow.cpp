@@ -519,19 +519,9 @@ void MainWindow::initActions(){
         fileOpenDownloadDirectory->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
         connect(fileOpenDownloadDirectory, SIGNAL(triggered()), this, SLOT(slotFileOpenDownloadDirectory()));
 
-        fileFileListRefresh = new QAction("", this);
-        fileFileListRefresh->setObjectName("fileFileListRefresh");
-        fileFileListRefresh->setShortcut(tr("Ctrl+E"));
-        fileFileListRefresh->setIcon(WU->getPixmap(WulforUtil::eiREFRLIST));
-        connect(fileFileListRefresh, SIGNAL(triggered()), this, SLOT(slotFileRefreshShare()));
-
-        fileHashProgress = new QAction("", this);
-        fileHashProgress->setObjectName("fileHashProgress");
-        fileHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
-        connect(fileHashProgress, SIGNAL(triggered()), this, SLOT(slotFileHashProgress()));
-
         fileRefreshShareHashProgress = new QAction("", this);
         fileRefreshShareHashProgress->setObjectName("fileRefreshShareHashProgress");
+        fileRefreshShareHashProgress->setShortcut(tr("Ctrl+E"));
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         connect(fileRefreshShareHashProgress, SIGNAL(triggered()), this, SLOT(slotFileRefreshShareHashProgress()));
 
@@ -758,8 +748,7 @@ void MainWindow::initActions(){
 
         fileMenuActions << fileFileListBrowser
                 << fileFileListBrowserLocal
-                << fileFileListRefresh
-                << fileHashProgress
+                << fileRefreshShareHashProgress
                 << separator0
                 << fileOpenLogFile
                 << fileOpenDownloadDirectory
@@ -805,8 +794,6 @@ void MainWindow::initActions(){
         toolBarActions << toolsOptions
                 << separator0
                 << fileFileListBrowserLocal
-                << fileFileListRefresh
-                << fileHashProgress
                 << fileRefreshShareHashProgress
                 << separator1
                 << hubsHubReconnect
@@ -1025,10 +1012,6 @@ void MainWindow::retranslateUi(){
         fileFileListBrowser->setText(tr("Open filelist..."));
 
         fileFileListBrowserLocal->setText(tr("Open own filelist"));
-
-        fileFileListRefresh->setText(tr("Refresh share"));
-
-        fileHashProgress->setText(tr("Hash progress"));
 
         fileRefreshShareHashProgress->setText(tr("Refresh share")+" / "+tr("Hash progress"));
 
@@ -1381,7 +1364,6 @@ void MainWindow::updateHashProgressStatus() {
 
     switch( HashProgress::getHashStatus() ) {
     case HashProgress::IDLE:
-        fileFileListRefresh->setEnabled(true);
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiREFRLIST));
         {
             progress_dialog()->resetProgress(); // Here dialog will be actually created
@@ -1390,7 +1372,6 @@ void MainWindow::updateHashProgressStatus() {
         //qDebug("idle");
         break;
     case HashProgress::LISTUPDATE:
-        fileFileListRefresh->setEnabled(false);
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         {
             progressHashing->setValue( 100 );
@@ -1400,7 +1381,6 @@ void MainWindow::updateHashProgressStatus() {
         //qDebug("listupdate");
         break;
     case HashProgress::PAUSED:
-        fileFileListRefresh->setEnabled(false);
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         {
             progressHashing->setValue( 100 );
@@ -1410,7 +1390,6 @@ void MainWindow::updateHashProgressStatus() {
         //qDebug("paused");
         break;
     case HashProgress::RUNNING:
-        fileFileListRefresh->setEnabled(false);
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         {
             int progress = static_cast<int>( progress_dialog()->getProgress()*100 );
@@ -1824,18 +1803,6 @@ void MainWindow::slotFileBrowseOwnFilelist(){
     QString file = QString::fromStdString(ShareManager::getInstance()->getOwnListFile());
 
     local_share = new ShareBrowser(user, file, "");
-}
-
-void MainWindow::slotFileRefreshShare(){
-    ShareManager *SM = ShareManager::getInstance();
-
-    SM->setDirty();
-    SM->refresh(true);
-
-    updateHashProgressStatus();
-    progress_dialog()->resetProgress();
-    progress_dialog()->slotAutoClose(true);
-    progress_dialog()->show();
 }
 
 void MainWindow::slotFileHashProgress(){
