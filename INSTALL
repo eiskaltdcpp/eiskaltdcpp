@@ -61,7 +61,7 @@ Keys for cmake:
     see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
 -DUSE_LIBUPNP=ON/OFF (default: ON)
   use or not use libupnp
--DDBUS_NOTIFY (default: ON)
+-DDBUS_NOTIFY=ON/OFF (default: ON)
   use or not use QtDBus module
 -DUSE_JS:BOOL=1 (default: BOOL=0)
     Enable/disable QtScript basic support
