@@ -137,7 +137,7 @@ int main(int argc, char *argv[])
 
     ret = app.exec();
 
-    std::cout << "Shutting down..." << std::endl;
+    std::cout << "Shutting down libdcpp..." << std::endl;
 
     WulforSettings::getInstance()->save();
 
@@ -166,6 +166,8 @@ int main(int argc, char *argv[])
     WulforSettings::deleteInstance();
 
     dcpp::shutdown();
+
+    std::cout << "Quit..." << std::endl;
 
     runner.servStop();
 

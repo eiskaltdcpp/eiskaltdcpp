@@ -36,6 +36,11 @@ namespace dcpp{
     {
     private:
 
+#ifndef _WIN32 //*nix
+        // shutdown wait
+        CriticalSection shutdownCS;
+        long n_lock, halt;
+#endif
         // download limiter
         int                         downLimit;
         int64_t                     downTokens;
@@ -49,13 +54,6 @@ namespace dcpp{
         CriticalSection waitCS[2];
         long activeWaiter;
 
-        void shutdown() {
-            Lock l(stateCS);
-            if (activeWaiter != -1) {
-                waitCS[activeWaiter].leave();
-                activeWaiter = -1;
-            }
-        }
         void waitToken() {
             // no tokens, wait for them, so long as throttling still active
             // avoid keeping stateCS lock on whole function
@@ -77,6 +75,9 @@ namespace dcpp{
         // constructor
         ThrottleManager(void) : downTokens(0), upTokens(0), downLimit(0), upLimit(0), activeWaiter(-1)
         {
+#ifndef _WIN32 //*nix
+            n_lock = halt = 0;
+#endif
             TimerManager::getInstance()->addListener(this);
         }
 
@@ -122,10 +123,38 @@ namespace dcpp{
                 return;
             {
             Lock l(stateCS);
+
+#ifndef _WIN32 //*nix
+
+            if (halt == 1)
+            {
+                halt = -1;
+
+                // unlock shutdown and token wait
+                dcassert(n_lock == 0 || n_lock == 1);
+                waitCS[n_lock].leave();
+                shutdownCS.leave();
+
+                return;
+            }
+            else if (halt == -1)
+            {
+                return;
+            }
+#endif
+
             if (activeWaiter == -1)
-            // This will create slight weirdness for the read/write calls between
-            // here and the first activeWaiter-toggle below.
+            {
+                // This will create slight weirdness for the read/write calls between
+                // here and the first activeWaiter-toggle below.
                 waitCS[activeWaiter = 0].enter();
+
+#ifndef _WIN32 //*nix
+
+                // lock shutdown
+                shutdownCS.enter();
+#endif
+            }
             }
 
             downLimit   = SETTING(MAX_DOWNLOAD_SPEED_LIMIT);
@@ -162,6 +191,38 @@ namespace dcpp{
             }
         }
     public:
+
+#ifdef _WIN32
+        void shutdown() {
+            Lock l(stateCS);
+            if (activeWaiter != -1) {
+                waitCS[activeWaiter].leave();
+                activeWaiter = -1;
+            }
+        }
+#else //*nix
+        void shutdown()
+        {
+            bool wait = false;
+            {
+                Lock l(stateCS);
+                if (activeWaiter != -1)
+                {
+                    n_lock = activeWaiter;
+                    activeWaiter = -1;
+                    halt = 1;
+                    wait = true;
+                }
+            }
+
+            // wait shutdown...
+            if (wait)
+            {
+                Lock l(shutdownCS);
+            }
+        }
+#endif //*nix
+
         /*
         * Throttles traffic and reads a packet from the network
         */
