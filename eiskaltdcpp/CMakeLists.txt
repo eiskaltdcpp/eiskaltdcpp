@@ -336,7 +336,7 @@ add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
                 ${TRANSLATIONS}
                 translations
                 )
-add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
+add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                           -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
                           -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
                           -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
@@ -380,10 +380,12 @@ if (NOT APPLE)
   install (FILES icons/icon_24x24.png DESTINATION share/icons/hicolor/24x24/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_16x16.png DESTINATION share/icons/hicolor/16x16/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_128x128.png DESTINATION share/pixmaps/ RENAME eiskaltdcpp.png)
-  install (FILES ../eiskaltdcpp.desktop DESTINATION share/applications)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
-  install (FILES eiskaltdcpp.1.gz DESTINATION share/man/man1)
   install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/resources)
+if (UNIX)
+  install (FILES eiskaltdcpp.1.gz DESTINATION share/man/man1)
+  install (FILES ../eiskaltdcpp.desktop DESTINATION share/applications)
+endif (UNIX)
 
 endif (NOT APPLE)
 
