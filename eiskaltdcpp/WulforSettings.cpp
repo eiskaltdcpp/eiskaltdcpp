@@ -60,6 +60,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_CHAT_FONT,             "");
         strmap.insert(WS_CHAT_ULIST_FONT,       "");
         strmap.insert(WS_CHAT_PM_FONT,          "");
+        strmap.insert(WS_CHAT_SEPARATOR,        ":");
         strmap.insert(WS_CHAT_TIMESTAMP,        "hh:mm:ss");
         strmap.insert(WS_QCONNECT_HISTORY,      "");
         strmap.insert(WS_DEFAULT_LOCALE,        "UTF-8");

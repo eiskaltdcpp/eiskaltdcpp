@@ -727,9 +727,9 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                     addPM(cid, "");
                 else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
                     if (plainTextEdit_INPUT->textCursor().position() == 0)
-                        plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                        plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
                     else
-                        plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
+                        plainTextEdit_INPUT->textCursor().insertText(nick + " ");
 
                     plainTextEdit_INPUT->setFocus();
                 }

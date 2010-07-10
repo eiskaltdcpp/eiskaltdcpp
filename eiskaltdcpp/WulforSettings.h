@@ -37,6 +37,7 @@ static const QString & WS_CHAT_CMD_ALIASES        = "chat-cmd-aliases";
 static const QString & WS_CHAT_FONT               = "chat-font";
 static const QString & WS_CHAT_ULIST_FONT         = "chat-userlist-font";
 static const QString & WS_CHAT_PM_FONT            = "chat-pm-font";
+static const QString & WS_CHAT_SEPARATOR          = "chat-separator";
 static const QString & WS_CHAT_TIMESTAMP          = "chat-timestamp";
 static const QString & WS_QCONNECT_HISTORY        = "qc-history";
 static const QString & WS_DEFAULT_LOCALE          = "default_locale";

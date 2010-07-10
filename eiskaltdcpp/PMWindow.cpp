@@ -168,9 +168,9 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
                 fr->addPM(cid, "");
             else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://")){
                 if (plainTextEdit_INPUT->textCursor().position() == 0)
-                    plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                    plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
                 else
-                    plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
+                    plainTextEdit_INPUT->textCursor().insertText(nick + " ");
 
                 plainTextEdit_INPUT->setFocus();
             }

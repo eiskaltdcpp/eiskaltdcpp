@@ -144,6 +144,8 @@ void SettingsGUI::init(){
 
     }
     {//Chat tab
+        comboBox_CHAT_SEPARATOR->setCurrentIndex(comboBox_CHAT_SEPARATOR->findText(WSGET(WS_CHAT_SEPARATOR)));
+
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
         spinBox_PARAGRAPHS->setValue(WIGET(WI_CHAT_MAXPARAGRAPHS));
 
@@ -302,6 +304,8 @@ void SettingsGUI::ok(){
 
         SM->set(SettingsManager::IGNORE_BOT_PMS, checkBox_IGNOREPMBOT->isChecked());
         SM->set(SettingsManager::IGNORE_HUB_PMS, checkBox_IGNOREPMHUB->isChecked());
+
+        WSSET(WS_CHAT_SEPARATOR, comboBox_CHAT_SEPARATOR->currentText());
     }
     {//Color tab
         int i = 0;
