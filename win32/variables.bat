@@ -1,5 +1,5 @@
 set QTSDKDIR="%SystemDrive%\Qt\2010.01"
-set CMAKEDIR="%SystemDrive%\Program Files\CMake 2.8"
+set CMAKEDIR="%ProgramFiles%\CMake 2.8"
 set TARGET="%ProgramFiles%\EiskaltDC++"
 
 REM For example:
