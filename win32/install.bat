@@ -2,8 +2,6 @@ call variables.bat
 
 mingw32-make -k install
 
-set TARGET="C:\Program Files\Eiskaltdc++"
-
 strip %TARGET%\EiskaltDC++.exe
 
 
