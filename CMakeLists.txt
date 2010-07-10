@@ -215,10 +215,10 @@ if (NOT DEFINED SVNVERSION)
 endif (NOT DEFINED SVNVERSION)
 if (NOT SVNVERSION OR SVNVERSION STREQUAL exported)
 else (SVNVERSION)
-        add_definitions(-DDCPP_REVISION="\(r""${SVNVERSION}""\)")
+        add_definitions(-DDCPP_REVISION="(r${SVNVERSION})")
 endif (NOT SVNVERSION OR SVNVERSION STREQUAL exported)
 if (UNIX)
-add_definitions (-D_GNU_SOURCE -D_LARGEFILE_SOURCE)
+add_definitions (-D_GNU_SOURCE)
 endif (UNIX)
 
 set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/ts")
@@ -226,9 +226,8 @@ set (CLIENT_SOUNDS_DEST "${CLIENT_DATA_DIR}/sounds")
 set (CLIENT_ICONS_DEST "${CLIENT_DATA_DIR}/icons")
 set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/scripts")
 
-add_definitions (-pipe -O2 -I. -fno-builtin -D_FILE_OFFSET_BITS=64
-                 -D_REENTRANT -D_DATADIR="${_DATADIR}"
-                 -DNDEBUG -DBUILDING_DCPP)
+add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT 
+                 -D_DATADIR="${_DATADIR}" -DBUILDING_DCPP)
 
 if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H )
@@ -250,8 +249,9 @@ if (USE_ICON_THEME)
  add_definitions(-DUSE_ICON_THEME )
 endif (USE_ICON_THEME)
 
-set(CMAKE_CXX_FLAGS_RELEASE     "-DNDEBUG -DQT_NO_DEBUG -O3 -fomit-frame-pointer -pipe")
-set(CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3 -pipe")
+set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -pipe -DNDEBUG")
+set (CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -DQT_NO_DEBUG -pipe")
+set (CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3 -pipe")
 
 include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_BINARY_DIR}/dcpp
