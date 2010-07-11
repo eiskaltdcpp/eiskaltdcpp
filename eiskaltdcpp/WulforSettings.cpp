@@ -33,7 +33,7 @@ WulforSettings::WulforSettings():
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
 #ifdef _WIN32
-    configFile = QTextCodec::codecForCStrings()->fromUnicode(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml";
+    configFile = QString::fromUtf8( Util::getPath(Util::PATH_USER_CONFIG).c_str() ) + "EiskaltDC++.xml";
 #else
     configFile = QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml";
 #endif
