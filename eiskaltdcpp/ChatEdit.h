@@ -59,6 +59,7 @@ protected:
     void focusInEvent(QFocusEvent *);
     void dropEvent(QDropEvent *);
     void dragEnterEvent(QDragEnterEvent *e);
+    void dragMoveEvent(QDragMoveEvent *event); // Required to accept drops on win32
 
 private Q_SLOTS:
     void insertCompletion(const QModelIndex &);

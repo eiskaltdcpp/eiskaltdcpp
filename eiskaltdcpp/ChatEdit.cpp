@@ -9,6 +9,7 @@
 #include <QTextBlock>
 #include <QUrl>
 #include <QFileInfo>
+#include <QDir>
 
 ChatEdit::ChatEdit(QWidget *parent) : QTextEdit(parent), cc(NULL)
 {
@@ -222,6 +223,10 @@ void ChatEdit::complete()
     cc->complete(cr);
 }
 
+void ChatEdit::dragMoveEvent(QDragMoveEvent *event) {
+    event->accept();
+}
+
 void ChatEdit::dragEnterEvent(QDragEnterEvent *e)
 {
     if (e->mimeData()->hasUrls() || e->mimeData()->hasText()) {
@@ -244,7 +249,7 @@ void ChatEdit::dropEvent(QDropEvent *e)
                 if (url.scheme().toLower() != "file")
                     break;
 
-                QString str = url.toLocalFile();
+                QString str = QDir::toNativeSeparators( url.toLocalFile() );
 
                 if (!str.isEmpty()) {
                     QFileInfo fi(str);
