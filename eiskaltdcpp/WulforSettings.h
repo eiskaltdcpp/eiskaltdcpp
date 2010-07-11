@@ -116,14 +116,20 @@ static const QString & WB_MAIN_MENU_VISIBLE       = "main-menu-visible";
 static const QString & WB_USE_CTRL_ENTER          = "use-ctrl-enter";
 static const QString & WB_SIMPLE_SHARE_MODE       = "use-simple-share-mode";
 static const QString & WI_APP_UNIT_BASE           = "app-unit-base";
-static const QString & WI_DEF_MAGNET_ACTION       = "def-magnet-action"; //0-not do any 1-search 2-download
+//
+static const QString & WI_DEF_MAGNET_ACTION       = "def-magnet-action";
+// 0 - ask, 1 - search, 2 - download
+//
 static const QString & WI_CHAT_MAXPARAGRAPHS      = "chat-max-paragraph";
 static const QString & WI_CHAT_WIDTH              = "chat-width";
 static const QString & WI_CHAT_USERLIST_WIDTH     = "chat-userlist-width";
 static const QString & WI_CHAT_SORT_COLUMN        = "chat-userlist-sort-column";
 static const QString & WI_CHAT_SORT_ORDER         = "chat-userlist-sort-order";
-static const QString & WI_CHAT_DBLCLICK_ACT       = "chat-dbl-click-action";// 0 - nick in chat, 1 - browse files
-static const QString & WI_CHAT_MDLCLICK_ACT       = "chat-mdl-click-action";//see WI_CHAT_DBLCLICK_ACT
+//
+static const QString & WI_CHAT_DBLCLICK_ACT       = "chat-dbl-click-action";
+static const QString & WI_CHAT_MDLCLICK_ACT       = "chat-mdl-click-action";
+// 0 - insert nick into input widget, 1 - get file list, 2 - private message
+//
 static const QString & WI_CHAT_FIND_COLOR_ALPHA   = "chat-find-color-alpha";
 static const QString & WI_SEARCH_SORT_COLUMN      = "search-sort-column";
 static const QString & WI_SEARCH_SORT_ORDER       = "search-sort-order";

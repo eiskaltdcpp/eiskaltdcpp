@@ -144,11 +144,6 @@ void SettingsGUI::init(){
 
     }
     {//Chat tab
-        comboBox_CHAT_SEPARATOR->setCurrentIndex(comboBox_CHAT_SEPARATOR->findText(WSGET(WS_CHAT_SEPARATOR)));
-
-        spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
-        spinBox_PARAGRAPHS->setValue(WIGET(WI_CHAT_MAXPARAGRAPHS));
-
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
         checkBox_JOINSFAV->setChecked(WBGET(WB_CHAT_SHOW_JOINS_FAV));
         checkBox_CHATHIDDEN->setChecked(WBGET(WB_SHOW_HIDDEN_USERS));
@@ -161,6 +156,18 @@ void SettingsGUI::init(){
         checkBox_EMOTFORCE->setChecked(WBGET(WB_APP_FORCE_EMOTICONS));
         checkBox_USE_CTRL_ENTER->setChecked(WBGET(WB_USE_CTRL_ENTER));
         checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
+    }
+    {//Chat (extended) tab
+        comboBox_DBL_CLICK->setCurrentIndex(WIGET(WI_CHAT_DBLCLICK_ACT));
+        comboBox_MDL_CLICK->setCurrentIndex(WIGET(WI_CHAT_MDLCLICK_ACT));
+        comboBox_APP_UNIT_BASE->setCurrentIndex(comboBox_APP_UNIT_BASE->findText(QString::number(WIGET(WI_APP_UNIT_BASE))));
+
+        lineEdit_TIMESTAMP->setText(WSGET(WS_CHAT_TIMESTAMP));
+
+        spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
+        spinBox_PARAGRAPHS->setValue(WIGET(WI_CHAT_MAXPARAGRAPHS));
+
+        comboBox_CHAT_SEPARATOR->setCurrentIndex(comboBox_CHAT_SEPARATOR->findText(WSGET(WS_CHAT_SEPARATOR)));
     }
     {//Color tab
         QColor c;
@@ -288,9 +295,6 @@ void SettingsGUI::ok(){
         }
     }
     {//Chat tab
-        WISET(WI_OUT_IN_HIST, spinBox_OUT_IN_HIST->value());
-        WISET(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());
-
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());
         WBSET(WB_SHOW_IP_IN_CHAT, checkBox_CHAT_SHOW_IP->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
@@ -301,6 +305,16 @@ void SettingsGUI::ok(){
         WBSET(WB_APP_FORCE_EMOTICONS, checkBox_EMOTFORCE->isChecked());
         WBSET(WB_USE_CTRL_ENTER, checkBox_USE_CTRL_ENTER->isChecked());
         WBSET(WB_CHAT_HIGHLIGHT_FAVS, checkBox_HIGHLIGHTFAVS->isChecked());
+    }
+    {//Chat (extended) tab
+        WISET(WI_CHAT_DBLCLICK_ACT, comboBox_DBL_CLICK->currentIndex());
+        WISET(WI_CHAT_MDLCLICK_ACT, comboBox_MDL_CLICK->currentIndex());
+        WISET(WI_APP_UNIT_BASE, comboBox_APP_UNIT_BASE->currentText().toInt());
+
+        WSSET(WS_CHAT_TIMESTAMP, lineEdit_TIMESTAMP->text());
+
+        WISET(WI_OUT_IN_HIST, spinBox_OUT_IN_HIST->value());
+        WISET(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());
 
         SM->set(SettingsManager::IGNORE_BOT_PMS, checkBox_IGNOREPMBOT->isChecked());
         SM->set(SettingsManager::IGNORE_HUB_PMS, checkBox_IGNOREPMHUB->isChecked());
