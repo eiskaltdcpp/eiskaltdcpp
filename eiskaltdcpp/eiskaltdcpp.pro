@@ -2,6 +2,7 @@ QT += xml
 CONFIG += link_pkgconfig
 PKGCONFIG += libupnp
 INCLUDEPATH += ../dcpp
+RC_FILE += eiskaltdcpp.rc
 HEADERS = MainWindow.h \
     Func.h \
     ../dcpp/HashBloom.h \
