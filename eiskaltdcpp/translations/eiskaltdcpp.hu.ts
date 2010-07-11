@@ -4096,6 +4096,54 @@ ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
         <source>,</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Chat (extended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Double click action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Insert nick into input widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get file list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private message</source>
+        <translation type="unfinished">Privát üzenet</translation>
+    </message>
+    <message>
+        <source>Middle click action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application unit base</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1024</source>
+        <translation type="unfinished">1024</translation>
+    </message>
+    <message>
+        <source>1000</source>
+        <translation type="unfinished">1000</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hh:mm:ss</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
