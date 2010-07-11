@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD><TITLE>Man page of eiskaltdcpp</TITLE>
+</HEAD><BODY>
+<H1>eiskaltdcpp</H1>
+Section: User Commands  (1)<BR>Updated: 20 May 2010<BR><A HREF="#index">Index</A>
+<A HREF="/cgi-bin/man/man2html">Return to Main Contents</A><HR>
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+EiskaltDC++ - graphical client for Direct Connect which uses Qt libraries
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+
+<B>eiskaltdcpp</B>
+
+&lt;magnet link&gt; &lt;<A HREF="dchub://link">dchub://link</A>&gt; &lt;adc(s)://link&gt;
+<BR>
+
+<B>eiskaltdcpp</B>
+
+&lt;Key&gt;
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+<B>EiskaltDC++</B> is a program for UNIX-like systems that uses the Direct Connect and ADC protocol. It is compatible with other DC clients, such as the original DC from Neomodus, DC++ and derivatives. EiskaltDC++ also interoperates with all common DC hub software.
+<A NAME="lbAE">&nbsp;</A>
+<H2>COMMAND LINE OPTIONS</H2>
+
+A summary of options is included below.
+
+<DL COMPACT>
+<DT><B>-h,  --help</B>
+
+<DD>
+display help and exit
+<DT><B>-v,  --version</B>
+
+<DD>
+output version information and exit
+</DL>
+<A NAME="lbAF">&nbsp;</A>
+<H2>KEYBOARD SHORTCUTS</H2>
+
+<DL COMPACT>
+<DT><B>Ctrl+O</B>
+
+<DD>
+Open options window
+<DT><B>Ctrl+L</B>
+
+<DD>
+Open own filelist
+<DT><B>Ctrl+E</B>
+
+<DD>
+Refresh share
+<DT><B>Ctrl+R</B>
+
+<DD>
+Reconnect to hub
+<DT><B>Ctrl+N</B>
+
+<DD>
+Quick connect
+<DT><B>Ctrl+H</B>
+
+<DD>
+Favourite hubs
+<DT><B>Ctrl+P</B>
+
+<DD>
+Public hubs
+<DT><B>Ctrl+U</B>
+
+<DD>
+Favourite users
+<DT><B>Ctrl+T</B>
+
+<DD>
+Show/hide transfers widget
+<DT><B>Ctrl+D</B>
+
+<DD>
+Show/hide downloads queue widget
+<DT><B>Ctrl+S</B>
+
+<DD>
+Open search widget
+<DT><B>Ctrl+F</B>
+
+<DD>
+Show/hide find or filter frame
+<DT><B>Ctrl+A</B>
+
+<DD>
+Select all
+<DT><B>Ctrl+W</B>
+
+<DD>
+Close current widget
+<DT><B>Ctrl+M</B>
+
+<DD>
+Show/hide main menu
+<DT><B>Ctrl+PageDown</B>
+
+<DD>
+Switch to the next widget. Available only if widget panel is used, not working in mode of sidebar.
+<DT><B>Ctrl+PageUp</B>
+
+<DD>
+Switch to the previous widget. Available only if widget panel is used, not working in mode of sidebar.
+<DT><B>Ctrl++</B>
+
+<DD>
+Zoom in text in the chat
+<DT><B>Ctrl+-</B>
+
+<DD>
+Zoom out text in the chat
+<DT><B>Ctrl+Mousewheel</B>
+
+<DD>
+Change font size in the chat
+<DT><B>Alt+&lt;0-9&gt;</B>
+
+<DD>
+Go to one of the first ten widgets. Available only if widget panel is used, not working in mode of sidebar.
+<DT><B>Esc</B>
+
+<DD>
+Hide find or filter frame. Also it close dialog window. Otherwise hide main window in tray (if tray icon is enabled)
+<DT><B>Del</B>
+
+<DD>
+Delete selected items. Now available in Download Queue widget.
+</DL>
+<A NAME="lbAG">&nbsp;</A>
+<H2>CHAT COMMANDS</H2>
+
+/aspell on/off - enable/disable spell checking (only if program was build with aspell support)
+<BR>
+
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;example,&nbsp;command
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;/alias&nbsp;amarok::/sh&nbsp;/usr/share/eiskaltdcpp/examples/amr.en_US.sh
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;create&nbsp;alias&nbsp;/amarok
+<BR>
+
+/alias purge &lt;ALIAS_NAME&gt; - remove alias
+<BR>
+
+/alias list - list all aliases
+<BR>
+
+/away &lt;message&gt; - set away-mode on/off
+<BR>
+
+/back - set away-mode off
+<BR>
+
+/browse &lt;nick&gt; - browse user files
+<BR>
+
+/clear - clear chat window
+<BR>
+
+/magnet - default action with magnet (0-ask, 1-search, 2-download)
+<BR>
+
+/close - close this hub
+<BR>
+
+/fav - add this hub to favorites
+<BR>
+
+/grant &lt;nick&gt; - grant extra slot to user
+<BR>
+
+/help, /?, /h - show help
+<BR>
+
+/info &lt;nick&gt; - show info about user
+<BR>
+
+/me - say a third person
+<BR>
+
+/pm &lt;nick&gt; - begin private chat with user
+<BR>
+
+/sh &lt;command&gt; - start command and redirect output to the chat
+<BR>
+
+/ws &lt;option&gt; [value] - edit config (~/.eiskaltdc++/EiskaltDC++.xml), also you can edit it manually
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;example:
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;/ws&nbsp;chat-dbl-click-action&nbsp;&lt;0-2&gt;&nbsp;(double&nbsp;click)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;/ws&nbsp;chat-mdl-click-action&nbsp;&lt;0-2&gt;&nbsp;(middle&nbsp;click)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;(0&nbsp;-&nbsp;insert&nbsp;nick&nbsp;into&nbsp;input&nbsp;widget,&nbsp;1&nbsp;-&nbsp;get&nbsp;file&nbsp;list,&nbsp;2&nbsp;-&nbsp;private&nbsp;message)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;/ws&nbsp;app-unit-base&nbsp;&lt;1024&nbsp;or&nbsp;1000&gt;&nbsp;(show&nbsp;kibibyte&nbsp;(KiB)&nbsp;or&nbsp;kilobyte&nbsp;(KB),&nbsp;etc.)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;/ws&nbsp;chat-timestamp&nbsp;&lt;hh:mm:ss,&nbsp;hh:mm,&nbsp;hh&nbsp;and&nbsp;etc.&gt;&nbsp;(set&nbsp;chat&nbsp;timestamp)
+<A NAME="lbAH">&nbsp;</A>
+<H2>FILES</H2>
+
+<DL COMPACT>
+<DT><B>~/.eiskaltdc++ or ~/.config/eiskaltdc++/ or $XDG_CONFIG_HOME/eiskaltdc++/</B>
+
+<DD>
+Directory with configuration files
+<DT><B>/usr/share/eiskaltdcpp/examples</B>
+
+<DD>
+Directory with examples of custom scripts (see /sh chat command)
+</DL>
+<A NAME="lbAI">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+This program was written by Andrey Karlov &lt;<A HREF="mailto:dein.negativ@gmail.com">dein.negativ@gmail.com</A>&gt;.
+<BR>
+
+EiskaltDC++ homepage: <B><A HREF="http://code.google.com/p/eiskaltdc/">http://code.google.com/p/eiskaltdc/</A></B>
+<A NAME="lbAJ">&nbsp;</A>
+<H2>BUG REPORTS</H2>
+
+If you find a bug in EiskaltDC++ please report it here:
+<B><A HREF="http://code.google.com/p/eiskaltdc/issues/list">http://code.google.com/p/eiskaltdc/issues/list</A></B>
+
+<P>
+
+This manual page was written by Boris Pek &lt;<A HREF="mailto:tehnick-8@mail.ru">tehnick-8@mail.ru</A>&gt; for the Debian project (and may be used by others).
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">COMMAND LINE OPTIONS</A><DD>
+<DT><A HREF="#lbAF">KEYBOARD SHORTCUTS</A><DD>
+<DT><A HREF="#lbAG">CHAT COMMANDS</A><DD>
+<DT><A HREF="#lbAH">FILES</A><DD>
+<DT><A HREF="#lbAI">AUTHOR</A><DD>
+<DT><A HREF="#lbAJ">BUG REPORTS</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
+using the manual pages.<BR>
+Time: 13:11:16 GMT, July 11, 2010
+</BODY>
+</HTML>
