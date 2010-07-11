@@ -309,7 +309,9 @@ endif (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
 
 if (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
   add_definitions (-DFREE_SPACE_BAR_C)
-  set (LIBS ${LIBS} gnu)
+  if (NOT WIN32)
+    set (LIBS ${LIBS} gnu)
+  endif (NOT WIN32)
 endif (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
 
 if (USE_ASPELL)
