@@ -1,11 +1,13 @@
-set QTSDKDIR=%SystemDrive%\Qt\2010.01
+set QTSDKDIR=C:\Qt\2010.01
 set CMAKEDIR="%ProgramFiles%\CMake 2.8"
-set TARGET="%ProgramFiles%\EiskaltDC++"
+set INSTALLDIR="%ProgramFiles%\EiskaltDC++"
+set SOURCESDIR=..
+set BUILDDIR=.
 
 @REM For example:
 @REM set QTSDKDIR=C:\Qt\2010.01
 @REM set CMAKEDIR="C:\Program Files\CMake 2.8"
-@REM set TARGET="C:\Program Files\EiskaltDC++"
+@REM set INSTALLDIR="C:\Program Files\EiskaltDC++"
 
 set MINGW=%QTSDKDIR%\mingw
 set QTDIR=%QTSDKDIR%\qt
