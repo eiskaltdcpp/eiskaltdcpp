@@ -1,0 +1,4 @@
+﻿<Boot>
+    <ConfigPath>%[APPDATA]\Settings\</ConfigPath>
+    <LocalMode>0</LocalMode>
+</Boot>
