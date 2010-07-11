@@ -1,4 +1,4 @@
-project (eiskaltdcpp)
+project (${PROJECT_NAME_GLOBAL})
 cmake_minimum_required (VERSION 2.6)
 if (FREE_SPACE_BAR_C)
 add_subdirectory(gnulib)
@@ -85,7 +85,6 @@ set (SRCS
             TransferView.cpp
             TransferViewModel.cpp
             UCModel.cpp
-
             UserListModel.cpp
             WulforSettings.cpp
             WulforUtil.cpp
@@ -152,7 +151,6 @@ set (MOC_HDRS
             TransferView.h
             TransferViewModel.h
             UCModel.h
-
             UserListModel.h
             WulforSettings.h
             WulforUtil.h
@@ -339,9 +337,9 @@ add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
                 translations
                 )
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
-                          -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
-                          -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
-                          -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
+                 -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
+                 -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
+                 -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
                 )
 
 if (USE_JS)
@@ -349,9 +347,9 @@ if (USE_JS)
 endif (USE_JS)
 
 if (APPLE)
-  add_definitions(        -DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
+  add_definitions(-DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
 else (APPLE)
-  add_definitions(        -DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/resources")
+  add_definitions(-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/resources")
 endif (APPLE)
 
 if (APPLE)
@@ -361,39 +359,19 @@ else (APPLE)
 endif (APPLE)
 
   set_property (TARGET eiskaltdcpp PROPERTY OUTPUT_NAME ${PROJECT_NAME_GLOBAL})
-  install (TARGETS eiskaltdcpp
-    RUNTIME DESTINATION bin
-    BUNDLE DESTINATION . )
 
-if (NOT APPLE)
-
-  install (DIRECTORY icons/appl icons/emot icons/user DESTINATION ${CLIENT_ICONS_DEST} PATTERN ".svn" EXCLUDE)
-
-  if (USE_JS)
-    install (DIRECTORY scripts/ DESTINATION ${CLIENT_DATA_DIR}/scripts FILE_PERMISSIONS FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE PATTERN ".svn" EXCLUDE )
-  endif (USE_JS)
-
-  install (DIRECTORY examples/ DESTINATION ${CLIENT_DATA_DIR}/examples FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE PATTERN ".svn" EXCLUDE )
-  install (FILES icons/icon_128x128.png DESTINATION share/icons/hicolor/128x128/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_64x64.png DESTINATION share/icons/hicolor/64x64/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_32x32.png DESTINATION share/icons/hicolor/32x32/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_48x48.png DESTINATION share/icons/hicolor/48x48/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_22x22.png DESTINATION share/icons/hicolor/22x22/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_24x24.png DESTINATION share/icons/hicolor/24x24/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_16x16.png DESTINATION share/icons/hicolor/16x16/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_128x128.png DESTINATION share/pixmaps/ RENAME eiskaltdcpp.png)
-  install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
-  install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/resources)
 if (UNIX)
-  install (FILES eiskaltdcpp.1.gz DESTINATION share/man/man1)
-  install (FILES ../eiskaltdcpp.desktop DESTINATION share/applications)
+ set (BINDIR bin)
+elseif (APPLE)
+  set (BUNDLEDIR .)
+elseif (WIN32)
+  set (BINDIR .)
 endif (UNIX)
 
-endif (NOT APPLE)
-
+  install (TARGETS eiskaltdcpp
+    RUNTIME DESTINATION ${BINDIR}
+    BUNDLE DESTINATION ${BUNDLEDIR})
 if (APPLE)
-
-  INCLUDE( ${QT_USE_FILE} )
 
   set(plugin_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
   set(qtconf_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
@@ -420,9 +398,17 @@ if (APPLE)
   set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
   set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION})
   set (MACOSX_BUNDLE_COPYRIGH "Copyright 2010 Andrey Karlov")
+endif (APPLE)
 
   install (DIRECTORY icons/appl icons/emot icons/user DESTINATION ${CLIENT_ICONS_DEST} PATTERN ".svn" EXCLUDE)
-  install (DIRECTORY examples/ DESTINATION ${CLIENT_DATA_DIR}/examples FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE PATTERN ".svn" EXCLUDE)
+
+  if (USE_JS)
+    install (DIRECTORY scripts/ DESTINATION ${CLIENT_DATA_DIR}/scripts FILE_PERMISSIONS FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE PATTERN ".svn" EXCLUDE )
+  endif (USE_JS)
+
+  install (DIRECTORY examples/ DESTINATION ${CLIENT_DATA_DIR}/examples FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE PATTERN ".svn" EXCLUDE )
+
+#if (APPLE)
   install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/64x64/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_32x32.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/32x32/apps RENAME eiskaltdcpp.png)
@@ -430,12 +416,47 @@ if (APPLE)
   install (FILES icons/icon_22x22.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/22x22/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_24x24.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/24x24/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_16x16.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/16x16/apps RENAME eiskaltdcpp.png)
+  install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
+if (APPLE)
   install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/pixmaps/ RENAME eiskaltdcpp.png)
   install (FILES ../eiskaltdcpp.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
+  #install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
   install (FILES eiskaltdcpp.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
   install (FILES default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
+else (APPLE)
+  #install (FILES icons/icon_128x128.png DESTINATION share/icons/hicolor/128x128/apps RENAME eiskaltdcpp.png)
+  #install (FILES icons/icon_64x64.png DESTINATION share/icons/hicolor/64x64/apps RENAME eiskaltdcpp.png)
+  #install (FILES icons/icon_32x32.png DESTINATION share/icons/hicolor/32x32/apps RENAME eiskaltdcpp.png)
+  #install (FILES icons/icon_48x48.png DESTINATION share/icons/hicolor/48x48/apps RENAME eiskaltdcpp.png)
+  #install (FILES icons/icon_22x22.png DESTINATION share/icons/hicolor/22x22/apps RENAME eiskaltdcpp.png)
+  #install (FILES icons/icon_24x24.png DESTINATION share/icons/hicolor/24x24/apps RENAME eiskaltdcpp.png)
+  #install (FILES icons/icon_16x16.png DESTINATION share/icons/hicolor/16x16/apps RENAME eiskaltdcpp.png)
+  #install (FILES icons/icon_128x128.png DESTINATION share/pixmaps/ RENAME eiskaltdcpp.png)
+  #install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
+if (UNIX)
+  install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/resources)
+  install (FILES eiskaltdcpp.1.gz DESTINATION share/man/man1)
+  install (FILES ../eiskaltdcpp.desktop DESTINATION share/applications)
+endif (UNIX)
 
+endif (APPLE)
+
+#endif (NOT APPLE)
+
+  #install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
+ # install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/64x64/apps RENAME eiskaltdcpp.png)
+  #install (FILES icons/icon_32x32.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/32x32/apps RENAME eiskaltdcpp.png)
+  #install (FILES icons/icon_48x48.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/48x48/apps RENAME eiskaltdcpp.png)
+ # install (FILES icons/icon_22x22.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/22x22/apps RENAME eiskaltdcpp.png)
+ # install (FILES icons/icon_24x24.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/24x24/apps RENAME eiskaltdcpp.png)
+ # install (FILES icons/icon_16x16.png DESTINATION ${CLIENT_ICONS_DEST}/hicolor/16x16/apps RENAME eiskaltdcpp.png)
+ # install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/pixmaps/ RENAME eiskaltdcpp.png)
+ # install (FILES ../eiskaltdcpp.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
+ # install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
+ # install (FILES eiskaltdcpp.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+ # install (FILES default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
+
+if (APPLE)
   install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
 
   INSTALL(CODE "
@@ -447,6 +468,7 @@ if (APPLE)
     include(BundleUtilities)
     fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
     set(CPACK_BINARY_DRAGNDROP ON)
-    include(CPack)
 
 endif (APPLE)
+
+include(CPack)
