@@ -955,6 +955,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
             if (!QDir(target).exists() || target.isEmpty()){
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
 
+                target = QDir::toNativeSeparators(target);
+
                 Menu::getInstance()->addTempPath(target);
             }
 
@@ -1010,6 +1012,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             if (!QDir(target).exists()){
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
+
+                target = QDir::toNativeSeparators(target);
 
                 Menu::getInstance()->addTempPath(target);
             }

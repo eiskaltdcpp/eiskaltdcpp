@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <QClipboard>
 #include <QHeaderView>
+#include <QDir>
 
 #include "DownloadQueueModel.h"
 #include "MainWindow.h"
@@ -550,6 +551,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
                 QString new_target = QFileDialog::getSaveFileName(this, tr("Choose filename"), QDir::homePath(), tr("All files (*.*)"));
 
                 if (!new_target.isEmpty()){
+                    new_target = QDir::toNativeSeparators(new_target);
                     try {
                         QM->move(target.toStdString(), new_target.toStdString());
                     }

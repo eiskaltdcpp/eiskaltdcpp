@@ -11,6 +11,7 @@
 #include <malloc.h>
 #endif
 
+#include <QDir>
 #include <QFileInfo>
 #include <QFile>
 #include <QFileDialog>
@@ -524,6 +525,8 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 
             if (target.isEmpty())
                 break;
+
+            target = QDir::toNativeSeparators(target);
 
             if (!target.endsWith(QDir::separator()))
                 target += QDir::separator();

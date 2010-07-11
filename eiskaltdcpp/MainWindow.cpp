@@ -15,7 +15,6 @@
 #include <QMessageBox>
 #include <QClipboard>
 #include <QKeyEvent>
-#include <QFileDialog>
 #include <QProgressBar>
 #include <QFileDialog>
 #include <QRegExp>
@@ -1484,6 +1483,7 @@ void MainWindow::slotFileBrowseFilelist(){
             tr("Modern XML Filelists") + " (*.xml.bz2);;" +
             tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
             tr("All files") + " (*)");
+    file = QDir::toNativeSeparators(file);
     UserPtr user = DirectoryListing::getUserFromFilename(_tq(file));
     if (user) {
         local_share = new ShareBrowser(user, file, "");
@@ -1777,6 +1777,8 @@ void MainWindow::slotFileOpenLogFile(){
     QString f = QFileDialog::getOpenFileName(this, tr("Open log file"),_q(SETTING(LOG_DIRECTORY)), tr("Log files (*.log);;All files (*.*)"));
 
     if (!f.isEmpty()){
+        f = QDir::toNativeSeparators(f);
+
         if (f.startsWith("/"))
             f = "file://" + f;
         else

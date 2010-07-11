@@ -8,6 +8,7 @@
 #include <QAction>
 #include <QIcon>
 #include <QInputDialog>
+#include <QDir>
 
 #include <QFileDialog>
 
@@ -313,6 +314,8 @@ void IPFilterFrame::slotImport() {
     QString fname = QFileDialog::getOpenFileName(this, tr("Import list"), QDir::homePath());
 
     if (fname != ""){
+        fname = QDir::toNativeSeparators(fname);
+
         model->clearModel();
 
         IPFilter::getInstance()->importFrom(fname);
@@ -364,7 +367,9 @@ void IPFilterFrame::slotExport() {
     QString fname = QFileDialog::getSaveFileName(this, tr("Export list"), QDir::homePath(),
             tr("All Files (*)"));
 
-    if (fname != "")
+    if (fname != ""){
+        fname = QDir::toNativeSeparators(fname);
         IPFilter::getInstance()->exportTo(fname);
+    }
 }
 

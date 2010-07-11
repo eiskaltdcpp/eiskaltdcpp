@@ -145,5 +145,7 @@ void Magnet::slotBrowse(){
     if (dir.isEmpty())
         return;
 
-        lineEdit_FPATH->setText(dir + PATH_SEPARATOR_STR);
+    dir = QDir::toNativeSeparators(dir);
+
+    lineEdit_FPATH->setText(dir + PATH_SEPARATOR_STR);
 }

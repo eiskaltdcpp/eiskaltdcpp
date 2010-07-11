@@ -422,6 +422,8 @@ void SettingsGUI::slotBrowseLng(){
     QString file = QFileDialog::getOpenFileName(this, tr("Select translation"), QString(CLIENT_TRANSLATIONS_DIR), tr("Translation (*.qm)"));
 
     if (!file.isEmpty()){
+        file = QDir::toNativeSeparators(file);
+
         WSSET(WS_TRANSLATION_FILE, file);
 
         WulforSettings::getInstance()->loadTranslation();

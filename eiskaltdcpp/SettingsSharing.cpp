@@ -316,6 +316,8 @@ void SettingsSharing::slotAddDirExeption(){
     QString dir = QFileDialog::getExistingDirectory(this, tr("Choose the directory"), QDir::home().dirName());
 
     if (!dir.isEmpty()){
+        dir = QDir::toNativeSeparators(dir);
+
         if (!dir.endsWith(QDir::separator()))
             dir += QDir::separator();
 
@@ -408,6 +410,8 @@ void SettingsSharing::slotContextMenu(const QPoint &){
 
         if (dir.isEmpty())
             return;
+
+        dir = QDir::toNativeSeparators(dir);
 
         if (!dir.endsWith(PATH_SEPARATOR))
             dir += PATH_SEPARATOR_STR;

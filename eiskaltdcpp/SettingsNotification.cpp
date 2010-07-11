@@ -7,6 +7,7 @@
 
 #include <QFileDialog>
 #include <QSound>
+#include <QDir>
 
 SettingsNotification::SettingsNotification(QWidget *parent) :
     QWidget(parent)
@@ -182,6 +183,8 @@ void SettingsNotification::slotBrowseFile(){
 
     if (f.isEmpty())
         return;
+
+    f = QDir::toNativeSeparators(f);
 
     defaultPath = f.left(f.lastIndexOf(QDir::separator()));
 

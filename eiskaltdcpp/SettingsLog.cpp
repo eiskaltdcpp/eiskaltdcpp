@@ -75,6 +75,8 @@ void SettingsLog::slotBrowse(){
     QString dir = QFileDialog::getExistingDirectory(this, tr("Choose the directory"), lineEdit_LOGDIR->text());
 
     if (!dir.isEmpty()){
+        dir = QDir::toNativeSeparators(dir);
+
         if (!dir.endsWith(QDir::separator()))
             dir += QDir::separator();
 

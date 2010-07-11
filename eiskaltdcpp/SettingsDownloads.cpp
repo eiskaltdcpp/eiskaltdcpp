@@ -9,6 +9,7 @@
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QMenu>
+#include <QDir>
 
 using namespace dcpp;
 
@@ -145,6 +146,8 @@ void SettingsDownloads::slotBrowse(){
     if (dir.isEmpty())
         return;
 
+    dir = QDir::toNativeSeparators(dir);
+
     if (sender() == pushButton_BROWSE)
         lineEdit_DLDIR->setText(dir);
     else if (sender() == pushButton_BROWSE1)
@@ -177,6 +180,8 @@ void SettingsDownloads::slotDownloadTo(){
 
         if (dir.isEmpty())
             return;
+
+        dir = QDir::toNativeSeparators(dir);
 
         QString aliases, paths;
 
