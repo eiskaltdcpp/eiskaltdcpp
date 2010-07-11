@@ -28,10 +28,15 @@
 using namespace dcpp;
 
 WulforSettings::WulforSettings():
-        configFile(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml"),
         tor(0)
 {
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+
+#ifdef _WIN32
+    configFile = QTextCodec::codecForCStrings()->fromUnicode(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml";
+#else
+    configFile = QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml";
+#endif
 
     QStringList idns = QUrl::idnWhitelist();
     idns.push_back("рф");
