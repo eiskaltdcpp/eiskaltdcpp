@@ -188,11 +188,7 @@ if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
 endif (NOT CMAKE_BUILD_TYPE)
 
-#if (UNIX AND NOT APPLE)
-#  set (DATAPATH "share/eiskaltdcpp")
-#elseif (APPLE)
-#  set (DATAPATH "./")
-#endif (UNIX AND NOT APPLE)
+option (WITH_EXAMPLES "Install examples sh and others scripts" ON)
 
 if (NOT SHARE_DIR)
 set (SHARE_DIR "share")
