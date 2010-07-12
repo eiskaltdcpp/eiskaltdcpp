@@ -1,4 +1,4 @@
-set QTSDKDIR=C:\Qt\2010.01
+set QTSDKDIR=%SystemDrive%\Qt\2010.01
 set CMAKEDIR="%ProgramFiles%\CMake 2.8"
 set INSTALLDIR="%ProgramFiles%\EiskaltDC++"
 set SOURCESDIR=..

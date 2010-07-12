@@ -90,7 +90,7 @@ set (SRCS
             WulforUtil.cpp
             ChatEdit.cpp)
 if (WIN32)
-set (SRCS ${SRCS} openssl/applink.c)
+  list (APPEND SRCS openssl/applink.c)
 endif (WIN32)
 set (MOC_HDRS
             ActionCustomizer.h
@@ -219,15 +219,15 @@ endif (NOT DEFINED linguas)
 message (STATUS "Translations: ${LANGUAGES}")
 
 if (USE_ASPELL)
-  set (SRCS ${SRCS} SpellCheck.cpp)
-  set (MOC_HDRS ${MOC_HDRS} SpellCheck.h)
+  list (APPEND SRCS SpellCheck.cpp)
+  list (APPEND MOC_HDRS SpellCheck.h)
 endif (USE_ASPELL)
 if (USE_LIBUPNP)
-    set (SRCS ${SRCS} UPnP.cpp UPnPMapper.cpp)
-    set (MOC_HDRS  ${MOC_HDRS} UPnP.h UPnPMapper.h)
+    list (APPEND SRCS UPnP.cpp UPnPMapper.cpp)
+    list (APPEND MOC_HDRS  UPnP.h UPnPMapper.h)
 endif (USE_LIBUPNP)
 if (USE_JS)
-  set (SRCS ${SRCS}
+  list (APPEND SRCS
         scriptengine/ClientManagerScript.cpp
         scriptengine/HashManagerScript.cpp
         scriptengine/LogManagerScript.cpp
@@ -236,7 +236,7 @@ if (USE_JS)
         scriptengine/ScriptEngine.cpp
         scriptengine/ScriptConsole.cpp
         ScriptManagerDialog.cpp)
-  set (MOC_HDRS ${MOC_HDRS}
+  list (APPEND MOC_HDRS
         scriptengine/ClientManagerScript.h
         scriptengine/HashManagerScript.h
         scriptengine/LogManagerScript.h
@@ -248,7 +248,7 @@ if (USE_JS)
 endif (USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})
-  set (COMPILED_TRANSLATIONS ${COMPILED_TRANSLATIONS} ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.qm)
+  list (APPEND COMPILED_TRANSLATIONS ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.qm)
   #message (STATUS ${COMPILED_TRANSLATIONS})
 endforeach()
 
@@ -260,8 +260,8 @@ QT4_WRAP_UI (U_SRCS ${UI_FORMS})
 foreach (LANGUAGE ${LANGUAGES})
         set (TS ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.ts)
         set (QM ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.qm)
-        set (TRANSLATIONS ${TRANSLATIONS} ${TS})
-        set (TRANSLATIONS_BINARY ${TRANSLATIONS_BINARY} ${QM})
+        list (APPEND TRANSLATIONS ${TS})
+        list (APPEND TRANSLATIONS_BINARY ${QM})
         add_custom_command (
                 OUTPUT ${QM}
                 COMMAND ${QT_LRELEASE_EXECUTABLE} ${TS}
@@ -294,28 +294,28 @@ if (UNIX)
 endif (UNIX)
 
 include_directories (${QT_INCLUDES} ${PROJECT_SOURCE_DIR}  "${PROJECT_SOURCE_DIR}/scriptengine" ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
-set (LIBS ${LIBS} ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
+list (APPEND LIBS ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 if (USE_LIBUPNP)
 include_directories (${UPNP_INCLUDE_DIR})
-set (LIBS ${LIBS} ${UPNP_LIBRARY})
+list (APPEND LIBS ${UPNP_LIBRARY})
 add_definitions (-DUSE_LIBUPNP)
 endif (USE_LIBUPNP)
 if (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
   add_definitions (-DFREE_SPACE_BAR)
-  set (LIBS ${LIBS} ${Boost_LIBRARIES})
+  list (APPEND LIBS ${Boost_LIBRARIES})
 endif (FREE_SPACE_BAR AND NOT FREE_SPACE_BAR_C)
 
 if (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
   add_definitions (-DFREE_SPACE_BAR_C)
   if (NOT WIN32)
-    set (LIBS ${LIBS} gnu)
+    list (APPEND LIBS gnu)
   endif (NOT WIN32)
 endif (FREE_SPACE_BAR_C AND NOT FREE_SPACE_BAR)
 
 if (USE_ASPELL)
   add_definitions (-DUSE_ASPELL ${ASPELL_DEFINITIONS})
   include_directories (${ASPELL_INCLUDE_DIR})
-  set (LIBS ${LIBS} ${ASPELL_LIBRARIES})
+  list (APPEND LIBS ${ASPELL_LIBRARIES})
 endif (USE_ASPELL)
 
 if (APPLE)
@@ -324,7 +324,7 @@ if (APPLE)
   # set where in the bundle to put the icns file
   SET_SOURCE_FILES_PROPERTIES(${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
   # include the icns file in the target
-  SET(SRCS ${SRCS} ${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns)
+  list (APPEND SRCS ${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns)
 endif (APPLE)
 
 add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
