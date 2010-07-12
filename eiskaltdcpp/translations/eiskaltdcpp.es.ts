@@ -1578,7 +1578,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../MainWindow.cpp" line="981"/>
         <source>Hashing progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Progreso del Hash</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1010"/>
@@ -1670,17 +1670,17 @@ Usuario favorito</translation>
     <message>
         <location filename="../MainWindow.cpp" line="1380"/>
         <source>List update</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista Actualizada</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1390"/>
         <source>Paused</source>
-        <translation type="unfinished">Pausado</translation>
+        <translation>Pausado</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1400"/>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1413"/>
@@ -4767,66 +4767,66 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="332"/>
         <source>Chat (extended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Chat (extendido)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="346"/>
         <source>Double click action</source>
-        <translation type="unfinished"></translation>
+        <translation>Acción del doble click</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="360"/>
         <location filename="../ui/UISettingsGUI.ui" line="398"/>
         <source>Insert nick into input widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Introducir nick dentro del Widget de entrada</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="365"/>
         <location filename="../ui/UISettingsGUI.ui" line="403"/>
         <source>Get file list</source>
-        <translation type="unfinished"></translation>
+        <translation>Cojer lista de archivos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="370"/>
         <location filename="../ui/UISettingsGUI.ui" line="408"/>
         <source>Private message</source>
-        <translation type="unfinished">Mensaje privado</translation>
+        <translation>Mensaje privado</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="384"/>
         <source>Middle click action</source>
-        <translation type="unfinished"></translation>
+        <translation>Acción del click central</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="422"/>
         <location filename="../ui/UISettingsGUI.ui" line="458"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vista en kibibytes (KiB) o kilobytes (KB), etc.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="425"/>
         <source>Application unit base</source>
-        <translation type="unfinished"></translation>
+        <translation>Unidad base</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="439"/>
         <source>1024</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="444"/>
         <source>1000</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="461"/>
         <source>Timestamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Marca de tiempo</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
         <source>hh:mm:ss</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="491"/>
@@ -4836,17 +4836,17 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="546"/>
         <source>Separator in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Separación del chat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="560"/>
         <source>:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="565"/>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="589"/>
