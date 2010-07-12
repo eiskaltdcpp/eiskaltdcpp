@@ -23,7 +23,7 @@
       </sizepolicy>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -813,13 +813,21 @@ from the queue either, you must do that manually.</string>
             </item>
             <item>
              <property name="text">
-              <string>Compressed transfer</string>
+              <string>Compressed transfers</string>
              </property>
              <property name="checkState">
               <enum>Checked</enum>
              </property>
              <property name="flags">
               <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Segmented downloads</string>
+             </property>
+             <property name="checkState">
+              <enum>Checked</enum>
              </property>
             </item>
            </widget>

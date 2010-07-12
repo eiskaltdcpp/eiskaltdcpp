@@ -336,10 +336,10 @@ add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
                 ${TRANSLATIONS}
                 translations
                 )
-add_definitions (-DCLIENT_DATA_DIR="${CMAKE_INSTALL_PREFIX}/${CLIENT_DATA_DIR}"
-                 -DCLIENT_SOUNDS_DIR="${CMAKE_INSTALL_PREFIX}/${CLIENT_SOUNDS_DEST}"
-                 -DCLIENT_TRANSLATIONS_DIR="${CMAKE_INSTALL_PREFIX}/${CLIENT_TRANSLATIONS_DEST}"
-                 -DCLIENT_ICONS_DIR="${CMAKE_INSTALL_PREFIX}/${CLIENT_ICONS_DEST}"
+add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
+                 -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
+                 -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
+                 -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
                 )
 
 if (USE_JS)
