@@ -1547,17 +1547,17 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="1380"/>
         <source>List update</source>
-        <translation type="unfinished"></translation>
+        <translation>Оновлення списку</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1390"/>
         <source>Paused</source>
-        <translation type="unfinished">Призупинено</translation>
+        <translation>Призупинено</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1400"/>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation>%p%</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1413"/>
@@ -1837,7 +1837,7 @@ Favorite user</source>
     <message>
         <location filename="../MainWindow.cpp" line="981"/>
         <source>Hashing progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Прогрес хешування</translation>
     </message>
     <message>
         <location filename="../MainWindow.cpp" line="1048"/>
@@ -4993,66 +4993,66 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="332"/>
         <source>Chat (extended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Чат (розширені)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="346"/>
         <source>Double click action</source>
-        <translation type="unfinished"></translation>
+        <translation>Дія на подвійний клік</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="360"/>
         <location filename="../ui/UISettingsGUI.ui" line="398"/>
         <source>Insert nick into input widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Вставити нік у поле вводу</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="365"/>
         <location filename="../ui/UISettingsGUI.ui" line="403"/>
         <source>Get file list</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажити файл-лист</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="370"/>
         <location filename="../ui/UISettingsGUI.ui" line="408"/>
         <source>Private message</source>
-        <translation type="unfinished"></translation>
+        <translation>Приватне повідомлення</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="384"/>
         <source>Middle click action</source>
-        <translation type="unfinished"></translation>
+        <translation>Дія на клік середньою кпонкою</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="422"/>
         <location filename="../ui/UISettingsGUI.ui" line="458"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>показувати кібібайти (КіБ) або кілобайти (КБ), і т.п.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="425"/>
         <source>Application unit base</source>
-        <translation type="unfinished"></translation>
+        <translation>Система одиниць у програмі</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="439"/>
         <source>1024</source>
-        <translation type="unfinished">1024</translation>
+        <translation>1024</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="444"/>
         <source>1000</source>
-        <translation type="unfinished">1000</translation>
+        <translation>1000</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="461"/>
         <source>Timestamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Часові місти</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
         <source>hh:mm:ss</source>
-        <translation type="unfinished"></translation>
+        <translation>hh:mm:ss</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="491"/>
@@ -5062,17 +5062,17 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="546"/>
         <source>Separator in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Розділювач у чаті</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="560"/>
         <source>:</source>
-        <translation type="unfinished"></translation>
+        <translation>:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="565"/>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation>,</translation>
     </message>
     <message>
         <source>The height of the text entry field</source>
