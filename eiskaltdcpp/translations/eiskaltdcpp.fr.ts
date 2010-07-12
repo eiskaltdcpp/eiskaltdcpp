@@ -1630,19 +1630,19 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Hashing progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Progression du scan</translation>
     </message>
     <message>
         <source>List update</source>
-        <translation type="unfinished"></translation>
+        <translation>Rafraichir le partage</translation>
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished">En pause</translation>
+        <translation>En pause</translation>
     </message>
     <message>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation>%p%</translation>
     </message>
 </context>
 <context>
@@ -4195,63 +4195,63 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Separator in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Séparateur dans le chat</translation>
     </message>
     <message>
         <source>:</source>
-        <translation type="unfinished"></translation>
+        <translation>:</translation>
     </message>
     <message>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation>,</translation>
     </message>
     <message>
         <source>Chat (extended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Chat (étendu)</translation>
     </message>
     <message>
         <source>Double click action</source>
-        <translation type="unfinished"></translation>
+        <translation>Action du double clic</translation>
     </message>
     <message>
         <source>Insert nick into input widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Insérer le surnom dans un widget</translation>
     </message>
     <message>
         <source>Get file list</source>
-        <translation type="unfinished"></translation>
+        <translation>Obtenir la liste de fichier</translation>
     </message>
     <message>
         <source>Private message</source>
-        <translation type="unfinished">Message privé</translation>
+        <translation>Message privé</translation>
     </message>
     <message>
         <source>Middle click action</source>
-        <translation type="unfinished"></translation>
+        <translation>Action du clic du milieu</translation>
     </message>
     <message>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Montrer kibibyte (KiB) ou kilobyte (KB), etc.</translation>
     </message>
     <message>
         <source>Application unit base</source>
-        <translation type="unfinished"></translation>
+        <translation>Unité de base de l&apos;application</translation>
     </message>
     <message>
         <source>1024</source>
-        <translation type="unfinished">1024</translation>
+        <translation>1024</translation>
     </message>
     <message>
         <source>1000</source>
-        <translation type="unfinished">1000</translation>
+        <translation>1000</translation>
     </message>
     <message>
         <source>Timestamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Horodate</translation>
     </message>
     <message>
         <source>hh:mm:ss</source>
-        <translation type="unfinished"></translation>
+        <translation>hh:mm:ss</translation>
     </message>
 </context>
 <context>
