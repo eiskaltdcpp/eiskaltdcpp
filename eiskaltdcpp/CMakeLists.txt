@@ -447,4 +447,8 @@ if (APPLE)
 
 endif (APPLE)
 
+if( WIN32 AND NOT UNIX )
+    SET(CPACK_PACKAGE_EXECUTABLES "eiskaltdcpp" "EiskaltDC++")
+endif()
+
 include(CPack)

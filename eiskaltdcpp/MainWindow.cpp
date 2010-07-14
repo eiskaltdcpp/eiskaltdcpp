@@ -370,6 +370,7 @@ void MainWindow::init(){
     arena->setFeatures(QDockWidget::NoDockWidgetFeatures);
     arena->setContextMenuPolicy(Qt::CustomContextMenu);
     arena->setTitleBarWidget(new QWidget(arena));
+    arena->setMinimumSize( 10, 10 );
 
     transfer_dock = new QDockWidget(this);
 #if QT_VERSION >= 0x040500
@@ -2349,7 +2350,7 @@ void MainWindow::slotAboutClient(){
 }
 
 void MainWindow::slotUnixSignal(int sig){
-    printf("%i\n");
+    printf("Received unix signal %i\n", sig);
 }
 
 void MainWindow::slotCloseCurrentWidget(){
