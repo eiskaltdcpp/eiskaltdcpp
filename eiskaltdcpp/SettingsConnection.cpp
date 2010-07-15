@@ -164,7 +164,7 @@ void SettingsConnection::init(){
         }
 #endif
     }
-#ifndef USE_UPNP
+#ifndef USE_LIBUPNP
     radioButton_UPNP->setEnabled(false);
 #endif
 
