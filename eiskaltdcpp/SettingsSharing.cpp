@@ -481,6 +481,10 @@ void SettingsSharing::slotContextMenu(const QPoint &){
     updateShareView();
 }
 
+QString ShareDirModel::filePath( const QModelIndex & index ) const {
+    return QDir::toNativeSeparators( QDirModel::filePath(index) );
+}
+
 ShareDirModel::ShareDirModel(QObject *parent){
     QDirModel::setParent(parent);
     QDirModel::setFilter((QDir::AllDirs | QDir::NoDotAndDotDot));

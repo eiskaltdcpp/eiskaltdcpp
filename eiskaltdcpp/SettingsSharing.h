@@ -30,6 +30,7 @@ public:
 
     void setAlias(const QModelIndex&, const QString &);
     void beginExpanding();
+    QString filePath( const QModelIndex & index ) const;
 
 Q_SIGNALS:
     void getName(QModelIndex);
