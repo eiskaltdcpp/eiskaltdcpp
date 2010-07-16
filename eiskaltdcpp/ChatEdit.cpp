@@ -245,22 +245,20 @@ void ChatEdit::dropEvent(QDropEvent *e)
         QStringList fileNames;
         foreach (QUrl url, e->mimeData()->urls()) {
             QString urlStr = url.toString();
-            do {
-                if (url.scheme().toLower() != "file")
-                    break;
+            if (url.scheme().toLower() == "file") {
+                QFileInfo fi( url.toLocalFile() );
+                QString str = QDir::toNativeSeparators( fi.absoluteFilePath() );
 
-                QString str = QDir::toNativeSeparators( url.toLocalFile() );
-
-                if (!str.isEmpty()) {
-                    QFileInfo fi(str);
-                    if (!fi.isFile())
-                        break;
-
+                if ( fi.exists() && fi.isFile() && !str.isEmpty() ) {
                     const TTHValue *tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
+                    if ( tth == NULL ) {
+                        str = QDir::toNativeSeparators( fi.canonicalFilePath() ); // try to follow symlinks
+                        tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
+                    }
                     if (tth != NULL)
                         urlStr = WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32()));
                 }
-            } while(false);
+            };
 
             if (!urlStr.isEmpty())
                 fileNames << urlStr;
