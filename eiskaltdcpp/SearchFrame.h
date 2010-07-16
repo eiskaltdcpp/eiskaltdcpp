@@ -102,7 +102,6 @@ class SearchFrame : public QWidget,
         QList<QAction*> action_list;
 
         QString downToPath;
-        static QStringList temp_pathes;
 
         QMenu *menu;
         QMenu *down_to;

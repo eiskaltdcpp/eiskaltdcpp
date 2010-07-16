@@ -87,6 +87,21 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
 
+    QString raw = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
+    QStringList temp_pathes = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+
+    if (!temp_pathes.isEmpty()){
+        foreach (QString t, temp_pathes){
+            QAction *act = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
+            act->setToolTip(t);
+            act->setData(t);
+
+            down_to->addAction(act);
+        }
+
+        down_to->addSeparator();
+    }
+    
     if (a.size() == p.size() && !a.isEmpty()){
         for (int i = 0; i < a.size(); i++){
             QAction *act = new QAction(a.at(i), down_to);
@@ -95,6 +110,8 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
 
             down_to->addAction(act);
         }
+
+        down_to->addSeparator();
     }
 
     QAction *browse = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
@@ -532,6 +549,19 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
                 target += QDir::separator();
 
             old_target = target;
+
+            QString raw = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
+            QStringList temp_pathes = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+
+            if (!temp_pathes.contains(target)){
+                temp_pathes.push_front(target);
+
+                if (temp_pathes.count() > 5)
+                    temp_pathes.removeLast();
+
+                QString raw = temp_pathes.join("\n");
+                WSSET(WS_DOWNLOAD_DIR_HISTORY, raw.toAscii().toBase64());
+            }
 
             if (!target.isEmpty()){
                 foreach (QModelIndex index, list){

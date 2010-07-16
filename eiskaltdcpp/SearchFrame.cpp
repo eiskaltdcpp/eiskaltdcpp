@@ -30,8 +30,6 @@
 
 using namespace dcpp;
 
-QStringList SearchFrame::Menu::temp_pathes  = QStringList();
-
 SearchFrame::Menu::Menu(){
     WulforUtil *WU = WulforUtil::getInstance();
 
@@ -134,6 +132,9 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
 
+    QString raw = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
+    QStringList temp_pathes = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+
     if (!temp_pathes.isEmpty()){
         foreach (QString t, temp_pathes){
             QAction *act = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
@@ -230,8 +231,18 @@ QMenu *SearchFrame::Menu::buildUserCmdMenu(QList<QString> hub_list){
 }
 
 void SearchFrame::Menu::addTempPath(const QString &path){
-    if (!temp_pathes.contains(path) && !path.isEmpty() && QDir(path).exists())
+    QString raw = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
+    QStringList temp_pathes = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+
+    if (!temp_pathes.contains(path) && !path.isEmpty() && QDir(path).exists()){
         temp_pathes.push_front(path);
+
+        if (temp_pathes.count() > 5)
+            temp_pathes.removeLast();
+
+        QString raw = temp_pathes.join("\n");
+        WSSET(WS_DOWNLOAD_DIR_HISTORY, raw.toAscii().toBase64());
+    }
 }
 
 SearchFrame::SearchFrame(QWidget *parent):

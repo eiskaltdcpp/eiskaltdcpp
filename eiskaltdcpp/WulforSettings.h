@@ -41,6 +41,7 @@ static const QString & WS_CHAT_SEPARATOR          = "chat-separator";
 static const QString & WS_CHAT_TIMESTAMP          = "chat-timestamp";
 static const QString & WS_QCONNECT_HISTORY        = "qc-history";
 static const QString & WS_DEFAULT_LOCALE          = "default_locale";
+static const QString & WS_DOWNLOAD_DIR_HISTORY    = "download-directory-history";
 static const QString & WS_DQUEUE_STATE            = "dqueue-state";
 static const QString & WS_SEARCH_STATE            = "search-state";
 static const QString & WS_SEARCH_HISTORY          = "search-history";

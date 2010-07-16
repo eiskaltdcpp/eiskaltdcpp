@@ -69,6 +69,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_CHAT_TIMESTAMP,        "hh:mm:ss");
         strmap.insert(WS_QCONNECT_HISTORY,      "");
         strmap.insert(WS_DEFAULT_LOCALE,        "UTF-8");
+        strmap.insert(WS_DOWNLOAD_DIR_HISTORY,  "");
         strmap.insert(WS_DQUEUE_STATE,          "");
         strmap.insert(WS_SEARCH_STATE,          "");
         strmap.insert(WS_SEARCH_HISTORY,        "");
