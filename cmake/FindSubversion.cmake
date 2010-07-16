@@ -67,7 +67,7 @@ IF(Subversion_SVN_EXECUTABLE)
       OUTPUT_STRIP_TRAILING_WHITESPACE)
 
     IF(NOT ${Subversion_svn_info_result} EQUAL 0)
-      MESSAGE("Command \"${Subversion_SVN_EXECUTABLE} info ${dir}\" failed with output:\n${Subversion_svn_info_error}")
+      #MESSAGE("Command \"${Subversion_SVN_EXECUTABLE} info ${dir}\" failed with output:\n${Subversion_svn_info_error}")
     ELSE(NOT ${Subversion_svn_info_result} EQUAL 0)
 
       STRING(REGEX REPLACE "^(.*\n)?svn, version ([.0-9]+).*"
