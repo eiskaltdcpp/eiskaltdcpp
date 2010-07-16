@@ -60,11 +60,12 @@ uint32_t File::convertTime(FILETIME* f) {
 	SYSTEMTIME s = { 1970, 1, 0, 1, 0, 0, 0, 0 };
 	FILETIME f2 = {0};
 	if(::SystemTimeToFileTime(&s, &f2)) {
-		uint64_t* a = (uint64_t*)f;
-		uint64_t* b = (uint64_t*)&f2;
-		*a -= *b;
-		*a /= (1000LL*1000LL*1000LL/100LL);		// 100ns > s
-		return (uint32_t)*a;
+		ULARGE_INTEGER a,b;
+		a.LowPart =f->dwLowDateTime;
+		a.HighPart=f->dwHighDateTime;
+		b.LowPart =f2.dwLowDateTime;
+		b.HighPart=f2.dwHighDateTime;
+		return (a.QuadPart - b.QuadPart) / (10000000LL); // 100ns > s
 	}
 	return 0;
 }
