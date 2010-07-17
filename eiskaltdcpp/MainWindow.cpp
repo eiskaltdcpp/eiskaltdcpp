@@ -19,9 +19,6 @@
 #include <QFileDialog>
 #include <QRegExp>
 #include <QDir>
-#ifdef FREE_SPACE_BAR
-    #include <boost/filesystem.hpp>
-#endif //FREE_SPACE_BAR
 #ifdef FREE_SPACE_BAR_C
     #ifdef WIN32
         #include <io.h>
@@ -688,7 +685,7 @@ void MainWindow::initActions(){
         toolsHideProgressSpace->setObjectName("toolsHideProgressSpace");
         if (!WBGET(WB_SHOW_FREE_SPACE))
             toolsHideProgressSpace->setText(tr("Show free space bar"));
-#if (!defined FREE_SPACE_BAR && !defined FREE_SPACE_BAR_C)
+#if (!defined FREE_SPACE_BAR_C)
         toolsHideProgressSpace->setVisible(false);
 #endif
         toolsHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
@@ -957,7 +954,7 @@ void MainWindow::initStatusBar(){
     msgLabel->setWordWrap(true);
     msgLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-#if (defined FREE_SPACE_BAR || defined FREE_SPACE_BAR_C)
+#if (defined FREE_SPACE_BAR_C)
     progressSpace = new QProgressBar(this);
     progressSpace->setMaximum(100);
     progressSpace->setMinimum(0);
@@ -969,9 +966,9 @@ void MainWindow::initStatusBar(){
 
     if (!WBGET(WB_SHOW_FREE_SPACE))
         progressSpace->hide();
-#else //FREE_SPACE_BAR || FREE_SPACE_BAR_C
+#else //FREE_SPACE_BAR_C
     WBSET(WB_SHOW_FREE_SPACE, false);
-#endif //FREE_SPACE_BAR || FREE_SPACE_BAR_C
+#endif //FREE_SPACE_BAR_C
 
     progressHashing = new QProgressBar(this);
     progressHashing->setMaximum(100);
@@ -989,9 +986,9 @@ void MainWindow::initStatusBar(){
     statusBar()->addPermanentWidget(statusDSPLabel);
     statusBar()->addPermanentWidget(statusUSPLabel);
     statusBar()->addPermanentWidget(statusLabel);
-#if (defined FREE_SPACE_BAR || defined FREE_SPACE_BAR_C)
+#if (defined FREE_SPACE_BAR_C)
     statusBar()->addPermanentWidget(progressSpace);
-#endif //FREE_SPACE_BAR
+#endif //FREE_SPACE_BAR_C
 }
 
 void MainWindow::initSearchBar(){
@@ -1298,30 +1295,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     statusULabel->setFixedWidth(metrics.width(statusULabel->text()) > statusULabel->width()? metrics.width(statusULabel->text()) + 10 : statusULabel->width());
 
     if (WBGET(WB_SHOW_FREE_SPACE)) {
-#ifdef FREE_SPACE_BAR
-        boost::filesystem::space_info info;
-        if (boost::filesystem::exists(SETTING(DOWNLOAD_DIRECTORY)))
-            info = boost::filesystem::space(boost::filesystem::path(SETTING(DOWNLOAD_DIRECTORY)));
-        else if (boost::filesystem::exists(Util::getPath(Util::PATH_USER_CONFIG)))
-            info = boost::filesystem::space(boost::filesystem::path(Util::getPath(Util::PATH_USER_CONFIG)));
-
-        if (info.capacity) {
-            float total = info.capacity;
-            float percent = 100.0f*(total-info.available)/total;
-            QString format = tr("Free %1")
-                             .arg(WulforUtil::formatBytes(info.available));
-
-            QString tooltip = tr("Free %1 of %2")
-                              .arg(WulforUtil::formatBytes(info.available))
-                              .arg(WulforUtil::formatBytes(total));
-
-            progressSpace->setFormat(format);
-            progressSpace->setToolTip(tooltip);
-            progressSpace->setValue(static_cast<unsigned>(percent));
-
-            progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 40 : progressSpace->width());
-        }
-#elif defined FREE_SPACE_BAR_C
+#ifdef FREE_SPACE_BAR_C
     std::string s = SETTING(DOWNLOAD_DIRECTORY);
     unsigned long long available = 0;
     unsigned long long total = 0;
@@ -1347,7 +1321,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
             progressSpace->setValue(static_cast<unsigned>(percent));
 
             progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 40 : progressSpace->width());
-#endif //FREE_SPACE_BAR
+#endif //FREE_SPACE_BAR_C
     }
 
     if ((Util::getAway() && !toolsAwayOn->isChecked()) || (!Util::getAway() && toolsAwayOff->isChecked())){
