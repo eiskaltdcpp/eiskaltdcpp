@@ -337,7 +337,7 @@ if (APPLE)
   list (APPEND SRCS ${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns)
 endif (APPLE)
 
-add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 main.cpp
+add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
                 ${SRCS}
