@@ -13,8 +13,6 @@
 * Extended settings dialog.
 * Removed extra code (option -DFREE_SPACE_BAR for cmake). Assemblies with -DFREE_SPACE_BAR_C:BOOL=1 work stably on all supported platforms.
 
-* Удален лишний код (опция -DFREE_SPACE_BAR для cmake). Сборки с -DFREE_SPACE_BAR_C:BOOL=1 работают стабильно на всех поддерживаемых платформах.
-
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.
 * Fixed potential problems with search using locales other than UTF-8. (Now kernel takes default encoding specified in the preferences rather than local ones, as it was before)
