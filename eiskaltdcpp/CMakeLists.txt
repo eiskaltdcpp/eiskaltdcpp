@@ -191,6 +191,20 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIActionCustomizer.ui
             )
 
+set (WIN_RESOURCES)
+if (MINGW AND WIN32)
+  ADD_CUSTOM_COMMAND (OUTPUT
+            "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp_rc.o"
+            COMMAND windres.exe
+            -I"${CMAKE_CURRENT_SOURCE_DIR}/"
+            -i "${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp.rc"
+            -o "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp_rc.o"
+            )
+  SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp_rc.o)
+elseif ((NOT MINGW) AND WIN32)
+  SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp.rc")
+endif (MINGW AND WIN32)
+
 option (LANGUAGES "Using translations")
 set (AllLanguages
   be
@@ -323,13 +337,14 @@ if (APPLE)
   list (APPEND SRCS ${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns)
 endif (APPLE)
 
-add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
+add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
                 ${SRCS}
                 ${HDRS}
                 ${MOC_HDRS}
                 ${TRANSLATIONS}
+                ${WIN_RESOURCES}
                 translations
                 )
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
