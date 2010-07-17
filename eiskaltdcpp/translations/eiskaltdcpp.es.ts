@@ -2770,7 +2770,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../ShareBrowser.cpp" line="47"/>
         <source>Download</source>
-        <translation>Seleccionar directorio</translation>
+        <translation>Descarga</translation>
     </message>
     <message>
         <location filename="../ShareBrowser.cpp" line="49"/>
@@ -4643,12 +4643,12 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="816"/>
         <source>Compressed transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Comprimir transferencias</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="827"/>
         <source>Segmented downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Descargas segmentadas</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="842"/>
@@ -4840,22 +4840,22 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="487"/>
         <source>Default action with magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Acción por defecto del Imán</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="501"/>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Pregunta</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="506"/>
         <source>Search</source>
-        <translation type="unfinished">Buscar</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="511"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Descarga</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="529"/>
