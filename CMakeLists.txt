@@ -247,11 +247,8 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
                 ")
-if (CORE77)
-add_subdirectory (dcppexp)
-else ()
+
 add_subdirectory (dcpp)
-endif ()
 
 if (USE_QT)
   add_subdirectory (eiskaltdcpp)
