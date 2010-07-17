@@ -57,8 +57,13 @@ void SettingsGUI::init(){
 
         int i = 0;
         int k = -1;
-        foreach (QString f, QDir(QString(CLIENT_TRANSLATIONS_DIR)).entryList(QDir::Files | QDir::NoSymLinks)){
-            QString full_path = QString(CLIENT_TRANSLATIONS_DIR) + QDir::separator() + f;
+#ifndef WIN32
+        QDir translationsDir(CLIENT_TRANSLATIONS_DIR);
+#else
+        QDir translationsDir(qApp->applicationDirPath()+QDir::separator()+CLIENT_TRANSLATIONS_DIR);
+#endif//WIN32
+        foreach (QString f, translationsDir.entryList(QDir::Files | QDir::NoSymLinks)){
+            QString full_path = QDir::toNativeSeparators( translationsDir.filePath(f) );
             QString lang = "";
 
             if (f == "eiskaltdcpp.en.qm")
@@ -91,7 +96,11 @@ void SettingsGUI::init(){
         }
         comboBox_LANGS->setCurrentIndex(k);
 
+#ifndef WIN32
         QString icons = CLIENT_ICONS_DIR "/appl/";
+#else
+        QString icons = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/appl/";
+#endif//WIN32
         i = 0;
         k = -1;
         foreach (QString f, QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
@@ -106,7 +115,11 @@ void SettingsGUI::init(){
         }
         comboBox_ICONS->setCurrentIndex(k);
 
+#ifndef WIN32
         QString emot = CLIENT_ICONS_DIR "/emot/";
+#else
+        QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/emot/";
+#endif//WIN32
         comboBox_EMOT->addItem("");
         comboBox_EMOT->setCurrentIndex(0);
         i = 1;

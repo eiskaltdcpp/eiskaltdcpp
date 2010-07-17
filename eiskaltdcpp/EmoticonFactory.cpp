@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QString>
 #include <QtDebug>
+#include <QApplication>
 
 #ifndef CLIENT_ICONS_DIR
 #define CLIENT_ICONS_DIR ""
@@ -13,12 +14,14 @@
 static const QString EmoticonSectionName = "emoticons";
 static const QString EmoticonSubsectionName = "emoticon";
 static const QString EmoticonTextSectionName = "emotext";
-static const QString EmotionPath = CLIENT_ICONS_DIR "/emot/";
+static QString EmotionPath = CLIENT_ICONS_DIR "/emot/";
 
 EmoticonFactory::EmoticonFactory() :
     QObject(NULL), im(NULL)
 {
-
+#ifdef WIN32        
+    EmotionPath.prepend( qApp->applicationDirPath()+QDir::separator() );
+#endif
 }
 
 EmoticonFactory::~EmoticonFactory(){

@@ -7,6 +7,7 @@
 #include <QIcon>
 #include <QTextStream>
 #include <QtDebug>
+#include <QApplication>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -141,8 +142,11 @@ QModelIndex ScriptManagerModel::parent(const QModelIndex & ) const {
 void ScriptManagerModel::load(){
     enabled = QString(QByteArray::fromBase64(WSGET(WS_APP_ENABLED_SCRIPTS).toAscii())).split("\n");
 
+#ifndef WIN32
     QDir dir(CLIENT_SCRIPTS_DIR);
-
+#else
+    QDir dir(qApp->applicationDirPath()+QDir::separator()+CLIENT_SCRIPTS_DIR);
+#endif//WIN32
     if (dir.exists()){
         foreach (QString d, dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot))
             loadDir(QString(CLIENT_SCRIPTS_DIR)+QDir::separator()+d);

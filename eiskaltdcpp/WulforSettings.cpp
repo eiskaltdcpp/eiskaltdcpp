@@ -281,7 +281,11 @@ void WulforSettings::loadTranslation(){
     if (file.isEmpty() || !QFile::exists(file)){
         QString lc_prefix = QLocale::system().name();
 
+#ifndef WIN32
         file = QString(CLIENT_TRANSLATIONS_DIR) + QDir::separator();
+#else
+        file = qApp->applicationDirPath()+QDir::separator()+QString(CLIENT_TRANSLATIONS_DIR)+QDir::separator();
+#endif//_WIN32
         lc_prefix = lc_prefix.left(lc_prefix.indexOf("_"));
         file += "eiskaltdcpp." + lc_prefix + ".qm";
 

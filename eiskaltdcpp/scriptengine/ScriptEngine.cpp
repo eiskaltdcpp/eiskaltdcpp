@@ -125,7 +125,12 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
     QScriptValue me = engine.newQObject(&engine);
     engine.globalObject().setProperty(objectName(), me);
 
+#ifndef WIN32
     QScriptValue scriptsPath = QScriptValue(&engine, QString(CLIENT_SCRIPTS_DIR)+QDir::separator());
+#else
+    QScriptValue scriptsPath = QScriptValue(&engine, 
+        qApp->applicationDirPath()+QDir::separator()+CLIENT_SCRIPTS_DIR+QDir::separator() );
+#endif//WIN32
     engine.globalObject().setProperty("SCRIPTS_PATH", scriptsPath, QScriptValue::ReadOnly);
 
     QScriptValue shellEx = engine.newFunction(shellExec);

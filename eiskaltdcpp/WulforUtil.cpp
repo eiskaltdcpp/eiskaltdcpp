@@ -150,6 +150,16 @@ bool WulforUtil::loadUserIcons(){
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
+    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/user/default";
+    settings_path = QDir::toNativeSeparators(settings_path);
+    if (QDir(settings_path).exists())
+        return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
+
+    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/user/default";
+    settings_path = QDir::toNativeSeparators(settings_path);
+    if (QDir(settings_path).exists())
+        return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
+
     return false;
 }
 
@@ -174,6 +184,18 @@ QString WulforUtil::findAppIconsPath(){
         return settings_path;
 
     settings_path = CLIENT_ICONS_DIR "/appl/" + icon_theme;
+    settings_path = QDir::toNativeSeparators(settings_path);
+
+    if (QDir(settings_path).exists())
+        return settings_path;
+
+    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/appl/" + icon_theme;
+    settings_path = QDir::toNativeSeparators(settings_path);
+
+    if (QDir(settings_path).exists())
+        return settings_path;
+
+    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
 
     if (QDir(settings_path).exists())
@@ -270,7 +292,11 @@ bool WulforUtil::loadIcons(){
     m_bError = false;
 
     QString icon_theme = WSGET(WS_APP_ICONTHEME);
-    QString fname = CLIENT_RES_DIR"/"+icon_theme+".rcc";
+#ifndef WIN32
+    QString fname = QString(CLIENT_RES_DIR)+QDir::separator()+icon_theme+".rcc";
+#else
+    QString fname = qApp->applicationDirPath()+QDir::separator()+CLIENT_RES_DIR+QDir::separator()+icon_theme+".rcc";
+#endif//WIN32
     bool resourceFound = false;
 
 #ifndef USE_ICON_THEME
