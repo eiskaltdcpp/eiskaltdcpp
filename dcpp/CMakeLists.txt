@@ -10,7 +10,7 @@ include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DI
 
 if (WIN32)
 set (LINK STATIC)
-set (WIN32_LIBS wsock32)
+set (WIN32_LIBS ws2_32)
 endif (WIN32)
 
 if (NOT LINK)
