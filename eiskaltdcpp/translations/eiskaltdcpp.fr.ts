@@ -4024,7 +4024,15 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
     </message>
     <message>
         <source>Compressed transfer</source>
-        <translation>Transfert compressé</translation>
+        <translation type="obsolete">Transfert compressé</translation>
+    </message>
+    <message>
+        <source>Compressed transfers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segmented downloads</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4252,6 +4260,22 @@ them is usually available only to operators</source>
     <message>
         <source>hh:mm:ss</source>
         <translation>hh:mm:ss</translation>
+    </message>
+    <message>
+        <source>Default action with magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Rechercher</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation type="unfinished">Téléchargement</translation>
     </message>
 </context>
 <context>

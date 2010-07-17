@@ -3755,7 +3755,11 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <translation>Čuvaj preuzete fajl liste</translation>
     </message>
     <message>
-        <source>Compressed transfer</source>
+        <source>Compressed transfers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segmented downloads</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3984,6 +3988,22 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>hh:mm:ss</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default action with magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Pretraži</translation>
+    </message>
+    <message>
+        <source>Download</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
