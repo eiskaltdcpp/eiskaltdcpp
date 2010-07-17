@@ -11,6 +11,9 @@
 * Added ability to build program on MS Windows (see file win32/READ_ME.txt).
 * Added a hash progress indicator in the status line. Combined menu 'Refresh share' and 'Hash progress'.
 * Extended settings dialog.
+* Removed extra code (option -DFREE_SPACE_BAR for cmake). Assemblies with -DFREE_SPACE_BAR_C:BOOL=1 work stably on all supported platforms.
+
+* Удален лишний код (опция -DFREE_SPACE_BAR для cmake). Сборки с -DFREE_SPACE_BAR_C:BOOL=1 работают стабильно на всех поддерживаемых платформах.
 
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.
