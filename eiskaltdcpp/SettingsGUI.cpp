@@ -160,6 +160,7 @@ void SettingsGUI::init(){
     {//Chat (extended) tab
         comboBox_DBL_CLICK->setCurrentIndex(WIGET(WI_CHAT_DBLCLICK_ACT));
         comboBox_MDL_CLICK->setCurrentIndex(WIGET(WI_CHAT_MDLCLICK_ACT));
+        comboBox_DEF_MAGNET_ACTION->setCurrentIndex(WIGET(WI_DEF_MAGNET_ACTION));
         comboBox_APP_UNIT_BASE->setCurrentIndex(comboBox_APP_UNIT_BASE->findText(QString::number(WIGET(WI_APP_UNIT_BASE))));
 
         lineEdit_TIMESTAMP->setText(WSGET(WS_CHAT_TIMESTAMP));
@@ -309,6 +310,7 @@ void SettingsGUI::ok(){
     {//Chat (extended) tab
         WISET(WI_CHAT_DBLCLICK_ACT, comboBox_DBL_CLICK->currentIndex());
         WISET(WI_CHAT_MDLCLICK_ACT, comboBox_MDL_CLICK->currentIndex());
+        WISET(WI_DEF_MAGNET_ACTION, comboBox_DEF_MAGNET_ACTION->currentIndex());
         WISET(WI_APP_UNIT_BASE, comboBox_APP_UNIT_BASE->currentText().toInt());
 
         WSSET(WS_CHAT_TIMESTAMP, lineEdit_TIMESTAMP->text());
