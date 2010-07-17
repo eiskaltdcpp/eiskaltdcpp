@@ -19,7 +19,7 @@ static QString EmotionPath = CLIENT_ICONS_DIR "/emot/";
 EmoticonFactory::EmoticonFactory() :
     QObject(NULL), im(NULL)
 {
-#ifdef WIN32        
+#ifdef WIN32
     EmotionPath.prepend( qApp->applicationDirPath()+QDir::separator() );
 #endif
 }

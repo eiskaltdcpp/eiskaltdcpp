@@ -155,11 +155,6 @@ bool WulforUtil::loadUserIcons(){
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
-    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/user/default";
-    settings_path = QDir::toNativeSeparators(settings_path);
-    if (QDir(settings_path).exists())
-        return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
-
     return false;
 }
 
@@ -184,12 +179,6 @@ QString WulforUtil::findAppIconsPath(){
         return settings_path;
 
     settings_path = CLIENT_ICONS_DIR "/appl/" + icon_theme;
-    settings_path = QDir::toNativeSeparators(settings_path);
-
-    if (QDir(settings_path).exists())
-        return settings_path;
-
-    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
 
     if (QDir(settings_path).exists())
