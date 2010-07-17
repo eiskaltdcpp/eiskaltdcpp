@@ -24,7 +24,7 @@
         #include <io.h>
     #else //WIN32
         extern "C" {
-        #include "gnulib/fsusage.h"
+        #include "fsusage/fsusage.h"
         }
     #endif //WIN32
 #endif

@@ -1,7 +1,7 @@
 project (${PROJECT_NAME_GLOBAL})
 cmake_minimum_required (VERSION 2.6)
 if (FREE_SPACE_BAR_C)
-add_subdirectory(gnulib)
+add_subdirectory(fsusage)
 endif (FREE_SPACE_BAR_C)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
@@ -318,7 +318,7 @@ endif (USE_LIBUPNP)
 if (FREE_SPACE_BAR_C)
   add_definitions (-DFREE_SPACE_BAR_C)
   if (NOT WIN32)
-    list (APPEND LIBS gnu)
+    list (APPEND LIBS fsusage)
   endif (NOT WIN32)
 endif (FREE_SPACE_BAR_C)
 
