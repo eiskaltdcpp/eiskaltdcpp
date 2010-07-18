@@ -201,7 +201,7 @@ if (MINGW AND WIN32)
             -o "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp_rc.o"
             )
   SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp_rc.o)
-elseif ((NOT MINGW) AND WIN32)
+elseif (NOT MINGW AND WIN32)
   SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp.rc")
 endif (MINGW AND WIN32)
 
