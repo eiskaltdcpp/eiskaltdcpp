@@ -10,7 +10,7 @@ include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DI
 
 if (WIN32)
 set (LINK STATIC)
-set (WIN32_LIBS ws2_32)
+set (WIN32_LIBS "ws2_32")
 endif (WIN32)
 
 if (NOT LINK)
@@ -18,9 +18,9 @@ set (LINK SHARED)
 endif (NOT LINK)
 
 if (APPLE)
-set (APPLE_LIBS iconv)
+set (APPLE_LIBS "iconv")
 endif (APPLE)
-
+#message (STATUS "APPLE_LIBS:@APPLE_LIBS@ WIN32_LIBS:@WIN32_LIBS@")
 add_library (dcpp ${LINK} ${dcpp_srcs})
 
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
