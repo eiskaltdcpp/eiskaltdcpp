@@ -71,6 +71,7 @@ static const QString & WS_APP_ASPELL_LANG         = "app-aspell-lang";
 static const QString & WS_APP_EMOTICON_THEME      = "app-emoticon-theme";
 static const QString & WS_APP_DYNDNS_SERVER       = "app-dyndns-server";
 static const QString & WS_APP_DYNDNS_INDEX        = "app-dyndns-server-index";
+static const QString & WS_APP_DYNDNS_ENABLED      = "app-dyndns-enabled";
 static const QString & WS_PUBLICHUBS_STATE        = "publichubs-state";
 static const QString & WS_SETTINGS_GUI_FONTS_STATE= "settings-gui-fonts-state";
 static const QString & WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";

@@ -145,6 +145,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_MAIN_MENU_VISIBLE,     static_cast<int>(true));
         intmap.insert(WB_USE_CTRL_ENTER,        static_cast<int>(false));
         intmap.insert(WB_SIMPLE_SHARE_MODE,     static_cast<int>(false));
+        intmap.insert(WS_APP_DYNDNS_ENABLED,    static_cast<int>(false));
         intmap.insert(WI_APP_UNIT_BASE,         1024);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS,    1000);
         intmap.insert(WI_DEF_MAGNET_ACTION,     0);

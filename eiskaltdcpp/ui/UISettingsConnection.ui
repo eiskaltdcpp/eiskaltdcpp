@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>691</width>
-    <height>421</height>
+    <height>553</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -337,6 +337,67 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
              </item>
             </layout>
            </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_9">
+          <item row="0" column="0" colspan="2">
+           <widget class="QCheckBox" name="checkBox_DYNDNS">
+            <property name="toolTip">
+             <string>When enabled can hang program on exit.</string>
+            </property>
+            <property name="text">
+             <string>Automatically update external IP (restart required)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="4">
+           <widget class="QFrame" name="frame_6">
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QLabel" name="label_18">
+               <property name="text">
+                <string>DynDNS Address:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_DYNDNS_SERVER"/>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_DYNDNS_INDEX"/>
+             </item>
+            </layout>
+            <zorder>label_18</zorder>
+            <zorder>label_18</zorder>
+            <zorder>lineEdit_DYNDNS_SERVER</zorder>
+            <zorder>lineEdit_DYNDNS_INDEX</zorder>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>

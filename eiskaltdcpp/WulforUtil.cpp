@@ -53,24 +53,20 @@ using namespace dcpp;
 
 const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
 
-WulforUtil::WulforUtil(): http(NULL)
+WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
 {
-    QHttpRequestHeader header("GET", WSGET(WS_APP_DYNDNS_INDEX));
-    header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
-    QString useragent = QString("EiskaltDCPP");
-    header.setValue("User-Agent", useragent);
-
-    http = new QHttp();
-    connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
-    http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
-    http->request(header);
-
-    http_timer = new QTimer();
-    http_timer->setInterval(30*1000);
-    connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
-
-    http_timer->start();
-
+    if (WIGET(WS_APP_DYNDNS_ENABLED)) {
+        http = new QHttp();
+        connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
+        http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
+        slotHttpTimer();
+    
+        http_timer = new QTimer();
+        http_timer->setInterval(30*1000);
+        connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
+    
+        http_timer->start();
+    }
     memset(userIconCache, 0, sizeof (userIconCache));
 
     userIcons = new QImage();
@@ -117,8 +113,8 @@ WulforUtil::WulforUtil(): http(NULL)
 
 WulforUtil::~WulforUtil(){
     delete userIcons;
-    delete http_timer;
-    delete http;
+    if (http_timer) delete http_timer;
+    if (http)       delete http;
 
     clearUserIconCache();
 }
@@ -953,12 +949,14 @@ void WulforUtil::slotHttpDone(bool error){
 }
 
 void WulforUtil::slotHttpTimer(){
-    QHttpRequestHeader header("GET", WSGET(WS_APP_DYNDNS_INDEX));
-    header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
-    QString useragent = QString("EiskaltDCPP");
-    header.setValue("User-Agent", useragent);
-
-    http->request(header);
+    if( WIGET(WS_APP_DYNDNS_ENABLED) ) {
+        QHttpRequestHeader header("GET", WSGET(WS_APP_DYNDNS_INDEX));
+        header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
+        QString useragent = QString("EiskaltDCPP");
+        header.setValue("User-Agent", useragent);
+    
+        http->request(header);
+    }
 }
 
 QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* parent){

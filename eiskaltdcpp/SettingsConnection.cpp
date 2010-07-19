@@ -1,5 +1,6 @@
 #include "SettingsConnection.h"
 #include "MainWindow.h"
+#include "WulforSettings.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -105,6 +106,9 @@ void SettingsConnection::ok(){
     SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
     SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
     SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
+    WISET( WS_APP_DYNDNS_ENABLED, static_cast<int>(checkBox_DYNDNS->isChecked()) );
+    WSSET( WS_APP_DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text());
+    WSSET( WS_APP_DYNDNS_INDEX, lineEdit_DYNDNS_INDEX->text());
 
     if (old_mode != SETTING(INCOMING_CONNECTIONS) || old_tcp != (SETTING(TCP_PORT))
         || old_udp != (SETTING(UDP_PORT)) || old_tls != (SETTING(TLS_PORT)))
@@ -133,9 +137,13 @@ void SettingsConnection::init(){
     spinBox_BANDWIDTH_LIMIT_START->setValue(SETTING(BANDWIDTH_LIMIT_START));
     spinBox_BANDWIDTH_LIMIT_END->setValue(SETTING(BANDWIDTH_LIMIT_END));
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
+    checkBox_DYNDNS->setCheckState( WIGET(WS_APP_DYNDNS_ENABLED) ? Qt::Checked : Qt::Unchecked );
     frame_4->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
     frame_3->setEnabled(checkBox_THROTTLE_ENABLE->isChecked());
     frame_5->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
+    lineEdit_DYNDNS_SERVER->setText(WSGET(WS_APP_DYNDNS_SERVER));
+    lineEdit_DYNDNS_INDEX->setText(WSGET(WS_APP_DYNDNS_INDEX));
+
     switch (SETTING(INCOMING_CONNECTIONS)){
     case SettingsManager::INCOMING_DIRECT:
         {
