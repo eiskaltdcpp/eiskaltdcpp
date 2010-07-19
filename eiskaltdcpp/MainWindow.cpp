@@ -1300,12 +1300,9 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     unsigned long long available = 0;
     unsigned long long total = 0;
     if (!s.empty()) {
-        if (MainWindow::FreeDiscSpace(s.c_str() , &available, &total) == false) {
-            s = Util::getPath(Util::PATH_USER_CONFIG);
-            if (MainWindow::FreeDiscSpace(s.c_str() , &available, &total) == false) {
+        if (MainWindow::FreeDiscSpace(s, &available, &total) == false) {
             available = 0;
             total = 0;
-            }
         }
     }
     float percent = 100.0f*(total-available)/total;
@@ -2526,7 +2523,9 @@ bool MainWindow::FreeDiscSpace ( std::string path,  unsigned long long * res, un
         ULARGE_INTEGER lpTotalNumberOfBytes;    // receives the number of bytes on disk
         ULARGE_INTEGER lpTotalNumberOfFreeBytes; // receives the free bytes on disk
 
-        if ( GetDiskFreeSpaceEx( path.c_str(), &lpFreeBytesAvailableToCaller,
+        QString path_wide = QString::fromStdString(path);
+
+        if ( GetDiskFreeSpaceExW( (const WCHAR*)path_wide.utf16(), &lpFreeBytesAvailableToCaller,
                                 &lpTotalNumberOfBytes,
                                 &lpTotalNumberOfFreeBytes ) == true ) {
                 *res = lpTotalNumberOfFreeBytes.QuadPart;
@@ -2538,12 +2537,10 @@ bool MainWindow::FreeDiscSpace ( std::string path,  unsigned long long * res, un
 #else //WIN32
         struct fs_usage fsp;
         if ( get_fs_usage(path.c_str(),path.c_str(),&fsp) == 0 ) {
-                // printf("ok %d\n",fsp.fsu_bavail_top_bit_set);
                 *res = fsp.fsu_bavail*fsp.fsu_blocksize;
                 *res2 =fsp.fsu_blocks*fsp.fsu_blocksize;
                 return true;
         } else {
-                printf("ERROR: %s doesn't exist\n",path.c_str());
                 return false;
         }
 #endif //WIN32
