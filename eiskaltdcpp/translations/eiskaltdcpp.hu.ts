@@ -3912,11 +3912,11 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
     </message>
     <message>
         <source>Compressed transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Tömörített átvitel</translation>
     </message>
     <message>
         <source>Segmented downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Szegmentált letöltés</translation>
     </message>
 </context>
 <context>
@@ -4154,19 +4154,19 @@ ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
     </message>
     <message>
         <source>Default action with magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Alapértelmezett művelet magnet linkekkel</translation>
     </message>
     <message>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Rákérdez</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished">Letöltés</translation>
+        <translation>Letöltés</translation>
     </message>
 </context>
 <context>
