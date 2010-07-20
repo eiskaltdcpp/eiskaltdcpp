@@ -4860,12 +4860,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="816"/>
         <source>Compressed transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Стиснені передачі</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="827"/>
         <source>Segmented downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Багатосегментна передача</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="842"/>
@@ -5066,22 +5066,22 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="487"/>
         <source>Default action with magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Дія при кліку на мегнет</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="501"/>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Запитати</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="506"/>
         <source>Search</source>
-        <translation type="unfinished">Пошук</translation>
+        <translation>Пошук</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="511"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажити</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="529"/>
