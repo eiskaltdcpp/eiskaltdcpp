@@ -18,143 +18,146 @@ if (USE_JS)
 endif (USE_JS)
 
 include (${QT_USE_FILE})
-set (HDRS   ArenaWidgetContainer.h
-            EmoticonObject.h
-            Func.h
-            HistoryInterface.h
-            PMWindow.h
-            PoolAlloc.h
-            Version.h)
+set (HDRS   src/ArenaWidgetContainer.h
+            src/EmoticonObject.h
+            src/Func.h
+            src/HistoryInterface.h
+            src/PMWindow.h
+            src/PoolAlloc.h
+            src/Version.h
+            )
 set (SRCS
-            ActionCustomizer.cpp
-            ADLS.cpp
-            ADLSModel.cpp
-            Antispam.cpp
-            AntiSpamFrame.cpp
-            ArenaWidget.cpp
-            ArenaWidgetContainer.cpp
-            CustomFontModel.cpp
-            DownloadQueue.cpp
-            DownloadQueueModel.cpp
-            EmoticonDialog.cpp
-            EmoticonFactory.cpp
-            FavoriteHubModel.cpp
-            FavoriteHubs.cpp
-            FavoriteUsers.cpp
-            FavoriteUsersModel.cpp
-            FileBrowserModel.cpp
-            FinishedTransfers.cpp
-            FinishedTransfersModel.cpp
-            FlowLayout.cpp
-            HashProgress.cpp
-            HubFrame.cpp
-            HubManager.cpp
-            IPFilter.cpp
-            IPFilterFrame.cpp
-            IPFilterModel.cpp
-            LineEdit.cpp
-            Magnet.cpp
-            MainWindow.cpp
-            MultiLineToolBar.cpp
-            Notification.cpp
-            PMWindow.cpp
-            PublicHubs.cpp
-            PublicHubsList.cpp
-            PublicHubModel.cpp
-            QuickConnect.cpp
-            SearchFrame.cpp
-            SearchModel.cpp
-            Settings.cpp
-            SettingsConnection.cpp
-            SettingsDownloads.cpp
-            SettingsGUI.cpp
-            SettingsLog.cpp
-            SettingsNotification.cpp
-            SettingsPersonal.cpp
-            SettingsSharing.cpp
-            SettingsUC.cpp
-            ShareBrowser.cpp
-            ShellCommandRunner.cpp
-            SideBar.cpp
-            SingleInstanceRunner.cpp
-            SpyFrame.cpp
-            SpyModel.cpp
-            TabButton.cpp
-            TabFrame.cpp
-            ToolBar.cpp
-            TransferView.cpp
-            TransferViewModel.cpp
-            UCModel.cpp
-            UserListModel.cpp
-            WulforSettings.cpp
-            WulforUtil.cpp
-            ChatEdit.cpp)
+            src/ActionCustomizer.cpp
+            src/ADLS.cpp
+            src/ADLSModel.cpp
+            src/Antispam.cpp
+            src/AntiSpamFrame.cpp
+            src/ArenaWidget.cpp
+            src/ArenaWidgetContainer.cpp
+            src/CustomFontModel.cpp
+            src/DownloadQueue.cpp
+            src/DownloadQueueModel.cpp
+            src/EmoticonDialog.cpp
+            src/EmoticonFactory.cpp
+            src/FavoriteHubModel.cpp
+            src/FavoriteHubs.cpp
+            src/FavoriteUsers.cpp
+            src/FavoriteUsersModel.cpp
+            src/FileBrowserModel.cpp
+            src/FinishedTransfers.cpp
+            src/FinishedTransfersModel.cpp
+            src/FlowLayout.cpp
+            src/HashProgress.cpp
+            src/HubFrame.cpp
+            src/HubManager.cpp
+            src/IPFilter.cpp
+            src/IPFilterFrame.cpp
+            src/IPFilterModel.cpp
+            src/LineEdit.cpp
+            src/Magnet.cpp
+            src/MainWindow.cpp
+            src/MultiLineToolBar.cpp
+            src/Notification.cpp
+            src/PMWindow.cpp
+            src/PublicHubs.cpp
+            src/PublicHubsList.cpp
+            src/PublicHubModel.cpp
+            src/QuickConnect.cpp
+            src/SearchFrame.cpp
+            src/SearchModel.cpp
+            src/Settings.cpp
+            src/SettingsConnection.cpp
+            src/SettingsDownloads.cpp
+            src/SettingsGUI.cpp
+            src/SettingsLog.cpp
+            src/SettingsNotification.cpp
+            src/SettingsPersonal.cpp
+            src/SettingsSharing.cpp
+            src/SettingsUC.cpp
+            src/ShareBrowser.cpp
+            src/ShellCommandRunner.cpp
+            src/SideBar.cpp
+            src/SingleInstanceRunner.cpp
+            src/SpyFrame.cpp
+            src/SpyModel.cpp
+            src/TabButton.cpp
+            src/TabFrame.cpp
+            src/ToolBar.cpp
+            src/TransferView.cpp
+            src/TransferViewModel.cpp
+            src/UCModel.cpp
+            src/UserListModel.cpp
+            src/WulforSettings.cpp
+            src/WulforUtil.cpp
+            src/ChatEdit.cpp
+            )
 if (WIN32)
   list (APPEND SRCS openssl/applink.c)
 endif (WIN32)
 set (MOC_HDRS
-            ActionCustomizer.h
-            ADLS.h
-            ADLSModel.h
-            Antispam.h
-            AntiSpamFrame.h
-            ArenaWidget.h
-            CustomFontModel.h
-            DownloadQueue.h
-            DownloadQueueModel.h
-            EmoticonDialog.h
-            EmoticonFactory.h
-            FavoriteHubModel.h
-            FavoriteHubs.h
-            FavoriteUsers.h
-            FavoriteUsersModel.h
-            FileBrowserModel.h
-            FinishedTransfers.h
-            FinishedTransfersModel.h
-            FlowLayout.h
-            HashProgress.h
-            HubFrame.h
-            HubManager.h
-            IPFilter.h
-            IPFilterFrame.h
-            IPFilterModel.h
-            LineEdit.h
-            Magnet.h
-            MainWindow.h
-            MultiLineToolBar.h
-            Notification.h
-            PMWindow.h
-            PublicHubs.h
-            PublicHubsList.h
-            PublicHubModel.h
-            Settings.h
-            SettingsConnection.h
-            SettingsDownloads.h
-            SettingsGUI.h
-            SettingsLog.h
-            SettingsNotification.h
-            SettingsPersonal.h
-            SettingsSharing.h
-            SettingsUC.h
-            SideBar.h
-            SingleInstanceRunner.h
-            QuickConnect.h
-            SearchFrame.h
-            SearchModel.h
-            ShareBrowser.h
-            ShellCommandRunner.h
-            SpyFrame.h
-            SpyModel.h
-            TabButton.h
-            TabFrame.h
-            ToolBar.h
-            TransferView.h
-            TransferViewModel.h
-            UCModel.h
-            UserListModel.h
-            WulforSettings.h
-            WulforUtil.h
-            ChatEdit.h)
+            src/ActionCustomizer.h
+            src/ADLS.h
+            src/ADLSModel.h
+            src/Antispam.h
+            src/AntiSpamFrame.h
+            src/ArenaWidget.h
+            src/CustomFontModel.h
+            src/DownloadQueue.h
+            src/DownloadQueueModel.h
+            src/EmoticonDialog.h
+            src/EmoticonFactory.h
+            src/FavoriteHubModel.h
+            src/FavoriteHubs.h
+            src/FavoriteUsers.h
+            src/FavoriteUsersModel.h
+            src/FileBrowserModel.h
+            src/FinishedTransfers.h
+            src/FinishedTransfersModel.h
+            src/FlowLayout.h
+            src/HashProgress.h
+            src/HubFrame.h
+            src/HubManager.h
+            src/IPFilter.h
+            src/IPFilterFrame.h
+            src/IPFilterModel.h
+            src/LineEdit.h
+            src/Magnet.h
+            src/MainWindow.h
+            src/MultiLineToolBar.h
+            src/Notification.h
+            src/PMWindow.h
+            src/PublicHubs.h
+            src/PublicHubsList.h
+            src/PublicHubModel.h
+            src/Settings.h
+            src/SettingsConnection.h
+            src/SettingsDownloads.h
+            src/SettingsGUI.h
+            src/SettingsLog.h
+            src/SettingsNotification.h
+            src/SettingsPersonal.h
+            src/SettingsSharing.h
+            src/SettingsUC.h
+            src/SideBar.h
+            src/SingleInstanceRunner.h
+            src/QuickConnect.h
+            src/SearchFrame.h
+            src/SearchModel.h
+            src/ShareBrowser.h
+            src/ShellCommandRunner.h
+            src/SpyFrame.h
+            src/SpyModel.h
+            src/TabButton.h
+            src/TabFrame.h
+            src/ToolBar.h
+            src/TransferView.h
+            src/TransferViewModel.h
+            src/UCModel.h
+            src/UserListModel.h
+            src/WulforSettings.h
+            src/WulforUtil.h
+            src/ChatEdit.h
+            )
 set (UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui
             ui/UIADLSearch.ui
@@ -194,29 +197,29 @@ set (UI_FORMS ui/UIAbout.ui
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)
   ADD_CUSTOM_COMMAND (OUTPUT
-            "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp_rc.o"
+            "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o"
             COMMAND windres.exe
             -I"${CMAKE_CURRENT_SOURCE_DIR}/"
-            -i "${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp.rc"
-            -o "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp_rc.o"
+            -i "${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp-qt.rc"
+            -o "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o"
             )
-  SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp_rc.o)
+  SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o)
 elseif (NOT MINGW AND WIN32)
-  SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp.rc")
+  SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp-qt.rc")
 endif (MINGW AND WIN32)
 
 option (LANGUAGES "Using translations")
 set (AllLanguages
-  be
-  en
-  es
-  fr
-  hu
-  pl
-  ru
-  sr
-  uk
-  )
+            be
+            en
+            es
+            fr
+            hu
+            pl
+            ru
+            sr
+            uk
+            )
 if (NOT DEFINED linguas)
   set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
 else (NOT DEFINED linguas)
@@ -233,12 +236,12 @@ endif (NOT DEFINED linguas)
 message (STATUS "Translations: ${LANGUAGES}")
 
 if (USE_ASPELL)
-  list (APPEND SRCS SpellCheck.cpp)
-  list (APPEND MOC_HDRS SpellCheck.h)
+  list (APPEND SRCS src/SpellCheck.cpp)
+  list (APPEND MOC_HDRS src/SpellCheck.h)
 endif (USE_ASPELL)
 if (USE_LIBUPNP)
-    list (APPEND SRCS UPnP.cpp UPnPMapper.cpp)
-    list (APPEND MOC_HDRS  UPnP.h UPnPMapper.h)
+    list (APPEND SRCS src/UPnP.cpp src/UPnPMapper.cpp)
+    list (APPEND MOC_HDRS  src/UPnP.h src/UPnPMapper.h)
 endif (USE_LIBUPNP)
 if (USE_JS)
   list (APPEND SRCS
@@ -249,7 +252,7 @@ if (USE_JS)
         scriptengine/ScriptConsole.cpp
         scriptengine/ScriptEngine.cpp
         scriptengine/ScriptConsole.cpp
-        ScriptManagerDialog.cpp)
+        src/ScriptManagerDialog.cpp)
   list (APPEND MOC_HDRS
         scriptengine/ClientManagerScript.h
         scriptengine/HashManagerScript.h
@@ -258,11 +261,11 @@ if (USE_JS)
         scriptengine/ScriptConsole.h
         scriptengine/ScriptEngine.h
         scriptengine/ScriptConsole.h
-        ScriptManagerDialog.h)
+        src/ScriptManagerDialog.h)
 endif (USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})
-  list (APPEND COMPILED_TRANSLATIONS ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.qm)
+  list (APPEND COMPILED_TRANSLATIONS ${CMAKE_CURRENT_SOURCE_DIR}/translations/${LANGUAGE}.qm)
   #message (STATUS ${COMPILED_TRANSLATIONS})
 endforeach()
 
@@ -272,8 +275,8 @@ QT4_WRAP_CPP (M_SRCS ${MOC_HDRS})
 QT4_WRAP_UI (U_SRCS ${UI_FORMS})
 #Create translations
 foreach (LANGUAGE ${LANGUAGES})
-        set (TS ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.ts)
-        set (QM ${CMAKE_CURRENT_SOURCE_DIR}/translations/eiskaltdcpp.${LANGUAGE}.qm)
+        set (TS ${CMAKE_CURRENT_SOURCE_DIR}/translations/${LANGUAGE}.ts)
+        set (QM ${CMAKE_CURRENT_SOURCE_DIR}/translations/${LANGUAGE}.qm)
         list (APPEND TRANSLATIONS ${TS})
         list (APPEND TRANSLATIONS_BINARY ${QM})
         add_custom_command (
@@ -294,9 +297,9 @@ add_custom_command (
 if (UNIX)
   FIND_PROGRAM (GZIP_CMD gzip)
   EXECUTE_PROCESS (
-                OUTPUT_FILE eiskaltdcpp.1.gz
+                OUTPUT_FILE eiskaltdcpp-qt.1.gz
                 COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE eiskaltdcpp.1
+                INPUT_FILE eiskaltdcpp-qt.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
 
@@ -307,7 +310,14 @@ if (UNIX)
   )
 endif (UNIX)
 
-include_directories (${QT_INCLUDES} ${PROJECT_SOURCE_DIR}  "${PROJECT_SOURCE_DIR}/scriptengine" ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
+include_directories (
+        ${QT_INCLUDES}
+        ${PROJECT_SOURCE_DIR}
+        ${PROJECT_SOURCE_DIR}/src
+        ${PROJECT_SOURCE_DIR}/scriptengine
+        ${PROJECT_SOURCE_DIR}/..
+        ${Boost_INCLUDE_DIRS}
+        )
 list (APPEND LIBS ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 if (USE_LIBUPNP)
 include_directories (${UPNP_INCLUDE_DIR})
@@ -337,7 +347,7 @@ if (APPLE)
   list (APPEND SRCS ${CMAKE_CURRENT_SOURCE_DIR}/icons/icon_128x128.icns)
 endif (APPLE)
 
-add_executable (eiskaltdcpp MACOSX_BUNDLE WIN32 main.cpp
+add_executable (eiskaltdcpp-qt MACOSX_BUNDLE WIN32 src/main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
                 ${SRCS}
@@ -364,12 +374,16 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-  target_link_libraries (eiskaltdcpp ${LIBS} dcpp iconv upnp ixml)
+  target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp iconv upnp ixml)
 else (APPLE)
-  target_link_libraries (eiskaltdcpp ${LIBS} dcpp)
+  target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp)
 endif (APPLE)
 
-  set_property (TARGET eiskaltdcpp PROPERTY OUTPUT_NAME ${PROJECT_NAME_GLOBAL})
+if (UNIX AND NOT APPLE)
+  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-qt")
+else ()
+  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL} Qt")
+endif ()
 
 if (UNIX)
  set (BINDIR bin)
@@ -380,7 +394,7 @@ elseif (WIN32)
   set (BINDIR .)
 endif (UNIX)
 
-  install (TARGETS eiskaltdcpp
+  install (TARGETS eiskaltdcpp-qt
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 if (APPLE)
@@ -402,7 +416,7 @@ if (APPLE)
 
 # doesn't work this way :(
 #  set (MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
-  set_target_properties(eiskaltdcpp PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
+  set_target_properties(eiskaltdcpp-qt PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
 
   set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
   set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
@@ -440,16 +454,16 @@ endif ()
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
 if (APPLE)
   install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/pixmaps/ RENAME eiskaltdcpp.png)
-  install (FILES ../eiskaltdcpp.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES eiskaltdcpp.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+  install (FILES eiskaltdcpp-qt.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
+  install (FILES eiskaltdcpp-qt.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
   install (FILES default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 else (APPLE)
   install (FILES icons/icon_128x128.png DESTINATION ${SHARE_DIR}/pixmaps/ RENAME eiskaltdcpp.png)
   install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/resources)
   if (UNIX)
     #install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/resources)
-    install (FILES eiskaltdcpp.1.gz DESTINATION ${SHARE_DIR}/man/man1)
-    install (FILES ../eiskaltdcpp.desktop DESTINATION ${SHARE_DIR}/applications)
+    install (FILES eiskaltdcpp-qt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+    install (FILES eiskaltdcpp-qt.desktop DESTINATION ${SHARE_DIR}/applications)
   endif (UNIX)
 endif (APPLE)
 

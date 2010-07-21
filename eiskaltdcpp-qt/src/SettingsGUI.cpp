@@ -66,23 +66,23 @@ void SettingsGUI::init(){
             QString full_path = QDir::toNativeSeparators( translationsDir.filePath(f) );
             QString lang = "";
 
-            if (f == "eiskaltdcpp.en.qm")
+            if (f == "en.qm")
                 lang = tr("English");
-            else if (f == "eiskaltdcpp.ru.qm")
+            else if (f == "ru.qm")
                 lang = tr("Russian");
-            else if (f == "eiskaltdcpp.be.qm")
+            else if (f == "be.qm")
                 lang = tr("Belarusian");
-            else if (f == "eiskaltdcpp.hu.qm")
+            else if (f == "hu.qm")
                 lang = tr("Hungarian");
-            else if (f == "eiskaltdcpp.fr.qm")
+            else if (f == "fr.qm")
                 lang = tr("French");
-            else if (f == "eiskaltdcpp.pl.qm")
+            else if (f == "pl.qm")
                 lang = tr("Polish");
-            else if (f == "eiskaltdcpp.sr.qm")
+            else if (f == "sr.qm")
                 lang = tr("Serbian");
-            else if (f == "eiskaltdcpp.uk.qm")
+            else if (f == "uk.qm")
                 lang = tr("Ukrainian");
-            else if (f == "eiskaltdcpp.es.qm")
+            else if (f == "es.qm")
                 lang = tr("Spanish");
 
             if (!lang.isEmpty()){

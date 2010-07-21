@@ -91,8 +91,8 @@ public:
 
     void printHelp() const {
         QString msg =   tr("Using:\n"
-                        "  eiskaltdcpp <magnet link> <dchub://link> <adc(s)://link>\n"
-                        "  eiskaltdcpp <Key>\n"
+                        "  eiskaltdcpp-qt <magnet link> <dchub://link> <adc(s)://link>\n"
+                        "  eiskaltdcpp-qt <Key>\n"
                         "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
                         "\n"
                         "Keys:\n"

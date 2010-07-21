@@ -2,7 +2,7 @@ call variables.bat
 
 rmdir /s/q %BUILDDIR%\CMakeFiles
 rmdir /s/q %BUILDDIR%\dcpp
-rmdir /s/q %BUILDDIR%\eiskaltdcpp
+rmdir /s/q %BUILDDIR%\eiskaltdcpp-qt
 rmdir /s/q %BUILDDIR%\resources
 
 del /f %BUILDDIR%\Makefile

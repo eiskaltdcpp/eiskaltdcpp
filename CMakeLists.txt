@@ -1,13 +1,11 @@
 project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6)
 
-if (WIN32)
-  set (PROJECT_NAME_GLOBAL EiskaltDC++)
-elseif (APPLE)
-  set (PROJECT_NAME_GLOBAL EiskaltDC++)
-else ()
+if (UNIX AND NOT APPLE)
   set (PROJECT_NAME_GLOBAL eiskaltdcpp)
-endif ()
+elseif (UNIX AND NOT APPLE)
+  set (PROJECT_NAME_GLOBAL EiskaltDC++)
+endif (UNIX AND NOT APPLE)
 
 set (VERSION "2.0.x")
 include (CheckIncludeFile)
@@ -231,8 +229,8 @@ set (CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3 -pipe")
 include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_BINARY_DIR}/dcpp
    ${eiskaltdcpp_SOURCE_DIR}/dcpp
-   ${eiskaltdcpp_BINARY_DIR}/eiskaltdcpp
-   ${eiskaltdcpp_SOURCE_DIR}/eiskaltdcpp
+   ${eiskaltdcpp_BINARY_DIR}/eiskaltdcpp-qt
+   ${eiskaltdcpp_SOURCE_DIR}/eiskaltdcpp-qt
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
    )
@@ -251,7 +249,7 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
 add_subdirectory (dcpp)
 
 if (USE_QT)
-  add_subdirectory (eiskaltdcpp)
+  add_subdirectory (eiskaltdcpp-qt)
 endif (USE_QT)
 
 if (USE_WT)

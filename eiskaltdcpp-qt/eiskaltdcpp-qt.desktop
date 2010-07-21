@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=EiskaltDC++
+Name=EiskaltDC++ Qt
 Type=Application
-Exec=eiskaltdcpp
+Exec=eiskaltdcpp-qt
 Icon=eiskaltdcpp
 Terminal=false
 GenericName=DC++ client
