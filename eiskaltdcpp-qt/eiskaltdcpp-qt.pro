@@ -1,7 +1,7 @@
 QT += xml
 CONFIG += link_pkgconfig
 PKGCONFIG += libupnp
-INCLUDEPATH += ../dcpp
+INCLUDEPATH += ../dcpp src
 RC_FILE += eiskaltdcpp-qt.rc
 HEADERS = src/MainWindow.h \
     src/Func.h \
