@@ -36,6 +36,7 @@
     <file alias="hashing.png">hashing.png</file>
     <file alias="hubmsg.png">hubmsg.png</file>
     <file alias="icon_appl.png">icon_appl.png</file>
+    <file alias="icon_appl_big.png">icon_appl_big.png</file>
     <file alias="icon_msg.png">icon_msg.png</file>
     <file alias="image-x-generic.png">image-x-generic.png</file>
     <file alias="im-user-away.png">im-user-away.png</file>
