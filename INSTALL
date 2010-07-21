@@ -10,6 +10,7 @@ iconv (libc on GNU/Linux)
 libaspell (optional, see cmake keys)
 libqt4-script (>= 4.4.0) (optional, see cmake keys)
 libqt4-dbus (>= 4.4.0) (optional, see cmake keys)
+libwt, libwtext, libwtfcgi, libwthttp (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -27,6 +28,7 @@ iconv (libc on GNU/Linux)
 libaspell-dev (optional, see cmake keys)
 libboost-dev (headers only) (optional, see cmake keys)
 libboost-date-time-dev, libboost-filesystem-dev, libboost-system-dev (optional, see cmake keys)
+libwt-dev, libwtext-dev, libwtfcgi-dev, libwthttp-dev (optional, see cmake keys)
 
 
 *******************************************************************************

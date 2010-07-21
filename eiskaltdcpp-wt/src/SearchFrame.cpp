@@ -7,7 +7,7 @@ using namespace dcpp;
 
 SearchFrame::SearchFrame(Wt::WContainerWidget *parent): WContainerWidget(parent) {
     resize(WLength(100, WLength::Percentage), WLength(100, WLength::Percentage));
-    
+
     vlayout = new WVBoxLayout();
     setLayout(vlayout);
 
@@ -42,7 +42,7 @@ SearchFrame::SearchFrame(Wt::WContainerWidget *parent): WContainerWidget(parent)
         lineEdit_SEARCH->setStyleClass("search-edit");
         lineEdit_SEARCH->setEmptyText("Search for...");
         lineEdit_SEARCH->enterPressed().connect(this, &SearchFrame::startSearch);
-        lineEdit_SEARCH->enterPressed().preventDefaultAction(true);
+        //lineEdit_SEARCH->enterPressed().preventDefaultAction(true);
 
         pushButton_SEARCH = new WPushButton("Search");
         pushButton_SEARCH->setStyleClass("search-button");

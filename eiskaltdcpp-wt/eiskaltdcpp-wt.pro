@@ -1,5 +1,4 @@
-INCLUDEPATH += ../dcpp
-INCLUDEPATH += /usr/include/Wt
+INCLUDEPATH += ../dcpp /usr/include/Wt
 HEADERS = ../dcpp/HashBloom.h \
     ../dcpp/FavoriteUser.h \
     ../dcpp/File.h \
