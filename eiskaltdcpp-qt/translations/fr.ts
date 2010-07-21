@@ -12,7 +12,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Utilise:
+        <translation type="obsolete">Utilise:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Key&gt;
 EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les protocoles Direct Connect et ADC.
@@ -20,6 +20,17 @@ EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les proto
 Clés:
   -h, --help(tab) Montre ce message
   -v, --version(tab) Montre la version de la chaîne</translation>
+    </message>
+    <message>
+        <source>Using:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Key&gt;
+EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3681,6 +3692,18 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     <message>
         <source>hour(s)</source>
         <translation>Heure(s)</translation>
+    </message>
+    <message>
+        <source>When enabled can hang program on exit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically update external IP (restart required)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DynDNS Address:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

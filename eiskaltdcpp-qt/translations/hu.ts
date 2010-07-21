@@ -12,7 +12,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Használat:
+        <translation type="obsolete">Használat:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Kapcsoló&gt;
 Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
@@ -20,6 +20,17 @@ Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az A
 Kapcsolók:
   -h, --help	 Help megjelenítése
   -v, --version  Verzióinformáció mutatása</translation>
+    </message>
+    <message>
+        <source>Using:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Key&gt;
+EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3539,6 +3550,18 @@ Ha a számítógéped nincs router mögött, nincs más teendőd csak válaszd e
 és nem kell mást tenned a kapcsolat beállításai között.
 Ezen túl, ha telepítve van valamilyen szoftveres tűzfalprogram a számítógépedre, győződj meg arról,
 hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsolat a tűzfalon.</translation>
+    </message>
+    <message>
+        <source>When enabled can hang program on exit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically update external IP (restart required)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DynDNS Address:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -12,7 +12,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished">Upotreba:(new line)
+        <translation type="obsolete">Upotreba:(new line)
 (sp)(sp)eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
 (sp)(sp)eiskaltdcpp &lt;Key&gt;
 EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC protokol. 
@@ -20,6 +20,17 @@ EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC pr
 Keys:
 (sp)(sp)-h, --help(tab) Prikaži ovu poruku
 (sp)(sp)-v, --version(tab) Prikaži verziju</translation>
+    </message>
+    <message>
+        <source>Using:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Key&gt;
+EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3387,6 +3398,18 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
     <message>
         <source>hour(s)</source>
         <translation>sat(i)</translation>
+    </message>
+    <message>
+        <source>When enabled can hang program on exit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically update external IP (restart required)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DynDNS Address:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
