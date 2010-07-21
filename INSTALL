@@ -43,11 +43,15 @@ svn export http://eiskaltdc.googlecode.com/svn/branches/trunk/ eiskaltdcpp-trunk
 
 ---------
 Keys for cmake:
--DUSE_ASPELL:BOOL=1/0 (default: not set)
+-DUSE_QT=ON/OFF (default: ON)
+    build EiskaltDC++ with Qt interface
+-DUSE_WT=ON/OFF (default: OFF)
+    build EiskaltDC++ with Wt (Web Toolkit) interface
+-DUSE_ASPELL=ON/OFF (default: not set)
     forced use or not use aspell
--DFREE_SPACE_BAR_C:BOOL=1/0 (default: BOOL=1)
+-DFREE_SPACE_BAR_C=ON/OFF (default: ON)
     free space bar in status panel
--DLOCAL_BOOST:BOOL=1 (default: BOOL=0)
+-DLOCAL_BOOST=ON/OFF (default: OFF)
     use local boost headers
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
     examples:
@@ -61,9 +65,9 @@ Keys for cmake:
   use or not use libupnp
 -DDBUS_NOTIFY=ON/OFF (default: ON)
   use or not use QtDBus module
--DUSE_JS:BOOL=1 (default: BOOL=0)
+-DUSE_JS=ON/OFF (default: OFF)
     Enable/disable QtScript basic support
--DUSE_ICON_THEME:BOOL=1 (default: BOOL=0)
+-DUSE_ICON_THEME=ON/OFF (default: OFF)
     Using system icon theme. Work only with Qt >= 4.6.0 and only in KDE and Gnome.
 -DCMAKE_INSTALL_PREFIX=<prefix for install> (default: /usr/local)
     .
