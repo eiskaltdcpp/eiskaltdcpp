@@ -9,23 +9,27 @@ find_package (Wt REQUIRED)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${Wt_INCLUDE_DIR})
 
-set (HDRS   DownloadQueue.h
-	    DownloadQueueModel.h
-	    SearchFrame.h
-	    SearchModel.h
-	    Utils.h)
-set (SRCS   DownloadQueue.cpp
-	    DownloadQueueModel.cpp
-	    SearchFrame.cpp
-	    SearchModel.cpp
-	    Utils.cpp)
+set (HDRS
+	    src/DownloadQueue.h
+	    src/DownloadQueueModel.h
+	    src/SearchFrame.h
+	    src/SearchModel.h
+	    src/Utils.h
+	)
+set (SRCS
+	    src/DownloadQueue.cpp
+	    src/DownloadQueueModel.cpp
+	    src/SearchFrame.cpp
+	    src/SearchModel.cpp
+	    src/Utils.cpp
+	)
 
 
 include_directories (${Wt_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}  ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${Wt_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
 
-add_executable (eiskaltdcpp-wt MACOSX_BUNDLE WIN32 main.cpp
+add_executable (eiskaltdcpp-wt MACOSX_BUNDLE WIN32 src/main.cpp
                 ${SRCS}
                 ${HDRS}
                 )
@@ -47,7 +51,22 @@ else (APPLE)
   target_link_libraries (eiskaltdcpp-wt ${LIBS} dcpp)
 endif (APPLE)
 
+if (UNIX)
+ set (BINDIR bin)
+ if (APPLE)
+    set (BUNDLEDIR .)
+ endif ()
+elseif (WIN32)
+  set (BINDIR .)
+endif (UNIX)
+
   set_property (TARGET eiskaltdcpp-wt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-wt")
   install (TARGETS eiskaltdcpp-wt
-    RUNTIME DESTINATION bin
-    BUNDLE DESTINATION . )
+    RUNTIME DESTINATION ${BINDIR}
+    BUNDLE DESTINATION ${BUNDLEDIR})
+  install (FILES eiskaltdcpp-wt_run.sh DESTINATION ${BINDIR})
+
+  install (DIRECTORY ext/ DESTINATION ${CLIENT_DATA_DIR}/wt/ext FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE PATTERN ".svn" EXCLUDE )
+  install (DIRECTORY resources/ DESTINATION ${CLIENT_DATA_DIR}/wt/resources FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE PATTERN ".svn" EXCLUDE )
+  install (FILES eiskaltdcpp.css DESTINATION ${CLIENT_DATA_DIR}/wt/)
+
