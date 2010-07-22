@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 2.6)
 
 if (UNIX AND NOT APPLE)
   set (PROJECT_NAME_GLOBAL eiskaltdcpp)
-elseif (UNIX AND NOT APPLE)
+else (UNIX AND NOT APPLE)
   set (PROJECT_NAME_GLOBAL EiskaltDC++)
 endif (UNIX AND NOT APPLE)
 
