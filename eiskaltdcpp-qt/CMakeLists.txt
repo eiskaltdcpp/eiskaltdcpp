@@ -24,7 +24,7 @@ set (HDRS   src/ArenaWidgetContainer.h
             src/HistoryInterface.h
             src/PMWindow.h
             src/PoolAlloc.h
-            src/Version.h
+            ../Version.h
             )
 set (SRCS
             src/ActionCustomizer.cpp

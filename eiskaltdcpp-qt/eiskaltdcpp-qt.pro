@@ -3,8 +3,7 @@ CONFIG += link_pkgconfig
 PKGCONFIG += libupnp
 INCLUDEPATH += ../dcpp src
 RC_FILE += eiskaltdcpp-qt.rc
-HEADERS = src/MainWindow.h \
-    src/Func.h \
+HEADERS = ../Version.h \
     ../dcpp/HashBloom.h \
     ../dcpp/FavoriteUser.h \
     ../dcpp/File.h \
@@ -92,7 +91,8 @@ HEADERS = src/MainWindow.h \
     ../dcpp/CID.h \
     ../dcpp/AdcHub.h \
     ../dcpp/HashManagerListener.h \
-    src/hubframe.h \
+    src/MainWindow.h \
+    src/Func.h \
     src/HubFrame.h \
     src/UserListModel.h \
     src/WulforUtil.h \
@@ -105,7 +105,6 @@ HEADERS = src/MainWindow.h \
     src/SearchFrame.h \
     src/QuickConnect.h \
     src/SearchModel.h \
-    src/Version.h \
     src/Settings.h \
     src/SettingsPersonal.h \
     src/SettingsConnection.h \
@@ -167,9 +166,7 @@ HEADERS = src/MainWindow.h \
     src/TabFrame.h \
     src/FlowLayout.h \
     src/MultiLineToolBar.h
-SOURCES = src/main.cpp \
-    src/MainWindow.cpp \
-    ../dcpp/HashManager.cpp \
+SOURCES = ../dcpp/HashManager.cpp \
     ../dcpp/SettingsManager.cpp \
     ../dcpp/DCPlusPlus.cpp \
     ../dcpp/SimpleXML.cpp \
@@ -220,6 +217,8 @@ SOURCES = src/main.cpp \
     ../dcpp/ServerSocket.cpp \
     ../dcpp/ShareManager.cpp \
     ../dcpp/ZUtils.cpp \
+    src/main.cpp \
+    src/MainWindow.cpp \
     src/HubFrame.cpp \
     src/UserListModel.cpp \
     src/WulforUtil.cpp \

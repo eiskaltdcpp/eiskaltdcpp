@@ -1,4 +1,5 @@
-HEADERS = HEADERS = src/MainWindow.h \
+HEADERS = ../Version.h \
+    src/MainWindow.h \
     src/Antispam.h \
     src/AntiSpamFrame.h \
     src/IPFilter.h \
@@ -21,7 +22,6 @@ HEADERS = HEADERS = src/MainWindow.h \
     src/SearchFrame.h \
     src/QuickConnect.h \
     src/SearchModel.h \
-    src/Version.h \
     src/Settings.h \
     src/SettingsPersonal.h \
     src/SettingsConnection.h \

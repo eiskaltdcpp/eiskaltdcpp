@@ -1,5 +1,6 @@
 INCLUDEPATH += ../dcpp /usr/include/Wt src
-HEADERS = ../dcpp/HashBloom.h \
+HEADERS = ../Version.h \
+    ../dcpp/HashBloom.h \
     ../dcpp/FavoriteUser.h \
     ../dcpp/File.h \
     ../dcpp/CriticalSection.h \
@@ -91,8 +92,7 @@ HEADERS = ../dcpp/HashBloom.h \
     src/Utils.h \
     src/DownloadQueue.h \
     src/DownloadQueueModel.h
-SOURCES = src/main.cpp \
-    ../dcpp/HashManager.cpp \
+SOURCES = ../dcpp/HashManager.cpp \
     ../dcpp/SettingsManager.cpp \
     ../dcpp/DCPlusPlus.cpp \
     ../dcpp/SimpleXML.cpp \
@@ -143,6 +143,7 @@ SOURCES = src/main.cpp \
     ../dcpp/ServerSocket.cpp \
     ../dcpp/ShareManager.cpp \
     ../dcpp/ZUtils.cpp \
+    src/main.cpp \
     src/SearchFrame.cpp \
     src/SearchModel.cpp \
     src/Utils.cpp \

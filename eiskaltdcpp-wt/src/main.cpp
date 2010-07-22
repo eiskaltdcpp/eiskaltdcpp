@@ -20,9 +20,33 @@
 #include "SearchFrame.h"
 #include "DownloadQueue.h"
 #include "Utils.h"
+#include "Version.h"
 
 using namespace Wt;
 using namespace dcpp;
+
+
+void printHelp() {
+    printf("Using:\n"
+           "  eiskaltdcpp-wt eiskaltdcpp-wt --http-port=<port> --http-address=<address> --docroot <path>\n"
+           "  eiskaltdcpp-qt <Key>\n"
+           "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
+           "\n"
+           "Keys:\n"
+           "  -h, --help\t Show this message\n"
+           "  -v, --version\t Show version string\n"
+           "Examples:\n"
+           "  eiskaltdcpp-wt --http-port=\"8080\" --http-address=\"0.0.0.0\" --docroot \"/usr/share/eiskaltdcpp/wt/\"\n"
+           );
+}
+
+void printVersion() {
+#ifndef DCPP_REVISION
+    printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+#else
+    printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
+#endif
+}
 
 void callBack(void* x, const std::string& a)
 {
@@ -41,7 +65,7 @@ public:
         messageResourceBundle().use("eiskaltdcpp");
 
         toolbar = new Ext::ToolBar(root());
-        
+
         search_btn = toolbar->addButton("Search");
         search_btn->setIcon("resources/edit-find.png");
 
@@ -108,6 +132,18 @@ Wt::WApplication *createApplication(const Wt::WEnvironment& env)
 }
 
 int main(int argc, char** argv) {
+
+    for (int i = 0; i < argc; i++){
+        if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
+            printHelp();
+            exit(0);
+        }
+        else if (!strcmp(argv[i],"-v")){
+            printVersion();
+            exit(0);
+        }
+    }
+
     Utils::init();
 
     dcpp::startup(callBack, NULL);
@@ -153,7 +189,7 @@ void autoconnect(){
             std::string serv = entry->getServer();
 
             Client *client = ClientManager::getInstance()->getClient(serv);
-            client->setEncoding(enc);      
+            client->setEncoding(enc);
             client->setPassword(entry->getPassword());
             client->password(entry->getPassword());
 
