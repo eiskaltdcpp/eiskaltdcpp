@@ -419,10 +419,8 @@
   <file name="images\default\grid\hmenu-desc.gif" path="images\default\grid" />
   <file name="images\default\grid\hmenu-lock.png" path="images\default\grid" />
   <file name="images\default\grid\hmenu-unlock.png" path="images\default\grid" />
-  <file name="images\default\grid\Thumbs.db" path="images\default\grid" />
   <file name="images\default\menu\shadow-lite.png" path="images\default\menu" />
   <file name="images\default\menu\shadow.png" path="images\default\menu" />
-  <file name="license.txt" path="" />
   <file name="css\date-picker.css" path="css" />
   <file name="images\default\basic-dialog\collapse.gif" path="images\default\basic-dialog" />
   <file name="images\default\basic-dialog\expand.gif" path="images\default\basic-dialog" />
