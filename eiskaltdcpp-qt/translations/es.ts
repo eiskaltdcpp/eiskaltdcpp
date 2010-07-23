@@ -30,7 +30,14 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Uso:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Key&gt;
+EiskaltDC++ es un programa para sistemas UNIX que utiliza Direct Connect y el protocolo ADC
+
+Opciones:
+  -h, --help	Muestra este mensaje
+  -v, --version	 Muestra la version del programa</translation>
     </message>
 </context>
 <context>
@@ -4116,17 +4123,17 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="353"/>
         <source>When enabled can hang program on exit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando se activa se puede colgar el programa cuando se sale de el.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="356"/>
         <source>Automatically update external IP (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar automaticamente la IP externa (necesita reiniciar)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="372"/>
         <source>DynDNS Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dirección DynDNS:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="422"/>
