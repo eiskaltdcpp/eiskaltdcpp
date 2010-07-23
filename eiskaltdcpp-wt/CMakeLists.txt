@@ -60,6 +60,15 @@ elseif (WIN32)
   set (BINDIR .)
 endif (UNIX)
 
+if (UNIX)
+  FIND_PROGRAM (GZIP_CMD gzip)
+  EXECUTE_PROCESS (
+                OUTPUT_FILE eiskaltdcpp-wt.1.gz
+                COMMAND "${GZIP_CMD}" -9
+                INPUT_FILE eiskaltdcpp-wt.1
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+endif (UNIX)
+
   set_property (TARGET eiskaltdcpp-wt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-wt")
   install (TARGETS eiskaltdcpp-wt
     RUNTIME DESTINATION ${BINDIR}
@@ -69,3 +78,9 @@ endif (UNIX)
   install (DIRECTORY resources/ DESTINATION ${CLIENT_DATA_DIR}/wt/resources PATTERN ".svn" EXCLUDE )
   install (FILES eiskaltdcpp.css DESTINATION ${CLIENT_DATA_DIR}/wt/)
   install (FILES eiskaltdcpp-wt_run.sh DESTINATION ${CLIENT_DATA_DIR}/wt/ PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+
+if (APPLE)
+  install (FILES eiskaltdcpp-wt.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+else (UNIX AND NOT APPLE)
+  install (FILES eiskaltdcpp-wt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+endif (APPLE)
