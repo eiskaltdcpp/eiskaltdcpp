@@ -278,6 +278,8 @@ void DownloadQueue::init(){
 
     loadList();
 
+    treeView_TARGET->expandAll();
+
     MainWindow *MW = MainWindow::getInstance();
 
     MW->addArenaWidget(this);
