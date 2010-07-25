@@ -31,7 +31,14 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Використання:
+  eiskaltdcpp-qt &lt;magnet-посилання&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Ключ&gt;
+EiskaltDC++ - програма для UNIX-систем, для роботи з Direct Connect і ADC протоколами.
+
+Ключі:
+  -h, --help	 Показати це повідомлення
+  -v, --version	 Показати версію</translation>
     </message>
 </context>
 <context>
@@ -4360,17 +4367,17 @@ SOCKS5-проксі це не те ж саме, що й HTTP-проксі.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="353"/>
         <source>When enabled can hang program on exit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо увімкнено, програма може зависати при виході.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="356"/>
         <source>Automatically update external IP (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично оновлювати зовнішній ІР (потрібен перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="372"/>
         <source>DynDNS Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса DynDNS:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="422"/>
