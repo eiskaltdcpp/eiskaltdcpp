@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--*- mode: xml -*-->
+<glade-interface>
+  <widget class="GtkVBox" id="mainBox">
+    <property name="visible">True</property>
+    <property name="can_focus">True</property>
+    <property name="border_width">4</property>
+    <property name="spacing">4</property>
+    <child>
+      <widget class="GtkHPaned" id="pane">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <child>
+          <widget class="GtkScrolledWindow" id="chatScroll">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="shadow_type">GTK_SHADOW_IN</property>
+            <child>
+              <widget class="GtkTextView" id="chatText">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="editable">False</property>
+                <property name="wrap_mode">GTK_WRAP_WORD_CHAR</property>
+                <property name="cursor_visible">False</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="resize">True</property>
+            <property name="shrink">True</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkScrolledWindow" id="scrolledwindow2">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="shadow_type">GTK_SHADOW_IN</property>
+            <child>
+              <widget class="GtkTreeView" id="nickView">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="resize">False</property>
+            <property name="shrink">True</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkHBox" id="chatHBox">
+        <property name="visible">True</property>
+        <property name="spacing">4</property>
+        <child>
+          <widget class="GtkButton" id="chatCommandsButton">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip" translatable="yes">Chat Commands</property>
+            <property name="label">/</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="chatEntry">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">*</property>
+          </widget>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="emotButton">
+            <property name="visible">True</property>
+            <property name="focus_on_click">False</property>
+            <property name="tooltip" translatable="yes">Emoticons</property>
+            <child>
+              <widget class="GtkImage" id="emotButtonImage">
+                <property name="visible">True</property>
+                <property name="stock">freedcpp-smile</property>
+                <property name="icon_size">1</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">2</property>
+            <property name="expand">False</property>
+          </packing>
+        </child>
+      </widget>
+      <packing>
+        <property name="expand">False</property>
+        <property name="position">2</property>
+      </packing>
+    </child>
+    <child>
+      <widget class="GtkHBox" id="hbox2">
+        <property name="visible">True</property>
+        <property name="spacing">5</property>
+        <child>
+          <widget class="GtkStatusbar" id="statusMain">
+            <property name="visible">True</property>
+            <property name="has_resize_grip">False</property>
+          </widget>
+        </child>
+        <child>
+          <widget class="GtkStatusbar" id="statusUsers">
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="has_resize_grip">False</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkStatusbar" id="statusShared">
+            <property name="width_request">100</property>
+            <property name="visible">True</property>
+            <property name="has_resize_grip">False</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="userListCheckButton">
+            <property name="visible">True</property>
+            <property name="tooltip" translatable="yes">Show/Hide user list</property>
+            <property name="can_focus">True</property>
+            <property name="label">+/-</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+      </widget>
+      <packing>
+        <property name="expand">False</property>
+        <property name="position">2</property>
+      </packing>
+    </child>
+  </widget>
+  <widget class="GtkMenu" id="nickMenu">
+    <child>
+      <widget class="GtkMenuItem" id="copyNickItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Copy nick</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="nickToChatItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Send public message</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="browseItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Browse file list</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="matchItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Match queue</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="msgItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Private message</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkSeparatorMenuItem" id="separator2">
+        <property name="visible">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="favoriteUserItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Add to favorites</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="removeFavoriteUserItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Remove from favorites</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkSeparatorMenuItem" id="separator3">
+        <property name="visible">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="grantItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Grant slot</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="removeUserItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Remove user from queue</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="usercommandItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_User commands</property>
+        <property name="use_underline">True</property>
+        <child>
+          <widget class="GtkMenu" id="usercommandMenu">
+          </widget>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkMenu" id="magnetMenu">
+    <child>
+      <widget class="GtkMenuItem" id="searchMagnetItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Search magnet</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="downloadItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Download</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="downloadToItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Download _to...</property>
+        <property name="use_underline">True</property>
+        <child>
+          <widget class="GtkMenu" id="downloadMenu">
+            <child>
+              <widget class="GtkMenuItem" id="downloadBrowseItem">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Browse...</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+          </widget>
+        </child>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="copyMagnetItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Copy magnet</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkSeparatorMenuItem" id="separator1">
+        <property name="visible">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="magnetPropertiesItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Properties/Choice</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkMenu" id="emotPacksMenu"></widget>
+  <widget class="GtkMenu" id="linkMenu">
+    <child>
+      <widget class="GtkMenuItem" id="copyLinkItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Copy link</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="openLinkItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Open link in default application</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkMenu" id="hubMenu">
+    <child>
+      <widget class="GtkMenuItem" id="copyhubItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Copy link</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="openhubItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Open hub</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkMenu" id="chatCommandsMenu">
+    <property name="visible">True</property>
+    <child>
+      <widget class="GtkMenuItem" id="awayCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Away mode message on/off</property>
+        <property name="label">/away &lt;message&gt;</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="backCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Away mode off</property>
+        <property name="label">/back</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="clearCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Clear chat</property>
+        <property name="label">/clear</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="favCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Add a hub to favorites</property>
+        <property name="label">/favorite</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="lsfuCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Show favorites list</property>
+        <property name="label">/listfu</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="helpCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Show help</property>
+        <property name="label">/help</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="joinCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Connect to the hub</property>
+        <property name="label">/join &lt;address&gt;</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="meCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Say a third person</property>
+        <property name="label">/me &lt;message&gt;</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="rebuildCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Rebuild hash</property>
+        <property name="label">/rebuild</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="versionCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Show version</property>
+        <property name="label">/freedcpp</property>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>

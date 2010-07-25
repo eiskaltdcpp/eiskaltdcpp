@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--*- mode: xml -*-->
+<glade-interface>
+  <widget class="GtkVBox" id="mainBox">
+    <property name="visible">True</property>
+    <property name="border_width">4</property>
+    <property name="spacing">4</property>
+    <child>
+      <widget class="GtkNotebook" id="finishedbook">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <child>
+          <widget class="GtkScrolledWindow" id="viewWindowFile">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="shadow_type">GTK_SHADOW_IN</property>
+            <child>
+              <widget class="GtkTreeView" id="fileView">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </widget>
+            </child>
+          </widget>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_grpfile">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Grouped by Files</property>
+          </widget>
+          <packing>
+            <property name="type">tab</property>
+            <property name="tab_fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkScrolledWindow" id="viewWindowUser">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="shadow_type">GTK_SHADOW_IN</property>
+            <child>
+              <widget class="GtkTreeView" id="userView">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="headers_clickable">True</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_grpuser">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Grouped by Users</property>
+          </widget>
+          <packing>
+            <property name="type">tab</property>
+            <property name="position">1</property>
+            <property name="tab_fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkHBox" id="statusBox">
+        <property name="visible">True</property>
+        <property name="spacing">4</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <widget class="GtkStatusbar" id="totalItems">
+            <property name="width_request">80</property>
+            <property name="visible">True</property>
+            <property name="has_resize_grip">False</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">GTK_PACK_END</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkStatusbar" id="totalSize">
+            <property name="width_request">80</property>
+            <property name="visible">True</property>
+            <property name="has_resize_grip">False</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">GTK_PACK_END</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkStatusbar" id="averageSpeed">
+            <property name="width_request">80</property>
+            <property name="visible">True</property>
+            <property name="has_resize_grip">False</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="pack_type">GTK_PACK_END</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </widget>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">False</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+  </widget>
+  <widget class="GtkMenu" id="menu">
+    <child>
+      <widget class="GtkMenuItem" id="appsPreviewItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Preview</property>
+        <property name="use_underline">True</property>
+        <child>
+          <widget class="GtkMenu" id="appsPreviewMenu">
+          </widget>
+        </child>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkImageMenuItem" id="openFolderItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Open containing _folder</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkImageMenuItem" id="removeItem">
+        <property name="visible">True</property>
+        <property name="label">gtk-remove</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="removeAllItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Remove All</property>
+        <property name="use_underline">True</property>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>

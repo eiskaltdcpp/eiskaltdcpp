@@ -1,0 +1,75 @@
+EiskaltDC++ Gtk:
+----------------
+Leliksan Floyd <leliksan@gmail.com>
+Boris Pek <tehnick-8@mail.ru>
+
+FreeDC++:
+---------
+troll
+
+Contributors:
+Leliksan Floyd
+
+LinuxDC++:
+----------
+Jens Oknelid (paskharen)
+Alexander Nordfelth (phase)
+Steven Sheehy
+Razzloss
+
+Contributors:
+Dyluck
+s4kk3
+Trent Lloyd
+Kristian Berg/Ixan
+luusl
+Rikard Bj�klind
+clairvoyant
+obi
+John Armstrong
+Naga
+Vikram Aggarwal
+Romain Beauxis
+Tom Lofts
+Matthew Ziegelbaum
+Tobias Nygren
+Johannes Sj�und
+Pavlov Konstantin
+Fredrik Ullner
+Mikael Eman
+Rimas Kudelis
+dorian
+Bart Vullings
+Jussi Peltola
+Mattias Webj�n Eriksson
+Stanislav Maslovski
+piotrp
+kotnik
+jikaheim
+gasol
+stoft
+David Grundberg
+Max Lapan
+Jeremy Evans
+Per G�ansson
+olsner
+Eric Toombs
+Ximin Luo
+
+DC++:
+-----
+Jacek Sieka
+Per Lind�
+
+geoff, carxor, luca rota, dan kline, mike, anton, zc, sarf, farcry, kyrre aalerud, opera,
+patbateman, xeroc, fusbar, vladimir marko, kenneth skovhede, ondrea, todd pederzani, who,
+sedulus, sandos, henrik engstr�, dwomac, robert777, saurod, atomicjo, bzbetty, orkblutt,
+distiller, citruz, dan fulger, cologic, christer palm, twink, ilkka sepp�� johnny, ciber,
+theparanoidone, gadget, naga, tremor, joakim tosteberg, pofis, psf8500, lauris ievins,
+defr, ullner, fleetcommand, liny, xan, olle svensson, mark gillespie, jeremy huddleston,
+bsod, sulan, jonathan stone, tim burton, izzzo, guitarm, paka, nils maier, jens oknelid, yoji,
+krzysztof tyszecki, poison, mikejj, pur, bigmuscle, martin, jove, bart vullings,
+steven sheehy, tobias nygren, poy, dorian, stephan hohe, mafa_45, mikael eman, james ross,
+stanislav maslovski, david grundberg, pavel andreev, yakov suraev, kulmegil, smir, emtee, individ,
+pseudonym, crise, ben, ximin luo
+

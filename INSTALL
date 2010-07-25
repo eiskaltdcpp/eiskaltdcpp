@@ -23,6 +23,16 @@ libupnp (=1.6.* only) (optional, see cmake keys)
 :eiskaltdcpp-wt:
 ----------------
 libwt, libwtext, libwtfcgi, libwthttp
+-----------------
+:eiskaltdcpp-gtk:
+-----------------
+libgnome2
+libpango
+libgtk2 (>= 2.10)
+libglib2 (>= 2.10)
+libglade2 (>= 2.4)
+libglade2 (>= 2.4)
+libnotify (>= 0.4.1)
 
 
 *******************************************************************************
@@ -36,6 +46,7 @@ zlib
 bzip2
 cmake (>= 2.6.0)
 iconv (libc on GNU/Linux)
+pkg-config
 ------
 :dcpp:
 ------
@@ -51,6 +62,13 @@ libaspell-dev (optional, see cmake keys)
 :eiskaltdcpp-wt:
 ----------------
 libwt-dev, libwtext-dev, libwtfcgi-dev, libwthttp-dev
+-----------------
+:eiskaltdcpp-gtk:
+-----------------
+libgtk2.0-dev
+libglade2-dev
+libgnome2-dev
+libnotify-dev
 
 
 *******************************************************************************
@@ -71,6 +89,8 @@ Keys for cmake:
     build EiskaltDC++ with Qt interface
 -DUSE_WT=ON/OFF (default: OFF)
     build EiskaltDC++ with Wt (Web Toolkit) interface
+-DUSE_GTK=ON/OFF (default: OFF)
+    build EiskaltDC++ with Gtk interface (based on FreeDC++ and LinuxDC++)
 -DUSE_ASPELL=ON/OFF (default: not set)
     forced use or not use aspell
 -DFREE_SPACE_BAR_C=ON/OFF (default: ON)

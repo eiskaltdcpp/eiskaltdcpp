@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=EiskaltDC++ Gtk
+Type=Application
+Exec=eiskaltdcpp-gtk
+Icon=eiskaltdcpp
+Terminal=false
+GenericName=DC++ client
+GenericName[ru]=Клиент сетей DC++
+GenericName[en]=DC++ client
+GenericName[be]=Кліент сеткі DC++
+Comment=Share files over the DC++ network
+Comment[ru]=Делитесь файлами с помощью сетей DC++
+Comment[en]=Share files over the DC++ network
+Comment[be]=Паздяляйцеся файламі праз сетку DC++
+Categories=Network;FileTransfer;P2P;Qt;
+GenericName[ru_RU]=Клиент сетей DC++
+GenericName[be_BY]=Кліент сеткі DC++

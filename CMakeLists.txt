@@ -86,8 +86,9 @@ if (USE_JS)
   find_package (Qt4 4.4.0 COMPONENTS QtScript REQUIRED)
 endif (USE_JS)
 
-option (USE_WT "WebControl" OFF)
 option (USE_QT "Qt interface" ON)
+option (USE_WT "WebControl" OFF)
+option (USE_GTK "GTK interface" OFF)
 
 if (NOT USE_ASPELL)
     option(USE_ASPELL "Use aspell for spellchecking")
@@ -255,6 +256,10 @@ endif (USE_QT)
 if (USE_WT)
   add_subdirectory (eiskaltdcpp-wt)
 endif (USE_WT)
+
+if (USE_GTK)
+  add_subdirectory (eiskaltdcpp-gtk)
+endif (USE_GTK)
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
