@@ -8,39 +8,38 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${Wt_INCLUDE_DIR})
 
 set (HDRS
-	    src/DownloadQueue.h
-	    src/DownloadQueueModel.h
-	    src/SearchFrame.h
-	    src/SearchModel.h
-	    src/Utils.h
-	)
+        src/DownloadQueue.h
+        src/DownloadQueueModel.h
+        src/SearchFrame.h
+        src/SearchModel.h
+        src/Utils.h
+    )
 set (SRCS
-	    src/DownloadQueue.cpp
-	    src/DownloadQueueModel.cpp
-	    src/SearchFrame.cpp
-	    src/SearchModel.cpp
-	    src/Utils.cpp
-	)
+        src/DownloadQueue.cpp
+        src/DownloadQueueModel.cpp
+        src/SearchFrame.cpp
+        src/SearchModel.cpp
+        src/Utils.cpp
+    )
 
 
 include_directories (${Wt_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}  ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${Wt_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
-
 add_executable (eiskaltdcpp-wt MACOSX_BUNDLE WIN32 src/main.cpp
                 ${SRCS}
                 ${HDRS}
                 )
-add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
+add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                           -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
                           -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
                           -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
                 )
 
 if (APPLE)
-  add_definitions(        -DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
+  add_definitions( -DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
 else (APPLE)
-  add_definitions(        -DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/resources")
+  add_definitions( -DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/resources")
 endif (APPLE)
 
 if (APPLE)
@@ -84,6 +83,6 @@ endif (UNIX)
 
 if (APPLE)
   install (FILES eiskaltdcpp-wt.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
-else (UNIX AND NOT APPLE)
+elseif (UNIX AND NOT APPLE)
   install (FILES eiskaltdcpp-wt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
 endif (APPLE)

@@ -75,9 +75,6 @@ option (USE_GTK "GTK interface" OFF)
 
 if (USE_QT)
     option (USE_LIBUPNP "Libupnp" ON)
-else (USE_QT)
-    option (USE_LIBUPNP "Libupnp" OFF)
-endif (USE_QT)
 
 if (USE_LIBUPNP)
     message (STATUS "Building with UPNP support")
@@ -86,7 +83,6 @@ else (USE_LIBUPNP)
     message (STATUS "Building without UPNP support")
 endif (USE_LIBUPNP)
 
-if (USE_QT)
     find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
     option (DBUS_NOTIFY "QtDbus support" ON)
     if (DBUS_NOTIFY)
