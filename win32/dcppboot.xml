@@ -1,4 +1,23 @@
-﻿<Boot>
-    <ConfigPath>%[APPDATA]\Settings\</ConfigPath>
-    <LocalMode>0</LocalMode>
+<Boot>
+	<!--
+	LocalMode runs EiskaltDC++ in local mode, where all defaults are relative to the ConfigPath set below.
+	This is useful when running EiskaltDC++ off a USB stick or if you want to keep all in a single folder.
+	The default is to run in LocalMode, but upon the user's choice the installer can install a
+	dcppboot.xml file that overrides the default.
+	When LocalMode is disabled, ConfigPath is ignored.
+	Set to 1 to enable, 0 to disable
+	-->
+	<LocalMode>0</LocalMode>
+	<!-- 
+	ConfigPath specifies where settings, queue and other runtime data should be saved.
+	Relative paths are relative to the EiskaltDC++ executable.
+	You may use the following variables, which are interpreted on a per-user basis:
+
+	%[APPDATA] - Application data, typically c:\documents and settings\<username>\Application Data\
+	%[PERSONAL] - My documents
+	
+	All % variables from strftime with the current time: 
+	http://msdn.microsoft.com/library/en-us/vclib/html/_crt_strftime.2c_.wcsftime.asp
+	-->
+	<ConfigPath>%[APPDATA]\Settings\</ConfigPath>
 </Boot>
