@@ -121,16 +121,6 @@ else (USE_ASPELL)
     message (STATUS "Building without Aspell support")
 endif (USE_ASPELL)
 
-if (USE_GTK)
-    option (USE_LIBGNOME2 "LibGnome2" ON) # not available now
-    if (USE_LIBGNOME2)
-        message (STATUS "Building with LibGnome2 support")
-        find_package (LibGnome2 REQUIRED)
-    else (USE_LIBGNOME2)
-        message (STATUS "Building without LibGnome2 support")
-    endif (USE_LIBGNOME2)
-endif (USE_GTK)
-
 option (FORCE_XDG "Respect freedesktop.org standards" ON)
 
 option (FREE_SPACE_BAR_C "Use for show free space on volume small c lib" ON)
@@ -160,6 +150,14 @@ endif (USE_WT)
 
 if (USE_GTK)
     find_package (GTK2 REQUIRED gtk glade)
+
+    option (USE_LIBGNOME2 "LibGnome2" ON) # not available now
+    if (USE_LIBGNOME2)
+        message (STATUS "Building with LibGnome2 support")
+        find_package (LibGnome2 REQUIRED)
+    else (USE_LIBGNOME2)
+        message (STATUS "Building without LibGnome2 support")
+    endif (USE_LIBGNOME2)
 endif (USE_GTK)
 
 if (LOCAL_BOOST)
