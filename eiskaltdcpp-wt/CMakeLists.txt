@@ -4,8 +4,6 @@ cmake_minimum_required (VERSION 2.6)
 
 set (Wt_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 
-find_package (Wt REQUIRED)
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${Wt_INCLUDE_DIR})
 

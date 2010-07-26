@@ -4,8 +4,6 @@ cmake_minimum_required (VERSION 2.6)
 
 set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 
-find_package (GTK2 REQUIRED gtk glade)
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set (HDRS
