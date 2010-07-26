@@ -119,6 +119,8 @@ Keys for cmake:
     .
 -PIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
     .
+-DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
+    .
 And other standart cmake keys...
 
 
