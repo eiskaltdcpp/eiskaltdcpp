@@ -138,7 +138,7 @@ int main(int argc, char** argv) {
             printHelp();
             exit(0);
         }
-        else if (!strcmp(argv[i],"-v")){
+        else if (!strcmp(argv[i],"--version") || !strcmp(argv[i],"-v")){
             printVersion();
             exit(0);
         }
