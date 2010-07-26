@@ -75,20 +75,21 @@ else (USE_LIBUPNP)
 message (STATUS "Building without UPNP support")
 endif (USE_LIBUPNP)
 
-find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
-option (DBUS_NOTIFY "QtDbus support" ON)
-if (DBUS_NOTIFY)
-find_package (Qt4 4.4.0 COMPONENTS QtDBus REQUIRED)
-endif (DBUS_NOTIFY)
-
-option (USE_JS "QtScript support")
-if (USE_JS)
-  find_package (Qt4 4.4.0 COMPONENTS QtScript REQUIRED)
-endif (USE_JS)
-
 option (USE_QT "Qt interface" ON)
 option (USE_WT "WebControl" OFF)
 option (USE_GTK "GTK interface" OFF)
+
+if (USE_QT)
+    find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+    option (DBUS_NOTIFY "QtDbus support" ON)
+    if (DBUS_NOTIFY)
+        find_package (Qt4 4.4.0 COMPONENTS QtDBus REQUIRED)
+    endif (DBUS_NOTIFY)
+    option (USE_JS "QtScript support")
+    if (USE_JS)
+        find_package (Qt4 4.4.0 COMPONENTS QtScript REQUIRED)
+    endif (USE_JS)
+endif (USE_QT)
 
 if (NOT USE_ASPELL)
     option(USE_ASPELL "Use aspell for spellchecking")
@@ -242,6 +243,7 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
    )
+
 message(STATUS "CMAKE will use this libs(and headers) during build:
 
                 upnp (headers): ${UPNP_LIBRARY} (${UPNP_INCLUDE_DIR})
@@ -253,7 +255,7 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
                 ")
-
+#add_subdirectory (dht)
 add_subdirectory (dcpp)
 
 if (USE_QT)
