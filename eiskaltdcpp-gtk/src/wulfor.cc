@@ -36,6 +36,29 @@
 
 #define GUI_LOCALE_DIR _DATADIR PATH_SEPARATOR_STR "locale"
 
+#include "Version.h"
+
+void printHelp()
+{
+    printf("Using:\n"
+           "  eiskaltdcpp-gtk <Key>\n"
+           "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
+           "\n"
+           "Keys:\n"
+           "  -h, --help\t Show this message\n"
+           "  -v, --version\t Show version string\n"
+           );
+}
+
+void printVersion()
+{
+#ifndef DCPP_REVISION
+    printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+#else
+    printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
+#endif
+}
+
 BaconMessageConnection *connection = NULL;
 
 void receiver(const char *link, gpointer data)
@@ -51,6 +74,18 @@ void callBack(void* x, const std::string& a)
 
 int main(int argc, char *argv[])
 {
+
+	for (int i = 0; i < argc; i++){
+		if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
+			printHelp();
+			exit(0);
+	}
+	        else if (!strcmp(argv[i],"--version") || !strcmp(argv[i],"-v")){
+				printVersion();
+				exit(0);
+			}
+	}
+
 	// Initialize i18n support
 	bindtextdomain(GUI_PACKAGE, GUI_LOCALE_DIR);
 	textdomain(GUI_PACKAGE);

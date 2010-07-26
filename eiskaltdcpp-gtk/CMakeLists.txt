@@ -86,6 +86,7 @@ set (LIBS ${LIBS}
 		${LIBGNOME2_LIBRARIES}
 		${Boost_LIBRARIES}
 		${ICONV_LIBRARIES}
+		"-lnotify"
 		)
 
 
