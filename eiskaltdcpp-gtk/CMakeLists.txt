@@ -7,7 +7,6 @@ set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 find_package (GTK2 REQUIRED gtk glade)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-include_directories(${GTK2_INCLUDE_DIRS})
 
 set (HDRS
 		src/bacon-message-connection.h
@@ -77,12 +76,14 @@ set (SRCS
 
 include_directories (
 		${GTK2_INCLUDE_DIRS}
+		${LIBGNOME2_INCLUDE_DIRS}
 		${PROJECT_SOURCE_DIR}
 		${PROJECT_SOURCE_DIR}/..
 		${Boost_INCLUDE_DIRS}
 		)
 set (LIBS ${LIBS}
-		${GTK2_GTK_LIBRARIES}
+		${GTK2_LIBRARIES}
+		${LIBGNOME2_LIBRARIES}
 		${Boost_LIBRARIES}
 		${ICONV_LIBRARIES}
 		)

@@ -108,9 +108,16 @@ else (USE_ASPELL)
   message (STATUS "Building without Aspell support")
 endif (USE_ASPELL)
 
-#if (NOT (LOCAL_BOOST EQUAL 0))
-#set (LOCAL_BOOST 1)
-#endif (NOT (LOCAL_BOOST EQUAL 0))
+option (USE_LIBGNOME2 "LibGnome2" OFF)
+if (USE_GTK) # temporary
+set (USE_LIBGNOME2 ON)
+endif (USE_GTK)
+if (USE_LIBGNOME2)
+message (STATUS "Building with LibGnome2 support")
+find_package (LibGnome2 REQUIRED)
+else (USE_LIBGNOME2)
+message (STATUS "Building without LibGnome2 support")
+endif (USE_LIBGNOME2)
 
 option (FORCE_XDG "Respect freedesktop.org standards" ON)
 

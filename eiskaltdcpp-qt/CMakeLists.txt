@@ -18,14 +18,14 @@ if (USE_JS)
 endif (USE_JS)
 
 include (${QT_USE_FILE})
-set (HDRS   src/ArenaWidgetContainer.h
-            src/EmoticonObject.h
-            src/Func.h
-            src/HistoryInterface.h
-            src/PMWindow.h
-            src/PoolAlloc.h
-            ../Version.h
-            )
+#set (HDRS   src/ArenaWidgetContainer.h
+#            src/EmoticonObject.h
+#            src/Func.h
+#            src/HistoryInterface.h
+#            src/PMWindow.h
+#            src/PoolAlloc.h
+#            ../Version.h
+#            )
 set (SRCS
             src/ActionCustomizer.cpp
             src/ADLS.cpp
