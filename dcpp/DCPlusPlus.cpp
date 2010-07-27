@@ -37,7 +37,9 @@
 #include "ADLSearch.h"
 
 #include "StringTokenizer.h"
-
+#ifdef USE_DHT
+#include "../dht/DHT.h"
+#endif
 #ifdef _STLP_DEBUG
 void __stl_debug_terminate() {
     int* x = 0;
@@ -99,7 +101,9 @@ void startup(void (*f)(void*, const string&), void* p) {
 
     FavoriteManager::getInstance()->load();
     CryptoManager::getInstance()->loadCertificates();
-
+#ifdef USE_DHT
+    DHT::newInstance();
+#endif
     if(f != NULL)
         (*f)(p, _("Hash database"));
     HashManager::getInstance()->startup();
@@ -125,7 +129,9 @@ void shutdown() {
     BufferedSocket::waitShutdown();
 
     SettingsManager::getInstance()->save();
-
+#ifdef USE_DHT
+    DHT::deleteInstance();
+#endif
     ADLSearchManager::deleteInstance();
     FinishedManager::deleteInstance();
     ShareManager::deleteInstance();

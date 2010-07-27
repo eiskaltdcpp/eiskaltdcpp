@@ -35,6 +35,9 @@
 #include "MerkleTree.h"
 #include "Pointer.h"
 
+namespace dht {
+    class IndexManager;
+}
 namespace dcpp {
 
 STANDARD_EXCEPTION(ShareException);
@@ -47,277 +50,277 @@ class MemoryInputStream;
 
 struct ShareLoader;
 class ShareManager : public Singleton<ShareManager>, private SettingsManagerListener, private Thread, private TimerManagerListener,
-	private HashManagerListener, private DownloadManagerListener
-	//private HashManagerListener, private QueueManagerListener
+    private HashManagerListener, private DownloadManagerListener
+    //private HashManagerListener, private QueueManagerListener
 {
 public:
-	/**
-	 * @param aDirectory Physical directory location
-	 * @param aName Virtual name
-	 */
-	void addDirectory(const string& realPath, const string &virtualName) throw(ShareException);
-	void removeDirectory(const string& realPath);
-	void renameDirectory(const string& realPath, const string& virtualName) throw(ShareException);
+    /**
+     * @param aDirectory Physical directory location
+     * @param aName Virtual name
+     */
+    void addDirectory(const string& realPath, const string &virtualName) throw(ShareException);
+    void removeDirectory(const string& realPath);
+    void renameDirectory(const string& realPath, const string& virtualName) throw(ShareException);
 
-	bool isRefreshing() { return refreshing; }
+    bool isRefreshing() { return refreshing; }
 
-	string toVirtual(const TTHValue& tth) const throw(ShareException);
-	string toReal(const string& virtualFile) throw(ShareException);
-	TTHValue getTTH(const string& virtualFile) const throw(ShareException);
+    string toVirtual(const TTHValue& tth) const throw(ShareException);
+    string toReal(const string& virtualFile) throw(ShareException);
+    TTHValue getTTH(const string& virtualFile) const throw(ShareException);
 
-	void refresh(bool dirs = false, bool aUpdate = true, bool block = false) throw();
-	void setDirty() { xmlDirty = true; }
+    void refresh(bool dirs = false, bool aUpdate = true, bool block = false) throw();
+    void setDirty() { xmlDirty = true; }
 
-	void search(SearchResultList& l, const string& aString, int aSearchType, int64_t aSize, int aFileType, Client* aClient, StringList::size_type maxResults) throw();
-	void search(SearchResultList& l, const StringList& params, StringList::size_type maxResults) throw();
+    void search(SearchResultList& l, const string& aString, int aSearchType, int64_t aSize, int aFileType, Client* aClient, StringList::size_type maxResults) throw();
+    void search(SearchResultList& l, const StringList& params, StringList::size_type maxResults) throw();
 
-	StringPairList getDirectories() const throw();
+    StringPairList getDirectories() const throw();
 
-	MemoryInputStream* generatePartialList(const string& dir, bool recurse) const;
-	MemoryInputStream* getTree(const string& virtualFile) const;
+    MemoryInputStream* generatePartialList(const string& dir, bool recurse) const;
+    MemoryInputStream* getTree(const string& virtualFile) const;
 
-	AdcCommand getFileInfo(const string& aFile) throw(ShareException);
+    AdcCommand getFileInfo(const string& aFile) throw(ShareException);
 
-	int64_t getShareSize() const throw();
-	int64_t getShareSize(const string& realPath) const throw();
+    int64_t getShareSize() const throw();
+    int64_t getShareSize(const string& realPath) const throw();
 
-	size_t getSharedFiles() const throw();
+    size_t getSharedFiles() const throw();
 
-	string getShareSizeString() const { return Util::toString(getShareSize()); }
-	string getShareSizeString(const string& aDir) const { return Util::toString(getShareSize(aDir)); }
+    string getShareSizeString() const { return Util::toString(getShareSize()); }
+    string getShareSizeString(const string& aDir) const { return Util::toString(getShareSize(aDir)); }
 
-	void getBloom(ByteVector& v, size_t k, size_t m, size_t h) const;
+    void getBloom(ByteVector& v, size_t k, size_t m, size_t h) const;
 
-	SearchManager::TypeModes getType(const string& fileName) const throw();
+    SearchManager::TypeModes getType(const string& fileName) const throw();
 
-	string validateVirtual(const string& /*aVirt*/) const throw();
-	bool hasVirtual(const string& name) const throw();
+    string validateVirtual(const string& /*aVirt*/) const throw();
+    bool hasVirtual(const string& name) const throw();
 
-	void addHits(uint32_t aHits) {
-		hits += aHits;
-	}
+    void addHits(uint32_t aHits) {
+        hits += aHits;
+    }
 
-	string getOwnListFile() {
-		generateXmlList();
-		return getBZXmlFile();
-	}
+    string getOwnListFile() {
+        generateXmlList();
+        return getBZXmlFile();
+    }
 
-	bool isTTHShared(const TTHValue& tth){
-		Lock l(cs);
-		return tthIndex.find(tth) != tthIndex.end();
-	}
+    bool isTTHShared(const TTHValue& tth){
+        Lock l(cs);
+        return tthIndex.find(tth) != tthIndex.end();
+    }
 
-	GETSET(uint32_t, hits, Hits);
-	GETSET(string, bzXmlFile, BZXmlFile);
+    GETSET(uint32_t, hits, Hits);
+    GETSET(string, bzXmlFile, BZXmlFile);
 private:
-	struct AdcSearch;
-	class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, boost::noncopyable {
-	public:
-		typedef boost::intrusive_ptr<Directory> Ptr;
-		typedef unordered_map<string, Ptr, noCaseStringHash, noCaseStringEq> Map;
-		typedef Map::iterator MapIter;
+    struct AdcSearch;
+    class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, boost::noncopyable {
+    public:
+        typedef boost::intrusive_ptr<Directory> Ptr;
+        typedef unordered_map<string, Ptr, noCaseStringHash, noCaseStringEq> Map;
+        typedef Map::iterator MapIter;
 
-		struct File {
-			struct StringComp {
-				StringComp(const string& s) : a(s) { }
-				bool operator()(const File& b) const { return Util::stricmp(a, b.getName()) == 0; }
-				const string& a;
-			private:
-				StringComp& operator=(const StringComp&);
-			};
-			struct FileLess {
-				bool operator()(const File& a, const File& b) const { return (Util::stricmp(a.getName(), b.getName()) < 0); }
-			};
-			typedef set<File, FileLess> Set;
+        struct File {
+            struct StringComp {
+                StringComp(const string& s) : a(s) { }
+                bool operator()(const File& b) const { return Util::stricmp(a, b.getName()) == 0; }
+                const string& a;
+            private:
+                StringComp& operator=(const StringComp&);
+            };
+            struct FileLess {
+                bool operator()(const File& a, const File& b) const { return (Util::stricmp(a.getName(), b.getName()) < 0); }
+            };
+            typedef set<File, FileLess> Set;
 
-			File() : size(0), parent(0) { }
-			File(const string& aName, int64_t aSize, const Directory::Ptr& aParent, const TTHValue& aRoot) :
-			name(aName), tth(aRoot), size(aSize), parent(aParent.get()) { }
-			File(const File& rhs) :
-			name(rhs.getName()), tth(rhs.getTTH()), size(rhs.getSize()), parent(rhs.getParent()) { }
+            File() : size(0), parent(0) { }
+            File(const string& aName, int64_t aSize, const Directory::Ptr& aParent, const TTHValue& aRoot) :
+            name(aName), tth(aRoot), size(aSize), parent(aParent.get()) { }
+            File(const File& rhs) :
+            name(rhs.getName()), tth(rhs.getTTH()), size(rhs.getSize()), parent(rhs.getParent()) { }
 
-			~File() { }
+            ~File() { }
 
-			File& operator=(const File& rhs) {
-				name = rhs.name; size = rhs.size; parent = rhs.parent; tth = rhs.tth;
-				return *this;
-			}
+            File& operator=(const File& rhs) {
+                name = rhs.name; size = rhs.size; parent = rhs.parent; tth = rhs.tth;
+                return *this;
+            }
 
-			bool operator==(const File& rhs) const {
-				return getParent() == rhs.getParent() && (Util::stricmp(getName(), rhs.getName()) == 0);
-			}
+            bool operator==(const File& rhs) const {
+                return getParent() == rhs.getParent() && (Util::stricmp(getName(), rhs.getName()) == 0);
+            }
 
-			string getADCPath() const { return parent->getADCPath() + name; }
-			string getFullName() const { return parent->getFullName() + name; }
-			string getRealPath() const { return parent->getRealPath(name); }
+            string getADCPath() const { return parent->getADCPath() + name; }
+            string getFullName() const { return parent->getFullName() + name; }
+            string getRealPath() const { return parent->getRealPath(name); }
 
-			GETSET(string, name, Name);
-			GETSET(TTHValue, tth, TTH);
-			GETSET(int64_t, size, Size);
-			GETSET(Directory*, parent, Parent);
-		};
+            GETSET(string, name, Name);
+            GETSET(TTHValue, tth, TTH);
+            GETSET(int64_t, size, Size);
+            GETSET(Directory*, parent, Parent);
+        };
 
-		int64_t size;
-		Map directories;
-		File::Set files;
+        int64_t size;
+        Map directories;
+        File::Set files;
 
-		static Ptr create(const string& aName, const Ptr& aParent = Ptr()) { return Ptr(new Directory(aName, aParent)); }
+        static Ptr create(const string& aName, const Ptr& aParent = Ptr()) { return Ptr(new Directory(aName, aParent)); }
 
-		bool hasType(uint32_t type) const throw() {
-			return ( (type == SearchManager::TYPE_ANY) || (fileTypes & (1 << type)) );
-		}
-		void addType(uint32_t type) throw();
+        bool hasType(uint32_t type) const throw() {
+            return ( (type == SearchManager::TYPE_ANY) || (fileTypes & (1 << type)) );
+        }
+        void addType(uint32_t type) throw();
 
-		string getADCPath() const throw();
-		string getFullName() const throw();
-		string getRealPath(const std::string& path) const throw(ShareException);
+        string getADCPath() const throw();
+        string getFullName() const throw();
+        string getRealPath(const std::string& path) const throw(ShareException);
 
-		int64_t getSize() const throw();
+        int64_t getSize() const throw();
 
-		void search(SearchResultList& aResults, StringSearch::List& aStrings, int aSearchType, int64_t aSize, int aFileType, Client* aClient, StringList::size_type maxResults) const throw();
-		void search(SearchResultList& aResults, AdcSearch& aStrings, StringList::size_type maxResults) const throw();
+        void search(SearchResultList& aResults, StringSearch::List& aStrings, int aSearchType, int64_t aSize, int aFileType, Client* aClient, StringList::size_type maxResults) const throw();
+        void search(SearchResultList& aResults, AdcSearch& aStrings, StringList::size_type maxResults) const throw();
 
-		void toXml(OutputStream& xmlFile, string& indent, string& tmp2, bool fullList) const;
-		void filesToXml(OutputStream& xmlFile, string& indent, string& tmp2) const;
+        void toXml(OutputStream& xmlFile, string& indent, string& tmp2, bool fullList) const;
+        void filesToXml(OutputStream& xmlFile, string& indent, string& tmp2) const;
 
-		File::Set::const_iterator findFile(const string& aFile) const { return find_if(files.begin(), files.end(), Directory::File::StringComp(aFile)); }
+        File::Set::const_iterator findFile(const string& aFile) const { return find_if(files.begin(), files.end(), Directory::File::StringComp(aFile)); }
 
-		void merge(const Ptr& source);
+        void merge(const Ptr& source);
 
-		GETSET(string, name, Name);
-		GETSET(Directory*, parent, Parent);
-	private:
-		friend void intrusive_ptr_release(intrusive_ptr_base<Directory>*);
+        GETSET(string, name, Name);
+        GETSET(Directory*, parent, Parent);
+    private:
+        friend void intrusive_ptr_release(intrusive_ptr_base<Directory>*);
 
-		Directory(const string& aName, const Ptr& aParent);
-		~Directory() { }
+        Directory(const string& aName, const Ptr& aParent);
+        ~Directory() { }
 
-		/** Set of flags that say which SearchManager::TYPE_* a directory contains */
-		uint32_t fileTypes;
+        /** Set of flags that say which SearchManager::TYPE_* a directory contains */
+        uint32_t fileTypes;
 
-	};
+    };
 
-	friend class Directory;
-	friend struct ShareLoader;
+    friend class Directory;
+    friend struct ShareLoader;
 
-	friend class Singleton<ShareManager>;
-	ShareManager();
+    friend class Singleton<ShareManager>;
+    ShareManager();
 
-	virtual ~ShareManager();
+    virtual ~ShareManager();
 
-	struct AdcSearch {
-		AdcSearch(const StringList& params);
+    struct AdcSearch {
+        AdcSearch(const StringList& params);
 
-		bool isExcluded(const string& str) {
-			for(StringSearch::List::iterator i = exclude.begin(); i != exclude.end(); ++i) {
-				if(i->match(str))
-					return true;
-			}
-			return false;
-		}
+        bool isExcluded(const string& str) {
+            for(StringSearch::List::iterator i = exclude.begin(); i != exclude.end(); ++i) {
+                if(i->match(str))
+                    return true;
+            }
+            return false;
+        }
 
-		bool hasExt(const string& name) {
-			if(ext.empty())
-				return true;
-			for(StringIter i = ext.begin(); i != ext.end(); ++i) {
-				if(name.length() >= i->length() && Util::stricmp(name.c_str() + name.length() - i->length(), i->c_str()) == 0)
-					return true;
-			}
-			return false;
-		}
+        bool hasExt(const string& name) {
+            if(ext.empty())
+                return true;
+            for(StringIter i = ext.begin(); i != ext.end(); ++i) {
+                if(name.length() >= i->length() && Util::stricmp(name.c_str() + name.length() - i->length(), i->c_str()) == 0)
+                    return true;
+            }
+            return false;
+        }
 
-		StringSearch::List* include;
-		StringSearch::List includeX;
-		StringSearch::List exclude;
-		StringList ext;
+        StringSearch::List* include;
+        StringSearch::List includeX;
+        StringSearch::List exclude;
+        StringList ext;
 
-		int64_t gt;
-		int64_t lt;
+        int64_t gt;
+        int64_t lt;
 
-		TTHValue root;
-		bool hasRoot;
+        TTHValue root;
+        bool hasRoot;
 
-		bool isDirectory;
-	};
+        bool isDirectory;
+    };
 
-	int64_t xmlListLen;
-	TTHValue xmlRoot;
-	int64_t bzXmlListLen;
-	TTHValue bzXmlRoot;
-	auto_ptr<File> bzXmlRef;
+    int64_t xmlListLen;
+    TTHValue xmlRoot;
+    int64_t bzXmlListLen;
+    TTHValue bzXmlRoot;
+    auto_ptr<File> bzXmlRef;
 
-	bool xmlDirty;
-	bool forceXmlRefresh; /// bypass the 15-minutes guard
-	bool refreshDirs;
-	bool update;
-	bool initial;
+    bool xmlDirty;
+    bool forceXmlRefresh; /// bypass the 15-minutes guard
+    bool refreshDirs;
+    bool update;
+    bool initial;
 
-	int listN;
+    int listN;
 
-	volatile long refreshing;
+    volatile long refreshing;
 
-	uint64_t lastXmlUpdate;
-	uint64_t lastFullUpdate;
+    uint64_t lastXmlUpdate;
+    uint64_t lastFullUpdate;
 
-	mutable CriticalSection cs;
+    mutable CriticalSection cs;
 
-	// List of root directory items
-	typedef std::list<Directory::Ptr> DirList;
-	DirList directories;
+    // List of root directory items
+    typedef std::list<Directory::Ptr> DirList;
+    DirList directories;
 
-	/** Map real name to virtual name - multiple real names may be mapped to a single virtual one */
-	StringMap shares;
+    /** Map real name to virtual name - multiple real names may be mapped to a single virtual one */
+    StringMap shares;
+    friend class ::dht::IndexManager;
+    typedef unordered_map<TTHValue, Directory::File::Set::const_iterator> HashFileMap;
+    typedef HashFileMap::iterator HashFileIter;
 
-	typedef unordered_map<TTHValue, Directory::File::Set::const_iterator> HashFileMap;
-	typedef HashFileMap::iterator HashFileIter;
+    HashFileMap tthIndex;
 
-	HashFileMap tthIndex;
+    BloomFilter<5> bloom;
 
-	BloomFilter<5> bloom;
+    Directory::File::Set::const_iterator findFile(const string& virtualFile) const throw(ShareException);
 
-	Directory::File::Set::const_iterator findFile(const string& virtualFile) const throw(ShareException);
+    Directory::Ptr buildTree(const string& aName, const Directory::Ptr& aParent);
+    bool checkHidden(const string& aName) const;
 
-	Directory::Ptr buildTree(const string& aName, const Directory::Ptr& aParent);
-	bool checkHidden(const string& aName) const;
+    void rebuildIndices();
 
-	void rebuildIndices();
+    void updateIndices(Directory& aDirectory);
+    void updateIndices(Directory& dir, const Directory::File::Set::iterator& i);
 
-	void updateIndices(Directory& aDirectory);
-	void updateIndices(Directory& dir, const Directory::File::Set::iterator& i);
+    Directory::Ptr merge(const Directory::Ptr& directory);
 
-	Directory::Ptr merge(const Directory::Ptr& directory);
+    void generateXmlList();
+    bool loadCache() throw();
+    DirList::const_iterator getByVirtual(const string& virtualName) const throw();
 
-	void generateXmlList();
-	bool loadCache() throw();
-	DirList::const_iterator getByVirtual(const string& virtualName) const throw();
+    string findRealRoot(const string& virtualRoot, const string& virtualLeaf) const throw(ShareException);
 
-	string findRealRoot(const string& virtualRoot, const string& virtualLeaf) const throw(ShareException);
+    Directory::Ptr getDirectory(const string& fname);
 
-	Directory::Ptr getDirectory(const string& fname);
+    virtual int run();
 
-	virtual int run();
+    // DownloadManagerListener
+    virtual void on(DownloadManagerListener::Complete, Download* d) throw();
 
-	// DownloadManagerListener
-	virtual void on(DownloadManagerListener::Complete, Download* d) throw();
+    // QueueManagerListener
+    //virtual void on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) throw();
 
-	// QueueManagerListener
-	//virtual void on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) throw();
+    // HashManagerListener
+    virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) throw();
 
-	// HashManagerListener
-	virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) throw();
+    // SettingsManagerListener
+    virtual void on(SettingsManagerListener::Save, SimpleXML& xml) throw() {
+        save(xml);
+    }
+    virtual void on(SettingsManagerListener::Load, SimpleXML& xml) throw() {
+        load(xml);
+    }
 
-	// SettingsManagerListener
-	virtual void on(SettingsManagerListener::Save, SimpleXML& xml) throw() {
-		save(xml);
-	}
-	virtual void on(SettingsManagerListener::Load, SimpleXML& xml) throw() {
-		load(xml);
-	}
-
-	// TimerManagerListener
-	virtual void on(TimerManagerListener::Minute, uint32_t tick) throw();
-	void load(SimpleXML& aXml);
-	void save(SimpleXML& aXml);
+    // TimerManagerListener
+    virtual void on(TimerManagerListener::Minute, uint32_t tick) throw();
+    void load(SimpleXML& aXml);
+    void save(SimpleXML& aXml);
 
 };
 

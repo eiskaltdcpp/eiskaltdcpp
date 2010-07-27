@@ -1,0 +1,65 @@
+********************************************************************************
+* VALID ADC COMMANDS                                                           *
+********************************************************************************
+
+SCH - searches for object in the network
+- TR = requested TTH/CID
+- TO = token
+- TY = search type (1 = file, 3 = node, 4 = store)
+
+RES - response to SCH
+- TO = token (it must match the token in SCH)
+- NX = node/source list in XML format
+	when search type is "file" and node knows sources for searched file, it should
+  directly respond with these sources; in other cases, it should returns K nodes
+  closest to requested TTH/CID.
+	<Nodes>
+		<Source CID="user ID" I4="IP address" U4="UDP port" SI="filesize" PF="is it partial file?"/>
+		<Node CID="user CID" I4="IP address" U4="UDP port"/>
+	</Nodes>
+
+PUB - requests for file publishing
+- TR = TTH root
+- SI = file size
+- PF = 1 - file is partially downloaded (present in our queue)
+
+INF - sends our info to node
+- TY = 1 - node must response with its own info, 2 - node must set us as online
+- VE = client version
+- NI = user's nick
+- SU = supported features (ADC0, TCP4, UDP4 now supported)
+
+CTM - connect to me request
+- protocol (ADCS/0.10, ADC/1.0)
+- port
+- token
+
+PSR - partial file request
+- U4 = our DC UDP port (that one used for classic DC searches, not DHT one!)
+- TR = file TTH
+
+MSG - private message (not supported yet)
+
+GET - request to get some special data
+- type (only "nodes" is currently supported)
+- identifier (only "dht.xml" is currently supported)
+
+SND - response to GET
+- type (must be same as in received GET)
+- identifier (must be same as in received GET)
+- data (when type is "nodes" then node list in XML format)
+
+STA - status message
+- code	
+- description
+- FC = PUB - response to file publish request (TR contains published file TTH)
+	   = FWCHECK - response to UDP firewall check (I4, U4 - our external IP/port)
+
+********************************************************************************
+* NOTES                                                                        *
+********************************************************************************
+
+* each command can contain FW parameter with our internal UDP port, which means 
+  that remote node must send us STA with error code 0 and FC set to FWCHECK 
+  containing our external IP and UDP port.
+  

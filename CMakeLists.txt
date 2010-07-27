@@ -71,6 +71,7 @@ find_package (Subversion)
 option (USE_QT "Qt interface" ON)
 option (USE_WT "WebControl" OFF)
 option (USE_GTK "GTK interface" OFF)
+option (USE_DHT "DHT support for dcpp" OFF)
 
 
 if (USE_QT)
@@ -240,10 +241,6 @@ if (FORCE_XDG)
   add_definitions (-DFORCE_XDG)
 endif (FORCE_XDG)
 
-if (USE_JS)
-  add_definitions (-DUSE_JS)
-endif (USE_JS)
-
 if (USE_ICON_THEME)
  add_definitions(-DUSE_ICON_THEME )
 endif (USE_ICON_THEME)
@@ -272,7 +269,9 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
                 ")
-#add_subdirectory (dht)
+if (USE_DHT)
+add_subdirectory (dht)
+endif (USE_DHT)
 add_subdirectory (dcpp)
 
 if (USE_QT)

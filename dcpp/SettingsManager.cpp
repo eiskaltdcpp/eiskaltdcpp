@@ -26,7 +26,7 @@
 #include "File.h"
 #include "version.h"
 #include "CID.h"
-
+#include "../dht/DHT.h"
 namespace dcpp {
 
 StringList SettingsManager::connectionSpeeds;
@@ -84,7 +84,7 @@ const string SettingsManager::settingTags[] =
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs", "AllowUntrustedClients",
     "TLSPort", "FastHash", "SortFavUsersFirst", "SegmentedDL", "FollowLinks",
     "SendBloom", "OwnerDrawnMenus", "Coral", "SearchFilterShared", "MaxTabChars", "FinishedDLOnlyFull",
-    "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval", "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval",
+    "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval", "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval","UseDHT", "DHTPort",
     "SearchMerge",
     "SENTRY",
     // Int64
@@ -328,7 +328,8 @@ SettingsManager::SettingsManager()
     setDefault(TRANSFERS_PANED_POS, .7);
     setDefault(QUEUE_PANED_POS, .3);
     setDefault(SEARCH_PANED_POS, .2);
-
+    setDefault(DHT_PORT, DHT_UDPPORT);
+    setDefault(USE_DHT, false);
 #ifdef _WIN32
     setDefault(MAIN_WINDOW_STATE, SW_SHOWNORMAL);
     setDefault(MAIN_WINDOW_SIZE_X, CW_USEDEFAULT);

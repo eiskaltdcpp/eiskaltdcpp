@@ -22,7 +22,9 @@ set (APPLE_LIBS "iconv")
 endif (APPLE)
 #message (STATUS "APPLE_LIBS:@APPLE_LIBS@ WIN32_LIBS:@WIN32_LIBS@")
 add_library (dcpp ${LINK} ${dcpp_srcs})
-
+if (USE_DHT)
+add_definitions ( -DUSE_DHT )
+endif (USE_DHT)
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
 ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS})
 set_target_properties(dcpp PROPERTIES VERSION ${VERSION})

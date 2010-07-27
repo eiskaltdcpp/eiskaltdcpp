@@ -14,6 +14,7 @@ add_definitions (-DDBUS_NOTIFY)
 endif (DBUS_NOTIFY)
 
 if (USE_JS)
+  add_definitions (-DUSE_JS)
   set (QT_USE_QTSCRIPT  1)
 endif (USE_JS)
 
