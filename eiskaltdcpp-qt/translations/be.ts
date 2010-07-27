@@ -31,7 +31,14 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Як карыстацца:
+  eiskaltdcpp-qt &lt;магніт-спасылка&gt; &lt;dchub://спасылка&gt; &lt;adc(s)://спасылка&gt;
+  eiskaltdcpp-qt &lt;Ключ&gt;
+EiskaltDC++ — гэта праграма для сыстэмаў, падобных да UNIX, якая выкарыстоўвае пратаколы Direct Connect і ADC.
+
+Ключы:
+  -h, --help	 Паказвае гэтае паведамленьне
+  -v, --version	 Паказвае радок з вэрсіяй</translation>
     </message>
 </context>
 <context>
@@ -1397,7 +1404,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="978"/>
         <source>Hashing progress</source>
-        <translation type="unfinished"></translation>
+        <translation>Поступ стварэньня скаротаў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1009"/>
@@ -1678,17 +1685,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1351"/>
         <source>List update</source>
-        <translation type="unfinished"></translation>
+        <translation>Дапаўняецца сьпіс</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1361"/>
         <source>Paused</source>
-        <translation type="unfinished">Прыпынены</translation>
+        <translation>Прыпынілі</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1371"/>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation>%p%</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1384"/>
@@ -4394,17 +4401,17 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="353"/>
         <source>When enabled can hang program on exit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі задзейнічаць, праграма можа “завіснуць” па выхадзе.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="356"/>
         <source>Automatically update external IP (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Самарушна абнаўляць вонкавы IP (трэба запусьціць нанова)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="372"/>
         <source>DynDNS Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрэса DynDNS:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="422"/>
@@ -4929,12 +4936,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="816"/>
         <source>Compressed transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьціскаць перадаванае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="827"/>
         <source>Segmented downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягваць па частках</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="842"/>
@@ -5071,86 +5078,86 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="332"/>
         <source>Chat (extended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Гамана (дадатковыя)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="346"/>
         <source>Double click action</source>
-        <translation type="unfinished"></translation>
+        <translation>Падвойны пстрык</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="360"/>
         <location filename="../ui/UISettingsGUI.ui" line="379"/>
         <source>Insert nick into input widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Устаўляе мянушку ў поле ўводу</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="365"/>
         <location filename="../ui/UISettingsGUI.ui" line="384"/>
         <source>Get file list</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягвае сьпіс файлаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="370"/>
         <location filename="../ui/UISettingsGUI.ui" line="389"/>
         <source>Private message</source>
-        <translation type="unfinished">Асабістае паведамленьне</translation>
+        <translation>Дасылае асабістае паведамленьне</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="468"/>
         <source>Middle click action</source>
-        <translation type="unfinished"></translation>
+        <translation>Пстрык сярэдняю кнопкаю</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="403"/>
         <location filename="../ui/UISettingsGUI.ui" line="439"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказваць кібібайты (КіБ) ці кілябайты (КБ) ды інш.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="406"/>
         <source>Application unit base</source>
-        <translation type="unfinished"></translation>
+        <translation>Аснова сыстэмы адзінак у праграме</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="420"/>
         <source>1024</source>
-        <translation type="unfinished"></translation>
+        <translation>1024</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="425"/>
         <source>1000</source>
-        <translation type="unfinished"></translation>
+        <translation>1000</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="442"/>
         <source>Timestamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Часадзнака</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="455"/>
         <source>hh:mm:ss</source>
-        <translation type="unfinished"></translation>
+        <translation>hh:mm:ss</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="487"/>
         <source>Default action with magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Што рабіць з магніт-спасылкаю</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="501"/>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Запытацца, што рабіць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="506"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Знайсьці спасылку</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="511"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягнуць спасылку</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="529"/>
@@ -5161,17 +5168,17 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="584"/>
         <source>Separator in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Аддзяляльнік у гамане</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="598"/>
         <source>:</source>
-        <translation type="unfinished"></translation>
+        <translation>:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="603"/>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation>,</translation>
     </message>
     <message>
         <source>The height of the text entry field</source>
