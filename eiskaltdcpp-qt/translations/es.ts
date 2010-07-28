@@ -3230,7 +3230,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferViewModel.cpp" line="524"/>
         <source>Waiting for slot </source>
-        <translation>esperando un slot</translation>
+        <translation>Esperando un slot </translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="527"/>
@@ -4073,7 +4073,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="209"/>
         <source>Don&apos;t allow Hub/UPnP to override</source>
-        <translation>No permitir Hub/UPnP para anular</translation>
+        <translation>No permitir anulación Hub/UPnP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="222"/>
