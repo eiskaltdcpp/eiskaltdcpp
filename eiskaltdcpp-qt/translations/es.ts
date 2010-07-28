@@ -3225,7 +3225,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferViewModel.cpp" line="522"/>
         <source>Downloaded </source>
-        <translation>Descargado</translation>
+        <translation>Descargado </translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="524"/>
