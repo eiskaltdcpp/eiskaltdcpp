@@ -30,7 +30,14 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilise:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt&lt;Key&gt;
+EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les protocoles Direct Connect et ADC.
+
+Raccourcis:
+  -h, --help(tab) Montre ce message
+  -v, --version(tab) Montre la liste des versions</translation>
     </message>
 </context>
 <context>
@@ -3699,11 +3706,11 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>Automatically update external IP (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Met automatiquement à jour l&apos;ip externe (redémarrage nécessaire)</translation>
     </message>
     <message>
         <source>DynDNS Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresse DynDNS:</translation>
     </message>
 </context>
 <context>
@@ -4051,11 +4058,11 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
     </message>
     <message>
         <source>Compressed transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Transferts compressés</translation>
     </message>
     <message>
         <source>Segmented downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléchargements segmentés</translation>
     </message>
 </context>
 <context>
@@ -4286,19 +4293,19 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Default action with magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Action par défaut pour les magnets</translation>
     </message>
     <message>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Demander</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Rechercher</translation>
+        <translation>Rechercher</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished">Téléchargement</translation>
+        <translation>Télécharger</translation>
     </message>
 </context>
 <context>
