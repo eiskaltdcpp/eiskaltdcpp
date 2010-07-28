@@ -26,13 +26,13 @@ libwt, libwtext, libwtfcgi, libwthttp
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
-libgnome2
 libpango
 libgtk2 (>= 2.10)
 libglib2 (>= 2.10)
 libglade2 (>= 2.4)
 libglade2 (>= 2.4)
 libnotify (>= 0.4.1)
+libgnome2 (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -67,15 +67,15 @@ libwt-dev, libwtext-dev, libwtfcgi-dev, libwthttp-dev
 -----------------
 libgtk2.0-dev
 libglade2-dev
-libgnome2-dev
 libnotify-dev
+libgnome2-dev (optional, see cmake keys)
 
 
 *******************************************************************************
 Installation in Linux and other UNIX-like systems
 *******************************************************************************
 mkdir -p builddir && cd builddir
-cmake -DCMAKE_INSTALL_PREFIX=/usr ../
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ../
 make -j2
 sudo make install
 
@@ -111,6 +111,8 @@ Keys for cmake:
   use or not use QtDBus module
 -DUSE_JS=ON/OFF (default: OFF)
     Enable/disable QtScript basic support
+-DUSE_LIBGNOME2=ON/OFF (default: OFF)
+    Enable/disable sound notifications support in EiskaltDC++ Gtk
 -DUSE_ICON_THEME=ON/OFF (default: OFF)
     Using system icon theme. Work only with Qt >= 4.6.0 and only in KDE and Gnome.
 -DCMAKE_INSTALL_PREFIX=<prefix for install> (default: /usr/local)
@@ -134,7 +136,7 @@ sudo make uninstall
 *BSD specific notes
 *******************************************************************************
 mkdir -p builddir && cd builddir
-cmake ../
+cmake -DCMAKE_BUILD_TYPE=Release ../
 gmake -j2
 sudo gmake install
 

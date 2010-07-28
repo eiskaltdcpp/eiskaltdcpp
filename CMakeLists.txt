@@ -148,7 +148,7 @@ endif (USE_WT)
 if (USE_GTK)
     find_package (GTK2 REQUIRED gtk glade)
 
-    option (USE_LIBGNOME2 "LibGnome2" ON) # not available now
+    option (USE_LIBGNOME2 "LibGnome2" OFF)
     if (USE_LIBGNOME2)
         message (STATUS "Building with LibGnome2 support")
         find_package (LibGnome2 REQUIRED)

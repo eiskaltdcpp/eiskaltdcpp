@@ -19,7 +19,10 @@
  * using OpenSSL with this program is allowed.
  */
 
+#ifdef USE_LIBGNOME2
 #include <libgnome/gnome-sound.h>
+#endif
+
 #include "settingsmanager.hh"
 #include <dcpp/Text.h>
 #include "sound.hh"
@@ -50,8 +53,10 @@ Sound* Sound::get()
 
 void Sound::sound_init()
 {
+#ifdef USE_LIBGNOME2
 	gnome_sound_init(NULL);
 	dcdebug("Sound::sound_init: Esound connection %d...\n", gnome_sound_connection_get());
+#endif
 }
 
 void Sound::playSound(TypeSound sound)
@@ -62,7 +67,7 @@ void Sound::playSound(TypeSound sound)
 	{
 //		TODO: download begins, uncomment when implemented
 //		case DOWNLOAD_BEGINS:
-// 
+//
 //			if (wsm->getInt("sound-download-begins-use"))
 //				playSound(wsm->getString("sound-download-begins"));
 //		break;
@@ -121,10 +126,14 @@ void Sound::playSound(TypeSound sound)
 
 void Sound::playSound(const string &target)
 {
+#ifdef USE_LIBGNOME2
 	gnome_sound_play(Text::fromUtf8(target).c_str());
+#endif
 }
 
 void Sound::sound_finalize()
 {
+#ifdef USE_LIBGNOME2
 	gnome_sound_shutdown();
+#endif
 }
