@@ -439,7 +439,7 @@ void FavoriteManager::load() {
 
     // Add NMDC standard op commands
     static const char kickstr[] =
-        "$To: %[userNI] From: %[myNI] $<%[myNI]> You are being kicked because: %[line:Reason]|<%[myNI]> %[myNI] is kicking %[userNI] because: %[line:Reason]|$Kick %[userNI]|";
+        "$To: %[userNI] From: %[myNI] $<%[myNI]> You are being kicked because: %[line:Reason]|<%[myNI]> is kicking %[userNI] because: %[line:Reason]|$Kick %[userNI]|";
     addUserCommand(UserCommand::TYPE_RAW_ONCE, UserCommand::CONTEXT_CHAT | UserCommand::CONTEXT_SEARCH, UserCommand::FLAG_NOSAVE,
         _("Kick user(s)"), kickstr, "op");
     static const char redirstr[] =
