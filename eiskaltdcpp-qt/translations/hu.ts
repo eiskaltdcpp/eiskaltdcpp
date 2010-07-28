@@ -30,7 +30,14 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Használat:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt&lt;Kapcsoló&gt;
+Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
+
+Kapcsolók:
+  -h, --help	 Help megjelenítése
+  -v, --version  Verzióinformáció mutatása</translation>
     </message>
 </context>
 <context>
@@ -3557,11 +3564,11 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Automatically update external IP (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Külső IP cím automatikus frissítése (újraindítást igényel)</translation>
     </message>
     <message>
         <source>DynDNS Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>DynDNS cím:</translation>
     </message>
 </context>
 <context>
