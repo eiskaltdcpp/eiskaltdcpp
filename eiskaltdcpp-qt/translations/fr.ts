@@ -909,7 +909,7 @@ Utilisateur favoris</translation>
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation>/aspell on/off - active/désactive la vérification orthographique
+        <translation type="obsolete">/aspell on/off - active/désactive la vérification orthographique
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - retirer l&apos;alias
 /alias list - lister tous les alias
@@ -938,6 +938,30 @@ Utilisateur favoris</translation>
     <message>
         <source>Hub Title</source>
         <translation>Nom serveur</translation>
+    </message>
+    <message>
+        <source>ratio: %1 (uploads: %2, downloads: %3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/aspell on/off - enable/disable spell checking
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - remove alias
+/alias list - list all aliases
+/away &lt;message&gt; - set away-mode on/off
+/back - set away-mode off
+/browse &lt;nick&gt; - browse user files
+/clear - clear chat window
+/magnet - default action with magnet (0-ask, 1-search, 2-download)
+/close - close this hub
+/fav - add this hub to favorites
+/grant &lt;nick&gt; - grant extra slot to user
+/help, /?, /h - show this help
+/info &lt;nick&gt; - show info about user
+/ratio [show] - show ratio [send in chat]/me - say a third person
+/pm &lt;nick&gt; - begin private chat with user
+/sh &lt;command&gt; - start command and redirect output to the chat</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
