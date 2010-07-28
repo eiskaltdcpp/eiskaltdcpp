@@ -1286,6 +1286,31 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             }
         }
     }
+    else if ((cmd == "/ratio" && !emptyParam) || cmd == "/ratio"){
+        double ratio;
+        double down = QString(WSGET(WS_APP_TOTAL_DOWN)).toDouble();
+        double up = QString(WSGET(WS_APP_TOTAL_UP)).toDouble();
+
+        if (down > 0)
+            ratio = up / down;
+        else
+            ratio = 0;
+
+        QString line = tr("ratio: %1 (uploads: %2, downloads: %3)")
+            .arg(QString().setNum(ratio, 'f', 2)).arg(WulforUtil::formatBytes(up)).arg(WulforUtil::formatBytes(down));
+
+        if (param.trimmed() == "show"){
+            if (fr == this)
+                sendChat(line, false, false);
+            else if (pm)
+                pm->sendMessage(line, false, false);
+        } else if (emptyParam){
+            if (fr == this)
+                addStatus(line);
+            else if (pm)
+                pm->addStatus(line);
+        }
+    }
 #ifdef USE_ASPELL
     else if (cmd == "/aspell" && !emptyParam){
         WBSET(WB_APP_ENABLE_ASPELL, param.trimmed() == "on");
@@ -1381,6 +1406,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                          "/grant <nick> - grant extra slot to user\n"
                          "/help, /?, /h - show this help\n"
                          "/info <nick> - show info about user\n"
+                         "/ratio [show] - show ratio [send in chat]"
                          "/me - say a third person\n"
                          "/pm <nick> - begin private chat with user\n"
                          "/sh <command> - start command and redirect output to the chat");
