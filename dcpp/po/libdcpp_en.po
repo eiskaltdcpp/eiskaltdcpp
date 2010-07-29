@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-07-30 00:09+0400\n"
+"POT-Creation-Date: 2010-07-30 00:51+0400\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -25,6 +25,14 @@ msgstr "Kick user(s)"
 msgid "Redirect user(s)"
 msgstr "Redirect user(s)"
 
+#: ../AdcHub.cpp:140
+msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+msgstr ""
+
+#: ../AdcHub.cpp:176
+msgid "%1%/s"
+msgstr ""
+
 #: ../AdcHub.cpp:211
 msgid "Failed to negotiate base protocol"
 msgstr "Failed to negotiate base protocol"
@@ -36,6 +44,18 @@ msgid ""
 msgstr ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
+
+#: ../AdcHub.cpp:286
+msgid "%1% was kicked by %2%: %3%"
+msgstr ""
+
+#: ../AdcHub.cpp:289
+msgid "%1% was kicked: %2%"
+msgstr ""
+
+#: ../AdcHub.cpp:566
+msgid "Not listening for connections - please restart %1%"
+msgstr ""
 
 #: ../Transfer.cpp:82 ../Transfer.cpp:86 ../SearchManager.cpp:244
 #: ../SearchManager.cpp:305 ../SearchManager.cpp:307 ../ClientManager.cpp:120
@@ -54,13 +74,51 @@ msgstr "Shared Files"
 msgid "Download Queue"
 msgstr "Download Queue"
 
+#: ../HashManager.cpp:80 ../HashManager.cpp:280
+msgid "Hashing failed: %1%"
+msgstr ""
+
+#: ../HashManager.cpp:87
+msgid "Finished hashing: %1% (%2% at %3%/s)"
+msgstr ""
+
+#: ../HashManager.cpp:90
+msgid "Finished hashing: %1% (%2%)"
+msgstr ""
+
+#: ../HashManager.cpp:93
+msgid "Finished hashing: %1%"
+msgstr ""
+
+#: ../HashManager.cpp:122 ../HashManager.cpp:336
+msgid "Error saving hash data: %1%"
+msgstr ""
+
 #: ../HashManager.cpp:135
 msgid "Unable to read hash data file"
+msgstr "Unable to read hash data file"
+
+#: ../HashManager.cpp:469
+#, fuzzy
+msgid "Error creating hash data file: %1%"
 msgstr "Unable to read hash data file"
 
 #: ../HashManager.cpp:790
 msgid "Hash database rebuilt"
 msgstr "Hash database rebuilt"
+
+#: ../HashManager.cpp:842
+msgid "Hashing file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../HashManager.cpp:890
+msgid ""
+"%1% not shared; calculated CRC32 does not match the one found in SFV file."
+msgstr ""
+
+#: ../HashManager.cpp:895
+msgid "Error hashing %1%: %2%"
+msgstr ""
 
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
@@ -81,6 +139,11 @@ msgstr "TLS disabled, no certificate file set"
 #: ../CryptoManager.cpp:221
 msgid "Generated new TLS certificate"
 msgstr "Generated new TLS certificate"
+
+#: ../CryptoManager.cpp:223
+#, fuzzy
+msgid "TLS disabled, failed to generate certificate: %1%"
+msgstr "TLS disabled, no certificate file set"
 
 #: ../CryptoManager.cpp:228 ../CryptoManager.cpp:232 ../CryptoManager.cpp:237
 #: ../CryptoManager.cpp:241
@@ -106,6 +169,10 @@ msgstr "Invalid size"
 msgid "Response does not match request"
 msgstr "Response does not match request"
 
+#: ../DownloadManager.cpp:234
+msgid "Could not open target file: %1%"
+msgstr ""
+
 #: ../DownloadManager.cpp:313
 msgid "Full tree does not match TTH root"
 msgstr "Full tree does not match TTH root"
@@ -117,6 +184,24 @@ msgstr "CRC32 inconsistency (SFV-Check)"
 #: ../DownloadManager.cpp:427
 msgid "No slots available"
 msgstr "No slots available"
+
+#: ../DownloadManager.cpp:538
+#, fuzzy
+msgid "%1%: File not available"
+msgstr "File not available"
+
+#: ../QueueManager.cpp:343
+msgid "%1% renamed to %2%"
+msgstr ""
+
+#: ../QueueManager.cpp:345
+#, fuzzy
+msgid "Unable to rename %1%: %2%"
+msgstr "Unable to create thread"
+
+#: ../QueueManager.cpp:561
+msgid "Searching TTH alternates for: %1%"
+msgstr ""
 
 #: ../QueueManager.cpp:589
 msgid "You're trying to download from yourself!"
@@ -154,6 +239,10 @@ msgstr ""
 msgid "A file of equal or larger size already exists at the target location"
 msgstr "A file of equal or larger size already exists at the target location"
 
+#: ../QueueManager.cpp:714 ../QueueManager.cpp:718
+msgid "Duplicate source: %1%"
+msgstr ""
+
 #: ../QueueManager.cpp:988
 msgid "Target removed"
 msgstr "Target removed"
@@ -161,6 +250,19 @@ msgstr "Target removed"
 #: ../QueueManager.cpp:996
 msgid "Target file is missing or wrong size"
 msgstr "Target file is missing or wrong size"
+
+#: ../QueueManager.cpp:1206
+msgid "Unable to open filelist: %1%"
+msgstr ""
+
+#: ../QueueManager.cpp:1230
+msgid "%1%: Matched %2% file"
+msgstr ""
+
+#: ../Socket.cpp:58
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr ""
 
 #: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
 #: ../ConnectionManager.cpp:182
@@ -192,6 +294,10 @@ msgstr ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 
+#: ../NmdcHub.cpp:282
+msgid "%1% (Nick unknown)"
+msgstr ""
+
 #: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
 msgid "Connection closed"
 msgstr "Connection closed"
@@ -203,6 +309,14 @@ msgstr "Maximum command length exceeded"
 #: ../BufferedSocket.cpp:453
 msgid "Disconnected"
 msgstr "Disconnected"
+
+#: ../UploadManager.cpp:157
+msgid "Unable to send file %1%: %2%"
+msgstr ""
+
+#: ../UploadManager.cpp:461
+msgid "Disconnected user leaving the hub: %1%"
+msgstr ""
 
 #: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
 #: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
@@ -217,9 +331,23 @@ msgstr "All download slots taken"
 msgid "Connectivity restored"
 msgstr "Connectivity restored"
 
+#: ../ConnectionManager.cpp:252
+#, fuzzy
+msgid "Connectivity error: %1%"
+msgstr "Connectivity restored"
+
 #: ../SearchManager.cpp:129
 msgid "Search enabled again"
 msgstr "Search enabled again"
+
+#: ../SearchManager.cpp:136
+#, fuzzy
+msgid "Search disabled: %1%"
+msgstr "Search enabled again"
+
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr ""
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
@@ -241,6 +369,20 @@ msgstr "Directory already shared"
 msgid "Remove all subdirectories before adding this one"
 msgstr "Remove all subdirectories before adding this one"
 
+#: ../ShareManager.cpp:771
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:792
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:847
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+
 #: ../ShareManager.cpp:864
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
@@ -249,6 +391,11 @@ msgstr ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
 
+#: ../ShareManager.cpp:885
+#, fuzzy
+msgid "File list refresh failed: %1%"
+msgstr "File list refresh finished"
+
 #: ../ShareManager.cpp:907
 msgid "File list refresh initiated"
 msgstr "File list refresh initiated"
@@ -256,6 +403,11 @@ msgstr "File list refresh initiated"
 #: ../ShareManager.cpp:932
 msgid "File list refresh finished"
 msgstr "File list refresh finished"
+
+#: ../ShareManager.cpp:1003
+#, fuzzy
+msgid "File list %1% generated"
+msgstr "File list refresh initiated"
 
 #: ../Util.cpp:459
 #, c-format

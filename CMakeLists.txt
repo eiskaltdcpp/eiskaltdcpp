@@ -342,18 +342,18 @@ if(GETTEXT_FOUND)
       PO_DIR "${dcpp_SOURCE_DIR}/po"
       POT_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
       PO_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
-      MO_INSTALL_DIR "/locale"
+      MO_INSTALL_DIR "/${SHARE_DIR}/locale"
       ADD_MO_TARGET_TO_ALL 1)
 if (USE_GTK)
      kwwidgets_create_gettext_targets(
       DOMAIN_NAME "${PROJECT_NAME_GLOBAL}-gtk"
       LOCALE_LIST "${LANGUAGES}"
       COPYRIGHT_HOLDER "EiskaltDC++ team"
-      SOURCES "${GTK_SRCS}"
+      SOURCES "${GTK_SRCS};${GTK_HDRS}"
       PO_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
       POT_BUILD_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
       PO_BUILD_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
-      MO_INSTALL_DIR "/locale"
+      MO_INSTALL_DIR "/${SHARE_DIR}/locale"
       ADD_MO_TARGET_TO_ALL 1)
 endif (USE_GTK)
 endif(GETTEXT_FOUND)

@@ -491,6 +491,8 @@ macro(KWWidgets_CREATE_POT_TARGET
     set(keywords ${keyword}
       "--keyword=_" "--flag=_:1:pass-c-format"
       "--keyword=N_" "--flag=N_:1:pass-c-format"
+      "--keyword=F_" "--flag=F_:1:pass-c-format"
+      "--keyword=FN_" "--flag=FN_:1:pass-c-format"
       "--flag=autosprintf:1:c-format"
       "--keyword=kww_sgettext" "--flag=kww_sgettext:1:pass-c-format"
       "--keyword=kww_sdgettext:2" "--flag=kww_sdgettext:2:pass-c-format"
