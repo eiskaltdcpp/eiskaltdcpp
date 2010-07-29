@@ -899,7 +899,7 @@ Opciones:
     <message>
         <location filename="../src/HubFrame.cpp" line="1299"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
-        <translation type="unfinished"></translation>
+        <translation>ratio: %1 (subidas: %2, descargas: %3)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1324"/>
@@ -1063,7 +1063,23 @@ Usuario favorito</translation>
 /ratio [show] - show ratio [send in chat]/me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - habilitar/deshabilitar Chequeo escritura
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - crear alias /ALIAS_NAME a /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - borrar alias
+/alias list - listar todos los Alias
+/away &lt;message&gt; - establece el modo ausente en encendido/apagado
+/back - apaga el modo ausente
+/browse &lt;nick&gt; - explorar ficheros del usuario
+/clear - limpia la ventana del chat
+/magnet - acción predeterminada del imán (0-pregunta, 1-busca, 2-descarga)
+/close - cierra este Hub
+/fav - añade este hub a favoritos
+/grant &lt;nick&gt; - concede slot extra al usuario
+/help, /?, /h - muestra esta ayuda
+/info &lt;nick&gt; - muestra información acerca del usuario
+/me - habla en tercera persona
+/pm &lt;nick&gt; - comienza un chat privado con el usuario
+/sh &lt;command&gt; - ejecuta un comando y lo re-direcciona al chat</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1610"/>
@@ -3489,12 +3505,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
         <source>Expand all</source>
-        <translation>expandir todo</translation>
+        <translation>Expandir todo</translation>
     </message>
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="54"/>
         <source>Collapse all</source>
-        <translation>Encoger todo</translation>
+        <translation>Contraer todo</translation>
     </message>
 </context>
 <context>
