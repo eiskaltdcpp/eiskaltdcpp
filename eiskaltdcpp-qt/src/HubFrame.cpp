@@ -1406,7 +1406,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                          "/grant <nick> - grant extra slot to user\n"
                          "/help, /?, /h - show this help\n"
                          "/info <nick> - show info about user\n"
-                         "/ratio [show] - show ratio [send in chat]"
+                         "/ratio [show] - show ratio [send in chat]\n"
                          "/me - say a third person\n"
                          "/pm <nick> - begin private chat with user\n"
                          "/sh <command> - start command and redirect output to the chat");
