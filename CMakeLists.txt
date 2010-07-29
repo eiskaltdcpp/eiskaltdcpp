@@ -293,3 +293,26 @@ CONFIGURE_FILE(
 ADD_CUSTOM_TARGET(uninstall
   "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 
+
+if (UNIX AND NOT APPLE)
+  set (CLIENT_ICONS_DEST1 ${SHARE_DIR}/icons)
+  set (CLIENT_ICONS_DEST2 ${SHARE_DIR}/${PROJECT_NAME_GLOBAL}/icons)
+else ()
+  set (CLIENT_ICONS_DEST1 ${CLIENT_ICONS_DEST})
+  set (CLIENT_ICONS_DEST2 ${CLIENT_ICONS_DEST})
+endif ()
+
+if (USE_QT OR USE_GTK)
+  install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/64x64/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_32x32.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/32x32/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_48x48.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/48x48/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_22x22.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/22x22/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_24x24.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/24x24/apps RENAME eiskaltdcpp.png)
+  install (FILES icons/icon_16x16.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/16x16/apps RENAME eiskaltdcpp.png)
+if (APPLE)
+  install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/pixmaps/ RENAME eiskaltdcpp.png)
+else (APPLE)
+  install (FILES icons/icon_128x128.png DESTINATION ${SHARE_DIR}/pixmaps/ RENAME eiskaltdcpp.png)
+endif (APPLE)
+endif (USE_QT OR USE_GTK)

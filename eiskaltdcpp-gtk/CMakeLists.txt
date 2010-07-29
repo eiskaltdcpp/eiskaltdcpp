@@ -91,10 +91,10 @@ add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32 src/wulfor.cc
                 ${SRCS}
                 ${HDRS}
                 )
-add_definitions (-I. -I.. -DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
-                          -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
-                          -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
-                          -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
+add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
+                -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
+                -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
+                -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
                 )
 
 if (APPLE)
@@ -138,7 +138,11 @@ endif (UNIX)
     PATTERN ".svn" EXCLUDE)
 
 if (APPLE)
+  install (FILES eiskaltdcpp-gtk.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
   install (FILES eiskaltdcpp-gtk.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
-elseif (UNIX AND NOT APPLE)
-  install (FILES eiskaltdcpp-gtk.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+else (APPLE)
+  if (UNIX)
+    install (FILES eiskaltdcpp-gtk.desktop DESTINATION ${SHARE_DIR}/applications)
+    install (FILES eiskaltdcpp-gtk.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+  endif (UNIX)
 endif (APPLE)

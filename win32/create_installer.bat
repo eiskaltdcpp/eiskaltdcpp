@@ -10,8 +10,8 @@ copy /Y "%DIRINSTALLER%\Program Files\EiskaltDC++\EiskaltDC++ Qt.exe" %DIRINSTAL
 move /Y "%DIRINSTALLER%\Program Files\EiskaltDC++\resources"          %DIRINSTALLER%
 rmdir /s /q "%DIRINSTALLER%\Program Files"
 
-copy /Y "%SOURCESDIR%\eiskaltdcpp-qt\icons\eiskaltdcpp.ico"           %DIRINSTALLER%
-copy /Y "%SOURCESDIR%\eiskaltdcpp-qt\icons\icon_128x128.bmp"          %DIRINSTALLER%
+copy /Y "%SOURCESDIR%\icons\eiskaltdcpp.ico"           %DIRINSTALLER%
+copy /Y "%SOURCESDIR%\icons\icon_128x128.bmp"          %DIRINSTALLER%
 copy /Y "%SOURCESDIR%\win32\dcppboot.xml"                             %DIRINSTALLER%
 copy /Y "%SOURCESDIR%\LICENSE"                                        %DIRINSTALLER%
 
