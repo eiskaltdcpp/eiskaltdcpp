@@ -278,30 +278,6 @@ else ()
   set (CLIENT_ICONS_DEST2 ${CLIENT_ICONS_DEST})
 endif ()
 
-if (USE_DHT)
-add_subdirectory (dht)
-endif (USE_DHT)
-add_subdirectory (dcpp)
-
-if (USE_QT)
-  add_subdirectory (eiskaltdcpp-qt)
-endif (USE_QT)
-
-if (USE_WT)
-  add_subdirectory (eiskaltdcpp-wt)
-endif (USE_WT)
-
-if (USE_GTK)
-  add_subdirectory (eiskaltdcpp-gtk)
-endif (USE_GTK)
-
-CONFIGURE_FILE(
-  "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
-  IMMEDIATE @ONLY)
-ADD_CUSTOM_TARGET(uninstall
-  "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-
 option (LANGUAGES "Using translations")
 set (AllLanguages
             be
@@ -328,12 +304,35 @@ else (NOT DEFINED linguas)
   endif (NOT linguas)
 endif (NOT DEFINED linguas)
 message (STATUS "Translations: ${LANGUAGES}")
+
+if (USE_DHT)
+add_subdirectory (dht)
+endif (USE_DHT)
+add_subdirectory (dcpp)
+
+if (USE_QT)
+  add_subdirectory (eiskaltdcpp-qt)
+endif (USE_QT)
+
+if (USE_WT)
+  add_subdirectory (eiskaltdcpp-wt)
+endif (USE_WT)
+
+if (USE_GTK)
+  add_subdirectory (eiskaltdcpp-gtk)
+endif (USE_GTK)
+
+CONFIGURE_FILE(
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+  IMMEDIATE @ONLY)
+ADD_CUSTOM_TARGET(uninstall
+  "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
+
 #message (STATUS "@DCPP_SRCS@")
 #message (STATUS "@GTK_SRCS@")
 if(GETTEXT_FOUND)
     include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/KWWidgetsInternationalizationMacros.cmake)
-#    set(dcpp_INCLUDE_PATH
-#      ${GETTEXT_INCLUDE_DIR} CACHE INTERNAL "" FORCE)
     kwwidgets_create_gettext_targets(
       DOMAIN_NAME "libdcpp"
       LOCALE_LIST "${LANGUAGES}"
