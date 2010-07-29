@@ -269,6 +269,15 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
                 ")
+
+if (UNIX AND NOT APPLE)
+  set (CLIENT_ICONS_DEST1 ${SHARE_DIR}/icons)
+  set (CLIENT_ICONS_DEST2 ${SHARE_DIR}/${PROJECT_NAME_GLOBAL}/icons)
+else ()
+  set (CLIENT_ICONS_DEST1 ${CLIENT_ICONS_DEST})
+  set (CLIENT_ICONS_DEST2 ${CLIENT_ICONS_DEST})
+endif ()
+
 if (USE_DHT)
 add_subdirectory (dht)
 endif (USE_DHT)
@@ -292,15 +301,6 @@ CONFIGURE_FILE(
   IMMEDIATE @ONLY)
 ADD_CUSTOM_TARGET(uninstall
   "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-
-
-if (UNIX AND NOT APPLE)
-  set (CLIENT_ICONS_DEST1 ${SHARE_DIR}/icons)
-  set (CLIENT_ICONS_DEST2 ${SHARE_DIR}/${PROJECT_NAME_GLOBAL}/icons)
-else ()
-  set (CLIENT_ICONS_DEST1 ${CLIENT_ICONS_DEST})
-  set (CLIENT_ICONS_DEST2 ${CLIENT_ICONS_DEST})
-endif ()
 
 if (USE_QT OR USE_GTK)
   install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
