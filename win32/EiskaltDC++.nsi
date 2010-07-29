@@ -8,7 +8,7 @@
 !define PRODUCT_UNINST_ROOT_KEY      "HKLM"
 !define PRODUCT_INSTALL_DIR          "$PROGRAMFILES\EiskaltDC++"
 !define MUI_ICON                     "installer\eiskaltdcpp.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "installer\icon_128x128.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "installer\icon_164x314.bmp"
 !define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 !define MUI_WELCOMEPAGE_TITLE_3LINES
 !define MUI_FINISHPAGE_NOAUTOCLOSE
@@ -23,7 +23,7 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_PAGE_FINISH
 
 !insertmacro MUI_UNPAGE_CONFIRM
-!insertmacro MUI_UNPAGE_INSTFILES  
+!insertmacro MUI_UNPAGE_INSTFILES
 !insertmacro MUI_UNPAGE_FINISH
 
 !define MUI_LANGDLL_ALLLANGUAGES
@@ -65,7 +65,7 @@ Section "EiskaltDC++"
   File "installer\QtNetwork4.dll"
   File "installer\QtXml4.dll"
   File "installer\QtScript4.dll"
-  File "installer\aspell-15.dll" 
+  File "installer\aspell-15.dll"
   File /r "installer\resources"
 
   WriteUninstaller "$INSTDIR\Uninstall.exe"

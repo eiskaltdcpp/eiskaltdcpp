@@ -11,7 +11,7 @@ move /Y "%DIRINSTALLER%\Program Files\EiskaltDC++\resources"          %DIRINSTAL
 rmdir /s /q "%DIRINSTALLER%\Program Files"
 
 copy /Y "%SOURCESDIR%\icons\eiskaltdcpp.ico"           %DIRINSTALLER%
-copy /Y "%SOURCESDIR%\icons\icon_128x128.bmp"          %DIRINSTALLER%
+copy /Y "%SOURCESDIR%\icons\icon_164x314.bmp"          %DIRINSTALLER%
 copy /Y "%SOURCESDIR%\win32\dcppboot.xml"                             %DIRINSTALLER%
 copy /Y "%SOURCESDIR%\LICENSE"                                        %DIRINSTALLER%
 
