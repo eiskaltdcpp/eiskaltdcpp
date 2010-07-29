@@ -302,6 +302,62 @@ CONFIGURE_FILE(
 ADD_CUSTOM_TARGET(uninstall
   "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 
+option (LANGUAGES "Using translations")
+set (AllLanguages
+            be
+            en
+            es
+            fr
+            hu
+            pl
+            ru
+            sr
+            uk
+            )
+if (NOT DEFINED linguas)
+  set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
+else (NOT DEFINED linguas)
+  if (NOT linguas)
+    set (LANGUAGES "" CACHE STRING "Using translations" FORCE)
+  elseif (linguas STREQUAL *)
+        set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
+  else (NOT linguas)
+    string(REGEX MATCHALL [a-zA-Z_]+
+           linguas1 ${linguas})
+    set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
+  endif (NOT linguas)
+endif (NOT DEFINED linguas)
+message (STATUS "Translations: ${LANGUAGES}")
+#message (STATUS "@DCPP_SRCS@")
+#message (STATUS "@GTK_SRCS@")
+if(GETTEXT_FOUND)
+    include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/KWWidgetsInternationalizationMacros.cmake)
+#    set(dcpp_INCLUDE_PATH
+#      ${GETTEXT_INCLUDE_DIR} CACHE INTERNAL "" FORCE)
+    kwwidgets_create_gettext_targets(
+      DOMAIN_NAME "libdcpp"
+      LOCALE_LIST "${LANGUAGES}"
+      COPYRIGHT_HOLDER "EiskaltDC++ team"
+      SOURCES "${DCPP_SRCS};${DCPP_HDRS}"
+      PO_DIR "${dcpp_SOURCE_DIR}/po"
+      POT_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
+      PO_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
+      MO_INSTALL_DIR "/locale"
+      ADD_MO_TARGET_TO_ALL 1)
+if (USE_GTK)
+     kwwidgets_create_gettext_targets(
+      DOMAIN_NAME "${PROJECT_NAME_GLOBAL}-gtk"
+      LOCALE_LIST "${LANGUAGES}"
+      COPYRIGHT_HOLDER "EiskaltDC++ team"
+      SOURCES "${GTK_SRCS}"
+      PO_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
+      POT_BUILD_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
+      PO_BUILD_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
+      MO_INSTALL_DIR "/locale"
+      ADD_MO_TARGET_TO_ALL 1)
+endif (USE_GTK)
+endif(GETTEXT_FOUND)
+
 if (USE_QT OR USE_GTK)
   install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/64x64/apps RENAME eiskaltdcpp.png)

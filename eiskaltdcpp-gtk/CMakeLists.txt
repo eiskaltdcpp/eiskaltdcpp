@@ -5,71 +5,11 @@ cmake_minimum_required (VERSION 2.6)
 set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
-set (HDRS
-        src/bacon-message-connection.h
-        src/favoriteusers.hh
-        src/previewmenu.hh
-        src/sound.hh
-        src/bookentry.hh
-        src/finishedtransfers.hh
-        src/privatemessage.hh
-        src/transfers.hh
-        src/dialogentry.hh
-        src/func.hh
-        src/publichubs.hh
-        src/treeview.hh
-        src/downloadqueue.hh
-        src/hashdialog.hh
-        src/search.hh
-        src/UserCommandMenu.hh
-        src/emoticonsdialog.hh
-        src/hub.hh
-        src/searchspy.hh
-        src/emoticons.hh
-        src/mainwindow.hh
-        src/settingsdialog.hh
-        src/wulformanager.hh
-        src/entry.hh
-        src/message.hh
-        src/settingsmanager.hh
-        src/WulforUtil.hh
-        src/favoritehubs.hh
-        src/notify.hh
-        src/sharebrowser.hh
-    )
-set (SRCS
-        src/bacon-message-connection.c
-        src/favoriteusers.cc
-        src/publichubs.cc
-        src/treeview.cc
-        src/bookentry.cc
-        src/finishedtransfers.cc
-        src/search.cc
-        src/UserCommandMenu.cc
-        src/dialogentry.cc
-        src/hashdialog.cc
-        src/searchspy.cc
-        src/wulfor.cc
-        src/downloadqueue.cc
-        src/hub.cc
-        src/settingsdialog.cc
-        src/wulformanager.cc
-        src/emoticons.cc
-        src/mainwindow.cc
-        src/settingsmanager.cc
-        src/WulforUtil.cc
-        src/emoticonsdialog.cc
-        src/notify.cc
-        src/sharebrowser.cc
-        src/entry.cc
-        src/previewmenu.cc
-        src/sound.cc
-        src/favoritehubs.cc
-        src/privatemessage.cc
-        src/transfers.cc
-    )
-
+aux_source_directory(${PROJECT_SOURCE_DIR}/src gtk_srcs)
+file (GLOB gtk_hdrs ${PROJECT_SOURCE_DIR} src/*.hh)
+#message ("gtk_srcs:@gtk_srcs@ gtk_hdrs:@gtk_hdrs@")
+set (GTK_SRCS @gtk_srcs@ PARENT_SCOPE)
+set (GTK_HDRS @gtk_hdrs@ PARENT_SCOPE)
 
 include_directories (
         ${GTK2_INCLUDE_DIRS}
@@ -87,9 +27,8 @@ set (LIBS ${LIBS}
         )
 
 
-add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32 src/wulfor.cc
-                ${SRCS}
-                ${HDRS}
+add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
+                ${gtk_srcs}
                 )
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"

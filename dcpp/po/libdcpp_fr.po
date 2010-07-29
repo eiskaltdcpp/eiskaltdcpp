@@ -1,0 +1,322 @@
+# French translations for work package.
+# Copyright (C) 2010 EiskaltDC++\ team
+# This file is distributed under the same license as the work package.
+# Automatically generated, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: work 2\n"
+"Report-Msgid-Bugs-To: foo@bar.com\n"
+"POT-Creation-Date: 2010-07-30 00:09+0400\n"
+"PO-Revision-Date: 2010-07-30 00:09+0400\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../FavoriteManager.cpp:444
+msgid "Kick user(s)"
+msgstr ""
+
+#: ../FavoriteManager.cpp:448
+msgid "Redirect user(s)"
+msgstr ""
+
+#: ../AdcHub.cpp:211
+msgid "Failed to negotiate base protocol"
+msgstr ""
+
+#: ../AdcHub.cpp:217
+msgid ""
+"Hub probably uses an old version of ADC, please encourage the owner to "
+"upgrade"
+msgstr ""
+
+#: ../Transfer.cpp:82 ../Transfer.cpp:86 ../SearchManager.cpp:244
+#: ../SearchManager.cpp:305 ../SearchManager.cpp:307 ../ClientManager.cpp:120
+msgid "Offline"
+msgstr ""
+
+#: ../DCPlusPlus.cpp:108
+msgid "Hash database"
+msgstr ""
+
+#: ../DCPlusPlus.cpp:111
+msgid "Shared Files"
+msgstr ""
+
+#: ../DCPlusPlus.cpp:114
+msgid "Download Queue"
+msgstr ""
+
+#: ../HashManager.cpp:135
+msgid "Unable to read hash data file"
+msgstr ""
+
+#: ../HashManager.cpp:790
+msgid "Hash database rebuilt"
+msgstr ""
+
+#: ../CryptoManager.cpp:140
+msgid "No private key file chosen"
+msgstr ""
+
+#: ../CryptoManager.cpp:143
+msgid "No certificate file chosen"
+msgstr ""
+
+#: ../CryptoManager.cpp:154
+msgid "Error generating certificate"
+msgstr ""
+
+#: ../CryptoManager.cpp:213
+msgid "TLS disabled, no certificate file set"
+msgstr ""
+
+#: ../CryptoManager.cpp:221
+msgid "Generated new TLS certificate"
+msgstr ""
+
+#: ../CryptoManager.cpp:228 ../CryptoManager.cpp:232 ../CryptoManager.cpp:237
+#: ../CryptoManager.cpp:241
+msgid "Failed to load certificate file"
+msgstr ""
+
+#: ../CryptoManager.cpp:246 ../CryptoManager.cpp:250 ../CryptoManager.cpp:255
+#: ../CryptoManager.cpp:259
+msgid "Failed to load private key"
+msgstr ""
+
+#: ../CryptoManager.cpp:344 ../CryptoManager.cpp:363 ../CryptoManager.cpp:377
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../BZUtils.cpp:72 ../BZUtils.cpp:94
+#: ../BZUtils.cpp:97
+msgid "Error during decompression"
+msgstr ""
+
+#: ../DownloadManager.cpp:222
+msgid "Invalid size"
+msgstr ""
+
+#: ../DownloadManager.cpp:227
+msgid "Response does not match request"
+msgstr ""
+
+#: ../DownloadManager.cpp:313
+msgid "Full tree does not match TTH root"
+msgstr ""
+
+#: ../DownloadManager.cpp:382 ../DownloadManager.cpp:384
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr ""
+
+#: ../DownloadManager.cpp:427
+msgid "No slots available"
+msgstr ""
+
+#: ../QueueManager.cpp:589
+msgid "You're trying to download from yourself!"
+msgstr ""
+
+#: ../QueueManager.cpp:595
+msgid "A file with the same hash already exists in your share"
+msgstr ""
+
+#: ../QueueManager.cpp:622
+msgid "This file is already queued"
+msgstr ""
+
+#: ../QueueManager.cpp:632
+msgid "A file with a different size already exists in the queue"
+msgstr ""
+
+#: ../QueueManager.cpp:635
+msgid "A file with different tth root already exists in the queue"
+msgstr ""
+
+#: ../QueueManager.cpp:679 ../QueueManager.cpp:688
+msgid "Target filename too long"
+msgstr ""
+
+#: ../QueueManager.cpp:684 ../QueueManager.cpp:692
+msgid ""
+"Invalid target file (missing directory, check default download directory "
+"setting)"
+msgstr ""
+
+#: ../QueueManager.cpp:701
+msgid "A file of equal or larger size already exists at the target location"
+msgstr ""
+
+#: ../QueueManager.cpp:988
+msgid "Target removed"
+msgstr ""
+
+#: ../QueueManager.cpp:996
+msgid "Target file is missing or wrong size"
+msgstr ""
+
+#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:182
+msgid "Connection timeout"
+msgstr ""
+
+#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
+#: ../Socket.cpp:235 ../Socket.cpp:250
+msgid "The socks server failed establish a connection"
+msgstr ""
+
+#: ../Socket.cpp:239
+msgid "The socks server requires authentication"
+msgstr ""
+
+#: ../Socket.cpp:253
+msgid "The socks server doesn't support login / password authentication"
+msgstr ""
+
+#: ../Socket.cpp:267 ../Socket.cpp:271
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr ""
+
+#: ../Socket.cpp:406
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr ""
+
+#: ../BufferedSocket.cpp:276
+msgid "Maximum command length exceeded"
+msgstr ""
+
+#: ../BufferedSocket.cpp:453
+msgid "Disconnected"
+msgstr ""
+
+#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
+#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
+msgid "Error during compression"
+msgstr ""
+
+#: ../ConnectionManager.cpp:176
+msgid "All download slots taken"
+msgstr ""
+
+#: ../ConnectionManager.cpp:245
+msgid "Connectivity restored"
+msgstr ""
+
+#: ../SearchManager.cpp:129
+msgid "Search enabled again"
+msgstr ""
+
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr ""
+
+#: ../ShareManager.cpp:422
+msgid "No directory specified"
+msgstr ""
+
+#: ../ShareManager.cpp:430
+msgid "The temporary download directory cannot be shared"
+msgstr ""
+
+#: ../ShareManager.cpp:439
+msgid "Directory already shared"
+msgstr ""
+
+#: ../ShareManager.cpp:442
+msgid "Remove all subdirectories before adding this one"
+msgstr ""
+
+#: ../ShareManager.cpp:864
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+
+#: ../ShareManager.cpp:907
+msgid "File list refresh initiated"
+msgstr ""
+
+#: ../ShareManager.cpp:932
+msgid "File list refresh finished"
+msgstr ""
+
+#: ../Util.cpp:459
+#, c-format
+msgid "%d B"
+msgstr ""
+
+#: ../Util.cpp:461
+#, c-format
+msgid "%.02f KiB"
+msgstr ""
+
+#: ../Util.cpp:463
+#, c-format
+msgid "%.02f MiB"
+msgstr ""
+
+#: ../Util.cpp:465
+#, c-format
+msgid "%.02f GiB"
+msgstr ""
+
+#: ../Util.cpp:467
+#, c-format
+msgid "%.02f TiB"
+msgstr ""
+
+#: ../Util.cpp:469
+#, c-format
+msgid "%.02f PiB"
+msgstr ""
+
+#: ../Util.cpp:499
+#, c-format
+msgid "%s B"
+msgstr ""
+
+#: ../Util.cpp:503
+#, c-format
+msgid "%'lld B"
+msgstr ""
+
+#: ../DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr ""
+
+#: ../DirectoryListing.cpp:102
+msgid "File not available"
+msgstr ""
+
+#: ../DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr ""
+
+#: ../BitInputStream.h:40
+msgid "Request to seek beyond the end of data"
+msgstr ""
+
+#: ../ADLSearch.h:48
+msgid "<Enter string>"
+msgstr ""
+
+#: ../ADLSearch.h:277
+msgid "Discard"
+msgstr ""
+
+#: ../Streams.h:140
+msgid "More bytes written than requested"
+msgstr ""
+
+#: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
+msgid "TTH inconsistency"
+msgstr ""

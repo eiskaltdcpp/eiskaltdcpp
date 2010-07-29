@@ -209,33 +209,6 @@ elseif (NOT MINGW AND WIN32)
   SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp-qt.rc")
 endif (MINGW AND WIN32)
 
-option (LANGUAGES "Using translations")
-set (AllLanguages
-            be
-            en
-            es
-            fr
-            hu
-            pl
-            ru
-            sr
-            uk
-            )
-if (NOT DEFINED linguas)
-  set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
-else (NOT DEFINED linguas)
-  if (NOT linguas)
-    set (LANGUAGES "" CACHE STRING "Using translations" FORCE)
-  elseif (linguas STREQUAL *)
-        set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
-  else (NOT linguas)
-    string(REGEX MATCHALL [a-zA-Z_]+
-           linguas1 ${linguas})
-    set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
-  endif (NOT linguas)
-endif (NOT DEFINED linguas)
-message (STATUS "Translations: ${LANGUAGES}")
-
 if (USE_ASPELL)
   list (APPEND SRCS src/SpellCheck.cpp)
   list (APPEND MOC_HDRS src/SpellCheck.h)

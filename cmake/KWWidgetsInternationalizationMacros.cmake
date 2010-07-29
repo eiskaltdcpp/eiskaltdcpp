@@ -505,7 +505,7 @@ macro(KWWidgets_CREATE_POT_TARGET
       OUTPUT "${pot_uptodate_file}"
       DEPENDS ${abs_sources}
       COMMAND ${CMAKE_COMMAND}
-      ARGS -E chdir "${po_dir}" ${CMAKE_COMMAND} -DCMAKE_BACKWARDS_COMPATIBILITY:STRING=${CMAKE_BACKWARDS_COMPATIBILITY} -Dpot_build_file:STRING=${pot_build_file} -Dpot_uptodate_file:STRING=${pot_uptodate_file} -Dpo_dir:STRING=${po_dir} -Doptions:STRING="${options}" -Dkeywords:STRING="${keywords}" -Dcopyright_holder:STRING="${copyright_holder}" -Dmsgid_bugs_address:STRING="${msgid_bugs_address}" -Dfiles_from:STRING=${files_from} -DGETTEXT_XGETTEXT_EXECUTABLE:STRING=${GETTEXT_XGETTEXT_EXECUTABLE} -P "${KWWidgets_CMAKE_DIR}/KWWidgetsGettextExtract.cmake")
+      ARGS -E chdir "${po_dir}" ${CMAKE_COMMAND} -DCMAKE_BACKWARDS_COMPATIBILITY:STRING=${CMAKE_BACKWARDS_COMPATIBILITY} -Dpot_build_file:STRING=${pot_build_file} -Dpot_uptodate_file:STRING=${pot_uptodate_file} -Dpo_dir:STRING=${po_dir} -Doptions:STRING="${options}" -Dkeywords:STRING="${keywords}" -Dcopyright_holder:STRING="${copyright_holder}" -Dmsgid_bugs_address:STRING="${msgid_bugs_address}" -Dfiles_from:STRING=${files_from} -DGETTEXT_XGETTEXT_EXECUTABLE:STRING=${GETTEXT_XGETTEXT_EXECUTABLE} -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/KWWidgetsGettextExtract.cmake")
     if(create_pot_target)
       add_custom_target(${target_basename}_pot DEPENDS ${pot_build_file})
     endif(create_pot_target)
@@ -581,7 +581,7 @@ macro(KWWidgets_CREATE_PO_TARGETS
       OUTPUT "${po_uptodate_file}"
       DEPENDS ${depends}
       COMMAND ${CMAKE_COMMAND}
-      ARGS -DCMAKE_BACKWARDS_COMPATIBILITY:STRING=${CMAKE_BACKWARDS_COMPATIBILITY} -Dpo_file:STRING=${po_file} -Dpo_build_file:STRING=${po_build_file} -Dpo_uptodate_file:STRING=${po_uptodate_file} -Ddefault_po_encoding:STRING=${default_po_encoding} -Dpot_build_file:STRING=${pot_build_file} -Dlocale:STRING=${locale} -DGETTEXT_MSGINIT_EXECUTABLE:STRING=${GETTEXT_MSGINIT_EXECUTABLE} -DGETTEXT_MSGCONV_EXECUTABLE:STRING=${GETTEXT_MSGCONV_EXECUTABLE} -DGETTEXT_MSGMERGE_EXECUTABLE:STRING=${GETTEXT_MSGMERGE_EXECUTABLE} -DGETTEXT_MSGCAT_EXECUTABLE:STRING=${GETTEXT_MSGCAT_EXECUTABLE} -P "${KWWidgets_CMAKE_DIR}/KWWidgetsGettextInitOrMerge.cmake"
+      ARGS -DCMAKE_BACKWARDS_COMPATIBILITY:STRING=${CMAKE_BACKWARDS_COMPATIBILITY} -Dpo_file:STRING=${po_file} -Dpo_build_file:STRING=${po_build_file} -Dpo_uptodate_file:STRING=${po_uptodate_file} -Ddefault_po_encoding:STRING=${default_po_encoding} -Dpot_build_file:STRING=${pot_build_file} -Dlocale:STRING=${locale} -DGETTEXT_MSGINIT_EXECUTABLE:STRING=${GETTEXT_MSGINIT_EXECUTABLE} -DGETTEXT_MSGCONV_EXECUTABLE:STRING=${GETTEXT_MSGCONV_EXECUTABLE} -DGETTEXT_MSGMERGE_EXECUTABLE:STRING=${GETTEXT_MSGMERGE_EXECUTABLE} -DGETTEXT_MSGCAT_EXECUTABLE:STRING=${GETTEXT_MSGCAT_EXECUTABLE} -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/KWWidgetsGettextInitOrMerge.cmake"
       )
     if(create_po_locale_targets)
       add_custom_target(
