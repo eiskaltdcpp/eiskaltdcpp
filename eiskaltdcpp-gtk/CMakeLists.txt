@@ -26,7 +26,6 @@ set (HDRS
         src/emoticonsdialog.hh
         src/hub.hh
         src/searchspy.hh
-        src/version.hh
         src/emoticons.hh
         src/mainwindow.hh
         src/settingsdialog.hh
@@ -133,7 +132,10 @@ endif (UNIX)
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 
-
+  install (DIRECTORY glade/ DESTINATION "${_DATADIR}/gtk/glade"
+    PATTERN ".svn" EXCLUDE)
+  install (DIRECTORY icons/ DESTINATION "${_DATADIR}/gtk/icons"
+    PATTERN ".svn" EXCLUDE)
 
 if (APPLE)
   install (FILES eiskaltdcpp-gtk.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)

@@ -6,7 +6,7 @@
     <property name="width_request">600</property>
     <property name="height_request">500</property>
     <property name="visible">False</property>
-    <property name="title" translatable="no">FreeDC++</property>
+    <property name="title" translatable="no">EiskaltDC++</property>
     <child>
       <widget class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
@@ -434,7 +434,7 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="aboutMenuItem">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">About FreeDC++</property>
+                        <property name="label" translatable="yes">About EiskaltDC++</property>
                         <property name="use_underline">True</property>
                         <child internal-child="image">
                           <widget class="GtkImage" id="aboutMenuImage">
@@ -870,7 +870,7 @@
     </child>
   </widget>
   <widget class="GtkDialog" id="exitDialog">
-    <property name="title" translatable="yes">Exit FreeDC++?</property>
+    <property name="title" translatable="yes">Exit EiskaltDC++ Gtk?</property>
     <property name="resizable">False</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
@@ -1014,7 +1014,7 @@
   <widget class="GtkAboutDialog" id="aboutDialog">
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
-    <property name="copyright">Copyright © FreeDC++ 2009-2010</property>
+    <property name="copyright">Copyright © EiskaltDC++ 2010</property>
     <property name="license" translatable="yes">
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 

@@ -102,7 +102,7 @@ WulforManager::WulforManager()
 	mainWin = NULL;
 
 	// Determine path to data files
-	path = string(_DATADIR) + G_DIR_SEPARATOR_S + g_get_prgname();
+	path = string(_DATADIR) + G_DIR_SEPARATOR_S + string("gtk");
 	if (!g_file_test(path.c_str(), G_FILE_TEST_EXISTS))
 	{
 		cerr << path << " is inaccessible, falling back to current directory instead.\n";

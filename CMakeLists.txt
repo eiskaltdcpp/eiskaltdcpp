@@ -205,7 +205,7 @@ else (APPLE)
   set (CLIENT_DATA_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/${PROJECT_NAME_GLOBAL}")
 endif (APPLE)
 
-set (_DATADIR "{CLIENT_DATA_DIR}")
+set (_DATADIR "${CLIENT_DATA_DIR}") # don't change! (used by eiskaltdcpp-gtk)
 
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
 

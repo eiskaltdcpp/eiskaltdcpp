@@ -48,7 +48,8 @@
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
-#include "version.hh"
+
+#include "Version.h"
 
 using namespace std;
 using namespace dcpp;
@@ -89,8 +90,14 @@ MainWindow::MainWindow():
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("transferCheckButton")), TRUE);
 
 	// About dialog
-	gchar *comments = g_strdup_printf(_("DC++ Client based on the source code LinuxDC++\n\nFreeDC++ version: %s.%s\nCore version: %s"),
-		GUI_VERSION_STRING, GUI_VERSION_BUILD_STRING, VERSIONSTRING);
+#ifndef DCPP_REVISION
+	gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"),
+		EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
+#else
+	gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s - %s %s\nDC++ core version: %s"),
+		EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION, DCVERSIONSTRING);
+#endif
+
 	gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), comments);
 	g_free(comments);
 
@@ -107,7 +114,7 @@ MainWindow::MainWindow():
 	gtk_about_dialog_set_email_hook((GtkAboutDialogActivateLinkFunc)onAboutDialogActivateLink_gui, (gpointer)this, NULL);
 	gtk_about_dialog_set_url_hook((GtkAboutDialogActivateLinkFunc)onAboutDialogActivateLink_gui, (gpointer)this, NULL);
 	// This has to be set in code in order to activate the link
-	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), "http://freedcpp.googlecode.com");
+	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), "http://eiskaltdc.googlecode.com");
 	gtk_window_set_transient_for(GTK_WINDOW(getWidget("aboutDialog")), window);
 
 	// Set all windows to the default icon
@@ -167,23 +174,23 @@ MainWindow::MainWindow():
 
 	// Help menu
 	g_object_set_data_full(G_OBJECT(getWidget("homeMenuItem")), "link",
-		g_strdup("http://freedcpp.narod.ru"), g_free);
+		g_strdup("http://code.google.com/p/eiskaltdc/"), g_free);
 	g_signal_connect(getWidget("homeMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
 	g_object_set_data_full(G_OBJECT(getWidget("sourceMenuItem")), "link",
-		g_strdup("http://code.google.com/p/freedcpp/source/checkout"), g_free);
+		g_strdup("http://code.google.com/p/eiskaltdc/source/checkout"), g_free);
 	g_signal_connect(getWidget("sourceMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
 	g_object_set_data_full(G_OBJECT(getWidget("issueMenuItem")), "link",
-		g_strdup("http://code.google.com/p/freedcpp/issues/list"), g_free);
+		g_strdup("http://code.google.com/p/eiskaltdc/issues/list"), g_free);
 	g_signal_connect(getWidget("issueMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
 	g_object_set_data_full(G_OBJECT(getWidget("forumDiscussionItem")), "link",
-		g_strdup("http://forum.ubuntu.ru/index.php?topic=81512.0"), g_free);
+		g_strdup("http://unixforum.org/index.php?showtopic=95491&view=getlastpost"), g_free);
 	g_signal_connect(getWidget("forumDiscussionItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
 	g_object_set_data_full(G_OBJECT(getWidget("changeLogItem")), "link",
-		g_strdup((string(_DATADIR) + "/doc/freedcpp/Changelog-svn.txt").c_str()), g_free);
+		g_strdup("http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"), g_free);
 	g_signal_connect(getWidget("changeLogItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
 	onQuit = FALSE;

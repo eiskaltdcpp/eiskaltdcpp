@@ -35,7 +35,8 @@
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
-#include "version.hh"
+
+#include "Version.h"
 
 using namespace std;
 using namespace dcpp;
@@ -767,7 +768,7 @@ void Hub::applyTags_gui(const string &line)
 					tag = gtk_text_buffer_create_tag(chatBuffer, tagName.c_str(), NULL);
 				else
 					tag = gtk_text_buffer_create_tag(chatBuffer, tagName.c_str(), "underline", PANGO_UNDERLINE_SINGLE, NULL);
-				
+
 				g_signal_connect(tag, "event", callback, (gpointer)this);
 			}
 
@@ -946,7 +947,7 @@ void Hub::applyEmoticons_gui()
 			/* check full emoticons */
 			gtk_text_buffer_get_iter_at_mark(chatBuffer, &start_iter, start_mark);
 			gtk_text_buffer_get_iter_at_mark(chatBuffer, &end_iter, end_mark);
-			
+
 			if (gtk_text_iter_get_offset(&end_iter) - gtk_text_iter_get_offset(&start_iter) == searchEmoticons - 1)
 				return;
 		}
@@ -973,7 +974,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
 	gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(widget), &iter, buf_x, buf_y);
 	tagList = gtk_text_iter_get_tags(&iter);
 
-	if (tagList != NULL) 
+	if (tagList != NULL)
 	{
 		newTag = GTK_TEXT_TAG(tagList->data);
 
@@ -990,10 +991,10 @@ void Hub::updateCursor_gui(GtkWidget *widget)
 		g_slist_free(tagList);
 	}
 
-	if (newTag != selectedTag) 
+	if (newTag != selectedTag)
 	{
 		// Cursor is in transition.
-		if (newTag != NULL) 
+		if (newTag != NULL)
 		{
 			// Cursor is entering a tag.
 			selectedTagStr = newTag->name;
@@ -1006,7 +1007,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
 			else
 				gdk_window_set_cursor(gtk_text_view_get_window(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), NULL);
 		}
-		else 
+		else
 		{
 			// Cursor is entering neutral space.
 			gdk_window_set_cursor(gtk_text_view_get_window(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), NULL);
@@ -1147,7 +1148,7 @@ GtkTextTag* Hub::createTag_gui(const string &tagname, TypeTag type)
 {
 	WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
 	GtkTextTag *tag = gtk_text_tag_table_lookup(gtk_text_buffer_get_tag_table(chatBuffer), tagname.c_str());
-	
+
 	if (!tag)
 	{
 		string fore, back;
@@ -1684,7 +1685,11 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
 		}
 		else if (command == "freedcpp")
 		{
-			hub->addStatusMessage_gui(string(GUI_PACKAGE " " GUI_VERSION_STRING "." GUI_VERSION_BUILD_STRING "/" VERSIONSTRING ", ") + _("project home: ") + "http://freedcpp.googlecode.com", Msg::SYSTEM, Sound::NONE);
+#ifndef DCPP_REVISION
+			//hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE " " EISKALTDCPP_VERSION " (" EISKALTDCPP_VERSION_SFX ") /" VERSIONSTRING ", ") + _("project home: ") + "http://code.google.com/p/eiskaltdc/", Msg::SYSTEM, Sound::NONE);
+#else
+			//hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE " " EISKALTDCPP_VERSION " - " EISKALTDCPP_VERSION_SFX " " DCPP_REVISION "/" VERSIONSTRING ", ") + _("project home: ") + "http://code.google.com/p/eiskaltdc/", Msg::SYSTEM, Sound::NONE);
+#endif
 		}
 		else if (command == "help")
 		{

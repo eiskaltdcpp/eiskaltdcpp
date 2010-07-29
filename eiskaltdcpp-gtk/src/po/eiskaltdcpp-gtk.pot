@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the FreeDC++ package.
+# This file is distributed under the same license as the EiskaltDC++ Gtk.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: FreeDC++\n"
+"Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-28 17:08+1100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -402,7 +402,7 @@ msgid "<small>Note: Leave unchecked for default values</small>"
 msgstr ""
 
 #: mainwindow.glade:384
-msgid "About FreeDC++"
+msgid "About EiskaltDC++"
 msgstr ""
 
 #: settingsdialog.cc:1277
@@ -761,10 +761,10 @@ msgstr ""
 
 #: mainwindow.glade:939
 msgid ""
-"DC++ Client based on the source code LinuxDC++\n"
+"DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
 "\n"
-"FreeDC++ version: 0.0.2\n"
-"Core version: 0.75"
+"EiskaltDC++ version: 2.0.4\n"
+"DC++ core version: 0.75"
 msgstr ""
 
 #: settingsdialog.glade:3177 emoticonsdialog.cc:104 previewmenu.cc:88
@@ -1027,7 +1027,7 @@ msgid "Exact size"
 msgstr ""
 
 #: mainwindow.glade:794
-msgid "Exit FreeDC++?"
+msgid "Exit EiskaltDC++ Gtk?"
 msgstr ""
 
 #: settingsdialog.glade:4532
