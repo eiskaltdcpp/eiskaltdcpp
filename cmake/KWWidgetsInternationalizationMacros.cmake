@@ -131,7 +131,7 @@ macro(KWWidgets_CREATE_GETTEXT_TARGETS)
   set(copyright_holder         "")
   set(msgid_bugs_address       "foo@bar.com")
   set(sources                  )
-  set(po_prefix                ${notset_value})
+  set(po_prefix                "")
   set(extra_gettext_keywords   "")
   set(extra_dgettext_keywords  "")
 
@@ -242,10 +242,6 @@ macro(KWWidgets_CREATE_GETTEXT_TARGETS)
   if(${target_basename} STREQUAL ${notset_value})
     set(target_basename ${domain_name})
   endif(${target_basename} STREQUAL ${notset_value})
-
-  if(${po_prefix} STREQUAL ${notset_value})
-    set(po_prefix "${domain_name}_")
-  endif(${po_prefix} STREQUAL ${notset_value})
 
   # Create the targets
 if (UPDATE_POT)
