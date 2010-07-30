@@ -1683,7 +1683,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 hub->addStatusMessage_gui(_("Emoticons mode on"), Msg::SYSTEM, Sound::NONE);
             }
         }
-        else if (command == "freedcpp")
+        else if (command == "version")
         {
 #ifndef DCPP_REVISION
             //hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE " " EISKALTDCPP_VERSION " (" EISKALTDCPP_VERSION_SFX ") /" VERSIONSTRING ", ") + _("project home: ") + "http://code.google.com/p/eiskaltdc/", Msg::SYSTEM, Sound::NONE);

@@ -403,7 +403,7 @@
       <widget class="GtkMenuItem" id="versionCommandItem">
         <property name="visible">True</property>
         <property name="tooltip" translatable="yes">Show version</property>
-        <property name="label">/freedcpp</property>
+        <property name="label">/version</property>
       </widget>
     </child>
   </widget>
