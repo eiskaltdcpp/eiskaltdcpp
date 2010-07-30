@@ -2948,7 +2948,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="29"/>
         <source>Share Browsers</source>
-        <translation>Compartir Explorador</translation>
+        <translation type="unfinished">Navegador de Compartidos</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="31"/>
