@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-07-30 00:51+0400\n"
+"POT-Creation-Date: 2010-07-30 02:51+0300\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -24,6 +24,74 @@ msgstr "Kick user(s)"
 #: ../FavoriteManager.cpp:448
 msgid "Redirect user(s)"
 msgstr "Redirect user(s)"
+
+#: ../Socket.cpp:58
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr ""
+
+#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:182
+msgid "Connection timeout"
+msgstr "Connection timeout"
+
+#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
+#: ../Socket.cpp:235 ../Socket.cpp:250
+msgid "The socks server failed establish a connection"
+msgstr "The socks server failed establish a connection"
+
+#: ../Socket.cpp:239
+msgid "The socks server requires authentication"
+msgstr "The socks server requires authentication"
+
+#: ../Socket.cpp:253
+msgid "The socks server doesn't support login / password authentication"
+msgstr "The socks server doesn't support login / password authentication"
+
+#: ../Socket.cpp:267 ../Socket.cpp:271
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr "Socks server authentication failed (bad login / password?)"
+
+#: ../Socket.cpp:406
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+
+#: ../DCPlusPlus.cpp:108
+msgid "Hash database"
+msgstr "Hash database"
+
+#: ../DCPlusPlus.cpp:111
+msgid "Shared Files"
+msgstr "Shared Files"
+
+#: ../DCPlusPlus.cpp:114
+msgid "Download Queue"
+msgstr "Download Queue"
+
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "Unable to create thread"
+
+#: ../UploadManager.cpp:157
+msgid "Unable to send file %1%: %2%"
+msgstr ""
+
+#: ../UploadManager.cpp:461
+msgid "Disconnected user leaving the hub: %1%"
+msgstr ""
+
+#: ../NmdcHub.cpp:282
+msgid "%1% (Nick unknown)"
+msgstr ""
+
+#: ../ClientManager.cpp:120 ../Transfer.cpp:82 ../Transfer.cpp:86
+#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
+msgid "Offline"
+msgstr "Offline"
 
 #: ../AdcHub.cpp:140
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
@@ -57,22 +125,56 @@ msgstr ""
 msgid "Not listening for connections - please restart %1%"
 msgstr ""
 
-#: ../Transfer.cpp:82 ../Transfer.cpp:86 ../SearchManager.cpp:244
-#: ../SearchManager.cpp:305 ../SearchManager.cpp:307 ../ClientManager.cpp:120
-msgid "Offline"
-msgstr "Offline"
+#: ../Util.cpp:459
+#, c-format
+msgid "%d B"
+msgstr "%d B"
 
-#: ../DCPlusPlus.cpp:108
-msgid "Hash database"
-msgstr "Hash database"
+#: ../Util.cpp:461
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
 
-#: ../DCPlusPlus.cpp:111
-msgid "Shared Files"
-msgstr "Shared Files"
+#: ../Util.cpp:463
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
 
-#: ../DCPlusPlus.cpp:114
-msgid "Download Queue"
-msgstr "Download Queue"
+#: ../Util.cpp:465
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:467
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:469
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:499
+#, c-format
+msgid "%s B"
+msgstr "%s B"
+
+#: ../Util.cpp:503
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld B"
+
+#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
+#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
+msgid "Error during compression"
+msgstr "Error during compression"
+
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
+#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
+#: ../BZUtils.cpp:94 ../BZUtils.cpp:97
+msgid "Error during decompression"
+msgstr "Error during decompression"
 
 #: ../HashManager.cpp:80 ../HashManager.cpp:280
 msgid "Hashing failed: %1%"
@@ -120,6 +222,86 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr ""
 
+#: ../ShareManager.cpp:422
+msgid "No directory specified"
+msgstr "No directory specified"
+
+#: ../ShareManager.cpp:430
+msgid "The temporary download directory cannot be shared"
+msgstr "The temporary download directory cannot be shared"
+
+#: ../ShareManager.cpp:439
+msgid "Directory already shared"
+msgstr "Directory already shared"
+
+#: ../ShareManager.cpp:442
+msgid "Remove all subdirectories before adding this one"
+msgstr "Remove all subdirectories before adding this one"
+
+#: ../ShareManager.cpp:771
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:792
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:847
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+
+#: ../ShareManager.cpp:864
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+
+#: ../ShareManager.cpp:885
+#, fuzzy
+msgid "File list refresh failed: %1%"
+msgstr "File list refresh finished"
+
+#: ../ShareManager.cpp:907
+msgid "File list refresh initiated"
+msgstr "File list refresh initiated"
+
+#: ../ShareManager.cpp:932
+msgid "File list refresh finished"
+msgstr "File list refresh finished"
+
+#: ../ShareManager.cpp:1003
+#, fuzzy
+msgid "File list %1% generated"
+msgstr "File list refresh initiated"
+
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Connection closed"
+
+#: ../BufferedSocket.cpp:276
+msgid "Maximum command length exceeded"
+msgstr "Maximum command length exceeded"
+
+#: ../BufferedSocket.cpp:453
+msgid "Disconnected"
+msgstr "Disconnected"
+
+#: ../DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr "Greater than maximum filelist size"
+
+#: ../DirectoryListing.cpp:102
+msgid "File not available"
+msgstr "File not available"
+
+#: ../DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Directory missing name attribute"
+
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
 msgstr "No private key file chosen"
@@ -155,11 +337,9 @@ msgstr "Failed to load certificate file"
 msgid "Failed to load private key"
 msgstr "Failed to load private key"
 
-#: ../CryptoManager.cpp:344 ../CryptoManager.cpp:363 ../CryptoManager.cpp:377
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../BZUtils.cpp:72 ../BZUtils.cpp:94
-#: ../BZUtils.cpp:97
-msgid "Error during decompression"
-msgstr "Error during decompression"
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr ""
 
 #: ../DownloadManager.cpp:222
 msgid "Invalid size"
@@ -189,6 +369,28 @@ msgstr "No slots available"
 #, fuzzy
 msgid "%1%: File not available"
 msgstr "File not available"
+
+#: ../ConnectionManager.cpp:176
+msgid "All download slots taken"
+msgstr "All download slots taken"
+
+#: ../ConnectionManager.cpp:245
+msgid "Connectivity restored"
+msgstr "Connectivity restored"
+
+#: ../ConnectionManager.cpp:252
+#, fuzzy
+msgid "Connectivity error: %1%"
+msgstr "Connectivity restored"
+
+#: ../SearchManager.cpp:129
+msgid "Search enabled again"
+msgstr "Search enabled again"
+
+#: ../SearchManager.cpp:136
+#, fuzzy
+msgid "Search disabled: %1%"
+msgstr "Search enabled again"
 
 #: ../QueueManager.cpp:343
 msgid "%1% renamed to %2%"
@@ -258,208 +460,6 @@ msgstr ""
 #: ../QueueManager.cpp:1230
 msgid "%1%: Matched %2% file"
 msgstr ""
-
-#: ../Socket.cpp:58
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr ""
-
-#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:182
-msgid "Connection timeout"
-msgstr "Connection timeout"
-
-#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
-#: ../Socket.cpp:235 ../Socket.cpp:250
-msgid "The socks server failed establish a connection"
-msgstr "The socks server failed establish a connection"
-
-#: ../Socket.cpp:239
-msgid "The socks server requires authentication"
-msgstr "The socks server requires authentication"
-
-#: ../Socket.cpp:253
-msgid "The socks server doesn't support login / password authentication"
-msgstr "The socks server doesn't support login / password authentication"
-
-#: ../Socket.cpp:267 ../Socket.cpp:271
-msgid "Socks server authentication failed (bad login / password?)"
-msgstr "Socks server authentication failed (bad login / password?)"
-
-#: ../Socket.cpp:406
-msgid ""
-"Failed to set up the socks server for UDP relay (check socks address and "
-"port)"
-msgstr ""
-"Failed to set up the socks server for UDP relay (check socks address and "
-"port)"
-
-#: ../NmdcHub.cpp:282
-msgid "%1% (Nick unknown)"
-msgstr ""
-
-#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Connection closed"
-
-#: ../BufferedSocket.cpp:276
-msgid "Maximum command length exceeded"
-msgstr "Maximum command length exceeded"
-
-#: ../BufferedSocket.cpp:453
-msgid "Disconnected"
-msgstr "Disconnected"
-
-#: ../UploadManager.cpp:157
-msgid "Unable to send file %1%: %2%"
-msgstr ""
-
-#: ../UploadManager.cpp:461
-msgid "Disconnected user leaving the hub: %1%"
-msgstr ""
-
-#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
-#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
-msgid "Error during compression"
-msgstr "Error during compression"
-
-#: ../ConnectionManager.cpp:176
-msgid "All download slots taken"
-msgstr "All download slots taken"
-
-#: ../ConnectionManager.cpp:245
-msgid "Connectivity restored"
-msgstr "Connectivity restored"
-
-#: ../ConnectionManager.cpp:252
-#, fuzzy
-msgid "Connectivity error: %1%"
-msgstr "Connectivity restored"
-
-#: ../SearchManager.cpp:129
-msgid "Search enabled again"
-msgstr "Search enabled again"
-
-#: ../SearchManager.cpp:136
-#, fuzzy
-msgid "Search disabled: %1%"
-msgstr "Search enabled again"
-
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr ""
-
-#: ../Thread.cpp:34 ../Thread.cpp:42
-msgid "Unable to create thread"
-msgstr "Unable to create thread"
-
-#: ../ShareManager.cpp:422
-msgid "No directory specified"
-msgstr "No directory specified"
-
-#: ../ShareManager.cpp:430
-msgid "The temporary download directory cannot be shared"
-msgstr "The temporary download directory cannot be shared"
-
-#: ../ShareManager.cpp:439
-msgid "Directory already shared"
-msgstr "Directory already shared"
-
-#: ../ShareManager.cpp:442
-msgid "Remove all subdirectories before adding this one"
-msgstr "Remove all subdirectories before adding this one"
-
-#: ../ShareManager.cpp:771
-msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:792
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:847
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr ""
-
-#: ../ShareManager.cpp:864
-msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-
-#: ../ShareManager.cpp:885
-#, fuzzy
-msgid "File list refresh failed: %1%"
-msgstr "File list refresh finished"
-
-#: ../ShareManager.cpp:907
-msgid "File list refresh initiated"
-msgstr "File list refresh initiated"
-
-#: ../ShareManager.cpp:932
-msgid "File list refresh finished"
-msgstr "File list refresh finished"
-
-#: ../ShareManager.cpp:1003
-#, fuzzy
-msgid "File list %1% generated"
-msgstr "File list refresh initiated"
-
-#: ../Util.cpp:459
-#, c-format
-msgid "%d B"
-msgstr "%d B"
-
-#: ../Util.cpp:461
-#, c-format
-msgid "%.02f KiB"
-msgstr "%.02f KiB"
-
-#: ../Util.cpp:463
-#, c-format
-msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:465
-#, c-format
-msgid "%.02f GiB"
-msgstr "%.02f GiB"
-
-#: ../Util.cpp:467
-#, c-format
-msgid "%.02f TiB"
-msgstr "%.02f TiB"
-
-#: ../Util.cpp:469
-#, c-format
-msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:499
-#, c-format
-msgid "%s B"
-msgstr "%s B"
-
-#: ../Util.cpp:503
-#, c-format
-msgid "%'lld B"
-msgstr "%'lld B"
-
-#: ../DirectoryListing.cpp:95
-msgid "Greater than maximum filelist size"
-msgstr "Greater than maximum filelist size"
-
-#: ../DirectoryListing.cpp:102
-msgid "File not available"
-msgstr "File not available"
-
-#: ../DirectoryListing.cpp:165
-msgid "Directory missing name attribute"
-msgstr "Directory missing name attribute"
 
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
