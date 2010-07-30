@@ -744,7 +744,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/HubFrame.cpp" line="1299"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
-        <translation type="unfinished"></translation>
+        <translation>статистика: %1 (віддано: %2, завантажено: %3)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1341"/>
@@ -815,7 +815,24 @@ Favorite user</source>
 /ratio [show] - show ratio [send in chat]/me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - увімкнути/вимкнути перевірку правопису
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - створити псевдо /ALIAS_NAME для команди /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - видалити
+/alias list - список всіх псевдо команд
+/away &lt;message&gt; - увімкнути/вимкнути режим &quot;Відійшов&quot;
+/back - відключити режим &quot;Відійшов&quot;
+/browse &lt;nick&gt; - відкрити список файлів користувача
+/clear - очистити чат
+/magnet - дія при кліку на магнет (0-запитати, 1-знайти, 2-завантажити)
+/close - закрити поточний хаб
+/fav - додати поточний хаб до обраних
+/grant &lt;nick&gt; - виділити додатковий слот користувачу
+/help, /?, /h - показати цю довідку
+/info &lt;nick&gt; - показати інформацію про користувача
+/ratio [show] - показати статистику [відправити в чат]
+/me - сказати від третьої особи
+/pm &lt;nick&gt; - почати приватний чат з користувачем
+/sh &lt;command&gt; - виконати зовнішню команду з виводом у чат</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1610"/>
