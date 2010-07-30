@@ -24,6 +24,7 @@ set (LIBS ${LIBS}
         ${Boost_LIBRARIES}
         ${ICONV_LIBRARIES}
         "-lnotify"
+        "-lgthread-2.0"
         )
 
 
