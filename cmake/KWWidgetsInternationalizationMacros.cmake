@@ -248,7 +248,7 @@ macro(KWWidgets_CREATE_GETTEXT_TARGETS)
   endif(${po_prefix} STREQUAL ${notset_value})
 
   # Create the targets
-
+#if (UPDATE_POT)
   if(NOT "${sources}" STREQUAL "")
     kwwidgets_create_pot_target(
       "${domain_name}"
@@ -263,7 +263,8 @@ macro(KWWidgets_CREATE_GETTEXT_TARGETS)
       "${extra_dgettext_keywords}"
       )
   endif(NOT "${sources}" STREQUAL "")
-
+#endif (UPDATE_POT)
+#if (UPDATE_PO)
   kwwidgets_create_po_targets(
     "${domain_name}"
     "${pot_build_dir}"
@@ -276,7 +277,8 @@ macro(KWWidgets_CREATE_GETTEXT_TARGETS)
     "${create_po_target}"
     "${create_po_locale_targets}"
     )
-
+#endif (UPDATE_PO)
+#if (CREATE_MO)
   kwwidgets_create_mo_targets(
     "${domain_name}"
     "${po_dir}"
@@ -290,7 +292,7 @@ macro(KWWidgets_CREATE_GETTEXT_TARGETS)
     "${create_mo_locale_targets}"
     "${add_mo_target_to_all}"
     )
-
+#endif (CREATE_MO)
 endmacro(KWWidgets_CREATE_GETTEXT_TARGETS)
 
 # ---------------------------------------------------------------------------
@@ -560,9 +562,9 @@ macro(KWWidgets_CREATE_PO_TARGETS
 
   kwwidgets_get_po_safe_build_dir(safe_build_dir "${po_dir}" "${po_build_dir}")
 
-  kwwidgets_get_pot_filename(pot_uptodate_file
-    "${domain_name}" "${safe_build_dir}")
-  set(pot_uptodate_file "${pot_uptodate_file}.upd")
+  #kwwidgets_get_pot_filename(pot_uptodate_file
+  #  "${domain_name}" "${safe_build_dir}")
+  #set(pot_uptodate_file "${pot_uptodate_file}.upd")
 
   set(po_build_files)
 
@@ -575,7 +577,7 @@ macro(KWWidgets_CREATE_PO_TARGETS
       "${safe_build_dir}" "${po_prefix}" "${locale}")
     set(po_uptodate_file "${po_uptodate_file}.upd")
     set(po_uptodate_files ${po_uptodate_files} ${po_uptodate_file})
-    set(depends "${pot_uptodate_file}")
+    #set(depends "${pot_uptodate_file}")
     if(EXISTS "${po_file}")
       set(depends ${depends} "${po_file}")
     endif(EXISTS "${po_file}")
@@ -641,18 +643,20 @@ macro(KWWidgets_CREATE_MO_TARGETS
     foreach(locale ${locale_list})
       kwwidgets_get_po_filename(po_build_file
         "${po_build_dir}" "${po_prefix}" "${locale}")
-      kwwidgets_get_po_filename(po_uptodate_file
-        "${safe_build_dir}" "${po_prefix}" "${locale}")
-      set(po_uptodate_file "${po_uptodate_file}.upd")
+      #message ("po_file: ${po_build_file}")
+      #kwwidgets_get_po_filename(po_uptodate_file
+      # "${safe_build_dir}" "${po_prefix}" "${locale}")
+      #set(po_uptodate_file "${po_uptodate_file}.upd")
       kwwidgets_get_mo_filename(mo_file
         "${domain_name}" "${mo_build_dir}" "${locale}")
+      #message ("mo_file: ${mo_file}")
       get_filename_component(mo_dir "${mo_file}" PATH)
       file(MAKE_DIRECTORY ${mo_dir})
       set(mo_files ${mo_files} ${mo_file})
       # --check-accelerators
       add_custom_command(
         OUTPUT "${mo_file}"
-        DEPENDS "${po_uptodate_file}"
+        DEPENDS "${po_build_file}"
         COMMAND ${GETTEXT_MSGFMT_EXECUTABLE}
         ARGS --output-file=${mo_file} --check-format "${po_build_file}"
         )
