@@ -7,7 +7,6 @@ set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 aux_source_directory(${PROJECT_SOURCE_DIR}/src gtk_srcs)
 file (GLOB gtk_hdrs ${PROJECT_SOURCE_DIR} src/*.hh)
-#message ("gtk_srcs:@gtk_srcs@ gtk_hdrs:@gtk_hdrs@")
 set (GTK_SRCS @gtk_srcs@ PARENT_SCOPE)
 set (GTK_HDRS @gtk_hdrs@ PARENT_SCOPE)
 
@@ -38,9 +37,9 @@ add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 )
 
 if (APPLE)
-  add_definitions(        -DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
+  add_definitions(-DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
 else (APPLE)
-  add_definitions(        -DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/resources")
+  add_definitions(-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/resources")
 endif (APPLE)
 
 if (APPLE)

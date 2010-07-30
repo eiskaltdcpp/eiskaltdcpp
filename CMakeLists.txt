@@ -363,8 +363,9 @@ set (mo_for_all 1)
       SOURCES "${DCPP_SRCS};${DCPP_HDRS}"
       PO_DIR "${dcpp_SOURCE_DIR}/po"
       POT_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
+      PO_PREFIX    ""
       PO_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
-      #MO_BUILD_DIR "${dcpp_BINARY_DIR}/locale"
+      MO_BUILD_DIR "${dcpp_BINARY_DIR}/locale"
       MO_INSTALL_DIR "/${SHARE_DIR}/locale"
       CREATE_POT_TARGET ${create_pot}
       CREATE_PO_TARGET ${create_po}
@@ -381,8 +382,9 @@ if (USE_GTK)
       SOURCES "${GTK_SRCS};${GTK_HDRS}"
       PO_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
       POT_BUILD_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
+      PO_PREFIX    ""
       PO_BUILD_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
-      #MO_BUILD_DIR "${eiskaltdcpp-gtk_BINARY_DIR}/locale"
+      MO_BUILD_DIR "${eiskaltdcpp-gtk_BINARY_DIR}/locale"
       MO_INSTALL_DIR "/${SHARE_DIR}/locale"
       CREATE_POT_TARGET ${create_pot}
       CREATE_PO_TARGET ${create_po}
