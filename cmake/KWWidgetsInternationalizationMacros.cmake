@@ -568,9 +568,9 @@ macro(KWWidgets_CREATE_PO_TARGETS
     kwwidgets_get_po_filename(po_file
       "${po_dir}" "${po_prefix}" "${locale}")
     kwwidgets_get_po_filename(po_build_file
-      "${po_build_dir}" "${po_prefix}" "${locale}")
+      "${po_build_dir}" "${domain_name}_" "${locale}")
     kwwidgets_get_po_filename(po_uptodate_file
-      "${safe_build_dir}" "${po_prefix}" "${locale}")
+      "${safe_build_dir}" "${domain_name}_" "${locale}")
     set(po_uptodate_file "${po_uptodate_file}.upd")
     set(po_uptodate_files ${po_uptodate_files} ${po_uptodate_file})
     #set(depends "${pot_uptodate_file}")
@@ -639,9 +639,9 @@ macro(KWWidgets_CREATE_MO_TARGETS
     foreach(locale ${locale_list})
       kwwidgets_get_po_filename(po_build_file
         "${po_build_dir}" "${po_prefix}" "${locale}")
-      #kwwidgets_get_po_filename(po_uptodate_file
-      # "${safe_build_dir}" "${po_prefix}" "${locale}")
-      #set(po_uptodate_file "${po_uptodate_file}.upd")
+      kwwidgets_get_po_filename(po_uptodate_file
+       "${safe_build_dir}" "${po_prefix}" "${locale}")
+      set(po_uptodate_file "${po_uptodate_file}.upd")
       kwwidgets_get_mo_filename(mo_file
         "${domain_name}" "${mo_build_dir}" "${locale}")
       get_filename_component(mo_dir "${mo_file}" PATH)
