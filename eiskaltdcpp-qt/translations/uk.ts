@@ -797,7 +797,6 @@ Favorite user</source>
         <translation>вимкнено</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1392"/>
         <source>/aspell on/off - enable/disable spell checking
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - remove alias
@@ -815,7 +814,7 @@ Favorite user</source>
 /ratio [show] - show ratio [send in chat]/me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation>/aspell on/off - увімкнути/вимкнути перевірку правопису
+        <translation type="obsolete">/aspell on/off - увімкнути/вимкнути перевірку правопису
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - створити псевдо /ALIAS_NAME для команди /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - видалити
 /alias list - список всіх псевдо команд
@@ -897,6 +896,28 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1105"/>
         <source>Chat enabled.</source>
         <translation>Чат включено.</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1392"/>
+        <source>/aspell on/off - enable/disable spell checking
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - remove alias
+/alias list - list all aliases
+/away &lt;message&gt; - set away-mode on/off
+/back - set away-mode off
+/browse &lt;nick&gt; - browse user files
+/clear - clear chat window
+/magnet - default action with magnet (0-ask, 1-search, 2-download)
+/close - close this hub
+/fav - add this hub to favorites
+/grant &lt;nick&gt; - grant extra slot to user
+/help, /?, /h - show this help
+/info &lt;nick&gt; - show info about user
+/ratio [show] - show ratio [send in chat]
+/me - say a third person
+/pm &lt;nick&gt; - begin private chat with user
+/sh &lt;command&gt; - start command and redirect output to the chat</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1766"/>

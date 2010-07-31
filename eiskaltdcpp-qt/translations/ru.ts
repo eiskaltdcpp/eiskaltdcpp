@@ -797,7 +797,6 @@ Favorite user</source>
         <translation>выключен</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1392"/>
         <source>/aspell on/off - enable/disable spell checking
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - remove alias
@@ -815,7 +814,7 @@ Favorite user</source>
 /ratio [show] - show ratio [send in chat]/me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation>/aspell on/off - включить/выключить проверку правописания
+        <translation type="obsolete">/aspell on/off - включить/выключить проверку правописания
 /alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - создать псевдоним /ALIAS_NAME для команды /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - удалить 
 /alias list - список всех псевдонимов команд
@@ -897,6 +896,45 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1105"/>
         <source>Chat enabled.</source>
         <translation>Чат включен.</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1392"/>
+        <source>/aspell on/off - enable/disable spell checking
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - remove alias
+/alias list - list all aliases
+/away &lt;message&gt; - set away-mode on/off
+/back - set away-mode off
+/browse &lt;nick&gt; - browse user files
+/clear - clear chat window
+/magnet - default action with magnet (0-ask, 1-search, 2-download)
+/close - close this hub
+/fav - add this hub to favorites
+/grant &lt;nick&gt; - grant extra slot to user
+/help, /?, /h - show this help
+/info &lt;nick&gt; - show info about user
+/ratio [show] - show ratio [send in chat]
+/me - say a third person
+/pm &lt;nick&gt; - begin private chat with user
+/sh &lt;command&gt; - start command and redirect output to the chat</source>
+        <translation>/aspell on/off - включить/выключить проверку правописания
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - создать псевдоним /ALIAS_NAME для команды /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - удалить 
+/alias list - список всех псевдонимов команд
+/away &lt;message&gt; - включить/выключить режим &quot;Отошёл&quot;
+/back - отключить режим &quot;Отошёл&quot;
+/browse &lt;nick&gt; - открыть список файлов пользователя
+/clear - очистить чат
+/magnet - действие при клике на магнет (0-спросить, 1-найти, 2-загрузить)
+/close - закрыть текущий хаб
+/fav - добавить текущий хаб в избранные
+/grant &lt;nick&gt; - выделить дополнительный слот пользователю
+/help, /?, /h - показать эту справку
+/info &lt;nick&gt; - показать информацию о пользователе
+/ratio [show] - показать статистику [отправить в чат]
+/me - сказать от третьего лица
+/pm &lt;nick&gt; - начать личный чат с пользователем
+/sh &lt;command&gt; - выполнить внешнюю команду с выводом в чат</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1766"/>

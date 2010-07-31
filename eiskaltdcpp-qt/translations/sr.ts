@@ -891,7 +891,8 @@ Omiljeni korisnik</translation>
 /grant &lt;nick&gt; - grant extra slot to user
 /help, /?, /h - show this help
 /info &lt;nick&gt; - show info about user
-/ratio [show] - show ratio [send in chat]/me - say a third person
+/ratio [show] - show ratio [send in chat]
+/me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
         <translation type="unfinished"></translation>
