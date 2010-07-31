@@ -250,13 +250,29 @@ set (CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -DQT_NO_DEBUG -pipe
 set (CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3 -pipe")
 
 include_directories(${eiskaltdcpp_BINARY_DIR}
-   ${eiskaltdcpp_BINARY_DIR}/dcpp
-   ${eiskaltdcpp_SOURCE_DIR}/dcpp
-   ${eiskaltdcpp_BINARY_DIR}/eiskaltdcpp-qt
-   ${eiskaltdcpp_SOURCE_DIR}/eiskaltdcpp-qt
+   ${dcpp_BINARY_DIR}
+   ${dcpp_SOURCE_DIR}
+   ${dht_BINARY_DIR}
+   ${dht_SOURCE_DIR}
+   ${${PROJECT_NAME_GLOBAL}-qt_BINARY_DIR}
+   ${${PROJECT_NAME_GLOBAL}-qt_SOURCE_DIR}
+   ${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}
+   ${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
    )
+#message (STATUS "${eiskaltdcpp_BINARY_DIR}
+#   ${dcpp_BINARY_DIR}
+#   ${dcpp_SOURCE_DIR}
+#   ${dht_BINARY_DIR}
+#   ${dht_SOURCE_DIR}
+#   ${${PROJECT_NAME_GLOBAL}-qt_BINARY_DIR}
+#   ${${PROJECT_NAME_GLOBAL}-qt_SOURCE_DIR}
+#   ${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}
+#   ${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}
+#   ${eiskaltdcpp_SOURCE_DIR}
+#   ${GMP_INCLUDE_DIR}
+#")
 
 message(STATUS "CMAKE will use this libs(and headers) during build:
 
@@ -366,7 +382,7 @@ set (mo_for_all 1)
       PO_PREFIX    ""
       PO_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
       MO_BUILD_DIR "${dcpp_BINARY_DIR}/locale"
-      MO_INSTALL_DIR "/${SHARE_DIR}/locale"
+      MO_INSTALL_DIR "/${_DATADIR}/locale"
       CREATE_POT_TARGET ${create_pot}
       CREATE_PO_TARGET ${create_po}
       CREATE_PO_LOCALE_TARGETS ${create_po_lo}
@@ -385,7 +401,7 @@ if (USE_GTK)
       PO_PREFIX    ""
       PO_BUILD_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
       MO_BUILD_DIR "${eiskaltdcpp-gtk_BINARY_DIR}/locale"
-      MO_INSTALL_DIR "/${SHARE_DIR}/locale"
+      MO_INSTALL_DIR "/${_DATADIR}/locale"
       CREATE_POT_TARGET ${create_pot}
       CREATE_PO_TARGET ${create_po}
       CREATE_PO_LOCALE_TARGETS ${create_po_lo}

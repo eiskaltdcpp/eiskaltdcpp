@@ -1,4 +1,4 @@
-project (eiskaltdcpp-wt)
+project (${PROJECT_NAME_GLOBAL}-wt)
 
 cmake_minimum_required (VERSION 2.6)
 

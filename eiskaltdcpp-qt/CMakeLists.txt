@@ -1,4 +1,4 @@
-project (${PROJECT_NAME_GLOBAL})
+project (${PROJECT_NAME_GLOBAL}-qt)
 cmake_minimum_required (VERSION 2.6)
 if (FREE_SPACE_BAR_C)
 add_subdirectory(fsusage)

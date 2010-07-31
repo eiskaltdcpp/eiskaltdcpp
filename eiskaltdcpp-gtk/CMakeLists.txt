@@ -1,4 +1,4 @@
-project (eiskaltdcpp-gtk)
+project (${PROJECT_NAME_GLOBAL}-gtk)
 
 cmake_minimum_required (VERSION 2.6)
 
@@ -71,9 +71,9 @@ endif (UNIX)
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 
-  install (DIRECTORY glade/ DESTINATION "${_DATADIR}/gtk/glade"
+  install (DIRECTORY glade/ DESTINATION "${CLIENT_DATA_DIR}/gtk/glade"
     PATTERN ".svn" EXCLUDE)
-  install (DIRECTORY icons/ DESTINATION "${_DATADIR}/gtk/icons"
+  install (DIRECTORY icons/ DESTINATION "${CLIENT_DATA_DIR}/gtk/icons"
     PATTERN ".svn" EXCLUDE)
 
 if (APPLE)
