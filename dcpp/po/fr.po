@@ -6,239 +6,58 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
-"Report-Msgid-Bugs-To: dcplusplus-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2009-03-04 22:42+0100\n"
+"Report-Msgid-Bugs-To: foo@bar.com\n"
+"POT-Creation-Date: 2010-07-30 02:51+0300\n"
 "PO-Revision-Date: 2009-02-22 14:17+0000\n"
 "Last-Translator: poy <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: dcpp/Util.cpp:487
-#, c-format, boost-format
-msgid "%'lld B"
-msgstr "%'lld o"
+#: ../FavoriteManager.cpp:444
+msgid "Kick user(s)"
+msgstr "Expulser l(es) utilisateur(s)"
 
-#: dcpp/Util.cpp:449
-#, c-format, boost-format
-msgid "%.02f GiB"
-msgstr "%.02f Gio"
+#: ../FavoriteManager.cpp:448
+msgid "Redirect user(s)"
+msgstr "Rediriger l(es) utilisateur(s)"
 
-#: dcpp/Util.cpp:445
-#, c-format, boost-format
-msgid "%.02f KiB"
-msgstr "%.02f Kio"
+#: ../Socket.cpp:58
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Erreur inconnue : 0x%1$x"
 
-#: dcpp/Util.cpp:447
-#, c-format, boost-format
-msgid "%.02f MiB"
-msgstr "%.02f Mio"
-
-#: dcpp/Util.cpp:453
-#, c-format, boost-format
-msgid "%.02f PiB"
-msgstr "%.02f Pio"
-
-#: dcpp/Util.cpp:451
-#, c-format, boost-format
-msgid "%.02f TiB"
-msgstr "%.02f Tio"
-
-#: dcpp/AdcHub.cpp:141
-#, boost-format
-msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr "%1% (%2%) a le même CID {%3%} que %4% (%5%), ignoré"
-
-#: dcpp/NmdcHub.cpp:282
-#, boost-format
-msgid "%1% (Nick unknown)"
-msgstr "%1% (Pseudo inconnu)"
-
-#: dcpp/HashManager.cpp:769
-#, boost-format
-msgid ""
-"%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% non partagé ; le CRC32 calculé ne correspond pas avec celui trouvé dans "
-"le fichier SFV ."
-
-#: dcpp/QueueManager.cpp:330
-#, boost-format
-msgid "%1% renamed to %2%"
-msgstr "%1% renommé en %2%"
-
-#: dcpp/AdcHub.cpp:287
-#, boost-format
-msgid "%1% was kicked by %2%: %3%"
-msgstr "%1% a été expulsé par %2% : %3%"
-
-#: dcpp/AdcHub.cpp:290
-#, boost-format
-msgid "%1% was kicked: %2%"
-msgstr "%1% a été expulsé : %2%"
-
-#: dcpp/AdcHub.cpp:177
-#, boost-format
-msgid "%1%/s"
-msgstr "%1%/s"
-
-#: dcpp/DownloadManager.cpp:538
-#, boost-format
-msgid "%1%: File not available"
-msgstr "%1% : Fichier indisponible"
-
-#: dcpp/Util.cpp:443
-#, c-format, boost-format
-msgid "%d B"
-msgstr "%d o"
-
-#: dcpp/Util.cpp:483
-#, c-format, boost-format
-msgid "%s B"
-msgstr "%s o"
-
-#: dcpp/ADLSearch.h:48
-msgid "<Enter string>"
-msgstr "<Entrer chaîne de recherche>"
-
-#: dcpp/QueueManager.cpp:678
-msgid "A file of equal or larger size already exists at the target location"
-msgstr ""
-"Un fichier d'une taille égale ou supérieure existe déjà à l'emplacement cible"
-
-#: dcpp/QueueManager.cpp:614
-msgid "A file with a different size already exists in the queue"
-msgstr ""
-"Un fichier d'une taille différente existe déjà dans la liste de "
-"téléchargement"
-
-#: dcpp/QueueManager.cpp:617
-msgid "A file with different tth root already exists in the queue"
-msgstr ""
-"Un fichier avec une clé TTH racine différente existe déjà dans la liste de "
-"téléchargement"
-
-#: dcpp/QueueManager.cpp:579
-msgid "A file with the same hash already exists in your share"
-msgstr "Un fichier avec la même clé existe déjà dans votre partage"
-
-#: dcpp/ConnectionManager.cpp:176
-msgid "All download slots taken"
-msgstr "Tous les slots de téléchargement sont pris"
-
-#: dcpp/DownloadManager.cpp:382 dcpp/DownloadManager.cpp:384
-msgid "CRC32 inconsistency (SFV-Check)"
-msgstr "Incompatibilité CRC32 (Contrôle SFV)"
-
-#: dcpp/BufferedSocket.cpp:165 dcpp/SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Connexion fermée"
-
-#: dcpp/Socket.cpp:154 dcpp/ConnectionManager.cpp:182
-#: dcpp/BufferedSocket.cpp:130 dcpp/BufferedSocket.cpp:150
+#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:182
 msgid "Connection timeout"
 msgstr "Temps d'attente dépassé"
 
-#: dcpp/ConnectionManager.cpp:250
-#, boost-format
-msgid "Connectivity error: %1%"
-msgstr "Erreur de connectivité : %1%"
+#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
+#: ../Socket.cpp:235 ../Socket.cpp:250
+msgid "The socks server failed establish a connection"
+msgstr "Le serveur socks n'a pas pu établir de connexion"
 
-#: dcpp/ConnectionManager.cpp:243
-msgid "Connectivity restored"
-msgstr "Connectivité restaurée"
+#: ../Socket.cpp:239
+msgid "The socks server requires authentication"
+msgstr "Le serveur socks requiert une authentification"
 
-#: dcpp/DownloadManager.cpp:234
-#, boost-format
-msgid "Could not open target file: %1%"
-msgstr "Impossible d'ouvrir le fichier cible : %1%"
-
-#: dcpp/ShareManager.cpp:422
-msgid "Directory already shared"
-msgstr "Dossier déjà partagé"
-
-#: dcpp/DirectoryListing.cpp:165
-msgid "Directory missing name attribute"
-msgstr "Dossier sans nom"
-
-#: dcpp/ADLSearch.h:277
-msgid "Discard"
-msgstr "Abandonner"
-
-#: dcpp/BufferedSocket.cpp:422
-msgid "Disconnected"
-msgstr "Déconnecté"
-
-#: dcpp/UploadManager.cpp:453
-#, boost-format
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Déconnexion de l'utilisateur : %1% (sorti du hub)"
-
-#: dcpp/DCPlusPlus.cpp:107
-msgid "Download Queue"
-msgstr "Liste de Téléchargement"
-
-#: dcpp/ShareManager.cpp:797
-#, boost-format
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: %"
-"3%"
+#: ../Socket.cpp:253
+msgid "The socks server doesn't support login / password authentication"
 msgstr ""
-"Ficher en double non partagé : %1% (Taille : %2% o) Est identique à : %3%"
+"Le serveur socks ne supporte pas l'autentification par identifiant / mot de "
+"passe"
 
-#: dcpp/QueueManager.cpp:688 dcpp/QueueManager.cpp:692
-#, boost-format
-msgid "Duplicate source: %1%"
-msgstr "Source en double : %1%"
+#: ../Socket.cpp:267 ../Socket.cpp:271
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr ""
+"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot "
+"de passe ?)"
 
-#: dcpp/HashManager.cpp:456
-#, boost-format
-msgid "Error creating hash data file: %1%"
-msgstr "Erreur lors de la création de la base de données des clés : %1%"
-
-#: dcpp/ZUtils.cpp:33 dcpp/ZUtils.cpp:54 dcpp/ZUtils.cpp:76 dcpp/ZUtils.cpp:86
-#: dcpp/BZUtils.cpp:31 dcpp/BZUtils.cpp:52 dcpp/BZUtils.cpp:60
-msgid "Error during compression"
-msgstr "Erreur de compression"
-
-#: dcpp/ZUtils.cpp:100 dcpp/ZUtils.cpp:123 dcpp/BZUtils.cpp:72
-#: dcpp/BZUtils.cpp:94 dcpp/BZUtils.cpp:97 dcpp/CryptoManager.cpp:344
-#: dcpp/CryptoManager.cpp:363 dcpp/CryptoManager.cpp:377
-msgid "Error during decompression"
-msgstr "Erreur de décompression"
-
-#: dcpp/CryptoManager.cpp:154
-msgid "Error generating certificate"
-msgstr "Erreur lors de la génération du certificat"
-
-#: dcpp/HashManager.cpp:774
-#, boost-format
-msgid "Error hashing %1%: %2%"
-msgstr "Erreur lors de la génération de la clé de %1% : %2%"
-
-#: dcpp/HashManager.cpp:111 dcpp/HashManager.cpp:325
-#, boost-format
-msgid "Error saving hash data: %1%"
-msgstr "Erreur lors de la sauvegarde de la base de données des clés : %1%"
-
-#: dcpp/CryptoManager.cpp:228 dcpp/CryptoManager.cpp:232
-#: dcpp/CryptoManager.cpp:237 dcpp/CryptoManager.cpp:241
-msgid "Failed to load certificate file"
-msgstr "Impossible de charger le fichier de certificat"
-
-#: dcpp/CryptoManager.cpp:246 dcpp/CryptoManager.cpp:250
-#: dcpp/CryptoManager.cpp:255 dcpp/CryptoManager.cpp:259
-msgid "Failed to load private key"
-msgstr "Impossible de charger la clé privée"
-
-#: dcpp/AdcHub.cpp:212
-msgid "Failed to negotiate base protocol"
-msgstr "Impossible de négocier le protocole de base"
-
-#: dcpp/Socket.cpp:402
+#: ../Socket.cpp:406
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -246,67 +65,52 @@ msgstr ""
 "Impossible de configurer le serveur socks en tant que relais UDP (vérifier "
 "l'adresse et le port du serveur socks)"
 
-#: dcpp/ShareManager.cpp:832
-#, boost-format
-msgid "File list refresh failed: %1%"
-msgstr "Mise à jour de la liste de fichiers échouée : %1%"
-
-#: dcpp/ShareManager.cpp:876
-msgid "File list refresh finished"
-msgstr "Mise à jour de la liste de fichiers terminée"
-
-#: dcpp/ShareManager.cpp:812
-msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"La mise à jour de la liste de fichiers est en cours, veuillez attendre "
-"qu'elle se termine avant de ré-essayer"
-
-#: dcpp/ShareManager.cpp:853
-msgid "File list refresh initiated"
-msgstr "Mise à jour de la liste de fichiers commencée"
-
-#: dcpp/DirectoryListing.cpp:102
-msgid "File not available"
-msgstr "Fichier indisponible"
-
-#: dcpp/HashManager.cpp:82
-#, boost-format
-msgid "Finished hashing: %1%"
-msgstr "Clé générée : %1%"
-
-#: dcpp/HashManager.cpp:80
-#, boost-format
-msgid "Finished hashing: %1% (%2%/s)"
-msgstr "Clé générée : %1% (%2%/s)"
-
-#: dcpp/DownloadManager.cpp:313
-msgid "Full tree does not match TTH root"
-msgstr "La concaténation des clés ne correspond pas à la clé TTH racine"
-
-#: dcpp/CryptoManager.cpp:221
-msgid "Generated new TLS certificate"
-msgstr "Nouveau certificat TLS généré"
-
-#: dcpp/DirectoryListing.cpp:95
-msgid "Greater than maximum filelist size"
-msgstr "Plus grand que la taille maximale des listes de fichiers"
-
-#: dcpp/DCPlusPlus.cpp:101
+#: ../DCPlusPlus.cpp:108
 msgid "Hash database"
 msgstr "Base de données des clés"
 
-#: dcpp/HashManager.cpp:678
-msgid "Hash database rebuilt"
-msgstr "Base de données des clés re-créée"
+#: ../DCPlusPlus.cpp:111
+msgid "Shared Files"
+msgstr "Fichiers Partagés"
 
-#: dcpp/HashManager.cpp:73 dcpp/HashManager.cpp:269
-#, boost-format
-msgid "Hashing failed: %1%"
-msgstr "Génération de la clé échouée : %1%"
+#: ../DCPlusPlus.cpp:114
+msgid "Download Queue"
+msgstr "Liste de Téléchargement"
 
-#: dcpp/AdcHub.cpp:218
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "Création de thread impossile"
+
+#: ../UploadManager.cpp:157
+msgid "Unable to send file %1%: %2%"
+msgstr "Impossible d'envoyer le fichier %1% : %2%"
+
+#: ../UploadManager.cpp:461
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Déconnexion de l'utilisateur : %1% (sorti du hub)"
+
+#: ../NmdcHub.cpp:282
+msgid "%1% (Nick unknown)"
+msgstr "%1% (Pseudo inconnu)"
+
+#: ../ClientManager.cpp:120 ../Transfer.cpp:82 ../Transfer.cpp:86
+#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
+msgid "Offline"
+msgstr "Déconnecté"
+
+#: ../AdcHub.cpp:140
+msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+msgstr "%1% (%2%) a le même CID {%3%} que %4% (%5%), ignoré"
+
+#: ../AdcHub.cpp:176
+msgid "%1%/s"
+msgstr "%1%/s"
+
+#: ../AdcHub.cpp:211
+msgid "Failed to negotiate base protocol"
+msgstr "Impossible de négocier le protocole de base"
+
+#: ../AdcHub.cpp:217
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -314,11 +118,326 @@ msgstr ""
 "Le hub utilise probablement une ancienne version d'ADC, veuillez encourager "
 "l'hébergeur à mettre à jour son programme d'hébergement"
 
-#: dcpp/DownloadManager.cpp:222
+#: ../AdcHub.cpp:286
+msgid "%1% was kicked by %2%: %3%"
+msgstr "%1% a été expulsé par %2% : %3%"
+
+#: ../AdcHub.cpp:289
+msgid "%1% was kicked: %2%"
+msgstr "%1% a été expulsé : %2%"
+
+#: ../AdcHub.cpp:566
+msgid "Not listening for connections - please restart %1%"
+msgstr "Échec dans l'écoute des connexions - veuillez relancer %1%"
+
+#: ../Util.cpp:459
+#, c-format
+msgid "%d B"
+msgstr "%d o"
+
+#: ../Util.cpp:461
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f Kio"
+
+#: ../Util.cpp:463
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f Mio"
+
+#: ../Util.cpp:465
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f Gio"
+
+#: ../Util.cpp:467
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f Tio"
+
+#: ../Util.cpp:469
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f Pio"
+
+#: ../Util.cpp:499
+#, c-format
+msgid "%s B"
+msgstr "%s o"
+
+#: ../Util.cpp:503
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld o"
+
+#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
+#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
+msgid "Error during compression"
+msgstr "Erreur de compression"
+
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
+#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
+#: ../BZUtils.cpp:94 ../BZUtils.cpp:97
+msgid "Error during decompression"
+msgstr "Erreur de décompression"
+
+#: ../HashManager.cpp:80 ../HashManager.cpp:280
+msgid "Hashing failed: %1%"
+msgstr "Génération de la clé échouée : %1%"
+
+#: ../HashManager.cpp:87
+#, fuzzy
+msgid "Finished hashing: %1% (%2% at %3%/s)"
+msgstr "Clé générée : %1% (%2%/s)"
+
+#: ../HashManager.cpp:90
+#, fuzzy
+msgid "Finished hashing: %1% (%2%)"
+msgstr "Clé générée : %1% (%2%/s)"
+
+#: ../HashManager.cpp:93
+msgid "Finished hashing: %1%"
+msgstr "Clé générée : %1%"
+
+#: ../HashManager.cpp:122 ../HashManager.cpp:336
+msgid "Error saving hash data: %1%"
+msgstr "Erreur lors de la sauvegarde de la base de données des clés : %1%"
+
+#: ../HashManager.cpp:135
+msgid "Unable to read hash data file"
+msgstr "Impossible de lire la base de données des clés"
+
+#: ../HashManager.cpp:469
+msgid "Error creating hash data file: %1%"
+msgstr "Erreur lors de la création de la base de données des clés : %1%"
+
+#: ../HashManager.cpp:790
+msgid "Hash database rebuilt"
+msgstr "Base de données des clés re-créée"
+
+#: ../HashManager.cpp:842
+#, fuzzy
+msgid "Hashing file: %1% (Size: %2%)"
+msgstr "Génération de la clé échouée : %1%"
+
+#: ../HashManager.cpp:890
+msgid ""
+"%1% not shared; calculated CRC32 does not match the one found in SFV file."
+msgstr ""
+"%1% non partagé ; le CRC32 calculé ne correspond pas avec celui trouvé dans "
+"le fichier SFV ."
+
+#: ../HashManager.cpp:895
+msgid "Error hashing %1%: %2%"
+msgstr "Erreur lors de la génération de la clé de %1% : %2%"
+
+#: ../ShareManager.cpp:422
+msgid "No directory specified"
+msgstr "Pas de dossier spécifié"
+
+#: ../ShareManager.cpp:430
+msgid "The temporary download directory cannot be shared"
+msgstr "Le dossier des téléchargements en cours ne peut pas être partagé"
+
+#: ../ShareManager.cpp:439
+msgid "Directory already shared"
+msgstr "Dossier déjà partagé"
+
+#: ../ShareManager.cpp:442
+msgid "Remove all subdirectories before adding this one"
+msgstr "Enlevez tous les sous-dossiers avant d'ajouter celui-ci"
+
+#: ../ShareManager.cpp:771
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:792
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:847
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+"Ficher en double non partagé : %1% (Taille : %2% o) Est identique à : %3%"
+
+#: ../ShareManager.cpp:864
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"La mise à jour de la liste de fichiers est en cours, veuillez attendre "
+"qu'elle se termine avant de ré-essayer"
+
+#: ../ShareManager.cpp:885
+msgid "File list refresh failed: %1%"
+msgstr "Mise à jour de la liste de fichiers échouée : %1%"
+
+#: ../ShareManager.cpp:907
+msgid "File list refresh initiated"
+msgstr "Mise à jour de la liste de fichiers commencée"
+
+#: ../ShareManager.cpp:932
+msgid "File list refresh finished"
+msgstr "Mise à jour de la liste de fichiers terminée"
+
+#: ../ShareManager.cpp:1003
+#, fuzzy
+msgid "File list %1% generated"
+msgstr "Mise à jour de la liste de fichiers commencée"
+
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Connexion fermée"
+
+#: ../BufferedSocket.cpp:276
+msgid "Maximum command length exceeded"
+msgstr "Dépassement de la longueur maximale de la commande"
+
+#: ../BufferedSocket.cpp:453
+msgid "Disconnected"
+msgstr "Déconnecté"
+
+#: ../DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr "Plus grand que la taille maximale des listes de fichiers"
+
+#: ../DirectoryListing.cpp:102
+msgid "File not available"
+msgstr "Fichier indisponible"
+
+#: ../DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Dossier sans nom"
+
+#: ../CryptoManager.cpp:140
+msgid "No private key file chosen"
+msgstr "Aucun fichier de clé privée choisi"
+
+#: ../CryptoManager.cpp:143
+msgid "No certificate file chosen"
+msgstr "Aucun fichier de certificat choisi"
+
+#: ../CryptoManager.cpp:154
+msgid "Error generating certificate"
+msgstr "Erreur lors de la génération du certificat"
+
+#: ../CryptoManager.cpp:213
+msgid "TLS disabled, no certificate file set"
+msgstr "TLS désactivé, aucun fichier de certificat n'est défini"
+
+#: ../CryptoManager.cpp:221
+msgid "Generated new TLS certificate"
+msgstr "Nouveau certificat TLS généré"
+
+#: ../CryptoManager.cpp:223
+msgid "TLS disabled, failed to generate certificate: %1%"
+msgstr "TLS désactivé, impossible de générer le certificat : %1%"
+
+#: ../CryptoManager.cpp:228 ../CryptoManager.cpp:232 ../CryptoManager.cpp:237
+#: ../CryptoManager.cpp:241
+msgid "Failed to load certificate file"
+msgstr "Impossible de charger le fichier de certificat"
+
+#: ../CryptoManager.cpp:246 ../CryptoManager.cpp:250 ../CryptoManager.cpp:255
+#: ../CryptoManager.cpp:259
+msgid "Failed to load private key"
+msgstr "Impossible de charger la clé privée"
+
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "Erreur SSL : %1% (%2%, %3%)"
+
+#: ../DownloadManager.cpp:222
 msgid "Invalid size"
 msgstr "Taille invalide"
 
-#: dcpp/QueueManager.cpp:661 dcpp/QueueManager.cpp:669
+#: ../DownloadManager.cpp:227
+msgid "Response does not match request"
+msgstr "Le résultat ne correspond pas à la demande"
+
+#: ../DownloadManager.cpp:234
+msgid "Could not open target file: %1%"
+msgstr "Impossible d'ouvrir le fichier cible : %1%"
+
+#: ../DownloadManager.cpp:313
+msgid "Full tree does not match TTH root"
+msgstr "La concaténation des clés ne correspond pas à la clé TTH racine"
+
+#: ../DownloadManager.cpp:382 ../DownloadManager.cpp:384
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr "Incompatibilité CRC32 (Contrôle SFV)"
+
+#: ../DownloadManager.cpp:427
+msgid "No slots available"
+msgstr "Pas de slot disponible"
+
+#: ../DownloadManager.cpp:538
+msgid "%1%: File not available"
+msgstr "%1% : Fichier indisponible"
+
+#: ../ConnectionManager.cpp:176
+msgid "All download slots taken"
+msgstr "Tous les slots de téléchargement sont pris"
+
+#: ../ConnectionManager.cpp:245
+msgid "Connectivity restored"
+msgstr "Connectivité restaurée"
+
+#: ../ConnectionManager.cpp:252
+msgid "Connectivity error: %1%"
+msgstr "Erreur de connectivité : %1%"
+
+#: ../SearchManager.cpp:129
+msgid "Search enabled again"
+msgstr "Recherche à nouveau activée"
+
+#: ../SearchManager.cpp:136
+msgid "Search disabled: %1%"
+msgstr "Recherche désactivée : %1%"
+
+#: ../QueueManager.cpp:343
+msgid "%1% renamed to %2%"
+msgstr "%1% renommé en %2%"
+
+#: ../QueueManager.cpp:345
+msgid "Unable to rename %1%: %2%"
+msgstr "Impossible de renommer %1% : %2%"
+
+#: ../QueueManager.cpp:561
+msgid "Searching TTH alternates for: %1%"
+msgstr ""
+
+#: ../QueueManager.cpp:589
+msgid "You're trying to download from yourself!"
+msgstr "Vous essayez de télécharger sur vous-même !"
+
+#: ../QueueManager.cpp:595
+msgid "A file with the same hash already exists in your share"
+msgstr "Un fichier avec la même clé existe déjà dans votre partage"
+
+#: ../QueueManager.cpp:622
+msgid "This file is already queued"
+msgstr "Ce fichier est déjà dans la liste de téléchargement"
+
+#: ../QueueManager.cpp:632
+msgid "A file with a different size already exists in the queue"
+msgstr ""
+"Un fichier d'une taille différente existe déjà dans la liste de "
+"téléchargement"
+
+#: ../QueueManager.cpp:635
+msgid "A file with different tth root already exists in the queue"
+msgstr ""
+"Un fichier avec une clé TTH racine différente existe déjà dans la liste de "
+"téléchargement"
+
+#: ../QueueManager.cpp:679 ../QueueManager.cpp:688
+msgid "Target filename too long"
+msgstr "Nom du fichier cible trop long"
+
+#: ../QueueManager.cpp:684 ../QueueManager.cpp:692
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -326,172 +445,57 @@ msgstr ""
 "Fichier cible invalide (dossier manquant ; vérifier l'option du dossier des "
 "téléchargements par défaut)"
 
-#: dcpp/FavoriteManager.cpp:438
-msgid "Kick user(s)"
-msgstr "Expulser l(es) utilisateur(s)"
-
-#: dcpp/BufferedSocket.cpp:254
-msgid "Maximum command length exceeded"
-msgstr "Dépassement de la longueur maximale de la commande"
-
-#: dcpp/Streams.h:140
-msgid "More bytes written than requested"
-msgstr "Trop d'octets ont été écrits"
-
-#: dcpp/CryptoManager.cpp:143
-msgid "No certificate file chosen"
-msgstr "Aucun fichier de certificat choisi"
-
-#: dcpp/ShareManager.cpp:409
-msgid "No directory specified"
-msgstr "Pas de dossier spécifié"
-
-#: dcpp/CryptoManager.cpp:140
-msgid "No private key file chosen"
-msgstr "Aucun fichier de clé privée choisi"
-
-#: dcpp/DownloadManager.cpp:427
-msgid "No slots available"
-msgstr "Pas de slot disponible"
-
-#: dcpp/AdcHub.cpp:579
-#, boost-format
-msgid "Not listening for connections - please restart %1%"
-msgstr "Échec dans l'écoute des connexions - veuillez relancer %1%"
-
-#: dcpp/Transfer.cpp:82 dcpp/Transfer.cpp:86 dcpp/ClientManager.cpp:120
-#: dcpp/SearchManager.cpp:237 dcpp/SearchManager.cpp:299
-#: dcpp/SearchManager.cpp:301
-msgid "Offline"
-msgstr "Déconnecté"
-
-#: dcpp/FavoriteManager.cpp:442
-msgid "Redirect user(s)"
-msgstr "Rediriger l(es) utilisateur(s)"
-
-#: dcpp/ShareManager.cpp:425
-msgid "Remove all subdirectories before adding this one"
-msgstr "Enlevez tous les sous-dossiers avant d'ajouter celui-ci"
-
-#: dcpp/BitInputStream.h:40
-msgid "Request to seek beyond the end of data"
-msgstr "Demande de recherche au-delà de la fin des données"
-
-#: dcpp/DownloadManager.cpp:227
-msgid "Response does not match request"
-msgstr "Le résultat ne correspond pas à la demande"
-
-#: dcpp/SSLSocket.cpp:160
-#, boost-format
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "Erreur SSL : %1% (%2%, %3%)"
-
-#: dcpp/SearchManager.cpp:135
-#, boost-format
-msgid "Search disabled: %1%"
-msgstr "Recherche désactivée : %1%"
-
-#: dcpp/SearchManager.cpp:128
-msgid "Search enabled again"
-msgstr "Recherche à nouveau activée"
-
-#: dcpp/DCPlusPlus.cpp:104
-msgid "Shared Files"
-msgstr "Fichiers Partagés"
-
-#: dcpp/Socket.cpp:263 dcpp/Socket.cpp:267
-msgid "Socks server authentication failed (bad login / password?)"
+#: ../QueueManager.cpp:701
+msgid "A file of equal or larger size already exists at the target location"
 msgstr ""
-"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot "
-"de passe ?)"
+"Un fichier d'une taille égale ou supérieure existe déjà à l'emplacement cible"
 
-#: dcpp/CryptoManager.cpp:223
-#, boost-format
-msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "TLS désactivé, impossible de générer le certificat : %1%"
+#: ../QueueManager.cpp:714 ../QueueManager.cpp:718
+msgid "Duplicate source: %1%"
+msgstr "Source en double : %1%"
 
-#: dcpp/CryptoManager.cpp:213
-msgid "TLS disabled, no certificate file set"
-msgstr "TLS désactivé, aucun fichier de certificat n'est défini"
-
-#: dcpp/MerkleCheckOutputStream.h:53 dcpp/MerkleCheckOutputStream.h:113
-msgid "TTH inconsistency"
-msgstr "Incohérence de TTH"
-
-#: dcpp/QueueManager.cpp:965
-msgid "Target file is missing or wrong size"
-msgstr "Le fichier cible est introuvable ou n'a pas la bonne taille"
-
-#: dcpp/QueueManager.cpp:656 dcpp/QueueManager.cpp:665
-msgid "Target filename too long"
-msgstr "Nom du fichier cible trop long"
-
-#: dcpp/QueueManager.cpp:957
+#: ../QueueManager.cpp:988
 msgid "Target removed"
 msgstr "Cible enlevée"
 
-#: dcpp/Socket.cpp:249
-msgid "The socks server doesn't support login / password authentication"
-msgstr ""
-"Le serveur socks ne supporte pas l'autentification par identifiant / mot de "
-"passe"
+#: ../QueueManager.cpp:996
+msgid "Target file is missing or wrong size"
+msgstr "Le fichier cible est introuvable ou n'a pas la bonne taille"
 
-#: dcpp/Socket.cpp:162 dcpp/Socket.cpp:170 dcpp/Socket.cpp:203
-#: dcpp/Socket.cpp:207 dcpp/Socket.cpp:231 dcpp/Socket.cpp:246
-msgid "The socks server failed establish a connection"
-msgstr "Le serveur socks n'a pas pu établir de connexion"
-
-#: dcpp/Socket.cpp:235
-msgid "The socks server requires authentication"
-msgstr "Le serveur socks requiert une authentification"
-
-#: dcpp/ShareManager.cpp:413
-msgid "The temporary download directory cannot be shared"
-msgstr "Le dossier des téléchargements en cours ne peut pas être partagé"
-
-#: dcpp/QueueManager.cpp:606
-msgid "This file is already queued"
-msgstr "Ce fichier est déjà dans la liste de téléchargement"
-
-#: dcpp/Thread.cpp:34 dcpp/Thread.cpp:42
-msgid "Unable to create thread"
-msgstr "Création de thread impossile"
-
-#: dcpp/QueueManager.cpp:1175
-#, boost-format
+#: ../QueueManager.cpp:1206
 msgid "Unable to open filelist: %1%"
 msgstr "Impossible d'ouvrir la liste de fichiers : %1%"
 
-#: dcpp/HashManager.cpp:124
-msgid "Unable to read hash data file"
-msgstr "Impossible de lire la base de données des clés"
+#: ../QueueManager.cpp:1230
+#, fuzzy
+msgid "%1%: Matched %2% file"
+msgstr "%1% a été expulsé : %2%"
 
-#: dcpp/QueueManager.cpp:332
-#, boost-format
-msgid "Unable to rename %1%: %2%"
-msgstr "Impossible de renommer %1% : %2%"
+#: ../BitInputStream.h:40
+msgid "Request to seek beyond the end of data"
+msgstr "Demande de recherche au-delà de la fin des données"
 
-#: dcpp/UploadManager.cpp:149
-#, boost-format
-msgid "Unable to send file %1%: %2%"
-msgstr "Impossible d'envoyer le fichier %1% : %2%"
+#: ../ADLSearch.h:48
+msgid "<Enter string>"
+msgstr "<Entrer chaîne de recherche>"
 
-#: dcpp/Socket.cpp:54
-#, c-format, boost-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Erreur inconnue : 0x%1$x"
+#: ../ADLSearch.h:277
+msgid "Discard"
+msgstr "Abandonner"
 
-#: dcpp/QueueManager.cpp:573
-msgid "You're trying to download from yourself!"
-msgstr "Vous essayez de télécharger sur vous-même !"
+#: ../Streams.h:140
+msgid "More bytes written than requested"
+msgstr "Trop d'octets ont été écrits"
 
-#: dcpp/SettingsManager.cpp:167
-msgid "downloaded from"
-msgstr "téléchargé de"
+#: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
+msgid "TTH inconsistency"
+msgstr "Incohérence de TTH"
 
-#: dcpp/SettingsManager.cpp:168
-msgid "uploaded to"
-msgstr "envoyé à"
+#~ msgid "downloaded from"
+#~ msgstr "téléchargé de"
+
+#~ msgid "uploaded to"
+#~ msgstr "envoyé à"
 
 #~ msgid "More data was sent than was expected"
 #~ msgstr "Plus de données ont été envoyées que ce qu'il était attendu"
