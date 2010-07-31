@@ -1,6 +1,7 @@
 --- 2.0.4 2010-09-xx ---
 *** common changes ***
 * libdcpp library was separated from the basic binary file for unix-like systems.
+* Added localization of kernel messages. Gettext used.
 *** eiskaltdcpp-qt ***
 * Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
 * Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
@@ -14,6 +15,9 @@
 * Added a hash progress indicator in the status line. Combined menu 'Refresh share' and 'Hash progress'.
 * Extended settings dialog.
 * Removed extra code (option -DFREE_SPACE_BAR for cmake). Assemblies with -DFREE_SPACE_BAR_C:BOOL=1 work stably on all supported platforms.
+*** eiskaltdcpp-gtk ***
+* Added Gtk interface based on code of FreeDC++ and LinuxDC++.
+* The interface is localized using gettext.
 
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.

@@ -11,6 +11,7 @@ iconv (libc on GNU/Linux)
 :dcpp:
 ------
 libssl (>= 0.9.8)
+gettext (optional)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -31,6 +32,7 @@ libgtk2 (>= 2.10)
 libglib2 (>= 2.10)
 libglade2 (>= 2.4)
 libnotify (>= 0.4.1)
+gettext (optional)
 libgnome2 (optional, see cmake keys)
 
 
@@ -82,25 +84,24 @@ sudo make install
 # Note: you can get the lastest program sorces from subversion
 svn export http://eiskaltdc.googlecode.com/svn/branches/trunk/ eiskaltdcpp-trunk
 
----------
-Keys for cmake:
+
+*******************************************************************************
+Keys for cmake
+*******************************************************************************
+------
+:dcpp:
+------
+-DLOCAL_BOOST=ON/OFF (default: OFF)
+    use local boost headers
+----------------
+:eiskaltdcpp-qt:
+----------------
 -DUSE_QT=ON/OFF (default: ON)
     build EiskaltDC++ with Qt interface
--DUSE_WT=ON/OFF (default: OFF)
-    build EiskaltDC++ with Wt (Web Toolkit) interface
--DUSE_GTK=ON/OFF (default: OFF)
-    build EiskaltDC++ with Gtk interface (based on FreeDC++ and LinuxDC++)
 -DUSE_ASPELL=ON/OFF (default: not set)
     forced use or not use aspell
 -DFREE_SPACE_BAR_C=ON/OFF (default: ON)
     free space bar in status panel
--DLOCAL_BOOST=ON/OFF (default: OFF)
-    use local boost headers
--Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
-    examples:
-    -Dlinguas="en ru" - install ru and en translations
-    -Dlingaus="*"     - install all translations
-    -Dlinguas=""      - don't install any translation
 -DFORCE_XDG=ON/OFF (default: ON)
     use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables
     see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
@@ -110,10 +111,28 @@ Keys for cmake:
   use or not use QtDBus module
 -DUSE_JS=ON/OFF (default: OFF)
     Enable/disable QtScript basic support
--DUSE_LIBGNOME2=ON/OFF (default: OFF)
-    Enable/disable sound notifications support in EiskaltDC++ Gtk
 -DUSE_ICON_THEME=ON/OFF (default: OFF)
     Using system icon theme. Work only with Qt >= 4.6.0 and only in KDE and Gnome.
+----------------
+:eiskaltdcpp-wt:
+----------------
+-DUSE_WT=ON/OFF (default: OFF)
+    build EiskaltDC++ with Wt (Web Toolkit) interface
+-----------------
+:eiskaltdcpp-gtk:
+-----------------
+-DUSE_GTK=ON/OFF (default: OFF)
+    build EiskaltDC++ with Gtk interface (based on FreeDC++ and LinuxDC++)
+-DUSE_LIBGNOME2=ON/OFF (default: OFF)
+    Enable/disable sound notifications support in EiskaltDC++ Gtk
+--------
+:common:
+--------
+-Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
+    examples:
+    -Dlinguas="en ru" - install ru and en translations
+    -Dlingaus="*"     - install all translations
+    -Dlinguas=""      - don't install any translation
 -DCMAKE_INSTALL_PREFIX=<prefix for install> (default: /usr/local)
     .
 -DESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
