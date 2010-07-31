@@ -568,7 +568,7 @@ macro(KWWidgets_CREATE_PO_TARGETS
     kwwidgets_get_po_filename(po_file
       "${po_dir}" "${po_prefix}" "${locale}")
     kwwidgets_get_po_filename(po_build_file
-      "${po_build_dir}" "${domain_name}_" "${locale}")
+      "${po_build_dir}" "${po_prefix}" "${locale}")
     kwwidgets_get_po_filename(po_uptodate_file
       "${safe_build_dir}" "${domain_name}_" "${locale}")
     set(po_uptodate_file "${po_uptodate_file}.upd")
