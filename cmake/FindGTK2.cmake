@@ -147,7 +147,6 @@ function(_GTK2_FIND_INCLUDE_DIR _var _hdr)
         pango-1.0
         pangomm-1.4
         sigc++-2.0
-        gdk-pixbuf-2.0
     )
 
     set(_suffixes)
@@ -554,3 +553,18 @@ if(GTK2_INCLUDE_DIRS)
    list(REMOVE_DUPLICATES GTK2_INCLUDE_DIRS)
 endif()
 
+if(UNIX)
+    if(GTK2_FOUND)
+        # From version 2.21.3 gtk moved gdk-pixbuf into a separate module
+        # Cmake need to be fixed. For the moment uses a manual detection.
+        find_path(GDK_PIXBUF_INCLUDE_DIRS NAMES gdk-pixbuf/gdk-pixbuf.h PATHS
+            /usr/include/gdk-pixbuf-2.0
+            /usr/include)
+        if (GDK_PIXBUF_INCLUDE_DIRS)
+            set(GTK2_INCLUDE_DIRS "${GDK_PIXBUF_INCLUDE_DIRS} ${GTK2_INCLUDE_DIRS}")
+            # Remove duplicates when cmake will be fixed
+            list(REMOVE_DUPLICATES GTK2_INCLUDE_DIRS)
+        endif (GDK_PIXBUF_INCLUDE_DIRS)
+        message(STATUS "TEST ${GTK2_INCLUDE_DIRS}")
+    endif(GTK2_FOUND)
+endif(UNIX)
