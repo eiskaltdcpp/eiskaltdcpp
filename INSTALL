@@ -10,8 +10,8 @@ iconv (libc on GNU/Linux)
 ------
 :dcpp:
 ------
+gettext
 libssl (>= 0.9.8)
-gettext (optional)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -27,12 +27,12 @@ libwt, libwtext, libwtfcgi, libwthttp
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
+gettext
 libpango
 libgtk2 (>= 2.10)
 libglib2 (>= 2.10)
 libglade2 (>= 2.4)
 libnotify (>= 0.4.1)
-gettext (optional)
 libgnome2 (optional, see cmake keys)
 
 
