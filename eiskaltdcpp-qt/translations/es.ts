@@ -4,23 +4,6 @@
 <context>
     <name>About</name>
     <message>
-        <source>Using:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
-
-Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
-        <translation type="obsolete">  Uso: eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ es un programa para sistemas UNIX que utiliza Direct Connect y el protocolo ADC
-
-Opciones:
-  -h, --help	Muestra este mensaje
-  -v, --version	 Muestra la version del programa</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.h" line="93"/>
         <source>Using:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
@@ -926,42 +909,6 @@ Opciones:
         <translation>El chat ha sido limpiado</translation>
     </message>
     <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/aspell on/off - habilitar/deshabilitar Chequeo escritura
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - crear alias /ALIAS_NAME a /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - borrar alias
-/alias list - listar todos los Alias
-/away &lt;message&gt; - establece el modo ausente en encendido/apagado
-/back - apaga el modo ausente
-/browse &lt;nick&gt; - explorar ficheros del usuario
-/clear - limpia la ventana del chat
-/magnet - acción predeterminada del imán (0-pregunta, 1-busca, 2-descarga)
-/close - cierra este Hub
-/fav - añade este hub a favoritos
-/grant &lt;nick&gt; - concede slot extra al usuario
-/help, /?, /h - muestra esta ayuda
-/info &lt;nick&gt; - muestra información acerca del usuario
-/me - habla en tercera persona
-/pm &lt;nick&gt; - comienza un chat privado con el usuario
-/sh &lt;command&gt; - ejecuta un comando y lo re-direcciona al chat</translation>
-    </message>
-    <message>
         <location filename="../src/HubFrame.cpp" line="1501"/>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
         <translation>&lt;b&gt;ultimo mensaje de estado en el Hub:&lt;/b&gt;&lt;br/&gt;%1</translation>
@@ -1011,7 +958,23 @@ Opciones:
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - habilitar/deshabilitar Chequeo escritura
+/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - crear alias /ALIAS_NAME a /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - borrar alias
+/alias list - listar todos los Alias
+/away &lt;message&gt; - establece el modo ausente en encendido/apagado
+/back - apaga el modo ausente
+/browse &lt;nick&gt; - explorar ficheros del usuario
+/clear - limpia la ventana del chat
+/magnet - acción predeterminada del imán (0-pregunta, 1-busca, 2-descarga)
+/close - cierra este Hub
+/fav - añade este hub a favoritos
+/grant &lt;nick&gt; - concede slot extra al usuario
+/help, /?, /h - muestra esta ayuda
+/info &lt;nick&gt; - muestra información acerca del usuario
+/me - habla en tercera persona
+/pm &lt;nick&gt; - comienza un chat privado con el usuario
+/sh &lt;command&gt; - ejecuta un comando y lo re-direcciona al chat</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2889"/>
@@ -1065,42 +1028,6 @@ Opciones:
 Favorite user</source>
         <translation>
 Usuario favorito</translation>
-    </message>
-    <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/ratio [show] - show ratio [send in chat]/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/aspell on/off - habilitar/deshabilitar Chequeo escritura
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - crear alias /ALIAS_NAME a /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - borrar alias
-/alias list - listar todos los Alias
-/away &lt;message&gt; - establece el modo ausente en encendido/apagado
-/back - apaga el modo ausente
-/browse &lt;nick&gt; - explorar ficheros del usuario
-/clear - limpia la ventana del chat
-/magnet - acción predeterminada del imán (0-pregunta, 1-busca, 2-descarga)
-/close - cierra este Hub
-/fav - añade este hub a favoritos
-/grant &lt;nick&gt; - concede slot extra al usuario
-/help, /?, /h - muestra esta ayuda
-/info &lt;nick&gt; - muestra información acerca del usuario
-/me - habla en tercera persona
-/pm &lt;nick&gt; - comienza un chat privado con el usuario
-/sh &lt;command&gt; - ejecuta un comando y lo re-direcciona al chat</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1610"/>
@@ -2231,10 +2158,6 @@ Descargas: %3 Subidas: %4</translation>
         <translation></translation>
     </message>
     <message>
-        <source>File type</source>
-        <translation type="obsolete">Tipo de archivo</translation>
-    </message>
-    <message>
         <location filename="../ui/UISearchFrame.ui" line="67"/>
         <source>Clear</source>
         <translation>Limpiar</translation>
@@ -2969,7 +2892,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="29"/>
         <source>Share Browsers</source>
-        <translation type="unfinished">Navegador de Compartidos</translation>
+        <translation>Navegador de Compartidos</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="31"/>
@@ -4703,10 +4626,6 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
         <location filename="../ui/UISettingsDownloads.ui" line="808"/>
         <source>Keep downloaded filelists</source>
         <translation>Mantener listas de archivos descargados</translation>
-    </message>
-    <message>
-        <source>Compressed transfer</source>
-        <translation type="obsolete">Comprimir transferencias</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="863"/>
