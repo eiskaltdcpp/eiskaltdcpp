@@ -1,37 +1,39 @@
 # Hungarian translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-# Automatically generated, 2010.
 #
+# Automatically generated, 2010.
+# sumo <husumo@elitemail.hu>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-07-30 00:20+0400\n"
-"PO-Revision-Date: 2010-07-30 00:20+0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2010-08-03 15:28+0200\n"
+"Last-Translator: sumo <husumo@elitemail.hu>\n"
+"Language-Team: Magyar <kde-i18n-doc@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: ../src/emoticonsdialog.cc:69
 msgid "Emotion packs"
-msgstr ""
+msgstr "Hangulatjel csomagok"
 
 #: ../src/emoticonsdialog.cc:74
 msgid "Icon size"
-msgstr ""
+msgstr "Ikon méret"
 
 #: ../src/emoticonsdialog.cc:106 ../src/previewmenu.cc:88
 msgid "Default"
-msgstr ""
+msgstr "Alapértelmezett"
 
 #: ../src/hub.cc:47 ../src/hub.cc:2603
 msgid "Hub: "
-msgstr ""
+msgstr "Hub: "
 
 #: ../src/hub.cc:62 ../src/hub.cc:82 ../src/hub.cc:84 ../src/hub.cc:324
 #: ../src/hub.cc:339 ../src/hub.cc:359 ../src/hub.cc:407 ../src/hub.cc:1053
@@ -45,12 +47,12 @@ msgstr ""
 #: ../src/favoritehubs.cc:56 ../src/favoritehubs.cc:124
 #: ../src/favoritehubs.cc:294
 msgid "Nick"
-msgstr ""
+msgstr "Nick"
 
 #: ../src/hub.cc:63 ../src/hub.cc:323 ../src/hub.cc:340 ../src/hub.cc:360
 #: ../src/hub.cc:408 ../src/publichubs.cc:46 ../src/publichubs.cc:161
 msgid "Shared"
-msgstr ""
+msgstr "Megosztva"
 
 #: ../src/hub.cc:64 ../src/hub.cc:341 ../src/hub.cc:361
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:112
@@ -59,240 +61,241 @@ msgstr ""
 #: ../src/favoritehubs.cc:123 ../src/favoritehubs.cc:293
 #: ../src/publichubs.cc:42 ../src/publichubs.cc:157 ../src/publichubs.cc:293
 msgid "Description"
-msgstr ""
+msgstr "Leírás"
 
 #: ../src/hub.cc:65 ../src/hub.cc:342 ../src/hub.cc:362
 msgid "Tag"
-msgstr ""
+msgstr "Tag"
 
 #: ../src/hub.cc:66 ../src/hub.cc:343 ../src/hub.cc:363 ../src/search.cc:91
 #: ../src/search.cc:564 ../src/search.cc:623 ../src/search.cc:764
 #: ../src/search.cc:1644
 msgid "Connection"
-msgstr ""
+msgstr "Kapcsolat"
 
 #: ../src/hub.cc:68 ../src/hub.cc:345 ../src/hub.cc:365
 msgid "eMail"
-msgstr ""
+msgstr "E-mail"
 
 #: ../src/hub.cc:378 ../src/hub.cc:389
 msgid " has joined"
-msgstr ""
+msgstr " belépett"
 
 #: ../src/hub.cc:379 ../src/hub.cc:388
 msgid " has joined hub "
-msgstr ""
+msgstr " belépett "
 
 #: ../src/hub.cc:395 ../src/hub.cc:413
 msgid " Users"
-msgstr ""
+msgstr " Felhasználó"
 
 #: ../src/hub.cc:419 ../src/hub.cc:429
 msgid " has quit hub "
-msgstr ""
+msgstr " kilépett "
 
 #: ../src/hub.cc:420 ../src/hub.cc:430
 msgid " has quit"
-msgstr ""
+msgstr " kilépett"
 
 #: ../src/hub.cc:459
 msgid "0 Users"
-msgstr ""
+msgstr "0 Felhasználó"
 
 #: ../src/hub.cc:493
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr ""
+"Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
 
 #: ../src/hub.cc:532
 msgid "<b>Enter your password</b>"
-msgstr ""
+msgstr "<b>Add meg a jelszavad<b>"
 
 #: ../src/hub.cc:844 ../src/privatemessage.cc:523
 msgid " *** Emoticons not loaded"
-msgstr ""
+msgstr " *** A hangulatjelek nincsenek betöltve"
 
 #: ../src/hub.cc:849 ../src/privatemessage.cc:528
 msgid " *** Emoticons mode off"
-msgstr ""
+msgstr " *** Hangulatjelek mód kikapcsolva"
 
 #: ../src/hub.cc:854 ../src/hub.cc:933 ../src/privatemessage.cc:533
 #: ../src/privatemessage.cc:612
 msgid " *** Emoticons limit"
-msgstr ""
+msgstr " *** Hangulatjel korlátozás"
 
 #: ../src/hub.cc:1499 ../src/privatemessage.cc:1097
 msgid "Use Emoticons"
-msgstr ""
+msgstr "Hangulatjelek használata"
 
 #: ../src/hub.cc:1580 ../src/hub.cc:1593 ../src/hub.cc:1698
 #: ../src/privatemessage.cc:861 ../src/privatemessage.cc:875
 #: ../src/privatemessage.cc:929
 msgid "Away mode off"
-msgstr ""
+msgstr "Away-mód kikapcsolva"
 
 #: ../src/hub.cc:1587 ../src/privatemessage.cc:869
 msgid "Away mode on: "
-msgstr ""
+msgstr "Away-mód bekapcsolva: "
 
 #: ../src/hub.cc:1624 ../src/hub.cc:2129 ../src/privatemessage.cc:1262
 msgid " is favorite user"
-msgstr ""
+msgstr " kedvenc felhasználó"
 
 #: ../src/hub.cc:1626 ../src/hub.cc:1661 ../src/hub.cc:1671 ../src/hub.cc:1741
 msgid "Not found user: "
-msgstr ""
+msgstr "Felhasználó nem található: "
 
 #: ../src/hub.cc:1642 ../src/hub.cc:2168 ../src/privatemessage.cc:1282
 msgid " is not favorite user"
-msgstr ""
+msgstr " nem kedvenc felhasználó"
 
 #: ../src/hub.cc:1651
 msgid "User favorite list:"
-msgstr ""
+msgstr "Kedvenc felhasználók listája: "
 
 #: ../src/hub.cc:1651
 msgid " empty..."
-msgstr ""
+msgstr " üres..."
 
 #: ../src/hub.cc:1678 ../src/privatemessage.cc:917
 msgid "Emoticons mode off"
-msgstr ""
+msgstr "Hangulatjelek mód kikapcsolva"
 
 #: ../src/hub.cc:1683 ../src/privatemessage.cc:922
 msgid "Emoticons mode on"
-msgstr ""
+msgstr "Hangulatjelek mód bekapcsolva"
 
 #: ../src/hub.cc:1696 ../src/privatemessage.cc:927
 msgid "*** Available commands:"
-msgstr ""
+msgstr "*** Elérhető parancsok:"
 
 #: ../src/hub.cc:1697 ../src/privatemessage.cc:928
 msgid "Away mode message on/off"
-msgstr ""
+msgstr "Away-mód üzenet ki/be"
 
 #: ../src/hub.cc:1699
 msgid "Clear chat"
-msgstr ""
+msgstr "Chat törlése"
 
 #: ../src/hub.cc:1700
 msgid "Close chat"
-msgstr ""
+msgstr "Chat bezárása"
 
 #: ../src/hub.cc:1701
 msgid "Add a hub to favorites"
-msgstr ""
+msgstr "Hub hozzáadása a kedvencekhez"
 
 #: ../src/hub.cc:1702 ../src/privatemessage.cc:932
 msgid "Add user to favorites list"
-msgstr ""
+msgstr "Felhasználó hozzáadása a kedvencekhez"
 
 #: ../src/hub.cc:1703 ../src/privatemessage.cc:933
 msgid "Remove user favorite"
-msgstr ""
+msgstr "Kedvenc felhasználó törlése"
 
 #: ../src/hub.cc:1704
 msgid "Show favorites list"
-msgstr ""
+msgstr "Kedvencek mutatása"
 
 #: ../src/hub.cc:1705 ../src/privatemessage.cc:934
 msgid "Get file list"
-msgstr ""
+msgstr "Fájl-lista letöltése"
 
 #: ../src/hub.cc:1706 ../src/privatemessage.cc:935
 msgid "Grant extra slot"
-msgstr ""
+msgstr "Extra slot biztosítása"
 
 #: ../src/hub.cc:1707 ../src/privatemessage.cc:937
 msgid "Show help"
-msgstr ""
+msgstr "Help mutatása"
 
 #: ../src/hub.cc:1708
 msgid "Connect to the hub"
-msgstr ""
+msgstr "Csatlakozás a hubhoz"
 
 #: ../src/hub.cc:1709
 msgid "Say a third person"
-msgstr ""
+msgstr "Beszéd harmadik személyben"
 
 #: ../src/hub.cc:1710 ../src/settingsdialog.cc:954
 #: ../src/settingsdialog.cc:1000 ../src/settingsdialog.cc:1120
 #: ../src/settingsmanager.cc:185
 msgid "Private message"
-msgstr ""
+msgstr "Privát üzenet"
 
 #: ../src/hub.cc:1711
 msgid "Rebuild hash"
-msgstr ""
+msgstr "Hash újraépítése"
 
 #: ../src/hub.cc:1712
 msgid "Update own file list"
-msgstr ""
+msgstr "Saját fájl-lista frissítése"
 
 #: ../src/hub.cc:1713
 msgid "User list show/hide"
-msgstr ""
+msgstr "Felhasználói lista mutatása/elrejtése"
 
 #: ../src/hub.cc:1714
 msgid "Show version"
-msgstr ""
+msgstr "Verzió mutatása"
 
 #: ../src/hub.cc:1715 ../src/privatemessage.cc:936
 msgid "Emoticons on/off"
-msgstr ""
+msgstr "Hangulatjelek ki/be"
 
 #: ../src/hub.cc:1775
 msgid "Unknown command '"
-msgstr ""
+msgstr "Ismeretlen parancs '"
 
 #: ../src/hub.cc:1775
 msgid "': type /help for a list of available commands"
-msgstr ""
+msgstr "': a használható parancsokat a /help használatával érheted el"
 
 #: ../src/hub.cc:2058 ../src/mainwindow.cc:1009 ../src/mainwindow.cc:1077
 #: ../src/privatemessage.cc:1174
 msgid "Choose a directory"
-msgstr ""
+msgstr "Könyvtár választása"
 
 #: ../src/hub.cc:2197
 msgid " added to favorites list"
-msgstr ""
+msgstr " hozzáadva a favoritokhoz"
 
 #: ../src/hub.cc:2224
 msgid " removed from favorites list"
-msgstr ""
+msgstr " törölve a favoritok közül"
 
 #: ../src/hub.cc:2336 ../src/hub.cc:2356
 msgid "User not found"
-msgstr ""
+msgstr "Felhasználó nem található"
 
 #: ../src/hub.cc:2364 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
-msgstr ""
+msgstr "Slot biztosítva: "
 
 #: ../src/hub.cc:2389
 msgid "Unable to connect: already connected to the requested hub"
-msgstr ""
+msgstr "A csatlakozás nem lehetséges: a kért hubhoz már csatlakozva vagy"
 
 #: ../src/hub.cc:2443
 msgid "Favorite hub added"
-msgstr ""
+msgstr "Favorit hub hozzáadva"
 
 #: ../src/hub.cc:2448
 msgid "Favorite hub already exists"
-msgstr ""
+msgstr "Favorit hub már létezik"
 
 #: ../src/hub.cc:2522
 msgid "Connecting to "
-msgstr ""
+msgstr "Csatlakozás: "
 
 #: ../src/hub.cc:2529 ../src/transfers.cc:1012
 msgid "Connected"
-msgstr ""
+msgstr "Csatlakozva"
 
 #: ../src/hub.cc:2585
 msgid "Connect failed: "
-msgstr ""
+msgstr "Csatlakozás sikertelen: "
 
 #: ../src/hub.cc:2726
 msgid "Ignored private message from hub"
@@ -304,15 +307,15 @@ msgstr ""
 
 #: ../src/hub.cc:2750
 msgid "Nick already taken"
-msgstr ""
+msgstr "A nick használatban van"
 
 #: ../src/hub.cc:2757
 msgid "Search spam detected from "
-msgstr ""
+msgstr "Keresési spam érzékelve a következőtől: "
 
 #: ../src/sharebrowser.cc:37 ../src/sharebrowser.cc:56
 msgid "List: "
-msgstr ""
+msgstr "Lista: "
 
 #: ../src/sharebrowser.cc:74 ../src/sharebrowser.cc:90
 #: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:272
@@ -333,7 +336,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:382 ../src/downloadqueue.cc:748
 #: ../src/downloadqueue.cc:791 ../src/downloadqueue.cc:842
 msgid "Filename"
-msgstr ""
+msgstr "Fájlnév"
 
 #: ../src/sharebrowser.cc:75 ../src/sharebrowser.cc:93
 #: ../src/sharebrowser.cc:279 ../src/sharebrowser.cc:310 ../src/search.cc:88
@@ -344,14 +347,14 @@ msgstr ""
 #: ../src/downloadqueue.cc:67 ../src/downloadqueue.cc:86
 #: ../src/downloadqueue.cc:278 ../src/downloadqueue.cc:385
 msgid "Size"
-msgstr ""
+msgstr "Méret"
 
 #: ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:282
 #: ../src/sharebrowser.cc:303 ../src/search.cc:87 ../src/search.cc:563
 #: ../src/search.cc:638 ../src/search.cc:776 ../src/search.cc:1615
 #: ../src/search.cc:1616 ../src/search.cc:1617 ../src/search.cc:1631
 msgid "Type"
-msgstr ""
+msgstr "Típus"
 
 #: ../src/sharebrowser.cc:78 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:280 ../src/sharebrowser.cc:311 ../src/search.cc:93
@@ -359,50 +362,50 @@ msgstr ""
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
 #: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386
 msgid "Exact Size"
-msgstr ""
+msgstr "Pontos méret"
 
 #: ../src/sharebrowser.cc:148
 msgid "File list loaded"
-msgstr ""
+msgstr "Fájl-lista betöltve"
 
 #: ../src/sharebrowser.cc:166
 msgid "Unable to load file list: "
-msgstr ""
+msgstr "Fájl-lista betöltése nem lehetséges: "
 
 #: ../src/sharebrowser.cc:282 ../src/UserCommandMenu.cc:65
 #: ../src/search.cc:1631 ../src/settingsdialog.cc:1191
 msgid "Directory"
-msgstr ""
+msgstr "Könyvtár"
 
 #: ../src/sharebrowser.cc:330 ../src/downloadqueue.cc:238
 msgid "Files: "
-msgstr ""
+msgstr "Fájlok: "
 
 #: ../src/sharebrowser.cc:331
 msgid "Total: "
-msgstr ""
+msgstr "Összesen: "
 
 #: ../src/sharebrowser.cc:335 ../src/downloadqueue.cc:236
 msgid "Items: "
-msgstr ""
+msgstr "Tétel: "
 
 #: ../src/sharebrowser.cc:336 ../src/downloadqueue.cc:237
 #: ../src/downloadqueue.cc:239
 msgid "Size: "
-msgstr ""
+msgstr "Méret: "
 
 #: ../src/sharebrowser.cc:340
 msgid "Items: 0"
-msgstr ""
+msgstr "Tétel: 0"
 
 #: ../src/sharebrowser.cc:341
 msgid "Size: 0 B"
-msgstr ""
+msgstr "Méret: 0 B"
 
 #: ../src/sharebrowser.cc:474 ../src/sharebrowser.cc:526 ../src/search.cc:303
 #: ../src/search.cc:373
 msgid "Browse..."
-msgstr ""
+msgstr "Böngészés..."
 
 #: ../src/sharebrowser.cc:605 ../src/sharebrowser.cc:648
 msgid "Found a match"
@@ -414,7 +417,7 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:820
 msgid "No search text entered"
-msgstr ""
+msgstr "A keresési mező nincs kitöltve"
 
 #: ../src/sharebrowser.cc:997
 msgid "Matched "
@@ -422,13 +425,13 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:997 ../src/finishedtransfers.cc:242
 msgid " files"
-msgstr ""
+msgstr " fájl"
 
 #: ../src/UserCommandMenu.cc:67 ../src/settingsdialog.cc:282
 #: ../src/settingsdialog.cc:935 ../src/settingsdialog.cc:1190
 #: ../src/settingsdialog.cc:1969 ../src/settingsdialog.cc:1985
 msgid "File"
-msgstr ""
+msgstr "Fájl"
 
 #: ../src/mainwindow.cc:94
 #, c-format
@@ -438,6 +441,10 @@ msgid ""
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
 msgstr ""
+"Ez a DC++ kliens a FreeDC++ és a LinuxDC++ forráskódján alapszik.\n"
+"\n"
+"EiskaltDC++ verzió: %s (%s)\n"
+"DC++ verzió: %s"
 
 #: ../src/mainwindow.cc:97
 #, c-format
@@ -447,18 +454,22 @@ msgid ""
 "EiskaltDC++ version: %s - %s %s\n"
 "DC++ core version: %s"
 msgstr ""
+"Ez a DC++ kliens a FreeDC++ és a LinuxDC++ forráskódján alapszik.\n"
+"\n"
+"EiskaltDC++ verzió: %s - %s %s\n"
+"DC++ verzió: %s"
 
 #: ../src/mainwindow.cc:209
 msgid "Welcome to "
-msgstr ""
+msgstr "Üdv itt: "
 
 #: ../src/mainwindow.cc:535
 msgid "Download: "
-msgstr ""
+msgstr "Letöltés: "
 
 #: ../src/mainwindow.cc:535
 msgid "Upload: "
-msgstr ""
+msgstr "Feltöltés: "
 
 #: ../src/mainwindow.cc:943
 msgid "Enter value for "
@@ -466,7 +477,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:1000
 msgid "Magnet Properties / Choice"
-msgstr ""
+msgstr "Magnet beállítások / lehetőségek"
 
 #: ../src/mainwindow.cc:1070
 msgid "Magnet Choice"
@@ -474,19 +485,19 @@ msgstr ""
 
 #: ../src/mainwindow.cc:1559
 msgid "Select filelist to browse"
-msgstr ""
+msgstr "Fájl-lista böngészése"
 
 #: ../src/mainwindow.cc:1584
 msgid "Unable to load file list: Invalid file list name"
-msgstr ""
+msgstr "Fájl-lista betöltése sikertelen: Nem megfelelő fájl-lista név"
 
 #: ../src/mainwindow.cc:1596
 msgid "Loading file list"
-msgstr ""
+msgstr "Fájl-lista betöltése"
 
 #: ../src/mainwindow.cc:1782
 msgid "Unable to open TCP/TLS port"
-msgstr ""
+msgstr "TCP/TLS port megnyitása sikertelen"
 
 #: ../src/mainwindow.cc:1783
 msgid ""
@@ -1615,3 +1626,4 @@ msgstr ""
 #: ../src/downloadqueue.cc:1369
 msgid "No errors"
 msgstr ""
+

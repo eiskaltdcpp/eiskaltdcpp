@@ -689,7 +689,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Aspell switched %1</source>
-        <translation>Aspell átállítva %1</translation>
+        <translation>Az aspell %1 lett kapcsolva</translation>
     </message>
     <message>
         <source>on</source>
