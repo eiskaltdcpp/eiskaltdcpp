@@ -1,22 +1,24 @@
 # Spanish translations for the DC++ package.
 # Copyright (C) 2008 The translators
 # This file is distributed under the same license as the DC++ package.
-#  <renatux@users.sourceforge.net>, 2008.
 #
+#  <renatux@users.sourceforge.net>, 2008.
+# sL1pKn07 <sl1pkn07@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-07-30 02:51+0300\n"
-"PO-Revision-Date: 2008-11-07 16:11+0000\n"
-"Last-Translator: pablorosatti <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2010-08-03 16:09+0200\n"
+"Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
+"Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -77,7 +79,7 @@ msgstr "Cola de Descargas"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
-msgstr "No se puede iniciar tarea (crear nuevo thread)"
+msgstr "No se puede crear tarea"
 
 #: ../UploadManager.cpp:157
 msgid "Unable to send file %1%: %2%"
@@ -85,7 +87,7 @@ msgstr "Imposible enviar archivo  %1%: %2%"
 
 #: ../UploadManager.cpp:461
 msgid "Disconnected user leaving the hub: %1%"
-msgstr "Usuario desconectado porque se desconectó del hub:%1%"
+msgstr "Usuario desconectado ha dejado el hub: %1%"
 
 #: ../NmdcHub.cpp:282
 msgid "%1% (Nick unknown)"
@@ -102,7 +104,7 @@ msgstr "%1% (%2%) tiene el mismo CID {%3%} como  %4% (%5%), ignorando"
 
 #: ../AdcHub.cpp:176
 msgid "%1%/s"
-msgstr ""
+msgstr "%1%/s"
 
 #: ../AdcHub.cpp:211
 msgid "Failed to negotiate base protocol"
@@ -113,8 +115,8 @@ msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
 msgstr ""
-"Hub probablemente utiliza una versión antigua de ADC, por favor, a fomentar "
-"el propietario de actualización"
+"El Hub probablemente utiliza una versión antigua de ADC, por favor, Insta al "
+"administrador que lo actualize"
 
 #: ../AdcHub.cpp:286
 msgid "%1% was kicked by %2%: %3%"
@@ -181,42 +183,39 @@ msgstr "Error en la descompresión"
 
 #: ../HashManager.cpp:80 ../HashManager.cpp:280
 msgid "Hashing failed: %1%"
-msgstr "Indexado Fallado:%1%"
+msgstr "Indexado Fallido: %1%"
 
 #: ../HashManager.cpp:87
-#, fuzzy
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Indexado Finalizado:%1%(%2%/s)"
+msgstr "Indexado Finalizado: %1% (%2% de %3%/s)"
 
 #: ../HashManager.cpp:90
-#, fuzzy
 msgid "Finished hashing: %1% (%2%)"
-msgstr "Indexado Finalizado:%1%(%2%/s)"
+msgstr "Indexado Finalizado: %1% (%2%)"
 
 #: ../HashManager.cpp:93
 msgid "Finished hashing: %1%"
-msgstr "Indexado Finalizado:%1%"
+msgstr "Indexado Finalizado: %1%"
 
 #: ../HashManager.cpp:122 ../HashManager.cpp:336
 msgid "Error saving hash data: %1%"
-msgstr "Error al guardaro información de indexación:%1%"
+msgstr "Error al guardaro información del indexado: %1%"
 
 #: ../HashManager.cpp:135
 msgid "Unable to read hash data file"
-msgstr "No se pudo leer el índice de la base de datos"
+msgstr "No se pudo leer el archivo índice Hash"
 
 #: ../HashManager.cpp:469
 msgid "Error creating hash data file: %1%"
-msgstr "No se pudo leer el índice de la base de datos: %1%"
+msgstr "Error al crear el archivo índice del Hash: %1%"
 
 #: ../HashManager.cpp:790
 msgid "Hash database rebuilt"
-msgstr "Índice de la base de datos reconstruido"
+msgstr "Base de datos del Hash reconstruido"
 
 #: ../HashManager.cpp:842
-#, fuzzy
 msgid "Hashing file: %1% (Size: %2%)"
-msgstr "Indexado Fallado:%1%"
+msgstr "Indexado Fallado: %1% (Tamaño: %2%)"
 
 #: ../HashManager.cpp:890
 msgid ""
@@ -247,20 +246,21 @@ msgstr "Eliminar todas los subcarpetas antes de agregar este"
 
 #: ../ShareManager.cpp:771
 msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr ""
+msgstr "El usuario ha elegido no compartir el archivo: %1% (Tamaño: %2%)"
 
 #: ../ShareManager.cpp:792
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr ""
+"El usuario ha elegido no compartir el archivo temporal: %1% (Tamaño: %2%)"
 
 #: ../ShareManager.cpp:847
-#, fuzzy
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"El archivo repetido no será compartido: %1%%2% (Tamaño: %3%) Non "
-"Encontrados :%4%%5%"
+"El archivo duplicado %1% no será compartido (Tamaño: %2% B) rd un duplicado "
+"de: "
+"%3%"
 
 #: ../ShareManager.cpp:864
 msgid ""
@@ -272,7 +272,7 @@ msgstr ""
 
 #: ../ShareManager.cpp:885
 msgid "File list refresh failed: %1%"
-msgstr "Refresco de la lista Fallado:%1%"
+msgstr "Refresco de la lista Fallido: %1%"
 
 #: ../ShareManager.cpp:907
 msgid "File list refresh initiated"
@@ -283,9 +283,8 @@ msgid "File list refresh finished"
 msgstr "Refresco de la lista Terminada"
 
 #: ../ShareManager.cpp:1003
-#, fuzzy
 msgid "File list %1% generated"
-msgstr "Refresco de la lista Iniciada"
+msgstr "Lista de ficheros %1% generada"
 
 #: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -313,7 +312,7 @@ msgstr "Atributo de nombre falta del directorio."
 
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
-msgstr "No ha elegido archivo que claves privadas"
+msgstr "No ha elegido archivo de claves privadas"
 
 #: ../CryptoManager.cpp:143
 msgid "No certificate file chosen"
@@ -325,7 +324,7 @@ msgstr "Error al generar certificado"
 
 #: ../CryptoManager.cpp:213
 msgid "TLS disabled, no certificate file set"
-msgstr "TLS desactivado, no hay definido un certificado"
+msgstr "TLS desactivado, no ha definido un certificado"
 
 #: ../CryptoManager.cpp:221
 msgid "Generated new TLS certificate"
@@ -333,17 +332,17 @@ msgstr "Generado nuevos certificado TLS"
 
 #: ../CryptoManager.cpp:223
 msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "TLS desactivado, no hay definido un certificado: %1%"
+msgstr "TLS desactivado, no ha definido un certificado: %1%"
 
 #: ../CryptoManager.cpp:228 ../CryptoManager.cpp:232 ../CryptoManager.cpp:237
 #: ../CryptoManager.cpp:241
 msgid "Failed to load certificate file"
-msgstr "Carga del Certificado fallada"
+msgstr "Carga del Certificado fallida"
 
 #: ../CryptoManager.cpp:246 ../CryptoManager.cpp:250 ../CryptoManager.cpp:255
 #: ../CryptoManager.cpp:259
 msgid "Failed to load private key"
-msgstr "Carga de la Llave Privada fallada"
+msgstr "Carga de la Llave Privada fallida"
 
 #: ../SSLSocket.cpp:160
 msgid "SSL Error: %1% (%2%, %3%)"
@@ -407,7 +406,7 @@ msgstr "No se puede renombrar %1%: %2%"
 
 #: ../QueueManager.cpp:561
 msgid "Searching TTH alternates for: %1%"
-msgstr ""
+msgstr "Buscando alternativas TTH para: %1%"
 
 #: ../QueueManager.cpp:589
 msgid "You're trying to download from yourself!"
@@ -438,7 +437,7 @@ msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
 msgstr ""
-"Archivo de destino NO válido (carpeta no valido, chequear carpeta de "
+"Archivo de destino NO válido (carpeta no valida, chequear carpeta de "
 "descargas)"
 
 #: ../QueueManager.cpp:701
@@ -460,16 +459,15 @@ msgstr "El archivo no existe o tiene un tamaño incorrecto"
 
 #: ../QueueManager.cpp:1206
 msgid "Unable to open filelist: %1%"
-msgstr "Imposible abrir Lista de Archivos:%1%"
+msgstr "Imposible abrir Lista de Archivos: %1%"
 
 #: ../QueueManager.cpp:1230
-#, fuzzy
 msgid "%1%: Matched %2% file"
-msgstr "%1% ha sido expulsado: %2%"
+msgstr "%1%: Emparejado %2% archivo"
 
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
-msgstr "Solicitar a buscar más allá del final de los datos"
+msgstr "Solicitar busqueda más allá del final de los datos"
 
 #: ../ADLSearch.h:48
 msgid "<Enter string>"
