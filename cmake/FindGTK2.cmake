@@ -561,7 +561,7 @@ if(UNIX)
             /usr/include/gdk-pixbuf-2.0
             /usr/include)
         if (GDK_PIXBUF_INCLUDE_DIRS)
-            set(GTK2_INCLUDE_DIRS "${GDK_PIXBUF_INCLUDE_DIRS} ${GTK2_INCLUDE_DIRS}")
+            set(GTK2_INCLUDE_DIRS "${GDK_PIXBUF_INCLUDE_DIRS};${GTK2_INCLUDE_DIRS}")
             # Remove duplicates when cmake will be fixed
             list(REMOVE_DUPLICATES GTK2_INCLUDE_DIRS)
         endif (GDK_PIXBUF_INCLUDE_DIRS)
