@@ -962,7 +962,24 @@ Kedvenc felhasználó</translation>
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - nyelvhelyesség elenőrző ki/be kapcsolása
+/alias &lt;ÁLNÉV&gt;::&lt;PARANCS&gt; - álnév létrehozása /ÁLNÉV a /PARANCSRA
+/alias purge &lt;ÁLNÉV&gt; - álnév eltávolítása
+/alias list - álnevek listázása
+/away &lt;üzenet&gt; - away-mód ki/be kapcsolása
+/back - away-mód kikapcsolása
+/browse &lt;nick&gt; - felhaszáló fájlistájának böngészése
+/clear - chat ablak törlése
+/magnet - alapértelmezett magnetlink akció (0-kérdés, 1-keresés 2-letöltés)
+/close - hub bezárása
+/fav - hub hozzáadása a kedvencekhez
+/grant &lt;nick&gt; - extra slot biztosítása a felhasználónak
+/help, /?, /h - segítség mutatása
+/info &lt;nick&gt; - információ mutatása a felhasználóról
+/ratio [show] - átviteli ráta mutatása [küldés a chatre]
+/me - üzenet küldése harmadik személyben
+/pm &lt;nick&gt; - privát beszélgetés kezdése a felhasználóval
+/sh &lt;parancs&gt; - shell parancs indítása, és a kimenet átirányítása a chat ablakba</translation>
     </message>
 </context>
 <context>
