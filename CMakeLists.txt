@@ -250,14 +250,6 @@ set (CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -DQT_NO_DEBUG -pipe
 set (CMAKE_CXX_FLAGS_DEBUG       "-UNDEBUG -g3 -pipe")
 
 include_directories(${eiskaltdcpp_BINARY_DIR}
-   ${dcpp_BINARY_DIR}
-   ${dcpp_SOURCE_DIR}
-   ${dht_BINARY_DIR}
-   ${dht_SOURCE_DIR}
-   ${${PROJECT_NAME_GLOBAL}-qt_BINARY_DIR}
-   ${${PROJECT_NAME_GLOBAL}-qt_SOURCE_DIR}
-   ${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}
-   ${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
    )
