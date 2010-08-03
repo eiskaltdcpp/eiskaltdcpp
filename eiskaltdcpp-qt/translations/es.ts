@@ -169,7 +169,7 @@ Opciones:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="337"/>
         <source>%1 of %2 user(s) online</source>
-        <translation>%1 de %2 usuario(s) en linea</translation>
+        <translation>%1 de %2 usuario(s) conectados</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="339"/>
@@ -403,7 +403,7 @@ Opciones:
         <location filename="../src/FavoriteHubs.cpp" line="183"/>
         <location filename="../src/FavoriteHubs.cpp" line="259"/>
         <source>System default</source>
-        <translation>Por defecto</translation>
+        <translation>Por defecto del sistema</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="315"/>
@@ -433,7 +433,7 @@ Opciones:
         <location filename="../src/FavoriteUsers.cpp" line="135"/>
         <location filename="../src/FavoriteUsers.cpp" line="309"/>
         <source>Online</source>
-        <translation>En linea</translation>
+        <translation>Conectado</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="212"/>
@@ -791,7 +791,7 @@ Opciones:
     <message>
         <location filename="../src/HubFrame.cpp" line="788"/>
         <source>%1 become offline</source>
-        <translation>%1 fuera de linea</translation>
+        <translation>%1 ha quedado desconectado</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="956"/>
@@ -916,12 +916,12 @@ Opciones:
     <message>
         <location filename="../src/HubFrame.cpp" line="1622"/>
         <source>%1 become online</source>
-        <translation>%1 en linea</translation>
+        <translation>%1 ha quedado conectado</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1635"/>
         <source>User online.</source>
-        <translation>Usuario en linea.</translation>
+        <translation>Usuario conectado.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="504"/>
@@ -1068,7 +1068,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="1888"/>
         <source>User offline.</source>
-        <translation>Usuario fuera de linea.</translation>
+        <translation>Usuario desconectado.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1923"/>
@@ -1952,7 +1952,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/PMWindow.cpp" line="336"/>
         <source>User went offline</source>
-        <translation>El usuario está Fuera de linea</translation>
+        <translation>El usuario está desconectado</translation>
     </message>
 </context>
 <context>
@@ -2667,7 +2667,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsPersonal.cpp" line="58"/>
         <source>System default</source>
-        <translation>Por defecto</translation>
+        <translation>Por defecto del sistema</translation>
     </message>
 </context>
 <context>
@@ -4459,7 +4459,7 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="574"/>
         <source>Min sources online</source>
-        <translation>Fuentes mínimas en linea</translation>
+        <translation>Fuentes mínimas conectadas</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="590"/>
@@ -4490,7 +4490,7 @@ Si se deshabilita, los archivos serán establecidos con prioridad normal.</trans
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation>Esta opcion eliminará las fuentes lentas de todos los archivos en cola (exceptuado las listas de archivos).
+        <translation>Esta opcion eliminará las fuentes lentas de todos los objetos en cola (exceptuado las listas de archivos).
 para habilitar el auto-abandono, habilitar &quot; Auto-abandonar fuentes lentas de todos los archivos en cola&quot; o 
 &quot;Eliminar listas de archivos lentas&quot;. (o ambas opciones).</translation>
     </message>
@@ -4575,7 +4575,7 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation>cHabilitar esta opción si desea conservar los archivos y carpetas descargados
+        <translation>Habilitar esta opción si desea conservar los archivos y carpetas descargados
 en la cola de descarga después de haber sido terminada.
 Después de descargar los elementos de la cola se pondrán en estado &quot;Terminado&quot;
 y puedá eliminar de la lista estos archivos en cualquier momento.
@@ -4590,7 +4590,7 @@ en la cola, o bien, debe eliminarlos manualmente.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="651"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
-        <translation>Auto-abandonar fuentes lentas de todos los archivos en cola (excepto listas de archivos)</translation>
+        <translation>Auto-abandonar fuentes lentas de todos los objetos en cola (excepto listas de archivos)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="667"/>
@@ -4603,8 +4603,8 @@ en la cola, o bien, debe eliminarlos manualmente.</translation>
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation>Si ésta opción es habilitada, EiskaltDC++ eliminará la lista de archivos cuando sea reconocida como lenta.
-Para habilitar el auto-abandono, Debe habilitar &quot;Auto-abandonar fuentes lentas de todos los archivos en cola&quot;
+        <translation>Si esta opción es habilitada, EiskaltDC++ eliminará la lista de archivos cuando sea reconocida como lenta.
+Para habilitar el auto-abandono, Debe habilitar &quot;Auto-abandonar fuentes lentas de todos los objetos en cola&quot;
 o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translation>
     </message>
     <message>
@@ -4620,6 +4620,7 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="718"/>
         <source>Automatically match queue for auto search hits</source>
+        <translatorcomment>alternativa?¿</translatorcomment>
         <translation>Igualar automáticamente auto-búsquedas en la cola</translation>
     </message>
     <message>
@@ -4640,7 +4641,7 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="756"/>
         <source>Don&apos;t download files already in share</source>
-        <translation>No descargar archivos si ya están descargados</translation>
+        <translation>No descargar archivos si ya se están compartiendo</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="771"/>
@@ -4733,7 +4734,7 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="178"/>
         <source>Use default ToolBar (need restart)</source>
-        <translation>Usar Barra de tareas por defecto</translation>
+        <translation>Usar Barra de tareas por defecto (necesita reiniciar)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="183"/>
@@ -5772,7 +5773,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../src/WulforUtil.cpp" line="596"/>
         <source>System default</source>
-        <translation>Por defecto</translation>
+        <translation>Por defecto del sistema</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="669"/>
@@ -5838,7 +5839,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../src/WulforUtil.cpp" line="834"/>
         <source>Offline</source>
-        <translation>Fuera de linea</translation>
+        <translation>Desconectado</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="972"/>
