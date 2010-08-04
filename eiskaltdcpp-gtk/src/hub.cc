@@ -313,7 +313,7 @@ void Hub::updateUser_gui(ParamMap params)
     GtkTreeIter iter;
     int64_t shared = Util::toInt64(params["Shared"]);
     const string& cid = params["CID"];
-    const string icon = "freedcpp-" + params["Icon"];
+    const string icon = "eiskaltdcpp-" + params["Icon"];
     const string &Nick = params["Nick"];
     const string &nickOrder = params["Nick Order"];
     bool favorite = userFavoriteMap.find(cid) != userFavoriteMap.end();

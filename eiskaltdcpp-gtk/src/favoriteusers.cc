@@ -112,7 +112,7 @@ void FavoriteUsers::show()
 			favoriteUserView.col(_("Description")), user.getDescription().c_str(),
 			favoriteUserView.col("CID"), cid.c_str(),
 			favoriteUserView.col("URL"), user.getUrl().c_str(),
-			favoriteUserView.col("Icon"), "freedcpp-normal",
+			favoriteUserView.col("Icon"), "eiskaltdcpp-normal",
 			-1);
 
 		userIters.insert(UserIters::value_type(cid, iter));
@@ -586,7 +586,7 @@ void FavoriteUsers::updateFavoriteUser_gui(ParamMap params)
 			favoriteUserView.col(_("Description")), params["Description"].c_str(),
 			favoriteUserView.col("CID"), cid.c_str(),
 			favoriteUserView.col("URL"), params["URL"].c_str(),
-			favoriteUserView.col("Icon"), "freedcpp-normal",
+			favoriteUserView.col("Icon"), "eiskaltdcpp-normal",
 			-1);
 
 		userIters.insert(UserIters::value_type(cid, iter));

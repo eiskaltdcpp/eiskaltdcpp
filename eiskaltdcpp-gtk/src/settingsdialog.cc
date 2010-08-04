@@ -54,14 +54,14 @@ Settings::Settings(GtkWindow* parent):
 	textStyleBuffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(getWidget("textViewPreviewStyles")));
 	gtk_text_view_set_buffer(GTK_TEXT_VIEW(getWidget("textViewPreviewStylesTheme")), textStyleBuffer);
 
-	defaultStringTheme.insert(StringMap::value_type("icon-dc++", "freedcpp-dc++"));
-	defaultStringTheme.insert(StringMap::value_type("icon-dc++-fw", "freedcpp-dc++-fw"));
-	defaultStringTheme.insert(StringMap::value_type("icon-dc++-fw-op", "freedcpp-dc++-fw-op"));
-	defaultStringTheme.insert(StringMap::value_type("icon-dc++-op", "freedcpp-dc++-op"));
-	defaultStringTheme.insert(StringMap::value_type("icon-normal", "freedcpp-normal"));
-	defaultStringTheme.insert(StringMap::value_type("icon-normal-fw", "freedcpp-normal-fw"));
-	defaultStringTheme.insert(StringMap::value_type("icon-normal-fw-op", "freedcpp-normal-fw-op"));
-	defaultStringTheme.insert(StringMap::value_type("icon-normal-op", "freedcpp-normal-op"));
+	defaultStringTheme.insert(StringMap::value_type("icon-dc++", "eiskaltdcpp-dc++"));
+	defaultStringTheme.insert(StringMap::value_type("icon-dc++-fw", "eiskaltdcpp-dc++-fw"));
+	defaultStringTheme.insert(StringMap::value_type("icon-dc++-fw-op", "eiskaltdcpp-dc++-fw-op"));
+	defaultStringTheme.insert(StringMap::value_type("icon-dc++-op", "eiskaltdcpp-dc++-op"));
+	defaultStringTheme.insert(StringMap::value_type("icon-normal", "eiskaltdcpp-normal"));
+	defaultStringTheme.insert(StringMap::value_type("icon-normal-fw", "eiskaltdcpp-normal-fw"));
+	defaultStringTheme.insert(StringMap::value_type("icon-normal-fw-op", "eiskaltdcpp-normal-fw-op"));
+	defaultStringTheme.insert(StringMap::value_type("icon-normal-op", "eiskaltdcpp-normal-op"));
 	defaultStringTheme.insert(StringMap::value_type("icon-smile", "face-smile"));
 	defaultStringTheme.insert(StringMap::value_type("icon-download", "eiskaltdcpp-go-down"));
 	defaultStringTheme.insert(StringMap::value_type("icon-favorite-hubs", "eiskaltdcpp-favserver"));
