@@ -37,7 +37,7 @@
 #include "ADLSearch.h"
 
 #include "StringTokenizer.h"
-#ifdef USE_DHT
+#ifdef DHT
 #include "../dht/DHT.h"
 #endif
 #ifdef _STLP_DEBUG

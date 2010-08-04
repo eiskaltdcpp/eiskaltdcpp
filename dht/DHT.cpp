@@ -147,11 +147,11 @@ namespace dht
                 C(INF); // user's info
                 C(SCH); // search request
                 C(RES); // response to SCH
-                //C(PUB); // request to publish file
+                C(PUB); // request to publish file
                 C(CTM); // connection request
                 C(RCM); // reverse connection request
                 C(STA); // status message
-                //C(PSR); // partial file request
+                C(PSR); // partial file request
                 C(MSG); // private message
                 C(GET); // get some data
                 C(SND); // response to GET

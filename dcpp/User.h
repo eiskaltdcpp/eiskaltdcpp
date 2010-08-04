@@ -29,125 +29,127 @@
 
 namespace dcpp {
 
+class ClientBase;
+
 /** A user connected to one or more hubs. */
 class User : public FastAlloc<User>, public intrusive_ptr_base<User>, public Flags
 {
 public:
-	enum Bits {
-		ONLINE_BIT,
-		DCPLUSPLUS_BIT,
-		PASSIVE_BIT,
-		NMDC_BIT,
-		BOT_BIT,
-		TLS_BIT,
-		OLD_CLIENT_BIT,
-		NO_ADC_1_0_PROTOCOL_BIT,
-		NO_ADC_0_10_PROTOCOL_BIT,
-		NO_ADCS_0_10_PROTOCOL_BIT
-	};
+    enum Bits {
+        ONLINE_BIT,
+        DCPLUSPLUS_BIT,
+        PASSIVE_BIT,
+        NMDC_BIT,
+        BOT_BIT,
+        TLS_BIT,
+        OLD_CLIENT_BIT,
+        NO_ADC_1_0_PROTOCOL_BIT,
+        NO_ADC_0_10_PROTOCOL_BIT,
+        NO_ADCS_0_10_PROTOCOL_BIT
+    };
 
-	/** Each flag is set if it's true in at least one hub */
-	enum UserFlags {
-		ONLINE = 1<<ONLINE_BIT,
-		DCPLUSPLUS = 1<<DCPLUSPLUS_BIT,
-		PASSIVE = 1<<PASSIVE_BIT,
-		NMDC = 1<<NMDC_BIT,
-		BOT = 1<<BOT_BIT,
-		TLS = 1<<TLS_BIT,				//< Client supports TLS
-		OLD_CLIENT = 1<<OLD_CLIENT_BIT,  //< Can't download - old client
-		NO_ADC_1_0_PROTOCOL = 1<<NO_ADC_1_0_PROTOCOL_BIT,	//< Doesn't support "ADC/1.0" (dc++ <=0.703)
-		NO_ADC_0_10_PROTOCOL = 1<<NO_ADC_0_10_PROTOCOL_BIT,	//< Doesn't support "ADC/0.10"
-		NO_ADCS_0_10_PROTOCOL = 1<< NO_ADCS_0_10_PROTOCOL_BIT	//< Doesn't support "ADCS/0.10"
-	};
+    /** Each flag is set if it's true in at least one hub */
+    enum UserFlags {
+        ONLINE = 1<<ONLINE_BIT,
+        DCPLUSPLUS = 1<<DCPLUSPLUS_BIT,
+        PASSIVE = 1<<PASSIVE_BIT,
+        NMDC = 1<<NMDC_BIT,
+        BOT = 1<<BOT_BIT,
+        TLS = 1<<TLS_BIT,               //< Client supports TLS
+        OLD_CLIENT = 1<<OLD_CLIENT_BIT,  //< Can't download - old client
+        NO_ADC_1_0_PROTOCOL = 1<<NO_ADC_1_0_PROTOCOL_BIT,   //< Doesn't support "ADC/1.0" (dc++ <=0.703)
+        NO_ADC_0_10_PROTOCOL = 1<<NO_ADC_0_10_PROTOCOL_BIT, //< Doesn't support "ADC/0.10"
+        NO_ADCS_0_10_PROTOCOL = 1<< NO_ADCS_0_10_PROTOCOL_BIT   //< Doesn't support "ADCS/0.10"
+    };
 
-	struct Hash {
-		size_t operator()(const UserPtr& x) const { return ((size_t)(&(*x)))/sizeof(User); }
-	};
+    struct Hash {
+        size_t operator()(const UserPtr& x) const { return ((size_t)(&(*x)))/sizeof(User); }
+    };
 
-	User(const CID& aCID) : cid(aCID) { }
+    User(const CID& aCID) : cid(aCID) { }
 
-	~User() throw() { }
+    ~User() throw() { }
 
-	const CID& getCID() const { return cid; }
-	operator const CID&() const { return cid; }
+    const CID& getCID() const { return cid; }
+    operator const CID&() const { return cid; }
 
-	bool isOnline() const { return isSet(ONLINE); }
-	bool isNMDC() const { return isSet(NMDC); }
+    bool isOnline() const { return isSet(ONLINE); }
+    bool isNMDC() const { return isSet(NMDC); }
 
 private:
-	User(const User&);
-	User& operator=(const User&);
+    User(const User&);
+    User& operator=(const User&);
 
-	CID cid;
+    CID cid;
 };
 
 /** One of possibly many identities of a user, mainly for UI purposes */
 class Identity : public Flags {
 public:
-	enum IdentityFlagBits {
-		GOT_INF_BIT,
-		NMDC_PASSIVE_BIT
-	};
-	enum IdentityFlags {
-		GOT_INF = 1 << GOT_INF_BIT,
-		NMDC_PASSIVE = 1 << NMDC_PASSIVE_BIT
-	};
-	enum ClientType {
-		CT_BOT = 1,
-		CT_REGGED = 2,
-		CT_OP = 4,
-		CT_SU = 8,
-		CT_OWNER = 16,
-		CT_HUB = 32
-	};
+    enum IdentityFlagBits {
+        GOT_INF_BIT,
+        NMDC_PASSIVE_BIT
+    };
+    enum IdentityFlags {
+        GOT_INF = 1 << GOT_INF_BIT,
+        NMDC_PASSIVE = 1 << NMDC_PASSIVE_BIT
+    };
+    enum ClientType {
+        CT_BOT = 1,
+        CT_REGGED = 2,
+        CT_OP = 4,
+        CT_SU = 8,
+        CT_OWNER = 16,
+        CT_HUB = 32
+    };
 
-	Identity() : sid(0) { }
-	Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr), sid(aSID) { }
-	Identity(const Identity& rhs) : Flags(), sid(0) { *this = rhs; } // Use operator= since we have to lock before reading...
-	Identity& operator=(const Identity& rhs) { FastLock l(cs); *static_cast<Flags*>(this) = rhs; user = rhs.user; sid = rhs.sid; info = rhs.info; return *this; }
+    Identity() : sid(0) { }
+    Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr), sid(aSID) { }
+    Identity(const Identity& rhs) : Flags(), sid(0) { *this = rhs; } // Use operator= since we have to lock before reading...
+    Identity& operator=(const Identity& rhs) { FastLock l(cs); *static_cast<Flags*>(this) = rhs; user = rhs.user; sid = rhs.sid; info = rhs.info; return *this; }
 
 #define GS(n, x) string get##n() const { return get(x); } void set##n(const string& v) { set(x, v); }
-	GS(Nick, "NI")
-	GS(Description, "DE")
-	GS(Ip, "I4")
-	GS(UdpPort, "U4")
-	GS(Email, "EM")
-	GS(Connection, "CO")
+    GS(Nick, "NI")
+    GS(Description, "DE")
+    GS(Ip, "I4")
+    GS(UdpPort, "U4")
+    GS(Email, "EM")
+    GS(Connection, "CO")
 
-	void setBytesShared(const string& bs) { set("SS", bs); }
-	int64_t getBytesShared() const { return Util::toInt64(get("SS")); }
+    void setBytesShared(const string& bs) { set("SS", bs); }
+    int64_t getBytesShared() const { return Util::toInt64(get("SS")); }
 
-	void setOp(bool op) { set("OP", op ? "1" : Util::emptyString); }
-	void setHub(bool hub) { set("HU", hub ? "1" : Util::emptyString); }
-	void setBot(bool bot) { set("BO", bot ? "1" : Util::emptyString); }
-	void setHidden(bool hidden) { set("HI", hidden ? "1" : Util::emptyString); }
-	string getTag() const;
-	bool supports(const string& name) const;
-	bool isHub() const { return isClientType(CT_HUB) || isSet("HU"); }
-	bool isOp() const { return isClientType(CT_OP) || isClientType(CT_SU) || isClientType(CT_OWNER) || isSet("OP"); }
-	bool isRegistered() const { return isClientType(CT_REGGED) || isSet("RG"); }
-	bool isHidden() const { return isSet("HI"); }
-	bool isBot() const { return isClientType(CT_BOT) || isSet("BO"); }
-	bool isAway() const { return isSet("AW"); }
-	bool isTcpActive() const { return !getIp().empty() || (user->isSet(User::NMDC) && !user->isSet(User::PASSIVE)); }
-	bool isUdpActive() const { return !getIp().empty() && !getUdpPort().empty(); }
-	string get(const char* name) const;
-	void set(const char* name, const string& val);
-	bool isSet(const char* name) const;
-	string getSIDString() const { return string((const char*)&sid, 4); }
+    void setOp(bool op) { set("OP", op ? "1" : Util::emptyString); }
+    void setHub(bool hub) { set("HU", hub ? "1" : Util::emptyString); }
+    void setBot(bool bot) { set("BO", bot ? "1" : Util::emptyString); }
+    void setHidden(bool hidden) { set("HI", hidden ? "1" : Util::emptyString); }
+    string getTag() const;
+    bool supports(const string& name) const;
+    bool isHub() const { return isClientType(CT_HUB) || isSet("HU"); }
+    bool isOp() const { return isClientType(CT_OP) || isClientType(CT_SU) || isClientType(CT_OWNER) || isSet("OP"); }
+    bool isRegistered() const { return isClientType(CT_REGGED) || isSet("RG"); }
+    bool isHidden() const { return isSet("HI"); }
+    bool isBot() const { return isClientType(CT_BOT) || isSet("BO"); }
+    bool isAway() const { return isSet("AW"); }
+    bool isTcpActive() const { return !getIp().empty() || (user->isSet(User::NMDC) && !user->isSet(User::PASSIVE)); }
+    bool isUdpActive() const { return !getIp().empty() && !getUdpPort().empty(); }
+    string get(const char* name) const;
+    void set(const char* name, const string& val);
+    bool isSet(const char* name) const;
+    string getSIDString() const { return string((const char*)&sid, 4); }
 
-	bool isClientType(ClientType ct) const;
+    bool isClientType(ClientType ct) const;
 
-	void getParams(StringMap& map, const string& prefix, bool compatibility) const;
-	UserPtr& getUser() { return user; }
-	GETSET(UserPtr, user, User);
-	GETSET(uint32_t, sid, SID);
+    void getParams(StringMap& map, const string& prefix, bool compatibility) const;
+    UserPtr& getUser() { return user; }
+    GETSET(UserPtr, user, User);
+    GETSET(uint32_t, sid, SID);
 private:
-	typedef std::tr1::unordered_map<short, string> InfMap;
-	typedef InfMap::iterator InfIter;
-	InfMap info;
+    typedef std::tr1::unordered_map<short, string> InfMap;
+    typedef InfMap::iterator InfIter;
+    InfMap info;
 
-	static FastCriticalSection cs;
+    static FastCriticalSection cs;
 };
 
 class Client;
@@ -155,28 +157,28 @@ class NmdcHub;
 
 class OnlineUser : public FastAlloc<OnlineUser> {
 public:
-	typedef vector<OnlineUser*> List;
-	typedef List::iterator Iter;
+    typedef vector<OnlineUser*> List;
+    typedef List::iterator Iter;
 
-	OnlineUser(const UserPtr& ptr, Client& client_, uint32_t sid_);
+    OnlineUser(const UserPtr& ptr, Client& client_, uint32_t sid_);
 
-	operator UserPtr&() { return getUser(); }
-	operator const UserPtr&() const { return getUser(); }
+    operator UserPtr&() { return getUser(); }
+    operator const UserPtr&() const { return getUser(); }
 
-	UserPtr& getUser() { return getIdentity().getUser(); }
-	const UserPtr& getUser() const { return getIdentity().getUser(); }
-	Identity& getIdentity() { return identity; }
-	Client& getClient() { return client; }
-	const Client& getClient() const { return client; }
+    UserPtr& getUser() { return getIdentity().getUser(); }
+    const UserPtr& getUser() const { return getIdentity().getUser(); }
+    Identity& getIdentity() { return identity; }
+    Client& getClient() { return client; }
+    const Client& getClient() const { return client; }
 
-	GETSET(Identity, identity, Identity);
+    GETSET(Identity, identity, Identity);
 private:
-	friend class NmdcHub;
+    friend class NmdcHub;
 
-	OnlineUser(const OnlineUser&);
-	OnlineUser& operator=(const OnlineUser&);
+    OnlineUser(const OnlineUser&);
+    OnlineUser& operator=(const OnlineUser&);
 
-	Client& client;
+    Client& client;
 };
 
 } // namespace dcpp

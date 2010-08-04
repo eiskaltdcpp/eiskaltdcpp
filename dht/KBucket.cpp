@@ -30,7 +30,7 @@ namespace dht
 {
     const string DHTName = "DHT";
 
-    struct DHTClient /*: public ClientBase*/
+    class DHTClient : public ClientBase
     {
         DHTClient() { type = DHT; }
 

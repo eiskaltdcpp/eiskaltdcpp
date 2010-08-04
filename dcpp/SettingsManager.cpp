@@ -26,7 +26,9 @@
 #include "File.h"
 #include "version.h"
 #include "CID.h"
+#ifdef DHT
 #include "../dht/DHT.h"
+#endif
 namespace dcpp {
 
 StringList SettingsManager::connectionSpeeds;
@@ -328,7 +330,9 @@ SettingsManager::SettingsManager()
     setDefault(TRANSFERS_PANED_POS, .7);
     setDefault(QUEUE_PANED_POS, .3);
     setDefault(SEARCH_PANED_POS, .2);
+#ifdef DHT
     setDefault(DHT_PORT, DHT_UDPPORT);
+#endif
     setDefault(USE_DHT, false);
 #ifdef _WIN32
     setDefault(MAIN_WINDOW_STATE, SW_SHOWNORMAL);

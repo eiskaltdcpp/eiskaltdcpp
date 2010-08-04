@@ -71,7 +71,7 @@ find_package (Subversion)
 option (USE_QT "Qt interface" ON)
 option (USE_WT "WebControl" OFF)
 option (USE_GTK "GTK interface" OFF)
-option (USE_DHT "DHT support for dcpp" OFF)
+option (DHT "DHT support for dcpp" OFF)
 
 
 if (USE_QT)
@@ -313,9 +313,9 @@ else (NOT DEFINED linguas)
 endif (NOT DEFINED linguas)
 message (STATUS "Translations: ${LANGUAGES}")
 
-if (USE_DHT)
+if (DHT)
 add_subdirectory (dht)
-endif (USE_DHT)
+endif (DHT)
 add_subdirectory (dcpp)
 
 if (USE_QT)
