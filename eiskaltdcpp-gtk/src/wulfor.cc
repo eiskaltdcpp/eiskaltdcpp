@@ -95,20 +95,20 @@ int main(int argc, char *argv[])
 	connection = bacon_message_connection_new(GUI_PACKAGE);
 
 	if (connection != NULL)
-		dcdebug("freedcpp: connection yes...\n");
+		dcdebug("eiskaltdcpp-gtk: connection yes...\n");
 	else
-		dcdebug("freedcpp: connection no...\n");
+		dcdebug("eiskaltdcpp-gtk: connection no...\n");
 
 	// Check if profile is locked
 	if (WulforUtil::profileIsLocked())
 	{
 		if (!bacon_message_connection_get_is_server(connection))
 		{
-			dcdebug("freedcpp: is client...\n");
+			dcdebug("eiskaltdcpp-gtk: is client...\n");
 
 			if (argc > 1)
 			{
-				dcdebug("freedcpp: send %s\n", argv[1]);
+				dcdebug("eiskaltdcpp-gtk: send %s\n", argv[1]);
 				bacon_message_connection_send(connection, argv[1]);
 			}
 		}
@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
 
 	if (bacon_message_connection_get_is_server(connection))
 	{
-		dcdebug("freedcpp: is server...\n");
+		dcdebug("eiskaltdcpp-gtk: is server...\n");
 		bacon_message_connection_set_callback(connection, receiver, NULL);
 	}
 

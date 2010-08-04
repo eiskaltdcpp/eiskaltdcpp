@@ -230,7 +230,7 @@ void ShareBrowser::buildDirs_gui(DirectoryListing::Directory *dir, GtkTreeIter *
 
 	gtk_tree_store_set(dirStore, &newIter,
 		dirView.col("DL Dir"), (gpointer)dir,
-		dirView.col("Icon"), "freedcpp-directory",
+		dirView.col("Icon"), "icon-directory",
 		-1);
 
 	for (file = dir->files.begin(); file != dir->files.end(); ++file)
@@ -275,7 +275,7 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
 
 		size = (*it_dir)->getTotalSize(false);
 		gtk_list_store_set(fileStore, &iter,
-			fileView.col("Icon"), "freedcpp-directory",
+			fileView.col("Icon"), "icon-directory",
 			fileView.col(_("Size")), Util::formatBytes(size).c_str(),
 			fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
 			fileView.col("Size Order"), size,
@@ -306,7 +306,7 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
 
 		size = (*it_file)->getSize();
 		gtk_list_store_set(fileStore, &iter,
-			fileView.col("Icon"), "freedcpp-file",
+			fileView.col("Icon"), "icon-file",
 			fileView.col(_("Size")), Util::formatBytes(size).c_str(),
 			fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
 			fileView.col("Size Order"), size,

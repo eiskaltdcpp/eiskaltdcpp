@@ -480,7 +480,8 @@ void WulforUtil::registerIcons()
 	// Not all icons have stock representations.
 	WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
 	map<string, string> icons;
-	icons["freedcpp"] = "freedcpp";
+	icons["eiskaltdcpp"] = wsm->getString("eiskaltdcpp");
+	icons["icon_msg"] = wsm->getString("icon_msg");
 	icons["freedcpp-dc++"] = wsm->getString("icon-dc++");
 	icons["freedcpp-dc++-fw"] = wsm->getString("icon-dc++-fw");
 	icons["freedcpp-dc++-fw-op"] = wsm->getString("icon-dc++-fw-op");
@@ -489,23 +490,23 @@ void WulforUtil::registerIcons()
 	icons["freedcpp-normal-fw"] = wsm->getString("icon-normal-fw");
 	icons["freedcpp-normal-fw-op"] = wsm->getString("icon-normal-fw-op");
 	icons["freedcpp-normal-op"] = wsm->getString("icon-normal-op");
-	icons["freedcpp-smile"] = wsm->getString("icon-smile");
-	icons["freedcpp-download"] = wsm->getString("icon-download");
-	icons["freedcpp-favorite-hubs"] = wsm->getString("icon-favorite-hubs");
-	icons["freedcpp-favorite-users"] = wsm->getString("icon-favorite-users");
-	icons["freedcpp-finished-downloads"] = wsm->getString("icon-finished-downloads");
-	icons["freedcpp-finished-uploads"] = wsm->getString("icon-finished-uploads");
-	icons["freedcpp-hash"] = wsm->getString("icon-hash");
-	icons["freedcpp-preferences"] = wsm->getString("icon-preferences");
-	icons["freedcpp-public-hubs"] = wsm->getString("icon-public-hubs");
-	icons["freedcpp-queue"] = wsm->getString("icon-queue");
-	icons["freedcpp-search"] = wsm->getString("icon-search");
-	icons["freedcpp-search-spy"] = wsm->getString("icon-search-spy");
-	icons["freedcpp-upload"] = wsm->getString("icon-upload");
-	icons["freedcpp-quit"] = wsm->getString("icon-quit");
-	icons["freedcpp-connect"] = wsm->getString("icon-connect");
-	icons["freedcpp-file"] = wsm->getString("icon-file");
-	icons["freedcpp-directory"] = wsm->getString("icon-directory");
+	icons["icon-smile"] = wsm->getString("icon-smile");
+	icons["icon-download"] = wsm->getString("icon-download");
+	icons["icon-favorite-hubs"] = wsm->getString("icon-favorite-hubs");
+	icons["icon-favorite-users"] = wsm->getString("icon-favorite-users");
+	icons["icon-finished-downloads"] = wsm->getString("icon-finished-downloads");
+	icons["icon-finished-uploads"] = wsm->getString("icon-finished-uploads");
+	icons["icon-hash"] = wsm->getString("icon-hash");
+	icons["icon-preferences"] = wsm->getString("icon-preferences");
+	icons["icon-public-hubs"] = wsm->getString("icon-public-hubs");
+	icons["icon-queue"] = wsm->getString("icon-queue");
+	icons["icon-search"] = wsm->getString("icon-search");
+	icons["icon-search-spy"] = wsm->getString("icon-search-spy");
+	icons["icon-upload"] = wsm->getString("icon-upload");
+	icons["icon-quit"] = wsm->getString("icon-quit");
+	icons["icon-connect"] = wsm->getString("icon-connect");
+	icons["icon-file"] = wsm->getString("icon-file");
+	icons["icon-directory"] = wsm->getString("icon-directory");
 
 	if (iconFactory)
 	{

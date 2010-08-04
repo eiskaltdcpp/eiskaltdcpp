@@ -494,7 +494,7 @@ void Transfers::addConnection_gui(StringMap params, bool download)
         transferView.col(_("Hub Name")), params[_("Hub Name")].c_str(),
         transferView.col(_("Status")), params[_("Status")].c_str(),
         transferView.col("CID"), params["CID"].c_str(),
-        transferView.col("Icon"), download ? "freedcpp-download" : "freedcpp-upload",
+        transferView.col("Icon"), download ? "icon-download" : "icon-upload",
         transferView.col("Download"), download,
         transferView.col("Hub URL"), params["Hub URL"].c_str(),
         -1);
@@ -714,7 +714,7 @@ void Transfers::initTransfer_gui(StringMap params)
                 transferView.col(_("Filename")), filename.c_str(),
                 transferView.col(_("Path")), params[_("Path")].c_str(),
                 transferView.col(_("Size")), Util::toInt64(params["File Size"]),
-                transferView.col("Icon"), "freedcpp-download",
+                transferView.col("Icon"), "icon-download",
                 transferView.col("Download"), TRUE,
                 transferView.col("Target"), params["Target"].c_str(),
                 -1);

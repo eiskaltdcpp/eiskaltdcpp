@@ -286,7 +286,7 @@ void DownloadQueue::addFile_gui(StringMap params, bool updateDirs)
 			fileView.col(_("Added")), params["Added"].c_str(),
 			fileView.col("TTH"), params["TTH"].c_str(),
 			fileView.col("Target"), params["Target"].c_str(),
-			fileView.col("Icon"), "freedcpp-file",
+			fileView.col("Icon"), "icon-file",
 			-1);
 
 		if (BOOLSETTING(BOLD_QUEUE))
@@ -306,7 +306,7 @@ void DownloadQueue::addFile_gui(StringMap params, bool updateDirs)
 				dirView.col("Dir"), "/",
 				dirView.col("Path"), "/",
 				dirView.col("File Count"), 0,
-				dirView.col("Icon"), "freedcpp-directory",
+				dirView.col("Icon"), "icon-directory",
 				-1);
 		}
 
@@ -350,7 +350,7 @@ void DownloadQueue::addDir_gui(const string &path, GtkTreeIter *parent)
 		dirView.col("Dir"), dir.c_str(),
 		dirView.col("Path"), fullpath.c_str(),
 		dirView.col("File Count"), 0,
-		dirView.col("Icon"), "freedcpp-directory",
+		dirView.col("Icon"), "icon-directory",
 		-1);
 
 	GtkTreePath *treePath = gtk_tree_model_get_path(GTK_TREE_MODEL(dirStore), parent);
@@ -393,7 +393,7 @@ void DownloadQueue::updateFile_gui(StringMap params)
 					fileView.col(_("Added")), params["Added"].c_str(),
 					fileView.col("TTH"), params["TTH"].c_str(),
 					fileView.col("Target"), params["Target"].c_str(),
-					fileView.col("Icon"), "freedcpp-file",
+					fileView.col("Icon"), "icon-file",
 					-1);
 				return;
 			}
@@ -1285,9 +1285,9 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
 	// Status
 	if (item->isWaiting())
 		params["Status"] = Util::toString(online) + _(" of ") + Util::toString(item->getSources().size()) + _(" user(s) online");
-	else 
+	else
 		params["Status"] = _("Running...");
-	
+
 	// Size
 	params["Size Sort"] = Util::toString(item->getSize());
 	if (item->getSize() < 0)

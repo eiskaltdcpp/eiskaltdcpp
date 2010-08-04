@@ -29,7 +29,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="image66">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-directory</property>
+                            <property name="stock">icon-directory</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -71,7 +71,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="quickConnectMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-connect</property>
+                            <property name="stock">icon-connect</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -99,7 +99,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="settingsMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-preferences</property>
+                            <property name="stock">icon-preferences</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -141,7 +141,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="exitMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-quit</property>
+                            <property name="stock">icon-quit</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -167,7 +167,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="favoriteHubsMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-favorite-hubs</property>
+                            <property name="stock">icon-favorite-hubs</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -182,7 +182,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="favoriteUsersMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-favorite-users</property>
+                            <property name="stock">icon-favorite-users</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -197,7 +197,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="publicHubsMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-public-hubs</property>
+                            <property name="stock">icon-public-hubs</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -217,7 +217,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="searchMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-search</property>
+                            <property name="stock">icon-search</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -232,7 +232,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="searchSpyMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-search-spy</property>
+                            <property name="stock">icon-search-spy</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -252,7 +252,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="downloadQueueMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-queue</property>
+                            <property name="stock">icon-queue</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -266,7 +266,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="finishedDownloadsMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-finished-downloads</property>
+                            <property name="stock">icon-finished-downloads</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -280,7 +280,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="finishedUploadsMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-finished-uploads</property>
+                            <property name="stock">icon-finished-uploads</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -299,7 +299,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="indexingProgressMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-hash</property>
+                            <property name="stock">icon-hash</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -465,7 +465,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Connect</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-connect</property>
+                <property name="stock_id">icon-connect</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -478,7 +478,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Hubs</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-favorite-hubs</property>
+                <property name="stock_id">icon-favorite-hubs</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -491,7 +491,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Users</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-favorite-users</property>
+                <property name="stock_id">icon-favorite-users</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -504,7 +504,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Public Hubs</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-public-hubs</property>
+                <property name="stock_id">icon-public-hubs</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -517,7 +517,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Preferences</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-preferences</property>
+                <property name="stock_id">icon-preferences</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -530,7 +530,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Hash</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-hash</property>
+                <property name="stock_id">icon-hash</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -543,7 +543,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Search</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-search</property>
+                <property name="stock_id">icon-search</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -556,7 +556,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Spy</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-search-spy</property>
+                <property name="stock_id">icon-search-spy</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -569,7 +569,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Queue</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-queue</property>
+                <property name="stock_id">icon-queue</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -582,7 +582,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Finished Downloads</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-finished-downloads</property>
+                <property name="stock_id">icon-finished-downloads</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -595,7 +595,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Finished Uploads</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-finished-uploads</property>
+                <property name="stock_id">icon-finished-uploads</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -608,7 +608,7 @@
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Quit</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">freedcpp-quit</property>
+                <property name="stock_id">icon-quit</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -706,7 +706,7 @@
                 <child>
                   <widget class="GtkImage" id="imageHubs">
                     <property name="visible">True</property>
-                    <property name="stock">freedcpp-public-hubs</property>
+                    <property name="stock">icon-public-hubs</property>
                     <property name="icon_size">1</property>
                   </widget>
                   <packing>
@@ -747,7 +747,7 @@
                 <child>
                   <widget class="GtkImage" id="imageDownloadSpeed">
                     <property name="visible">True</property>
-                    <property name="stock">freedcpp-download</property>
+                    <property name="stock">icon-download</property>
                     <property name="icon_size">1</property>
                   </widget>
                   <packing>
@@ -810,7 +810,7 @@
                 <child>
                   <widget class="GtkImage" id="imageUploadSpeed">
                     <property name="visible">True</property>
-                    <property name="stock">freedcpp-upload</property>
+                    <property name="stock">icon-upload</property>
                     <property name="icon_size">1</property>
                   </widget>
                   <packing>
@@ -1216,7 +1216,7 @@ Contributors:
         <child internal-child="image">
           <widget class="GtkImage" id="exitImage">
             <property name="visible">True</property>
-            <property name="stock">freedcpp-quit</property>
+            <property name="stock">icon-quit</property>
             <property name="icon_size">1</property>
           </widget>
         </child>

@@ -537,7 +537,7 @@ void Search::addResult_gui(const SearchResultPtr result)
 	}
 
 	// Move top level row to be under newly created grouping parent.
-	// This needs to be done outside of the loop so that we don't modify the 
+	// This needs to be done outside of the loop so that we don't modify the
 	// tree until after the duplication check.
 	if (createParent)
 	{
@@ -676,7 +676,7 @@ void Search::ungroup_gui()
 	}
 }
 
-void Search::regroup_gui() 
+void Search::regroup_gui()
 {
 	unordered_map<string, GtkTreeIter> iterMap; // Maps group string -> parent tree iter
 	GtkTreeIter iter;
@@ -769,7 +769,7 @@ string Search::getGroupingColumn(GroupType groupBy)
 		case Search::NICK:
 			column = _("Nick");
 			break;
-		case Search::HUB: 
+		case Search::HUB:
 			column = _("Hub");
 			break;
 		case Search::TYPE:
@@ -1617,7 +1617,7 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
 			resultMap[_("Type")].erase(0, 1);
 		resultMap[_("Size")] = Util::formatBytes(result->getSize());
 		resultMap["Exact Size"] = Util::formatExactSize(result->getSize());
-		resultMap["Icon"] = "freedcpp-file";
+		resultMap["Icon"] = "icon-file";
 		resultMap["Shared"] = Util::toString(ShareManager::getInstance()->isTTHShared(result->getTTH()));
 	}
 	else
@@ -1629,7 +1629,7 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
 			resultMap[_("Path")] = "";
 		resultMap["File Order"] = "d" + resultMap[_("Filename")];
 		resultMap[_("Type")] = _("Directory");
-		resultMap["Icon"] = "freedcpp-directory";
+		resultMap["Icon"] = "icon-directory";
 		resultMap["Shared"] = "0";
 		if (result->getSize() > 0)
 		{

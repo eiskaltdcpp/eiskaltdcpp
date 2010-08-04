@@ -183,7 +183,7 @@ bool Emoticons::load(const string &file)
 	}
 	catch (const Exception &e)
 	{
-		dcdebug("freedcpp: %s...\n", e.getError().c_str());
+		dcdebug("eiskaltdcpp-gtk: %s...\n", e.getError().c_str());
 		return FALSE;
 	}
 

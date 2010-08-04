@@ -338,21 +338,21 @@ void MainWindow::loadIcons_gui()
 	WulforUtil::registerIcons();
 
 	// Reset the stock IDs manually to force the icon to refresh
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("favHubs")), "freedcpp-favorite-hubs");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("favUsers")), "freedcpp-favorite-users");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("publicHubs")), "freedcpp-public-hubs");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("settings")), "freedcpp-preferences");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("hash")), "freedcpp-hash");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("search")), "freedcpp-search");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("searchSpy")), "freedcpp-search-spy");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("queue")), "freedcpp-queue");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedDownloads")), "freedcpp-finished-downloads");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedUploads")), "freedcpp-finished-uploads");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("quit")), "freedcpp-quit");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("connect")), "freedcpp-connect");
-	gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageHubs")), "freedcpp-public-hubs", GTK_ICON_SIZE_SMALL_TOOLBAR);
-	gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageDownloadSpeed")), "freedcpp-download", GTK_ICON_SIZE_SMALL_TOOLBAR);
-	gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageUploadSpeed")), "freedcpp-upload", GTK_ICON_SIZE_SMALL_TOOLBAR);
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("favHubs")), "icon-favorite-hubs");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("favUsers")), "icon-favorite-users");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("publicHubs")), "icon-public-hubs");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("settings")), "icon-preferences");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("hash")), "icon-hash");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("search")), "icon-search");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("searchSpy")), "icon-search-spy");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("queue")), "icon-queue");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedDownloads")), "icon-finished-downloads");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedUploads")), "icon-finished-uploads");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("quit")), "icon-quit");
+	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("connect")), "icon-connect");
+	gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageHubs")), "icon-public-hubs", GTK_ICON_SIZE_SMALL_TOOLBAR);
+	gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageDownloadSpeed")), "icon-download", GTK_ICON_SIZE_SMALL_TOOLBAR);
+	gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageUploadSpeed")), "icon-upload", GTK_ICON_SIZE_SMALL_TOOLBAR);
 }
 
 void MainWindow::autoOpen_gui()
@@ -1330,7 +1330,7 @@ gboolean MainWindow::animationStatusIcon_gui(gpointer data)
 		return FALSE;
 	}
 
-	gtk_status_icon_set_from_icon_name(mw->statusIcon, (mw->statusFrame *= -1) > 0 ? "freedcpp" : "freedcpp-normal");
+	gtk_status_icon_set_from_icon_name(mw->statusIcon, (mw->statusFrame *= -1) > 0 ? "eiskaltdcpp" : "icon_msg");
 
 	return TRUE;
 }

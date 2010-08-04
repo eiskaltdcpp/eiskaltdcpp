@@ -62,21 +62,21 @@ Settings::Settings(GtkWindow* parent):
 	defaultStringTheme.insert(StringMap::value_type("icon-normal-fw", "freedcpp-normal-fw"));
 	defaultStringTheme.insert(StringMap::value_type("icon-normal-fw-op", "freedcpp-normal-fw-op"));
 	defaultStringTheme.insert(StringMap::value_type("icon-normal-op", "freedcpp-normal-op"));
-	defaultStringTheme.insert(StringMap::value_type("icon-smile", "freedcpp-smile"));
-	defaultStringTheme.insert(StringMap::value_type("icon-download", "freedcpp-download"));
-	defaultStringTheme.insert(StringMap::value_type("icon-favorite-hubs", "freedcpp-favorite-hubs"));
-	defaultStringTheme.insert(StringMap::value_type("icon-favorite-users", "freedcpp-favorite-users"));
-	defaultStringTheme.insert(StringMap::value_type("icon-finished-downloads", "freedcpp-finished-downloads"));
-	defaultStringTheme.insert(StringMap::value_type("icon-finished-uploads", "freedcpp-finished-uploads"));
-	defaultStringTheme.insert(StringMap::value_type("icon-hash", "freedcpp-hash"));
-	defaultStringTheme.insert(StringMap::value_type("icon-preferences", "freedcpp-preferences"));
-	defaultStringTheme.insert(StringMap::value_type("icon-public-hubs", "freedcpp-public-hubs"));
-	defaultStringTheme.insert(StringMap::value_type("icon-queue", "freedcpp-queue"));
-	defaultStringTheme.insert(StringMap::value_type("icon-search", "freedcpp-search"));
-	defaultStringTheme.insert(StringMap::value_type("icon-search-spy", "freedcpp-search-spy"));
-	defaultStringTheme.insert(StringMap::value_type("icon-upload", "freedcpp-upload"));
-	defaultStringTheme.insert(StringMap::value_type("icon-quit", "freedcpp-quit"));
-	defaultStringTheme.insert(StringMap::value_type("icon-connect", "freedcpp-connect"));
+	defaultStringTheme.insert(StringMap::value_type("icon-smile", "face-smile"));
+	defaultStringTheme.insert(StringMap::value_type("icon-download", "eiskaltdcpp-go-down"));
+	defaultStringTheme.insert(StringMap::value_type("icon-favorite-hubs", "eiskaltdcpp-favserver"));
+	defaultStringTheme.insert(StringMap::value_type("icon-favorite-users", "eiskaltdcpp-favusers"));
+	defaultStringTheme.insert(StringMap::value_type("icon-finished-downloads", "eiskaltdcpp-go-down-search"));
+	defaultStringTheme.insert(StringMap::value_type("icon-finished-uploads", "eiskaltdcpp-go-up-search"));
+	defaultStringTheme.insert(StringMap::value_type("icon-hash", "eiskaltdcpp-refrlist"));
+	defaultStringTheme.insert(StringMap::value_type("icon-preferences", "eiskaltdcpp-configure"));
+	defaultStringTheme.insert(StringMap::value_type("icon-public-hubs", "eiskaltdcpp-server"));
+	defaultStringTheme.insert(StringMap::value_type("icon-queue", "eiskaltdcpp-download"));
+	defaultStringTheme.insert(StringMap::value_type("icon-search", "eiskaltdcpp-edit-find"));
+	defaultStringTheme.insert(StringMap::value_type("icon-search-spy", "eiskaltdcpp-spy"));
+	defaultStringTheme.insert(StringMap::value_type("icon-upload", "eiskaltdcpp-go-up"));
+	defaultStringTheme.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
+	defaultStringTheme.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
 	defaultStringTheme.insert(StringMap::value_type("icon-file", GTK_STOCK_FILE));
 	defaultStringTheme.insert(StringMap::value_type("icon-directory", GTK_STOCK_DIRECTORY));
 	defaultStringTheme.insert(StringMap::value_type("text-general-back-color", "#FFFFFF"));
@@ -1371,7 +1371,7 @@ void Settings::initAdvanced_gui()
 		gtk_tree_view_set_model(userCommandView.get(), GTK_TREE_MODEL(userCommandStore));
 		g_object_unref(userCommandStore);
 
-		// Don't allow the columns to be sorted since we use move up/down functions 
+		// Don't allow the columns to be sorted since we use move up/down functions
 		gtk_tree_view_column_set_sort_column_id(gtk_tree_view_get_column(userCommandView.get(), userCommandView.col("Name")), -1);
 		gtk_tree_view_column_set_sort_column_id(gtk_tree_view_get_column(userCommandView.get(), userCommandView.col("Command")), -1);
 		gtk_tree_view_column_set_sort_column_id(gtk_tree_view_get_column(userCommandView.get(), userCommandView.col("Hub")), -1);
@@ -1833,7 +1833,7 @@ bool Settings::loadFileTheme(const string &file)
 	}
 	catch (const Exception& e)
 	{
-		dcdebug("freedcpp: load theme %s...\n", e.getError().c_str());
+		dcdebug("eiskaltdcpp-gtk: load theme %s...\n", e.getError().c_str());
 		return FALSE;
 	}
 
@@ -3012,7 +3012,7 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
 			// PM command
 			else if (strncmp(command.c_str(), "$To: ", 5) == 0 && (
 				command.find(" From: %[myNI] $<%[myNI]> ") != string::npos ||
-				command.find(" From: %[mynick] $<%[mynick]> ") != string::npos) && 
+				command.find(" From: %[mynick] $<%[mynick]> ") != string::npos) &&
 				command.find('|') == command.length() - 1)
 			{
 				string::size_type i = command.find(' ', 5);
