@@ -68,7 +68,8 @@ Settings::Settings(GtkWindow* parent):
 	defaultStringTheme.insert(StringMap::value_type("icon-favorite-users", "eiskaltdcpp-favusers"));
 	defaultStringTheme.insert(StringMap::value_type("icon-finished-downloads", "eiskaltdcpp-go-down-search"));
 	defaultStringTheme.insert(StringMap::value_type("icon-finished-uploads", "eiskaltdcpp-go-up-search"));
-	defaultStringTheme.insert(StringMap::value_type("icon-hash", "eiskaltdcpp-refrlist"));
+	defaultStringTheme.insert(StringMap::value_type("icon-hash", "eiskaltdcpp-hashing"));
+	defaultStringTheme.insert(StringMap::value_type("icon-refresh", "eiskaltdcpp-refrlist"));
 	defaultStringTheme.insert(StringMap::value_type("icon-preferences", "eiskaltdcpp-configure"));
 	defaultStringTheme.insert(StringMap::value_type("icon-public-hubs", "eiskaltdcpp-server"));
 	defaultStringTheme.insert(StringMap::value_type("icon-queue", "eiskaltdcpp-download"));
@@ -77,6 +78,7 @@ Settings::Settings(GtkWindow* parent):
 	defaultStringTheme.insert(StringMap::value_type("icon-upload", "eiskaltdcpp-go-up"));
 	defaultStringTheme.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
 	defaultStringTheme.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
+	defaultStringTheme.insert(StringMap::value_type("icon-reconnect", "eiskaltdcpp-reconnect"));
 	defaultStringTheme.insert(StringMap::value_type("icon-file", GTK_STOCK_FILE));
 	defaultStringTheme.insert(StringMap::value_type("icon-directory", GTK_STOCK_DIRECTORY));
 	defaultStringTheme.insert(StringMap::value_type("text-general-back-color", "#FFFFFF"));
@@ -1187,6 +1189,7 @@ void Settings::initAppearance_gui()
 		addOption_gui(themeIconsStore, wsm, iconTheme, _("Search Spy"), "icon-search-spy");
 		addOption_gui(themeIconsStore, wsm, iconTheme, _("Quit"), "icon-quit");
 		addOption_gui(themeIconsStore, wsm, iconTheme, _("Connect"), "icon-connect");
+		addOption_gui(themeIconsStore, wsm, iconTheme, _("Reconnect"), "icon-reconnect");
 		addOption_gui(themeIconsStore, wsm, iconTheme, _("File"), "icon-file");
 		addOption_gui(themeIconsStore, wsm, iconTheme, _("Directory"), "icon-directory");
 

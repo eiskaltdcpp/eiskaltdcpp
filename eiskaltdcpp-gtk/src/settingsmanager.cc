@@ -207,7 +207,8 @@ WulforSettingsManager::WulforSettingsManager():
 	defaultString.insert(StringMap::value_type("icon-favorite-users", "eiskaltdcpp-favusers"));
 	defaultString.insert(StringMap::value_type("icon-finished-downloads", "eiskaltdcpp-go-down-search"));
 	defaultString.insert(StringMap::value_type("icon-finished-uploads", "eiskaltdcpp-go-up-search"));
-	defaultString.insert(StringMap::value_type("icon-hash", "eiskaltdcpp-refrlist"));
+	defaultString.insert(StringMap::value_type("icon-hash", "eiskaltdcpp-hashing"));
+	defaultString.insert(StringMap::value_type("icon-refresh", "eiskaltdcpp-refrlist"));
 	defaultString.insert(StringMap::value_type("icon-preferences", "eiskaltdcpp-configure"));
 	defaultString.insert(StringMap::value_type("icon-public-hubs", "eiskaltdcpp-server"));
 	defaultString.insert(StringMap::value_type("icon-queue", "eiskaltdcpp-download"));
@@ -216,6 +217,7 @@ WulforSettingsManager::WulforSettingsManager():
 	defaultString.insert(StringMap::value_type("icon-upload", "eiskaltdcpp-go-up"));
 	defaultString.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
 	defaultString.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
+	defaultString.insert(StringMap::value_type("icon-reconnect", "eiskaltdcpp-reconnect"));
 	defaultString.insert(StringMap::value_type("icon-file", GTK_STOCK_FILE));
 	defaultString.insert(StringMap::value_type("icon-directory", GTK_STOCK_DIRECTORY));
 

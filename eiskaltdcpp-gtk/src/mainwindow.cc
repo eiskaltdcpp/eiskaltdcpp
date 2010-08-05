@@ -103,7 +103,7 @@ MainWindow::MainWindow():
 
 	// set logo 96x96
 	GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
-	GdkPixbuf *logo = gtk_icon_theme_load_icon(iconTheme, g_get_prgname(), 96, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
+	GdkPixbuf *logo = gtk_icon_theme_load_icon(iconTheme, "eiskaltdcpp", 96, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
 
 	if (logo != NULL)
 	{
@@ -118,7 +118,7 @@ MainWindow::MainWindow():
 	gtk_window_set_transient_for(GTK_WINDOW(getWidget("aboutDialog")), window);
 
 	// Set all windows to the default icon
-	gtk_window_set_default_icon_name(g_get_prgname());
+	gtk_window_set_default_icon_name("eiskaltdcpp");
 
 	// All notebooks created in glade need one page.
 	// In our case, this is just a placeholder, so we remove it.
@@ -513,7 +513,7 @@ void MainWindow::removeTabMenuItem_gui(GtkWidget *menuItem)
 void MainWindow::createStatusIcon_gui()
 {
 	useStatusIconBlink = WGETB("status-icon-blink-use");
-	statusIcon = gtk_status_icon_new_from_icon_name(g_get_prgname());
+	statusIcon = gtk_status_icon_new_from_icon_name("eiskaltdcpp");
 
 	g_signal_connect(getWidget("statusIconQuitItem"), "activate", G_CALLBACK(onQuitClicked_gui), (gpointer)this);
 	g_signal_connect(getWidget("statusIconShowInterfaceItem"), "toggled", G_CALLBACK(onShowInterfaceToggled_gui), (gpointer)this);
@@ -732,7 +732,7 @@ void MainWindow::removeTimerSource_gui()
 	{
 		g_source_remove(timer);
 		timer = 0;
-		gtk_status_icon_set_from_icon_name(statusIcon, g_get_prgname());
+		gtk_status_icon_set_from_icon_name(statusIcon, "eiskaltdcpp");
 	}
 }
 
@@ -1324,7 +1324,7 @@ gboolean MainWindow::animationStatusIcon_gui(gpointer data)
 
 	if (mw->isActive_gui())
 	{
-		gtk_status_icon_set_from_icon_name(mw->statusIcon, g_get_prgname());
+		gtk_status_icon_set_from_icon_name(mw->statusIcon, "eiskaltdcpp");
 		mw->timer = 0;
 
 		return FALSE;

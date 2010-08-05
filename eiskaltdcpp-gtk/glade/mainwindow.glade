@@ -51,7 +51,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="image68">
                             <property name="visible">True</property>
-                            <property name="stock">gtk-refresh</property>
+                            <property name="stock">icon-refresh</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -83,6 +83,13 @@
                         <property name="label" translatable="yes">Re_connect</property>
                         <property name="use_underline">True</property>
                         <accelerator key="R" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+                        <child internal-child="image">
+                          <widget class="GtkImage" id="reconnectMenuImage">
+                            <property name="visible">True</property>
+                            <property name="stock">icon-reconnect</property>
+                            <property name="icon_size">1</property>
+                          </widget>
+                        </child>
                       </widget>
                     </child>
                     <child>
