@@ -29,17 +29,24 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="image66">
                             <property name="visible">True</property>
-                            <property name="stock">icon-directory</property>
+                            <property name="stock">icon-openlist</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
                       </widget>
                     </child>
                     <child>
-                      <widget class="GtkMenuItem" id="openOwnListMenuItem">
+                      <widget class="GtkImageMenuItem" id="openOwnListMenuItem">
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Open _own list</property>
                         <property name="use_underline">True</property>
+                        <child internal-child="image">
+                          <widget class="GtkImage" id="image666">
+                            <property name="visible">True</property>
+                            <property name="stock">icon-own-filelist</property>
+                            <property name="icon_size">1</property>
+                          </widget>
+                        </child>
                       </widget>
                     </child>
                     <child>
@@ -78,7 +85,7 @@
                       </widget>
                     </child>
                     <child>
-                      <widget class="GtkMenuItem" id="reconnectMenuItem">
+                      <widget class="GtkImageMenuItem" id="reconnectMenuItem">
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Re_connect</property>
                         <property name="use_underline">True</property>

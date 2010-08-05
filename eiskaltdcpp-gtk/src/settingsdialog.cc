@@ -80,7 +80,9 @@ Settings::Settings(GtkWindow* parent):
 	defaultStringTheme.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
 	defaultStringTheme.insert(StringMap::value_type("icon-reconnect", "eiskaltdcpp-reconnect"));
 	defaultStringTheme.insert(StringMap::value_type("icon-file", GTK_STOCK_FILE));
-	defaultStringTheme.insert(StringMap::value_type("icon-directory", GTK_STOCK_DIRECTORY));
+	defaultStringTheme.insert(StringMap::value_type("icon-directory", "eiskaltdcpp-folder-blue"));
+	defaultStringTheme.insert(StringMap::value_type("icon-openlist", "eiskaltdcpp-openlist"));
+	defaultStringTheme.insert(StringMap::value_type("icon-own-filelist", "eiskaltdcpp-own_filelist"));
 	defaultStringTheme.insert(StringMap::value_type("text-general-back-color", "#FFFFFF"));
 	defaultStringTheme.insert(StringMap::value_type("text-general-fore-color", "#4D4D4D"));
 	defaultStringTheme.insert(StringMap::value_type("text-myown-back-color", "#FFFFFF"));

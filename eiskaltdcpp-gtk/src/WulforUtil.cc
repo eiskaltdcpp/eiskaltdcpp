@@ -505,10 +505,12 @@ void WulforUtil::registerIcons()
 	icons["icon-upload"] = wsm->getString("icon-upload");
 	icons["icon-quit"] = wsm->getString("icon-quit");
 	icons["icon-connect"] = wsm->getString("icon-connect");
-	icons["icon-reconnect"] = wsm->getString("icon-reconnect");
 	icons["icon-file"] = wsm->getString("icon-file");
 	icons["icon-directory"] = wsm->getString("icon-directory");
 	icons["icon-refresh"] = wsm->getString("icon-refresh");
+	icons["icon-reconnect"] = wsm->getString("icon-reconnect");
+	icons["icon-openlist"] = wsm->getString("icon-openlist");
+	icons["icon-own-filelist"] = wsm->getString("icon-own-filelist");
 
 	if (iconFactory)
 	{

@@ -103,7 +103,7 @@ MainWindow::MainWindow():
 
 	// set logo 96x96
 	GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
-	GdkPixbuf *logo = gtk_icon_theme_load_icon(iconTheme, "eiskaltdcpp", 96, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
+	GdkPixbuf *logo = gtk_icon_theme_load_icon(iconTheme, "eiskaltdcpp", 128, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
 
 	if (logo != NULL)
 	{
