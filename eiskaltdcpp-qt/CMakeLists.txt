@@ -313,12 +313,13 @@ if (USE_ASPELL)
 endif (USE_ASPELL)
 
 if (APPLE)
+  set (MACOSICON ${CMAKE_CURRENT_SOURCE_DIR}/../icon_128x128.icns)
   # set how it shows up in the Info.plist file
-  SET(MACOSX_BUNDLE_ICON_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../icon_128x128.icns)
+  SET(MACOSX_BUNDLE_ICON_FILE ${MACOSICON})
   # set where in the bundle to put the icns file
   SET_SOURCE_FILES_PROPERTIES(${CMAKE_CURRENT_SOURCE_DIR}/../icons/icon_128x128.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
   # include the icns file in the target
-  list (APPEND SRCS ${CMAKE_CURRENT_SOURCE_DIR}/../icons/icon_128x128.icns)
+  list (APPEND SRCS ${MACOSICON})
 endif (APPLE)
 
 add_executable (eiskaltdcpp-qt MACOSX_BUNDLE WIN32 src/main.cpp
@@ -377,8 +378,8 @@ if (APPLE)
   set(qtconf_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
   set(APPS "\${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME_GLOBAL}.app")
   set(DIRS "\${QT_LIBRARY_DIRS}" "\${PC_UPNP_LIBRARY_DIRS}" "\${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
-  set(CPACK_PACKAGE_ICON ${CMAKE_CURRENT_SOURCE_DIR}/../icons/icon_128x128.icns)
-  set(CPACK_BUNDLE_ICON ${CMAKE_CURRENT_SOURCE_DIR}/../icons/icon_128x128.icns)
+  set(CPACK_PACKAGE_ICON ${MACOSICON})
+  set(CPACK_BUNDLE_ICON ${MACOSICON})
   set(CPACK_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
   if (eiskaltdcpp_WC_REVISION MATCHES [0-9]+)
     set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-${eiskaltdcpp_WC_REVISION}")
@@ -386,7 +387,7 @@ if (APPLE)
     set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-stable")
   endif ()
   set (MACOSX_BUNDLE_INFO_STRING "DC and ADC client")
-  set (MACOSX_BUNDLE_ICON_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../icon_128x128.icns)
+  set (MACOSX_BUNDLE_ICON_FILE ${MACOSICON})
 
 # doesn't work this way :(
 #  set (MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
