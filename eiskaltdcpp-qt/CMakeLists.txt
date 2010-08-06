@@ -356,9 +356,11 @@ endif (APPLE)
 
 if (UNIX AND NOT APPLE)
   set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-qt")
-else ()
+elseif (APPLE)
+  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
+elseif (WIN32)
   set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL} Qt")
-endif ()
+endif (UNIX AND NOT APPLE)
 
 if (UNIX)
  set (BINDIR bin)
