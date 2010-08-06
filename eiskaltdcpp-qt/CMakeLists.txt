@@ -313,11 +313,11 @@ if (USE_ASPELL)
 endif (USE_ASPELL)
 
 if (APPLE)
-  set (MACOSICON ${CMAKE_CURRENT_SOURCE_DIR}/../icon_128x128.icns)
+  set (MACOSICON "${CMAKE_CURRENT_SOURCE_DIR}/../icons/icon_128x128.icns")
   # set how it shows up in the Info.plist file
   SET(MACOSX_BUNDLE_ICON_FILE ${MACOSICON})
   # set where in the bundle to put the icns file
-  SET_SOURCE_FILES_PROPERTIES(${CMAKE_CURRENT_SOURCE_DIR}/../icons/icon_128x128.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
+  SET_SOURCE_FILES_PROPERTIES(${MACOSICON} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
   # include the icns file in the target
   list (APPEND SRCS ${MACOSICON})
 endif (APPLE)
