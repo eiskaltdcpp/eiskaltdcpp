@@ -128,7 +128,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="setMagnetChoiceImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp-magnet</property>
+                            <property name="stock">icon-magnet</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -453,7 +453,7 @@
                         <child internal-child="image">
                           <widget class="GtkImage" id="aboutMenuImage">
                             <property name="visible">True</property>
-                            <property name="stock">freedcpp</property>
+                            <property name="stock">eiskaltdcpp</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>

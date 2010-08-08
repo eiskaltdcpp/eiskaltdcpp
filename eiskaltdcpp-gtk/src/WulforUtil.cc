@@ -480,7 +480,7 @@ void WulforUtil::registerIcons()
 	// Not all icons have stock representations.
 	WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
 	map<string, string> icons;
-	icons["eiskaltdcpp"] = wsm->getString("eiskaltdcpp");
+	icons["eiskaltdcpp"] = "eiskaltdcpp";
 	icons["icon_msg"] = wsm->getString("icon_msg");
 	icons["eiskaltdcpp-dc++"] = wsm->getString("icon-dc++");
 	icons["eiskaltdcpp-dc++-fw"] = wsm->getString("icon-dc++-fw");
@@ -511,6 +511,7 @@ void WulforUtil::registerIcons()
 	icons["icon-reconnect"] = wsm->getString("icon-reconnect");
 	icons["icon-openlist"] = wsm->getString("icon-openlist");
 	icons["icon-own-filelist"] = wsm->getString("icon-own-filelist");
+	icons["icon-magnet"] = wsm->getString("icon-magnet");
 
 	if (iconFactory)
 	{
