@@ -6,6 +6,7 @@
 
 #include "dcpp/SettingsManager.h"
 #include "dcpp/FavoriteManager.h"
+#include <dcpp/ADLSearch.h>
 
 #if (HAVE_MALLOC_TRIM)
 #include <malloc.h>
