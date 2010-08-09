@@ -109,7 +109,7 @@ public:
         Lock l(cs);
         return tthIndex.find(tth) != tthIndex.end();
     }
-
+    void publish();
     GETSET(uint32_t, hits, Hits);
     GETSET(string, bzXmlFile, BZXmlFile);
 private:

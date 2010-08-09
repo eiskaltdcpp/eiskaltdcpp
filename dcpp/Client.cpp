@@ -68,7 +68,7 @@ void Client::shutdown() {
 }
 
 void Client::reloadSettings(bool updateNick) {
-    FavoriteHubEntry* hub = FavoriteManager::getInstance()->getFavoriteHubEntry(getHubUrl());
+    const FavoriteHubEntry* hub = FavoriteManager::getInstance()->getFavoriteHubEntry(getHubUrl());
 
     string ClientId = fullVersionString;
 
@@ -86,7 +86,7 @@ void Client::reloadSettings(bool updateNick) {
         if(!hub->getPassword().empty())
             setPassword(hub->getPassword());
         if (hub->getOverrideId())
-            ClientId = hub->getClientId(); // not tested feature
+            ClientId = hub->getClientId();
         if (!hub->getExternalIP().empty())
             externalIP = hub->getExternalIP();
         if (!hub->getEncoding().empty()){
@@ -101,13 +101,11 @@ void Client::reloadSettings(bool updateNick) {
         }
         setCurrentDescription(SETTING(DESCRIPTION));
     }
-    for (unsigned i = 0; i < ClientId.length(); i++)
-        if (ClientId[i] == '<' || ClientId[i] == '>' || ClientId[i] == ',' || ClientId[i] == '$' || ClientId[i] == '|')
-        {
-            ClientId = ClientId.substr(0, i);
-            break;
-        }
     setClientId(ClientId);
+}
+
+bool Client::isActive() const {
+        return ClientManager::getInstance()->isActive(hubUrl);
 }
 
 void Client::connect() {

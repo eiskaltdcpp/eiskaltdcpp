@@ -376,12 +376,12 @@ void FavoriteManager::save() {
             xml.addChildAttrib("Server", (*i)->getServer());
             xml.addChildAttrib("UserDescription", (*i)->getUserDescription());
             xml.addChildAttrib("Encoding", (*i)->getEncoding());
-            xml.addChildAttrib("ClientId", (*i)->getClientId()); // not tested feature
-            xml.addChildAttrib("ExternalIP", (*i)->getExternalIP()); // not tested feature
-            //xml.addChildAttrib("StealthMode", (*i)->getStealth());// not tested feature
-            xml.addChildAttrib("OverrideId", Util::toString((*i)->getOverrideId()));// not tested feature
+            xml.addChildAttrib("ClientId", (*i)->getClientId());
+            xml.addChildAttrib("ExternalIP", (*i)->getExternalIP());
+            xml.addChildAttrib("OverrideId", Util::toString((*i)->getOverrideId()));
             xml.addChildAttrib("UseInternetIp",(*i)->getUseInternetIP());
             xml.addChildAttrib("DisableChat", (*i)->getDisableChat());
+            xml.addChildAttrib("Mode", Util::toString((*i)->getMode()));
         }
         xml.stepOut();
         xml.addTag("Users");
@@ -479,11 +479,11 @@ void FavoriteManager::load(SimpleXML& aXml) {
             e->setUserDescription(aXml.getChildAttrib("UserDescription"));
             e->setEncoding(aXml.getChildAttrib("Encoding"));
             e->setExternalIP(aXml.getChildAttrib("ExternalIP"));
-            e->setClientId(aXml.getChildAttrib("ClientId")); // not tested feature
-            //e->setStealth(aXml.getBoolChildAttrib("StealthMode")); // not tested feature
-            e->setOverrideId(Util::toInt(aXml.getChildAttrib("OverrideId")) != 0); // not tested feature
+            e->setClientId(aXml.getChildAttrib("ClientId"));
+            e->setOverrideId(Util::toInt(aXml.getChildAttrib("OverrideId")) != 0);
             e->setUseInternetIP(aXml.getBoolChildAttrib("UseInternetIp"));
             e->setDisableChat(aXml.getBoolChildAttrib("DisableChat"));
+            e->setMode(Util::toInt(aXml.getChildAttrib("Mode")));
             favoriteHubs.push_back(e);
         }
         aXml.stepOut();

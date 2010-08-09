@@ -359,7 +359,7 @@ void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) throw() {
     if(c.getParameters().size() < 2) {
         return;
     }
-    if(!ClientManager::getInstance()->isActive())
+    if(!isActive())
         return;
     OnlineUser* u = findUser(c.getFrom());
     if(!u || u->getUser() == ClientManager::getInstance()->getMe())
@@ -568,7 +568,7 @@ void AdcHub::connect(const OnlineUser& user, string const& token, bool secure) {
         proto = &CLIENT_PROTOCOL;
     }
 
-    if(ClientManager::getInstance()->isActive()) {
+    if(isActive()) {
         uint16_t port = secure ? ConnectionManager::getInstance()->getSecurePort() : ConnectionManager::getInstance()->getPort();
         if(port == 0) {
             // Oops?
@@ -628,7 +628,7 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
     if(!aToken.empty())
         c.addParam("TO", aToken);
 
-    if(ClientManager::getInstance()->isActive()) {
+    if(isActive()) {
         send(c);
     } else {
         c.setType(AdcCommand::TYPE_FEATURE);
@@ -720,7 +720,7 @@ void AdcHub::info(bool /*alwaysSend*/) {
         su += ADCS_FEATURE + ",";
     }
 
-    if(ClientManager::getInstance()->isActive()) {
+    if(isActive()) {
         if (!getFavIp().empty()) {
             addParam(lastInfoMap, c, "I4", getFavIp());
         } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {

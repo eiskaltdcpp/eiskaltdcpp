@@ -482,16 +482,12 @@ void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
 
 bool HashManager::Hasher::pause() {
     Lock l(cs);
-    //printf("пауза\n");
-    //printf("pause %d\n",paused++);
     return paused++;
 }
 
 void HashManager::Hasher::resume() {
     Lock l(cs);
-    //printf("продолжаем\n");
     while(--paused > 0)
-        //printf("resume %d\n",paused--);
         s.signal();
 }
 
@@ -528,7 +524,6 @@ void HashManager::Hasher::instantPause() {
     bool wait = false;
     {
         Lock l(cs);
-        //printf("instant pause %d\n", paused);
         if(paused > 0) {
             paused++;
             wait = true;

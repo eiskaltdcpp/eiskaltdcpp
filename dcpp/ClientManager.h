@@ -34,40 +34,40 @@ namespace dcpp {
 class UserCommand;
 
 class ClientManager : public Speaker<ClientManagerListener>,
-	private ClientListener, public Singleton<ClientManager>,
-	private TimerManagerListener
+    private ClientListener, public Singleton<ClientManager>,
+    private TimerManagerListener
 {
 public:
-	Client* getClient(const string& aHubURL);
-	void putClient(Client* aClient);
+    Client* getClient(const string& aHubURL);
+    void putClient(Client* aClient);
 
-	size_t getUserCount() const;
-	int64_t getAvailable() const;
-	StringList getHubs(const CID& cid) const;
-	StringList getHubNames(const CID& cid) const;
-	StringList getNicks(const CID& cid) const;
-	string getConnection(const CID& cid) const;
+    size_t getUserCount() const;
+    int64_t getAvailable() const;
+    StringList getHubs(const CID& cid) const;
+    StringList getHubNames(const CID& cid) const;
+    StringList getNicks(const CID& cid) const;
+    string getConnection(const CID& cid) const;
 
-	bool isConnected(const string& aUrl) const;
+    bool isConnected(const string& aUrl) const;
 
-	void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken);
-	void search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken);
-	void infoUpdated();
+    void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken);
+    void search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken);
+    void infoUpdated();
 
-	UserPtr getUser(const string& aNick, const string& aHubUrl) throw();
-	UserPtr getUser(const CID& cid) throw();
+    UserPtr getUser(const string& aNick, const string& aHubUrl) throw();
+    UserPtr getUser(const CID& cid) throw();
 
-	string findHub(const string& ipPort) const;
-	string findHubEncoding(const string& aUrl) const;
+    string findHub(const string& ipPort) const;
+    string findHubEncoding(const string& aUrl) const;
 
-	UserPtr findUser(const string& aNick, const string& aHubUrl) const throw() { return findUser(makeCid(aNick, aHubUrl)); }
-	UserPtr findUser(const CID& cid) const throw();
-	UserPtr findLegacyUser(const string& aNick) const throw();
+    UserPtr findUser(const string& aNick, const string& aHubUrl) const throw() { return findUser(makeCid(aNick, aHubUrl)); }
+    UserPtr findUser(const CID& cid) const throw();
+    UserPtr findLegacyUser(const string& aNick) const throw();
 
-	bool isOnline(const UserPtr& aUser) const {
-		Lock l(cs);
-		return onlineUsers.find(aUser->getCID()) != onlineUsers.end();
-	}
+    bool isOnline(const UserPtr& aUser) const {
+        Lock l(cs);
+        return onlineUsers.find(aUser->getCID()) != onlineUsers.end();
+    }
 
   Identity getOnlineUserIdentity(const UserPtr& aUser) const {
     Lock l(cs);
@@ -80,86 +80,87 @@ public:
     return Identity();
   }
 
-	bool isOp(const UserPtr& aUser, const string& aHubUrl) const;
+    bool isOp(const UserPtr& aUser, const string& aHubUrl) const;
 
-	/** Constructs a synthetic, hopefully unique CID */
-	CID makeCid(const string& nick, const string& hubUrl) const throw();
+    /** Constructs a synthetic, hopefully unique CID */
+    CID makeCid(const string& nick, const string& hubUrl) const throw();
 
-	void putOnline(OnlineUser* ou) throw();
-	void putOffline(OnlineUser* ou, bool disconnect = false) throw();
+    void putOnline(OnlineUser* ou) throw();
+    void putOffline(OnlineUser* ou, bool disconnect = false) throw();
 
-	UserPtr& getMe();
+    UserPtr& getMe();
 
-	void connect(const UserPtr& p, const string& token, const string& hintUrl);
-	void send(AdcCommand& c, const CID& to);
-	void privateMessage(const UserPtr& p, const string& msg, bool thirdPerson, const string& hintUrl);
+    void connect(const UserPtr& p, const string& token, const string& hintUrl);
+    void send(AdcCommand& c, const CID& to);
+    void privateMessage(const UserPtr& p, const string& msg, bool thirdPerson, const string& hintUrl);
 
-	void userCommand(const UserPtr& p, const UserCommand& uc, StringMap& params, bool compatibility);
+    void userCommand(const UserPtr& p, const UserCommand& uc, StringMap& params, bool compatibility);
 
-	bool isActive() { return SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_PASSIVE; }
+    int getMode(const string& aHubUrl) const;
+    bool isActive(const string& aHubUrl = Util::emptyString) const { return getMode(aHubUrl) != SettingsManager::INCOMING_FIREWALL_PASSIVE; }
 
-	void lock() throw() { cs.enter(); }
-	void unlock() throw() { cs.leave(); }
+    void lock() throw() { cs.enter(); }
+    void unlock() throw() { cs.leave(); }
 
-	Client::List& getClients() { return clients; }
+    Client::List& getClients() { return clients; }
 
-	CID getMyCID();
-	const CID& getMyPID();
+    CID getMyCID();
+    const CID& getMyPID();
 
 private:
-	typedef unordered_map<string, UserPtr> LegacyMap;
-	typedef LegacyMap::iterator LegacyIter;
+    typedef unordered_map<string, UserPtr> LegacyMap;
+    typedef LegacyMap::iterator LegacyIter;
 
-	typedef unordered_map<CID, UserPtr> UserMap;
-	typedef UserMap::iterator UserIter;
+    typedef unordered_map<CID, UserPtr> UserMap;
+    typedef UserMap::iterator UserIter;
 
-	typedef unordered_map<CID, std::string> NickMap;
+    typedef unordered_map<CID, std::string> NickMap;
 
-	typedef unordered_multimap<CID, OnlineUser*> OnlineMap;
-	typedef OnlineMap::iterator OnlineIter;
-	typedef OnlineMap::const_iterator OnlineIterC;
-	typedef pair<OnlineIter, OnlineIter> OnlinePair;
-	typedef pair<OnlineIterC, OnlineIterC> OnlinePairC;
+    typedef unordered_multimap<CID, OnlineUser*> OnlineMap;
+    typedef OnlineMap::iterator OnlineIter;
+    typedef OnlineMap::const_iterator OnlineIterC;
+    typedef pair<OnlineIter, OnlineIter> OnlinePair;
+    typedef pair<OnlineIterC, OnlineIterC> OnlinePairC;
 
-	Client::List clients;
-	mutable CriticalSection cs;
+    Client::List clients;
+    mutable CriticalSection cs;
 
-	UserMap users;
-	OnlineMap onlineUsers;
-	NickMap nicks;
+    UserMap users;
+    OnlineMap onlineUsers;
+    NickMap nicks;
 
-	UserPtr me;
+    UserPtr me;
 
-	Socket udp;
+    Socket udp;
 
-	CID pid;
+    CID pid;
 
-	friend class Singleton<ClientManager>;
+    friend class Singleton<ClientManager>;
 
-	ClientManager() {
-		TimerManager::getInstance()->addListener(this);
-	}
+    ClientManager() {
+        TimerManager::getInstance()->addListener(this);
+    }
 
-	virtual ~ClientManager() throw() {
-		TimerManager::getInstance()->removeListener(this);
-	}
+    virtual ~ClientManager() throw() {
+        TimerManager::getInstance()->removeListener(this);
+    }
 
-	void updateNick(const OnlineUser& user) throw();
+    void updateNick(const OnlineUser& user) throw();
 
-	OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl) throw();
+    OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl) throw();
 
-	// ClientListener
-	virtual void on(Connected, Client* c) throw();
-	virtual void on(UserUpdated, Client*, const OnlineUser& user) throw();
-	virtual void on(UsersUpdated, Client* c, const OnlineUserList&) throw();
-	virtual void on(Failed, Client*, const string&) throw();
-	virtual void on(HubUpdated, Client* c) throw();
-	virtual void on(HubUserCommand, Client*, int, int, const string&, const string&) throw();
-	virtual void on(NmdcSearch, Client* aClient, const string& aSeeker, int aSearchType, int64_t aSize,
-		int aFileType, const string& aString) throw();
-	virtual void on(AdcSearch, Client* c, const AdcCommand& adc, const CID& from) throw();
-	// TimerManagerListener
-	virtual void on(TimerManagerListener::Minute, uint32_t aTick) throw();
+    // ClientListener
+    virtual void on(Connected, Client* c) throw();
+    virtual void on(UserUpdated, Client*, const OnlineUser& user) throw();
+    virtual void on(UsersUpdated, Client* c, const OnlineUserList&) throw();
+    virtual void on(Failed, Client*, const string&) throw();
+    virtual void on(HubUpdated, Client* c) throw();
+    virtual void on(HubUserCommand, Client*, int, int, const string&, const string&) throw();
+    virtual void on(NmdcSearch, Client* aClient, const string& aSeeker, int aSearchType, int64_t aSize,
+        int aFileType, const string& aString) throw();
+    virtual void on(AdcSearch, Client* c, const AdcCommand& adc, const CID& from) throw();
+    // TimerManagerListener
+    virtual void on(TimerManagerListener::Minute, uint32_t aTick) throw();
 };
 
 } // namespace dcpp

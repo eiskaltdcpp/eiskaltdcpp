@@ -56,7 +56,8 @@ const string SettingsManager::settingTags[] =
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow", "ClearSearch",
     "BackgroundColor", "TextColor", "UseOemMonoFont", "ShareHidden", "FilterMessages", "MinimizeToTray", "AlwaysTray",
-    "AutoSearch","AutoSearchTime", "ReportFoundAlternates", "TimeStamps", "PopupHubPms", "PopupBotPms", "IgnoreHubPms", "IgnoreBotPms",
+    "AutoSearch","AutoSearchTime", "ReportFoundAlternates", "TimeStamps", "PopupHubPms",
+     "PopupBotPms", "IgnoreHubPms", "IgnoreBotPms",
     "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed", "LogMainChat", "LogPrivateChat",
     "LogDownloads", "LogUploads", "StatusInChat", "ShowJoins",
     "UseSystemIcons", "PopupPMs", "MinUploadSpeed", "GetUserInfo", "UrlHandler", "MainWindowState",
@@ -67,12 +68,14 @@ const string SettingsManager::settingTags[] =
     "HubUserCommands", "AutoSearchAutoMatch", "DownloadBarColor", "UploadBarColor", "LogSystem",
     "LogFilelistTransfers", "SendUnknownCommands", "MaxHashSpeed", "OpenUserCmdHelp",
     "GetUserCountry", "FavShowJoins", "LogStatusMessages", "ShowStatusbar", "AllowUpdateFilelistsOnStartup",
-    "ShowToolbar", "ShowTransferview", "PopunderPm", "PopunderFilelist", "MagnetAsk", "MagnetAction", "MagnetRegister",
+    "ShowToolbar", "ShowTransferview", "PopunderPm", "PopunderFilelist", "MagnetAsk",
+    "MagnetAction", "MagnetRegister", "SearchPassiveAlways",
     "AddFinishedInstantly", "DontDLAlreadyShared", "UseCTRLForLineHistory",
     "OpenNewWindow", "UDPPort", "ShowLastLinesLog",
     "AdcDebug", "ToggleActiveWindow", "SearchHistory", "SetMinislotSize", "MaxFilelistSize",
     "HighestPrioSize", "HighPrioSize", "NormalPrioSize", "LowPrioSize", "LowestPrio",
-    "AutoDropSpeed", "AutoDropInterval", "AutoDropElapsed", "AutoDropInactivity", "AutoDropMinSources", "AutoDropFilesize",
+    "AutoDropSpeed", "AutoDropInterval", "AutoDropElapsed", "AutoDropInactivity",
+     "AutoDropMinSources", "AutoDropFilesize",
     "AutoDropAll", "AutoDropFilelists", "AutoDropDisconnect",
     "OpenPublic", "OpenFavoriteHubs", "OpenFavoriteUsers", "OpenQueue", "OpenFinishedDownloads",
     "OpenFinishedUploads", "OpenSearchSpy", "OpenNetworkStatistics", "OpenNotepad", "OutgoingConnections",
@@ -334,6 +337,7 @@ SettingsManager::SettingsManager()
     setDefault(DHT_PORT, DHT_UDPPORT);
 #endif
     setDefault(USE_DHT, false);
+    setDefault(SEARCH_PASSIVE, false);
 #ifdef _WIN32
     setDefault(MAIN_WINDOW_STATE, SW_SHOWNORMAL);
     setDefault(MAIN_WINDOW_SIZE_X, CW_USEDEFAULT);

@@ -819,7 +819,7 @@ void NmdcHub::search(int aSizeType, int64_t aSize, int aFileType, const string& 
         tmp[i] = '$';
     }
     string tmp2;
-    if(ClientManager::getInstance()->isActive()) {
+    if(isActive() && !BOOLSETTING(SEARCH_PASSIVE)) {
         tmp2 = getLocalIp() + ':' + Util::toString(SearchManager::getInstance()->getPort());
     } else {
         tmp2 = "Hub:" + fromUtf8(getMyNick());

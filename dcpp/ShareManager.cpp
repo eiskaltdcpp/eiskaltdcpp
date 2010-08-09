@@ -41,7 +41,9 @@
 #include "HashBloom.h"
 #include "SearchResult.h"
 #include "version.h"
-
+#ifdef DHT
+#include "../dht/IndexManager.h"
+#endif
 #ifndef _WIN32
 #include <sys/types.h>
 #include <dirent.h>
@@ -53,7 +55,12 @@
 #include <limits>
 
 namespace dcpp {
-
+#ifdef DHT
+void ShareManager::publish() {
+    Lock l(cs);
+    dht::IndexManager::getInstance()->createPublishQueue(tthIndex);
+}
+#endif
 ShareManager::ShareManager() : hits(0), xmlListLen(0), bzXmlListLen(0),
     xmlDirty(true), forceXmlRefresh(false), refreshDirs(false), update(false), initial(true), listN(0), refreshing(0),
     lastXmlUpdate(0), lastFullUpdate(GET_TICK()), bloom(1<<20)
@@ -429,20 +436,26 @@ void ShareManager::addDirectory(const string& realPath, const string& virtualNam
     if(Util::stricmp(SETTING(TEMP_DOWNLOAD_DIRECTORY), realPath) == 0) {
         throw ShareException(_("The temporary download directory cannot be shared"));
     }
-
+    list<string> removeMap;
     {
         Lock l(cs);
 
         for(StringMapIter i = shares.begin(); i != shares.end(); ++i) {
             if(Util::strnicmp(realPath, i->first, i->first.length()) == 0) {
                 // Trying to share an already shared directory
-                throw ShareException(_("Directory already shared"));
+                //throw ShareException(_("Directory already shared"));
+                removeMap.push_front(i->first);
             } else if(Util::strnicmp(realPath, i->first, realPath.length()) == 0) {
                 // Trying to share a parent directory
-                throw ShareException(_("Remove all subdirectories before adding this one"));
+                //throw ShareException(_("Remove all subdirectories before adding this one"));
+                removeMap.push_front(i->first);
             }
         }
     }
+    for(list<string>::const_iterator i = removeMap.begin(); i != removeMap.end(); i++) {
+        removeDirectory(*i);
+    }
+
 
     HashManager::HashPauser pauser;
 
@@ -486,7 +499,6 @@ void ShareManager::Directory::merge(const Directory::Ptr& source) {
                 dcdebug("File named the same as directory");
             } else {
                 directories.insert(std::make_pair(subSource->getName(), subSource));
-                subSource->parent = this;
             }
         } else {
             Directory::Ptr subTarget = ti->second;
@@ -502,10 +514,7 @@ void ShareManager::Directory::merge(const Directory::Ptr& source) {
             if(directories.find(i->getName()) != directories.end()) {
                 dcdebug("Directory named the same as file");
             } else {
-                std::pair<File::Set::iterator, bool> added = files.insert(*i);
-                if(added.second) {
-                    const_cast<File&>(*added.first).setParent(this);
-                }
+                files.insert(*i);
             }
         }
     }
@@ -1543,4 +1552,5 @@ void ShareManager::on(TimerManagerListener::Minute, uint32_t tick) throw() {
         }
     }
 }
+
 } // namespace dcpp

@@ -59,12 +59,12 @@ public:
 const string DEF_FAKE_ID = "EiskaltDC++ V:2.0";
 class FavoriteHubEntry {
 public:
-    FavoriteHubEntry() throw() : connect(false), encoding(Text::systemCharset), overrideId(0), clientId(DEF_FAKE_ID) { }
+    FavoriteHubEntry() throw() : connect(false), encoding(Text::systemCharset), mode(0), overrideId(0), clientId(DEF_FAKE_ID) { }
     FavoriteHubEntry(const HubEntry& rhs) throw() : name(rhs.getName()), server(rhs.getServer()),
-    description(rhs.getDescription()), connect(false), encoding(Text::systemCharset), overrideId(0), clientId(DEF_FAKE_ID) { }
+    description(rhs.getDescription()), connect(false), encoding(Text::systemCharset), mode(0),overrideId(0), clientId(DEF_FAKE_ID) { }
     FavoriteHubEntry(const FavoriteHubEntry& rhs) throw() : userdescription(rhs.userdescription), name(rhs.getName()),
     server(rhs.getServer()), description(rhs.getDescription()), password(rhs.getPassword()),
-    connect(rhs.getConnect()), encoding(rhs.getEncoding()), nick(rhs.nick), overrideId(rhs.overrideId), clientId(rhs.clientId),
+    connect(rhs.getConnect()), encoding(rhs.getEncoding()), nick(rhs.nick), overrideId(rhs.overrideId), clientId(rhs.clientId), mode(rhs.mode),
     externalIP(""), useInternetIp(false), disableChat(false)
     { }
     ~FavoriteHubEntry() throw() { }
@@ -87,6 +87,7 @@ public:
     GETSET(string, externalIP, ExternalIP);
     GETSET(bool, useInternetIp, UseInternetIP);
     GETSET(bool, disableChat, DisableChat);
+    GETSET(int, mode, Mode); // TEST 0 = default, 1 = active, 2 = passive
 private:
     string nick;
 };

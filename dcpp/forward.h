@@ -31,6 +31,8 @@ class AdcCommand;
 
 class BufferedSocket;
 
+typedef std::vector<uint16_t> PartsInfo;
+
 class CID;
 
 class Client;
