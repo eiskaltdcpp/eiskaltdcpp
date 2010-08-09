@@ -532,7 +532,7 @@ void MainWindow::createStatusIcon_gui()
 void MainWindow::updateStatusIconTooltip_gui(string download, string upload)
 {
 	ostringstream toolTip;
-	toolTip << g_get_application_name() << endl << _("Download: ") << download << endl << _("Upload: ") << upload;
+	toolTip << _("Download: ") << download << endl << _("Upload: ") << upload;
 	gtk_status_icon_set_tooltip(statusIcon, toolTip.str().c_str());
 }
 

@@ -332,7 +332,7 @@ void WulforSettingsManager::load()
 void WulforSettingsManager::save()
 {
 	SimpleXML xml;
-	xml.addTag(g_get_application_name());
+	xml.addTag("EiskaltDC++_Gtk");
 	xml.stepIn();
 	xml.addTag("Settings");
 	xml.stepIn();

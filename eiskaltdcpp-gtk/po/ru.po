@@ -1,6 +1,6 @@
-# Russian translation for the EiskaltDC++ Gtk.
-# Copyright (C) 2010 The translators
-# This file is distributed under the same license as the EiskaltDC++ Gtk.
+# Russian translation for work package.
+# Copyright (C) 2010 EiskaltDC++\ team
+# This file is distributed under the same license as the work package.
 #
 msgid ""
 msgstr ""
