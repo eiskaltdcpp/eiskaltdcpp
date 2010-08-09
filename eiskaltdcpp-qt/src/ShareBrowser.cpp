@@ -101,7 +101,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
 
         down_to->addSeparator();
     }
-    
+
     if (a.size() == p.size() && !a.isEmpty()){
         for (int i = 0; i < a.size(); i++){
             QAction *act = new QAction(a.at(i), down_to);
@@ -280,6 +280,7 @@ void ShareBrowser::buildList(){
     try {
         listing.loadFile(file.toStdString());
         listing.getRoot()->setName(nick.toStdString());
+        ADLSearchManager::getInstance()->matchListing(listing);
 
         loader_func = new ShareBrowserLoader::LoaderFunc(this, &ShareBrowser::createTree, listing.getRoot(), tree_root);
         ShareBrowserLoader *loader = new ShareBrowserLoader(loader_func);
