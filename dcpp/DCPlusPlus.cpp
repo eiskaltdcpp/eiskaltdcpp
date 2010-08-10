@@ -37,6 +37,9 @@
 #include "ADLSearch.h"
 
 #include "StringTokenizer.h"
+#ifdef USE_MINIUPNP
+#include "UPnPManager.h"
+#endif
 #ifdef DHT
 #include "../dht/DHT.h"
 #endif
@@ -84,7 +87,9 @@ void startup(void (*f)(void*, const string&), void* p) {
     QueueManager::newInstance();
     FinishedManager::newInstance();
     ADLSearchManager::newInstance();
-
+#ifdef USE_MINIUPNP
+    UPnPManager::newInstance();
+#endif
     SettingsManager::getInstance()->load();
 
     if(!SETTING(LANGUAGE).empty()) {
@@ -125,12 +130,17 @@ void shutdown() {
     ThrottleManager::getInstance()->shutdown();
 #endif
     ConnectionManager::getInstance()->shutdown();
-
+#ifdef USE_MINIUPNP
+    UPnPManager::getInstance()->close();
+#endif
     BufferedSocket::waitShutdown();
 
     SettingsManager::getInstance()->save();
 #ifdef USE_DHT
     DHT::deleteInstance();
+#endif
+#ifdef USE_MINIUPNP
+    UPnPManager::deleteInstance();
 #endif
     ADLSearchManager::deleteInstance();
     FinishedManager::deleteInstance();

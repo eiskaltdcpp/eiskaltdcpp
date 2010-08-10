@@ -12,6 +12,7 @@ iconv (libc on GNU/Linux)
 ------
 gettext
 libssl (>= 0.9.8)
+miniupnpc (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -70,6 +71,7 @@ pkg-config
 :dcpp:
 ------
 gettext
+miniupnpc (optional, see cmake keys)
 libboost-dev (headers only) (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
@@ -111,6 +113,8 @@ Keys for cmake
 ------
 -DLOCAL_BOOST=ON/OFF (default: OFF)
     use local boost headers
+-DUSE_MINIUPNP=ON/OFf (default:OFF)
+    use or not use miniupnpc lib for portmapping
 ----------------
 :eiskaltdcpp-qt:
 ----------------
