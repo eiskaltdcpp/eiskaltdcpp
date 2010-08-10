@@ -31,6 +31,7 @@
 #include <dcpp/Upload.h>
 #include <dcpp/Download.h>
 #include <dcpp/ClientManager.h>
+#include <dcpp/ADLSearch.h>
 #include <dcpp/version.h>
 #include "downloadqueue.hh"
 #include "favoritehubs.hh"
