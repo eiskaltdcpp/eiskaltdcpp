@@ -565,6 +565,6 @@ if(UNIX)
             # Remove duplicates when cmake will be fixed
             list(REMOVE_DUPLICATES GTK2_INCLUDE_DIRS)
         endif (GDK_PIXBUF_INCLUDE_DIRS)
-        message(STATUS "TEST ${GTK2_INCLUDE_DIRS}")
+        #message(STATUS "TEST ${GTK2_INCLUDE_DIRS}")
     endif(GTK2_FOUND)
 endif(UNIX)

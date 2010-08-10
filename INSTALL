@@ -43,7 +43,7 @@ Opional Depends
 :eiskaltdcpp-qt:
 ----------------
 sh (bash, dash, etc...)
-    see eiskaltdcpp-qt/examples/ and eiskaltdcpp-qt/scripts/
+    see examples/ and eiskaltdcpp-qt/scripts/
 php5-cli (or other version, check the compatibility by yourself)
     see eiskaltdcpp-qt/examples/ and eiskaltdcpp-qt/scripts/
 libqtscript4-core, libqtscript4-gui, libqtscript4-network, libqtscript4-xml
@@ -146,6 +146,8 @@ Keys for cmake
 --------
 :common:
 --------
+-DWITH_EXAMPLES=ON/OFF (default: ON)
+    If ON install examples/
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
     examples:
     -Dlinguas="en ru" - install ru and en translations
