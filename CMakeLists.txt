@@ -275,7 +275,8 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
 
 message(STATUS "CMAKE will use this libs(and headers) during build:
 
-                upnp (headers): ${UPNP_LIBRARY} (${UPNP_INCLUDE_DIR})
+                upnp (headers){libupnp}: ${UPNP_LIBRARY} (${UPNP_INCLUDE_DIR})
+                upnp (headers){miniupnpc}:${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
                 boost (headers): ${Boost_LIBRARIES} (${Boost_INCLUDE_DIR})
                 bzip2 (headers): ${BZIP2_LIBRARIES} (${BZIP2_INCLUDE_DIR})
                 zlib (headers): ${ZLIB_LIBRARIES} (${ZLIB_INCLUDE_DIR})

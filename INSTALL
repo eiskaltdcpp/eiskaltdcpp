@@ -113,7 +113,7 @@ Keys for cmake
 ------
 -DLOCAL_BOOST=ON/OFF (default: OFF)
     use local boost headers
--DUSE_MINIUPNP=ON/OFf (default:OFF)
+-DUSE_MINIUPNP=ON/OFF (default:OFF)
     use or not use miniupnpc lib for portmapping
 ----------------
 :eiskaltdcpp-qt:
