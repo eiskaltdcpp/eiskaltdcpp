@@ -279,7 +279,7 @@ void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
     entry.setDescription(map["DESC"].toString().toStdString());
     entry.setExternalIP(map["IP"].toString().toStdString());
     entry.setClientId(map["TAG"].toString().toStdString());
-    entry.setOverrideId(map["TAG"].toString() != "EiskaltDC++ V:2.0");
+    entry.setOverrideId(map["TAG"].toString() != "EiskaltDC++ V:2.1");
     entry.setUseInternetIP(map["IIP"].toBool());
     entry.setDisableChat(map["DCHAT"].toBool());
 }

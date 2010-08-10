@@ -7,7 +7,7 @@ else (UNIX AND NOT APPLE)
   set (PROJECT_NAME_GLOBAL EiskaltDC++)
 endif (UNIX AND NOT APPLE)
 
-set (VERSION "2.0.x")
+set (VERSION "2.1.x")
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
 include (CheckFunctionExists)
