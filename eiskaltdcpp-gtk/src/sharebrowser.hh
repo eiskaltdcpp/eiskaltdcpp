@@ -32,71 +32,145 @@
 class UserCommandMenu;
 
 class ShareBrowser:
-	public BookEntry
+    public BookEntry
 {
-	public:
-		ShareBrowser(dcpp::UserPtr user, const std::string &file, const std::string &initialDirectory);
-		virtual ~ShareBrowser();
-		virtual void show();
+    public:
+        ShareBrowser(dcpp::UserPtr user, const std::string &file, const std::string &initialDirectory);
+        virtual ~ShareBrowser();
+        virtual void show();
 
-	private:
-		// GUI functions
-		void buildList_gui();
-		void openDir_gui(const std::string &dir);
-		bool findDir_gui(const std::string &dir, GtkTreeIter *parent);
-		void buildDirs_gui(dcpp::DirectoryListing::Directory *dir, GtkTreeIter *iter);
-		void updateFiles_gui(dcpp::DirectoryListing::Directory *dir);
-		void updateStatus_gui();
-		void setStatus_gui(std::string statusBar, std::string msg);
-		void fileViewSelected_gui();
-		void downloadSelectedFiles_gui(const std::string &target);
-		void downloadSelectedDirs_gui(const std::string &target);
-		void popupFileMenu_gui();
-		void popupDirMenu_gui();
-		void find_gui();
+    private:
+        // GUI functions
+        void buildList_gui();
+        void openDir_gui(const std::string &dir);
+        bool findDir_gui(const std::string &dir, GtkTreeIter *parent);
+        void buildDirs_gui(dcpp::DirectoryListing::Directory *dir, GtkTreeIter *iter);
+        void updateFiles_gui(dcpp::DirectoryListing::Directory *dir);
+        void updateStatus_gui();
+        void setStatus_gui(std::string statusBar, std::string msg);
+        void fileViewSelected_gui();
+        void downloadSelectedFiles_gui(const std::string &target);
+        void downloadSelectedDirs_gui(const std::string &target);
+        void popupFileMenu_gui();
+        void popupDirMenu_gui();
+        void find_gui();
 
-		// GUI callbacks
-		static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
-		static gboolean onFileButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
-		static gboolean onFileKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
-		static gboolean onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
-		static gboolean onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
-		static void onMatchButtonClicked_gui(GtkWidget *widget, gpointer data);
-		static void onFindButtonClicked_gui(GtkWidget *widget, gpointer);
-		static void onNextButtonClicked_gui(GtkWidget *widget, gpointer);
-		static void onDownloadClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onDownloadToClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onDownloadFavoriteClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onDownloadDirClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data);
+        // GUI callbacks
+        static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static gboolean onFileButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static gboolean onFileKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
+        static gboolean onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static gboolean onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
+        static void onMatchButtonClicked_gui(GtkWidget *widget, gpointer data);
+        static void onFindButtonClicked_gui(GtkWidget *widget, gpointer);
+        static void onNextButtonClicked_gui(GtkWidget *widget, gpointer);
+        static void onDownloadClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onDownloadToClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onDownloadFavoriteClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onDownloadDirClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data);
+        static void onDirGet(GtkMenuItem* item, gpointer data);
+        // Client functions
+        void downloadFile_client(dcpp::DirectoryListing::File *file, std::string target);
+        void downloadDir_client(dcpp::DirectoryListing::Directory *dir, std::string target);
+        void matchQueue_client();
 
-		// Client functions
-		void downloadFile_client(dcpp::DirectoryListing::File *file, std::string target);
-		void downloadDir_client(dcpp::DirectoryListing::Directory *dir, std::string target);
-		void matchQueue_client();
+        GdkEventType oldType;
+        dcpp::UserPtr user;
+        std::string file;
+        std::string initialDirectory;
+        std::string nick;
+        dcpp::DirectoryListing listing;
+        int64_t shareSize;
+        int64_t currentSize;
+        int shareItems;
+        int currentItems;
+        std::string search;
+        bool updateFileView;
+        int skipHits;
+        TreeView dirView, fileView;
+        GtkListStore *fileStore;
+        GtkTreeStore *dirStore;
+        GtkTreeSelection *fileSelection, *dirSelection;
+        UserCommandMenu *fileUserCommandMenu;
+        UserCommandMenu *dirUserCommandMenu;
 
-		GdkEventType oldType;
-		dcpp::UserPtr user;
-		std::string file;
-		std::string initialDirectory;
-		std::string nick;
-		dcpp::DirectoryListing listing;
-		int64_t shareSize;
-		int64_t currentSize;
-		int shareItems;
-		int currentItems;
-		std::string search;
-		bool updateFileView;
-		int skipHits;
-		TreeView dirView, fileView;
-		GtkListStore *fileStore;
-		GtkTreeStore *dirStore;
-		GtkTreeSelection *fileSelection, *dirSelection;
-		UserCommandMenu *fileUserCommandMenu;
-		UserCommandMenu *dirUserCommandMenu;
+                enum {
+                COLUMN_FILENAME,
+                COLUMN_TYPE,
+                COLUMN_SIZE,
+                COLUMN_EXACTSIZE,
+                COLUMN_TTH,
+                COLUMN_LAST
+                };
+
+        class ItemInfo : public dcpp::FastAlloc<ItemInfo> {
+        public:
+                enum ItemType {
+                        FILE,
+                        DIRECTORY,
+                        USER
+                } type;
+
+                union {
+                        dcpp::DirectoryListing::File* file;
+                        dcpp::DirectoryListing::Directory* dir;
+                };
+
+                ItemInfo(const std::string& nick, dcpp::DirectoryListing::Directory* d) : type(USER), dir(d) {
+                        columns.insert(ParamMap::value_type("FILENAME",nick));
+                }
+
+                ItemInfo(dcpp::DirectoryListing::File* f) : type(FILE), file(f) {
+                        columns.insert(ParamMap::value_type("FILENAME",f->getName()));
+                        //columns["COLUMN_FILENAME"] = dcpp::Text::toT(f->getName());
+                        columns.insert(ParamMap::value_type("TYPE",dcpp::Util::getFileExt(columns["FILENAME"])));
+                        //columns["COLUMN_TYPE"] = dcpp::Util::getFileExt(columns["COLUMN_FILENAME"]);
+                        //if(columns["COLUMN_TYPE"].size() > 0 && columns["COLUMN_TYPE"][0] == '.')
+                        //      columns["COLUMN_TYPE"].erase(0, 1);
+
+                        columns["EXACTSIZE"] = dcpp::Text::toT(dcpp::Util::formatExactSize(f->getSize()));
+                        columns["SIZE"] = dcpp::Text::toT(dcpp::Util::formatBytes(f->getSize()));
+                        columns["TTH"] = dcpp::Text::toT(f->getTTH().toBase32());
+                }
+                ItemInfo(dcpp::DirectoryListing::Directory* d) : type(DIRECTORY), dir(d) {
+                        columns.insert(ParamMap::value_type("FILENAME",d->getName()));
+                        columns.insert(ParamMap::value_type("EXACTSIZE",d->getComplete() ? dcpp::Util::formatExactSize(d->getTotalSize()) : _("?")));
+                        //columns["COLUMN_FILENAME"] = dcpp::Text::toT(d->getName());
+                        //columns["COLUMN_EXACTSIZE"] = d->getComplete() ? dcpp::Text::toT(dcpp::Util::formatExactSize(d->getTotalSize())) : _("?");
+                        columns.insert(ParamMap::value_type("SIZE",d->getComplete() ? dcpp::Util::formatBytes(d->getTotalSize()) : _("?")));
+                        //columns["COLUMN_SIZE"] = d->getComplete() ? dcpp::Text::toT(dcpp::Util::formatBytes(d->getTotalSize())) : _("?");
+                }
+
+                //const char *getText() const {
+                //      return columns["COLUMN_FILENAME"].c_str();
+                //}
+
+                int getImage()  const {return 0;};
+
+                int getSelectedImage() const {
+                        return getImage();
+                }
+
+                /*const std::string& getText(int col) const {
+                        return columns[col];
+                }*/
+
+                struct TotalSize {
+                        TotalSize() : total(0) { }
+                        void operator()(ItemInfo* a) { total += a->type == DIRECTORY ? a->dir->getTotalSize() : a->file->getSize(); }
+                        int64_t total;
+                };
+
+                static int compareItems(ItemInfo* a, ItemInfo* b, int col);
+                private:
+                //std::string columns[COLUMN_LAST];
+                typedef std::map<std::string, std::string> ParamMap;
+                ParamMap columns;
+                };
 };
 
 #else

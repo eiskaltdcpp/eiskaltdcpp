@@ -126,6 +126,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     g_signal_connect(getWidget("fileDownloadItem"), "activate", G_CALLBACK(onDownloadClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("searchForAlternatesItem"), "activate", G_CALLBACK(onSearchAlternatesClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("getDirectory"), "activate", G_CALLBACK(onDirGet), (gpointer)this);
 }
 
 ShareBrowser::~ShareBrowser()
@@ -1001,3 +1002,68 @@ void ShareBrowser::matchQueue_client()
     F2 *f = new F2(this, &ShareBrowser::setStatus_gui, "mainStatus", message);
     WulforManager::get()->dispatchGuiFunc(f);
 }
+void ShareBrowser::onDirGet(GtkMenuItem* item, gpointer data)
+{
+ ShareBrowser *sb=(ShareBrowser*)data;
+ GList *list = gtk_tree_selection_get_selected_rows(sb->fileSelection, NULL);
+ GtkTreePath *path;
+ GtkTreeIter iter;
+ string name,fullpath;
+  DirectoryListing::File *filed;
+
+ for (GList *i = list;i;i=i->next)
+ {
+         path = (GtkTreePath *)i->data;
+         if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
+         {
+                filed = sb->fileView.getValue<gpointer, DirectoryListing::File *>(&iter, "DL File");
+
+                ItemInfo* ii= new ItemInfo(filed);
+                 if(ii->type == ItemInfo::FILE)
+                 {
+                        if(!ii->file->getAdls())return;
+                        DirectoryListing::Directory *dir=ii->file->getParent();
+                         while( (dir!=NULL) && (dir!=sb->listing.getRoot()))
+                         {
+                                fullpath=dir->getName()+PATH_SEPARATOR+fullpath;
+                                dir=dir->getParent();
+                         }
+                 }
+                 else if(ii->type == ItemInfo::DIRECTORY)
+                 {
+                        if(!(ii->dir->getAdls()) && (ii->dir->getParent() != sb->listing.getRoot()))
+                                return;
+                        fullpath = Text::toT(((DirectoryListing::AdlDirectory*)ii->dir)->getFullPath());
+
+
+                 }
+
+         }
+
+ }
+  sb->openDir_gui(fullpath);
+}
+
+int ShareBrowser::ItemInfo::compareItems(ItemInfo* a, ItemInfo* b, int col) {
+        if(a->type == DIRECTORY) {
+                if(b->type == DIRECTORY) {
+                        switch(col) {
+                        case COLUMN_EXACTSIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
+                        case COLUMN_SIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
+                        default: break; //strcmp(a->columns[col].c_str(), b->columns[col].c_str());
+                        }
+                } else {
+                        return -1;
+                }
+        } else if(b->type == DIRECTORY) {
+                return 1;
+        } else {
+                switch(col) {
+                case COLUMN_EXACTSIZE: return compare(a->file->getSize(), b->file->getSize());
+                case COLUMN_SIZE: return compare(a->file->getSize(), b->file->getSize());
+                default: break;// strcmp(a->columns[col].c_str(), b->columns[col].c_str());
+                }
+        }
+}
+
+/*Many code from orginal DC++*/

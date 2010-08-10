@@ -886,7 +886,7 @@ void MainWindow::setToolbarButton_gui()
         gtk_widget_hide(getWidget("finishedDownloads"));
     if (!WGETB("toolbar-button-finished-uploads"))
         gtk_widget_hide(getWidget("finishedUploads"));
-    if(!WGETB("toolbar-button-adlsearch"))
+    if (!WGETB("toolbar-button-adlsearch"))
         gtk_widget_hide(getWidget("ADLSearch"));
 }
 
