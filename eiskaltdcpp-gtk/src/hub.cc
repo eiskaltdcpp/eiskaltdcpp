@@ -35,6 +35,8 @@
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
+#include "ShellCommand.hh"
+#include <dcpp/StringTokenizer.h>
 
 #include "Version.h"
 
@@ -1712,7 +1714,13 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/refresh\t\t\t\t - " + _("Update own file list") + "\n" +
             "/userlist\t\t\t\t - " + _("User list show/hide") + "\n" +
             "/version\t\t\t\t - " + _("Show version") + "\n" +
-            "/emoticons, /emot\t\t - " + _("Emoticons on/off") + "\n", Msg::SYSTEM);
+            "/emoticons, /emot\t\t - " + _("Emoticons on/off") + "\n" +
+            "/sh\t\t\t\t\t - " +  _("Execute code (bash)") +"\n"
+            "/alias list\t\t\t\t - " + _("Alias List")+ "\n"
+            "/alias purge A\t\t\t - "+ _("Alias Remove A")+"\n"
+            "/alias A::uname -a\t\t - " +  _("Alias add uname -a as A")+"\n" +
+            "/A\t\t\t\t\t - " + _("Alias A executing")+"\n"
+            , Msg::SYSTEM);
         }
         else if (command == "join" && !param.empty())
         {
@@ -1754,6 +1762,133 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), FALSE);
             else
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), TRUE);
+        }
+        else if (command == _("sh"))
+        {
+                        FILE *pipe = popen( param.c_str(), "r" );
+                        gchar *command_res;
+                        gsize command_length;
+                        GIOChannel* gio_chanel = g_io_channel_unix_new( fileno( pipe ) );
+                        GIOStatus gio_status = g_io_channel_read_to_end( gio_chanel, &command_res, &command_length, NULL );
+                        if( gio_status == G_IO_STATUS_NORMAL )
+                        {
+                                F2 *func = new F2( hub, &Hub::sendMessage_client, string(command_res), false );
+                                WulforManager::get()->dispatchClientFunc(func);
+                        }
+                        g_io_channel_close( gio_chanel );
+                        g_free( command_res );
+                        pclose( pipe );
+        }
+        //else if (command == _("lua") ) {
+            //ScriptManager::getInstance()->EvaluateChunk(Text::fromT(param));
+        //}
+        //else if( command == _("luafile")) {
+            //ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
+        //}
+        //alisa patch
+        else if (command == "alias" && !param.empty())
+        {
+            StringTokenizer<string> sl(param, ' ');
+            if( sl.getTokens().size() >= 1 )
+            {
+                StringTokenizer<string> aliases( WGETS("custom-aliases"), '#' );
+
+                    if( sl.getTokens().at(0) == "list" )
+                    {
+                        // вывод списка алиасов
+                        /// List aliasu
+                            if( !aliases.getTokens().empty() ) {
+                                hub->addMessage_gui( string( "Alias list:" ), Msg::SYSTEM);
+
+                                for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i) {
+                                    hub->addMessage_gui( *i, Msg::SYSTEM);
+                                }
+                            }
+                            else
+                            {
+                                hub->addStatusMessage_gui(_("Aliases not found."), Msg::SYSTEM, Sound::NONE);
+                            }
+                    }
+                    else if( sl.getTokens().at(0) == "purge" )
+                    {
+                        // удаление алиаса из списка
+                        ///odstraneni aliasu
+                            string store(""), name("");
+                                for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i) {
+                                    name = i->substr( 0, i->find_first_of( "::", 0 ) );
+                                    if( name.compare( sl.getTokens().at(1) ) != 0 )
+                                        store = store + *i + "#";
+                                    }
+                                    WSET( "custom-aliases", store );
+
+                    }
+                    else
+                    {
+                        // добавление алиаса к списку
+                        StringTokenizer<string> command( param, '::' );
+                        string store(""), name("");
+                        bool exists = false;
+                        for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i)
+                        {
+                            name = i->substr( 0, i->find_first_of( "::", 0 ) );
+                            if( name.compare( param.substr( 0, param.find_first_of( "::", 0 ) ) ) == 0 )
+                            {
+                                exists = true;
+                                hub->addMessage_gui( string( "This alias already exists: " + *i ), Msg::SYSTEM);
+                                break;
+                            }
+                        }
+                        if( command.getTokens().size() == 3  && !exists )
+                        {
+                            aliases.getTokens().push_back( param );
+                            string store("");
+                            for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i)
+                            {
+                                store = store + *i + "#";
+                            }
+                            WSET( "custom-aliases", store );
+                        }
+                    }
+            }
+        }
+        else if ( !WGETS("custom-aliases").empty() )
+        {
+            // поиск алиаса в списке
+            StringTokenizer<string> aliases( WGETS("custom-aliases"), '#' );
+                string name("");
+                for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i)
+                {
+                        name = i->substr( 0, i->find_first_of( "::", 0 ) );
+                        if( name.compare( command ) == 0 )
+                        {
+                            string exec = i->substr( i->find_first_of( "::", 0 ) + 2, i->size() );
+
+                            if( !exec.empty() )
+                            {
+                                gchar *output = NULL;
+                                GError *error = NULL;
+
+                                g_spawn_command_line_sync( exec.c_str(), &output, NULL, NULL, &error);
+
+                                if (error != NULL)
+                                {
+                                    //TODO: вывод ошибки на GUI
+                                    printf("ERROR\n");
+                                    g_error_free(error);
+                                }
+                                else
+                                {
+                                    string trash( output );
+                                    g_free( output );
+
+                                    func2 = new F2(hub, &Hub::sendMessage_client, trash, false );
+                                                        WulforManager::get()->dispatchClientFunc( func2 );
+                                }
+                            }
+                                break;
+                        }
+
+                }
         }
         // protect command
         else if (command == "password")

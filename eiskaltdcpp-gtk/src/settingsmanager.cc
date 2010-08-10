@@ -225,6 +225,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("icon-openlist", "eiskaltdcpp-openlist"));
     defaultString.insert(StringMap::value_type("icon-own-filelist", "eiskaltdcpp-own_filelist"));
     defaultString.insert(StringMap::value_type("icon-magnet", "eiskaltdcpp-gui"));
+    //alias
+    defaultString.insert(StringMap::value_type("custom-aliases", ""));
 
     load();
 }
