@@ -406,6 +406,12 @@ endif (USE_GTK)
 endif(GETTEXT_FOUND)
 
 if (USE_QT OR USE_GTK)
+
+    if (WITH_EXAMPLES)
+        install (DIRECTORY examples/ DESTINATION ${CLIENT_DATA_DIR}/examples
+        FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+        PATTERN ".svn" EXCLUDE )
+    endif (WITH_EXAMPLES)
   install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/64x64/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_32x32.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/32x32/apps RENAME eiskaltdcpp.png)

@@ -2,7 +2,6 @@
 *** common changes ***
 * libdcpp library was separated from the basic binary file for unix-like systems.
 * Added localization of kernel messages. Gettext used.
-* Added ADL search in kernel.
 *** eiskaltdcpp-qt ***
 * Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
 * Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
