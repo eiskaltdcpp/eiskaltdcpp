@@ -1918,8 +1918,12 @@ Please check your connection settings</source>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2314"/>
+        <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
+        <translation type="unfinished">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.0.4)&lt;br/&gt; {1p?} {07&lt;?} {1p?} {07@?} {2.1.0 ?}</translation>
+    </message>
+    <message>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.0.4)&lt;br/&gt;</translation>
+        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.0.4)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2344"/>
@@ -2968,98 +2972,98 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>ShareBrowser</name>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="47"/>
+        <location filename="../src/ShareBrowser.cpp" line="48"/>
         <source>Download</source>
         <translation>Сьцягнуць</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="49"/>
+        <location filename="../src/ShareBrowser.cpp" line="50"/>
         <source>Download to</source>
         <translation>Сьцягнуць у</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="52"/>
+        <location filename="../src/ShareBrowser.cpp" line="53"/>
         <source>Search for alternates</source>
         <translation>Шукаць іншыя крыніцы</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="54"/>
+        <location filename="../src/ShareBrowser.cpp" line="55"/>
         <source>Copy magnet</source>
         <translation>Перапісаць магніт-спасылку</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="57"/>
+        <location filename="../src/ShareBrowser.cpp" line="58"/>
         <source>Add to favorites</source>
         <translation>Дадаць да ўлюбёнцаў</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="117"/>
+        <location filename="../src/ShareBrowser.cpp" line="118"/>
         <source>Browse</source>
         <translation>Прагледзець</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="163"/>
+        <location filename="../src/ShareBrowser.cpp" line="164"/>
         <source>Own files</source>
         <translation>Уласныя файлы</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="165"/>
+        <location filename="../src/ShareBrowser.cpp" line="166"/>
         <source>Listing: </source>
         <translatorcomment>???Пералік; Сьпіс</translatorcomment>
         <translation>Сьпіс файлаў: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="214"/>
+        <location filename="../src/ShareBrowser.cpp" line="215"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Агульны памер абагуленага: %1;  Файлаў: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="216"/>
+        <location filename="../src/ShareBrowser.cpp" line="217"/>
         <source>Filebrowser</source>
         <translation>Аглядальнік файлаў</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="218"/>
+        <location filename="../src/ShareBrowser.cpp" line="219"/>
         <source>Close</source>
         <translation>Закрыць</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="330"/>
-        <location filename="../src/ShareBrowser.cpp" line="338"/>
+        <location filename="../src/ShareBrowser.cpp" line="332"/>
+        <location filename="../src/ShareBrowser.cpp" line="340"/>
         <source>Name</source>
         <translation>Назоў</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="330"/>
-        <location filename="../src/ShareBrowser.cpp" line="338"/>
+        <location filename="../src/ShareBrowser.cpp" line="332"/>
+        <location filename="../src/ShareBrowser.cpp" line="340"/>
         <source>Size</source>
         <translation>Памер</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="331"/>
-        <location filename="../src/ShareBrowser.cpp" line="339"/>
+        <location filename="../src/ShareBrowser.cpp" line="333"/>
+        <location filename="../src/ShareBrowser.cpp" line="341"/>
         <source>Exact size</source>
         <translation>Дакладны памер</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="332"/>
-        <location filename="../src/ShareBrowser.cpp" line="340"/>
+        <location filename="../src/ShareBrowser.cpp" line="334"/>
+        <location filename="../src/ShareBrowser.cpp" line="342"/>
         <source>TTH</source>
         <translation>Скарот (TTH)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="473"/>
-        <location filename="../src/ShareBrowser.cpp" line="486"/>
+        <location filename="../src/ShareBrowser.cpp" line="475"/>
+        <location filename="../src/ShareBrowser.cpp" line="488"/>
         <source>Total size: %1</source>
         <translation>Агульны памер: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="489"/>
+        <location filename="../src/ShareBrowser.cpp" line="491"/>
         <source>; Selected: %1</source>
         <translation>; Абраныя: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="541"/>
+        <location filename="../src/ShareBrowser.cpp" line="543"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>

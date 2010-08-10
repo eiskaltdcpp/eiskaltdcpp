@@ -1,7 +1,8 @@
---- 2.0.4 2010-09-xx ---
+--- 2.1.0 2010-09-xx ---
 *** common changes ***
 * libdcpp library was separated from the basic binary file for unix-like systems.
 * Added localization of kernel messages. Gettext used.
+* Added ADL search in kernel.
 *** eiskaltdcpp-qt ***
 * Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
 * Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
@@ -18,6 +19,8 @@
 *** eiskaltdcpp-gtk ***
 * Added Gtk interface based on code of FreeDC++ and LinuxDC++.
 * The interface is localized using gettext.
+* Default icons for Gtk interface synchronized with default icons from Qt interface.
+* Added widget for ADL-search configuration.
 
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.

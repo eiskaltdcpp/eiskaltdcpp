@@ -37,6 +37,24 @@ libgnome2 (optional, see cmake keys)
 
 
 *******************************************************************************
+Opional Depends
+*******************************************************************************
+----------------
+:eiskaltdcpp-qt:
+----------------
+sh (bash, dash, etc...)
+    see eiskaltdcpp-qt/examples/ and eiskaltdcpp-qt/scripts/
+php5-cli (or other version, check the compatibility by yourself)
+    see eiskaltdcpp-qt/examples/ and eiskaltdcpp-qt/scripts/
+libqtscript4-core, libqtscript4-gui, libqtscript4-network, libqtscript4-xml
+    see eiskaltdcpp-qt/scripts/
+-----------------
+:eiskaltdcpp-gtk:
+-----------------
+...
+
+
+*******************************************************************************
 Build Depends
 *******************************************************************************
 --------

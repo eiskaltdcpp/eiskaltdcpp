@@ -2,22 +2,26 @@
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
 #
+# Boris Pek <tehnick-8@mail.ru>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-07-30 00:20+0400\n"
-"PO-Revision-Date: 2009-07-10 21:27+1100\n"
+"PO-Revision-Date: 2010-08-10 18:47+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/emoticonsdialog.cc:69
 msgid "Emotion packs"
-msgstr "Смайл-набор"
+msgstr "Набор смайлов"
 
 #: ../src/emoticonsdialog.cc:74
 msgid "Icon size"
@@ -100,7 +104,7 @@ msgstr "0 Юзеров"
 #: ../src/hub.cc:493
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr ""
+msgstr "Ожидание ввода пароля (не удаляйте /password перед своим паролем)"
 
 #: ../src/hub.cc:532
 msgid "<b>Enter your password</b>"
@@ -120,9 +124,8 @@ msgid " *** Emoticons limit"
 msgstr " *** Ограничение смайликов"
 
 #: ../src/hub.cc:1499 ../src/privatemessage.cc:1097
-#, fuzzy
 msgid "Use Emoticons"
-msgstr "Использовать смайлики"
+msgstr "Использовать смайлы"
 
 #: ../src/hub.cc:1580 ../src/hub.cc:1593 ../src/hub.cc:1698
 #: ../src/privatemessage.cc:861 ../src/privatemessage.cc:875
@@ -431,30 +434,30 @@ msgid "File"
 msgstr "Файл"
 
 #: ../src/mainwindow.cc:94
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
 msgstr ""
-"DC++ клиент основан на исходном коде FreeDC++ и LinuxDC++\n"
+"Клиент основан на исходном коде FreeDC++ и LinuxDC++\n"
 "\n"
-"EiskaltDC++ version: 2.0.4\n"
-"DC++ core version: 0.75"
+"EiskaltDC++ version: %s (%s)\n"
+"DC++ core version: %s"
 
 #: ../src/mainwindow.cc:97
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
 "\n"
 "EiskaltDC++ version: %s - %s %s\n"
 "DC++ core version: %s"
 msgstr ""
-"DC++ клиент основан на исходном коде FreeDC++ и LinuxDC++\n"
+"Клиент основан на исходном коде FreeDC++ и LinuxDC++\n"
 "\n"
-"EiskaltDC++ version: 2.0.4\n"
-"DC++ core version: 0.75"
+"EiskaltDC++ version: %s (%s)\n"
+"DC++ core version: %s"
 
 #: ../src/mainwindow.cc:209
 msgid "Welcome to "
@@ -473,14 +476,12 @@ msgid "Enter value for "
 msgstr "Введите значение "
 
 #: ../src/mainwindow.cc:1000
-#, fuzzy
 msgid "Magnet Properties / Choice"
-msgstr "Свойсва магнета"
+msgstr "Свойства магнетов / Выбор"
 
 #: ../src/mainwindow.cc:1070
-#, fuzzy
 msgid "Magnet Choice"
-msgstr "Свойсва магнета"
+msgstr "Свойства магнетов"
 
 #: ../src/mainwindow.cc:1559
 msgid "Select filelist to browse"
@@ -539,30 +540,27 @@ msgstr "Избранные Юзеры"
 #: ../src/favoriteusers.cc:44 ../src/favoriteusers.cc:65
 #: ../src/favoriteusers.cc:108 ../src/favoriteusers.cc:470
 #: ../src/favoriteusers.cc:472
-#, fuzzy
 msgid "Auto grant slot"
-msgstr "_Предоставить слот"
+msgstr "Автоматически предоставить слот"
 
 #: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
 #: ../src/favoriteusers.cc:584
 msgid "Hub (last seen in, if offline)"
-msgstr ""
+msgstr "Хаб (последняя видимость, если в оффлайне)"
 
 #: ../src/favoriteusers.cc:47 ../src/favoriteusers.cc:111
 #: ../src/favoriteusers.cc:577 ../src/favoriteusers.cc:585
 msgid "Time last seen"
-msgstr ""
+msgstr "В последний раз видели"
 
 #: ../src/favoriteusers.cc:103 ../src/favoriteusers.cc:622
 #: ../src/favoriteusers.cc:641
-#, fuzzy
 msgid "Online"
-msgstr "Офлайн"
+msgstr "Онлайн"
 
 #: ../src/favoriteusers.cc:438
-#, fuzzy
 msgid "Are you sure you want to delete favorite user(s)?"
-msgstr "Вы уверены, что хотите удалить хаб \"%s\"?"
+msgstr "Вы уверены, что хотите удалить избранного пользователя?"
 
 #: ../src/hashdialog.cc:58
 msgid "B/s"
@@ -783,23 +781,20 @@ msgstr "Нет"
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:925
 #: ../src/settingsdialog.cc:1187 ../src/settingsdialog.cc:1234
 #: ../src/settingsdialog.cc:1282
-#, fuzzy
 msgid "Search Spy"
-msgstr "Поиск: "
+msgstr "Поисковый шпион"
 
 #: ../src/searchspy.cc:54 ../src/searchspy.cc:72 ../src/searchspy.cc:74
 #: ../src/searchspy.cc:78 ../src/searchspy.cc:220 ../src/searchspy.cc:231
 #: ../src/searchspy.cc:285 ../src/searchspy.cc:292 ../src/searchspy.cc:308
 #: ../src/searchspy.cc:467 ../src/searchspy.cc:532 ../src/searchspy.cc:565
-#, fuzzy
 msgid "Search String"
-msgstr "Опции поиска"
+msgstr "Строка поиска"
 
 #: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
-#, fuzzy
 msgid "Count"
-msgstr "Страна"
+msgstr "Количество"
 
 #: ../src/searchspy.cc:57 ../src/searchspy.cc:295 ../src/searchspy.cc:377
 #: ../src/transfers.cc:59 ../src/transfers.cc:368 ../src/transfers.cc:401
@@ -815,26 +810,24 @@ msgid "Status"
 msgstr "Статус"
 
 #: ../src/searchspy.cc:295 ../src/searchspy.cc:363
-#, fuzzy
 msgid "waiting..."
-msgstr "Рейтинг"
+msgstr "ожидание..."
 
 #: ../src/searchspy.cc:358
 msgid "top..."
-msgstr ""
+msgstr "верх..."
 
 #: ../src/searchspy.cc:389
 msgid "Update frame search"
-msgstr ""
+msgstr "Обновить поисковый фрейм"
 
 #: ../src/searchspy.cc:412
 msgid "top/waiting/frame: "
-msgstr ""
+msgstr "верх/ожидание/фрейм:"
 
 #: ../src/searchspy.cc:500
-#, fuzzy
 msgid "Clear frame search"
-msgstr "Очищать поле ввода по завершению поиска"
+msgstr "Очистить поисковый фрейм"
 
 #: ../src/bookentry.cc:65 ../src/bookentry.cc:70
 msgid "Close tab"
@@ -986,7 +979,7 @@ msgstr "Не закрывать программу, сворачивать в т
 
 #: ../src/settingsdialog.cc:903
 msgid "Send PM when double clicked in the user list"
-msgstr ""
+msgstr "Посылать ЛС при двойном клике в списке пользователей"
 
 #: ../src/settingsdialog.cc:921 ../src/settingsdialog.cc:1278
 #: ../src/downloadqueue.cc:34
@@ -1180,7 +1173,7 @@ msgstr "Игнорировать личные сообщения от ботов
 
 #: ../src/settingsdialog.cc:1293
 msgid "Popup box to input password for hubs"
-msgstr ""
+msgstr "Всплывающее окна для ввода пароля на хабе"
 
 #: ../src/settingsdialog.cc:1298
 msgid "Confirm application exit"
@@ -1248,6 +1241,8 @@ msgstr "Не отправлять ботам сообщение \"ушёл\""
 #: ../src/settingsdialog.cc:1357
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr ""
+"Использовать быстрое хэширование (отключите, если у вас проблемы с "
+"хэшированием)"
 
 #: ../src/settingsdialog.cc:1358
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
@@ -1416,19 +1411,19 @@ msgstr "Закачка начинается..."
 
 #: ../src/transfers.cc:936 ../src/transfers.cc:1113
 msgid "[S]"
-msgstr ""
+msgstr "[S]"
 
 #: ../src/transfers.cc:938 ../src/transfers.cc:1115
 msgid "[U]"
-msgstr ""
+msgstr "[U]"
 
 #: ../src/transfers.cc:941
 msgid "[T]"
-msgstr ""
+msgstr "[T]"
 
 #: ../src/transfers.cc:943 ../src/transfers.cc:1118
 msgid "[Z]"
-msgstr ""
+msgstr "[Z]"
 
 #: ../src/transfers.cc:961
 msgid "Download complete..."
