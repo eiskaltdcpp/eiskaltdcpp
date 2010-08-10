@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-07-30 00:20+0400\n"
-"PO-Revision-Date: 2010-08-03 18:41+0200\n"
+"PO-Revision-Date: 2010-08-10 18:24+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -602,7 +602,7 @@ msgstr "Desconectado"
 
 #: ../src/WulforUtil.cc:192
 msgid "UTF-8 (Unicode)"
-msgstr ""
+msgstr "UTF-8 (Unicode)"
 
 #: ../src/WulforUtil.cc:193
 msgid "CP1252 (Western Europe)"
@@ -883,19 +883,19 @@ msgstr "Extensión"
 
 #: ../src/settingsdialog.cc:798
 msgid "Xine player"
-msgstr ""
+msgstr "Xine player"
 
 #: ../src/settingsdialog.cc:799
 msgid "Kaffeine player"
-msgstr ""
+msgstr "Kaffeine player"
 
 #: ../src/settingsdialog.cc:800
 msgid "Mplayer player"
-msgstr ""
+msgstr "Mplayer player"
 
 #: ../src/settingsdialog.cc:801
 msgid "Amarok player"
-msgstr ""
+msgstr "Amarok player"
 
 #: ../src/settingsdialog.cc:833
 msgid "Set lowest priority for newly added files larger than low priority size"
@@ -1423,19 +1423,19 @@ msgstr "Comenzando descarga..."
 
 #: ../src/transfers.cc:936 ../src/transfers.cc:1113
 msgid "[S]"
-msgstr ""
+msgstr "[S]"
 
 #: ../src/transfers.cc:938 ../src/transfers.cc:1115
 msgid "[U]"
-msgstr ""
+msgstr "[U]"
 
 #: ../src/transfers.cc:941
 msgid "[T]"
-msgstr ""
+msgstr "[T]"
 
 #: ../src/transfers.cc:943 ../src/transfers.cc:1118
 msgid "[Z]"
-msgstr ""
+msgstr "[Z]"
 
 #: ../src/transfers.cc:961
 msgid "Download complete..."
