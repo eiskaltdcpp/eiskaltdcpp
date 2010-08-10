@@ -512,6 +512,7 @@ void WulforUtil::registerIcons()
 	icons["icon-openlist"] = wsm->getString("icon-openlist");
 	icons["icon-own-filelist"] = wsm->getString("icon-own-filelist");
 	icons["icon-magnet"] = wsm->getString("icon-magnet");
+	icons["icon-adlsearch"] = wsm->getString("icon-adlsearch");
 
 	if (iconFactory)
 	{

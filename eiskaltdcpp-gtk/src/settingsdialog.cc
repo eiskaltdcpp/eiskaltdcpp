@@ -75,7 +75,7 @@ Settings::Settings(GtkWindow* parent):
     defaultStringTheme.insert(StringMap::value_type("icon-queue", "eiskaltdcpp-download"));
     defaultStringTheme.insert(StringMap::value_type("icon-search", "eiskaltdcpp-edit-find"));
     defaultStringTheme.insert(StringMap::value_type("icon-search-spy", "eiskaltdcpp-spy"));
-    defaultStringTheme.insert(StringMap::value_type("icon-adlsearch", "eiskaltdcpp-adlsearch"));
+    defaultStringTheme.insert(StringMap::value_type("icon-adlsearch", "eiskaltdcpp-find"));
     defaultStringTheme.insert(StringMap::value_type("icon-upload", "eiskaltdcpp-go-up"));
     defaultStringTheme.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
     defaultStringTheme.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
@@ -1196,6 +1196,7 @@ void Settings::initAppearance_gui()
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Reconnect"), "icon-reconnect");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("File"), "icon-file");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Directory"), "icon-directory");
+        addOption_gui(themeIconsStore, wsm, iconTheme, _("ADL Search"), "icon-adlsearch");
 
         g_signal_connect(getWidget("importThemeButton"), "clicked", G_CALLBACK(onImportThemeButton_gui), (gpointer)this);
         g_signal_connect(getWidget("exportThemeButton"), "clicked", G_CALLBACK(onExportThemeButton_gui), (gpointer)this);

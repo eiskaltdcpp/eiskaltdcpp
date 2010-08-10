@@ -215,7 +215,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("icon-queue", "eiskaltdcpp-download"));
     defaultString.insert(StringMap::value_type("icon-search", "eiskaltdcpp-edit-find"));
     defaultString.insert(StringMap::value_type("icon-search-spy", "eiskaltdcpp-spy"));
-    defaultString.insert(StringMap::value_type("icon-adlsearch", "eiskaltdcpp-adlsearch"));
+    defaultString.insert(StringMap::value_type("icon-adlsearch", "eiskaltdcpp-find"));
     defaultString.insert(StringMap::value_type("icon-upload", "eiskaltdcpp-go-up"));
     defaultString.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
     defaultString.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));

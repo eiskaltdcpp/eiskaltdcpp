@@ -253,6 +253,20 @@
                       </widget>
                     </child>
                     <child>
+                      <widget class="GtkImageMenuItem" id="ADLSearchMenuItem">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">ADL Search</property>
+                        <property name="use_underline">True</property>
+                        <child internal-child="image">
+                          <widget class="GtkImage" id="ADLSearchMenuImage">
+                            <property name="visible">True</property>
+                            <property name="stock">icon-adlsearch</property>
+                            <property name="icon_size">1</property>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
                       <widget class="GtkSeparatorMenuItem" id="separator_b">
                         <property name="visible">True</property>
                       </widget>
@@ -610,6 +624,19 @@
                 <property name="label" translatable="yes">Finished Uploads</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">icon-finished-uploads</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="ADLSearch">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">ADL Search</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">ADL Search</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-adlsearch</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
