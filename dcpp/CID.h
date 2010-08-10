@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,33 +26,33 @@ namespace dcpp {
 
 class CID {
 public:
-	enum { SIZE = 192 / 8 };
+    enum { SIZE = 192 / 8 };
 
-	CID() { memset(cid, 0, sizeof(cid)); }
-	explicit CID(const uint8_t* data) { memcpy(cid, data, sizeof(cid)); }
-	explicit CID(const string& base32) { Encoder::fromBase32(base32.c_str(), cid, sizeof(cid)); }
+    CID() { memset(cid, 0, sizeof(cid)); }
+    explicit CID(const uint8_t* data) { memcpy(cid, data, sizeof(cid)); }
+    explicit CID(const string& base32) { Encoder::fromBase32(base32.c_str(), cid, sizeof(cid)); }
 
-	bool operator==(const CID& rhs) const { return memcmp(cid, rhs.cid, sizeof(cid)) == 0; }
-	bool operator<(const CID& rhs) const { return memcmp(cid, rhs.cid, sizeof(cid)) < 0; }
+    bool operator==(const CID& rhs) const { return memcmp(cid, rhs.cid, sizeof(cid)) == 0; }
+    bool operator<(const CID& rhs) const { return memcmp(cid, rhs.cid, sizeof(cid)) < 0; }
 
-	string toBase32() const { return Encoder::toBase32(cid, sizeof(cid)); }
-	string& toBase32(string& tmp) const { return Encoder::toBase32(cid, sizeof(cid), tmp); }
+    string toBase32() const { return Encoder::toBase32(cid, sizeof(cid)); }
+    string& toBase32(string& tmp) const { return Encoder::toBase32(cid, sizeof(cid), tmp); }
 
-	size_t toHash() const { return *reinterpret_cast<const size_t*>(cid); }
-	const uint8_t* data() const { return cid; }
+    size_t toHash() const { return *reinterpret_cast<const size_t*>(cid); }
+    const uint8_t* data() const { return cid; }
 
-	bool isZero() const { return find_if(cid, cid+SIZE, bind2nd(not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
+    bool isZero() const { return find_if(cid, cid+SIZE, bind2nd(not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
 
-	static CID generate() {
-		uint8_t data[CID::SIZE];
-		for(size_t i = 0; i < sizeof(data); ++i) {
-			data[i] = (uint8_t)Util::rand();
-		}
-		return CID(data);
-	}
+    static CID generate() {
+        uint8_t data[CID::SIZE];
+        for(size_t i = 0; i < sizeof(data); ++i) {
+            data[i] = (uint8_t)Util::rand();
+        }
+        return CID(data);
+    }
 
 private:
-	uint8_t cid[SIZE];
+    uint8_t cid[SIZE];
 };
 
 } // namespace dcpp
@@ -60,9 +60,9 @@ private:
 namespace std { namespace tr1 {
 template<>
 struct hash<dcpp::CID> {
-	size_t operator()(const dcpp::CID& rhs) const {
-		return *reinterpret_cast<const size_t*>(rhs.data());
-	}
+    size_t operator()(const dcpp::CID& rhs) const {
+        return *reinterpret_cast<const size_t*>(rhs.data());
+    }
 };
 }
 }

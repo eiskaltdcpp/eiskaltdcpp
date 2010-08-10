@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2009 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,42 +25,42 @@ namespace dcpp {
 
 class QueueManagerListener {
 public:
-	virtual ~QueueManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~QueueManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> Added;
-	typedef X<1> Finished;
-	typedef X<2> Removed;
-	typedef X<3> Moved;
-	typedef X<4> SourcesUpdated;
-	typedef X<5> StatusUpdated;
-	typedef X<6> SearchStringUpdated;
-	typedef X<7> PartialList;
+    typedef X<0> Added;
+    typedef X<1> Finished;
+    typedef X<2> Removed;
+    typedef X<3> Moved;
+    typedef X<4> SourcesUpdated;
+    typedef X<5> StatusUpdated;
+    typedef X<6> SearchStringUpdated;
+    typedef X<7> PartialList;
 
-	typedef X<8> RecheckStarted;
-	typedef X<9> RecheckNoFile;
-	typedef X<10> RecheckFileTooSmall;
-	typedef X<11> RecheckDownloadsRunning;
-	typedef X<12> RecheckNoTree;
-	typedef X<13> RecheckAlreadyFinished;
-	typedef X<14> RecheckDone;
+    typedef X<8> RecheckStarted;
+    typedef X<9> RecheckNoFile;
+    typedef X<10> RecheckFileTooSmall;
+    typedef X<11> RecheckDownloadsRunning;
+    typedef X<12> RecheckNoTree;
+    typedef X<13> RecheckAlreadyFinished;
+    typedef X<14> RecheckDone;
 
-	virtual void on(Added, QueueItem*) throw() { }
-	virtual void on(Finished, QueueItem*, const string&, int64_t) throw() { }
-	virtual void on(Removed, QueueItem*) throw() { }
-	virtual void on(Moved, QueueItem*, const string&) throw() { }
-	virtual void on(SourcesUpdated, QueueItem*) throw() { }
-	virtual void on(StatusUpdated, QueueItem*) throw() { }
-	virtual void on(SearchStringUpdated, QueueItem*) throw() { }
-	virtual void on(PartialList, const UserPtr&, const string&) throw() { }
+    virtual void on(Added, QueueItem*) throw() { }
+    virtual void on(Finished, QueueItem*, const string&, int64_t) throw() { }
+    virtual void on(Removed, QueueItem*) throw() { }
+    virtual void on(Moved, QueueItem*, const string&) throw() { }
+    virtual void on(SourcesUpdated, QueueItem*) throw() { }
+    virtual void on(StatusUpdated, QueueItem*) throw() { }
+    virtual void on(SearchStringUpdated, QueueItem*) throw() { }
+    virtual void on(PartialList, const UserPtr&, const string&) throw() { }
 
-	virtual void on(RecheckStarted, QueueItem*) throw() { }
-	virtual void on(RecheckNoFile, QueueItem*) throw() { }
-	virtual void on(RecheckFileTooSmall, QueueItem*) throw() { }
-	virtual void on(RecheckDownloadsRunning, QueueItem*) throw() { }
-	virtual void on(RecheckNoTree, QueueItem*) throw() { }
-	virtual void on(RecheckAlreadyFinished, QueueItem*) throw() { }
-	virtual void on(RecheckDone, QueueItem*) throw() { }
+    virtual void on(RecheckStarted, QueueItem*) throw() { }
+    virtual void on(RecheckNoFile, QueueItem*) throw() { }
+    virtual void on(RecheckFileTooSmall, QueueItem*) throw() { }
+    virtual void on(RecheckDownloadsRunning, QueueItem*) throw() { }
+    virtual void on(RecheckNoTree, QueueItem*) throw() { }
+    virtual void on(RecheckAlreadyFinished, QueueItem*) throw() { }
+    virtual void on(RecheckDone, QueueItem*) throw() { }
 };
 
 } // namespace dcpp

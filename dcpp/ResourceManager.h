@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,17 +26,17 @@ namespace dcpp {
 class ResourceManager : public Singleton<ResourceManager> {
 public:
 
-	bool isRTL() { return rtl; }
+    bool isRTL() { return rtl; }
 
 private:
-	friend class Singleton<ResourceManager>;
+    friend class Singleton<ResourceManager>;
 
-	ResourceManager() : rtl(false) {
-	}
+    ResourceManager() : rtl(false) {
+    }
 
-	virtual ~ResourceManager() { }
+    virtual ~ResourceManager() { }
 
-	bool rtl;
+    bool rtl;
 };
 
 } // namespace dcpp

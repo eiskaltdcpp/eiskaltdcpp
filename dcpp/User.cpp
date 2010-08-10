@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,84 +33,84 @@ OnlineUser::OnlineUser(const UserPtr& ptr, Client& client_, uint32_t sid_) : ide
 }
 
 void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility) const {
-	{
-		FastLock l(cs);
-		for(InfMap::const_iterator i = info.begin(); i != info.end(); ++i) {
-			sm[prefix + string((char*)(&i->first), 2)] = i->second;
-		}
-	}
-	if(user) {
-		sm[prefix + "SID"] = getSIDString();
-		sm[prefix + "CID"] = user->getCID().toBase32();
-		sm[prefix + "TAG"] = getTag();
-		sm[prefix + "SSshort"] = Util::formatBytes(get("SS"));
+    {
+        FastLock l(cs);
+        for(InfMap::const_iterator i = info.begin(); i != info.end(); ++i) {
+            sm[prefix + string((char*)(&i->first), 2)] = i->second;
+        }
+    }
+    if(user) {
+        sm[prefix + "SID"] = getSIDString();
+        sm[prefix + "CID"] = user->getCID().toBase32();
+        sm[prefix + "TAG"] = getTag();
+        sm[prefix + "SSshort"] = Util::formatBytes(get("SS"));
 
-		if(compatibility) {
-			if(prefix == "my") {
-				sm["mynick"] = getNick();
-				sm["mycid"] = user->getCID().toBase32();
-			} else {
-				sm["nick"] = getNick();
-				sm["cid"] = user->getCID().toBase32();
-				sm["ip"] = get("I4");
-				sm["tag"] = getTag();
-				sm["description"] = get("DE");
-				sm["email"] = get("EM");
-				sm["share"] = get("SS");
-				sm["shareshort"] = Util::formatBytes(get("SS"));
-			}
-		}
-	}
+        if(compatibility) {
+            if(prefix == "my") {
+                sm["mynick"] = getNick();
+                sm["mycid"] = user->getCID().toBase32();
+            } else {
+                sm["nick"] = getNick();
+                sm["cid"] = user->getCID().toBase32();
+                sm["ip"] = get("I4");
+                sm["tag"] = getTag();
+                sm["description"] = get("DE");
+                sm["email"] = get("EM");
+                sm["share"] = get("SS");
+                sm["shareshort"] = Util::formatBytes(get("SS"));
+            }
+        }
+    }
 }
 
 bool Identity::isClientType(ClientType ct) const {
-	int type = Util::toInt(get("CT"));
-	return (type & ct) == ct;
+    int type = Util::toInt(get("CT"));
+    return (type & ct) == ct;
 }
 
 string Identity::getTag() const {
-	if(!get("TA").empty())
-		return get("TA");
-	if(get("VE").empty() || get("HN").empty() || get("HR").empty() ||get("HO").empty() || get("SL").empty())
-		return Util::emptyString;
-	return "<" + get("VE") + ",M:" + string(isTcpActive() ? "A" : "P") + ",H:" + get("HN") + "/" +
-		get("HR") + "/" + get("HO") + ",S:" + get("SL") + ">";
+    if(!get("TA").empty())
+        return get("TA");
+    if(get("VE").empty() || get("HN").empty() || get("HR").empty() ||get("HO").empty() || get("SL").empty())
+        return Util::emptyString;
+    return "<" + get("VE") + ",M:" + string(isTcpActive() ? "A" : "P") + ",H:" + get("HN") + "/" +
+        get("HR") + "/" + get("HO") + ",S:" + get("SL") + ">";
 }
 
 string Identity::get(const char* name) const {
-	FastLock l(cs);
-	InfMap::const_iterator i = info.find(*(short*)name);
-	return i == info.end() ? Util::emptyString : i->second;
+    FastLock l(cs);
+    InfMap::const_iterator i = info.find(*(short*)name);
+    return i == info.end() ? Util::emptyString : i->second;
 }
 
 bool Identity::isSet(const char* name) const {
-	FastLock l(cs);
-	InfMap::const_iterator i = info.find(*(short*)name);
-	return i != info.end();
+    FastLock l(cs);
+    InfMap::const_iterator i = info.find(*(short*)name);
+    return i != info.end();
 }
 
 
 void Identity::set(const char* name, const string& val) {
-	FastLock l(cs);
-	if(val.empty())
-		info.erase(*(short*)name);
-	else
-		info[*(short*)name] = val;
+    FastLock l(cs);
+    if(val.empty())
+        info.erase(*(short*)name);
+    else
+        info[*(short*)name] = val;
 }
 
 bool Identity::supports(const string& name) const {
-	string su = get("SU");
-	StringTokenizer<string> st(su, ',');
-	for(StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-		if(*i == name)
-			return true;
-	}
-	return false;
+    string su = get("SU");
+    StringTokenizer<string> st(su, ',');
+    for(StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+        if(*i == name)
+            return true;
+    }
+    return false;
 }
 
 void FavoriteUser::update(const OnlineUser& info) {
-	setNick(info.getIdentity().getNick());
-	setUrl(info.getClient().getHubUrl());
+    setNick(info.getIdentity().getNick());
+    setUrl(info.getClient().getHubUrl());
 }
 
 } // namespace dcpp

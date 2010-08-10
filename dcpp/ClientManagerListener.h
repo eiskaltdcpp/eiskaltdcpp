@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,26 +25,26 @@ namespace dcpp {
 
 class ClientManagerListener {
 public:
-	virtual ~ClientManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~ClientManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> UserConnected;
-	typedef X<1> UserUpdated;
-	typedef X<2> UserDisconnected;
-	typedef X<3> IncomingSearch;
-	typedef X<4> ClientConnected;
-	typedef X<5> ClientUpdated;
-	typedef X<6> ClientDisconnected;
+    typedef X<0> UserConnected;
+    typedef X<1> UserUpdated;
+    typedef X<2> UserDisconnected;
+    typedef X<3> IncomingSearch;
+    typedef X<4> ClientConnected;
+    typedef X<5> ClientUpdated;
+    typedef X<6> ClientDisconnected;
 
-	/** User online in at least one hub */
-	virtual void on(UserConnected, const UserPtr&) throw() { }
-	virtual void on(UserUpdated, const OnlineUser&) throw() { }
-	/** User offline in all hubs */
-	virtual void on(UserDisconnected, const UserPtr&) throw() { }
-	virtual void on(IncomingSearch, const string&) throw() { }
-	virtual void on(ClientConnected, Client*) throw() { }
-	virtual void on(ClientUpdated, Client*) throw() { }
-	virtual void on(ClientDisconnected, Client*) throw() { }
+    /** User online in at least one hub */
+    virtual void on(UserConnected, const UserPtr&) throw() { }
+    virtual void on(UserUpdated, const OnlineUser&) throw() { }
+    /** User offline in all hubs */
+    virtual void on(UserDisconnected, const UserPtr&) throw() { }
+    virtual void on(IncomingSearch, const string&) throw() { }
+    virtual void on(ClientConnected, Client*) throw() { }
+    virtual void on(ClientUpdated, Client*) throw() { }
+    virtual void on(ClientDisconnected, Client*) throw() { }
 };
 
 } // namespace dcpp

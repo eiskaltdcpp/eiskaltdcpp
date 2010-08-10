@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,41 +32,41 @@
 namespace dcpp {
 
 class FinishedManager : public Singleton<FinishedManager>,
-	public Speaker<FinishedManagerListener>, private DownloadManagerListener, private UploadManagerListener
+    public Speaker<FinishedManagerListener>, private DownloadManagerListener, private UploadManagerListener
 {
 public:
-	typedef unordered_map<string, FinishedFileItemPtr> MapByFile;
-	typedef unordered_map<UserPtr, FinishedUserItemPtr, User::Hash> MapByUser;
+    typedef unordered_map<string, FinishedFileItemPtr> MapByFile;
+    typedef unordered_map<UserPtr, FinishedUserItemPtr, User::Hash> MapByUser;
 
-	void lockLists();
-	const MapByFile& getMapByFile(bool upload) const;
-	const MapByUser& getMapByUser(bool upload) const;
-	void unLockLists();
+    void lockLists();
+    const MapByFile& getMapByFile(bool upload) const;
+    const MapByUser& getMapByUser(bool upload) const;
+    void unLockLists();
 
-	void remove(bool upload, const string& file);
-	void remove(bool upload, const UserPtr& user);
-	void removeAll(bool upload);
+    void remove(bool upload, const string& file);
+    void remove(bool upload, const UserPtr& user);
+    void removeAll(bool upload);
 
 private:
-	friend class Singleton<FinishedManager>;
+    friend class Singleton<FinishedManager>;
 
-	CriticalSection cs;
-	MapByFile DLByFile, ULByFile;
-	MapByUser DLByUser, ULByUser;
+    CriticalSection cs;
+    MapByFile DLByFile, ULByFile;
+    MapByUser DLByUser, ULByUser;
 
-	FinishedManager();
-	virtual ~FinishedManager() throw();
+    FinishedManager();
+    virtual ~FinishedManager() throw();
 
-	void clearDLs();
-	void clearULs();
+    void clearDLs();
+    void clearULs();
 
-	void onComplete(Transfer* t, bool upload, bool crc32Checked = false);
+    void onComplete(Transfer* t, bool upload, bool crc32Checked = false);
 
-	virtual void on(DownloadManagerListener::Complete, Download* d) throw();
-	virtual void on(DownloadManagerListener::Failed, Download* d, const string&) throw();
+    virtual void on(DownloadManagerListener::Complete, Download* d) throw();
+    virtual void on(DownloadManagerListener::Failed, Download* d, const string&) throw();
 
-	virtual void on(UploadManagerListener::Complete, Upload* u) throw();
-	virtual void on(UploadManagerListener::Failed, Upload* u, const string&) throw();
+    virtual void on(UploadManagerListener::Complete, Upload* u) throw();
+    virtual void on(UploadManagerListener::Failed, Upload* u, const string&) throw();
 };
 
 } // namespace dcpp

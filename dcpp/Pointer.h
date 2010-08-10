@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2009 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,33 +28,33 @@ template<typename T>
 class intrusive_ptr_base
 {
 public:
-	void inc() throw() {
-		intrusive_ptr_add_ref(this);
-	}
+    void inc() throw() {
+        intrusive_ptr_add_ref(this);
+    }
 
-	void dec() throw() {
-		intrusive_ptr_release(this);
-	}
+    void dec() throw() {
+        intrusive_ptr_release(this);
+    }
 
-	bool unique() const throw() {
-		return (ref == 1);
-	}
-	
+    bool unique() const throw() {
+        return (ref == 1);
+    }
+
 protected:
-	intrusive_ptr_base() throw() : ref(0) { }
-	virtual ~intrusive_ptr_base() { }
-	
-private:
-	friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) { Thread::safeInc(p->ref); }
-	friend void intrusive_ptr_release(intrusive_ptr_base* p) { if(Thread::safeDec(p->ref) == 0) { delete static_cast<T*>(p); } }
+    intrusive_ptr_base() throw() : ref(0) { }
+    virtual ~intrusive_ptr_base() { }
 
-	volatile long ref;
+private:
+    friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) { Thread::safeInc(p->ref); }
+    friend void intrusive_ptr_release(intrusive_ptr_base* p) { if(Thread::safeDec(p->ref) == 0) { delete static_cast<T*>(p); } }
+
+    volatile long ref;
 };
 
 
 struct DeleteFunction {
-	template<typename T>
-	void operator()(const T& p) const { delete p; }
+    template<typename T>
+    void operator()(const T& p) const { delete p; }
 };
 
 } // namespace dcpp

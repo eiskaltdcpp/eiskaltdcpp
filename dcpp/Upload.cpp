@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,17 +27,17 @@
 namespace dcpp {
 
 Upload::Upload(UserConnection& conn, const string& path, const TTHValue& tth) : Transfer(conn, path, tth), stream(0) {
-	conn.setUpload(this);
+    conn.setUpload(this);
 }
 
 Upload::~Upload() {
-	getUserConnection().setUpload(0);
-	delete stream;
+    getUserConnection().setUpload(0);
+    delete stream;
 }
 
 void Upload::getParams(const UserConnection& aSource, StringMap& params) {
-	Transfer::getParams(aSource, params);
-	params["source"] = getPath();
+    Transfer::getParams(aSource, params);
+    params["source"] = getPath();
 }
 
 } // namespace dcpp

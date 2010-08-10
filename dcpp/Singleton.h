@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,18 +24,18 @@ namespace dcpp {
 template<typename T>
 class Singleton {
 public:
-	Singleton() { }
-	virtual ~Singleton() { }
+        Singleton() { }
+        virtual ~Singleton() { }
 
         inline static T* getInstance() __attribute__((always_inline));
         inline static void newInstance() __attribute__((always_inline));
         inline static void deleteInstance() __attribute__((always_inline));
 
 protected:
-	static T* instance;
+        static T* instance;
 private:
-	Singleton(const Singleton&);
-	Singleton& operator=(const Singleton&);
+        Singleton(const Singleton&);
+        Singleton& operator=(const Singleton&);
 
 };
 

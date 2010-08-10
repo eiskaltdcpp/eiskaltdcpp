@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,43 +32,43 @@ timeval TimerManager::tv;
 #endif
 
 int TimerManager::run() {
-	int nextMin = 0;
+    int nextMin = 0;
 
-	uint64_t x = getTick();
-	uint64_t nextTick = x + 1000;
+    uint64_t x = getTick();
+    uint64_t nextTick = x + 1000;
 
-	while(!s.wait(nextTick > x ? nextTick - x : 0)) {
-		uint32_t z = getTick();
-		nextTick = z + 1000;
-		fire(TimerManagerListener::Second(), z);
-		if(nextMin++ >= 60) {
-			fire(TimerManagerListener::Minute(), z);
-			nextMin = 0;
-		}
-		x = getTick();
-	}
+    while(!s.wait(nextTick > x ? nextTick - x : 0)) {
+        uint32_t z = getTick();
+        nextTick = z + 1000;
+        fire(TimerManagerListener::Second(), z);
+        if(nextMin++ >= 60) {
+            fire(TimerManagerListener::Minute(), z);
+            nextMin = 0;
+        }
+        x = getTick();
+    }
 
-	return 0;
+    return 0;
 }
 
 uint64_t TimerManager::getTick() {
 #ifdef _WIN32
-	FastLock l(cs);
+    FastLock l(cs);
 
-	DWORD tick = ::GetTickCount();
-	if(tick < lastTick) {
-		cycles++;
-	}
-	lastTick = tick;
-	return static_cast<uint64_t>(cycles) * (static_cast<uint64_t>(std::numeric_limits<DWORD>::max()) + 1) + tick;
+    DWORD tick = ::GetTickCount();
+    if(tick < lastTick) {
+        cycles++;
+    }
+    lastTick = tick;
+    return static_cast<uint64_t>(cycles) * (static_cast<uint64_t>(std::numeric_limits<DWORD>::max()) + 1) + tick;
 #else
-	timeval tv2;
-	gettimeofday(&tv2, NULL);
+    timeval tv2;
+    gettimeofday(&tv2, NULL);
 
 #if ULONG_MAX >= 18446744073709551615UL
         return ((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000);
 #else
-	return static_cast<uint64_t>(((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000));
+    return static_cast<uint64_t>(((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000));
 #endif
 #endif
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,10 +26,10 @@
 namespace dcpp {
 
 FinishedItemBase::FinishedItemBase(
-	int64_t transferred_,
-	int64_t milliSeconds_,
-	time_t time_
-	) :
+    int64_t transferred_,
+    int64_t milliSeconds_,
+    time_t time_
+    ) :
 transferred(transferred_),
 milliSeconds(milliSeconds_),
 time(time_)
@@ -37,79 +37,79 @@ time(time_)
 }
 
 void FinishedItemBase::update(
-	int64_t transferred_,
-	int64_t milliSeconds_,
-	time_t time_
-	)
+    int64_t transferred_,
+    int64_t milliSeconds_,
+    time_t time_
+    )
 {
-	transferred += transferred_;
-	milliSeconds += milliSeconds_;
-	time = time_;
+    transferred += transferred_;
+    milliSeconds += milliSeconds_;
+    time = time_;
 }
 
 int64_t FinishedItemBase::getAverageSpeed() const {
-	return milliSeconds > 0 ? (transferred * ((int64_t)1000) / milliSeconds) : 0;
+    return milliSeconds > 0 ? (transferred * ((int64_t)1000) / milliSeconds) : 0;
 }
 
 FinishedFileItem::FinishedFileItem(
-	int64_t transferred_,
-	int64_t milliSeconds_,
-	time_t time_,
-	int64_t fileSize_,
-	bool crc32Checked_,
-	const UserPtr& user
-	) :
+    int64_t transferred_,
+    int64_t milliSeconds_,
+    time_t time_,
+    int64_t fileSize_,
+    bool crc32Checked_,
+    const UserPtr& user
+    ) :
 FinishedItemBase(transferred_, milliSeconds_, time_),
 fileSize(fileSize_),
 crc32Checked(crc32Checked_)
 {
-	users.push_back(user);
+    users.push_back(user);
 }
 
 void FinishedFileItem::update(
-	int64_t transferred_,
-	int64_t milliSeconds_,
-	time_t time_,
-	bool crc32Checked_,
-	const UserPtr& user
-	)
+    int64_t transferred_,
+    int64_t milliSeconds_,
+    time_t time_,
+    bool crc32Checked_,
+    const UserPtr& user
+    )
 {
-	FinishedItemBase::update(transferred_, milliSeconds_, time_);
-	if(crc32Checked_)
-		crc32Checked = true;
-	if(find(users.begin(), users.end(), user) == users.end())
-		users.push_back(user);
+    FinishedItemBase::update(transferred_, milliSeconds_, time_);
+    if(crc32Checked_)
+        crc32Checked = true;
+    if(find(users.begin(), users.end(), user) == users.end())
+        users.push_back(user);
 }
 
 double FinishedFileItem::getTransferredPercentage() const {
-	return fileSize > 0 ? (getTransferred() * 100. / fileSize) : 0;
+    return fileSize > 0 ? (getTransferred() * 100. / fileSize) : 0;
 }
 
 bool FinishedFileItem::isFull() const {
-	return getTransferred() >= fileSize;
+    return getTransferred() >= fileSize;
 }
 
 FinishedUserItem::FinishedUserItem(
-	int64_t transferred_,
-	int64_t milliSeconds_,
-	time_t time_,
-	const string& file
-	) :
+    int64_t transferred_,
+    int64_t milliSeconds_,
+    time_t time_,
+    const string& file
+    ) :
 FinishedItemBase(transferred_, milliSeconds_, time_)
 {
-	files.push_back(file);
+    files.push_back(file);
 }
 
 void FinishedUserItem::update(
-	int64_t transferred_,
-	int64_t milliSeconds_,
-	time_t time_,
-	const string& file
-	)
+    int64_t transferred_,
+    int64_t milliSeconds_,
+    time_t time_,
+    const string& file
+    )
 {
-	FinishedItemBase::update(transferred_, milliSeconds_, time_);
-	if(find(files.begin(), files.end(), file) == files.end())
-		files.push_back(file);
+    FinishedItemBase::update(transferred_, milliSeconds_, time_);
+    if(find(files.begin(), files.end(), file) == files.end())
+        files.push_back(file);
 }
 
 } // namespace dcpp

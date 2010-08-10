@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2009 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -107,6 +107,8 @@ public:
     C(CMD, 'C','M','D');
     C(PSR, 'P','S','R');
     C(PUB, 'P','U','B');
+    C(NAT, 'N','A','T');
+    C(RNT, 'R','N','T');
 #undef C
 
     static const uint32_t HUB_SID = 0xffffffff;     // No client will have this sid
@@ -198,6 +200,10 @@ public:
                 C(SID);
                 C(CMD);
                 C(PSR);
+#ifndef DISABLE_NAT_TRAVERSAL
+                C(NAT);
+                C(RNT);
+#endif
             default:
                 dcdebug("Unknown ADC command: %.50s\n", aLine.c_str());
                 break;

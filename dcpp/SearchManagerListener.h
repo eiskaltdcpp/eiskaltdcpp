@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,11 +25,11 @@ namespace dcpp {
 
 class SearchManagerListener {
 public:
-	virtual ~SearchManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~SearchManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> SR;
-	virtual void on(SR, const SearchResultPtr&) throw() = 0;
+    typedef X<0> SR;
+    virtual void on(SR, const SearchResultPtr&) throw() = 0;
 };
 
 } // namespace dcpp

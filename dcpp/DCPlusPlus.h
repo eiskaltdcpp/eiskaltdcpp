@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,26 +29,26 @@
 
 inline void CDECL debugTrace(const char* format, ...)
 {
-	va_list args;
-	va_start(args, format);
+    va_list args;
+    va_start(args, format);
 
 #if defined _WIN32 && defined _MSC_VER
-	char buf[512];
+    char buf[512];
 
-	_vsnprintf(buf, sizeof(buf), format, args);
-	OutputDebugStringA(buf);
+    _vsnprintf(buf, sizeof(buf), format, args);
+    OutputDebugStringA(buf);
 #else // _WIN32
-	vprintf(format, args);
+    vprintf(format, args);
 #endif // _WIN32
-	va_end(args);
+    va_end(args);
 }
 
 #define dcdebug debugTrace
 #ifdef _MSC_VER
 #define dcassert(exp) \
 do { if (!(exp)) { \
-	dcdebug("Assertion hit in %s(%d): " #exp "\n", __FILE__, __LINE__); \
-	if(1 == _CrtDbgReport(_CRT_ASSERT, __FILE__, __LINE__, NULL, #exp)) \
+    dcdebug("Assertion hit in %s(%d): " #exp "\n", __FILE__, __LINE__); \
+    if(1 == _CrtDbgReport(_CRT_ASSERT, __FILE__, __LINE__, NULL, #exp)) \
 _CrtDbgBreak(); } } while(false)
 #define dcasserta(exp) dcassert(0)
 #else
@@ -103,15 +103,15 @@ typedef std::vector<uint8_t> ByteVector;
 
 template<typename T>
 boost::basic_format<T> dcpp_fmt(const T* t) {
-	boost::basic_format<T> fmt;
-	fmt.exceptions(boost::io::no_error_bits);
-	fmt.parse(t);
-	return fmt;
+    boost::basic_format<T> fmt;
+    fmt.exceptions(boost::io::no_error_bits);
+    fmt.parse(t);
+    return fmt;
 }
 
 template<typename T>
 boost::basic_format<T> dcpp_fmt(const std::basic_string<T>& t) {
-	return dcpp_fmt(t.c_str());
+    return dcpp_fmt(t.c_str());
 }
 
 #if defined(_MSC_VER) || defined(__MINGW32__)

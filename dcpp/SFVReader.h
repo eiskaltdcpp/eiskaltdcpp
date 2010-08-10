@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,29 +25,29 @@ namespace dcpp {
 
 class SFVReader {
 public:
-	/** @see load */
-	SFVReader(const string& aFileName) : crc32(0), crcFound(false) { load(aFileName); }
+    /** @see load */
+    SFVReader(const string& aFileName) : crc32(0), crcFound(false) { load(aFileName); }
 
-	/**
-	 * Search for a CRC32 file in all .sfv files in the directory of fileName.
-	 * Each SFV file has a number of lines containing a filename and its CRC32 value
-	 * in the form:
-	 * filename.ext xxxxxxxx
-	 * where the x's represent the file's crc32 value. Lines starting with ';' are
-	 * considered comments, and we throw away lines with ' ' or '#' as well
-	 * (pdSFV 1.2 does this...).
-	 */
-	void load(const string& fileName) throw();
+    /**
+     * Search for a CRC32 file in all .sfv files in the directory of fileName.
+     * Each SFV file has a number of lines containing a filename and its CRC32 value
+     * in the form:
+     * filename.ext xxxxxxxx
+     * where the x's represent the file's crc32 value. Lines starting with ';' are
+     * considered comments, and we throw away lines with ' ' or '#' as well
+     * (pdSFV 1.2 does this...).
+     */
+    void load(const string& fileName) throw();
 
-	bool hasCRC() const throw() { return crcFound; }
-	uint32_t getCRC() const throw() { return crc32; }
+    bool hasCRC() const throw() { return crcFound; }
+    uint32_t getCRC() const throw() { return crc32; }
 
 private:
 
-	uint32_t crc32;
-	bool crcFound;
+    uint32_t crc32;
+    bool crcFound;
 
-	bool tryFile(const string& sfvFile, const string& fileName) throw(FileException);
+    bool tryFile(const string& sfvFile, const string& fileName) throw(FileException);
 
 };
 

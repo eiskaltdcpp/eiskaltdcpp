@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -77,6 +77,7 @@ private:
     static const string ADCS_FEATURE;
     static const string TCP4_FEATURE;
     static const string UDP4_FEATURE;
+    static const string NAT0_FEATURE;
     static const string BASE_SUPPORT;
     static const string BAS0_SUPPORT;
     static const string TIGR_SUPPORT;
@@ -106,11 +107,13 @@ private:
     void handle(AdcCommand::RES, AdcCommand& c) throw();
     void handle(AdcCommand::GET, AdcCommand& c) throw();
     void handle(AdcCommand::PSR, AdcCommand& c) throw();
+    void handle(AdcCommand::NAT, AdcCommand& c) throw();
+    void handle(AdcCommand::RNT, AdcCommand& c) throw();
 
     template<typename T> void handle(T, AdcCommand&) { }
 
     void sendUDP(const AdcCommand& cmd) throw();
-
+    void unknownProtocol(uint32_t target, const string& protocol, const string& token);
     virtual void on(Connecting) throw() { fire(ClientListener::Connecting(), this); }
     virtual void on(Connected) throw();
     virtual void on(Line, const string& aLine) throw();

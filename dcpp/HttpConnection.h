@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,63 +27,63 @@ class HttpConnection;
 
 class HttpConnectionListener {
 public:
-	virtual ~HttpConnectionListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~HttpConnectionListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> Data;
-	typedef X<1> Failed;
-	typedef X<2> Complete;
-	typedef X<3> Redirected;
-	typedef X<4> TypeNormal;
-	typedef X<5> TypeBZ2;
+    typedef X<0> Data;
+    typedef X<1> Failed;
+    typedef X<2> Complete;
+    typedef X<3> Redirected;
+    typedef X<4> TypeNormal;
+    typedef X<5> TypeBZ2;
 
-	virtual void on(Data, HttpConnection*, const uint8_t*, size_t) throw() =0;
-	virtual void on(Failed, HttpConnection*, const string&) throw() { }
-	virtual void on(Complete, HttpConnection*, const string&) throw() { }
-	virtual void on(Redirected, HttpConnection*, const string&) throw() { }
-	virtual void on(TypeNormal, HttpConnection*) throw() { }
-	virtual void on(TypeBZ2, HttpConnection*) throw() { }
+    virtual void on(Data, HttpConnection*, const uint8_t*, size_t) throw() =0;
+    virtual void on(Failed, HttpConnection*, const string&) throw() { }
+    virtual void on(Complete, HttpConnection*, const string&) throw() { }
+    virtual void on(Redirected, HttpConnection*, const string&) throw() { }
+    virtual void on(TypeNormal, HttpConnection*) throw() { }
+    virtual void on(TypeBZ2, HttpConnection*) throw() { }
 };
 
 class HttpConnection : BufferedSocketListener, public Speaker<HttpConnectionListener>
 {
 public:
-	void downloadFile(const string& aUrl);
-	HttpConnection() : ok(false), port(80), size(-1), moved302(false), coralizeState(CST_DEFAULT), socket(NULL) { }
-	virtual ~HttpConnection() throw() {
-		if(socket) {
-			socket->removeListener(this);
-			BufferedSocket::putSocket(socket);
-		}
-	}
+    void downloadFile(const string& aUrl);
+    HttpConnection() : ok(false), port(80), size(-1), moved302(false), coralizeState(CST_DEFAULT), socket(NULL) { }
+    virtual ~HttpConnection() throw() {
+        if(socket) {
+            socket->removeListener(this);
+            BufferedSocket::putSocket(socket);
+        }
+    }
 
 private:
 
-	HttpConnection(const HttpConnection&);
-	HttpConnection& operator=(const HttpConnection&);
+    HttpConnection(const HttpConnection&);
+    HttpConnection& operator=(const HttpConnection&);
 
-	string currentUrl;
-	string file;
-	string server;
-	bool ok;
-	uint16_t port;
-	int64_t size;
-	bool moved302;
+    string currentUrl;
+    string file;
+    string server;
+    bool ok;
+    uint16_t port;
+    int64_t size;
+    bool moved302;
 
-	enum CoralizeStates {CST_DEFAULT, CST_CONNECTED, CST_NOCORALIZE};
-	CoralizeStates coralizeState;
+    enum CoralizeStates {CST_DEFAULT, CST_CONNECTED, CST_NOCORALIZE};
+    CoralizeStates coralizeState;
 
-	BufferedSocket* socket;
+    BufferedSocket* socket;
 
-	// BufferedSocketListener
-	virtual void on(Connected) throw();
-	virtual void on(Line, const string&) throw();
-	virtual void on(Data, uint8_t*, size_t) throw();
-	virtual void on(ModeChange) throw();
-	virtual void on(Failed, const string&) throw();
+    // BufferedSocketListener
+    virtual void on(Connected) throw();
+    virtual void on(Line, const string&) throw();
+    virtual void on(Data, uint8_t*, size_t) throw();
+    virtual void on(ModeChange) throw();
+    virtual void on(Failed, const string&) throw();
 
-	void onConnected();
-	void onLine(const string& aLine);
+    void onConnected();
+    void onLine(const string& aLine);
 
 };
 

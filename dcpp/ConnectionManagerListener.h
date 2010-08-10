@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,20 +25,20 @@ class ConnectionQueueItem;
 
 class ConnectionManagerListener {
 public:
-	virtual ~ConnectionManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~ConnectionManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> Added;
-	typedef X<1> Connected;
-	typedef X<2> Removed;
-	typedef X<3> Failed;
-	typedef X<4> StatusChanged;
+    typedef X<0> Added;
+    typedef X<1> Connected;
+    typedef X<2> Removed;
+    typedef X<3> Failed;
+    typedef X<4> StatusChanged;
 
-	virtual void on(Added, ConnectionQueueItem*) throw() { }
-	virtual void on(Connected, ConnectionQueueItem*) throw() { }
-	virtual void on(Removed, ConnectionQueueItem*) throw() { }
-	virtual void on(Failed, ConnectionQueueItem*, const string&) throw() { }
-	virtual void on(StatusChanged, ConnectionQueueItem*) throw() { }
+    virtual void on(Added, ConnectionQueueItem*) throw() { }
+    virtual void on(Connected, ConnectionQueueItem*) throw() { }
+    virtual void on(Removed, ConnectionQueueItem*) throw() { }
+    virtual void on(Failed, ConnectionQueueItem*, const string&) throw() { }
+    virtual void on(StatusChanged, ConnectionQueueItem*) throw() { }
 };
 
 } // namespace dcpp

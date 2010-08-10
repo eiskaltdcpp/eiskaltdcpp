@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,51 +33,51 @@ namespace dcpp {
 
 class TimerManagerListener {
 public:
-	virtual ~TimerManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~TimerManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> Second;
-	typedef X<1> Minute;
+    typedef X<0> Second;
+    typedef X<1> Minute;
 
-	// We expect everyone to implement this...
-	virtual void on(Second, uint32_t) throw() { }
-	virtual void on(Minute, uint32_t) throw() { }
+    // We expect everyone to implement this...
+    virtual void on(Second, uint32_t) throw() { }
+    virtual void on(Minute, uint32_t) throw() { }
 };
 
 class TimerManager : public Speaker<TimerManagerListener>, public Singleton<TimerManager>, public Thread
 {
 public:
-	void shutdown() {
-		s.signal();
-		join();
-	}
+    void shutdown() {
+        s.signal();
+        join();
+    }
 
-	static time_t getTime() { return (time_t)time(NULL); }
-	static uint64_t getTick();
+    static time_t getTime() { return (time_t)time(NULL); }
+    static uint64_t getTick();
 private:
 
-	Semaphore s;
+    Semaphore s;
 
-	friend class Singleton<TimerManager>;
-	TimerManager() {
+    friend class Singleton<TimerManager>;
+    TimerManager() {
 #ifndef _WIN32
-		gettimeofday(&tv, NULL);
+        gettimeofday(&tv, NULL);
 #endif
-	}
+    }
 
-	virtual ~TimerManager() throw() {
-		dcassert(listeners.empty());
-		shutdown();
-	}
+    virtual ~TimerManager() throw() {
+        dcassert(listeners.empty());
+        shutdown();
+    }
 
-	virtual int run();
+    virtual int run();
 
 #ifdef _WIN32
-	static DWORD lastTick;
-	static uint32_t cycles;
-	static FastCriticalSection cs;
+    static DWORD lastTick;
+    static uint32_t cycles;
+    static FastCriticalSection cs;
 #else
-	static timeval tv;
+    static timeval tv;
 #endif
 };
 

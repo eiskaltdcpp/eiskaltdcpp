@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,139 +33,139 @@ class ListLoader;
 class DirectoryListing
 {
 public:
-	class Directory;
+    class Directory;
 
-	class File : public FastAlloc<File> {
-	public:
-		typedef File* Ptr;
-		struct FileSort {
-			bool operator()(const Ptr& a, const Ptr& b) const {
-				return Util::stricmp(a->getName().c_str(), b->getName().c_str()) < 0;
-			}
-		};
-		typedef vector<Ptr> List;
-		typedef List::iterator Iter;
+    class File : public FastAlloc<File> {
+    public:
+        typedef File* Ptr;
+        struct FileSort {
+            bool operator()(const Ptr& a, const Ptr& b) const {
+                return Util::stricmp(a->getName().c_str(), b->getName().c_str()) < 0;
+            }
+        };
+        typedef vector<Ptr> List;
+        typedef List::iterator Iter;
 
-		File(Directory* aDir, const string& aName, int64_t aSize, const string& aTTH) throw() :
-			name(aName), size(aSize), parent(aDir), tthRoot(aTTH), adls(false)
-		{
-		}
+        File(Directory* aDir, const string& aName, int64_t aSize, const string& aTTH) throw() :
+            name(aName), size(aSize), parent(aDir), tthRoot(aTTH), adls(false)
+        {
+        }
 
-		File(const File& rhs, bool _adls = false) : name(rhs.name), size(rhs.size), parent(rhs.parent), tthRoot(rhs.tthRoot), adls(_adls)
-		{
-		}
+        File(const File& rhs, bool _adls = false) : name(rhs.name), size(rhs.size), parent(rhs.parent), tthRoot(rhs.tthRoot), adls(_adls)
+        {
+        }
 
-		File& operator=(const File& rhs) {
-			name = rhs.name; size = rhs.size; parent = rhs.parent; tthRoot = rhs.tthRoot;
-			return *this;
-		}
+        File& operator=(const File& rhs) {
+            name = rhs.name; size = rhs.size; parent = rhs.parent; tthRoot = rhs.tthRoot;
+            return *this;
+        }
 
-		~File() { }
+        ~File() { }
 
-		GETSET(string, name, Name);
-		GETSET(int64_t, size, Size);
-		GETSET(Directory*, parent, Parent);
-		GETSET(TTHValue, tthRoot, TTH);
-		GETSET(bool, adls, Adls);
-	};
+        GETSET(string, name, Name);
+        GETSET(int64_t, size, Size);
+        GETSET(Directory*, parent, Parent);
+        GETSET(TTHValue, tthRoot, TTH);
+        GETSET(bool, adls, Adls);
+    };
 
-	class Directory : public FastAlloc<Directory> {
-	public:
-		typedef Directory* Ptr;
-		struct DirSort {
-			bool operator()(const Ptr& a, const Ptr& b) const {
-				return Util::stricmp(a->getName().c_str(), b->getName().c_str()) < 0;
-			}
-		};
-		typedef vector<Ptr> List;
-		typedef List::iterator Iter;
+    class Directory : public FastAlloc<Directory> {
+    public:
+        typedef Directory* Ptr;
+        struct DirSort {
+            bool operator()(const Ptr& a, const Ptr& b) const {
+                return Util::stricmp(a->getName().c_str(), b->getName().c_str()) < 0;
+            }
+        };
+        typedef vector<Ptr> List;
+        typedef List::iterator Iter;
 
-		typedef unordered_set<TTHValue> TTHSet;
+        typedef unordered_set<TTHValue> TTHSet;
 
-		List directories;
-		File::List files;
+        List directories;
+        File::List files;
 
-		Directory(Directory* aParent, const string& aName, bool _adls, bool aComplete)
-			: name(aName), parent(aParent), adls(_adls), complete(aComplete) { }
+        Directory(Directory* aParent, const string& aName, bool _adls, bool aComplete)
+            : name(aName), parent(aParent), adls(_adls), complete(aComplete) { }
 
-		virtual ~Directory() {
-			for_each(directories.begin(), directories.end(), DeleteFunction());
-			for_each(files.begin(), files.end(), DeleteFunction());
-		}
+        virtual ~Directory() {
+            for_each(directories.begin(), directories.end(), DeleteFunction());
+            for_each(files.begin(), files.end(), DeleteFunction());
+        }
 
-		size_t getTotalFileCount(bool adls = false);
-		int64_t getTotalSize(bool adls = false);
-		void filterList(DirectoryListing& dirList);
-		void filterList(TTHSet& l);
-		void getHashList(TTHSet& l);
+        size_t getTotalFileCount(bool adls = false);
+        int64_t getTotalSize(bool adls = false);
+        void filterList(DirectoryListing& dirList);
+        void filterList(TTHSet& l);
+        void getHashList(TTHSet& l);
 
-		size_t getFileCount() { return files.size(); }
+        size_t getFileCount() { return files.size(); }
 
-		int64_t getSize() {
-			int64_t x = 0;
-			for(File::Iter i = files.begin(); i != files.end(); ++i) {
-				x+=(*i)->getSize();
-			}
-			return x;
-		}
+        int64_t getSize() {
+            int64_t x = 0;
+            for(File::Iter i = files.begin(); i != files.end(); ++i) {
+                x+=(*i)->getSize();
+            }
+            return x;
+        }
 
-		GETSET(string, name, Name);
-		GETSET(Directory*, parent, Parent);
-		GETSET(bool, adls, Adls);
-		GETSET(bool, complete, Complete);
+        GETSET(string, name, Name);
+        GETSET(Directory*, parent, Parent);
+        GETSET(bool, adls, Adls);
+        GETSET(bool, complete, Complete);
 
-	private:
-		Directory(const Directory&);
-		Directory& operator=(const Directory&);
-	};
+    private:
+        Directory(const Directory&);
+        Directory& operator=(const Directory&);
+    };
 
-	class AdlDirectory : public Directory {
-	public:
-		AdlDirectory(const string& aFullPath, Directory* aParent, const string& aName) : Directory(aParent, aName, true, true), fullPath(aFullPath) { }
+    class AdlDirectory : public Directory {
+    public:
+        AdlDirectory(const string& aFullPath, Directory* aParent, const string& aName) : Directory(aParent, aName, true, true), fullPath(aFullPath) { }
 
-		GETSET(string, fullPath, FullPath);
-	};
+        GETSET(string, fullPath, FullPath);
+    };
 
-	DirectoryListing(const UserPtr& aUser) : user(aUser), root(new Directory(NULL, Util::emptyString, false, false)) {
-	}
+    DirectoryListing(const UserPtr& aUser) : user(aUser), root(new Directory(NULL, Util::emptyString, false, false)) {
+    }
 
-	~DirectoryListing() {
-		delete root;
-	}
+    ~DirectoryListing() {
+        delete root;
+    }
 
-	void loadFile(const string& name) throw(Exception);
+    void loadFile(const string& name) throw(Exception);
 
-	string loadXML(const string& xml, bool updating);
+    string loadXML(const string& xml, bool updating);
 
-	void download(const string& aDir, const string& aTarget, bool highPrio);
-	void download(Directory* aDir, const string& aTarget, bool highPrio);
-	void download(File* aFile, const string& aTarget, bool view, bool highPrio);
+    void download(const string& aDir, const string& aTarget, bool highPrio);
+    void download(Directory* aDir, const string& aTarget, bool highPrio);
+    void download(File* aFile, const string& aTarget, bool view, bool highPrio);
 
-	string getPath(const Directory* d) const;
-	string getPath(const File* f) const { return getPath(f->getParent()); }
+    string getPath(const Directory* d) const;
+    string getPath(const File* f) const { return getPath(f->getParent()); }
 
-	/** returns the local path to the file when browsing own file list */
-	string getLocalPath(const File* f) const;
+    /** returns the local path to the file when browsing own file list */
+    string getLocalPath(const File* f) const;
 
-	int64_t getTotalSize(bool adls = false) { return root->getTotalSize(adls); }
-	size_t getTotalFileCount(bool adls = false) { return root->getTotalFileCount(adls); }
+    int64_t getTotalSize(bool adls = false) { return root->getTotalSize(adls); }
+    size_t getTotalFileCount(bool adls = false) { return root->getTotalFileCount(adls); }
 
-	const Directory* getRoot() const { return root; }
-	Directory* getRoot() { return root; }
+    const Directory* getRoot() const { return root; }
+    Directory* getRoot() { return root; }
 
-	static UserPtr getUserFromFilename(const string& fileName);
+    static UserPtr getUserFromFilename(const string& fileName);
 
-	GETSET(UserPtr, user, User);
+    GETSET(UserPtr, user, User);
 
 private:
-	friend class ListLoader;
+    friend class ListLoader;
 
-	DirectoryListing(const DirectoryListing&);
-	DirectoryListing& operator=(const DirectoryListing&);
+    DirectoryListing(const DirectoryListing&);
+    DirectoryListing& operator=(const DirectoryListing&);
 
-	Directory* root;
+    Directory* root;
 
-	Directory* find(const string& aName, Directory* current);
+    Directory* find(const string& aName, Directory* current);
 
 };
 

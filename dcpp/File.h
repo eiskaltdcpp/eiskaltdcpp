@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2008 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,80 +43,80 @@ namespace dcpp {
 
 class File : public IOStream {
 public:
-	enum {
-		OPEN = 0x01,
-		CREATE = 0x02,
-		TRUNCATE = 0x04,
-		SHARED = 0x08
-	};
+    enum {
+        OPEN = 0x01,
+        CREATE = 0x02,
+        TRUNCATE = 0x04,
+        SHARED = 0x08
+    };
 
 #ifdef _WIN32
-	enum {
-		READ = GENERIC_READ,
-		WRITE = GENERIC_WRITE,
-		RW = READ | WRITE
-	};
+    enum {
+        READ = GENERIC_READ,
+        WRITE = GENERIC_WRITE,
+        RW = READ | WRITE
+    };
 
-	static uint32_t convertTime(FILETIME* f);
+    static uint32_t convertTime(FILETIME* f);
 
 #else // !_WIN32
 
-	enum {
-		READ = 0x01,
-		WRITE = 0x02,
-		RW = READ | WRITE
-	};
+    enum {
+        READ = 0x01,
+        WRITE = 0x02,
+        RW = READ | WRITE
+    };
 
-	// some ftruncate implementations can't extend files like SetEndOfFile,
-	// not sure if the client code needs this...
-	int extendFile(int64_t len) throw();
+    // some ftruncate implementations can't extend files like SetEndOfFile,
+    // not sure if the client code needs this...
+    int extendFile(int64_t len) throw();
 
 #endif // !_WIN32
 
-	File(const string& aFileName, int access, int mode) throw(FileException);
+    File(const string& aFileName, int access, int mode) throw(FileException);
 
-	bool isOpen() throw();
-	virtual void close() throw();
-	virtual int64_t getSize() throw();
-	virtual void setSize(int64_t newSize) throw(FileException);
+    bool isOpen() throw();
+    virtual void close() throw();
+    virtual int64_t getSize() throw();
+    virtual void setSize(int64_t newSize) throw(FileException);
 
-	virtual int64_t getPos() throw();
-	virtual void setPos(int64_t pos) throw();
-	virtual void setEndPos(int64_t pos) throw();
-	virtual void movePos(int64_t pos) throw();
-	virtual void setEOF() throw(FileException);
+    virtual int64_t getPos() throw();
+    virtual void setPos(int64_t pos) throw();
+    virtual void setEndPos(int64_t pos) throw();
+    virtual void movePos(int64_t pos) throw();
+    virtual void setEOF() throw(FileException);
 
-	virtual size_t read(void* buf, size_t& len) throw(FileException);
-	virtual size_t write(const void* buf, size_t len) throw(FileException);
-	virtual size_t flush() throw(FileException);
+    virtual size_t read(void* buf, size_t& len) throw(FileException);
+    virtual size_t write(const void* buf, size_t len) throw(FileException);
+    virtual size_t flush() throw(FileException);
 
-	uint32_t getLastModified() throw();
+    uint32_t getLastModified() throw();
 
-	static void copyFile(const string& src, const string& target) throw(FileException);
-	static void renameFile(const string& source, const string& target) throw(FileException);
-	static void deleteFile(const string& aFileName) throw();
+    static void copyFile(const string& src, const string& target) throw(FileException);
+    static void renameFile(const string& source, const string& target) throw(FileException);
+    static void deleteFile(const string& aFileName) throw();
 
-	static int64_t getSize(const string& aFileName) throw();
+    static int64_t getSize(const string& aFileName) throw();
 
-	static void ensureDirectory(const string& aFile) throw();
-	static bool isAbsolute(const string& path) throw();
+    static void ensureDirectory(const string& aFile) throw();
+    static bool isAbsolute(const string& path) throw();
 
-	virtual ~File() throw() { File::close(); }
+    virtual ~File() throw() { File::close(); }
 
-	string read(size_t len) throw(FileException);
-	string read() throw(FileException);
-	void write(const string& aString) throw(FileException) { write((void*)aString.data(), aString.size()); }
-	static StringList findFiles(const string& path, const string& pattern);
+    string read(size_t len) throw(FileException);
+    string read() throw(FileException);
+    void write(const string& aString) throw(FileException) { write((void*)aString.data(), aString.size()); }
+    static StringList findFiles(const string& path, const string& pattern);
 
 protected:
 #ifdef _WIN32
-	HANDLE h;
+    HANDLE h;
 #else
-	int h;
+    int h;
 #endif
 private:
-	File(const File&);
-	File& operator=(const File&);
+    File(const File&);
+    File& operator=(const File&);
 };
 
 } // namespace dcpp

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2009 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,53 +31,53 @@ class SearchManager;
 
 class SearchResult : public FastAlloc<SearchResult>, public intrusive_ptr_base<SearchResult> {
 public:
-	enum Types {
-		TYPE_FILE,
-		TYPE_DIRECTORY
-	};
+    enum Types {
+        TYPE_FILE,
+        TYPE_DIRECTORY
+    };
 
-	SearchResult(Types aType, int64_t aSize, const string& name, const TTHValue& aTTH);
+    SearchResult(Types aType, int64_t aSize, const string& name, const TTHValue& aTTH);
 
-	SearchResult(const UserPtr& aUser, Types aType, int aSlots, int aFreeSlots,
-		int64_t aSize, const string& aFile, const string& aHubName,
-		const string& aHubURL, const string& ip, TTHValue aTTH, const string& aToken);
+    SearchResult(const UserPtr& aUser, Types aType, int aSlots, int aFreeSlots,
+        int64_t aSize, const string& aFile, const string& aHubName,
+        const string& aHubURL, const string& ip, TTHValue aTTH, const string& aToken);
 
-	string getFileName() const;
-	string toSR(const Client& client) const;
-	AdcCommand toRES(char type) const;
+    string getFileName() const;
+    string toSR(const Client& client) const;
+    AdcCommand toRES(char type) const;
 
-	UserPtr& getUser() { return user; }
-	string getSlotString() const { return Util::toString(getFreeSlots()) + '/' + Util::toString(getSlots()); }
+    UserPtr& getUser() { return user; }
+    string getSlotString() const { return Util::toString(getFreeSlots()) + '/' + Util::toString(getSlots()); }
 
-	const string& getFile() const { return file; }
-	const string& getHubURL() const { return hubURL; }
-	const string& getHubName() const { return hubName; }
-	int64_t getSize() const { return size; }
-	Types getType() const { return type; }
+    const string& getFile() const { return file; }
+    const string& getHubURL() const { return hubURL; }
+    const string& getHubName() const { return hubName; }
+    int64_t getSize() const { return size; }
+    Types getType() const { return type; }
         int getSlots() const { return _slots; }
-	int getFreeSlots() const { return freeSlots; }
-	TTHValue getTTH() const { return tth; }
-	const string& getIP() const { return IP; }
-	const string& getToken() const { return token; }
+    int getFreeSlots() const { return freeSlots; }
+    TTHValue getTTH() const { return tth; }
+    const string& getIP() const { return IP; }
+    const string& getToken() const { return token; }
 
 private:
-	friend class SearchManager;
+    friend class SearchManager;
 
-	SearchResult();
+    SearchResult();
 
-	SearchResult(const SearchResult& rhs);
+    SearchResult(const SearchResult& rhs);
 
-	string file;
-	string hubName;
-	string hubURL;
-	UserPtr user;
-	int64_t size;
-	Types type;
+    string file;
+    string hubName;
+    string hubURL;
+    UserPtr user;
+    int64_t size;
+    Types type;
         int _slots;
-	int freeSlots;
-	string IP;
-	TTHValue tth;
-	string token;
+    int freeSlots;
+    string IP;
+    TTHValue tth;
+    string token;
 };
 
 }
