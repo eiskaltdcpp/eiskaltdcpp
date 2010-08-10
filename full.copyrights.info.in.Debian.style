@@ -1,0 +1,208 @@
+Files:
+ *
+Copyright:
+ Copyright 2009-2010 Andrey Karlov <dein.negativ@gmail.com>
+License:
+ GPL-3 or later
+ .
+ This program is free software: you can redistribute it and/or modify it under the
+ terms of the GNU General Public License as published by the Free Software Foundation,
+ either version 3 of the License, or(at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ See the GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along with this program.
+ If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-3'.
+
+   "In addition, as a special exception, Andrey Karlov give permission to link
+    the code of this program with the OpenSSL library (or with modified versions
+    of OpenSSL that use the same license as OpenSSL), and distribute linked
+    combinations including the two.  You must obey the GNU General Public License
+    in all respects for all of the code used other than OpenSSL. If you modify this file,
+    you may extend this exception to your version of the file, but you are not
+    obligated to do so. If you do not wish to do so, delete this
+    exception statement from your version."
+
+Files:
+ cmake/*
+ eiskaltdcpp-wt/cmake/*
+Copyright:
+ Copyright 2006-2009 Kitware, Inc.
+ Copyright 2008-2009 Philip Lowman <philip@yhbt.com>
+ Copyright 2007 Juha Tuomala <tuju@iki.fi>
+ Copyright 2007 Daniel Gollub <gollub@b1-systems.de>
+ Copyright 2007 Alban Browaeys <prahal@yahoo.com>
+ Copyright 2010 Pau Garcia i Quiles, <pgquiles@elpauer.org>
+ Copyright 2006 Tristan Carel
+License:
+ BSD License
+ .
+ On Debian systems, the complete text of the BSD License
+ can be found in `/usr/share/common-licenses/BSD'.
+
+Files:
+ dcpp/*
+Copyright:
+ Copyright 2001-2010 Jacek Sieka <arnetheduck@gmail.com>
+ Copyright 2009 Big Muscle
+ Copyright 1996-2002 Florian Schintke
+ Copyright 1997 Makoto Matsumoto and Takuji Nishimura
+License:
+ GPL-2 or later
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+Files:
+ dht/*
+Copyright:
+ Copyright 2008-2009 Big Muscle (http://strongdc.sf.net)
+License:
+ GPL-2 or later
+
+Files:
+ eiskaltdcpp-qt/examples/xmms2_audacious2.ru_RU.UTF-8.php
+ eiskaltdcpp-qt/examples/commands.ru_RU.UTF-8.php
+Copyright:
+ Copyright 2010 nE0sIghT
+ Copyright 2010 GoTLiuM InSPiRiT <gotlium@gmail.com>
+License:
+ GPL-2
+
+Files:
+ eiskaltdcpp-qt/examples/amr.en_US.sh
+ eiskaltdcpp-qt/examples/mpris_now_playing.en_US.sh
+ eiskaltdcpp-qt/examples/audacious.en_US.sh
+ eiskaltdcpp-qt/examples/mpc.en_US.sh
+ eiskaltdcpp-qt/examples/rhythmbox.en_US.sh
+ eiskaltdcpp-qt/examples/qmmp.ru_RU.UTF-8.sh
+Copyright:
+ Copyright 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
+ Copyright 2010 Vovochka404 <vovochka13@gmail.com>
+ Copyright 2010 none
+License:
+ Public Domain
+
+Files:
+ eiskaltdcpp-qt/fsusage/*
+Copyright:
+ Copyright 1991-2006 Free Software Foundation, Inc.
+License:
+ GPL-3 or later
+
+Files:
+ eiskaltdcpp-qt/icons/*
+ eiskaltdcpp-gtk/icons/*
+Copyright:
+ Copyright 2010 Oxygen icons theme team (see http://www.oxygen-icons.org/)
+ Copyright 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
+License:
+ LGPL-3
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/LGPL-3'.
+
+Files:
+ eiskaltdcpp-qt/icons/emot/*
+Copyright:
+ Copyright is unknown
+License:
+ GPL-2
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+Files:
+ eiskaltdcpp-qt/src/FlowLayout.cpp
+ eiskaltdcpp-qt/src/FlowLayout.h
+Copyright:
+ Copyright 2010 Nokia Corporation and/or its subsidiary(-ies).
+License:
+ GPL-3
+ .
+ Commercial Usage
+ Licensees holding valid Qt Commercial licenses may use this file in
+ accordance with the Qt Commercial License Agreement provided with the
+ Software or, alternatively, in accordance with the terms contained in
+ a written agreement between you and Nokia.
+ .
+ GNU Lesser General Public License Usage
+ Alternatively, this file may be used under the terms of the GNU Lesser
+ General Public License version 2.1 as published by the Free Software
+ Foundation and appearing in the file LICENSE.LGPL included in the
+ packaging of this file.  Please review the following information to
+ ensure the GNU Lesser General Public License version 2.1 requirements
+ will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ .
+ In addition, as a special exception, Nokia gives you certain additional
+ rights.  These rights are described in the Nokia Qt LGPL Exception
+ version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ .
+ GNU General Public License Usage
+ Alternatively, this file may be used under the terms of the GNU
+ General Public License version 3.0 as published by the Free Software
+ Foundation and appearing in the file LICENSE.GPL included in the
+ packaging of this file.  Please review the following information to
+ ensure the GNU General Public License version 3.0 requirements will be
+ met: http://www.gnu.org/copyleft/gpl.html.
+ .
+ If you have questions regarding the use of this file, please contact
+ Nokia at qt-info@nokia.com.
+
+Files:
+ eiskaltdcpp-gtk/src/*
+ eiskaltdcpp-gtk/glade/*
+Copyright:
+ Copyright 2004-2010 Jens Oknelid <paskharen@gmail.com>
+ Copyright 2009-2010 freedcpp (http://code.google.com/p/freedcpp)
+ Copyright 2009-2010 Leliksan Floyd <leliksan@Quadrafon2>
+ Copyright 2003 Bastien Nocera <hadess@hadess.net>
+License:
+ GPL-2 or later
+
+Files:
+ eiskaltdcpp-wt/ext/*
+ eiskaltdcpp-wt/resources/*
+Copyright:
+ Copyright 2006-2007, Ext JS, LLC <licensing@extjs.com>
+License:
+ LGPL-3
+ .
+ License of CSS and Graphics ("Assets")
+ .
+ The Assets distributed with Ext are licensed for use ONLY
+ with their associated Ext JavaScript component ("Component"). Use of the Assets in
+ any way that does not also include the Component is prohibited without explicit
+ permission from Ext JS, LLC.  Deriving images and CSS from the Assets in an effort
+ to bypass this license is also prohibited.
+ .
+ Open Source License
+ .
+ Ext is also licensed under the terms of the Open Source LGPL 3.0 license. You may use
+ our open source license if you:
+ * Want to use Ext in an open source project that precludes using non-open source software
+ * Plan to use Ext in a personal, educational or non-profit manner
+ * Are using Ext in a commercial application that is not a software development library
+ or toolkit, you will meet LGPL requirements and you do not wish to support the project
+ .
+ http://www.gnu.org/licenses/lgpl.html
+ .
+ Commercial License
+ .
+ If you are using this library for commercial purposes, we encourage you to purchase
+ a commercial license. Please visit http://extjs.com/license for more details.
+ .
+ OEM / Reseller License
+ .
+ If you plan to distribute Ext in a product that will be packaged or sold as a software
+ development library, toolkit or plug-in-based framework ("LIBRARY"), we require that you
+ work with us to establish a specific license that is appropriate. Use of the open source
+ license in a LIBRARY is not permitted without explicit permission from Ext JS, LLC.
+ .
+ For more details, please visit: http://extjs.com/license.
+
