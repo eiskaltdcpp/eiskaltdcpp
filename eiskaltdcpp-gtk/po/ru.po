@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-07-30 00:20+0400\n"
-"PO-Revision-Date: 2010-08-10 18:47+0300\n"
-"Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
+"PO-Revision-Date: 2010-08-10 22:19+0300\n"
+"Last-Translator: dhamp <saff@email.org>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/emoticonsdialog.cc:69
 msgid "Emotion packs"
@@ -27,73 +26,121 @@ msgstr "Набор смайлов"
 msgid "Icon size"
 msgstr "Размер иконки"
 
-#: ../src/emoticonsdialog.cc:106 ../src/previewmenu.cc:88
+#: ../src/emoticonsdialog.cc:106
+#: ../src/previewmenu.cc:88
 msgid "Default"
 msgstr "По умолчанию"
 
-#: ../src/hub.cc:47 ../src/hub.cc:2603
+#: ../src/hub.cc:47
+#: ../src/hub.cc:2603
 msgid "Hub: "
 msgstr "Хаб: "
 
-#: ../src/hub.cc:62 ../src/hub.cc:82 ../src/hub.cc:84 ../src/hub.cc:324
-#: ../src/hub.cc:339 ../src/hub.cc:359 ../src/hub.cc:407 ../src/hub.cc:1053
-#: ../src/hub.cc:1325 ../src/hub.cc:1378 ../src/hub.cc:1802 ../src/hub.cc:1833
-#: ../src/hub.cc:2118 ../src/hub.cc:2157 ../src/favoriteusers.cc:45
-#: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
-#: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
-#: ../src/favoriteusers.cc:583 ../src/search.cc:86 ../src/search.cc:558
-#: ../src/search.cc:629 ../src/search.cc:770 ../src/search.cc:1641
-#: ../src/finishedtransfers.cc:77 ../src/finishedtransfers.cc:178
-#: ../src/favoritehubs.cc:56 ../src/favoritehubs.cc:124
+#: ../src/hub.cc:62
+#: ../src/hub.cc:82
+#: ../src/hub.cc:84
+#: ../src/hub.cc:324
+#: ../src/hub.cc:339
+#: ../src/hub.cc:359
+#: ../src/hub.cc:407
+#: ../src/hub.cc:1053
+#: ../src/hub.cc:1325
+#: ../src/hub.cc:1378
+#: ../src/hub.cc:1802
+#: ../src/hub.cc:1833
+#: ../src/hub.cc:2118
+#: ../src/hub.cc:2157
+#: ../src/favoriteusers.cc:45
+#: ../src/favoriteusers.cc:60
+#: ../src/favoriteusers.cc:61
+#: ../src/favoriteusers.cc:109
+#: ../src/favoriteusers.cc:373
+#: ../src/favoriteusers.cc:583
+#: ../src/search.cc:86
+#: ../src/search.cc:558
+#: ../src/search.cc:629
+#: ../src/search.cc:770
+#: ../src/search.cc:1641
+#: ../src/finishedtransfers.cc:77
+#: ../src/finishedtransfers.cc:178
+#: ../src/favoritehubs.cc:56
+#: ../src/favoritehubs.cc:124
 #: ../src/favoritehubs.cc:294
 msgid "Nick"
 msgstr "Ник"
 
-#: ../src/hub.cc:63 ../src/hub.cc:323 ../src/hub.cc:340 ../src/hub.cc:360
-#: ../src/hub.cc:408 ../src/publichubs.cc:46 ../src/publichubs.cc:161
+#: ../src/hub.cc:63
+#: ../src/hub.cc:323
+#: ../src/hub.cc:340
+#: ../src/hub.cc:360
+#: ../src/hub.cc:408
+#: ../src/publichubs.cc:46
+#: ../src/publichubs.cc:161
 msgid "Shared"
 msgstr "Расшарено"
 
-#: ../src/hub.cc:64 ../src/hub.cc:341 ../src/hub.cc:361
-#: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:112
-#: ../src/favoriteusers.cc:372 ../src/favoriteusers.cc:397
-#: ../src/favoriteusers.cc:586 ../src/favoritehubs.cc:54
-#: ../src/favoritehubs.cc:123 ../src/favoritehubs.cc:293
-#: ../src/publichubs.cc:42 ../src/publichubs.cc:157 ../src/publichubs.cc:293
+#: ../src/hub.cc:64
+#: ../src/hub.cc:341
+#: ../src/hub.cc:361
+#: ../src/favoriteusers.cc:48
+#: ../src/favoriteusers.cc:112
+#: ../src/favoriteusers.cc:372
+#: ../src/favoriteusers.cc:397
+#: ../src/favoriteusers.cc:586
+#: ../src/favoritehubs.cc:54
+#: ../src/favoritehubs.cc:123
+#: ../src/favoritehubs.cc:293
+#: ../src/publichubs.cc:42
+#: ../src/publichubs.cc:157
+#: ../src/publichubs.cc:293
 msgid "Description"
 msgstr "Описание"
 
-#: ../src/hub.cc:65 ../src/hub.cc:342 ../src/hub.cc:362
+#: ../src/hub.cc:65
+#: ../src/hub.cc:342
+#: ../src/hub.cc:362
 msgid "Tag"
 msgstr "Тег"
 
-#: ../src/hub.cc:66 ../src/hub.cc:343 ../src/hub.cc:363 ../src/search.cc:91
-#: ../src/search.cc:564 ../src/search.cc:623 ../src/search.cc:764
+#: ../src/hub.cc:66
+#: ../src/hub.cc:343
+#: ../src/hub.cc:363
+#: ../src/search.cc:91
+#: ../src/search.cc:564
+#: ../src/search.cc:623
+#: ../src/search.cc:764
 #: ../src/search.cc:1644
 msgid "Connection"
 msgstr "Соединение"
 
-#: ../src/hub.cc:68 ../src/hub.cc:345 ../src/hub.cc:365
+#: ../src/hub.cc:68
+#: ../src/hub.cc:345
+#: ../src/hub.cc:365
 msgid "eMail"
 msgstr "Почта"
 
-#: ../src/hub.cc:378 ../src/hub.cc:389
+#: ../src/hub.cc:378
+#: ../src/hub.cc:389
 msgid " has joined"
 msgstr " присоединился"
 
-#: ../src/hub.cc:379 ../src/hub.cc:388
+#: ../src/hub.cc:379
+#: ../src/hub.cc:388
 msgid " has joined hub "
 msgstr " присоединился к хабу "
 
-#: ../src/hub.cc:395 ../src/hub.cc:413
+#: ../src/hub.cc:395
+#: ../src/hub.cc:413
 msgid " Users"
 msgstr " Юзер'а,ов"
 
-#: ../src/hub.cc:419 ../src/hub.cc:429
+#: ../src/hub.cc:419
+#: ../src/hub.cc:429
 msgid " has quit hub "
 msgstr " покинул хаб "
 
-#: ../src/hub.cc:420 ../src/hub.cc:430
+#: ../src/hub.cc:420
+#: ../src/hub.cc:430
 msgid " has quit"
 msgstr " вышел"
 
@@ -102,50 +149,65 @@ msgid "0 Users"
 msgstr "0 Юзеров"
 
 #: ../src/hub.cc:493
-msgid ""
-"Waiting for input password (don't remove /password before your password)"
+msgid "Waiting for input password (don't remove /password before your password)"
 msgstr "Ожидание ввода пароля (не удаляйте /password перед своим паролем)"
 
 #: ../src/hub.cc:532
 msgid "<b>Enter your password</b>"
 msgstr "<b>Введите ваш пароль</b>"
 
-#: ../src/hub.cc:844 ../src/privatemessage.cc:523
+#: ../src/hub.cc:844
+#: ../src/privatemessage.cc:523
 msgid " *** Emoticons not loaded"
 msgstr " *** Смайлики не загрузились"
 
-#: ../src/hub.cc:849 ../src/privatemessage.cc:528
+#: ../src/hub.cc:849
+#: ../src/privatemessage.cc:528
 msgid " *** Emoticons mode off"
 msgstr " *** Смайлики отключены"
 
-#: ../src/hub.cc:854 ../src/hub.cc:933 ../src/privatemessage.cc:533
+#: ../src/hub.cc:854
+#: ../src/hub.cc:933
+#: ../src/privatemessage.cc:533
 #: ../src/privatemessage.cc:612
 msgid " *** Emoticons limit"
 msgstr " *** Ограничение смайликов"
 
-#: ../src/hub.cc:1499 ../src/privatemessage.cc:1097
+#: ../src/hub.cc:1499
+#: ../src/privatemessage.cc:1097
 msgid "Use Emoticons"
 msgstr "Использовать смайлы"
 
-#: ../src/hub.cc:1580 ../src/hub.cc:1593 ../src/hub.cc:1698
-#: ../src/privatemessage.cc:861 ../src/privatemessage.cc:875
+#: ../src/hub.cc:1580
+#: ../src/hub.cc:1593
+#: ../src/hub.cc:1698
+#: ../src/privatemessage.cc:861
+#: ../src/privatemessage.cc:875
 #: ../src/privatemessage.cc:929
 msgid "Away mode off"
 msgstr "Режим \"Ушёл\" выключен"
 
-#: ../src/hub.cc:1587 ../src/privatemessage.cc:869
+#: ../src/hub.cc:1587
+#: ../src/privatemessage.cc:869
 msgid "Away mode on: "
 msgstr "Режим \"Ушёл\" включен: "
 
-#: ../src/hub.cc:1624 ../src/hub.cc:2129 ../src/privatemessage.cc:1262
+#: ../src/hub.cc:1624
+#: ../src/hub.cc:2129
+#: ../src/privatemessage.cc:1262
 msgid " is favorite user"
 msgstr " фаворит"
 
-#: ../src/hub.cc:1626 ../src/hub.cc:1661 ../src/hub.cc:1671 ../src/hub.cc:1741
+#: ../src/hub.cc:1626
+#: ../src/hub.cc:1661
+#: ../src/hub.cc:1671
+#: ../src/hub.cc:1741
 msgid "Not found user: "
 msgstr "Не найден юзер: "
 
-#: ../src/hub.cc:1642 ../src/hub.cc:2168 ../src/privatemessage.cc:1282
+#: ../src/hub.cc:1642
+#: ../src/hub.cc:2168
+#: ../src/privatemessage.cc:1282
 msgid " is not favorite user"
 msgstr " не фаворит"
 
@@ -157,19 +219,23 @@ msgstr "Список фаворитов:"
 msgid " empty..."
 msgstr " пусто..."
 
-#: ../src/hub.cc:1678 ../src/privatemessage.cc:917
+#: ../src/hub.cc:1678
+#: ../src/privatemessage.cc:917
 msgid "Emoticons mode off"
 msgstr "Смайлики отключены"
 
-#: ../src/hub.cc:1683 ../src/privatemessage.cc:922
+#: ../src/hub.cc:1683
+#: ../src/privatemessage.cc:922
 msgid "Emoticons mode on"
 msgstr "Смайлики включены"
 
-#: ../src/hub.cc:1696 ../src/privatemessage.cc:927
+#: ../src/hub.cc:1696
+#: ../src/privatemessage.cc:927
 msgid "*** Available commands:"
 msgstr "*** Доступные команды:"
 
-#: ../src/hub.cc:1697 ../src/privatemessage.cc:928
+#: ../src/hub.cc:1697
+#: ../src/privatemessage.cc:928
 msgid "Away mode message on/off"
 msgstr "Режим \"Ушёл\" вкл/выкл"
 
@@ -185,11 +251,13 @@ msgstr "Закрыть чат"
 msgid "Add a hub to favorites"
 msgstr "Добавить хаб в избранные"
 
-#: ../src/hub.cc:1702 ../src/privatemessage.cc:932
+#: ../src/hub.cc:1702
+#: ../src/privatemessage.cc:932
 msgid "Add user to favorites list"
 msgstr "Добавить юзера в список фаворитов"
 
-#: ../src/hub.cc:1703 ../src/privatemessage.cc:933
+#: ../src/hub.cc:1703
+#: ../src/privatemessage.cc:933
 msgid "Remove user favorite"
 msgstr "Удалить фаворита"
 
@@ -197,15 +265,18 @@ msgstr "Удалить фаворита"
 msgid "Show favorites list"
 msgstr "Показать список избранных пользователей"
 
-#: ../src/hub.cc:1705 ../src/privatemessage.cc:934
+#: ../src/hub.cc:1705
+#: ../src/privatemessage.cc:934
 msgid "Get file list"
 msgstr "Получить список файлов"
 
-#: ../src/hub.cc:1706 ../src/privatemessage.cc:935
+#: ../src/hub.cc:1706
+#: ../src/privatemessage.cc:935
 msgid "Grant extra slot"
 msgstr "Выделить экстра слот"
 
-#: ../src/hub.cc:1707 ../src/privatemessage.cc:937
+#: ../src/hub.cc:1707
+#: ../src/privatemessage.cc:937
 msgid "Show help"
 msgstr "Показать справку"
 
@@ -217,8 +288,10 @@ msgstr "Соединиться с хабом"
 msgid "Say a third person"
 msgstr "Сказать от третьего лица"
 
-#: ../src/hub.cc:1710 ../src/settingsdialog.cc:954
-#: ../src/settingsdialog.cc:1000 ../src/settingsdialog.cc:1120
+#: ../src/hub.cc:1710
+#: ../src/settingsdialog.cc:954
+#: ../src/settingsdialog.cc:1000
+#: ../src/settingsdialog.cc:1120
 #: ../src/settingsmanager.cc:185
 msgid "Private message"
 msgstr "Личное сообщение"
@@ -239,7 +312,8 @@ msgstr "Список пользователей показать/спрятат�
 msgid "Show version"
 msgstr "Показать версию"
 
-#: ../src/hub.cc:1715 ../src/privatemessage.cc:936
+#: ../src/hub.cc:1715
+#: ../src/privatemessage.cc:936
 msgid "Emoticons on/off"
 msgstr "Смайлики вкл/выкл"
 
@@ -251,7 +325,9 @@ msgstr "Неизвестная команда '"
 msgid "': type /help for a list of available commands"
 msgstr "': /help для получения списка доступных команд"
 
-#: ../src/hub.cc:2058 ../src/mainwindow.cc:1009 ../src/mainwindow.cc:1077
+#: ../src/hub.cc:2058
+#: ../src/mainwindow.cc:1009
+#: ../src/mainwindow.cc:1077
 #: ../src/privatemessage.cc:1174
 msgid "Choose a directory"
 msgstr "Выбор директории"
@@ -264,18 +340,19 @@ msgstr " добавлен в список фаворитов"
 msgid " removed from favorites list"
 msgstr " удалён из списка фаворитов"
 
-#: ../src/hub.cc:2336 ../src/hub.cc:2356
+#: ../src/hub.cc:2336
+#: ../src/hub.cc:2356
 msgid "User not found"
 msgstr "Юзер не обнаружен"
 
-#: ../src/hub.cc:2364 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2364
+#: ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Слот открыт на "
 
 #: ../src/hub.cc:2389
 msgid "Unable to connect: already connected to the requested hub"
-msgstr ""
-"Невозможно установить соединение: запрос перенаправлен на подключенный хаб"
+msgstr "Невозможно установить соединение: запрос перенаправлен на подключенный хаб"
 
 #: ../src/hub.cc:2443
 msgid "Favorite hub added"
@@ -289,7 +366,8 @@ msgstr "Хаб уже добавлен в избранные"
 msgid "Connecting to "
 msgstr "Соединение с "
 
-#: ../src/hub.cc:2529 ../src/transfers.cc:1012
+#: ../src/hub.cc:2529
+#: ../src/transfers.cc:1012
 msgid "Connected"
 msgstr "Соединение установлено"
 
@@ -313,54 +391,109 @@ msgstr "Ник занят"
 msgid "Search spam detected from "
 msgstr "Обнаружен поисковый спам от "
 
-#: ../src/sharebrowser.cc:37 ../src/sharebrowser.cc:56
+#: ../src/sharebrowser.cc:37
+#: ../src/sharebrowser.cc:56
 msgid "List: "
 msgstr "Список: "
 
-#: ../src/sharebrowser.cc:74 ../src/sharebrowser.cc:90
-#: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:272
-#: ../src/sharebrowser.cc:302 ../src/sharebrowser.cc:491
-#: ../src/sharebrowser.cc:583 ../src/sharebrowser.cc:946 ../src/search.cc:85
-#: ../src/search.cc:119 ../src/search.cc:318 ../src/search.cc:559
-#: ../src/search.cc:598 ../src/search.cc:755 ../src/search.cc:996
-#: ../src/search.cc:1037 ../src/search.cc:1096 ../src/search.cc:1177
-#: ../src/search.cc:1216 ../src/search.cc:1273 ../src/search.cc:1576
-#: ../src/search.cc:1606 ../src/search.cc:1610 ../src/search.cc:1614
-#: ../src/search.cc:1615 ../src/search.cc:1626 ../src/search.cc:1630
-#: ../src/search.cc:1888 ../src/finishedtransfers.cc:56
-#: ../src/finishedtransfers.cc:215 ../src/transfers.cc:62
-#: ../src/transfers.cc:669 ../src/transfers.cc:707 ../src/transfers.cc:713
-#: ../src/transfers.cc:871 ../src/transfers.cc:873 ../src/transfers.cc:875
-#: ../src/downloadqueue.cc:65 ../src/downloadqueue.cc:89
-#: ../src/downloadqueue.cc:90 ../src/downloadqueue.cc:275
-#: ../src/downloadqueue.cc:382 ../src/downloadqueue.cc:748
-#: ../src/downloadqueue.cc:791 ../src/downloadqueue.cc:842
+#: ../src/sharebrowser.cc:74
+#: ../src/sharebrowser.cc:90
+#: ../src/sharebrowser.cc:92
+#: ../src/sharebrowser.cc:272
+#: ../src/sharebrowser.cc:302
+#: ../src/sharebrowser.cc:491
+#: ../src/sharebrowser.cc:583
+#: ../src/sharebrowser.cc:946
+#: ../src/search.cc:85
+#: ../src/search.cc:119
+#: ../src/search.cc:318
+#: ../src/search.cc:559
+#: ../src/search.cc:598
+#: ../src/search.cc:755
+#: ../src/search.cc:996
+#: ../src/search.cc:1037
+#: ../src/search.cc:1096
+#: ../src/search.cc:1177
+#: ../src/search.cc:1216
+#: ../src/search.cc:1273
+#: ../src/search.cc:1576
+#: ../src/search.cc:1606
+#: ../src/search.cc:1610
+#: ../src/search.cc:1614
+#: ../src/search.cc:1615
+#: ../src/search.cc:1626
+#: ../src/search.cc:1630
+#: ../src/search.cc:1888
+#: ../src/finishedtransfers.cc:56
+#: ../src/finishedtransfers.cc:215
+#: ../src/transfers.cc:62
+#: ../src/transfers.cc:669
+#: ../src/transfers.cc:707
+#: ../src/transfers.cc:713
+#: ../src/transfers.cc:871
+#: ../src/transfers.cc:873
+#: ../src/transfers.cc:875
+#: ../src/downloadqueue.cc:65
+#: ../src/downloadqueue.cc:89
+#: ../src/downloadqueue.cc:90
+#: ../src/downloadqueue.cc:275
+#: ../src/downloadqueue.cc:382
+#: ../src/downloadqueue.cc:748
+#: ../src/downloadqueue.cc:791
+#: ../src/downloadqueue.cc:842
 msgid "Filename"
 msgstr "Файл"
 
-#: ../src/sharebrowser.cc:75 ../src/sharebrowser.cc:93
-#: ../src/sharebrowser.cc:279 ../src/sharebrowser.cc:310 ../src/search.cc:88
-#: ../src/search.cc:116 ../src/search.cc:561 ../src/search.cc:618
-#: ../src/search.cc:761 ../src/search.cc:1618 ../src/search.cc:1636
-#: ../src/transfers.cc:63 ../src/transfers.cc:543 ../src/transfers.cc:623
-#: ../src/transfers.cc:715 ../src/transfers.cc:727 ../src/transfers.cc:879
-#: ../src/downloadqueue.cc:67 ../src/downloadqueue.cc:86
-#: ../src/downloadqueue.cc:278 ../src/downloadqueue.cc:385
+#: ../src/sharebrowser.cc:75
+#: ../src/sharebrowser.cc:93
+#: ../src/sharebrowser.cc:279
+#: ../src/sharebrowser.cc:310
+#: ../src/search.cc:88
+#: ../src/search.cc:116
+#: ../src/search.cc:561
+#: ../src/search.cc:618
+#: ../src/search.cc:761
+#: ../src/search.cc:1618
+#: ../src/search.cc:1636
+#: ../src/transfers.cc:63
+#: ../src/transfers.cc:543
+#: ../src/transfers.cc:623
+#: ../src/transfers.cc:715
+#: ../src/transfers.cc:727
+#: ../src/transfers.cc:879
+#: ../src/downloadqueue.cc:67
+#: ../src/downloadqueue.cc:86
+#: ../src/downloadqueue.cc:278
+#: ../src/downloadqueue.cc:385
 msgid "Size"
 msgstr "Размер"
 
-#: ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:282
-#: ../src/sharebrowser.cc:303 ../src/search.cc:87 ../src/search.cc:563
-#: ../src/search.cc:638 ../src/search.cc:776 ../src/search.cc:1615
-#: ../src/search.cc:1616 ../src/search.cc:1617 ../src/search.cc:1631
+#: ../src/sharebrowser.cc:76
+#: ../src/sharebrowser.cc:282
+#: ../src/sharebrowser.cc:303
+#: ../src/search.cc:87
+#: ../src/search.cc:563
+#: ../src/search.cc:638
+#: ../src/search.cc:776
+#: ../src/search.cc:1615
+#: ../src/search.cc:1616
+#: ../src/search.cc:1617
+#: ../src/search.cc:1631
 msgid "Type"
 msgstr "Тип"
 
-#: ../src/sharebrowser.cc:78 ../src/sharebrowser.cc:94
-#: ../src/sharebrowser.cc:280 ../src/sharebrowser.cc:311 ../src/search.cc:93
-#: ../src/search.cc:117 ../src/search.cc:566 ../src/search.cc:617
-#: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
-#: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386
+#: ../src/sharebrowser.cc:78
+#: ../src/sharebrowser.cc:94
+#: ../src/sharebrowser.cc:280
+#: ../src/sharebrowser.cc:311
+#: ../src/search.cc:93
+#: ../src/search.cc:117
+#: ../src/search.cc:566
+#: ../src/search.cc:617
+#: ../src/downloadqueue.cc:72
+#: ../src/downloadqueue.cc:87
+#: ../src/downloadqueue.cc:279
+#: ../src/downloadqueue.cc:386
 msgid "Exact Size"
 msgstr "Точный размер"
 
@@ -372,12 +505,15 @@ msgstr "Список файлов закачен"
 msgid "Unable to load file list: "
 msgstr "Невозможно загрузить файл-список: "
 
-#: ../src/sharebrowser.cc:282 ../src/UserCommandMenu.cc:65
-#: ../src/search.cc:1631 ../src/settingsdialog.cc:1191
+#: ../src/sharebrowser.cc:282
+#: ../src/UserCommandMenu.cc:65
+#: ../src/search.cc:1631
+#: ../src/settingsdialog.cc:1191
 msgid "Directory"
 msgstr "Директория"
 
-#: ../src/sharebrowser.cc:330 ../src/downloadqueue.cc:238
+#: ../src/sharebrowser.cc:330
+#: ../src/downloadqueue.cc:238
 msgid "Files: "
 msgstr "Файлов: "
 
@@ -385,11 +521,13 @@ msgstr "Файлов: "
 msgid "Total: "
 msgstr "Итого: "
 
-#: ../src/sharebrowser.cc:335 ../src/downloadqueue.cc:236
+#: ../src/sharebrowser.cc:335
+#: ../src/downloadqueue.cc:236
 msgid "Items: "
 msgstr "Пунктов: "
 
-#: ../src/sharebrowser.cc:336 ../src/downloadqueue.cc:237
+#: ../src/sharebrowser.cc:336
+#: ../src/downloadqueue.cc:237
 #: ../src/downloadqueue.cc:239
 msgid "Size: "
 msgstr "Размер: "
@@ -402,16 +540,20 @@ msgstr "Пунктов: 0"
 msgid "Size: 0 B"
 msgstr "Размер: 0 Б"
 
-#: ../src/sharebrowser.cc:474 ../src/sharebrowser.cc:526 ../src/search.cc:303
+#: ../src/sharebrowser.cc:474
+#: ../src/sharebrowser.cc:526
+#: ../src/search.cc:303
 #: ../src/search.cc:373
 msgid "Browse..."
 msgstr "Обзор..."
 
-#: ../src/sharebrowser.cc:605 ../src/sharebrowser.cc:648
+#: ../src/sharebrowser.cc:605
+#: ../src/sharebrowser.cc:648
 msgid "Found a match"
 msgstr "Найден"
 
-#: ../src/sharebrowser.cc:617 ../src/sharebrowser.cc:809
+#: ../src/sharebrowser.cc:617
+#: ../src/sharebrowser.cc:809
 msgid "No matches"
 msgstr "Нет совпадений"
 
@@ -423,13 +565,17 @@ msgstr "Не введён текст для поиска"
 msgid "Matched "
 msgstr "Совпадений "
 
-#: ../src/sharebrowser.cc:997 ../src/finishedtransfers.cc:242
+#: ../src/sharebrowser.cc:997
+#: ../src/finishedtransfers.cc:242
 msgid " files"
 msgstr " файлы"
 
-#: ../src/UserCommandMenu.cc:67 ../src/settingsdialog.cc:282
-#: ../src/settingsdialog.cc:935 ../src/settingsdialog.cc:1190
-#: ../src/settingsdialog.cc:1969 ../src/settingsdialog.cc:1985
+#: ../src/UserCommandMenu.cc:67
+#: ../src/settingsdialog.cc:282
+#: ../src/settingsdialog.cc:935
+#: ../src/settingsdialog.cc:1190
+#: ../src/settingsdialog.cc:1969
+#: ../src/settingsdialog.cc:1985
 msgid "File"
 msgstr "Файл"
 
@@ -456,7 +602,7 @@ msgid ""
 msgstr ""
 "Клиент основан на исходном коде FreeDC++ и LinuxDC++\n"
 "\n"
-"EiskaltDC++ version: %s (%s)\n"
+"EiskaltDC++ version: %s - %s %s\n"
 "DC++ core version: %s"
 
 #: ../src/mainwindow.cc:209
@@ -500,24 +646,16 @@ msgid "Unable to open TCP/TLS port"
 msgstr "Невозможно открыть TCP/TLS порт"
 
 #: ../src/mainwindow.cc:1783
-msgid ""
-"File transfers will not work correctly until you change settings or turn off "
-"any application that might be using the TCP/TLS port."
-msgstr ""
-"Передача файлов будет работать некорректно, пока вы не измените настройки "
-"или не закроете приложение, использующее TCP/TLS порт"
+msgid "File transfers will not work correctly until you change settings or turn off any application that might be using the TCP/TLS port."
+msgstr "Передача файлов будет работать некорректно, пока вы не измените настройки или не закроете приложение, использующее TCP/TLS порт"
 
 #: ../src/mainwindow.cc:1796
 msgid "Unable to open UDP port"
 msgstr "Невозможно открыть UDP порт"
 
 #: ../src/mainwindow.cc:1797
-msgid ""
-"Searching will not work correctly until you change settings or turn off any "
-"application that might be using the UDP port."
-msgstr ""
-"Поиск будет работать некорректно, пока вы не измените настройки или не "
-"закроете приложение, использующее UDP порт"
+msgid "Searching will not work correctly until you change settings or turn off any application that might be using the UDP port."
+msgstr "Поиск будет работать некорректно, пока вы не измените настройки или не закроете приложение, использующее UDP порт"
 
 #: ../src/mainwindow.cc:1845
 msgid "file list from "
@@ -527,33 +665,43 @@ msgstr "список файлов от "
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
-#: ../src/mainwindow.cc:1879 ../src/mainwindow.cc:1881 ../src/hashdialog.cc:67
+#: ../src/mainwindow.cc:1879
+#: ../src/mainwindow.cc:1881
+#: ../src/hashdialog.cc:67
 #: ../src/treeview.cc:211
 msgid "s"
 msgstr "с"
 
-#: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1179
-#: ../src/settingsdialog.cc:1224 ../src/settingsdialog.cc:1281
+#: ../src/favoriteusers.cc:34
+#: ../src/settingsdialog.cc:1179
+#: ../src/settingsdialog.cc:1224
+#: ../src/settingsdialog.cc:1281
 msgid "Favorite Users"
 msgstr "Избранные Юзеры"
 
-#: ../src/favoriteusers.cc:44 ../src/favoriteusers.cc:65
-#: ../src/favoriteusers.cc:108 ../src/favoriteusers.cc:470
+#: ../src/favoriteusers.cc:44
+#: ../src/favoriteusers.cc:65
+#: ../src/favoriteusers.cc:108
+#: ../src/favoriteusers.cc:470
 #: ../src/favoriteusers.cc:472
 msgid "Auto grant slot"
 msgstr "Автоматически предоставить слот"
 
-#: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
+#: ../src/favoriteusers.cc:46
+#: ../src/favoriteusers.cc:110
 #: ../src/favoriteusers.cc:584
 msgid "Hub (last seen in, if offline)"
 msgstr "Хаб (последняя видимость, если в оффлайне)"
 
-#: ../src/favoriteusers.cc:47 ../src/favoriteusers.cc:111
-#: ../src/favoriteusers.cc:577 ../src/favoriteusers.cc:585
+#: ../src/favoriteusers.cc:47
+#: ../src/favoriteusers.cc:111
+#: ../src/favoriteusers.cc:577
+#: ../src/favoriteusers.cc:585
 msgid "Time last seen"
 msgstr "В последний раз видели"
 
-#: ../src/favoriteusers.cc:103 ../src/favoriteusers.cc:622
+#: ../src/favoriteusers.cc:103
+#: ../src/favoriteusers.cc:622
 #: ../src/favoriteusers.cc:641
 msgid "Online"
 msgstr "Онлайн"
@@ -566,11 +714,14 @@ msgstr "Вы уверены, что хотите удалить избранно
 msgid "B/s"
 msgstr "Б/с"
 
-#: ../src/hashdialog.cc:58 ../src/hashdialog.cc:67 ../src/hashdialog.cc:76
+#: ../src/hashdialog.cc:58
+#: ../src/hashdialog.cc:67
+#: ../src/hashdialog.cc:76
 msgid " left"
 msgstr " осталось"
 
-#: ../src/hashdialog.cc:59 ../src/hashdialog.cc:71
+#: ../src/hashdialog.cc:59
+#: ../src/hashdialog.cc:71
 msgid "-:--:-- left"
 msgstr "-:--:-- осталось"
 
@@ -658,34 +809,58 @@ msgstr "GB18030 (Китайский)"
 msgid "TIS-620 (Thai)"
 msgstr "TIS-620 (Тайский)"
 
-#: ../src/WulforUtil.cc:299 ../src/WulforUtil.cc:301
-#: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
+#: ../src/WulforUtil.cc:299
+#: ../src/WulforUtil.cc:301
+#: ../src/downloadqueue.cc:1295
+#: ../src/downloadqueue.cc:1296
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: ../src/search.cc:40 ../src/search.cc:469
+#: ../src/search.cc:40
+#: ../src/search.cc:469
 msgid "Search: "
 msgstr "Поиск: "
 
-#: ../src/search.cc:89 ../src/search.cc:562 ../src/search.cc:613
-#: ../src/search.cc:758 ../src/search.cc:995 ../src/search.cc:1036
-#: ../src/search.cc:1095 ../src/search.cc:1176 ../src/search.cc:1215
-#: ../src/search.cc:1272 ../src/search.cc:1337 ../src/search.cc:1611
-#: ../src/search.cc:1627 ../src/search.cc:1628 ../src/search.cc:1629
-#: ../src/search.cc:1889 ../src/finishedtransfers.cc:57
-#: ../src/finishedtransfers.cc:216 ../src/finishedtransfers.cc:458
-#: ../src/transfers.cc:64 ../src/transfers.cc:714 ../src/transfers.cc:878
-#: ../src/downloadqueue.cc:71 ../src/downloadqueue.cc:284
+#: ../src/search.cc:89
+#: ../src/search.cc:562
+#: ../src/search.cc:613
+#: ../src/search.cc:758
+#: ../src/search.cc:995
+#: ../src/search.cc:1036
+#: ../src/search.cc:1095
+#: ../src/search.cc:1176
+#: ../src/search.cc:1215
+#: ../src/search.cc:1272
+#: ../src/search.cc:1337
+#: ../src/search.cc:1611
+#: ../src/search.cc:1627
+#: ../src/search.cc:1628
+#: ../src/search.cc:1629
+#: ../src/search.cc:1889
+#: ../src/finishedtransfers.cc:57
+#: ../src/finishedtransfers.cc:216
+#: ../src/finishedtransfers.cc:458
+#: ../src/transfers.cc:64
+#: ../src/transfers.cc:714
+#: ../src/transfers.cc:878
+#: ../src/downloadqueue.cc:71
+#: ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391
 msgid "Path"
 msgstr "Путь"
 
-#: ../src/search.cc:90 ../src/search.cc:118 ../src/search.cc:560
+#: ../src/search.cc:90
+#: ../src/search.cc:118
+#: ../src/search.cc:560
 msgid "Slots"
 msgstr "Слоты"
 
-#: ../src/search.cc:92 ../src/search.cc:565 ../src/search.cc:633
-#: ../src/search.cc:773 ../src/search.cc:1645 ../src/finishedtransfers.cc:78
+#: ../src/search.cc:92
+#: ../src/search.cc:565
+#: ../src/search.cc:633
+#: ../src/search.cc:773
+#: ../src/search.cc:1645
+#: ../src/finishedtransfers.cc:78
 #: ../src/finishedtransfers.cc:179
 msgid "Hub"
 msgstr "Хаб"
@@ -718,51 +893,76 @@ msgstr "отфильтрованный"
 msgid " dropped"
 msgstr " сброшено"
 
-#: ../src/finishedtransfers.cc:34 ../src/settingsdialog.cc:919
-#: ../src/settingsdialog.cc:1180 ../src/settingsdialog.cc:1238
+#: ../src/finishedtransfers.cc:34
+#: ../src/settingsdialog.cc:919
+#: ../src/settingsdialog.cc:1180
+#: ../src/settingsdialog.cc:1238
 #: ../src/settingsdialog.cc:1279
 msgid "Finished Downloads"
 msgstr "Закачано"
 
-#: ../src/finishedtransfers.cc:39 ../src/settingsdialog.cc:920
-#: ../src/settingsdialog.cc:1181 ../src/settingsdialog.cc:1240
+#: ../src/finishedtransfers.cc:39
+#: ../src/settingsdialog.cc:920
+#: ../src/settingsdialog.cc:1181
+#: ../src/settingsdialog.cc:1240
 #: ../src/settingsdialog.cc:1280
 msgid "Finished Uploads"
 msgstr "Отдано"
 
-#: ../src/finishedtransfers.cc:55 ../src/finishedtransfers.cc:69
-#: ../src/finishedtransfers.cc:70 ../src/finishedtransfers.cc:76
-#: ../src/finishedtransfers.cc:89 ../src/finishedtransfers.cc:90
-#: ../src/finishedtransfers.cc:177 ../src/finishedtransfers.cc:214
-#: ../src/searchspy.cc:56 ../src/searchspy.cc:269 ../src/searchspy.cc:294
+#: ../src/finishedtransfers.cc:55
+#: ../src/finishedtransfers.cc:69
+#: ../src/finishedtransfers.cc:70
+#: ../src/finishedtransfers.cc:76
+#: ../src/finishedtransfers.cc:89
+#: ../src/finishedtransfers.cc:90
+#: ../src/finishedtransfers.cc:177
+#: ../src/finishedtransfers.cc:214
+#: ../src/searchspy.cc:56
+#: ../src/searchspy.cc:269
+#: ../src/searchspy.cc:294
 #: ../src/searchspy.cc:310
 msgid "Time"
 msgstr "Время"
 
-#: ../src/finishedtransfers.cc:58 ../src/finishedtransfers.cc:217
+#: ../src/finishedtransfers.cc:58
+#: ../src/finishedtransfers.cc:217
 msgid "Nicks"
 msgstr "Ники"
 
-#: ../src/finishedtransfers.cc:59 ../src/finishedtransfers.cc:80
-#: ../src/finishedtransfers.cc:172 ../src/finishedtransfers.cc:181
-#: ../src/finishedtransfers.cc:218 ../src/finishedtransfers.cc:550
+#: ../src/finishedtransfers.cc:59
+#: ../src/finishedtransfers.cc:80
+#: ../src/finishedtransfers.cc:172
+#: ../src/finishedtransfers.cc:181
+#: ../src/finishedtransfers.cc:218
+#: ../src/finishedtransfers.cc:550
 msgid "Transferred"
 msgstr "Передано"
 
-#: ../src/finishedtransfers.cc:60 ../src/finishedtransfers.cc:81
-#: ../src/finishedtransfers.cc:182 ../src/finishedtransfers.cc:219
-#: ../src/transfers.cc:61 ../src/transfers.cc:556 ../src/transfers.cc:592
-#: ../src/transfers.cc:623 ../src/transfers.cc:764 ../src/transfers.cc:881
-#: ../src/transfers.cc:963 ../src/transfers.cc:983 ../src/transfers.cc:1033
-#: ../src/transfers.cc:1138 ../src/transfers.cc:1152
+#: ../src/finishedtransfers.cc:60
+#: ../src/finishedtransfers.cc:81
+#: ../src/finishedtransfers.cc:182
+#: ../src/finishedtransfers.cc:219
+#: ../src/transfers.cc:61
+#: ../src/transfers.cc:556
+#: ../src/transfers.cc:592
+#: ../src/transfers.cc:623
+#: ../src/transfers.cc:764
+#: ../src/transfers.cc:881
+#: ../src/transfers.cc:963
+#: ../src/transfers.cc:983
+#: ../src/transfers.cc:1033
+#: ../src/transfers.cc:1138
+#: ../src/transfers.cc:1152
 msgid "Speed"
 msgstr "Скорость"
 
-#: ../src/finishedtransfers.cc:61 ../src/finishedtransfers.cc:220
+#: ../src/finishedtransfers.cc:61
+#: ../src/finishedtransfers.cc:220
 msgid "CRC Checked"
 msgstr "CRC Проверено"
 
-#: ../src/finishedtransfers.cc:79 ../src/finishedtransfers.cc:180
+#: ../src/finishedtransfers.cc:79
+#: ../src/finishedtransfers.cc:180
 msgid "Files"
 msgstr "Файлы"
 
@@ -778,38 +978,70 @@ msgstr "Да"
 msgid "No"
 msgstr "Нет"
 
-#: ../src/searchspy.cc:36 ../src/settingsdialog.cc:925
-#: ../src/settingsdialog.cc:1187 ../src/settingsdialog.cc:1234
+#: ../src/searchspy.cc:36
+#: ../src/settingsdialog.cc:925
+#: ../src/settingsdialog.cc:1187
+#: ../src/settingsdialog.cc:1234
 #: ../src/settingsdialog.cc:1282
 msgid "Search Spy"
 msgstr "Поисковый шпион"
 
-#: ../src/searchspy.cc:54 ../src/searchspy.cc:72 ../src/searchspy.cc:74
-#: ../src/searchspy.cc:78 ../src/searchspy.cc:220 ../src/searchspy.cc:231
-#: ../src/searchspy.cc:285 ../src/searchspy.cc:292 ../src/searchspy.cc:308
-#: ../src/searchspy.cc:467 ../src/searchspy.cc:532 ../src/searchspy.cc:565
+#: ../src/searchspy.cc:54
+#: ../src/searchspy.cc:72
+#: ../src/searchspy.cc:74
+#: ../src/searchspy.cc:78
+#: ../src/searchspy.cc:220
+#: ../src/searchspy.cc:231
+#: ../src/searchspy.cc:285
+#: ../src/searchspy.cc:292
+#: ../src/searchspy.cc:308
+#: ../src/searchspy.cc:467
+#: ../src/searchspy.cc:532
+#: ../src/searchspy.cc:565
 msgid "Search String"
 msgstr "Строка поиска"
 
-#: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
-#: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
+#: ../src/searchspy.cc:55
+#: ../src/searchspy.cc:154
+#: ../src/searchspy.cc:268
+#: ../src/searchspy.cc:293
+#: ../src/searchspy.cc:309
+#: ../src/searchspy.cc:431
 msgid "Count"
 msgstr "Количество"
 
-#: ../src/searchspy.cc:57 ../src/searchspy.cc:295 ../src/searchspy.cc:377
-#: ../src/transfers.cc:59 ../src/transfers.cc:368 ../src/transfers.cc:401
-#: ../src/transfers.cc:495 ../src/transfers.cc:584 ../src/transfers.cc:594
-#: ../src/transfers.cc:762 ../src/transfers.cc:900 ../src/transfers.cc:913
-#: ../src/transfers.cc:948 ../src/transfers.cc:961 ../src/transfers.cc:980
-#: ../src/transfers.cc:1001 ../src/transfers.cc:1012 ../src/transfers.cc:1030
-#: ../src/transfers.cc:1047 ../src/transfers.cc:1049 ../src/transfers.cc:1090
-#: ../src/transfers.cc:1123 ../src/transfers.cc:1136 ../src/transfers.cc:1149
-#: ../src/downloadqueue.cc:66 ../src/downloadqueue.cc:277
+#: ../src/searchspy.cc:57
+#: ../src/searchspy.cc:295
+#: ../src/searchspy.cc:377
+#: ../src/transfers.cc:59
+#: ../src/transfers.cc:368
+#: ../src/transfers.cc:401
+#: ../src/transfers.cc:495
+#: ../src/transfers.cc:584
+#: ../src/transfers.cc:594
+#: ../src/transfers.cc:762
+#: ../src/transfers.cc:900
+#: ../src/transfers.cc:913
+#: ../src/transfers.cc:948
+#: ../src/transfers.cc:961
+#: ../src/transfers.cc:980
+#: ../src/transfers.cc:1001
+#: ../src/transfers.cc:1012
+#: ../src/transfers.cc:1030
+#: ../src/transfers.cc:1047
+#: ../src/transfers.cc:1049
+#: ../src/transfers.cc:1090
+#: ../src/transfers.cc:1123
+#: ../src/transfers.cc:1136
+#: ../src/transfers.cc:1149
+#: ../src/downloadqueue.cc:66
+#: ../src/downloadqueue.cc:277
 #: ../src/downloadqueue.cc:384
 msgid "Status"
 msgstr "Статус"
 
-#: ../src/searchspy.cc:295 ../src/searchspy.cc:363
+#: ../src/searchspy.cc:295
+#: ../src/searchspy.cc:363
 msgid "waiting..."
 msgstr "ожидание..."
 
@@ -829,49 +1061,75 @@ msgstr "верх/ожидание/фрейм:"
 msgid "Clear frame search"
 msgstr "Очистить поисковый фрейм"
 
-#: ../src/bookentry.cc:65 ../src/bookentry.cc:70
+#: ../src/bookentry.cc:65
+#: ../src/bookentry.cc:70
 msgid "Close tab"
 msgstr "Закрыть окно"
 
-#: ../src/settingsdialog.cc:281 ../src/settingsdialog.cc:317
-#: ../src/settingsdialog.cc:933 ../src/settingsdialog.cc:944
-#: ../src/settingsdialog.cc:1092 ../src/settingsdialog.cc:1107
+#: ../src/settingsdialog.cc:281
+#: ../src/settingsdialog.cc:317
+#: ../src/settingsdialog.cc:933
+#: ../src/settingsdialog.cc:944
+#: ../src/settingsdialog.cc:1092
+#: ../src/settingsdialog.cc:1107
 msgid "Use"
 msgstr "Исп"
 
-#: ../src/settingsdialog.cc:318 ../src/settingsdialog.cc:1094
-#: ../src/settingsdialog.cc:1436 ../src/settingsdialog.cc:1492
-#: ../src/settingsdialog.cc:1508 ../src/settingsdialog.cc:1530
-#: ../src/settingsdialog.cc:1534 ../src/settingsdialog.cc:1584
+#: ../src/settingsdialog.cc:318
+#: ../src/settingsdialog.cc:1094
+#: ../src/settingsdialog.cc:1436
+#: ../src/settingsdialog.cc:1492
+#: ../src/settingsdialog.cc:1508
+#: ../src/settingsdialog.cc:1530
+#: ../src/settingsdialog.cc:1534
+#: ../src/settingsdialog.cc:1584
 msgid "Title"
 msgstr "Заголовок"
 
-#: ../src/settingsdialog.cc:319 ../src/settingsdialog.cc:1095
-#: ../src/settingsdialog.cc:1437 ../src/settingsdialog.cc:1471
-#: ../src/settingsdialog.cc:1548 ../src/settingsdialog.cc:1584
+#: ../src/settingsdialog.cc:319
+#: ../src/settingsdialog.cc:1095
+#: ../src/settingsdialog.cc:1437
+#: ../src/settingsdialog.cc:1471
+#: ../src/settingsdialog.cc:1548
+#: ../src/settingsdialog.cc:1584
 msgid "Icon"
 msgstr "Иконка"
 
-#: ../src/settingsdialog.cc:773 ../src/settingsdialog.cc:808
-#: ../src/settingsdialog.cc:2047 ../src/settingsdialog.cc:2063
-#: ../src/settingsdialog.cc:2081 ../src/settingsdialog.cc:2099
-#: ../src/settingsdialog.cc:2125 ../src/settingsdialog.cc:2130
-#: ../src/favoritehubs.cc:53 ../src/favoritehubs.cc:72
-#: ../src/favoritehubs.cc:73 ../src/favoritehubs.cc:122
-#: ../src/favoritehubs.cc:291 ../src/favoritehubs.cc:407
-#: ../src/publichubs.cc:41 ../src/publichubs.cc:156 ../src/publichubs.cc:292
+#: ../src/settingsdialog.cc:773
+#: ../src/settingsdialog.cc:808
+#: ../src/settingsdialog.cc:2047
+#: ../src/settingsdialog.cc:2063
+#: ../src/settingsdialog.cc:2081
+#: ../src/settingsdialog.cc:2099
+#: ../src/settingsdialog.cc:2125
+#: ../src/settingsdialog.cc:2130
+#: ../src/favoritehubs.cc:53
+#: ../src/favoritehubs.cc:72
+#: ../src/favoritehubs.cc:73
+#: ../src/favoritehubs.cc:122
+#: ../src/favoritehubs.cc:291
+#: ../src/favoritehubs.cc:407
+#: ../src/publichubs.cc:41
+#: ../src/publichubs.cc:156
+#: ../src/publichubs.cc:292
 msgid "Name"
 msgstr "Название"
 
-#: ../src/settingsdialog.cc:774 ../src/settingsdialog.cc:809
-#: ../src/settingsdialog.cc:2048 ../src/settingsdialog.cc:2082
-#: ../src/settingsdialog.cc:2100 ../src/settingsdialog.cc:2131
+#: ../src/settingsdialog.cc:774
+#: ../src/settingsdialog.cc:809
+#: ../src/settingsdialog.cc:2048
+#: ../src/settingsdialog.cc:2082
+#: ../src/settingsdialog.cc:2100
+#: ../src/settingsdialog.cc:2131
 msgid "Application"
 msgstr "Приложение"
 
-#: ../src/settingsdialog.cc:775 ../src/settingsdialog.cc:810
-#: ../src/settingsdialog.cc:2049 ../src/settingsdialog.cc:2083
-#: ../src/settingsdialog.cc:2101 ../src/settingsdialog.cc:2132
+#: ../src/settingsdialog.cc:775
+#: ../src/settingsdialog.cc:810
+#: ../src/settingsdialog.cc:2049
+#: ../src/settingsdialog.cc:2083
+#: ../src/settingsdialog.cc:2101
+#: ../src/settingsdialog.cc:2132
 msgid "Extensions"
 msgstr "Расширения"
 
@@ -893,9 +1151,7 @@ msgstr "Amarok плеер"
 
 #: ../src/settingsdialog.cc:833
 msgid "Set lowest priority for newly added files larger than low priority size"
-msgstr ""
-"Устанавливать самый низкий приоритет для файлов, превышающих размер низкого "
-"приоритета"
+msgstr "Устанавливать самый низкий приоритет для файлов, превышающих размер низкого приоритета"
 
 #: ../src/settingsdialog.cc:834
 msgid "Auto-drop slow sources for all queue items (except filelists)"
@@ -981,7 +1237,8 @@ msgstr "Не закрывать программу, сворачивать в т
 msgid "Send PM when double clicked in the user list"
 msgstr "Посылать ЛС при двойном клике в списке пользователей"
 
-#: ../src/settingsdialog.cc:921 ../src/settingsdialog.cc:1278
+#: ../src/settingsdialog.cc:921
+#: ../src/settingsdialog.cc:1278
 #: ../src/downloadqueue.cc:34
 msgid "Download Queue"
 msgstr "Очередь закачек"
@@ -994,7 +1251,8 @@ msgstr "Хаб"
 msgid "Private Message (also sets urgency hint)"
 msgstr "Личное сообщение"
 
-#: ../src/settingsdialog.cc:924 ../src/settingsdialog.cc:1186
+#: ../src/settingsdialog.cc:924
+#: ../src/settingsdialog.cc:1186
 #: ../src/settingsdialog.cc:1232
 msgid "Search"
 msgstr "Поиск"
@@ -1003,12 +1261,15 @@ msgstr "Поиск"
 msgid "Sounds"
 msgstr "Звуки"
 
-#: ../src/settingsdialog.cc:951 ../src/settingsdialog.cc:1112
-#: ../src/transfers.cc:1072 ../src/settingsmanager.cc:181
+#: ../src/settingsdialog.cc:951
+#: ../src/settingsdialog.cc:1112
+#: ../src/transfers.cc:1072
+#: ../src/settingsmanager.cc:181
 msgid "Download finished"
 msgstr "Закачка окончена"
 
-#: ../src/settingsdialog.cc:952 ../src/settingsdialog.cc:1116
+#: ../src/settingsdialog.cc:952
+#: ../src/settingsdialog.cc:1116
 #: ../src/settingsmanager.cc:183
 msgid "Download finished file list"
 msgstr "Закачен список файлов"
@@ -1017,22 +1278,26 @@ msgstr "Закачен список файлов"
 msgid "Upload finished"
 msgstr "Отдача окончена"
 
-#: ../src/settingsdialog.cc:955 ../src/settingsdialog.cc:1124
+#: ../src/settingsdialog.cc:955
+#: ../src/settingsdialog.cc:1124
 #: ../src/settingsmanager.cc:189
 msgid "Hub connected"
 msgstr "Соединён с хабом"
 
-#: ../src/settingsdialog.cc:956 ../src/settingsdialog.cc:1128
+#: ../src/settingsdialog.cc:956
+#: ../src/settingsdialog.cc:1128
 #: ../src/settingsmanager.cc:187
 msgid "Hub disconnected"
 msgstr "Разъединён с хабом"
 
-#: ../src/settingsdialog.cc:957 ../src/settingsdialog.cc:1132
+#: ../src/settingsdialog.cc:957
+#: ../src/settingsdialog.cc:1132
 #: ../src/settingsmanager.cc:191
 msgid "Favorite user joined"
 msgstr "Фаворит вошел"
 
-#: ../src/settingsdialog.cc:958 ../src/settingsdialog.cc:1136
+#: ../src/settingsdialog.cc:958
+#: ../src/settingsdialog.cc:1136
 #: ../src/settingsmanager.cc:193
 msgid "Favorite user quit"
 msgstr "Фаворит вышел"
@@ -1057,7 +1322,8 @@ msgstr "Системное сообщение"
 msgid "Status message"
 msgstr "Статус сообщение"
 
-#: ../src/settingsdialog.cc:1009 ../src/settingsdialog.cc:1037
+#: ../src/settingsdialog.cc:1009
+#: ../src/settingsdialog.cc:1037
 msgid "Timestamp"
 msgstr "Метка времени"
 
@@ -1121,33 +1387,42 @@ msgstr "Закачать"
 msgid "Upload"
 msgstr "Отдачи"
 
-#: ../src/settingsdialog.cc:1178 ../src/settingsdialog.cc:1222
-#: ../src/settingsdialog.cc:1277 ../src/favoritehubs.cc:31
+#: ../src/settingsdialog.cc:1178
+#: ../src/settingsdialog.cc:1222
+#: ../src/settingsdialog.cc:1277
+#: ../src/favoritehubs.cc:31
 msgid "Favorite Hubs"
 msgstr "Избранные Хабы"
 
-#: ../src/settingsdialog.cc:1182 ../src/settingsdialog.cc:1230
+#: ../src/settingsdialog.cc:1182
+#: ../src/settingsdialog.cc:1230
 msgid "Hash"
 msgstr "Хеш"
 
-#: ../src/settingsdialog.cc:1183 ../src/settingsdialog.cc:1228
+#: ../src/settingsdialog.cc:1183
+#: ../src/settingsdialog.cc:1228
 msgid "Preferences"
 msgstr "Настройки"
 
-#: ../src/settingsdialog.cc:1184 ../src/settingsdialog.cc:1226
-#: ../src/settingsdialog.cc:1276 ../src/publichubs.cc:29
+#: ../src/settingsdialog.cc:1184
+#: ../src/settingsdialog.cc:1226
+#: ../src/settingsdialog.cc:1276
+#: ../src/publichubs.cc:29
 msgid "Public Hubs"
 msgstr "Открытые"
 
-#: ../src/settingsdialog.cc:1185 ../src/settingsdialog.cc:1236
+#: ../src/settingsdialog.cc:1185
+#: ../src/settingsdialog.cc:1236
 msgid "Queue"
 msgstr "Очередь"
 
-#: ../src/settingsdialog.cc:1188 ../src/settingsdialog.cc:1242
+#: ../src/settingsdialog.cc:1188
+#: ../src/settingsdialog.cc:1242
 msgid "Quit"
 msgstr "Выход"
 
-#: ../src/settingsdialog.cc:1189 ../src/settingsdialog.cc:1220
+#: ../src/settingsdialog.cc:1189
+#: ../src/settingsdialog.cc:1220
 msgid "Connect"
 msgstr "Соединение"
 
@@ -1185,8 +1460,7 @@ msgstr "Запрос при удалении избранных хабов"
 
 #: ../src/settingsdialog.cc:1344
 msgid "Auto-away on minimize (and back on restore)"
-msgstr ""
-"Авто-режим \"ушёл\" при сворачивании окна (и возврат при восстановлении)"
+msgstr "Авто-режим \"ушёл\" при сворачивании окна (и возврат при восстановлении)"
 
 #: ../src/settingsdialog.cc:1345
 msgid "Automatically follow redirects"
@@ -1197,9 +1471,7 @@ msgid "Clear search box after each search"
 msgstr "Очищать поле ввода по завершению поиска"
 
 #: ../src/settingsdialog.cc:1347
-msgid ""
-"Keep duplicate files in your file list (duplicates never count towards your "
-"share size)"
+msgid "Keep duplicate files in your file list (duplicates never count towards your share size)"
 msgstr "Хранить дубликаты файлов в своём списке файлов"
 
 #: ../src/settingsdialog.cc:1348
@@ -1240,9 +1512,7 @@ msgstr "Не отправлять ботам сообщение \"ушёл\""
 
 #: ../src/settingsdialog.cc:1357
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr ""
-"Использовать быстрое хэширование (отключите, если у вас проблемы с "
-"хэшированием)"
+msgstr "Использовать быстрое хэширование (отключите, если у вас проблемы с хэшированием)"
 
 #: ../src/settingsdialog.cc:1358
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
@@ -1268,12 +1538,14 @@ msgstr "Разрешить TLS соединения с клиентами без
 msgid "*** T E S T ***"
 msgstr "*** Т Е С Т ***"
 
-#: ../src/settingsdialog.cc:1521 ../src/settingsdialog.cc:1550
+#: ../src/settingsdialog.cc:1521
+#: ../src/settingsdialog.cc:1550
 #: ../src/settingsdialog.cc:1587
 msgid "...must not be empty"
 msgstr "не должно быть пустым"
 
-#: ../src/settingsdialog.cc:1618 ../src/settingsdialog.cc:1642
+#: ../src/settingsdialog.cc:1618
+#: ../src/settingsdialog.cc:1642
 msgid "...must be *.theme"
 msgstr "...должно быть *.theme"
 
@@ -1289,7 +1561,8 @@ msgstr " + системные иконки"
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: ../src/settingsdialog.cc:2030 ../src/settingsdialog.cc:2116
+#: ../src/settingsdialog.cc:2030
+#: ../src/settingsdialog.cc:2116
 msgid "Must not be empty..."
 msgstr "Не должно быть пустым..."
 
@@ -1297,7 +1570,8 @@ msgstr "Не должно быть пустым..."
 msgid "Error"
 msgstr "Ошибка"
 
-#: ../src/settingsdialog.cc:2211 ../src/settingsdialog.cc:2312
+#: ../src/settingsdialog.cc:2211
+#: ../src/settingsdialog.cc:2312
 msgid "selected style failed"
 msgstr "не выбран стиль"
 
@@ -1313,7 +1587,8 @@ msgstr "Название и команда не должны быть пусты
 msgid "Command name already exists"
 msgstr "Команда уже существует"
 
-#: ../src/settingsdialog.cc:2676 ../src/publichubs.cc:360
+#: ../src/settingsdialog.cc:2676
+#: ../src/publichubs.cc:360
 msgid "New list"
 msgstr "Новый лист"
 
@@ -1325,7 +1600,8 @@ msgstr "Такой каталог или имя уже существует"
 msgid "Total size: "
 msgstr "Итоговый размер: "
 
-#: ../src/privatemessage.cc:38 ../src/privatemessage.cc:138
+#: ../src/privatemessage.cc:38
+#: ../src/privatemessage.cc:138
 msgid "PM: "
 msgstr "ЛС: "
 
@@ -1353,22 +1629,41 @@ msgstr "Пользователь ушёл в оффлайн"
 msgid "Slot granted"
 msgstr "Слот открыт"
 
-#: ../src/transfers.cc:57 ../src/transfers.cc:83 ../src/transfers.cc:85
-#: ../src/transfers.cc:493 ../src/transfers.cc:559 ../src/transfers.cc:590
-#: ../src/transfers.cc:858 ../src/transfers.cc:876 ../src/transfers.cc:899
-#: ../src/transfers.cc:914 ../src/transfers.cc:962 ../src/transfers.cc:981
-#: ../src/transfers.cc:1032 ../src/transfers.cc:1050 ../src/transfers.cc:1091
-#: ../src/transfers.cc:1137 ../src/transfers.cc:1150
+#: ../src/transfers.cc:57
+#: ../src/transfers.cc:83
+#: ../src/transfers.cc:85
+#: ../src/transfers.cc:493
+#: ../src/transfers.cc:559
+#: ../src/transfers.cc:590
+#: ../src/transfers.cc:858
+#: ../src/transfers.cc:876
+#: ../src/transfers.cc:899
+#: ../src/transfers.cc:914
+#: ../src/transfers.cc:962
+#: ../src/transfers.cc:981
+#: ../src/transfers.cc:1032
+#: ../src/transfers.cc:1050
+#: ../src/transfers.cc:1091
+#: ../src/transfers.cc:1137
+#: ../src/transfers.cc:1150
 msgid "User"
 msgstr "Юзер"
 
-#: ../src/transfers.cc:58 ../src/transfers.cc:494 ../src/transfers.cc:560
-#: ../src/transfers.cc:591 ../src/transfers.cc:859 ../src/transfers.cc:877
+#: ../src/transfers.cc:58
+#: ../src/transfers.cc:494
+#: ../src/transfers.cc:560
+#: ../src/transfers.cc:591
+#: ../src/transfers.cc:859
+#: ../src/transfers.cc:877
 msgid "Hub Name"
 msgstr "Хаб"
 
-#: ../src/transfers.cc:60 ../src/transfers.cc:593 ../src/transfers.cc:623
-#: ../src/transfers.cc:886 ../src/transfers.cc:984 ../src/transfers.cc:1034
+#: ../src/transfers.cc:60
+#: ../src/transfers.cc:593
+#: ../src/transfers.cc:623
+#: ../src/transfers.cc:886
+#: ../src/transfers.cc:984
+#: ../src/transfers.cc:1034
 #: ../src/transfers.cc:1153
 msgid "Time Left"
 msgstr "Осталось"
@@ -1381,7 +1676,8 @@ msgstr "Соединение (принудительно)"
 msgid "Closing connection..."
 msgstr "Закрыть соединение..."
 
-#: ../src/transfers.cc:575 ../src/transfers.cc:946
+#: ../src/transfers.cc:575
+#: ../src/transfers.cc:946
 msgid "Downloaded "
 msgstr "Закачано "
 
@@ -1397,7 +1693,8 @@ msgstr "%) от "
 msgid " user(s)"
 msgstr " юзер(ы)"
 
-#: ../src/transfers.cc:669 ../src/transfers.cc:871
+#: ../src/transfers.cc:669
+#: ../src/transfers.cc:871
 msgid "File list"
 msgstr "Список файлов"
 
@@ -1409,11 +1706,13 @@ msgstr "Запрашивается"
 msgid "Download starting..."
 msgstr "Закачка начинается..."
 
-#: ../src/transfers.cc:936 ../src/transfers.cc:1113
+#: ../src/transfers.cc:936
+#: ../src/transfers.cc:1113
 msgid "[S]"
 msgstr "[S]"
 
-#: ../src/transfers.cc:938 ../src/transfers.cc:1115
+#: ../src/transfers.cc:938
+#: ../src/transfers.cc:1115
 msgid "[U]"
 msgstr "[U]"
 
@@ -1421,7 +1720,8 @@ msgstr "[U]"
 msgid "[T]"
 msgstr "[T]"
 
-#: ../src/transfers.cc:943 ../src/transfers.cc:1118
+#: ../src/transfers.cc:943
+#: ../src/transfers.cc:1118
 msgid "[Z]"
 msgstr "[Z]"
 
@@ -1457,35 +1757,50 @@ msgstr "Отдано "
 msgid "Upload complete..."
 msgstr "Отдача закончена..."
 
-#: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:67
-#: ../src/favoritehubs.cc:121 ../src/favoritehubs.cc:237
-#: ../src/favoritehubs.cc:298 ../src/favoritehubs.cc:452
+#: ../src/favoritehubs.cc:52
+#: ../src/favoritehubs.cc:67
+#: ../src/favoritehubs.cc:121
+#: ../src/favoritehubs.cc:237
+#: ../src/favoritehubs.cc:298
+#: ../src/favoritehubs.cc:452
 #: ../src/favoritehubs.cc:454
 msgid "Auto Connect"
 msgstr "Авто Соед."
 
-#: ../src/favoritehubs.cc:55 ../src/favoritehubs.cc:127
-#: ../src/favoritehubs.cc:141 ../src/favoritehubs.cc:214
-#: ../src/favoritehubs.cc:240 ../src/favoritehubs.cc:292
-#: ../src/favoritehubs.cc:304 ../src/favoritehubs.cc:425
-#: ../src/favoritehubs.cc:440 ../src/favoritehubs.cc:451
-#: ../src/publichubs.cc:44 ../src/publichubs.cc:159 ../src/publichubs.cc:269
+#: ../src/favoritehubs.cc:55
+#: ../src/favoritehubs.cc:127
+#: ../src/favoritehubs.cc:141
+#: ../src/favoritehubs.cc:214
+#: ../src/favoritehubs.cc:240
+#: ../src/favoritehubs.cc:292
+#: ../src/favoritehubs.cc:304
+#: ../src/favoritehubs.cc:425
+#: ../src/favoritehubs.cc:440
+#: ../src/favoritehubs.cc:451
+#: ../src/publichubs.cc:44
+#: ../src/publichubs.cc:159
+#: ../src/publichubs.cc:269
 #: ../src/publichubs.cc:294
 msgid "Address"
 msgstr "Адрес"
 
-#: ../src/favoritehubs.cc:57 ../src/favoritehubs.cc:125
+#: ../src/favoritehubs.cc:57
+#: ../src/favoritehubs.cc:125
 msgid "Password"
 msgstr "Пароль"
 
-#: ../src/favoritehubs.cc:58 ../src/favoritehubs.cc:128
+#: ../src/favoritehubs.cc:58
+#: ../src/favoritehubs.cc:128
 #: ../src/favoritehubs.cc:296
 msgid "User Description"
 msgstr "Юзер Описание"
 
-#: ../src/favoritehubs.cc:59 ../src/favoritehubs.cc:129
-#: ../src/favoritehubs.cc:215 ../src/favoritehubs.cc:241
-#: ../src/favoritehubs.cc:297 ../src/favoritehubs.cc:441
+#: ../src/favoritehubs.cc:59
+#: ../src/favoritehubs.cc:129
+#: ../src/favoritehubs.cc:215
+#: ../src/favoritehubs.cc:241
+#: ../src/favoritehubs.cc:297
+#: ../src/favoritehubs.cc:441
 msgid "Encoding"
 msgstr "Кодировка"
 
@@ -1498,33 +1813,43 @@ msgstr "Имя и адрес обязательны для заполнения"
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
 msgstr "Вы уверены, что хотите удалить хаб \"%s\"?"
 
-#: ../src/publichubs.cc:43 ../src/publichubs.cc:57 ../src/publichubs.cc:58
-#: ../src/publichubs.cc:158 ../src/downloadqueue.cc:70
-#: ../src/downloadqueue.cc:276 ../src/downloadqueue.cc:383
+#: ../src/publichubs.cc:43
+#: ../src/publichubs.cc:57
+#: ../src/publichubs.cc:58
+#: ../src/publichubs.cc:158
+#: ../src/downloadqueue.cc:70
+#: ../src/downloadqueue.cc:276
+#: ../src/downloadqueue.cc:383
 msgid "Users"
 msgstr "Юзеры"
 
-#: ../src/publichubs.cc:45 ../src/publichubs.cc:160
+#: ../src/publichubs.cc:45
+#: ../src/publichubs.cc:160
 msgid "Country"
 msgstr "Страна"
 
-#: ../src/publichubs.cc:47 ../src/publichubs.cc:162
+#: ../src/publichubs.cc:47
+#: ../src/publichubs.cc:162
 msgid "Min Share"
 msgstr "Мин. Шара"
 
-#: ../src/publichubs.cc:48 ../src/publichubs.cc:163
+#: ../src/publichubs.cc:48
+#: ../src/publichubs.cc:163
 msgid "Min Slots"
 msgstr "Мин. Слотов"
 
-#: ../src/publichubs.cc:49 ../src/publichubs.cc:164
+#: ../src/publichubs.cc:49
+#: ../src/publichubs.cc:164
 msgid "Max Hubs"
 msgstr "Мак. Хабов"
 
-#: ../src/publichubs.cc:50 ../src/publichubs.cc:165
+#: ../src/publichubs.cc:50
+#: ../src/publichubs.cc:165
 msgid "Max Users"
 msgstr "Мак. Юзеров"
 
-#: ../src/publichubs.cc:51 ../src/publichubs.cc:166
+#: ../src/publichubs.cc:51
+#: ../src/publichubs.cc:166
 msgid "Rating"
 msgstr "Рейтинг"
 
@@ -1548,22 +1873,27 @@ msgstr "Закачка не удалась: "
 msgid "Download finished: "
 msgstr "Закачка окончена: "
 
-#: ../src/downloadqueue.cc:68 ../src/downloadqueue.cc:88
-#: ../src/downloadqueue.cc:281 ../src/downloadqueue.cc:388
+#: ../src/downloadqueue.cc:68
+#: ../src/downloadqueue.cc:88
+#: ../src/downloadqueue.cc:281
+#: ../src/downloadqueue.cc:388
 msgid "Downloaded"
 msgstr "Закачано"
 
-#: ../src/downloadqueue.cc:69 ../src/downloadqueue.cc:283
+#: ../src/downloadqueue.cc:69
+#: ../src/downloadqueue.cc:283
 #: ../src/downloadqueue.cc:390
 msgid "Priority"
 msgstr "Приоритет"
 
-#: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:285
+#: ../src/downloadqueue.cc:73
+#: ../src/downloadqueue.cc:285
 #: ../src/downloadqueue.cc:392
 msgid "Errors"
 msgstr "Ошибки"
 
-#: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:286
+#: ../src/downloadqueue.cc:74
+#: ../src/downloadqueue.cc:286
 #: ../src/downloadqueue.cc:393
 msgid "Added"
 msgstr "Добавлено"
