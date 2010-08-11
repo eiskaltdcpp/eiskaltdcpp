@@ -290,9 +290,7 @@ friend class dcpp::Singleton<MainWindow>;
 
         void updateStatus(QMap<QString,QString>);
         void updateHashProgressStatus();
-#ifdef FREE_SPACE_BAR_C
-        static bool FreeDiscSpace ( std::string path, unsigned long long * res, unsigned long long * res2);
-#endif
+
         HashProgress *progress_dialog(); // Lazy initialization for _progress_dialog;
         bool isUnload;
         bool exitBegin;

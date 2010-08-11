@@ -1401,6 +1401,10 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                          "/browse <nick> - browse user files\n"
                          "/clear - clear chat window\n"
                          "/magnet - default action with magnet (0-ask, 1-search, 2-download)\n"
+#ifdef LUA_SCRIPT
+                         "/luafile <file> - Load Lua file\n"
+                         "/lua <chunk> - Execute Lua Chunk\n"
+#endif
                          "/close - close this hub\n"
                          "/fav - add this hub to favorites\n"
                          "/grant <nick> - grant extra slot to user\n"
@@ -1416,6 +1420,14 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         else if (pm)
             pm->addStatus(out);
     }
+#ifdef LUA_SCRIPT
+        else if (cmd == "/lua" && !emptyParam) {
+            ScriptManager::getInstance()->EvaluateChunk(Text::fromT(param));
+        }
+        else if( cmd == "/luafile" && !emptyParam) {
+            ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
+        }
+#endif
     else if (cmd == "/sh" && !emptyParam){
         if (line.endsWith("\n"))//remove extra \n char
             line = line.left(line.lastIndexOf("\n"));

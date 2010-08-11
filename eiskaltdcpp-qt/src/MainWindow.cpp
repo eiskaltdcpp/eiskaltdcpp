@@ -19,15 +19,6 @@
 #include <QFileDialog>
 #include <QRegExp>
 #include <QDir>
-#ifdef FREE_SPACE_BAR_C
-    #ifdef WIN32
-        #include <io.h>
-    #else //WIN32
-        extern "C" {
-        #include "fsusage/fsusage.h"
-        }
-    #endif //WIN32
-#endif
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "HashProgress.h"
@@ -51,7 +42,9 @@
 #include "SideBar.h"
 #include "ActionCustomizer.h"
 #include "MultiLineToolBar.h"
-
+#ifdef FREE_SPACE_BAR_C
+#include "fsusage/freespace.h"
+#endif
 #ifdef USE_JS
 #include "ScriptManagerDialog.h"
 #include "scriptengine/ScriptConsole.h"
@@ -1300,7 +1293,7 @@ void MainWindow::updateStatus(QMap<QString, QString> map){
     unsigned long long available = 0;
     unsigned long long total = 0;
     if (!s.empty()) {
-        if (MainWindow::FreeDiscSpace(s, &available, &total) == false) {
+        if (FreeSpace::FreeDiscSpace(s, &available, &total) == false) {
             available = 0;
             total = 0;
         }
@@ -2511,38 +2504,6 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
 
     QApplication::postEvent(this, new MainWindowCustomEvent(func));
 }
-#ifdef FREE_SPACE_BAR_C
-bool MainWindow::FreeDiscSpace ( std::string path,  unsigned long long * res, unsigned long long * res2) {
-        if ( !res ) {
-            return false;
-        }
 
-#ifdef WIN32
-        ULARGE_INTEGER lpFreeBytesAvailableToCaller; // receives the number of bytes on
-                                               // disk available to the caller
-        ULARGE_INTEGER lpTotalNumberOfBytes;    // receives the number of bytes on disk
-        ULARGE_INTEGER lpTotalNumberOfFreeBytes; // receives the free bytes on disk
 
-        QString path_wide = QString::fromStdString(path);
 
-        if ( GetDiskFreeSpaceExW( (const WCHAR*)path_wide.utf16(), &lpFreeBytesAvailableToCaller,
-                                &lpTotalNumberOfBytes,
-                                &lpTotalNumberOfFreeBytes ) == true ) {
-                *res = lpTotalNumberOfFreeBytes.QuadPart;
-                *res2 = lpTotalNumberOfBytes.QuadPart;
-                return true;
-        } else {
-            return false;
-        }
-#else //WIN32
-        struct fs_usage fsp;
-        if ( get_fs_usage(path.c_str(),path.c_str(),&fsp) == 0 ) {
-                *res = fsp.fsu_bavail*fsp.fsu_blocksize;
-                *res2 =fsp.fsu_blocks*fsp.fsu_blocksize;
-                return true;
-        } else {
-                return false;
-        }
-#endif //WIN32
-}
-#endif //FREE_SPACE_BAR_C

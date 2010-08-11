@@ -15,7 +15,7 @@
 
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
-#ifdef FS_USAGE_C     /* POSIX 1003.1-2001 (and later) with XSI */
+     /* POSIX 1003.1-2001 (and later) with XSI */
 #include "fsusage.h"
 
 #include <limits.h>
@@ -78,4 +78,4 @@ int get_fs_usage (char const *file, char const *disk, struct fs_usage *fsp) {
   fsp->fsu_ffree = PROPAGATE_ALL_ONES (fsd.f_ffree);
   return 0;
 }
-#endif
+

@@ -40,6 +40,10 @@
 
 #include "Version.h"
 
+#ifdef LUA_SCRIPT
+#include <dcpp/ScriptManager.h>
+#endif
+
 using namespace std;
 using namespace dcpp;
 
@@ -1715,9 +1719,13 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/userlist\t\t\t\t - " + _("User list show/hide") + "\n" +
             "/version\t\t\t\t - " + _("Show version") + "\n" +
             "/emoticons, /emot\t\t - " + _("Emoticons on/off") + "\n" +
-            "/sh\t\t\t\t\t - " +  _("Execute code (bash)") +"\n"
-            "/alias list\t\t\t\t - " + _("Alias List")+ "\n"
-            "/alias purge A\t\t\t - "+ _("Alias Remove A")+"\n"
+#ifdef LUA_SCRIPT
+            "/luafile <file>\t\t\t - " + _("Load Lua file") + "\n" +
+            "/lua <chunk>\t\t\t\t -  " + _("Execute Lua Chunk") + "\n"+
+#endif
+            "/sh\t\t\t\t\t - " +  _("Execute code (bash)") +"\n"+
+            "/alias list\t\t\t\t - " + _("Alias List")+ "\n"+
+            "/alias purge A\t\t\t - "+ _("Alias Remove A")+"\n"+
             "/alias A::uname -a\t\t - " +  _("Alias add uname -a as A")+"\n" +
             "/A\t\t\t\t\t - " + _("Alias A executing")+"\n"
             , Msg::SYSTEM);
@@ -1779,13 +1787,15 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         g_free( command_res );
                         pclose( pipe );
         }
-        //else if (command == _("lua") ) {
-            //ScriptManager::getInstance()->EvaluateChunk(Text::fromT(param));
-        //}
-        //else if( command == _("luafile")) {
-            //ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
-        //}
-        //alisa patch
+#ifdef LUA_SCRIPT
+        else if (command == _("lua") ) {
+            ScriptManager::getInstance()->EvaluateChunk(Text::fromT(param));
+        }
+        else if( command == _("luafile")) {
+            ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
+        }
+#endif
+        //alias patch
         else if (command == "alias" && !param.empty())
         {
             StringTokenizer<string> sl(param, ' ');

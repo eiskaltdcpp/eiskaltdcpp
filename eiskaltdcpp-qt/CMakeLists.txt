@@ -1,8 +1,6 @@
 project (${PROJECT_NAME_GLOBAL}-qt)
 cmake_minimum_required (VERSION 2.6)
-if (FREE_SPACE_BAR_C)
-add_subdirectory(fsusage)
-endif (FREE_SPACE_BAR_C)
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set (QT_USE_QTNETWORK 1)

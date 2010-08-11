@@ -37,6 +37,9 @@
 #include "ADLSearch.h"
 
 #include "StringTokenizer.h"
+#ifdef LUA_SCRIPT
+#include "ScriptManager.h"
+#endif
 #ifdef USE_MINIUPNP
 #include "UPnPManager.h"
 #endif
@@ -90,6 +93,9 @@ void startup(void (*f)(void*, const string&), void* p) {
 #ifdef USE_MINIUPNP
     UPnPManager::newInstance();
 #endif
+#ifdef LUA_SCRIPT
+    ScriptManager::newInstance();
+#endif
     SettingsManager::getInstance()->load();
 
     if(!SETTING(LANGUAGE).empty()) {
@@ -121,27 +127,38 @@ void startup(void (*f)(void*, const string&), void* p) {
 }
 
 void shutdown() {
+
 #ifndef _WIN32 //*nix system
     ThrottleManager::getInstance()->shutdown();
 #endif
+#ifdef LUA_SCRIPT
+    ScriptManager::deleteInstance();
+#endif
     TimerManager::getInstance()->shutdown();
     HashManager::getInstance()->shutdown();
+
 #ifdef _WIN32
     ThrottleManager::getInstance()->shutdown();
 #endif
+
     ConnectionManager::getInstance()->shutdown();
+
 #ifdef USE_MINIUPNP
     UPnPManager::getInstance()->close();
 #endif
+
     BufferedSocket::waitShutdown();
 
     SettingsManager::getInstance()->save();
+
 #ifdef USE_DHT
     DHT::deleteInstance();
 #endif
+
 #ifdef USE_MINIUPNP
     UPnPManager::deleteInstance();
 #endif
+
     ADLSearchManager::deleteInstance();
     FinishedManager::deleteInstance();
     ShareManager::deleteInstance();

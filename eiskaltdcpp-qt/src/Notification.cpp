@@ -28,7 +28,7 @@ Notification::Notification(QObject *parent) :
 
     reloadSounds();
 
-    enableTray(true);
+    enableTray(WBGET(WB_TRAY_ENABLED));
 }
 
 Notification::~Notification(){
