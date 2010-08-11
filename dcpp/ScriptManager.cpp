@@ -43,23 +43,23 @@ namespace dcpp {
 
 static void report_eror(lua_State *L, int status)
 {
-	//if(status!=0)
-	//{
-	//std::cerr << "--" << lua_tostring(L,-1) << std::endl;//write to std eror eror
-	//ScriptManager::getInstance()->SendDebugMessage(lua_tostring(L,-1));
-	//lua_pop(L,1); // remove error message
-	//}
-	if (status != 0) {
-		lua_getglobal(L, "_ALERT");
-		if (lua_isfunction(L, -1)) {
-			lua_insert(L, -2);
-			lua_call(L, 1, 0);
-		}
-		else {  /* no _ALERT function; print it on stderr */
-			ScriptManager::getInstance()->SendDebugMessage(Text::acpToUtf8(string("LUA ERROR: ") + lua_tostring(L, -2)));
-			lua_pop(L, 2);  /* remove error message and _ALERT */
-		}
-	}
+    //if(status!=0)
+    //{
+    //std::cerr << "--" << lua_tostring(L,-1) << std::endl;//write to std eror eror
+    //ScriptManager::getInstance()->SendDebugMessage(lua_tostring(L,-1));
+    //lua_pop(L,1); // remove error message
+    //}
+    if (status != 0) {
+        lua_getglobal(L, "_ALERT");
+        if (lua_isfunction(L, -1)) {
+            lua_insert(L, -2);
+            lua_call(L, 1, 0);
+        }
+        else {  /* no _ALERT function; print it on stderr */
+            ScriptManager::getInstance()->SendDebugMessage(Text::acpToUtf8(string("LUA ERROR: ") + lua_tostring(L, -2)));
+            lua_pop(L, 2);  /* remove error message and _ALERT */
+        }
+    }
 }
 
 
@@ -85,217 +85,217 @@ LUALIB_API int lua_dostring (lua_State *L, const char *str) {
 }
 
 int LuaManager::DeleteClient(lua_State* L){
-	if (lua_gettop(L) == 1 && lua_islightuserdata(L, -1)){
-		Client* client = (Client*) lua_touserdata(L, -1);
-		ClientManager::getInstance()->putClient(client);
-	}
-	return 0;
+    if (lua_gettop(L) == 1 && lua_islightuserdata(L, -1)){
+        Client* client = (Client*) lua_touserdata(L, -1);
+        ClientManager::getInstance()->putClient(client);
+    }
+    return 0;
 }
 
 int LuaManager::CreateClient(lua_State* L) {
-	if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)){
-		Client* client = ClientManager::getInstance()->getClient(lua_tostring(L, -2));
-		Identity ident;
-		ident.setNick(lua_tostring(L, -1));
-		client->setMyIdentity(ident);
-		client->setPassword("");
-		//this will block?
-		client->connect();
+    if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)){
+        Client* client = ClientManager::getInstance()->getClient(lua_tostring(L, -2));
+        Identity ident;
+        ident.setNick(lua_tostring(L, -1));
+        client->setMyIdentity(ident);
+        client->setPassword("");
+        //this will block?
+        client->connect();
 
-		lua_pushlightuserdata(L, client);
-		return 1;
-	}
+        lua_pushlightuserdata(L, client);
+        return 1;
+    }
 
-	return 0;
+    return 0;
 }
 
 int LuaManager::InjectHubMessageNMDC(lua_State* L) {
-	if (lua_gettop(L) == 2 && lua_islightuserdata(L, -2) && lua_isstring(L, -1))
-		reinterpret_cast<NmdcHub *>(lua_touserdata(L, -2))->onLine(lua_tostring(L, -1));
+    if (lua_gettop(L) == 2 && lua_islightuserdata(L, -2) && lua_isstring(L, -1))
+        reinterpret_cast<NmdcHub *>(lua_touserdata(L, -2))->onLine(lua_tostring(L, -1));
 
-	return 0;
+    return 0;
 }
 
 int LuaManager::InjectHubMessageADC(lua_State* L) {
-	if (lua_gettop(L) == 2 && lua_islightuserdata(L, -2) && lua_isstring(L, -1))
-		reinterpret_cast<AdcHub *>(lua_touserdata(L, -2))->dispatch(lua_tostring(L, -1));
+    if (lua_gettop(L) == 2 && lua_islightuserdata(L, -2) && lua_isstring(L, -1))
+        reinterpret_cast<AdcHub *>(lua_touserdata(L, -2))->dispatch(lua_tostring(L, -1));
 
-	return 0;
+    return 0;
 }
 /*
 int LuaManager::PostMessage(lua_State* L) {
-	if (lua_gettop(L) == 4 && lua_islightuserdata(L, -4) && lua_isnumber(L, -3) &&
-			lua_islightuserdata(L, -2) && lua_islightuserdata(L, -1)) {
-		::SendMessage(reinterpret_cast<HWND>(lua_touserdata(L, -4)), static_cast<UINT>(lua_tonumber(L, -3)),
-			reinterpret_cast<WPARAM>(lua_touserdata(L, -2)), reinterpret_cast<LPARAM>(lua_touserdata(L, -1)));
-	}
+    if (lua_gettop(L) == 4 && lua_islightuserdata(L, -4) && lua_isnumber(L, -3) &&
+            lua_islightuserdata(L, -2) && lua_islightuserdata(L, -1)) {
+        ::SendMessage(reinterpret_cast<HWND>(lua_touserdata(L, -4)), static_cast<UINT>(lua_tonumber(L, -3)),
+            reinterpret_cast<WPARAM>(lua_touserdata(L, -2)), reinterpret_cast<LPARAM>(lua_touserdata(L, -1)));
+    }
 
-	return 0;
+    return 0;
 }
 *//*
 int LuaManager::FindWindow(lua_State* L) {
-	if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
-		lua_pushlightuserdata(L, ::FindWindow(Text::toT(string(lua_tostring(L, -2))).c_str(), Text::toT(string(lua_tostring(L, -1))).c_str()));
-		return 1;
-	}
+    if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
+        lua_pushlightuserdata(L, ::FindWindow(Text::toT(string(lua_tostring(L, -2))).c_str(), Text::toT(string(lua_tostring(L, -1))).c_str()));
+        return 1;
+    }
 
-	return 0;
+    return 0;
 }*/
 
 int LuaManager::SendClientMessage(lua_State* L) {
-	if (lua_gettop(L) == 2 && lua_islightuserdata(L, -2) && lua_isstring(L, -1)) {
-		reinterpret_cast<UserConnection *>(lua_touserdata(L, -2))->sendRaw(lua_tostring(L, -1));
-	}
+    if (lua_gettop(L) == 2 && lua_islightuserdata(L, -2) && lua_isstring(L, -1)) {
+        reinterpret_cast<UserConnection *>(lua_touserdata(L, -2))->sendRaw(lua_tostring(L, -1));
+    }
 
-	return 0;
+    return 0;
 }
 
 int LuaManager::SendHubMessage(lua_State* L) {
-	if (lua_gettop(L) == 2 && lua_islightuserdata(L, -2) && lua_isstring(L, -1)) {
-		reinterpret_cast<Client*>(lua_touserdata(L, -2))->send(lua_tostring(L, -1));
-	}
+    if (lua_gettop(L) == 2 && lua_islightuserdata(L, -2) && lua_isstring(L, -1)) {
+        reinterpret_cast<Client*>(lua_touserdata(L, -2))->send(lua_tostring(L, -1));
+    }
 
-	return 0;
+    return 0;
 }
 
 int LuaManager::GenerateDebugMessage(lua_State* L) {
-	/* arguments: socket, buffer, address */
-	if (lua_gettop(L) == 1 && lua_isstring(L, -1))
-		ScriptManager::getInstance()->SendDebugMessage(lua_tostring(L, -1));
+    /* arguments: socket, buffer, address */
+    if (lua_gettop(L) == 1 && lua_isstring(L, -1))
+        ScriptManager::getInstance()->SendDebugMessage(lua_tostring(L, -1));
 
-	return 0;
+    return 0;
 }
 
 int LuaManager::SendUDPPacket(lua_State* L) {
-	/* arguments: ip:port, data */
-	if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
-		StringList sl = StringTokenizer<string>(lua_tostring(L, -2), ':').getTokens();
-		ScriptManager::getInstance()->s.writeTo(sl[0], static_cast<short>(Util::toInt(sl[1])), lua_tostring(L, -1), lua_strlen(L, -1));
-	}
+    /* arguments: ip:port, data */
+    if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
+        StringList sl = StringTokenizer<string>(lua_tostring(L, -2), ':').getTokens();
+        ScriptManager::getInstance()->s.writeTo(sl[0], static_cast<short>(Util::toInt(sl[1])), lua_tostring(L, -1), lua_strlen(L, -1));
+    }
 
-	return 0;
+    return 0;
 }
 
 int LuaManager::DropUserConnection(lua_State* L) {
-	/* arguments: userconnection to drop */
-	if (lua_gettop(L) == 1 && lua_islightuserdata(L, -1)) {
-		reinterpret_cast<UserConnection *>(lua_touserdata(L, -1))->disconnect();
-	}
+    /* arguments: userconnection to drop */
+    if (lua_gettop(L) == 1 && lua_islightuserdata(L, -1)) {
+        reinterpret_cast<UserConnection *>(lua_touserdata(L, -1))->disconnect();
+    }
 
-	return 0;
+    return 0;
 }
 
 int LuaManager::GetSetting(lua_State* L) {
-	/* arguments: string */
-	int n, type;
-	if(lua_gettop(L) == 1 && lua_isstring(L, -1) && SettingsManager::getInstance()->getType(lua_tostring(L, -1), n, type)) {
-		if(type == SettingsManager::TYPE_STRING) {
-			lua_pushstring(L, SettingsManager::getInstance()->get((SettingsManager::StrSetting)n).c_str());
-			return 1;
-		} else if(type == SettingsManager::TYPE_INT) {
-			lua_pushnumber(L, SettingsManager::getInstance()->get((SettingsManager::IntSetting)n));
-			return 1;
-		} else if(type == SettingsManager::TYPE_INT64) {
-			lua_pushnumber(L, static_cast<lua_Number>(SettingsManager::getInstance()->get((SettingsManager::Int64Setting)n)));
-			return 1;
-		}
-	}
-	lua_pushliteral(L, "GetSetting: setting not found");
-	lua_error(L);
-	return 0;
+    /* arguments: string */
+    int n, type;
+    if(lua_gettop(L) == 1 && lua_isstring(L, -1) && SettingsManager::getInstance()->getType(lua_tostring(L, -1), n, type)) {
+        if(type == SettingsManager::TYPE_STRING) {
+            lua_pushstring(L, SettingsManager::getInstance()->get((SettingsManager::StrSetting)n).c_str());
+            return 1;
+        } else if(type == SettingsManager::TYPE_INT) {
+            lua_pushnumber(L, SettingsManager::getInstance()->get((SettingsManager::IntSetting)n));
+            return 1;
+        } else if(type == SettingsManager::TYPE_INT64) {
+            lua_pushnumber(L, static_cast<lua_Number>(SettingsManager::getInstance()->get((SettingsManager::Int64Setting)n)));
+            return 1;
+        }
+    }
+    lua_pushliteral(L, "GetSetting: setting not found");
+    lua_error(L);
+    return 0;
 }
 
 int LuaManager::ToUtf8(lua_State* L) {
-	/* arguments: string */
-	if(lua_gettop(L) == 1 && lua_isstring(L, -1) ) {
-			lua_pushstring(L, Text::acpToUtf8(lua_tostring(L, -1)).c_str());
-			return 1;
-	} else {
-		lua_pushliteral(L, "ToUtf8: string needed as argument");
-		lua_error(L);
-	}
-	return 0;
+    /* arguments: string */
+    if(lua_gettop(L) == 1 && lua_isstring(L, -1) ) {
+            lua_pushstring(L, Text::acpToUtf8(lua_tostring(L, -1)).c_str());
+            return 1;
+    } else {
+        lua_pushliteral(L, "ToUtf8: string needed as argument");
+        lua_error(L);
+    }
+    return 0;
 }
 
 int LuaManager::FromUtf8(lua_State* L) {
-	/* arguments: string */
-	if(lua_gettop(L) == 1 && lua_isstring(L, -1) ) {
-			lua_pushstring(L, Text::utf8ToAcp(lua_tostring(L, -1)).c_str());
-			return 1;
-	} else {
-		lua_pushliteral(L, "FromUtf8: string needed as argument");
-		lua_error(L);
-	}
-	return 0;
+    /* arguments: string */
+    if(lua_gettop(L) == 1 && lua_isstring(L, -1) ) {
+            lua_pushstring(L, Text::utf8ToAcp(lua_tostring(L, -1)).c_str());
+            return 1;
+    } else {
+        lua_pushliteral(L, "FromUtf8: string needed as argument");
+        lua_error(L);
+    }
+    return 0;
 }
 
 int LuaManager::GetAppPath(lua_State* L) {
-	lua_pushstring(L, Text::utf8ToAcp(Util::getPath(Util::PATH_RESOURCES)).c_str());
-	return 1;
+    lua_pushstring(L, Text::utf8ToAcp(Util::getPath(Util::PATH_RESOURCES)).c_str());
+    return 1;
 }
 
 int LuaManager::GetConfigPath(lua_State* L) {
-	lua_pushstring(L, Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)).c_str());
-	return 1;
+    lua_pushstring(L, Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)).c_str());
+    return 1;
 }
 
 int LuaManager::GetClientIp(lua_State* L) {
-	/* arguments: client */
-	UserConnection* uc = (UserConnection*)lua_touserdata(L, 1);
-	if(uc == NULL) {
-		lua_pushliteral(L, "GetClientIpPort: missing client pointer");
-		lua_error(L);
-		return 0;
-	}
-	lua_pushstring(L, uc->getRemoteIp().c_str());
-	return 1;
+    /* arguments: client */
+    UserConnection* uc = (UserConnection*)lua_touserdata(L, 1);
+    if(uc == NULL) {
+        lua_pushliteral(L, "GetClientIpPort: missing client pointer");
+        lua_error(L);
+        return 0;
+    }
+    lua_pushstring(L, uc->getRemoteIp().c_str());
+    return 1;
 }
 
 int LuaManager::GetHubIpPort(lua_State* L) {
-	/* arguments: client */
-	Client* c = (Client*)lua_touserdata(L, 1);
-	if(c == NULL) {
-		lua_pushliteral(L, "GetHubIpPort: missing hub pointer");
-		lua_error(L);
-		return 0;
-	}
-	lua_pushstring(L, c->getIpPort().c_str());
-	return 1;
+    /* arguments: client */
+    Client* c = (Client*)lua_touserdata(L, 1);
+    if(c == NULL) {
+        lua_pushliteral(L, "GetHubIpPort: missing hub pointer");
+        lua_error(L);
+        return 0;
+    }
+    lua_pushstring(L, c->getIpPort().c_str());
+    return 1;
 }
 
 int LuaManager::GetHubUrl(lua_State* L) {
-	/* arguments: client */
-	Client* c = (Client*)lua_touserdata(L, 1);
-	if(c == NULL) {
-		lua_pushliteral(L, "GetHubUrl: missing hub pointer");
-		lua_error(L);
-		return 0;
-	}
-	lua_pushstring(L, c->getHubUrl().c_str());
-	return 1;
+    /* arguments: client */
+    Client* c = (Client*)lua_touserdata(L, 1);
+    if(c == NULL) {
+        lua_pushliteral(L, "GetHubUrl: missing hub pointer");
+        lua_error(L);
+        return 0;
+    }
+    lua_pushstring(L, c->getHubUrl().c_str());
+    return 1;
 }
 
 int LuaManager::RunTimer(lua_State* L) {
-	/* arguments: bool:on/off */
-	if(lua_gettop(L) == 1 && lua_isnumber(L, -1)) {
-		bool on = lua_tonumber(L, 1); //!= 0;	//shut VC++ up
-		ScriptManager* sm = ScriptManager::getInstance();
-		if(on != sm->getTimerEnabled()) {
-			if(on)
-				TimerManager::getInstance()->addListener(sm);
-			else
-				TimerManager::getInstance()->removeListener(sm);
-			sm->setTimerEnabled(on);
-		}
-	} else {
-		lua_pushliteral(L, "RunTimer: missing integer (0=off,!0=on)");
-		lua_error(L);
-		return 0;
-	}
-	return 1;
+    /* arguments: bool:on/off */
+    if(lua_gettop(L) == 1 && lua_isnumber(L, -1)) {
+        bool on = lua_tonumber(L, 1); //!= 0;   //shut VC++ up
+        ScriptManager* sm = ScriptManager::getInstance();
+        if(on != sm->getTimerEnabled()) {
+            if(on)
+                TimerManager::getInstance()->addListener(sm);
+            else
+                TimerManager::getInstance()->removeListener(sm);
+            sm->setTimerEnabled(on);
+        }
+    } else {
+        lua_pushliteral(L, "RunTimer: missing integer (0=off,!0=on)");
+        lua_error(L);
+        return 0;
+    }
+    return 1;
 }
 
-lua_State* ScriptInstance::L = 0;		//filled in by scriptmanager.
+lua_State* ScriptInstance::L = 0;       //filled in by scriptmanager.
 CriticalSection ScriptInstance::cs;
 
 ScriptManager::ScriptManager() : timerEnabled(false) {
@@ -304,156 +304,156 @@ ScriptManager::ScriptManager() : timerEnabled(false) {
 /*
 const char LuaManager::className[] = "DC";
 Lunar<LuaManager>::RegType LuaManager::methods[] = {
-	{"SendHubMessage", &LuaManager::SendHubMessage },
-	{"SendClientMessage", &LuaManager::SendClientMessage },
-	{"SendUDP", &LuaManager::SendUDPPacket},
-	{"PrintDebug", &LuaManager::GenerateDebugMessage},
-	{"GetClientIp", &LuaManager::GetClientIp},
-	{"GetHubIpPort", &LuaManager::GetHubIpPort},
-	{"GetHubUrl", &LuaManager::GetHubUrl},
-	{"InjectHubMessage", &LuaManager::InjectHubMessageNMDC},
-	{"InjectHubMessageADC", &LuaManager::InjectHubMessageADC},
-	{"FindWindowHandle", &LuaManager::FindWindow},
-	{"SendWindowMessage", &LuaManager::PostMessage},
-	{"CreateClient", &LuaManager::CreateClient},
-	{"DeleteClient", &LuaManager::DeleteClient},
-	{"RunTimer", &LuaManager::RunTimer},
-	{"GetSetting", &LuaManager::GetSetting},
-	{"ToUtf8", &LuaManager::ToUtf8},
-	{"FromUtf8", &LuaManager::FromUtf8},
-	{"GetAppPath", &LuaManager::GetAppPath},
-	{"GetConfigPath", &LuaManager::GetConfigPath},
-	{"DropUserConnection", &LuaManager::DropUserConnection},
-	{0}
+    {"SendHubMessage", &LuaManager::SendHubMessage },
+    {"SendClientMessage", &LuaManager::SendClientMessage },
+    {"SendUDP", &LuaManager::SendUDPPacket},
+    {"PrintDebug", &LuaManager::GenerateDebugMessage},
+    {"GetClientIp", &LuaManager::GetClientIp},
+    {"GetHubIpPort", &LuaManager::GetHubIpPort},
+    {"GetHubUrl", &LuaManager::GetHubUrl},
+    {"InjectHubMessage", &LuaManager::InjectHubMessageNMDC},
+    {"InjectHubMessageADC", &LuaManager::InjectHubMessageADC},
+    {"FindWindowHandle", &LuaManager::FindWindow},
+    {"SendWindowMessage", &LuaManager::PostMessage},
+    {"CreateClient", &LuaManager::CreateClient},
+    {"DeleteClient", &LuaManager::DeleteClient},
+    {"RunTimer", &LuaManager::RunTimer},
+    {"GetSetting", &LuaManager::GetSetting},
+    {"ToUtf8", &LuaManager::ToUtf8},
+    {"FromUtf8", &LuaManager::FromUtf8},
+    {"GetAppPath", &LuaManager::GetAppPath},
+    {"GetConfigPath", &LuaManager::GetConfigPath},
+    {"DropUserConnection", &LuaManager::DropUserConnection},
+    {0}
 };*/
-	
+
 
 
 void ScriptManager::load() {
-	L = lua_open();
-	luaL_openlibs(L);
-	//reg The Fucnctions
-	lua_register(L, "SendHubMessage",LuaManager::SendHubMessage);
-	lua_register(L, "SendClientMessage", LuaManager::SendClientMessage);
-	lua_register(L, "SendUDP", LuaManager::SendUDPPacket); 
-	lua_register(L, "PrintDebug", LuaManager::GenerateDebugMessage);//ok
-	lua_register(L, "GetClientIp", LuaManager::GetClientIp);
-	lua_register(L, "GetHubIpPort", LuaManager::GetHubIpPort);
-	lua_register(L, "GetHubUrl", LuaManager::GetHubUrl);
-	lua_register(L, "InjectHubMessage", LuaManager::InjectHubMessageNMDC);
-	lua_register(L, "InjectHubMessageADC", LuaManager::InjectHubMessageADC);
-	lua_register(L, "CreateClient", LuaManager::CreateClient);
-	lua_register(L, "DeleteClient", LuaManager::DeleteClient);
-	lua_register(L, "RunTimer", LuaManager::RunTimer);
-	lua_register(L, "GetSetting", LuaManager::GetSetting);
-	lua_register(L, "ToUtf8", LuaManager::ToUtf8);
-	lua_register(L, "FromUtf8", LuaManager::FromUtf8);
-	lua_register(L, "GetAppPath", LuaManager::GetAppPath);//ok
-	lua_register(L, "GetConfigPath", LuaManager::GetConfigPath);//ok
-	lua_register(L, "DropUserConnection", LuaManager::DropUserConnection);
-	//findWin+PostMessage todo ??
+    L = lua_open();
+    luaL_openlibs(L);
+    //reg The Fucnctions
+    lua_register(L, "SendHubMessage",LuaManager::SendHubMessage);
+    lua_register(L, "SendClientMessage", LuaManager::SendClientMessage);
+    lua_register(L, "SendUDP", LuaManager::SendUDPPacket);
+    lua_register(L, "PrintDebug", LuaManager::GenerateDebugMessage);//ok
+    lua_register(L, "GetClientIp", LuaManager::GetClientIp);
+    lua_register(L, "GetHubIpPort", LuaManager::GetHubIpPort);
+    lua_register(L, "GetHubUrl", LuaManager::GetHubUrl);
+    lua_register(L, "InjectHubMessage", LuaManager::InjectHubMessageNMDC);
+    lua_register(L, "InjectHubMessageADC", LuaManager::InjectHubMessageADC);
+    lua_register(L, "CreateClient", LuaManager::CreateClient);
+    lua_register(L, "DeleteClient", LuaManager::DeleteClient);
+    lua_register(L, "RunTimer", LuaManager::RunTimer);
+    lua_register(L, "GetSetting", LuaManager::GetSetting);
+    lua_register(L, "ToUtf8", LuaManager::ToUtf8);
+    lua_register(L, "FromUtf8", LuaManager::FromUtf8);
+    lua_register(L, "GetAppPath", LuaManager::GetAppPath);//ok
+    lua_register(L, "GetConfigPath", LuaManager::GetConfigPath);//ok
+    lua_register(L, "DropUserConnection", LuaManager::DropUserConnection);
+    //findWin+PostMessage todo ??
 
-//	Lunar<LuaManager>::Register(L);
+//  Lunar<LuaManager>::Register(L);
 
-	//create default text formatting function, in case startup.lua or formatting.lua isn't present.
-	uint32_t color = SETTING(TEXT_COLOR);
-	//this create a dcpp namespace. However, if startup.lua executes, if first clobbers this.
-	string function =
-			"dcpp = {_init_me_anyway = true}\n"
-			"function dcpp.FormatChatText(hub, text)\n"
-			"	text = string.gsub(text, \"([{}\\\\])\", \"\\%1\")\n"
-			"	text = string.gsub(text, \"\\n\", \"\\\\line\\n\")\n"
-			"text = string.gsub( text, \".\", function( c )\n"
-			"	if string.byte( c ) >= 128 then\n"
-			"		return string.format( \"\\\\'%02x\", string.byte( c ) )\n"
-			"	else\n"
-			"		return c\n"
-			"	end\n"
-			"end )"
-			"	return \"{\\\\urtf1\\n\"..\n"
-			"			\"{\\\\colortbl ;"
-					"\\\\red" + Util::toString(color & 0xFF) +
-					"\\\\green" + Util::toString((color >> 8) & 0xFF) +
-					"\\\\blue" + Util::toString((color >> 16) & 0xFF) +
-					";}\\n\"..\n"
-			"			\"\\\\cf1 \"..text..\"}\\n\"\n"
-			"end\n";
+    //create default text formatting function, in case startup.lua or formatting.lua isn't present.
+    uint32_t color = SETTING(TEXT_COLOR);
+    //this create a dcpp namespace. However, if startup.lua executes, if first clobbers this.
+    string function =
+            "dcpp = {_init_me_anyway = true}\n"
+            "function dcpp.FormatChatText(hub, text)\n"
+            "   text = string.gsub(text, \"([{}\\\\])\", \"\\%1\")\n"
+            "   text = string.gsub(text, \"\\n\", \"\\\\line\\n\")\n"
+            "text = string.gsub( text, \".\", function( c )\n"
+            "   if string.byte( c ) >= 128 then\n"
+            "       return string.format( \"\\\\'%02x\", string.byte( c ) )\n"
+            "   else\n"
+            "       return c\n"
+            "   end\n"
+            "end )"
+            "   return \"{\\\\urtf1\\n\"..\n"
+            "           \"{\\\\colortbl ;"
+                    "\\\\red" + Util::toString(color & 0xFF) +
+                    "\\\\green" + Util::toString((color >> 8) & 0xFF) +
+                    "\\\\blue" + Util::toString((color >> 16) & 0xFF) +
+                    ";}\\n\"..\n"
+            "           \"\\\\cf1 \"..text..\"}\\n\"\n"
+            "end\n";
 
-	
-	lua_dostring(L, function.c_str());
-	
-	
-	lua_pop(L, lua_gettop(L));		//hm. starts at 8 or so for me. I have no idea why...
 
-	s.create(Socket::TYPE_UDP);
+    lua_dostring(L, function.c_str());
 
-	ClientManager::getInstance()->addListener(this);
+
+    lua_pop(L, lua_gettop(L));      //hm. starts at 8 or so for me. I have no idea why...
+
+    s.create(Socket::TYPE_UDP);
+
+    ClientManager::getInstance()->addListener(this);
 }
 
 void ScriptInstance::EvaluateChunk(const string& chunk) {
-	Lock l(cs);
-	lua_dostring(L, chunk.c_str());
+    Lock l(cs);
+    lua_dostring(L, chunk.c_str());
 }
 
 void ScriptInstance::EvaluateFile(const string& fn) {
-	Lock l(cs);
-	lua_dofile(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "scripts"+PATH_SEPARATOR + fn).c_str());
+    Lock l(cs);
+    lua_dofile(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts"+PATH_SEPARATOR + fn).c_str());
 }
 
 void ScriptManager::SendDebugMessage(const string &mess) {
-	LogManager::getInstance()->message(mess);
-	//std::cerr << "LUA::DEBUG => " << mess << std::endl;
+    LogManager::getInstance()->message(mess);
+    //std::cerr << "LUA::DEBUG => " << mess << std::endl;
 }
 
 bool ScriptInstance::GetLuaBool() {
-	//get value from top of stack, check if should cancel message.
-	bool ret = false;
-	if (lua_gettop(L) > 0) {
-		ret = !lua_isnil(L, -1);
-		lua_pop(L, 1);
-	}
-	return ret;
+    //get value from top of stack, check if should cancel message.
+    bool ret = false;
+    if (lua_gettop(L) > 0) {
+        ret = !lua_isnil(L, -1);
+        lua_pop(L, 1);
+    }
+    return ret;
 }
 
 string ScriptInstance::GetClientType(Client* aClient) {
-	return dynamic_cast<AdcHub *>(aClient)?"adch":"nmdch";
+    return dynamic_cast<AdcHub *>(aClient)?"adch":"nmdch";
 }
 
 void ScriptManager::on(ClientDisconnected, Client* aClient) throw() {
-	MakeCall(GetClientType(aClient), "OnHubRemoved", 0, aClient);
+    MakeCall(GetClientType(aClient), "OnHubRemoved", 0, aClient);
 }
 
 void ScriptManager::on(ClientConnected, Client* aClient) throw() {
-	MakeCall(GetClientType(aClient), "OnHubAdded", 0, aClient);
+    MakeCall(GetClientType(aClient), "OnHubAdded", 0, aClient);
 }
 
 void ScriptManager::on(Second, uint32_t /* ticks */) throw() {
-	MakeCall("dcpp", "OnTimer", 0, 0);
+    MakeCall("dcpp", "OnTimer", 0, 0);
 }
 
 void ScriptInstance::LuaPush(int i) { lua_pushnumber(L, i); }
 void ScriptInstance::LuaPush(const string& s) { lua_pushlstring(L, s.data(), s.size()); }
 
 bool ScriptInstance::MakeCallRaw(const string& table, const string& method, int args, int ret) throw() {
-	lua_getglobal(L, table.c_str());		// args + 1
-	lua_pushstring(L, method.c_str());		// args + 2
-	if (lua_istable(L, -2)) {
-		lua_gettable(L, -2);				// args + 2
-		lua_remove(L, -2);					// args + 1
-		lua_insert(L, 1);					// args + 1
-		if(lua_pcall(L, args, ret, 0) == 0) {
-			dcassert(lua_gettop(L) == ret);
-			return true;
-		}
-		const char *msg = lua_tostring(L, -1);
-		string formatted_msg = (msg != NULL)?string("LUA Error: ") + msg:string("LUA Error: (unknown)");
-		ScriptManager::getInstance()->SendDebugMessage(formatted_msg);
-		dcassert(lua_gettop(L) == 1);
-		lua_pop(L, 1);
-	} else {
-		lua_settop(L, 0);
-	}
-	return false;
+    lua_getglobal(L, table.c_str());        // args + 1
+    lua_pushstring(L, method.c_str());      // args + 2
+    if (lua_istable(L, -2)) {
+        lua_gettable(L, -2);                // args + 2
+        lua_remove(L, -2);                  // args + 1
+        lua_insert(L, 1);                   // args + 1
+        if(lua_pcall(L, args, ret, 0) == 0) {
+            dcassert(lua_gettop(L) == ret);
+            return true;
+        }
+        const char *msg = lua_tostring(L, -1);
+        string formatted_msg = (msg != NULL)?string("LUA Error: ") + msg:string("LUA Error: (unknown)");
+        ScriptManager::getInstance()->SendDebugMessage(formatted_msg);
+        dcassert(lua_gettop(L) == 1);
+        lua_pop(L, 1);
+    } else {
+        lua_settop(L, 0);
+    }
+    return false;
 }
 
 } // namespace dcpp

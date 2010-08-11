@@ -925,5 +925,14 @@ void NmdcHub::on(Second, uint32_t aTick) throw() {
         send("|", 1);
     }
 }
+#ifdef LUA_SCRIPT
+//aded
+bool NmdcHubScriptInstance::onClientMessage(NmdcHub* aClient, const string& aLine) {
+    Lock l(cs);
+    MakeCall("nmdch", "DataArrival", 1, aClient, aLine);
+    return GetLuaBool();
 
+}
+//end
+#endif
 } // namespace dcpp

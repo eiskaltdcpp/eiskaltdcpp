@@ -435,6 +435,10 @@ if (USE_QT OR USE_GTK)
         FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
         PATTERN ".svn" EXCLUDE )
     endif (WITH_EXAMPLES)
+  #if (LUA_SCRIPT)
+   # install (DIRECTORY luascripts/ DESTINATION ${CLIENT_DATA_DIR}/luascripts
+   #     PATTERN ".svn" EXCLUDE )
+  #endif (LUA_SCRIPT)
   install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/64x64/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_32x32.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/32x32/apps RENAME eiskaltdcpp.png)

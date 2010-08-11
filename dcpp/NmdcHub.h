@@ -70,6 +70,9 @@ public:
     virtual void send(const AdcCommand&) { dcassert(0); }
 
     static string validateMessage(string tmp, bool reverse);
+#ifdef LUA_SCRIPT
+    void onLine(const string& aLine) throw();
+#endif
 private:
     friend class ClientManager;
     enum SupportFlags {
@@ -106,8 +109,9 @@ private:
     NmdcHub& operator=(const NmdcHub&);
 
     void clearUsers();
+#ifndef LUA_SCRIPT
     void onLine(const string& aLine) throw();
-
+#endif
     OnlineUser& getUser(const string& aNick);
     OnlineUser* findUser(const string& aNick);
     void putUser(const string& aNick);
