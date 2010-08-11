@@ -27,11 +27,26 @@
 #include "Text.h"
 #include "Client.h"
 
+#include "BufferedSocket.h"
+#include "ClientManager.h"
+
+#ifdef LUA_SCRIPT
+#include "ScriptManager.h"
+#endif
 namespace dcpp {
+
+#ifdef LUA_SCRIPT
+struct NmdcHubScriptInstance : public ScriptInstance {
+    bool onClientMessage(NmdcHub* aClient, const string& aLine);
+};
+#endif
 
 class ClientManager;
 
 class NmdcHub : public Client, private Flags
+#ifdef LUA_SCRIPT
+,public NmdcHubScriptInstance
+#endif
 {
 public:
     using Client::send;

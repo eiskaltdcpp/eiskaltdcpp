@@ -522,5 +522,24 @@ void SettingsManager::save(string const& aFileName) {
         // ...
     }
 }
+bool SettingsManager::getType(const char* name, int& n, int& type) const {
+        for(n = 0; n < INT64_LAST; n++) {
+                if(strcmp(settingTags[n].c_str(), name) == 0) {
+                        if(n < STR_LAST) {
+                        type = TYPE_STRING;
+                        return true;
+                        } else if(n < INT_LAST) {
+                        type= TYPE_INT;
+                        return true;
+                        }else
+                        {
+                        type = TYPE_INT64;
+                        return true;
+                        }
+                }
+        }
+                return false;
+
+}
 
 } // namespace dcpp

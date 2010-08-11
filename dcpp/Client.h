@@ -27,7 +27,17 @@
 #include "TimerManager.h"
 #include "ClientListener.h"
 
+#ifdef LUA_SCRIPT
+#include "ScriptManager.h"
+#endif
+
 namespace dcpp {
+#ifdef LUA_SCRIPT
+    struct ClientScriptInstance : public ScriptInstance {
+    bool onHubFrameEnter(Client* aClient, const string& aLine);
+    string formatChatMessage(const string& aLine);
+};
+#endif
 class ClientBase
 {
 public:
@@ -45,7 +55,11 @@ public:
 
 };
 /** Yes, this should probably be called a Hub */
-class Client : public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener {
+class Client : public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener
+#ifdef LUA_SCRIPT
+, public ClientScriptInstance
+#endif
+{
 public:
     typedef Client* Ptr;
     typedef list<Ptr> List;

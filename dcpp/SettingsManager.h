@@ -214,6 +214,16 @@ public:
     void load(const string& aFileName);
     void save(const string& aFileName);
 
+        //aded
+        enum Types {
+                TYPE_STRING,
+                TYPE_INT,
+                TYPE_INT64,
+        };
+        //aded end
+
+        bool getType(const char* name, int& n, int& type) const;
+
 private:
     friend class Singleton<SettingsManager>;
     SettingsManager();

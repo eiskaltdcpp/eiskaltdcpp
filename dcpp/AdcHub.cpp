@@ -892,5 +892,14 @@ void AdcHub::on(Second s, uint32_t aTick) throw() {
         send("\n", 1);
     }
 }
+#ifdef LUA_SCRIPT
+//aded
+bool AdcScriptInstance::onClientMessage(AdcHub* aClient, const string& aLine) {
+        Lock l(cs);
+        MakeCall("adch", "DataArrival", 1, aClient, aLine);
+        return GetLuaBool();
 
+}
+//end
+#endif
 } // namespace dcpp

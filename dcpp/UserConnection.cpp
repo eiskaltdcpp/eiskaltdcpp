@@ -132,7 +132,21 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
         dcdebug("Unknown NMDC command: %.50s\n", aLine.c_str());
     }
 }
+#ifdef LUA_SCRIPT
+//lua
+bool UserConnectionScriptInstance::onUserConnectionMessageIn(UserConnection* aConn, const string& aLine) {
+        Lock l(cs);
+        MakeCall("dcpp", "UserDataIn", 1, aConn, aLine);
+        return GetLuaBool();
+}
 
+bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aConn, const string& aLine) {
+        Lock l(cs);
+        MakeCall("dcpp", "UserDataOut", 1, aConn, aLine);
+        return GetLuaBool();
+}
+//lua end
+#endif
 void UserConnection::connect(const string& aServer, uint16_t aPort) throw(SocketException, ThreadException) {
     dcassert(!socket);
 

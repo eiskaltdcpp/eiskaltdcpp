@@ -231,5 +231,24 @@ void Client::on(Second, uint32_t aTick) throw() {
         connect();
     }
 }
+#ifdef LUA_SCRIPT
+string ClientScriptInstance::formatChatMessage(const tstring& aLine) {
+        Lock l(cs);
+        // this string is probably in UTF-8.  Does lua want/need strings in the active code page?
+        string processed = Text::fromT(aLine);
+        MakeCall("dcpp", "FormatChatText", 1, (Client*)this, processed);
 
+        if (lua_isstring(L, -1)) processed = lua_tostring(L, -1);
+
+        lua_settop(L, 0);
+        return Text::toT(processed);
+}
+
+bool ClientScriptInstance::onHubFrameEnter(Client* aClient, const string& aLine) {
+        Lock l(cs);
+        // ditto the comment above
+        MakeCall("dcpp", "OnCommandEnter", 1, aClient, aLine);
+        return GetLuaBool();
+}
+#endif
 } // namespace dcpp

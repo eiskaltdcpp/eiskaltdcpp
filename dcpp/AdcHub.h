@@ -22,12 +22,23 @@
 #include "Client.h"
 #include "AdcCommand.h"
 #include "Socket.h"
-
+#ifdef USE_LUASCRIPT
+#include "ScriptManager.h"
+#endif
 namespace dcpp {
 
 class ClientManager;
-
-class AdcHub : public Client, public CommandHandler<AdcHub> {
+class AdcHub;
+#ifdef USE_LUASCRIPT
+struct AdcScriptInstance : public ScriptInstance {
+    bool onClientMessage(AdcHub* aClient, const string& aLine);
+};
+#endif
+class AdcHub : public Client, public CommandHandler<AdcHub>
+#ifdef USE_LUASCRIPT
+, public AdcScriptInstance
+#endif
+{
 public:
     using Client::send;
     using Client::connect;

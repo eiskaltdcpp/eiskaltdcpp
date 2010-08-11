@@ -29,8 +29,18 @@
 #include "User.h"
 #include "AdcCommand.h"
 #include "MerkleTree.h"
+#ifdef LUA_SCRIPT
+#include "ScriptManager.h"
+#endif
 
 namespace dcpp {
+#ifdef LUA_SCRIPT
+class UserConnectionScriptInstance : public ScriptInstance {
+protected:
+        bool onUserConnectionMessageIn(UserConnection* aConn, const string& aLine);
+        bool onUserConnectionMessageOut(UserConnection* aConn, const string& aLine);
+};
+#endif
 
 class UserConnection : public Speaker<UserConnectionListener>,
     private BufferedSocketListener, public Flags, private CommandHandler<UserConnection>,
@@ -162,7 +172,7 @@ public:
 
     int64_t getChunkSize() const { return chunkSize; }
     void updateChunkSize(int64_t leafSize, int64_t lastChunk, uint64_t ticks);
-
+    void sendRaw(const string& raw) { send(raw); }//aded
     GETSET(string, hubUrl, HubUrl);
     GETSET(string, token, Token);
     GETSET(string, encoding, Encoding);
