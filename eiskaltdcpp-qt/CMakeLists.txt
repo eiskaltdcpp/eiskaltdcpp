@@ -299,9 +299,9 @@ endif (USE_LIBUPNP)
 
 if (FREE_SPACE_BAR_C)
   add_definitions (-DFREE_SPACE_BAR_C)
-  if (NOT WIN32)
+  #if (NOT WIN32)
     list (APPEND LIBS fsusage)
-  endif (NOT WIN32)
+  #endif (NOT WIN32)
 endif (FREE_SPACE_BAR_C)
 
 if (USE_ASPELL)
