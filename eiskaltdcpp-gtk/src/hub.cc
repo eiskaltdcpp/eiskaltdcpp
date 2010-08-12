@@ -89,6 +89,7 @@ Hub::Hub(const string &address, const string &encoding):
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(nickStore), nickView.col(sort), GTK_SORT_ASCENDING);
     gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(nickView.get(), nickView.col(_("Nick"))), TRUE);
     gtk_tree_view_set_fixed_height_mode(nickView.get(), TRUE);
+    gtk_tree_view_set_search_equal_func(nickView.get(), onNickListSearch_gui, 0,0);
 
     // Initialize the chat window
     if (BOOLSETTING(USE_OEM_MONOFONT))
@@ -1260,6 +1261,28 @@ gboolean Hub::onNickListKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gp
     }
 
     return FALSE;
+}
+/*
+ * Implements a case-insensitive substring search for UTF-8 strings.
+ */
+gboolean Hub::onNickListSearch_gui(GtkTreeModel *model, gint column, const gchar *key, GtkTreeIter *iter, gpointer data)
+{
+    gboolean result = TRUE;
+    gchar *nick;
+    gtk_tree_model_get(model, iter, column, &nick, -1);
+
+    gchar *keyCasefold = g_utf8_casefold(key, -1);
+    gchar *nickCasefold = g_utf8_casefold(nick, -1);
+
+    // Return false per search equal func API if the key is contained within the nick
+    if (g_strstr_len(nickCasefold, -1, keyCasefold) != NULL)
+        result = FALSE;
+
+    g_free(nick);
+    g_free(keyCasefold);
+    g_free(nickCasefold);
+
+    return result;
 }
 
 gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer data)
