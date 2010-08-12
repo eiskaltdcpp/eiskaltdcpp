@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-12 15:37+0400\n"
-"PO-Revision-Date: 2010-08-01 02:45+0300\n"
+"PO-Revision-Date: 2010-08-12 15:38+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -13,8 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -290,9 +290,8 @@ msgstr ""
 "Не удалось настроить socks сервер для UDP (проверьте socks адрес и порт)"
 
 #: ../UPnPManager.cpp:40
-#, fuzzy
 msgid "No UPnP implementation available"
-msgstr "Файл недоступен"
+msgstr "Нет доступной реализации UPnP"
 
 #: ../UPnPManager.cpp:68
 msgid " Transfer Port (%1% TCP)"
@@ -315,9 +314,8 @@ msgid "Failed to get external IP"
 msgstr ""
 
 #: ../UPnPManager.cpp:97
-#, fuzzy
 msgid "Failed to create port mappings"
-msgstr "Невозможно создать поток"
+msgstr "Невозможно создать перенаправление портов"
 
 #: ../UPnPManager.cpp:105
 msgid "Failed to remove port mappings"
