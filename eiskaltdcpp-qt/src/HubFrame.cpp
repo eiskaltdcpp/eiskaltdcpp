@@ -1388,40 +1388,34 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         addPM(model->CIDforNick(param), "");
     }
     else if (cmd == "/help" || cmd == "/?" || cmd == "/h"){
-        QString out = tr(""
-                         "/alias <ALIAS_NAME>::<COMMAND> - make alias /ALIAS_NAME to /COMMAND\n"
-                         "/alias purge <ALIAS_NAME> - remove alias\n"
-                         "/alias list - list all aliases\n"
-                         "/away <message> - set away-mode on/off\n"
-                         "/back - set away-mode off\n"
-                         "/browse <nick> - browse user files\n"
-                         "/clear - clear chat window\n"
-                         "/magnet - default action with magnet (0-ask, 1-search, 2-download)\n"
-                         "/close - close this hub\n"
-                         "/fav - add this hub to favorites\n"
-                         "/grant <nick> - grant extra slot to user\n"
-                         "/help, /?, /h - show this help\n"
-                         "/info <nick> - show info about user\n"
-                         "/ratio [show] - show ratio [send in chat]\n"
-                         "/me - say a third person\n"
-                         "/pm <nick> - begin private chat with user\n"
-                         "/sh <command> - start command and redirect output to the chat"
-                         );
-
+        QString out = "\n";
 #ifdef USE_ASPELL
-        out.prepend(tr(""
-                "/aspell on/off - enable/disable spell checking\n"
-                ));
+        out += tr("/aspell on/off - enable/disable spell checking\n");
 #endif
-
+        out += tr("/alias <ALIAS_NAME>::<COMMAND> - make alias /ALIAS_NAME to /COMMAND\n");
+        out += tr("/alias purge <ALIAS_NAME> - remove alias\n");
+        out += tr("/alias list - list all aliases\n");
+        out += tr("/away <message> - set away-mode on/off\n");
+        out += tr("/back - set away-mode off\n");
+        out += tr("/browse <nick> - browse user files\n");
+        out += tr("/clear - clear chat window\n");
+        out += tr("/magnet - default action with magnet (0-ask, 1-search, 2-download)\n");
+        out += tr("/close - close this hub\n");
+        out += tr("/fav - add this hub to favorites\n");
+        out += tr("/grant <nick> - grant extra slot to user\n");
+        out += tr("/help, /?, /h - show this help\n");
+        out += tr("/info <nick> - show info about user\n");
+        out += tr("/ratio [show] - show ratio [send in chat]\n");
+        out += tr("/me - say a third person\n");
+        out += tr("/pm <nick> - begin private chat with user\n");
+        out += tr("/sh <command> - start command and redirect output to the chat\n");
 #ifdef LUA_SCRIPT
-        out.append(tr(""
-                "/luafile <file> - load Lua file\n"
-                "/lua <chunk> - execute Lua Chunk\n"
-                ));
+        out += tr("/luafile <file> - load Lua file\n");
+        out += tr("/lua <chunk> - execute Lua chunk\n");
 #endif
 
-        out.prepend("\n");
+        if (out.endsWith("\n"))
+            out.remove(out.size()-1, 1);
 
         if (fr == this)
             addStatus(out);

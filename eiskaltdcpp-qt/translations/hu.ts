@@ -982,33 +982,102 @@ Kedvenc felhasználó</translation>
 /sh &lt;parancs&gt; - shell parancs indítása, és a kimenet átirányítása a chat ablakba</translation>
     </message>
     <message>
-        <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/ratio [show] - show ratio [send in chat]
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>/aspell on/off - enable/disable spell checking
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/alias list - list all aliases
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/away &lt;message&gt; - set away-mode on/off
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/back - set away-mode off
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/browse &lt;nick&gt; - browse user files
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/clear - clear chat window
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/close - close this hub
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/fav - add this hub to favorites
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/grant &lt;nick&gt; - grant extra slot to user
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/help, /?, /h - show this help
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/info &lt;nick&gt; - show info about user
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/ratio [show] - show ratio [send in chat]
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/me - say a third person
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/pm &lt;nick&gt; - begin private chat with user
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/sh &lt;command&gt; - start command and redirect output to the chat
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>/luafile &lt;file&gt; - load Lua file
-/lua &lt;chunk&gt; - execute Lua Chunk
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
         <translation type="unfinished"></translation>
     </message>
