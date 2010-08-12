@@ -1,8 +1,11 @@
-.TH "eiskaltdcpp-gtk" 1 "26 Jul 2010"
+.TH "eiskaltdcpp-gtk" 1 "12 Aug 2010"
 .SH "NAME"
 EiskaltDC++_Gtk \- GUI based on Gtk (based on FreeDC++ and LinuxDC++)
 .SH "SYNOPSIS"
 .PP
+.B eiskaltdcpp-gtk
+<magnet link> <dchub://link> <adc(s)://link>
+.br
 .B eiskaltdcpp-gtk
 <Key>
 .SH "DESCRIPTION"
@@ -16,10 +19,67 @@ display help and exit
 .TP
 .BR "\-v,  \-\-version"
 output version information and exit
+.SH "CHAT COMMANDS"
+/away <message> - Away mode message on/off
+.br
+/back - Away mode off
+.br
+/browse <nick> - browse user files
+.br
+/clear - Clear chat
+.br
+/close - Close chat
+.br
+/favorite, /fav - Add a hub to favorites
+.br
+/fuser, /fu <nick> - Add user to favorites list
+.br
+/removefu, /rmfu <nick> - Remove user favorite
+.br
+/listfu, /lsfu - Show favorites list
+.br
+/getlist <nick> - Get file list
+.br
+/grant <nick> - Grant extra slot
+.br
+/help - Show help
+.br
+/join <address> - Connect to the hub
+.br
+/me <message> - Say a third person
+.br
+/pm <nick> - Private message
+.br
+/rebuild - Rebuild hash
+.br
+/refresh - Update own file list
+.br
+/userlist - User list show/hide
+.br
+/version - Show version
+.br
+/emoticons, /emot - Emoticons on/off
+.br
+/luafile <file> - Load Lua file
+.br
+/lua <chunk> - Execute Lua Chunk
+.br
+/sh - Execute code (bash)
+.br
+/alias list - Alias List
+.br
+/alias purge A - Alias Remove A
+.br
+/alias A::uname -a - Alias add uname -a as A
+.br
+/A - Alias A executing
 .SH "FILES"
 .TP
 .B "/usr/share/eiskaltdcpp/gtk"
 Directory with resource files
+.TP
+.B "~/.config/eiskaltdc++/"
+Default config directory
 .SH AUTHOR
 Full list of authors you can find in file Credits.txt
 .br

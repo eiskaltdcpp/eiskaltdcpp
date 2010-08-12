@@ -42,6 +42,7 @@
 void printHelp()
 {
     printf("Using:\n"
+           "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
            "  eiskaltdcpp-gtk <Key>\n"
            "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
            "\n"
