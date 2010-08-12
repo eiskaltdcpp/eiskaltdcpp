@@ -386,15 +386,15 @@ set (create_mo 0)
 set (create_mo_lo 0)
 endif (CREATE_MO)
 set (mo_for_all 1)
-
+list (APPEND DCPP_SRCS ${DCPP_HDRS})
     kwwidgets_create_gettext_targets(
       DOMAIN_NAME "libdcpp"
       LOCALE_LIST "${LANGUAGES}"
       COPYRIGHT_HOLDER "EiskaltDC++ team"
-      SOURCES "${DCPP_SRCS};${DCPP_HDRS}"
+      SOURCES "${DCPP_SRCS}"
       PO_DIR "${dcpp_SOURCE_DIR}/po"
       POT_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
-      PO_PREFIX    ""
+      #PO_PREFIX    ""
       PO_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
       MO_BUILD_DIR "${dcpp_BINARY_DIR}/locale"
       MO_INSTALL_DIR "/${_DATADIR}/locale"
@@ -406,16 +406,17 @@ set (mo_for_all 1)
       ADD_MO_TARGET_TO_ALL ${mo_for_all}
       )
 if (USE_GTK)
+list (APPEND GTK_SRCS ${GTK_HDRS})
      kwwidgets_create_gettext_targets(
-      DOMAIN_NAME "${PROJECT_NAME_GLOBAL}-gtk"
+      DOMAIN_NAME "eiskaltdcpp-gtk"
       LOCALE_LIST "${LANGUAGES}"
       COPYRIGHT_HOLDER "EiskaltDC++ team"
-      SOURCES "${GTK_SRCS};${GTK_HDRS}"
-      PO_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
-      POT_BUILD_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
-      PO_PREFIX    ""
-      PO_BUILD_DIR "${eiskaltdcpp-gtk_SOURCE_DIR}/po"
-      MO_BUILD_DIR "${eiskaltdcpp-gtk_BINARY_DIR}/locale"
+      SOURCES "${GTK_SRCS}"
+      PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
+      POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
+      #PO_PREFIX    ""
+      PO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
+      MO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}/locale"
       MO_INSTALL_DIR "/${_DATADIR}/locale"
       CREATE_POT_TARGET ${create_pot}
       CREATE_PO_TARGET ${create_po}

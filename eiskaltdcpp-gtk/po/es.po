@@ -507,9 +507,8 @@ msgid ""
 "any application that might be using the TCP/TLS port."
 msgstr ""
 "La transferencia de archivos no funcionará correctamente hasta que cambie la "
-"configuración "
-"o se cierren todas las aplicaciones que puedan estar utilizando el puerto "
-"TCP/TLS."
+"configuración o se cierren todas las aplicaciones que puedan estar "
+"utilizando el puerto TCP/TLS."
 
 #: ../src/mainwindow.cc:1796
 msgid "Unable to open UDP port"
@@ -521,8 +520,8 @@ msgid ""
 "application that might be using the UDP port."
 msgstr ""
 "Las busquedas no funcionarán correctamente hasta que se cambie la "
-"configuración "
-"o se cierren todas las aplicaciones que puedan estar usando el puerto UDP."
+"configuración o se cierren todas las aplicaciones que puedan estar usando el "
+"puerto UDP."
 
 #: ../src/mainwindow.cc:1845
 msgid "file list from "
@@ -1647,5 +1646,3 @@ msgstr "Cleinte remoto no soporta por completo TTH - sin descargar"
 #: ../src/downloadqueue.cc:1369
 msgid "No errors"
 msgstr "Sin errores"
-
-

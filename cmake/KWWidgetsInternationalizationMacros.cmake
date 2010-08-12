@@ -244,7 +244,7 @@ macro(KWWidgets_CREATE_GETTEXT_TARGETS)
   endif(${target_basename} STREQUAL ${notset_value})
 
   # Create the targets
-if (UPDATE_POT)
+#if (UPDATE_POT)
   if(NOT "${sources}" STREQUAL "")
     kwwidgets_create_pot_target(
       "${domain_name}"
@@ -259,8 +259,8 @@ if (UPDATE_POT)
       "${extra_dgettext_keywords}"
       )
   endif(NOT "${sources}" STREQUAL "")
-endif (UPDATE_POT)
-if (UPDATE_PO)
+#endif (UPDATE_POT)
+#if (UPDATE_PO)
   kwwidgets_create_po_targets(
     "${domain_name}"
     "${pot_build_dir}"
@@ -273,8 +273,8 @@ if (UPDATE_PO)
     "${create_po_target}"
     "${create_po_locale_targets}"
     )
-endif (UPDATE_PO)
-if (CREATE_MO)
+#endif (UPDATE_PO)
+#if (CREATE_MO)
   kwwidgets_create_mo_targets(
     "${domain_name}"
     "${po_dir}"
@@ -288,7 +288,7 @@ if (CREATE_MO)
     "${create_mo_locale_targets}"
     "${add_mo_target_to_all}"
     )
-endif (CREATE_MO)
+#endif (CREATE_MO)
 endmacro(KWWidgets_CREATE_GETTEXT_TARGETS)
 
 # ---------------------------------------------------------------------------
