@@ -362,7 +362,7 @@ ADD_CUSTOM_TARGET(uninstall
 
 if(GETTEXT_FOUND)
     include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/KWWidgetsInternationalizationMacros.cmake)
-option (UPDATE_POT "Update pot file" OFF)
+#option (UPDATE_POT "Update pot file" OFF)
 option (UPDATE_PO "Update po files" OFF)
 option (CREATE_MO "Create mo files" ON)
 
