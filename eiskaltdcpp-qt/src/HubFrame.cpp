@@ -1388,11 +1388,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         addPM(model->CIDforNick(param), "");
     }
     else if (cmd == "/help" || cmd == "/?" || cmd == "/h"){
-        QString out = "\n" +
-                      tr(""
-#ifdef USE_ASPELL
-                         "/aspell on/off - enable/disable spell checking\n"
-#endif
+        QString out = tr(""
                          "/alias <ALIAS_NAME>::<COMMAND> - make alias /ALIAS_NAME to /COMMAND\n"
                          "/alias purge <ALIAS_NAME> - remove alias\n"
                          "/alias list - list all aliases\n"
@@ -1401,10 +1397,6 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                          "/browse <nick> - browse user files\n"
                          "/clear - clear chat window\n"
                          "/magnet - default action with magnet (0-ask, 1-search, 2-download)\n"
-#ifdef LUA_SCRIPT
-                         "/luafile <file> - Load Lua file\n"
-                         "/lua <chunk> - Execute Lua Chunk\n"
-#endif
                          "/close - close this hub\n"
                          "/fav - add this hub to favorites\n"
                          "/grant <nick> - grant extra slot to user\n"
@@ -1413,7 +1405,23 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                          "/ratio [show] - show ratio [send in chat]\n"
                          "/me - say a third person\n"
                          "/pm <nick> - begin private chat with user\n"
-                         "/sh <command> - start command and redirect output to the chat");
+                         "/sh <command> - start command and redirect output to the chat"
+                         );
+
+#ifdef USE_ASPELL
+        out.prepend(tr(""
+                "/aspell on/off - enable/disable spell checking\n"
+                ));
+#endif
+
+#ifdef LUA_SCRIPT
+        out.append(tr(""
+                "/luafile <file> - load Lua file\n"
+                "/lua <chunk> - execute Lua Chunk\n"
+                ));
+#endif
+
+        out.prepend("\n");
 
         if (fr == this)
             addStatus(out);

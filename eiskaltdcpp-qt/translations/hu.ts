@@ -962,7 +962,7 @@ Kedvenc felhasználó</translation>
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation>/aspell on/off - nyelvhelyesség elenőrző ki/be kapcsolása
+        <translation type="obsolete">/aspell on/off - nyelvhelyesség elenőrző ki/be kapcsolása
 /alias &lt;ÁLNÉV&gt;::&lt;PARANCS&gt; - álnév létrehozása /ÁLNÉV a /PARANCSRA
 /alias purge &lt;ÁLNÉV&gt; - álnév eltávolítása
 /alias list - álnevek listázása
@@ -980,6 +980,37 @@ Kedvenc felhasználó</translation>
 /me - üzenet küldése harmadik személyben
 /pm &lt;nick&gt; - privát beszélgetés kezdése a felhasználóval
 /sh &lt;parancs&gt; - shell parancs indítása, és a kimenet átirányítása a chat ablakba</translation>
+    </message>
+    <message>
+        <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
+/alias purge &lt;ALIAS_NAME&gt; - remove alias
+/alias list - list all aliases
+/away &lt;message&gt; - set away-mode on/off
+/back - set away-mode off
+/browse &lt;nick&gt; - browse user files
+/clear - clear chat window
+/magnet - default action with magnet (0-ask, 1-search, 2-download)
+/close - close this hub
+/fav - add this hub to favorites
+/grant &lt;nick&gt; - grant extra slot to user
+/help, /?, /h - show this help
+/info &lt;nick&gt; - show info about user
+/ratio [show] - show ratio [send in chat]
+/me - say a third person
+/pm &lt;nick&gt; - begin private chat with user
+/sh &lt;command&gt; - start command and redirect output to the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/aspell on/off - enable/disable spell checking
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/luafile &lt;file&gt; - load Lua file
+/lua &lt;chunk&gt; - execute Lua Chunk
+</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -944,8 +944,7 @@ Utilisateur favoris</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
+        <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 /alias purge &lt;ALIAS_NAME&gt; - remove alias
 /alias list - list all aliases
 /away &lt;message&gt; - set away-mode on/off
@@ -962,6 +961,17 @@ Utilisateur favoris</translation>
 /me - say a third person
 /pm &lt;nick&gt; - begin private chat with user
 /sh &lt;command&gt; - start command and redirect output to the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/aspell on/off - enable/disable spell checking
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/luafile &lt;file&gt; - load Lua file
+/lua &lt;chunk&gt; - execute Lua Chunk
+</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
