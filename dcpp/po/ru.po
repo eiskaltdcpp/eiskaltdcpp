@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-07-30 02:51+0300\n"
+"POT-Creation-Date: 2010-08-12 15:37+0400\n"
 "PO-Revision-Date: 2010-08-01 02:45+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -13,8 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -24,87 +24,19 @@ msgstr "Кикнуть пользователя(ей)"
 msgid "Redirect user(s)"
 msgstr "Перенаправление пользователя(ей)"
 
-#: ../Socket.cpp:58
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Неизвестная ошибка: 0x%1$x"
-
-#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:182
-msgid "Connection timeout"
-msgstr "Таймаут соединения"
-
-#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
-#: ../Socket.cpp:235 ../Socket.cpp:250
-msgid "The socks server failed establish a connection"
-msgstr "Socks серверу не удалось установить соединение"
-
-#: ../Socket.cpp:239
-msgid "The socks server requires authentication"
-msgstr "Socks серверу требуется авторизация"
-
-#: ../Socket.cpp:253
-msgid "The socks server doesn't support login / password authentication"
-msgstr "Socks сервер не поддерживает авторизацию"
-
-#: ../Socket.cpp:267 ../Socket.cpp:271
-msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"Авторизация на socks сервере отклонена, возможно неверный логин или пароль"
-
-#: ../Socket.cpp:406
-msgid ""
-"Failed to set up the socks server for UDP relay (check socks address and "
-"port)"
-msgstr ""
-"Не удалось настроить socks сервер для UDP (проверьте socks адрес и порт)"
-
-#: ../DCPlusPlus.cpp:108
-msgid "Hash database"
-msgstr "Хеш базы данных"
-
-#: ../DCPlusPlus.cpp:111
-msgid "Shared Files"
-msgstr "Расшаренные файлы"
-
-#: ../DCPlusPlus.cpp:114
-msgid "Download Queue"
-msgstr "Очередь"
-
-#: ../Thread.cpp:34 ../Thread.cpp:42
-msgid "Unable to create thread"
-msgstr "Невозможно создать поток"
-
-#: ../UploadManager.cpp:157
-msgid "Unable to send file %1%: %2%"
-msgstr "Невозможно передать файл %1%: %2%"
-
-#: ../UploadManager.cpp:461
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Пользователь %1% отключился и покинул хаб"
-
-#: ../NmdcHub.cpp:282
-msgid "%1% (Nick unknown)"
-msgstr "%1% (Ник неизвестен)"
-
-#: ../ClientManager.cpp:120 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
-msgid "Offline"
-msgstr "Не в сети"
-
-#: ../AdcHub.cpp:140
+#: ../AdcHub.cpp:142
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) имеет такой же CID {%3%} как %4% (%5%), игнорирован"
 
-#: ../AdcHub.cpp:176
+#: ../AdcHub.cpp:178
 msgid "%1%/s"
 msgstr "%1%/c"
 
-#: ../AdcHub.cpp:211
+#: ../AdcHub.cpp:213
 msgid "Failed to negotiate base protocol"
 msgstr "Не удалось определить базовый протокол"
 
-#: ../AdcHub.cpp:217
+#: ../AdcHub.cpp:219
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -112,68 +44,34 @@ msgstr ""
 "Скорее всего хаб использует старую версию протокола ADC, пожалуйста "
 "попросите владельца обновиться"
 
-#: ../AdcHub.cpp:286
+#: ../AdcHub.cpp:288
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1% кикнут %2%: %3%"
 
-#: ../AdcHub.cpp:289
+#: ../AdcHub.cpp:291
 msgid "%1% was kicked: %2%"
 msgstr "%1% кикнут %2%"
 
-#: ../AdcHub.cpp:566
+#: ../AdcHub.cpp:621
 msgid "Not listening for connections - please restart %1%"
 msgstr "Соединения не обрабатываются - пожалуйста перезапустите %1%"
 
-#: ../Util.cpp:459
-#, c-format
-msgid "%d B"
-msgstr "%d Б"
+#: ../Transfer.cpp:82 ../Transfer.cpp:86 ../SearchManager.cpp:244
+#: ../SearchManager.cpp:305 ../SearchManager.cpp:307 ../ClientManager.cpp:122
+msgid "Offline"
+msgstr "Не в сети"
 
-#: ../Util.cpp:461
-#, c-format
-msgid "%.02f KiB"
-msgstr "%.02f КБ"
+#: ../DCPlusPlus.cpp:119
+msgid "Hash database"
+msgstr "Хеш базы данных"
 
-#: ../Util.cpp:463
-#, c-format
-msgid "%.02f MiB"
-msgstr "%.02f МБ"
+#: ../DCPlusPlus.cpp:122
+msgid "Shared Files"
+msgstr "Расшаренные файлы"
 
-#: ../Util.cpp:465
-#, c-format
-msgid "%.02f GiB"
-msgstr "%.02f ГБ"
-
-#: ../Util.cpp:467
-#, c-format
-msgid "%.02f TiB"
-msgstr "%.02f ТБ"
-
-#: ../Util.cpp:469
-#, c-format
-msgid "%.02f PiB"
-msgstr "%.02f ПБ"
-
-#: ../Util.cpp:499
-#, c-format
-msgid "%s B"
-msgstr "%s Б"
-
-#: ../Util.cpp:503
-#, c-format
-msgid "%'lld B"
-msgstr "%'lld Б"
-
-#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
-#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
-msgid "Error during compression"
-msgstr "Ошибка сжатия"
-
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
-#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
-#: ../BZUtils.cpp:94 ../BZUtils.cpp:97
-msgid "Error during decompression"
-msgstr "Ошибка распаковки"
+#: ../DCPlusPlus.cpp:125
+msgid "Download Queue"
+msgstr "Очередь"
 
 #: ../HashManager.cpp:80 ../HashManager.cpp:280
 msgid "Hashing failed: %1%"
@@ -203,104 +101,22 @@ msgstr "Невозможно считать хэш файла"
 msgid "Error creating hash data file: %1%"
 msgstr "Ошибка создания файла данных хэша: %1%"
 
-#: ../HashManager.cpp:790
+#: ../HashManager.cpp:785
 msgid "Hash database rebuilt"
 msgstr "Хеш базы данных обновлен"
 
-#: ../HashManager.cpp:842
+#: ../HashManager.cpp:837
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Хэшируемый файл: %1% (Размер: %2%)"
 
-#: ../HashManager.cpp:890
+#: ../HashManager.cpp:885
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr "%1% не расшарен из-за несоответсвия хеш-суммы (CRC32)."
 
-#: ../HashManager.cpp:895
+#: ../HashManager.cpp:890
 msgid "Error hashing %1%: %2%"
 msgstr "Ошибка хэширования %1%: %2%"
-
-#: ../ShareManager.cpp:422
-msgid "No directory specified"
-msgstr "Не указана папка"
-
-#: ../ShareManager.cpp:430
-msgid "The temporary download directory cannot be shared"
-msgstr "Нельзя расшарить временную папку с закачкам"
-
-#: ../ShareManager.cpp:439
-msgid "Directory already shared"
-msgstr "Папка уже расшарена"
-
-#: ../ShareManager.cpp:442
-msgid "Remove all subdirectories before adding this one"
-msgstr ""
-"Некоторые папки из этой директории уже расшарены, сначала удалите их из "
-"списка"
-
-#: ../ShareManager.cpp:771
-msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr "Пользователь выбрал нерасшаренный файл: %1% (Размер: %2%)"
-
-#: ../ShareManager.cpp:792
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr "Пользователь выбрал нерасшаренный временный файл: %1% Размер: %2%)"
-
-#: ../ShareManager.cpp:847
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr ""
-"Дубликат файла не будет расшарен: %1% (Размер: %2% B) Копия совпала с: "
-"%3%"
-
-#: ../ShareManager.cpp:864
-msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Выполняется обновление списка файлов, пожалуйста, дождитесь окончания, "
-"прежде чем обновлять список вновь"
-
-#: ../ShareManager.cpp:885
-msgid "File list refresh failed: %1%"
-msgstr "Не удалось обновить список файлов: %1%"
-
-#: ../ShareManager.cpp:907
-msgid "File list refresh initiated"
-msgstr "Запущено обновление списка файлов"
-
-#: ../ShareManager.cpp:932
-msgid "File list refresh finished"
-msgstr "Обновление списка файлов завершено"
-
-#: ../ShareManager.cpp:1003
-msgid "File list %1% generated"
-msgstr "Запущено обновление списка файлов %1%"
-
-#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Соединение закрыто"
-
-#: ../BufferedSocket.cpp:276
-msgid "Maximum command length exceeded"
-msgstr "Превышена максимальная длина команды"
-
-#: ../BufferedSocket.cpp:453
-msgid "Disconnected"
-msgstr "Отключен"
-
-#: ../DirectoryListing.cpp:95
-msgid "Greater than maximum filelist size"
-msgstr "Больше, чем макс. размер списка файлов"
-
-#: ../DirectoryListing.cpp:102
-msgid "File not available"
-msgstr "Файл недоступен"
-
-#: ../DirectoryListing.cpp:165
-msgid "Directory missing name attribute"
-msgstr "Отсутствует имя папки"
 
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
@@ -336,9 +152,11 @@ msgstr "Не удалось загрузить файл сертификата"
 msgid "Failed to load private key"
 msgstr "Не удалось загрузить личный ключ"
 
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "Ошибка SSL: %1% (%2%, %3%)"
+#: ../CryptoManager.cpp:344 ../CryptoManager.cpp:363 ../CryptoManager.cpp:377
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../BZUtils.cpp:72 ../BZUtils.cpp:94
+#: ../BZUtils.cpp:97
+msgid "Error during decompression"
+msgstr "Ошибка распаковки"
 
 #: ../DownloadManager.cpp:222
 msgid "Invalid size"
@@ -367,26 +185,6 @@ msgstr "Нет доступных слотов"
 #: ../DownloadManager.cpp:538
 msgid "%1%: File not available"
 msgstr "%1%: Файл недоступен"
-
-#: ../ConnectionManager.cpp:176
-msgid "All download slots taken"
-msgstr "Все слоты закачек заняты"
-
-#: ../ConnectionManager.cpp:245
-msgid "Connectivity restored"
-msgstr "Соединение восстановлено"
-
-#: ../ConnectionManager.cpp:252
-msgid "Connectivity error: %1%"
-msgstr "Ошибка соединения: %1%"
-
-#: ../SearchManager.cpp:129
-msgid "Search enabled again"
-msgstr "Поиск снова включен"
-
-#: ../SearchManager.cpp:136
-msgid "Search disabled: %1%"
-msgstr "Поиск отключен: %1%"
 
 #: ../QueueManager.cpp:343
 msgid "%1% renamed to %2%"
@@ -456,6 +254,235 @@ msgstr "Невозможно открыть список файлов: %1%"
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Согласован файл %2%"
 
+#: ../Socket.cpp:58
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Неизвестная ошибка: 0x%1$x"
+
+#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:183
+msgid "Connection timeout"
+msgstr "Таймаут соединения"
+
+#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
+#: ../Socket.cpp:235 ../Socket.cpp:250
+msgid "The socks server failed establish a connection"
+msgstr "Socks серверу не удалось установить соединение"
+
+#: ../Socket.cpp:239
+msgid "The socks server requires authentication"
+msgstr "Socks серверу требуется авторизация"
+
+#: ../Socket.cpp:253
+msgid "The socks server doesn't support login / password authentication"
+msgstr "Socks сервер не поддерживает авторизацию"
+
+#: ../Socket.cpp:267 ../Socket.cpp:271
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr ""
+"Авторизация на socks сервере отклонена, возможно неверный логин или пароль"
+
+#: ../Socket.cpp:406
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+"Не удалось настроить socks сервер для UDP (проверьте socks адрес и порт)"
+
+#: ../UPnPManager.cpp:40
+#, fuzzy
+msgid "No UPnP implementation available"
+msgstr "Файл недоступен"
+
+#: ../UPnPManager.cpp:68
+msgid " Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:71
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:74
+msgid " Search Port (%1% UDP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:78
+msgid "Successfully created port mappings"
+msgstr ""
+
+#: ../UPnPManager.cpp:89
+msgid "Failed to get external IP"
+msgstr ""
+
+#: ../UPnPManager.cpp:97
+#, fuzzy
+msgid "Failed to create port mappings"
+msgstr "Невозможно создать поток"
+
+#: ../UPnPManager.cpp:105
+msgid "Failed to remove port mappings"
+msgstr ""
+
+#: ../UPnPManager.cpp:110
+msgid "UPnP: %1%"
+msgstr ""
+
+#: ../NmdcHub.cpp:282
+msgid "%1% (Nick unknown)"
+msgstr "%1% (Ник неизвестен)"
+
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Соединение закрыто"
+
+#: ../BufferedSocket.cpp:276
+msgid "Maximum command length exceeded"
+msgstr "Превышена максимальная длина команды"
+
+#: ../BufferedSocket.cpp:453
+msgid "Disconnected"
+msgstr "Отключен"
+
+#: ../UploadManager.cpp:157
+msgid "Unable to send file %1%: %2%"
+msgstr "Невозможно передать файл %1%: %2%"
+
+#: ../UploadManager.cpp:461
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Пользователь %1% отключился и покинул хаб"
+
+#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
+#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
+msgid "Error during compression"
+msgstr "Ошибка сжатия"
+
+#: ../ConnectionManager.cpp:177
+msgid "All download slots taken"
+msgstr "Все слоты закачек заняты"
+
+#: ../ConnectionManager.cpp:246
+msgid "Connectivity restored"
+msgstr "Соединение восстановлено"
+
+#: ../ConnectionManager.cpp:253
+msgid "Connectivity error: %1%"
+msgstr "Ошибка соединения: %1%"
+
+#: ../SearchManager.cpp:129
+msgid "Search enabled again"
+msgstr "Поиск снова включен"
+
+#: ../SearchManager.cpp:136
+msgid "Search disabled: %1%"
+msgstr "Поиск отключен: %1%"
+
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "Ошибка SSL: %1% (%2%, %3%)"
+
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "Невозможно создать поток"
+
+#: ../ShareManager.cpp:429
+msgid "No directory specified"
+msgstr "Не указана папка"
+
+#: ../ShareManager.cpp:437
+msgid "The temporary download directory cannot be shared"
+msgstr "Нельзя расшарить временную папку с закачкам"
+
+#: ../ShareManager.cpp:780
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr "Пользователь выбрал нерасшаренный файл: %1% (Размер: %2%)"
+
+#: ../ShareManager.cpp:801
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr "Пользователь выбрал нерасшаренный временный файл: %1% Размер: %2%)"
+
+#: ../ShareManager.cpp:856
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+"Дубликат файла не будет расшарен: %1% (Размер: %2% B) Копия совпала с: %3%"
+
+#: ../ShareManager.cpp:873
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Выполняется обновление списка файлов, пожалуйста, дождитесь окончания, "
+"прежде чем обновлять список вновь"
+
+#: ../ShareManager.cpp:894
+msgid "File list refresh failed: %1%"
+msgstr "Не удалось обновить список файлов: %1%"
+
+#: ../ShareManager.cpp:916
+msgid "File list refresh initiated"
+msgstr "Запущено обновление списка файлов"
+
+#: ../ShareManager.cpp:941
+msgid "File list refresh finished"
+msgstr "Обновление списка файлов завершено"
+
+#: ../ShareManager.cpp:1012
+msgid "File list %1% generated"
+msgstr "Запущено обновление списка файлов %1%"
+
+#: ../Util.cpp:459
+#, c-format
+msgid "%d B"
+msgstr "%d Б"
+
+#: ../Util.cpp:461
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f КБ"
+
+#: ../Util.cpp:463
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f МБ"
+
+#: ../Util.cpp:465
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f ГБ"
+
+#: ../Util.cpp:467
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f ТБ"
+
+#: ../Util.cpp:469
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f ПБ"
+
+#: ../Util.cpp:499
+#, c-format
+msgid "%s B"
+msgstr "%s Б"
+
+#: ../Util.cpp:503
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld Б"
+
+#: ../DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr "Больше, чем макс. размер списка файлов"
+
+#: ../DirectoryListing.cpp:102
+msgid "File not available"
+msgstr "Файл недоступен"
+
+#: ../DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Отсутствует имя папки"
+
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Запрос поиска вне области данных"
@@ -475,6 +502,14 @@ msgstr "Записано больше байт чем требуется"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Несовпадение TTH"
+
+#~ msgid "Directory already shared"
+#~ msgstr "Папка уже расшарена"
+
+#~ msgid "Remove all subdirectories before adding this one"
+#~ msgstr ""
+#~ "Некоторые папки из этой директории уже расшарены, сначала удалите их из "
+#~ "списка"
 
 #~ msgid "downloaded from"
 #~ msgstr "закачано с"

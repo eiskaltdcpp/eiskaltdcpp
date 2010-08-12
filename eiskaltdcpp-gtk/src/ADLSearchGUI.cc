@@ -373,13 +373,13 @@ void ADLSearchGUI::initializeList_client()
 
 void ADLSearchGUI::getFavHubParams_client(ADLSearch& search, StringMap &params)
 {
-        params["Active"]=search.isActive ? _("1") : _("0");
+        params["Active"]=search.isActive ? "1" : "0";
         params["SearchString"] =Text::toT(search.searchString);
         params["SourceType"] = Text::toT(search.SourceTypeToString(search.sourceType));
         params["DestDir"] =Text::toT(search.destDir);
-        params["minSize"] = (search.minFileSize >= 0) ? Text::toT(Util::toString(search.minFileSize)) + _(" ") + Text::toT(search.SizeTypeToString(search.typeFileSize)) : _("");//Util::emptyStringT;
-        params["maxSize"] = (search.maxFileSize >= 0) ? Text::toT(Util::toString(search.maxFileSize)) + _(" ") + Text::toT(search.SizeTypeToString(search.typeFileSize)) : _("");//Util::emptyStringT;
-        params["AutoQueue"] = search.isAutoQueue ? _("1") : _("0");
+        params["minSize"] = (search.minFileSize >= 0) ? Text::toT(Util::toString(search.minFileSize)) + " " + Text::toT(search.SizeTypeToString(search.typeFileSize)) : "";//Util::emptyStringT;
+        params["maxSize"] = (search.maxFileSize >= 0) ? Text::toT(Util::toString(search.maxFileSize)) + " " + Text::toT(search.SizeTypeToString(search.typeFileSize)) : "";//Util::emptyStringT;
+        params["AutoQueue"] = search.isAutoQueue ? "1" : "0";
 }
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-07-30 02:51+0300\n"
+"POT-Creation-Date: 2010-08-12 15:37+0400\n"
 "PO-Revision-Date: 2010-08-03 14:44+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Magyar <kde-i18n-doc@kde.org>\n"
@@ -28,90 +28,19 @@ msgstr "Felhasználó(k) kirúgása"
 msgid "Redirect user(s)"
 msgstr "Felhasználó(k) átirányítása"
 
-#: ../Socket.cpp:58
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Ismeretlen hiba: 0x%1$x"
-
-#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:182
-msgid "Connection timeout"
-msgstr "Időtúllépés"
-
-#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
-#: ../Socket.cpp:235 ../Socket.cpp:250
-msgid "The socks server failed establish a connection"
-msgstr "Nem sikerült a socks kiszolgálóhoz kapcsolódni"
-
-#: ../Socket.cpp:239
-msgid "The socks server requires authentication"
-msgstr "A socks kiszolgáló hitelesítést igényel"
-
-#: ../Socket.cpp:253
-msgid "The socks server doesn't support login / password authentication"
-msgstr ""
-"A socks kiszolgáló nem támogatja a bejelentkezési név / jelszó hitelesítést"
-
-#: ../Socket.cpp:267 ../Socket.cpp:271
-msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói név/"
-"jelszó?)"
-
-#: ../Socket.cpp:406
-msgid ""
-"Failed to set up the socks server for UDP relay (check socks address and "
-"port)"
-msgstr ""
-"A socks kiszolgáló beállítása az UDP port továbbításra nem sikerült "
-"(ellenőrizd a kiszolgáló címét és a portot)"
-
-#: ../DCPlusPlus.cpp:108
-msgid "Hash database"
-msgstr "Hash adatbázis"
-
-#: ../DCPlusPlus.cpp:111
-msgid "Shared Files"
-msgstr "Megosztott fájlok"
-
-#: ../DCPlusPlus.cpp:114
-msgid "Download Queue"
-msgstr "Letöltési Sor"
-
-#: ../Thread.cpp:34 ../Thread.cpp:42
-msgid "Unable to create thread"
-msgstr "A szál léterhozása sikertelen"
-
-#: ../UploadManager.cpp:157
-msgid "Unable to send file %1%: %2%"
-msgstr "A fájl küldése sikertelen: %1%: %2%"
-
-#: ../UploadManager.cpp:461
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
-
-#: ../NmdcHub.cpp:282
-msgid "%1% (Nick unknown)"
-msgstr "%1% (Nick ismeretlen)"
-
-#: ../ClientManager.cpp:120 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
-msgid "Offline"
-msgstr "Kilépett"
-
-#: ../AdcHub.cpp:140
+#: ../AdcHub.cpp:142
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) CID-je {%3%} ugyanaz, mint %4% (%5%)-é, kihagyva"
 
-#: ../AdcHub.cpp:176
+#: ../AdcHub.cpp:178
 msgid "%1%/s"
 msgstr "%1%/s"
 
-#: ../AdcHub.cpp:211
+#: ../AdcHub.cpp:213
 msgid "Failed to negotiate base protocol"
 msgstr "Az alap protokoll egyeztetése sikertelen"
 
-#: ../AdcHub.cpp:217
+#: ../AdcHub.cpp:219
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -119,68 +48,34 @@ msgstr ""
 "A hub vélhetően régi verziójú ADC protokollt használ, kérlek szólj a "
 "tulajnak, hogy frissítsen"
 
-#: ../AdcHub.cpp:286
+#: ../AdcHub.cpp:288
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1%-t kirúgta %2%: %3%"
 
-#: ../AdcHub.cpp:289
+#: ../AdcHub.cpp:291
 msgid "%1% was kicked: %2%"
 msgstr "%1% kirúgva: %2%"
 
-#: ../AdcHub.cpp:566
+#: ../AdcHub.cpp:621
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 
-#: ../Util.cpp:459
-#, c-format
-msgid "%d B"
-msgstr "%d B"
+#: ../Transfer.cpp:82 ../Transfer.cpp:86 ../SearchManager.cpp:244
+#: ../SearchManager.cpp:305 ../SearchManager.cpp:307 ../ClientManager.cpp:122
+msgid "Offline"
+msgstr "Kilépett"
 
-#: ../Util.cpp:461
-#, c-format
-msgid "%.02f KiB"
-msgstr "%.02f KiB"
+#: ../DCPlusPlus.cpp:119
+msgid "Hash database"
+msgstr "Hash adatbázis"
 
-#: ../Util.cpp:463
-#, c-format
-msgid "%.02f MiB"
-msgstr "%.02f MiB"
+#: ../DCPlusPlus.cpp:122
+msgid "Shared Files"
+msgstr "Megosztott fájlok"
 
-#: ../Util.cpp:465
-#, c-format
-msgid "%.02f GiB"
-msgstr "%.02f GiB"
-
-#: ../Util.cpp:467
-#, c-format
-msgid "%.02f TiB"
-msgstr "%.02f TiB"
-
-#: ../Util.cpp:469
-#, c-format
-msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:499
-#, c-format
-msgid "%s B"
-msgstr "%s B"
-
-#: ../Util.cpp:503
-#, c-format
-msgid "%'lld B"
-msgstr "%'lld B"
-
-#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
-#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
-msgid "Error during compression"
-msgstr "Hiba a tömörítéskor"
-
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
-#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
-#: ../BZUtils.cpp:94 ../BZUtils.cpp:97
-msgid "Error during decompression"
-msgstr "Hiba a kicsomagoláskor"
+#: ../DCPlusPlus.cpp:125
+msgid "Download Queue"
+msgstr "Letöltési Sor"
 
 #: ../HashManager.cpp:80 ../HashManager.cpp:280
 msgid "Hashing failed: %1%"
@@ -210,103 +105,23 @@ msgstr "A hash adatfájl beolvasása nem lehetséges"
 msgid "Error creating hash data file: %1%"
 msgstr "Hiba a hash adatfájl létrehozásakor: %1%"
 
-#: ../HashManager.cpp:790
+#: ../HashManager.cpp:785
 msgid "Hash database rebuilt"
 msgstr "A hash adatbázis újraépítve"
 
-#: ../HashManager.cpp:842
+#: ../HashManager.cpp:837
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Fájl(ok) indexelése: %1% (Méret: %2%)"
 
-#: ../HashManager.cpp:890
+#: ../HashManager.cpp:885
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% nincs megosztva. A kiszámított CRC32 nem egyezik az SFV fájlban lévővel."
 
-#: ../HashManager.cpp:895
+#: ../HashManager.cpp:890
 msgid "Error hashing %1%: %2%"
 msgstr "Hiba a következő hashelésekor: %1%: %2%"
-
-#: ../ShareManager.cpp:422
-msgid "No directory specified"
-msgstr "Nincs könyvtár megadva"
-
-#: ../ShareManager.cpp:430
-msgid "The temporary download directory cannot be shared"
-msgstr "Az ideiglenes letöltési könyvtár nem megosztható"
-
-#: ../ShareManager.cpp:439
-msgid "Directory already shared"
-msgstr "A könyvtár már meg van osztva"
-
-#: ../ShareManager.cpp:442
-msgid "Remove all subdirectories before adding this one"
-msgstr "Távolíts el minden alkönyvtárat, mielőtt ezt felveszed"
-
-#: ../ShareManager.cpp:771
-msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:792
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:847
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr ""
-"Többször meglévő fájl nem lesz megosztva: %1% (Méret: %2% B) Megegyezik "
-"ezzel: %3%"
-
-#: ../ShareManager.cpp:864
-msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, "
-"mielőtt újra frissíteni próbálnál!"
-
-#: ../ShareManager.cpp:885
-msgid "File list refresh failed: %1%"
-msgstr "Hiba a fájl-lista frissítésekor: %1%"
-
-#: ../ShareManager.cpp:907
-msgid "File list refresh initiated"
-msgstr "A fájl-lista frissítése elkezdődött"
-
-#: ../ShareManager.cpp:932
-msgid "File list refresh finished"
-msgstr "A fájl-lista frissítése befejeződött"
-
-#: ../ShareManager.cpp:1003
-msgid "File list %1% generated"
-msgstr "Fájl-lista %1% létrehozva"
-
-#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Kapcsolat lezárva"
-
-#: ../BufferedSocket.cpp:276
-msgid "Maximum command length exceeded"
-msgstr "A maximális parancs hossz túllépve"
-
-#: ../BufferedSocket.cpp:453
-msgid "Disconnected"
-msgstr "Szétkapcsolva"
-
-#: ../DirectoryListing.cpp:95
-msgid "Greater than maximum filelist size"
-msgstr "Nagyobb mint a maximális fájl-lista méret"
-
-#: ../DirectoryListing.cpp:102
-msgid "File not available"
-msgstr "A fájl nem elérhető"
-
-#: ../DirectoryListing.cpp:165
-msgid "Directory missing name attribute"
-msgstr "Hiányzik a könyvtár név attribútuma"
 
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
@@ -342,9 +157,11 @@ msgstr "Nem sikerült betölteni a tanúsítvány fájlt"
 msgid "Failed to load private key"
 msgstr "Nem sikerült betölteni a pirvát kulcsot"
 
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "SSL Hiba: %1% (%2%, %3%)"
+#: ../CryptoManager.cpp:344 ../CryptoManager.cpp:363 ../CryptoManager.cpp:377
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../BZUtils.cpp:72 ../BZUtils.cpp:94
+#: ../BZUtils.cpp:97
+msgid "Error during decompression"
+msgstr "Hiba a kicsomagoláskor"
 
 #: ../DownloadManager.cpp:222
 msgid "Invalid size"
@@ -373,26 +190,6 @@ msgstr "Nincs szabad slot"
 #: ../DownloadManager.cpp:538
 msgid "%1%: File not available"
 msgstr "%1%: A fájl nem elérhető"
-
-#: ../ConnectionManager.cpp:176
-msgid "All download slots taken"
-msgstr "Összes letöltési szál foglalt"
-
-#: ../ConnectionManager.cpp:245
-msgid "Connectivity restored"
-msgstr "Kapcsolódás lehetősége visszaállítva"
-
-#: ../ConnectionManager.cpp:252
-msgid "Connectivity error: %1%"
-msgstr "Kapcsolódási hiba: %1%"
-
-#: ../SearchManager.cpp:129
-msgid "Search enabled again"
-msgstr "Keresés ismét engedélyezve"
-
-#: ../SearchManager.cpp:136
-msgid "Search disabled: %1%"
-msgstr "Keresés tiltva:%1%"
 
 #: ../QueueManager.cpp:343
 msgid "%1% renamed to %2%"
@@ -462,6 +259,239 @@ msgstr "Nem sikerült megnyitni a fájl-listát: %1%"
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Találat: %2% fájl"
 
+#: ../Socket.cpp:58
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Ismeretlen hiba: 0x%1$x"
+
+#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:183
+msgid "Connection timeout"
+msgstr "Időtúllépés"
+
+#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
+#: ../Socket.cpp:235 ../Socket.cpp:250
+msgid "The socks server failed establish a connection"
+msgstr "Nem sikerült a socks kiszolgálóhoz kapcsolódni"
+
+#: ../Socket.cpp:239
+msgid "The socks server requires authentication"
+msgstr "A socks kiszolgáló hitelesítést igényel"
+
+#: ../Socket.cpp:253
+msgid "The socks server doesn't support login / password authentication"
+msgstr ""
+"A socks kiszolgáló nem támogatja a bejelentkezési név / jelszó hitelesítést"
+
+#: ../Socket.cpp:267 ../Socket.cpp:271
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr ""
+"A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói név/"
+"jelszó?)"
+
+#: ../Socket.cpp:406
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+"A socks kiszolgáló beállítása az UDP port továbbításra nem sikerült "
+"(ellenőrizd a kiszolgáló címét és a portot)"
+
+#: ../UPnPManager.cpp:40
+#, fuzzy
+msgid "No UPnP implementation available"
+msgstr "A fájl nem elérhető"
+
+#: ../UPnPManager.cpp:68
+msgid " Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:71
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:74
+msgid " Search Port (%1% UDP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:78
+msgid "Successfully created port mappings"
+msgstr ""
+
+#: ../UPnPManager.cpp:89
+msgid "Failed to get external IP"
+msgstr ""
+
+#: ../UPnPManager.cpp:97
+#, fuzzy
+msgid "Failed to create port mappings"
+msgstr "A szál léterhozása sikertelen"
+
+#: ../UPnPManager.cpp:105
+msgid "Failed to remove port mappings"
+msgstr ""
+
+#: ../UPnPManager.cpp:110
+msgid "UPnP: %1%"
+msgstr ""
+
+#: ../NmdcHub.cpp:282
+msgid "%1% (Nick unknown)"
+msgstr "%1% (Nick ismeretlen)"
+
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Kapcsolat lezárva"
+
+#: ../BufferedSocket.cpp:276
+msgid "Maximum command length exceeded"
+msgstr "A maximális parancs hossz túllépve"
+
+#: ../BufferedSocket.cpp:453
+msgid "Disconnected"
+msgstr "Szétkapcsolva"
+
+#: ../UploadManager.cpp:157
+msgid "Unable to send file %1%: %2%"
+msgstr "A fájl küldése sikertelen: %1%: %2%"
+
+#: ../UploadManager.cpp:461
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
+
+#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
+#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
+msgid "Error during compression"
+msgstr "Hiba a tömörítéskor"
+
+#: ../ConnectionManager.cpp:177
+msgid "All download slots taken"
+msgstr "Összes letöltési szál foglalt"
+
+#: ../ConnectionManager.cpp:246
+msgid "Connectivity restored"
+msgstr "Kapcsolódás lehetősége visszaállítva"
+
+#: ../ConnectionManager.cpp:253
+msgid "Connectivity error: %1%"
+msgstr "Kapcsolódási hiba: %1%"
+
+#: ../SearchManager.cpp:129
+msgid "Search enabled again"
+msgstr "Keresés ismét engedélyezve"
+
+#: ../SearchManager.cpp:136
+msgid "Search disabled: %1%"
+msgstr "Keresés tiltva:%1%"
+
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "SSL Hiba: %1% (%2%, %3%)"
+
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "A szál léterhozása sikertelen"
+
+#: ../ShareManager.cpp:429
+msgid "No directory specified"
+msgstr "Nincs könyvtár megadva"
+
+#: ../ShareManager.cpp:437
+msgid "The temporary download directory cannot be shared"
+msgstr "Az ideiglenes letöltési könyvtár nem megosztható"
+
+#: ../ShareManager.cpp:780
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:801
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:856
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+"Többször meglévő fájl nem lesz megosztva: %1% (Méret: %2% B) Megegyezik "
+"ezzel: %3%"
+
+#: ../ShareManager.cpp:873
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, "
+"mielőtt újra frissíteni próbálnál!"
+
+#: ../ShareManager.cpp:894
+msgid "File list refresh failed: %1%"
+msgstr "Hiba a fájl-lista frissítésekor: %1%"
+
+#: ../ShareManager.cpp:916
+msgid "File list refresh initiated"
+msgstr "A fájl-lista frissítése elkezdődött"
+
+#: ../ShareManager.cpp:941
+msgid "File list refresh finished"
+msgstr "A fájl-lista frissítése befejeződött"
+
+#: ../ShareManager.cpp:1012
+msgid "File list %1% generated"
+msgstr "Fájl-lista %1% létrehozva"
+
+#: ../Util.cpp:459
+#, c-format
+msgid "%d B"
+msgstr "%d B"
+
+#: ../Util.cpp:461
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:463
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:465
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:467
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:469
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:499
+#, c-format
+msgid "%s B"
+msgstr "%s B"
+
+#: ../Util.cpp:503
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld B"
+
+#: ../DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr "Nagyobb mint a maximális fájl-lista méret"
+
+#: ../DirectoryListing.cpp:102
+msgid "File not available"
+msgstr "A fájl nem elérhető"
+
+#: ../DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Hiányzik a könyvtár név attribútuma"
+
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Kérés az adatsor vége utáni pozícionálásra"
@@ -481,6 +511,12 @@ msgstr "A kértnél több byte írása történt"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "TTH inkonzisztencia"
+
+#~ msgid "Directory already shared"
+#~ msgstr "A könyvtár már meg van osztva"
+
+#~ msgid "Remove all subdirectories before adding this one"
+#~ msgstr "Távolíts el minden alkönyvtárat, mielőtt ezt felveszed"
 
 #~ msgid "downloaded from"
 #~ msgstr "letöltve innen:"

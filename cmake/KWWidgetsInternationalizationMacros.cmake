@@ -490,6 +490,7 @@ macro(KWWidgets_CREATE_POT_TARGET
       "--keyword=_" "--flag=_:1:pass-c-format"
       "--keyword=N_" "--flag=N_:1:pass-c-format"
       "--keyword=F_" "--flag=F_:1:pass-c-format"
+      "--keyword=F_:2" "--flag=F_:2:pass-c-format"
       "--keyword=FN_" "--flag=FN_:1:pass-c-format"
       "--flag=autosprintf:1:c-format"
       "--keyword=kww_sgettext" "--flag=kww_sgettext:1:pass-c-format"
@@ -573,7 +574,7 @@ macro(KWWidgets_CREATE_PO_TARGETS
       "${safe_build_dir}" "${domain_name}_" "${locale}")
     set(po_uptodate_file "${po_uptodate_file}.upd")
     set(po_uptodate_files ${po_uptodate_files} ${po_uptodate_file})
-    #set(depends "${pot_uptodate_file}")
+    set(depends "${pot_uptodate_file}")
     if(EXISTS "${po_file}")
       set(depends ${depends} "${po_file}")
     endif(EXISTS "${po_file}")
