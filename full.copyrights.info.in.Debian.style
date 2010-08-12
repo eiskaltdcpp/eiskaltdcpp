@@ -52,6 +52,7 @@ Copyright:
  Copyright 2009 Big Muscle
  Copyright 1996-2002 Florian Schintke
  Copyright 1997 Makoto Matsumoto and Takuji Nishimura
+ Copyright 2010 cologic <ne5@parsoma.net>
 License:
  GPL-2 or later
  .
@@ -66,8 +67,8 @@ License:
  GPL-2 or later
 
 Files:
- eiskaltdcpp-qt/examples/xmms2_audacious2.ru_RU.UTF-8.php
- eiskaltdcpp-qt/examples/commands.ru_RU.UTF-8.php
+ examples/xmms2_audacious2.ru_RU.UTF-8.php
+ examples/commands.ru_RU.UTF-8.php
 Copyright:
  Copyright 2010 nE0sIghT
  Copyright 2010 GoTLiuM InSPiRiT <gotlium@gmail.com>
@@ -75,12 +76,12 @@ License:
  GPL-2
 
 Files:
- eiskaltdcpp-qt/examples/amr.en_US.sh
- eiskaltdcpp-qt/examples/mpris_now_playing.en_US.sh
- eiskaltdcpp-qt/examples/audacious.en_US.sh
- eiskaltdcpp-qt/examples/mpc.en_US.sh
- eiskaltdcpp-qt/examples/rhythmbox.en_US.sh
- eiskaltdcpp-qt/examples/qmmp.ru_RU.UTF-8.sh
+ examples/amr.en_US.sh
+ examples/mpris_now_playing.en_US.sh
+ examples/audacious.en_US.sh
+ examples/mpc.en_US.sh
+ examples/rhythmbox.en_US.sh
+ examples/qmmp.ru_RU.UTF-8.sh
 Copyright:
  Copyright 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
  Copyright 2010 Vovochka404 <vovochka13@gmail.com>
@@ -89,7 +90,8 @@ License:
  Public Domain
 
 Files:
- eiskaltdcpp-qt/fsusage/*
+ fsusage/fsusage.c
+ fsusage/fsusage.h
 Copyright:
  Copyright 1991-2006 Free Software Foundation, Inc.
 License:
@@ -162,6 +164,7 @@ Copyright:
  Copyright 2009-2010 freedcpp (http://code.google.com/p/freedcpp)
  Copyright 2009-2010 Leliksan Floyd <leliksan@Quadrafon2>
  Copyright 2003 Bastien Nocera <hadess@hadess.net>
+ Copyright 2010 Irene (http://sourceforge.net/projects/freedcppmv/)
 License:
  GPL-2 or later
 
