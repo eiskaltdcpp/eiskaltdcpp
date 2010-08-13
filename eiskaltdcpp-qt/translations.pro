@@ -153,4 +153,5 @@ TRANSLATIONS = translations/en.ts \
                translations/pl.ts \
                translations/sr.ts \
                translations/uk.ts \
-               translations/es.ts
+               translations/es.ts \
+               translations/bg.ts

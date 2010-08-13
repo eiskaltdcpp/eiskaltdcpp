@@ -307,6 +307,7 @@ endif ()
 option (LANGUAGES "Using translations")
 set (AllLanguages
             be
+            bg
             en
             es
             fr
