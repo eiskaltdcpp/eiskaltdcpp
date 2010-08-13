@@ -102,7 +102,11 @@ class ScriptManager: public ScriptInstance, public Singleton<ScriptManager>, pub
         Socket s;//xx
         friend class Singleton<ScriptManager>;
         ScriptManager();
-        virtual ~ScriptManager() throw() {     lua_close(L); if(timerEnabled) TimerManager::getInstance()->removeListener(this);  }
+        virtual ~ScriptManager() throw() {
+            //lua_close(L);
+            if(timerEnabled)
+                TimerManager::getInstance()->removeListener(this);
+        }
     public:
         void load();
         void  SendDebugMessage(const string& s);

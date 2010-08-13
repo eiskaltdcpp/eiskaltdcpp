@@ -27,10 +27,23 @@ public:
         Singleton() { }
         virtual ~Singleton() { }
 
-        inline static T* getInstance() __attribute__((always_inline));
-        inline static void newInstance() __attribute__((always_inline));
-        inline static void deleteInstance() __attribute__((always_inline));
+        static T* getInstance() {
+                dcassert(instance);
+        return instance;
+}
 
+        static void newInstance() {
+        if(instance)
+                delete instance;
+
+        instance = new T();
+}
+
+        static void deleteInstance() {
+        if(instance)
+                delete instance;
+        instance = NULL;
+}
 protected:
         static T* instance;
 private:
@@ -40,26 +53,6 @@ private:
 };
 
 template<class T> T* Singleton<T>::instance = NULL;
-
-template<class T>
-inline T* Singleton<T>::getInstance(){
-        return instance;
-}
-
-template<class T>
-inline void Singleton<T>::newInstance(){
-        if(instance)
-                delete instance;
-
-        instance = new T();
-}
-
-template<class T>
-inline void Singleton<T>::deleteInstance() {
-        if(instance)
-                delete instance;
-        instance = NULL;
-}
 
 } // namespace dcpp
 
