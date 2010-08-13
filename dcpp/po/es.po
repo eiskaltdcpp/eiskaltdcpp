@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-12 15:37+0400\n"
-"PO-Revision-Date: 2010-08-03 16:09+0200\n"
+"PO-Revision-Date: 2010-08-13 06:39+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -122,7 +122,7 @@ msgstr ""
 
 #: ../HashManager.cpp:890
 msgid "Error hashing %1%: %2%"
-msgstr "Error Indexado %1%: %2%"
+msgstr "Error en Indexado %1%: %2%"
 
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
@@ -142,7 +142,7 @@ msgstr "TLS desactivado, no ha definido un certificado"
 
 #: ../CryptoManager.cpp:221
 msgid "Generated new TLS certificate"
-msgstr "Generado nuevos certificado TLS"
+msgstr "Nuevo certificado TLS generado"
 
 #: ../CryptoManager.cpp:223
 msgid "TLS disabled, failed to generate certificate: %1%"
@@ -186,7 +186,7 @@ msgstr "Error de CRC32  (SFV-Check)"
 
 #: ../DownloadManager.cpp:427
 msgid "No slots available"
-msgstr "Sin Slots Disponibles"
+msgstr "Slots no Disponibles"
 
 #: ../DownloadManager.cpp:538
 msgid "%1%: File not available"
@@ -206,7 +206,7 @@ msgstr "Buscando alternativas TTH para: %1%"
 
 #: ../QueueManager.cpp:589
 msgid "You're trying to download from yourself!"
-msgstr "Intentas descargar de ti mismo!"
+msgstr "¡Intentas descargar de ti mismo!"
 
 #: ../QueueManager.cpp:595
 msgid "A file with the same hash already exists in your share"
@@ -287,7 +287,7 @@ msgstr "El servidor socks no soporta autentificación de usuario / contraseña"
 #: ../Socket.cpp:267 ../Socket.cpp:271
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
-"No se ha establecido conexión con el servidor socks (¿usuario contraseña "
+"No se ha establecido conexión con el servidor socks (¿usuario / contraseña "
 "erronea?)"
 
 #: ../Socket.cpp:406
@@ -299,42 +299,40 @@ msgstr ""
 "dirección socks y puerto)"
 
 #: ../UPnPManager.cpp:40
-#, fuzzy
 msgid "No UPnP implementation available"
-msgstr "Archivo no disponible"
+msgstr "Implementacion UPnP no disponible"
 
 #: ../UPnPManager.cpp:68
 msgid " Transfer Port (%1% TCP)"
-msgstr ""
+msgstr "Puerto de Transferencia (%1% TCP)"
 
 #: ../UPnPManager.cpp:71
 msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
+msgstr "Puerto de Transferencia Encriptado (%1% TCP)"
 
 #: ../UPnPManager.cpp:74
 msgid " Search Port (%1% UDP)"
-msgstr ""
+msgstr "Puerto de búsqueda (1%% UDP)"
 
 #: ../UPnPManager.cpp:78
 msgid "Successfully created port mappings"
-msgstr ""
+msgstr "Maa de puertos creado satisfactoriamente"
 
 #: ../UPnPManager.cpp:89
 msgid "Failed to get external IP"
-msgstr ""
+msgstr "Fallo al recibir  IP externa"
 
 #: ../UPnPManager.cpp:97
-#, fuzzy
 msgid "Failed to create port mappings"
-msgstr "No se puede crear tarea"
+msgstr "Fallo al crear la tabla de puertos"
 
 #: ../UPnPManager.cpp:105
 msgid "Failed to remove port mappings"
-msgstr ""
+msgstr "Fallo al remover mapa de puertos"
 
 #: ../UPnPManager.cpp:110
 msgid "UPnP: %1%"
-msgstr ""
+msgstr "UPnP: %1%"
 
 #: ../NmdcHub.cpp:282
 msgid "%1% (Nick unknown)"
@@ -512,7 +510,7 @@ msgstr "Más bytes escritos de los requeridos"
 
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
-msgstr "TTH incoherencia"
+msgstr "Incoherencia TTH"
 
 #~ msgid "Directory already shared"
 #~ msgstr "Carpeta ya Compartida"

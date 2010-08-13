@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-12 15:37+0400\n"
-"PO-Revision-Date: 2010-08-10 18:24+0200\n"
+"PO-Revision-Date: 2010-08-13 07:10+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -246,52 +246,48 @@ msgid "Emoticons on/off"
 msgstr "Encender/Apagar Emoticonos"
 
 #: ../src/hub.cc:1723
-#, fuzzy
 msgid "Load Lua file"
-msgstr "Cargando lista de archivos"
+msgstr "Cargar archivo LUA"
 
 #: ../src/hub.cc:1724
 msgid "Execute Lua Chunk"
-msgstr ""
+msgstr "Ejecutar trozo de codigo Lua"
 
 #: ../src/hub.cc:1726
 msgid "Execute code (bash)"
-msgstr ""
+msgstr "Ejecutar codigo (bash)"
 
 #: ../src/hub.cc:1727
 msgid "Alias List"
-msgstr ""
+msgstr "Lista de Alias"
 
 #: ../src/hub.cc:1728
 msgid "Alias Remove A"
-msgstr ""
+msgstr "Borrar Alias A"
 
 #: ../src/hub.cc:1729
 msgid "Alias add uname -a as A"
-msgstr ""
+msgstr "Añadir Alias  uname -a  como A"
 
 #: ../src/hub.cc:1730
 msgid "Alias A executing"
-msgstr ""
+msgstr "Ejecutando Alias A"
 
 #: ../src/hub.cc:1774
-#, fuzzy
 msgid "sh"
-msgstr "s"
+msgstr "sh"
 
 #: ../src/hub.cc:1791
 msgid "lua"
-msgstr ""
+msgstr "lua"
 
 #: ../src/hub.cc:1794
-#, fuzzy
 msgid "luafile"
-msgstr "archivos"
+msgstr "luafile"
 
 #: ../src/hub.cc:1819
-#, fuzzy
 msgid "Aliases not found."
-msgstr "Usuario no encontrado"
+msgstr "Alias no encontrado"
 
 #: ../src/hub.cc:1920
 msgid "Unknown command '"
@@ -601,7 +597,7 @@ msgstr "Conceder slot automaticamente"
 #: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
 #: ../src/favoriteusers.cc:584
 msgid "Hub (last seen in, if offline)"
-msgstr "Hub (Visto por ultima vez el el, si desconectado) "
+msgstr "Hub (Visto por ultima vez en el, si desconectado) "
 
 #: ../src/favoriteusers.cc:47 ../src/favoriteusers.cc:111
 #: ../src/favoriteusers.cc:577 ../src/favoriteusers.cc:585
@@ -623,7 +619,7 @@ msgstr "B/s"
 
 #: ../src/hashdialog.cc:58 ../src/hashdialog.cc:67 ../src/hashdialog.cc:76
 msgid " left"
-msgstr "restante"
+msgstr " restante"
 
 #: ../src/hashdialog.cc:59 ../src/hashdialog.cc:71
 msgid "-:--:-- left"
@@ -651,73 +647,67 @@ msgstr "Desconectado"
 
 #: ../src/WulforUtil.cc:208
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: ../src/WulforUtil.cc:209
 msgid "CP1252"
-msgstr ""
+msgstr "CP1252"
 
 #: ../src/WulforUtil.cc:210
 msgid "CP1250"
-msgstr ""
+msgstr "CP1250"
 
 #: ../src/WulforUtil.cc:211
-#, fuzzy
 msgid "ISO-8859-2"
-msgstr "ISO-8859-7 (Griego)"
+msgstr "ISO-8859-2"
 
 #: ../src/WulforUtil.cc:212
-#, fuzzy
 msgid "ISO-8859-7"
-msgstr "ISO-8859-7 (Griego)"
+msgstr "ISO-8859-7"
 
 #: ../src/WulforUtil.cc:213
-#, fuzzy
 msgid "ISO-8859-8"
-msgstr "ISO-8859-8 (Hebreo)"
+msgstr "ISO-8859-8"
 
 #: ../src/WulforUtil.cc:214
-#, fuzzy
 msgid "ISO-8859-9"
-msgstr "ISO-8859-9 (Turco)"
+msgstr "ISO-8859-9"
 
 #: ../src/WulforUtil.cc:215
-#, fuzzy
 msgid "ISO-2022-JP"
-msgstr "ISO-2022-JP (Japonés)"
+msgstr "ISO-2022-JP"
 
 #: ../src/WulforUtil.cc:216
 msgid "SJIS"
-msgstr ""
+msgstr "SJIS"
 
 #: ../src/WulforUtil.cc:217
 msgid "CP949"
-msgstr ""
+msgstr "CP949"
 
 #: ../src/WulforUtil.cc:218
 msgid "KOI8-R"
-msgstr ""
+msgstr "KOI8-R"
 
 #: ../src/WulforUtil.cc:219
 msgid "CP1251"
-msgstr ""
+msgstr "CP1251"
 
 #: ../src/WulforUtil.cc:220
 msgid "CP1256"
-msgstr ""
+msgstr "CP1256"
 
 #: ../src/WulforUtil.cc:221
 msgid "CP1257"
-msgstr ""
+msgstr "CP1257"
 
 #: ../src/WulforUtil.cc:222
 msgid "GB18030"
-msgstr ""
+msgstr "GN18030"
 
 #: ../src/WulforUtil.cc:223
-#, fuzzy
 msgid "TIS-620"
-msgstr "TIS-620 (Tailandés)"
+msgstr "TIS-620"
 
 #: ../src/WulforUtil.cc:315 ../src/WulforUtil.cc:317
 #: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
@@ -895,19 +885,17 @@ msgid "Close tab"
 msgstr "Cerrar pestaña"
 
 #: ../src/ADLSearchGUI.cc:34 ../src/settingsdialog.cc:1250
-#, fuzzy
 msgid "ADLSearch"
-msgstr "Buscar"
+msgstr "Busqueda ADL"
 
 #: ../src/ADLSearchGUI.cc:289
-#, fuzzy
 msgid "The search string fields are required"
-msgstr "Los campios de Nombre y dirección son requeridos"
+msgstr "Los campos de Nombre y dirección son requeridos"
 
 #: ../src/ADLSearchGUI.cc:316
-#, fuzzy, c-format
+#, c-format
 msgid "Are you sure you want to delete ADL search \"%s\"?"
-msgstr "¿Está seguro de que quiere borrar el Hub favorito \"%s\"?"
+msgstr "¿Está seguro de que quiere borrar la busqueda ADL \"%s\"?"
 
 #: ../src/settingsdialog.cc:287 ../src/settingsdialog.cc:323
 #: ../src/settingsdialog.cc:939 ../src/settingsdialog.cc:950
@@ -1233,14 +1221,12 @@ msgid "Connect"
 msgstr "Conectar"
 
 #: ../src/settingsdialog.cc:1196
-#, fuzzy
 msgid "Reconnect"
-msgstr "Conectar"
+msgstr "Reconectar"
 
 #: ../src/settingsdialog.cc:1199
-#, fuzzy
 msgid "ADL Search"
-msgstr "Buscar"
+msgstr "Busqueda ADL"
 
 #: ../src/settingsdialog.cc:1298
 msgid "Open file list window in the background"
@@ -1730,12 +1716,11 @@ msgstr "Sin errores"
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: ../src/ADLSearchGUI.hh:80
-#, fuzzy
 msgid "Full Path"
-msgstr "Lugar"
+msgstr "Lugar completo"
 
 #~ msgid "UTF-8 (Unicode)"
 #~ msgstr "UTF-8 (Unicode)"

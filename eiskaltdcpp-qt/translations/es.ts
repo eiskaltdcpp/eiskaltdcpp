@@ -939,43 +939,6 @@ Opciones:
         <translation>Añadir al diccionario</translation>
     </message>
     <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/ratio [show] - show ratio [send in chat]
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/aspell on/off - habilitar/deshabilitar Chequeo escritura
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - crear alias /ALIAS_NAME a /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - borrar alias
-/alias list - listar todos los Alias
-/away &lt;message&gt; - establece el modo ausente en encendido/apagado
-/back - apaga el modo ausente
-/browse &lt;nick&gt; - explorar ficheros del usuario
-/clear - limpia la ventana del chat
-/magnet - acción predeterminada del imán (0-pregunta, 1-busca, 2-descarga)
-/close - cierra este Hub
-/fav - añade este hub a favoritos
-/grant &lt;nick&gt; - concede slot extra al usuario
-/help, /?, /h - muestra esta ayuda
-/info &lt;nick&gt; - muestra información acerca del usuario
-/me - habla en tercera persona
-/pm &lt;nick&gt; - comienza un chat privado con el usuario
-/sh &lt;command&gt; - ejecuta un comando y lo re-direcciona al chat</translation>
-    </message>
-    <message>
         <location filename="../src/HubFrame.cpp" line="2903"/>
         <source>Connecting to %1</source>
         <translation>Conectando con %1</translation>
@@ -1032,121 +995,141 @@ Usuario favorito</translation>
         <location filename="../src/HubFrame.cpp" line="1393"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - habilitar/deshabilitar Chequeo escritura
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1395"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - crear alias /ALIAS_NAME a /COMMAND
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1396"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias purge &lt;ALIAS_NAME&gt; - borrar alias
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1397"/>
         <source>/alias list - list all aliases
 </source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>/alias list - listar todos los Alias
+</translatorcomment>
+        <translation>/alias list - list all aliases
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1398"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/away &lt;message&gt; - establece el modo ausente en encendido/apagado
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1399"/>
         <source>/back - set away-mode off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/back - apaga el modo ausente
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1400"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/browse &lt;nick&gt; - explorar ficheros del usuario
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1401"/>
         <source>/clear - clear chat window
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/clear - limpia la ventana del chat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1402"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/magnet - acción predeterminada del imán (0-pregunta, 1-busca, 2-descarga)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1403"/>
         <source>/close - close this hub
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/close - cierra este Hub
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1404"/>
         <source>/fav - add this hub to favorites
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/fav - añade este hub a favoritos
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1405"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/grant &lt;nick&gt; - concede slot extra al usuario
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1406"/>
         <source>/help, /?, /h - show this help
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/help, /?, /h - muestra esta ayuda
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1407"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/info &lt;nick&gt; - muestra información acerca del usuario
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1408"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/ratio [show] - Mostrar Ratio [mandar al chat]
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1409"/>
         <source>/me - say a third person
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/me - habla en tercera persona
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1410"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/pm &lt;nick&gt; - comienza un chat privado con el usuario
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1411"/>
         <source>/sh &lt;command&gt; - start command and redirect output to the chat
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/sh &lt;command&gt; - ejecuta un comando y lo re-direcciona al chat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1413"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/luafile &lt;file&gt; - Cargar archivo LUA</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1414"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/lua &lt;chunk&gt; - ejecutar pedazo de codigo LUA</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1624"/>
@@ -2001,16 +1984,12 @@ Por favor verifica sus opciones de conexión</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2311"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Traducción al Búlgaro&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2313"/>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(para 2.0.4 y posteriores)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(para 2.1.0 y posteriores)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2343"/>
@@ -2714,7 +2693,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Búlgaro</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="194"/>
