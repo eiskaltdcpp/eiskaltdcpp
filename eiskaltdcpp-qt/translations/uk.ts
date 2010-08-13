@@ -901,121 +901,121 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1393"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - увімкнути/вимкнути перевірку правопису</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1395"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - створити псевдо /ALIAS_NAME для команди /COMMAND</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1396"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias purge &lt;ALIAS_NAME&gt; - видалити псевдо</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1397"/>
         <source>/alias list - list all aliases
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias list - список усіх псевдонімів команд</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1398"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/away &lt;message&gt; - увімкнути/вимкнути режим &quot;Відійшов&quot;</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1399"/>
         <source>/back - set away-mode off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/back - вимкнути режим &quot;Відійшов&quot;</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1400"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/browse &lt;nick&gt; - відкрити список файлів користувача</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1401"/>
         <source>/clear - clear chat window
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/clear - очистити чат</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1402"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/magnet - дія при кліку на магнет (0-запитати, 1-знайти, 2-завантажити)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1403"/>
         <source>/close - close this hub
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/close - закрити поточний хаб</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1404"/>
         <source>/fav - add this hub to favorites
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/fav - додати поточний хаб до обраних</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1405"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/grant &lt;nick&gt; - виділити додатковий слот користувачу</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1406"/>
         <source>/help, /?, /h - show this help
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/help, /?, /h - показати цю довідку</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1407"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/info &lt;nick&gt; - показати інформацію про користувача</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1408"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/ratio [show] - показати статистику [відправити в чат]</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1409"/>
         <source>/me - say a third person
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/me - сказати від третьої особи</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1410"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/pm &lt;nick&gt; - почати приватний чат з користувачем</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1411"/>
         <source>/sh &lt;command&gt; - start command and redirect output to the chat
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/sh &lt;command&gt; - виконати зовнішню команду з виведенням у чат</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1413"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/luafile &lt;file&gt; - завантажити Lua-файл</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1414"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/lua &lt;chunk&gt; - виконати Lua-скрипт</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1780"/>
@@ -1879,17 +1879,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2307"/>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.4 та пізніших)&lt;br/&gt; {1p?} {07&lt;?} {1p?} {07@?} {2.1.0 ?}</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.4 та пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2311"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Болгарський переклад&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2313"/>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.1.0 та більш пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
@@ -2902,7 +2902,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Болгарська</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="194"/>
