@@ -32,7 +32,7 @@ msgstr "%1% (%2%) має цей самий CID {%3%} як %4% (%5%), ігнор�
 
 #: ../AdcHub.cpp:178
 msgid "%1%/s"
-msgstr ""
+msgstr "%1%/с"
 
 #: ../AdcHub.cpp:213
 msgid "Failed to negotiate base protocol"
@@ -97,9 +97,9 @@ msgstr "Хешування закінчено: %1%"
 msgid "Error saving hash data: %1%"
 msgstr "Помилка зберігання хеш даних: %1%"
 
-#: ../HashManager.cpp:135
-msgid "Unable to read hash data file"
-msgstr "Неможливо прочитати файл хеш даних"
+#: dcpp/DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Відсутнє ім'я теки"
 
 #: ../HashManager.cpp:469
 msgid "Error creating hash data file: %1%"
@@ -124,9 +124,91 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Помилка хешування %1%: %2%"
 
+#: ../ShareManager.cpp:422
+msgid "No directory specified"
+msgstr "Папка не вказана"
+
+#: ../ShareManager.cpp:430
+msgid "The temporary download directory cannot be shared"
+msgstr "Тимчасова папка скачування не може бути в доступі"
+
+#: ../ShareManager.cpp:439
+msgid "Directory already shared"
+msgstr "Директорія уже в доступі"
+
+#: ../ShareManager.cpp:442
+msgid "Remove all subdirectories before adding this one"
+msgstr "Видалити усі субдиректорії перед доданням цієї"
+
+#: ../ShareManager.cpp:771
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr "Користувач обрав нерозшарений файл: %1% (Розмір: %2%)"
+
+#: ../ShareManager.cpp:792
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr "Користувач обрав нерозшарений тимчасовий файл: %1% (Розмір: %2%)"
+
+#: ../ShareManager.cpp:847
+#, fuzzy
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+"Дублікат файла не буде розшарено: %1%%2% (Розмір: %3% Б) Копія співпала з: "
+"%4%%5%"
+
+#: ../ShareManager.cpp:864
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Виконується оновлення списку файлів, будь ласка, зачекайте закінчення перед "
+"спробою оновити знов"
+
+#: ../ShareManager.cpp:885
+msgid "File list refresh failed: %1%"
+msgstr "Не вдалось оновити список файлів: %1%"
+
+#: ../ShareManager.cpp:907
+msgid "File list refresh initiated"
+msgstr "Оновлення списку файлів розпочато"
+
+#: ../ShareManager.cpp:932
+msgid "File list refresh finished"
+msgstr "Оновлення списку файлів закінчено"
+
+#: ../ShareManager.cpp:1003
+#, fuzzy
+msgid "File list %1% generated"
+msgstr "Оновлення списку файлів розпочато"
+
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "З'єднання закрито"
+
+#: ../BufferedSocket.cpp:276
+msgid "Maximum command length exceeded"
+msgstr "Перевищена максимальна довжина команди"
+
+#: ../BufferedSocket.cpp:453
+msgid "Disconnected"
+msgstr "Відключено"
+
+#: ../DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr "Більше, ніж макс. розмір списку файлів"
+
+#: ../DirectoryListing.cpp:102
+msgid "File not available"
+msgstr "Файл недоступний"
+
+#: ../DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Відсутнє ім'я папки"
+
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
-msgstr ""
+msgstr "Не вибрано файл приватного ключа"
 
 #: ../CryptoManager.cpp:143
 #, fuzzy
@@ -194,9 +276,31 @@ msgstr "Немає вільних слотів"
 msgid "%1%: File not available"
 msgstr "%1%: Файл недоступний"
 
-#: ../QueueManager.cpp:343
-msgid "%1% renamed to %2%"
-msgstr "%1% перейменовано у %2%"
+#: ../ConnectionManager.cpp:176
+msgid "All download slots taken"
+msgstr "Усі слоти скачування зайняті"
+
+#: ../ConnectionManager.cpp:245
+#, fuzzy
+msgid "Connectivity restored"
+msgstr "З'єднання закрито"
+
+#: ../ConnectionManager.cpp:252
+msgid "Connectivity error: %1%"
+msgstr "Помилка SSL: %1% (%2%, %3%)"
+
+#: ../SearchManager.cpp:129
+msgid "Search enabled again"
+msgstr "Пошук знову увімкнено"
+
+#: ../SearchManager.cpp:136
+#, fuzzy
+msgid "Search disabled: %1%"
+msgstr "Не вдалось виконати хешування: %1%"
+
+#: dcpp/SearchManager.cpp:128
+msgid "Search enabled again"
+msgstr "Пошук знову увімкнено"
 
 #: ../QueueManager.cpp:345
 msgid "Unable to rename %1%: %2%"
@@ -204,7 +308,7 @@ msgstr "Неможливо перейменувати %1%: %2%"
 
 #: ../QueueManager.cpp:561
 msgid "Searching TTH alternates for: %1%"
-msgstr ""
+msgstr "Пошук TTH альтернатив для: %1%"
 
 #: ../QueueManager.cpp:589
 msgid "You're trying to download from yourself!"
@@ -378,11 +482,11 @@ msgstr "З'єднання закрито"
 
 #: ../ConnectionManager.cpp:253
 msgid "Connectivity error: %1%"
-msgstr ""
+msgstr "Помилка з'єднання: %1%"
 
 #: ../SearchManager.cpp:129
 msgid "Search enabled again"
-msgstr ""
+msgstr "Пошук знову увімкнено"
 
 #: ../SearchManager.cpp:136
 #, fuzzy
@@ -391,7 +495,7 @@ msgstr "Не вдалось виконати хешування: %1%"
 
 #: ../SSLSocket.cpp:160
 msgid "SSL Error: %1% (%2%, %3%)"
-msgstr ""
+msgstr "Помилка SSL: %1% (%2%, %3%)"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
@@ -407,11 +511,11 @@ msgstr "Тимчасова папка скачування не може бут�
 
 #: ../ShareManager.cpp:780
 msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr ""
+msgstr "Користувач обрав нерозшарений файл: %1% (Розмір: %2%)"
 
 #: ../ShareManager.cpp:801
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
+msgstr "Користувач обрав нерозшарений тимчасовий файл: %1% (Розмір: %2%)"
 
 #: ../ShareManager.cpp:856
 #, fuzzy
@@ -489,7 +593,7 @@ msgstr "%'lld Б"
 
 #: ../DirectoryListing.cpp:95
 msgid "Greater than maximum filelist size"
-msgstr ""
+msgstr "Більше, ніж макс. розмір списку файлів"
 
 #: ../DirectoryListing.cpp:102
 msgid "File not available"
@@ -497,7 +601,7 @@ msgstr "Файл недоступний"
 
 #: ../DirectoryListing.cpp:165
 msgid "Directory missing name attribute"
-msgstr ""
+msgstr "Відсутнє ім'я папки"
 
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
@@ -505,7 +609,7 @@ msgstr "Запит пошуку поза областю даних"
 
 #: ../ADLSearch.h:48
 msgid "<Enter string>"
-msgstr ""
+msgstr "<Введіть рядок>"
 
 #: ../ADLSearch.h:277
 msgid "Discard"
