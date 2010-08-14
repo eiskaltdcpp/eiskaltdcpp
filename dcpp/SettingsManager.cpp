@@ -90,7 +90,7 @@ const string SettingsManager::settingTags[] =
     "TLSPort", "FastHash", "SortFavUsersFirst", "SegmentedDL", "FollowLinks",
     "SendBloom", "OwnerDrawnMenus", "Coral", "SearchFilterShared", "MaxTabChars", "FinishedDLOnlyFull",
     "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval", "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval","UseDHT", "DHTPort",
-    "SearchMerge",
+    "SearchMerge", "ReconnectDelay",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -333,6 +333,7 @@ SettingsManager::SettingsManager()
     setDefault(TRANSFERS_PANED_POS, .7);
     setDefault(QUEUE_PANED_POS, .3);
     setDefault(SEARCH_PANED_POS, .2);
+    setDefault(RECONNECT_DELAY, 15);
 #ifdef DHT
     setDefault(DHT_PORT, DHT_UDPPORT);
 #endif

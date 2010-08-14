@@ -402,6 +402,12 @@ void MainWindow::init(){
     loadSettings();
 
     connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotExit()));
+#ifdef LUA_SCRIPT
+    ScriptManager::getInstance()->load();//aded
+    // Start as late as possible, as we might (formatting.lua) need to examine settings
+    string defaultluascript="startup.lua";
+    ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+#endif
 }
 
 void MainWindow::loadSettings(){

@@ -103,7 +103,11 @@ class ScriptManager: public ScriptInstance, public Singleton<ScriptManager>, pub
         friend class Singleton<ScriptManager>;
         ScriptManager();
         virtual ~ScriptManager() throw() {
-            //lua_close(L);
+            shutdown();
+        }
+        void shutdown () {
+            lua_close(L);
+
             if(timerEnabled)
                 TimerManager::getInstance()->removeListener(this);
         }

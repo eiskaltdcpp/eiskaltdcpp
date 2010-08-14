@@ -228,6 +228,12 @@ MainWindow::MainWindow():
     Sound::start();
     Emoticons::start();
     Notify::start();
+#ifdef LUA_SCRIPT
+    ScriptManager::getInstance()->load();//aded
+    // Start as late as possible, as we might (formatting.lua) need to examine settings
+    string defaultluascript="startup.lua";
+    ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+#endif
 }
 
 MainWindow::~MainWindow()
@@ -351,7 +357,7 @@ void MainWindow::loadIcons_gui()
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("queue")), "icon-queue");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedDownloads")), "icon-finished-downloads");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedUploads")), "icon-finished-uploads");
-	gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("ADLSearch")), "icon-adlsearch");
+    gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("ADLSearch")), "icon-adlsearch");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("quit")), "icon-quit");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("connect")), "icon-connect");
     gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageHubs")), "icon-public-hubs", GTK_ICON_SIZE_SMALL_TOOLBAR);

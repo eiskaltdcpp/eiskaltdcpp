@@ -113,7 +113,7 @@ void Client::connect() {
         BufferedSocket::putSocket(sock);
 
     setAutoReconnect(true);
-    setReconnDelay(120 + Util::rand(0, 60));
+    setReconnDelay(SETTING(RECONNECT_DELAY));
     reloadSettings(true);
     setRegistered(false);
     setMyIdentity(Identity(ClientManager::getInstance()->getMe(), 0));
