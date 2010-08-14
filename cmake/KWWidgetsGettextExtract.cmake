@@ -26,7 +26,7 @@ if(NOT "${GETTEXT_XGETTEXT_EXECUTABLE}" STREQUAL "")
   exec_program(${GETTEXT_XGETTEXT_EXECUTABLE}
     RETURN_VALUE xgettext_return
     OUTPUT_VARIABLE xgettext_output
-    ARGS --output="-" ${options} ${keywords} --msgid-bugs-address="${msgid_bugs_address}" --copyright-holder="${copyright_holder}" --files-from="${files_from}")
+    ARGS --output="-" ${options} ${keywords} --keyword=translatable="yes" --msgid-bugs-address="${msgid_bugs_address}" --copyright-holder="${copyright_holder}" --files-from="${files_from}")
   if(xgettext_return)
     message("${xgettext_output}")
     set(SUCCESS 0)

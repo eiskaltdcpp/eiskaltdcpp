@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-12 15:37+0400\n"
+"POT-Creation-Date: 2010-08-14 15:52+0400\n"
 "PO-Revision-Date: 2010-07-30 00:20+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -26,336 +26,347 @@ msgid "Icon size"
 msgstr "Icon size"
 
 #: ../src/emoticonsdialog.cc:106 ../src/previewmenu.cc:88
+#: ../glade/settingsdialog.glade:3178 ../glade/settingsdialog.glade:3771
+#: ../glade/settingsdialog.glade:3917
 msgid "Default"
 msgstr "Default"
 
-#: ../src/hub.cc:53 ../src/hub.cc:2748
+#: ../src/hub.cc:53 ../src/hub.cc:2771
 msgid "Hub: "
 msgstr "Hub: "
 
-#: ../src/hub.cc:68 ../src/hub.cc:88 ../src/hub.cc:90 ../src/hub.cc:330
-#: ../src/hub.cc:345 ../src/hub.cc:365 ../src/hub.cc:413 ../src/hub.cc:1059
-#: ../src/hub.cc:1331 ../src/hub.cc:1384 ../src/hub.cc:1947 ../src/hub.cc:1978
-#: ../src/hub.cc:2263 ../src/hub.cc:2302 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:68 ../src/hub.cc:88 ../src/hub.cc:90 ../src/hub.cc:331
+#: ../src/hub.cc:346 ../src/hub.cc:366 ../src/hub.cc:414 ../src/hub.cc:1060
+#: ../src/hub.cc:1354 ../src/hub.cc:1407 ../src/hub.cc:1970 ../src/hub.cc:2001
+#: ../src/hub.cc:2286 ../src/hub.cc:2325 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:583 ../src/search.cc:86 ../src/search.cc:558
 #: ../src/search.cc:629 ../src/search.cc:770 ../src/search.cc:1641
 #: ../src/finishedtransfers.cc:77 ../src/finishedtransfers.cc:178
 #: ../src/favoritehubs.cc:56 ../src/favoritehubs.cc:124
-#: ../src/favoritehubs.cc:294
+#: ../src/favoritehubs.cc:294 ../glade/settingsdialog.glade:131
 msgid "Nick"
 msgstr "Nick"
 
-#: ../src/hub.cc:69 ../src/hub.cc:329 ../src/hub.cc:346 ../src/hub.cc:366
-#: ../src/hub.cc:414 ../src/publichubs.cc:46 ../src/publichubs.cc:161
+#: ../src/hub.cc:69 ../src/hub.cc:330 ../src/hub.cc:347 ../src/hub.cc:367
+#: ../src/hub.cc:415 ../src/publichubs.cc:46 ../src/publichubs.cc:161
 msgid "Shared"
 msgstr "Shared"
 
-#: ../src/hub.cc:70 ../src/hub.cc:347 ../src/hub.cc:367
+#: ../src/hub.cc:70 ../src/hub.cc:348 ../src/hub.cc:368
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:372 ../src/favoriteusers.cc:397
 #: ../src/favoriteusers.cc:586 ../src/favoritehubs.cc:54
 #: ../src/favoritehubs.cc:123 ../src/favoritehubs.cc:293
 #: ../src/publichubs.cc:42 ../src/publichubs.cc:157 ../src/publichubs.cc:293
+#: ../glade/favoriteusers.glade:81 ../glade/settingsdialog.glade:105
 msgid "Description"
 msgstr "Description"
 
-#: ../src/hub.cc:71 ../src/hub.cc:348 ../src/hub.cc:368
+#: ../src/hub.cc:71 ../src/hub.cc:349 ../src/hub.cc:369
 msgid "Tag"
 msgstr "Tag"
 
-#: ../src/hub.cc:72 ../src/hub.cc:349 ../src/hub.cc:369 ../src/search.cc:91
+#: ../src/hub.cc:72 ../src/hub.cc:350 ../src/hub.cc:370 ../src/search.cc:91
 #: ../src/search.cc:564 ../src/search.cc:623 ../src/search.cc:764
-#: ../src/search.cc:1644
+#: ../src/search.cc:1644 ../glade/settingsdialog.glade:736
 msgid "Connection"
 msgstr "Connection"
 
-#: ../src/hub.cc:74 ../src/hub.cc:351 ../src/hub.cc:371
+#: ../src/hub.cc:74 ../src/hub.cc:352 ../src/hub.cc:372
 msgid "eMail"
 msgstr "eMail"
 
-#: ../src/hub.cc:384 ../src/hub.cc:395
+#: ../src/hub.cc:385 ../src/hub.cc:396
 msgid " has joined"
 msgstr " has joined"
 
-#: ../src/hub.cc:385 ../src/hub.cc:394
+#: ../src/hub.cc:386 ../src/hub.cc:395
 msgid " has joined hub "
 msgstr " has joined hub "
 
-#: ../src/hub.cc:401 ../src/hub.cc:419
+#: ../src/hub.cc:402 ../src/hub.cc:420
 msgid " Users"
 msgstr " Users"
 
-#: ../src/hub.cc:425 ../src/hub.cc:435
+#: ../src/hub.cc:426 ../src/hub.cc:436
 msgid " has quit hub "
 msgstr " has quit hub "
 
-#: ../src/hub.cc:426 ../src/hub.cc:436
+#: ../src/hub.cc:427 ../src/hub.cc:437
 msgid " has quit"
 msgstr " has quit"
 
-#: ../src/hub.cc:465
+#: ../src/hub.cc:466
 msgid "0 Users"
 msgstr "0 Users"
 
-#: ../src/hub.cc:499
+#: ../src/hub.cc:500
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr ""
 "Waiting for input password (don't remove /password before your password)"
 
-#: ../src/hub.cc:538
+#: ../src/hub.cc:539
 msgid "<b>Enter your password</b>"
 msgstr "<b>Enter your password</b>"
 
-#: ../src/hub.cc:850 ../src/privatemessage.cc:523
+#: ../src/hub.cc:851 ../src/privatemessage.cc:523
 msgid " *** Emoticons not loaded"
 msgstr " *** Emoticons not loaded"
 
-#: ../src/hub.cc:855 ../src/privatemessage.cc:528
+#: ../src/hub.cc:856 ../src/privatemessage.cc:528
 msgid " *** Emoticons mode off"
 msgstr " *** Emoticons mode off"
 
-#: ../src/hub.cc:860 ../src/hub.cc:939 ../src/privatemessage.cc:533
+#: ../src/hub.cc:861 ../src/hub.cc:940 ../src/privatemessage.cc:533
 #: ../src/privatemessage.cc:612
 msgid " *** Emoticons limit"
 msgstr " *** Emoticons limit"
 
-#: ../src/hub.cc:1505 ../src/privatemessage.cc:1097
+#: ../src/hub.cc:1528 ../src/privatemessage.cc:1097
 msgid "Use Emoticons"
 msgstr "Use Emoticons"
 
-#: ../src/hub.cc:1586 ../src/hub.cc:1599 ../src/hub.cc:1704
+#: ../src/hub.cc:1609 ../src/hub.cc:1622 ../src/hub.cc:1727
 #: ../src/privatemessage.cc:861 ../src/privatemessage.cc:875
-#: ../src/privatemessage.cc:929
+#: ../src/privatemessage.cc:929 ../glade/hub.glade:349
+#: ../glade/privatemessage.glade:190
 msgid "Away mode off"
 msgstr "Away mode off"
 
-#: ../src/hub.cc:1593 ../src/privatemessage.cc:869
+#: ../src/hub.cc:1616 ../src/privatemessage.cc:869
 msgid "Away mode on: "
 msgstr "Away mode on: "
 
-#: ../src/hub.cc:1630 ../src/hub.cc:2274 ../src/privatemessage.cc:1262
+#: ../src/hub.cc:1653 ../src/hub.cc:2297 ../src/privatemessage.cc:1262
 msgid " is favorite user"
 msgstr " is favorite user"
 
-#: ../src/hub.cc:1632 ../src/hub.cc:1667 ../src/hub.cc:1677 ../src/hub.cc:1757
+#: ../src/hub.cc:1655 ../src/hub.cc:1690 ../src/hub.cc:1700 ../src/hub.cc:1780
 msgid "Not found user: "
 msgstr "Not found user: "
 
-#: ../src/hub.cc:1648 ../src/hub.cc:2313 ../src/privatemessage.cc:1282
+#: ../src/hub.cc:1671 ../src/hub.cc:2336 ../src/privatemessage.cc:1282
 msgid " is not favorite user"
 msgstr " is not favorite user"
 
-#: ../src/hub.cc:1657
+#: ../src/hub.cc:1680
 msgid "User favorite list:"
 msgstr "User favorite list:"
 
-#: ../src/hub.cc:1657
+#: ../src/hub.cc:1680
 msgid " empty..."
 msgstr " empty..."
 
-#: ../src/hub.cc:1684 ../src/privatemessage.cc:917
+#: ../src/hub.cc:1707 ../src/privatemessage.cc:917
 msgid "Emoticons mode off"
 msgstr "Emoticons mode off"
 
-#: ../src/hub.cc:1689 ../src/privatemessage.cc:922
+#: ../src/hub.cc:1712 ../src/privatemessage.cc:922
 msgid "Emoticons mode on"
 msgstr "Emoticons mode on"
 
-#: ../src/hub.cc:1702 ../src/privatemessage.cc:927
+#: ../src/hub.cc:1725 ../src/privatemessage.cc:927
 msgid "*** Available commands:"
 msgstr "*** Available commands:"
 
-#: ../src/hub.cc:1703 ../src/privatemessage.cc:928
+#: ../src/hub.cc:1726 ../src/privatemessage.cc:928 ../glade/hub.glade:342
+#: ../glade/privatemessage.glade:183
 msgid "Away mode message on/off"
 msgstr "Away mode message on/off"
 
-#: ../src/hub.cc:1705
+#: ../src/hub.cc:1728 ../glade/hub.glade:356
 msgid "Clear chat"
 msgstr "Clear chat"
 
-#: ../src/hub.cc:1706
+#: ../src/hub.cc:1729
 msgid "Close chat"
 msgstr "Close chat"
 
-#: ../src/hub.cc:1707
+#: ../src/hub.cc:1730 ../glade/hub.glade:363
 msgid "Add a hub to favorites"
 msgstr "Add a hub to favorites"
 
-#: ../src/hub.cc:1708 ../src/privatemessage.cc:932
+#: ../src/hub.cc:1731 ../src/privatemessage.cc:932
+#: ../glade/privatemessage.glade:211
 msgid "Add user to favorites list"
 msgstr "Add user to favorites list"
 
-#: ../src/hub.cc:1709 ../src/privatemessage.cc:933
+#: ../src/hub.cc:1732 ../src/privatemessage.cc:933
+#: ../glade/privatemessage.glade:218
 msgid "Remove user favorite"
 msgstr "Remove user favorite"
 
-#: ../src/hub.cc:1710
+#: ../src/hub.cc:1733 ../glade/hub.glade:370
 msgid "Show favorites list"
 msgstr "Show favorites list"
 
-#: ../src/hub.cc:1711 ../src/privatemessage.cc:934
+#: ../src/hub.cc:1734 ../src/privatemessage.cc:934
+#: ../glade/privatemessage.glade:225
 msgid "Get file list"
 msgstr "Get file list"
 
-#: ../src/hub.cc:1712 ../src/privatemessage.cc:935
+#: ../src/hub.cc:1735 ../src/privatemessage.cc:935
+#: ../glade/privatemessage.glade:232
 msgid "Grant extra slot"
 msgstr "Grant extra slot"
 
-#: ../src/hub.cc:1713 ../src/privatemessage.cc:937
+#: ../src/hub.cc:1736 ../src/privatemessage.cc:937 ../glade/hub.glade:377
+#: ../glade/privatemessage.glade:239
 msgid "Show help"
 msgstr "Show help"
 
-#: ../src/hub.cc:1714
+#: ../src/hub.cc:1737 ../glade/hub.glade:384
 msgid "Connect to the hub"
 msgstr "Connect to the hub"
 
-#: ../src/hub.cc:1715
+#: ../src/hub.cc:1738 ../glade/hub.glade:391
 msgid "Say a third person"
 msgstr "Say a third person"
 
-#: ../src/hub.cc:1716 ../src/settingsdialog.cc:960
+#: ../src/hub.cc:1739 ../src/settingsdialog.cc:960
 #: ../src/settingsdialog.cc:1006 ../src/settingsdialog.cc:1126
 #: ../src/settingsmanager.cc:186
 msgid "Private message"
 msgstr "Private message"
 
-#: ../src/hub.cc:1717
+#: ../src/hub.cc:1740 ../glade/hub.glade:398
 msgid "Rebuild hash"
 msgstr "Rebuild hash"
 
-#: ../src/hub.cc:1718
+#: ../src/hub.cc:1741
 msgid "Update own file list"
 msgstr "Update own file list"
 
-#: ../src/hub.cc:1719
+#: ../src/hub.cc:1742
 msgid "User list show/hide"
 msgstr "User list show/hide"
 
-#: ../src/hub.cc:1720
+#: ../src/hub.cc:1743 ../glade/hub.glade:405
 msgid "Show version"
 msgstr "Show version"
 
-#: ../src/hub.cc:1721 ../src/privatemessage.cc:936
+#: ../src/hub.cc:1744 ../src/privatemessage.cc:936
 msgid "Emoticons on/off"
 msgstr "Emoticons on/off"
 
-#: ../src/hub.cc:1723
+#: ../src/hub.cc:1746
 #, fuzzy
 msgid "Load Lua file"
 msgstr "Loading file list"
 
-#: ../src/hub.cc:1724
+#: ../src/hub.cc:1747
 msgid "Execute Lua Chunk"
 msgstr ""
 
-#: ../src/hub.cc:1726
+#: ../src/hub.cc:1749
 msgid "Execute code (bash)"
 msgstr ""
 
-#: ../src/hub.cc:1727
+#: ../src/hub.cc:1750
 msgid "Alias List"
 msgstr ""
 
-#: ../src/hub.cc:1728
+#: ../src/hub.cc:1751
 msgid "Alias Remove A"
 msgstr ""
 
-#: ../src/hub.cc:1729
+#: ../src/hub.cc:1752
 msgid "Alias add uname -a as A"
 msgstr ""
 
-#: ../src/hub.cc:1730
+#: ../src/hub.cc:1753
 msgid "Alias A executing"
 msgstr ""
 
-#: ../src/hub.cc:1774
+#: ../src/hub.cc:1797
 #, fuzzy
 msgid "sh"
 msgstr "s"
 
-#: ../src/hub.cc:1791
+#: ../src/hub.cc:1814
 msgid "lua"
 msgstr ""
 
-#: ../src/hub.cc:1794
+#: ../src/hub.cc:1817
 #, fuzzy
 msgid "luafile"
 msgstr " files"
 
-#: ../src/hub.cc:1819
+#: ../src/hub.cc:1842
 #, fuzzy
 msgid "Aliases not found."
 msgstr "User not found"
 
-#: ../src/hub.cc:1920
+#: ../src/hub.cc:1943
 msgid "Unknown command '"
 msgstr "Unknown command '"
 
-#: ../src/hub.cc:1920
+#: ../src/hub.cc:1943
 msgid "': type /help for a list of available commands"
 msgstr "': type /help for a list of available commands"
 
-#: ../src/hub.cc:2203 ../src/mainwindow.cc:1028 ../src/mainwindow.cc:1096
-#: ../src/privatemessage.cc:1174
+#: ../src/hub.cc:2226 ../src/mainwindow.cc:1028 ../src/mainwindow.cc:1096
+#: ../src/privatemessage.cc:1174 ../glade/search.glade:563
+#: ../glade/settingsdialog.glade:5512 ../glade/sharebrowser.glade:319
 msgid "Choose a directory"
 msgstr "Choose a directory"
 
-#: ../src/hub.cc:2342
+#: ../src/hub.cc:2365
 msgid " added to favorites list"
 msgstr " added to favorites list"
 
-#: ../src/hub.cc:2369
+#: ../src/hub.cc:2392
 msgid " removed from favorites list"
 msgstr " removed from favorites list"
 
-#: ../src/hub.cc:2481 ../src/hub.cc:2501
+#: ../src/hub.cc:2504 ../src/hub.cc:2524
 msgid "User not found"
 msgstr "User not found"
 
-#: ../src/hub.cc:2509 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2532 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Slot granted to "
 
-#: ../src/hub.cc:2534
+#: ../src/hub.cc:2557
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "Unable to connect: already connected to the requested hub"
 
-#: ../src/hub.cc:2588
+#: ../src/hub.cc:2611
 msgid "Favorite hub added"
 msgstr "Favorite hub added"
 
-#: ../src/hub.cc:2593
+#: ../src/hub.cc:2616
 msgid "Favorite hub already exists"
 msgstr "Favorite hub already exists"
 
-#: ../src/hub.cc:2667
+#: ../src/hub.cc:2690
 msgid "Connecting to "
 msgstr "Connecting to "
 
-#: ../src/hub.cc:2674 ../src/transfers.cc:1013
+#: ../src/hub.cc:2697 ../src/transfers.cc:1013
 msgid "Connected"
 msgstr "Connected"
 
-#: ../src/hub.cc:2730
+#: ../src/hub.cc:2753
 msgid "Connect failed: "
 msgstr "Connect failed: "
 
-#: ../src/hub.cc:2871
+#: ../src/hub.cc:2894
 msgid "Ignored private message from hub"
 msgstr "Ignored private message from hub"
 
-#: ../src/hub.cc:2878
+#: ../src/hub.cc:2901
 msgid "Ignored private message from bot "
 msgstr "Ignored private message from bot "
 
-#: ../src/hub.cc:2895
+#: ../src/hub.cc:2918
 msgid "Nick already taken"
 msgstr "Nick already taken"
 
-#: ../src/hub.cc:2902
+#: ../src/hub.cc:2925
 msgid "Search spam detected from "
 msgstr "Search spam detected from "
 
@@ -393,6 +404,7 @@ msgstr "Filename"
 #: ../src/transfers.cc:716 ../src/transfers.cc:728 ../src/transfers.cc:880
 #: ../src/downloadqueue.cc:67 ../src/downloadqueue.cc:86
 #: ../src/downloadqueue.cc:278 ../src/downloadqueue.cc:385
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1330
 msgid "Size"
 msgstr "Size"
 
@@ -421,7 +433,7 @@ msgstr "Unable to load file list: "
 
 #: ../src/sharebrowser.cc:284 ../src/UserCommandMenu.cc:65
 #: ../src/search.cc:1631 ../src/settingsdialog.cc:1198
-#: ../src/ADLSearchGUI.hh:81
+#: ../src/ADLSearchGUI.hh:81 ../glade/settingsdialog.glade:4007
 msgid "Directory"
 msgstr "Directory"
 
@@ -451,7 +463,12 @@ msgid "Size: 0 B"
 msgstr "Size: 0 B"
 
 #: ../src/sharebrowser.cc:476 ../src/sharebrowser.cc:528 ../src/search.cc:303
-#: ../src/search.cc:373
+#: ../src/search.cc:373 ../glade/hub.glade:276
+#: ../glade/privatemessage.glade:118 ../glade/settingsdialog.glade:787
+#: ../glade/settingsdialog.glade:829 ../glade/settingsdialog.glade:2711
+#: ../glade/settingsdialog.glade:4024 ../glade/settingsdialog.glade:4950
+#: ../glade/settingsdialog.glade:4965 ../glade/settingsdialog.glade:4980
+#: ../glade/mainwindow.glade:1505
 msgid "Browse..."
 msgstr "Browse..."
 
@@ -531,7 +548,7 @@ msgstr "Magnet Properties / Choice"
 msgid "Magnet Choice"
 msgstr "Magnet Choice"
 
-#: ../src/mainwindow.cc:1584
+#: ../src/mainwindow.cc:1584 ../glade/mainwindow.glade:1092
 msgid "Select filelist to browse"
 msgstr "Select filelist to browse"
 
@@ -575,13 +592,15 @@ msgstr "file list from "
 msgid "<b>file:</b> "
 msgstr "<b>file:</b> "
 
-#: ../src/mainwindow.cc:1904 ../src/mainwindow.cc:1906 ../src/hashdialog.cc:67
-#: ../src/treeview.cc:211
+#: ../src/mainwindow.cc:1904 ../src/mainwindow.cc:1906 ../src/hashdialog.cc:79
+#: ../src/treeview.cc:211 ../glade/settingsdialog.glade:1557
+#: ../glade/settingsdialog.glade:1572 ../glade/settingsdialog.glade:1612
 msgid "s"
 msgstr "s"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1185
 #: ../src/settingsdialog.cc:1232 ../src/settingsdialog.cc:1291
+#: ../glade/mainwindow.glade:193 ../glade/mainwindow.glade:518
 msgid "Favorite Users"
 msgstr "Favorite Users"
 
@@ -610,19 +629,28 @@ msgstr "Online"
 msgid "Are you sure you want to delete favorite user(s)?"
 msgstr "Are you sure you want to delete favorite user(s)?"
 
-#: ../src/hashdialog.cc:58
+#: ../src/hashdialog.cc:42 ../src/hashdialog.cc:130
+#, fuzzy
+msgid "Paused..."
+msgstr "Paused"
+
+#: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../glade/hash.glade:7
+msgid "Indexing files..."
+msgstr ""
+
+#: ../src/hashdialog.cc:70 ../glade/settingsdialog.glade:1585
 msgid "B/s"
 msgstr "B/s"
 
-#: ../src/hashdialog.cc:58 ../src/hashdialog.cc:67 ../src/hashdialog.cc:76
+#: ../src/hashdialog.cc:70 ../src/hashdialog.cc:79 ../src/hashdialog.cc:88
 msgid " left"
 msgstr " left"
 
-#: ../src/hashdialog.cc:59 ../src/hashdialog.cc:71
+#: ../src/hashdialog.cc:71 ../src/hashdialog.cc:83
 msgid "-:--:-- left"
 msgstr "-:--:-- left"
 
-#: ../src/hashdialog.cc:96
+#: ../src/hashdialog.cc:108
 msgid "Done"
 msgstr "Done"
 
@@ -774,13 +802,15 @@ msgstr " dropped"
 
 #: ../src/finishedtransfers.cc:34 ../src/settingsdialog.cc:925
 #: ../src/settingsdialog.cc:1186 ../src/settingsdialog.cc:1246
-#: ../src/settingsdialog.cc:1289
+#: ../src/settingsdialog.cc:1289 ../glade/mainwindow.glade:292
+#: ../glade/mainwindow.glade:611
 msgid "Finished Downloads"
 msgstr "Finished Downloads"
 
 #: ../src/finishedtransfers.cc:39 ../src/settingsdialog.cc:926
 #: ../src/settingsdialog.cc:1187 ../src/settingsdialog.cc:1248
-#: ../src/settingsdialog.cc:1290
+#: ../src/settingsdialog.cc:1290 ../glade/mainwindow.glade:306
+#: ../glade/mainwindow.glade:624
 msgid "Finished Uploads"
 msgstr "Finished Uploads"
 
@@ -834,7 +864,8 @@ msgstr "No"
 
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:931
 #: ../src/settingsdialog.cc:1193 ../src/settingsdialog.cc:1242
-#: ../src/settingsdialog.cc:1292
+#: ../src/settingsdialog.cc:1292 ../glade/settingsdialog.glade:3961
+#: ../glade/mainwindow.glade:243 ../glade/mainwindow.glade:583
 msgid "Search Spy"
 msgstr "Search Spy"
 
@@ -871,7 +902,7 @@ msgstr "waiting..."
 msgid "top..."
 msgstr "top..."
 
-#: ../src/searchspy.cc:389
+#: ../src/searchspy.cc:389 ../glade/searchspy.glade:149
 msgid "Update frame search"
 msgstr "Update frame search"
 
@@ -879,7 +910,7 @@ msgstr "Update frame search"
 msgid "top/waiting/frame: "
 msgstr "top/waiting/frame: "
 
-#: ../src/searchspy.cc:500
+#: ../src/searchspy.cc:500 ../glade/searchspy.glade:135
 msgid "Clear frame search"
 msgstr "Clear frame search"
 
@@ -929,6 +960,7 @@ msgstr "Icon"
 #: ../src/favoritehubs.cc:73 ../src/favoritehubs.cc:122
 #: ../src/favoritehubs.cc:291 ../src/favoritehubs.cc:407
 #: ../src/publichubs.cc:41 ../src/publichubs.cc:156 ../src/publichubs.cc:292
+#: ../glade/settingsdialog.glade:5815
 msgid "Name"
 msgstr "Name"
 
@@ -1050,7 +1082,7 @@ msgid "Send PM when double clicked in the user list"
 msgstr "Send PM when double clicked in the user list"
 
 #: ../src/settingsdialog.cc:927 ../src/settingsdialog.cc:1288
-#: ../src/downloadqueue.cc:34
+#: ../src/downloadqueue.cc:34 ../glade/mainwindow.glade:277
 msgid "Download Queue"
 msgstr "Download Queue"
 
@@ -1063,11 +1095,13 @@ msgid "Private Message (also sets urgency hint)"
 msgstr "Private Message (also sets urgency hint)"
 
 #: ../src/settingsdialog.cc:930 ../src/settingsdialog.cc:1192
-#: ../src/settingsdialog.cc:1240
+#: ../src/settingsdialog.cc:1240 ../glade/searchspy.glade:184
+#: ../glade/searchspy.glade:249 ../glade/mainwindow.glade:228
+#: ../glade/mainwindow.glade:572
 msgid "Search"
 msgstr "Search"
 
-#: ../src/settingsdialog.cc:940
+#: ../src/settingsdialog.cc:940 ../glade/settingsdialog.glade:2787
 msgid "Sounds"
 msgstr "Sounds"
 
@@ -1141,7 +1175,7 @@ msgstr "Favorite User"
 msgid "Operator"
 msgstr "Operator"
 
-#: ../src/settingsdialog.cc:1099
+#: ../src/settingsdialog.cc:1099 ../glade/settingsdialog.glade:3304
 msgid "Notify"
 msgstr "Notify"
 
@@ -1181,7 +1215,8 @@ msgstr "User operator (normal)"
 msgid "Button smile"
 msgstr "Button smile"
 
-#: ../src/settingsdialog.cc:1182
+#: ../src/settingsdialog.cc:1182 ../glade/sharebrowser.glade:235
+#: ../glade/sharebrowser.glade:271
 msgid "Download"
 msgstr "Download"
 
@@ -1191,31 +1226,38 @@ msgstr "Upload"
 
 #: ../src/settingsdialog.cc:1184 ../src/settingsdialog.cc:1230
 #: ../src/settingsdialog.cc:1287 ../src/favoritehubs.cc:31
+#: ../glade/mainwindow.glade:178 ../glade/mainwindow.glade:505
 msgid "Favorite Hubs"
 msgstr "Favorite Hubs"
 
 #: ../src/settingsdialog.cc:1188 ../src/settingsdialog.cc:1238
+#: ../glade/mainwindow.glade:559
 msgid "Hash"
 msgstr "Hash"
 
 #: ../src/settingsdialog.cc:1189 ../src/settingsdialog.cc:1236
+#: ../glade/settingsdialog.glade:6 ../glade/mainwindow.glade:546
 msgid "Preferences"
 msgstr "Preferences"
 
 #: ../src/settingsdialog.cc:1190 ../src/settingsdialog.cc:1234
 #: ../src/settingsdialog.cc:1286 ../src/publichubs.cc:29
+#: ../glade/mainwindow.glade:208 ../glade/mainwindow.glade:533
 msgid "Public Hubs"
 msgstr "Public Hubs"
 
 #: ../src/settingsdialog.cc:1191 ../src/settingsdialog.cc:1244
+#: ../glade/settingsdialog.glade:1723 ../glade/mainwindow.glade:598
 msgid "Queue"
 msgstr "Queue"
 
 #: ../src/settingsdialog.cc:1194 ../src/settingsdialog.cc:1252
+#: ../glade/mainwindow.glade:650
 msgid "Quit"
 msgstr "Quit"
 
 #: ../src/settingsdialog.cc:1195 ../src/settingsdialog.cc:1228
+#: ../glade/mainwindow.glade:494
 msgid "Connect"
 msgstr "Connect"
 
@@ -1224,7 +1266,8 @@ msgstr "Connect"
 msgid "Reconnect"
 msgstr "Connect"
 
-#: ../src/settingsdialog.cc:1199
+#: ../src/settingsdialog.cc:1199 ../glade/mainwindow.glade:258
+#: ../glade/mainwindow.glade:635 ../glade/mainwindow.glade:637
 #, fuzzy
 msgid "ADL Search"
 msgstr "Search"
@@ -1378,7 +1421,7 @@ msgstr "Error"
 msgid "selected style failed"
 msgstr "selected style failed"
 
-#: ../src/settingsdialog.cc:2397
+#: ../src/settingsdialog.cc:2397 ../glade/settingsdialog.glade:5689
 msgid "Separator"
 msgstr "Separator"
 
@@ -1406,11 +1449,11 @@ msgstr "Total size: "
 msgid "PM: "
 msgstr "PM: "
 
-#: ../src/privatemessage.cc:930
+#: ../src/privatemessage.cc:930 ../glade/privatemessage.glade:197
 msgid "Clear PM"
 msgstr "Clear PM"
 
-#: ../src/privatemessage.cc:931
+#: ../src/privatemessage.cc:931 ../glade/privatemessage.glade:204
 msgid "Close PM"
 msgstr "Close PM"
 
@@ -1552,6 +1595,7 @@ msgid "Address"
 msgstr "Address"
 
 #: ../src/favoritehubs.cc:57 ../src/favoritehubs.cc:125
+#: ../glade/settingsdialog.glade:619
 msgid "Password"
 msgstr "Password"
 
@@ -1578,6 +1622,7 @@ msgstr "Are you sure you want to delete favorite hub \"%s\"?"
 #: ../src/publichubs.cc:43 ../src/publichubs.cc:57 ../src/publichubs.cc:58
 #: ../src/publichubs.cc:158 ../src/downloadqueue.cc:70
 #: ../src/downloadqueue.cc:276 ../src/downloadqueue.cc:383
+#: ../glade/mainwindow.glade:520
 msgid "Users"
 msgstr "Users"
 
@@ -1721,6 +1766,1649 @@ msgstr ""
 #, fuzzy
 msgid "Full Path"
 msgstr "Path"
+
+#: ../glade/finishedtransfers.glade:31
+msgid "Grouped by Files"
+msgstr ""
+
+#: ../glade/finishedtransfers.glade:60
+msgid "Grouped by Users"
+msgstr ""
+
+#: ../glade/finishedtransfers.glade:126 ../glade/transfers.glade:89
+#: ../glade/settingsdialog.glade:1933
+msgid "Preview"
+msgstr ""
+
+#: ../glade/finishedtransfers.glade:137
+#, fuzzy
+msgid "Open containing _folder"
+msgstr "Open folder"
+
+#: ../glade/finishedtransfers.glade:152
+msgid "Remove All"
+msgstr ""
+
+#: ../glade/favoritehubs.glade:90 ../glade/ADLSearch.glade:86
+#, fuzzy
+msgid "Favorite Hub Properties"
+msgstr "Favorite Hubs"
+
+#: ../glade/favoritehubs.glade:108
+#, fuzzy
+msgid "<b>Hub</b>"
+msgstr "<b>file:</b> "
+
+#: ../glade/favoritehubs.glade:123
+#, fuzzy
+msgid "Auto connect on _startup"
+msgstr "Auto Connect"
+
+#: ../glade/favoritehubs.glade:142
+#, fuzzy
+msgid "_Name:"
+msgstr "Name"
+
+#: ../glade/favoritehubs.glade:173
+#, fuzzy
+msgid "_Address:"
+msgstr "Address"
+
+#: ../glade/favoritehubs.glade:203
+#, fuzzy
+msgid "_Description:"
+msgstr "Description"
+
+#: ../glade/favoritehubs.glade:233
+#, fuzzy
+msgid "_Encoding:"
+msgstr "Encoding"
+
+#: ../glade/favoritehubs.glade:272
+msgid "<b>Identification</b>"
+msgstr ""
+
+#: ../glade/favoritehubs.glade:288
+msgid "N_ick:"
+msgstr ""
+
+#: ../glade/favoritehubs.glade:320
+#, fuzzy
+msgid "_Password:"
+msgstr "Password"
+
+#: ../glade/favoritehubs.glade:352
+#, fuzzy
+msgid "_User Description:"
+msgstr "User Description"
+
+#: ../glade/favoritehubs.glade:384
+msgid "<small>Note: Leave unchecked for default values</small>"
+msgstr ""
+
+#: ../glade/hub.glade:66 ../glade/privatemessage.glade:37
+msgid "Chat Commands"
+msgstr ""
+
+#: ../glade/hub.glade:92 ../glade/privatemessage.glade:60
+#, fuzzy
+msgid "Emoticons"
+msgstr "Use Emoticons"
+
+#: ../glade/hub.glade:147
+#, fuzzy
+msgid "Show/Hide user list"
+msgstr "Show favorites list"
+
+#: ../glade/hub.glade:169
+#, fuzzy
+msgid "_Copy nick"
+msgstr "My nick"
+
+#: ../glade/hub.glade:176
+msgid "_Send public message"
+msgstr ""
+
+#: ../glade/hub.glade:183 ../glade/search.glade:498
+#: ../glade/favoriteusers.glade:39 ../glade/transfers.glade:31
+#: ../glade/downloadqueue.glade:276
+#, fuzzy
+msgid "_Browse file list"
+msgstr "Get file list"
+
+#: ../glade/hub.glade:190 ../glade/favoriteusers.glade:46
+#: ../glade/transfers.glade:38
+#, fuzzy
+msgid "_Match queue"
+msgstr "Matched "
+
+#: ../glade/hub.glade:197 ../glade/favoriteusers.glade:53
+#, fuzzy
+msgid "_Private message"
+msgstr "Private message"
+
+#: ../glade/hub.glade:209 ../glade/search.glade:519
+#: ../glade/transfers.glade:52
+#, fuzzy
+msgid "_Add to favorites"
+msgstr "Add a hub to favorites"
+
+#: ../glade/hub.glade:216
+#, fuzzy
+msgid "_Remove from favorites"
+msgstr "Remove user favorite"
+
+#: ../glade/hub.glade:228 ../glade/favoriteusers.glade:60
+#, fuzzy
+msgid "_Grant slot"
+msgstr "Grant extra slot"
+
+#: ../glade/hub.glade:235 ../glade/favoriteusers.glade:67
+#: ../glade/transfers.glade:66
+#, fuzzy
+msgid "_Remove user from queue"
+msgstr "Remove user favorite"
+
+#: ../glade/hub.glade:242 ../glade/search.glade:540
+#, fuzzy
+msgid "_User commands"
+msgstr "Unknown command "
+
+#: ../glade/hub.glade:255 ../glade/privatemessage.glade:97
+#, fuzzy
+msgid "_Search magnet"
+msgstr "Search: "
+
+#: ../glade/hub.glade:262 ../glade/search.glade:438
+#: ../glade/privatemessage.glade:104
+#, fuzzy
+msgid "_Download"
+msgstr "Download"
+
+#: ../glade/hub.glade:269 ../glade/search.glade:445
+#: ../glade/privatemessage.glade:111
+#, fuzzy
+msgid "Download _to..."
+msgstr "Download starting..."
+
+#: ../glade/hub.glade:287 ../glade/search.glade:486
+#: ../glade/privatemessage.glade:129 ../glade/sharebrowser.glade:301
+#: ../glade/downloadqueue.glade:204
+msgid "_Copy magnet"
+msgstr ""
+
+#: ../glade/hub.glade:299 ../glade/privatemessage.glade:141
+#, fuzzy
+msgid "_Properties/Choice"
+msgstr "Magnet Properties / Choice"
+
+#: ../glade/hub.glade:309 ../glade/hub.glade:325
+#: ../glade/privatemessage.glade:150 ../glade/privatemessage.glade:166
+msgid "_Copy link"
+msgstr ""
+
+#: ../glade/hub.glade:316 ../glade/privatemessage.glade:157
+msgid "_Open link in default application"
+msgstr ""
+
+#: ../glade/hub.glade:332 ../glade/privatemessage.glade:173
+msgid "_Open hub"
+msgstr ""
+
+#: ../glade/search.glade:25
+#, fuzzy
+msgid "Search for"
+msgstr "Searching for "
+
+#: ../glade/search.glade:74
+msgid ""
+"Normal\n"
+"At least\n"
+"At most"
+msgstr ""
+
+#: ../glade/search.glade:94
+msgid ""
+"B\n"
+"KiB\n"
+"MiB\n"
+"GiB"
+msgstr ""
+
+#: ../glade/search.glade:121
+#, fuzzy
+msgid "File type"
+msgstr "File list"
+
+#: ../glade/search.glade:131
+msgid ""
+"Any\n"
+"Audio\n"
+"Compressed\n"
+"Document\n"
+"Executable\n"
+"Picture\n"
+"Video\n"
+"Directory\n"
+"TTH"
+msgstr ""
+
+#: ../glade/search.glade:158
+msgid "Group by"
+msgstr ""
+
+#: ../glade/search.glade:168
+msgid ""
+"No grouping\n"
+"Filename\n"
+"Path\n"
+"Size\n"
+"Connection\n"
+"TTH\n"
+"Nick\n"
+"Hub\n"
+"File type\n"
+msgstr ""
+
+#: ../glade/search.glade:197
+#, fuzzy
+msgid "Search options"
+msgstr "Search String"
+
+#: ../glade/search.glade:208
+msgid "Search within local results"
+msgstr ""
+
+#: ../glade/search.glade:226
+msgid "Only users with free slots"
+msgstr ""
+
+#: ../glade/search.glade:246
+#, fuzzy
+msgid "Filter files already in share"
+msgstr "Don't download files already in share"
+
+#: ../glade/search.glade:272 ../glade/mainwindow.glade:507
+#, fuzzy
+msgid "Hubs"
+msgstr "Hubs: "
+
+#: ../glade/search.glade:317
+#, fuzzy
+msgid "Search for a file"
+msgstr "Searching for "
+
+#: ../glade/search.glade:341
+#, fuzzy
+msgid "_Search"
+msgstr "Search"
+
+#: ../glade/search.glade:456
+#, fuzzy
+msgid "Download _whole directory"
+msgstr "Choose a directory"
+
+#: ../glade/search.glade:463
+#, fuzzy
+msgid "Download whole director_y to..."
+msgstr "Download complete..."
+
+#: ../glade/search.glade:479
+#, fuzzy
+msgid "_Search by TTH"
+msgstr "Search Spy"
+
+#: ../glade/search.glade:505
+#, fuzzy
+msgid "_Match Queue"
+msgstr "Matched "
+
+#: ../glade/search.glade:512 ../glade/downloadqueue.glade:287
+#, fuzzy
+msgid "Send _private message"
+msgstr "Private message"
+
+#: ../glade/search.glade:526 ../glade/transfers.glade:59
+#, fuzzy
+msgid "_Grant extra slot"
+msgstr "Grant extra slot"
+
+#: ../glade/search.glade:533 ../glade/downloadqueue.glade:325
+#, fuzzy
+msgid "Remove user from _queue"
+msgstr "Remove user favorite"
+
+#: ../glade/search.glade:556 ../glade/searchspy.glade:196
+#: ../glade/searchspy.glade:263 ../glade/favoriteusers.glade:93
+#: ../glade/downloadqueue.glade:188 ../glade/downloadqueue.glade:336
+msgid "_Remove"
+msgstr ""
+
+#: ../glade/searchspy.glade:32
+msgid "Ignore TTH search"
+msgstr ""
+
+#: ../glade/searchspy.glade:33
+msgid "Ignore TTH"
+msgstr ""
+
+#: ../glade/searchspy.glade:56
+msgid "Применить настройки"
+msgstr ""
+
+#: ../glade/searchspy.glade:68
+msgid "Top: >"
+msgstr ""
+
+#: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3878
+msgid "Количество совпадений для добавления в топ"
+msgstr ""
+
+#: ../glade/searchspy.glade:90
+#, fuzzy
+msgid "Waiting:"
+msgstr "Rating"
+
+#: ../glade/searchspy.glade:101 ../glade/settingsdialog.glade:3847
+msgid ""
+"Увеличение времени ожидания увеличивает вероятность добавления в топ, но "
+"снижает динамику(обновление) кадра"
+msgstr ""
+
+#: ../glade/searchspy.glade:112
+msgid "Frame:"
+msgstr ""
+
+#: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3817
+msgid ""
+"Размер кадра определяет ширину обзора, большие значения влияют на "
+"производительность"
+msgstr ""
+
+#: ../glade/searchspy.glade:136 ../glade/searchspy.glade:277
+#, fuzzy
+msgid "Clear"
+msgstr "Clear PM"
+
+#: ../glade/searchspy.glade:150
+msgid "Update"
+msgstr ""
+
+#: ../glade/searchspy.glade:163
+msgid "Show top search"
+msgstr ""
+
+#: ../glade/searchspy.glade:164 ../glade/searchspy.glade:205
+msgid "Top"
+msgstr ""
+
+#: ../glade/searchspy.glade:262
+msgid "Delete item"
+msgstr ""
+
+#: ../glade/hash.glade:22
+#, fuzzy
+msgid "<b>Processing file:</b>"
+msgstr "<b>file:</b> "
+
+#: ../glade/hash.glade:81
+msgid "<b>Statistics</b>"
+msgstr ""
+
+#: ../glade/hash.glade:109
+#, fuzzy
+msgid "Pause"
+msgstr "Paused"
+
+#: ../glade/hash.glade:138
+msgid "Run in background"
+msgstr ""
+
+#: ../glade/favoriteusers.glade:74
+#, fuzzy
+msgid "Connect to hub"
+msgstr "Connect to the hub"
+
+#: ../glade/favoriteusers.glade:135
+#, fuzzy
+msgid "<b>Description</b>"
+msgstr "Description"
+
+#: ../glade/transfers.glade:45
+#, fuzzy
+msgid "_Send private message"
+msgstr "Private message"
+
+#: ../glade/transfers.glade:73 ../glade/sharebrowser.glade:258
+#: ../glade/sharebrowser.glade:308
+#, fuzzy
+msgid "User commands"
+msgstr "Unknown command "
+
+#: ../glade/transfers.glade:105
+msgid "_Force attempt"
+msgstr ""
+
+#: ../glade/transfers.glade:117
+#, fuzzy
+msgid "_Close connection"
+msgstr "Closing connection..."
+
+#: ../glade/settingsdialog.glade:92
+msgid "Max upload speed (MiB/s)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:118
+#, fuzzy
+msgid "E-Mail"
+msgstr "eMail"
+
+#: ../glade/settingsdialog.glade:142
+#, fuzzy
+msgid "Default hub encoding"
+msgstr "default icons"
+
+#: ../glade/settingsdialog.glade:175
+msgid "<b>Personal Information</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:192
+msgid "Personal"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:387
+msgid "Ports"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:400 ../glade/ADLSearch.glade:266
+msgid "Active"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:415
+msgid "Firewall (passive, last resort)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:432
+msgid "External / WAN IP"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:447
+msgid "Don't allow hub/UPnP to override"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:465
+msgid "Firewall with manual port forward"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:482
+msgid "<b>Incoming connection settings</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:572
+#, fuzzy
+msgid "Username"
+msgstr "User"
+
+#: ../glade/settingsdialog.glade:587
+msgid "Use SOCKS5 server to resolve hostnames"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:648
+msgid "Port"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:663
+msgid "Socks IP"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:695
+#, fuzzy
+msgid "Direct connection"
+msgstr "Connection"
+
+#: ../glade/settingsdialog.glade:715
+msgid "<b>Outgoing connection settings</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:766
+msgid "Default download directory"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:807
+#, fuzzy
+msgid "Unfinished downloads directory"
+msgstr "Finished Downloads"
+
+#: ../glade/settingsdialog.glade:850
+msgid "<b>Directories</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:882
+msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:897
+msgid "Maximum simultaneous downloads (0 = infinite)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:941
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgstr ""
+
+#: ../glade/settingsdialog.glade:954
+#, fuzzy
+msgid "<b>Limits</b>"
+msgstr "<b>file:</b> "
+
+#: ../glade/settingsdialog.glade:983
+#, fuzzy
+msgid "Public Hubs list URL"
+msgstr "Public Hubs"
+
+#: ../glade/settingsdialog.glade:997
+msgid "Configure Public Hub Lists"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1028
+msgid "HTTP Proxy (for hublist only)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1056
+#, fuzzy
+msgid "<b>Public Hubs list</b>"
+msgstr "Public Hubs"
+
+#: ../glade/settingsdialog.glade:1074 ../glade/settingsdialog.glade:1949
+#, fuzzy
+msgid "Downloads"
+msgstr "Download"
+
+#: ../glade/settingsdialog.glade:1162
+msgid "<b>Favorite download to directories</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1177
+#, fuzzy
+msgid "Download to"
+msgstr "Download: "
+
+#: ../glade/settingsdialog.glade:1255
+msgid "High priority max size"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1268
+msgid "Low priority size"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1283 ../glade/settingsdialog.glade:1298
+#: ../glade/settingsdialog.glade:1327 ../glade/settingsdialog.glade:1342
+#: ../glade/settingsdialog.glade:1542 ../glade/settingsdialog.glade:4629
+#: ../glade/settingsdialog.glade:4846
+msgid "KiB"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1355
+msgid "Normal priority max size"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1368
+msgid "Highest priority max size"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1380
+msgid "<b>Auto-priority settings</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1499
+#, fuzzy
+msgid "Min filesize"
+msgstr " files"
+
+#: ../glade/settingsdialog.glade:1514
+msgid "Max inactivity"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1529
+msgid "Check every"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1627
+#, fuzzy
+msgid "Min sources online"
+msgstr " user(s) online"
+
+#: ../glade/settingsdialog.glade:1640
+#, fuzzy
+msgid "Min elapsed"
+msgstr "Min Share"
+
+#: ../glade/settingsdialog.glade:1653
+msgid "Drop sources below"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1665
+msgid "<b>Auto-drop settings</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1703
+msgid "<b>Other queue options</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1758
+msgid "<b>Players list</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1781
+#, fuzzy
+msgid "Name:"
+msgstr "Name"
+
+#: ../glade/settingsdialog.glade:1803
+#, fuzzy
+msgid "Application:"
+msgstr "Application"
+
+#: ../glade/settingsdialog.glade:1826
+msgid "Apply to Extensions: (avi;mov;divx)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:1850
+#, fuzzy
+msgid "<b>Add player</b>"
+msgstr "<b>file:</b> "
+
+#: ../glade/settingsdialog.glade:1991
+msgid "Note: New files are added to the share only once they've been hashed!"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2006
+#, fuzzy
+msgid "Total size: 0 B"
+msgstr "Total size: "
+
+#: ../glade/settingsdialog.glade:2017
+msgid "Share hidden files"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2027
+msgid "Follow Links"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2080
+msgid "<b>Shared directories</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2119
+#, fuzzy
+msgid "Upload slots"
+msgstr "Upload: "
+
+#: ../glade/settingsdialog.glade:2132
+msgid "KiB/s"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2159
+msgid "Automatically open extra slot if speed is below (0 = disable)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2178
+#, fuzzy
+msgid "Sharing"
+msgstr "Shared"
+
+#: ../glade/settingsdialog.glade:2225
+msgid "<b>Options</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2254
+msgid ""
+"Top\n"
+"Left\n"
+"Right\n"
+"Bottom"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2271
+msgid "<b>Tab Position</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2295
+msgid ""
+"Icons\n"
+"Text\n"
+"Both\n"
+"Both horizontal\n"
+"Hidden\n"
+"System default"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2314
+msgid "<b>Main Toolbar Style</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2355
+msgid "<b>Default away message</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2376
+msgid ""
+"%a abbreviated weekday name.\n"
+"%b abbreviated month name.\n"
+"%H hour as a decimal number using a 24-hour clock.\n"
+"%M minute as a decimal number (range 00 to 59).\n"
+"%S second as a decimal number (range 00 to 59).\n"
+"%% a literal '%' character.\n"
+"\n"
+"see man strftime for details."
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2391
+#, fuzzy
+msgid "<b>Timestamps</b>"
+msgstr "Timestamp"
+
+#: ../glade/settingsdialog.glade:2415 ../glade/settingsdialog.glade:2478
+msgid "Note: Most of these options require that you restart the application"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2428 ../glade/settingsdialog.glade:3977
+msgid "Appearance"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2464
+msgid "<b>Tab bolding on content change</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2494
+msgid "Tabs"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2535
+msgid "<b>Auto-open on startup</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2573
+msgid "<b>Window Options</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2614
+msgid "<b>Confirmation Dialog Options</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2634
+msgid "Windows"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2670
+#, fuzzy
+msgid "<b>Sounds</b>"
+msgstr "Sounds"
+
+#: ../glade/settingsdialog.glade:2688
+msgid "Play"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2739
+msgid "Every time a private message is received"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2751
+msgid "When a private message window is opened"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2765
+#, fuzzy
+msgid "<b>Private message sound</b>"
+msgstr "Private message"
+
+#: ../glade/settingsdialog.glade:2831
+msgid "<b>Available styles</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2863
+msgid "<b>Preview styles</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2881
+msgid "Bold Authors of message in chat"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2900
+msgid "Back color"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2910
+msgid "Text color"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2923
+msgid "Text style"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2936
+#, fuzzy
+msgid "Default styles"
+msgstr "Default"
+
+#: ../glade/settingsdialog.glade:2949
+msgid "Black/White"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2987
+msgid "Colors & Fonts"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3025
+#, fuzzy
+msgid "<b>Notify</b>"
+msgstr "Notify"
+
+#: ../glade/settingsdialog.glade:3060
+#, fuzzy
+msgid "<b>Title</b>"
+msgstr "<b>file:</b> "
+
+#: ../glade/settingsdialog.glade:3089
+#, fuzzy
+msgid "<b>Icon size</b>"
+msgstr "Icon size"
+
+#: ../glade/settingsdialog.glade:3116
+msgid "Test"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3141
+#, fuzzy
+msgid "Icon..."
+msgstr "Icon"
+
+#: ../glade/settingsdialog.glade:3165
+msgid "None icon"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3234
+msgid "Maximum message length (0 = infinite)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3250
+msgid "Show only when the application is not active."
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3265
+#, fuzzy
+msgid "<b>Private message</b>"
+msgstr "Private message"
+
+#: ../glade/settingsdialog.glade:3282 ../glade/settingsdialog.glade:5655
+#, fuzzy
+msgid "PM"
+msgstr "PM: "
+
+#: ../glade/settingsdialog.glade:3344
+msgid "<b>Icons</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3376
+msgid "<b>Text styles</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3398
+msgid "<b>Current theme name:</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3408
+msgid "theme"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3431
+msgid "Export..."
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3443
+msgid "Import..."
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3468
+#, fuzzy
+msgid "Default icons"
+msgstr "default icons"
+
+#: ../glade/settingsdialog.glade:3481
+#, fuzzy
+msgid "System icons"
+msgstr " + system icons"
+
+#: ../glade/settingsdialog.glade:3494
+#, fuzzy
+msgid "Theme default"
+msgstr "System default"
+
+#: ../glade/settingsdialog.glade:3516
+msgid "Themes"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3554
+msgid "<b>Toolbar buttons</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3571
+msgid "Toolbar"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3615
+msgid "Новая строка или TTH"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3646
+msgid "Добавление строки или TTH в топ"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3678
+msgid "Состояние готовности"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3710
+msgid "Совпадения"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3742
+msgid "Обновление строки или TTH"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3790
+#, fuzzy
+msgid "<b>Colors</b>"
+msgstr "<b>file:</b> "
+
+#: ../glade/settingsdialog.glade:3827
+msgid "Кадр (размер)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3857
+msgid "Ожидание (секунд)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3888
+msgid "Топ (число совпадений, больше)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:3936
+#, fuzzy
+msgid "<b>Frame</b>"
+msgstr "<b>file:</b> "
+
+#: ../glade/settingsdialog.glade:4043
+msgid "Log main chat"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4063 ../glade/settingsdialog.glade:4106
+#: ../glade/settingsdialog.glade:4149 ../glade/settingsdialog.glade:4192
+#, fuzzy
+msgid "Format"
+msgstr "Normal"
+
+#: ../glade/settingsdialog.glade:4086
+msgid "Log private chat"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4129
+#, fuzzy
+msgid "Log downloads"
+msgstr "Download"
+
+#: ../glade/settingsdialog.glade:4172
+msgid "Log uploads"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4215
+#, fuzzy
+msgid "Log system messages"
+msgstr "System message"
+
+#: ../glade/settingsdialog.glade:4230
+#, fuzzy
+msgid "Log status messages"
+msgstr "Status message"
+
+#: ../glade/settingsdialog.glade:4245
+#, fuzzy
+msgid "Log filelist transfers"
+msgstr "Loading file list"
+
+#: ../glade/settingsdialog.glade:4261
+msgid "<b>Logging</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4278
+msgid "Logs"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4317 ../glade/settingsdialog.glade:5166
+msgid "Advanced"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4431
+#, fuzzy
+msgid "User Commands"
+msgstr "User (normal)"
+
+#: ../glade/settingsdialog.glade:4457
+msgid "Max hash speed"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4469
+msgid "PM history"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4481
+msgid "Mini slot size"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4493
+#, fuzzy
+msgid "Max filelist size"
+msgstr "Get file list"
+
+#: ../glade/settingsdialog.glade:4607
+msgid "MiB/s"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4641
+msgid "MiB"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4673
+msgid "Write buffer size"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4684
+#, fuzzy
+msgid "Search history"
+msgstr "Search Spy"
+
+#: ../glade/settingsdialog.glade:4696
+#, fuzzy
+msgid "Bind address"
+msgstr "Address"
+
+#: ../glade/settingsdialog.glade:4708
+msgid "Socket read buffer"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4720
+msgid "Socket write buffer"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4732
+msgid "Auto refresh time"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4875 ../glade/settingsdialog.glade:4887
+msgid "B"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:4923
+msgid "Experts Only"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5025
+msgid "Trusted certificates path"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5039
+msgid "Certificate file"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5053
+#, fuzzy
+msgid "Private key file"
+msgstr "Private message"
+
+#: ../glade/settingsdialog.glade:5069
+msgid "<b>Certificate Paths</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5105
+msgid "<b>Other Security Options</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5123
+msgid "Generate certificates"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5150
+msgid "Security Certificates"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5219 ../glade/publichubs.glade:190
+msgid "Configure hub lists"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5309 ../glade/publichubs.glade:276
+msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5348
+#, fuzzy
+msgid "Favorite name"
+msgstr "Favorite User"
+
+#: ../glade/settingsdialog.glade:5379
+msgid "<b>Under what name you see the directory</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5430
+#, fuzzy
+msgid "Virtual name"
+msgstr "Filename"
+
+#: ../glade/settingsdialog.glade:5462
+msgid "<b>Name under which the others see the directory</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5564
+#, fuzzy
+msgid "Choose a File"
+msgstr "Choose a directory"
+
+#: ../glade/settingsdialog.glade:5585 ../glade/settingsdialog.glade:6078
+#: ../glade/settingsdialog.glade:6119 ../glade/mainwindow.glade:1621
+msgid "gtk-cancel"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5595
+msgid "gtk-open"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5613
+msgid "Modify User Command"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5639
+msgid "Raw"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5673
+msgid "Chat"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5703
+msgid "<b>Command Type</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5726
+#, fuzzy
+msgid "Search Menu"
+msgstr "Search: "
+
+#: ../glade/settingsdialog.glade:5741
+msgid "Chat Menu"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5756
+#, fuzzy
+msgid "Filelist Menu"
+msgstr "File list"
+
+#: ../glade/settingsdialog.glade:5773
+#, fuzzy
+msgid "Hub Menu"
+msgstr "Hub Name"
+
+#: ../glade/settingsdialog.glade:5787
+msgid "<b>Context</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5843
+msgid "Command"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5874
+msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5905
+msgid "To (empty for selected user)"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5933
+msgid "Send once per nick"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5949
+msgid "<b>Parameters</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:5985
+msgid "<b>Text sent to hub</b>"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:6050
+msgid "Color select"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:6067
+msgid "gtk-help"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:6090 ../glade/settingsdialog.glade:6142
+#: ../glade/mainwindow.glade:1631
+msgid "gtk-ok"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:6098
+msgid "Font select"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:6130
+msgid "gtk-apply"
+msgstr ""
+
+#: ../glade/sharebrowser.glade:109
+#, fuzzy
+msgid "Match Queue"
+msgstr "Matched "
+
+#: ../glade/sharebrowser.glade:122
+msgid "Find"
+msgstr ""
+
+#: ../glade/sharebrowser.glade:135
+msgid "Next"
+msgstr ""
+
+#: ../glade/sharebrowser.glade:154
+#, fuzzy
+msgid "Find files"
+msgstr " files"
+
+#: ../glade/sharebrowser.glade:182
+msgid "Enter text to search for"
+msgstr ""
+
+#: ../glade/sharebrowser.glade:242 ../glade/sharebrowser.glade:278
+#, fuzzy
+msgid "Download to..."
+msgstr "Download starting..."
+
+#: ../glade/sharebrowser.glade:294 ../glade/downloadqueue.glade:197
+#, fuzzy
+msgid "_Search for alternates"
+msgstr "Searching for "
+
+#: ../glade/ADLSearch.glade:102
+msgid "<b>Search ADL</b>"
+msgstr ""
+
+#: ../glade/ADLSearch.glade:115
+#, fuzzy
+msgid "_Search String:"
+msgstr "Search String"
+
+#: ../glade/ADLSearch.glade:146
+#, fuzzy
+msgid "_max size:"
+msgstr "Total size: "
+
+#: ../glade/ADLSearch.glade:176
+#, fuzzy
+msgid "_min Size:"
+msgstr "Size: "
+
+#: ../glade/ADLSearch.glade:232
+msgid "Dest. Dir"
+msgstr ""
+
+#: ../glade/ADLSearch.glade:242
+#, fuzzy
+msgid "TypeSearch"
+msgstr "Search"
+
+#: ../glade/ADLSearch.glade:251
+#, fuzzy
+msgid "AutoQueue"
+msgstr "Queue"
+
+#: ../glade/publichubs.glade:51
+#, fuzzy
+msgid "<b>Filter</b>"
+msgstr "<b>file:</b> "
+
+#: ../glade/publichubs.glade:92
+msgid "<b>Hub List</b>"
+msgstr ""
+
+#: ../glade/publichubs.glade:326
+#, fuzzy
+msgid "Add to favorites"
+msgstr "Add a hub to favorites"
+
+#: ../glade/mainwindow.glade:19
+#, fuzzy
+msgid "_File"
+msgstr "File"
+
+#: ../glade/mainwindow.glade:26
+#, fuzzy
+msgid "Open _file list..."
+msgstr "Get file list"
+
+#: ../glade/mainwindow.glade:41
+#, fuzzy
+msgid "Open _own list"
+msgstr "Update own file list"
+
+#: ../glade/mainwindow.glade:55
+#, fuzzy
+msgid "_Refresh file list"
+msgstr "Get file list"
+
+#: ../glade/mainwindow.glade:75
+#, fuzzy
+msgid "_Quick connect"
+msgstr "Hub connected"
+
+#: ../glade/mainwindow.glade:90
+#, fuzzy
+msgid "Re_connect"
+msgstr "Connect"
+
+#: ../glade/mainwindow.glade:110
+#, fuzzy
+msgid "_Preferences"
+msgstr "Preferences"
+
+#: ../glade/mainwindow.glade:125
+#, fuzzy
+msgid "_Magnet Choice"
+msgstr "Magnet Choice"
+
+#: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1255
+msgid "_Exit"
+msgstr ""
+
+#: ../glade/mainwindow.glade:171
+msgid "_View"
+msgstr ""
+
+#: ../glade/mainwindow.glade:325
+msgid "Indexing Progress"
+msgstr ""
+
+#: ../glade/mainwindow.glade:343
+msgid "_Tabs"
+msgstr ""
+
+#: ../glade/mainwindow.glade:351
+msgid "_Previous Tab"
+msgstr ""
+
+#: ../glade/mainwindow.glade:360
+msgid "_Next Tab"
+msgstr ""
+
+#: ../glade/mainwindow.glade:385
+msgid "Homepage"
+msgstr ""
+
+#: ../glade/mainwindow.glade:399
+msgid "Source(svn)"
+msgstr ""
+
+#: ../glade/mainwindow.glade:413
+msgid "Report a Bug"
+msgstr ""
+
+#: ../glade/mainwindow.glade:427
+msgid "Discussion forum"
+msgstr ""
+
+#: ../glade/mainwindow.glade:446
+msgid "Changelog(svn)"
+msgstr ""
+
+#: ../glade/mainwindow.glade:465
+msgid "About EiskaltDC++"
+msgstr ""
+
+#: ../glade/mainwindow.glade:492
+#, fuzzy
+msgid "Quick connect to a hub"
+msgstr "Connect to the hub"
+
+#: ../glade/mainwindow.glade:531
+msgid "Browse the list of public hubs"
+msgstr ""
+
+#: ../glade/mainwindow.glade:544
+#, fuzzy
+msgid "Edit the preferences"
+msgstr "Preferences"
+
+#: ../glade/mainwindow.glade:557
+msgid "View the hashing progress"
+msgstr ""
+
+#: ../glade/mainwindow.glade:570
+msgid "Search for files to download"
+msgstr ""
+
+#: ../glade/mainwindow.glade:585
+msgid "Spy"
+msgstr ""
+
+#: ../glade/mainwindow.glade:596
+msgid "View the files to be downloaded"
+msgstr ""
+
+#: ../glade/mainwindow.glade:609
+#, fuzzy
+msgid "View the list of finished downloads"
+msgstr "Finished Downloads"
+
+#: ../glade/mainwindow.glade:622
+msgid "View the list of finished uploads"
+msgstr ""
+
+#: ../glade/mainwindow.glade:648
+msgid "Quit the program"
+msgstr ""
+
+#: ../glade/mainwindow.glade:711
+msgid "Show/Hide transfers panel"
+msgstr ""
+
+#: ../glade/mainwindow.glade:746
+msgid "Hubs (normal / registered / op)"
+msgstr ""
+
+#: ../glade/mainwindow.glade:787
+#, fuzzy
+msgid "Download speed"
+msgstr "Downloaded"
+
+#: ../glade/mainwindow.glade:828
+#, fuzzy
+msgid "Total received"
+msgstr "Total size: "
+
+#: ../glade/mainwindow.glade:850
+#, fuzzy
+msgid "Upload speed"
+msgstr "Uploaded "
+
+#: ../glade/mainwindow.glade:892
+#, fuzzy
+msgid "Total sent"
+msgstr "Total size: "
+
+#: ../glade/mainwindow.glade:914
+msgid "Exit EiskaltDC++ Gtk?"
+msgstr ""
+
+#: ../glade/mainwindow.glade:925
+msgid "Do you really want to exit?"
+msgstr ""
+
+#: ../glade/mainwindow.glade:971
+#, fuzzy
+msgid "Connect to a hub"
+msgstr "Connect to the hub"
+
+#: ../glade/mainwindow.glade:1005
+msgid "<b>Connect to address:</b>"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1059
+msgid ""
+"\n"
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
+"more details.\n"
+"\n"
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 51 "
+"Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+"\n"
+"In addition, as a special exception, compiling, linking, and/or using "
+"OpenSSL with this program is allowed.\n"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1068
+msgid ""
+"Developers:\n"
+"  troll\n"
+"\n"
+"Contributors:\n"
+"  Leliksan Floyd\n"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1141
+#, fuzzy
+msgid "Enter line for user command"
+msgstr "Enter value for "
+
+#: ../glade/mainwindow.glade:1229
+msgid "_Show Interface"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1242
+#, fuzzy
+msgid "Use Blinking Icon"
+msgstr "Use blinking status icon"
+
+#: ../glade/mainwindow.glade:1269 ../glade/mainwindow.glade:1306
+#, fuzzy
+msgid "Magnet"
+msgstr "Magnet Choice"
+
+#: ../glade/mainwindow.glade:1317
+#, fuzzy
+msgid "File name"
+msgstr "Filename"
+
+#: ../glade/mainwindow.glade:1343
+msgid "TTH"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1412
+#, fuzzy
+msgid "Exact size"
+msgstr "Exact Size"
+
+#: ../glade/mainwindow.glade:1440
+msgid "+/-"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1451
+#, fuzzy
+msgid "<b>Magnet properties</b>"
+msgstr "Magnet Properties / Choice"
+
+#: ../glade/mainwindow.glade:1479
+msgid ""
+"Для начала закачки файла включите автоматический поиск альтернативных "
+"источников закачки (Настроки/Закачки/Очередь)"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1480
+msgid "Add this file to your download queue"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1524
+msgid "Start a search for this file"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1538
+msgid "Show magnet dialog"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1564
+msgid "Remember choice"
+msgstr ""
+
+#: ../glade/mainwindow.glade:1593
+msgid "<b>What would you like to do?</b>"
+msgstr ""
+
+#: ../glade/downloadqueue.glade:118 ../glade/downloadqueue.glade:223
+#, fuzzy
+msgid "Set Priorit_y"
+msgstr "Priority"
+
+#: ../glade/downloadqueue.glade:125 ../glade/downloadqueue.glade:230
+#, fuzzy
+msgid "_Paused"
+msgstr "Paused"
+
+#: ../glade/downloadqueue.glade:132 ../glade/downloadqueue.glade:237
+#, fuzzy
+msgid "_Lowest"
+msgstr "Lowest"
+
+#: ../glade/downloadqueue.glade:139 ../glade/downloadqueue.glade:244
+msgid "L_ow"
+msgstr ""
+
+#: ../glade/downloadqueue.glade:146 ../glade/downloadqueue.glade:251
+#, fuzzy
+msgid "_Normal"
+msgstr "Normal"
+
+#: ../glade/downloadqueue.glade:153 ../glade/downloadqueue.glade:258
+msgid "H_igh"
+msgstr ""
+
+#: ../glade/downloadqueue.glade:160 ../glade/downloadqueue.glade:265
+#, fuzzy
+msgid "_Highest"
+msgstr "Highest"
+
+#: ../glade/downloadqueue.glade:176
+msgid "_Move"
+msgstr ""
+
+#: ../glade/downloadqueue.glade:211
+msgid "_Move/Rename"
+msgstr ""
+
+#: ../glade/downloadqueue.glade:298
+msgid "Re-_add source"
+msgstr ""
+
+#: ../glade/downloadqueue.glade:314
+msgid "Remove So_urce"
+msgstr ""
+
+#: ../glade/downloadqueue.glade:344
+msgid "Move to..."
+msgstr ""
 
 #~ msgid "UTF-8 (Unicode)"
 #~ msgstr "UTF-8 (Unicode)"

@@ -422,7 +422,6 @@ list (APPEND GTK_SRCS ${GTK_HDRS})
       CREATE_MO_TARGET ${create_mo}
       CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
       ADD_MO_TARGET_TO_ALL ${mo_for_all}
-      EXTRA_GETTEXT_KEYWORDS translatable="yes"
       )
 
 endif (USE_GTK)
