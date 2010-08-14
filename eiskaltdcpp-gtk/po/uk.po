@@ -501,7 +501,7 @@ msgid ""
 msgstr ""
 "Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n"
 "\n"
-"EiskaltDC++ версія: %s (%s)\n"
+"EiskaltDC++ версія: %s - %s %s\n"
 "DC++ версія ядра: %s"
 
 #: ../src/mainwindow.cc:212
