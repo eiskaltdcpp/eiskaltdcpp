@@ -2609,7 +2609,7 @@ void Settings::onBrowseFinished_gui(GtkWidget *widget, gpointer data)
 {
     Settings *s = (Settings *)data;
 
-    gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
+    //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
     gtk_widget_hide(s->getWidget("dirChooserDialog"));
 
@@ -2628,7 +2628,7 @@ void Settings::onBrowseUnfinished_gui(GtkWidget *widget, gpointer data)
 {
     Settings *s = (Settings *)data;
 
-    gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
+    //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
     gtk_widget_hide(s->getWidget("dirChooserDialog"));
 
@@ -2743,7 +2743,7 @@ void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
 {
     Settings *s = (Settings *)data;
 
-    gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
+    //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
     gtk_widget_hide(s->getWidget("dirChooserDialog"));
 
@@ -2891,7 +2891,7 @@ void Settings::onLogBrowseClicked_gui(GtkWidget *widget, gpointer data)
 {
     Settings *s = (Settings *)data;
 
-    gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
+    //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
     gtk_widget_hide(s->getWidget("dirChooserDialog"));
 

@@ -7,9 +7,11 @@ set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 aux_source_directory(${PROJECT_SOURCE_DIR}/src gtk_srcs)
 file (GLOB gtk_hdrs ${PROJECT_SOURCE_DIR}/src/*.hh)
+file (GLOB gtk_glade ${PROJECT_SOURCE_DIR}/glade/*.glade)
+
 set (GTK_SRCS @gtk_srcs@ PARENT_SCOPE)
 set (GTK_HDRS @gtk_hdrs@ PARENT_SCOPE)
-
+set (GTK_GLADE @gtk_glade@ PARENT_SCOPE)
 include_directories (
         ${GTK2_INCLUDE_DIRS}
         ${LIBGNOME2_INCLUDE_DIRS}

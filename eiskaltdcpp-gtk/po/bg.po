@@ -1,3 +1,5 @@
+/home/egik/work2/c/eiskaltdc/trunk/eiskaltdcpp-gtk/po/bg.po: предупреждение: "CHARSET" не является переносимым названием кодировки.
+                                                                             Преобразование сообщений к кодировке пользователя может не сработать.
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++\ team
 # This file is distributed under the same license as the PACKAGE package.

@@ -409,7 +409,7 @@ list (APPEND GTK_SRCS ${GTK_HDRS})
       DOMAIN_NAME "eiskaltdcpp-gtk"
       LOCALE_LIST "${LANGUAGES}"
       COPYRIGHT_HOLDER "EiskaltDC++ team"
-      SOURCES "${GTK_SRCS}"
+      SOURCES "${GTK_SRCS};${GTK_GLADE}"
       PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
       POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
       #PO_PREFIX    ""
@@ -422,7 +422,9 @@ list (APPEND GTK_SRCS ${GTK_HDRS})
       CREATE_MO_TARGET ${create_mo}
       CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
       ADD_MO_TARGET_TO_ALL ${mo_for_all}
+      EXTRA_GETTEXT_KEYWORDS translatable="yes"
       )
+
 endif (USE_GTK)
 
 endif(GETTEXT_FOUND)

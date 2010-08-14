@@ -317,7 +317,8 @@ msgstr "Слот виділено для "
 
 #: ../src/hub.cc:2534
 msgid "Unable to connect: already connected to the requested hub"
-msgstr "Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
+msgstr ""
+"Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
 
 #: ../src/hub.cc:2588
 msgid "Favorite hub added"
