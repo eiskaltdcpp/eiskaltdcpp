@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-14 15:04+0300\n"
-"PO-Revision-Date: 2010-08-12 15:38+0300\n"
+"PO-Revision-Date: 2010-08-14 19:48+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -13,8 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -226,23 +226,23 @@ msgstr "Нет доступной реализации UPnP"
 
 #: ../UPnPManager.cpp:68
 msgid " Transfer Port (%1% TCP)"
-msgstr ""
+msgstr " Порт передачи (%1% TCP)"
 
 #: ../UPnPManager.cpp:71
 msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
+msgstr " Порт шифрованной передачи (%1% TCP)"
 
 #: ../UPnPManager.cpp:74
 msgid " Search Port (%1% UDP)"
-msgstr ""
+msgstr " Порт для поиска (%1% UDP)"
 
 #: ../UPnPManager.cpp:78
 msgid "Successfully created port mappings"
-msgstr ""
+msgstr "Успешно выполнен проброс портов"
 
 #: ../UPnPManager.cpp:89
 msgid "Failed to get external IP"
-msgstr ""
+msgstr "Не удалось получить внешний IP"
 
 #: ../UPnPManager.cpp:97
 msgid "Failed to create port mappings"
@@ -250,11 +250,11 @@ msgstr "Невозможно создать перенаправление по�
 
 #: ../UPnPManager.cpp:105
 msgid "Failed to remove port mappings"
-msgstr ""
+msgstr "Не удалось удалить проброс портов"
 
 #: ../UPnPManager.cpp:110
 msgid "UPnP: %1%"
-msgstr ""
+msgstr "UPnP: %1%"
 
 #: ../ShareManager.cpp:429
 msgid "No directory specified"
