@@ -225,13 +225,16 @@ set (_DATADIR "${CLIENT_DATA_DIR}") # don't change! (used by eiskaltdcpp-gtk)
 
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
 
-if (Subversion_FOUND)
+if (DCPP_REVISION)
+        set (eiskaltdcpp_WC_REVISION ${DCPP_REVISION})
+elseif (Subversion_FOUND)
     Subversion_WC_INFO (${PROJECT_SOURCE_DIR} eiskaltdcpp)
-    message (STATUS "Build svn revision: ${eiskaltdcpp_WC_REVISION}")
-    if (eiskaltdcpp_WC_REVISION MATCHES [0-9]+)
-      add_definitions (-DDCPP_REVISION="\(r""${eiskaltdcpp_WC_REVISION}""\)")
-    endif ()
-endif (Subversion_FOUND)
+endif ()
+
+message (STATUS "Build svn revision: ${eiskaltdcpp_WC_REVISION}")
+if (eiskaltdcpp_WC_REVISION MATCHES [0-9]+)
+    add_definitions (-DDCPP_REVISION="\(r""${eiskaltdcpp_WC_REVISION}""\)")
+endif ()
 
 if (UNIX)
 add_definitions (-D_GNU_SOURCE)
