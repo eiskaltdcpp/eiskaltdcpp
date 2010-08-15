@@ -35,105 +35,34 @@
    <bool>true</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="6" column="3">
-    <widget class="QPushButton" name="pushButton_OK">
+   <item row="0" column="0">
+    <widget class="QCheckBox" name="checkBox_ENABLE">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="text">
-      <string>OK</string>
+      <string>Enable IPFilter</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="1" colspan="2">
-    <spacer name="horizontalSpacer_3">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="5" column="1" colspan="2">
-    <widget class="LineEdit" name="lineEdit_RULE"/>
-   </item>
-   <item row="5" column="3">
-    <widget class="QPushButton" name="pushButton_ADD">
-     <property name="text">
-      <string>Add</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="2">
+   <item row="0" column="1">
     <widget class="QPushButton" name="pushButton_EXPORT">
      <property name="text">
       <string>Export</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="3">
+   <item row="0" column="2">
     <widget class="QPushButton" name="pushButton_IMPORT">
      <property name="text">
       <string>Import</string>
      </property>
     </widget>
    </item>
-   <item row="3" column="2">
-    <widget class="QPushButton" name="pushButton_UP">
-     <property name="text">
-      <string>UP</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="3">
-    <widget class="QPushButton" name="pushButton_DOWN">
-     <property name="text">
-      <string>DOWN</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="1">
-    <widget class="QGroupBox" name="groupBox_DIRECTION">
-     <property name="title">
-      <string>Direction</string>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <item>
-       <widget class="QRadioButton" name="radioButton_BOTH">
-        <property name="text">
-         <string>BOTH</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="radioButton_IN">
-        <property name="text">
-         <string>IN</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="radioButton_OUT">
-        <property name="text">
-         <string>OUT</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QCheckBox" name="checkBox_ENABLE">
-     <property name="text">
-      <string>Enable IPFilter</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1" colspan="3">
+   <item row="1" column="0" colspan="3">
     <widget class="QTreeView" name="treeView_RULES">
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
@@ -165,6 +94,76 @@
      <attribute name="headerStretchLastSection">
       <bool>false</bool>
      </attribute>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="groupBox_DIRECTION">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Direction</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QRadioButton" name="radioButton_BOTH">
+        <property name="text">
+         <string>BOTH</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioButton_IN">
+        <property name="text">
+         <string>IN</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioButton_OUT">
+        <property name="text">
+         <string>OUT</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="pushButton_UP">
+     <property name="text">
+      <string>UP</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QPushButton" name="pushButton_DOWN">
+     <property name="text">
+      <string>DOWN</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="LineEdit" name="lineEdit_RULE"/>
+   </item>
+   <item row="3" column="2">
+    <widget class="QPushButton" name="pushButton_ADD">
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="2">
+    <widget class="QPushButton" name="pushButton_OK">
+     <property name="text">
+      <string>OK</string>
+     </property>
     </widget>
    </item>
   </layout>
