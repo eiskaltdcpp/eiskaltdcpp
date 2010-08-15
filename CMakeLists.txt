@@ -92,13 +92,6 @@ else ()
     message (STATUS "Building without Lua scripts support")
 endif()
 
-if (USE_MINIUPNP)
-    message (STATUS "Building with UPNP support(miniupnpc)")
-    find_package (Miniupnpc REQUIRED)
-else ()
-    message (STATUS "Building without UPNP support(miniupnpc)")
-endif ()
-
 if (USE_QT)
 
     if (USE_LIBUPNP)
@@ -165,6 +158,14 @@ if (USE_WT)
 endif (USE_WT)
 
 if (USE_GTK)
+    set (USE_MINIUPNP ON CACHE BOOL "Miniupnpc" FORCE)
+    if (USE_MINIUPNP)
+    message (STATUS "Building with UPNP support(miniupnpc)")
+        find_package (Miniupnpc REQUIRED)
+    else ()
+        message (STATUS "Building without UPNP support(miniupnpc)")
+    endif ()
+
     find_package (GTK2 REQUIRED gtk glade)
 
     if (USE_LIBGNOME2)

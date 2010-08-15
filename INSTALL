@@ -71,7 +71,6 @@ pkg-config
 :dcpp:
 ------
 gettext
-miniupnpc (optional, see cmake keys)
 libboost-dev (headers only) (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
@@ -90,7 +89,7 @@ libgtk2.0-dev
 libglade2-dev
 libnotify-dev
 libgnome2-dev (optional, see cmake keys)
-
+miniupnpc (optional, see cmake keys)
 
 *******************************************************************************
 Installation in Linux and other UNIX-like systems

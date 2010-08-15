@@ -40,9 +40,9 @@
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
-#ifdef USE_MINIUPNP
+//#ifdef USE_MINIUPNP
 #include "UPnPManager.h"
-#endif
+//#endif
 #ifdef DHT
 #include "../dht/DHT.h"
 #endif
@@ -90,9 +90,9 @@ void startup(void (*f)(void*, const string&), void* p) {
     QueueManager::newInstance();
     FinishedManager::newInstance();
     ADLSearchManager::newInstance();
-#ifdef USE_MINIUPNP
+//#ifdef USE_MINIUPNP
     UPnPManager::newInstance();
-#endif
+//#endif
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
 #endif
@@ -143,9 +143,9 @@ void shutdown() {
 
     ConnectionManager::getInstance()->shutdown();
 
-#ifdef USE_MINIUPNP
+//#ifdef USE_MINIUPNP
     UPnPManager::getInstance()->close();
-#endif
+//#endif
 
     BufferedSocket::waitShutdown();
 
@@ -155,9 +155,9 @@ void shutdown() {
     DHT::deleteInstance();
 #endif
 
-#ifdef USE_MINIUPNP
+//#ifdef USE_MINIUPNP
     UPnPManager::deleteInstance();
-#endif
+//#endif
 
     ADLSearchManager::deleteInstance();
     FinishedManager::deleteInstance();

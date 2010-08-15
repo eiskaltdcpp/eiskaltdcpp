@@ -18,12 +18,14 @@ include_directories (
         ${PROJECT_SOURCE_DIR}
         ${PROJECT_SOURCE_DIR}/..
         ${Boost_INCLUDE_DIRS}
+        ${MINIUPNP_INCLUDE_DIR}
         )
 set (LIBS ${LIBS}
         ${GTK2_LIBRARIES}
         ${LIBGNOME2_LIBRARIES}
         ${Boost_LIBRARIES}
         ${ICONV_LIBRARIES}
+        ${MINIUPNP_LIBRARY}
         "-lnotify"
         "-lgthread-2.0"
         )

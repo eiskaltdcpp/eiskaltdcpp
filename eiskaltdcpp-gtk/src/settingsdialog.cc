@@ -186,6 +186,10 @@ void Settings::saveSettings_client()
         // Incoming connection
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("activeRadioButton"))))
             sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
+//#ifdef USE_MINIUPNP
+        else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton"))))
+            sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);//NOTE: core 0.762
+//#endif
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("portForwardRadioButton"))))
             sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_NAT);
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("passiveRadioButton"))))
@@ -664,8 +668,7 @@ void Settings::initConnection_gui()
 {
     // Incoming
     g_signal_connect(getWidget("activeRadioButton"), "toggled", G_CALLBACK(onInDirect_gui), (gpointer)this);
-    ///@todo Uncomment when implemented
-    //g_signal_connect(getWidget("upnpRadioButton"), "toggled", G_CALLBACK(onInFW_UPnP_gui), (gpointer)this);
+    g_signal_connect(getWidget("upnpRadioButton"), "toggled", G_CALLBACK(onInFW_UPnP_gui), (gpointer)this);//NOTE: core 0.762
     g_signal_connect(getWidget("portForwardRadioButton"), "toggled", G_CALLBACK(onInFW_NAT_gui), (gpointer)this);
     g_signal_connect(getWidget("passiveRadioButton"), "toggled", G_CALLBACK(onInPassive_gui), (gpointer)this);
     gtk_entry_set_text(GTK_ENTRY(getWidget("ipEntry")), SETTING(EXTERNAL_IP).c_str());
@@ -2533,8 +2536,7 @@ void Settings::onInDirect_gui(GtkToggleButton *button, gpointer data)
     gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), TRUE);
 }
 
-/**@todo Uncomment when implemented
-void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data)
+void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data) //NOTE:core 0.762
 {
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), TRUE);
@@ -2547,7 +2549,7 @@ void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data)
     gtk_widget_set_sensitive(s->getWidget("tlsEntry"), TRUE);
     gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), TRUE);
 }
-*/
+
 
 void Settings::onInFW_NAT_gui(GtkToggleButton *button, gpointer data)
 {
