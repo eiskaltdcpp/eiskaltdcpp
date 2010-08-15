@@ -29,7 +29,7 @@ using namespace dcpp;
 void printHelp() {
     printf("Using:\n"
            "  eiskaltdcpp-wt --http-port=<port> --http-address=<address> --docroot <path>\n"
-           "  eiskaltdcpp-qt <Key>\n"
+           "  eiskaltdcpp-wt <Key>\n"
            "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
            "\n"
            "Keys:\n"
