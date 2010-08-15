@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-14 15:04+0300\n"
-"PO-Revision-Date: 2010-08-13 07:10+0200\n"
+"PO-Revision-Date: 2010-08-16 01:01+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -583,13 +583,12 @@ msgid "Are you sure you want to delete favorite user(s)?"
 msgstr "¿Estás seguro que quiere eliminar este(os) usuario(s) favorito(s)?"
 
 #: ../src/hashdialog.cc:42 ../src/hashdialog.cc:130
-#, fuzzy
 msgid "Paused..."
-msgstr "Pausado"
+msgstr "Pausado..."
 
 #: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../glade/hash.glade:7
 msgid "Indexing files..."
-msgstr ""
+msgstr "Indexando archivos..."
 
 #: ../src/hashdialog.cc:70 ../glade/settingsdialog.glade:1585
 msgid "B/s"
@@ -1769,74 +1768,67 @@ msgid "?"
 msgstr "?"
 
 #: ../glade/sharebrowser.glade:109
-#, fuzzy
 msgid "Match Queue"
-msgstr "Coincidencia "
+msgstr "Coincidencia con la cola"
 
 #: ../glade/sharebrowser.glade:122
 msgid "Find"
-msgstr ""
+msgstr "Encontrar"
 
 #: ../glade/sharebrowser.glade:135
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 #: ../glade/sharebrowser.glade:154
-#, fuzzy
 msgid "Find files"
-msgstr "archivos"
+msgstr "Buscar archivos"
 
 #: ../glade/sharebrowser.glade:182
 msgid "Enter text to search for"
-msgstr ""
+msgstr "Introducir texto a buscar por"
 
 #: ../glade/sharebrowser.glade:242 ../glade/sharebrowser.glade:278
-#, fuzzy
 msgid "Download to..."
-msgstr "Comenzando descarga..."
+msgstr "Descargar a..."
 
 #: ../glade/sharebrowser.glade:258 ../glade/sharebrowser.glade:308
 #: ../glade/transfers.glade:73
-#, fuzzy
 msgid "User commands"
-msgstr "comando desconocido"
+msgstr "Comando de usuario"
 
 #: ../glade/sharebrowser.glade:294 ../glade/downloadqueue.glade:197
-#, fuzzy
 msgid "_Search for alternates"
-msgstr "Buscando por "
+msgstr "_Buscar alternativas"
 
 #: ../glade/sharebrowser.glade:301 ../glade/search.glade:486
 #: ../glade/downloadqueue.glade:204 ../glade/privatemessage.glade:129
 #: ../glade/hub.glade:287
 msgid "_Copy magnet"
-msgstr ""
+msgstr "_Copiar iman"
 
 #: ../glade/hash.glade:22
-#, fuzzy
 msgid "<b>Processing file:</b>"
-msgstr "<b>Archivo:</b> "
+msgstr "<b>Procesando Archivo:</b> "
 
 #: ../glade/hash.glade:81
 msgid "<b>Statistics</b>"
-msgstr ""
+msgstr "<b>Estadisticas</b>"
 
 #: ../glade/hash.glade:109
-#, fuzzy
 msgid "Pause"
-msgstr "Pausado"
+msgstr "Pausa"
 
 #: ../glade/hash.glade:138
 msgid "Run in background"
-msgstr ""
+msgstr "Correr en segundo plano"
 
 #: ../glade/searchspy.glade:32
 msgid "Ignore TTH search"
-msgstr ""
+msgstr "Ignorar busqueda TTH"
 
 #: ../glade/searchspy.glade:33
 msgid "Ignore TTH"
-msgstr ""
+msgstr "Ignorar TTH"
 
 #: ../glade/searchspy.glade:56
 msgid "Применить настройки"
@@ -1844,16 +1836,15 @@ msgstr ""
 
 #: ../glade/searchspy.glade:68
 msgid "Top: >"
-msgstr ""
+msgstr "Arriba: >"
 
 #: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3878
 msgid "Количество совпадений для добавления в топ"
 msgstr ""
 
 #: ../glade/searchspy.glade:90
-#, fuzzy
 msgid "Waiting:"
-msgstr "Clasificación"
+msgstr "Esperar:"
 
 #: ../glade/searchspy.glade:101 ../glade/settingsdialog.glade:3847
 msgid ""
@@ -1863,7 +1854,7 @@ msgstr ""
 
 #: ../glade/searchspy.glade:112
 msgid "Frame:"
-msgstr ""
+msgstr "Cuadro:"
 
 #: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3817
 msgid ""
@@ -1872,36 +1863,34 @@ msgid ""
 msgstr ""
 
 #: ../glade/searchspy.glade:136 ../glade/searchspy.glade:277
-#, fuzzy
 msgid "Clear"
-msgstr "Limpiar mensaje privado"
+msgstr "Limpiar"
 
 #: ../glade/searchspy.glade:150
 msgid "Update"
-msgstr ""
+msgstr "Actualizar"
 
 #: ../glade/searchspy.glade:163
 msgid "Show top search"
-msgstr ""
+msgstr "Mostrar cabeza de busquedas"
 
 #: ../glade/searchspy.glade:164 ../glade/searchspy.glade:205
 msgid "Top"
-msgstr ""
+msgstr "Arriba"
 
 #: ../glade/searchspy.glade:196 ../glade/searchspy.glade:263
 #: ../glade/search.glade:556 ../glade/favoriteusers.glade:93
 #: ../glade/downloadqueue.glade:188 ../glade/downloadqueue.glade:336
 msgid "_Remove"
-msgstr ""
+msgstr "_Eliminar"
 
 #: ../glade/searchspy.glade:262
 msgid "Delete item"
-msgstr ""
+msgstr "Borrar objeto"
 
 #: ../glade/search.glade:25
-#, fuzzy
 msgid "Search for"
-msgstr "Buscando por "
+msgstr "Buscar por"
 
 #: ../glade/search.glade:74
 msgid ""
@@ -1909,6 +1898,9 @@ msgid ""
 "At least\n"
 "At most"
 msgstr ""
+"Normal\n"
+"Por lo menos\n"
+"A lo sumo"
 
 #: ../glade/search.glade:94
 msgid ""
@@ -1917,11 +1909,14 @@ msgid ""
 "MiB\n"
 "GiB"
 msgstr ""
+"B\n"
+"KiB\n"
+"MiB\n"
+"GiB"
 
 #: ../glade/search.glade:121
-#, fuzzy
 msgid "File type"
-msgstr "Lista de archivos"
+msgstr "Tipo de archivos"
 
 #: ../glade/search.glade:131
 msgid ""
@@ -1935,10 +1930,19 @@ msgid ""
 "Directory\n"
 "TTH"
 msgstr ""
+"Todos\n"
+"Audio\n"
+"Comprimidos\n"
+"Documentos\n"
+"Ejecutables\n"
+"Fotos\n"
+"Video\n"
+"Directorios\n"
+"TTH"
 
 #: ../glade/search.glade:158
 msgid "Group by"
-msgstr ""
+msgstr "Agrupar por"
 
 #: ../glade/search.glade:168
 msgid ""
@@ -1952,369 +1956,330 @@ msgid ""
 "Hub\n"
 "File type\n"
 msgstr ""
+"No agrupar\n"
+"nombre de archivo\n"
+"Direccion\n"
+"Tamaño\n"
+"Conexión\n"
+"TTH\n"
+"Nick\n"
+"Hub\n"
+"Tipo de archivo\n"
 
 #: ../glade/search.glade:197
-#, fuzzy
 msgid "Search options"
-msgstr "Cadena de busqueda"
+msgstr "Opciones de busqueda"
 
 #: ../glade/search.glade:208
 msgid "Search within local results"
-msgstr ""
+msgstr "Buscar dentro de los resultados locales"
 
 #: ../glade/search.glade:226
 msgid "Only users with free slots"
-msgstr ""
+msgstr "Solo usuarios con slot libres"
 
 #: ../glade/search.glade:246
-#, fuzzy
 msgid "Filter files already in share"
-msgstr "No descargar archivos si ya se están compartiendo"
+msgstr "Filtrar archivos dentro de los compartidos"
 
 #: ../glade/search.glade:272 ../glade/mainwindow.glade:507
-#, fuzzy
 msgid "Hubs"
-msgstr "Hubs:"
+msgstr "Hubs"
 
 #: ../glade/search.glade:317
-#, fuzzy
 msgid "Search for a file"
-msgstr "Buscando por "
+msgstr "Buscando por archivo"
 
 #: ../glade/search.glade:341
-#, fuzzy
 msgid "_Search"
-msgstr "Buscar"
+msgstr "_Buscar"
 
 #: ../glade/search.glade:438 ../glade/privatemessage.glade:104
 #: ../glade/hub.glade:262
-#, fuzzy
 msgid "_Download"
-msgstr "Descarga"
+msgstr "_Descarga"
 
 #: ../glade/search.glade:445 ../glade/privatemessage.glade:111
 #: ../glade/hub.glade:269
-#, fuzzy
 msgid "Download _to..."
-msgstr "Comenzando descarga..."
+msgstr "Descargar _a..."
 
 #: ../glade/search.glade:456
-#, fuzzy
 msgid "Download _whole directory"
-msgstr "Elige un directorio"
+msgstr "Descargar todo el directorio"
 
 #: ../glade/search.glade:463
-#, fuzzy
 msgid "Download whole director_y to..."
-msgstr "Descarga completada..."
+msgstr "Descargar todo el director_io a..."
 
 #: ../glade/search.glade:479
-#, fuzzy
 msgid "_Search by TTH"
-msgstr "Bñúsqueda Espia"
+msgstr "_Búsqueda por TTH"
 
 #: ../glade/search.glade:498 ../glade/favoriteusers.glade:39
 #: ../glade/downloadqueue.glade:276 ../glade/transfers.glade:31
 #: ../glade/hub.glade:183
-#, fuzzy
 msgid "_Browse file list"
-msgstr "Obtener lista de archivos"
+msgstr "_Explorar lista de archivos"
 
 #: ../glade/search.glade:505
-#, fuzzy
 msgid "_Match Queue"
-msgstr "Coincidencia "
+msgstr "_Encontrar coincidencia"
 
 #: ../glade/search.glade:512 ../glade/downloadqueue.glade:287
-#, fuzzy
 msgid "Send _private message"
-msgstr "Mensaje Privado"
+msgstr "Enviar _mensaje privado"
 
 #: ../glade/search.glade:519 ../glade/transfers.glade:52
 #: ../glade/hub.glade:209
-#, fuzzy
 msgid "_Add to favorites"
-msgstr "añador un Hub a favoritos"
+msgstr "_Añadir a favoritos"
 
 #: ../glade/search.glade:526 ../glade/transfers.glade:59
-#, fuzzy
 msgid "_Grant extra slot"
-msgstr "conceder slot extra"
+msgstr "_Conceder slot extra"
 
 #: ../glade/search.glade:533 ../glade/downloadqueue.glade:325
-#, fuzzy
 msgid "Remove user from _queue"
-msgstr "Eliminar usuario favorito"
+msgstr "Eliminar usuario de la _cola"
 
 #: ../glade/search.glade:540 ../glade/hub.glade:242
-#, fuzzy
 msgid "_User commands"
-msgstr "comando desconocido"
+msgstr "_Comando de usuario"
 
 #: ../glade/favoriteusers.glade:46 ../glade/transfers.glade:38
 #: ../glade/hub.glade:190
-#, fuzzy
 msgid "_Match queue"
-msgstr "Coincidencia "
+msgstr "_Encontrar coincidencia"
 
 #: ../glade/favoriteusers.glade:53 ../glade/hub.glade:197
-#, fuzzy
 msgid "_Private message"
-msgstr "Mensaje Privado"
+msgstr "_Mensaje Privado"
 
 #: ../glade/favoriteusers.glade:60 ../glade/hub.glade:228
-#, fuzzy
 msgid "_Grant slot"
-msgstr "conceder slot extra"
+msgstr "_Conceder slot"
 
 #: ../glade/favoriteusers.glade:67 ../glade/transfers.glade:66
 #: ../glade/hub.glade:235
-#, fuzzy
 msgid "_Remove user from queue"
-msgstr "Eliminar usuario favorito"
+msgstr "_Eliminar usuario de la cola"
 
 #: ../glade/favoriteusers.glade:74
-#, fuzzy
 msgid "Connect to hub"
 msgstr "Conectar con el Hub"
 
 #: ../glade/favoriteusers.glade:135
-#, fuzzy
 msgid "<b>Description</b>"
-msgstr "Descripción"
+msgstr "<b>Descripción</b>"
 
 #: ../glade/favoritehubs.glade:90 ../glade/ADLSearch.glade:86
-#, fuzzy
 msgid "Favorite Hub Properties"
-msgstr "Hub favorito"
+msgstr "Propiedades del Hub favorito"
 
 #: ../glade/favoritehubs.glade:108
-#, fuzzy
 msgid "<b>Hub</b>"
-msgstr "<b>Archivo:</b> "
+msgstr "<b>HUB</b> "
 
 #: ../glade/favoritehubs.glade:123
-#, fuzzy
 msgid "Auto connect on _startup"
-msgstr "Auto-conectar"
+msgstr "Auto-conectar al _inicio"
 
 #: ../glade/favoritehubs.glade:142
-#, fuzzy
 msgid "_Name:"
-msgstr "Nombre"
+msgstr "_Nombre:"
 
 #: ../glade/favoritehubs.glade:173
-#, fuzzy
 msgid "_Address:"
-msgstr "Dirección"
+msgstr "_Dirección:"
 
 #: ../glade/favoritehubs.glade:203
-#, fuzzy
 msgid "_Description:"
-msgstr "Descripción"
+msgstr "_Descripción:"
 
 #: ../glade/favoritehubs.glade:233
-#, fuzzy
 msgid "_Encoding:"
-msgstr "Codificación"
+msgstr "_Codificación_"
 
 #: ../glade/favoritehubs.glade:272
 msgid "<b>Identification</b>"
-msgstr ""
+msgstr "<b>Identificación</b>"
 
 #: ../glade/favoritehubs.glade:288
 msgid "N_ick:"
-msgstr ""
+msgstr "N_ick:"
 
 #: ../glade/favoritehubs.glade:320
-#, fuzzy
 msgid "_Password:"
-msgstr "Contraseña"
+msgstr "_Contraseña"
 
 #: ../glade/favoritehubs.glade:352
-#, fuzzy
 msgid "_User Description:"
-msgstr "Descripción del usuario"
+msgstr "_Descripción del usuario"
 
 #: ../glade/favoritehubs.glade:384
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr ""
+msgstr "<small>Nota: dejar sin activar para valores por defecto</small>"
 
 #: ../glade/mainwindow.glade:19
-#, fuzzy
 msgid "_File"
-msgstr "Archivo"
+msgstr "_Archivo"
 
 #: ../glade/mainwindow.glade:26
-#, fuzzy
 msgid "Open _file list..."
-msgstr "Obtener lista de archivos"
+msgstr "abrir lista de _archivos"
 
 #: ../glade/mainwindow.glade:41
-#, fuzzy
 msgid "Open _own list"
-msgstr "Actualizar lista de archivos propios"
+msgstr "Abrir lista de archivos _propios"
 
 #: ../glade/mainwindow.glade:55
-#, fuzzy
 msgid "_Refresh file list"
-msgstr "Obtener lista de archivos"
+msgstr "_Actualizar lista de archivos"
 
 #: ../glade/mainwindow.glade:75
-#, fuzzy
 msgid "_Quick connect"
-msgstr "Hub conectado"
+msgstr "_Conexion rapida"
 
 #: ../glade/mainwindow.glade:90
-#, fuzzy
 msgid "Re_connect"
-msgstr "Reconectar"
+msgstr "Re_conectar"
 
 #: ../glade/mainwindow.glade:110
-#, fuzzy
 msgid "_Preferences"
-msgstr "Preferencias"
+msgstr "_Preferencias"
 
 #: ../glade/mainwindow.glade:125
-#, fuzzy
 msgid "_Magnet Choice"
-msgstr "Elección de Imán"
+msgstr "_Elección de Imán"
 
 #: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1255
 msgid "_Exit"
-msgstr ""
+msgstr "_Salir"
 
 #: ../glade/mainwindow.glade:171
 msgid "_View"
-msgstr ""
+msgstr "_Ver"
 
 #: ../glade/mainwindow.glade:325
 msgid "Indexing Progress"
-msgstr ""
+msgstr "Progreso de Indexado"
 
 #: ../glade/mainwindow.glade:343
 msgid "_Tabs"
-msgstr ""
+msgstr "_Pestañas"
 
 #: ../glade/mainwindow.glade:351
 msgid "_Previous Tab"
-msgstr ""
+msgstr "_Pestaña anterior"
 
 #: ../glade/mainwindow.glade:360
 msgid "_Next Tab"
-msgstr ""
+msgstr "_Pestaña siguiente"
 
 #: ../glade/mainwindow.glade:385
 msgid "Homepage"
-msgstr ""
+msgstr "Homepage"
 
 #: ../glade/mainwindow.glade:399
 msgid "Source(svn)"
-msgstr ""
+msgstr "Fuente(svn)"
 
 #: ../glade/mainwindow.glade:413
 msgid "Report a Bug"
-msgstr ""
+msgstr "Reportar error"
 
 #: ../glade/mainwindow.glade:427
 msgid "Discussion forum"
-msgstr ""
+msgstr "Foro de discusión"
 
 #: ../glade/mainwindow.glade:446
 msgid "Changelog(svn)"
-msgstr ""
+msgstr "Lista de cambios(svn)"
 
 #: ../glade/mainwindow.glade:465
 msgid "About EiskaltDC++"
-msgstr ""
+msgstr "Acerca de EiskaltDC++"
 
 #: ../glade/mainwindow.glade:492
-#, fuzzy
 msgid "Quick connect to a hub"
-msgstr "Conectar con el Hub"
+msgstr "Conectar rapidamente con el Hub"
 
 #: ../glade/mainwindow.glade:531
 msgid "Browse the list of public hubs"
-msgstr ""
+msgstr "Explorar lista de de HUBs publicos"
 
 #: ../glade/mainwindow.glade:544
-#, fuzzy
 msgid "Edit the preferences"
-msgstr "Preferencias"
+msgstr "Editar las preferencias"
 
 #: ../glade/mainwindow.glade:557
 msgid "View the hashing progress"
-msgstr ""
+msgstr "Ver el progreso del hasheo"
 
 #: ../glade/mainwindow.glade:570
 msgid "Search for files to download"
-msgstr ""
+msgstr "Buscar archivos para descargar"
 
 #: ../glade/mainwindow.glade:585
 msgid "Spy"
-msgstr ""
+msgstr "Espia"
 
 #: ../glade/mainwindow.glade:596
 msgid "View the files to be downloaded"
-msgstr ""
+msgstr "Ver archivos para ser descargar"
 
 #: ../glade/mainwindow.glade:609
-#, fuzzy
 msgid "View the list of finished downloads"
-msgstr "Descargas finalizadas"
+msgstr "Ver la lista de descargas finalizadas"
 
 #: ../glade/mainwindow.glade:622
 msgid "View the list of finished uploads"
-msgstr ""
+msgstr "Ver lista de las subidas finalizadas"
 
 #: ../glade/mainwindow.glade:648
 msgid "Quit the program"
-msgstr ""
+msgstr "Salir del programa"
 
 #: ../glade/mainwindow.glade:711
 msgid "Show/Hide transfers panel"
-msgstr ""
+msgstr "Mostrar/Ocultar panel de transferencias"
 
 #: ../glade/mainwindow.glade:746
 msgid "Hubs (normal / registered / op)"
-msgstr ""
+msgstr "HUBs (normal / registrados / op)"
 
 #: ../glade/mainwindow.glade:787
-#, fuzzy
 msgid "Download speed"
-msgstr "Descargado"
+msgstr "Velocidad de descarga"
 
 #: ../glade/mainwindow.glade:828
-#, fuzzy
 msgid "Total received"
-msgstr "Tamaño total:"
+msgstr "Total recibido"
 
 #: ../glade/mainwindow.glade:850
-#, fuzzy
 msgid "Upload speed"
-msgstr "Subido"
+msgstr "Velocidad de subido"
 
 #: ../glade/mainwindow.glade:892
-#, fuzzy
 msgid "Total sent"
-msgstr "Tamaño total:"
+msgstr "Total enviado"
 
 #: ../glade/mainwindow.glade:914
 msgid "Exit EiskaltDC++ Gtk?"
-msgstr ""
+msgstr "¿Salir de EiskaltDC++ GTK?"
 
 #: ../glade/mainwindow.glade:925
 msgid "Do you really want to exit?"
-msgstr ""
+msgstr "¿De verdad quiere salir?"
 
 #: ../glade/mainwindow.glade:971
-#, fuzzy
 msgid "Connect to a hub"
 msgstr "Conectar con el Hub"
 
 #: ../glade/mainwindow.glade:1005
 msgid "<b>Connect to address:</b>"
-msgstr ""
+msgstr "<b>Conectar con la dirección:</b>"
 
 #: ../glade/mainwindow.glade:1059
 msgid ""
@@ -2345,48 +2310,46 @@ msgid ""
 "Contributors:\n"
 "  Leliksan Floyd\n"
 msgstr ""
+"Desaroyadores:\n"
+" troll\n"
+"Contibuidores:\n"
+" Leliksan Floyd"
 
 #: ../glade/mainwindow.glade:1141
-#, fuzzy
 msgid "Enter line for user command"
-msgstr "Introducir valor para "
+msgstr "Introducir linea para comando de usuario"
 
 #: ../glade/mainwindow.glade:1229
 msgid "_Show Interface"
-msgstr ""
+msgstr "_Mostrar interface"
 
 #: ../glade/mainwindow.glade:1242
-#, fuzzy
 msgid "Use Blinking Icon"
-msgstr "Usar parpadeo del icono de estado"
+msgstr "Usar icono parpadeante"
 
 #: ../glade/mainwindow.glade:1269 ../glade/mainwindow.glade:1306
-#, fuzzy
 msgid "Magnet"
-msgstr "Elección de Imán"
+msgstr "Imán"
 
 #: ../glade/mainwindow.glade:1317
-#, fuzzy
 msgid "File name"
 msgstr "Nombre del Archivo"
 
 #: ../glade/mainwindow.glade:1343
 msgid "TTH"
-msgstr ""
+msgstr "TTH"
 
 #: ../glade/mainwindow.glade:1412
-#, fuzzy
 msgid "Exact size"
 msgstr "Tamaño exacto"
 
 #: ../glade/mainwindow.glade:1440
 msgid "+/-"
-msgstr ""
+msgstr "+/-"
 
 #: ../glade/mainwindow.glade:1451
-#, fuzzy
 msgid "<b>Magnet properties</b>"
-msgstr "Propiedades/Preferencia del Imán"
+msgstr "<b>Propiedades del Imán</b>"
 
 #: ../glade/mainwindow.glade:1479
 msgid ""
@@ -2396,304 +2359,292 @@ msgstr ""
 
 #: ../glade/mainwindow.glade:1480
 msgid "Add this file to your download queue"
-msgstr ""
+msgstr "añadir este archivo a la cola de descarga"
 
 #: ../glade/mainwindow.glade:1524
 msgid "Start a search for this file"
-msgstr ""
+msgstr "Empezar la busqueda para este archivo "
 
 #: ../glade/mainwindow.glade:1538
 msgid "Show magnet dialog"
-msgstr ""
+msgstr "Mostrar diálogo del imán"
 
 #: ../glade/mainwindow.glade:1564
 msgid "Remember choice"
-msgstr ""
+msgstr "Recordar elección"
 
 #: ../glade/mainwindow.glade:1593
 msgid "<b>What would you like to do?</b>"
-msgstr ""
+msgstr "<b>¿Qué te gustaría hacer?</b>"
 
 #: ../glade/mainwindow.glade:1621 ../glade/settingsdialog.glade:5585
 #: ../glade/settingsdialog.glade:6078 ../glade/settingsdialog.glade:6119
 msgid "gtk-cancel"
-msgstr ""
+msgstr "Cancelar gtk"
 
 #: ../glade/mainwindow.glade:1631 ../glade/settingsdialog.glade:6090
 #: ../glade/settingsdialog.glade:6142
 msgid "gtk-ok"
-msgstr ""
+msgstr "gtk ok"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"
-msgstr ""
+msgstr "Velocidad de subida máxima (MiB/s)"
 
 #: ../glade/settingsdialog.glade:118
-#, fuzzy
 msgid "E-Mail"
-msgstr "eMail"
+msgstr "E-Mail"
 
 #: ../glade/settingsdialog.glade:142
-#, fuzzy
 msgid "Default hub encoding"
-msgstr "Iconos por defecto"
+msgstr "Codificación del HUB por defecto"
 
 #: ../glade/settingsdialog.glade:175
 msgid "<b>Personal Information</b>"
-msgstr ""
+msgstr "<b>Información personal</b>"
 
 #: ../glade/settingsdialog.glade:192
 msgid "Personal"
-msgstr ""
+msgstr "Personal"
 
 #: ../glade/settingsdialog.glade:387
 msgid "Ports"
-msgstr ""
+msgstr "Puertos"
 
 #: ../glade/settingsdialog.glade:400 ../glade/ADLSearch.glade:266
 msgid "Active"
-msgstr ""
+msgstr "Activo"
 
 #: ../glade/settingsdialog.glade:415
 msgid "Firewall (passive, last resort)"
-msgstr ""
+msgstr "Firewall (pasivo, último recurso)"
 
 #: ../glade/settingsdialog.glade:432
 msgid "External / WAN IP"
-msgstr ""
+msgstr "IP Externa / WAN"
 
 #: ../glade/settingsdialog.glade:447
 msgid "Don't allow hub/UPnP to override"
-msgstr ""
+msgstr "No permitir anulación Hub/UPnP"
 
 #: ../glade/settingsdialog.glade:465
 msgid "Firewall with manual port forward"
-msgstr ""
+msgstr "Firewall con puerto manual de reenvio"
 
 #: ../glade/settingsdialog.glade:482
 msgid "<b>Incoming connection settings</b>"
-msgstr ""
+msgstr "<b> Opciones de conexión entrante<b/>"
 
 #: ../glade/settingsdialog.glade:572
-#, fuzzy
 msgid "Username"
-msgstr "Usuario"
+msgstr "Nombre de usuario"
 
 #: ../glade/settingsdialog.glade:587
 msgid "Use SOCKS5 server to resolve hostnames"
-msgstr ""
+msgstr "Usar servidor SOCKS5 para resolver hostnames"
 
 #: ../glade/settingsdialog.glade:648
 msgid "Port"
-msgstr ""
+msgstr "Puerto"
 
 #: ../glade/settingsdialog.glade:663
 msgid "Socks IP"
-msgstr ""
+msgstr "Socks IP"
 
 #: ../glade/settingsdialog.glade:695
-#, fuzzy
 msgid "Direct connection"
-msgstr "Conexión"
+msgstr "Conexión directa"
 
 #: ../glade/settingsdialog.glade:715
 msgid "<b>Outgoing connection settings</b>"
-msgstr ""
+msgstr "<b> Opciones de conexión saliente<b/>"
 
 #: ../glade/settingsdialog.glade:766
 msgid "Default download directory"
-msgstr ""
+msgstr "Directorio de descarga por defecto"
 
 #: ../glade/settingsdialog.glade:807
-#, fuzzy
 msgid "Unfinished downloads directory"
-msgstr "Descargas finalizadas"
+msgstr "Directorio de Descargas sin finalizar"
 
 #: ../glade/settingsdialog.glade:850
 msgid "<b>Directories</b>"
-msgstr ""
+msgstr "<b>Directorios</b>"
 
 #: ../glade/settingsdialog.glade:882
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
 msgstr ""
+"No añadir nuevas descargas si la velocidad exceda (KiB/s, 0 = deshabilitado)"
 
 #: ../glade/settingsdialog.glade:897
 msgid "Maximum simultaneous downloads (0 = infinite)"
-msgstr ""
+msgstr "Maximas descargas simultaneas (0 = infinito)"
 
 #: ../glade/settingsdialog.glade:941
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
+"Nota: Tengalo en cuenta, porque de cambiar las velocidades de descarga, esto "
+"no es fiable al 100% ..."
 
 #: ../glade/settingsdialog.glade:954
-#, fuzzy
 msgid "<b>Limits</b>"
-msgstr "<b>Archivo:</b> "
+msgstr "<b>Limites</b> "
 
 #: ../glade/settingsdialog.glade:983
-#, fuzzy
 msgid "Public Hubs list URL"
-msgstr "Hubs públicos"
+msgstr "URL de Hubs públicos"
 
 #: ../glade/settingsdialog.glade:997
 msgid "Configure Public Hub Lists"
-msgstr ""
+msgstr "Configurar lista de HUBs publicos"
 
 #: ../glade/settingsdialog.glade:1028
 msgid "HTTP Proxy (for hublist only)"
-msgstr ""
+msgstr "Proxy HTTP (solo para lista de hubs)"
 
 #: ../glade/settingsdialog.glade:1056
-#, fuzzy
 msgid "<b>Public Hubs list</b>"
-msgstr "Hubs públicos"
+msgstr "<b>Lista Hubs públicos</b>"
 
 #: ../glade/settingsdialog.glade:1074 ../glade/settingsdialog.glade:1949
-#, fuzzy
 msgid "Downloads"
-msgstr "Descarga"
+msgstr "Descargas"
 
 #: ../glade/settingsdialog.glade:1162
 msgid "<b>Favorite download to directories</b>"
-msgstr ""
+msgstr "<b>Directorios preferidos de descarga</b>"
 
 #: ../glade/settingsdialog.glade:1177
-#, fuzzy
 msgid "Download to"
-msgstr "Descarga: "
+msgstr "Descargar a"
 
 #: ../glade/settingsdialog.glade:1255
 msgid "High priority max size"
-msgstr ""
+msgstr "Tamaño maximo de prioridad alta"
 
 #: ../glade/settingsdialog.glade:1268
 msgid "Low priority size"
-msgstr ""
+msgstr "Tamaño de prioridad baja"
 
 #: ../glade/settingsdialog.glade:1283 ../glade/settingsdialog.glade:1298
 #: ../glade/settingsdialog.glade:1327 ../glade/settingsdialog.glade:1342
 #: ../glade/settingsdialog.glade:1542 ../glade/settingsdialog.glade:4629
 #: ../glade/settingsdialog.glade:4846
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: ../glade/settingsdialog.glade:1355
 msgid "Normal priority max size"
-msgstr ""
+msgstr "Tamaño maximo de prioridad normal"
 
 #: ../glade/settingsdialog.glade:1368
 msgid "Highest priority max size"
-msgstr ""
+msgstr "Tamaño maximo de prioridad muy alta"
 
 #: ../glade/settingsdialog.glade:1380
 msgid "<b>Auto-priority settings</b>"
-msgstr ""
+msgstr "<b>Opciones de Auto-prioridad</b>"
 
 #: ../glade/settingsdialog.glade:1499
-#, fuzzy
 msgid "Min filesize"
-msgstr "archivos"
+msgstr "Tamaño de archivo minimo"
 
 #: ../glade/settingsdialog.glade:1514
 msgid "Max inactivity"
-msgstr ""
+msgstr "Maximo inactivo"
 
 #: ../glade/settingsdialog.glade:1529
 msgid "Check every"
-msgstr ""
+msgstr "Comprobar todos"
 
 #: ../glade/settingsdialog.glade:1627
-#, fuzzy
 msgid "Min sources online"
-msgstr " usuario(s) conectados"
+msgstr "Fuentes conectadas minimas"
 
 #: ../glade/settingsdialog.glade:1640
-#, fuzzy
 msgid "Min elapsed"
-msgstr "Minimo Compartido"
+msgstr "Minimo transcurrido"
 
 #: ../glade/settingsdialog.glade:1653
 msgid "Drop sources below"
-msgstr ""
+msgstr "Abandonar fuentes por debajo de"
 
 #: ../glade/settingsdialog.glade:1665
 msgid "<b>Auto-drop settings</b>"
-msgstr ""
+msgstr "<b>Opciones de Auto.abandono</b>"
 
 #: ../glade/settingsdialog.glade:1703
 msgid "<b>Other queue options</b>"
-msgstr ""
+msgstr "<b>Otras opciones de cola</b>"
 
 #: ../glade/settingsdialog.glade:1758
 msgid "<b>Players list</b>"
-msgstr ""
+msgstr "<b>Lista de reproductores</b>"
 
 #: ../glade/settingsdialog.glade:1781
-#, fuzzy
 msgid "Name:"
-msgstr "Nombre"
+msgstr "Nombre:"
 
 #: ../glade/settingsdialog.glade:1803
-#, fuzzy
 msgid "Application:"
-msgstr "Aplicación"
+msgstr "Aplicación:"
 
 #: ../glade/settingsdialog.glade:1826
 msgid "Apply to Extensions: (avi;mov;divx)"
-msgstr ""
+msgstr "aplicar extensiónes: (avi;mov;divx)"
 
 #: ../glade/settingsdialog.glade:1850
-#, fuzzy
 msgid "<b>Add player</b>"
-msgstr "<b>Archivo:</b> "
+msgstr "<b>Añadir reproductor:</b> "
 
 #: ../glade/settingsdialog.glade:1933 ../glade/transfers.glade:89
 #: ../glade/finishedtransfers.glade:126
 msgid "Preview"
-msgstr ""
+msgstr "Previsualización"
 
 #: ../glade/settingsdialog.glade:1991
 msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
+"Nota: ¡Los nuevos archivos serán añadidos a compartir solo cuando hayan sido "
+"hasheados!"
 
 #: ../glade/settingsdialog.glade:2006
-#, fuzzy
 msgid "Total size: 0 B"
-msgstr "Tamaño total:"
+msgstr "Tamaño total: 0B"
 
 #: ../glade/settingsdialog.glade:2017
 msgid "Share hidden files"
-msgstr ""
+msgstr "compartir archivos ocultos"
 
 #: ../glade/settingsdialog.glade:2027
 msgid "Follow Links"
-msgstr ""
+msgstr "Seguir enlaces"
 
 #: ../glade/settingsdialog.glade:2080
 msgid "<b>Shared directories</b>"
-msgstr ""
+msgstr "<b>Directorio de compartidos</b>"
 
 #: ../glade/settingsdialog.glade:2119
-#, fuzzy
 msgid "Upload slots"
-msgstr "Subida: "
+msgstr "Slots de subida"
 
 #: ../glade/settingsdialog.glade:2132
 msgid "KiB/s"
-msgstr ""
+msgstr "KiB/s"
 
 #: ../glade/settingsdialog.glade:2159
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
+"Abrir automaticamente slot si la velocidad está por debajo de (0 = "
+"deshabilitado)"
 
 #: ../glade/settingsdialog.glade:2178
-#, fuzzy
 msgid "Sharing"
 msgstr "Compartido"
 
 #: ../glade/settingsdialog.glade:2225
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Opciones</b>"
 
 #: ../glade/settingsdialog.glade:2254
 msgid ""
@@ -2702,10 +2653,14 @@ msgid ""
 "Right\n"
 "Bottom"
 msgstr ""
+"Arriba\n"
+"Izqierda\n"
+"Derecha\n"
+"Abajo"
 
 #: ../glade/settingsdialog.glade:2271
 msgid "<b>Tab Position</b>"
-msgstr ""
+msgstr "<b>Posicion de las pestañas</b>"
 
 #: ../glade/settingsdialog.glade:2295
 msgid ""
@@ -2716,14 +2671,20 @@ msgid ""
 "Hidden\n"
 "System default"
 msgstr ""
+"Iconsos\n"
+"Texto\n"
+"Ambos\n"
+"Ambos en horizontal\n"
+"Escondidos\n"
+"Por defecto del sistema"
 
 #: ../glade/settingsdialog.glade:2314
 msgid "<b>Main Toolbar Style</b>"
-msgstr ""
+msgstr "<b>Estilo de la barra de herramientas</b>"
 
 #: ../glade/settingsdialog.glade:2355
 msgid "<b>Default away message</b>"
-msgstr ""
+msgstr "<b>Mensaje de ausente por defecto</b>"
 
 #: ../glade/settingsdialog.glade:2376
 msgid ""
@@ -2736,199 +2697,194 @@ msgid ""
 "\n"
 "see man strftime for details."
 msgstr ""
+"%a abreviatura del nombre del dia.\n"
+"%b abreviatura del nombre del mes.\n"
+"%H hora es un número decimal usado para relojes de 24-horas.\n"
+"%M minuto es un número decimal (rango de 00 a 59).\n"
+"%S segundo es un número decimal (rango de 00 a 59).\n"
+"%% es literalmente el caracter '%'.\n"
+"\n"
+"ver manual strftime para más detalles."
 
 #: ../glade/settingsdialog.glade:2391
-#, fuzzy
 msgid "<b>Timestamps</b>"
-msgstr "Marca de tiempo"
+msgstr "<b>Marca de tiempo</b>"
 
 #: ../glade/settingsdialog.glade:2415 ../glade/settingsdialog.glade:2478
 msgid "Note: Most of these options require that you restart the application"
-msgstr ""
+msgstr "Nota: muchos de estas opciones requieres reiniciar la aplicación"
 
 #: ../glade/settingsdialog.glade:2428 ../glade/settingsdialog.glade:3977
 msgid "Appearance"
-msgstr ""
+msgstr "<b>Apariencia</b>"
 
 #: ../glade/settingsdialog.glade:2464
 msgid "<b>Tab bolding on content change</b>"
-msgstr ""
+msgstr "<b>Pestaña en negrita cuando ha cambiado el contenido</b>"
 
 #: ../glade/settingsdialog.glade:2494
 msgid "Tabs"
-msgstr ""
+msgstr "Pestañas"
 
 #: ../glade/settingsdialog.glade:2535
 msgid "<b>Auto-open on startup</b>"
-msgstr ""
+msgstr "<b>Auto-abrir al inicio</b>"
 
 #: ../glade/settingsdialog.glade:2573
 msgid "<b>Window Options</b>"
-msgstr ""
+msgstr "<b>Opciones de la ventana</b>"
 
 #: ../glade/settingsdialog.glade:2614
 msgid "<b>Confirmation Dialog Options</b>"
-msgstr ""
+msgstr "<b>Opciones del dialogo de confirmacion</b>"
 
 #: ../glade/settingsdialog.glade:2634
 msgid "Windows"
-msgstr ""
+msgstr "Ventanas"
 
 #: ../glade/settingsdialog.glade:2670
-#, fuzzy
 msgid "<b>Sounds</b>"
-msgstr "Sonidos"
+msgstr "<b>Sonidos</b>"
 
 #: ../glade/settingsdialog.glade:2688
 msgid "Play"
-msgstr ""
+msgstr "Reproducir"
 
 #: ../glade/settingsdialog.glade:2739
 msgid "Every time a private message is received"
-msgstr ""
+msgstr "Cada vez que se recibe un mensaje privado"
 
 #: ../glade/settingsdialog.glade:2751
 msgid "When a private message window is opened"
-msgstr ""
+msgstr "Se abrirá la ventana cuando ha sido recibido un mensaje privado"
 
 #: ../glade/settingsdialog.glade:2765
-#, fuzzy
 msgid "<b>Private message sound</b>"
-msgstr "Mensaje Privado"
+msgstr "<b>Sonido Mensaje Privado</b>"
 
 #: ../glade/settingsdialog.glade:2831
 msgid "<b>Available styles</b>"
-msgstr ""
+msgstr "<b>Estilos utilizables</b>"
 
 #: ../glade/settingsdialog.glade:2863
 msgid "<b>Preview styles</b>"
-msgstr ""
+msgstr "<b>Previsualizar estilos</b>"
 
 #: ../glade/settingsdialog.glade:2881
 msgid "Bold Authors of message in chat"
-msgstr ""
+msgstr "Autores de los mensajes en negrita"
 
 #: ../glade/settingsdialog.glade:2900
 msgid "Back color"
-msgstr ""
+msgstr "Color del fondo"
 
 #: ../glade/settingsdialog.glade:2910
 msgid "Text color"
-msgstr ""
+msgstr "Color del texto"
 
 #: ../glade/settingsdialog.glade:2923
 msgid "Text style"
-msgstr ""
+msgstr "Estilo del texto"
 
 #: ../glade/settingsdialog.glade:2936
-#, fuzzy
 msgid "Default styles"
-msgstr "Por defecto"
+msgstr "Estilo por defecto"
 
 #: ../glade/settingsdialog.glade:2949
 msgid "Black/White"
-msgstr ""
+msgstr "Negro/blanco"
 
 #: ../glade/settingsdialog.glade:2987
 msgid "Colors & Fonts"
-msgstr ""
+msgstr "Colores y Fuentes"
 
 #: ../glade/settingsdialog.glade:3025
-#, fuzzy
 msgid "<b>Notify</b>"
-msgstr "Notificar"
+msgstr "<b>Notificar</b>"
 
 #: ../glade/settingsdialog.glade:3060
-#, fuzzy
 msgid "<b>Title</b>"
-msgstr "<b>Archivo:</b> "
+msgstr "<b>Título:</b> "
 
 #: ../glade/settingsdialog.glade:3089
-#, fuzzy
 msgid "<b>Icon size</b>"
-msgstr "Tamaño del icono"
+msgstr "<b>Tamaño del icono</b>"
 
 #: ../glade/settingsdialog.glade:3116
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: ../glade/settingsdialog.glade:3141
-#, fuzzy
 msgid "Icon..."
-msgstr "Icono"
+msgstr "Icono..."
 
 #: ../glade/settingsdialog.glade:3165
 msgid "None icon"
-msgstr ""
+msgstr "Ningun icono"
 
 #: ../glade/settingsdialog.glade:3234
 msgid "Maximum message length (0 = infinite)"
-msgstr ""
+msgstr "Longitud máximo del mensaje (0 = infinito)"
 
 #: ../glade/settingsdialog.glade:3250
 msgid "Show only when the application is not active."
-msgstr ""
+msgstr "solo mostrar cuando la aplicación no está activa."
 
 #: ../glade/settingsdialog.glade:3265
-#, fuzzy
 msgid "<b>Private message</b>"
-msgstr "Mensaje Privado"
+msgstr "<b>Mensaje Privado</b>"
 
 #: ../glade/settingsdialog.glade:3282 ../glade/settingsdialog.glade:5655
-#, fuzzy
 msgid "PM"
-msgstr "Mensaje Privado:"
+msgstr "<b>Mensaje Privado:</b>"
 
 #: ../glade/settingsdialog.glade:3344
 msgid "<b>Icons</b>"
-msgstr ""
+msgstr "<b>Iconos</b>"
 
 #: ../glade/settingsdialog.glade:3376
 msgid "<b>Text styles</b>"
-msgstr ""
+msgstr "<b>Estilo del texto</b>"
 
 #: ../glade/settingsdialog.glade:3398
 msgid "<b>Current theme name:</b>"
-msgstr ""
+msgstr "<b>Nombre del tema activo:</b>"
 
 #: ../glade/settingsdialog.glade:3408
 msgid "theme"
-msgstr ""
+msgstr "tema"
 
 #: ../glade/settingsdialog.glade:3431
 msgid "Export..."
-msgstr ""
+msgstr "Exportar"
 
 #: ../glade/settingsdialog.glade:3443
 msgid "Import..."
-msgstr ""
+msgstr "Importar"
 
 #: ../glade/settingsdialog.glade:3468
-#, fuzzy
 msgid "Default icons"
 msgstr "Iconos por defecto"
 
 #: ../glade/settingsdialog.glade:3481
-#, fuzzy
 msgid "System icons"
-msgstr "+ iconos del sistema"
+msgstr "Iconos del sistema"
 
 #: ../glade/settingsdialog.glade:3494
-#, fuzzy
 msgid "Theme default"
-msgstr "Sistema por Defecto"
+msgstr "Tema por defecto"
 
 #: ../glade/settingsdialog.glade:3516
 msgid "Themes"
-msgstr ""
+msgstr "Temas"
 
 #: ../glade/settingsdialog.glade:3554
 msgid "<b>Toolbar buttons</b>"
-msgstr ""
+msgstr "<b>Botones de la barra de herramientas</b>"
 
 #: ../glade/settingsdialog.glade:3571
 msgid "Toolbar"
-msgstr ""
+msgstr "Barra de herramientas"
 
 #: ../glade/settingsdialog.glade:3615
 msgid "Новая строка или TTH"
@@ -2951,9 +2907,8 @@ msgid "Обновление строки или TTH"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:3790
-#, fuzzy
 msgid "<b>Colors</b>"
-msgstr "<b>Archivo:</b> "
+msgstr "<b>Colores</b> "
 
 #: ../glade/settingsdialog.glade:3827
 msgid "Кадр (размер)"
@@ -2968,449 +2923,412 @@ msgid "Топ (число совпадений, больше)"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:3936
-#, fuzzy
 msgid "<b>Frame</b>"
-msgstr "<b>Archivo:</b> "
+msgstr "<b>Cuadro</b> "
 
 #: ../glade/settingsdialog.glade:4043
 msgid "Log main chat"
-msgstr ""
+msgstr "Registro del chat principal"
 
 #: ../glade/settingsdialog.glade:4063 ../glade/settingsdialog.glade:4106
 #: ../glade/settingsdialog.glade:4149 ../glade/settingsdialog.glade:4192
-#, fuzzy
 msgid "Format"
-msgstr "Normal"
+msgstr "Formato"
 
 #: ../glade/settingsdialog.glade:4086
 msgid "Log private chat"
-msgstr ""
+msgstr "Registro de chat privado"
 
 #: ../glade/settingsdialog.glade:4129
-#, fuzzy
 msgid "Log downloads"
-msgstr "Descarga"
+msgstr "Registro de descarga"
 
 #: ../glade/settingsdialog.glade:4172
 msgid "Log uploads"
-msgstr ""
+msgstr "Registro de subidas"
 
 #: ../glade/settingsdialog.glade:4215
-#, fuzzy
 msgid "Log system messages"
-msgstr "Mensaje de sistema"
+msgstr "Registro de mensaje de sistema"
 
 #: ../glade/settingsdialog.glade:4230
-#, fuzzy
 msgid "Log status messages"
-msgstr "Mensaje de estado"
+msgstr "Registro de mensaje de estado"
 
 #: ../glade/settingsdialog.glade:4245
-#, fuzzy
 msgid "Log filelist transfers"
-msgstr "Cargando lista de archivos"
+msgstr "Registro de lista de archivos"
 
 #: ../glade/settingsdialog.glade:4261
 msgid "<b>Logging</b>"
-msgstr ""
+msgstr "<b>Registrando</b>"
 
 #: ../glade/settingsdialog.glade:4278
 msgid "Logs"
-msgstr ""
+msgstr "Registros"
 
 #: ../glade/settingsdialog.glade:4317 ../glade/settingsdialog.glade:5166
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #: ../glade/settingsdialog.glade:4431
-#, fuzzy
 msgid "User Commands"
-msgstr "Usuario (normal)"
+msgstr "Comandos de usuario"
 
 #: ../glade/settingsdialog.glade:4457
 msgid "Max hash speed"
-msgstr ""
+msgstr "Velocidad maxma de Hasheo"
 
 #: ../glade/settingsdialog.glade:4469
 msgid "PM history"
-msgstr ""
+msgstr "Historial M.P"
 
 #: ../glade/settingsdialog.glade:4481
 msgid "Mini slot size"
-msgstr ""
+msgstr "Tañamo del slot minimo"
 
 #: ../glade/settingsdialog.glade:4493
-#, fuzzy
 msgid "Max filelist size"
-msgstr "Obtener lista de archivos"
+msgstr "Tamaño maximo de la lista de archivos"
 
 #: ../glade/settingsdialog.glade:4607
 msgid "MiB/s"
-msgstr ""
+msgstr "Mib/s"
 
 #: ../glade/settingsdialog.glade:4641
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: ../glade/settingsdialog.glade:4673
 msgid "Write buffer size"
-msgstr ""
+msgstr "Tamaño del buffer de escritura"
 
 #: ../glade/settingsdialog.glade:4684
-#, fuzzy
 msgid "Search history"
-msgstr "Bñúsqueda Espia"
+msgstr "Historial de busqueda"
 
 #: ../glade/settingsdialog.glade:4696
-#, fuzzy
 msgid "Bind address"
-msgstr "Dirección"
+msgstr "Enlazar dirección"
 
 #: ../glade/settingsdialog.glade:4708
 msgid "Socket read buffer"
-msgstr ""
+msgstr "Buffer de lectura del socket"
 
 #: ../glade/settingsdialog.glade:4720
 msgid "Socket write buffer"
-msgstr ""
+msgstr "Buffer de escritura del socket"
 
 #: ../glade/settingsdialog.glade:4732
 msgid "Auto refresh time"
-msgstr ""
+msgstr "Tiempo de Auto-refresco"
 
 #: ../glade/settingsdialog.glade:4875 ../glade/settingsdialog.glade:4887
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: ../glade/settingsdialog.glade:4923
 msgid "Experts Only"
-msgstr ""
+msgstr "Solo Expertos"
 
 #: ../glade/settingsdialog.glade:5025
 msgid "Trusted certificates path"
-msgstr ""
+msgstr "Dirección de los certificados de autentificación"
 
 #: ../glade/settingsdialog.glade:5039
 msgid "Certificate file"
-msgstr ""
+msgstr "Archivo de certificado"
 
 #: ../glade/settingsdialog.glade:5053
-#, fuzzy
 msgid "Private key file"
-msgstr "Mensaje Privado"
+msgstr "Archivo llave privado"
 
 #: ../glade/settingsdialog.glade:5069
 msgid "<b>Certificate Paths</b>"
-msgstr ""
+msgstr "<b>Direcciones certificadas</b>"
 
 #: ../glade/settingsdialog.glade:5105
 msgid "<b>Other Security Options</b>"
-msgstr ""
+msgstr "<b>Otras opciones de seguridad</b>"
 
 #: ../glade/settingsdialog.glade:5123
 msgid "Generate certificates"
-msgstr ""
+msgstr "Generar certificados"
 
 #: ../glade/settingsdialog.glade:5150
 msgid "Security Certificates"
-msgstr ""
+msgstr "Certificados de seguridad"
 
 #: ../glade/settingsdialog.glade:5219 ../glade/publichubs.glade:190
 msgid "Configure hub lists"
-msgstr ""
+msgstr "Configurar lista de HUBs"
 
 #: ../glade/settingsdialog.glade:5309 ../glade/publichubs.glade:276
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
+"<b>Nota:</b> Editar URL en la lista haciendo clic en ellos una vez cuando se "
+"selecciona"
 
 #: ../glade/settingsdialog.glade:5348
-#, fuzzy
 msgid "Favorite name"
-msgstr "Usuario favorito"
+msgstr "Nombre del favorito"
 
 #: ../glade/settingsdialog.glade:5379
 msgid "<b>Under what name you see the directory</b>"
-msgstr ""
+msgstr "<b>Bajo qué nombre ves el directorio</b>"
 
 #: ../glade/settingsdialog.glade:5430
-#, fuzzy
 msgid "Virtual name"
-msgstr "Nombre del Archivo"
+msgstr "Nombre virtual"
 
 #: ../glade/settingsdialog.glade:5462
 msgid "<b>Name under which the others see the directory</b>"
-msgstr ""
+msgstr "<b>Nombre del directorio que verán los otros</b>"
 
 #: ../glade/settingsdialog.glade:5564
-#, fuzzy
 msgid "Choose a File"
-msgstr "Elige un directorio"
+msgstr "Elegir archivo"
 
 #: ../glade/settingsdialog.glade:5595
 msgid "gtk-open"
-msgstr ""
+msgstr "abrir gtk"
 
 #: ../glade/settingsdialog.glade:5613
 msgid "Modify User Command"
-msgstr ""
+msgstr "Modificar comandos de usuario"
 
 #: ../glade/settingsdialog.glade:5639
 msgid "Raw"
-msgstr ""
+msgstr "Raw"
 
 #: ../glade/settingsdialog.glade:5673
 msgid "Chat"
-msgstr ""
+msgstr "Chat"
 
 #: ../glade/settingsdialog.glade:5703
 msgid "<b>Command Type</b>"
-msgstr ""
+msgstr "<b>Tipos de comandos</b>"
 
 #: ../glade/settingsdialog.glade:5726
-#, fuzzy
 msgid "Search Menu"
-msgstr "Búsqueda:"
+msgstr "Menu de búsqueda:"
 
 #: ../glade/settingsdialog.glade:5741
 msgid "Chat Menu"
-msgstr ""
+msgstr "Menú del chat"
 
 #: ../glade/settingsdialog.glade:5756
-#, fuzzy
 msgid "Filelist Menu"
-msgstr "Lista de archivos"
+msgstr "Menú de la lista de archivos"
 
 #: ../glade/settingsdialog.glade:5773
-#, fuzzy
 msgid "Hub Menu"
-msgstr "Nombre del hub"
+msgstr "Menú del HUB"
 
 #: ../glade/settingsdialog.glade:5787
 msgid "<b>Context</b>"
-msgstr ""
+msgstr "<b>Contexto</b>"
 
 #: ../glade/settingsdialog.glade:5843
 msgid "Command"
-msgstr ""
+msgstr "Comando"
 
 #: ../glade/settingsdialog.glade:5874
 msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
-msgstr ""
+msgstr "IP /DNS del HUB (vacio = Todos, 'op' = donde operador)"
 
 #: ../glade/settingsdialog.glade:5905
 msgid "To (empty for selected user)"
-msgstr ""
+msgstr "A (vacio para el usuario seleccionado)"
 
 #: ../glade/settingsdialog.glade:5933
 msgid "Send once per nick"
-msgstr ""
+msgstr "Enviar una vez por nick"
 
 #: ../glade/settingsdialog.glade:5949
 msgid "<b>Parameters</b>"
-msgstr ""
+msgstr "<b>Parámetros</b>"
 
 #: ../glade/settingsdialog.glade:5985
 msgid "<b>Text sent to hub</b>"
-msgstr ""
+msgstr "<b>Enviar texto al HUB</b>"
 
 #: ../glade/settingsdialog.glade:6050
 msgid "Color select"
-msgstr ""
+msgstr "Seleccionar color"
 
 #: ../glade/settingsdialog.glade:6067
 msgid "gtk-help"
-msgstr ""
+msgstr "Ayuda gtk"
 
 #: ../glade/settingsdialog.glade:6098
 msgid "Font select"
-msgstr ""
+msgstr "Seleccionar fuente"
 
 #: ../glade/settingsdialog.glade:6130
 msgid "gtk-apply"
-msgstr ""
+msgstr "aplicar gtk"
 
 #: ../glade/downloadqueue.glade:118 ../glade/downloadqueue.glade:223
-#, fuzzy
 msgid "Set Priorit_y"
-msgstr "Prioridad"
+msgstr "Establecer Priorida_d"
 
 #: ../glade/downloadqueue.glade:125 ../glade/downloadqueue.glade:230
-#, fuzzy
 msgid "_Paused"
-msgstr "Pausado"
+msgstr "_Pausado"
 
 #: ../glade/downloadqueue.glade:132 ../glade/downloadqueue.glade:237
-#, fuzzy
 msgid "_Lowest"
-msgstr "Más baja"
+msgstr "_Más baja"
 
 #: ../glade/downloadqueue.glade:139 ../glade/downloadqueue.glade:244
 msgid "L_ow"
-msgstr ""
+msgstr "B_aja"
 
 #: ../glade/downloadqueue.glade:146 ../glade/downloadqueue.glade:251
-#, fuzzy
 msgid "_Normal"
-msgstr "Normal"
+msgstr "_Normal"
 
 #: ../glade/downloadqueue.glade:153 ../glade/downloadqueue.glade:258
 msgid "H_igh"
-msgstr ""
+msgstr "A_lta"
 
 #: ../glade/downloadqueue.glade:160 ../glade/downloadqueue.glade:265
-#, fuzzy
 msgid "_Highest"
-msgstr "Más Alta"
+msgstr "_Más Alta"
 
 #: ../glade/downloadqueue.glade:176
 msgid "_Move"
-msgstr ""
+msgstr "_Mover"
 
 #: ../glade/downloadqueue.glade:211
 msgid "_Move/Rename"
-msgstr ""
+msgstr "_Mover/Renombrar"
 
 #: ../glade/downloadqueue.glade:298
 msgid "Re-_add source"
-msgstr ""
+msgstr "Rec_argar fuente"
 
 #: ../glade/downloadqueue.glade:314
 msgid "Remove So_urce"
-msgstr ""
+msgstr "Borrar Fu_ente"
 
 #: ../glade/downloadqueue.glade:344
 msgid "Move to..."
-msgstr ""
+msgstr "Mover a..."
 
 #: ../glade/ADLSearch.glade:102
 msgid "<b>Search ADL</b>"
-msgstr ""
+msgstr "<b>Búsqueda ADL</b>"
 
 #: ../glade/ADLSearch.glade:115
-#, fuzzy
 msgid "_Search String:"
-msgstr "Cadena de busqueda"
+msgstr "_Cadena de busqueda:"
 
 #: ../glade/ADLSearch.glade:146
-#, fuzzy
 msgid "_max size:"
-msgstr "Tamaño total:"
+msgstr "_Tamaño Máximo:"
 
 #: ../glade/ADLSearch.glade:176
-#, fuzzy
 msgid "_min Size:"
-msgstr "Tamaño: "
+msgstr "_Tamaño mínimo:"
 
 #: ../glade/ADLSearch.glade:232
 msgid "Dest. Dir"
-msgstr ""
+msgstr "Directorio Destino"
 
 #: ../glade/ADLSearch.glade:242
-#, fuzzy
 msgid "TypeSearch"
-msgstr "Buscar"
+msgstr "Buscar por tipo"
 
 #: ../glade/ADLSearch.glade:251
-#, fuzzy
 msgid "AutoQueue"
-msgstr "Cola"
+msgstr "Cola Automática"
 
 #: ../glade/publichubs.glade:51
-#, fuzzy
 msgid "<b>Filter</b>"
-msgstr "<b>Archivo:</b> "
+msgstr "<b>Filtro</b> "
 
 #: ../glade/publichubs.glade:92
 msgid "<b>Hub List</b>"
-msgstr ""
+msgstr "<b>Lista de HUBs</b>"
 
 #: ../glade/publichubs.glade:326
-#, fuzzy
 msgid "Add to favorites"
-msgstr "añador un Hub a favoritos"
+msgstr "Añadir a favoritos"
 
 #: ../glade/transfers.glade:45
-#, fuzzy
 msgid "_Send private message"
-msgstr "Mensaje Privado"
+msgstr "_Enviar mensaje privado"
 
 #: ../glade/transfers.glade:105
 msgid "_Force attempt"
-msgstr ""
+msgstr "_Forzar intento"
 
 #: ../glade/transfers.glade:117
-#, fuzzy
 msgid "_Close connection"
-msgstr "Cerrando conexión..."
+msgstr "_Cerrar conexión"
 
 #: ../glade/privatemessage.glade:37 ../glade/hub.glade:66
 msgid "Chat Commands"
-msgstr ""
+msgstr "Comandos de chat"
 
 #: ../glade/privatemessage.glade:60 ../glade/hub.glade:92
-#, fuzzy
 msgid "Emoticons"
-msgstr "Usar Emoticonos"
+msgstr "Emoticonos"
 
 #: ../glade/privatemessage.glade:97 ../glade/hub.glade:255
-#, fuzzy
 msgid "_Search magnet"
-msgstr "Búsqueda:"
+msgstr "_Buscar imán:"
 
 #: ../glade/privatemessage.glade:141 ../glade/hub.glade:299
-#, fuzzy
 msgid "_Properties/Choice"
-msgstr "Propiedades/Preferencia del Imán"
+msgstr "_Propiedades/Elegir"
 
 #: ../glade/privatemessage.glade:150 ../glade/privatemessage.glade:166
 #: ../glade/hub.glade:309 ../glade/hub.glade:325
 msgid "_Copy link"
-msgstr ""
+msgstr "_Copiar Enlace"
 
 #: ../glade/privatemessage.glade:157 ../glade/hub.glade:316
 msgid "_Open link in default application"
-msgstr ""
+msgstr "_Abrir enlace con la aplicacion por defecto"
 
 #: ../glade/privatemessage.glade:173 ../glade/hub.glade:332
 msgid "_Open hub"
-msgstr ""
+msgstr "_Abrir HUB"
 
 #: ../glade/finishedtransfers.glade:31
 msgid "Grouped by Files"
-msgstr ""
+msgstr "Agrupar por archivos"
 
 #: ../glade/finishedtransfers.glade:60
 msgid "Grouped by Users"
-msgstr ""
+msgstr "Agrupar por Usuarios"
 
 #: ../glade/finishedtransfers.glade:137
-#, fuzzy
 msgid "Open containing _folder"
-msgstr "Abrir Carpeta"
+msgstr "Abrir carpetas que contengan"
 
 #: ../glade/finishedtransfers.glade:152
-#, fuzzy
 msgid "Remove All"
-msgstr "Borrar Alias A"
+msgstr "Borrar todo"
 
 #: ../glade/hub.glade:147
-#, fuzzy
 msgid "Show/Hide user list"
-msgstr "Mostrar lista de favoritos"
+msgstr "Mostrar/ocultar lista de usuarios"
 
 #: ../glade/hub.glade:169
-#, fuzzy
 msgid "_Copy nick"
-msgstr "Mi nick"
+msgstr "_Copiar nick"
 
 #: ../glade/hub.glade:176
 msgid "_Send public message"
-msgstr ""
+msgstr "_Enviar mensaje publico"
 
 #: ../glade/hub.glade:216
-#, fuzzy
 msgid "_Remove from favorites"
-msgstr "Eliminar usuario favorito"
+msgstr "_Eliminar desde favoritos"
 
 #~ msgid "UTF-8 (Unicode)"
 #~ msgstr "UTF-8 (Unicode)"
