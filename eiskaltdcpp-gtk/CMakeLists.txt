@@ -30,6 +30,11 @@ set (LIBS ${LIBS}
         "-lgthread-2.0"
         )
 
+if (NOT USE_MINIUPNP)
+  list (REMOVE_ITEM gtk_srcs ${CMAKE_CURRENT_SOURCE_DIR}/src/upnpc.cc)
+else ()
+    add_definitions ( -DUSE_MINIUPNP )
+endif ()
 
 add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
                 ${gtk_srcs}

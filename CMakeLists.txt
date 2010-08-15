@@ -158,7 +158,7 @@ if (USE_WT)
 endif (USE_WT)
 
 if (USE_GTK)
-    set (USE_MINIUPNP ON CACHE BOOL "Miniupnpc" FORCE)
+    #set (USE_MINIUPNP ON CACHE BOOL "Miniupnpc" FORCE)
     if (USE_MINIUPNP)
     message (STATUS "Building with UPNP support(miniupnpc)")
         find_package (Miniupnpc REQUIRED)

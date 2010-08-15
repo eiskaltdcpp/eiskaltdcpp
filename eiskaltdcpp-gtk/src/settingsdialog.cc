@@ -186,10 +186,10 @@ void Settings::saveSettings_client()
         // Incoming connection
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("activeRadioButton"))))
             sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
-//#ifdef USE_MINIUPNP
+#ifdef USE_MINIUPNP
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton"))))
             sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);//NOTE: core 0.762
-//#endif
+#endif
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("portForwardRadioButton"))))
             sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_NAT);
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("passiveRadioButton"))))
@@ -692,12 +692,18 @@ void Settings::initConnection_gui()
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("portForwardRadioButton")), TRUE);
             break;
         case SettingsManager::INCOMING_FIREWALL_UPNP:
-            ///@todo: implement
+#ifdef USE_MINIUPNP
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton")), TRUE);
+#endif
             break;
         case SettingsManager::INCOMING_FIREWALL_PASSIVE:
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("passiveRadioButton")), TRUE);
             break;
     }
+#ifndef USE_MINIUPNP
+// TODO: add code for disable upnpRadioButton
+    //gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton")), FALSE);
+#endif
 
     // Outgoing
     g_signal_connect(getWidget("outDirectRadioButton"), "toggled", G_CALLBACK(onOutDirect_gui), (gpointer)this);
