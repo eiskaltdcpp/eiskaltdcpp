@@ -2313,7 +2313,7 @@ msgstr ""
 "Desaroyadores:\n"
 " troll\n"
 "Contibuidores:\n"
-" Leliksan Floyd"
+" Leliksan Floyd\n"
 
 #: ../glade/mainwindow.glade:1141
 msgid "Enter line for user command"
