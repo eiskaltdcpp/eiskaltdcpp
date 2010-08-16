@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-16 19:39+0300\n"
-"PO-Revision-Date: 2010-08-14 15:20+0300\n"
+"POT-Creation-Date: 2010-08-16 22:51+0300\n"
+"PO-Revision-Date: 2010-08-16 23:11+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: \n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:936
 #: ../src/settingsdialog.cc:1297 ../glade/mainwindow.glade:277
@@ -39,10 +39,9 @@ msgstr "Очередь закачек"
 #: ../src/search.cc:1610 ../src/search.cc:1614 ../src/search.cc:1615
 #: ../src/search.cc:1626 ../src/search.cc:1630 ../src/search.cc:1888
 #: ../src/sharebrowser.cc:75 ../src/sharebrowser.cc:91
-#: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:274
-#: ../src/sharebrowser.cc:304 ../src/sharebrowser.cc:493
-#: ../src/sharebrowser.cc:585 ../src/sharebrowser.cc:948
-#: ../src/ADLSearchGUI.hh:79
+#: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:277
+#: ../src/sharebrowser.cc:307 ../src/sharebrowser.cc:496
+#: ../src/sharebrowser.cc:588 ../src/sharebrowser.cc:951
 msgid "Filename"
 msgstr "Файл"
 
@@ -66,7 +65,7 @@ msgstr "Статус"
 #: ../src/search.cc:88 ../src/search.cc:116 ../src/search.cc:561
 #: ../src/search.cc:618 ../src/search.cc:761 ../src/search.cc:1618
 #: ../src/search.cc:1636 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
-#: ../src/sharebrowser.cc:281 ../src/sharebrowser.cc:312
+#: ../src/sharebrowser.cc:284 ../src/sharebrowser.cc:315
 #: ../glade/search.glade:60 ../glade/mainwindow.glade:1377
 msgid "Size"
 msgstr "Размер"
@@ -105,7 +104,7 @@ msgstr "Путь"
 #: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386 ../src/search.cc:93
 #: ../src/search.cc:117 ../src/search.cc:566 ../src/search.cc:617
 #: ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
-#: ../src/sharebrowser.cc:282 ../src/sharebrowser.cc:313
+#: ../src/sharebrowser.cc:285 ../src/sharebrowser.cc:316
 msgid "Exact Size"
 msgstr "Точный размер"
 
@@ -119,16 +118,16 @@ msgstr "Ошибки"
 msgid "Added"
 msgstr "Добавлено"
 
-#: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:337
+#: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:340
 msgid "Items: "
 msgstr "Пунктов: "
 
 #: ../src/downloadqueue.cc:237 ../src/downloadqueue.cc:239
-#: ../src/sharebrowser.cc:338
+#: ../src/sharebrowser.cc:341
 msgid "Size: "
 msgstr "Размер: "
 
-#: ../src/downloadqueue.cc:238 ../src/sharebrowser.cc:332
+#: ../src/downloadqueue.cc:238 ../src/sharebrowser.cc:335
 msgid "Files: "
 msgstr "Файлов: "
 
@@ -213,14 +212,14 @@ msgstr "Открыть файл"
 msgid "Open folder"
 msgstr "Открыть папку"
 
-#: ../src/hub.cc:53 ../src/hub.cc:2771
+#: ../src/hub.cc:53 ../src/hub.cc:2775
 msgid "Hub: "
 msgstr "Хаб: "
 
 #: ../src/hub.cc:68 ../src/hub.cc:88 ../src/hub.cc:90 ../src/hub.cc:331
 #: ../src/hub.cc:346 ../src/hub.cc:366 ../src/hub.cc:414 ../src/hub.cc:1060
-#: ../src/hub.cc:1354 ../src/hub.cc:1407 ../src/hub.cc:1970 ../src/hub.cc:2001
-#: ../src/hub.cc:2286 ../src/hub.cc:2325 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:1358 ../src/hub.cc:1411 ../src/hub.cc:1974 ../src/hub.cc:2005
+#: ../src/hub.cc:2290 ../src/hub.cc:2329 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:583 ../src/favoritehubs.cc:56
@@ -294,260 +293,300 @@ msgstr "Ожидание ввода пароля (не удаляйте /passwor
 msgid "<b>Enter your password</b>"
 msgstr "<b>Введите ваш пароль</b>"
 
-#: ../src/hub.cc:851 ../src/privatemessage.cc:523
+#: ../src/hub.cc:851 ../src/privatemessage.cc:526
 msgid " *** Emoticons not loaded"
 msgstr " *** Смайлики не загрузились"
 
-#: ../src/hub.cc:856 ../src/privatemessage.cc:528
+#: ../src/hub.cc:856 ../src/privatemessage.cc:531
 msgid " *** Emoticons mode off"
 msgstr " *** Смайлики отключены"
 
-#: ../src/hub.cc:861 ../src/hub.cc:940 ../src/privatemessage.cc:533
-#: ../src/privatemessage.cc:612
+#: ../src/hub.cc:861 ../src/hub.cc:940 ../src/privatemessage.cc:536
+#: ../src/privatemessage.cc:615
 msgid " *** Emoticons limit"
 msgstr " *** Ограничение смайликов"
 
-#: ../src/hub.cc:1528 ../src/privatemessage.cc:1097
+#: ../src/hub.cc:1532 ../src/privatemessage.cc:1100
 msgid "Use Emoticons"
 msgstr "Использовать смайлы"
 
-#: ../src/hub.cc:1609 ../src/hub.cc:1622 ../src/hub.cc:1727
-#: ../src/privatemessage.cc:861 ../src/privatemessage.cc:875
-#: ../src/privatemessage.cc:929 ../glade/privatemessage.glade:190
+#: ../src/hub.cc:1613 ../src/hub.cc:1626 ../src/hub.cc:1731
+#: ../src/privatemessage.cc:864 ../src/privatemessage.cc:878
+#: ../src/privatemessage.cc:932 ../glade/privatemessage.glade:190
 #: ../glade/hub.glade:349
 msgid "Away mode off"
 msgstr "Режим \"Ушёл\" выключен"
 
-#: ../src/hub.cc:1616 ../src/privatemessage.cc:869
+#: ../src/hub.cc:1620 ../src/privatemessage.cc:872
 msgid "Away mode on: "
 msgstr "Режим \"Ушёл\" включен: "
 
-#: ../src/hub.cc:1653 ../src/hub.cc:2297 ../src/privatemessage.cc:1262
+#: ../src/hub.cc:1657 ../src/hub.cc:2301 ../src/privatemessage.cc:1270
 msgid " is favorite user"
 msgstr " фаворит"
 
-#: ../src/hub.cc:1655 ../src/hub.cc:1690 ../src/hub.cc:1700 ../src/hub.cc:1780
+#: ../src/hub.cc:1659 ../src/hub.cc:1694 ../src/hub.cc:1704 ../src/hub.cc:1784
 msgid "Not found user: "
 msgstr "Не найден юзер: "
 
-#: ../src/hub.cc:1671 ../src/hub.cc:2336 ../src/privatemessage.cc:1282
+#: ../src/hub.cc:1675 ../src/hub.cc:2340 ../src/privatemessage.cc:1290
 msgid " is not favorite user"
 msgstr " не фаворит"
 
-#: ../src/hub.cc:1680
+#: ../src/hub.cc:1684
 msgid "User favorite list:"
 msgstr "Список фаворитов:"
 
-#: ../src/hub.cc:1680
+#: ../src/hub.cc:1684
 msgid " empty..."
 msgstr " пусто..."
 
-#: ../src/hub.cc:1707 ../src/privatemessage.cc:917
+#: ../src/hub.cc:1711 ../src/privatemessage.cc:920
 msgid "Emoticons mode off"
 msgstr "Смайлики отключены"
 
-#: ../src/hub.cc:1712 ../src/privatemessage.cc:922
+#: ../src/hub.cc:1716 ../src/privatemessage.cc:925
 msgid "Emoticons mode on"
 msgstr "Смайлики включены"
 
-#: ../src/hub.cc:1725 ../src/privatemessage.cc:927
+#: ../src/hub.cc:1729 ../src/privatemessage.cc:930
 msgid "*** Available commands:"
 msgstr "*** Доступные команды:"
 
-#: ../src/hub.cc:1726 ../src/privatemessage.cc:928
+#: ../src/hub.cc:1730 ../src/privatemessage.cc:931
 #: ../glade/privatemessage.glade:183 ../glade/hub.glade:342
 msgid "Away mode message on/off"
 msgstr "Режим \"Ушёл\" вкл/выкл"
 
-#: ../src/hub.cc:1728 ../glade/hub.glade:356
+#: ../src/hub.cc:1732 ../glade/hub.glade:356
 msgid "Clear chat"
 msgstr "Очистить чат"
 
-#: ../src/hub.cc:1729
+#: ../src/hub.cc:1733
 msgid "Close chat"
 msgstr "Закрыть чат"
 
-#: ../src/hub.cc:1730 ../glade/hub.glade:363
+#: ../src/hub.cc:1734 ../glade/hub.glade:363
 msgid "Add a hub to favorites"
 msgstr "Добавить хаб в избранные"
 
-#: ../src/hub.cc:1731 ../src/privatemessage.cc:932
+#: ../src/hub.cc:1735 ../src/privatemessage.cc:935
 #: ../glade/privatemessage.glade:211
 msgid "Add user to favorites list"
 msgstr "Добавить юзера в список фаворитов"
 
-#: ../src/hub.cc:1732 ../src/privatemessage.cc:933
+#: ../src/hub.cc:1736 ../src/privatemessage.cc:936
 #: ../glade/privatemessage.glade:218
 msgid "Remove user favorite"
 msgstr "Удалить фаворита"
 
-#: ../src/hub.cc:1733 ../glade/hub.glade:370
+#: ../src/hub.cc:1737 ../glade/hub.glade:370
 msgid "Show favorites list"
 msgstr "Показать список избранных пользователей"
 
-#: ../src/hub.cc:1734 ../src/privatemessage.cc:934
+#: ../src/hub.cc:1738 ../src/privatemessage.cc:937
 #: ../glade/privatemessage.glade:225
 msgid "Get file list"
 msgstr "Получить список файлов"
 
-#: ../src/hub.cc:1735 ../src/privatemessage.cc:935
+#: ../src/hub.cc:1739 ../src/privatemessage.cc:938
 #: ../glade/privatemessage.glade:232
 msgid "Grant extra slot"
 msgstr "Выделить экстра слот"
 
-#: ../src/hub.cc:1736 ../src/privatemessage.cc:937
+#: ../src/hub.cc:1740 ../src/privatemessage.cc:940
 #: ../glade/privatemessage.glade:239 ../glade/hub.glade:377
 msgid "Show help"
 msgstr "Показать справку"
 
-#: ../src/hub.cc:1737 ../glade/hub.glade:384
+#: ../src/hub.cc:1741 ../glade/hub.glade:384
 msgid "Connect to the hub"
 msgstr "Соединиться с хабом"
 
-#: ../src/hub.cc:1738 ../glade/hub.glade:391
+#: ../src/hub.cc:1742 ../glade/hub.glade:391
 msgid "Say a third person"
 msgstr "Сказать от третьего лица"
 
-#: ../src/hub.cc:1739 ../src/settingsdialog.cc:969
+#: ../src/hub.cc:1743 ../src/settingsdialog.cc:969
 #: ../src/settingsdialog.cc:1015 ../src/settingsdialog.cc:1135
-#: ../src/settingsmanager.cc:186
+#: ../src/settingsmanager.cc:189
 msgid "Private message"
 msgstr "Личное сообщение"
 
-#: ../src/hub.cc:1740 ../glade/hub.glade:398
+#: ../src/hub.cc:1744 ../glade/hub.glade:398
 msgid "Rebuild hash"
 msgstr "Пересобрать хеш"
 
-#: ../src/hub.cc:1741
+#: ../src/hub.cc:1745
 msgid "Update own file list"
 msgstr "Обновить свой список файлов"
 
-#: ../src/hub.cc:1742
+#: ../src/hub.cc:1746
 msgid "User list show/hide"
 msgstr "Список пользователей показать/спрятать"
 
-#: ../src/hub.cc:1743 ../glade/hub.glade:405
+#: ../src/hub.cc:1747 ../glade/hub.glade:405
 msgid "Show version"
 msgstr "Показать версию"
 
-#: ../src/hub.cc:1744 ../src/privatemessage.cc:936
+#: ../src/hub.cc:1748 ../src/privatemessage.cc:939
 msgid "Emoticons on/off"
 msgstr "Смайлики вкл/выкл"
 
-#: ../src/hub.cc:1746
+#: ../src/hub.cc:1750
 msgid "Load Lua file"
 msgstr "Загрузить Lua-файл"
 
-#: ../src/hub.cc:1747
+#: ../src/hub.cc:1751
 msgid "Execute Lua Chunk"
 msgstr "Выполнить Lua-скрипт"
 
-#: ../src/hub.cc:1749
+#: ../src/hub.cc:1753
 msgid "Execute code (bash)"
 msgstr "Выполнить код (bash)"
 
-#: ../src/hub.cc:1750
+#: ../src/hub.cc:1754
 msgid "Alias List"
 msgstr "Cписок всех псевдонимов команд"
 
-#: ../src/hub.cc:1751
+#: ../src/hub.cc:1755
 msgid "Alias Remove A"
 msgstr "Удалить псевдоним A"
 
-#: ../src/hub.cc:1752
+#: ../src/hub.cc:1756
 msgid "Alias add uname -a as A"
 msgstr "Добавить псевдоним A для 'uname -a'"
 
-#: ../src/hub.cc:1753
+#: ../src/hub.cc:1757
 msgid "Alias A executing"
 msgstr "Выполнить псевдоним A"
 
-#: ../src/hub.cc:1797
+#: ../src/hub.cc:1801
 msgid "sh"
 msgstr "sh"
 
-#: ../src/hub.cc:1814
+#: ../src/hub.cc:1818
 msgid "lua"
 msgstr "lua"
 
-#: ../src/hub.cc:1817
+#: ../src/hub.cc:1821
 msgid "luafile"
 msgstr "luafile"
 
-#: ../src/hub.cc:1842
+#: ../src/hub.cc:1846
 msgid "Aliases not found."
 msgstr "Псевдоним не обнаружен"
 
-#: ../src/hub.cc:1943
+#: ../src/hub.cc:1947
 msgid "Unknown command '"
 msgstr "Неизвестная команда '"
 
-#: ../src/hub.cc:1943
+#: ../src/hub.cc:1947
 msgid "': type /help for a list of available commands"
 msgstr "': /help для получения списка доступных команд"
 
-#: ../src/hub.cc:2226 ../src/privatemessage.cc:1174 ../src/mainwindow.cc:1035
+#: ../src/hub.cc:2230 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1035
 #: ../src/mainwindow.cc:1103 ../glade/sharebrowser.glade:319
 #: ../glade/search.glade:563 ../glade/settingsdialog.glade:6002
 msgid "Choose a directory"
 msgstr "Выбор директории"
 
-#: ../src/hub.cc:2365
+#: ../src/hub.cc:2369
 msgid " added to favorites list"
 msgstr " добавлен в список фаворитов"
 
-#: ../src/hub.cc:2392
+#: ../src/hub.cc:2396
 msgid " removed from favorites list"
 msgstr " удалён из списка фаворитов"
 
-#: ../src/hub.cc:2504 ../src/hub.cc:2524
+#: ../src/hub.cc:2508 ../src/hub.cc:2528
 msgid "User not found"
 msgstr "Юзер не обнаружен"
 
-#: ../src/hub.cc:2532 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2536 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Слот открыт на "
 
-#: ../src/hub.cc:2557
+#: ../src/hub.cc:2561
 msgid "Unable to connect: already connected to the requested hub"
 msgstr ""
 "Невозможно установить соединение: запрос перенаправлен на подключенный хаб"
 
-#: ../src/hub.cc:2611
+#: ../src/hub.cc:2615
 msgid "Favorite hub added"
 msgstr "Хаб добавлен в избранные"
 
-#: ../src/hub.cc:2616
+#: ../src/hub.cc:2620
 msgid "Favorite hub already exists"
 msgstr "Хаб уже добавлен в избранные"
 
-#: ../src/hub.cc:2690
+#: ../src/hub.cc:2694
 msgid "Connecting to "
 msgstr "Соединение с "
 
-#: ../src/hub.cc:2697 ../src/transfers.cc:1013
+#: ../src/hub.cc:2701 ../src/transfers.cc:1013
 msgid "Connected"
 msgstr "Соединение установлено"
 
-#: ../src/hub.cc:2753
+#: ../src/hub.cc:2757
 msgid "Connect failed: "
 msgstr "Ошибка соединения: "
 
-#: ../src/hub.cc:2894
+#: ../src/hub.cc:2898
 msgid "Ignored private message from hub"
 msgstr "Игнорируются личные сообщения от хаба"
 
-#: ../src/hub.cc:2901
+#: ../src/hub.cc:2905
 msgid "Ignored private message from bot "
 msgstr "Игнорируются личные сообщения от бота "
 
-#: ../src/hub.cc:2918
+#: ../src/hub.cc:2922
 msgid "Nick already taken"
 msgstr "Ник занят"
 
-#: ../src/hub.cc:2925
+#: ../src/hub.cc:2929
 msgid "Search spam detected from "
 msgstr "Обнаружен поисковый спам от "
+
+#: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:583
+msgid "ADL Search"
+msgstr "ADL-поиск"
+
+#: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
+#: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
+#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
+#: ../glade/adlsearch.glade:354
+msgid "Enabled"
+msgstr "Включено"
+
+#: ../src/adlsearch.cc:40 ../src/adlsearch.cc:60 ../src/adlsearch.cc:111
+#: ../src/adlsearch.cc:211 ../src/adlsearch.cc:237 ../src/searchspy.cc:54
+#: ../src/searchspy.cc:72 ../src/searchspy.cc:74 ../src/searchspy.cc:78
+#: ../src/searchspy.cc:220 ../src/searchspy.cc:231 ../src/searchspy.cc:285
+#: ../src/searchspy.cc:292 ../src/searchspy.cc:308 ../src/searchspy.cc:467
+#: ../src/searchspy.cc:532 ../src/searchspy.cc:565
+msgid "Search String"
+msgstr "Строка поиска"
+
+#: ../src/adlsearch.cc:41 ../src/adlsearch.cc:61 ../src/adlsearch.cc:112
+#: ../src/adlsearch.cc:212
+msgid "Source Type"
+msgstr "Тип источника"
+
+#: ../src/adlsearch.cc:42 ../src/adlsearch.cc:62 ../src/adlsearch.cc:113
+#: ../src/adlsearch.cc:213 ../src/adlsearch.cc:238
+msgid "Destination Directory"
+msgstr "Директория закачек"
+
+#: ../src/adlsearch.cc:43 ../src/adlsearch.cc:63 ../src/adlsearch.cc:114
+#: ../src/adlsearch.cc:214
+msgid "Min Size"
+msgstr "Минимальный размер"
+
+#: ../src/adlsearch.cc:44 ../src/adlsearch.cc:64 ../src/adlsearch.cc:115
+#: ../src/adlsearch.cc:215
+msgid "Max Size"
+msgstr "Точный размер"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1194
 #: ../src/settingsdialog.cc:1241 ../src/settingsdialog.cc:1300
@@ -611,18 +650,11 @@ msgid "Done"
 msgstr "Готово"
 
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:940
-#: ../src/settingsdialog.cc:1202 ../src/settingsdialog.cc:1251
-#: ../src/settingsdialog.cc:1301 ../glade/mainwindow.glade:243
-#: ../glade/mainwindow.glade:583 ../glade/settingsdialog.glade:3978
+#: ../src/settingsdialog.cc:1202 ../src/settingsdialog.cc:1253
+#: ../src/settingsdialog.cc:1301 ../glade/mainwindow.glade:257
+#: ../glade/mainwindow.glade:596 ../glade/settingsdialog.glade:3978
 msgid "Search Spy"
 msgstr "Поисковый шпион"
-
-#: ../src/searchspy.cc:54 ../src/searchspy.cc:72 ../src/searchspy.cc:74
-#: ../src/searchspy.cc:78 ../src/searchspy.cc:220 ../src/searchspy.cc:231
-#: ../src/searchspy.cc:285 ../src/searchspy.cc:292 ../src/searchspy.cc:308
-#: ../src/searchspy.cc:467 ../src/searchspy.cc:532 ../src/searchspy.cc:565
-msgid "Search String"
-msgstr "Строка поиска"
 
 #: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
@@ -756,7 +788,7 @@ msgid "Waiting to retry"
 msgstr "Ожидание повтора"
 
 #: ../src/transfers.cc:1073 ../src/settingsdialog.cc:966
-#: ../src/settingsdialog.cc:1127 ../src/settingsmanager.cc:182
+#: ../src/settingsdialog.cc:1127 ../src/settingsmanager.cc:185
 msgid "Download finished"
 msgstr "Закачка окончена"
 
@@ -776,44 +808,31 @@ msgstr "Отдано "
 msgid "Upload complete..."
 msgstr "Отдача закончена..."
 
-#: ../src/ADLSearchGUI.cc:34 ../src/settingsdialog.cc:1259
-msgid "ADLSearch"
-msgstr "ADL-поиск"
-
-#: ../src/ADLSearchGUI.cc:289
-msgid "The search string fields are required"
-msgstr "Поисковая фраза обязательна"
-
-#: ../src/ADLSearchGUI.cc:316
-#, c-format
-msgid "Are you sure you want to delete ADL search \"%s\"?"
-msgstr "Вы уверены, что хотите удалить ADL-поиск \"%s\"?"
-
 #: ../src/privatemessage.cc:38 ../src/privatemessage.cc:138
 msgid "PM: "
 msgstr "ЛС: "
 
-#: ../src/privatemessage.cc:930 ../glade/privatemessage.glade:197
+#: ../src/privatemessage.cc:933 ../glade/privatemessage.glade:197
 msgid "Clear PM"
 msgstr "Очистить ЛС"
 
-#: ../src/privatemessage.cc:931 ../glade/privatemessage.glade:204
+#: ../src/privatemessage.cc:934 ../glade/privatemessage.glade:204
 msgid "Close PM"
 msgstr "Закрыть ЛС"
 
-#: ../src/privatemessage.cc:941
+#: ../src/privatemessage.cc:944
 msgid "Unknown command "
 msgstr "Неизвестная команда "
 
-#: ../src/privatemessage.cc:941
+#: ../src/privatemessage.cc:944
 msgid ": type /help for a list of available commands"
 msgstr ": /help для получения списка доступных команд"
 
-#: ../src/privatemessage.cc:1250
+#: ../src/privatemessage.cc:1258
 msgid "User went offline"
 msgstr "Пользователь ушёл в оффлайн"
 
-#: ../src/privatemessage.cc:1313
+#: ../src/privatemessage.cc:1321
 msgid "Slot granted"
 msgstr "Слот открыт"
 
@@ -973,16 +992,16 @@ msgid "Send PM when double clicked in the user list"
 msgstr "Посылать ЛС при двойном клике в списке пользователей"
 
 #: ../src/settingsdialog.cc:934 ../src/settingsdialog.cc:1195
-#: ../src/settingsdialog.cc:1255 ../src/settingsdialog.cc:1298
+#: ../src/settingsdialog.cc:1257 ../src/settingsdialog.cc:1298
 #: ../src/finishedtransfers.cc:34 ../glade/mainwindow.glade:292
-#: ../glade/mainwindow.glade:611
+#: ../glade/mainwindow.glade:624
 msgid "Finished Downloads"
 msgstr "Закачано"
 
 #: ../src/settingsdialog.cc:935 ../src/settingsdialog.cc:1196
-#: ../src/settingsdialog.cc:1257 ../src/settingsdialog.cc:1299
+#: ../src/settingsdialog.cc:1259 ../src/settingsdialog.cc:1299
 #: ../src/finishedtransfers.cc:39 ../glade/mainwindow.glade:306
-#: ../glade/mainwindow.glade:624
+#: ../glade/mainwindow.glade:637
 msgid "Finished Uploads"
 msgstr "Отдано"
 
@@ -1006,7 +1025,7 @@ msgid "Sounds"
 msgstr "Звуки"
 
 #: ../src/settingsdialog.cc:967 ../src/settingsdialog.cc:1131
-#: ../src/settingsmanager.cc:184
+#: ../src/settingsmanager.cc:187
 msgid "Download finished file list"
 msgstr "Закачен список файлов"
 
@@ -1015,22 +1034,22 @@ msgid "Upload finished"
 msgstr "Отдача окончена"
 
 #: ../src/settingsdialog.cc:970 ../src/settingsdialog.cc:1139
-#: ../src/settingsmanager.cc:190
+#: ../src/settingsmanager.cc:193
 msgid "Hub connected"
 msgstr "Соединён с хабом"
 
 #: ../src/settingsdialog.cc:971 ../src/settingsdialog.cc:1143
-#: ../src/settingsmanager.cc:188
+#: ../src/settingsmanager.cc:191
 msgid "Hub disconnected"
 msgstr "Разъединён с хабом"
 
 #: ../src/settingsdialog.cc:972 ../src/settingsdialog.cc:1147
-#: ../src/settingsmanager.cc:192
+#: ../src/settingsmanager.cc:195
 msgid "Favorite user joined"
 msgstr "Фаворит вошел"
 
 #: ../src/settingsdialog.cc:973 ../src/settingsdialog.cc:1151
-#: ../src/settingsmanager.cc:194
+#: ../src/settingsmanager.cc:197
 msgid "Favorite user quit"
 msgstr "Фаворит вышел"
 
@@ -1141,8 +1160,8 @@ msgstr "Настройки"
 msgid "Public Hubs"
 msgstr "Открытые"
 
-#: ../src/settingsdialog.cc:1200 ../src/settingsdialog.cc:1253
-#: ../glade/mainwindow.glade:598 ../glade/settingsdialog.glade:1740
+#: ../src/settingsdialog.cc:1200 ../src/settingsdialog.cc:1255
+#: ../glade/mainwindow.glade:611 ../glade/settingsdialog.glade:1740
 msgid "Queue"
 msgstr "Очередь"
 
@@ -1161,15 +1180,18 @@ msgid "Reconnect"
 msgstr "Переподключиться"
 
 #: ../src/settingsdialog.cc:1207 ../src/search.cc:1631
-#: ../src/UserCommandMenu.cc:65 ../src/sharebrowser.cc:284
-#: ../src/ADLSearchGUI.hh:81 ../glade/settingsdialog.glade:4024
+#: ../src/UserCommandMenu.cc:65 ../src/sharebrowser.cc:287
+#: ../glade/settingsdialog.glade:4024
 msgid "Directory"
 msgstr "Директория"
 
-#: ../src/settingsdialog.cc:1208 ../glade/mainwindow.glade:258
-#: ../glade/mainwindow.glade:635 ../glade/mainwindow.glade:637
-msgid "ADL Search"
-msgstr "ADL-поиск"
+#: ../src/settingsdialog.cc:1208 ../glade/mainwindow.glade:243
+msgid "Search ADL"
+msgstr "Поиск ADL"
+
+#: ../src/settingsdialog.cc:1251
+msgid "searchADL"
+msgstr "Поиск ADL"
 
 #: ../src/settingsdialog.cc:1307
 msgid "Open file list window in the background"
@@ -1583,7 +1605,7 @@ msgstr "Хаб"
 msgid "Files"
 msgstr "Файлы"
 
-#: ../src/finishedtransfers.cc:242 ../src/sharebrowser.cc:999
+#: ../src/finishedtransfers.cc:242 ../src/sharebrowser.cc:1002
 msgid " files"
 msgstr " файлы"
 
@@ -1658,7 +1680,7 @@ msgstr "Поиск: "
 #: ../src/search.cc:87 ../src/search.cc:563 ../src/search.cc:638
 #: ../src/search.cc:776 ../src/search.cc:1615 ../src/search.cc:1616
 #: ../src/search.cc:1617 ../src/search.cc:1631 ../src/sharebrowser.cc:77
-#: ../src/sharebrowser.cc:284 ../src/sharebrowser.cc:305
+#: ../src/sharebrowser.cc:287 ../src/sharebrowser.cc:308
 msgid "Type"
 msgstr "Тип"
 
@@ -1666,8 +1688,8 @@ msgstr "Тип"
 msgid "Slots"
 msgstr "Слоты"
 
-#: ../src/search.cc:303 ../src/search.cc:373 ../src/sharebrowser.cc:476
-#: ../src/sharebrowser.cc:528 ../glade/mainwindow.glade:1552
+#: ../src/search.cc:303 ../src/search.cc:373 ../src/sharebrowser.cc:479
+#: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1552
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2728 ../glade/settingsdialog.glade:4041
 #: ../glade/settingsdialog.glade:4967 ../glade/settingsdialog.glade:4982
@@ -1704,7 +1726,7 @@ msgstr "отфильтрованный"
 msgid " dropped"
 msgstr " сброшено"
 
-#: ../src/bookentry.cc:65 ../src/bookentry.cc:70
+#: ../src/bookentry.cc:70 ../src/bookentry.cc:75
 msgid "Close tab"
 msgstr "Закрыть окно"
 
@@ -1716,41 +1738,37 @@ msgstr "Список: "
 msgid "File list loaded"
 msgstr "Список файлов закачен"
 
-#: ../src/sharebrowser.cc:168
+#: ../src/sharebrowser.cc:171
 msgid "Unable to load file list: "
 msgstr "Невозможно загрузить файл-список: "
 
-#: ../src/sharebrowser.cc:333
+#: ../src/sharebrowser.cc:336
 msgid "Total: "
 msgstr "Итого: "
 
-#: ../src/sharebrowser.cc:342
+#: ../src/sharebrowser.cc:345
 msgid "Items: 0"
 msgstr "Пунктов: 0"
 
-#: ../src/sharebrowser.cc:343
+#: ../src/sharebrowser.cc:346
 msgid "Size: 0 B"
 msgstr "Размер: 0 Б"
 
-#: ../src/sharebrowser.cc:607 ../src/sharebrowser.cc:650
+#: ../src/sharebrowser.cc:610 ../src/sharebrowser.cc:653
 msgid "Found a match"
 msgstr "Найден"
 
-#: ../src/sharebrowser.cc:619 ../src/sharebrowser.cc:811
+#: ../src/sharebrowser.cc:622 ../src/sharebrowser.cc:814
 msgid "No matches"
 msgstr "Нет совпадений"
 
-#: ../src/sharebrowser.cc:822
+#: ../src/sharebrowser.cc:825
 msgid "No search text entered"
 msgstr "Не введён текст для поиска"
 
-#: ../src/sharebrowser.cc:999
+#: ../src/sharebrowser.cc:1002
 msgid "Matched "
 msgstr "Совпадений "
-
-#: ../src/ADLSearchGUI.hh:80
-msgid "Full Path"
-msgstr "Полный путь"
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
@@ -1811,6 +1829,88 @@ msgstr "Приостановлено"
 msgid "Run in background"
 msgstr "Выполнять в фоне"
 
+#: ../glade/adlsearch.glade:34 ../glade/adlsearch.glade:110
+msgid "Add..."
+msgstr "Добавить..."
+
+#: ../glade/adlsearch.glade:47 ../glade/adlsearch.glade:117
+msgid "Properties"
+msgstr "Настройки"
+
+#: ../glade/adlsearch.glade:61
+msgid "Move Up"
+msgstr "Переместить"
+
+#: ../glade/adlsearch.glade:75
+msgid "Move Down"
+msgstr "Переместить ниже"
+
+#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5682
+msgid "Remove"
+msgstr "Удалить"
+
+#: ../glade/adlsearch.glade:124 ../glade/searchspy.glade:196
+#: ../glade/searchspy.glade:263 ../glade/search.glade:556
+#: ../glade/favoriteusers.glade:93 ../glade/downloadqueue.glade:188
+#: ../glade/downloadqueue.glade:336
+msgid "_Remove"
+msgstr "_Удалить"
+
+#: ../glade/adlsearch.glade:131
+msgid "ADLSearch Properties"
+msgstr "Опции ADL поиска"
+
+#: ../glade/adlsearch.glade:163
+msgid "<b>Search String</b>"
+msgstr "<b>Строка поиска</b>"
+
+#: ../glade/adlsearch.glade:184
+msgid ""
+"Filename\n"
+"Directory\n"
+"Full Path"
+msgstr ""
+"Имя файла\n"
+"Каталог\n"
+"Полный путь"
+
+#: ../glade/adlsearch.glade:192
+msgid "<b>Source Type</b>"
+msgstr "<b>Тип источника</b>"
+
+#: ../glade/adlsearch.glade:233
+msgid "<b>Min FileSize</b>"
+msgstr "<b>Минимальный размер файла</b>"
+
+#: ../glade/adlsearch.glade:262
+msgid "<b>Max FileSize</b>"
+msgstr "<b>Максимальный размер файла</b>"
+
+#: ../glade/adlsearch.glade:289 ../glade/search.glade:94
+msgid ""
+"B\n"
+"KiB\n"
+"MiB\n"
+"GiB"
+msgstr ""
+"Б\n"
+"КБ\n"
+"МБ\n"
+"ГБ"
+
+#: ../glade/adlsearch.glade:298
+msgid "<b>Size Type</b>"
+msgstr "<b>Тип</b>"
+
+#: ../glade/adlsearch.glade:334
+msgid "<b>Destination Directory</b>"
+msgstr "<b>Каталог назначения</b>"
+
+#: ../glade/adlsearch.glade:366
+#, fuzzy
+msgid "Download Matches"
+msgstr "Закачать в"
+
 #: ../glade/searchspy.glade:32
 msgid "Ignore TTH search"
 msgstr "Игнорировать поиск по TTH"
@@ -1868,12 +1968,6 @@ msgstr "Показать топ поиска"
 msgid "Top"
 msgstr "Топ"
 
-#: ../glade/searchspy.glade:196 ../glade/searchspy.glade:263
-#: ../glade/search.glade:556 ../glade/favoriteusers.glade:93
-#: ../glade/downloadqueue.glade:188 ../glade/downloadqueue.glade:336
-msgid "_Remove"
-msgstr "_Удалить"
-
 #: ../glade/searchspy.glade:262
 msgid "Delete item"
 msgstr "Удалить элемент"
@@ -1891,18 +1985,6 @@ msgstr ""
 "Нормальный\n"
 "Не менее\n"
 "Не более"
-
-#: ../glade/search.glade:94
-msgid ""
-"B\n"
-"KiB\n"
-"MiB\n"
-"GiB"
-msgstr ""
-"Б\n"
-"КБ\n"
-"МБ\n"
-"ГБ"
 
 #: ../glade/search.glade:121
 msgid "File type"
@@ -2063,7 +2145,7 @@ msgstr "Подключиться к хабу"
 msgid "<b>Description</b>"
 msgstr "<b>Описание </b>"
 
-#: ../glade/favoritehubs.glade:90 ../glade/ADLSearch.glade:86
+#: ../glade/favoritehubs.glade:90
 msgid "Favorite Hub Properties"
 msgstr "Свойства избранного хаба"
 
@@ -2215,18 +2297,22 @@ msgid "Search for files to download"
 msgstr "Поиск файлов, для загрузки"
 
 #: ../glade/mainwindow.glade:585
+msgid "ADL"
+msgstr "ADL"
+
+#: ../glade/mainwindow.glade:598
 msgid "Spy"
 msgstr "Шпион"
 
-#: ../glade/mainwindow.glade:596
+#: ../glade/mainwindow.glade:609
 msgid "View the files to be downloaded"
 msgstr "Посмотреть файлы"
 
-#: ../glade/mainwindow.glade:609
+#: ../glade/mainwindow.glade:622
 msgid "View the list of finished downloads"
 msgstr "Посмотреть список завершённых скачиваний"
 
-#: ../glade/mainwindow.glade:622
+#: ../glade/mainwindow.glade:635
 msgid "View the list of finished uploads"
 msgstr "Посмотреть список завершённых отдач"
 
@@ -2311,6 +2397,24 @@ msgstr ""
 "In addition, as a special exception, compiling, linking, and/or using "
 "OpenSSL with this program is allowed.\n"
 
+#: ../glade/mainwindow.glade:1068
+msgid ""
+"Developers\n"
+" Boris Pek (tehnick-8@mail.ru)\n"
+" Eugene Petrov (dhamp@ya.ru)\n"
+" Leliksan Floyd (leliksan@gmail.com)\n"
+"\n"
+"Contributors\n"
+" troll (http://code.google.com/p/freedcpp/)\n"
+msgstr ""
+"Разработчики\n"
+" Boris Pek (tehnick-8@mail.ru)\n"
+" Eugene Petrov (dhamp@ya.ru)\n"
+" Leliksan Floyd (leliksan@gmail.com)\n"
+"\n"
+"Соучастники\n"
+" troll (http://code.google.com/p/freedcpp/)\n"
+
 #: ../glade/mainwindow.glade:1076
 msgid ""
 "Translators\n"
@@ -2359,6 +2463,51 @@ msgid ""
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
 msgstr ""
+"Переводчики\n"
+"\n"
+" Русский перевод\n"
+"\n"
+" Uladzimir Bely\n"
+" (wiselord1983@gmail.com)\n"
+"\n"
+" Белорусский перевод\n"
+"\n"
+" Paval Shalamitski aka Klyok\n"
+" (i.kliok@gmail.com)\n"
+"\n"
+" Венгерский перевод\n"
+"\n"
+" Akos Berki aka sumo\n"
+" (husumo@gmail.com)\n"
+"\n"
+" Французский перевод\n"
+"\n"
+" Alexandre Wallimann aka Ale\n"
+" (alexandre.wallimann@gmail.com)\n"
+"\n"
+" Польский перевод\n"
+"\n"
+" Arahael\n"
+"\n"
+" Украинский перевод\n"
+"\n"
+" Dmytro Demenko\n"
+" (dmytro.demenko@gmail.com)\n"
+"\n"
+" Сербский translation\n"
+"\n"
+" Miroslav Petrovic\n"
+" (miroslav031@gmail.com)\n"
+"\n"
+" Испанский перевод\n"
+"\n"
+" Gustavo Alvarez aka sL1pKn07\n"
+" (sl1pkn07@gmail.com)\n"
+"\n"
+" Болгарский перевод\n"
+"\n"
+" Rusi Dimitrov aka PsyTrip\n"
+" (dimitrov.rusi@gmail.com)\n"
 
 #: ../glade/mainwindow.glade:1188
 msgid "Enter line for user command"
@@ -2456,13 +2605,13 @@ msgstr ""
 
 #: ../glade/settingsdialog.glade:219
 msgid "Use UPnP to let client cofigure my router"
-msgstr ""
+msgstr "Использовать UPnP, чтобы настроить клиент через роутер"
 
 #: ../glade/settingsdialog.glade:404
 msgid "Ports"
 msgstr "Порты"
 
-#: ../glade/settingsdialog.glade:417 ../glade/ADLSearch.glade:266
+#: ../glade/settingsdialog.glade:417
 msgid "Active"
 msgstr "Прямое соединение (активный режим)"
 
@@ -3105,27 +3254,24 @@ msgid "Security Certificates"
 msgstr "Сертификаты безопасности"
 
 #: ../glade/settingsdialog.glade:5224 ../glade/settingsdialog.glade:5467
-#, fuzzy
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
-msgstr "Максимальная длина сообщения (0 = не ограничено)"
+msgstr "Максимальная скорость отдачи (КиБ/с) (0 = не ограничено)"
 
 #: ../glade/settingsdialog.glade:5261 ../glade/settingsdialog.glade:5504
-#, fuzzy
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
-msgstr "Макс. одновременных закачек (0 = не ограничено)"
+msgstr "Максимальная скорость загрузки (КиБ/с) (0 = не ограничено)"
 
 #: ../glade/settingsdialog.glade:5289
 msgid "<b>Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Ограничение скорости передачи</b>"
 
 #: ../glade/settingsdialog.glade:5316
 msgid "Use second set of bandwidth limits"
-msgstr ""
+msgstr "Используйте второй набор пределов полосы пропускания"
 
 #: ../glade/settingsdialog.glade:5338
-#, fuzzy
 msgid "from"
-msgstr "%) от "
+msgstr "от "
 
 #: ../glade/settingsdialog.glade:5348 ../glade/settingsdialog.glade:5391
 msgid ""
@@ -3154,57 +3300,75 @@ msgid ""
 "10PM\n"
 "11PM"
 msgstr ""
+"Midnight\n"
+"1AM\n"
+"2AM\n"
+"3AM\n"
+"4AM\n"
+"5AM\n"
+"6AM\n"
+"7AM\n"
+"8AM\n"
+"9AM\n"
+"10AM\n"
+"11AM\n"
+"Noon\n"
+"1PM\n"
+"2PM\n"
+"3PM\n"
+"4PM\n"
+"5PM\n"
+"6PM\n"
+"7PM\n"
+"8PM\n"
+"9PM\n"
+"10PM\n"
+"11PM"
 
 #: ../glade/settingsdialog.glade:5381
 msgid "to"
-msgstr ""
+msgstr "к"
 
 #: ../glade/settingsdialog.glade:5426
 msgid "<b>Secondary Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Второе ограничение скорости передачи</b>"
 
 #: ../glade/settingsdialog.glade:5544
-#, fuzzy
 msgid "Upload Slots"
 msgstr "Слоты отдачи"
 
 #: ../glade/settingsdialog.glade:5572
 msgid "<b>Secondary Transfer Rate Settings</b>"
-msgstr ""
+msgstr "<b>Настройки второй скорости передачи</b>"
 
 #: ../glade/settingsdialog.glade:5605
 msgid ""
 "Bandwidth\n"
 "Limiting"
 msgstr ""
+"Bandwidth\n"
+"Limiting"
 
 #: ../glade/settingsdialog.glade:5649
-#, fuzzy
 msgid "Add"
-msgstr "Добавлено"
+msgstr "Добавить"
 
 #: ../glade/settingsdialog.glade:5658
 msgid "Modify"
-msgstr ""
+msgstr "Изменить"
 
 #: ../glade/settingsdialog.glade:5670
-#, fuzzy
 msgid "Rename"
-msgstr "Файл"
-
-#: ../glade/settingsdialog.glade:5682
-#, fuzzy
-msgid "Remove"
-msgstr "_Удалить"
+msgstr "Переименовать"
 
 #: ../glade/settingsdialog.glade:5711
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
+"Заметка: Указанные поисковые типы будут применяться только для ADC хабов!"
 
 #: ../glade/settingsdialog.glade:5724
-#, fuzzy
 msgid "<b>Search types</b>"
-msgstr "<b>ADL-поиск</b>"
+msgstr "<b>Поисковые типы</b>"
 
 #: ../glade/settingsdialog.glade:5792 ../glade/publichubs.glade:190
 msgid "Configure hub lists"
@@ -3306,12 +3470,11 @@ msgstr "gtk-apply"
 
 #: ../glade/settingsdialog.glade:6662
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
-msgstr ""
+msgstr "Используйте разделитель для расширений (doc;xls;ppt;docx;xlsx;pptx)"
 
 #: ../glade/settingsdialog.glade:6730
-#, fuzzy
 msgid "gtk-edit"
-msgstr "gtk-open"
+msgstr "gtk-edit"
 
 #: ../glade/downloadqueue.glade:118 ../glade/downloadqueue.glade:223
 msgid "Set Priorit_y"
@@ -3361,35 +3524,6 @@ msgstr "Удалить источник"
 msgid "Move to..."
 msgstr "Переместить в..."
 
-#: ../glade/ADLSearch.glade:102
-msgid "<b>Search ADL</b>"
-msgstr "<b>ADL-поиск</b>"
-
-#: ../glade/ADLSearch.glade:115
-msgid "_Search String:"
-msgstr "_Строка поиска:"
-
-#: ../glade/ADLSearch.glade:146
-msgid "_max size:"
-msgstr "Максимальный размер: "
-
-#: ../glade/ADLSearch.glade:176
-msgid "_min Size:"
-msgstr "Минимальный размер: "
-
-#: ../glade/ADLSearch.glade:232
-msgid "Dest. Dir"
-msgstr "Каталог назначения"
-
-#: ../glade/ADLSearch.glade:242
-msgid "TypeSearch"
-msgstr "Тип поиска"
-
-#: ../glade/ADLSearch.glade:251
-#, fuzzy
-msgid "AutoQueue"
-msgstr "Очередь"
-
 #: ../glade/publichubs.glade:51
 msgid "<b>Filter</b>"
 msgstr "<b>Фильтр</b>"
@@ -3427,7 +3561,6 @@ msgid "_Search magnet"
 msgstr "_Поиск магнет"
 
 #: ../glade/privatemessage.glade:141 ../glade/hub.glade:299
-#, fuzzy
 msgid "_Properties/Choice"
 msgstr "Свойства магнетов / Выбор"
 
@@ -3475,6 +3608,37 @@ msgstr "_Отправить сообщение"
 #: ../glade/hub.glade:216
 msgid "_Remove from favorites"
 msgstr "_Удалить фаворита"
+
+#~ msgid "ADLSearch"
+#~ msgstr "ADL-поиск"
+
+#~ msgid "The search string fields are required"
+#~ msgstr "Поисковая фраза обязательна"
+
+#~ msgid "Are you sure you want to delete ADL search \"%s\"?"
+#~ msgstr "Вы уверены, что хотите удалить ADL-поиск \"%s\"?"
+
+#~ msgid "Full Path"
+#~ msgstr "Полный путь"
+
+#~ msgid "<b>Search ADL</b>"
+#~ msgstr "<b>ADL-поиск</b>"
+
+#~ msgid "_Search String:"
+#~ msgstr "_Строка поиска:"
+
+#~ msgid "_max size:"
+#~ msgstr "Максимальный размер: "
+
+#~ msgid "Dest. Dir"
+#~ msgstr "Каталог назначения"
+
+#~ msgid "TypeSearch"
+#~ msgstr "Тип поиска"
+
+#, fuzzy
+#~ msgid "AutoQueue"
+#~ msgstr "Очередь"
 
 #~ msgid ""
 #~ "Developers:\n"
@@ -3536,9 +3700,6 @@ msgstr "_Удалить фаворита"
 
 #~ msgid "View the saved hubs"
 #~ msgstr "Посмотреть сохранённые хабы"
-
-#~ msgid "_Properties"
-#~ msgstr "_Настройки"
 
 #~ msgid "project home: "
 #~ msgstr "адрес проекта: "
