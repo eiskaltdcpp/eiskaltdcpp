@@ -3531,7 +3531,3 @@ msgstr ""
 #, fuzzy
 msgid "_Remove from favorites"
 msgstr "Видалити користувача з обраних"
-
-#, fuzzy
-#~ msgid "Virtual name"
-#~ msgstr "Ім'я файлу"

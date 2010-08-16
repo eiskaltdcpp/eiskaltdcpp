@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-16 22:51+0300\n"
-"PO-Revision-Date: 2010-08-16 23:11+0300\n"
+"PO-Revision-Date: 2010-08-16 23:18+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: \n"
@@ -509,8 +509,7 @@ msgstr "Слот открыт на "
 
 #: ../src/hub.cc:2561
 msgid "Unable to connect: already connected to the requested hub"
-msgstr ""
-"Невозможно установить соединение: запрос перенаправлен на подключенный хаб"
+msgstr "Невозможно установить соединение: запрос перенаправлен на подключенный хаб"
 
 #: ../src/hub.cc:2615
 msgid "Favorite hub added"
@@ -903,9 +902,7 @@ msgstr "Amarok плеер"
 
 #: ../src/settingsdialog.cc:848
 msgid "Set lowest priority for newly added files larger than low priority size"
-msgstr ""
-"Устанавливать самый низкий приоритет для файлов, превышающих размер низкого "
-"приоритета"
+msgstr "Устанавливать самый низкий приоритет для файлов, превышающих размер низкого приоритета"
 
 #: ../src/settingsdialog.cc:849
 msgid "Auto-drop slow sources for all queue items (except filelists)"
@@ -1158,7 +1155,7 @@ msgstr "Настройки"
 #: ../src/settingsdialog.cc:1295 ../src/publichubs.cc:29
 #: ../glade/mainwindow.glade:208 ../glade/mainwindow.glade:533
 msgid "Public Hubs"
-msgstr "Открытые"
+msgstr "Публичные хабы"
 
 #: ../src/settingsdialog.cc:1200 ../src/settingsdialog.cc:1255
 #: ../glade/mainwindow.glade:611 ../glade/settingsdialog.glade:1740
@@ -1227,8 +1224,7 @@ msgstr "Запрос при удалении избранных хабов"
 
 #: ../src/settingsdialog.cc:1363
 msgid "Auto-away on minimize (and back on restore)"
-msgstr ""
-"Авто-режим \"ушёл\" при сворачивании окна (и возврат при восстановлении)"
+msgstr "Авто-режим \"ушёл\" при сворачивании окна (и возврат при восстановлении)"
 
 #: ../src/settingsdialog.cc:1364
 msgid "Automatically follow redirects"
@@ -1282,8 +1278,7 @@ msgstr "Не отправлять ботам сообщение \"ушёл\""
 
 #: ../src/settingsdialog.cc:1376
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr ""
-"Использовать быстрое хэширование (отключите, если у вас проблемы с "
+msgstr "Использовать быстрое хэширование (отключите, если у вас проблемы с "
 "хэшированием)"
 
 #: ../src/settingsdialog.cc:1377
@@ -1907,7 +1902,6 @@ msgid "<b>Destination Directory</b>"
 msgstr "<b>Каталог назначения</b>"
 
 #: ../glade/adlsearch.glade:366
-#, fuzzy
 msgid "Download Matches"
 msgstr "Закачать в"
 
@@ -1942,7 +1936,6 @@ msgid ""
 msgstr ""
 
 #: ../glade/searchspy.glade:112
-#, fuzzy
 msgid "Frame:"
 msgstr "Название:"
 
@@ -2224,9 +2217,8 @@ msgid "_Preferences"
 msgstr "_Настройки"
 
 #: ../glade/mainwindow.glade:125
-#, fuzzy
 msgid "_Magnet Choice"
-msgstr "Свойства магнетов"
+msgstr "_Свойства магнетов"
 
 #: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1302
 msgid "_Exit"
@@ -2412,7 +2404,7 @@ msgstr ""
 " Eugene Petrov (dhamp@ya.ru)\n"
 " Leliksan Floyd (leliksan@gmail.com)\n"
 "\n"
-"Соучастники\n"
+"Соавторы\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
 
 #: ../glade/mainwindow.glade:1076
@@ -3608,98 +3600,3 @@ msgstr "_Отправить сообщение"
 #: ../glade/hub.glade:216
 msgid "_Remove from favorites"
 msgstr "_Удалить фаворита"
-
-#~ msgid "ADLSearch"
-#~ msgstr "ADL-поиск"
-
-#~ msgid "The search string fields are required"
-#~ msgstr "Поисковая фраза обязательна"
-
-#~ msgid "Are you sure you want to delete ADL search \"%s\"?"
-#~ msgstr "Вы уверены, что хотите удалить ADL-поиск \"%s\"?"
-
-#~ msgid "Full Path"
-#~ msgstr "Полный путь"
-
-#~ msgid "<b>Search ADL</b>"
-#~ msgstr "<b>ADL-поиск</b>"
-
-#~ msgid "_Search String:"
-#~ msgstr "_Строка поиска:"
-
-#~ msgid "_max size:"
-#~ msgstr "Максимальный размер: "
-
-#~ msgid "Dest. Dir"
-#~ msgstr "Каталог назначения"
-
-#~ msgid "TypeSearch"
-#~ msgstr "Тип поиска"
-
-#, fuzzy
-#~ msgid "AutoQueue"
-#~ msgstr "Очередь"
-
-#~ msgid ""
-#~ "Developers:\n"
-#~ "  troll\n"
-#~ "\n"
-#~ "Contributors:\n"
-#~ "  Leliksan Floyd\n"
-#~ msgstr ""
-#~ "Разработчики:\n"
-#~ "  troll\n"
-#~ "\n"
-#~ "Соавторы:\n"
-#~ "  Leliksan Floyd\n"
-
-#~ msgid "<b>Under what name you see the directory</b>"
-#~ msgstr "<b>Виртульное имя каталога</b>"
-
-#~ msgid "Virtual name"
-#~ msgstr "Виртульное имя"
-
-#~ msgid "<b>Name under which the others see the directory</b>"
-#~ msgstr "<b>Виртуальное имя директории, которое увидят другие</b>"
-
-#~ msgid "UTF-8 (Unicode)"
-#~ msgstr "UTF-8 (Юникод)"
-
-#~ msgid "CP1252 (Western Europe)"
-#~ msgstr "CP1252 (Западная Европа)"
-
-#~ msgid "CP1250 (Central Europe)"
-#~ msgstr "CP1250 (Центральная Европа)"
-
-#~ msgid "ISO-8859-2 (Central Europe)"
-#~ msgstr "ISO-8859-2 (Центральная Европа)"
-
-#~ msgid "SJIS (Japanese)"
-#~ msgstr "SJIS (Японский)"
-
-#~ msgid "CP949 (Korean)"
-#~ msgstr "CP949 (Корейский)"
-
-#~ msgid "KOI8-R (Cyrillic)"
-#~ msgstr "KOI8-R (Кириллица)"
-
-#~ msgid "CP1251 (Cyrillic)"
-#~ msgstr "CP1251 (Кириллица)"
-
-#~ msgid "CP1256 (Arabic)"
-#~ msgstr "CP1256 (Арабский)"
-
-#~ msgid "CP1257 (Baltic)"
-#~ msgstr "CP1257 (Балтийская)"
-
-#~ msgid "GB18030 (Chinese)"
-#~ msgstr "GB18030 (Китайский)"
-
-#~ msgid "Enter hub password"
-#~ msgstr "Введите пароль хаба"
-
-#~ msgid "View the saved hubs"
-#~ msgstr "Посмотреть сохранённые хабы"
-
-#~ msgid "project home: "
-#~ msgstr "адрес проекта: "
