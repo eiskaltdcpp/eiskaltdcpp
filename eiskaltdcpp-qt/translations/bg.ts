@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<TS version="2.0" language="bg_BG">
 <context>
     <name>About</name>
     <message>
@@ -14,7 +14,7 @@ Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
         <translation>Използване на:
-  eiskaltdcpp-qt &lt;magnet-връзка&gt; &lt;dchub://адрес&gt; &lt;adc(s)://адрес&gt;
+  eiskaltdcpp-qt &lt;&quot;магнитна&quot;-връзка&gt; &lt;dchub://адрес&gt; &lt;adc(s)://адрес&gt;
   eiskaltdcpp-qt &lt;Опция&gt;
 EiskaltDC++ е програма за UNIX-системи, използваща Direct Connect и ADC протоколи.
 
@@ -94,7 +94,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/DownloadQueue.cpp" line="35"/>
         <source>Copy magnet</source>
-        <translation>Копиране на magnet връзка</translation>
+        <translation>Копиране на &quot;магнитна&quot; връзка</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="36"/>
@@ -368,7 +368,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>Nick</source>
-        <translation>Прякор</translation>
+        <translation>Псевдоним</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
@@ -462,7 +462,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="19"/>
         <source>Nick</source>
-        <translation>Прякор</translation>
+        <translation>Псевдоним</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="19"/>
@@ -661,7 +661,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="76"/>
         <source>Copy nick</source>
-        <translation>Копиране на прякор</translation>
+        <translation>Копиране на псевдоним</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="77"/>
@@ -707,7 +707,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="88"/>
         <source>Clear chat</source>
-        <translation>Изчистване на чата</translation>
+        <translation>Изчистване на съобщенията</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="89"/>
@@ -737,7 +737,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="98"/>
         <source>Nick</source>
-        <translation>Прякор</translation>
+        <translation>Псевдоним</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="99"/>
@@ -906,7 +906,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
         <location filename="../src/HubFrame.cpp" line="1341"/>
         <location filename="../src/HubFrame.cpp" line="1343"/>
         <source>Chat has been cleared</source>
-        <translation>Чата е изчистен</translation>
+        <translation>Съобщенията са изчистени</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1393"/>
@@ -991,7 +991,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
         <location filename="../src/HubFrame.cpp" line="1401"/>
         <source>/clear - clear chat window
 </source>
-        <translation>/clear - изчиства чата в текущия прозорец
+        <translation>/clear - изчиства съобщенията в текущия прозорец
 </translation>
     </message>
     <message>
@@ -1096,7 +1096,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="3166"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation>Съжалявам, но прякора &quot;%1&quot; вече се използва от друг потребител.</translation>
+        <translation>Съжалявам, но псевдонима &quot;%1&quot; вече се използва от друг потребител.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3176"/>
@@ -1196,17 +1196,17 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="1088"/>
         <source>Chat cleared.</source>
-        <translation>Чата е изчистен.</translation>
+        <translation>Съобщенията са изчистени.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1098"/>
         <source>Chat disabled.</source>
-        <translation>Чата е забранен.</translation>
+        <translation>Чата е изключен.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1105"/>
         <source>Chat enabled.</source>
-        <translation>Чата е разрешен.</translation>
+        <translation>Чата е включен.</translation>
     </message>
 </context>
 <context>
@@ -1466,7 +1466,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1024"/>
         <source>Transfers</source>
-        <translation>Трансфери</translation>
+        <translation>Прехвърляния</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1026"/>
@@ -1527,7 +1527,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1060"/>
         <source>Clear chat</source>
-        <translation>Изчистване на чата</translation>
+        <translation>Изчистване на съобщенията</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1064"/>
@@ -1984,12 +1984,12 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2311"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Български превод&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2313"/>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(за 2.1.0 и следващи)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2343"/>
@@ -2059,7 +2059,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="248"/>
         <source>Chat cleared.</source>
-        <translation>Чата е изчистен.</translation>
+        <translation>Съобщенията са изчистени.</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="336"/>
@@ -2387,7 +2387,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="56"/>
         <source>Copy magnet</source>
-        <translation>Копиране на magnet връзка</translation>
+        <translation>Копиране на &quot;магнитна&quot; връзка</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="59"/>
@@ -2407,7 +2407,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="68"/>
         <source>Add to favorites</source>
-        <translation>Добавяне в любими хъбове</translation>
+        <translation>Добавяне в любими потребители</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="71"/>
@@ -2515,7 +2515,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
         <source>Nick</source>
-        <translation>Прякор</translation>
+        <translation>Псевдоним</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="54"/>
@@ -2693,7 +2693,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Български</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="194"/>
@@ -2723,7 +2723,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="214"/>
         <source>Chat: Say nick</source>
-        <translation>Чат: Упоменат прякор</translation>
+        <translation>Чат: Упоменат псевдоним</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="218"/>
@@ -2903,7 +2903,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="55"/>
         <source>Copy magnet</source>
-        <translation>Копиране на magnet връзка</translation>
+        <translation>Копиране на &quot;магнитна&quot; връзка</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="58"/>
@@ -3309,7 +3309,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="40"/>
         <source>IP</source>
-        <translation>IP</translation>
+        <translation>IP адрес</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="94"/>
@@ -3319,7 +3319,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="270"/>
         <source>File list</source>
-        <translation>Списък файлове</translation>
+        <translation>Списък с файлове</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="522"/>
@@ -3402,7 +3402,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAbout.ui" line="61"/>
         <source>Authors</source>
-        <translation>Създадено от</translation>
+        <translation>Автори</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="109"/>
@@ -3432,7 +3432,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAbout.ui" line="85"/>
         <source>Translation</source>
-        <translation>Преведено от</translation>
+        <translation>Превод</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="103"/>
@@ -3705,7 +3705,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="181"/>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
-        <translation>С този прякор/име се идентифицирате при влизане в хъб.</translation>
+        <translation>С този псевдоним се идентифицирате при влизане в хъб.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="188"/>
@@ -3715,7 +3715,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="208"/>
         <source>Nick</source>
-        <translation>Прякор</translation>
+        <translation>Псевдоним</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="215"/>
@@ -3972,7 +3972,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIMagnet.ui" line="137"/>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
-        <translation>Добавяне на magnet в списъка за сваляне.
+        <translation>Добавяне на &quot;магнитна&quot; връзка в списъка за сваляне.
 Ако автоматичното търсене на алтернативи е разрешено в настройките,
 файла ще бъде изтеглен без отваряне на прозорец за търсене.</translation>
     </message>
@@ -4615,7 +4615,7 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="635"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
-        <translation>Задаване на Минимален. приоритет за нови сваляния по-големи от Нисък приоритет</translation>
+        <translation>Задаване на Мин. приоритет за нови сваляния по-големи от Нисък приоритет</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="638"/>
@@ -4796,7 +4796,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="816"/>
         <source>Compressed transfers</source>
-        <translation>Компресирани трансфери</translation>
+        <translation>Компресирани прехвърляния</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="827"/>
@@ -4849,7 +4849,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="114"/>
         <source>Remember window position on exit</source>
-        <translation>Запомняне позицията на прозореца при изход</translation>
+        <translation>При изход да се запомня позицията на прозореца</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="124"/>
@@ -4869,7 +4869,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="159"/>
         <source>Emoticon theme</source>
-        <translation>Тема с усмивки</translation>
+        <translation>Тема с емотикони</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="178"/>
@@ -4941,7 +4941,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="360"/>
         <location filename="../ui/UISettingsGUI.ui" line="379"/>
         <source>Insert nick into input widget</source>
-        <translation>Вмъкване прякора в полето за писане</translation>
+        <translation>Вмъкване псевдонима в полето за писане</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="365"/>
@@ -5084,7 +5084,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Show icon in system tray</source>
-        <translation>Показване на икона в областта за уведомяване</translation>
+        <translation>Показване на иконка в областта за уведомяване</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="228"/>
@@ -5212,7 +5212,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsNotification.ui" line="49"/>
         <location filename="../ui/UISettingsNotification.ui" line="192"/>
         <source>Your nick is mentioned in main chat</source>
-        <translation>Прякора Ви е споменат в чата</translation>
+        <translation>Псевдонима Ви е споменат в чата</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="56"/>
@@ -5278,7 +5278,7 @@ For example: /usr/bin/mplayer</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="105"/>
         <source>Change icon when main window is visible</source>
-        <translation>Промяна на икона при видим главен прозорец</translation>
+        <translation>Промяна на иконка при видим главен прозорец</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="177"/>
@@ -5320,7 +5320,7 @@ For example: /usr/bin/mplayer</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="61"/>
         <source>Nick</source>
-        <translation>Прякор</translation>
+        <translation>Псевдоним</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="45"/>
@@ -5340,7 +5340,7 @@ who sends private message to you.</source>
         <location filename="../ui/UISettingsPersonal.ui" line="68"/>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation>С този прякор или име се идентифицирате при влизане в хъб.
+        <translation>С този псевдоним или име се идентифицирате при влизане в хъб.
 Може да бъде зададен за конкретен хъб в настройките на
 любимите хъбове.</translation>
     </message>
@@ -5378,7 +5378,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="166"/>
         <source>Default hub encoding</source>
-        <translation>Кодировка на хъба по подразбиране</translation>
+        <translation>Стандартна кодировка на хъба</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="153"/>
@@ -5889,7 +5889,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="162"/>
         <source>Nick</source>
-        <translation>Прякор</translation>
+        <translation>Псевдоним</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="163"/>
@@ -5904,7 +5904,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="165"/>
         <source>Connection</source>
-        <translation>Свързване</translation>
+        <translation>Връзка</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="166"/>
@@ -5919,7 +5919,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="168"/>
         <source>IP</source>
-        <translation>IP</translation>
+        <translation>IP адрес</translation>
     </message>
 </context>
 <context>
