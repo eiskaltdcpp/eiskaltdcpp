@@ -9,12 +9,6 @@ file (GLOB dcpp_hdrs ${PROJECT_SOURCE_DIR}/*.h)
 set (DCPP_SRCS @dcpp_srcs@ PARENT_SCOPE)
 set (DCPP_HDRS @dcpp_hdrs@ PARENT_SCOPE)
 
-#if (NOT USE_MINIUPNP)
-#  list (REMOVE_ITEM dcpp_srcs ${CMAKE_CURRENT_SOURCE_DIR}/UPnP.cpp ${CMAKE_CURRENT_SOURCE_DIR}/UPnPManager.cpp)
-#else ()
-#    add_definitions ( -DUSE_MINIUPNP )
-#endif ()
-
 if (NOT LUA_SCRIPT)
   list (REMOVE_ITEM dcpp_srcs ${CMAKE_CURRENT_SOURCE_DIR}/ScriptManager.cpp)
 endif ()

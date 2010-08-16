@@ -123,7 +123,6 @@ int main(int argc, char *argv[])
 #endif
 
     Notification::newInstance();
-    Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
 
     if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
         MainWindow::getInstance()->show();

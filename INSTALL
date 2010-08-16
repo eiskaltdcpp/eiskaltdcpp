@@ -12,7 +12,7 @@ iconv (libc on GNU/Linux)
 ------
 gettext
 libssl (>= 0.9.8)
-miniupnpc (optional, see cmake keys)
+lua 5.1 (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -35,7 +35,7 @@ libglib2 (>= 2.10)
 libglade2 (>= 2.4)
 libnotify (>= 0.4.1)
 libgnome2 (optional, see cmake keys)
-
+miniupnpc (optional, see cmake keys)
 
 *******************************************************************************
 Opional Depends
