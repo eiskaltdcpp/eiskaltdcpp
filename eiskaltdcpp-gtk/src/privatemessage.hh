@@ -24,6 +24,7 @@
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
+#include <dcpp/ClientManagerListener.h>
 #include "bookentry.hh"
 #include "message.hh"
 
@@ -31,7 +32,8 @@ class WulforSettingsManager;
 class EmoticonsDialog;
 
 class PrivateMessage:
-	public BookEntry
+        public BookEntry,
+        public dcpp::ClientManagerListener
 {
 	public:
 		PrivateMessage(const std::string &cid, const std::string &hubUrl);
@@ -69,6 +71,7 @@ class PrivateMessage:
 		void getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, std::string &fore, std::string &back, int &bold, int &italic);
 		GtkTextTag* createTag_gui(const std::string &tagname, TypeTag type);
 		void updateCursor(GtkWidget *widget);
+                void updateOnlineStatus_gui(bool online);
 
 		// GUI callbacks
 		static gboolean onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data);
@@ -99,6 +102,10 @@ class PrivateMessage:
 		void removeFavoriteUser_client();
 		void getFileList_client();
 		void grantSlot_client();
+
+                // client callback
+                virtual void on(dcpp::ClientManagerListener::UserConnected, const dcpp::UserPtr& aUser) throw();
+                virtual void on(dcpp::ClientManagerListener::UserDisconnected, const dcpp::UserPtr& aUser) throw();
 
 		GtkTextBuffer *messageBuffer;
 		GtkTextMark *mark, *start_mark, *end_mark, *tag_mark, *emot_mark;

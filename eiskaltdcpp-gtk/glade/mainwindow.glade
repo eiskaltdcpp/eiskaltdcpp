@@ -238,6 +238,20 @@
                       </widget>
                     </child>
                     <child>
+                      <widget class="GtkImageMenuItem" id="searchADLMenuItem">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Search ADL</property>
+                        <property name="use_underline">True</property>
+                        <child internal-child="image">
+                          <widget class="GtkImage" id="searchADLMenuImage">
+                            <property name="visible">True</property>
+                            <property name="stock">icon-search-adl</property>
+                            <property name="icon_size">1</property>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
                       <widget class="GtkImageMenuItem" id="searchSpyMenuItem">
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Search Spy</property>
@@ -247,20 +261,6 @@
                           <widget class="GtkImage" id="searchSpyMenuImage">
                             <property name="visible">True</property>
                             <property name="stock">icon-search-spy</property>
-                            <property name="icon_size">1</property>
-                          </widget>
-                        </child>
-                      </widget>
-                    </child>
-                    <child>
-                      <widget class="GtkImageMenuItem" id="ADLSearchMenuItem">
-                        <property name="visible">True</property>
-                        <property name="label" translatable="yes">ADL Search</property>
-                        <property name="use_underline">True</property>
-                        <child internal-child="image">
-                          <widget class="GtkImage" id="ADLSearchMenuImage">
-                            <property name="visible">True</property>
-                            <property name="stock">icon-adlsearch</property>
                             <property name="icon_size">1</property>
                           </widget>
                         </child>
@@ -578,6 +578,19 @@
               </packing>
             </child>
             <child>
+              <widget class="GtkToolButton" id="searchADL">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">ADL Search</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">ADL</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-search-adl</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
               <widget class="GtkToolButton" id="searchSpy">
                 <property name="visible">True</property>
                 <property name="tooltip" translatable="yes">Search Spy</property>
@@ -624,19 +637,6 @@
                 <property name="label" translatable="yes">Finished Uploads</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">icon-finished-uploads</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="ADLSearch">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">ADL Search</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">ADL Search</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-adlsearch</property>
               </widget>
               <packing>
                 <property name="expand">False</property>

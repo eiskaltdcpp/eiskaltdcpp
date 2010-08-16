@@ -91,7 +91,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("toolbar-button-queue", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-quit", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-finished-downloads", 1));
-    defaultInt.insert(IntMap::value_type("toolbar-button-adlsearch", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-search-adl", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-finished-uploads", 1));
     defaultInt.insert(IntMap::value_type("notify-download-finished-use", 0));
     defaultInt.insert(IntMap::value_type("notify-download-finished-ul-use", 0));
@@ -135,6 +135,9 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("search-order", ""));
     defaultString.insert(StringMap::value_type("search-width", ""));
     defaultString.insert(StringMap::value_type("search-visibility", ""));
+    defaultString.insert(StringMap::value_type("searchadl-order", ""));
+    defaultString.insert(StringMap::value_type("searchadl-width", ""));
+    defaultString.insert(StringMap::value_type("searchadl-visibility", ""));
     defaultString.insert(StringMap::value_type("searchspy-order", ""));
     defaultString.insert(StringMap::value_type("searchspy-width", ""));
     defaultString.insert(StringMap::value_type("searchspy-visibility", ""));
@@ -215,7 +218,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("icon-queue", "eiskaltdcpp-download"));
     defaultString.insert(StringMap::value_type("icon-search", "eiskaltdcpp-edit-find"));
     defaultString.insert(StringMap::value_type("icon-search-spy", "eiskaltdcpp-spy"));
-    defaultString.insert(StringMap::value_type("icon-adlsearch", "eiskaltdcpp-find"));
+    defaultString.insert(StringMap::value_type("icon-search-adl", "eiskaltdcpp-find"));
     defaultString.insert(StringMap::value_type("icon-upload", "eiskaltdcpp-go-up"));
     defaultString.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
     defaultString.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
@@ -225,6 +228,10 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("icon-openlist", "eiskaltdcpp-openlist"));
     defaultString.insert(StringMap::value_type("icon-own-filelist", "eiskaltdcpp-own_filelist"));
     defaultString.insert(StringMap::value_type("icon-magnet", "eiskaltdcpp-gui"));
+    defaultString.insert(StringMap::value_type("icon-pm-online", "eiskaltdcpp-users"));
+    defaultString.insert(StringMap::value_type("icon-pm-offline", "eiskaltdcpp-users-red"));
+    defaultString.insert(StringMap::value_type("icon-hub-online", "eiskaltdcpp-server"));
+    defaultString.insert(StringMap::value_type("icon-hub-offline", "eiskaltdcpp-server-red"));
     //alias
     defaultString.insert(StringMap::value_type("custom-aliases", ""));
 

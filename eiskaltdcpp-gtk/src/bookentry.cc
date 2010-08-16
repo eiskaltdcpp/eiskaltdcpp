@@ -16,11 +16,12 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * In addition, as a special exception, compiling, linking, and/or
- * using OpenSSL with this program is allowed. 
+ * using OpenSSL with this program is allowed.
  */
 
 #include "bookentry.hh"
 #include "wulformanager.hh"
+#include "settingsmanager.hh"
 
 using namespace std;
 
@@ -36,6 +37,10 @@ BookEntry::BookEntry(const EntryType type, const string &text, const string &gla
 	eventBox = gtk_event_box_new();
 	gtk_event_box_set_above_child(GTK_EVENT_BOX(eventBox), TRUE);
 	gtk_event_box_set_visible_window(GTK_EVENT_BOX(eventBox), FALSE);
+
+        // icon
+        icon = gtk_image_new();
+        gtk_box_pack_start(GTK_BOX(labelBox), icon, FALSE, FALSE, 0);
 
 	// Make the eventbox fill to all left-over space.
 	gtk_box_pack_start(GTK_BOX(labelBox), GTK_WIDGET(eventBox), TRUE, TRUE, 0);
@@ -75,6 +80,7 @@ BookEntry::BookEntry(const EntryType type, const string &text, const string &gla
 	group = gtk_radio_menu_item_get_group(GTK_RADIO_MENU_ITEM(tabMenuItem));
 
 	setLabel_gui(text);
+	setIcon_gui(type);
 
 	// Associates entry to the widget for later retrieval in MainWindow::switchPage_gui()
 	g_object_set_data(G_OBJECT(getContainer()), "entry", (gpointer)this);
@@ -83,6 +89,32 @@ BookEntry::BookEntry(const EntryType type, const string &text, const string &gla
 GtkWidget* BookEntry::getContainer()
 {
 	return getWidget("mainBox");
+}
+
+void BookEntry::setIcon_gui(const EntryType type)
+{
+	string stock;
+	switch (type)
+	{
+		case Entry::FAVORITE_HUBS : stock = WGETS("icon-favorite-hubs"); break;
+		case Entry::FAVORITE_USERS : stock = WGETS("icon-favorite-users"); break;
+		case Entry::PUBLIC_HUBS : stock = WGETS("icon-public-hubs"); break;
+		case Entry::DOWNLOAD_QUEUE : stock = WGETS("icon-queue"); break;
+		case Entry::SEARCH : stock = WGETS("icon-search"); break;
+		case Entry::SEARCH_ADL : stock = WGETS("icon-search-adl"); break;
+		case Entry::SEARCH_SPY : stock = WGETS("icon-search-spy"); break;
+		case Entry::FINISHED_DOWNLOADS : stock = WGETS("icon-finished-downloads"); break;
+		case Entry::FINISHED_UPLOADS : stock = WGETS("icon-finished-uploads"); break;
+		case Entry::PRIVATE_MESSAGE : stock = WGETS("icon-pm-online"); break;
+		case Entry::HUB : stock = WGETS("icon-hub-offline"); break;
+		default: ;
+	}
+	gtk_image_set_from_stock(GTK_IMAGE(icon), stock.c_str(), GTK_ICON_SIZE_BUTTON);
+}
+
+void BookEntry::setIcon_gui(const std::string stock)
+{
+	gtk_image_set_from_stock(GTK_IMAGE(icon), stock.c_str(), GTK_ICON_SIZE_BUTTON);
 }
 
 void BookEntry::setLabel_gui(string text)

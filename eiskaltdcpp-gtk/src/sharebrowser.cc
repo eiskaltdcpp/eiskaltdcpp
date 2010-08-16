@@ -159,7 +159,10 @@ void ShareBrowser::buildList_gui()
 
         // Set name of root entry to user nick.
         listing.getRoot()->setName(nick);
-        dcpp::ADLSearchManager::getInstance()->matchListing(listing);
+
+        // Search ADL
+        ADLSearchManager::getInstance()->matchListing(listing);
+
         // Add entries to dir tree view starting with the root entry.
         buildDirs_gui(listing.getRoot(), NULL);
     }

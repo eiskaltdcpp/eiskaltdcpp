@@ -75,7 +75,7 @@ Settings::Settings(GtkWindow* parent):
     defaultStringTheme.insert(StringMap::value_type("icon-queue", "eiskaltdcpp-download"));
     defaultStringTheme.insert(StringMap::value_type("icon-search", "eiskaltdcpp-edit-find"));
     defaultStringTheme.insert(StringMap::value_type("icon-search-spy", "eiskaltdcpp-spy"));
-    defaultStringTheme.insert(StringMap::value_type("icon-adlsearch", "eiskaltdcpp-find"));
+    defaultStringTheme.insert(StringMap::value_type("icon-search-adl", "eiskaltdcpp-find"));
     defaultStringTheme.insert(StringMap::value_type("icon-upload", "eiskaltdcpp-go-up"));
     defaultStringTheme.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
     defaultStringTheme.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
@@ -1205,7 +1205,7 @@ void Settings::initAppearance_gui()
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Reconnect"), "icon-reconnect");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("File"), "icon-file");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Directory"), "icon-directory");
-        addOption_gui(themeIconsStore, wsm, iconTheme, _("ADL Search"), "icon-adlsearch");
+        addOption_gui(themeIconsStore, wsm, iconTheme, _("Search ADL"), "icon-search-adl");
 
         g_signal_connect(getWidget("importThemeButton"), "clicked", G_CALLBACK(onImportThemeButton_gui), (gpointer)this);
         g_signal_connect(getWidget("exportThemeButton"), "clicked", G_CALLBACK(onExportThemeButton_gui), (gpointer)this);
@@ -1248,6 +1248,8 @@ void Settings::initAppearance_gui()
             "icon-hash");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Search"), "toolbar-button-search",
             "icon-search");
+        addOption_gui(toolbarStore, wsm, iconTheme, _("searchADL"), "toolbar-button-search-adl",
+            "icon-search-adl");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Search Spy"), "toolbar-button-search-spy",
             "icon-search-spy");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Queue"), "toolbar-button-queue",
@@ -1256,8 +1258,6 @@ void Settings::initAppearance_gui()
             "icon-finished-downloads");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Finished Uploads"), "toolbar-button-finished-uploads",
             "icon-finished-uploads");
-        addOption_gui(toolbarStore, wsm, iconTheme, _("ADLSearch"), "toolbar-button-adlsearch",
-            "icon-adlsearch");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Quit"), "toolbar-button-quit",
             "icon-quit");
     }

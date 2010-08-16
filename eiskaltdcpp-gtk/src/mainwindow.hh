@@ -71,7 +71,7 @@ class MainWindow:
         void showFinishedUploads_gui();
         void showHub_gui(std::string address, std::string encoding = "");
         void showSearchSpy_gui();
-        void showADLSearch_gui();
+        void showSearchADL_gui();
         void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string hubUrl = "", std::string message = "", bool useSetting = FALSE);
         void addPrivateStatusMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string message = "");
         void showPublicHubs_gui();
@@ -127,11 +127,11 @@ class MainWindow:
         static void onPreferencesClicked_gui(GtkWidget *widget, gpointer data);
         static void onHashClicked_gui(GtkWidget *widget, gpointer data);
         static void onSearchClicked_gui(GtkWidget *widget, gpointer data);
+        static void onSearchADLClicked_gui(GtkWidget *widget, gpointer data);
         static void onSearchSpyClicked_gui(GtkWidget *widget, gpointer data);
         static void onDownloadQueueClicked_gui(GtkWidget *widget, gpointer data);
         static void onFinishedDownloadsClicked_gui(GtkWidget *widget, gpointer data);
         static void onFinishedUploadsClicked_gui(GtkWidget *widget, gpointer data);
-        static void onADLSearch_gui(GtkWidget *widget, gpointer data);
         static void onQuitClicked_gui(GtkWidget *widget, gpointer data);
         static void onOpenFileListClicked_gui(GtkWidget *widget, gpointer data);
         static void onOpenOwnListClicked_gui(GtkWidget *widget, gpointer data);

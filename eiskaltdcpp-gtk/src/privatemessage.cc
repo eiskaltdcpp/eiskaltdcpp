@@ -156,6 +156,8 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
 
 PrivateMessage::~PrivateMessage()
 {
+        ClientManager::getInstance()->removeListener(this);
+
 	if (handCursor)
 	{
 		gdk_cursor_unref(handCursor);
@@ -172,6 +174,7 @@ PrivateMessage::~PrivateMessage()
 
 void PrivateMessage::show()
 {
+        ClientManager::getInstance()->addListener(this);
 }
 
 void PrivateMessage::addMessage_gui(string message, Msg::TypeMsg typemsg)
@@ -1236,6 +1239,11 @@ void PrivateMessage::onUseEmoticons_gui(GtkWidget *widget, gpointer data)
 	pm->useEmoticons = !pm->useEmoticons;
 }
 
+void PrivateMessage::updateOnlineStatus_gui(bool online)
+{
+        setIcon_gui(online ? WGETS("icon-pm-online") : WGETS("icon-pm-offline"));
+}
+
 void PrivateMessage::sendMessage_client(string message)
 {
 	UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
@@ -1315,3 +1323,22 @@ void PrivateMessage::grantSlot_client()
 	}
 }
 
+void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUser) throw()
+{
+        if (aUser->getCID() == CID(cid))
+        {
+                typedef Func1<PrivateMessage, bool> F1;
+                F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
+                WulforManager::get()->dispatchGuiFunc(func);
+        }
+}
+
+void PrivateMessage::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) throw()
+{
+        if (aUser->getCID() == CID(cid))
+        {
+                typedef Func1<PrivateMessage, bool> F1;
+                F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
+                WulforManager::get()->dispatchGuiFunc(func);
+        }
+}

@@ -1176,6 +1176,10 @@ GtkTextTag* Hub::createTag_gui(const string &tagname, TypeTag type)
 
 void Hub::addStatusMessage_gui(string message, Msg::TypeMsg typemsg, Sound::TypeSound sound, Notify::TypeNotify notify)
 {
+    if (notify == Notify::HUB_CONNECT)
+            setIcon_gui(WGETS("icon-hub-online"));
+    else if (notify == Notify::HUB_DISCONNECT)
+            setIcon_gui(WGETS("icon-hub-offline"));
     addStatusMessage_gui(message, typemsg, sound);
     Notify::get()->showNotify("<b>" + client->getHubUrl() + ":</b> ", message, notify);
 }

@@ -49,8 +49,8 @@
 #include "emoticons.hh"
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
+#include "adlsearch.hh"
 #include "WulforUtil.hh"
-#include "ADLSearchGUI.hh"
 #include "Version.h"
 
 using namespace std;
@@ -144,7 +144,7 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("search"), "clicked", G_CALLBACK(onSearchClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("searchSpy"), "clicked", G_CALLBACK(onSearchSpyClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("queue"), "clicked", G_CALLBACK(onDownloadQueueClicked_gui), (gpointer)this);
-    g_signal_connect(getWidget("ADLSearch"), "clicked", G_CALLBACK(onADLSearch_gui), (gpointer)this);
+    g_signal_connect(getWidget("searchADL"), "clicked", G_CALLBACK(onSearchADLClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("quit"), "clicked", G_CALLBACK(onQuitClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("finishedDownloads"), "clicked", G_CALLBACK(onFinishedDownloadsClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("finishedUploads"), "clicked", G_CALLBACK(onFinishedUploadsClicked_gui), (gpointer)this);
@@ -162,7 +162,7 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("indexingProgressMenuItem"), "activate", G_CALLBACK(onHashClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("searchMenuItem"), "activate", G_CALLBACK(onSearchClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("searchSpyMenuItem"), "activate", G_CALLBACK(onSearchSpyClicked_gui), (gpointer)this);
-    g_signal_connect(getWidget("ADLSearchMenuItem"), "activate", G_CALLBACK(onADLSearch_gui), (gpointer)this);
+    g_signal_connect(getWidget("searchADLMenuItem"), "activate", G_CALLBACK(onSearchADLClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("downloadQueueMenuItem"), "activate", G_CALLBACK(onDownloadQueueClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("finishedDownloadsMenuItem"), "activate", G_CALLBACK(onFinishedDownloadsClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("finishedUploadsMenuItem"), "activate", G_CALLBACK(onFinishedUploadsClicked_gui), (gpointer)this);
@@ -358,7 +358,7 @@ void MainWindow::loadIcons_gui()
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("queue")), "icon-queue");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedDownloads")), "icon-finished-downloads");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedUploads")), "icon-finished-uploads");
-    gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("ADLSearch")), "icon-adlsearch");
+    gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("searchADL")), "icon-search-adl");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("quit")), "icon-quit");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("connect")), "icon-connect");
     gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageHubs")), "icon-public-hubs", GTK_ICON_SIZE_SMALL_TOOLBAR);
@@ -659,24 +659,24 @@ void MainWindow::showHub_gui(string address, string encoding)
 
 void MainWindow::showSearchSpy_gui()
 {
-    BookEntry *entry = findBookEntry(Entry::SEARCH_SPY);
-
-    if (entry == NULL)
-    {
-        entry = new SearchSpy();
-        addBookEntry_gui(entry);
-    }
-
-    raisePage_gui(entry->getContainer());
-}
-
-void MainWindow::showADLSearch_gui()
-{
-        BookEntry *entry = findBookEntry(Entry::ADL);
+        BookEntry *entry = findBookEntry(Entry::SEARCH_SPY);
 
         if (entry == NULL)
         {
-                entry = new ADLSearchGUI();
+                entry = new SearchSpy();
+                addBookEntry_gui(entry);
+        }
+
+        raisePage_gui(entry->getContainer());
+}
+
+void MainWindow::showSearchADL_gui()
+{
+        BookEntry *entry = findBookEntry(Entry::SEARCH_ADL);
+
+        if (entry == NULL)
+        {
+                entry = new SearchADL();
                 addBookEntry_gui(entry);
         }
 
@@ -895,8 +895,8 @@ void MainWindow::setToolbarButton_gui()
         gtk_widget_hide(getWidget("finishedDownloads"));
     if (!WGETB("toolbar-button-finished-uploads"))
         gtk_widget_hide(getWidget("finishedUploads"));
-    if (!WGETB("toolbar-button-adlsearch"))
-        gtk_widget_hide(getWidget("ADLSearch"));
+    if (!WGETB("toolbar-button-search-adl"))
+        gtk_widget_hide(getWidget("searchADL"));
 }
 
 void MainWindow::setTabPosition_gui(int position)
@@ -1542,12 +1542,6 @@ void MainWindow::onTransferToggled_gui(GtkWidget *widget, gpointer data)
         gtk_widget_show_all(transfer);
 }
 
-void MainWindow::onADLSearch_gui(GtkWidget *widget, gpointer data)
-{
-        MainWindow *mw = (MainWindow *)data;
-        mw->showADLSearch_gui();
-}
-
 void MainWindow::onHashClicked_gui(GtkWidget *widget, gpointer data)
 {
     WulforManager::get()->openHashDialog_gui();
@@ -1563,6 +1557,12 @@ void MainWindow::onSearchSpyClicked_gui(GtkWidget *widget, gpointer data)
 {
     MainWindow *mw = (MainWindow *)data;
     mw->showSearchSpy_gui();
+}
+
+void MainWindow::onSearchADLClicked_gui(GtkWidget *widget, gpointer data)
+{
+        MainWindow *mw = (MainWindow *)data;
+        mw->showSearchADL_gui();
 }
 
 void MainWindow::onDownloadQueueClicked_gui(GtkWidget *widget, gpointer data)
