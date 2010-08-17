@@ -30,6 +30,11 @@ set (LIBS ${LIBS}
         "-lgthread-2.0"
         )
 
+if (LUA_SCRIPT)
+  include_directories (${LUA_INCLUDE_DIR})
+  list (APPEND LIBS ${LUA_LIBRARIES})
+endif (LUA_SCRIPT)
+
 if (NOT USE_MINIUPNP)
   list (REMOVE_ITEM gtk_srcs ${CMAKE_CURRENT_SOURCE_DIR}/src/upnpc.cc)
 else ()

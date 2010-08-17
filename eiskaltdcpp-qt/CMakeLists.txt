@@ -302,6 +302,11 @@ if (USE_ASPELL)
   list (APPEND LIBS ${ASPELL_LIBRARIES})
 endif (USE_ASPELL)
 
+if (LUA_SCRIPT)
+  include_directories (${LUA_INCLUDE_DIR})
+  list (APPEND LIBS ${LUA_LIBRARIES})
+endif (LUA_SCRIPT)
+
 if (APPLE)
   set (MACOSICON "${CMAKE_CURRENT_SOURCE_DIR}/../icons/icon_128x128.icns")
   # set how it shows up in the Info.plist file

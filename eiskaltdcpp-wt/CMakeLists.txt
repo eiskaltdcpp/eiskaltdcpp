@@ -26,6 +26,11 @@ set (SRCS
 include_directories (${Wt_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}  ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${Wt_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
+if (LUA_SCRIPT)
+  include_directories (${LUA_INCLUDE_DIR})
+  list (APPEND LIBS ${LUA_LIBRARIES})
+endif (LUA_SCRIPT)
+
 add_executable (eiskaltdcpp-wt MACOSX_BUNDLE WIN32 src/main.cpp
                 ${SRCS}
                 ${HDRS}
