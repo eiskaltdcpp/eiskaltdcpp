@@ -701,8 +701,7 @@ void Settings::initConnection_gui()
             break;
     }
 #ifndef USE_MINIUPNP
-    // TODO: add code for disable upnpRadioButton {done?}
-    gtk_toggle_button_set_inconsistent(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton")), TRUE);
+    gtk_widget_set_sensitive((GtkWidget*)GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton")), FALSE);
 #endif
 
     // Outgoing
