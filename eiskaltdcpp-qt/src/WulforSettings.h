@@ -65,6 +65,7 @@ static const QString & WS_SHAREHEADER_STATE       = "shareheader-state";
 static const QString & WS_DOWNLOADTO_ALIASES      = "downloadto-aliases";
 static const QString & WS_DOWNLOADTO_PATHS        = "downloadto-paths";
 static const QString & WS_APP_ICONTHEME           = "app-theme-icons";
+static const QString & WS_APP_USERTHEME           = "app-theme-users";
 static const QString & WS_APP_TOTAL_UP            = "app-stat-total-up";
 static const QString & WS_APP_TOTAL_DOWN          = "app-stat-total-down";
 static const QString & WS_APP_ASPELL_LANG         = "app-aspell-lang";

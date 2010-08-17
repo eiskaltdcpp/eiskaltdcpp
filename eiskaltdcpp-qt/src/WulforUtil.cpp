@@ -60,11 +60,11 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
         connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
         http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
         slotHttpTimer();
-    
+
         http_timer = new QTimer();
         http_timer->setInterval(30*1000);
         connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
-    
+
         http_timer->start();
     }
     memset(userIconCache, 0, sizeof (userIconCache));
@@ -121,32 +121,34 @@ WulforUtil::~WulforUtil(){
 
 bool WulforUtil::loadUserIcons(){
     //Try to find icons directory
-    QString settings_path = QDir::currentPath() + "/icons/user/default";
+    QString user_theme = WSGET(WS_APP_USERTHEME);
+
+    QString settings_path = QDir::currentPath() + "/icons/user/" + user_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
-    settings_path = bin_path + "icons/user/default";
+    settings_path = bin_path + "icons/user/" + user_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
-    settings_path = QDir::homePath() + "/.eiskaltdc++/icons/user/default";
+    settings_path = QDir::homePath() + "/.eiskaltdc++/icons/user/" + user_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
-    settings_path = QDir::homePath()+QString(".dc/icons/user/default");
+    settings_path = QDir::homePath()+QString(".dc/icons/user/" + user_theme);
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
-    settings_path = CLIENT_ICONS_DIR "/user/default";
+    settings_path = CLIENT_ICONS_DIR "/user/" + user_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
-    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/user/default";
+    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/user/" + user_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
@@ -954,7 +956,7 @@ void WulforUtil::slotHttpTimer(){
         header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
         QString useragent = QString("EiskaltDCPP");
         header.setValue("User-Agent", useragent);
-    
+
         http->request(header);
     }
 }

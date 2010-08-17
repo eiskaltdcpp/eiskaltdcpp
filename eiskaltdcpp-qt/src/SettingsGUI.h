@@ -32,6 +32,7 @@ private slots:
     void slotBrowseFont();
     void slotBrowseLng();
     void slotLngIndexChanged(int);
+    void slotUsersChanged();
     void slotIconsChanged();
     void slotGetColor();
     void slotSetTransparency(int);

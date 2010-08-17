@@ -99,6 +99,25 @@ void SettingsGUI::init(){
         comboBox_LANGS->setCurrentIndex(k);
 
 #ifndef WIN32
+        QString users = CLIENT_ICONS_DIR "/user/";
+#else
+        QString users = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/user/";
+#endif//WIN32
+        i = 0;
+        k = -1;
+        foreach (QString f, QDir(users).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+            if (!f.isEmpty()){
+                comboBox_USERS->addItem(f);
+
+                if (f == WSGET(WS_APP_USERTHEME))
+                    k = i;
+
+                i++;
+            }
+        }
+        comboBox_USERS->setCurrentIndex(k);
+
+#ifndef WIN32
         QString icons = CLIENT_ICONS_DIR "/appl/";
 #else
         QString icons = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/appl/";
@@ -263,7 +282,8 @@ void SettingsGUI::init(){
     connect(toolButton_APPFONTBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseFont()));
     connect(toolButton_LANGBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseLng()));
     connect(comboBox_LANGS, SIGNAL(activated(int)), this, SLOT(slotLngIndexChanged(int)));
-    connect(comboBox_ICONS, SIGNAL(activated(int)), this, SLOT(slotIconsChanged()));
+    connect(comboBox_USERS, SIGNAL(activated(int)), this, SLOT(slotUsersChanged()));
+	connect(comboBox_ICONS, SIGNAL(activated(int)), this, SLOT(slotIconsChanged()));
     connect(toolButton_H_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
     connect(horizontalSlider_H_COLOR, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
 }
@@ -465,4 +485,8 @@ void SettingsGUI::slotIconsChanged(){
     WSSET(WS_APP_ICONTHEME, comboBox_ICONS->currentText());
 
     WulforUtil::getInstance()->loadIcons();
+}
+
+void SettingsGUI::slotUsersChanged(){
+    WSSET(WS_APP_USERTHEME, comboBox_USERS->currentText());
 }
