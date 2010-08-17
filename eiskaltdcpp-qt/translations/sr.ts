@@ -4145,6 +4145,14 @@ them is usually available only to operators</source>
         <source>Download</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>(need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User theme</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>

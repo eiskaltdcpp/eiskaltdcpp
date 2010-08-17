@@ -3015,72 +3015,72 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Болгарский</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="194"/>
+        <location filename="../src/SettingsGUI.cpp" line="213"/>
         <source>Local user</source>
         <translation>Локальный пользователь</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="198"/>
+        <location filename="../src/SettingsGUI.cpp" line="217"/>
         <source>Operator</source>
         <translation>Оператор</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="202"/>
+        <location filename="../src/SettingsGUI.cpp" line="221"/>
         <source>Bot</source>
         <translation>Бот</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="206"/>
+        <location filename="../src/SettingsGUI.cpp" line="225"/>
         <source>Private: local user</source>
         <translation>Личный чат: локальный пользователь</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="210"/>
+        <location filename="../src/SettingsGUI.cpp" line="229"/>
         <source>Private: user</source>
         <translation>Личный чат: пользователь</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="214"/>
+        <location filename="../src/SettingsGUI.cpp" line="233"/>
         <source>Chat: Say nick</source>
         <translation>Чат: Ник упомянут</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="218"/>
+        <location filename="../src/SettingsGUI.cpp" line="237"/>
         <source>Core</source>
         <translation>Ядро</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="222"/>
+        <location filename="../src/SettingsGUI.cpp" line="241"/>
         <source>Status</source>
         <translation>Статус</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="226"/>
+        <location filename="../src/SettingsGUI.cpp" line="245"/>
         <source>User</source>
         <translation>Пользователь</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="230"/>
+        <location filename="../src/SettingsGUI.cpp" line="249"/>
         <source>Favorite User</source>
         <translation>Избранный пользователь</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="234"/>
+        <location filename="../src/SettingsGUI.cpp" line="253"/>
         <source>Time stamp</source>
         <translation>Временная метка</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="238"/>
+        <location filename="../src/SettingsGUI.cpp" line="257"/>
         <source>Message</source>
         <translation>Сообщение</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="439"/>
+        <location filename="../src/SettingsGUI.cpp" line="459"/>
         <source>Select translation</source>
         <translation>Выберите перевод</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="439"/>
+        <location filename="../src/SettingsGUI.cpp" line="459"/>
         <source>Translation (*.qm)</source>
         <translation>Перевод (*.qm)</translation>
     </message>
@@ -5256,36 +5256,47 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="143"/>
+        <location filename="../ui/UISettingsGUI.ui" line="159"/>
+        <source>(need restart)</source>
+        <translation>(требуется перезапуск)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="146"/>
+        <source>User theme</source>
+        <translation>Тема пользователей</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="166"/>
         <source>Icon theme</source>
         <translation>Тема иконок</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="159"/>
+        <location filename="../ui/UISettingsGUI.ui" line="182"/>
         <source>Emoticon theme</source>
         <translation>Тема смайлов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="178"/>
+        <location filename="../ui/UISettingsGUI.ui" line="201"/>
         <source>Use default ToolBar (need restart)</source>
         <translation>Использовать стандартную панель табов (требуется перезапуск)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="183"/>
+        <location filename="../ui/UISettingsGUI.ui" line="206"/>
         <source>Use multi-line ToolBar (need restart)</source>
         <translation>Использовать многострочную панель табов (требуется перезапуск)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="188"/>
+        <location filename="../ui/UISettingsGUI.ui" line="211"/>
         <source>Use SideBar instead of ToolBar (need restart)</source>
         <translation>Использовать боковую панель вместо панели табов (требуется перезапуск)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="210"/>
+        <location filename="../ui/UISettingsGUI.ui" line="233"/>
         <source>Chat</source>
         <translation>Чат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="223"/>
+        <location filename="../ui/UISettingsGUI.ui" line="246"/>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
@@ -5294,133 +5305,133 @@ from other words by spaces.</source>
 они изолированы от других слов пробелами.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="245"/>
+        <location filename="../ui/UISettingsGUI.ui" line="268"/>
         <source>Show joins only for favorite users</source>
         <translation>Вход/выход только для избранных пользователей</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="259"/>
+        <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
         <translation>Зависит от настроек хаба: информация о них 
 обычно доступна только операторам</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="263"/>
+        <location filename="../ui/UISettingsGUI.ui" line="286"/>
         <source>Show ip-addresses of users in chat</source>
         <translation>Показывать ip-адреса пользователей в чате</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="284"/>
+        <location filename="../ui/UISettingsGUI.ui" line="307"/>
         <source>Highlight favorite users in user list</source>
         <translation>Подсвечивать избранных пользователей в списке пользователей</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="308"/>
+        <location filename="../ui/UISettingsGUI.ui" line="331"/>
         <source>Use Ctrl+Enter to send messages</source>
         <translation>Использовать Ctrl+Enter для отправки сообщений</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="332"/>
+        <location filename="../ui/UISettingsGUI.ui" line="355"/>
         <source>Chat (extended)</source>
         <translation>Чат (расширенные)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="346"/>
+        <location filename="../ui/UISettingsGUI.ui" line="369"/>
         <source>Double click action</source>
         <translation>Действие на дабл-клик</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="360"/>
-        <location filename="../ui/UISettingsGUI.ui" line="379"/>
+        <location filename="../ui/UISettingsGUI.ui" line="383"/>
+        <location filename="../ui/UISettingsGUI.ui" line="402"/>
         <source>Insert nick into input widget</source>
         <translation>Вставить ник в поле ввода</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="365"/>
-        <location filename="../ui/UISettingsGUI.ui" line="384"/>
+        <location filename="../ui/UISettingsGUI.ui" line="388"/>
+        <location filename="../ui/UISettingsGUI.ui" line="407"/>
         <source>Get file list</source>
         <translation>Скачать файл-лист</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="370"/>
-        <location filename="../ui/UISettingsGUI.ui" line="389"/>
+        <location filename="../ui/UISettingsGUI.ui" line="393"/>
+        <location filename="../ui/UISettingsGUI.ui" line="412"/>
         <source>Private message</source>
         <translation>Личное сообщение</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="468"/>
+        <location filename="../ui/UISettingsGUI.ui" line="491"/>
         <source>Middle click action</source>
         <translation>Клик средней кнопкой мыши</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="403"/>
-        <location filename="../ui/UISettingsGUI.ui" line="439"/>
+        <location filename="../ui/UISettingsGUI.ui" line="426"/>
+        <location filename="../ui/UISettingsGUI.ui" line="462"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
         <translation>показывать кибибайты (КиБ) или килобайты (КБ), и т.п.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="406"/>
+        <location filename="../ui/UISettingsGUI.ui" line="429"/>
         <source>Application unit base</source>
         <translation>Система единиц в программе</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="420"/>
+        <location filename="../ui/UISettingsGUI.ui" line="443"/>
         <source>1024</source>
         <translation>1024</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="425"/>
+        <location filename="../ui/UISettingsGUI.ui" line="448"/>
         <source>1000</source>
         <translation>1000</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="442"/>
+        <location filename="../ui/UISettingsGUI.ui" line="465"/>
         <source>Timestamp</source>
         <translation>Временные метки</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="455"/>
+        <location filename="../ui/UISettingsGUI.ui" line="478"/>
         <source>hh:mm:ss</source>
         <translation>hh:mm:ss</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="487"/>
+        <location filename="../ui/UISettingsGUI.ui" line="510"/>
         <source>Default action with magnet</source>
         <translation>Действие при клике на магнет</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="501"/>
+        <location filename="../ui/UISettingsGUI.ui" line="524"/>
         <source>Ask</source>
         <translation>Спросить</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="506"/>
+        <location filename="../ui/UISettingsGUI.ui" line="529"/>
         <source>Search</source>
         <translation>Найти</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="511"/>
+        <location filename="../ui/UISettingsGUI.ui" line="534"/>
         <source>Download</source>
         <translation>Загрузить</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="529"/>
+        <location filename="../ui/UISettingsGUI.ui" line="552"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
         <translation>Запоминать исходящие сообщения (0 = не запоминать)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="584"/>
+        <location filename="../ui/UISettingsGUI.ui" line="607"/>
         <source>Separator in chat</source>
         <translation>Разделитель в чате</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="598"/>
+        <location filename="../ui/UISettingsGUI.ui" line="621"/>
         <source>:</source>
         <translation>:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="603"/>
+        <location filename="../ui/UISettingsGUI.ui" line="626"/>
         <source>,</source>
         <translation>,</translation>
     </message>
@@ -5429,52 +5440,52 @@ them is usually available only to operators</source>
         <translation type="obsolete">Высота текстового поля ввода</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="627"/>
+        <location filename="../ui/UISettingsGUI.ui" line="650"/>
         <source>Colors</source>
         <translation>Цвета</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="633"/>
+        <location filename="../ui/UISettingsGUI.ui" line="656"/>
         <source>Text colors in chat</source>
         <translation>Цвета текста в чате</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="655"/>
+        <location filename="../ui/UISettingsGUI.ui" line="678"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Подсветка результатов поиска в чате</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="661"/>
+        <location filename="../ui/UISettingsGUI.ui" line="684"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="681"/>
+        <location filename="../ui/UISettingsGUI.ui" line="704"/>
         <source>Transparency</source>
         <translation>Прозрачность</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="724"/>
+        <location filename="../ui/UISettingsGUI.ui" line="747"/>
         <source>Fonts</source>
         <translation>Шрифты</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="235"/>
+        <location filename="../ui/UISettingsGUI.ui" line="258"/>
         <source>Show joins</source>
         <translation>Отображать вход/выход пользователей в чат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="252"/>
+        <location filename="../ui/UISettingsGUI.ui" line="275"/>
         <source>Show hidden users</source>
         <translation>Отображать скрытых пользователей</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="558"/>
+        <location filename="../ui/UISettingsGUI.ui" line="581"/>
         <source>Maximum paragraphs</source>
         <translation>Максимальное число параграфов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="216"/>
+        <location filename="../ui/UISettingsGUI.ui" line="239"/>
         <source>Enable emoticons</source>
         <translation>Использовать смайлы</translation>
     </message>
@@ -5484,28 +5495,28 @@ them is usually available only to operators</source>
         <translation>Отображать иконку в системном трее</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="228"/>
+        <location filename="../ui/UISettingsGUI.ui" line="251"/>
         <source>Force emoticon parsing</source>
         <translatorcomment>Используется проверка не только на пробелы, но и на символ переноса строки.</translatorcomment>
         <translation>Принудительное использование смайлов</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="270"/>
+        <location filename="../ui/UISettingsGUI.ui" line="293"/>
         <source>Ignore private messages from Hub</source>
         <translation>Игнорировать личные сообщения от хаба</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="277"/>
+        <location filename="../ui/UISettingsGUI.ui" line="300"/>
         <source>Ignore private messages from Bot</source>
         <translation>Игнорировать личные сообщения от бота</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="291"/>
+        <location filename="../ui/UISettingsGUI.ui" line="314"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation>Перенаправлять сообщения от бота в основной чат</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="298"/>
+        <location filename="../ui/UISettingsGUI.ui" line="321"/>
         <source>Do not change focus on new private message</source>
         <translation>Не переводить фокус на новое личное сообщение</translation>
     </message>
@@ -6377,78 +6388,78 @@ the granted slot will not be closed.</source>
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="596"/>
+        <location filename="../src/WulforUtil.cpp" line="598"/>
         <source>System default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="669"/>
+        <location filename="../src/WulforUtil.cpp" line="671"/>
         <source>Enter parameter value</source>
         <translation>Укажите значение параметра</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="744"/>
-        <location filename="../src/WulforUtil.cpp" line="758"/>
+        <location filename="../src/WulforUtil.cpp" line="746"/>
+        <location filename="../src/WulforUtil.cpp" line="760"/>
         <source>%1 B</source>
         <translation>%1 Б</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="746"/>
+        <location filename="../src/WulforUtil.cpp" line="748"/>
         <source>%1 KiB</source>
         <translation>%1 КиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="748"/>
+        <location filename="../src/WulforUtil.cpp" line="750"/>
         <source>%1 MiB</source>
         <translation>%1 МиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="750"/>
+        <location filename="../src/WulforUtil.cpp" line="752"/>
         <source>%1 GiB</source>
         <translation>%1 ГиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="752"/>
+        <location filename="../src/WulforUtil.cpp" line="754"/>
         <source>%1 TiB</source>
         <translation>%1 ТиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="754"/>
+        <location filename="../src/WulforUtil.cpp" line="756"/>
         <source>%1 PiB</source>
         <translation>%1 ПиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="760"/>
+        <location filename="../src/WulforUtil.cpp" line="762"/>
         <source>%1 KB</source>
         <translation>%1 Кб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="762"/>
+        <location filename="../src/WulforUtil.cpp" line="764"/>
         <source>%1 MB</source>
         <translation>%1 Мб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="764"/>
+        <location filename="../src/WulforUtil.cpp" line="766"/>
         <source>%1 GB</source>
         <translation>%1 Гб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="766"/>
+        <location filename="../src/WulforUtil.cpp" line="768"/>
         <source>%1 TB</source>
         <translation>%1 Тб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="768"/>
+        <location filename="../src/WulforUtil.cpp" line="770"/>
         <source>%1 PB</source>
         <translation>%1 Пб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="834"/>
+        <location filename="../src/WulforUtil.cpp" line="836"/>
         <source>Offline</source>
         <translation>Не в сети</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="972"/>
+        <location filename="../src/WulforUtil.cpp" line="974"/>
         <source>User commands</source>
         <translation>Команды пользователя</translation>
     </message>

@@ -2696,72 +2696,72 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Búlgaro</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="194"/>
+        <location filename="../src/SettingsGUI.cpp" line="213"/>
         <source>Local user</source>
         <translation>Usuario local</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="198"/>
+        <location filename="../src/SettingsGUI.cpp" line="217"/>
         <source>Operator</source>
         <translation>Operador</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="202"/>
+        <location filename="../src/SettingsGUI.cpp" line="221"/>
         <source>Bot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="206"/>
+        <location filename="../src/SettingsGUI.cpp" line="225"/>
         <source>Private: local user</source>
         <translation>Privado: usuario local</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="210"/>
+        <location filename="../src/SettingsGUI.cpp" line="229"/>
         <source>Private: user</source>
         <translation>Privado: usuario</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="214"/>
+        <location filename="../src/SettingsGUI.cpp" line="233"/>
         <source>Chat: Say nick</source>
         <translation>Chat: decir nick</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="218"/>
+        <location filename="../src/SettingsGUI.cpp" line="237"/>
         <source>Core</source>
         <translation>Núcleo</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="222"/>
+        <location filename="../src/SettingsGUI.cpp" line="241"/>
         <source>Status</source>
         <translation>Estado</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="226"/>
+        <location filename="../src/SettingsGUI.cpp" line="245"/>
         <source>User</source>
         <translation>Usuario</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="230"/>
+        <location filename="../src/SettingsGUI.cpp" line="249"/>
         <source>Favorite User</source>
         <translation>Usuario favorito</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="234"/>
+        <location filename="../src/SettingsGUI.cpp" line="253"/>
         <source>Time stamp</source>
         <translation>Fecha y hora</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="238"/>
+        <location filename="../src/SettingsGUI.cpp" line="257"/>
         <source>Message</source>
         <translation>Mensaje</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="439"/>
+        <location filename="../src/SettingsGUI.cpp" line="459"/>
         <source>Select translation</source>
         <translation>Seleccionar idioma</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="439"/>
+        <location filename="../src/SettingsGUI.cpp" line="459"/>
         <source>Translation (*.qm)</source>
         <translation>Idioma (*qm)</translation>
     </message>
@@ -4840,36 +4840,47 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="143"/>
+        <location filename="../ui/UISettingsGUI.ui" line="159"/>
+        <source>(need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="146"/>
+        <source>User theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="166"/>
         <source>Icon theme</source>
         <translation>Tema de iconos</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="159"/>
+        <location filename="../ui/UISettingsGUI.ui" line="182"/>
         <source>Emoticon theme</source>
         <translation>Tema de emoticonos</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="178"/>
+        <location filename="../ui/UISettingsGUI.ui" line="201"/>
         <source>Use default ToolBar (need restart)</source>
         <translation>Usar Barra de tareas por defecto (necesita reiniciar)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="183"/>
+        <location filename="../ui/UISettingsGUI.ui" line="206"/>
         <source>Use multi-line ToolBar (need restart)</source>
         <translation>Usar Barra de tareas multilinea (se necesita reiniciar)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="188"/>
+        <location filename="../ui/UISettingsGUI.ui" line="211"/>
         <source>Use SideBar instead of ToolBar (need restart)</source>
         <translation>Usar barra lateral en vez de de la barra de herramientas (requiere reiniciar)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="210"/>
+        <location filename="../ui/UISettingsGUI.ui" line="233"/>
         <source>Chat</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="223"/>
+        <location filename="../ui/UISettingsGUI.ui" line="246"/>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
@@ -4877,183 +4888,183 @@ from other words by spaces.</source>
 Si es de-seleccionado, Verá los emorticonos solo cuando estén solos entre las palabras, separados por espacios.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="245"/>
+        <location filename="../ui/UISettingsGUI.ui" line="268"/>
         <source>Show joins only for favorite users</source>
         <translation>Solo mostrar las uniones de usuarios favoritos</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="259"/>
+        <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
         <translation>Dependiendo de la configuración del Hub: la información
 solo estará disponible para los operadores</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="263"/>
+        <location filename="../ui/UISettingsGUI.ui" line="286"/>
         <source>Show ip-addresses of users in chat</source>
         <translation>Mostrar direcciones IPs de los usuarios del chat</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="284"/>
+        <location filename="../ui/UISettingsGUI.ui" line="307"/>
         <source>Highlight favorite users in user list</source>
         <translation>Resaltar usuarios favoritos en la lista de usuarios</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="308"/>
+        <location filename="../ui/UISettingsGUI.ui" line="331"/>
         <source>Use Ctrl+Enter to send messages</source>
         <translation>Usar Ctrl+Enter para mandar mensajes</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="332"/>
+        <location filename="../ui/UISettingsGUI.ui" line="355"/>
         <source>Chat (extended)</source>
         <translation>Chat (extendido)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="346"/>
+        <location filename="../ui/UISettingsGUI.ui" line="369"/>
         <source>Double click action</source>
         <translation>Acción del doble click</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="360"/>
-        <location filename="../ui/UISettingsGUI.ui" line="379"/>
+        <location filename="../ui/UISettingsGUI.ui" line="383"/>
+        <location filename="../ui/UISettingsGUI.ui" line="402"/>
         <source>Insert nick into input widget</source>
         <translation>Introducir nick dentro del Widget de entrada</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="365"/>
-        <location filename="../ui/UISettingsGUI.ui" line="384"/>
+        <location filename="../ui/UISettingsGUI.ui" line="388"/>
+        <location filename="../ui/UISettingsGUI.ui" line="407"/>
         <source>Get file list</source>
         <translation>Cojer lista de archivos</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="370"/>
-        <location filename="../ui/UISettingsGUI.ui" line="389"/>
+        <location filename="../ui/UISettingsGUI.ui" line="393"/>
+        <location filename="../ui/UISettingsGUI.ui" line="412"/>
         <source>Private message</source>
         <translation>Mensaje privado</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="468"/>
+        <location filename="../ui/UISettingsGUI.ui" line="491"/>
         <source>Middle click action</source>
         <translation>Acción del click central</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="403"/>
-        <location filename="../ui/UISettingsGUI.ui" line="439"/>
+        <location filename="../ui/UISettingsGUI.ui" line="426"/>
+        <location filename="../ui/UISettingsGUI.ui" line="462"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
         <translation>Vista en kibibytes (KiB) o kilobytes (KB), etc.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="406"/>
+        <location filename="../ui/UISettingsGUI.ui" line="429"/>
         <source>Application unit base</source>
         <translation>Unidad base</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="420"/>
+        <location filename="../ui/UISettingsGUI.ui" line="443"/>
         <source>1024</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="425"/>
+        <location filename="../ui/UISettingsGUI.ui" line="448"/>
         <source>1000</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="442"/>
+        <location filename="../ui/UISettingsGUI.ui" line="465"/>
         <source>Timestamp</source>
         <translation>Marca de tiempo</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="455"/>
+        <location filename="../ui/UISettingsGUI.ui" line="478"/>
         <source>hh:mm:ss</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="487"/>
+        <location filename="../ui/UISettingsGUI.ui" line="510"/>
         <source>Default action with magnet</source>
         <translation>Acción por defecto del Imán</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="501"/>
+        <location filename="../ui/UISettingsGUI.ui" line="524"/>
         <source>Ask</source>
         <translation>Pregunta</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="506"/>
+        <location filename="../ui/UISettingsGUI.ui" line="529"/>
         <source>Search</source>
         <translation>Buscar</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="511"/>
+        <location filename="../ui/UISettingsGUI.ui" line="534"/>
         <source>Download</source>
         <translation>Descarga</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="529"/>
+        <location filename="../ui/UISettingsGUI.ui" line="552"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
         <translation>Recordar mensajes salientes (0= no recordar)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="584"/>
+        <location filename="../ui/UISettingsGUI.ui" line="607"/>
         <source>Separator in chat</source>
         <translation>Separación del chat</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="598"/>
+        <location filename="../ui/UISettingsGUI.ui" line="621"/>
         <source>:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="603"/>
+        <location filename="../ui/UISettingsGUI.ui" line="626"/>
         <source>,</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="627"/>
+        <location filename="../ui/UISettingsGUI.ui" line="650"/>
         <source>Colors</source>
         <translation>Colores</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="633"/>
+        <location filename="../ui/UISettingsGUI.ui" line="656"/>
         <source>Text colors in chat</source>
         <translation>Texto de color en el chat</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="655"/>
+        <location filename="../ui/UISettingsGUI.ui" line="678"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Destacar de la búsqueda resultados en el chat</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="661"/>
+        <location filename="../ui/UISettingsGUI.ui" line="684"/>
         <source>Color</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="681"/>
+        <location filename="../ui/UISettingsGUI.ui" line="704"/>
         <source>Transparency</source>
         <translation>Transparencia</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="724"/>
+        <location filename="../ui/UISettingsGUI.ui" line="747"/>
         <source>Fonts</source>
         <translation>Fuentes</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="235"/>
+        <location filename="../ui/UISettingsGUI.ui" line="258"/>
         <source>Show joins</source>
         <translation>Mostrar uniones</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="252"/>
+        <location filename="../ui/UISettingsGUI.ui" line="275"/>
         <source>Show hidden users</source>
         <translation>Mostrar usuarios ocultos</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="558"/>
+        <location filename="../ui/UISettingsGUI.ui" line="581"/>
         <source>Maximum paragraphs</source>
         <translation>Apartados máximos</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="216"/>
+        <location filename="../ui/UISettingsGUI.ui" line="239"/>
         <source>Enable emoticons</source>
         <translation>Habilitar emoticonos</translation>
     </message>
@@ -5063,27 +5074,27 @@ solo estará disponible para los operadores</translation>
         <translation>Mostrar icono en la barra de sistema</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="228"/>
+        <location filename="../ui/UISettingsGUI.ui" line="251"/>
         <source>Force emoticon parsing</source>
         <translation>Forzar análisis de emoticonos</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="270"/>
+        <location filename="../ui/UISettingsGUI.ui" line="293"/>
         <source>Ignore private messages from Hub</source>
         <translation>Ignorar mensajes privados del Hub</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="277"/>
+        <location filename="../ui/UISettingsGUI.ui" line="300"/>
         <source>Ignore private messages from Bot</source>
         <translation>Ignorar mensajes privados del Bot</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="291"/>
+        <location filename="../ui/UISettingsGUI.ui" line="314"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation>Re-direccionar mensajes desde el bot al chat principal</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="298"/>
+        <location filename="../ui/UISettingsGUI.ui" line="321"/>
         <source>Do not change focus on new private message</source>
         <translation>No cambiar el foco cuando se recibe un nuevo mensaje privado</translation>
     </message>
@@ -5888,78 +5899,78 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="596"/>
+        <location filename="../src/WulforUtil.cpp" line="598"/>
         <source>System default</source>
         <translation>Por defecto del sistema</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="669"/>
+        <location filename="../src/WulforUtil.cpp" line="671"/>
         <source>Enter parameter value</source>
         <translation>Introducir valor del parámetro</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="744"/>
-        <location filename="../src/WulforUtil.cpp" line="758"/>
+        <location filename="../src/WulforUtil.cpp" line="746"/>
+        <location filename="../src/WulforUtil.cpp" line="760"/>
         <source>%1 B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="746"/>
+        <location filename="../src/WulforUtil.cpp" line="748"/>
         <source>%1 KiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="748"/>
+        <location filename="../src/WulforUtil.cpp" line="750"/>
         <source>%1 MiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="750"/>
+        <location filename="../src/WulforUtil.cpp" line="752"/>
         <source>%1 GiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="752"/>
+        <location filename="../src/WulforUtil.cpp" line="754"/>
         <source>%1 TiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="754"/>
+        <location filename="../src/WulforUtil.cpp" line="756"/>
         <source>%1 PiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="760"/>
+        <location filename="../src/WulforUtil.cpp" line="762"/>
         <source>%1 KB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="762"/>
+        <location filename="../src/WulforUtil.cpp" line="764"/>
         <source>%1 MB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="764"/>
+        <location filename="../src/WulforUtil.cpp" line="766"/>
         <source>%1 GB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="766"/>
+        <location filename="../src/WulforUtil.cpp" line="768"/>
         <source>%1 TB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="768"/>
+        <location filename="../src/WulforUtil.cpp" line="770"/>
         <source>%1 PB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="834"/>
+        <location filename="../src/WulforUtil.cpp" line="836"/>
         <source>Offline</source>
         <translation>Desconectado</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="972"/>
+        <location filename="../src/WulforUtil.cpp" line="974"/>
         <source>User commands</source>
         <translation>Comandos de usuario</translation>
     </message>
