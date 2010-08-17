@@ -11,8 +11,9 @@ using namespace std;
 #include "dcpp/QueueManager.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
+#ifdef USE_MINIUPNP_QT
 #include <dcpp/UPnPManager.h>//NOTE: core 0.762
-
+#endif
 #include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"

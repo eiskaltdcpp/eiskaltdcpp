@@ -50,14 +50,13 @@
 #include "scriptengine/ScriptConsole.h"
 #endif
 
-#include <dcpp/UPnPManager.h>//NOTE: core 0.762
-
 #include "dcpp/ShareManager.h"
 #ifdef USE_LIBUPNP
 #include "UPnPMapper.h"
 #endif
 #ifdef USE_MINIUPNP_QT
 #include "miniupnp/upnpc.h"
+#include <dcpp/UPnPManager.h>//NOTE: core 0.762
 #endif
 #include "WulforSettings.h"
 #include "WulforUtil.h"
