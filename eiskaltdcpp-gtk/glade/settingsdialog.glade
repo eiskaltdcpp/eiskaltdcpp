@@ -3239,7 +3239,7 @@ default</property>
                                           <widget class="GtkSpinButton" id="notifyPMLengthSpinButton">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
-                                            <property name="adjustment">0 0 255 1 10 10</property>
+                                            <property name="adjustment">0 0 255 1 10 0</property>
                                           </widget>
                                           <packing>
                                             <property name="expand">False</property>
@@ -3832,7 +3832,7 @@ default</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="tooltip" translatable="yes">Размер кадра определяет ширину обзора, большие значения влияют на производительность</property>
-                                        <property name="adjustment">50 10 256 1 10 10</property>
+                                        <property name="adjustment">50 10 256 1 10 0</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3862,7 +3862,7 @@ default</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="tooltip" translatable="yes">Увеличение времени ожидания увеличивает вероятность добавления в топ, но снижает динамику(обновление) кадра</property>
-                                        <property name="adjustment">40 1 300 1 10 10</property>
+                                        <property name="adjustment">40 1 300 1 10 0</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3893,7 +3893,7 @@ default</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="tooltip" translatable="yes">Количество совпадений для добавления в топ</property>
-                                        <property name="adjustment">2 2 100 1 10 10</property>
+                                        <property name="adjustment">2 2 100 1 10 0</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -4919,7 +4919,7 @@ default</property>
                                 <property name="position">5</property>
                               </packing>
                             </child>
-                     	</widget>
+                        </widget>
                           <packing>
                             <property name="position">5</property>
                           </packing>
@@ -5212,7 +5212,7 @@ default</property>
                               <widget class="GtkSpinButton" id="transferMaxUpload">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="adjustment">0 0 10240 1 10 10</property>
+                                <property name="adjustment">0 0 10240 1 10 0</property>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
@@ -5249,7 +5249,7 @@ default</property>
                               <widget class="GtkSpinButton" id="transferMaxDownload">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="adjustment">0 0 10240 1 10 10</property>
+                                <property name="adjustment">0 0 10240 1 10 0</property>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
@@ -5455,7 +5455,7 @@ Noon
                               <widget class="GtkSpinButton" id="secondaryMaxUpload">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="adjustment">0 0 10240 1 10 10</property>
+                                <property name="adjustment">0 0 10240 1 10 0</property>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
@@ -5492,7 +5492,7 @@ Noon
                               <widget class="GtkSpinButton" id="secondaryMaxDownload">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="adjustment">0 0 10240 1 10 10</property>
+                                <property name="adjustment">0 0 10240 1 10 0</property>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
@@ -5532,7 +5532,7 @@ Noon
                               <widget class="GtkSpinButton" id="secondaryUploadSlots">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="adjustment">0 0 64 1 10 10</property>
+                                <property name="adjustment">0 0 64 1 10 0</property>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
