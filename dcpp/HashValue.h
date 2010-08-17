@@ -49,7 +49,12 @@ struct HashValue : FastAlloc<HashValue<Hasher> >{
 namespace std { namespace tr1 {
 template<typename T>
 struct hash<dcpp::HashValue<T> > {
-    size_t operator()(const dcpp::HashValue<T>& rhs) const { return *(size_t*)rhs.data; }
+        size_t operator()(const dcpp::HashValue<T>& rhs) const {
+            // RVO should handle this as efficiently as reinterpret_cast
+            size_t hvHash;
+            memcpy(&hvHash, rhs.data, sizeof(size_t));
+            return hvHash;
+        }
 };
 }
 }

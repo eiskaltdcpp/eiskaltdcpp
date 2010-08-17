@@ -38,7 +38,12 @@ public:
     string toBase32() const { return Encoder::toBase32(cid, sizeof(cid)); }
     string& toBase32(string& tmp) const { return Encoder::toBase32(cid, sizeof(cid), tmp); }
 
-    size_t toHash() const { return *reinterpret_cast<const size_t*>(cid); }
+    size_t toHash() const {
+        // RVO should handle this as efficiently as reinterpret_cast version
+        size_t cidHash;
+        memcpy(&cidHash, cid, sizeof(size_t));
+        return cidHash;
+    }
     const uint8_t* data() const { return cid; }
 
     bool isZero() const { return find_if(cid, cid+SIZE, bind2nd(not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
@@ -61,7 +66,9 @@ namespace std { namespace tr1 {
 template<>
 struct hash<dcpp::CID> {
     size_t operator()(const dcpp::CID& rhs) const {
-        return *reinterpret_cast<const size_t*>(rhs.data());
+        size_t hvHash;
+        memcpy(&hvHash, rhs.data(), sizeof(size_t));
+        return hvHash;
     }
 };
 }
