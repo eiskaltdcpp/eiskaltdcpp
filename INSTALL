@@ -12,7 +12,7 @@ iconv (libc on GNU/Linux)
 ------
 gettext
 libssl (>= 0.9.8)
-lua 5.1 (optional, see cmake keys)
+liblua5.1 (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -72,7 +72,7 @@ pkg-config
 ------
 gettext
 libboost-dev (headers only) (optional, see cmake keys)
-lua 5.1 (optional, see cmake keys)
+liblua5.1-dev (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
