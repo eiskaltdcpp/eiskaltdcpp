@@ -22,7 +22,7 @@
  * http://miniupnp.free.fr http://miniupnp.tuxfamily.org
  */
 
-#include "upnpc.hh"
+#include "upnpc.h"
 
 #include <miniupnpc/miniupnpc.h>
 #include <miniupnpc/miniwget.h>
@@ -37,61 +37,61 @@ using namespace dcpp;
 
 bool UPnPc::init()
 {
-	UPNPDev *devices = upnpDiscover(2000, 0, 0, 0);
-	if (!devices)
-		return false;
+    UPNPDev *devices = upnpDiscover(2000, 0, 0, 0);
+    if (!devices)
+        return false;
 
-	UPNPDev *device = 0;
-	if (devices)
-	{
-		device = devices;
-		while (device)
-		{
-			if (strstr(device->st, "InternetGatewayDevice"))
-				break;
-			device = device->pNext;
-		}
-	}
-	if (!device)
-		device = devices; /* defaulting to first device */
+    UPNPDev *device = 0;
+    if (devices)
+    {
+        device = devices;
+        while (device)
+        {
+            if (strstr(device->st, "InternetGatewayDevice"))
+                break;
+            device = device->pNext;
+        }
+    }
+    if (!device)
+        device = devices; /* defaulting to first device */
 
-	bool ret = false;
+    bool ret = false;
 
-	int descXMLsize = 0;
-	char *descXML = reinterpret_cast<char*>(miniwget(device->descURL, &descXMLsize));
-	if (descXML)
-	{
-		memset(&urls, 0, sizeof(UPNPUrls));
-		memset(&data, 0, sizeof(IGDdatas));
-		parserootdesc(descXML, descXMLsize, &data);
-		delete descXML;
+    int descXMLsize = 0;
+    char *descXML = reinterpret_cast<char*>(miniwget(device->descURL, &descXMLsize));
+    if (descXML)
+    {
+        memset(&urls, 0, sizeof(UPNPUrls));
+        memset(&data, 0, sizeof(IGDdatas));
+        parserootdesc(descXML, descXMLsize, &data);
+        delete descXML;
 
-		GetUPNPUrls(&urls, &data, device->descURL);
-		ret = true;
-	}
+        GetUPNPUrls(&urls, &data, device->descURL);
+        ret = true;
+    }
 
-	freeUPNPDevlist(devices);
+    freeUPNPDevlist(devices);
 
-	return ret;
+    return ret;
 }
 
 bool UPnPc::add(const unsigned short port, const UPnP::Protocol protocol, const string& description)
 {
-	const string port_ = Util::toString(port);
-	return UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port_.c_str(), port_.c_str(),
-		Util::getLocalIp().c_str(), description.c_str(), protocols[protocol], 0) == UPNPCOMMAND_SUCCESS;
+    const string port_ = Util::toString(port);
+    return UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port_.c_str(), port_.c_str(),
+        Util::getLocalIp().c_str(), description.c_str(), protocols[protocol], 0) == UPNPCOMMAND_SUCCESS;
 }
 
 bool UPnPc::remove(const unsigned short port, const UPnP::Protocol protocol)
 {
-	return UPNP_DeletePortMapping(urls.controlURL, data.first.servicetype, Util::toString(port).c_str(),
-		protocols[protocol], 0) == UPNPCOMMAND_SUCCESS;
+    return UPNP_DeletePortMapping(urls.controlURL, data.first.servicetype, Util::toString(port).c_str(),
+        protocols[protocol], 0) == UPNPCOMMAND_SUCCESS;
 }
 
 string UPnPc::getExternalIP()
 {
-	char buf[16] = { 0 };
-	if (UPNP_GetExternalIPAddress(urls.controlURL, data.first.servicetype, buf) == UPNPCOMMAND_SUCCESS)
-		return buf;
-	return Util::emptyString;
+    char buf[16] = { 0 };
+    if (UPNP_GetExternalIPAddress(urls.controlURL, data.first.servicetype, buf) == UPNPCOMMAND_SUCCESS)
+        return buf;
+    return Util::emptyString;
 }

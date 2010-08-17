@@ -32,7 +32,7 @@
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
 #ifdef USE_MINIUPNP
-#include "upnpc.hh"//NOTE: core 0.762
+#include "miniupnp/upnpc.h"//NOTE: core 0.762
 #endif
 #include <iostream>
 #include <signal.h>

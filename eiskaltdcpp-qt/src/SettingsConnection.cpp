@@ -50,7 +50,7 @@ void SettingsConnection::ok(){
             SM->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
         else if (radioButton_PORT->isChecked())
             SM->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_NAT);
-#ifdef USE_LIBUPNP
+#if (defined USE_LIBUPNP || defined USE_MINIUPNP_QT)
         else
             SM->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);
 #endif
@@ -163,7 +163,7 @@ void SettingsConnection::init(){
 
             break;
         }
-#ifdef USE_LIBUPNP
+#if (defined USE_LIBUPNP || defined USE_MINIUPNP_QT)
     case SettingsManager::INCOMING_FIREWALL_UPNP:
         {
             radioButton_UPNP->setChecked(true);
@@ -172,7 +172,7 @@ void SettingsConnection::init(){
         }
 #endif
     }
-#ifndef USE_LIBUPNP
+#if (!defined USE_LIBUPNP && !defined USE_MINIUPNP_QT)
     radioButton_UPNP->setEnabled(false);
 #endif
 
@@ -204,7 +204,7 @@ void SettingsConnection::init(){
     connect(radioButton_ACTIVE, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
     connect(radioButton_PORT, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
     connect(radioButton_PASSIVE, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
-#ifdef USE_LIBUPNP
+#if (defined USE_LIBUPNP || defined USE_MINIUPNP_QT)
     connect(radioButton_UPNP, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
 #endif
     connect(checkBox_THROTTLE_ENABLE,SIGNAL(toggled(bool)),this,SLOT(slotThrottle()));
@@ -227,7 +227,7 @@ void SettingsConnection::init(){
     radioButton_PASSIVE->installEventFilter(this);
     radioButton_PORT->installEventFilter(this);
     radioButton_SOCKS->installEventFilter(this);
-#ifdef USE_LIBUPNP
+#if (defined USE_LIBUPNP || defined USE_MINIUPNP_QT)
     radioButton_UPNP->installEventFilter(this);
 #endif
     checkBox_DONTOVERRIDE->installEventFilter(this);

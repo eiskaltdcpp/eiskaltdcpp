@@ -50,9 +50,14 @@
 #include "scriptengine/ScriptConsole.h"
 #endif
 
+#include <dcpp/UPnPManager.h>//NOTE: core 0.762
+
 #include "dcpp/ShareManager.h"
 #ifdef USE_LIBUPNP
 #include "UPnPMapper.h"
+#endif
+#ifdef USE_MINIUPNP_QT
+#include "miniupnp/upnpc.h"
 #endif
 #include "WulforSettings.h"
 #include "WulforUtil.h"
@@ -1725,6 +1730,12 @@ void MainWindow::startSocket(){
     }
 #ifdef USE_LIBUPNP
     UPnPMapper::getInstance()->forward();
+#endif
+#ifdef USE_MINIUPNP_QT
+    if( SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP )
+        UPnPManager::getInstance()->open();
+    else if (SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP && UPnPManager::getInstance()->getOpened())
+        UPnPManager::getInstance()->close();
 #endif
 }
 

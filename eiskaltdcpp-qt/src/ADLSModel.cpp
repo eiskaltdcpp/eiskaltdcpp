@@ -81,9 +81,6 @@ Qt::ItemFlags ADLSModel::flags(const QModelIndex &index) const
 
     if (index.column() == COLUMN_CHECK)
         flags |= Qt::ItemIsUserCheckable;
-    //else if (index.column() == COLUMN_HUB_PASSWORD || index.column() == COLUMN_HUB_ENCODING)
-        //flags &= ~Qt::ItemIsEditable;
-
     return flags;
 }
 

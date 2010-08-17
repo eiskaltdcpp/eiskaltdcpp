@@ -16,6 +16,10 @@ if (USE_JS)
   set (QT_USE_QTSCRIPT  1)
 endif (USE_JS)
 
+if (USE_MINIUPNP_QT)
+    add_definitions (-DUSE_MINIUPNP_QT)
+endif (USE_MINIUPNP_QT)
+
 include (${QT_USE_FILE})
 set (SRCS
             src/ActionCustomizer.cpp

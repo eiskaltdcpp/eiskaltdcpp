@@ -11,6 +11,7 @@ using namespace std;
 #include "dcpp/QueueManager.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
+#include <dcpp/UPnPManager.h>//NOTE: core 0.762
 
 #include "MainWindow.h"
 #include "WulforUtil.h"
@@ -18,6 +19,9 @@ using namespace std;
 #ifdef USE_LIBUPNP
 #include "UPnP.h"
 #include "UPnPMapper.h"
+#endif
+#ifdef USE_MINIUPNP_QT
+#include "miniupnp/upnpc.h"
 #endif
 #include "HubManager.h"
 #include "Notification.h"
@@ -104,6 +108,9 @@ int main(int argc, char *argv[])
     UPnP::newInstance();
     UPnP::getInstance()->start();
     UPnPMapper::newInstance();
+#endif
+#ifdef USE_MINIUPNP_QT
+    dcpp::UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
 #endif
     HubManager::newInstance();
 

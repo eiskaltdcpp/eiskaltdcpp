@@ -1468,23 +1468,23 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
     {
         if (SETTING(INCOMING_CONNECTIONS) != lastConn || SETTING(TCP_PORT) != tcpPort || SETTING(UDP_PORT) != udpPort)
         {
-#ifdef USE_MINIUPNP
-            //NOTE: core 0.762
-            if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP || lastConn == SettingsManager::INCOMING_FIREWALL_UPNP)
-            {
-                UPnPManager::getInstance()->close();
-            }
-#endif
+//#ifdef USE_MINIUPNP
+            ////NOTE: core 0.762
+            //if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP || lastConn == SettingsManager::INCOMING_FIREWALL_UPNP)
+            //{
+                //UPnPManager::getInstance()->close();
+            //}
+//#endif
             F0 *func = new F0(mw, &MainWindow::startSocket_client);
             WulforManager::get()->dispatchClientFunc(func);
         }
-#ifdef USE_MINIUPNP
-        else if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP && !UPnPManager::getInstance()->getOpened())//NOTE: core 0.762
-        {
-            // previous UPnP mappings had failed; try again
-            UPnPManager::getInstance()->open();
-        }
-#endif
+//#ifdef USE_MINIUPNP
+        //else if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP && !UPnPManager::getInstance()->getOpened())//NOTE: core 0.762
+        //{
+            //// previous UPnP mappings had failed; try again
+            //UPnPManager::getInstance()->open();
+        //}
+//#endif
         if (BOOLSETTING(ALWAYS_TRAY))
             gtk_status_icon_set_visible(mw->statusIcon, TRUE);
         else
@@ -1847,6 +1847,8 @@ void MainWindow::startSocket_client()
         // must be done after listen calls; otherwise ports won't be set
         if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP)// NOTE: core 0.762
             UPnPManager::getInstance()->open();
+        else if (SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP && UPnPManager::getInstance()->getOpened())
+            UPnPManager::getInstance()->close();
 #endif
     }
 
