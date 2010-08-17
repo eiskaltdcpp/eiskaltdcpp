@@ -42,13 +42,13 @@ add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
                 -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
-                -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
+                -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/gtk/icons"
                 )
 
 if (APPLE)
   add_definitions(-DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
 else (APPLE)
-  add_definitions(-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/resources")
+  add_definitions(-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/gtk/resources")
 endif (APPLE)
 
 if (APPLE)

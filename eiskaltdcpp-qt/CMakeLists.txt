@@ -333,7 +333,7 @@ add_executable (eiskaltdcpp-qt MACOSX_BUNDLE WIN32 src/main.cpp
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                  -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
                  -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
-                 -DCLIENT_ICONS_DIR="${CLIENT_ICONS_DEST}"
+                 -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/qt/icons"
                 )
 
 if (USE_JS)
@@ -343,7 +343,7 @@ endif (USE_JS)
 if (APPLE)
   add_definitions(-DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
 else (APPLE)
-  add_definitions(-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/resources")
+  add_definitions(-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/qt/resources")
 endif (APPLE)
 
 if (APPLE)
@@ -402,7 +402,7 @@ if (APPLE)
 endif (APPLE)
 
   if (USE_JS)
-    install (DIRECTORY scripts/ DESTINATION ${CLIENT_DATA_DIR}/scripts
+    install (DIRECTORY qtscripts/ DESTINATION ${CLIENT_DATA_DIR}/qt/qtscripts
       PATTERN "*.sh"
       PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
       PATTERN "*.php"
@@ -410,14 +410,14 @@ endif (APPLE)
       PATTERN ".svn" EXCLUDE )
   endif (USE_JS)
 
-  install (DIRECTORY icons/appl icons/emot icons/user DESTINATION ${CLIENT_ICONS_DEST2} PATTERN ".svn" EXCLUDE)
+  install (DIRECTORY icons/appl icons/emot icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icons" PATTERN ".svn" EXCLUDE)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
 if (APPLE)
   install (FILES eiskaltdcpp-qt.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
   install (FILES eiskaltdcpp-qt.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
   install (FILES default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 else (APPLE)
-  install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/resources)
+  install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
   if (UNIX)
     install (FILES eiskaltdcpp-qt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
     install (FILES eiskaltdcpp-qt.desktop DESTINATION ${SHARE_DIR}/applications)

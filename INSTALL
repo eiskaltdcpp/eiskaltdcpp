@@ -44,11 +44,11 @@ Opional Depends
 :eiskaltdcpp-qt:
 ----------------
 sh (bash, dash, etc...)
-    see examples/ and eiskaltdcpp-qt/scripts/
+    see examples/ and eiskaltdcpp-qt/qtscripts/
 php5-cli (or other version, check the compatibility by yourself)
-    see eiskaltdcpp-qt/examples/ and eiskaltdcpp-qt/scripts/
+    see eiskaltdcpp-qt/examples/ and eiskaltdcpp-qt/qtscripts/
 libqtscript4-core, libqtscript4-gui, libqtscript4-network, libqtscript4-xml
-    see eiskaltdcpp-qt/scripts/
+    see eiskaltdcpp-qt/qtscripts/
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
