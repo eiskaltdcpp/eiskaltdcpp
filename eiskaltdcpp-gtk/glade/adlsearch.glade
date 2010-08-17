@@ -224,7 +224,7 @@ Full Path</property>
                           <widget class="GtkSpinButton" id="minFileSizeSpinButton">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="adjustment">-1 -1 1024 1 10 10</property>
+                            <property name="adjustment">-1 -1 1024 1 10 0</property>
                           </widget>
                         </child>
                         <child>
@@ -253,7 +253,7 @@ Full Path</property>
                           <widget class="GtkSpinButton" id="maxFileSizeSpinButton">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="adjustment">-1 -1 1024 1 10 10</property>
+                            <property name="adjustment">-1 -1 1024 1 10 0</property>
                           </widget>
                         </child>
                         <child>
