@@ -3336,7 +3336,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>Incomming connections</source>
-        <translation>Dolazne veze</translation>
+        <translation type="obsolete">Dolazne veze</translation>
     </message>
     <message>
         <source>Firewall with port forwarding</source>
@@ -3525,6 +3525,10 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
     </message>
     <message>
         <source>DynDNS Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Incoming connections</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

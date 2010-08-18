@@ -30,7 +30,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>Incomming connections</string>
+          <string>Incoming connections</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
           <property name="margin">
@@ -380,10 +380,6 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
               <widget class="QLineEdit" name="lineEdit_DYNDNS_INDEX"/>
              </item>
             </layout>
-            <zorder>label_18</zorder>
-            <zorder>label_18</zorder>
-            <zorder>lineEdit_DYNDNS_SERVER</zorder>
-            <zorder>lineEdit_DYNDNS_INDEX</zorder>
            </widget>
           </item>
           <item row="0" column="2">

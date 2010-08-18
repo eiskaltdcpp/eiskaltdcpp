@@ -3546,7 +3546,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
     <message>
         <source>Incomming connections</source>
-        <translation>Bejövő kapcsolatok</translation>
+        <translation type="obsolete">Bejövő kapcsolatok</translation>
     </message>
     <message>
         <source>Active</source>
@@ -3763,6 +3763,10 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     <message>
         <source>DynDNS Address:</source>
         <translation>DynDNS cím:</translation>
+    </message>
+    <message>
+        <source>Incoming connections</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -3640,7 +3640,7 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     </message>
     <message>
         <source>Incomming connections</source>
-        <translation>Connexions entrantes</translation>
+        <translation type="obsolete">Connexions entrantes</translation>
     </message>
     <message>
         <source>Firewall with port forwarding</source>
@@ -3831,6 +3831,10 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     <message>
         <source>DynDNS Address:</source>
         <translation>Adresse DynDNS:</translation>
+    </message>
+    <message>
+        <source>Incoming connections</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
