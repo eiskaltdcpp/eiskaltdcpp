@@ -4432,7 +4432,7 @@ further configuration in the firewall to allow Internet access for DC++.</source
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Incoming connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Вхідні з&apos;єднання</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="48"/>
@@ -5152,12 +5152,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <location filename="../ui/UISettingsGUI.ui" line="143"/>
         <location filename="../ui/UISettingsGUI.ui" line="159"/>
         <source>(need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>(потрібний перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Користувальницька тема</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>
