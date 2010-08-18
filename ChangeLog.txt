@@ -2,6 +2,7 @@
 *** common changes ***
 * libdcpp library was separated from the basic binary file for unix-like systems.
 * Added localization of kernel messages. Gettext used.
+* Added ability to use Lau-scripts (see the file INSTALL).
 *** eiskaltdcpp-qt ***
 * Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
 * Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
@@ -24,6 +25,10 @@
 * Added widget for ADL-search configuration.
 * Added /sh and /alias chat commands (see man-page or /help in chat).
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
+*** eiskaltdcpp-wt ***
+* Development has begun. Attention: the program is not yet ready to use!
+* Implemented a prototype of search page. In addition to displaying the search results until there is nothing.
+* Launched process (see man-page) picks up the settings from configuration files that are created manually or by using graphical interface on Qt or Gtk. The result: initiated downloads is continuing, users can access to your share and so on.
 
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.
