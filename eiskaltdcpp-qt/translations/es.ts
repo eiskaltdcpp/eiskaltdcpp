@@ -2102,12 +2102,12 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="19"/>
         <source>Min share</source>
-        <translation>Compartir mínimo</translation>
+        <translation>Min compartido</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="19"/>
         <source>Min slots</source>
-        <translation>Slots mínimo</translation>
+        <translation>Slots mín.</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="20"/>
@@ -2117,7 +2117,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="20"/>
         <source>Max users</source>
-        <translation>Usuarios máximos</translation>
+        <translation>Usuarios máx.</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="20"/>
@@ -4123,7 +4123,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Incoming connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Conexiones entrantes</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="48"/>
@@ -4439,22 +4439,22 @@ El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="352"/>
         <source>Highest priority max size (KiB)</source>
-        <translation>Tamaño máximo de prioridad más alta (KiB)</translation>
+        <translation>Tamaño máx. de prioridad más alta (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="368"/>
         <source>High priority max size (KiB)</source>
-        <translation>Tamaño máximo de prioridad alta (KiB)</translation>
+        <translation>Tamaño máx. de prioridad alta (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="384"/>
         <source>Normal priority max size (KiB)</source>
-        <translation>Tamaño máximo con prioridad normal (KiB)</translation>
+        <translation>Tamaño máx. con prioridad normal (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="400"/>
         <source>Low priority max size (KiB)</source>
-        <translation>Tamaño máximo de prioridad baja (KiB)</translation>
+        <translation>Tamaño máx. de prioridad baja (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="429"/>
@@ -4505,7 +4505,7 @@ serán establecidos como prioridad muy alta (por defecto: 64 Kib)</translation>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
         <translation>Archivos cuyo tamaño sea igual o inferior al tamaño introducido, pero por encima
-de la prioridad más alta del tamaño máximo, serán establecidos como prioridad alta. (por defecto: 0 KiB)</translation>
+de la prioridad más alta del tamaño máximo. serán establecidos como prioridad alta. (por defecto: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="324"/>
@@ -4570,22 +4570,22 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="542"/>
         <source>Min. elapsed (s)</source>
-        <translation>Mínimo transcurrido (s)</translation>
+        <translation>Mín. transcurrido (s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="558"/>
         <source>Max inactivity (s)</source>
-        <translation>Máximo inactivo (s)</translation>
+        <translation>Máx. inactivo (s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="574"/>
         <source>Min sources online</source>
-        <translation>Fuentes mínimas conectadas</translation>
+        <translation>Fuentes mín. conectadas</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="590"/>
         <source>Min filesize (KiB)</source>
-        <translation>Tamaño de archivo mínimo (KiB)</translation>
+        <translation>Tamaño de archivo mín. (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="619"/>
@@ -4846,12 +4846,12 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
         <location filename="../ui/UISettingsGUI.ui" line="143"/>
         <location filename="../ui/UISettingsGUI.ui" line="159"/>
         <source>(need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>(necesita reiniciar)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar tema</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>
@@ -5641,7 +5641,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="509"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation>Velocidad máxima de Hasheo (MB/s) (0 = sin limite)</translation>
+        <translation>Velocidad máx. de Hasheo (MB/s) (0 = sin limite)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>

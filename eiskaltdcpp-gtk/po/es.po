@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-16 22:51+0300\n"
-"PO-Revision-Date: 2010-08-16 01:01+0200\n"
+"PO-Revision-Date: 2010-08-18 05:33+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -558,7 +558,7 @@ msgstr "Busqueda ADL"
 #: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
 #: ../glade/adlsearch.glade:354
 msgid "Enabled"
-msgstr ""
+msgstr "Activado"
 
 #: ../src/adlsearch.cc:40 ../src/adlsearch.cc:60 ../src/adlsearch.cc:111
 #: ../src/adlsearch.cc:211 ../src/adlsearch.cc:237 ../src/searchspy.cc:54
@@ -572,25 +572,22 @@ msgstr "Cadena de busqueda"
 #: ../src/adlsearch.cc:41 ../src/adlsearch.cc:61 ../src/adlsearch.cc:112
 #: ../src/adlsearch.cc:212
 msgid "Source Type"
-msgstr ""
+msgstr "Tipo de fuente"
 
 #: ../src/adlsearch.cc:42 ../src/adlsearch.cc:62 ../src/adlsearch.cc:113
 #: ../src/adlsearch.cc:213 ../src/adlsearch.cc:238
-#, fuzzy
 msgid "Destination Directory"
-msgstr "Directorio de descarga por defecto"
+msgstr "Directorio de destino"
 
 #: ../src/adlsearch.cc:43 ../src/adlsearch.cc:63 ../src/adlsearch.cc:114
 #: ../src/adlsearch.cc:214
-#, fuzzy
 msgid "Min Size"
-msgstr "_Tamaño mínimo:"
+msgstr "Tamaño min."
 
 #: ../src/adlsearch.cc:44 ../src/adlsearch.cc:64 ../src/adlsearch.cc:115
 #: ../src/adlsearch.cc:215
-#, fuzzy
 msgid "Max Size"
-msgstr "Tamaño exacto"
+msgstr "Tamaño máx."
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1194
 #: ../src/settingsdialog.cc:1241 ../src/settingsdialog.cc:1300
@@ -1196,14 +1193,12 @@ msgid "Directory"
 msgstr "Directorio"
 
 #: ../src/settingsdialog.cc:1208 ../glade/mainwindow.glade:243
-#, fuzzy
 msgid "Search ADL"
-msgstr "Búsqueda:"
+msgstr "Búsqueda ADL"
 
 #: ../src/settingsdialog.cc:1251
-#, fuzzy
 msgid "searchADL"
-msgstr "Buscar"
+msgstr "busquedaADL"
 
 #: ../src/settingsdialog.cc:1307
 msgid "Open file list window in the background"
@@ -1651,19 +1646,19 @@ msgstr "País"
 
 #: ../src/publichubs.cc:47 ../src/publichubs.cc:162
 msgid "Min Share"
-msgstr "Minimo Compartido"
+msgstr "Min. Compartido"
 
 #: ../src/publichubs.cc:48 ../src/publichubs.cc:163
 msgid "Min Slots"
-msgstr "Slots minimos"
+msgstr "Slots min."
 
 #: ../src/publichubs.cc:49 ../src/publichubs.cc:164
 msgid "Max Hubs"
-msgstr "Hubs maximos"
+msgstr "Hubs máx."
 
 #: ../src/publichubs.cc:50 ../src/publichubs.cc:165
 msgid "Max Users"
-msgstr "Usuarios maximos"
+msgstr "Usuarios máx."
 
 #: ../src/publichubs.cc:51 ../src/publichubs.cc:166
 msgid "Rating"
@@ -1847,27 +1842,23 @@ msgstr "Correr en segundo plano"
 
 #: ../glade/adlsearch.glade:34 ../glade/adlsearch.glade:110
 msgid "Add..."
-msgstr ""
+msgstr "Añadir..."
 
 #: ../glade/adlsearch.glade:47 ../glade/adlsearch.glade:117
-#, fuzzy
 msgid "Properties"
-msgstr "_Propiedades/Elegir"
+msgstr "Propiedades"
 
 #: ../glade/adlsearch.glade:61
-#, fuzzy
 msgid "Move Up"
-msgstr "_Mover"
+msgstr "Mover Arriba"
 
 #: ../glade/adlsearch.glade:75
-#, fuzzy
 msgid "Move Down"
-msgstr "Mover a..."
+msgstr "Mover abajo"
 
 #: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5682
-#, fuzzy
 msgid "Remove"
-msgstr "_Eliminar"
+msgstr "Eliminar"
 
 #: ../glade/adlsearch.glade:124 ../glade/searchspy.glade:196
 #: ../glade/searchspy.glade:263 ../glade/search.glade:556
@@ -1877,14 +1868,12 @@ msgid "_Remove"
 msgstr "_Eliminar"
 
 #: ../glade/adlsearch.glade:131
-#, fuzzy
 msgid "ADLSearch Properties"
-msgstr "Opciones de busqueda"
+msgstr "Opciones de busqueda ADL"
 
 #: ../glade/adlsearch.glade:163
-#, fuzzy
 msgid "<b>Search String</b>"
-msgstr "Cadena de busqueda"
+msgstr "<b>Cadena de busqueda</b>"
 
 #: ../glade/adlsearch.glade:184
 msgid ""
@@ -1892,21 +1881,21 @@ msgid ""
 "Directory\n"
 "Full Path"
 msgstr ""
+"Nombre del archivo\n"
+"Directorio\n"
+"Ruta completa"
 
 #: ../glade/adlsearch.glade:192
-#, fuzzy
 msgid "<b>Source Type</b>"
-msgstr "<b>Búsqueda ADL</b>"
+msgstr "<b>Tipo de fuente</b>"
 
 #: ../glade/adlsearch.glade:233
-#, fuzzy
 msgid "<b>Min FileSize</b>"
-msgstr "<b>Filtro</b> "
+msgstr "<b>Tamaño de archivo min.</b> "
 
 #: ../glade/adlsearch.glade:262
-#, fuzzy
 msgid "<b>Max FileSize</b>"
-msgstr "<b>Filtro</b> "
+msgstr "<b>Tamaño de archivo máx.</b> "
 
 #: ../glade/adlsearch.glade:289 ../glade/search.glade:94
 msgid ""
@@ -1921,19 +1910,16 @@ msgstr ""
 "GiB"
 
 #: ../glade/adlsearch.glade:298
-#, fuzzy
 msgid "<b>Size Type</b>"
-msgstr "<b>Búsqueda ADL</b>"
+msgstr "<b>Tipo de tamaño</b>"
 
 #: ../glade/adlsearch.glade:334
-#, fuzzy
 msgid "<b>Destination Directory</b>"
-msgstr "<b>Directorios</b>"
+msgstr "<b>Directorios de destino</b>"
 
 #: ../glade/adlsearch.glade:366
-#, fuzzy
 msgid "Download Matches"
-msgstr "Descargar a"
+msgstr "Descargas encontradas"
 
 #: ../glade/searchspy.glade:32
 msgid "Ignore TTH search"
@@ -2318,7 +2304,7 @@ msgstr "Buscar archivos para descargar"
 
 #: ../glade/mainwindow.glade:585
 msgid "ADL"
-msgstr ""
+msgstr "ADL"
 
 #: ../glade/mainwindow.glade:598
 msgid "Spy"
@@ -2411,6 +2397,13 @@ msgid ""
 "Contributors\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
 msgstr ""
+"Desarrolladores\n"
+" Boris Pek (tehnick-8@mail.ru)\n"
+" Eugene Petrov (dhamp@ya.ru)\n"
+" Leliksan Floyd (leliksan@gmail.com)\n"
+"\n"
+"Contribuidores\n"
+" troll (http://code.google.com/p/freedcpp/)\n"
 
 #: ../glade/mainwindow.glade:1076
 msgid ""
@@ -2460,6 +2453,51 @@ msgid ""
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
 msgstr ""
+"Traductores\n"
+"\n"
+" Traducción al Ruso\n"
+"\n"
+" Uladzimir Bely\n"
+" (wiselord1983@gmail.com)\n"
+"\n"
+" Traducción al Bielorruso\n"
+"\n"
+" Paval Shalamitski aka Klyok\n"
+" (i.kliok@gmail.com)\n"
+"\n"
+" Traducción al Húngaro\n"
+"\n"
+" Akos Berki aka sumo\n"
+" (husumo@gmail.com)\n"
+"\n"
+" Traducción al Francés\n"
+"\n"
+" Alexandre Wallimann aka Ale\n"
+" (alexandre.wallimann@gmail.com)\n"
+"\n"
+" Traducción al Polaco\n"
+"\n"
+" Arahael\n"
+"\n"
+" Traducción al Ucraniano\n"
+"\n"
+" Dmytro Demenko\n"
+" (dmytro.demenko@gmail.com)\n"
+"\n"
+" Traducción al Serbio\n"
+"\n"
+" Miroslav Petrovic\n"
+" (miroslav031@gmail.com)\n"
+"\n"
+" Traducción al Español\n"
+"\n"
+" Gustavo Alvarez aka sL1pKn07\n"
+" (sl1pkn07@gmail.com)\n"
+"\n"
+" Traduccion al Búlgaro\n"
+"\n"
+" Rusi Dimitrov aka PsyTrip\n"
+" (dimitrov.rusi@gmail.com)\n"
 
 #: ../glade/mainwindow.glade:1188
 msgid "Enter line for user command"
@@ -2535,7 +2573,7 @@ msgstr "gtk ok"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"
-msgstr "Velocidad de subida máxima (MiB/s)"
+msgstr "Velocidad de subida máx. (MiB/s)"
 
 #: ../glade/settingsdialog.glade:118
 msgid "E-Mail"
@@ -2555,7 +2593,7 @@ msgstr "Personal"
 
 #: ../glade/settingsdialog.glade:219
 msgid "Use UPnP to let client cofigure my router"
-msgstr ""
+msgstr "Usar UPnp para permitor al cliente configurar el router"
 
 #: ../glade/settingsdialog.glade:404
 msgid "Ports"
@@ -2628,7 +2666,7 @@ msgstr ""
 
 #: ../glade/settingsdialog.glade:914
 msgid "Maximum simultaneous downloads (0 = infinite)"
-msgstr "Maximas descargas simultaneas (0 = infinito)"
+msgstr "Máximas descargas simultaneas (0 = infinito)"
 
 #: ../glade/settingsdialog.glade:958
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
@@ -2670,7 +2708,7 @@ msgstr "Descargar a"
 
 #: ../glade/settingsdialog.glade:1272
 msgid "High priority max size"
-msgstr "Tamaño maximo de prioridad alta"
+msgstr "Tamaño máx. de prioridad alta"
 
 #: ../glade/settingsdialog.glade:1285
 msgid "Low priority size"
@@ -2685,11 +2723,11 @@ msgstr "KiB"
 
 #: ../glade/settingsdialog.glade:1372
 msgid "Normal priority max size"
-msgstr "Tamaño maximo de prioridad normal"
+msgstr "Tamaño máx de prioridad normal"
 
 #: ../glade/settingsdialog.glade:1385
 msgid "Highest priority max size"
-msgstr "Tamaño maximo de prioridad muy alta"
+msgstr "Tamaño máx de prioridad muy alta"
 
 #: ../glade/settingsdialog.glade:1397
 msgid "<b>Auto-priority settings</b>"
@@ -2697,11 +2735,11 @@ msgstr "<b>Opciones de Auto-prioridad</b>"
 
 #: ../glade/settingsdialog.glade:1516
 msgid "Min filesize"
-msgstr "Tamaño de archivo minimo"
+msgstr "Tamaño de archivo min."
 
 #: ../glade/settingsdialog.glade:1531
 msgid "Max inactivity"
-msgstr "Maximo inactivo"
+msgstr "Máx. inactivo"
 
 #: ../glade/settingsdialog.glade:1546
 msgid "Check every"
@@ -2709,11 +2747,11 @@ msgstr "Comprobar todos"
 
 #: ../glade/settingsdialog.glade:1644
 msgid "Min sources online"
-msgstr "Fuentes conectadas minimas"
+msgstr "Fuentes conectadas min."
 
 #: ../glade/settingsdialog.glade:1657
 msgid "Min elapsed"
-msgstr "Minimo transcurrido"
+msgstr "Min. transcurrido"
 
 #: ../glade/settingsdialog.glade:1670
 msgid "Drop sources below"
@@ -3127,7 +3165,7 @@ msgstr "Comandos de usuario"
 
 #: ../glade/settingsdialog.glade:4474
 msgid "Max hash speed"
-msgstr "Velocidad maxma de Hasheo"
+msgstr "Velocidad máx. de Hasheo"
 
 #: ../glade/settingsdialog.glade:4486
 msgid "PM history"
@@ -3135,11 +3173,11 @@ msgstr "Historial M.P"
 
 #: ../glade/settingsdialog.glade:4498
 msgid "Mini slot size"
-msgstr "Tañamo del slot minimo"
+msgstr "Tañamo del slot min."
 
 #: ../glade/settingsdialog.glade:4510
 msgid "Max filelist size"
-msgstr "Tamaño maximo de la lista de archivos"
+msgstr "Tamaño máx. de la lista de archivos"
 
 #: ../glade/settingsdialog.glade:4624
 msgid "MiB/s"
@@ -3210,27 +3248,24 @@ msgid "Security Certificates"
 msgstr "Certificados de seguridad"
 
 #: ../glade/settingsdialog.glade:5224 ../glade/settingsdialog.glade:5467
-#, fuzzy
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
-msgstr "Longitud máximo del mensaje (0 = infinito)"
+msgstr "Velocidad máxima de subida (KiB/s) (0 = infinito)"
 
 #: ../glade/settingsdialog.glade:5261 ../glade/settingsdialog.glade:5504
-#, fuzzy
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
-msgstr "Maximas descargas simultaneas (0 = infinito)"
+msgstr "Velocidad máxima de descarga (KiB/s) (0 = infinito)"
 
 #: ../glade/settingsdialog.glade:5289
 msgid "<b>Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Ratio limite de trasferencia</b>"
 
 #: ../glade/settingsdialog.glade:5316
 msgid "Use second set of bandwidth limits"
-msgstr ""
+msgstr "Utilice el segundo conjunto de límites de ancho de banda"
 
 #: ../glade/settingsdialog.glade:5338
-#, fuzzy
 msgid "from"
-msgstr "%) desde "
+msgstr "desde"
 
 #: ../glade/settingsdialog.glade:5348 ../glade/settingsdialog.glade:5391
 msgid ""
@@ -3259,52 +3294,74 @@ msgid ""
 "10PM\n"
 "11PM"
 msgstr ""
+"Medianoche\n"
+"1AM\n"
+"2AM\n"
+"3AM\n"
+"4AM\n"
+"5AM\n"
+"6AM\n"
+"7AM\n"
+"8AM\n"
+"9AM\n"
+"10AM\n"
+"11AM\n"
+"Mediodia\n"
+"1PM\n"
+"2PM\n"
+"3PM\n"
+"4PM\n"
+"5PM\n"
+"6PM\n"
+"7PM\n"
+"8PM\n"
+"9PM\n"
+"10PM\n"
+"11PM"
 
 #: ../glade/settingsdialog.glade:5381
 msgid "to"
-msgstr ""
+msgstr "a"
 
 #: ../glade/settingsdialog.glade:5426
 msgid "<b>Secondary Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Limite de transferencias secundarias</b>"
 
 #: ../glade/settingsdialog.glade:5544
-#, fuzzy
 msgid "Upload Slots"
 msgstr "Slots de subida"
 
 #: ../glade/settingsdialog.glade:5572
 msgid "<b>Secondary Transfer Rate Settings</b>"
-msgstr ""
+msgstr "<b>Opciones de limites de transferencias secundarias</b>"
 
 #: ../glade/settingsdialog.glade:5605
 msgid ""
 "Bandwidth\n"
 "Limiting"
 msgstr ""
+"Limite de\n"
+"Ancho de banda"
 
 #: ../glade/settingsdialog.glade:5649
-#, fuzzy
 msgid "Add"
-msgstr "Añadida"
+msgstr "Añadir"
 
 #: ../glade/settingsdialog.glade:5658
 msgid "Modify"
-msgstr ""
+msgstr "Modificar"
 
 #: ../glade/settingsdialog.glade:5670
-#, fuzzy
 msgid "Rename"
-msgstr "Nombre del Archivo"
+msgstr "Renombrar"
 
 #: ../glade/settingsdialog.glade:5711
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr ""
+msgstr "Nota: El tipo de busqueda customizada ¡solo es aplicada en Hubs ADC!"
 
 #: ../glade/settingsdialog.glade:5724
-#, fuzzy
 msgid "<b>Search types</b>"
-msgstr "<b>Búsqueda ADL</b>"
+msgstr "<b>tipo de busquedas</b>"
 
 #: ../glade/settingsdialog.glade:5792 ../glade/publichubs.glade:190
 msgid "Configure hub lists"
@@ -3406,12 +3463,11 @@ msgstr "aplicar gtk"
 
 #: ../glade/settingsdialog.glade:6662
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
-msgstr ""
+msgstr "Use separador de extensiones (doc;xls;ppt;docx;xlsx;pptx)"
 
 #: ../glade/settingsdialog.glade:6730
-#, fuzzy
 msgid "gtk-edit"
-msgstr "abrir gtk"
+msgstr "editar gtk"
 
 #: ../glade/downloadqueue.glade:118 ../glade/downloadqueue.glade:223
 msgid "Set Priorit_y"
