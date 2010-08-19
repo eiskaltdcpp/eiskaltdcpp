@@ -9,20 +9,20 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-16 22:51+0300\n"
-"PO-Revision-Date: 2010-08-03 15:28+0200\n"
+"PO-Revision-Date: 2010-08-19 14:16+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
-"Language-Team: Magyar <kde-i18n-doc@kde.org>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.1\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:936
 #: ../src/settingsdialog.cc:1297 ../glade/mainwindow.glade:277
 msgid "Download Queue"
-msgstr ""
+msgstr "Letöltési sor"
 
 #: ../src/downloadqueue.cc:65 ../src/downloadqueue.cc:89
 #: ../src/downloadqueue.cc:90 ../src/downloadqueue.cc:275
@@ -56,7 +56,7 @@ msgstr "Fájlnév"
 #: ../src/transfers.cc:1091 ../src/transfers.cc:1124 ../src/transfers.cc:1137
 #: ../src/transfers.cc:1150
 msgid "Status"
-msgstr ""
+msgstr "Státusz"
 
 #: ../src/downloadqueue.cc:67 ../src/downloadqueue.cc:86
 #: ../src/downloadqueue.cc:278 ../src/downloadqueue.cc:385
@@ -73,19 +73,19 @@ msgstr "Méret"
 #: ../src/downloadqueue.cc:68 ../src/downloadqueue.cc:88
 #: ../src/downloadqueue.cc:281 ../src/downloadqueue.cc:388
 msgid "Downloaded"
-msgstr ""
+msgstr "Letöltve"
 
 #: ../src/downloadqueue.cc:69 ../src/downloadqueue.cc:283
 #: ../src/downloadqueue.cc:390
 msgid "Priority"
-msgstr ""
+msgstr "Prioritás"
 
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
 #: ../src/publichubs.cc:58 ../src/publichubs.cc:158
 #: ../glade/mainwindow.glade:520
 msgid "Users"
-msgstr ""
+msgstr "Felhasználó"
 
 #: ../src/downloadqueue.cc:71 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/transfers.cc:64 ../src/transfers.cc:715
@@ -98,7 +98,7 @@ msgstr ""
 #: ../src/search.cc:1627 ../src/search.cc:1628 ../src/search.cc:1629
 #: ../src/search.cc:1889
 msgid "Path"
-msgstr ""
+msgstr "Útvonal"
 
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
 #: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386 ../src/search.cc:93
@@ -111,12 +111,12 @@ msgstr "Pontos méret"
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:285
 #: ../src/downloadqueue.cc:392
 msgid "Errors"
-msgstr ""
+msgstr "Hibák"
 
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:286
 #: ../src/downloadqueue.cc:393
 msgid "Added"
-msgstr ""
+msgstr "Hozzáadva"
 
 #: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:340
 msgid "Items: "
@@ -133,7 +133,7 @@ msgstr "Fájlok: "
 
 #: ../src/downloadqueue.cc:1282
 msgid "No users"
-msgstr ""
+msgstr "Nincsenek felhasználók"
 
 #: ../src/downloadqueue.cc:1287
 msgid " of "
@@ -141,76 +141,77 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1287
 msgid " user(s) online"
-msgstr ""
+msgstr " online felhasználó"
 
 #: ../src/downloadqueue.cc:1289
 msgid "Running..."
-msgstr ""
+msgstr "Fut..."
 
 #: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
 #: ../src/WulforUtil.cc:315 ../src/WulforUtil.cc:317
 msgid "Unknown"
-msgstr ""
+msgstr "Ismeretlen"
 
 #: ../src/downloadqueue.cc:1320
 msgid "Paused"
-msgstr ""
+msgstr "Megállítva"
 
 #: ../src/downloadqueue.cc:1323
 msgid "Lowest"
-msgstr ""
+msgstr "Legalacsonyabb"
 
 #: ../src/downloadqueue.cc:1326
 msgid "Low"
-msgstr ""
+msgstr "Alacsony"
 
 #: ../src/downloadqueue.cc:1329
 msgid "High"
-msgstr ""
+msgstr "Magas"
 
 #: ../src/downloadqueue.cc:1332
 msgid "Highest"
-msgstr ""
+msgstr "Legmagasabb"
 
 #: ../src/downloadqueue.cc:1335
 msgid "Normal"
-msgstr ""
+msgstr "Normál"
 
 #: ../src/downloadqueue.cc:1353
 msgid "File not available"
-msgstr ""
+msgstr "Fájl nem elérhető"
 
 #: ../src/downloadqueue.cc:1355
 msgid "Passive user"
-msgstr ""
+msgstr "Passzív felhasználó"
 
 #: ../src/downloadqueue.cc:1357
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr ""
+msgstr "CRC32 inkonzisztencia (SFV ellenőrzéskor)"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
-msgstr ""
+msgstr "A teljes fa nem megfelelő a TTH gyökérhez"
 
 #: ../src/downloadqueue.cc:1361
 msgid "Source too slow"
-msgstr ""
+msgstr "A forrás túl lassú"
 
 #: ../src/downloadqueue.cc:1363
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr ""
+"A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem lehetséges"
 
 #: ../src/downloadqueue.cc:1369
 msgid "No errors"
-msgstr ""
+msgstr "Nincsenek hibák"
 
 #: ../src/notify.cc:142
 msgid "Open file"
-msgstr ""
+msgstr "Fájl megnyitása"
 
 #: ../src/notify.cc:145
 msgid "Open folder"
-msgstr ""
+msgstr "Könyvtár megnyitása"
 
 #: ../src/hub.cc:53 ../src/hub.cc:2775
 msgid "Hub: "
@@ -435,51 +436,48 @@ msgid "Emoticons on/off"
 msgstr "Hangulatjelek ki/be"
 
 #: ../src/hub.cc:1750
-#, fuzzy
 msgid "Load Lua file"
-msgstr "Fájl-lista betöltése"
+msgstr "Lua fájl betöltése"
 
 #: ../src/hub.cc:1751
 msgid "Execute Lua Chunk"
-msgstr ""
+msgstr "Lua kódrészlet futtatása"
 
 #: ../src/hub.cc:1753
 msgid "Execute code (bash)"
-msgstr ""
+msgstr "Kód futtatása (bash)"
 
 #: ../src/hub.cc:1754
 msgid "Alias List"
-msgstr ""
+msgstr "Álnevek listázása"
 
 #: ../src/hub.cc:1755
 msgid "Alias Remove A"
-msgstr ""
+msgstr "Álnév eltávolítása A"
 
 #: ../src/hub.cc:1756
 msgid "Alias add uname -a as A"
-msgstr ""
+msgstr "\"uname -a\" álnév hozzáadása, mint A"
 
 #: ../src/hub.cc:1757
 msgid "Alias A executing"
-msgstr ""
+msgstr "A álnév futtatása"
 
 #: ../src/hub.cc:1801
 msgid "sh"
-msgstr ""
+msgstr "sh"
 
 #: ../src/hub.cc:1818
 msgid "lua"
-msgstr ""
+msgstr "lua"
 
 #: ../src/hub.cc:1821
-#, fuzzy
 msgid "luafile"
-msgstr " fájl"
+msgstr "luafájl"
 
 #: ../src/hub.cc:1846
-#, fuzzy
 msgid "Aliases not found."
-msgstr "Felhasználó nem található"
+msgstr "Nem találhatóak álnevek."
 
 #: ../src/hub.cc:1947
 msgid "Unknown command '"
@@ -537,7 +535,7 @@ msgstr "Csatlakozás sikertelen: "
 
 #: ../src/hub.cc:2898
 msgid "Ignored private message from hub"
-msgstr ""
+msgstr "Huboktól érkező privát üzenetek letiltása"
 
 #: ../src/hub.cc:2905
 msgid "Ignored private message from bot "
@@ -553,14 +551,14 @@ msgstr "Keresési spam érzékelve a következőtől: "
 
 #: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:583
 msgid "ADL Search"
-msgstr ""
+msgstr "ADL keresés"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
 #: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
 #: ../glade/adlsearch.glade:354
 msgid "Enabled"
-msgstr ""
+msgstr "Engedélyezve"
 
 #: ../src/adlsearch.cc:40 ../src/adlsearch.cc:60 ../src/adlsearch.cc:111
 #: ../src/adlsearch.cc:211 ../src/adlsearch.cc:237 ../src/searchspy.cc:54
@@ -569,42 +567,39 @@ msgstr ""
 #: ../src/searchspy.cc:292 ../src/searchspy.cc:308 ../src/searchspy.cc:467
 #: ../src/searchspy.cc:532 ../src/searchspy.cc:565
 msgid "Search String"
-msgstr ""
+msgstr "Keresési kifejezés"
 
 #: ../src/adlsearch.cc:41 ../src/adlsearch.cc:61 ../src/adlsearch.cc:112
 #: ../src/adlsearch.cc:212
 msgid "Source Type"
-msgstr ""
+msgstr "Keresés típusa"
 
 #: ../src/adlsearch.cc:42 ../src/adlsearch.cc:62 ../src/adlsearch.cc:113
 #: ../src/adlsearch.cc:213 ../src/adlsearch.cc:238
-#, fuzzy
 msgid "Destination Directory"
-msgstr "Könyvtár"
+msgstr "Célkönyvtár"
 
 #: ../src/adlsearch.cc:43 ../src/adlsearch.cc:63 ../src/adlsearch.cc:114
 #: ../src/adlsearch.cc:214
-#, fuzzy
 msgid "Min Size"
-msgstr "Méret: "
+msgstr "Minimum méret "
 
 #: ../src/adlsearch.cc:44 ../src/adlsearch.cc:64 ../src/adlsearch.cc:115
 #: ../src/adlsearch.cc:215
-#, fuzzy
 msgid "Max Size"
-msgstr "Pontos méret"
+msgstr "Maximum méret"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1194
 #: ../src/settingsdialog.cc:1241 ../src/settingsdialog.cc:1300
 #: ../glade/mainwindow.glade:193 ../glade/mainwindow.glade:518
 msgid "Favorite Users"
-msgstr ""
+msgstr "Kedvenc felhasználók"
 
 #: ../src/favoriteusers.cc:44 ../src/favoriteusers.cc:65
 #: ../src/favoriteusers.cc:108 ../src/favoriteusers.cc:470
 #: ../src/favoriteusers.cc:472
 msgid "Auto grant slot"
-msgstr ""
+msgstr "Auto extra slot"
 
 #: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
 #: ../src/favoriteusers.cc:584
@@ -619,48 +614,48 @@ msgstr ""
 #: ../src/favoriteusers.cc:103 ../src/favoriteusers.cc:622
 #: ../src/favoriteusers.cc:641
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 #: ../src/favoriteusers.cc:438
 msgid "Are you sure you want to delete favorite user(s)?"
-msgstr ""
+msgstr "Biztos, hogy törlöd a kijelölt kedvenc felhasználót?"
 
 #: ../src/hashdialog.cc:42 ../src/hashdialog.cc:130
 msgid "Paused..."
-msgstr ""
+msgstr "Szünetel..."
 
 #: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../glade/hash.glade:7
 msgid "Indexing files..."
-msgstr ""
+msgstr "Fájlok indexelése..."
 
 #: ../src/hashdialog.cc:70 ../glade/settingsdialog.glade:1602
 msgid "B/s"
-msgstr ""
+msgstr "B/s"
 
 #: ../src/hashdialog.cc:70 ../src/hashdialog.cc:79 ../src/hashdialog.cc:88
 msgid " left"
-msgstr ""
+msgstr " maradt"
 
 #: ../src/hashdialog.cc:71 ../src/hashdialog.cc:83
 msgid "-:--:-- left"
-msgstr ""
+msgstr "-:--:-- maradt"
 
 #: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1928
 #: ../src/mainwindow.cc:1930 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
-msgstr ""
+msgstr "s"
 
 #: ../src/hashdialog.cc:108
 msgid "Done"
-msgstr ""
+msgstr "Kész"
 
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:940
 #: ../src/settingsdialog.cc:1202 ../src/settingsdialog.cc:1253
 #: ../src/settingsdialog.cc:1301 ../glade/mainwindow.glade:257
 #: ../glade/mainwindow.glade:596 ../glade/settingsdialog.glade:3978
 msgid "Search Spy"
-msgstr ""
+msgstr "Keresési megfigyelő"
 
 #: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
@@ -674,11 +669,11 @@ msgstr ""
 #: ../src/finishedtransfers.cc:90 ../src/finishedtransfers.cc:177
 #: ../src/finishedtransfers.cc:214
 msgid "Time"
-msgstr ""
+msgstr "Idő"
 
 #: ../src/searchspy.cc:295 ../src/searchspy.cc:363
 msgid "waiting..."
-msgstr ""
+msgstr "várakozás..."
 
 #: ../src/searchspy.cc:358
 msgid "top..."
@@ -686,7 +681,7 @@ msgstr ""
 
 #: ../src/searchspy.cc:389 ../glade/searchspy.glade:149
 msgid "Update frame search"
-msgstr ""
+msgstr "Keresési mező frissítése"
 
 #: ../src/searchspy.cc:412
 msgid "top/waiting/frame: "
@@ -694,7 +689,7 @@ msgstr ""
 
 #: ../src/searchspy.cc:500 ../glade/searchspy.glade:135
 msgid "Clear frame search"
-msgstr ""
+msgstr "Keresési mező törlése"
 
 #: ../src/transfers.cc:57 ../src/transfers.cc:83 ../src/transfers.cc:85
 #: ../src/transfers.cc:493 ../src/transfers.cc:559 ../src/transfers.cc:590
@@ -703,7 +698,7 @@ msgstr ""
 #: ../src/transfers.cc:1033 ../src/transfers.cc:1051 ../src/transfers.cc:1092
 #: ../src/transfers.cc:1138 ../src/transfers.cc:1151
 msgid "User"
-msgstr ""
+msgstr "Felhasználó"
 
 #: ../src/transfers.cc:58 ../src/transfers.cc:494 ../src/transfers.cc:560
 #: ../src/transfers.cc:591 ../src/transfers.cc:860 ../src/transfers.cc:878
@@ -1180,9 +1175,8 @@ msgid "Connect"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1205
-#, fuzzy
 msgid "Reconnect"
-msgstr "Csatlakozva"
+msgstr "Újracsatlakozás"
 
 #: ../src/settingsdialog.cc:1207 ../src/search.cc:1631
 #: ../src/UserCommandMenu.cc:65 ../src/sharebrowser.cc:287
@@ -1785,24 +1779,21 @@ msgid "Next"
 msgstr ""
 
 #: ../glade/sharebrowser.glade:154
-#, fuzzy
 msgid "Find files"
-msgstr " fájl"
+msgstr ""
 
 #: ../glade/sharebrowser.glade:182
 msgid "Enter text to search for"
 msgstr ""
 
 #: ../glade/sharebrowser.glade:242 ../glade/sharebrowser.glade:278
-#, fuzzy
 msgid "Download to..."
-msgstr "Letöltés: "
+msgstr "Letöltés ide... "
 
 #: ../glade/sharebrowser.glade:258 ../glade/sharebrowser.glade:308
 #: ../glade/transfers.glade:73
-#, fuzzy
 msgid "User commands"
-msgstr "Ismeretlen parancs '"
+msgstr "Felhasználó parancsok"
 
 #: ../glade/sharebrowser.glade:294 ../glade/downloadqueue.glade:197
 msgid "_Search for alternates"
@@ -1835,9 +1826,8 @@ msgid "Add..."
 msgstr ""
 
 #: ../glade/adlsearch.glade:47 ../glade/adlsearch.glade:117
-#, fuzzy
 msgid "Properties"
-msgstr "Magnet beállítások / lehetőségek"
+msgstr "Beállítások"
 
 #: ../glade/adlsearch.glade:61
 msgid "Move Up"
@@ -1859,14 +1849,12 @@ msgid "_Remove"
 msgstr ""
 
 #: ../glade/adlsearch.glade:131
-#, fuzzy
 msgid "ADLSearch Properties"
-msgstr "Favorit hub már létezik"
+msgstr "ADL keresés beállításai"
 
 #: ../glade/adlsearch.glade:163
-#, fuzzy
 msgid "<b>Search String</b>"
-msgstr "Leírás"
+msgstr "<b>Keresési kifejezés</b>"
 
 #: ../glade/adlsearch.glade:184
 msgid ""
@@ -1880,14 +1868,12 @@ msgid "<b>Source Type</b>"
 msgstr ""
 
 #: ../glade/adlsearch.glade:233
-#, fuzzy
 msgid "<b>Min FileSize</b>"
-msgstr "Ikon méret"
+msgstr "<b>Minimum fájlméret</b>"
 
 #: ../glade/adlsearch.glade:262
-#, fuzzy
 msgid "<b>Max FileSize</b>"
-msgstr "Ikon méret"
+msgstr "<b>Maximum fájméret</b>"
 
 #: ../glade/adlsearch.glade:289 ../glade/search.glade:94
 msgid ""
@@ -1898,19 +1884,16 @@ msgid ""
 msgstr ""
 
 #: ../glade/adlsearch.glade:298
-#, fuzzy
 msgid "<b>Size Type</b>"
-msgstr "Ikon méret"
+msgstr "<b>Mértékegység</b>"
 
 #: ../glade/adlsearch.glade:334
-#, fuzzy
 msgid "<b>Destination Directory</b>"
-msgstr "Leírás"
+msgstr "<b>Célkönyvtár</>b"
 
 #: ../glade/adlsearch.glade:366
-#, fuzzy
 msgid "Download Matches"
-msgstr "Letöltés: "
+msgstr ""
 
 #: ../glade/searchspy.glade:32
 msgid "Ignore TTH search"
@@ -1953,9 +1936,8 @@ msgid ""
 msgstr ""
 
 #: ../glade/searchspy.glade:136 ../glade/searchspy.glade:277
-#, fuzzy
 msgid "Clear"
-msgstr "Chat törlése"
+msgstr "Törlés"
 
 #: ../glade/searchspy.glade:150
 msgid "Update"
@@ -1985,9 +1967,8 @@ msgid ""
 msgstr ""
 
 #: ../glade/search.glade:121
-#, fuzzy
 msgid "File type"
-msgstr "Fájlok: "
+msgstr "Fájltípus"
 
 #: ../glade/search.glade:131
 msgid ""
@@ -2049,20 +2030,17 @@ msgstr ""
 
 #: ../glade/search.glade:438 ../glade/privatemessage.glade:104
 #: ../glade/hub.glade:262
-#, fuzzy
 msgid "_Download"
-msgstr "Letöltés: "
+msgstr "_Letöltés"
 
 #: ../glade/search.glade:445 ../glade/privatemessage.glade:111
 #: ../glade/hub.glade:269
-#, fuzzy
 msgid "Download _to..."
-msgstr "Letöltés: "
+msgstr "Letöltés _ide..."
 
 #: ../glade/search.glade:456
-#, fuzzy
 msgid "Download _whole directory"
-msgstr "Könyvtár választása"
+msgstr "Egész _könyvtár letöltése"
 
 #: ../glade/search.glade:463
 msgid "Download whole director_y to..."
@@ -2075,38 +2053,33 @@ msgstr ""
 #: ../glade/search.glade:498 ../glade/favoriteusers.glade:39
 #: ../glade/downloadqueue.glade:276 ../glade/transfers.glade:31
 #: ../glade/hub.glade:183
-#, fuzzy
 msgid "_Browse file list"
-msgstr "Fájl-lista letöltése"
+msgstr "Fájl-lista _böngészése"
 
 #: ../glade/search.glade:505
 msgid "_Match Queue"
 msgstr ""
 
 #: ../glade/search.glade:512 ../glade/downloadqueue.glade:287
-#, fuzzy
 msgid "Send _private message"
-msgstr "Privát üzenet"
+msgstr "_Privát üzenet küldése"
 
 #: ../glade/search.glade:519 ../glade/transfers.glade:52
 #: ../glade/hub.glade:209
-#, fuzzy
 msgid "_Add to favorites"
-msgstr "Hub hozzáadása a kedvencekhez"
+msgstr "_Hozzáadás a kedvencekhez"
 
 #: ../glade/search.glade:526 ../glade/transfers.glade:59
-#, fuzzy
 msgid "_Grant extra slot"
-msgstr "Extra slot biztosítása"
+msgstr "_Extra slot biztosítása"
 
 #: ../glade/search.glade:533 ../glade/downloadqueue.glade:325
-#, fuzzy
 msgid "Remove user from _queue"
-msgstr "Kedvenc felhasználó törlése"
+msgstr "Felhasználó törlése a _sorból"
 
 #: ../glade/search.glade:540 ../glade/hub.glade:242
 msgid "_User commands"
-msgstr ""
+msgstr "_Felhasználó parancsok"
 
 #: ../glade/favoriteusers.glade:46 ../glade/transfers.glade:38
 #: ../glade/hub.glade:190
@@ -2114,35 +2087,29 @@ msgid "_Match queue"
 msgstr ""
 
 #: ../glade/favoriteusers.glade:53 ../glade/hub.glade:197
-#, fuzzy
 msgid "_Private message"
-msgstr "Privát üzenet"
+msgstr "_Privát üzenet"
 
 #: ../glade/favoriteusers.glade:60 ../glade/hub.glade:228
-#, fuzzy
 msgid "_Grant slot"
-msgstr "Extra slot biztosítása"
+msgstr "_Slot biztosítása"
 
 #: ../glade/favoriteusers.glade:67 ../glade/transfers.glade:66
 #: ../glade/hub.glade:235
-#, fuzzy
 msgid "_Remove user from queue"
-msgstr "Kedvenc felhasználó törlése"
+msgstr "_Felhasználó törlése a sorból"
 
 #: ../glade/favoriteusers.glade:74
-#, fuzzy
 msgid "Connect to hub"
 msgstr "Csatlakozás a hubhoz"
 
 #: ../glade/favoriteusers.glade:135
-#, fuzzy
 msgid "<b>Description</b>"
-msgstr "Leírás"
+msgstr "<b>Leírás</b>"
 
 #: ../glade/favoritehubs.glade:90
-#, fuzzy
 msgid "Favorite Hub Properties"
-msgstr "Favorit hub már létezik"
+msgstr "Kedvenc hub beállításai"
 
 #: ../glade/favoritehubs.glade:108
 msgid "<b>Hub</b>"
@@ -2161,9 +2128,8 @@ msgid "_Address:"
 msgstr ""
 
 #: ../glade/favoritehubs.glade:203
-#, fuzzy
 msgid "_Description:"
-msgstr "Leírás"
+msgstr "_Leírás:"
 
 #: ../glade/favoritehubs.glade:233
 msgid "_Encoding:"
@@ -2182,52 +2148,44 @@ msgid "_Password:"
 msgstr ""
 
 #: ../glade/favoritehubs.glade:352
-#, fuzzy
 msgid "_User Description:"
-msgstr "Leírás"
+msgstr "_Felhasználói leírás:"
 
 #: ../glade/favoritehubs.glade:384
 msgid "<small>Note: Leave unchecked for default values</small>"
 msgstr ""
 
 #: ../glade/mainwindow.glade:19
-#, fuzzy
 msgid "_File"
-msgstr "Fájl"
+msgstr "_Fájl"
 
 #: ../glade/mainwindow.glade:26
-#, fuzzy
 msgid "Open _file list..."
-msgstr "Fájl-lista letöltése"
+msgstr "_Fájl-lista megnyitása..."
 
 #: ../glade/mainwindow.glade:41
-#, fuzzy
 msgid "Open _own list"
-msgstr "Saját fájl-lista frissítése"
+msgstr "_Saját fájl-lista megnyitása"
 
 #: ../glade/mainwindow.glade:55
-#, fuzzy
 msgid "_Refresh file list"
-msgstr "Fájl-lista letöltése"
+msgstr "Fájl-lista frissítése"
 
 #: ../glade/mainwindow.glade:75
-#, fuzzy
 msgid "_Quick connect"
-msgstr "Csatlakozva"
+msgstr "_Gyors csatlakozás"
 
 #: ../glade/mainwindow.glade:90
-#, fuzzy
 msgid "Re_connect"
-msgstr "Csatlakozva"
+msgstr "_Újracsatlakozás"
 
 #: ../glade/mainwindow.glade:110
 msgid "_Preferences"
 msgstr ""
 
 #: ../glade/mainwindow.glade:125
-#, fuzzy
 msgid "_Magnet Choice"
-msgstr "Magnet beállítások / lehetőségek"
+msgstr "_Magnet lehetőségek"
 
 #: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1302
 msgid "_Exit"
@@ -2278,9 +2236,8 @@ msgid "About EiskaltDC++"
 msgstr ""
 
 #: ../glade/mainwindow.glade:492
-#, fuzzy
 msgid "Quick connect to a hub"
-msgstr "Csatlakozás a hubhoz"
+msgstr "Gyors csatlakozás a hubhoz"
 
 #: ../glade/mainwindow.glade:531
 msgid "Browse the list of public hubs"
@@ -2331,23 +2288,20 @@ msgid "Hubs (normal / registered / op)"
 msgstr ""
 
 #: ../glade/mainwindow.glade:787
-#, fuzzy
 msgid "Download speed"
-msgstr "Letöltés: "
+msgstr "Letöltési sebesség"
 
 #: ../glade/mainwindow.glade:828
 msgid "Total received"
-msgstr ""
+msgstr "Összes bejövő adatmennyiség"
 
 #: ../glade/mainwindow.glade:850
-#, fuzzy
 msgid "Upload speed"
-msgstr "Feltöltés: "
+msgstr "Feltöltési sebesség"
 
 #: ../glade/mainwindow.glade:892
-#, fuzzy
 msgid "Total sent"
-msgstr "Összesen: "
+msgstr "Összes kimenő adatmennyiség"
 
 #: ../glade/mainwindow.glade:914
 msgid "Exit EiskaltDC++ Gtk?"
@@ -2358,7 +2312,6 @@ msgid "Do you really want to exit?"
 msgstr ""
 
 #: ../glade/mainwindow.glade:971
-#, fuzzy
 msgid "Connect to a hub"
 msgstr "Csatlakozás a hubhoz"
 
@@ -2464,7 +2417,6 @@ msgid "Magnet"
 msgstr ""
 
 #: ../glade/mainwindow.glade:1364
-#, fuzzy
 msgid "File name"
 msgstr "Fájlnév"
 
@@ -2473,7 +2425,6 @@ msgid "TTH"
 msgstr ""
 
 #: ../glade/mainwindow.glade:1459
-#, fuzzy
 msgid "Exact size"
 msgstr "Pontos méret"
 
@@ -2482,9 +2433,8 @@ msgid "+/-"
 msgstr ""
 
 #: ../glade/mainwindow.glade:1498
-#, fuzzy
 msgid "<b>Magnet properties</b>"
-msgstr "Magnet beállítások / lehetőségek"
+msgstr "<b>Magnet beállítások</b>"
 
 #: ../glade/mainwindow.glade:1526
 msgid ""
@@ -2527,7 +2477,6 @@ msgid "Max upload speed (MiB/s)"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:118
-#, fuzzy
 msgid "E-Mail"
 msgstr "E-mail"
 
@@ -2576,9 +2525,8 @@ msgid "<b>Incoming connection settings</b>"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:589
-#, fuzzy
 msgid "Username"
-msgstr "Fájlnév"
+msgstr "Felhasználói név"
 
 #: ../glade/settingsdialog.glade:604
 msgid "Use SOCKS5 server to resolve hostnames"
@@ -2593,9 +2541,8 @@ msgid "Socks IP"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:712
-#, fuzzy
 msgid "Direct connection"
-msgstr "Kapcsolat"
+msgstr "Közvetlen kapcsolat"
 
 #: ../glade/settingsdialog.glade:732
 msgid "<b>Outgoing connection settings</b>"
@@ -2646,18 +2593,16 @@ msgid "<b>Public Hubs list</b>"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:1091 ../glade/settingsdialog.glade:1966
-#, fuzzy
 msgid "Downloads"
-msgstr "Letöltés: "
+msgstr "Letöltések"
 
 #: ../glade/settingsdialog.glade:1179
 msgid "<b>Favorite download to directories</b>"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:1194
-#, fuzzy
 msgid "Download to"
-msgstr "Letöltés: "
+msgstr "Letöltés ide"
 
 #: ../glade/settingsdialog.glade:1272
 msgid "High priority max size"
@@ -2687,9 +2632,8 @@ msgid "<b>Auto-priority settings</b>"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:1516
-#, fuzzy
 msgid "Min filesize"
-msgstr " fájl"
+msgstr "Minimum fájlméret"
 
 #: ../glade/settingsdialog.glade:1531
 msgid "Max inactivity"
@@ -2749,9 +2693,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:2023
-#, fuzzy
 msgid "Total size: 0 B"
-msgstr "Méret: 0 B"
+msgstr "Teljes méret: 0 B"
 
 #: ../glade/settingsdialog.glade:2034
 msgid "Share hidden files"
@@ -2766,9 +2709,8 @@ msgid "<b>Shared directories</b>"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:2136
-#, fuzzy
 msgid "Upload slots"
-msgstr "Feltöltés: "
+msgstr "Feltöltési szálak"
 
 #: ../glade/settingsdialog.glade:2149
 msgid "KiB/s"
@@ -2779,7 +2721,6 @@ msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:2195
-#, fuzzy
 msgid "Sharing"
 msgstr "Megosztva"
 
@@ -2882,9 +2823,8 @@ msgid "When a private message window is opened"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:2782
-#, fuzzy
 msgid "<b>Private message sound</b>"
-msgstr "Privát üzenet"
+msgstr "<p>Privát üzenet hangjelzése</b>"
 
 #: ../glade/settingsdialog.glade:2848
 msgid "<b>Available styles</b>"
@@ -2911,9 +2851,8 @@ msgid "Text style"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:2953
-#, fuzzy
 msgid "Default styles"
-msgstr "Alapértelmezett"
+msgstr "Alapértelmezett stílus"
 
 #: ../glade/settingsdialog.glade:2966
 msgid "Black/White"
@@ -2932,9 +2871,8 @@ msgid "<b>Title</b>"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:3106
-#, fuzzy
 msgid "<b>Icon size</b>"
-msgstr "Ikon méret"
+msgstr "<b>Ikon méret</b>"
 
 #: ../glade/settingsdialog.glade:3133
 msgid "Test"
@@ -2957,9 +2895,8 @@ msgid "Show only when the application is not active."
 msgstr ""
 
 #: ../glade/settingsdialog.glade:3282
-#, fuzzy
 msgid "<b>Private message</b>"
-msgstr "Privát üzenet"
+msgstr "<b>Privát üzenet</b>"
 
 #: ../glade/settingsdialog.glade:3299 ../glade/settingsdialog.glade:6145
 msgid "PM"
@@ -2990,19 +2927,16 @@ msgid "Import..."
 msgstr ""
 
 #: ../glade/settingsdialog.glade:3485
-#, fuzzy
 msgid "Default icons"
-msgstr "Alapértelmezett"
+msgstr "Alapértelmezett ikonok"
 
 #: ../glade/settingsdialog.glade:3498
-#, fuzzy
 msgid "System icons"
-msgstr "Hangulatjelek használata"
+msgstr "Rendszer ikonok"
 
 #: ../glade/settingsdialog.glade:3511
-#, fuzzy
 msgid "Theme default"
-msgstr "Alapértelmezett"
+msgstr "Alapértelmezett téma"
 
 #: ../glade/settingsdialog.glade:3533
 msgid "Themes"
@@ -3070,9 +3004,8 @@ msgid "Log private chat"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:4146
-#, fuzzy
 msgid "Log downloads"
-msgstr "Letöltés: "
+msgstr "Letöltések naplózása"
 
 #: ../glade/settingsdialog.glade:4189
 msgid "Log uploads"
@@ -3087,9 +3020,8 @@ msgid "Log status messages"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:4262
-#, fuzzy
 msgid "Log filelist transfers"
-msgstr "Fájl-lista betöltése"
+msgstr "Fájl-lista átvitelek naplózása"
 
 #: ../glade/settingsdialog.glade:4278
 msgid "<b>Logging</b>"
@@ -3120,9 +3052,8 @@ msgid "Mini slot size"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:4510
-#, fuzzy
 msgid "Max filelist size"
-msgstr "Fájl-lista letöltése"
+msgstr "Fájl-lista maximális mérete"
 
 #: ../glade/settingsdialog.glade:4624
 msgid "MiB/s"
@@ -3173,9 +3104,8 @@ msgid "Certificate file"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:5070
-#, fuzzy
 msgid "Private key file"
-msgstr "Privát üzenet"
+msgstr "Privát kulcs"
 
 #: ../glade/settingsdialog.glade:5086
 msgid "<b>Certificate Paths</b>"
@@ -3250,9 +3180,8 @@ msgid "<b>Secondary Transfer Rate Limiting</b>"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:5544
-#, fuzzy
 msgid "Upload Slots"
-msgstr "Feltöltés: "
+msgstr "Feltöltési szálak"
 
 #: ../glade/settingsdialog.glade:5572
 msgid "<b>Secondary Transfer Rate Settings</b>"
@@ -3273,9 +3202,8 @@ msgid "Modify"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:5670
-#, fuzzy
 msgid "Rename"
-msgstr "Fájlnév"
+msgstr "Átnevezés"
 
 #: ../glade/settingsdialog.glade:5711
 msgid "Note: Custom search types will only be applied to ADC hubs!"
@@ -3294,14 +3222,12 @@ msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:5921
-#, fuzzy
 msgid "Favorite name"
-msgstr "Favorit hub hozzáadva"
+msgstr "Kedvenc név"
 
 #: ../glade/settingsdialog.glade:6054
-#, fuzzy
 msgid "Choose a File"
-msgstr "Könyvtár választása"
+msgstr "Fájl választása"
 
 #: ../glade/settingsdialog.glade:6085
 msgid "gtk-open"
@@ -3332,9 +3258,8 @@ msgid "Chat Menu"
 msgstr ""
 
 #: ../glade/settingsdialog.glade:6246
-#, fuzzy
 msgid "Filelist Menu"
-msgstr "Fájl-lista betöltve"
+msgstr "Fájl-lista menü"
 
 #: ../glade/settingsdialog.glade:6263
 msgid "Hub Menu"
@@ -3449,41 +3374,36 @@ msgid "<b>Hub List</b>"
 msgstr ""
 
 #: ../glade/publichubs.glade:326
-#, fuzzy
 msgid "Add to favorites"
-msgstr "Hub hozzáadása a kedvencekhez"
+msgstr "Hozzáadás a kedvencekhez"
 
 #: ../glade/transfers.glade:45
-#, fuzzy
 msgid "_Send private message"
-msgstr "Privát üzenet"
+msgstr "_Privát üzenet küldése"
 
 #: ../glade/transfers.glade:105
 msgid "_Force attempt"
 msgstr ""
 
 #: ../glade/transfers.glade:117
-#, fuzzy
 msgid "_Close connection"
-msgstr "Kapcsolat"
+msgstr "_Kapcsolat bezárása"
 
 #: ../glade/privatemessage.glade:37 ../glade/hub.glade:66
 msgid "Chat Commands"
 msgstr ""
 
 #: ../glade/privatemessage.glade:60 ../glade/hub.glade:92
-#, fuzzy
 msgid "Emoticons"
-msgstr "Hangulatjelek használata"
+msgstr "Hangulatjelek"
 
 #: ../glade/privatemessage.glade:97 ../glade/hub.glade:255
 msgid "_Search magnet"
 msgstr ""
 
 #: ../glade/privatemessage.glade:141 ../glade/hub.glade:299
-#, fuzzy
 msgid "_Properties/Choice"
-msgstr "Magnet beállítások / lehetőségek"
+msgstr "_Beállítások / Lehetőségek"
 
 #: ../glade/privatemessage.glade:150 ../glade/privatemessage.glade:166
 #: ../glade/hub.glade:309 ../glade/hub.glade:325
@@ -3515,9 +3435,8 @@ msgid "Remove All"
 msgstr ""
 
 #: ../glade/hub.glade:147
-#, fuzzy
 msgid "Show/Hide user list"
-msgstr "Kedvencek mutatása"
+msgstr "Felhasználói lista mutatása/elrejtése"
 
 #: ../glade/hub.glade:169
 msgid "_Copy nick"
@@ -3528,9 +3447,8 @@ msgid "_Send public message"
 msgstr ""
 
 #: ../glade/hub.glade:216
-#, fuzzy
 msgid "_Remove from favorites"
-msgstr "Kedvenc felhasználó törlése"
+msgstr "_Eltávolítás a kedvencekből"
 
 #, fuzzy
 #~ msgid "Virtual name"

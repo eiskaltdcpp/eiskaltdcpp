@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-14 15:04+0300\n"
-"PO-Revision-Date: 2010-08-03 14:44+0200\n"
+"PO-Revision-Date: 2010-08-19 13:31+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
-"Language-Team: Magyar <kde-i18n-doc@kde.org>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../FavoriteManager.cpp:444
@@ -229,21 +229,20 @@ msgid "Error hashing %1%: %2%"
 msgstr "Hiba a következő hashelésekor: %1%: %2%"
 
 #: ../UPnPManager.cpp:40
-#, fuzzy
 msgid "No UPnP implementation available"
-msgstr "A fájl nem elérhető"
+msgstr "UPnP implementáció nem elérhető"
 
 #: ../UPnPManager.cpp:68
 msgid " Transfer Port (%1% TCP)"
-msgstr ""
+msgstr " Átviteli port (%1% TCP)"
 
 #: ../UPnPManager.cpp:71
 msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
+msgstr " Titkosított átviteli port (%1% TCP)"
 
 #: ../UPnPManager.cpp:74
 msgid " Search Port (%1% UDP)"
-msgstr ""
+msgstr " Keresési port (%1% UDP)"
 
 #: ../UPnPManager.cpp:78
 msgid "Successfully created port mappings"
@@ -251,12 +250,11 @@ msgstr ""
 
 #: ../UPnPManager.cpp:89
 msgid "Failed to get external IP"
-msgstr ""
+msgstr "Külső IP lekérdezése sikertelen"
 
 #: ../UPnPManager.cpp:97
-#, fuzzy
 msgid "Failed to create port mappings"
-msgstr "A szál léterhozása sikertelen"
+msgstr ""
 
 #: ../UPnPManager.cpp:105
 msgid "Failed to remove port mappings"
@@ -264,7 +262,7 @@ msgstr ""
 
 #: ../UPnPManager.cpp:110
 msgid "UPnP: %1%"
-msgstr ""
+msgstr "UPnP: %1%"
 
 #: ../ShareManager.cpp:429
 msgid "No directory specified"

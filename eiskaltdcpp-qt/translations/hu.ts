@@ -984,102 +984,122 @@ Kedvenc felhasználó</translation>
     <message>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - nyelvhelyesség ellenőrző ki/be kapcsolása
+</translation>
     </message>
     <message>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias &lt;ÁLNÉV&gt;::&lt;PARANCS&gt; - álnév létrehozása /ÁLNÉV a /PARANCSRA
+</translation>
     </message>
     <message>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias purge &lt;ÁLNÉV&gt; - álnév eltávolítása
+</translation>
     </message>
     <message>
         <source>/alias list - list all aliases
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias list - álnevek listázása
+</translation>
     </message>
     <message>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/away &lt;üzenet&gt; - away-mód ki/be kapcsolása
+</translation>
     </message>
     <message>
         <source>/back - set away-mode off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/back - away-mód kikapcsolása
+</translation>
     </message>
     <message>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/browse &lt;nick&gt; - felhaszáló fájlistájának böngészése
+</translation>
     </message>
     <message>
         <source>/clear - clear chat window
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/clear - chat ablak törlése
+</translation>
     </message>
     <message>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/magnet - alapértelmezett magnetlink akció (0-kérdés, 1-keresés, 2-letöltés)
+</translation>
     </message>
     <message>
         <source>/close - close this hub
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/close - hub bezárása
+</translation>
     </message>
     <message>
         <source>/fav - add this hub to favorites
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/fav - hub hozzáadása a kedvencekhez
+</translation>
     </message>
     <message>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/grant &lt;nick&gt; - extra slot biztosítása a felhasználónak
+</translation>
     </message>
     <message>
         <source>/help, /?, /h - show this help
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/help, /?, /h - segítség mutatása
+</translation>
     </message>
     <message>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/info &lt;nick&gt; - információ mutatása a felhasználóról
+</translation>
     </message>
     <message>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/ratio [show] - átviteli ráta mutatása [küldés a chatre]
+</translation>
     </message>
     <message>
         <source>/me - say a third person
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/me - üzenet küldése harmadik személyben
+</translation>
     </message>
     <message>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>pm &lt;nick&gt; - privát beszélgetés indítása a felhasználóval
+</translation>
     </message>
     <message>
         <source>/sh &lt;command&gt; - start command and redirect output to the chat
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/sh &lt;parancs&gt; - shell parancs indítása, és a kimenet átirányítása a chat ablakba
+</translation>
     </message>
     <message>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/luafile &lt;file&gt; - Lua fájl betöltése
+</translation>
     </message>
     <message>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/lua &lt;chunk&gt; - Lua kódrészlet futtatása
+</translation>
     </message>
 </context>
 <context>
@@ -1778,15 +1798,15 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.4 és újabb)&lt;br/&gt; {1p?} {07&lt;?} {1p?} {07@?} {2.1.0 ?}</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.1.0 és újabb)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bolgár fordítás&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.1.0 és újabb)&lt;br/&gt;</translation>
     </message>
 </context>
 <context>
@@ -2443,7 +2463,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Bolgár</translation>
     </message>
 </context>
 <context>
@@ -3766,7 +3786,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Incoming connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Bejövő kapcsolatok</translation>
     </message>
 </context>
 <context>
@@ -4256,7 +4276,7 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
     </message>
     <message>
         <source>Use Ctrl+Enter to send messages</source>
-        <translation>Használd a Ctrl+Enter kombinációt üzenet küldéséhez</translation>
+        <translation>Ctrl+Enter használata az üzenet küldéséhez</translation>
     </message>
     <message>
         <source>The height of the text entry field</source>
@@ -4398,11 +4418,11 @@ ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
     </message>
     <message>
         <source>(need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>(újraindítás szükséges)</translation>
     </message>
     <message>
         <source>User theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Saját téma</translation>
     </message>
 </context>
 <context>
