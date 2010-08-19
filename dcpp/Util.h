@@ -203,7 +203,6 @@ public:
     static string formatBytes(int64_t aBytes);
 
     static string formatExactSize(int64_t aBytes);
-    //static string getShortTimeString(time_t t = time(NULL));
     static time_t getStartTime() { return startTime; }
     static time_t getUpTime() { return time(NULL) - Util::getStartTime(); }
     static string formatSeconds(int64_t aSec) {
@@ -345,7 +344,6 @@ public:
     static string encodeURI(const string& /*aString*/, bool reverse = false);
     static string getLocalIp();
     static bool isPrivateIp(string const& ip);
-    static bool resolveNmdc(string& ip);
     /**
      * Case insensitive substring search.
      * @return First position found or string::npos

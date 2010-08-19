@@ -391,7 +391,8 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
                 string ip, file;
                 uint16_t port = 0;
                 Util::decodeUrl(aSeeker, ip, port, file);
-                if(!Util::resolveNmdc(ip))
+                ip = Socket::resolve(ip);
+                if(static_cast<NmdcHub*>(aClient)->isProtectedIP(ip))
                     return;
                 if(port == 0)
                     port = 412;

@@ -547,25 +547,6 @@ bool Util::isPrivateIp(string const& ip) {
     return false;
 }
 
-bool Util::resolveNmdc(string& ip) {
-    ip = Socket::resolve(ip);
-
-    // Temporary fix to avoid spamming some servers
-    if(
-        ip == "70.85.55.252" || // hublist.org
-        ip == "207.44.220.108" || // dcpp.net
-        ip == "216.34.181.97" || // hubtracker.com -- this is old hosting
-        ip == "81.181.249.83" || //openhublist.org
-        ip == "64.19.158.42" || // dchublist.com
-        ip == "174.133.138.93" // adchublist.com
-        ) {
-        LogManager::getInstance()->message("Someone is trying to use your client to spam " + ip + ", please urge hub owner to fix this");
-        return false;
-    }
-
-    return true;
-}
-
 typedef const uint8_t* ccp;
 static wchar_t utf8ToLC(ccp& str) {
     wchar_t c = 0;

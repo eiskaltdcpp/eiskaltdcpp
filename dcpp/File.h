@@ -119,6 +119,50 @@ private:
     File& operator=(const File&);
 };
 
+class FileFindIter {
+public:
+        /** End iterator constructor */
+        FileFindIter();
+        /** Begin iterator constructor, path in utf-8 */
+        FileFindIter(const string& path);
+
+        ~FileFindIter();
+
+        FileFindIter& operator++();
+        bool operator!=(const FileFindIter& rhs) const;
+
+        struct DirData
+#ifdef _WIN32
+                : public WIN32_FIND_DATA
+#endif
+        {
+                DirData();
+
+                string getFileName();
+                bool isDirectory();
+                bool isHidden();
+                bool isLink();
+                int64_t getSize();
+                uint32_t getLastWriteTime();
+#ifndef _WIN32
+                dirent* ent;
+                string base;
+#endif
+        };
+
+        DirData& operator*() { return data; }
+        DirData* operator->() { return &data; }
+
+private:
+#ifdef _WIN32
+        HANDLE handle;
+#else
+        DIR* dir;
+#endif
+
+        DirData data;
+};
+
 } // namespace dcpp
 
 #endif // !defined(FILE_H)

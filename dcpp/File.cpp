@@ -308,7 +308,7 @@ int File::extendFile(int64_t len) throw() {
     char zero;
 
     if( (lseek(h, (off_t)len, SEEK_SET) != -1) && (::write(h, &zero,1) != -1) ) {
-                (void)ftruncate(h,(off_t)len);
+                ftruncate(h,(off_t)len);
         return 1;
     }
     return -1;
@@ -442,7 +442,9 @@ StringList File::findFiles(const string& path, const string& pattern) {
     if (dir) {
         while (struct dirent* ent = readdir(dir)) {
             if (fnmatch(pattern.c_str(), ent->d_name, 0) == 0) {
-                const char* extra = (ent->d_type & DT_DIR) ? "/" : "";
+                                struct stat s;
+                                stat(ent->d_name, &s);
+                                const char* extra = (s.st_mode & S_IFDIR) ? "/" : "";
                 ret.push_back(path + Text::toUtf8(ent->d_name) + extra);
             }
         }
@@ -452,5 +454,139 @@ StringList File::findFiles(const string& path, const string& pattern) {
 
     return ret;
 }
+
+#ifdef _WIN32
+
+FileFindIter::FileFindIter() : handle(INVALID_HANDLE_VALUE) { }
+
+FileFindIter::FileFindIter(const string& path) : handle(INVALID_HANDLE_VALUE) {
+        handle = ::FindFirstFile(Text::toT(path).c_str(), &data);
+}
+
+FileFindIter::~FileFindIter() {
+        if(handle != INVALID_HANDLE_VALUE) {
+                ::FindClose(handle);
+        }
+}
+
+FileFindIter& FileFindIter::operator++() {
+        if(!::FindNextFile(handle, &data)) {
+                ::FindClose(handle);
+                handle = INVALID_HANDLE_VALUE;
+        }
+        return *this;
+}
+
+bool FileFindIter::operator!=(const FileFindIter& rhs) const { return handle != rhs.handle; }
+
+FileFindIter::DirData::DirData() { }
+
+string FileFindIter::DirData::getFileName() {
+        return Text::fromT(cFileName);
+}
+
+bool FileFindIter::DirData::isDirectory() {
+        return (dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) > 0;
+}
+
+bool FileFindIter::DirData::isHidden() {
+        return ((dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) || (cFileName[0] == L'.'));
+}
+
+bool FileFindIter::DirData::isLink() {
+        return false;
+}
+
+int64_t FileFindIter::DirData::getSize() {
+        return (int64_t)nFileSizeLow | ((int64_t)nFileSizeHigh)<<32;
+}
+
+uint32_t FileFindIter::DirData::getLastWriteTime() {
+        return File::convertTime(&ftLastWriteTime);
+}
+
+#else // _WIN32
+
+FileFindIter::FileFindIter() {
+        dir = NULL;
+        data.ent = NULL;
+}
+
+FileFindIter::FileFindIter(const string& path) {
+        string filename = Text::fromUtf8(path);
+        dir = opendir(filename.c_str());
+        if (!dir)
+                return;
+        data.base = filename;
+        data.ent = readdir(dir);
+        if (!data.ent) {
+                closedir(dir);
+                dir = NULL;
+        }
+}
+
+FileFindIter::~FileFindIter() {
+        if (dir) closedir(dir);
+}
+
+FileFindIter& FileFindIter::operator++() {
+        if (!dir)
+                return *this;
+        data.ent = readdir(dir);
+        if (!data.ent) {
+                closedir(dir);
+                dir = NULL;
+        }
+        return *this;
+}
+
+bool FileFindIter::operator !=(const FileFindIter& rhs) const {
+        // good enough to to say if it's null
+        return dir != rhs.dir;
+}
+
+FileFindIter::DirData::DirData() : ent(NULL) {}
+
+string FileFindIter::DirData::getFileName() {
+        if (!ent) return Util::emptyString;
+        return Text::toUtf8(ent->d_name);
+}
+
+bool FileFindIter::DirData::isDirectory() {
+        struct stat inode;
+        if (!ent) return false;
+        if (stat((base + PATH_SEPARATOR + ent->d_name).c_str(), &inode) == -1) return false;
+        return S_ISDIR(inode.st_mode);
+}
+
+bool FileFindIter::DirData::isHidden() {
+        if (!ent) return false;
+        // Check if the parent directory is hidden for '.'
+        if (strcmp(ent->d_name, ".") == 0 && base[0] == '.') return true;
+        return ent->d_name[0] == '.' && strlen(ent->d_name) > 1;
+}
+
+bool FileFindIter::DirData::isLink() {
+        struct stat inode;
+        if (!ent) return false;
+        if (lstat((base + PATH_SEPARATOR + ent->d_name).c_str(), &inode) == -1) return false;
+        return S_ISLNK(inode.st_mode);
+}
+
+int64_t FileFindIter::DirData::getSize() {
+        struct stat inode;
+        if (!ent) return false;
+        if (stat((base + PATH_SEPARATOR + ent->d_name).c_str(), &inode) == -1) return 0;
+        return inode.st_size;
+}
+
+uint32_t FileFindIter::DirData::getLastWriteTime() {
+        struct stat inode;
+        if (!ent) return false;
+        if (stat((base + PATH_SEPARATOR + ent->d_name).c_str(), &inode) == -1) return 0;
+        return inode.st_mtime;
+}
+
+#endif // _WIN32
 
 } // namespace dcpp

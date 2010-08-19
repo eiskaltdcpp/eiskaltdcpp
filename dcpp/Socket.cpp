@@ -24,8 +24,11 @@
 #include "SettingsManager.h"
 #include "TimerManager.h"
 
-#ifndef MSG_NOSIGNAL
-#define MSG_NOSIGNAL 0
+/// @todo remove when MinGW has this
+#ifdef __MINGW32__
+#ifndef EADDRNOTAVAIL
+#define EADDRNOTAVAIL WSAEADDRNOTAVAIL
+#endif
 #endif
 
 namespace dcpp {
@@ -365,7 +368,7 @@ void Socket::writeAll(const void* aBuffer, int aLen, uint32_t timeout) throw(Soc
 int Socket::write(const void* aBuffer, int aLen) throw(SocketException) {
     int sent;
     do {
-                sent = ::send(sock, (const char*)aBuffer, aLen, MSG_NOSIGNAL);
+                sent = ::send(sock, (const char*)aBuffer, aLen, 0);
     } while (sent < 0 && getLastError() == EINTR);
 
     check(sent, true);
@@ -554,7 +557,7 @@ string Socket::resolve(const string& aDns) {
         return aDns;
     }
 #else
-   // POSIX doesn't guarantee the gethostbyname to be thread safe. And it may (will) eturn a pointer to static data.
+        // POSIX doesn't guarantee the gethostbyname to be thread safe. And it may (will) return a pointer to static data.
    string address = Util::emptyString;
    addrinfo hints = { 0 };
    addrinfo *result;
