@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-14 15:04+0300\n"
+"POT-Creation-Date: 2010-08-20 14:48+0300\n"
 "PO-Revision-Date: 2009-03-03 22:46+0000\n"
 "Last-Translator: LadyStardust <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,36 +26,36 @@ msgstr "Wykop użytkownika(ów)"
 msgid "Redirect user(s)"
 msgstr "Przekieruj użytkownika(ów)"
 
-#: ../Socket.cpp:58
+#: ../Socket.cpp:61
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Nieznany błąd: 0x%1$x"
 
-#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
 #: ../ConnectionManager.cpp:183
 msgid "Connection timeout"
 msgstr "Przekroczenie czasu połączenia"
 
-#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
-#: ../Socket.cpp:235 ../Socket.cpp:250
+#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
+#: ../Socket.cpp:238 ../Socket.cpp:253
 msgid "The socks server failed establish a connection"
 msgstr "Serwer socks zakończył niepowodzeniem ustanawianie połączenia"
 
-#: ../Socket.cpp:239
+#: ../Socket.cpp:242
 msgid "The socks server requires authentication"
 msgstr "Serwer SOCKS wymaga uwierzytelnienia"
 
-#: ../Socket.cpp:253
+#: ../Socket.cpp:256
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Serwer SOCKS nie obsługuje autoryzacji za pomocą loginu/hasła"
 
-#: ../Socket.cpp:267 ../Socket.cpp:271
+#: ../Socket.cpp:270 ../Socket.cpp:274
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
 "Uwierzytelnienie serwera socks zakończone niepowodzeniem (nieprawidłowy "
 "login/hasło?)"
 
-#: ../Socket.cpp:406
+#: ../Socket.cpp:409
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -90,6 +90,12 @@ msgstr "Rozłączony użytkownik opuścił hub: %1%"
 #: ../NmdcHub.cpp:282
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nazwa użytkownika nieznana)"
+
+#: ../NmdcHub.cpp:902
+msgid ""
+"This hub is trying to use your client to spam %1%, please urge hub owner to "
+"fix this"
+msgstr ""
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
@@ -275,15 +281,15 @@ msgstr "Brak zdefiniowanego katalogu"
 msgid "The temporary download directory cannot be shared"
 msgstr "Katalog plików tymczasowych nie może być udostępniony"
 
-#: ../ShareManager.cpp:780
+#: ../ShareManager.cpp:634
 msgid "User has chosen not to share file: %1% (Size: %2%)"
 msgstr ""
 
-#: ../ShareManager.cpp:801
+#: ../ShareManager.cpp:655
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr ""
 
-#: ../ShareManager.cpp:856
+#: ../ShareManager.cpp:710
 #, fuzzy
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
@@ -292,7 +298,7 @@ msgstr ""
 "Zduplikowany plik nie zostanie udostępniony: %1%%2% (Rozmiar: %3% B) "
 "Porównano z: %4%%5%"
 
-#: ../ShareManager.cpp:873
+#: ../ShareManager.cpp:727
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -300,19 +306,19 @@ msgstr ""
 "Odświeżanie listy plików w toku, proszę poczekać do zakończenia przed "
 "ponownym odświeżeniem"
 
-#: ../ShareManager.cpp:894
+#: ../ShareManager.cpp:748
 msgid "File list refresh failed: %1%"
 msgstr "Odświeżanie listy plików zakończone niepowodzeniem: %1%"
 
-#: ../ShareManager.cpp:916
+#: ../ShareManager.cpp:770
 msgid "File list refresh initiated"
 msgstr "Zainicjowano odświeżenie listy plików"
 
-#: ../ShareManager.cpp:941
+#: ../ShareManager.cpp:795
 msgid "File list refresh finished"
 msgstr "Odświeżanie listy plików zakończone"
 
-#: ../ShareManager.cpp:1012
+#: ../ShareManager.cpp:866
 #, fuzzy
 msgid "File list %1% generated"
 msgstr "Zainicjowano odświeżenie listy plików"

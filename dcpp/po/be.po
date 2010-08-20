@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-14 15:04+0300\n"
+"POT-Creation-Date: 2010-08-20 14:48+0300\n"
 "PO-Revision-Date: 2010-08-07 15:38+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -30,35 +30,35 @@ msgstr "Даць высьпятка"
 msgid "Redirect user(s)"
 msgstr "Накіраваць карыстальніка(аў)"
 
-#: ../Socket.cpp:58
+#: ../Socket.cpp:61
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Невядомая памылка: 0x%1$x"
 
-#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
 #: ../ConnectionManager.cpp:183
 msgid "Connection timeout"
 msgstr "Злучэньне па-за часам"
 
-#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
-#: ../Socket.cpp:235 ../Socket.cpp:250
+#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
+#: ../Socket.cpp:238 ../Socket.cpp:253
 msgid "The socks server failed establish a connection"
 msgstr "Паслужніку Socks не ўдалося наладзіць злучэньне"
 
-#: ../Socket.cpp:239
+#: ../Socket.cpp:242
 msgid "The socks server requires authentication"
 msgstr "Паслужнік Socks патрабуе спраўджацца"
 
-#: ../Socket.cpp:253
+#: ../Socket.cpp:256
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Паслужнік Socks не падтрымлівае спраўджаньня “ўліковае ймя — гасло”"
 
-#: ../Socket.cpp:267 ../Socket.cpp:271
+#: ../Socket.cpp:270 ../Socket.cpp:274
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
 "Не ўдалося спраўдзіцца на паслужніку Socks (кепскае гасло ці ўліковае ймя?)"
 
-#: ../Socket.cpp:406
+#: ../Socket.cpp:409
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -93,6 +93,12 @@ msgstr "Адлучаны карыстальнік выходзіць з асяр
 #: ../NmdcHub.cpp:282
 msgid "%1% (Nick unknown)"
 msgstr " %1% (мянушка невядомая)"
+
+#: ../NmdcHub.cpp:902
+msgid ""
+"This hub is trying to use your client to spam %1%, please urge hub owner to "
+"fix this"
+msgstr ""
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
@@ -276,21 +282,21 @@ msgstr "Ня вызначылі каталёг"
 msgid "The temporary download directory cannot be shared"
 msgstr "Не магу абагуліць часовым каталёгам"
 
-#: ../ShareManager.cpp:780
+#: ../ShareManager.cpp:634
 msgid "User has chosen not to share file: %1% (Size: %2%)"
 msgstr "Карыстальнік абраў не абагуляць файл %1% (памер: %2%)"
 
-#: ../ShareManager.cpp:801
+#: ../ShareManager.cpp:655
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr "Карыстальнік абраў не абагуляць часовы файл %1% (памер: %2%)"
 
-#: ../ShareManager.cpp:856
+#: ../ShareManager.cpp:710
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr "Файл %1% (памер: %2% Б) — дуплікат файла %3%."
 
-#: ../ShareManager.cpp:873
+#: ../ShareManager.cpp:727
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -298,19 +304,19 @@ msgstr ""
 "Сьпіс файлаў зараз дапаўняецца. Калі ласка, пачакайце, пакуль ён дапоўніцца, "
 "каб паспрабаваць ізноў."
 
-#: ../ShareManager.cpp:894
+#: ../ShareManager.cpp:748
 msgid "File list refresh failed: %1%"
 msgstr "Не ўдалося дапоўніць сьпіс файлаў: %1%"
 
-#: ../ShareManager.cpp:916
+#: ../ShareManager.cpp:770
 msgid "File list refresh initiated"
 msgstr "Распачалі дапаўняць сьпіс файлаў"
 
-#: ../ShareManager.cpp:941
+#: ../ShareManager.cpp:795
 msgid "File list refresh finished"
 msgstr "Скончылі дапаўняць сьпіс файлаў"
 
-#: ../ShareManager.cpp:1012
+#: ../ShareManager.cpp:866
 msgid "File list %1% generated"
 msgstr "Стварылі сьпіс файлаў %1%"
 

@@ -3629,7 +3629,7 @@ default</property>
                                     <child>
                                       <widget class="GtkLabel" id="label97">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Новая строка или TTH</property>
+                                        <property name="label" translatable="yes">New string or TTH</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3660,7 +3660,7 @@ default</property>
                                     <child>
                                       <widget class="GtkLabel" id="label99">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Добавление строки или TTH в топ</property>
+                                        <property name="label" translatable="yes">Adding string or TTH in the top</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3692,7 +3692,7 @@ default</property>
                                     <child>
                                       <widget class="GtkLabel" id="label101">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Состояние готовности</property>
+                                        <property name="label" translatable="yes">State of preparedness</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3724,7 +3724,7 @@ default</property>
                                     <child>
                                       <widget class="GtkLabel" id="label103">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Совпадения</property>
+                                        <property name="label" translatable="yes">Matches</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3756,7 +3756,7 @@ default</property>
                                     <child>
                                       <widget class="GtkLabel" id="label106">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Обновление строки или TTH</property>
+                                        <property name="label" translatable="yes">Updating string or TTH</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3831,7 +3831,7 @@ default</property>
                                       <widget class="GtkSpinButton" id="frameSPSpinButton">
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
-                                        <property name="tooltip" translatable="yes">Размер кадра определяет ширину обзора, большие значения влияют на производительность</property>
+                                        <property name="tooltip" translatable="yes">Frame size determines the width of the review, higher values affect performance</property>
                                         <property name="adjustment">50 10 256 1 10 0</property>
                                       </widget>
                                       <packing>
@@ -3841,7 +3841,7 @@ default</property>
                                     <child>
                                       <widget class="GtkLabel" id="label108">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Кадр (размер)</property>
+                                        <property name="label" translatable="yes">Frame (size)</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3861,7 +3861,7 @@ default</property>
                                       <widget class="GtkSpinButton" id="waitingSPSpinButton">
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
-                                        <property name="tooltip" translatable="yes">Увеличение времени ожидания увеличивает вероятность добавления в топ, но снижает динамику(обновление) кадра</property>
+                                        <property name="tooltip" translatable="yes">The increase in waiting time increases the likelihood of adding to top, but reduces the dynamics (updating) frame</property>
                                         <property name="adjustment">40 1 300 1 10 0</property>
                                       </widget>
                                       <packing>
@@ -3871,7 +3871,7 @@ default</property>
                                     <child>
                                       <widget class="GtkLabel" id="label110">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Ожидание (секунд)</property>
+                                        <property name="label" translatable="yes">Waiting (seconds)</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>
@@ -3892,7 +3892,7 @@ default</property>
                                       <widget class="GtkSpinButton" id="topSPSpinButton">
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
-                                        <property name="tooltip" translatable="yes">Количество совпадений для добавления в топ</property>
+                                        <property name="tooltip" translatable="yes">Number of matches for the top</property>
                                         <property name="adjustment">2 2 100 1 10 0</property>
                                       </widget>
                                       <packing>
@@ -3902,7 +3902,7 @@ default</property>
                                     <child>
                                       <widget class="GtkLabel" id="label112">
                                         <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Топ (число совпадений, больше)</property>
+                                        <property name="label" translatable="yes">Top (number of matches, more than)</property>
                                       </widget>
                                       <packing>
                                         <property name="expand">False</property>

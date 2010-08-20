@@ -396,7 +396,7 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="sourceMenuItem">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">Source(svn)</property>
+                        <property name="label" translatable="yes">Source (svn)</property>
                         <property name="use_underline">True</property>
                         <child internal-child="image">
                           <widget class="GtkImage" id="sourceMenuImage">
@@ -443,7 +443,7 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="changeLogItem">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">Changelog(svn)</property>
+                        <property name="label" translatable="yes">Changelog (svn)</property>
                         <property name="use_underline">True</property>
                         <child internal-child="image">
                           <widget class="GtkImage" id="changeLogMenuImage">
@@ -1523,7 +1523,7 @@ Contributors
                           <widget class="GtkRadioButton" id="dowloadQueueRadioButton">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="tooltip" translatable="yes">Для начала закачки файла включите автоматический поиск альтернативных источников закачки (Настроки/Закачки/Очередь)</property>
+                            <property name="tooltip" translatable="yes">To start downloading file you need turn on auto search alternatives (Settings/Downloads/Queue)</property>
                             <property name="label" translatable="yes">Add this file to your download queue</property>
                             <property name="response_id">0</property>
                             <property name="draw_indicator">True</property>

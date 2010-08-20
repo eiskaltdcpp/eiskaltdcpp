@@ -53,7 +53,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="tooltip" translatable="yes">Применить настройки</property>
+            <property name="tooltip" translatable="yes">Apply settings</property>
             <property name="label">ok</property>
             <property name="response_id">0</property>
           </widget>
@@ -76,7 +76,7 @@
           <widget class="GtkSpinButton" id="topSpinButton">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="tooltip" translatable="yes">Количество совпадений для добавления в топ</property>
+            <property name="tooltip" translatable="yes">Number of matches for the top</property>
             <property name="adjustment">2 2 100 1 10 0</property>
           </widget>
           <packing>
@@ -98,7 +98,7 @@
           <widget class="GtkSpinButton" id="waitingSpinButton">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="tooltip" translatable="yes">Увеличение времени ожидания увеличивает вероятность добавления в топ, но снижает динамику(обновление) кадра</property>
+            <property name="tooltip" translatable="yes">The increase in waiting time increases the likelihood of adding to top, but reduces the dynamics (updating) frame</property>
             <property name="adjustment">1 1 300 1 10 0</property>
           </widget>
           <packing>
@@ -120,7 +120,7 @@
           <widget class="GtkSpinButton" id="frameSpinButton">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="tooltip" translatable="yes">Размер кадра определяет ширину обзора, большие значения влияют на производительность</property>
+            <property name="tooltip" translatable="yes">Frame size determines the width of the review, higher values affect performance</property>
             <property name="adjustment">10 10 256 1 10 0</property>
           </widget>
           <packing>
