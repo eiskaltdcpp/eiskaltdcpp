@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-20 14:48+0300\n"
-"PO-Revision-Date: 2010-08-14 19:48+0300\n"
+"PO-Revision-Date: 2010-08-20 14:59+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -13,8 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -92,6 +92,8 @@ msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
 msgstr ""
+"Этот хаб пытается использовать ваш клиент для спама %1%, пожалуйста сообщите "
+"владельцу хаба, чтобы он исправил это"
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
