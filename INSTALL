@@ -37,6 +37,7 @@ libnotify (>= 0.4.1)
 libgnome2 (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 
+
 *******************************************************************************
 Opional Depends
 *******************************************************************************
@@ -91,6 +92,7 @@ libglade2-dev
 libnotify-dev
 libgnome2-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
+
 
 *******************************************************************************
 Installation in Linux and other UNIX-like systems

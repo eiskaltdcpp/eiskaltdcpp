@@ -3,6 +3,7 @@
 * libdcpp library was separated from the basic binary file for unix-like systems.
 * Added localization of kernel messages. Gettext used.
 * Added ability to use Lau-scripts (see the file INSTALL).
+* Added ability to use miniUPnP for connection (see file INSTALL).
 *** eiskaltdcpp-qt ***
 * Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
 * Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
@@ -16,13 +17,15 @@
 * Added ability to build program on MS Windows (see file win32/READ_ME.txt).
 * Added a hash progress indicator in the status line. Combined menu 'Refresh share' and 'Hash progress'.
 * Extended settings dialog.
-* Removed extra code (option -DFREE_SPACE_BAR for cmake). Assemblies with -DFREE_SPACE_BAR_C:BOOL=1 work stably on all supported platforms.
+* Removed extra code (option -DFREE_SPACE_BAR for cmake). Assemblies with -DFREE_SPACE_BAR_C=ON work stably on all supported platforms.
+* Added ability to configure connection via UPnP (miniupnp).
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
 *** eiskaltdcpp-gtk ***
 * Added Gtk interface based on code of FreeDC++ and LinuxDC++.
 * The interface is localized using gettext.
 * Default icons for Gtk interface synchronized with default icons from Qt interface.
 * Added widget for ADL-search configuration.
+* Added ability to configure connection via UPnP (miniupnp).
 * Added /sh and /alias chat commands (see man-page or /help in chat).
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
 *** eiskaltdcpp-wt ***
