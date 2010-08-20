@@ -20,31 +20,31 @@ UPnPMapper::~UPnPMapper(){
 void UPnPMapper::forward(){
     unmap();
 
-    UPnP *UPNP = UPnP::getInstance();
+    LibUPnP *UPNP = LibUPnP::getInstance();
 
     if( SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP ) {
         bool ok = true;
 
-        UPnP::Port port = static_cast<UPnP::Port>(ConnectionManager::getInstance()->getPort());
+        LibUPnP::Port port = static_cast<LibUPnP::Port>(ConnectionManager::getInstance()->getPort());
 
         if(port != 0)
-            ok &= UPNP->forward(port, UPnP::TCP);
+            ok &= UPNP->forward(port, LibUPnP::TCP);
 
-        mapped.insert(port, UPnP::TCP);
+        mapped.insert(port, LibUPnP::TCP);
 
-        port = static_cast<UPnP::Port>(ConnectionManager::getInstance()->getSecurePort());
-
-        if(ok && port != 0)
-            ok &= UPNP->forward(port, UPnP::TCP);
-
-        mapped.insert(port, UPnP::TCP);
-
-        port = static_cast<UPnP::Port>(SearchManager::getInstance()->getPort());
+        port = static_cast<LibUPnP::Port>(ConnectionManager::getInstance()->getSecurePort());
 
         if(ok && port != 0)
-            UPNP->forward(port, UPnP::UDP);
+            ok &= UPNP->forward(port, LibUPnP::TCP);
 
-        mapped.insert(port, UPnP::UDP);
+        mapped.insert(port, LibUPnP::TCP);
+
+        port = static_cast<LibUPnP::Port>(SearchManager::getInstance()->getPort());
+
+        if(ok && port != 0)
+            UPNP->forward(port, LibUPnP::UDP);
+
+        mapped.insert(port, LibUPnP::UDP);
 
         if(ok) {
             if(!BOOLSETTING(NO_IP_OVERRIDE)) {
@@ -73,7 +73,7 @@ void UPnPMapper::forward(){
 #include <QtDebug>
 
 void UPnPMapper::unmap(){
-    UPnP *UPNP = UPnP::getInstance();
+    LibUPnP *UPNP = LibUPnP::getInstance();
 
     UPnPMap::iterator it = mapped.begin();
 

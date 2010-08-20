@@ -35,7 +35,7 @@ static int callback_Upnp(IN Upnp_EventType type, IN void *event, IN void *){
             qDebug() << "New device located at " << d_e->Location;
 #endif
 
-            UPnP::getInstance()->addNewDevice(QString::fromUtf8(d_e->Location), QString::fromUtf8(ixmlDocumenttoString(DescDoc)));
+            LibUPnP::getInstance()->addNewDevice(QString::fromUtf8(d_e->Location), QString::fromUtf8(ixmlDocumenttoString(DescDoc)));
 
             ixmlDocument_free(DescDoc);
 
@@ -49,17 +49,17 @@ static int callback_Upnp(IN Upnp_EventType type, IN void *event, IN void *){
 }
 
 
-UPnP::UPnP():
+LibUPnP::LibUPnP():
         initialized(false),
         ctrl_registered(false)
 {
 }
 
-UPnP::~UPnP(){
+LibUPnP::~LibUPnP(){
     stop();
 }
 
-void UPnP::start(){
+void LibUPnP::start(){
     if (initialized && ctrl_registered)
         return;
 
@@ -106,7 +106,7 @@ void UPnP::start(){
 #endif
 }
 
-void UPnP::stop(){
+void LibUPnP::stop(){
     initialized = ctrl_registered = false;
 
     UpnpUnRegisterClient(hndl);
@@ -126,7 +126,7 @@ void UPnP::stop(){
     deviceMap.clear();
 }
 
-bool UPnP::forward(UPnP::Port port, UPnP::Protocol proto){
+bool LibUPnP::forward(LibUPnP::Port port, LibUPnP::Protocol proto){
     if (port == 0)
         return false;
 
@@ -172,7 +172,7 @@ bool UPnP::forward(UPnP::Port port, UPnP::Protocol proto){
     return (ret == UPNP_E_SUCCESS);
 }
 
-bool UPnP::unmap(UPnP::Port port, UPnP::Protocol proto){
+bool LibUPnP::unmap(LibUPnP::Port port, LibUPnP::Protocol proto){
     if (port == 0)
         return false;
 
@@ -216,7 +216,7 @@ bool UPnP::unmap(UPnP::Port port, UPnP::Protocol proto){
     return (ret == UPNP_E_SUCCESS);
 }
 
-QString UPnP::getExternalIP(){
+QString LibUPnP::getExternalIP(){
     UPnPService *srv = NULL;
     QString controlURL = "";
 
@@ -252,7 +252,7 @@ QString UPnP::getExternalIP(){
     return ext;
 }
 
-bool UPnP::getFirstForwardingService(QString &controlUrl, UPnP::UPnPService **serv){
+bool LibUPnP::getFirstForwardingService(QString &controlUrl, LibUPnP::UPnPService **serv){
     if (!serv)
         return false;
 
@@ -290,7 +290,7 @@ bool UPnP::getFirstForwardingService(QString &controlUrl, UPnP::UPnPService **se
     return false;
 }
 
-void UPnP::addNewDevice(const QString &location, const QString &doc){
+void LibUPnP::addNewDevice(const QString &location, const QString &doc){
     if (location.isEmpty() || doc.isEmpty())
         return;
 
@@ -331,7 +331,7 @@ void UPnP::addNewDevice(const QString &location, const QString &doc){
     deviceMapMutex.unlock();
 }
 
-void UPnP::parseNode(const QDomNode &node, UPnPDeviceList &devices){
+void LibUPnP::parseNode(const QDomNode &node, UPnPDeviceList &devices){
     if (node.isNull() || !node.isElement())
         return;
 
@@ -369,7 +369,7 @@ void UPnP::parseNode(const QDomNode &node, UPnPDeviceList &devices){
     }
 }
 
-UPnP::UPnPDevice *UPnP::extractDevice (const QDomNode &node){
+LibUPnP::UPnPDevice *LibUPnP::extractDevice (const QDomNode &node){
     if (node.isNull() || !node.isElement() || (node.toElement().tagName().toLower() != "device"))
         return NULL;
 
@@ -403,7 +403,7 @@ UPnP::UPnPDevice *UPnP::extractDevice (const QDomNode &node){
     return dev;
 }
 
-UPnP::UPnPService *UPnP::extractService(const QDomNode &node){
+LibUPnP::UPnPService *LibUPnP::extractService(const QDomNode &node){
     if (node.isNull() || !node.isElement() || (node.toElement().tagName().toLower() != "service"))
         return NULL;
 
@@ -437,7 +437,7 @@ UPnP::UPnPService *UPnP::extractService(const QDomNode &node){
     return srv;
 }
 
-QString UPnP::extractValueFromXmlStr(const QString &raw_xml, const QString &val_name){
+QString LibUPnP::extractValueFromXmlStr(const QString &raw_xml, const QString &val_name){
     if (raw_xml.isEmpty() || val_name.isEmpty())
         return "";
 
@@ -455,15 +455,15 @@ QString UPnP::extractValueFromXmlStr(const QString &raw_xml, const QString &val_
     return "";
 }
 
-QDomNode UPnP::findDeviceListSection(const QDomNode &node){
+QDomNode LibUPnP::findDeviceListSection(const QDomNode &node){
     return findSectionByName(node, "devicelist");
 }
 
-QDomNode UPnP::findDeviceSection(const QDomNode &node){
+QDomNode LibUPnP::findDeviceSection(const QDomNode &node){
     return findSectionByName(node, "device");
 }
 
-QDomNode UPnP::findSectionByName(const QDomNode &node, const QString &name){
+QDomNode LibUPnP::findSectionByName(const QDomNode &node, const QString &name){
     QDomNode domNode = node.firstChild();
 
     while (!domNode.isNull()){
@@ -480,7 +480,7 @@ QDomNode UPnP::findSectionByName(const QDomNode &node, const QString &name){
     return QDomNode();
 }
 
-UPnP::DomNodeList UPnP::getSubSectionsByName(const QDomNode &node, const QString &name){
+LibUPnP::DomNodeList LibUPnP::getSubSectionsByName(const QDomNode &node, const QString &name){
     QDomNode domNode = node.firstChild();
     DomNodeList list;
 

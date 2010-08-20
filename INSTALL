@@ -133,7 +133,6 @@ Keys for cmake
   use or not use libupnp
 -DUSE_MINIUPNP_QT=ON/OFF (default:OFF)
   use miniupnpc for port forward
-  !ATTENTION! not set simultaneously in ON this flag and USE_LIBUPNP
 -DDBUS_NOTIFY=ON/OFF (default: ON)
   use or not use QtDBus module
 -DUSE_JS=ON/OFF (default: OFF)

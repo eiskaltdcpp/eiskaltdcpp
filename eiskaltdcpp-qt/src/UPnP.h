@@ -26,13 +26,13 @@
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
-class UPnP :
+class LibUPnP :
         public QObject,
-        public dcpp::Singleton<UPnP>
+        public dcpp::Singleton<LibUPnP>
 {
     Q_OBJECT
 
-friend class dcpp::Singleton<UPnP>;
+friend class dcpp::Singleton<LibUPnP>;
 
     struct UPnPService{
         QString serviceid;
@@ -76,8 +76,8 @@ public:
     QString getExternalIP();
 
 private:
-    UPnP();
-    virtual ~UPnP();
+    LibUPnP();
+    virtual ~LibUPnP();
 
     QDomNode findDeviceSection(const QDomNode&);
     QDomNode findDeviceListSection(const QDomNode&);

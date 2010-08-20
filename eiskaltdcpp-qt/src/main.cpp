@@ -106,8 +106,8 @@ int main(int argc, char *argv[])
     if (WulforUtil::getInstance()->loadIcons())
         std::cout << "Application icons has been loaded" << std::endl;
 #ifdef USE_LIBUPNP
-    UPnP::newInstance();
-    UPnP::getInstance()->start();
+    LibUPnP::newInstance();
+    LibUPnP::getInstance()->start();
     UPnPMapper::newInstance();
 #endif
 #ifdef USE_MINIUPNP_QT
@@ -156,8 +156,8 @@ int main(int argc, char *argv[])
 #endif
 #ifdef USE_LIBUPNP
     UPnPMapper::deleteInstance();
-    UPnP::getInstance()->stop();
-    UPnP::deleteInstance();
+    LibUPnP::getInstance()->stop();
+    LibUPnP::deleteInstance();
 #endif
     Notification::deleteInstance();
 

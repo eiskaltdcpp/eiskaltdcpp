@@ -23,7 +23,7 @@ class UPnPMapper :
 
 friend class dcpp::Singleton<UPnPMapper>;
 
-typedef QMap<UPnP::Port, UPnP::Protocol> UPnPMap;
+typedef QMap<LibUPnP::Port, LibUPnP::Protocol> UPnPMap;
 
 public:
     void forward();
