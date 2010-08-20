@@ -82,6 +82,7 @@ option (FORCE_XDG "Respect freedesktop.org standards" ON)
 option (USE_LIBGNOME2 "LibGnome2" OFF)
 option (FREE_SPACE_BAR_C "Use for show free space on volume small c lib" ON)
 option (WITH_EXAMPLES "Install examples sh and others scripts" ON)
+option (WITH_SOUNDS "Install sound files" OFF)
 option (DBUS_NOTIFY "QtDbus support" ON)
 option (USE_JS "QtScript support")
 
@@ -443,6 +444,10 @@ if (USE_QT OR USE_GTK)
         FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
         PATTERN ".svn" EXCLUDE )
     endif (WITH_EXAMPLES)
+    if (WITH_SOUNDS)
+        install (DIRECTORY sounds/ DESTINATION ${CLIENT_DATA_DIR}/sounds
+        PATTERN ".svn" EXCLUDE )
+    endif (WITH_SOUNDS)
   #if (LUA_SCRIPT)
    # install (DIRECTORY luascripts/ DESTINATION ${CLIENT_DATA_DIR}/luascripts
    #     PATTERN ".svn" EXCLUDE )

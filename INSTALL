@@ -158,6 +158,8 @@ Keys for cmake
 --------
 -DWITH_EXAMPLES=ON/OFF (default: ON)
     If ON install examples/
+-DWITH_SOUNDS=ON/OFF (default: OFF)
+    If ON install sounds/
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
     examples:
     -Dlinguas="en ru" - install ru and en translations
