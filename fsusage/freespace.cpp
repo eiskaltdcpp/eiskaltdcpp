@@ -2,6 +2,9 @@
 
 #ifdef WIN32
     #include <io.h>
+    #include <windows.h>
+    using namespace std;
+    #include "../dcpp/Text.h"
 #else //WIN32
     extern "C" {
     #include "fsusage.h"
@@ -20,9 +23,7 @@ bool FreeSpace::FreeDiscSpace ( std::string path,  unsigned long long * res, uns
         ULARGE_INTEGER lpTotalNumberOfBytes;    // receives the number of bytes on disk
         ULARGE_INTEGER lpTotalNumberOfFreeBytes; // receives the free bytes on disk
 
-        QString path_wide = QString::fromStdString(path);
-
-        if ( GetDiskFreeSpaceExW( (const WCHAR*)path_wide.utf16(), &lpFreeBytesAvailableToCaller,
+        if ( GetDiskFreeSpaceExW( (const WCHAR*)acpToWide(path), &lpFreeBytesAvailableToCaller,
                                 &lpTotalNumberOfBytes,
                                 &lpTotalNumberOfFreeBytes ) == true ) {
                 *res = lpTotalNumberOfFreeBytes.QuadPart;
