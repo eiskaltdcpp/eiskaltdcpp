@@ -1,9 +1,9 @@
 //function for use fsusage
-
 #ifdef WIN32
     #include <io.h>
     #include <windows.h>
-    using namespace std;
+    #include "../dcpp/stdinc.h"
+    #include "../dcpp/DCPlusPlus.h"
     #include "../dcpp/Text.h"
 #else //WIN32
     extern "C" {
@@ -23,7 +23,7 @@ bool FreeSpace::FreeDiscSpace ( std::string path,  unsigned long long * res, uns
         ULARGE_INTEGER lpTotalNumberOfBytes;    // receives the number of bytes on disk
         ULARGE_INTEGER lpTotalNumberOfFreeBytes; // receives the free bytes on disk
 
-        if ( GetDiskFreeSpaceExW( (const WCHAR*)acpToWide(path), &lpFreeBytesAvailableToCaller,
+        if ( GetDiskFreeSpaceExW( (const WCHAR*)dcpp::Text::acpToWide(path), &lpFreeBytesAvailableToCaller,
                                 &lpTotalNumberOfBytes,
                                 &lpTotalNumberOfFreeBytes ) == true ) {
                 *res = lpTotalNumberOfFreeBytes.QuadPart;
