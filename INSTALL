@@ -151,8 +151,6 @@ Keys for cmake
     build EiskaltDC++ with Gtk interface (based on FreeDC++ and LinuxDC++)
 -DUSE_LIBGNOME2=ON/OFF (default: OFF)
     Enable/disable sound notifications support in EiskaltDC++ Gtk
--DUSE_MINIUPNP=ON/OFF (default: OFF)
-    use or not use miniupnpc lib
 --------
 :common:
 --------
@@ -160,6 +158,8 @@ Keys for cmake
     If ON install examples/
 -DWITH_LUASCRIPTS=ON/OFF (default: OFF)
     If ON install luascripts/
+-DUSE_MINIUPNP=ON/OFF (default: OFF)
+    use or not use miniupnpc lib
 -DWITH_SOUNDS=ON/OFF (default: OFF)
     If ON install sounds/
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
