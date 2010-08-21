@@ -19,6 +19,10 @@
 #include "stdinc.h"
 #include "DCPlusPlus.h"
 
+#ifndef WIN32
+#include <sys/stat.h>
+#endif
+
 #include "ScriptManager.h"
 #include "Util.h"
 #include "StringTokenizer.h"
@@ -397,7 +401,18 @@ void ScriptInstance::EvaluateChunk(const string& chunk) {
 
 void ScriptInstance::EvaluateFile(const string& fn) {
     Lock l(cs);
-    lua_dofile(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts"+PATH_SEPARATOR + fn).c_str());
+#ifdef WIN32
+        lua_dofile(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn).c_str());
+#else //WIN32
+        string full_fn((Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn).c_str());
+        struct stat stFileInfo;
+        if (stat(full_fn.c_str(),&stFileInfo) == 0){
+            lua_dofile(L, full_fn.c_str());
+        }
+        else{
+            lua_dofile(L, (string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn).c_str());
+        }
+#endif //WIN32
 }
 
 void ScriptManager::SendDebugMessage(const string &mess) {

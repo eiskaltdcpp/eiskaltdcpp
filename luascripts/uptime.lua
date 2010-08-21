@@ -22,7 +22,7 @@ dcpp:setListener( "ownChatOut", "up",
 			PrintDebug( "Uptime: "..uptime.format() )
 			return 1
 		elseif text == "/up show" then
-			hub:sendChat( "My FreeDC++ uptime is: "..uptime.format() )
+			hub:sendChat( "My EiskaltDC++ uptime is: "..uptime.format() )
 			return 1
 		elseif string.sub(s, 1, 5) == "/help" then
 			hub:addLine( "(uptime.lua) /up [show]" )

@@ -115,7 +115,7 @@ Keys for cmake
 ------
 -DLOCAL_BOOST=ON/OFF (default: OFF)
     use local boost headers
--DLUA_SCRIPT=ON/OFF (default:OFF)
+-DLUA_SCRIPT=ON/OFF (default: OFF)
     lua scripts
 ----------------
 :eiskaltdcpp-qt:
@@ -130,11 +130,11 @@ Keys for cmake
     use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables
     see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
 -DUSE_LIBUPNP=ON/OFF (default: ON)
-  use or not use libupnp
--DUSE_MINIUPNP_QT=ON/OFF (default:OFF)
-  use miniupnpc for port forward
+    use or not use libupnp
+-DUSE_MINIUPNP_QT=ON/OFF (default: OFF)
+    use miniupnpc for port forward
 -DDBUS_NOTIFY=ON/OFF (default: ON)
-  use or not use QtDBus module
+    use or not use QtDBus module
 -DUSE_JS=ON/OFF (default: OFF)
     Enable/disable QtScript basic support
 -DUSE_ICON_THEME=ON/OFF (default: OFF)
@@ -151,13 +151,15 @@ Keys for cmake
     build EiskaltDC++ with Gtk interface (based on FreeDC++ and LinuxDC++)
 -DUSE_LIBGNOME2=ON/OFF (default: OFF)
     Enable/disable sound notifications support in EiskaltDC++ Gtk
--DUSE_MINIUPNP=ON/OFF (default:OFF)
+-DUSE_MINIUPNP=ON/OFF (default: OFF)
     use or not use miniupnpc lib
 --------
 :common:
 --------
 -DWITH_EXAMPLES=ON/OFF (default: ON)
     If ON install examples/
+-DWITH_LUASCRIPTS=ON/OFF (default: OFF)
+    If ON install luascripts/
 -DWITH_SOUNDS=ON/OFF (default: OFF)
     If ON install sounds/
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
