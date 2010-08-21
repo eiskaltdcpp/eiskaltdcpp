@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-20 14:48+0300\n"
-"PO-Revision-Date: 2010-08-18 05:33+0200\n"
+"PO-Revision-Date: 2010-08-21 20:09+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -1931,7 +1931,7 @@ msgstr "Ignorar TTH"
 
 #: ../glade/searchspy.glade:56
 msgid "Apply settings"
-msgstr ""
+msgstr "Aplicar cambios"
 
 #: ../glade/searchspy.glade:68
 msgid "Top: >"
@@ -1939,7 +1939,7 @@ msgstr "Arriba: >"
 
 #: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3895
 msgid "Number of matches for the top"
-msgstr ""
+msgstr "Número de coincidencias, en la parte superior"
 
 #: ../glade/searchspy.glade:90
 msgid "Waiting:"
@@ -1950,6 +1950,9 @@ msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
 msgstr ""
+"El incremento en el tiempo de espera incrementa el la posibilidad de "
+"añadirlas al principio de la lista, pero "
+"reduce el dinamismo (actualización) del cuadro"
 
 #: ../glade/searchspy.glade:112
 msgid "Frame:"
@@ -1960,6 +1963,8 @@ msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
 msgstr ""
+"E tamaño del cuadro determina la anchura de la vista, valores altos "
+"perjudican el rendimiento"
 
 #: ../glade/searchspy.glade:136 ../glade/searchspy.glade:277
 msgid "Clear"
@@ -2263,9 +2268,8 @@ msgid "Homepage"
 msgstr "Homepage"
 
 #: ../glade/mainwindow.glade:399
-#, fuzzy
 msgid "Source (svn)"
-msgstr "Fuente(svn)"
+msgstr "Fuente (svn)"
 
 #: ../glade/mainwindow.glade:413
 msgid "Report a Bug"
@@ -2276,9 +2280,8 @@ msgid "Discussion forum"
 msgstr "Foro de discusión"
 
 #: ../glade/mainwindow.glade:446
-#, fuzzy
 msgid "Changelog (svn)"
-msgstr "Lista de cambios(svn)"
+msgstr "Lista de cambios (svn)"
 
 #: ../glade/mainwindow.glade:465
 msgid "About EiskaltDC++"
@@ -2542,6 +2545,9 @@ msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
+"Para que empiece a descargar el archivo necesita encender la autobusqueda de "
+"alternativas "
+"(Opciones/Descargas/Cola)"
 
 #: ../glade/mainwindow.glade:1527
 msgid "Add this file to your download queue"
@@ -3078,24 +3084,23 @@ msgstr "Barra de herramientas"
 
 #: ../glade/settingsdialog.glade:3632
 msgid "New string or TTH"
-msgstr ""
+msgstr "Nueva cadena o TTH"
 
 #: ../glade/settingsdialog.glade:3663
 msgid "Adding string or TTH in the top"
-msgstr ""
+msgstr "Añadiendo campo o TTH al principio"
 
 #: ../glade/settingsdialog.glade:3695
 msgid "State of preparedness"
-msgstr ""
+msgstr "Estado de la preparación"
 
 #: ../glade/settingsdialog.glade:3727
-#, fuzzy
 msgid "Matches"
-msgstr "Coincidencia "
+msgstr "Coincidencia"
 
 #: ../glade/settingsdialog.glade:3759
 msgid "Updating string or TTH"
-msgstr ""
+msgstr "Actualizando campo o TTH"
 
 #: ../glade/settingsdialog.glade:3807
 msgid "<b>Colors</b>"
@@ -3103,15 +3108,15 @@ msgstr "<b>Colores</b> "
 
 #: ../glade/settingsdialog.glade:3844
 msgid "Frame (size)"
-msgstr ""
+msgstr "Cuadro (tamaño)"
 
 #: ../glade/settingsdialog.glade:3874
 msgid "Waiting (seconds)"
-msgstr ""
+msgstr "Espera (segundos)"
 
 #: ../glade/settingsdialog.glade:3905
 msgid "Top (number of matches, more than)"
-msgstr ""
+msgstr "Arriba (numero de coincidencias, mayor que)"
 
 #: ../glade/settingsdialog.glade:3953
 msgid "<b>Frame</b>"
