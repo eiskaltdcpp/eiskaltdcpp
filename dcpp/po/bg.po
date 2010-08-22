@@ -2,22 +2,21 @@
 # Copyright (C) YEAR EiskaltDC++\ team
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# PsyTrip <dimitrov.rusi@gmail.com>, 2010
+# PsyTrip <dimitrov.rusi@gmail.com>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-20 14:48+0300\n"
-"PO-Revision-Date: 2010-08-16 14:42+0200\n"
-"Last-Translator: Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>\n"
-"Language-Team: Bulgarian <LL@li.org>\n"
+"POT-Creation-Date: 2010-07-05 22:29+0200\n"
+"PO-Revision-Date: 2010-08-22 20:08+0300\n"
+"Last-Translator: PsyTrip <dimitrov.rusi@gmail.com>\n"
+"Language-Team: Bulgarian <>\n"
 "Language: Bulgarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Bulgarian\n"
-"X-Poedit-Country: BULGARIA\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Content-Transfer-Encoding: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -95,6 +94,8 @@ msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
 msgstr ""
+"Този хъб се опитва да използва клиента за спам %1%, помолете собственика на "
+"хъба да го поправи"
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
@@ -107,7 +108,7 @@ msgstr "%1% (%2%) има същия CID {%3%} като %4% (%5%), игнорир
 
 #: ../AdcHub.cpp:178
 msgid "%1%/s"
-msgstr "%1%/сек"
+msgstr "%1%/s"
 
 #: ../AdcHub.cpp:213
 msgid "Failed to negotiate base protocol"
@@ -136,42 +137,42 @@ msgstr "Не се следи за връзки - моля, рестартира�
 #: ../Util.cpp:459
 #, c-format
 msgid "%d B"
-msgstr "%d Б"
+msgstr "%d B"
 
 #: ../Util.cpp:461
 #, c-format
 msgid "%.02f KiB"
-msgstr "%.02f КиБ"
+msgstr "%.02f KiB"
 
 #: ../Util.cpp:463
 #, c-format
 msgid "%.02f MiB"
-msgstr "%.02f МиБ"
+msgstr "%.02f MiB"
 
 #: ../Util.cpp:465
 #, c-format
 msgid "%.02f GiB"
-msgstr "%.02f ГиБ"
+msgstr "%.02f GiB"
 
 #: ../Util.cpp:467
 #, c-format
 msgid "%.02f TiB"
-msgstr "%.02f ТиБ"
+msgstr "%.02f TiB"
 
 #: ../Util.cpp:469
 #, c-format
 msgid "%.02f PiB"
-msgstr "%.02f ПиБ"
+msgstr "%.02f PiB"
 
 #: ../Util.cpp:499
 #, c-format
 msgid "%s B"
-msgstr "%s Б"
+msgstr "%s B"
 
 #: ../Util.cpp:503
 #, c-format
 msgid "%'lld B"
-msgstr "%'lld Б"
+msgstr "%'lld B"
 
 #: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
 #: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
@@ -182,7 +183,7 @@ msgstr "Грешка при компресиране"
 #: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
 #: ../BZUtils.cpp:94 ../BZUtils.cpp:97
 msgid "Error during decompression"
-msgstr "Грешка при декомпресия"
+msgstr "Грешка при декомпресиране"
 
 #: ../HashManager.cpp:80 ../HashManager.cpp:280
 msgid "Hashing failed: %1%"
@@ -190,7 +191,7 @@ msgstr "Грешка при хеширане: %1%"
 
 #: ../HashManager.cpp:87
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Завършено хеширане: %1% (%2% с %3%/сек)"
+msgstr "Завършено хеширане: %1% (%2% с %3%/s)"
 
 #: ../HashManager.cpp:90
 msgid "Finished hashing: %1% (%2%)"
@@ -285,10 +286,10 @@ msgstr "Потребителя е избрал да не се споделя в�
 
 #: ../ShareManager.cpp:710
 msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: %"
+"3%"
 msgstr ""
-"Повтарящия се файл няма да бъде споделен: %1% (размер: %2% Б) Дупликатът "
+"Повтарящия се файл няма да бъде споделен: %1% (размер: %2% B) Дупликата "
 "съвпада със: %3%"
 
 #: ../ShareManager.cpp:727
@@ -447,7 +448,7 @@ msgstr "Файл със същия хеш вече съществува в сп�
 
 #: ../QueueManager.cpp:622
 msgid "This file is already queued"
-msgstr "Този файл е вече на опашката"
+msgstr "Този файл вече е на опашката"
 
 #: ../QueueManager.cpp:632
 msgid "A file with a different size already exists in the queue"
@@ -455,7 +456,7 @@ msgstr "Файл с различна големина вече съществу�
 
 #: ../QueueManager.cpp:635
 msgid "A file with different tth root already exists in the queue"
-msgstr "Файл с различен TTH root вече съществува в опашката."
+msgstr "Файл с различен TTH root вече съществува в опашката"
 
 #: ../QueueManager.cpp:679 ../QueueManager.cpp:688
 msgid "Target filename too long"
@@ -466,8 +467,8 @@ msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
 msgstr ""
-"Невалиден целеви файл (липсваща папка - проверете стандартната папка за "
-"сваляния)"
+"Невалиден целеви файл (липсваща папка - проверете папката за сваляне по "
+"подразбиране)"
 
 #: ../QueueManager.cpp:701
 msgid "A file of equal or larger size already exists at the target location"

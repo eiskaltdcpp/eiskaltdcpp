@@ -14,7 +14,7 @@ Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
         <translation>Използване на:
-  eiskaltdcpp-qt &lt;&quot;магнитна&quot;-връзка&gt; &lt;dchub://адрес&gt; &lt;adc(s)://адрес&gt;
+  eiskaltdcpp-qt &lt;магнитна-връзка&gt; &lt;dchub://адрес&gt; &lt;adc(s)://адрес&gt;
   eiskaltdcpp-qt &lt;Опция&gt;
 EiskaltDC++ е програма за UNIX-системи, използваща Direct Connect и ADC протоколи.
 
@@ -58,7 +58,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/CustomFontModel.cpp" line="35"/>
         <source>Public Chat: Userlist</source>
-        <translation>Общ чат: Списък потребители</translation>
+        <translation>Общ чат: Списък с потребители</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="36"/>
@@ -94,7 +94,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/DownloadQueue.cpp" line="35"/>
         <source>Copy magnet</source>
-        <translation>Копиране на &quot;магнитна&quot; връзка</translation>
+        <translation>Копиране на магнитна връзка</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="36"/>
@@ -568,12 +568,12 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
         <location filename="../src/FinishedTransfersModel.cpp" line="47"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="54"/>
         <source>Elapsed time</source>
-        <translation>Изминало време</translation>
+        <translation>Необходимо време</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Filename</source>
-        <translation>Файлово име</translation>
+        <translation>Име на файл</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
@@ -594,7 +594,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
         <location filename="../src/FinishedTransfersModel.cpp" line="115"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="123"/>
         <source>/s</source>
-        <translation>/сек</translation>
+        <translation>/s</translation>
     </message>
 </context>
 <context>
@@ -627,7 +627,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HashProgress.cpp" line="117"/>
         <source>-.-- B/s, %1 left</source>
-        <translation>-.-- Б/сек, оставащи %1</translation>
+        <translation>-.-- B/s, оставащи %1</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="118"/>
@@ -643,7 +643,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HashProgress.cpp" line="124"/>
         <source>%1/s, %2 left, %3 shared</source>
-        <translation>%1/сек, %2 оставащи, %3 споделено</translation>
+        <translation>%1/s, %2 оставащи, %3 споделено</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="138"/>
@@ -732,7 +732,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="95"/>
         <source>Zoom Out</source>
-        <translation>Намаляне</translation>
+        <translation>Намаляване</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="98"/>
@@ -742,7 +742,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="99"/>
         <source>IP</source>
-        <translation>IP</translation>
+        <translation>IP адрес</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="100"/>
@@ -780,7 +780,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="783"/>
         <source> left the chat</source>
-        <translation> излезе от чата</translation>
+        <translation> излезе от хъба</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="788"/>
@@ -791,7 +791,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="788"/>
         <source>%1 become offline</source>
-        <translation>%1 излезе от чата</translation>
+        <translation>%1 излезе от хъба</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="956"/>
@@ -837,7 +837,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="1128"/>
         <source>Hub role: User</source>
-        <translation>Роля в хъба: Потребител</translation>
+        <translation>Статус: Потребител</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1193"/>
@@ -906,7 +906,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
         <location filename="../src/HubFrame.cpp" line="1341"/>
         <location filename="../src/HubFrame.cpp" line="1343"/>
         <source>Chat has been cleared</source>
-        <translation>Съобщенията са изчистени</translation>
+        <translation>Съобщенията бяха изчистени</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1393"/>
@@ -998,7 +998,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
         <location filename="../src/HubFrame.cpp" line="1402"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation>/magnet - действие при натискане на &quot;магнитна&quot; връзка (0-питане за действие, 1-търсене, 2-сваляне)
+        <translation>/magnet - действие при натискане на магнитна връзка (0-питане за действие, 1-търсене, 2-сваляне)
 </translation>
     </message>
     <message>
@@ -1106,7 +1106,7 @@ EiskaltDC++ е програма за UNIX-системи, използваща D
     <message>
         <location filename="../src/HubFrame.cpp" line="1126"/>
         <source>Hub role: Operator</source>
-        <translation>Роля в хъба: Оператор</translation>
+        <translation>Статус: Оператор</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="75"/>
@@ -1134,7 +1134,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="1624"/>
         <source> joins the chat</source>
-        <translation> присъединяване в чата</translation>
+        <translation> влезе в хъба</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1673"/>
@@ -1196,7 +1196,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="1088"/>
         <source>Chat cleared.</source>
-        <translation>Съобщенията са изчистени.</translation>
+        <translation>Съобщенията бяха изчистени.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1098"/>
@@ -1720,7 +1720,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1065"/>
         <source>Scripts Manager</source>
-        <translation>Скрипт мениджър</translation>
+        <translation>Управление на скриптове</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1067"/>
@@ -1772,12 +1772,12 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1286"/>
         <location filename="../src/MainWindow.cpp" line="1291"/>
         <source>/s</source>
-        <translation>/сек</translation>
+        <translation>/s</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1354"/>
         <source>List update</source>
-        <translation>Обновяване на списък</translation>
+        <translation>Обновяване на списъка</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1364"/>
@@ -2059,7 +2059,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="248"/>
         <source>Chat cleared.</source>
-        <translation>Съобщенията са изчистени.</translation>
+        <translation>Съобщенията бяха изчистени.</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="336"/>
@@ -2204,7 +2204,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ScriptManagerDialog.cpp" line="30"/>
         <source>Script Manager</source>
-        <translation>Скрипт мениджър</translation>
+        <translation>Управление на скриптове</translation>
     </message>
 </context>
 <context>
@@ -2297,22 +2297,22 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="214"/>
         <source>B</source>
-        <translation>Б</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="219"/>
         <source>KiB</source>
-        <translation>КиБ</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="224"/>
         <source>MiB</source>
-        <translation>МиБ</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="229"/>
         <source>GiB</source>
-        <translation>ГиБ</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="241"/>
@@ -2387,7 +2387,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="56"/>
         <source>Copy magnet</source>
-        <translation>Копиране на &quot;магнитна&quot; връзка</translation>
+        <translation>Копиране на магнитна връзка</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="59"/>
@@ -2407,7 +2407,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="68"/>
         <source>Add to favorites</source>
-        <translation>Добавяне в любими потребители</translation>
+        <translation>Добавяне в любими хъбове</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="71"/>
@@ -2530,7 +2530,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="55"/>
         <source>IP</source>
-        <translation>IP</translation>
+        <translation>IP адрес</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="55"/>
@@ -2903,7 +2903,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="55"/>
         <source>Copy magnet</source>
-        <translation>Копиране на &quot;магнитна&quot; връзка</translation>
+        <translation>Копиране на магнитна връзка</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="58"/>
@@ -2923,7 +2923,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="166"/>
         <source>Listing: </source>
-        <translation>Списък файлове:</translation>
+        <translation>Списък с файлове:</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="215"/>
@@ -2933,7 +2933,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="217"/>
         <source>Filebrowser</source>
-        <translation>Списък файлове</translation>
+        <translation>Списък с файлове</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="219"/>
@@ -3158,7 +3158,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="324"/>
         <source>File list</source>
-        <translation>Списък файлове</translation>
+        <translation>Списък с файлове</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="326"/>
@@ -3256,7 +3256,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="771"/>
         <source> Uploaded %1 (%2%) </source>
-        <translation> Качено %1 (%2%) </translation>
+        <translation> Качени %1 (%2%) </translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="799"/>
@@ -3299,7 +3299,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="40"/>
         <source>File name</source>
-        <translation>Име на файла</translation>
+        <translation>Име на файл</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="40"/>
@@ -3314,7 +3314,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="94"/>
         <source>/s</source>
-        <translation>/сек</translation>
+        <translation>/s</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="270"/>
@@ -3799,7 +3799,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
         <source>Show</source>
-        <translation>Показване</translation>
+        <translation>Показване на</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="56"/>
@@ -3972,7 +3972,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIMagnet.ui" line="137"/>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
-        <translation>Добавяне на &quot;магнитна&quot; връзка в списъка за сваляне.
+        <translation>Добавяне на магнитна връзка в списъка за сваляне.
 Ако автоматичното търсене на алтернативи е разрешено в настройките,
 файла ще бъде изтеглен без отваряне на прозорец за търсене.</translation>
     </message>
@@ -3994,7 +3994,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIMagnet.ui" line="65"/>
         <source>Filename</source>
-        <translation>Файлово име</translation>
+        <translation>Име на файл</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="75"/>
@@ -4139,7 +4139,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Incoming connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Входящи връзки</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="48"/>
@@ -4214,7 +4214,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="293"/>
         <source>IP</source>
-        <translation>IP</translation>
+        <translation>IP адрес</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="300"/>
@@ -4249,7 +4249,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="356"/>
         <source>Automatically update external IP (restart required)</source>
-        <translation>Авто-обновяване на външното IP (изисква рестартиране)</translation>
+        <translation>Авто-обновяване на външния IP адрес (изисква рестартиране)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="372"/>
@@ -4347,7 +4347,7 @@ SOCKS5 прокситата не са същите като HTTP прокси.
         <location filename="../ui/UISettingsConnection.ui" line="637"/>
         <location filename="../ui/UISettingsConnection.ui" line="671"/>
         <source>KiB/s</source>
-        <translation>КиБ/сек</translation>
+        <translation>KiB/s</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="506"/>
@@ -4406,7 +4406,7 @@ SOCKS5 прокситата не са същите като HTTP прокси.
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="149"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
-        <translation>Без нови сваляния ако скоростта е превишена (КиБ/сек, 0 = неогр.)</translation>
+        <translation>Без нови сваляния ако скоростта е превишена (KiB/s, 0 = неогр.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="159"/>
@@ -4451,7 +4451,7 @@ SOCKS5 прокситата не са същите като HTTP прокси.
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="293"/>
         <source>Auto-priority settings</source>
-        <translation>Настройки за авто-приоритет (по-малки файлове, КиБ)</translation>
+        <translation>Настройки за авто-приоритет (по-малки файлове, KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="352"/>
@@ -4492,7 +4492,7 @@ and a value of zero will disable this limit.</source>
         <translation>Това е друг метод за ограничаване на едновременните сваляния,
 основан на това, че новите сваляния няма да започнат ако общия
 размер на текущите превишава определена стойност. Това се
-измерва в КиБ/сек и стойност равна на нула ще забрани тази граница.</translation>
+измерва в KiB/s и стойност равна на нула ще забрани тази граница.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
@@ -4517,7 +4517,7 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
 will be set to Highest as priority. (default: 64 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер
 ще бъдат зададени с Максимален приоритет.
-(стандартно: 64 КиБ)</translation>
+(стандартно: 64 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="313"/>
@@ -4525,7 +4525,7 @@ will be set to Highest as priority. (default: 64 KiB)</source>
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер,
 но над Максимален приоритет,ще бъдат зададени
-с Висок приоритет. (стандартно: 0 КиБ)</translation>
+с Висок приоритет. (стандартно: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="324"/>
@@ -4533,7 +4533,7 @@ prio max size, will be set to High as priority. (default: 0 KiB)</source>
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер,
 но над Максимален и Висок приоритет,ще бъдат зададени
-с Нормален приоритет. (стандартно: 0 КиБ)</translation>
+с Нормален приоритет. (стандартно: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="335"/>
@@ -4541,14 +4541,14 @@ High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер,
 но над Максимален, Висок и Нормален приоритет,
-ще бъдат зададени с Нисък приоритет. (стандартно: 0 КиБ)</translation>
+ще бъдат зададени с Нисък приоритет. (стандартно: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
         <translation>Ако скоростта за сваляне на файл е по-ниска от въведената,
-източника ще бъде премахнат (стандартно 1024 Б/сек)</translation>
+източника ще бъде премахнат (стандартно 1024 B/s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="459"/>
@@ -4578,13 +4578,13 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="494"/>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
-        <translation>Минимален размер на файла (в КиБ) преди премахване на източника.
-(стандартно: 0 КиБ)</translation>
+        <translation>Минимален размер на файла (в KiB) преди премахване на източника.
+(стандартно: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="510"/>
         <source>Drop sources below (B/s)</source>
-        <translation>Минимална скорост (Б/сек)</translation>
+        <translation>Минимална скорост (B/s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="526"/>
@@ -4609,7 +4609,7 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="590"/>
         <source>Min filesize (KiB)</source>
-        <translation>Мин. размер на файл (КиБ)</translation>
+        <translation>Мин. размер на файл (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="619"/>
@@ -4869,12 +4869,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <location filename="../ui/UISettingsGUI.ui" line="143"/>
         <location filename="../ui/UISettingsGUI.ui" line="159"/>
         <source>(need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>(изисква рестартиране)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Потребителска тема</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>
@@ -4889,17 +4889,17 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="201"/>
         <source>Use default ToolBar (need restart)</source>
-        <translation>Използване на стандартен панел с табове (изисква рестартиране)</translation>
+        <translation>Стандартен панел с табове (изисква рестартиране)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="206"/>
         <source>Use multi-line ToolBar (need restart)</source>
-        <translation>Използване на многоредов панел с табове (изисква рестартиране)</translation>
+        <translation>Многоредов панел с табове (изисква рестартиране)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="211"/>
         <source>Use SideBar instead of ToolBar (need restart)</source>
-        <translation>Използване на страничен панел вместо табове (изисква рестартиране)</translation>
+        <translation>Страничен панел вместо табове (изисква рестартиране)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="233"/>
@@ -4979,7 +4979,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="426"/>
         <location filename="../ui/UISettingsGUI.ui" line="462"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation>показване на кибибайт (КиБ) или килобайт (КБ), и т.н.</translation>
+        <translation>показване на кибибайт (KiB) или килобайт (KB), и т.н.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="429"/>
@@ -5009,7 +5009,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="510"/>
         <source>Default action with magnet</source>
-        <translation>Действие при натискане на &quot;магнитни&quot; връзки</translation>
+        <translation>Действие при натискане на магнитна връзка</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="524"/>
@@ -5079,7 +5079,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="258"/>
         <source>Show joins</source>
-        <translation>Показване на влизащи/излизащи потребители в чата</translation>
+        <translation>Показване на влизащи/излизащи потребители в хъба</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="275"/>
@@ -5385,7 +5385,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
 please choose the one closest to your own.
 Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
-        <translation>Този падащ списък съдържа няколко общи скорости за качване (в МиБ/сек)
+        <translation>Този падащ списък съдържа няколко общи скорости за качване (в MiB/s)
 моля, изберете най-близката до вашата.
 Не поставяйте в скоростта за теглене; тази настройка просто показва,
 на другите потребители колко бърз източник сте.</translation>
@@ -5398,7 +5398,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="153"/>
         <source>MiB/s</source>
-        <translation>МиБ/сек</translation>
+        <translation>MiB/s</translation>
     </message>
 </context>
 <context>
@@ -5427,11 +5427,11 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation>Задаване ограничения за изтегляне (в ГиБ) за всеки &quot;виртуален&quot; каталог
+        <translation>Задаване ограничения за изтегляне (в GiB) за всеки &quot;виртуален&quot; каталог
 във вашия списък. Например, ако каталог /home/username/Video е споделен
 с име &quot;Video&quot;, можете да зададете следното:
 /Video	10
-Това означава, че всеки потребител споделил по-малко от 10 ГиБ,
+Това означава, че всеки потребител споделил по-малко от 10 GiB,
 няма да може да изтегли нищо от този каталог.</translation>
     </message>
     <message>
@@ -5613,7 +5613,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
 Отдалечения потребител може да използва само
 един слот за всеки хъб, в който сте и вие.
 EiskaltDC++ поддържа качване на файлове и списъци
-с файлове по-малки от 64 КиБ за другите DC++
+с файлове по-малки от 64 KiB за другите DC++
 потребители, без изискване за слот.
 Налични са 3 такива връзки наречени &quot;мини слотове&quot; в
 добавка към нормалните слотове.
@@ -5678,12 +5678,12 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="509"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation>Макс. скорост за хеширане (МБ/сек, 0 = неогр.)</translation>
+        <translation>Макс. скорост за хеширане (MB/s, 0 = неогр.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Допълнителен слот при скорост по-ниска от (КиБ/сек, 0 = неогр.)</translation>
+        <translation>Допълнителен слот при скорост по-ниска от (KiB/s, 0 = неогр.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="536"/>
@@ -5833,7 +5833,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
         <source>Filebrowser</source>
-        <translation>Списък файлове</translation>
+        <translation>Списък с файлове</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="106"/>
@@ -5876,7 +5876,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UPnPMapper.cpp" line="61"/>
         <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation>Неуспех при получаване на външен IP чрез UPnP. Моля, задайте го ръчно.</translation>
+        <translation>Неуспех при получаване на външен IP адрес чрез UPnP. Моля, задайте го ръчно.</translation>
     </message>
     <message>
         <location filename="../src/UPnPMapper.cpp" line="67"/>
@@ -5889,12 +5889,12 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="124"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: Operator</source>
-        <translation>&lt;b&gt;Роля в хъба&lt;/b&gt;: Оператор</translation>
+        <translation>&lt;b&gt;Статус&lt;/b&gt;: Оператор</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="126"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: User</source>
-        <translation>&lt;b&gt;Роля в хъба&lt;/b&gt;: Потребител</translation>
+        <translation>&lt;b&gt;Статус&lt;/b&gt;: Потребител</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="129"/>
@@ -5919,7 +5919,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="165"/>
         <source>Connection</source>
-        <translation>Връзка</translation>
+        <translation>Свързване</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="166"/>
@@ -5953,17 +5953,17 @@ the granted slot will not be closed.</source>
         <location filename="../src/WulforUtil.cpp" line="746"/>
         <location filename="../src/WulforUtil.cpp" line="760"/>
         <source>%1 B</source>
-        <translation>%1 Б</translation>
+        <translation>%1 B</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="748"/>
         <source>%1 KiB</source>
-        <translation>%1 КиБ</translation>
+        <translation>%1 KiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="750"/>
         <source>%1 MiB</source>
-        <translation>%1 МиБ</translation>
+        <translation>%1 MiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="752"/>
@@ -5973,37 +5973,37 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/WulforUtil.cpp" line="754"/>
         <source>%1 TiB</source>
-        <translation>%1 ТиБ</translation>
+        <translation>%1 TiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="756"/>
         <source>%1 PiB</source>
-        <translation>%1 ПиБ</translation>
+        <translation>%1 PiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="762"/>
         <source>%1 KB</source>
-        <translation>%1 КБ</translation>
+        <translation>%1 KB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="764"/>
         <source>%1 MB</source>
-        <translation>%1 МБ</translation>
+        <translation>%1 MB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="766"/>
         <source>%1 GB</source>
-        <translation>%1 ГБ</translation>
+        <translation>%1 GB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="768"/>
         <source>%1 TB</source>
-        <translation>%1 ТБ</translation>
+        <translation>%1 TB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="770"/>
         <source>%1 PB</source>
-        <translation>%1 ПБ</translation>
+        <translation>%1 PB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="836"/>
