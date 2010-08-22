@@ -437,6 +437,10 @@ void ClientManager::on(AdcSearch, Client*, const AdcCommand& adc, const CID& fro
 }
 
 void ClientManager::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken) {
+#ifdef DHT
+    if(BOOLSETTING(USE_DHT) && aFileType == SearchManager::TYPE_TTH)
+        dht::DHT::getInstance()->findFile(aString);
+#endif
     Lock l(cs);
 
     for(Client::Iter i = clients.begin(); i != clients.end(); ++i) {
@@ -447,6 +451,10 @@ void ClientManager::search(int aSizeMode, int64_t aSize, int aFileType, const st
 }
 
 void ClientManager::search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken) {
+#ifdef DHT
+    if(BOOLSETTING(USE_DHT) && aFileType == SearchManager::TYPE_TTH)
+        dht::DHT::getInstance()->findFile(aString, aToken);
+#endif
     Lock l(cs);
 
     for(StringIter it = who.begin(); it != who.end(); ++it) {

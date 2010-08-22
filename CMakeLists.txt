@@ -74,9 +74,9 @@ option (USE_WT "WebControl" OFF)
 option (USE_GTK "GTK interface" OFF)
 option (DHT "DHT support for dcpp" OFF)
 option (LUA_SCRIPT "Lua script" OFF)
-option (USE_MINIUPNP "Miniupnpc" OFF)
-option (USE_MINIUPNP_QT "Use miniupnpc in qt for forward ports" OFF)
-option (USE_LIBUPNP "Libupnp" ON)
+option (USE_MINIUPNP "Use miniupnpc for forward ports" ON)
+option (LOCAL_MINIUPNP "Use local miniupnpc" OFF)
+option (USE_LIBUPNP "Use libupnp for forward ports" OFF)
 option (USE_ASPELL "Use aspell for spellchecking")
 option (FORCE_XDG "Respect freedesktop.org standards" ON)
 option (USE_LIBGNOME2 "LibGnome2" OFF)
@@ -97,10 +97,17 @@ endif(LUA_SCRIPT)
 
 if (USE_MINIUPNP)
     message (STATUS "Building with UPNP support(miniupnpc)")
+
+  if (LOCAL_MINIUPNP)
+    add_subdirectory(miniupnpc)
+  else (LOCAL_MINIUPNP)
     find_package (Miniupnpc REQUIRED)
-else (USE_MINIUPNP)
-        message (STATUS "Building without UPNP support(miniupnpc)")
-endif (USE_MINIUPNP)
+  endif (LOCAL_MINIUPNP)
+
+    add_definitions (-DUSE_MINIUPNP)
+elseif (NOT USE_MINIUPNP)
+    message (STATUS "Building without UPNP support(miniupnpc)")
+endif(USE_MINIUPNP)
 
 if (USE_QT)
 
@@ -123,6 +130,7 @@ endif (USE_QT)
 
 if (NOT USE_QT)
     set (USE_ASPELL OFF)
+    set (FREE_SPACE_BAR_C OFF)
 endif (NOT USE_QT)
 
 if (NOT USE_ASPELL)
@@ -142,26 +150,11 @@ else (USE_ASPELL)
     message (STATUS "Building without Aspell support")
 endif (USE_ASPELL)
 
-
-if (NOT USE_QT)
-    set (FREE_SPACE_BAR_C OFF)
-endif (NOT USE_QT)
-
 if (FREE_SPACE_BAR_C)
-    set (FREE_SPACE_BAR_C 1 CACHE BOOL "Use for show free space on volume small c lib" FORCE)
-    if (NOT LOCAL_BOOST)
-        find_package (Boost REQUIRED)
-    endif (NOT LOCAL_BOOST)
     message (STATUS "Building with free space bar (realisation on C, POSIX 1003.1-2001 (and later) with XSI)")
-endif (FREE_SPACE_BAR_C)
-
-if (NOT FREE_SPACE_BAR_C)
-    set (FREE_SPACE_BAR_C 0 CACHE BOOL "Use for show free space on volume small c lib" FORCE)
-    if (NOT LOCAL_BOOST)
-        find_package (Boost REQUIRED)
-    endif (NOT LOCAL_BOOST)
+else (FREE_SPACE_BAR_C)
     message (STATUS "Building without free space bar")
-endif (NOT FREE_SPACE_BAR_C)
+endif (FREE_SPACE_BAR_C)
 
 if (USE_WT)
     find_package (Wt REQUIRED)
@@ -194,6 +187,8 @@ FIND_PROGRAM (TAR_CMD tar)
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 set (Boost_INCLUDE_DIR "./")
 message (STATUS "USED LOCAL BOOST HEADERS")
+else (LOCAL_BOOST)
+    find_package (Boost REQUIRED)
 endif(LOCAL_BOOST)
 
 if (NOT CMAKE_INSTALL_PREFIX)
@@ -276,18 +271,6 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
    )
-#message (STATUS "${eiskaltdcpp_BINARY_DIR}
-#   ${dcpp_BINARY_DIR}
-#   ${dcpp_SOURCE_DIR}
-#   ${dht_BINARY_DIR}
-#   ${dht_SOURCE_DIR}
-#   ${${PROJECT_NAME_GLOBAL}-qt_BINARY_DIR}
-#   ${${PROJECT_NAME_GLOBAL}-qt_SOURCE_DIR}
-#   ${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}
-#   ${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}
-#   ${eiskaltdcpp_SOURCE_DIR}
-#   ${GMP_INCLUDE_DIR}
-#")
 
 message(STATUS "CMAKE will use this libs(and headers) during build:
 
@@ -394,12 +377,11 @@ set (create_mo 0)
 set (create_mo_lo 0)
 endif (CREATE_MO)
 set (mo_for_all 1)
-list (APPEND DCPP_SRCS ${DCPP_HDRS})
     kwwidgets_create_gettext_targets(
       DOMAIN_NAME "libdcpp"
       LOCALE_LIST "${LANGUAGES}"
       COPYRIGHT_HOLDER "EiskaltDC++ team"
-      SOURCES "${DCPP_SRCS}"
+      SOURCES "${DCPP_SRCS};${DCPP_HDRS}"
       PO_DIR "${dcpp_SOURCE_DIR}/po"
       POT_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
       #PO_PREFIX    ""
@@ -414,12 +396,11 @@ list (APPEND DCPP_SRCS ${DCPP_HDRS})
       ADD_MO_TARGET_TO_ALL ${mo_for_all}
       )
 if (USE_GTK)
-list (APPEND GTK_SRCS ${GTK_HDRS})
      kwwidgets_create_gettext_targets(
       DOMAIN_NAME "eiskaltdcpp-gtk"
       LOCALE_LIST "${LANGUAGES}"
       COPYRIGHT_HOLDER "EiskaltDC++ team"
-      SOURCES "${GTK_SRCS};${GTK_GLADE}"
+      SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_GLADE}"
       PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
       POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
       #PO_PREFIX    ""

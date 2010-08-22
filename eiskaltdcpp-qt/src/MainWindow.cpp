@@ -54,7 +54,7 @@
 #ifdef USE_LIBUPNP
 #include "UPnPMapper.h"
 #endif
-#ifdef USE_MINIUPNP_QT
+#ifdef USE_MINIUPNP
 #include "miniupnp/upnpc.h"
 #include <dcpp/UPnPManager.h>//NOTE: core 0.762
 #endif
@@ -1730,7 +1730,7 @@ void MainWindow::startSocket(){
 #ifdef USE_LIBUPNP
     UPnPMapper::getInstance()->forward();
 #endif
-#ifdef USE_MINIUPNP_QT
+#ifdef USE_MINIUPNP
     if( SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP )
         UPnPManager::getInstance()->open();
     else if (SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP && UPnPManager::getInstance()->getOpened())

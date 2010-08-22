@@ -1,9 +1,17 @@
-PROJECT(miniupnp)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+project(miniupnp)
+cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
-INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR} ${MINIUPNP_INCLUDE_DIR})
-
-    aux_source_directory(${PROJECT_SOURCE_DIR} miniupnp_SRCS)
+include_directories(${PROJECT_SOURCE_DIR})
+if (LOCAL_MINIUPNP)
+include_directories(${PROJECT_SOURCE_DIR}/..)
+else (LOCAL_MINIUPNP)
+include_directories(${MINIUPNP_INCLUDE_DIR})
+endif (LOCAL_MINIUPNP)
+aux_source_directory(${PROJECT_SOURCE_DIR} miniupnp_SRCS)
 # actual target:
-    ADD_LIBRARY(miniupnp STATIC ${miniupnp_SRCS})
+add_library(miniupnp STATIC ${miniupnp_SRCS})
+if (LOCAL_MINIUPNP)
+target_link_libraries (miniupnp miniupnpc)
+else (LOCAL_MINIUPNP)
 target_link_libraries (miniupnp ${MINIUPNP_LIBRARY})
+endif (LOCAL_MINIUPNP)
