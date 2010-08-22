@@ -23,16 +23,13 @@
  */
 
 #include "upnpc.h"
-
+#include <dcpp/Util.h>
 #ifndef STATICLIB
 #define STATICLIB
 #endif
-extern "C" {
 #include <miniupnpc/miniupnpc.h>
 #include <miniupnpc/miniwget.h>
 #include <miniupnpc/upnpcommands.h>
-}
-#include <dcpp/Util.h>
 
 static UPNPUrls urls;
 static IGDdatas data;
