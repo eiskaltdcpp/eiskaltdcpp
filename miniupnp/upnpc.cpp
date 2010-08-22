@@ -23,6 +23,10 @@
  */
 
 #include "upnpc.h"
+
+#ifndef STATICLIB
+#define STATICLIB
+#endif
 extern "C" {
 #include <miniupnpc/miniupnpc.h>
 #include <miniupnpc/miniwget.h>
