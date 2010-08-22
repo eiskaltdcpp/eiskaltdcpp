@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Theme>
+	<Settings>
+		<icon-dc++>humanity-dc++</icon-dc++>
+		<icon-dc++-fw>humanity-dc++-fw</icon-dc++-fw>
+		<icon-dc++-fw-op>humanity-dc++-fw-op</icon-dc++-fw-op>
+		<icon-dc++-op>humanity-dc++-op</icon-dc++-op>
+		<icon-normal>humanity-normal</icon-normal>
+		<icon-normal-fw>humanity-normal-fw</icon-normal-fw>
+		<icon-normal-fw-op>humanity-normal-fw-op</icon-normal-fw-op>
+		<icon-normal-op>humanity-normal-op</icon-normal-op>
+	</Settings>
+</Theme>

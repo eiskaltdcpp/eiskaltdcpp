@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Theme>
+	<Settings>
+		<icon-download>gtk-go-down</icon-download>
+		<icon-favorite-hubs>gtk-home</icon-favorite-hubs>
+		<icon-finished-downloads>gtk-go-down</icon-finished-downloads>
+		<icon-finished-uploads>gtk-go-up</icon-finished-uploads>
+		<icon-hash>gtk-convert</icon-hash>
+		<icon-preferences>gtk-preferences</icon-preferences>
+		<icon-public-hubs>gtk-network</icon-public-hubs>
+		<icon-queue>gtk-directory</icon-queue>
+		<icon-search>gtk-find</icon-search>
+		<icon-upload>gtk-go-up</icon-upload>
+		<icon-quit>gtk-quit</icon-quit>
+		<icon-connect>gtk-connect</icon-connect>
+	</Settings>
+</Theme>

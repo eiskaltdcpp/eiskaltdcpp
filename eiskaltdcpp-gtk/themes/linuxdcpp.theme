@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Theme>
+	<Settings>
+		<icon-dc++>linuxdcpp-dc++</icon-dc++>
+		<icon-dc++-fw>linuxdcpp-dc++-fw</icon-dc++-fw>
+		<icon-dc++-fw-op>linuxdcpp-dc++-fw-op</icon-dc++-fw-op>
+		<icon-dc++-op>linuxdcpp-dc++-op</icon-dc++-op>
+		<icon-normal>linuxdcpp-normal</icon-normal>
+		<icon-normal-fw>linuxdcpp-normal-fw</icon-normal-fw>
+		<icon-normal-fw-op>linuxdcpp-normal-fw-op</icon-normal-fw-op>
+		<icon-normal-op>linuxdcpp-normal-op</icon-normal-op>
+		<icon-download>linuxdcpp-download</icon-normal-fw-op>
+		<icon-upload>linuxdcpp-upload</icon-normal-op>
+	</Settings>
+</Theme>

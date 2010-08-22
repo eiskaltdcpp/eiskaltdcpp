@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Theme>
+	<Settings>
+		<icon-favorite-hubs>bw-favorite-hubs</icon-favorite-hubs>
+		<icon-finished-downloads>bw-finished-downloads</icon-finished-downloads>
+		<icon-finished-uploads>bw-finished-uploads</icon-finished-uploads>
+		<icon-hash>bw-hash</icon-hash>
+		<icon-preferences>bw-preferences</icon-preferences>
+		<icon-public-hubs>bw-public-hubs</icon-public-hubs>
+		<icon-queue>bw-queue</icon-queue>
+		<icon-search>bw-search</icon-search>
+		<icon-quit>bw-quit</icon-quit>
+		<icon-connect>bw-connect</icon-connect>
+	</Settings>
+</Theme>
