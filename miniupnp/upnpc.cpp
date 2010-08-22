@@ -23,10 +23,11 @@
  */
 
 #include "upnpc.h"
-
+extern "C" {
 #include <miniupnpc/miniupnpc.h>
 #include <miniupnpc/miniwget.h>
 #include <miniupnpc/upnpcommands.h>
+}
 #include <dcpp/Util.h>
 
 static UPNPUrls urls;
