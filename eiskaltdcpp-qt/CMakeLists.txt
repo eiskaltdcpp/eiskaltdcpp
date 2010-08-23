@@ -203,10 +203,7 @@ if (USE_ASPELL)
   list (APPEND SRCS src/SpellCheck.cpp)
   list (APPEND MOC_HDRS src/SpellCheck.h)
 endif (USE_ASPELL)
-if (USE_LIBUPNP)
-    list (APPEND SRCS src/UPnP.cpp src/UPnPMapper.cpp)
-    list (APPEND MOC_HDRS  src/UPnP.h src/UPnPMapper.h)
-endif (USE_LIBUPNP)
+
 if (USE_JS)
   list (APPEND SRCS
         scriptengine/ClientManagerScript.cpp
@@ -283,11 +280,6 @@ include_directories (
         ${Boost_INCLUDE_DIRS}
         )
 list (APPEND LIBS ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
-if (USE_LIBUPNP)
-include_directories (${UPNP_INCLUDE_DIR})
-list (APPEND LIBS ${UPNP_LIBRARY})
-add_definitions (-DUSE_LIBUPNP)
-endif (USE_LIBUPNP)
 
 if (FREE_SPACE_BAR_C)
   add_definitions (-DFREE_SPACE_BAR_C)

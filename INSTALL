@@ -20,7 +20,6 @@ libqtcore4, libqtgui4, libqt4-network, libqt4-xml (>= 4.4.0)
 libqt4-script (>= 4.4.0) (optional, see cmake keys)
 libqt4-dbus (>= 4.4.0) (optional, see cmake keys)
 libaspell (optional, see cmake keys)
-libupnp (=1.6.* only) (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-wt:
 ----------------
@@ -78,7 +77,6 @@ liblua5.1-dev (optional, see cmake keys)
 :eiskaltdcpp-qt:
 ----------------
 qt4 (>=4.4.0)
-libupnp-dev (=1.6.* only) (optional, see cmake keys)
 libaspell-dev (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-wt:
@@ -129,8 +127,6 @@ Keys for cmake
 -DFORCE_XDG=ON/OFF (default: ON)
     use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables
     see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
--DUSE_LIBUPNP=ON/OFF (default: OFF)
-    use or not use libupnp
 -DDBUS_NOTIFY=ON/OFF (default: ON)
     use or not use QtDBus module
 -DUSE_JS=ON/OFF (default: OFF)

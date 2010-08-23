@@ -76,7 +76,6 @@ option (DHT "DHT support for dcpp" OFF)
 option (LUA_SCRIPT "Lua script" OFF)
 option (USE_MINIUPNP "Use miniupnpc for forward ports" ON)
 option (LOCAL_MINIUPNP "Use local miniupnpc" OFF)
-option (USE_LIBUPNP "Use libupnp for forward ports" OFF)
 option (USE_ASPELL "Use aspell for spellchecking")
 option (FORCE_XDG "Respect freedesktop.org standards" ON)
 option (USE_LIBGNOME2 "LibGnome2" OFF)
@@ -110,13 +109,6 @@ elseif (NOT USE_MINIUPNP)
 endif(USE_MINIUPNP)
 
 if (USE_QT)
-
-    if (USE_LIBUPNP)
-        message (STATUS "Building with UPNP support(libupnp)")
-        find_package (LibUpnp REQUIRED)
-    else (USE_LIBUPNP)
-        message (STATUS "Building without UPNP support(libupnp)")
-    endif (USE_LIBUPNP)
 
     find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
     if (DBUS_NOTIFY)
@@ -274,7 +266,6 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
 
 message(STATUS "CMAKE will use this libs(and headers) during build:
 
-                upnp (headers){libupnp}: ${UPNP_LIBRARY} (${UPNP_INCLUDE_DIR})
                 upnp (headers){miniupnpc}:${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
                 lua (headers): ${LUA_LIBRARIES} (${LUA_INCLUDE_DIR})
                 boost (headers): ${Boost_LIBRARIES} (${Boost_INCLUDE_DIR})

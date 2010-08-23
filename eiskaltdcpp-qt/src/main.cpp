@@ -14,10 +14,6 @@ using namespace std;
 #include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
-#ifdef USE_LIBUPNP
-#include "UPnP.h"
-#include "UPnPMapper.h"
-#endif
 #ifdef USE_MINIUPNP
 #include <dcpp/UPnPManager.h>//NOTE: core 0.762
 #include "miniupnp/upnpc.h"
@@ -103,11 +99,6 @@ int main(int argc, char *argv[])
 
     if (WulforUtil::getInstance()->loadIcons())
         std::cout << "Application icons has been loaded" << std::endl;
-#ifdef USE_LIBUPNP
-    LibUPnP::newInstance();
-    LibUPnP::getInstance()->start();
-    UPnPMapper::newInstance();
-#endif
 #ifdef USE_MINIUPNP
     dcpp::UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
 #endif
@@ -151,11 +142,6 @@ int main(int argc, char *argv[])
 #ifdef USE_ASPELL
     if (SpellCheck::getInstance())
         SpellCheck::deleteInstance();
-#endif
-#ifdef USE_LIBUPNP
-    UPnPMapper::deleteInstance();
-    LibUPnP::getInstance()->stop();
-    LibUPnP::deleteInstance();
 #endif
     Notification::deleteInstance();
 
