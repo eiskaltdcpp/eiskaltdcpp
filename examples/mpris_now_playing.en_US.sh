@@ -35,36 +35,36 @@ declare -A tag
 
 # Trying to detect mpris compatible player and get info.
 for P in ${PLAYERS}; do
-	DBUS="$(qdbus | grep "org.mpris.${P}" | awk '{print $1}')"
-	if [[ "${DBUS}" && $(qdbus "${DBUS}" ${METADATA_CALL} 2>/dev/null) ]]
-	then
-		METAINFO="$(qdbus "${DBUS}" ${METADATA_CALL} 2>/dev/null)"
-		PLAYER="${P}"
-		for i in album artist genre title; do
-			tag[${i}]="$(echo "${METAINFO}"	| sed -e "/^${i}: / !d" -e "s/^${i}: //")"
-		done
-		# Works only for local files:
-		LOCATION="$(echo "${METAINFO}" | sed -e '/^location: file:\/\// !d' -e 's/location: file:\/\///')"
-	fi
+    DBUS="$(qdbus | grep "org.mpris.${P}" | awk '{print $1}')"
+    if [[ "${DBUS}" && $(qdbus "${DBUS}" ${METADATA_CALL} 2>/dev/null) ]]
+    then
+        METAINFO="$(qdbus "${DBUS}" ${METADATA_CALL} 2>/dev/null)"
+        PLAYER="${P}"
+        for i in album artist genre title; do
+            tag[${i}]="$(echo "${METAINFO}" | sed -e "/^${i}: / !d" -e "s/^${i}: //")"
+        done
+        # Works only for local files:
+        LOCATION="$(echo "${METAINFO}" | sed -e '/^location: file:\/\// !d' -e 's/location: file:\/\///' -e 's/%20/ /g')"
+    fi
 done
 
 # Some beautiful names for players
 case ${PLAYER} in
-	amarok)
-		PLAYER="Amarok"
-		;;
-	audacious)
-		PLAYER="Audacious2"
-		;;
-	dragon)
-		PLAYER="Dragon Player"
-		;;
-	vlc)
-		PLAYER="VLC"
-		;;
-	clementine)
-		PLAYER="Clementine"
-		;;
+    amarok)
+        PLAYER="Amarok"
+        ;;
+    audacious)
+        PLAYER="Audacious2"
+        ;;
+    dragon)
+        PLAYER="Dragon Player"
+        ;;
+    vlc)
+        PLAYER="VLC"
+        ;;
+    clementine)
+        PLAYER="Clementine"
+        ;;
 esac
 
 # Trying to load home config
@@ -76,9 +76,9 @@ esac
 #
 if [ "\${PLAYER}" ]
 then
-	NOW_LISTENING_TO="/me is listening to \${tag[artist]} - \${tag[title]} (\${tag[album]}) via \${PLAYER} <magnet>\${LOCATION}</magnet>"
+    NOW_LISTENING_TO="/me is listening to \${tag[artist]} - \${tag[title]} (\${tag[album]}) via \${PLAYER} <magnet>\${LOCATION}</magnet>"
 else
-	NOW_LISTENING_TO="/me is listening to mouse clicks"
+    NOW_LISTENING_TO="/me is listening to mouse clicks"
 fi
 _EOF_
 
@@ -87,7 +87,7 @@ _EOF_
 # Let's test what we'he got
 if [ "${NOW_LISTENING_TO}" ]
 then
-	echo "${NOW_LISTENING_TO}"
+    echo "${NOW_LISTENING_TO}"
 else
-	echo "/me is..."
+    echo "/me is..."
 fi
