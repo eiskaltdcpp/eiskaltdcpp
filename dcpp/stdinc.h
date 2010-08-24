@@ -40,13 +40,6 @@
 #define _ATL_SECURE_NO_DEPRECATE 1
 #define _CRT_NON_CONFORMING_SWPRINTFS 1
 
-# pragma warning(disable: 4711) // function 'xxx' selected for automatic inline expansion
-# pragma warning(disable: 4786) // identifier was truncated to '255' characters in the debug information
-# pragma warning(disable: 4290) // C++ Exception Specification ignored
-# pragma warning(disable: 4127) // constant expression
-# pragma warning(disable: 4710) // function not inlined
-# pragma warning(disable: 4503) // decorated name length exceeded, name was truncated
-# pragma warning(disable: 4428) // universal-character-name encountered in source
 
 typedef signed __int8 int8_t;
 typedef signed __int16 int16_t;
