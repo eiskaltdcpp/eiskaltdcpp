@@ -258,7 +258,7 @@ add_custom_command (
 if (UNIX)
   FIND_PROGRAM (GZIP_CMD gzip)
   EXECUTE_PROCESS (
-                OUTPUT_FILE eiskaltdcpp-qt.1.gz
+                OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE eiskaltdcpp-qt.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
@@ -403,12 +403,12 @@ endif (APPLE)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
 if (APPLE)
   install (FILES eiskaltdcpp-qt.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES eiskaltdcpp-qt.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
   install (FILES default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 else (APPLE)
   install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
   if (UNIX)
-    install (FILES eiskaltdcpp-qt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+    install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
     install (FILES eiskaltdcpp-qt.desktop DESTINATION ${SHARE_DIR}/applications)
   endif (UNIX)
 endif (APPLE)

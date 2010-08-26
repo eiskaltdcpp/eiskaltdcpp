@@ -66,7 +66,7 @@ endif (UNIX)
 if (UNIX)
   FIND_PROGRAM (GZIP_CMD gzip)
   EXECUTE_PROCESS (
-                OUTPUT_FILE eiskaltdcpp-gtk.1.gz
+                OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-gtk.1.gz
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE eiskaltdcpp-gtk.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
@@ -88,10 +88,10 @@ endif (UNIX)
 
 if (APPLE)
   install (FILES eiskaltdcpp-gtk.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES eiskaltdcpp-gtk.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-gtk.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
 else (APPLE)
   if (UNIX)
     install (FILES eiskaltdcpp-gtk.desktop DESTINATION ${SHARE_DIR}/applications)
-    install (FILES eiskaltdcpp-gtk.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+    install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-gtk.1.gz DESTINATION ${SHARE_DIR}/man/man1)
   endif (UNIX)
 endif (APPLE)
