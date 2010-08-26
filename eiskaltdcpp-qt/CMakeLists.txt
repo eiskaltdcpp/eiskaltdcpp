@@ -226,8 +226,7 @@ if (USE_JS)
 endif (USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})
-  list (APPEND COMPILED_TRANSLATIONS ${CMAKE_CURRENT_SOURCE_DIR}/translations/${LANGUAGE}.qm)
-  #message (STATUS ${COMPILED_TRANSLATIONS})
+  list (APPEND COMPILED_TRANSLATIONS ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
 endforeach()
 
 #Create moc files
@@ -235,25 +234,24 @@ QT4_WRAP_CPP (M_SRCS ${MOC_HDRS})
 #Create .h files from ui files
 QT4_WRAP_UI (U_SRCS ${UI_FORMS})
 #Create translations
+set (target_basename "translations_qt")
+file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/translations/)
 foreach (LANGUAGE ${LANGUAGES})
         set (TS ${CMAKE_CURRENT_SOURCE_DIR}/translations/${LANGUAGE}.ts)
-        set (QM ${CMAKE_CURRENT_SOURCE_DIR}/translations/${LANGUAGE}.qm)
+        set (QM ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
         list (APPEND TRANSLATIONS ${TS})
         list (APPEND TRANSLATIONS_BINARY ${QM})
         add_custom_command (
-                OUTPUT ${QM}
-                COMMAND ${QT_LRELEASE_EXECUTABLE} ${TS}
-                MAIN_DEPENDENCY ${TS})
+                OUTPUT "${QM}"
+                DEPENDS "${TS}"
+                COMMAND ${QT_LRELEASE_EXECUTABLE}
+                ARGS "${TS}" -qm "${QM}")
+        add_custom_target(${target_basename}_${LANGUAGE} DEPENDS ${QM})
 endforeach()
 
-set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc)
+add_custom_target(${target_basename} ALL DEPENDS ${TRANSLATIONS_BINARY})
 
-add_custom_target (
-        translations_qt
-        COMMAND ${QT_LUPDATE_EXECUTABLE} ${HEADERS} ${SOURCES} -ts ${TRANSLATIONS})
-add_custom_command (
-        TARGET translations_qt
-        COMMAND ${QT_LRELEASE_EXECUTABLE} ${TRANSLATIONS})
+set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
 if (UNIX)
   FIND_PROGRAM (GZIP_CMD gzip)
@@ -266,7 +264,7 @@ endif (UNIX)
 
 if (UNIX)
   EXECUTE_PROCESS (
-    COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} -o default.rcc
+    COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} -o ${PROJECT_BINARY_DIR}/default.rcc
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
   )
 endif (UNIX)
@@ -404,9 +402,9 @@ endif (APPLE)
 if (APPLE)
   install (FILES eiskaltdcpp-qt.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
   install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
-  install (FILES default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
+  install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 else (APPLE)
-  install (FILES default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
+  install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
   if (UNIX)
     install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
     install (FILES eiskaltdcpp-qt.desktop DESTINATION ${SHARE_DIR}/applications)
