@@ -17,7 +17,7 @@ ADLSModel::ADLSModel(QObject *parent)
 {
     QList<QVariant> rootData;
     rootData << tr("Checked") << tr("Search String") << tr("Type source")
-             << tr("Name directory") << tr("Min. Size") << tr("Max. Size");
+             << tr("Name directory") << tr("Min. Size") << tr("Max. Size") << tr("Type Size");
 
     rootItem = new ADLSItem(rootData, NULL);
 }

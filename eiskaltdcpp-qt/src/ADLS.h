@@ -19,9 +19,10 @@
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
 
-#include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
-#include "dcpp/Singleton.h"
+#include <dcpp/stdinc.h>
+#include <dcpp/DCPlusPlus.h>
+#include <dcpp/ADLSearch.h>
+#include <dcpp/Singleton.h>
 
 class ADLSModel;
 class ADLSItem;
@@ -72,7 +73,6 @@ private slots:
     void slotAdd_newButtonClicked();
     void slotChangeButtonClicked();
     void slotRemoveButtonClicked();
-    void slotConnectButtonClicked();
     void slotUpButtonClicked();
     void slotDownButtonClicked();
 
@@ -84,7 +84,14 @@ private:
     void save();
 
     void init();
-
+    void initEditor(ADLSEditor &);
+    void initEditor(ADLSEditor &, StrMap&);
+    /** Init StrMap for importing into the ADLSEditor */
+    void getParams(/*const*/ ADLSearch&, StrMap&);
+    /** Init StrMap for importing into the ADLSearchManager::SearchCollection */
+    void getParams(const ADLSEditor&, StrMap&);
+    void updateEntry(ADLSearch&, StrMap&);
+    void updateItem(ADLSItem*, StrMap&);
     ADLSItem *getItem();
 
     ADLSModel *model;

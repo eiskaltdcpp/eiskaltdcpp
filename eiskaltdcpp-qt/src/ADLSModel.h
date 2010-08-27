@@ -15,9 +15,10 @@
 #define COLUMN_CHECK            0
 #define COLUMN_SSTRING          1
 #define COLUMN_TYPE             2
-#define COLUMN_DIRECTORY    3
-#define COLUMN_MAXSIZE      4
-#define COLUMN_MINSIZE          5
+#define COLUMN_DIRECTORY        3
+#define COLUMN_MINSIZE          4
+#define COLUMN_MAXSIZE          5
+#define COLUMN_TYPESIZE         6
 
 class ADLSItem{
 

@@ -33,21 +33,33 @@
        <number>1</number>
       </property>
       <item>
-       <widget class="LineEdit" name="lineEdit_MINSIZE">
-        <property name="toolTip">
-         <string>IP address or DNS name of hub.</string>
+       <widget class="QSpinBox" name="spinBox_MINSIZE">
+        <property name="minimum">
+         <number>-1</number>
+        </property>
+        <property name="maximum">
+         <number>99999999</number>
+        </property>
+        <property name="value">
+         <number>-1</number>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="LineEdit" name="lineEdit_MAXSIZE">
-        <property name="toolTip">
-         <string>This description will show in the user list.</string>
+       <widget class="QSpinBox" name="spinBox_MAXSIZE">
+        <property name="minimum">
+         <number>-1</number>
+        </property>
+        <property name="maximum">
+         <number>99999999</number>
+        </property>
+        <property name="value">
+         <number>-1</number>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBox_CID">
+       <widget class="QComboBox" name="comboBox_TYPESIZE">
         <property name="enabled">
          <bool>true</bool>
         </property>

@@ -27,7 +27,7 @@ SideBarModel::SideBarModel(QObject *parent) :
     CREATE_ROOT_EL(rootItem, eiUSERS,       tr("Private Messages"), roots,  PrivateMessage);
     CREATE_ROOT_EL(rootItem, eiFILEFIND,    tr("Search"),           roots,  Search);
     CREATE_ROOT_EL(rootItem, eiOWN_FILELIST,tr("Share Browsers"),   roots,  ShareBrowser);
-    //CREATE_ROOT_EL(rootItem, eiSPY,           tr("ADLSearch"),     roots,  ADLS);
+    CREATE_ROOT_EL(rootItem, eiADLS,           tr("ADLSearch"),     roots,  ADLS);
     CREATE_ROOT_EL(rootItem, eiDOWNLOAD,    tr("Download Queue"),   roots,  Downloads);
     CREATE_ROOT_EL(rootItem, eiUPLIST,      tr("Finished Uploads"), roots,  FinishedUploads);
     CREATE_ROOT_EL(rootItem, eiDOWNLIST,    tr("Finished Downloads"),roots, FinishedDownloads);

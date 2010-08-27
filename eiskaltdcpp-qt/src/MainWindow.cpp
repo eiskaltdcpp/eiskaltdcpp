@@ -27,7 +27,7 @@
 #include "ShareBrowser.h"
 #include "QuickConnect.h"
 #include "SearchFrame.h"
-//#include "ADLS.h"
+#include "ADLS.h"
 #include "Settings.h"
 #include "FavoriteHubs.h"
 #include "PublicHubs.h"
@@ -584,7 +584,7 @@ void MainWindow::initActions(){
         toolsADLS = new QAction("", this);
         toolsADLS->setObjectName("toolsADLS");
         toolsADLS->setShortcut(tr("Ctrl+A"));
-        toolsADLS->setIcon(WU->getPixmap(WulforUtil::eiSPY));
+        toolsADLS->setIcon(WU->getPixmap(WulforUtil::eiADLS));
         connect(toolsADLS, SIGNAL(triggered()), this, SLOT(slotToolsADLS()));
 
         toolsTransfers = new QAction("", this);
@@ -763,7 +763,7 @@ void MainWindow::initActions(){
                 << hubsFavoriteUsers;
 
         toolsMenuActions << toolsSearch
-                //<< toolsADLS
+                << toolsADLS
                 << separator0
                 << toolsTransfers
                 << toolsDownloadQueue
@@ -1057,7 +1057,7 @@ void MainWindow::retranslateUi(){
 
         toolsSearch->setText(tr("Search"));
 
-        //toolsADLS->setText(tr("ADLSearch"));
+        toolsADLS->setText(tr("ADLSearch"));
 
 #ifdef USE_JS
         toolsJS->setText(tr("Scripts Manager"));
@@ -1822,11 +1822,11 @@ void MainWindow::slotHubsReconnect(){
         fr->reconnect();
 }
 void MainWindow::slotToolsADLS(){
-    /*if (!ADLS::getInstance())
+    if (!ADLS::getInstance())
         ADLS::newInstance();
 
     toggleSingletonWidget(ADLS::getInstance());
-    */
+
 }
 void MainWindow::slotToolsSearch(){
     SearchFrame *sf = new SearchFrame();

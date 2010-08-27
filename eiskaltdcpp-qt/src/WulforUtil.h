@@ -55,6 +55,7 @@ public:
 
     enum Icons {
         eiAWAY = 0,
+        eiADLS,
         eiBALL_GREEN,
         eiBOOKMARK_ADD,
         eiCHAT,
@@ -144,7 +145,7 @@ public:
     QString qtEnc2DcEnc(QString);
     QString dcEnc2QtEnc(QString);
     QStringList encodings();
-    
+
     bool getUserCommandParams(QString, dcpp::StringMap &);
 
     QStringList getLocalIPs();

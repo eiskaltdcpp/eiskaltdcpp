@@ -12,6 +12,7 @@
 #include <QHeaderView>
 #include <QItemSelectionModel>
 #include <QList>
+#include <QtDebug>
 
 using namespace dcpp;
 
@@ -25,7 +26,7 @@ ADLS::ADLS(QWidget *parent):
 }
 
 ADLS::~ADLS(){
-
+    ADLSearchManager::getInstance()->Save();
     //MainWindow::getInstance()->remArenaWidget(this);
 
     delete model;
@@ -81,6 +82,23 @@ void ADLS::init(){
 
     treeView->setModel(model);
 
+    ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;
+
+    for (ADLSearchManager::SearchCollection::iterator i = collection.begin(); i != collection.end(); ++i) {
+        ADLSearch &search = *i;
+
+        QList<QVariant> data;
+
+        data << search.isActive
+             << _q(search.searchString)
+             << _q(search.SourceTypeToString(search.sourceType))
+             << _q(search.destDir)
+             << search.minFileSize
+             << search.maxFileSize
+             << _q(search.SizeTypeToString(search.typeFileSize));
+
+        model->addResult(data);
+    }
 
     treeView->setRootIsDecorated(false);
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -97,17 +115,17 @@ void ADLS::init(){
     add_newButton->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
     changeButton->setIcon(WU->getPixmap(WulforUtil::eiEDIT));
     removeButton->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
-    connectButton->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
     upButton->setIcon(WU->getPixmap(WulforUtil::eiUP));
     downButton->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
-
+    line_2->hide();
+    upButton->hide();
+    downButton->hide();
     load();
 
     int row_num = model->rowCount();
     if (row_num == 0){
         changeButton->setEnabled(false);
         removeButton->setEnabled(false);
-        connectButton->setEnabled(false);
         upButton->setEnabled(false);
         downButton->setEnabled(false);
     }
@@ -124,7 +142,6 @@ void ADLS::init(){
     connect(add_newButton, SIGNAL(clicked()), this, SLOT(slotAdd_newButtonClicked()));
     connect(changeButton,  SIGNAL(clicked()), this, SLOT(slotChangeButtonClicked()));
     connect(removeButton,  SIGNAL(clicked()), this, SLOT(slotRemoveButtonClicked()));
-    connect(connectButton, SIGNAL(clicked()), this, SLOT(slotConnectButtonClicked()));
     connect(upButton,      SIGNAL(clicked()), this, SLOT(slotUpButtonClicked()));
     connect(downButton,    SIGNAL(clicked()), this, SLOT(slotDownButtonClicked()));
 }
@@ -156,17 +173,12 @@ void ADLS::slotContexMenu(const QPoint &){
         QAction *add_new = new QAction(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD), tr("Add new"), menu);
         QAction *change  = new QAction(WU->getPixmap(WulforUtil::eiEDIT), tr("Change"), menu);
         QAction *remove  = new QAction(WU->getPixmap(WulforUtil::eiEDITDELETE), tr("Delete"), menu);
-        QAction *conn    = new QAction(WU->getPixmap(WulforUtil::eiCONNECT), tr("Connect"), menu);
         QAction *sep1    = new QAction(menu);
-        QAction *sep2    = new QAction(menu);
         sep1->setSeparator(true);
-        sep2->setSeparator(true);
 
         menu->addActions(QList<QAction*>() << change
                                            << remove
                                            << sep1
-                                           << conn
-                                           << sep2
                                            << add_new);
 
         QAction *res = menu->exec(QCursor::pos());
@@ -175,8 +187,6 @@ void ADLS::slotContexMenu(const QPoint &){
             slotChangeButtonClicked();
         else if (res == remove)
             slotRemoveButtonClicked();
-        else if (res == conn)
-            slotDblClicked();
         else if (res == add_new)
             slotAdd_newButtonClicked();
     }
@@ -185,10 +195,7 @@ void ADLS::slotContexMenu(const QPoint &){
 }
 
 void ADLS::slotDblClicked(){
-    ADLSItem *item = getItem();
-
-    if (!item)
-        return;
+    slotChangeButtonClicked();
 }
 
 void ADLS::slotHeaderMenu(){
@@ -198,10 +205,53 @@ void ADLS::slotHeaderMenu(){
 void ADLS::slotClicked(const QModelIndex &index){
     if (!index.isValid() || index.column() != COLUMN_CHECK || !index.internalPointer())
         return;
+
+    ADLSItem *item = reinterpret_cast<ADLSItem*>(index.internalPointer());
+    ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
+    int i = item->row();
+    ADLSearch entry = collection[i];
+
+        bool check = !item->data(COLUMN_CHECK).toBool();
+
+        entry.isActive = check;
+        item->updateColumn(COLUMN_CHECK, check);
+        if (i < collection.size())
+            collection[i] = entry;
+        model->repaint();
+
+        ADLSearchManager::getInstance()->Save();
 }
 
-void ADLS::slotAdd_newButtonClicked(){
+void ADLS::initEditor(ADLSEditor &editor){
 
+}
+void ADLS::slotAdd_newButtonClicked(){
+    ADLSEditor editor;
+    ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
+    ADLSearch search;
+
+    initEditor(editor);
+
+    if (editor.exec() == QDialog::Accepted){
+        StrMap map;
+
+        getParams(editor, map);
+        updateEntry(search, map);
+        collection.push_back(search);
+        ADLSearchManager::getInstance()->Save();
+        QList<QVariant> data;
+
+        data << search.isActive
+             << _q(search.searchString)
+             << _q(search.SourceTypeToString(search.sourceType))
+             << _q(search.destDir)
+             << search.minFileSize
+             << search.maxFileSize
+             << _q(search.SizeTypeToString(search.typeFileSize));
+
+
+        model->addResult(data);
+    }
 }
 
 void ADLS::slotChangeButtonClicked(){
@@ -210,6 +260,26 @@ void ADLS::slotChangeButtonClicked(){
     if (!item)
         return;
 
+    int i = item->row();
+
+    ADLSEditor editor;
+    ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
+    ADLSearch search = collection[i];
+
+        StrMap map;
+
+        getParams(search, map);
+        initEditor(editor, map);
+
+        if (editor.exec() == QDialog::Accepted){
+            getParams(editor, map);
+            updateItem(item, map);
+            updateEntry(search, map);
+            if (i < collection.size())
+                collection[i] = search;
+
+        }
+
 }
 
 void ADLS::slotRemoveButtonClicked(){
@@ -217,11 +287,13 @@ void ADLS::slotRemoveButtonClicked(){
 
     if (!item)
         return;
-
-}
-
-void ADLS::slotConnectButtonClicked(){
-    slotDblClicked();
+    int i = item->row();
+    //qDebug() << i;
+    ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
+        if (i < collection.size()) {
+            collection.erase(collection.begin() + i);
+            model->removeItem(item);
+        }
 }
 
 void ADLS::slotUpButtonClicked(){
@@ -249,4 +321,70 @@ ADLSItem *ADLS::getItem(){
         item = static_cast<ADLSItem*>(list.first().internalPointer());
 
     return item;
+}
+
+void ADLS::updateItem(ADLSItem *item, StrMap &map) {
+    if (!item)
+        return;
+
+    WulforUtil *WU = WulforUtil::getInstance();
+
+    item->updateColumn(COLUMN_CHECK, map["CHECK"]);
+    item->updateColumn(COLUMN_SSTRING, map["SSTRING"]);
+    item->updateColumn(COLUMN_DIRECTORY, map["DIRECTORY"]);
+    item->updateColumn(COLUMN_MINSIZE, map["MINSIZE"]);
+    item->updateColumn(COLUMN_MAXSIZE, map["MAXSIZE"]);
+    item->updateColumn(COLUMN_TYPESIZE, map["TYPESIZEF"]);
+}
+
+void ADLS::updateEntry(ADLSearch &entry, StrMap &map){
+    entry.isActive = (int)map["CHECK"].toBool();
+    entry.searchString = map["SSTRING"].toString().toStdString();
+    entry.destDir = map["DIRECTORY"].toString().toStdString();
+    entry.isAutoQueue = (int)map["AUTOQUEUE"].toBool();
+    entry.sourceType = (ADLSearch::SourceType)map["SOURCETYPE"].toInt();
+    entry.minFileSize = map["MINSIZE"].toInt();
+    entry.maxFileSize = map["MAXSIZE"].toInt();
+    entry.typeFileSize = (ADLSearch::SizeType)map["TYPESIZE"].toInt();
+
+}
+void ADLS::getParams(const ADLSEditor &editor, StrMap &map){
+    WulforUtil *WU = WulforUtil::getInstance();
+
+    map["SSTRING"]      = editor.lineEdit_SSTRING->text();
+    map["DIRECTORY"]    = editor.lineEdit_DIRECTORY->text();
+    map["AUTOQUEUE"]    = editor.checkBox_DOWNLOAD->isChecked();
+    map["CHECK"]        = editor.checkBox_CHECK->isChecked();
+    map["SOURCETYPE"]   = editor.comboBox_TYPE->currentIndex();
+    map["TYPESIZE"]     = editor.comboBox_TYPESIZE->currentIndex();
+    map["TYPESIZEF"]    = editor.comboBox_TYPESIZE->currentText();
+    map["MINSIZE"]      = editor.spinBox_MINSIZE->value();
+    map["MAXSIZE"]      = editor.spinBox_MAXSIZE->value();
+
+}
+void ADLS::initEditor(ADLSEditor &editor, StrMap &map){
+    initEditor(editor);
+
+    editor.checkBox_CHECK->setChecked(map["CHECK"].toBool());
+    editor.checkBox_DOWNLOAD->setChecked(map["AUTOQUEUE"].toBool());
+    editor.lineEdit_SSTRING->setText(map["SSTRING"].toString());
+    editor.lineEdit_DIRECTORY->setText(map["DIRECTORY"].toString());
+    editor.spinBox_MINSIZE->setValue(map["MINSIZE"].toInt());
+    editor.spinBox_MAXSIZE->setValue(map["MAXSIZE"].toInt());
+    editor.comboBox_TYPESIZE->setCurrentIndex(map["TYPESIZE"].toInt());
+    editor.comboBox_TYPE->setCurrentIndex(map["SOURCETYPE"].toInt());
+}
+void ADLS::getParams(/*const*/ ADLSearch &entry, StrMap &map){
+    //if (!entry)
+      //  return;
+
+    map["SSTRING"]     = _q(entry.searchString);
+    map["DIRECTORY"]   = _q(entry.destDir);
+    map["CHECK"]       = entry.isActive;
+    map["AUTOQUEUE"]   = entry.isAutoQueue;
+    map["MINSIZE"]     = entry.minFileSize;
+    map["MAXSIZE"]     = entry.maxFileSize;
+    map["SOURCETYPE"]  = entry.sourceType;
+    map["TYPESIZE"]    = entry.typeFileSize;
+
 }
