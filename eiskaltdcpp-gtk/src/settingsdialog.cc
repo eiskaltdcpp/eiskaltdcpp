@@ -75,7 +75,7 @@ Settings::Settings(GtkWindow* parent):
     defaultStringTheme.insert(StringMap::value_type("icon-queue", "eiskaltdcpp-download"));
     defaultStringTheme.insert(StringMap::value_type("icon-search", "eiskaltdcpp-edit-find"));
     defaultStringTheme.insert(StringMap::value_type("icon-search-spy", "eiskaltdcpp-spy"));
-    defaultStringTheme.insert(StringMap::value_type("icon-search-adl", "eiskaltdcpp-find"));
+	defaultStringTheme.insert(StringMap::value_type("icon-search-adl", "eiskaltdcpp-adls"));
     defaultStringTheme.insert(StringMap::value_type("icon-upload", "eiskaltdcpp-go-up"));
     defaultStringTheme.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
     defaultStringTheme.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
