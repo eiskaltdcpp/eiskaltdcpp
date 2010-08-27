@@ -331,6 +331,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiFILETYPE_UNKNOWN]     = FROMTHEME("unknown", resourceFound);
     m_PixmapMap[eiFILETYPE_VIDEO]       = FROMTHEME("video-x-generic", resourceFound);
 
+    m_PixmapMap[eiADLS]         = FROMTHEME("adls", resourceFound);
     m_PixmapMap[eiBALL_GREEN]   = FROMTHEME("ball_green", resourceFound);
     m_PixmapMap[eiCHAT]         = FROMTHEME("chat", resourceFound);
     m_PixmapMap[eiCONSOLE]      = FROMTHEME("console", resourceFound);

@@ -1,5 +1,7 @@
 HEADERS = ../Version.h \
     src/MainWindow.h \
+    src/ADLS.h \
+    src/ADLSModel.h \
     src/Antispam.h \
     src/AntiSpamFrame.h \
     src/IPFilter.h \
@@ -56,13 +58,15 @@ HEADERS = ../Version.h \
     src/ScriptManagerDialog.h \
     scriptengine/ScriptConsole.h
 SOURCES = src/main.cpp \
+    src/MainWindow.cpp \
+    src/ADLS.cpp \
+    src/ADLSModel.cpp \
     src/Antispam.cpp \
     src/AntiSpamFrame.cpp \
     src/IPFilter.cpp \
     src/IPFilterFrame.cpp \
     src/IPFilterModel.cpp \
     src/FavoriteUsers.cpp \
-    src/MainWindow.cpp \
     src/HubFrame.cpp \
     src/WulforManager.cpp \
     src/UserListModel.cpp \
@@ -144,7 +148,9 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UISettingsUC.ui \
     ui/UIUserCommands.ui \
     ui/UIScriptManager.ui \
-    ui/UIDialogScriptConsole.ui
+    ui/UIDialogScriptConsole.ui \
+    ui/UIADLSearch.ui \
+    ui/UIADLSearchEditor.ui
 TRANSLATIONS = translations/en.ts \
                translations/ru.ts \
                translations/be.ts \

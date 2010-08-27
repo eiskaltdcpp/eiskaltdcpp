@@ -54,8 +54,8 @@ public:
     Q_ENUMS (Icons)
 
     enum Icons {
-        eiAWAY = 0,
-        eiADLS,
+        eiADLS = 0,
+        eiAWAY,
         eiBALL_GREEN,
         eiBOOKMARK_ADD,
         eiCHAT,

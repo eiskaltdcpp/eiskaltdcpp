@@ -583,7 +583,6 @@ void MainWindow::initActions(){
 
         toolsADLS = new QAction("", this);
         toolsADLS->setObjectName("toolsADLS");
-        toolsADLS->setShortcut(tr("Ctrl+A"));
         toolsADLS->setIcon(WU->getPixmap(WulforUtil::eiADLS));
         connect(toolsADLS, SIGNAL(triggered()), this, SLOT(slotToolsADLS()));
 
@@ -811,6 +810,7 @@ void MainWindow::initActions(){
                 << findInWidget
                 << chatDisable
                 << separator5
+                << toolsADLS
                 << toolsSpy
                 << toolsAntiSpam
                 << toolsIPFilter
@@ -1244,6 +1244,13 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         {
             if (!SpyFrame::getInstance()) SpyFrame::newInstance();
             awgt = SpyFrame::getInstance();
+
+            break;
+        }
+    case ArenaWidget::ADLS:
+        {
+            if (!ADLS::getInstance()) ADLS::newInstance();
+            awgt = ADLS::getInstance();
 
             break;
         }
@@ -1821,13 +1828,14 @@ void MainWindow::slotHubsReconnect(){
     if (fr)
         fr->reconnect();
 }
+
 void MainWindow::slotToolsADLS(){
     if (!ADLS::getInstance())
         ADLS::newInstance();
 
     toggleSingletonWidget(ADLS::getInstance());
-
 }
+
 void MainWindow::slotToolsSearch(){
     SearchFrame *sf = new SearchFrame();
 

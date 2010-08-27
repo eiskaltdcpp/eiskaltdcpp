@@ -92,6 +92,8 @@ HEADERS = ../Version.h \
     ../dcpp/AdcHub.h \
     ../dcpp/HashManagerListener.h \
     src/MainWindow.h \
+    src/ADLS.h \
+    src/ADLSModel.h \
     src/Func.h \
     src/HubFrame.h \
     src/UserListModel.h \
@@ -219,6 +221,8 @@ SOURCES = ../dcpp/HashManager.cpp \
     ../dcpp/ZUtils.cpp \
     src/main.cpp \
     src/MainWindow.cpp \
+    src/ADLS.cpp \
+    src/ADLSModel.cpp \
     src/HubFrame.cpp \
     src/UserListModel.cpp \
     src/WulforUtil.cpp \
@@ -320,4 +324,6 @@ FORMS = ui/HubFrame.ui \
     ui/UISettingsUC.ui \
     ui/UIScriptManager.ui \
     ui/UIDialogScriptConsole.ui \
-    ui/UIActionCustomizer.ui
+    ui/UIActionCustomizer.ui \
+    ui/UIADLSearch.ui \
+    ui/UIADLSearchEditor.ui
