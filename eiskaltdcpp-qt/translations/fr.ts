@@ -5028,11 +5028,11 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <name>UPnPMapper</name>
     <message>
         <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation>Échec de récupération d&apos;IP externe via UPnP. Veuillez la définir manuellement.</translation>
+        <translation type="obsolete">Échec de récupération d&apos;IP externe via UPnP. Veuillez la définir manuellement.</translation>
     </message>
     <message>
         <source>Failed to create port mappings. Please set up your NAT yourself.</source>
-        <translation>Échec de découverte des ports. Veuillez configurer manuellement.</translation>
+        <translation type="obsolete">Échec de découverte des ports. Veuillez configurer manuellement.</translation>
     </message>
 </context>
 <context>

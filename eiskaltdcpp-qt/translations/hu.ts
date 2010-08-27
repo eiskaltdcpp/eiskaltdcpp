@@ -5051,11 +5051,11 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <name>UPnPMapper</name>
     <message>
         <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation>A külső IP megállapítása nem sikerült UPnp-n keresztül. Kérlek állítsd be kézzel.</translation>
+        <translation type="obsolete">A külső IP megállapítása nem sikerült UPnp-n keresztül. Kérlek állítsd be kézzel.</translation>
     </message>
     <message>
         <source>Failed to create port mappings. Please set up your NAT yourself.</source>
-        <translation>A porthozzárendelés létrehozása sikertelen. Kérlek állítsd be a NAT-ot kézzel.</translation>
+        <translation type="obsolete">A porthozzárendelés létrehozása sikertelen. Kérlek állítsd be a NAT-ot kézzel.</translation>
     </message>
 </context>
 <context>

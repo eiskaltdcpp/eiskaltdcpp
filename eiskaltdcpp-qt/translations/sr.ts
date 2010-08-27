@@ -4755,11 +4755,11 @@ odobreni slot neće biti zatvoren.</translation>
     <name>UPnPMapper</name>
     <message>
         <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation>Neuspelo dobijanje spoljne IP preko       UPnP. Molimo da postavite sami.</translation>
+        <translation type="obsolete">Neuspelo dobijanje spoljne IP preko       UPnP. Molimo da postavite sami.</translation>
     </message>
     <message>
         <source>Failed to create port mappings. Please set up your NAT yourself.</source>
-        <translation>Nije uspelo mapiranje porta. Molimo da svoj Nat postavite sami.</translation>
+        <translation type="obsolete">Nije uspelo mapiranje porta. Molimo da svoj Nat postavite sami.</translation>
     </message>
 </context>
 <context>
