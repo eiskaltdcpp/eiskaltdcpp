@@ -296,7 +296,6 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap.clear();
 
     m_PixmapMap[eiAWAY]         = FROMTHEME("im-user-away", resourceFound);
-    m_PixmapMap[eiADLS]         = FROMTHEME("adls", resourceFound);
     m_PixmapMap[eiBOOKMARK_ADD] = FROMTHEME("bookmark-new", resourceFound);
     m_PixmapMap[eiCLEAR]        = FROMTHEME("edit-clear",   resourceFound);
     m_PixmapMap[eiCONFIGURE]    = FROMTHEME("configure",    resourceFound);

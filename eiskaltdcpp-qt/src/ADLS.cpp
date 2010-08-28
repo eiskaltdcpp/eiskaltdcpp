@@ -335,6 +335,8 @@ void ADLS::updateItem(ADLSItem *item, StrMap &map) {
     item->updateColumn(COLUMN_MINSIZE, map["MINSIZE"]);
     item->updateColumn(COLUMN_MAXSIZE, map["MAXSIZE"]);
     item->updateColumn(COLUMN_TYPESIZE, map["TYPESIZEF"]);
+    item->updateColumn(COLUMN_TYPE, map["SOURCETYPEF"]);
+
 }
 
 void ADLS::updateEntry(ADLSearch &entry, StrMap &map){
@@ -357,6 +359,7 @@ void ADLS::getParams(const ADLSEditor &editor, StrMap &map){
     map["CHECK"]        = editor.checkBox_CHECK->isChecked();
     map["SOURCETYPE"]   = editor.comboBox_TYPE->currentIndex();
     map["TYPESIZE"]     = editor.comboBox_TYPESIZE->currentIndex();
+    map["SOURCETYPEF"]   = editor.comboBox_TYPE->currentText();
     map["TYPESIZEF"]    = editor.comboBox_TYPESIZE->currentText();
     map["MINSIZE"]      = editor.spinBox_MINSIZE->value();
     map["MAXSIZE"]      = editor.spinBox_MAXSIZE->value();
