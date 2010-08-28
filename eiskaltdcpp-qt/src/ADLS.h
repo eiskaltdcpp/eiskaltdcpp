@@ -92,6 +92,9 @@ private:
     void getParams(const ADLSEditor&, StrMap&);
     void updateEntry(ADLSearch&, StrMap&);
     void updateItem(ADLSItem*, StrMap&);
+    void addItem(ADLSearch &);
+    QString SizeTypeToString(ADLSearch::SizeType);
+    QString SourceTypeToString(ADLSearch::SourceType);
     ADLSItem *getItem();
 
     ADLSModel *model;

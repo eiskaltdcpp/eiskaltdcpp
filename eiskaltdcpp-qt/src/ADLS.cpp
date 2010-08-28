@@ -86,18 +86,7 @@ void ADLS::init(){
 
     for (ADLSearchManager::SearchCollection::iterator i = collection.begin(); i != collection.end(); ++i) {
         ADLSearch &search = *i;
-
-        QList<QVariant> data;
-
-        data << search.isActive
-             << _q(search.searchString)
-             << _q(search.SourceTypeToString(search.sourceType))
-             << _q(search.destDir)
-             << search.minFileSize
-             << search.maxFileSize
-             << _q(search.SizeTypeToString(search.typeFileSize));
-
-        model->addResult(data);
+        addItem(search);
     }
 
     treeView->setRootIsDecorated(false);
@@ -239,18 +228,7 @@ void ADLS::slotAdd_newButtonClicked(){
         updateEntry(search, map);
         collection.push_back(search);
         ADLSearchManager::getInstance()->Save();
-        QList<QVariant> data;
-
-        data << search.isActive
-             << _q(search.searchString)
-             << _q(search.SourceTypeToString(search.sourceType))
-             << _q(search.destDir)
-             << search.minFileSize
-             << search.maxFileSize
-             << _q(search.SizeTypeToString(search.typeFileSize));
-
-
-        model->addResult(data);
+        addItem(search);
     }
 }
 
@@ -288,7 +266,6 @@ void ADLS::slotRemoveButtonClicked(){
     if (!item)
         return;
     int i = item->row();
-    //qDebug() << i;
     ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
         if (i < collection.size()) {
             collection.erase(collection.begin() + i);
@@ -334,8 +311,8 @@ void ADLS::updateItem(ADLSItem *item, StrMap &map) {
     item->updateColumn(COLUMN_DIRECTORY, map["DIRECTORY"]);
     item->updateColumn(COLUMN_MINSIZE, map["MINSIZE"]);
     item->updateColumn(COLUMN_MAXSIZE, map["MAXSIZE"]);
-    item->updateColumn(COLUMN_TYPESIZE, map["TYPESIZEF"]);
-    item->updateColumn(COLUMN_TYPE, map["SOURCETYPEF"]);
+    item->updateColumn(COLUMN_TYPESIZE, SizeTypeToString((ADLSearch::SizeType)map["TYPESIZE"].toInt()));
+    item->updateColumn(COLUMN_TYPE, SourceTypeToString((ADLSearch::SourceType)map["SOURCETYPE"].toInt()));
 
 }
 
@@ -359,8 +336,6 @@ void ADLS::getParams(const ADLSEditor &editor, StrMap &map){
     map["CHECK"]        = editor.checkBox_CHECK->isChecked();
     map["SOURCETYPE"]   = editor.comboBox_TYPE->currentIndex();
     map["TYPESIZE"]     = editor.comboBox_TYPESIZE->currentIndex();
-    map["SOURCETYPEF"]   = editor.comboBox_TYPE->currentText();
-    map["TYPESIZEF"]    = editor.comboBox_TYPESIZE->currentText();
     map["MINSIZE"]      = editor.spinBox_MINSIZE->value();
     map["MAXSIZE"]      = editor.spinBox_MAXSIZE->value();
 
@@ -378,8 +353,6 @@ void ADLS::initEditor(ADLSEditor &editor, StrMap &map){
     editor.comboBox_TYPE->setCurrentIndex(map["SOURCETYPE"].toInt());
 }
 void ADLS::getParams(/*const*/ ADLSearch &entry, StrMap &map){
-    //if (!entry)
-      //  return;
 
     map["SSTRING"]     = _q(entry.searchString);
     map["DIRECTORY"]   = _q(entry.destDir);
@@ -390,4 +363,35 @@ void ADLS::getParams(/*const*/ ADLSearch &entry, StrMap &map){
     map["SOURCETYPE"]  = entry.sourceType;
     map["TYPESIZE"]    = entry.typeFileSize;
 
+}
+void ADLS::addItem(ADLSearch &search){
+        QList<QVariant> data;
+
+        data << search.isActive
+             << _q(search.searchString)
+             << SourceTypeToString(search.sourceType)
+             << _q(search.destDir)
+             << search.minFileSize
+             << search.maxFileSize
+             << SizeTypeToString(search.typeFileSize);
+
+
+        model->addResult(data);
+}
+QString ADLS::SourceTypeToString(ADLSearch::SourceType t){
+    switch(t) {
+        default:
+        case ADLSearch::OnlyFile:      return tr("Filename");
+        case ADLSearch::OnlyDirectory: return tr("Directory");
+        case ADLSearch::FullPath:      return tr("Full Path");
+    }
+}
+QString ADLS::SizeTypeToString(ADLSearch::SizeType t){
+    switch(t) {
+        default:
+        case ADLSearch::SizeBytes:     return tr("B");
+        case ADLSearch::SizeKibiBytes: return tr("KiB");
+        case ADLSearch::SizeMebiBytes: return tr("MiB");
+        case ADLSearch::SizeGibiBytes: return tr("GiB");
+    }
 }
