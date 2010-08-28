@@ -146,26 +146,34 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
     }
     else if (e->type() == QEvent::MouseButtonDblClick){
         HubFrame *fr = HubManager::getInstance()->getHub(hubUrl);
-
+        bool cursoratnick;
         QString nick = "";
         QString cid = "";
         QTextCursor cursor = textEdit_CHAT->textCursor();
 
         QString pressedParagraph = cursor.block().text();
-
-        int l = pressedParagraph.indexOf("<");
-        int r = pressedParagraph.indexOf(">");
+        int positionCursor = cursor.columnNumber();
+        int l = pressedParagraph.indexOf(" <");
+        int r = pressedParagraph.indexOf("> ");
 
         if ((l < r) && fr){
-            nick = pressedParagraph.mid(l+1, r-l-1);
+            nick = pressedParagraph.mid(l+2, r-l-2);
             cid = fr->getCIDforNick(nick);
         }
+        if ((positionCursor < r) && (positionCursor > l))
+            cursoratnick = true;
+        else
+            cursoratnick = false;
 
         if (!cid.isEmpty()){
-            if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1 && fr)
-                fr->browseUserFiles(cid, false);
-            else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && fr)
-                fr->addPM(cid, "");
+            if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1 && fr){
+                if (cursoratnick)
+                    fr->browseUserFiles(cid, false);
+            }
+            else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && fr){
+                if (cursoratnick)
+                    fr->addPM(cid, "");
+            }
             else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://")){
                 if (plainTextEdit_INPUT->textCursor().position() == 0)
                     plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");

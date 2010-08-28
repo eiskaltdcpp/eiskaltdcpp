@@ -699,7 +699,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             if (isChat){
                 QString pressedParagraph = cursor.block().text();
                 int positionCursor = cursor.columnNumber();
-                //qDebug() << pressedParagraph;
                 int l = pressedParagraph.indexOf(" <");
                 int r = pressedParagraph.indexOf("> ");
 
@@ -711,8 +710,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                     cursoratnick = true;
                 else
                     cursoratnick = false;
-                //qDebug() << cursoratnick;
-                //qDebug() << nick;
             }
             else if (isUserList){
                 QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
