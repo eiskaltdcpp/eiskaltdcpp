@@ -19,14 +19,15 @@
 * Added a hash progress indicator in the status line. Combined menu 'Refresh share' and 'Hash progress'.
 * Extended settings dialog.
 * Removed extra code (option -DFREE_SPACE_BAR for cmake). Assemblies with -DFREE_SPACE_BAR_C=ON work stably on all supported platforms.
-* Added ability to configure connection via UPnP (miniupnp).
+* Added ability to configure connection via UPnP (used miniupnp).
+* Removed the possibility to build with libupnp 1.6 .* (USE_LIBUPNP option).
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
 *** eiskaltdcpp-gtk ***
 * Added Gtk interface based on code of FreeDC++ and LinuxDC++.
 * The interface is localized using gettext.
 * Default icons for Gtk interface synchronized with default icons from Qt interface.
 * Added widget for ADL-search configuration.
-* Added ability to configure connection via UPnP (miniupnp).
+* Added ability to configure connection via UPnP (used miniupnp).
 * Added /sh and /alias chat commands (see man-page or /help in chat).
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
 *** eiskaltdcpp-wt ***
