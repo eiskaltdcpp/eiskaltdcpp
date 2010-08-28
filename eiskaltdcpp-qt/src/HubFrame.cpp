@@ -643,18 +643,22 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         {
             QString nick = "";
             QString cid = "";
+            bool cursoratnick = false;
 
             if (isChat){
                 QTextCursor cursor = textEdit_CHAT->textCursor();
                 QString pressedParagraph = cursor.block().text();
+                int positionCursor = cursor.columnNumber();
 
-                int l = pressedParagraph.indexOf("<");
-                int r = pressedParagraph.indexOf(">");
+                int l = pressedParagraph.indexOf(" <");
+                int r = pressedParagraph.indexOf("> ");
 
                 if (l < r){
-                    nick = pressedParagraph.mid(l+1, r-l-1);
+                    nick = pressedParagraph.mid(l+2, r-l-2);
                     cid = model->CIDforNick(nick);
                 }
+                if ((positionCursor < r) && (positionCursor > l))
+                    cursoratnick = true;
             }
             else if (isUserList){
                 QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
@@ -679,9 +683,9 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
                     plainTextEdit_INPUT->setFocus();
                 }
-                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2)
+                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList))
                     addPM(cid, "");
-                else
+                else if (cursoratnick || isUserList)
                     browseUserFiles(cid, false);
             }
         }
@@ -693,7 +697,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         if (isChat || isUserList){
             QString nick = "";
             QString cid = "";
-            bool cursoratnick;
+            bool cursoratnick = false;
             QTextCursor cursor = textEdit_CHAT->textCursor();
 
             if (isChat){
@@ -708,8 +712,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 }
                 if ((positionCursor < r) && (positionCursor > l))
                     cursoratnick = true;
-                else
-                    cursoratnick = false;
             }
             else if (isUserList){
                 QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
@@ -726,14 +728,10 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             }
 
             if (!cid.isEmpty()){
-                if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1){
-                    if (cursoratnick)
+                if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1 && (cursoratnick || isUserList))
                         browseUserFiles(cid, false);
-                }
-                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2){
-                    if (cursoratnick)
+                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList))
                         addPM(cid, "");
-                }
                 else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
                     if (plainTextEdit_INPUT->textCursor().position() == 0)
                         plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
