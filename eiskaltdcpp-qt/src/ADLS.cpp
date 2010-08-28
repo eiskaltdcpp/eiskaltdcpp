@@ -149,6 +149,7 @@ void ADLS::slotContexMenu(const QPoint &){
         QAction *res = menu->exec(QCursor::pos());
 
         if (res){
+            slotAdd_newButtonClicked();
             }
     } else {
         ADLSItem *item = static_cast<ADLSItem*>(list.at(0).internalPointer());
