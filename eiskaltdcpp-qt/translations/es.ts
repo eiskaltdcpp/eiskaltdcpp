@@ -1812,27 +1812,27 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1121"/>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Homepage</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1123"/>
         <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuente (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1125"/>
         <source>Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Reportar error</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1127"/>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki del proyecto</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1129"/>
         <source>Changelog (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de cambios (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1131"/>
@@ -1946,7 +1946,7 @@ Por favor verifica sus opciones de conexión</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2278"/>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2315"/>
@@ -2288,37 +2288,37 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/main.cpp" line="46"/>
         <source>Loading: </source>
-        <translation type="unfinished"></translation>
+        <translation>Cargando: </translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="99"/>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>los iconos de la lista de usuarios han sido cargados</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Los iconos de la aplicación han sido cargados</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="137"/>
         <source>Shutting down libdcpp...</source>
-        <translation type="unfinished"></translation>
+        <translation>Apagando libdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="162"/>
         <source>Quit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Saliendo...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="190"/>
         <source>Cannot handle SIGPIPE</source>
-        <translation type="unfinished"></translation>
+        <translation>No se puede manejar SIGPIPE</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="193"/>
         <source>Signal handlers installed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Conductores de señal instalados.</translation>
     </message>
 </context>
 <context>
@@ -3584,7 +3584,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
         <source>Full path</source>
-        <translation type="unfinished"></translation>
+        <translation>Dirección completa</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="76"/>

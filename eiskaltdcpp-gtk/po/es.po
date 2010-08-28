@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-28 16:31+0300\n"
-"PO-Revision-Date: 2010-08-21 20:09+0200\n"
+"PO-Revision-Date: 2010-08-29 01:22+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -811,18 +811,16 @@ msgid "Upload complete..."
 msgstr "Subida completa"
 
 #: ../src/wulfor.cc:78
-#, fuzzy
 msgid "Loading: "
-msgstr "_Codificación_"
+msgstr "Cargando: "
 
 #: ../src/wulfor.cc:156
 msgid "Shutting down libdcpp..."
-msgstr ""
+msgstr "Apagando libdcpp..."
 
 #: ../src/wulfor.cc:158
-#, fuzzy
 msgid "Quit..."
-msgstr "Salir"
+msgstr "Saliendo..."
 
 #: ../src/privatemessage.cc:38 ../src/privatemessage.cc:138
 msgid "PM: "
@@ -1459,7 +1457,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:198
 msgid "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
-msgstr ""
+msgstr "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
 
 #: ../src/mainwindow.cc:214
 msgid "Welcome to "
@@ -2295,7 +2293,7 @@ msgstr "Reportar error"
 
 #: ../glade/mainwindow.glade:427
 msgid "Wiki of project"
-msgstr ""
+msgstr "Wiki del proyecto"
 
 #: ../glade/mainwindow.glade:446
 msgid "Changelog (svn)"
@@ -2390,7 +2388,6 @@ msgid "<b>Connect to address:</b>"
 msgstr "<b>Conectar con la dirección:</b>"
 
 #: ../glade/mainwindow.glade:1066
-#, fuzzy
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
