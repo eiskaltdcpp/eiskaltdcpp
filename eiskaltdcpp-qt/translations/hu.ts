@@ -2,6 +2,56 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="hu_HU" sourcelanguage="en_US">
 <context>
+    <name>ADLS</name>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished">ADL-Keresés</translation>
+    </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Új hozzáadása</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Törlés</translation>
+    </message>
+</context>
+<context>
+    <name>ADLSModel</name>
+    <message>
+        <source>Checked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search String</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Min. Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max. Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>About</name>
     <message>
         <source>Using:
@@ -1734,11 +1784,11 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation>Ctrl+A</translation>
+        <translation type="obsolete">Ctrl+A</translation>
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="obsolete">ADL-Keresés</translation>
+        <translation type="unfinished">ADL-Keresés</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
@@ -2689,7 +2739,7 @@ Kapcsolók:
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="obsolete">ADL-Keresés</translation>
+        <translation type="unfinished">ADL-Keresés</translation>
     </message>
 </context>
 <context>
@@ -2947,6 +2997,92 @@ Biztosan le akarod állítani?
     <message>
         <source>Separator</source>
         <translation>Elválasztó</translation>
+    </message>
+</context>
+<context>
+    <name>UIADLS</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Új hozzáadása</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Törlés</translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished">Mozgatás fel</translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished">Mozgatás le</translation>
+    </message>
+</context>
+<context>
+    <name>UIADLSEditor</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Beállítások</translation>
+    </message>
+    <message>
+        <source>Search String</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite hub name.</source>
+        <translation type="unfinished">Kedvenc hubnév.</translation>
+    </message>
+    <message>
+        <source>Type source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Fájlnév</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Könyvtár</translation>
+    </message>
+    <message>
+        <source>Absolete path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Min/Max Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished">B</translation>
+    </message>
+    <message>
+        <source>KiB</source>
+        <translation type="unfinished">KiB</translation>
+    </message>
+    <message>
+        <source>MiB</source>
+        <translation type="unfinished">MiB</translation>
+    </message>
+    <message>
+        <source>GiB</source>
+        <translation type="unfinished">GiB</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="unfinished">Be</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation type="unfinished">Letöltés</translation>
     </message>
 </context>
 <context>

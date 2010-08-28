@@ -2,6 +2,56 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>ADLS</name>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Dodaj novi</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished">Promeni</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Obriši</translation>
+    </message>
+</context>
+<context>
+    <name>ADLSModel</name>
+    <message>
+        <source>Checked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search String</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Min. Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max. Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>About</name>
     <message>
         <source>Using:
@@ -1537,7 +1587,7 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation>Ctrl+A</translation>
+        <translation type="obsolete">Ctrl+A</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
@@ -1601,6 +1651,10 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ADLSearch</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2471,6 +2525,10 @@ Keys:
         <source>Widgets</source>
         <translation>Vidžeti</translation>
     </message>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -2726,6 +2784,92 @@ Da li želite da zaustavite?</translation>
     <message>
         <source>Separator</source>
         <translation>Razdvajač</translation>
+    </message>
+</context>
+<context>
+    <name>UIADLS</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Oblik</translation>
+    </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Dodaj novi</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished">Promeni</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Obriši</translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished">Pomeri gore</translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished">Pomeri dole</translation>
+    </message>
+</context>
+<context>
+    <name>UIADLSEditor</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Dijalog</translation>
+    </message>
+    <message>
+        <source>Search String</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite hub name.</source>
+        <translation type="unfinished">Omiljeni hab.</translation>
+    </message>
+    <message>
+        <source>Type source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Ime fajla</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Fascikla</translation>
+    </message>
+    <message>
+        <source>Absolete path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Min/Max Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished">B</translation>
+    </message>
+    <message>
+        <source>KiB</source>
+        <translation type="unfinished">KiB</translation>
+    </message>
+    <message>
+        <source>MiB</source>
+        <translation type="unfinished">MiB</translation>
+    </message>
+    <message>
+        <source>GiB</source>
+        <translation type="unfinished">GiB</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="unfinished">Uključi</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

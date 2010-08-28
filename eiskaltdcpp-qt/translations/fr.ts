@@ -2,6 +2,56 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="fr_FR">
 <context>
+    <name>ADLS</name>
+    <message>
+        <source>ADLSearch</source>
+        <translation type="unfinished">ADLSearch</translation>
+    </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished">Changer</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ADLSModel</name>
+    <message>
+        <source>Checked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search String</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Min. Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max. Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>About</name>
     <message>
         <source>Using:
@@ -1684,11 +1734,11 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Ctrl+A</source>
-        <translation>Ctrl+A</translation>
+        <translation type="obsolete">Ctrl+A</translation>
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="obsolete">ADLSearch</translation>
+        <translation type="unfinished">ADLSearch</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
@@ -2737,7 +2787,7 @@ Clés:
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="obsolete">ADLSearch</translation>
+        <translation type="unfinished">ADLSearch</translation>
     </message>
 </context>
 <context>
@@ -3033,6 +3083,92 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>Separator</source>
         <translation>Séparateur</translation>
+    </message>
+</context>
+<context>
+    <name>UIADLS</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulaire</translation>
+    </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished">Changer</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move up</source>
+        <translation type="unfinished">Déplacer vers le haut</translation>
+    </message>
+    <message>
+        <source>Move down</source>
+        <translation type="unfinished">Déplacer vers le bas</translation>
+    </message>
+</context>
+<context>
+    <name>UIADLSEditor</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Dialogue</translation>
+    </message>
+    <message>
+        <source>Search String</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorite hub name.</source>
+        <translation type="unfinished">Nom du serveur favoris.</translation>
+    </message>
+    <message>
+        <source>Type source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Nom de fichier</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Répertoire</translation>
+    </message>
+    <message>
+        <source>Absolete path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Min/Max Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished">B</translation>
+    </message>
+    <message>
+        <source>KiB</source>
+        <translation type="unfinished">KiB</translation>
+    </message>
+    <message>
+        <source>MiB</source>
+        <translation type="unfinished">MiB</translation>
+    </message>
+    <message>
+        <source>GiB</source>
+        <translation type="unfinished">GiB</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="unfinished">On</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
