@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-20 14:48+0300\n"
+"POT-Creation-Date: 2010-08-28 16:31+0300\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -60,15 +60,15 @@ msgstr ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 
-#: ../DCPlusPlus.cpp:119
+#: ../DCPlusPlus.cpp:115
 msgid "Hash database"
 msgstr "Hash database"
 
-#: ../DCPlusPlus.cpp:122
+#: ../DCPlusPlus.cpp:118
 msgid "Shared Files"
 msgstr "Shared Files"
 
-#: ../DCPlusPlus.cpp:125
+#: ../DCPlusPlus.cpp:121
 msgid "Download Queue"
 msgstr "Download Queue"
 
@@ -131,42 +131,42 @@ msgstr ""
 msgid "Not listening for connections - please restart %1%"
 msgstr ""
 
-#: ../Util.cpp:459
+#: ../Util.cpp:463
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:461
+#: ../Util.cpp:465
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:467
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:469
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:471
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:473
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:499
+#: ../Util.cpp:503
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:507
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-20 14:48+0300\n"
+"POT-Creation-Date: 2010-08-28 16:31+0300\n"
 "PO-Revision-Date: 2010-08-21 20:09+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
@@ -66,7 +66,7 @@ msgstr "Estado"
 #: ../src/search.cc:618 ../src/search.cc:761 ../src/search.cc:1618
 #: ../src/search.cc:1636 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:284 ../src/sharebrowser.cc:315
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1377
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1375
 msgid "Size"
 msgstr "Tamaño"
 
@@ -487,8 +487,8 @@ msgstr "Comando desconocido '"
 msgid "': type /help for a list of available commands"
 msgstr "': introduce /help para ver la lista de comandos disponibles"
 
-#: ../src/hub.cc:2230 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1035
-#: ../src/mainwindow.cc:1103 ../glade/sharebrowser.glade:319
+#: ../src/hub.cc:2230 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1036
+#: ../src/mainwindow.cc:1104 ../glade/sharebrowser.glade:319
 #: ../glade/search.glade:563 ../glade/settingsdialog.glade:6002
 msgid "Choose a directory"
 msgstr "Elige un directorio"
@@ -641,8 +641,8 @@ msgstr " restante"
 msgid "-:--:-- left"
 msgstr "-:--:-- restante"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1930
-#: ../src/mainwindow.cc:1932 ../glade/settingsdialog.glade:1574
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1931
+#: ../src/mainwindow.cc:1933 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
 msgstr "s"
@@ -809,6 +809,20 @@ msgstr "Subido"
 #: ../src/transfers.cc:1137
 msgid "Upload complete..."
 msgstr "Subida completa"
+
+#: ../src/wulfor.cc:78
+#, fuzzy
+msgid "Loading: "
+msgstr "_Codificación_"
+
+#: ../src/wulfor.cc:156
+msgid "Shutting down libdcpp..."
+msgstr ""
+
+#: ../src/wulfor.cc:158
+#, fuzzy
+msgid "Quit..."
+msgstr "Salir"
 
 #: ../src/privatemessage.cc:38 ../src/privatemessage.cc:138
 msgid "PM: "
@@ -1443,48 +1457,52 @@ msgstr ""
 "EiskaltDC++ version: %s - %s %s\n"
 "DC++ version del nucleo: %s"
 
-#: ../src/mainwindow.cc:213
+#: ../src/mainwindow.cc:198
+msgid "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
+msgstr ""
+
+#: ../src/mainwindow.cc:214
 msgid "Welcome to "
 msgstr "Bienvenido a "
 
-#: ../src/mainwindow.cc:546
+#: ../src/mainwindow.cc:547
 msgid "Download: "
 msgstr "Descarga: "
 
-#: ../src/mainwindow.cc:546
+#: ../src/mainwindow.cc:547
 msgid "Upload: "
 msgstr "Subida: "
 
-#: ../src/mainwindow.cc:969
+#: ../src/mainwindow.cc:970
 msgid "Enter value for "
 msgstr "Introducir valor para "
 
-#: ../src/mainwindow.cc:1026
+#: ../src/mainwindow.cc:1027
 msgid "Magnet Properties / Choice"
 msgstr "Propiedades/Preferencia del Imán"
 
-#: ../src/mainwindow.cc:1096
+#: ../src/mainwindow.cc:1097
 msgid "Magnet Choice"
 msgstr "Elección de Imán"
 
-#: ../src/mainwindow.cc:1604 ../glade/mainwindow.glade:1139
+#: ../src/mainwindow.cc:1605 ../glade/mainwindow.glade:1137
 msgid "Select filelist to browse"
 msgstr "Seleccionar lista de archivos para explorar"
 
-#: ../src/mainwindow.cc:1629
+#: ../src/mainwindow.cc:1630
 msgid "Unable to load file list: Invalid file list name"
 msgstr ""
 "No se puede cargar lista de archivos: Nombre de la lista de archivos invalida"
 
-#: ../src/mainwindow.cc:1641
+#: ../src/mainwindow.cc:1642
 msgid "Loading file list"
 msgstr "Cargando lista de archivos"
 
-#: ../src/mainwindow.cc:1827
+#: ../src/mainwindow.cc:1828
 msgid "Unable to open TCP/TLS port"
 msgstr "No se puede abrir el puerto TCP/TLS"
 
-#: ../src/mainwindow.cc:1828
+#: ../src/mainwindow.cc:1829
 msgid ""
 "File transfers will not work correctly until you change settings or turn off "
 "any application that might be using the TCP/TLS port."
@@ -1493,11 +1511,11 @@ msgstr ""
 "configuración o se cierren todas las aplicaciones que puedan estar "
 "utilizando el puerto TCP/TLS."
 
-#: ../src/mainwindow.cc:1840
+#: ../src/mainwindow.cc:1841
 msgid "Unable to open UDP port"
 msgstr "No se puede abrir rl puerto UDP"
 
-#: ../src/mainwindow.cc:1841
+#: ../src/mainwindow.cc:1842
 msgid ""
 "Searching will not work correctly until you change settings or turn off any "
 "application that might be using the UDP port."
@@ -1506,11 +1524,11 @@ msgstr ""
 "configuración o se cierren todas las aplicaciones que puedan estar usando el "
 "puerto UDP."
 
-#: ../src/mainwindow.cc:1896
+#: ../src/mainwindow.cc:1897
 msgid "file list from "
 msgstr "Lista de archivos desde "
 
-#: ../src/mainwindow.cc:1906
+#: ../src/mainwindow.cc:1907
 msgid "<b>file:</b> "
 msgstr "<b>Archivo:</b> "
 
@@ -1700,7 +1718,7 @@ msgid "Slots"
 msgstr "Slots"
 
 #: ../src/search.cc:303 ../src/search.cc:373 ../src/sharebrowser.cc:479
-#: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1552
+#: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1550
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2728 ../glade/settingsdialog.glade:4041
 #: ../glade/settingsdialog.glade:4967 ../glade/settingsdialog.glade:4982
@@ -1951,8 +1969,8 @@ msgid ""
 "reduces the dynamics (updating) frame"
 msgstr ""
 "El incremento en el tiempo de espera incrementa el la posibilidad de "
-"añadirlas al principio de la lista, pero "
-"reduce el dinamismo (actualización) del cuadro"
+"añadirlas al principio de la lista, pero reduce el dinamismo (actualización) "
+"del cuadro"
 
 #: ../glade/searchspy.glade:112
 msgid "Frame:"
@@ -2239,7 +2257,7 @@ msgstr "_Preferencias"
 msgid "_Magnet Choice"
 msgstr "_Elección de Imán"
 
-#: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1302
+#: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1300
 msgid "_Exit"
 msgstr "_Salir"
 
@@ -2276,8 +2294,8 @@ msgid "Report a Bug"
 msgstr "Reportar error"
 
 #: ../glade/mainwindow.glade:427
-msgid "Discussion forum"
-msgstr "Foro de discusión"
+msgid "Wiki of project"
+msgstr ""
 
 #: ../glade/mainwindow.glade:446
 msgid "Changelog (svn)"
@@ -2371,28 +2389,8 @@ msgstr "Conectar con el Hub"
 msgid "<b>Connect to address:</b>"
 msgstr "<b>Conectar con la dirección:</b>"
 
-#: ../glade/mainwindow.glade:1059
-msgid ""
-"\n"
-"This program is free software; you can redistribute it and/or modify it "
-"under the terms of the GNU General Public License as published by the Free "
-"Software Foundation; either version 2 of the License, or (at your option) "
-"any later version.\n"
-"\n"
-"This program is distributed in the hope that it will be useful, but WITHOUT "
-"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
-"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
-"more details.\n"
-"\n"
-"You should have received a copy of the GNU General Public License along with "
-"this program; if not, write to the Free Software Foundation, Inc., 51 "
-"Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
-"\n"
-"In addition, as a special exception, compiling, linking, and/or using "
-"OpenSSL with this program is allowed.\n"
-msgstr ""
-
-#: ../glade/mainwindow.glade:1068
+#: ../glade/mainwindow.glade:1066
+#, fuzzy
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2401,6 +2399,7 @@ msgid ""
 "\n"
 "Contributors\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
+"    "
 msgstr ""
 "Desarrolladores\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2410,7 +2409,8 @@ msgstr ""
 "Contribuidores\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
 
-#: ../glade/mainwindow.glade:1076
+#: ../glade/mainwindow.glade:1074
+#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2457,6 +2457,7 @@ msgid ""
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
+"    "
 msgstr ""
 "Traductores\n"
 "\n"
@@ -2504,77 +2505,76 @@ msgstr ""
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
 
-#: ../glade/mainwindow.glade:1188
+#: ../glade/mainwindow.glade:1186
 msgid "Enter line for user command"
 msgstr "Introducir linea para comando de usuario"
 
-#: ../glade/mainwindow.glade:1276
+#: ../glade/mainwindow.glade:1274
 msgid "_Show Interface"
 msgstr "_Mostrar interface"
 
-#: ../glade/mainwindow.glade:1289
+#: ../glade/mainwindow.glade:1287
 msgid "Use Blinking Icon"
 msgstr "Usar icono parpadeante"
 
-#: ../glade/mainwindow.glade:1316 ../glade/mainwindow.glade:1353
+#: ../glade/mainwindow.glade:1314 ../glade/mainwindow.glade:1351
 msgid "Magnet"
 msgstr "Imán"
 
-#: ../glade/mainwindow.glade:1364
+#: ../glade/mainwindow.glade:1362
 msgid "File name"
 msgstr "Nombre del Archivo"
 
-#: ../glade/mainwindow.glade:1390
+#: ../glade/mainwindow.glade:1388
 msgid "TTH"
 msgstr "TTH"
 
-#: ../glade/mainwindow.glade:1459
+#: ../glade/mainwindow.glade:1457
 msgid "Exact size"
 msgstr "Tamaño exacto"
 
-#: ../glade/mainwindow.glade:1487
+#: ../glade/mainwindow.glade:1485
 msgid "+/-"
 msgstr "+/-"
 
-#: ../glade/mainwindow.glade:1498
+#: ../glade/mainwindow.glade:1496
 msgid "<b>Magnet properties</b>"
 msgstr "<b>Propiedades del Imán</b>"
 
-#: ../glade/mainwindow.glade:1526
+#: ../glade/mainwindow.glade:1524
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
 "Para que empiece a descargar el archivo necesita encender la autobusqueda de "
-"alternativas "
-"(Opciones/Descargas/Cola)"
+"alternativas (Opciones/Descargas/Cola)"
 
-#: ../glade/mainwindow.glade:1527
+#: ../glade/mainwindow.glade:1525
 msgid "Add this file to your download queue"
 msgstr "añadir este archivo a la cola de descarga"
 
-#: ../glade/mainwindow.glade:1571
+#: ../glade/mainwindow.glade:1569
 msgid "Start a search for this file"
 msgstr "Empezar la busqueda para este archivo "
 
-#: ../glade/mainwindow.glade:1585
+#: ../glade/mainwindow.glade:1583
 msgid "Show magnet dialog"
 msgstr "Mostrar diálogo del imán"
 
-#: ../glade/mainwindow.glade:1611
+#: ../glade/mainwindow.glade:1609
 msgid "Remember choice"
 msgstr "Recordar elección"
 
-#: ../glade/mainwindow.glade:1640
+#: ../glade/mainwindow.glade:1638
 msgid "<b>What would you like to do?</b>"
 msgstr "<b>¿Qué te gustaría hacer?</b>"
 
-#: ../glade/mainwindow.glade:1668 ../glade/settingsdialog.glade:6075
+#: ../glade/mainwindow.glade:1666 ../glade/settingsdialog.glade:6075
 #: ../glade/settingsdialog.glade:6568 ../glade/settingsdialog.glade:6609
 msgid "gtk-cancel"
 msgstr "Cancelar gtk"
 
-#: ../glade/mainwindow.glade:1678 ../glade/settingsdialog.glade:6580
+#: ../glade/mainwindow.glade:1676 ../glade/settingsdialog.glade:6580
 #: ../glade/settingsdialog.glade:6632
 msgid "gtk-ok"
 msgstr "gtk ok"
@@ -3609,6 +3609,9 @@ msgstr "_Enviar mensaje publico"
 #: ../glade/hub.glade:216
 msgid "_Remove from favorites"
 msgstr "_Eliminar desde favoritos"
+
+#~ msgid "Discussion forum"
+#~ msgstr "Foro de discusión"
 
 #~ msgid "ADLSearch"
 #~ msgstr "Busqueda ADL"

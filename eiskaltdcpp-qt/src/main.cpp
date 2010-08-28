@@ -35,6 +35,7 @@ using namespace std;
 #include <QApplication>
 #include <QMainWindow>
 #include <QRegExp>
+#include <QObject>
 
 #ifdef DBUS_NOTIFY
 #include <QtDBus>
@@ -42,7 +43,7 @@ using namespace std;
 
 void callBack(void* x, const std::string& a)
 {
-    std::cout << "Loading: " << a << std::endl;
+    std::cout << QObject::tr("Loading: ").toStdString() << a << std::endl;
 }
 
 void parseCmdLine(const QStringList &);
@@ -95,10 +96,10 @@ int main(int argc, char *argv[])
     Text::hubDefaultCharset = WulforUtil::getInstance()->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE)).toStdString();
 
     if (WulforUtil::getInstance()->loadUserIcons())
-        std::cout << "UserList icons has been loaded" << std::endl;
+        std::cout << QObject::tr("UserList icons has been loaded").toStdString() << std::endl;
 
     if (WulforUtil::getInstance()->loadIcons())
-        std::cout << "Application icons has been loaded" << std::endl;
+        std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
 #ifdef USE_MINIUPNP
     dcpp::UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
 #endif
@@ -133,7 +134,7 @@ int main(int argc, char *argv[])
 
     ret = app.exec();
 
-    std::cout << "Shutting down libdcpp..." << std::endl;
+    std::cout << QObject::tr("Shutting down libdcpp...").toStdString() << std::endl;
 
     WulforSettings::getInstance()->save();
 
@@ -158,7 +159,7 @@ int main(int argc, char *argv[])
 
     dcpp::shutdown();
 
-    std::cout << "Quit..." << std::endl;
+    std::cout << QObject::tr("Quit...").toStdString() << std::endl;
 
     runner.servStop();
 
@@ -186,10 +187,10 @@ void installHandlers(){
     memset(&sa, 0, sizeof(sa));
     sa.sa_handler = SIG_IGN;
     if (sigaction(SIGPIPE, &sa, NULL) == -1){
-        std::cout << "Cannot handle SIGPIPE" << std::endl;
+        std::cout << QObject::tr("Cannot handle SIGPIPE").toStdString() << std::endl;
     }
 
-    std::cout << "Signal handlers installed." << std::endl;
+    std::cout << QObject::tr("Signal handlers installed.").toStdString() << std::endl;
 }
 
 #endif

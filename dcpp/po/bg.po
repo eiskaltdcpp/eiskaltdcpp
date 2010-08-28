@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-07-05 22:29+0200\n"
+"POT-Creation-Date: 2010-08-28 16:31+0300\n"
 "PO-Revision-Date: 2010-08-22 20:08+0300\n"
 "Last-Translator: PsyTrip <dimitrov.rusi@gmail.com>\n"
 "Language-Team: Bulgarian <>\n"
@@ -61,15 +61,15 @@ msgstr ""
 "Грешка при настройването на Socks сървъра за UDP (проверете адреса и порта "
 "на сървъра)"
 
-#: ../DCPlusPlus.cpp:119
+#: ../DCPlusPlus.cpp:115
 msgid "Hash database"
 msgstr "База-данни с хешове"
 
-#: ../DCPlusPlus.cpp:122
+#: ../DCPlusPlus.cpp:118
 msgid "Shared Files"
 msgstr "Споделени файлове"
 
-#: ../DCPlusPlus.cpp:125
+#: ../DCPlusPlus.cpp:121
 msgid "Download Queue"
 msgstr "Опашка за сваляне"
 
@@ -134,42 +134,42 @@ msgstr "%1% бе изгонен: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Не се следи за връзки - моля, рестартирайте %1%"
 
-#: ../Util.cpp:459
+#: ../Util.cpp:463
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:461
+#: ../Util.cpp:465
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:467
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:469
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:471
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:473
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:499
+#: ../Util.cpp:503
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:507
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -286,8 +286,8 @@ msgstr "Потребителя е избрал да не се споделя в�
 
 #: ../ShareManager.cpp:710
 msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: %"
-"3%"
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
 msgstr ""
 "Повтарящия се файл няма да бъде споделен: %1% (размер: %2% B) Дупликата "
 "съвпада със: %3%"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-20 14:48+0300\n"
+"POT-Creation-Date: 2010-08-28 16:31+0300\n"
 "PO-Revision-Date: 2010-08-20 14:53+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:935
 #: ../src/settingsdialog.cc:1296 ../glade/mainwindow.glade:277
@@ -66,7 +66,7 @@ msgstr "Статус"
 #: ../src/search.cc:618 ../src/search.cc:761 ../src/search.cc:1618
 #: ../src/search.cc:1636 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:284 ../src/sharebrowser.cc:315
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1377
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1375
 msgid "Size"
 msgstr "Размер"
 
@@ -485,8 +485,8 @@ msgstr "Неизвестная команда '"
 msgid "': type /help for a list of available commands"
 msgstr "': /help для получения списка доступных команд"
 
-#: ../src/hub.cc:2230 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1035
-#: ../src/mainwindow.cc:1103 ../glade/sharebrowser.glade:319
+#: ../src/hub.cc:2230 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1036
+#: ../src/mainwindow.cc:1104 ../glade/sharebrowser.glade:319
 #: ../glade/search.glade:563 ../glade/settingsdialog.glade:6002
 msgid "Choose a directory"
 msgstr "Выбор директории"
@@ -639,8 +639,8 @@ msgstr " осталось"
 msgid "-:--:-- left"
 msgstr "-:--:-- осталось"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1930
-#: ../src/mainwindow.cc:1932 ../glade/settingsdialog.glade:1574
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1931
+#: ../src/mainwindow.cc:1933 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
 msgstr "с"
@@ -807,6 +807,20 @@ msgstr "Отдано "
 #: ../src/transfers.cc:1137
 msgid "Upload complete..."
 msgstr "Отдача закончена..."
+
+#: ../src/wulfor.cc:78
+#, fuzzy
+msgid "Loading: "
+msgstr "_Кодировка:"
+
+#: ../src/wulfor.cc:156
+msgid "Shutting down libdcpp..."
+msgstr ""
+
+#: ../src/wulfor.cc:158
+#, fuzzy
+msgid "Quit..."
+msgstr "Выход"
 
 #: ../src/privatemessage.cc:38 ../src/privatemessage.cc:138
 msgid "PM: "
@@ -1435,47 +1449,51 @@ msgstr ""
 "EiskaltDC++ version: %s - %s %s\n"
 "DC++ core version: %s"
 
-#: ../src/mainwindow.cc:213
+#: ../src/mainwindow.cc:198
+msgid "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
+msgstr ""
+
+#: ../src/mainwindow.cc:214
 msgid "Welcome to "
 msgstr "Добро пожаловать в "
 
-#: ../src/mainwindow.cc:546
+#: ../src/mainwindow.cc:547
 msgid "Download: "
 msgstr "Закачки: "
 
-#: ../src/mainwindow.cc:546
+#: ../src/mainwindow.cc:547
 msgid "Upload: "
 msgstr "Отдачи: "
 
-#: ../src/mainwindow.cc:969
+#: ../src/mainwindow.cc:970
 msgid "Enter value for "
 msgstr "Введите значение "
 
-#: ../src/mainwindow.cc:1026
+#: ../src/mainwindow.cc:1027
 msgid "Magnet Properties / Choice"
 msgstr "Свойства магнетов / Выбор"
 
-#: ../src/mainwindow.cc:1096
+#: ../src/mainwindow.cc:1097
 msgid "Magnet Choice"
 msgstr "Свойства магнетов"
 
-#: ../src/mainwindow.cc:1604 ../glade/mainwindow.glade:1139
+#: ../src/mainwindow.cc:1605 ../glade/mainwindow.glade:1137
 msgid "Select filelist to browse"
 msgstr "Выберите список файлов"
 
-#: ../src/mainwindow.cc:1629
+#: ../src/mainwindow.cc:1630
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Невозможно загрузить файл-список: Некорректное имя файла"
 
-#: ../src/mainwindow.cc:1641
+#: ../src/mainwindow.cc:1642
 msgid "Loading file list"
 msgstr "Загружен файл-лист"
 
-#: ../src/mainwindow.cc:1827
+#: ../src/mainwindow.cc:1828
 msgid "Unable to open TCP/TLS port"
 msgstr "Невозможно открыть TCP/TLS порт"
 
-#: ../src/mainwindow.cc:1828
+#: ../src/mainwindow.cc:1829
 msgid ""
 "File transfers will not work correctly until you change settings or turn off "
 "any application that might be using the TCP/TLS port."
@@ -1483,11 +1501,11 @@ msgstr ""
 "Передача файлов будет работать некорректно, пока вы не измените настройки "
 "или не закроете приложение, использующее TCP/TLS порт"
 
-#: ../src/mainwindow.cc:1840
+#: ../src/mainwindow.cc:1841
 msgid "Unable to open UDP port"
 msgstr "Невозможно открыть UDP порт"
 
-#: ../src/mainwindow.cc:1841
+#: ../src/mainwindow.cc:1842
 msgid ""
 "Searching will not work correctly until you change settings or turn off any "
 "application that might be using the UDP port."
@@ -1495,11 +1513,11 @@ msgstr ""
 "Поиск будет работать некорректно, пока вы не измените настройки или не "
 "закроете приложение, использующее UDP порт"
 
-#: ../src/mainwindow.cc:1896
+#: ../src/mainwindow.cc:1897
 msgid "file list from "
 msgstr "список файлов от "
 
-#: ../src/mainwindow.cc:1906
+#: ../src/mainwindow.cc:1907
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
@@ -1689,7 +1707,7 @@ msgid "Slots"
 msgstr "Слоты"
 
 #: ../src/search.cc:303 ../src/search.cc:373 ../src/sharebrowser.cc:479
-#: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1552
+#: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1550
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2728 ../glade/settingsdialog.glade:4041
 #: ../glade/settingsdialog.glade:4967 ../glade/settingsdialog.glade:4982
@@ -2229,7 +2247,7 @@ msgstr "_Настройки"
 msgid "_Magnet Choice"
 msgstr "_Свойства магнетов"
 
-#: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1302
+#: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1300
 msgid "_Exit"
 msgstr "_Выход"
 
@@ -2266,8 +2284,8 @@ msgid "Report a Bug"
 msgstr "Сообщить об ошибке"
 
 #: ../glade/mainwindow.glade:427
-msgid "Discussion forum"
-msgstr "Форум обсуждений"
+msgid "Wiki of project"
+msgstr ""
 
 #: ../glade/mainwindow.glade:446
 msgid "Changelog (svn)"
@@ -2361,44 +2379,8 @@ msgstr "Соединиться с хабом"
 msgid "<b>Connect to address:</b>"
 msgstr "<b>Адрес:</b>"
 
-#: ../glade/mainwindow.glade:1059
-msgid ""
-"\n"
-"This program is free software; you can redistribute it and/or modify it "
-"under the terms of the GNU General Public License as published by the Free "
-"Software Foundation; either version 2 of the License, or (at your option) "
-"any later version.\n"
-"\n"
-"This program is distributed in the hope that it will be useful, but WITHOUT "
-"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
-"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
-"more details.\n"
-"\n"
-"You should have received a copy of the GNU General Public License along with "
-"this program; if not, write to the Free Software Foundation, Inc., 51 "
-"Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
-"\n"
-"In addition, as a special exception, compiling, linking, and/or using "
-"OpenSSL with this program is allowed.\n"
-msgstr ""
-"\n"
-"Эта программа является свободным программным обеспечением. Вы можете "
-"распространять или изменять его при условиях соответствия GNU General Public "
-"License опубликованной Free Software Foundation; либо версии 2 лицензии, "
-"либо (на ваше усмотрение) любой более поздней версии.\n"
-"\n"
-"Эта программа распространяется в надежде на то, что приложение будет "
-"полезно, но БЕЗ ВСЯКИХ ГАРАНТИЙ; не гарантируется даже ПРИГОДНОСТЬ или "
-"СООТВЕТСТВИЕ КАКИМ-ЛИБО ТРЕБОВАНИЯМ. Для получения дополнительной информации "
-"ознакомьтесь с GNU General Public License.\n"
-"Вы должны получить копию GNU General Public License вместе с этой "
-"программой. Если этого не произошло, то напишите в Free Software Foundation, "
-"Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
-"\n"
-"In addition, as a special exception, compiling, linking, and/or using "
-"OpenSSL with this program is allowed.\n"
-
-#: ../glade/mainwindow.glade:1068
+#: ../glade/mainwindow.glade:1066
+#, fuzzy
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2407,6 +2389,7 @@ msgid ""
 "\n"
 "Contributors\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
+"    "
 msgstr ""
 "Разработчики\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2416,7 +2399,8 @@ msgstr ""
 "Соавторы\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
 
-#: ../glade/mainwindow.glade:1076
+#: ../glade/mainwindow.glade:1074
+#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2463,6 +2447,7 @@ msgid ""
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
+"    "
 msgstr ""
 "Переводчики\n"
 "\n"
@@ -2510,43 +2495,43 @@ msgstr ""
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
 
-#: ../glade/mainwindow.glade:1188
+#: ../glade/mainwindow.glade:1186
 msgid "Enter line for user command"
 msgstr "Введите строку для пользовательской команды"
 
-#: ../glade/mainwindow.glade:1276
+#: ../glade/mainwindow.glade:1274
 msgid "_Show Interface"
 msgstr "_Показать интерфейс"
 
-#: ../glade/mainwindow.glade:1289
+#: ../glade/mainwindow.glade:1287
 msgid "Use Blinking Icon"
 msgstr "Мигающий значок"
 
-#: ../glade/mainwindow.glade:1316 ../glade/mainwindow.glade:1353
+#: ../glade/mainwindow.glade:1314 ../glade/mainwindow.glade:1351
 msgid "Magnet"
 msgstr "Магнет"
 
-#: ../glade/mainwindow.glade:1364
+#: ../glade/mainwindow.glade:1362
 msgid "File name"
 msgstr "Файл"
 
-#: ../glade/mainwindow.glade:1390
+#: ../glade/mainwindow.glade:1388
 msgid "TTH"
 msgstr "TTH"
 
-#: ../glade/mainwindow.glade:1459
+#: ../glade/mainwindow.glade:1457
 msgid "Exact size"
 msgstr "Точный размер"
 
-#: ../glade/mainwindow.glade:1487
+#: ../glade/mainwindow.glade:1485
 msgid "+/-"
 msgstr "+/-"
 
-#: ../glade/mainwindow.glade:1498
+#: ../glade/mainwindow.glade:1496
 msgid "<b>Magnet properties</b>"
 msgstr "<b>Свойства магнетов</b>"
 
-#: ../glade/mainwindow.glade:1526
+#: ../glade/mainwindow.glade:1524
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
@@ -2554,32 +2539,32 @@ msgstr ""
 "Для начала закачки файла включите автоматический поиск альтернатив "
 "(Настройки/Закачки/Очередь)"
 
-#: ../glade/mainwindow.glade:1527
+#: ../glade/mainwindow.glade:1525
 msgid "Add this file to your download queue"
 msgstr "Добавить этот файл в очередь загрузок"
 
-#: ../glade/mainwindow.glade:1571
+#: ../glade/mainwindow.glade:1569
 msgid "Start a search for this file"
 msgstr "Начать поиск этого файла"
 
-#: ../glade/mainwindow.glade:1585
+#: ../glade/mainwindow.glade:1583
 msgid "Show magnet dialog"
 msgstr "Показать диалог магнета"
 
-#: ../glade/mainwindow.glade:1611
+#: ../glade/mainwindow.glade:1609
 msgid "Remember choice"
 msgstr "Запомнить выбор"
 
-#: ../glade/mainwindow.glade:1640
+#: ../glade/mainwindow.glade:1638
 msgid "<b>What would you like to do?</b>"
 msgstr "<b>Что вы хотите сделать?</b>"
 
-#: ../glade/mainwindow.glade:1668 ../glade/settingsdialog.glade:6075
+#: ../glade/mainwindow.glade:1666 ../glade/settingsdialog.glade:6075
 #: ../glade/settingsdialog.glade:6568 ../glade/settingsdialog.glade:6609
 msgid "gtk-cancel"
 msgstr "gtk-cancel"
 
-#: ../glade/mainwindow.glade:1678 ../glade/settingsdialog.glade:6580
+#: ../glade/mainwindow.glade:1676 ../glade/settingsdialog.glade:6580
 #: ../glade/settingsdialog.glade:6632
 msgid "gtk-ok"
 msgstr "gtk-ok"
@@ -3612,3 +3597,42 @@ msgstr "_Отправить сообщение"
 msgid "_Remove from favorites"
 msgstr "_Удалить фаворита"
 
+#~ msgid "Discussion forum"
+#~ msgstr "Форум обсуждений"
+
+#~ msgid ""
+#~ "\n"
+#~ "This program is free software; you can redistribute it and/or modify it "
+#~ "under the terms of the GNU General Public License as published by the "
+#~ "Free Software Foundation; either version 2 of the License, or (at your "
+#~ "option) any later version.\n"
+#~ "\n"
+#~ "This program is distributed in the hope that it will be useful, but "
+#~ "WITHOUT ANY WARRANTY; without even the implied warranty of "
+#~ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General "
+#~ "Public License for more details.\n"
+#~ "\n"
+#~ "You should have received a copy of the GNU General Public License along "
+#~ "with this program; if not, write to the Free Software Foundation, Inc., "
+#~ "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+#~ "\n"
+#~ "In addition, as a special exception, compiling, linking, and/or using "
+#~ "OpenSSL with this program is allowed.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Эта программа является свободным программным обеспечением. Вы можете "
+#~ "распространять или изменять его при условиях соответствия GNU General "
+#~ "Public License опубликованной Free Software Foundation; либо версии 2 "
+#~ "лицензии, либо (на ваше усмотрение) любой более поздней версии.\n"
+#~ "\n"
+#~ "Эта программа распространяется в надежде на то, что приложение будет "
+#~ "полезно, но БЕЗ ВСЯКИХ ГАРАНТИЙ; не гарантируется даже ПРИГОДНОСТЬ или "
+#~ "СООТВЕТСТВИЕ КАКИМ-ЛИБО ТРЕБОВАНИЯМ. Для получения дополнительной "
+#~ "информации ознакомьтесь с GNU General Public License.\n"
+#~ "Вы должны получить копию GNU General Public License вместе с этой "
+#~ "программой. Если этого не произошло, то напишите в Free Software "
+#~ "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 "
+#~ "USA.\n"
+#~ "\n"
+#~ "In addition, as a special exception, compiling, linking, and/or using "
+#~ "OpenSSL with this program is allowed.\n"

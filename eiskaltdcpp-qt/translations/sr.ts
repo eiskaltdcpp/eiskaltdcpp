@@ -1657,6 +1657,30 @@ Molim proverite podešavanja vaše veze</translation>
         <source>ADLSearch</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Homepage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source (svn)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Report a Bug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiki of project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changelog (svn)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -1834,6 +1858,37 @@ EiskaltDC++ je program za UNIX-like sisteme koji koriste DIrect Connect i ADC pr
 Keys:
 (sp)(sp)-h, --help(tab) Prikaži ovu poruku
 (sp)(sp)-v, --version(tab) Prikaži verziju</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Loading: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UserList icons has been loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application icons has been loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shutting down libdcpp...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot handle SIGPIPE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Signal handlers installed.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2840,10 +2895,6 @@ Da li želite da zaustavite?</translation>
         <translation type="unfinished">Fascikla</translation>
     </message>
     <message>
-        <source>Absolete path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Min/Max Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2869,6 +2920,10 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <source>Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full path</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

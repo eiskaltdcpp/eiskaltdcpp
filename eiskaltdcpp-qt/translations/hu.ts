@@ -1858,6 +1858,30 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.1.0 és újabb)&lt;br/&gt;</translation>
     </message>
+    <message>
+        <source>Homepage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source (svn)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Report a Bug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiki of project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changelog (svn)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2042,6 +2066,37 @@ Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az A
 Kapcsolók:
   -h, --help	 Help megjelenítése
   -v, --version  Verzióinformáció mutatása</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Loading: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UserList icons has been loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application icons has been loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shutting down libdcpp...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot handle SIGPIPE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Signal handlers installed.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3053,10 +3108,6 @@ Biztosan le akarod állítani?
         <translation type="unfinished">Könyvtár</translation>
     </message>
     <message>
-        <source>Absolete path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Min/Max Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3083,6 +3134,10 @@ Biztosan le akarod állítani?
     <message>
         <source>Download</source>
         <translation type="unfinished">Letöltés</translation>
+    </message>
+    <message>
+        <source>Full path</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

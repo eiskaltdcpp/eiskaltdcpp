@@ -1828,6 +1828,30 @@ Please check your connection settings</source>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Homepage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source (svn)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Report a Bug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiki of project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changelog (svn)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2008,6 +2032,37 @@ EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les proto
 Clés:
   -h, --help(tab) Montre ce message
   -v, --version(tab) Montre la version de la chaîne</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Loading: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UserList icons has been loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application icons has been loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shutting down libdcpp...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot handle SIGPIPE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Signal handlers installed.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3139,10 +3194,6 @@ Voulez-vous l&apos;arrêter?</translation>
         <translation type="unfinished">Répertoire</translation>
     </message>
     <message>
-        <source>Absolete path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Min/Max Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3168,6 +3219,10 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full path</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

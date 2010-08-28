@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-20 14:48+0300\n"
+"POT-Creation-Date: 2010-08-28 16:31+0300\n"
 "PO-Revision-Date: 2010-08-20 14:59+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -13,8 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -59,15 +59,15 @@ msgid ""
 msgstr ""
 "Не удалось настроить socks сервер для UDP (проверьте socks адрес и порт)"
 
-#: ../DCPlusPlus.cpp:119
+#: ../DCPlusPlus.cpp:115
 msgid "Hash database"
 msgstr "Хеш базы данных"
 
-#: ../DCPlusPlus.cpp:122
+#: ../DCPlusPlus.cpp:118
 msgid "Shared Files"
 msgstr "Расшаренные файлы"
 
-#: ../DCPlusPlus.cpp:125
+#: ../DCPlusPlus.cpp:121
 msgid "Download Queue"
 msgstr "Очередь"
 
@@ -132,42 +132,42 @@ msgstr "%1% кикнут %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Соединения не обрабатываются - пожалуйста перезапустите %1%"
 
-#: ../Util.cpp:459
+#: ../Util.cpp:463
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:461
+#: ../Util.cpp:465
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:467
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:469
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:471
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:473
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:499
+#: ../Util.cpp:503
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:507
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"

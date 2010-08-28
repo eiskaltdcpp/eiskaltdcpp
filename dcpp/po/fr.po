@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-20 14:48+0300\n"
+"POT-Creation-Date: 2010-08-28 16:31+0300\n"
 "PO-Revision-Date: 2009-02-22 14:17+0000\n"
 "Last-Translator: poy <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,15 +65,15 @@ msgstr ""
 "Impossible de configurer le serveur socks en tant que relais UDP (vérifier "
 "l'adresse et le port du serveur socks)"
 
-#: ../DCPlusPlus.cpp:119
+#: ../DCPlusPlus.cpp:115
 msgid "Hash database"
 msgstr "Base de données des clés"
 
-#: ../DCPlusPlus.cpp:122
+#: ../DCPlusPlus.cpp:118
 msgid "Shared Files"
 msgstr "Fichiers Partagés"
 
-#: ../DCPlusPlus.cpp:125
+#: ../DCPlusPlus.cpp:121
 msgid "Download Queue"
 msgstr "Liste de Téléchargement"
 
@@ -136,42 +136,42 @@ msgstr "%1% a été expulsé : %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Échec dans l'écoute des connexions - veuillez relancer %1%"
 
-#: ../Util.cpp:459
+#: ../Util.cpp:463
 #, c-format
 msgid "%d B"
 msgstr "%d o"
 
-#: ../Util.cpp:461
+#: ../Util.cpp:465
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f Kio"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:467
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f Mio"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:469
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f Gio"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:471
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f Tio"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:473
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f Pio"
 
-#: ../Util.cpp:499
+#: ../Util.cpp:503
 #, c-format
 msgid "%s B"
 msgstr "%s o"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:507
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld o"

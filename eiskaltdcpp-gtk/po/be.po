@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-20 14:48+0300\n"
+"POT-Creation-Date: 2010-08-28 16:31+0300\n"
 "PO-Revision-Date: 2010-08-17 18:49+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -69,7 +69,7 @@ msgstr "Стан"
 #: ../src/search.cc:618 ../src/search.cc:761 ../src/search.cc:1618
 #: ../src/search.cc:1636 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:284 ../src/sharebrowser.cc:315
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1377
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1375
 msgid "Size"
 msgstr "Памер"
 
@@ -498,8 +498,8 @@ msgstr "Невядомы загад:"
 msgid "': type /help for a list of available commands"
 msgstr "”: надрукуйце “/help”, каб атрымаць сьпіс даступных загадаў"
 
-#: ../src/hub.cc:2230 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1035
-#: ../src/mainwindow.cc:1103 ../glade/sharebrowser.glade:319
+#: ../src/hub.cc:2230 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1036
+#: ../src/mainwindow.cc:1104 ../glade/sharebrowser.glade:319
 #: ../glade/search.glade:563 ../glade/settingsdialog.glade:6002
 #, fuzzy
 msgid "Choose a directory"
@@ -666,8 +666,8 @@ msgstr "засталося"
 msgid "-:--:-- left"
 msgstr "-:--:-- засталося"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1930
-#: ../src/mainwindow.cc:1932 ../glade/settingsdialog.glade:1574
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1931
+#: ../src/mainwindow.cc:1933 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
 msgstr "с"
@@ -842,6 +842,20 @@ msgstr "Зацягнулі"
 #, fuzzy
 msgid "Upload complete..."
 msgstr "Скончылі зацягваць"
+
+#: ../src/wulfor.cc:78
+#, fuzzy
+msgid "Loading: "
+msgstr "Знаказбор"
+
+#: ../src/wulfor.cc:156
+msgid "Shutting down libdcpp..."
+msgstr ""
+
+#: ../src/wulfor.cc:158
+#, fuzzy
+msgid "Quit..."
+msgstr "Выйсьці"
 
 #: ../src/privatemessage.cc:38 ../src/privatemessage.cc:138
 msgid "PM: "
@@ -1486,52 +1500,56 @@ msgstr ""
 "Вэрсія EiskaltDC++: %s — %s %s\n"
 "Вэрсія асновы DC++: %s"
 
-#: ../src/mainwindow.cc:213
+#: ../src/mainwindow.cc:198
+msgid "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
+msgstr ""
+
+#: ../src/mainwindow.cc:214
 msgid "Welcome to "
 msgstr "Вітаем вас у "
 
-#: ../src/mainwindow.cc:546
+#: ../src/mainwindow.cc:547
 #, fuzzy
 msgid "Download: "
 msgstr "Сьцягнулі "
 
-#: ../src/mainwindow.cc:546
+#: ../src/mainwindow.cc:547
 #, fuzzy
 msgid "Upload: "
 msgstr "Зацягваць"
 
-#: ../src/mainwindow.cc:969
+#: ../src/mainwindow.cc:970
 #, fuzzy
 msgid "Enter value for "
 msgstr "Упішыце значэньне "
 
-#: ../src/mainwindow.cc:1026
+#: ../src/mainwindow.cc:1027
 #, fuzzy
 msgid "Magnet Properties / Choice"
 msgstr "Уласьцівасьці магніт-спасылкі (выбар)"
 
-#: ../src/mainwindow.cc:1096
+#: ../src/mainwindow.cc:1097
 #, fuzzy
 msgid "Magnet Choice"
 msgstr "Выбар па магніт-спасылцы"
 
-#: ../src/mainwindow.cc:1604 ../glade/mainwindow.glade:1139
+#: ../src/mainwindow.cc:1605 ../glade/mainwindow.glade:1137
 msgid "Select filelist to browse"
 msgstr "Абярыце сьпіс файлаў"
 
-#: ../src/mainwindow.cc:1629
+#: ../src/mainwindow.cc:1630
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Не магу прачытаць сьпіс файлаў: хібны назоў сьпісу файлаў"
 
-#: ../src/mainwindow.cc:1641
+#: ../src/mainwindow.cc:1642
 msgid "Loading file list"
 msgstr "Чытаецца сьпіс файлаў"
 
-#: ../src/mainwindow.cc:1827
+#: ../src/mainwindow.cc:1828
 msgid "Unable to open TCP/TLS port"
 msgstr "Не магу адкрыць порт TCP/TLS"
 
-#: ../src/mainwindow.cc:1828
+#: ../src/mainwindow.cc:1829
 #, fuzzy
 msgid ""
 "File transfers will not work correctly until you change settings or turn off "
@@ -1541,11 +1559,11 @@ msgstr ""
 "пакуль вы ня зьменіце наладжваньні ці ня спыніце ўсе праграмы, што "
 "выкарыстоўваюць порт TCP/TLS"
 
-#: ../src/mainwindow.cc:1840
+#: ../src/mainwindow.cc:1841
 msgid "Unable to open UDP port"
 msgstr "Не магу адкрыць порт UDP"
 
-#: ../src/mainwindow.cc:1841
+#: ../src/mainwindow.cc:1842
 msgid ""
 "Searching will not work correctly until you change settings or turn off any "
 "application that might be using the UDP port."
@@ -1554,11 +1572,11 @@ msgstr ""
 "наладжваньні, або ня вымкнеце прыстасаваньні, якія могуць выкарыстоўваць "
 "порт UDP."
 
-#: ../src/mainwindow.cc:1896
+#: ../src/mainwindow.cc:1897
 msgid "file list from "
 msgstr "сьпіс файлаў ад "
 
-#: ../src/mainwindow.cc:1906
+#: ../src/mainwindow.cc:1907
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
@@ -1761,7 +1779,7 @@ msgid "Slots"
 msgstr "Шчыліны"
 
 #: ../src/search.cc:303 ../src/search.cc:373 ../src/sharebrowser.cc:479
-#: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1552
+#: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1550
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2728 ../glade/settingsdialog.glade:4041
 #: ../glade/settingsdialog.glade:4967 ../glade/settingsdialog.glade:4982
@@ -2329,7 +2347,7 @@ msgstr ""
 msgid "_Magnet Choice"
 msgstr "Выбар па магніт-спасылцы"
 
-#: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1302
+#: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1300
 msgid "_Exit"
 msgstr ""
 
@@ -2366,7 +2384,7 @@ msgid "Report a Bug"
 msgstr ""
 
 #: ../glade/mainwindow.glade:427
-msgid "Discussion forum"
+msgid "Wiki of project"
 msgstr ""
 
 #: ../glade/mainwindow.glade:446
@@ -2469,28 +2487,7 @@ msgstr "Злучыцца з асяродкам"
 msgid "<b>Connect to address:</b>"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1059
-msgid ""
-"\n"
-"This program is free software; you can redistribute it and/or modify it "
-"under the terms of the GNU General Public License as published by the Free "
-"Software Foundation; either version 2 of the License, or (at your option) "
-"any later version.\n"
-"\n"
-"This program is distributed in the hope that it will be useful, but WITHOUT "
-"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
-"FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
-"more details.\n"
-"\n"
-"You should have received a copy of the GNU General Public License along with "
-"this program; if not, write to the Free Software Foundation, Inc., 51 "
-"Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
-"\n"
-"In addition, as a special exception, compiling, linking, and/or using "
-"OpenSSL with this program is allowed.\n"
-msgstr ""
-
-#: ../glade/mainwindow.glade:1068
+#: ../glade/mainwindow.glade:1066
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2499,9 +2496,10 @@ msgid ""
 "\n"
 "Contributors\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
+"    "
 msgstr ""
 
-#: ../glade/mainwindow.glade:1076
+#: ../glade/mainwindow.glade:1074
 msgid ""
 "Translators\n"
 "\n"
@@ -2548,82 +2546,83 @@ msgid ""
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
+"    "
 msgstr ""
 
-#: ../glade/mainwindow.glade:1188
+#: ../glade/mainwindow.glade:1186
 #, fuzzy
 msgid "Enter line for user command"
 msgstr "Упішыце значэньне "
 
-#: ../glade/mainwindow.glade:1276
+#: ../glade/mainwindow.glade:1274
 msgid "_Show Interface"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1289
+#: ../glade/mainwindow.glade:1287
 msgid "Use Blinking Icon"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1316 ../glade/mainwindow.glade:1353
+#: ../glade/mainwindow.glade:1314 ../glade/mainwindow.glade:1351
 #, fuzzy
 msgid "Magnet"
 msgstr "Выбар па магніт-спасылцы"
 
-#: ../glade/mainwindow.glade:1364
+#: ../glade/mainwindow.glade:1362
 #, fuzzy
 msgid "File name"
 msgstr "Назоў файла"
 
-#: ../glade/mainwindow.glade:1390
+#: ../glade/mainwindow.glade:1388
 msgid "TTH"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1459
+#: ../glade/mainwindow.glade:1457
 #, fuzzy
 msgid "Exact size"
 msgstr "Дакладны памер"
 
-#: ../glade/mainwindow.glade:1487
+#: ../glade/mainwindow.glade:1485
 msgid "+/-"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1498
+#: ../glade/mainwindow.glade:1496
 #, fuzzy
 msgid "<b>Magnet properties</b>"
 msgstr "Уласьцівасьці магніт-спасылкі (выбар)"
 
-#: ../glade/mainwindow.glade:1526
+#: ../glade/mainwindow.glade:1524
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1527
+#: ../glade/mainwindow.glade:1525
 #, fuzzy
 msgid "Add this file to your download queue"
 msgstr "Гэта файл ужо стаіць у чарзе"
 
-#: ../glade/mainwindow.glade:1571
+#: ../glade/mainwindow.glade:1569
 msgid "Start a search for this file"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1585
+#: ../glade/mainwindow.glade:1583
 msgid "Show magnet dialog"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1611
+#: ../glade/mainwindow.glade:1609
 msgid "Remember choice"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1640
+#: ../glade/mainwindow.glade:1638
 msgid "<b>What would you like to do?</b>"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1668 ../glade/settingsdialog.glade:6075
+#: ../glade/mainwindow.glade:1666 ../glade/settingsdialog.glade:6075
 #: ../glade/settingsdialog.glade:6568 ../glade/settingsdialog.glade:6609
 msgid "gtk-cancel"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1678 ../glade/settingsdialog.glade:6580
+#: ../glade/mainwindow.glade:1676 ../glade/settingsdialog.glade:6580
 #: ../glade/settingsdialog.glade:6632
 msgid "gtk-ok"
 msgstr ""

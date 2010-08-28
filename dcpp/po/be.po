@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-20 14:48+0300\n"
+"POT-Creation-Date: 2010-08-28 16:31+0300\n"
 "PO-Revision-Date: 2010-08-07 15:38+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -66,15 +66,15 @@ msgstr ""
 "Не ўдалося наладзіць паслужнік socks перасылаць UDP (спраўдзіце адрэсу і "
 "порт socks)"
 
-#: ../DCPlusPlus.cpp:119
+#: ../DCPlusPlus.cpp:115
 msgid "Hash database"
 msgstr "База зьвестак скаротаў"
 
-#: ../DCPlusPlus.cpp:122
+#: ../DCPlusPlus.cpp:118
 msgid "Shared Files"
 msgstr "Абагуленыя файлы"
 
-#: ../DCPlusPlus.cpp:125
+#: ../DCPlusPlus.cpp:121
 msgid "Download Queue"
 msgstr "Чарга сьцягваньня"
 
@@ -137,42 +137,42 @@ msgstr "Карыстальніку %1% далі высьпятка: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Не чую злучэньняў — калі ласка, запусьціце %1% нанова."
 
-#: ../Util.cpp:459
+#: ../Util.cpp:463
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:461
+#: ../Util.cpp:465
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КіБ"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:467
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МіБ"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:469
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ГіБ"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:471
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТіБ"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:473
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПіБ"
 
-#: ../Util.cpp:499
+#: ../Util.cpp:503
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:507
 #, fuzzy, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
