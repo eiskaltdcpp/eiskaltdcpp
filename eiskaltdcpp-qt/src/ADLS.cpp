@@ -359,8 +359,8 @@ void ADLS::getParams(/*const*/ ADLSearch &entry, StrMap &map){
     map["DIRECTORY"]   = _q(entry.destDir);
     map["CHECK"]       = entry.isActive;
     map["AUTOQUEUE"]   = entry.isAutoQueue;
-    map["MINSIZE"]     = entry.minFileSize;
-    map["MAXSIZE"]     = entry.maxFileSize;
+    map["MINSIZE"]     = (qlonglong)entry.minFileSize;
+    map["MAXSIZE"]     = (qlonglong)entry.maxFileSize;
     map["SOURCETYPE"]  = entry.sourceType;
     map["TYPESIZE"]    = entry.typeFileSize;
 
