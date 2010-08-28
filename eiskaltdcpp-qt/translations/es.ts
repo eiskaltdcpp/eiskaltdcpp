@@ -6,23 +6,23 @@
     <message>
         <location filename="../src/ADLS.cpp" line="60"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>Búsqueda ADL</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="157"/>
         <location filename="../src/ADLS.cpp" line="173"/>
         <source>Add new</source>
-        <translation type="unfinished">Añadir nuevo</translation>
+        <translation>Añadir nuevo</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="174"/>
         <source>Change</source>
-        <translation type="unfinished">Cambiar</translation>
+        <translation>Cambiar</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="175"/>
         <source>Delete</source>
-        <translation type="unfinished">Borrar</translation>
+        <translation>Borrar</translation>
     </message>
 </context>
 <context>
@@ -30,37 +30,37 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Checked</source>
-        <translation type="unfinished"></translation>
+        <translation>Comprobado</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar en el campo</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo de fuente</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre del directorio</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Min. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño Min.</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Max. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño Max.</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Type Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño del Tipo</translation>
     </message>
 </context>
 <context>
@@ -1777,7 +1777,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1060"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>Búsqueda ADL</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1063"/>
@@ -3076,7 +3076,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="30"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>Búsqueda ADL</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="31"/>
@@ -3448,32 +3448,32 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../ui/UIADLSearch.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Forma</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
-        <translation type="unfinished">Añadir nuevo</translation>
+        <translation>Añadir nuevo</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="73"/>
         <source>Change</source>
-        <translation type="unfinished">Cambiar</translation>
+        <translation>Cambiar</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished">Borrar</translation>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="100"/>
         <source>Move up</source>
-        <translation type="unfinished">Mover arriba</translation>
+        <translation>Mover arriba</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="110"/>
         <source>Move down</source>
-        <translation type="unfinished">Mover abajo</translation>
+        <translation>Mover abajo</translation>
     </message>
 </context>
 <context>
@@ -3481,73 +3481,73 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Diálogo</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="20"/>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar en el campo</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="26"/>
         <source>Favorite hub name.</source>
-        <translation type="unfinished">Nombre del Hub favorito.</translation>
+        <translation>Nombre del Hub favorito.</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo de fuente</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="55"/>
         <source>Filename</source>
-        <translation type="unfinished">Nombre de archivo</translation>
+        <translation>Nombre de archivo</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="60"/>
         <location filename="../ui/UIADLSearchEditor.ui" line="162"/>
         <source>Directory</source>
-        <translation type="unfinished">Directorio</translation>
+        <translation>Directorio</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
         <source>Absolete path</source>
-        <translation type="unfinished"></translation>
+        <translation>Dirección absoluta</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="76"/>
         <source>Min/Max Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño Min/Max</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="136"/>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="141"/>
         <source>KiB</source>
-        <translation type="unfinished"></translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="146"/>
         <source>MiB</source>
-        <translation type="unfinished"></translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="151"/>
         <source>GiB</source>
-        <translation type="unfinished"></translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="234"/>
         <source>On</source>
-        <translation type="unfinished">Encendido</translation>
+        <translation>Encendido</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="241"/>
         <source>Download</source>
-        <translation type="unfinished">Descarga</translation>
+        <translation>Descarga</translation>
     </message>
 </context>
 <context>
@@ -4167,7 +4167,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UIMagnet.ui" line="127"/>
         <source>Opens search dialog and searches file.</source>
-        <translation>Abriendo dialogo de búsqueda y búsqueda de archivos.</translation>
+        <translation>Abriendo diálogo de búsqueda y búsqueda de archivos.</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="141"/>
@@ -4216,7 +4216,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="14"/>
         <source>Dialog</source>
-        <translation>Dialogo</translation>
+        <translation>Diálogo</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
@@ -4257,7 +4257,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UIScriptManager.ui" line="14"/>
         <source>Dialog</source>
-        <translation>Dialogo</translation>
+        <translation>Diálogo</translation>
     </message>
 </context>
 <context>
