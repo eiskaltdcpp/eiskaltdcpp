@@ -834,6 +834,26 @@ void MainWindow::initActions(){
         connect(panelsSearch, SIGNAL(triggered()), this, SLOT(slotPanelMenuActionClicked()));
     }
     {
+        aboutHomepage = new QAction("", this);
+        aboutHomepage->setMenuRole(QAction::AboutRole);
+        connect(aboutHomepage, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+
+        aboutSource = new QAction("", this);
+        aboutSource->setMenuRole(QAction::AboutRole);
+        connect(aboutSource, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+
+        aboutIssues = new QAction("", this);
+        aboutIssues->setMenuRole(QAction::AboutRole);
+        connect(aboutIssues, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+
+        aboutWiki = new QAction("", this);
+        aboutWiki->setMenuRole(QAction::AboutRole);
+        connect(aboutWiki, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+
+        aboutChangelog = new QAction("", this);
+        aboutChangelog->setMenuRole(QAction::AboutRole);
+        connect(aboutChangelog, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+
         aboutClient = new QAction("", this);
         aboutClient->setMenuRole(QAction::AboutRole);
         aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL));
@@ -902,8 +922,20 @@ void MainWindow::initMenuBar(){
         menuPanels->addAction(panelsSearch);
     }
     {
+        QAction *sep0 = new QAction("", this);
+        sep0->setSeparator(true);
+        QAction *sep1 = new QAction("", this);
+        sep1->setSeparator(true);
+
         menuAbout = new QMenu("", this);
 
+        menuAbout->addAction(aboutHomepage);
+        menuAbout->addAction(aboutSource);
+        menuAbout->addAction(aboutIssues);
+        menuAbout->addAction(aboutWiki);
+        menuAbout->addAction(sep0);
+        menuAbout->addAction(aboutChangelog);
+        menuAbout->addAction(sep1);
         menuAbout->addAction(aboutClient);
         menuAbout->addAction(aboutQt);
     }
@@ -1085,6 +1117,16 @@ void MainWindow::retranslateUi(){
         panelsSearch->setText(tr("Fast search panel"));
 
         menuAbout->setTitle(tr("&Help"));
+
+        aboutHomepage->setText(tr("Homepage"));
+
+        aboutSource->setText(tr("Source (svn)"));
+
+        aboutIssues->setText(tr("Report a Bug"));
+
+        aboutWiki->setText(tr("Wiki of project"));
+
+        aboutChangelog->setText(tr("Changelog (svn)"));
 
         aboutClient->setText(tr("About EiskaltDC++"));
 
@@ -2215,6 +2257,26 @@ void MainWindow::slotToolbarCustomizerDone(const QList<QAction*> &enabled){
     }
 
     WSSET(WS_MAINWINDOW_TOOLBAR_ACTS, enabled_list.join(";").toAscii().toBase64());
+}
+
+void MainWindow::slotAboutOpenUrl(){
+    QAction *act = qobject_cast<QAction *>(sender());
+    if (act == aboutHomepage){
+        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/"));
+    }
+    else if (act == aboutSource){
+        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/source/checkout"));
+    }
+    else if (act == aboutIssues){
+        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/issues/list"));
+    }
+    else if (act == aboutWiki){
+        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/w/list"));
+    }
+    else if (act == aboutChangelog){
+        // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
+        QDesktopServices::openUrl(QUrl(tr("http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt")));
+    }
 }
 
 void MainWindow::slotAboutClient(){

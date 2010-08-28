@@ -257,6 +257,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotDel();
         void slotChatDisable();
 
+        void slotAboutOpenUrl();
         void slotAboutClient();
         void slotAboutQt();
 
@@ -396,6 +397,11 @@ friend class dcpp::Singleton<MainWindow>;
         QHash<QAction*, ArenaWidget*> menuWidgetsHash;
 
         QMenu   *menuAbout;
+        QAction *aboutHomepage;
+        QAction *aboutSource;
+        QAction *aboutIssues;
+        QAction *aboutWiki;
+        QAction *aboutChangelog;
         QAction *aboutClient;
         QAction *aboutQt;
 
