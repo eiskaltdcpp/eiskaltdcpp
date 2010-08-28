@@ -323,8 +323,8 @@ void ADLS::updateEntry(ADLSearch &entry, StrMap &map){
     entry.destDir = map["DIRECTORY"].toString().toStdString();
     entry.isAutoQueue = (int)map["AUTOQUEUE"].toBool();
     entry.sourceType = (ADLSearch::SourceType)map["SOURCETYPE"].toInt();
-    entry.minFileSize = map["MINSIZE"].toInt();
-    entry.maxFileSize = map["MAXSIZE"].toInt();
+    entry.minFileSize = map["MINSIZE"].toLongLong();
+    entry.maxFileSize = map["MAXSIZE"].toLongLong();
     entry.typeFileSize = (ADLSearch::SizeType)map["TYPESIZE"].toInt();
 
 }
@@ -348,8 +348,8 @@ void ADLS::initEditor(ADLSEditor &editor, StrMap &map){
     editor.checkBox_DOWNLOAD->setChecked(map["AUTOQUEUE"].toBool());
     editor.lineEdit_SSTRING->setText(map["SSTRING"].toString());
     editor.lineEdit_DIRECTORY->setText(map["DIRECTORY"].toString());
-    editor.spinBox_MINSIZE->setValue(map["MINSIZE"].toInt());
-    editor.spinBox_MAXSIZE->setValue(map["MAXSIZE"].toInt());
+    editor.spinBox_MINSIZE->setValue(map["MINSIZE"].toLongLong());
+    editor.spinBox_MAXSIZE->setValue(map["MAXSIZE"].toLongLong());
     editor.comboBox_TYPESIZE->setCurrentIndex(map["TYPESIZE"].toInt());
     editor.comboBox_TYPE->setCurrentIndex(map["SOURCETYPE"].toInt());
 }
@@ -372,8 +372,8 @@ void ADLS::addItem(ADLSearch &search){
              << _q(search.searchString)
              << SourceTypeToString(search.sourceType)
              << _q(search.destDir)
-             << search.minFileSize
-             << search.maxFileSize
+             << (qlonglong)search.minFileSize
+             << (qlonglong)search.maxFileSize
              << SizeTypeToString(search.typeFileSize);
 
 
