@@ -6,23 +6,23 @@
     <message>
         <location filename="../src/ADLS.cpp" line="60"/>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADLS-пошук</translation>
+        <translation>ADLS-пошук</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="157"/>
         <location filename="../src/ADLS.cpp" line="173"/>
         <source>Add new</source>
-        <translation type="unfinished">Додати</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="174"/>
         <source>Change</source>
-        <translation type="unfinished">Змінити</translation>
+        <translation>Змінити</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="175"/>
         <source>Delete</source>
-        <translation type="unfinished">Видалити</translation>
+        <translation>Видалити</translation>
     </message>
 </context>
 <context>
@@ -30,37 +30,37 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Checked</source>
-        <translation type="unfinished"></translation>
+        <translation>Вибраний</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Пошуковий рядок</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип джерела</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Назва теки</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Min. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Мін. розмір</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Max. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Макс. розмір</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Type Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Розмірність</translation>
     </message>
 </context>
 <context>
@@ -1700,7 +1700,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1092"/>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADLS-пошук</translation>
+        <translation>ADLS-пошук</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1095"/>
@@ -1760,27 +1760,27 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1121"/>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Домашня сторінка</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1123"/>
         <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Джерело (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1125"/>
         <source>Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Повідомити про помилку</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1127"/>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki проекту</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1129"/>
         <source>Changelog (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Журнал змін (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1136"/>
@@ -2485,37 +2485,37 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/main.cpp" line="46"/>
         <source>Loading: </source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажується: </translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="99"/>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажені іконки для списку користувачів</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажені іконки програми</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="137"/>
         <source>Shutting down libdcpp...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завершення libdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="162"/>
         <source>Quit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Вихід...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="190"/>
         <source>Cannot handle SIGPIPE</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдається опрацювати SIGPIPE</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="193"/>
         <source>Signal handlers installed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сигнали опрацювання встановлені.</translation>
     </message>
 </context>
 <context>
@@ -3357,7 +3357,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SideBar.cpp" line="30"/>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADLS-пошук</translation>
+        <translation>ADLS-пошук</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="31"/>
@@ -3729,32 +3729,32 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearch.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
-        <translation type="unfinished">Додати</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="73"/>
         <source>Change</source>
-        <translation type="unfinished">Змінити</translation>
+        <translation>Змінити</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished">Видалити</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="100"/>
         <source>Move up</source>
-        <translation type="unfinished">Вгору</translation>
+        <translation>Вгору</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="110"/>
         <source>Move down</source>
-        <translation type="unfinished">Вниз</translation>
+        <translation>Вниз</translation>
     </message>
 </context>
 <context>
@@ -3762,73 +3762,73 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Діалог</translation>
+        <translation>Діалог</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="20"/>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Пошуковий рядок</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="26"/>
         <source>Favorite hub name.</source>
-        <translation type="unfinished">Ім&apos;я обраного хаба.</translation>
+        <translation>Ім&apos;я обраного хаба.</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип джерела</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="55"/>
         <source>Filename</source>
-        <translation type="unfinished">Ім&apos;я файлу</translation>
+        <translation>Ім&apos;я файлу</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="60"/>
         <location filename="../ui/UIADLSearchEditor.ui" line="162"/>
         <source>Directory</source>
-        <translation type="unfinished">Тека</translation>
+        <translation>Тека</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
         <source>Full path</source>
-        <translation type="unfinished"></translation>
+        <translation>Шлях до файлу</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="76"/>
         <source>Min/Max Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Мін./Макс. розмір</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="136"/>
         <source>B</source>
-        <translation type="unfinished">Б</translation>
+        <translation>Б</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="141"/>
         <source>KiB</source>
-        <translation type="unfinished">КіБ</translation>
+        <translation>КіБ</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="146"/>
         <source>MiB</source>
-        <translation type="unfinished">МіБ</translation>
+        <translation>МіБ</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="151"/>
         <source>GiB</source>
-        <translation type="unfinished"></translation>
+        <translation>ГіБ</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="234"/>
         <source>On</source>
-        <translation type="unfinished">Увімк</translation>
+        <translation>Увімк</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="241"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажити</translation>
     </message>
 </context>
 <context>
