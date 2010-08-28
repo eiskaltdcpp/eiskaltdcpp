@@ -693,18 +693,26 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         if (isChat || isUserList){
             QString nick = "";
             QString cid = "";
+            bool cursoratnick;
             QTextCursor cursor = textEdit_CHAT->textCursor();
 
             if (isChat){
                 QString pressedParagraph = cursor.block().text();
-
-                int l = pressedParagraph.indexOf("<");
-                int r = pressedParagraph.indexOf(">");
+                int positionCursor = cursor.columnNumber();
+                //qDebug() << pressedParagraph;
+                int l = pressedParagraph.indexOf(" <");
+                int r = pressedParagraph.indexOf("> ");
 
                 if (l < r){
-                    nick = pressedParagraph.mid(l+1, r-l-1);
+                    nick = pressedParagraph.mid(l+2, r-l-2);
                     cid = model->CIDforNick(nick);
                 }
+                if ((positionCursor < r) && (positionCursor > l))
+                    cursoratnick = true;
+                else
+                    cursoratnick = false;
+                //qDebug() << cursoratnick;
+                //qDebug() << nick;
             }
             else if (isUserList){
                 QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
@@ -721,10 +729,14 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             }
 
             if (!cid.isEmpty()){
-                if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1)
-                    browseUserFiles(cid, false);
-                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2)
-                    addPM(cid, "");
+                if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1){
+                    if (cursoratnick)
+                        browseUserFiles(cid, false);
+                }
+                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2){
+                    if (cursoratnick)
+                        addPM(cid, "");
+                }
                 else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
                     if (plainTextEdit_INPUT->textCursor().position() == 0)
                         plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
