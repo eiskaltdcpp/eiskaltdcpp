@@ -1847,7 +1847,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2278"/>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog_uk.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2315"/>

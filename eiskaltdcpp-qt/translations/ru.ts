@@ -1870,27 +1870,27 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1121"/>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Домашняя страница</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1123"/>
         <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Исходники (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1125"/>
         <source>Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщить об ошибке</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1127"/>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki проекта</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1129"/>
         <source>Changelog (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Журнал изменений (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1136"/>
@@ -1957,7 +1957,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2278"/>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog_ru.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2315"/>
@@ -2595,37 +2595,37 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/main.cpp" line="46"/>
         <source>Loading: </source>
-        <translation type="unfinished"></translation>
+        <translation>Загружается: </translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="99"/>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Загружены иконки для списка пользователей</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Загружены иконки программы</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="137"/>
         <source>Shutting down libdcpp...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завершение libdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="162"/>
         <source>Quit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Выход...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="190"/>
         <source>Cannot handle SIGPIPE</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удается обработать SIGPIPE</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="193"/>
         <source>Signal handlers installed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сигналы обработки установлены.</translation>
     </message>
 </context>
 <context>
@@ -3907,7 +3907,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
         <source>Full path</source>
-        <translation type="unfinished"></translation>
+        <translation>Полный путь</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="76"/>
