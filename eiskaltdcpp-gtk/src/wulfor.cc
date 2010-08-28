@@ -75,7 +75,7 @@ void receiver(const char *link, gpointer data)
 
 void callBack(void* x, const std::string& a)
 {
-    std::cout << "Loading: " << a << std::endl;
+    std::cout << _("Loading: ") << a << std::endl;
 }
 
 int main(int argc, char *argv[])
@@ -153,9 +153,9 @@ int main(int argc, char *argv[])
     WulforManager::stop();
     WulforSettingsManager::deleteInstance();
 
-    std::cout << "Shutting down libdcpp..." << std::endl;
+    std::cout << _("Shutting down libdcpp...") << std::endl;
     dcpp::shutdown();
-    std::cout << "Quit..." << std::endl;
+    std::cout << _("Quit...") << std::endl;
     return 0;
 }
 

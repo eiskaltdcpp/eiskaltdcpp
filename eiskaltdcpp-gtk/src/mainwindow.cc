@@ -189,12 +189,13 @@ MainWindow::MainWindow():
         g_strdup("http://code.google.com/p/eiskaltdc/issues/list"), g_free);
     g_signal_connect(getWidget("issueMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
-    g_object_set_data_full(G_OBJECT(getWidget("forumDiscussionItem")), "link",
-        g_strdup("http://unixforum.org/index.php?showtopic=95491&view=getlastpost"), g_free);
-    g_signal_connect(getWidget("forumDiscussionItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
+    g_object_set_data_full(G_OBJECT(getWidget("wikiItem")), "link",
+        g_strdup("http://code.google.com/p/eiskaltdc/w/list"), g_free);
+    g_signal_connect(getWidget("wikiItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
+    // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
     g_object_set_data_full(G_OBJECT(getWidget("changeLogItem")), "link",
-        g_strdup("http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"), g_free);
+        g_strdup(_("http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt")), g_free);
     g_signal_connect(getWidget("changeLogItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     onQuit = FALSE;

@@ -107,6 +107,7 @@ void BookEntry::setIcon_gui(const EntryType type)
 		case Entry::FINISHED_UPLOADS : stock = WGETS("icon-finished-uploads"); break;
 		case Entry::PRIVATE_MESSAGE : stock = WGETS("icon-pm-online"); break;
 		case Entry::HUB : stock = WGETS("icon-hub-offline"); break;
+		case Entry::SHARE_BROWSER : stock = WGETS("icon-directory"); break;
 		default: ;
 	}
 	gtk_image_set_from_stock(GTK_IMAGE(icon), stock.c_str(), GTK_ICON_SIZE_BUTTON);

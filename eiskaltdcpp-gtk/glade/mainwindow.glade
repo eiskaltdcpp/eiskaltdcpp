@@ -422,9 +422,9 @@
                       </widget>
                     </child>
                     <child>
-                      <widget class="GtkImageMenuItem" id="forumDiscussionItem">
+                      <widget class="GtkImageMenuItem" id="wikiItem">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">Discussion forum</property>
+                        <property name="label" translatable="yes">Wiki of project</property>
                         <property name="use_underline">True</property>
                         <child internal-child="image">
                           <widget class="GtkImage" id="forumDiscussionMenuImage">
@@ -1056,15 +1056,13 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
     <property name="copyright">Copyright © EiskaltDC++ 2010</property>
-    <property name="license" translatable="yes">
-This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+    <property name="license" translatable="no">
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
-In addition, as a special exception, compiling, linking, and/or using OpenSSL with this program is allowed.
-</property>
+You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/
+    </property>
     <property name="authors" translatable="yes">Developers
  Boris Pek (tehnick-8@mail.ru)
  Eugene Petrov (dhamp@ya.ru)
@@ -1072,7 +1070,7 @@ In addition, as a special exception, compiling, linking, and/or using OpenSSL wi
 
 Contributors
  troll (http://code.google.com/p/freedcpp/)
-</property>
+    </property>
     <property name="translator-credits" translatable="yes">Translators
 
  Russian translation
@@ -1118,7 +1116,7 @@ Contributors
 
  Rusi Dimitrov aka PsyTrip
  (dimitrov.rusi@gmail.com)
-</property>
+    </property>
     <property name="wrap_license">True</property>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox3">
