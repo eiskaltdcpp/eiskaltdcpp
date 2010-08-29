@@ -2405,6 +2405,7 @@ msgstr ""
 "\n"
 "Contribuidores\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
+"    "
 
 #: ../glade/mainwindow.glade:1074
 #, fuzzy
