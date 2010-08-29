@@ -97,6 +97,7 @@ class MainWindow:
         void addBookEntry_gui(BookEntry *entry);
         void previousTab_gui();
         void nextTab_gui();
+        void onSwitchOnPage_gui(int pageNum);
         BookEntry *findBookEntry(const EntryType type, const std::string &id = "");
         void createStatusIcon_gui();
         void updateStatusIconTooltip_gui(std::string download, std::string upload);

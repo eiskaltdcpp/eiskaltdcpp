@@ -1323,11 +1323,42 @@ gboolean MainWindow::onKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpo
             mw->nextTab_gui();
             return TRUE;
         }
+        else if (event->keyval == GDK_F4)
+        {
+            onCloseClicked_gui(widget, data);
+            return TRUE;
+        }
     }
+    else if (event->state & GDK_MOD1_MASK) {
+        if (event->keyval == GDK_1)
+            mw->onSwitchOnPage_gui(1);
+        else if (event->keyval == GDK_2)
+            mw->onSwitchOnPage_gui(2);
+        else if (event->keyval == GDK_3)
+            mw->onSwitchOnPage_gui(3);
+        else if (event->keyval == GDK_4)
+            mw->onSwitchOnPage_gui(4);
+        else if (event->keyval == GDK_5)
+            mw->onSwitchOnPage_gui(5);
+        else if (event->keyval == GDK_6)
+            mw->onSwitchOnPage_gui(6);
+        else if (event->keyval == GDK_7)
+            mw->onSwitchOnPage_gui(7);
+        else if (event->keyval == GDK_8)
+            mw->onSwitchOnPage_gui(8);
+        else if (event->keyval == GDK_9)
+            mw->onSwitchOnPage_gui(9);
+        else if (event->keyval == GDK_0)
+            mw->onSwitchOnPage_gui(10);
+    }
+
 
     return FALSE;
 }
-
+void MainWindow::onSwitchOnPage_gui(int pageNum){
+    GtkNotebook *book = GTK_NOTEBOOK(getWidget("book"));
+    gtk_notebook_set_current_page(book, pageNum-1);
+}
 gboolean MainWindow::onButtonReleasePage_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     gint width, height;
