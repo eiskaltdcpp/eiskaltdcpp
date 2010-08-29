@@ -5,50 +5,50 @@
     <name>ADLS</name>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADLSearch</translation>
+        <translation>ADLSearch</translation>
     </message>
     <message>
         <source>Add new</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter un nouveau</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">Changer</translation>
+        <translation>Changer</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Effacer</translation>
     </message>
 </context>
 <context>
     <name>ADLSModel</name>
     <message>
         <source>Checked</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérifié</translation>
     </message>
     <message>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Chaîne de recherche</translation>
     </message>
     <message>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Tapez la source</translation>
     </message>
     <message>
         <source>Name directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom du répertoire</translation>
     </message>
     <message>
         <source>Min. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille Min</translation>
     </message>
     <message>
         <source>Max. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille Max</translation>
     </message>
     <message>
         <source>Type Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tapez la taille</translation>
     </message>
 </context>
 <context>
@@ -991,107 +991,107 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
-        <translation type="unfinished"></translation>
+        <translation>ratio: %1 (envois: %2, téléchargements: %3)</translation>
     </message>
     <message>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - activer/désactiver vérificateur d&apos;orthographe</translation>
     </message>
     <message>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND</translation>
     </message>
     <message>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias purge &lt;ALIAS_NAME&gt; - retire l&apos;alias</translation>
     </message>
     <message>
         <source>/alias list - list all aliases
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias list - liste tout les alias</translation>
     </message>
     <message>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/away &lt;message&gt; - active ou désactive le mode absent</translation>
     </message>
     <message>
         <source>/back - set away-mode off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/back - désactive le mode absent</translation>
     </message>
     <message>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/browse &lt;nick&gt; - parcourir les fichiers de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>/clear - clear chat window
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/clear - vide la fenêtre de discussion</translation>
     </message>
     <message>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/magnet - action par défaut pour le magnet (0-demander, 1-rechercher, 2-télécharger)</translation>
     </message>
     <message>
         <source>/close - close this hub
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/close - fermer le hub</translation>
     </message>
     <message>
         <source>/fav - add this hub to favorites
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/fav - ajouter ce hub aux favoris</translation>
     </message>
     <message>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/grant &lt;nick&gt; - donner un extra slot à l&apos;utilisateur</translation>
     </message>
     <message>
         <source>/help, /?, /h - show this help
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/help, /?, /h - montrer cette aide</translation>
     </message>
     <message>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/info &lt;nick&gt; - montre les infos de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/ratio [show] - montre son ratio dans le chat</translation>
     </message>
     <message>
         <source>/me - say a third person
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/me - parler à la troisième personne</translation>
     </message>
     <message>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/pm &lt;nick&gt; - commence une discussion privée avec l&apos;utilisateur</translation>
     </message>
     <message>
         <source>/sh &lt;command&gt; - start command and redirect output to the chat
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/sh &lt;command&gt; - lance une commande et envoi le résultat dans la discussion</translation>
     </message>
     <message>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/luafile &lt;file&gt; - charge fichier Lua</translation>
     </message>
     <message>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">/lua &lt;chunk&gt; - execute Lua chunk</translation>
     </message>
 </context>
 <context>
@@ -1738,7 +1738,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADLSearch</translation>
+        <translation>ADLSearch</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
@@ -1818,39 +1818,39 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.0.4 et plus)&lt;br/&gt; {1p?} {07&lt;?} {1p?} {07@?} {2.1.0 ?}</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.1.0 et plus)&lt;br/&gt; {1p?} {07&lt;?} {1p?} {07@?} {2.1.0 ?}</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Traduction Bulgare&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.1.0 et plus)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Page d&apos;accueil</translation>
     </message>
     <message>
         <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Source (svn)</translation>
     </message>
     <message>
         <source>Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Rapporter un bug</translation>
     </message>
     <message>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki du projet</translation>
     </message>
     <message>
         <source>Changelog (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Changelog (svn)</translation>
     </message>
     <message>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
 </context>
 <context>
@@ -2038,31 +2038,31 @@ Clés:
     <name>QObject</name>
     <message>
         <source>Loading: </source>
-        <translation type="unfinished"></translation>
+        <translation>Chargement: </translation>
     </message>
     <message>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Icônes de la liste utilisateurs chargées</translation>
     </message>
     <message>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Icônes de l&apos;application chargées</translation>
     </message>
     <message>
         <source>Shutting down libdcpp...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermeture de libdcpp...</translation>
     </message>
     <message>
         <source>Quit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermeture...</translation>
     </message>
     <message>
         <source>Cannot handle SIGPIPE</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne peut gérer SIGPIPE</translation>
     </message>
     <message>
         <source>Signal handlers installed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Signal handlers installed.</translation>
     </message>
 </context>
 <context>
@@ -2589,7 +2589,7 @@ Clés:
     </message>
     <message>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Bulgare</translation>
     </message>
 </context>
 <context>
@@ -2842,7 +2842,7 @@ Clés:
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADLSearch</translation>
+        <translation>ADLSearch</translation>
     </message>
 </context>
 <context>
@@ -3144,86 +3144,86 @@ Voulez-vous l&apos;arrêter?</translation>
     <name>UIADLS</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Formulaire</translation>
+        <translation>Formulaire</translation>
     </message>
     <message>
         <source>Add new</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter nouveau</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">Changer</translation>
+        <translation>Changer</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Effacer</translation>
     </message>
     <message>
         <source>Move up</source>
-        <translation type="unfinished">Déplacer vers le haut</translation>
+        <translation>Déplacer vers le haut</translation>
     </message>
     <message>
         <source>Move down</source>
-        <translation type="unfinished">Déplacer vers le bas</translation>
+        <translation>Déplacer vers le bas</translation>
     </message>
 </context>
 <context>
     <name>UIADLSEditor</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Dialogue</translation>
+        <translation>Dialogue</translation>
     </message>
     <message>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Chaîne de recherche</translation>
     </message>
     <message>
         <source>Favorite hub name.</source>
-        <translation type="unfinished">Nom du serveur favoris.</translation>
+        <translation>Nom du serveur favoris.</translation>
     </message>
     <message>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Tapez la source</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Nom de fichier</translation>
+        <translation>Nom du fichier</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Répertoire</translation>
+        <translation>Répertoire</translation>
     </message>
     <message>
         <source>Min/Max Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille Min/Max</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <source>On</source>
-        <translation type="unfinished">On</translation>
+        <translation>On</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléchargement</translation>
     </message>
     <message>
         <source>Full path</source>
-        <translation type="unfinished"></translation>
+        <translation>Chemin complet</translation>
     </message>
 </context>
 <context>
@@ -4013,7 +4013,8 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>When enabled can hang program on exit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quand activé peut suspendre le programme en quittant.
+</translation>
     </message>
     <message>
         <source>Automatically update external IP (restart required)</source>
@@ -4025,7 +4026,7 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>Incoming connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Connexions entrantes</translation>
     </message>
 </context>
 <context>
@@ -4624,11 +4625,11 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>(need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>(redémarrage nécessaire)</translation>
     </message>
     <message>
         <source>User theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Thème utilisateur</translation>
     </message>
 </context>
 <context>
