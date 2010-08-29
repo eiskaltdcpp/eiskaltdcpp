@@ -468,7 +468,7 @@ started before a source can be dropped. (default: 15 s)</string>
            <widget class="QSpinBox" name="spinBox_MAXINACT">
             <property name="toolTip">
              <string>This is the maximal time since the last chunk of data for
-the file was recieved. It is meant to improve speed measurement
+the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</string>
             </property>

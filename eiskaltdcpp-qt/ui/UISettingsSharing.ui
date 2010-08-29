@@ -438,7 +438,7 @@ share is complete, share at follow-up activities start nulled.</string>
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</string>
+            <string>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</string>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
