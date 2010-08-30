@@ -262,12 +262,12 @@ if (UNIX)
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
 
-if (UNIX)
+#if (UNIX)
   EXECUTE_PROCESS (
     COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} -o ${PROJECT_BINARY_DIR}/default.rcc
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
   )
-endif (UNIX)
+#endif (UNIX)
 
 include_directories (
         ${QT_INCLUDES}
