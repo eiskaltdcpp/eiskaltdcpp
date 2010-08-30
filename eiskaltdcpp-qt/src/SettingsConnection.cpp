@@ -106,6 +106,7 @@ void SettingsConnection::ok(){
     SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
     SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
     SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
+    SM->set(SettingsManager::RECONNECT_DELAY, spinBox_RECONNECT_DELAY->value());
     WISET( WS_APP_DYNDNS_ENABLED, static_cast<int>(checkBox_DYNDNS->isChecked()) );
     WSSET( WS_APP_DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text());
     WSSET( WS_APP_DYNDNS_INDEX, lineEdit_DYNDNS_INDEX->text());
@@ -136,6 +137,7 @@ void SettingsConnection::init(){
     spinBox_UP_LIMIT_TIME->setValue(SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
     spinBox_BANDWIDTH_LIMIT_START->setValue(SETTING(BANDWIDTH_LIMIT_START));
     spinBox_BANDWIDTH_LIMIT_END->setValue(SETTING(BANDWIDTH_LIMIT_END));
+    spinBox_RECONNECT_DELAY->setValue(SETTING(RECONNECT_DELAY));
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
     checkBox_DYNDNS->setCheckState( WIGET(WS_APP_DYNDNS_ENABLED) ? Qt::Checked : Qt::Unchecked );
     frame_4->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
