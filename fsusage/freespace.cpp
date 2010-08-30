@@ -22,7 +22,7 @@ bool FreeSpace::FreeDiscSpace ( std::string path,  unsigned long long * res, uns
         ULARGE_INTEGER lpTotalNumberOfBytes;    // receives the number of bytes on disk
         ULARGE_INTEGER lpTotalNumberOfFreeBytes; // receives the free bytes on disk
 
-        if ( GetDiskFreeSpaceExW( /*(const WCHAR*)*/dcpp::Text::utf8ToWide(path).c_str(), &lpFreeBytesAvailableToCaller,
+        if ( GetDiskFreeSpaceExW( (const WCHAR*)dcpp::Text::utf8ToWide(path).c_str(), &lpFreeBytesAvailableToCaller,
                                 &lpTotalNumberOfBytes,
                                 &lpTotalNumberOfFreeBytes ) == true ) {
                 *res = lpTotalNumberOfFreeBytes.QuadPart;
