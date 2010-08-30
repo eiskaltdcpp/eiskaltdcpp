@@ -65,7 +65,7 @@ const string SettingsManager::settingTags[] =
     "SocksPort", "SocksResolve", "KeepLists", "AutoKick", "QueueFrameShowTree",
     "CompressTransfers", "SFVCheck",
     "MaxCompression", "NoAwayMsgToBots", "SkipZeroByte", "AdlsBreakOnFirst",
-    "HubUserCommands", "AutoSearchAutoMatch", "DownloadBarColor", "UploadBarColor", "LogSystem",
+    "HubUserCommands", "AutoSearchAutoMatch", "UploadBarColor", "DownloadBarColor",  "LogSystem",
     "LogFilelistTransfers", "SendUnknownCommands", "MaxHashSpeed", "OpenUserCmdHelp",
     "GetUserCountry", "FavShowJoins", "LogStatusMessages", "ShowStatusbar", "AllowUpdateFilelistsOnStartup",
     "ShowToolbar", "ShowTransferview", "PopunderPm", "PopunderFilelist", "MagnetAsk",
@@ -89,8 +89,9 @@ const string SettingsManager::settingTags[] =
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs", "AllowUntrustedClients",
     "TLSPort", "FastHash", "SortFavUsersFirst", "SegmentedDL", "FollowLinks",
     "SendBloom", "OwnerDrawnMenus", "Coral", "SearchFilterShared", "MaxTabChars", "FinishedDLOnlyFull",
-    "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval", "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval","UseDHT", "DHTPort",
-    "SearchMerge", "ReconnectDelay",
+    "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval", "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval", "SearchMerge", "HashBufferSize", "HashBufferPopulate",
+    "HashBufferNoReserve", "HashBufferPrivate", "UseDHT", "DHTPort",
+     "ReconnectDelay",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -334,9 +335,7 @@ SettingsManager::SettingsManager()
     setDefault(QUEUE_PANED_POS, .3);
     setDefault(SEARCH_PANED_POS, .2);
     setDefault(RECONNECT_DELAY, 15);
-#ifdef DHT
-    setDefault(DHT_PORT, DHT_UDPPORT);
-#endif
+    setDefault(DHT_PORT, 6245);
     setDefault(USE_DHT, false);
     setDefault(SEARCH_PASSIVE, false);
 #ifdef _WIN32
