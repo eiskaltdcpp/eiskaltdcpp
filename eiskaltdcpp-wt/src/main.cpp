@@ -10,10 +10,13 @@
 #include <Wt/WApplication>
 #include <Wt/WContainerWidget>
 #include <Wt/WEnvironment>
+#include <Wt/WFitLayout>
 
 #include <Wt/Ext/Menu>
 #include <Wt/Ext/ToolBar>
 #include <Wt/Ext/Button>
+#include <Wt/Ext/Dialog>
+#include <Wt/Ext/Panel>
 
 #include <Wt/WString>
 
@@ -58,7 +61,7 @@ void startSocket();
 
 class WApp: public Wt::WApplication{
 public:
-    WApp(const Wt::WEnvironment &env): Wt::WApplication(env){
+    WApp(const Wt::WEnvironment &env): Wt::WApplication(env), dq(NULL), sfr(NULL){
         setTitle("EiskaltDC++ Web Control");
 
         useStyleSheet("eiskaltdcpp.css");
@@ -72,16 +75,17 @@ public:
         download_btn = toolbar->addButton("Download Queue");
         download_btn->setIcon("resources/download.png");
 
+        dq   = NULL;
+        sfr  = NULL;
         currentWidget = NULL;
 
-        sfr = new SearchFrame();
-        dq = new DownloadQueue();
-
         search_btn->clicked().connect(this, &WApp::showSearchFrame);
-        download_btn->clicked().connect(this, &WApp::showAnotherFrame);
+        download_btn->clicked().connect(this, &WApp::showDQFrame);
     }
 
     void showSearchFrame(){
+        sfr = sfr? sfr : new SearchFrame(root());
+
         if (currentWidget == sfr)
             return;
 
@@ -93,7 +97,9 @@ public:
         currentWidget = sfr;
     }
 
-    void showAnotherFrame(){
+    void showDQFrame(){
+        dq = dq? dq : new DownloadQueue(root());
+
         if (currentWidget == dq)
             return;
 

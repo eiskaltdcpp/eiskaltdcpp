@@ -1,5 +1,5 @@
 #include "DownloadQueue.h"
-#include "SearchModel.h"
+#include "DownloadQueueModel.h"
 
 using namespace Wt;
 
@@ -26,7 +26,7 @@ DownloadQueue::DownloadQueue(WContainerWidget *parent): WContainerWidget(parent)
         view = new WTreeView(this);
         view->setAlternatingRowColors(true);
         view->setSortingEnabled(true);
-        view->setModel(new SearchModel());
+        view->setModel(new DownloadQueueModel());
 
         vlayout->addWidget(view, 5);
 
