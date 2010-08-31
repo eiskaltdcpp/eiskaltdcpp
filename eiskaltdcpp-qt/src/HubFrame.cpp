@@ -1800,6 +1800,8 @@ void HubFrame::newMsg(VarMap map){
     QString color = map["CLR"].toString();
     QString msg_color = WS_CHAT_MSG_COLOR;
 
+    emit newMessage(this, _q(client->getHubUrl()), map["CID"].toString(), nick, message);
+
     if (message.indexOf(_q(client->getMyNick())) >= 0){
         msg_color = WS_CHAT_SAY_NICK;
 

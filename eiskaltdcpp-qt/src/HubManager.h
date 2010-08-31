@@ -30,12 +30,14 @@ friend class HubFrame;
 typedef QHash<QString, HubFrame*> HubHash;
 
 public:
-    HubFrame *getHub(const QString &);
-    QList<HubFrame*> getHubs() const;
-    HubFrame *activeHub() const;
+Q_SIGNALS:
+    void newMessage(HubFrame*, const QString &hubUrl, const QString &cid, const QString &nick, const QString &msg);
 
 public Q_SLOTS:
     QObject *getHubObject();
+    QList<HubFrame*> getHubs() const;
+    HubFrame *getHub(const QString &);
+    HubFrame *activeHub() const;
 
 private:
     explicit HubManager();

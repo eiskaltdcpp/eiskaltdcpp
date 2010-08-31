@@ -211,6 +211,9 @@ public:
 
     QString getCIDforNick(QString nick) { return model->CIDforNick(nick); }
 
+Q_SIGNALS:
+    void newMessage(HubFrame*, const QString &hubUrl, const QString &cid, const QString &nick, const QString &msg);
+
 public Q_SLOTS:
     void disableChat();
     void clearChat();

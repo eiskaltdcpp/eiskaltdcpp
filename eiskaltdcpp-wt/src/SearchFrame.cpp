@@ -76,6 +76,7 @@ SearchFrame::SearchFrame(const SearchFrame& orig) {
 }
 
 SearchFrame::~SearchFrame() {
+    SearchManager::getInstance()->removeListener(this);
     /*delete container;
     delete vlayout;
     delete hlayout;
@@ -140,7 +141,6 @@ void SearchFrame::startSearch() {
     int ftype = comboBox_TYPE->currentIndex();
 
     if(SearchManager::getInstance()->okToSearch()) {
-        printf("Now Search: %s!\n", s.toUTF8().c_str());
         SearchManager::getInstance()->search(clients, s.toUTF8(), 0, (SearchManager::TypeModes)ftype,
                                              searchMode, token);
 
@@ -148,6 +148,8 @@ void SearchFrame::startSearch() {
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const SearchResultPtr& aResult) throw(){
+    printf("SearchFrame::on()\n");
+
     SearchModelItem *item = new SearchModelItem();
 
     WString s =  WString::fromUTF8(aResult->getFileName(), false);

@@ -17,13 +17,18 @@ void HubManager::registerHubUrl(const QString &url, HubFrame *hub){
         return;
 
     hubs.insert(url, hub);
+
+    connect(hub, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)), this, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)));
 }
 
 void HubManager::unregisterHubUrl(const QString &url){
     HubHash::iterator it = hubs.find(url);
 
-    if (it != hubs.constEnd())
+    if (it != hubs.constEnd()){
         hubs.erase(it);
+
+        disconnect(*it, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)));
+    }
 }
 
 void HubManager::setActiveHub(HubFrame *f){

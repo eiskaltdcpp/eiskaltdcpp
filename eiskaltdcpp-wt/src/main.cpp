@@ -6,6 +6,12 @@
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/ConnectionManager.h"
+#include "dcpp/HashManager.h"
+
+#ifdef USE_MINIUPNP
+#include "miniupnp/upnpc.h"
+#include <dcpp/UPnPManager.h>//NOTE: core 0.762
+#endif
 
 #include <Wt/WApplication>
 #include <Wt/WContainerWidget>
@@ -153,26 +159,16 @@ int main(int argc, char** argv) {
     Utils::init();
 
     dcpp::startup(callBack, NULL);
+    dcpp::TimerManager::getInstance()->start();
+    dcpp::HashManager::getInstance()->setPriority(Thread::IDLE);
+
+#ifdef USE_MINIUPNP
+    dcpp::UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
+#endif
 
     startSocket();
 
     autoconnect();
-
-    ClientManager* clientMgr = ClientManager::getInstance();
-
-    clientMgr->lock();
-    Client::List& clients = clientMgr->getClients();
-
-    for(Client::List::iterator it = clients.begin(); it != clients.end(); ++it) {
-        Client* client = *it;
-
-        if(!client->isConnected())
-            continue;
-
-        std::cout << client->getAddress().c_str() << std::endl;
-    }
-
-    clientMgr->unlock();
 
     int ret = Wt::WRun(argc, argv, &createApplication);
 
@@ -220,5 +216,12 @@ void startSocket(){
             printf("%s %s %s\n", "Cannot listen socket because: \n", e.getError().c_str(), "\n\nPlease check your connection settings");
         }
     }
+
+#ifdef USE_MINIUPNP
+    if( SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP )
+        UPnPManager::getInstance()->open();
+    else if (SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP && UPnPManager::getInstance()->getOpened())
+        UPnPManager::getInstance()->close();
+#endif
 }
 
