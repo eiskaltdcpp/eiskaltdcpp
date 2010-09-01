@@ -369,14 +369,12 @@ unsigned long UCDialog::getCtx() const {
 }
 
 unsigned long UCDialog::getType() const {
-    if (radioButton_CHAT->isChecked())
-        return 2;
-    else if (radioButton_PM->isChecked())
-        return 3;
-    else if (radioButton_RAW->isChecked())
-        return 1;
+    if (radioButton_SEP->isChecked())
+        return UserCommand::TYPE_SEPARATOR;
+    else if (checkBox_SENDONCE->isChecked())
+        return UserCommand::TYPE_RAW_ONCE;
     else
-        return 0;
+        return UserCommand::TYPE_RAW;
 }
 
 QString UCDialog::getCmd() const {
