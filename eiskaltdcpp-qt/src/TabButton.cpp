@@ -100,10 +100,11 @@ void TabButton::dropEvent(QDropEvent *e){
 void TabButton::mousePressEvent(QMouseEvent *e){
     QPushButton::mousePressEvent(e);
 
-    emit clicked();
+    if (e->button() == Qt::LeftButton){
+        emit clicked();
 
-    if (e->button() == Qt::LeftButton)
         isLeftBtnHold = true;
+    }
 }
 
 void TabButton::mouseMoveEvent(QMouseEvent *e){
