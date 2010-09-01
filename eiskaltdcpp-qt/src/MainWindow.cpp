@@ -347,6 +347,10 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
         slotFileHashProgress();
         return true;
     }
+    else if (obj == sideTree && sideTree && e->type() == QEvent::Resize) {
+        sideTree->header()->resizeSection(0, sideTree->contentsRect().width() - 20);
+        sideTree->header()->resizeSection(1, 18);
+    }
     return QMainWindow::eventFilter(obj, e);
 }
 
@@ -1212,10 +1216,13 @@ void MainWindow::initSideBar(){
     sideDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     sideTree->setModel(model);
     sideTree->setItemsExpandable(true);
+    sideTree->setHeaderHidden(true);
     sideTree->setSortingEnabled(false);
     sideTree->setContextMenuPolicy(Qt::CustomContextMenu);
     sideTree->setItemDelegate(new SideBarDelegate(sideTree));
     sideTree->expandAll();
+
+    sideTree->installEventFilter(this);
 
     wcontainer = static_cast<ArenaWidgetContainer*>(model);
 
@@ -2454,9 +2461,7 @@ void MainWindow::slotSidebarContextMenu(){
 }
 
 void MainWindow::slotSidebarHook(const QModelIndex &index){
-    QPoint p = sideTree->mapFromGlobal(QCursor::pos());
-
-    if ((sideTree->width() - p.x()) <= 18){//18 is a close button size
+    if (index.column() == 1){//18 is a close button size
         SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
 
         if (item->getWidget()){

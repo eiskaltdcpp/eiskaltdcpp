@@ -58,6 +58,9 @@ QVariant SideBarModel::data(const QModelIndex &index, int role) const
 
     SideBarItem *item = static_cast<SideBarItem*>(index.internalPointer());
 
+    if (index.column() == 1)
+        return QVariant();
+
     switch(role) {
         case Qt::DecorationRole:
         {
@@ -322,6 +325,12 @@ SideBarDelegate::~SideBarDelegate(){
 }
 
 void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
+    if (index.column() == 0){
+        QStyledItemDelegate::paint(painter, option, index);
+
+        return;
+    }
+
     bool showCloseBtn = false;
     SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
     ArenaWidget *awgt = item->getWidget();
@@ -338,88 +347,17 @@ void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         }
     }
 
-    if (!((option.state & (QStyle::State_MouseOver | QStyle::State_Selected)) && showCloseBtn)){
-        if (option.state & (QStyle::State_Selected | QStyle::State_MouseOver)){
-            drawBackground(painter, option, index);
+    QStyledItemDelegate::paint(painter, option, index);
 
-            QStyleOptionViewItem opt = option;
-            opt.state = opt.state & ~QStyle::State_Selected;
+    if ((option.state & (QStyle::State_MouseOver | QStyle::State_Selected)) && showCloseBtn){
+        QPixmap px = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 
-            QStyledItemDelegate::paint(painter, opt, index);
-        }
-        else
-            QStyledItemDelegate::paint(painter, option, index);
+        painter->drawPixmap(option.rect.x() + (option.rect.width() - 16)/2,
+                            option.rect.y() + (option.rect.height() - 16)/2,
+                            16, 16, px);
 
         return;
     }
-
-    QPixmap px = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-    QRect pxRect = option.rect;
-    pxRect.setX(pxRect.x()+option.rect.width()-px.width()-4);
-    pxRect.setWidth(px.width());
-
-    QStyleOptionButton btnOption;
-    btnOption.state         = option.state & ~(QStyle::State_Selected | QStyle::State_MouseOver);
-    btnOption.direction     = QApplication::layoutDirection();
-    btnOption.rect          = pxRect;
-    btnOption.fontMetrics   = QApplication::fontMetrics();
-    btnOption.features      = QStyleOptionButton::Flat;
-    btnOption.icon          = px;
-    btnOption.iconSize      = px.size();
-    btnOption.palette       = option.palette;
-
-    QStyleOptionViewItem opt = option;
-    drawBackground(painter, option, index);
-
-    opt.rect.setHeight(option.rect.height());
-    opt.rect.setWidth(opt.rect.width()-px.width());
-    opt.state = opt.state & ~(QStyle::State_Selected | QStyle::State_MouseOver);//skip flags because background already painted
-
-    QStyledItemDelegate::paint(painter, opt, index);
-    QApplication::style()->drawControl(QStyle::CE_PushButton, &btnOption, painter);
-}
-
-void SideBarDelegate::drawBackground(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
-    QPoint p1 = option.rect.topLeft() + QPoint(option.rect.width()/2, 0);
-    QPoint p2 = option.rect.topLeft() + QPoint(option.rect.width()/2, option.rect.height());
-
-    QPainterPath path;
-    QRect rect = option.rect;
-    QRect roundRect(0, 0, 4, 4);
-
-    path.moveTo(rect.topLeft()+QPoint(0, 2));
-    roundRect.moveCenter(rect.topLeft()+QPoint(2, 2));
-    path.arcTo(roundRect, 180.0, -90.0);
-    path.lineTo(rect.topRight()-QPoint(2, 0));
-    roundRect.moveCenter(rect.topRight()+QPoint(-2, 2));
-    path.arcTo(roundRect, 90.0, -90.0);
-    path.lineTo(rect.topRight()+QPoint(0, rect.height()-2));
-    roundRect.moveCenter(rect.bottomRight()+QPoint(-2, -2));
-    path.arcTo(roundRect, 0.0, -90.0);
-    path.lineTo(rect.bottomLeft()+QPoint(2, 0));
-    roundRect.moveCenter(rect.bottomLeft()+QPoint(2, -2));
-    path.arcTo(roundRect, 270.0, -90.0);
-    path.closeSubpath();
-
-    QLinearGradient gradient(p1, p2);
-
-    if (option.state & QStyle::State_Selected){
-        gradient.setColorAt(0, option.palette.highlight().color().lighter());
-        gradient.setColorAt(1, option.palette.highlight().color());
-    }
-    else if (option.state & QStyle::State_MouseOver){
-        gradient.setColorAt(0, option.palette.highlight().color().lighter().lighter());
-        gradient.setColorAt(1, option.palette.highlight().color().lighter().lighter());
-    }
-    else
-        return;
-
-    QBrush brush(gradient);
-
-    brush.setColor(option.palette.highlight().color());
-    brush.setTransform(option.palette.highlight().transform());
-
-    painter->fillPath(path, brush);
 }
 
 QSize SideBarDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const{

@@ -32,7 +32,6 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 protected:
-    void drawBackground(QPainter*, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
 class SideBarItem
@@ -56,7 +55,7 @@ public:
     }
 
     int columnCount() const{
-        return 1;
+        return 2;
     }
 
     int row() const{
