@@ -103,6 +103,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_PUBLICHUBS_STATE,      "");
         strmap.insert(WS_SETTINGS_GUI_FONTS_STATE, "");
 
+        intmap.insert(WB_APP_AUTOAWAY_BY_TIMER, static_cast<int>(false));
         intmap.insert(WB_CHAT_SHOW_TIMESTAMP,   static_cast<int>(true));
         intmap.insert(WB_SHOW_FREE_SPACE,       static_cast<int>(true));
         intmap.insert(WB_LAST_STATUS,           static_cast<int>(true));
@@ -148,6 +149,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_SIMPLE_SHARE_MODE,     static_cast<int>(false));
         intmap.insert(WS_APP_DYNDNS_ENABLED,    static_cast<int>(false));
         intmap.insert(WI_APP_UNIT_BASE,         1024);
+        intmap.insert(WI_APP_AUTOAWAY_INTERVAL, 60);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS,    1000);
         intmap.insert(WI_DEF_MAGNET_ACTION,     0);
         intmap.insert(WI_CHAT_WIDTH,            -1);

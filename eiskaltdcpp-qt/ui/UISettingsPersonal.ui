@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>285</width>
-    <height>297</height>
+    <width>399</width>
+    <height>284</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -32,14 +32,7 @@
       <property name="margin">
        <number>0</number>
       </property>
-      <item row="3" column="0" colspan="2">
-       <widget class="LineEdit" name="lineEdit_EMAIL">
-        <property name="toolTip">
-         <string>This field is for sharing your email address, if you wish it.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0" colspan="2">
+      <item row="5" column="0" colspan="4">
        <widget class="LineEdit" name="lineEdit_DESC">
         <property name="toolTip">
          <string>This description will show in the user list.
@@ -47,7 +40,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</string>
         </property>
        </widget>
       </item>
-      <item row="7" column="0" colspan="2">
+      <item row="8" column="0" colspan="4">
        <widget class="LineEdit" name="lineEdit_AWAYMSG">
         <property name="toolTip">
          <string>If you are in away mode, this message will be sent to everybody
@@ -55,14 +48,14 @@ who sends private message to you.</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="2">
+      <item row="0" column="0" colspan="4">
        <widget class="QLabel" name="label">
         <property name="text">
          <string>Nick</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0" colspan="2">
+      <item row="1" column="0" colspan="4">
        <widget class="LineEdit" name="lineEdit_NICK">
         <property name="toolTip">
          <string>This nickname, or handle, will identify you when you join a hub.
@@ -70,24 +63,64 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="2" column="0" colspan="4">
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>E-Mail</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="4" column="0" colspan="4">
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string>Description</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
+      <item row="6" column="0" colspan="4">
        <widget class="QLabel" name="label_4">
         <property name="text">
          <string>Away message</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QCheckBox" name="checkBox_AUTOAWAY">
+        <property name="text">
+         <string>Auto away interval (min)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="2">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="0" colspan="4">
+       <widget class="LineEdit" name="lineEdit_EMAIL">
+        <property name="toolTip">
+         <string>This field is for sharing your email address, if you wish it.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QSpinBox" name="spinBox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="maximum">
+         <number>180</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
         </property>
        </widget>
       </item>
@@ -209,5 +242,22 @@ of how fast a source you are likely to be for other users.</string>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkBox_AUTOAWAY</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>spinBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>69</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

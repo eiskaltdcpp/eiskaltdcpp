@@ -75,6 +75,7 @@ static const QString & WS_APP_DYNDNS_INDEX        = "app-dyndns-server-index";
 static const QString & WS_APP_DYNDNS_ENABLED      = "app-dyndns-enabled";
 static const QString & WS_PUBLICHUBS_STATE        = "publichubs-state";
 static const QString & WS_SETTINGS_GUI_FONTS_STATE= "settings-gui-fonts-state";
+static const QString & WB_APP_AUTOAWAY_BY_TIMER   = "app-autoaway";
 static const QString & WB_CHAT_SHOW_TIMESTAMP     = "chat-show-timestamp";
 static const QString & WB_SHOW_FREE_SPACE         = "show-free-space";
 static const QString & WB_CHAT_SHOW_JOINS         = "chat-show-joins";
@@ -119,6 +120,7 @@ static const QString & WB_MAIN_MENU_VISIBLE       = "main-menu-visible";
 static const QString & WB_USE_CTRL_ENTER          = "use-ctrl-enter";
 static const QString & WB_SIMPLE_SHARE_MODE       = "use-simple-share-mode";
 static const QString & WI_APP_UNIT_BASE           = "app-unit-base";
+static const QString & WI_APP_AUTOAWAY_INTERVAL   = "app-autoaway-interval";
 //
 static const QString & WI_DEF_MAGNET_ACTION       = "def-magnet-action";
 // 0 - ask, 1 - search, 2 - download

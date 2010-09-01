@@ -35,6 +35,9 @@ void SettingsPersonal::ok(){
     WSSET(WS_DEFAULT_LOCALE, comboBox_ENC->currentText());
     Text::hubDefaultCharset = WulforUtil::getInstance()->qtEnc2DcEnc(comboBox_ENC->currentText()).toStdString();
 
+    WBSET(WB_APP_AUTOAWAY_BY_TIMER, checkBox_AUTOAWAY->isChecked());
+    WISET(WI_APP_AUTOAWAY_INTERVAL, spinBox->value());
+
     SM->save();
 
     WulforSettings::getInstance()->save();
@@ -65,11 +68,6 @@ void SettingsPersonal::init(){
     else
         comboBox_ENC->setCurrentIndex(0);
 
-    lineEdit_AWAYMSG->installEventFilter(this);
-    lineEdit_DESC->installEventFilter(this);
-    lineEdit_EMAIL->installEventFilter(this);
-    lineEdit_NICK->installEventFilter(this);
-
-    comboBox_SPEED->installEventFilter(this);
-    comboBox_ENC->installEventFilter(this);
+    checkBox_AUTOAWAY->setChecked(WBGET(WB_APP_AUTOAWAY_BY_TIMER));
+    spinBox->setValue(WIGET(WI_APP_AUTOAWAY_INTERVAL));
 }

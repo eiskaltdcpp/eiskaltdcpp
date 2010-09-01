@@ -32,6 +32,7 @@
 #include <QRegExp>
 #include <QTreeView>
 #include <QMetaType>
+#include <QTimer>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -45,6 +46,7 @@
 #include "dcpp/ShareManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Download.h"
+#include "dcpp/Util.h"
 #include "dcpp/version.h"
 
 #include "ArenaWidget.h"
@@ -52,6 +54,7 @@
 #include "HistoryInterface.h"
 #include "LineEdit.h"
 #include "Func.h"
+#include "WulforSettings.h"
 
 #include "ui_UIAbout.h"
 
@@ -415,10 +418,76 @@ friend class dcpp::Singleton<MainWindow>;
 
 Q_DECLARE_METATYPE(MainWindow*)
 
+class EiskaltEventFilter: public QObject{
+Q_OBJECT
+public:
+    EiskaltEventFilter(): has_activity(true), counter(0) {
+        timer.setInterval(60000);
+
+        connect(&timer, SIGNAL(timeout()), this, SLOT(tick()));
+
+        timer.start();
+    }
+
+    virtual ~EiskaltEventFilter() {}
+
+protected:
+    virtual bool eventFilter(QObject *obj, QEvent *event){
+        if ((event->type() == QEvent::MouseButtonPress) ||
+            (event->type() == QEvent::MouseButtonRelease) ||
+            (event->type() == QEvent::MouseButtonDblClick) ||
+            (event->type() == QEvent::MouseMove) ||
+            (event->type() == QEvent::KeyPress) ||
+            (event->type() == QEvent::KeyRelease) ||
+            (event->type() == QEvent::Wheel))
+        {
+            has_activity = true;
+            counter = 0;
+
+            if (WBGET(WB_APP_AUTOAWAY_BY_TIMER)){
+                dcpp::Util::setAway(false);
+                dcpp::Util::setManualAway(false);
+            }
+        }
+        else {
+            has_activity = false;
+        }
+
+        return QObject::eventFilter(obj, event);
+    }
+
+private Q_SLOTS:
+    void tick(){
+        if (!has_activity)
+            ++counter;
+
+        if (WBGET(WB_APP_AUTOAWAY_BY_TIMER)){
+            int mins = WIGET(WI_APP_AUTOAWAY_INTERVAL);
+
+            if (!mins)
+                return;
+
+            int mins_done = (counter*timer.interval()/1000)/60;
+
+            if (mins <= mins_done){
+                dcpp::Util::setAway(true);
+                dcpp::Util::setManualAway(true);
+            }
+        }
+    }
+
+private:
+    QTimer timer;
+    int counter;
+    bool has_activity;
+};
+
 class EiskaltApp: public QApplication{
 Q_OBJECT
 public:
-    EiskaltApp(int argc, char *argv[]): QApplication(argc, argv){}
+    EiskaltApp(int argc, char *argv[]): QApplication(argc, argv){
+        installEventFilter(&ef);
+    }
 
     void commitData(QSessionManager& manager){
         if (MainWindow::getInstance()){
@@ -430,6 +499,9 @@ public:
     }
 
     void saveState(QSessionManager &){ /** Do nothing */ }
+
+private:
+    EiskaltEventFilter ef;
 };
 
 #endif //MAINWINDOW_H_
