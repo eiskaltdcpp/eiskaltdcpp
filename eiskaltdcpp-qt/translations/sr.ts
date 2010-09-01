@@ -19,6 +19,34 @@
         <source>Delete</source>
         <translation type="unfinished">Obriši</translation>
     </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Ime fajla</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Fascikla</translation>
+    </message>
+    <message>
+        <source>Full Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished">B</translation>
+    </message>
+    <message>
+        <source>KiB</source>
+        <translation type="unfinished">KiB</translation>
+    </message>
+    <message>
+        <source>MiB</source>
+        <translation type="unfinished">MiB</translation>
+    </message>
+    <message>
+        <source>GiB</source>
+        <translation type="unfinished">GiB</translation>
+    </message>
 </context>
 <context>
     <name>ADLSModel</name>
@@ -3730,6 +3758,14 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
         <source>Incoming connections</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">Napredno</translation>
+    </message>
+    <message>
+        <source>Reconnect to hub(seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -3890,7 +3926,7 @@ preuzimanja  izvor može da povuče. (podrazumevano: 15 s)</translation>
 the file was recieved. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation>Ovo je maksimalno vreme od poslednjeg fajla
+        <translation type="obsolete">Ovo je maksimalno vreme od poslednjeg fajla
 koji je bio primljen. Namenjeno je da se poboljša brzina merenja i
 kako bi se sprečilo ispuštanje izvora koji će biti isključen samo 
 zbog njegove trenutne neaktivnosti. (podrazumevano: 10 s)</translation>
@@ -4102,6 +4138,13 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
         <source>Segmented downloads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is the maximal time since the last chunk of data for
+the file was received. It is meant to improve speed measurement
+accuracy and to prevent dropping sources that are going to be
+disconnected only because of their current inactivity. (default: 10 s)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4796,7 +4839,7 @@ odobreni slot neće biti zatvoren.</translation>
     </message>
     <message>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Automatski otvori ekstra slot ako je brzina ispod  (KiB/s, 0 = infinite)</translation>
+        <translation type="obsolete">Automatski otvori ekstra slot ako je brzina ispod  (KiB/s, 0 = infinite)</translation>
     </message>
     <message>
         <source>Upload slots</source>
@@ -4805,6 +4848,10 @@ odobreni slot neće biti zatvoren.</translation>
     <message>
         <source>Total shared: %1</source>
         <translation>Ukupno deljeno: %1</translation>
+    </message>
+    <message>
+        <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

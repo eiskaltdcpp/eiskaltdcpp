@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-28 16:31+0300\n"
+"POT-Creation-Date: 2010-08-30 13:30+0300\n"
 "PO-Revision-Date: 2010-08-28 16:41+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.0\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:935
@@ -643,8 +643,8 @@ msgstr ""
 msgid "-:--:-- left"
 msgstr ""
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1931
-#: ../src/mainwindow.cc:1933 ../glade/settingsdialog.glade:1574
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1948
+#: ../src/mainwindow.cc:1950 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
 msgstr ""
@@ -1474,43 +1474,43 @@ msgstr "Властивості магнетів / Вибір"
 msgid "Magnet Choice"
 msgstr "Властивості магнетів"
 
-#: ../src/mainwindow.cc:1605 ../glade/mainwindow.glade:1137
+#: ../src/mainwindow.cc:1622 ../glade/mainwindow.glade:1137
 msgid "Select filelist to browse"
 msgstr ""
 
-#: ../src/mainwindow.cc:1630
+#: ../src/mainwindow.cc:1647
 msgid "Unable to load file list: Invalid file list name"
 msgstr ""
 
-#: ../src/mainwindow.cc:1642
+#: ../src/mainwindow.cc:1659
 msgid "Loading file list"
 msgstr ""
 
-#: ../src/mainwindow.cc:1828
+#: ../src/mainwindow.cc:1845
 msgid "Unable to open TCP/TLS port"
 msgstr ""
 
-#: ../src/mainwindow.cc:1829
+#: ../src/mainwindow.cc:1846
 msgid ""
 "File transfers will not work correctly until you change settings or turn off "
 "any application that might be using the TCP/TLS port."
 msgstr ""
 
-#: ../src/mainwindow.cc:1841
+#: ../src/mainwindow.cc:1858
 msgid "Unable to open UDP port"
 msgstr ""
 
-#: ../src/mainwindow.cc:1842
+#: ../src/mainwindow.cc:1859
 msgid ""
 "Searching will not work correctly until you change settings or turn off any "
 "application that might be using the UDP port."
 msgstr ""
 
-#: ../src/mainwindow.cc:1897
+#: ../src/mainwindow.cc:1914
 msgid "file list from "
 msgstr ""
 
-#: ../src/mainwindow.cc:1907
+#: ../src/mainwindow.cc:1924
 msgid "<b>file:</b> "
 msgstr ""
 
@@ -3531,4 +3531,3 @@ msgstr ""
 #, fuzzy
 msgid "_Remove from favorites"
 msgstr "Видалити користувача з обраних"
-

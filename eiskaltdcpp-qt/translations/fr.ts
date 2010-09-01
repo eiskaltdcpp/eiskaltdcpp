@@ -19,6 +19,34 @@
         <source>Delete</source>
         <translation>Effacer</translation>
     </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Nom de fichier</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Répertoire</translation>
+    </message>
+    <message>
+        <source>Full Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished">B</translation>
+    </message>
+    <message>
+        <source>KiB</source>
+        <translation type="unfinished">KiB</translation>
+    </message>
+    <message>
+        <source>MiB</source>
+        <translation type="unfinished">MiB</translation>
+    </message>
+    <message>
+        <source>GiB</source>
+        <translation type="unfinished">GiB</translation>
+    </message>
 </context>
 <context>
     <name>ADLSModel</name>
@@ -4028,6 +4056,14 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
         <source>Incoming connections</source>
         <translation>Connexions entrantes</translation>
     </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">Avancé</translation>
+    </message>
+    <message>
+        <source>Reconnect to hub(seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -4252,7 +4288,7 @@ a commencé avant qu&apos;une source puisse être abandonnée. (15s par défaut)
 the file was recieved. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation>Ceci est le temps maximum écoulé pour la réception du dernier paquet d&apos;un fichier.
+        <translation type="obsolete">Ceci est le temps maximum écoulé pour la réception du dernier paquet d&apos;un fichier.
 L&apos;objectif est d&apos;améliorer les mesures de vitesses, et d&apos;empêcher la déconnection d&apos;une source 
 dans le cas où elle serait simplement temporairement inactive. (10s par défaut)</translation>
     </message>
@@ -4379,6 +4415,13 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
     <message>
         <source>Segmented downloads</source>
         <translation>Téléchargements segmentés</translation>
+    </message>
+    <message>
+        <source>This is the maximal time since the last chunk of data for
+the file was received. It is meant to improve speed measurement
+accuracy and to prevent dropping sources that are going to be
+disconnected only because of their current inactivity. (default: 10 s)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4888,7 +4931,7 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
     </message>
     <message>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Donner un slot automatiquement si vitesse inférieure à (KiB/s, 0 = infini)</translation>
+        <translation type="obsolete">Donner un slot automatiquement si vitesse inférieure à (KiB/s, 0 = infini)</translation>
     </message>
     <message>
         <source>Upload slots</source>
@@ -5071,6 +5114,10 @@ trois slots maximum au dessus du nombre de slots spécifié. On les appelle
 les minislots.
 Note: Si un utilisateur quitte le serveur, le slot sera fermé ; s&apos;il revient dans
 les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
+    </message>
+    <message>
+        <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

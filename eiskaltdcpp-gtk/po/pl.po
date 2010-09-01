@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-28 16:31+0300\n"
+"POT-Creation-Date: 2010-08-30 13:30+0300\n"
 "PO-Revision-Date: 2010-07-30 00:20+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -637,8 +637,8 @@ msgstr ""
 msgid "-:--:-- left"
 msgstr ""
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1931
-#: ../src/mainwindow.cc:1933 ../glade/settingsdialog.glade:1574
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1948
+#: ../src/mainwindow.cc:1950 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
 msgstr ""
@@ -1460,43 +1460,43 @@ msgstr ""
 msgid "Magnet Choice"
 msgstr ""
 
-#: ../src/mainwindow.cc:1605 ../glade/mainwindow.glade:1137
+#: ../src/mainwindow.cc:1622 ../glade/mainwindow.glade:1137
 msgid "Select filelist to browse"
 msgstr ""
 
-#: ../src/mainwindow.cc:1630
+#: ../src/mainwindow.cc:1647
 msgid "Unable to load file list: Invalid file list name"
 msgstr ""
 
-#: ../src/mainwindow.cc:1642
+#: ../src/mainwindow.cc:1659
 msgid "Loading file list"
 msgstr ""
 
-#: ../src/mainwindow.cc:1828
+#: ../src/mainwindow.cc:1845
 msgid "Unable to open TCP/TLS port"
 msgstr ""
 
-#: ../src/mainwindow.cc:1829
+#: ../src/mainwindow.cc:1846
 msgid ""
 "File transfers will not work correctly until you change settings or turn off "
 "any application that might be using the TCP/TLS port."
 msgstr ""
 
-#: ../src/mainwindow.cc:1841
+#: ../src/mainwindow.cc:1858
 msgid "Unable to open UDP port"
 msgstr ""
 
-#: ../src/mainwindow.cc:1842
+#: ../src/mainwindow.cc:1859
 msgid ""
 "Searching will not work correctly until you change settings or turn off any "
 "application that might be using the UDP port."
 msgstr ""
 
-#: ../src/mainwindow.cc:1897
+#: ../src/mainwindow.cc:1914
 msgid "file list from "
 msgstr ""
 
-#: ../src/mainwindow.cc:1907
+#: ../src/mainwindow.cc:1924
 msgid "<b>file:</b> "
 msgstr ""
 

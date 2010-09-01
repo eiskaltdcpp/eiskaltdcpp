@@ -19,6 +19,34 @@
         <source>Delete</source>
         <translation type="unfinished">Törlés</translation>
     </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Fájlnév</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Könyvtár</translation>
+    </message>
+    <message>
+        <source>Full Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished">B</translation>
+    </message>
+    <message>
+        <source>KiB</source>
+        <translation type="unfinished">KiB</translation>
+    </message>
+    <message>
+        <source>MiB</source>
+        <translation type="unfinished">MiB</translation>
+    </message>
+    <message>
+        <source>GiB</source>
+        <translation type="unfinished">GiB</translation>
+    </message>
 </context>
 <context>
     <name>ADLSModel</name>
@@ -3979,6 +4007,14 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
         <source>Incoming connections</source>
         <translation>Bejövő kapcsolatok</translation>
     </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished">Haladó</translation>
+    </message>
+    <message>
+        <source>Reconnect to hub(seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -4230,7 +4266,7 @@ megkezdése előtt, mielőtt a forrás eldobható. (alapértelmezett: 15 s)</tra
 the file was recieved. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation>Ez a maximális idő ami eltellhet két adatcsomag érkezése között.
+        <translation type="obsolete">Ez a maximális idő ami eltellhet két adatcsomag érkezése között.
 A beállítás a sebességmérés pontosságát hivatott javítani, annak érdekében,
 hogy az egyes források szétkapcsolása ne történjen meg,
 ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünetek keletkeznek.
@@ -4356,6 +4392,13 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
     <message>
         <source>Segmented downloads</source>
         <translation>Szegmentált letöltés</translation>
+    </message>
+    <message>
+        <source>This is the maximal time since the last chunk of data for
+the file was received. It is meant to improve speed measurement
+accuracy and to prevent dropping sources that are going to be
+disconnected only because of their current inactivity. (default: 10 s)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4868,7 +4911,7 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
     </message>
     <message>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Automatikus extra slot nyitása, ha a feltöltési sebesség ez alá esik (KiB/s, 0 = letiltva)</translation>
+        <translation type="obsolete">Automatikus extra slot nyitása, ha a feltöltési sebesség ez alá esik (KiB/s, 0 = letiltva)</translation>
     </message>
     <message>
         <source>Upload slots</source>
@@ -5093,6 +5136,10 @@ Ha 10 percen belül visszatér, automatikusan visszakapja a slotját.
 Mindez akkor történik meg ha &quot;A hubról lelépő felhasználók szétkapcsolása&quot; nevű beállítás engedélyezett.
 Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglalhatja,
 így ezesetben előfordulhat, hogy átmeneti ideig a beállítottnál nagyobb számú feltöltési slot nyílik meg.</translation>
+    </message>
+    <message>
+        <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

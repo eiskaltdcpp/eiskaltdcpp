@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-28 16:31+0300\n"
+"POT-Creation-Date: 2010-08-30 13:30+0300\n"
 "PO-Revision-Date: 2010-08-17 18:49+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -666,8 +666,8 @@ msgstr "засталося"
 msgid "-:--:-- left"
 msgstr "-:--:-- засталося"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1931
-#: ../src/mainwindow.cc:1933 ../glade/settingsdialog.glade:1574
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1948
+#: ../src/mainwindow.cc:1950 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
 msgstr "с"
@@ -1533,23 +1533,23 @@ msgstr "Уласьцівасьці магніт-спасылкі (выбар)"
 msgid "Magnet Choice"
 msgstr "Выбар па магніт-спасылцы"
 
-#: ../src/mainwindow.cc:1605 ../glade/mainwindow.glade:1137
+#: ../src/mainwindow.cc:1622 ../glade/mainwindow.glade:1137
 msgid "Select filelist to browse"
 msgstr "Абярыце сьпіс файлаў"
 
-#: ../src/mainwindow.cc:1630
+#: ../src/mainwindow.cc:1647
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Не магу прачытаць сьпіс файлаў: хібны назоў сьпісу файлаў"
 
-#: ../src/mainwindow.cc:1642
+#: ../src/mainwindow.cc:1659
 msgid "Loading file list"
 msgstr "Чытаецца сьпіс файлаў"
 
-#: ../src/mainwindow.cc:1828
+#: ../src/mainwindow.cc:1845
 msgid "Unable to open TCP/TLS port"
 msgstr "Не магу адкрыць порт TCP/TLS"
 
-#: ../src/mainwindow.cc:1829
+#: ../src/mainwindow.cc:1846
 #, fuzzy
 msgid ""
 "File transfers will not work correctly until you change settings or turn off "
@@ -1559,11 +1559,11 @@ msgstr ""
 "пакуль вы ня зьменіце наладжваньні ці ня спыніце ўсе праграмы, што "
 "выкарыстоўваюць порт TCP/TLS"
 
-#: ../src/mainwindow.cc:1841
+#: ../src/mainwindow.cc:1858
 msgid "Unable to open UDP port"
 msgstr "Не магу адкрыць порт UDP"
 
-#: ../src/mainwindow.cc:1842
+#: ../src/mainwindow.cc:1859
 msgid ""
 "Searching will not work correctly until you change settings or turn off any "
 "application that might be using the UDP port."
@@ -1572,11 +1572,11 @@ msgstr ""
 "наладжваньні, або ня вымкнеце прыстасаваньні, якія могуць выкарыстоўваць "
 "порт UDP."
 
-#: ../src/mainwindow.cc:1897
+#: ../src/mainwindow.cc:1914
 msgid "file list from "
 msgstr "сьпіс файлаў ад "
 
-#: ../src/mainwindow.cc:1907
+#: ../src/mainwindow.cc:1924
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
