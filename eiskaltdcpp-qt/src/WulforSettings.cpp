@@ -115,7 +115,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_MAINWINDOW_MAXIMIZED,  static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_HIDE,       static_cast<int>(false));
         intmap.insert(WB_MAINWINDOW_REMEMBER,   static_cast<int>(true));
-        intmap.insert(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(false));
+        intmap.insert(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(false));
         intmap.insert(WB_SEARCHFILTER_NOFREE,   static_cast<int>(false));
         intmap.insert(WB_SEARCH_DONTHIDEPANEL,  static_cast<int>(false));
