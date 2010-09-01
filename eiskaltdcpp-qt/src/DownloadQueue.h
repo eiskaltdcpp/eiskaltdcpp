@@ -151,6 +151,7 @@ private:
     void updateFile(VarMap);
 
     void getChilds(DownloadQueueItem *i, QList<DownloadQueueItem*>&);
+    void getItems(const QModelIndexList &list, QList<DownloadQueueItem*> &items);
 
     QString getCID(const VarMap&);
 

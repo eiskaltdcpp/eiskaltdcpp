@@ -766,7 +766,11 @@ void HubFrame::customEvent(QEvent *e){
 
         UserPtr user = u_e->getUser();
         QString cid = _q(user->getCID().toBase32());
-        QString nick = model->itemForPtr(user)->nick;
+        QString nick = "";
+        UserListItem *item = model->itemForPtr(user);
+
+        if (item)
+            nick = item->nick;
 
         if (pm.contains(cid)){
             pmUserOffline(cid);

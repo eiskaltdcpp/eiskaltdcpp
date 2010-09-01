@@ -493,19 +493,25 @@ void DownloadQueue::getChilds(DownloadQueueItem *i, QList<DownloadQueueItem *> &
         getChilds(ii, list);
 }
 
-void DownloadQueue::slotContextMenu(const QPoint &){
-    QModelIndexList list = treeView_TARGET->selectionModel()->selectedRows(0);
-
+void DownloadQueue::getItems(const QModelIndexList &list, QList<DownloadQueueItem*> &items){
     if (list.isEmpty())
         return;
-
-    QList<DownloadQueueItem*> items;
 
     foreach (QModelIndex i, list){
         DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(i.internalPointer());
 
         getChilds(item, items);
     }
+}
+
+void DownloadQueue::slotContextMenu(const QPoint &){
+    QModelIndexList list = treeView_TARGET->selectionModel()->selectedRows(0);
+    QList<DownloadQueueItem*> items;
+
+    if (list.isEmpty())
+        return;
+
+    getItems(list, items);
 
     if (items.isEmpty())
         return;
@@ -521,6 +527,14 @@ void DownloadQueue::slotContextMenu(const QPoint &){
     QueueManager *QM = QueueManager::getInstance();
     QVariant arg = menu->getArg();
     VarMap rmap;
+
+    /** Now re-read selected indexes and remove broken items */
+    list = treeView_TARGET->selectionModel()->selectedRows(0);
+
+    getItems(list, items);
+
+    if (items.isEmpty())
+        return;
 
     switch (act){
         case Menu::Alternates:
