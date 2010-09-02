@@ -44,7 +44,7 @@ for P in ${PLAYERS}; do
             tag[${i}]="$(echo "${METAINFO}" | sed -e "/^${i}: / !d" -e "s/^${i}: //")"
         done
         # Works only for local files:
-        LOCATION="$(echo "${METAINFO}" | sed -e '/^location: file:\/\// !d' -e 's/location: file:\/\///' -e 's/%20/ /g')"
+        LOCATION="$(echo "${METAINFO}" | sed -e '/^location: file:\/\// !d' -e 's/location: file:\/\///' | sed -n -e's/%\([0-9A-F][0-9A-F]\)/\\x\1/g' -e's/+/ /g' -e's/.*/echo -e "&"/g' -ep | "${SHELL}")"
     fi
 done
 
