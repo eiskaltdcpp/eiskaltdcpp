@@ -23,7 +23,7 @@
 * Removed the possibility to build with libupnp 1.6 .* (USE_LIBUPNP option).
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
 * Added widget for ADL-search configuration.
-* Auto-away interval(watching for user activity).
+* Auto-away interval (watching for user activity).
 *** eiskaltdcpp-gtk ***
 * Added Gtk interface based on code of FreeDC++ and LinuxDC++.
 * The interface is localized using gettext.
