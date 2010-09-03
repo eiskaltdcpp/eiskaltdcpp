@@ -173,6 +173,13 @@ Keys for cmake
     .
 And other standart cmake keys...
 
+---------
+# Example of the complete assembly:
+mkdir -p builddir && cd builddir
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT=ON -DUSE_WT=ON -DUSE_GTK=ON -DUSE_JS=ON -DUSE_ASPELL=ON -DFREE_SPACE_BAR_C=ON  -DCREATE_MO=ON -DLUA_SCRIPT=ON -DWITH_SOUNDS=ON -DWITH_LUASCRIPTS=ON -DUSE_MINIUPNP=ON -DLOCAL_MINIUPNP=ON ../
+make
+sudo make install
+
 
 *******************************************************************************
 Uninstall program

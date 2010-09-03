@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp-qt" 1 "12 Aug 2010"
+.TH "eiskaltdcpp-qt" 1 "03 Sep 2010"
 .SH "NAME"
 EiskaltDC++_Qt \- GUI based on Qt
 .SH "SYNOPSIS"
@@ -66,11 +66,17 @@ Close current widget
 .B "Ctrl+M"
 Show/hide main menu
 .TP
+.B "Ctrl+PageUp"
+Switch to the previous widget. Available only if widget panel is used, not working in mode of sidebar.
+.TP
 .B "Ctrl+PageDown"
 Switch to the next widget. Available only if widget panel is used, not working in mode of sidebar.
 .TP
-.B "Ctrl+PageUp"
-Switch to the previous widget. Available only if widget panel is used, not working in mode of sidebar.
+.B "Ctrl+Up"
+Switch to the previous string from history of sent messages in chat for current session. Available only when input frame is focused on.
+.TP
+.B "Ctrl+Down"
+Switch to the next string from history of sent messages in chat for current session. Available only when input frame is focused on.
 .TP
 .B "Ctrl++"
 Zoom in text in the chat
