@@ -11,7 +11,7 @@
 #include "ShellCommandRunner.h"
 
 static int getBitPos(unsigned eventId){
-    for (unsigned i = 0; i < sizeof(unsigned); i++){
+    for (unsigned i = 0; i < (sizeof(unsigned)*8); i++){
         if ((eventId >> i) == 1U)
             return static_cast<int>(i);
     }
@@ -149,13 +149,19 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
 
     if (WBGET(WB_NOTIFY_SND_ENABLED)){
         do {
+            printf("%p - %p\n", static_cast<unsigned>(WIGET(WI_NOTIFY_SNDMAP)), static_cast<unsigned>(t));
             if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_SNDMAP)) & static_cast<unsigned>(t)))
                 break;
 
             int sound_pos = getBitPos(static_cast<unsigned>(t));
 
+            qDebug() << sounds;
+            printf("%i\n", sound_pos);
+
             if (sound_pos >= 0 && sound_pos < sounds.size()){
                 QString sound = sounds.at(sound_pos);
+
+                printf("%s\n", sound.toAscii().constData());
 
                 if (sound.isEmpty() || !QFile::exists(sound))
                     break;

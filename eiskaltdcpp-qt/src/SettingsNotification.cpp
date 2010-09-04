@@ -91,7 +91,7 @@ void SettingsNotification::init(){
 }
 
 void SettingsNotification::playFile(const QString &file){
-    if (WBGET(WB_NOTIFY_SND_ENABLED)){
+    if (WBGET(WB_NOTIFY_SND_ENABLED) || groupBox_SND->isChecked()){
         if (file.isEmpty() || !QFile::exists(file))
             return;
 

@@ -74,8 +74,8 @@ enum Type{
     NICKSAY=1,
     PM=2,
     TRANSFER=4,
-    ANY=8,
-    FAVORITE=16
+    FAVORITE=8,
+    ANY=16
 };
 
     void enableTray(bool);
