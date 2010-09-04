@@ -264,11 +264,11 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
     QString comm        = item.comm;
     QString hub         = item.hub;
 
-    if (type == 1){
-        dlg.radioButton_RAW->toggle();
-        dlg.lineEdit_CMD->setText(comm);
+    if (type == 0){
+        dlg.radioButton_SEP->toggle();
+        dlg.lineEdit_CMD->clear();
     }
-    else if (type == 2 && comm.startsWith("<%[myNI]> ")){
+    else if (/*type == 2 && */comm.startsWith("<%[myNI]> ")){
         dlg.radioButton_CHAT->toggle();
 
         int from = QString("<%[myNI]> ").length();
@@ -278,7 +278,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
 
         dlg.lineEdit_CMD->setText(cmd);
     }
-    else if (type == 3 && comm.startsWith("$To: ") && comm.indexOf(" From: %[myNI] $<%[myNI]> ") > 0){
+    else if (/*type == 3 &&*/ comm.startsWith("$To: ") && comm.indexOf(" From: %[myNI] $<%[myNI]> ") > 0){
         QRegExp reg_exp("^\\$To: ([^\t]+) From: %\\[myNI\\] \\$<%\\[myNI\\]> ([^\t^|]+)");
         (void)reg_exp.indexIn(comm);
         QStringList list = reg_exp.capturedTexts();
@@ -291,9 +291,12 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
         dlg.lineEdit_TO->setText(list.at(1));
     }
     else{
-        dlg.radioButton_SEP->toggle();
-        dlg.lineEdit_CMD->clear();
+        dlg.radioButton_RAW->toggle();
+        dlg.lineEdit_CMD->setText(comm);
     }
+
+    if(type == UserCommand::TYPE_RAW_ONCE)
+        dlg.checkBox_SENDONCE->setChecked(true);
 
     dlg.lineEdit_HUB->setText(hub);
     dlg.lineEdit_NAME->setText(name);
@@ -369,12 +372,21 @@ unsigned long UCDialog::getCtx() const {
 }
 
 unsigned long UCDialog::getType() const {
+    int _type = -1;
+
     if (radioButton_SEP->isChecked())
-        return UserCommand::TYPE_SEPARATOR;
-    else if (checkBox_SENDONCE->isChecked())
-        return UserCommand::TYPE_RAW_ONCE;
+        _type = 0;
+    else if (radioButton_CHAT->isChecked())
+        _type = 2;
+    else if (radioButton_PM->isChecked())
+        _type = 3;
     else
-        return UserCommand::TYPE_RAW;
+        _type = 1;
+
+    if (_type != 0)
+        _type = checkBox_SENDONCE->isChecked()? 2 : 1;
+
+    return _type;
 }
 
 QString UCDialog::getCmd() const {
