@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-30 13:30+0300\n"
-"PO-Revision-Date: 2010-08-29 01:22+0200\n"
+"PO-Revision-Date: 2010-09-04 03:16+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:935
 #: ../src/settingsdialog.cc:1296 ../glade/mainwindow.glade:277
 msgid "Download Queue"
-msgstr "cola de dscargas"
+msgstr "Cola de descargas"
 
 #: ../src/downloadqueue.cc:65 ../src/downloadqueue.cc:89
 #: ../src/downloadqueue.cc:90 ../src/downloadqueue.cc:275
@@ -186,11 +186,11 @@ msgstr "Usuario pasivo"
 
 #: ../src/downloadqueue.cc:1357
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr "CRC32 incosistente (SFV-Check)"
+msgstr "CRC32 inconsistente (SFV-Check)"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
-msgstr "Arbol completo no coincide con la raiz TTH"
+msgstr "Árbol completo no coincide con la raíz TTH"
 
 #: ../src/downloadqueue.cc:1361
 msgid "Source too slow"
@@ -198,7 +198,7 @@ msgstr "Fuente muy lenta"
 
 #: ../src/downloadqueue.cc:1363
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr "Cleinte remoto no soporta por completo TTH - sin descargar"
+msgstr "Cliente remoto no soporta por completo TTH - sin descargar"
 
 #: ../src/downloadqueue.cc:1369
 msgid "No errors"
@@ -341,7 +341,7 @@ msgstr "Lista de Usuarios Favoritos:"
 
 #: ../src/hub.cc:1684
 msgid " empty..."
-msgstr " vacio..."
+msgstr " vació..."
 
 #: ../src/hub.cc:1711 ../src/privatemessage.cc:920
 msgid "Emoticons mode off"
@@ -358,7 +358,7 @@ msgstr "*** Comandos disponibles:"
 #: ../src/hub.cc:1730 ../src/privatemessage.cc:931
 #: ../glade/privatemessage.glade:183 ../glade/hub.glade:342
 msgid "Away mode message on/off"
-msgstr "Mensaje del modo ausente Endendido/Apagado"
+msgstr "Mensaje del modo ausente Encendido/Apagado"
 
 #: ../src/hub.cc:1732 ../glade/hub.glade:356
 msgid "Clear chat"
@@ -370,12 +370,12 @@ msgstr "Cerrar chat"
 
 #: ../src/hub.cc:1734 ../glade/hub.glade:363
 msgid "Add a hub to favorites"
-msgstr "añador un Hub a favoritos"
+msgstr "Añadir un Hub a favoritos"
 
 #: ../src/hub.cc:1735 ../src/privatemessage.cc:935
 #: ../glade/privatemessage.glade:211
 msgid "Add user to favorites list"
-msgstr "Añador usuario a lista de favoritos"
+msgstr "Añadir usuario a lista de favoritos"
 
 #: ../src/hub.cc:1736 ../src/privatemessage.cc:936
 #: ../glade/privatemessage.glade:218
@@ -441,11 +441,11 @@ msgstr "Cargar archivo LUA"
 
 #: ../src/hub.cc:1751
 msgid "Execute Lua Chunk"
-msgstr "Ejecutar trozo de codigo Lua"
+msgstr "Ejecutar trozo de código Lua"
 
 #: ../src/hub.cc:1753
 msgid "Execute code (bash)"
-msgstr "Ejecutar codigo (bash)"
+msgstr "Ejecutar código (bash)"
 
 #: ../src/hub.cc:1754
 msgid "Alias List"
@@ -519,7 +519,7 @@ msgstr "Hub favorito añadido"
 
 #: ../src/hub.cc:2620
 msgid "Favorite hub already exists"
-msgstr "Hub favoroto ya existe"
+msgstr "Hub favorito ya existe"
 
 #: ../src/hub.cc:2694
 msgid "Connecting to "
@@ -531,7 +531,7 @@ msgstr "Conectado"
 
 #: ../src/hub.cc:2757
 msgid "Connect failed: "
-msgstr "Conexion fallida: "
+msgstr "Conexión fallida: "
 
 #: ../src/hub.cc:2898
 msgid "Ignored private message from hub"
@@ -547,11 +547,11 @@ msgstr "Nick en uso"
 
 #: ../src/hub.cc:2929
 msgid "Search spam detected from "
-msgstr "Busqueda basura detectada desde "
+msgstr "Búsqueda basura detectada desde "
 
 #: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:583
 msgid "ADL Search"
-msgstr "Busqueda ADL"
+msgstr "Búsqueda ADL"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
@@ -567,7 +567,7 @@ msgstr "Activado"
 #: ../src/searchspy.cc:292 ../src/searchspy.cc:308 ../src/searchspy.cc:467
 #: ../src/searchspy.cc:532 ../src/searchspy.cc:565
 msgid "Search String"
-msgstr "Cadena de busqueda"
+msgstr "Cadena de búsqueda"
 
 #: ../src/adlsearch.cc:41 ../src/adlsearch.cc:61 ../src/adlsearch.cc:112
 #: ../src/adlsearch.cc:212
@@ -599,7 +599,7 @@ msgstr "Usuario Favorito"
 #: ../src/favoriteusers.cc:108 ../src/favoriteusers.cc:470
 #: ../src/favoriteusers.cc:472
 msgid "Auto grant slot"
-msgstr "Conceder slot automaticamente"
+msgstr "Conceder slot automáticamente"
 
 # no me mola :S
 #: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
@@ -656,7 +656,7 @@ msgstr "Correcto"
 #: ../src/settingsdialog.cc:1300 ../glade/mainwindow.glade:257
 #: ../glade/mainwindow.glade:596 ../glade/settingsdialog.glade:3978
 msgid "Search Spy"
-msgstr "Bñúsqueda Espia"
+msgstr "Búsqueda Espía"
 
 #: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
@@ -682,7 +682,7 @@ msgstr "alto..."
 
 #: ../src/searchspy.cc:389 ../glade/searchspy.glade:149
 msgid "Update frame search"
-msgstr "Actualizar cuadro de busquedas"
+msgstr "Actualizar cuadro de búsquedas"
 
 #: ../src/searchspy.cc:412
 msgid "top/waiting/frame: "
@@ -690,7 +690,7 @@ msgstr "Alto/Espera/Cuadro: "
 
 #: ../src/searchspy.cc:500 ../glade/searchspy.glade:135
 msgid "Clear frame search"
-msgstr "Limpiar cuadro de búsqedas"
+msgstr "Limpiar cuadro de búsquedas"
 
 #: ../src/transfers.cc:57 ../src/transfers.cc:83 ../src/transfers.cc:85
 #: ../src/transfers.cc:493 ../src/transfers.cc:559 ../src/transfers.cc:590
@@ -710,7 +710,7 @@ msgstr "Nombre del hub"
 #: ../src/transfers.cc:887 ../src/transfers.cc:985 ../src/transfers.cc:1035
 #: ../src/transfers.cc:1154
 msgid "Time Left"
-msgstr "tiempo restante"
+msgstr "Tiempo Restante"
 
 #: ../src/transfers.cc:61 ../src/transfers.cc:556 ../src/transfers.cc:592
 #: ../src/transfers.cc:624 ../src/transfers.cc:765 ../src/transfers.cc:882
@@ -723,7 +723,7 @@ msgstr "Velocidad"
 
 #: ../src/transfers.cc:368
 msgid "Connecting (forced)..."
-msgstr "conectando (forzando)..."
+msgstr "Conectando (forzando)..."
 
 #: ../src/transfers.cc:401
 msgid "Closing connection..."
@@ -800,7 +800,7 @@ msgstr "Descarga eliminada"
 
 #: ../src/transfers.cc:1091
 msgid "Upload starting..."
-msgstr "Comanzando subida..."
+msgstr "Comenzando subida..."
 
 #: ../src/transfers.cc:1122
 msgid "Uploaded "
@@ -836,7 +836,7 @@ msgstr "Cerrar mensaje privado"
 
 #: ../src/privatemessage.cc:944
 msgid "Unknown command "
-msgstr "comando desconocido"
+msgstr "Comando desconocido"
 
 #: ../src/privatemessage.cc:944
 msgid ": type /help for a list of available commands"
@@ -848,7 +848,7 @@ msgstr "El usuario fue desconectado"
 
 #: ../src/privatemessage.cc:1321
 msgid "Slot granted"
-msgstr "slot concedido"
+msgstr "Slot concedido"
 
 #: ../src/settingsdialog.cc:291 ../src/settingsdialog.cc:327
 #: ../src/settingsdialog.cc:947 ../src/settingsdialog.cc:958
@@ -958,7 +958,7 @@ msgstr "No descargar archivos si ya están en cola"
 
 #: ../src/settingsdialog.cc:905
 msgid "Filter kick and NMDC debug messages"
-msgstr "filtrar mensajes de Explusión y NMDC"
+msgstr "Filtrar mensajes de Expulsión y NMDC"
 
 #: ../src/settingsdialog.cc:906
 msgid "Show status icon"
@@ -974,11 +974,11 @@ msgstr "Ver mensajes de estado en chat principal"
 
 #: ../src/settingsdialog.cc:909
 msgid "Show joins / parts in chat by default"
-msgstr "Por defecto Mostrar union/abandono en el chat"
+msgstr "Por defecto Mostrar unión/abandono en el chat"
 
 #: ../src/settingsdialog.cc:910
 msgid "Only show joins / parts for favorite users"
-msgstr "Mostrar solo union/abandono de usuarios favoritos"
+msgstr "Mostrar solo unión/abandono de usuarios favoritos"
 
 #: ../src/settingsdialog.cc:911
 msgid "Sort favorite users first"
@@ -990,7 +990,7 @@ msgstr "Usar fuente OEM monospaciada para las ventanas de chat"
 
 #: ../src/settingsdialog.cc:913
 msgid "Use magnet split"
-msgstr "Usar divsion del imán"
+msgstr "Usar división del imán"
 
 #: ../src/settingsdialog.cc:914
 msgid "Use blinking status icon"
@@ -1122,7 +1122,7 @@ msgstr "Usuario tras cortafuegos (dc) "
 
 #: ../src/settingsdialog.cc:1183
 msgid "User operator firewall (dc)"
-msgstr "Usuario operador tras cortauegos (dc)"
+msgstr "Usuario operador tras cortafuegos (dc)"
 
 #: ../src/settingsdialog.cc:1184
 msgid "User operator (dc)"
@@ -1138,7 +1138,7 @@ msgstr "Usuario tras cortafuegos (normal)"
 
 #: ../src/settingsdialog.cc:1187
 msgid "User operator firewall (normal)"
-msgstr "Usuario operador tras cortauegos (normal)"
+msgstr "cortafuegoserador tras cortauegos (normal)"
 
 #: ../src/settingsdialog.cc:1188
 msgid "User operator (normal)"
@@ -1146,7 +1146,7 @@ msgstr "Usuario operador (normal)"
 
 #: ../src/settingsdialog.cc:1189
 msgid "Button smile"
-msgstr "boton sonrisa"
+msgstr "Botón sonrisa"
 
 #: ../src/settingsdialog.cc:1190 ../glade/sharebrowser.glade:235
 #: ../glade/sharebrowser.glade:271
@@ -1218,15 +1218,15 @@ msgstr "Abrir ventana de la lista de ficheros en segundo plano"
 
 #: ../src/settingsdialog.cc:1307
 msgid "Open new private messages from other users in the background"
-msgstr "abrir mensajes privados desde otros usuarios en segundo plano"
+msgstr "Abrir mensajes privados desde otros usuarios en segundo plano"
 
 #: ../src/settingsdialog.cc:1308
 msgid "Open new window when using /join"
-msgstr "abrir nueva ventana cuando se usa /join"
+msgstr "Abrir nueva ventana cuando se usa /join"
 
 #: ../src/settingsdialog.cc:1309
 msgid "Ignore private messages from the hub"
-msgstr "ignorar mensajes privados desde el Hub"
+msgstr "Ignorar mensajes privados desde el Hub"
 
 #: ../src/settingsdialog.cc:1310
 msgid "Ignore private messages from bots"
@@ -1234,7 +1234,7 @@ msgstr "Ignorar mensajes privados desde bots"
 
 #: ../src/settingsdialog.cc:1311
 msgid "Popup box to input password for hubs"
-msgstr "mensaje emergente para introducir contraseñas para Hubs"
+msgstr "Mensaje emergente para introducir contraseñas para Hubs"
 
 #: ../src/settingsdialog.cc:1316
 msgid "Confirm application exit"
@@ -1242,7 +1242,7 @@ msgstr "Confirmar salida del programa"
 
 #: ../src/settingsdialog.cc:1317
 msgid "Confirm favorite hub removal"
-msgstr "Confirmar liminacion del Hub favorito"
+msgstr "Confirmar eliminación del Hub favorito"
 
 #: ../src/settingsdialog.cc:1362
 msgid "Auto-away on minimize (and back on restore)"
@@ -1250,11 +1250,11 @@ msgstr "Auto-Ausente al minimizar (y volver al restaurar)"
 
 #: ../src/settingsdialog.cc:1363
 msgid "Automatically follow redirects"
-msgstr "Seguir automaticamente redirecciones"
+msgstr "Seguir automáticamente redirecciones"
 
 #: ../src/settingsdialog.cc:1364
 msgid "Clear search box after each search"
-msgstr "Limpiar caja de busquedas al terminar busqueda"
+msgstr "Limpiar caja de búsquedas al terminar búsqueda"
 
 #: ../src/settingsdialog.cc:1365
 msgid ""
@@ -1270,7 +1270,7 @@ msgstr "No borrar listas de archivos al salir del programa"
 
 #: ../src/settingsdialog.cc:1367
 msgid "Automatically disconnect users who leave the hub"
-msgstr "Desconectar automaticamente los usuarios cuando se abandona el hub"
+msgstr "Desconectar automáticamente los usuarios cuando se abandona el hub"
 
 #: ../src/settingsdialog.cc:1368
 msgid "Enable segmented downloads"
@@ -1278,7 +1278,7 @@ msgstr "Habilitar descargas segmentadas"
 
 #: ../src/settingsdialog.cc:1369
 msgid "Enable automatic SFV checking"
-msgstr "Habilitar chequeo automatico SFV"
+msgstr "Habilitar chequeo automático SFV"
 
 #: ../src/settingsdialog.cc:1370
 msgid "Enable safe and compressed transfers"
@@ -1286,7 +1286,7 @@ msgstr "Habilitar transferencias comprimidas y seguras"
 
 #: ../src/settingsdialog.cc:1371
 msgid "Accept custom user commands from hub"
-msgstr "Aceptar comandos modificados de usuaris desde el hub"
+msgstr "Aceptar comandos modificados de usuarios desde el hub"
 
 #: ../src/settingsdialog.cc:1372
 msgid "Send unknown /commands to the hub"
@@ -1295,7 +1295,7 @@ msgstr "Enviar /commands desconocidos al Hub"
 #: ../src/settingsdialog.cc:1373
 msgid "Add finished files to share instantly (if shared)"
 msgstr ""
-"Añador archivos descargados automaticamente a compartidos (si se comparten)"
+"Añadir archivos descargados automáticamente a compartidos (si se comparten)"
 
 #: ../src/settingsdialog.cc:1374
 msgid "Don't send the away message to bots"
@@ -1304,7 +1304,7 @@ msgstr "No mandar mensajes de Ausente a los bots"
 #: ../src/settingsdialog.cc:1375
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr ""
-"Usar metodo rapido de hasheo (deshabilitar si tiene problemas con el hasheo)"
+"Usar método rápido de hasheo (deshabilitar si tiene problemas con el hasheo)"
 
 #: ../src/settingsdialog.cc:1376
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
@@ -1316,7 +1316,7 @@ msgstr "Registrar con el SO para manejar enlaces magnet: (imán)"
 
 #: ../src/settingsdialog.cc:1437
 msgid "Use TLS when remote client supports it"
-msgstr "Usar TLS si el cliente remoto lo soposta"
+msgstr "Usar TLS si el cliente remoto lo soporta"
 
 #: ../src/settingsdialog.cc:1438
 msgid "Allow TLS connections to hubs without trusted certificate"
@@ -1333,7 +1333,7 @@ msgstr "*** T E S T ***"
 #: ../src/settingsdialog.cc:1539 ../src/settingsdialog.cc:1568
 #: ../src/settingsdialog.cc:1605
 msgid "...must not be empty"
-msgstr "...no debe estar vacia"
+msgstr "...no debe estar vacía"
 
 #: ../src/settingsdialog.cc:1636 ../src/settingsdialog.cc:1660
 msgid "...must be *.theme"
@@ -1353,7 +1353,7 @@ msgstr "Tema por defecto"
 
 #: ../src/settingsdialog.cc:2048 ../src/settingsdialog.cc:2134
 msgid "Must not be empty..."
-msgstr "No debe estar vacia..."
+msgstr "No debe estar vacía..."
 
 #: ../src/settingsdialog.cc:2056
 msgid "Error"
@@ -1369,11 +1369,11 @@ msgstr "Separador"
 
 #: ../src/settingsdialog.cc:2493
 msgid "Name and command must not be empty"
-msgstr "nombre y comando no debe estar vacio"
+msgstr "Nombre y comando no debe estar vació"
 
 #: ../src/settingsdialog.cc:2499
 msgid "Command name already exists"
-msgstr "nombre del comando ya existe"
+msgstr "Nombre del comando ya existe"
 
 #: ../src/settingsdialog.cc:2693 ../src/publichubs.cc:360
 msgid "New list"
@@ -1422,7 +1422,7 @@ msgstr "Codificación"
 
 #: ../src/favoritehubs.cc:376
 msgid "The name and address fields are required"
-msgstr "Los campios de Nombre y dirección son requeridos"
+msgstr "Los campos de Nombre y dirección son requeridos"
 
 #: ../src/favoritehubs.cc:411
 #, c-format
@@ -1437,10 +1437,10 @@ msgid ""
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
 msgstr ""
-"Cliente DC++ Basado en el codigo fuente de FreeDC++ y LinuxDC++\n"
+"Cliente DC++ Basado en el código fuente de FreeDC++ y LinuxDC++\n"
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
-"DC++ version del nucleo: %s"
+"DC++ version del núcleo: %s"
 
 #: ../src/mainwindow.cc:99
 #, c-format
@@ -1450,10 +1450,10 @@ msgid ""
 "EiskaltDC++ version: %s - %s %s\n"
 "DC++ core version: %s"
 msgstr ""
-"Cliente DC++ Basado en el codigo fuente de FreeDC++ y LinuxDC++\n"
+"Cliente DC++ Basado en el código fuente de FreeDC++ y LinuxDC++\n"
 "\n"
 "EiskaltDC++ version: %s - %s %s\n"
-"DC++ version del nucleo: %s"
+"DC++ version del núcleo: %s"
 
 #: ../src/mainwindow.cc:198
 msgid "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
@@ -1511,14 +1511,14 @@ msgstr ""
 
 #: ../src/mainwindow.cc:1858
 msgid "Unable to open UDP port"
-msgstr "No se puede abrir rl puerto UDP"
+msgstr "No se puede abrir el puerto UDP"
 
 #: ../src/mainwindow.cc:1859
 msgid ""
 "Searching will not work correctly until you change settings or turn off any "
 "application that might be using the UDP port."
 msgstr ""
-"Las busquedas no funcionarán correctamente hasta que se cambie la "
+"Las búsquedas no funcionarán correctamente hasta que se cambie la "
 "configuración o se cierren todas las aplicaciones que puedan estar usando el "
 "puerto UDP."
 
@@ -1739,7 +1739,7 @@ msgstr "0 filtrados"
 
 #: ../src/search.cc:481
 msgid "Searching too soon, retry in "
-msgstr "Búsqueda demasiado rapida, reintetar en "
+msgstr "Búsqueda demasiado rápida, reintentar en "
 
 #: ../src/search.cc:584
 msgid " items"
@@ -1767,7 +1767,7 @@ msgstr "Lista de archivos cargado"
 
 #: ../src/sharebrowser.cc:171
 msgid "Unable to load file list: "
-msgstr "no se puede cargar lista de archivos: "
+msgstr "No se puede cargar lista de archivos: "
 
 #: ../src/sharebrowser.cc:336
 msgid "Total: "
@@ -1775,7 +1775,7 @@ msgstr "Total: "
 
 #: ../src/sharebrowser.cc:345
 msgid "Items: 0"
-msgstr "objetos: 0"
+msgstr "Objetos: 0"
 
 #: ../src/sharebrowser.cc:346
 msgid "Size: 0 B"
@@ -1783,15 +1783,15 @@ msgstr "Tamaño: 0 B"
 
 #: ../src/sharebrowser.cc:610 ../src/sharebrowser.cc:653
 msgid "Found a match"
-msgstr "Encontada Coincidencia"
+msgstr "Encontrada Coincidencia"
 
 #: ../src/sharebrowser.cc:622 ../src/sharebrowser.cc:814
 msgid "No matches"
-msgstr "Sin concidencias"
+msgstr "Sin coincidencias"
 
 #: ../src/sharebrowser.cc:825
 msgid "No search text entered"
-msgstr "Texto de busqueda no introducido"
+msgstr "Texto de búsqueda no introducido"
 
 #: ../src/sharebrowser.cc:1002
 msgid "Matched "
@@ -1838,7 +1838,7 @@ msgstr "_Buscar alternativas"
 #: ../glade/downloadqueue.glade:204 ../glade/privatemessage.glade:129
 #: ../glade/hub.glade:287
 msgid "_Copy magnet"
-msgstr "_Copiar iman"
+msgstr "_Copiar imán"
 
 #: ../glade/hash.glade:22
 msgid "<b>Processing file:</b>"
@@ -1846,7 +1846,7 @@ msgstr "<b>Procesando Archivo:</b> "
 
 #: ../glade/hash.glade:81
 msgid "<b>Statistics</b>"
-msgstr "<b>Estadisticas</b>"
+msgstr "<b>Estadísticas</b>"
 
 #: ../glade/hash.glade:109
 msgid "Pause"
@@ -1885,11 +1885,11 @@ msgstr "_Eliminar"
 
 #: ../glade/adlsearch.glade:131
 msgid "ADLSearch Properties"
-msgstr "Opciones de busqueda ADL"
+msgstr "Opciones de búsqueda ADL"
 
 #: ../glade/adlsearch.glade:163
 msgid "<b>Search String</b>"
-msgstr "<b>Cadena de busqueda</b>"
+msgstr "<b>Cadena de búsqueda</b>"
 
 #: ../glade/adlsearch.glade:184
 msgid ""
@@ -1939,7 +1939,7 @@ msgstr "Descargas encontradas"
 
 #: ../glade/searchspy.glade:32
 msgid "Ignore TTH search"
-msgstr "Ignorar busqueda TTH"
+msgstr "Ignorar búsqueda TTH"
 
 #: ../glade/searchspy.glade:33
 msgid "Ignore TTH"
@@ -1992,7 +1992,7 @@ msgstr "Actualizar"
 
 #: ../glade/searchspy.glade:163
 msgid "Show top search"
-msgstr "Mostrar cabeza de busquedas"
+msgstr "Mostrar cabeza de búsquedas"
 
 #: ../glade/searchspy.glade:164 ../glade/searchspy.glade:205
 msgid "Top"
@@ -2060,7 +2060,7 @@ msgid ""
 msgstr ""
 "No agrupar\n"
 "nombre de archivo\n"
-"Direccion\n"
+"Dirección\n"
 "Tamaño\n"
 "Conexión\n"
 "TTH\n"
@@ -2070,7 +2070,7 @@ msgstr ""
 
 #: ../glade/search.glade:197
 msgid "Search options"
-msgstr "Opciones de busqueda"
+msgstr "Opciones de búsqueda"
 
 #: ../glade/search.glade:208
 msgid "Search within local results"
@@ -2229,7 +2229,7 @@ msgstr "_Archivo"
 
 #: ../glade/mainwindow.glade:26
 msgid "Open _file list..."
-msgstr "abrir lista de _archivos"
+msgstr "Abrir lista de _archivos"
 
 #: ../glade/mainwindow.glade:41
 msgid "Open _own list"
@@ -2241,7 +2241,7 @@ msgstr "_Actualizar lista de archivos"
 
 #: ../glade/mainwindow.glade:75
 msgid "_Quick connect"
-msgstr "_Conexion rapida"
+msgstr "_Conexion rápida"
 
 #: ../glade/mainwindow.glade:90
 msgid "Re_connect"
@@ -2305,11 +2305,11 @@ msgstr "Acerca de EiskaltDC++"
 
 #: ../glade/mainwindow.glade:492
 msgid "Quick connect to a hub"
-msgstr "Conectar rapidamente con el Hub"
+msgstr "Conectar rápidamente con el Hub"
 
 #: ../glade/mainwindow.glade:531
 msgid "Browse the list of public hubs"
-msgstr "Explorar lista de de HUBs publicos"
+msgstr "Explorar lista de de HUBs públicos"
 
 #: ../glade/mainwindow.glade:544
 msgid "Edit the preferences"
@@ -2329,7 +2329,7 @@ msgstr "ADL"
 
 #: ../glade/mainwindow.glade:598
 msgid "Spy"
-msgstr "Espia"
+msgstr "Espía"
 
 #: ../glade/mainwindow.glade:609
 msgid "View the files to be downloaded"
@@ -2408,7 +2408,6 @@ msgstr ""
 "    "
 
 #: ../glade/mainwindow.glade:1074
-#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2498,10 +2497,11 @@ msgstr ""
 " Gustavo Alvarez aka sL1pKn07\n"
 " (sl1pkn07@gmail.com)\n"
 "\n"
-" Traduccion al Búlgaro\n"
+" Traducción al Búlgaro\n"
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
+"     "
 
 #: ../glade/mainwindow.glade:1186
 msgid "Enter line for user command"
@@ -2553,7 +2553,7 @@ msgstr "añadir este archivo a la cola de descarga"
 
 #: ../glade/mainwindow.glade:1569
 msgid "Start a search for this file"
-msgstr "Empezar la busqueda para este archivo "
+msgstr "Empezar la búsqueda para este archivo "
 
 #: ../glade/mainwindow.glade:1583
 msgid "Show magnet dialog"
@@ -2599,7 +2599,7 @@ msgstr "Personal"
 
 #: ../glade/settingsdialog.glade:219
 msgid "Use UPnP to let client cofigure my router"
-msgstr "Usar UPnp para permitor al cliente configurar el router"
+msgstr "Usar UPnp para permitir al cliente configurar el router"
 
 #: ../glade/settingsdialog.glade:404
 msgid "Ports"
@@ -2623,7 +2623,7 @@ msgstr "No permitir anulación Hub/UPnP"
 
 #: ../glade/settingsdialog.glade:482
 msgid "Firewall with manual port forward"
-msgstr "Firewall con puerto manual de reenvio"
+msgstr "Firewall con puerto manual de reenvío"
 
 #: ../glade/settingsdialog.glade:499
 msgid "<b>Incoming connection settings</b>"
@@ -2677,7 +2677,7 @@ msgstr "Máximas descargas simultaneas (0 = infinito)"
 #: ../glade/settingsdialog.glade:958
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
-"Nota: Tengalo en cuenta, porque de cambiar las velocidades de descarga, esto "
+"Nota: Téngalo en cuenta, porque de cambiar las velocidades de descarga, esto "
 "no es fiable al 100% ..."
 
 #: ../glade/settingsdialog.glade:971
@@ -2690,11 +2690,11 @@ msgstr "URL de Hubs públicos"
 
 #: ../glade/settingsdialog.glade:1014
 msgid "Configure Public Hub Lists"
-msgstr "Configurar lista de HUBs publicos"
+msgstr "Configurar lista de HUBs públicos"
 
 #: ../glade/settingsdialog.glade:1045
 msgid "HTTP Proxy (for hublist only)"
-msgstr "Proxy HTTP (solo para lista de hubs)"
+msgstr "Proxy HTTP (solo para lista de HUBs)"
 
 #: ../glade/settingsdialog.glade:1073
 msgid "<b>Public Hubs list</b>"
@@ -2785,7 +2785,7 @@ msgstr "Aplicación:"
 
 #: ../glade/settingsdialog.glade:1843
 msgid "Apply to Extensions: (avi;mov;divx)"
-msgstr "aplicar extensiónes: (avi;mov;divx)"
+msgstr "aplicar extensiones: (avi;mov;divx)"
 
 #: ../glade/settingsdialog.glade:1867
 msgid "<b>Add player</b>"
@@ -2829,7 +2829,7 @@ msgstr "KiB/s"
 #: ../glade/settingsdialog.glade:2176
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
-"Abrir automaticamente slot si la velocidad está por debajo de (0 = "
+"Abrir automáticamente slot si la velocidad está por debajo de (0 = "
 "deshabilitado)"
 
 #: ../glade/settingsdialog.glade:2195
@@ -2848,13 +2848,13 @@ msgid ""
 "Bottom"
 msgstr ""
 "Arriba\n"
-"Izqierda\n"
+"Izquierda\n"
 "Derecha\n"
 "Abajo"
 
 #: ../glade/settingsdialog.glade:2288
 msgid "<b>Tab Position</b>"
-msgstr "<b>Posicion de las pestañas</b>"
+msgstr "<b>Posición de las pestañas</b>"
 
 #: ../glade/settingsdialog.glade:2312
 msgid ""
@@ -2865,7 +2865,7 @@ msgid ""
 "Hidden\n"
 "System default"
 msgstr ""
-"Iconsos\n"
+"Iconos\n"
 "Texto\n"
 "Ambos\n"
 "Ambos en horizontal\n"
@@ -2891,7 +2891,7 @@ msgid ""
 "\n"
 "see man strftime for details."
 msgstr ""
-"%a abreviatura del nombre del dia.\n"
+"%a abreviatura del nombre del día.\n"
 "%b abreviatura del nombre del mes.\n"
 "%H hora es un número decimal usado para relojes de 24-horas.\n"
 "%M minuto es un número decimal (rango de 00 a 59).\n"
@@ -2930,7 +2930,7 @@ msgstr "<b>Opciones de la ventana</b>"
 
 #: ../glade/settingsdialog.glade:2631
 msgid "<b>Confirmation Dialog Options</b>"
-msgstr "<b>Opciones del dialogo de confirmacion</b>"
+msgstr "<b>Opciones del dialogo de confirmación</b>"
 
 #: ../glade/settingsdialog.glade:2651
 msgid "Windows"
@@ -2962,7 +2962,7 @@ msgstr "<b>Estilos utilizables</b>"
 
 #: ../glade/settingsdialog.glade:2880
 msgid "<b>Preview styles</b>"
-msgstr "<b>Previsualizar estilos</b>"
+msgstr "<b>Revitalizar estilos</b>"
 
 #: ../glade/settingsdialog.glade:2898
 msgid "Bold Authors of message in chat"
@@ -3014,7 +3014,7 @@ msgstr "Icono..."
 
 #: ../glade/settingsdialog.glade:3182
 msgid "None icon"
-msgstr "Ningun icono"
+msgstr "Ningún icono"
 
 #: ../glade/settingsdialog.glade:3251
 msgid "Maximum message length (0 = infinite)"
@@ -3179,7 +3179,7 @@ msgstr "Historial M.P"
 
 #: ../glade/settingsdialog.glade:4498
 msgid "Mini slot size"
-msgstr "Tañamo del slot min."
+msgstr "Tamaño del slot min."
 
 #: ../glade/settingsdialog.glade:4510
 msgid "Max filelist size"
@@ -3199,7 +3199,7 @@ msgstr "Tamaño del buffer de escritura"
 
 #: ../glade/settingsdialog.glade:4701
 msgid "Search history"
-msgstr "Historial de busqueda"
+msgstr "Historial de búsqueda"
 
 #: ../glade/settingsdialog.glade:4713
 msgid "Bind address"
@@ -3312,7 +3312,7 @@ msgstr ""
 "9AM\n"
 "10AM\n"
 "11AM\n"
-"Mediodia\n"
+"Mediodía\n"
 "1PM\n"
 "2PM\n"
 "3PM\n"
@@ -3363,11 +3363,11 @@ msgstr "Renombrar"
 
 #: ../glade/settingsdialog.glade:5711
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr "Nota: El tipo de busqueda customizada ¡solo es aplicada en Hubs ADC!"
+msgstr "Nota: El tipo de búsqueda customizada ¡solo es aplicada en Hubs ADC!"
 
 #: ../glade/settingsdialog.glade:5724
 msgid "<b>Search types</b>"
-msgstr "<b>tipo de busquedas</b>"
+msgstr "<b>tipo de búsquedas</b>"
 
 #: ../glade/settingsdialog.glade:5792 ../glade/publichubs.glade:190
 msgid "Configure hub lists"
@@ -3433,11 +3433,11 @@ msgstr "Comando"
 
 #: ../glade/settingsdialog.glade:6364
 msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
-msgstr "IP /DNS del HUB (vacio = Todos, 'op' = donde operador)"
+msgstr "IP /DNS del HUB (vació = Todos, 'op' = donde operador)"
 
 #: ../glade/settingsdialog.glade:6395
 msgid "To (empty for selected user)"
-msgstr "A (vacio para el usuario seleccionado)"
+msgstr "A (vació para el usuario seleccionado)"
 
 #: ../glade/settingsdialog.glade:6423
 msgid "Send once per nick"
@@ -3570,7 +3570,7 @@ msgstr "_Copiar Enlace"
 
 #: ../glade/privatemessage.glade:157 ../glade/hub.glade:316
 msgid "_Open link in default application"
-msgstr "_Abrir enlace con la aplicacion por defecto"
+msgstr "_Abrir enlace con la aplicación por defecto"
 
 #: ../glade/privatemessage.glade:173 ../glade/hub.glade:332
 msgid "_Open hub"

@@ -27,37 +27,37 @@
     <message>
         <location filename="../src/ADLS.cpp" line="385"/>
         <source>Filename</source>
-        <translation type="unfinished">Nombre de archivo</translation>
+        <translation>Nombre de archivo</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="386"/>
         <source>Directory</source>
-        <translation type="unfinished">Directorio</translation>
+        <translation>Directorio</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="387"/>
         <source>Full Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruta Completa</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="393"/>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="394"/>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="395"/>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="396"/>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
 </context>
 <context>
@@ -3619,7 +3619,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
         <source>Full path</source>
-        <translation>Dirección completa</translation>
+        <translation>Ruta Completa</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="76"/>
@@ -4541,12 +4541,12 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="716"/>
         <source>Advanced</source>
-        <translation type="unfinished">Avanzado</translation>
+        <translation>Avanzado</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="730"/>
         <source>Reconnect to hub(seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Reconexión al Hub (segundos)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="472"/>
@@ -5009,7 +5009,7 @@ en la cola, o bien, debe eliminarlos manualmente.</translation>
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Es el tiempo máximo desde que se ha descargado el ultimo trozo. Tiene el proposito de mejorar la exactitud de la medición y para evitar que se abandonen fuentes que se van a desconectar por su inactividad actual. (Por defecto: 10s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="667"/>
@@ -5868,7 +5868,7 @@ si su sistema se vuelve lento cuando se hashean archivos.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir automáticamente Slot si la velocidad está por debajo de (KiB/s, 0 = sin limite)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="546"/>
