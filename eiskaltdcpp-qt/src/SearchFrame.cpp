@@ -1021,7 +1021,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
             static QString old_target = QDir::homePath();
             QString target = Menu::getInstance()->getDownloadToPath();
 
-            if (!QDir(target).exists()){
+            if (!QDir(target).exists() || target.isEmpty()){
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
 
                 target = QDir::toNativeSeparators(target);
