@@ -39,8 +39,13 @@ using namespace dcpp;
 inline QString _q (const std::string &s) __attribute__((always_inline));
 inline std::string _tq(const QString &s) __attribute__((always_inline));
 
+#if defined(Q_WS_X11) || defined(Q_WS_MAC)
 inline QString _q (const std::string &s) { return QTextCodec::codecForCStrings()->fromUnicode(s.c_str()); }
 inline std::string _tq(const QString &s) { return QTextCodec::codecForCStrings()->toUnicode(s.toAscii()).toStdString(); }
+#elif defined(Q_WS_WIN)
+inline QString _q (const std::string &s) { return QTextCodec::codecForLocale()->fromUnicode(s.c_str()); }
+inline std::string _tq(const QString &s) { return QTextCodec::codecForLocale()->toUnicode(s.toAscii()).toStdString(); }
+#endif
 
 class WulforUtil :
         public QObject,
