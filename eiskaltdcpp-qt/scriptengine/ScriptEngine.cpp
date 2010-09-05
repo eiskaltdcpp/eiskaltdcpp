@@ -1,5 +1,6 @@
 #include "ScriptEngine.h"
 
+#include "ArenaWidget.h"
 #include "MainWindow.h"
 #include "Antispam.h"
 #include "DownloadQueue.h"
@@ -186,7 +187,8 @@ void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
 }
 
 void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
-    static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame" << "ShellCommandRunner" << "MainWindowScript";
+    static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame" << "ShellCommandRunner" << "MainWindowScript"
+                                                      << "ScriptWidget";
 
     foreach( QString cl, dynamicMembers ) {
         QScriptValue ct = engine.newFunction(dynamicMemberConstructor);
@@ -408,6 +410,11 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
     }
     else if (className == "MainWindowScript"){
         obj = qobject_cast<QObject*>(new MainWindowScript(engine, MainWindow::getInstance()));
+    }
+    else if (className == "ScriptWidget"){
+        ScriptWidget *wgt = new ScriptWidget();
+
+        obj = qobject_cast<QObject*>(wgt);
     }
 
     return engine->newQObject(obj);

@@ -32,6 +32,7 @@ public:
         FinishedUploads,
         FinishedDownloads,
         Spy,
+        CustomWidget,
         NoRole  //Not valid for widgets
     };
 
@@ -69,6 +70,8 @@ class ScriptWidget :
     public ArenaWidget
 {
 Q_OBJECT
+Q_INTERFACES(ArenaWidget)
+
 public:
     ScriptWidget();
     virtual ~ScriptWidget();
@@ -89,6 +92,7 @@ public Q_SLOTS:
     virtual void  setArenaShortTitle(QString);
     virtual void  setMenu(QMenu*);
 
+    virtual Role role() const { return ArenaWidget::CustomWidget; }
 private:
     QWidget *_wgt;
     QString _arenaTitle;
