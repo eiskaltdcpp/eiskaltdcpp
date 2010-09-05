@@ -2700,16 +2700,11 @@ void HubFrame::slotSmile(){
     if (!(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance()))
         return;
 
-    int x, y;
     EmoticonDialog *dialog = new EmoticonDialog(this);
-    QPixmap p = QPixmap::fromImage(EmoticonFactory::getInstance()->getImage());
-    dialog->SetPixmap(p);
 
     if (dialog->exec() == QDialog::Accepted) {
 
-        dialog->GetXY(x, y);
-
-        QString smiley = EmoticonFactory::getInstance()->textForPos(x, y);
+        QString smiley = dialog->getEmoticonText();
 
         if (!smiley.isEmpty()) {
 

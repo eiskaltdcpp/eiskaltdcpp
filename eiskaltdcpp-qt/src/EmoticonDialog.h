@@ -16,6 +16,7 @@
 
 class QLabel;
 class QGridLayout;
+class FlowLayout;
 
 class EmoticonDialog : public QDialog {
     Q_OBJECT
@@ -26,10 +27,7 @@ public:
     /** destructor */
     virtual ~EmoticonDialog();
 
-    /** */
-    void SetPixmap(QPixmap & pixmap);
-    /** */
-    void GetXY(int & x, int & y);
+    QString getEmoticonText() const { return selectedSmile; }
 
 protected:
     /** */
@@ -37,11 +35,8 @@ protected:
 
 private:
     /** */
-    QLabel * m_pLabel;
-    /** */
-    QGridLayout * m_pGridLayout;
-    /** */
-    int m_nX, m_nY;
+    FlowLayout * m_pLayout;
+    QString selectedSmile;
 };
 
 #endif

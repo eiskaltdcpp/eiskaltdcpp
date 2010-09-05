@@ -15,6 +15,8 @@
 #include <QtXml>
 #include <QImage>
 #include <QTextDocument>
+#include <QLayout>
+#include <QSize>
 
 #include "EmoticonObject.h"
 
@@ -38,13 +40,7 @@ public:
 
     void addEmoticons(QTextDocument *to);
     QString convertEmoticons(const QString &html);
-    QString textForPos(unsigned x, unsigned y);
-    QImage getImage() {
-        if (im)
-            return *im;
-        else
-            return QImage();
-    }
+    void fillLayout(QLayout *l, QSize &recommendedSize);
 
 private slots:
     void slotDocDeleted();
@@ -62,8 +58,6 @@ private:
     EmoticonMap map;
     EmoticonList list;
     TextDocumentList docs;
-
-    QImage *im;
 };
 
 #endif // EMOTICONFACTORY_H

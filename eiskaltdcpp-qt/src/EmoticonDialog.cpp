@@ -13,51 +13,39 @@
 #include <QLayout>
 #include <QMouseEvent>
 
+#include "EmoticonFactory.h"
+#include "FlowLayout.h"
+
 /** */
 EmoticonDialog::EmoticonDialog(QWidget * parent, Qt::WindowFlags f)
 : QDialog(parent, f) {
-    m_pGridLayout = new QGridLayout(this);
+    m_pLayout = new FlowLayout(this);
 
-    // Q3GridLayout is QGridLayout with margin and spacing set to zero
-    m_pGridLayout->setMargin(0);
-    m_pGridLayout->setSpacing(0);
+    m_pLayout->setMargin(0);
+    m_pLayout->setSpacing(0);
 
-    m_pLabel = new QLabel(this);
-    m_pGridLayout->addWidget(m_pLabel, 0, 0);
-    m_pLabel->show();
+    setWindowTitle(tr("Select smile"));
 
-    m_nX = m_nY = 0;
+    QSize s;
+    EmoticonFactory::getInstance()->fillLayout(m_pLayout, s);
 
-    m_pLabel->installEventFilter(this);
+    resize(s);
+
+    foreach(QLabel *l, findChildren<QLabel*>())
+        l->installEventFilter(this);
 }
 
 /** */
 EmoticonDialog::~EmoticonDialog() {
-    delete m_pGridLayout;
-    delete m_pLabel;
-}
-
-/** */
-void EmoticonDialog::SetPixmap(QPixmap & pixmap) {
-    m_pLabel->setPixmap(pixmap);
-    resize(pixmap.width(), pixmap.height());
-}
-
-/** */
-void EmoticonDialog::GetXY(int & x, int & y) {
-    x = m_nX;
-    y = m_nY;
+    delete m_pLayout;
 }
 
 /** event filter */
 bool EmoticonDialog::eventFilter(QObject * object, QEvent * event) {
-    if ((event->type() == QEvent::MouseButtonPress) && ((QLabel*) object == m_pLabel)) {
-        QMouseEvent * e = (QMouseEvent*) event;
+    if ((event->type() == QEvent::MouseButtonPress) && qobject_cast<QLabel*>(object)) {
+        QLabel *l = qobject_cast<QLabel*>(object);
 
-        m_nX = e->x();
-        m_nY = e->y();
-
-        //printf("EVENT %d %d!\n",e->x(),e->y());
+        selectedSmile = l->toolTip();
 
         accept();
     }

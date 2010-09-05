@@ -6,18 +6,21 @@
 #include <QString>
 #include <QtDebug>
 #include <QApplication>
+#include <QLabel>
+
+#include <math.h>
 
 #ifndef CLIENT_ICONS_DIR
 #define CLIENT_ICONS_DIR ""
 #endif
 
-static const QString EmoticonSectionName = "emoticons";
+static const QString EmoticonSectionName = "emoticons-map";
 static const QString EmoticonSubsectionName = "emoticon";
-static const QString EmoticonTextSectionName = "emotext";
+static const QString EmoticonTextSectionName = "name";
 static QString EmotionPath = CLIENT_ICONS_DIR "/emot/";
 
 EmoticonFactory::EmoticonFactory() :
-    QObject(NULL), im(NULL)
+    QObject(NULL)
 {
 #ifdef WIN32
     EmotionPath.prepend( qApp->applicationDirPath()+QDir::separator() );
@@ -34,10 +37,9 @@ void EmoticonFactory::load(){
     if (!QDir(EmotionPath+emoTheme).exists() || emoTheme.isEmpty())
         return;
 
-    QString xmlFile = EmotionPath+emoTheme+QDir::separator()+emoTheme+".xml";
-    QString pngFile = EmotionPath+emoTheme+QDir::separator()+emoTheme+".png";
+    QString xmlFile = EmotionPath+emoTheme+".xml";
 
-    if (!(QFile::exists(xmlFile) && QFile::exists(pngFile)))
+    if (!QFile::exists(xmlFile))
         return;
 
     QFile f(xmlFile);
@@ -48,21 +50,23 @@ void EmoticonFactory::load(){
     clear();
 
     QDomDocument dom;
+    QString err_msg = "";
+    int err_line = 0, err_col = 0;
 
-    if (dom.setContent(&f))
+    if (dom.setContent(&f, &err_msg, &err_line, &err_col))
         createEmoticonMap(dom);
+    else{
+        qDebug() << err_line << ":" << err_col << " " << err_msg;
+    }
 
     f.close();
-
-    im = new QImage();
-    im->load(pngFile, "PNG");
 
     foreach(QTextDocument *d, docs)
         addEmoticons(d);
 }
 
 void EmoticonFactory::addEmoticons(QTextDocument *to){
-    if (!im || list.isEmpty() || !to)
+    if (list.isEmpty() || !to)
         return;
 
     QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
@@ -70,12 +74,7 @@ void EmoticonFactory::addEmoticons(QTextDocument *to){
     foreach(EmoticonObject *i, list){
         to->addResource( QTextDocument::ImageResource,
                          QUrl(emoTheme + "/emoticon" + QString().setNum(i->id)),
-                         im->copy(
-                                  i->left,
-                                  i->top,
-                                  i->right - i->left,
-                                  i->bottom - i->top
-                                 )
+                         i->pixmap.toImage()
                        );
     }
 
@@ -185,24 +184,6 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
     return out;
 }
 
-QString EmoticonFactory::textForPos(unsigned x, unsigned y){
-    QString emote = "";
-
-    if (im) {
-        EmoticonObject * e = NULL;
-        for (EmoticonList::const_iterator it = list.constBegin(); it != list.constEnd(); ++it) {
-            e = *it;
-            if ((e->left < x) && (e->right > x) && (e->top < y) && (e->bottom > y)) {
-                emote = map.keys(e).first();
-
-                break;
-            }
-        }
-    }
-
-    return emote;
-}
-
 void EmoticonFactory::createEmoticonMap(const QDomNode &root){
     if (root.isNull())
         return;
@@ -221,14 +202,15 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
     clear();
 
     foreach(QDomNode node, emoNodes){
+        QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
+
         EmoticonObject *emot = new EmoticonObject();
         QDomElement el = node.toElement();
 
-        emot->bottom    = el.attribute("bottom").toULong();
-        emot->left      = el.attribute("left").toULong();
-        emot->right     = el.attribute("right").toULong();
-        emot->top       = el.attribute("top").toULong();
+        emot->fileName  = el.attribute("file").toUtf8();
         emot->id        = list.size();
+        emot->pixmap    = QPixmap();
+        emot->pixmap.load(EmotionPath+emoTheme+QDir::separator()+emot->fileName, "PNG");
 
         DomNodeList emoTexts;
         getSubSectionsByName(node, emoTexts, EmoticonTextSectionName);
@@ -246,7 +228,7 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
             if (el.isNull())
                 continue;
 
-            QString text = el.text();
+            QString text = el.attribute("text").toUtf8();
 
             if (text.isEmpty() || map.contains(text))
                 continue;
@@ -263,14 +245,38 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
     }
 }
 
+void EmoticonFactory::fillLayout(QLayout *l, QSize &recommendedSize){
+    if (!l)
+        return;
+
+    int w = 0, h = 0, total = list.size();
+
+    foreach (EmoticonObject *i, list){
+        QLabel *lbl = new QLabel();
+
+        lbl->setPixmap(i->pixmap);
+        lbl->resize(i->pixmap.size());
+        lbl->setToolTip(map.keys(i).first());
+
+        w += lbl->width();
+        h = lbl->height();
+
+        l->addWidget(lbl);
+    }
+
+    int square = w*h;
+    int dim = static_cast<int>(sqrt(square));
+
+    //10 extra pixels
+    recommendedSize.setHeight(dim+10);
+    recommendedSize.setWidth(dim+10);
+}
+
 void EmoticonFactory::clear(){
     qDeleteAll(list);
 
     map.clear();
     list.clear();
-
-    delete im;
-    im = NULL;
 }
 
 QDomNode EmoticonFactory::findSectionByName(const QDomNode &node, const QString &name){

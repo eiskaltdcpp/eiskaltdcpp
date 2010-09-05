@@ -14,9 +14,13 @@
 #include <QMap>
 #include <QList>
 #include <QStringList>
+#include <QPixmap>
 
 struct EmoticonObject{
-    unsigned long left, right, top, bottom, id;
+    QString fileName;
+    QPixmap pixmap;
+
+    int id;
 };
 
 typedef QMap<QString, EmoticonObject*> EmoticonMap;
