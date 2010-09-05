@@ -137,9 +137,9 @@ void SettingsGUI::init(){
         comboBox_ICONS->setCurrentIndex(k);
 
 #ifndef WIN32
-        QString emot = CLIENT_ICONS_DIR "/emot/";
+        QString emot = CLIENT_DATA_DIR "/emoticons/";
 #else
-        QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/emot/";
+        QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
 #endif//WIN32
         comboBox_EMOT->addItem("");
         comboBox_EMOT->setCurrentIndex(0);

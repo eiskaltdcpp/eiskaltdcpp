@@ -79,7 +79,7 @@ void EmoticonsDialog::buildEmotMenu_gui()
 void EmoticonsDialog::addPacksMenu(GtkWidget *item)
 {
 	const string currPackName = Emoticons::get()->getCurrPackName_gui();
-	string path = WulforManager::get()->getPath() + G_DIR_SEPARATOR_S + "emoticons" + G_DIR_SEPARATOR_S;
+	string path = string(_DATADIR) + G_DIR_SEPARATOR_S + "emoticons" + G_DIR_SEPARATOR_S;
 
 	GtkWidget *check_item;
 	GtkWidget *packs_menu = gtk_menu_new();

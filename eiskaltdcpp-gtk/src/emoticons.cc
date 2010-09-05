@@ -69,7 +69,7 @@ void Emoticons::create()
 		return;
 
 	string file = currPackName;
-	string path = WulforManager::get()->getPath() + G_DIR_SEPARATOR_S + "emoticons" + G_DIR_SEPARATOR_S;
+	string path = string(_DATADIR) + G_DIR_SEPARATOR_S + "emoticons" + G_DIR_SEPARATOR_S;
 	string packName = file;
 
 	/* load current pack */
@@ -128,7 +128,7 @@ bool Emoticons::load(const string &file)
 	if (file.empty())
 		return FALSE;
 
-	string path = WulforManager::get()->getPath() + G_DIR_SEPARATOR_S + "emoticons" + G_DIR_SEPARATOR_S;
+	string path = string(_DATADIR) + G_DIR_SEPARATOR_S + "emoticons" + G_DIR_SEPARATOR_S;
 	countfile = 0;
 
 	try

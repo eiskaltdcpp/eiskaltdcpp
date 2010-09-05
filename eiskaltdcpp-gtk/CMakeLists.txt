@@ -83,8 +83,6 @@ endif (UNIX)
     PATTERN ".svn" EXCLUDE)
   install (DIRECTORY themes/ DESTINATION "${CLIENT_DATA_DIR}/gtk/themes"
     PATTERN ".svn" EXCLUDE)
-  install (DIRECTORY emoticons/ DESTINATION "${CLIENT_DATA_DIR}/gtk/emoticons"
-    PATTERN ".svn" EXCLUDE)
 
 if (APPLE)
   install (FILES eiskaltdcpp-gtk.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)

@@ -429,6 +429,9 @@ if (USE_QT OR USE_GTK)
         PATTERN ".svn" EXCLUDE )
     endif (WITH_SOUNDS)
 
+  install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
+    PATTERN ".svn" EXCLUDE)
+
   install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/64x64/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_32x32.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/32x32/apps RENAME eiskaltdcpp.png)

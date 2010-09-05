@@ -17,7 +17,7 @@
 static const QString EmoticonSectionName = "emoticons-map";
 static const QString EmoticonSubsectionName = "emoticon";
 static const QString EmoticonTextSectionName = "name";
-static QString EmotionPath = CLIENT_ICONS_DIR "/emot/";
+static QString EmotionPath = CLIENT_DATA_DIR "/emoticons/";
 
 EmoticonFactory::EmoticonFactory() :
     QObject(NULL)
