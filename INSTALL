@@ -148,6 +148,8 @@ Keys for cmake
 --------
 :common:
 --------
+-DWITH_EMOTICONS=ON/OFF (default: ON)
+    If ON install emoticons/
 -DWITH_EXAMPLES=ON/OFF (default: ON)
     If ON install examples/
 -DWITH_LUASCRIPTS=ON/OFF (default: OFF)

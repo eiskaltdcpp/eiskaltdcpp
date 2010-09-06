@@ -80,6 +80,7 @@ option (USE_ASPELL "Use aspell for spellchecking")
 option (FORCE_XDG "Respect freedesktop.org standards" ON)
 option (USE_LIBGNOME2 "LibGnome2" OFF)
 option (FREE_SPACE_BAR_C "Use for show free space on volume small c lib" ON)
+option (WITH_EMOTICONS "Install emoticon packs" ON)
 option (WITH_EXAMPLES "Install examples sh and others scripts" ON)
 option (WITH_LUASCRIPTS "Install examples of lua scripts" OFF)
 option (WITH_SOUNDS "Install sound files" OFF)
@@ -431,8 +432,10 @@ if (USE_QT OR USE_GTK)
         PATTERN ".svn" EXCLUDE )
     endif (WITH_SOUNDS)
 
-  install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
-    PATTERN ".svn" EXCLUDE)
+    if (WITH_EMOTICONS)
+        install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
+        PATTERN ".svn" EXCLUDE)
+    endif (WITH_EMOTICONS)
 
   install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
   install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/64x64/apps RENAME eiskaltdcpp.png)

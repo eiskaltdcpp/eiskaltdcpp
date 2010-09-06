@@ -24,6 +24,7 @@
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
 * Added widget for ADL-search configuration.
 * Auto-away interval (watching for user activity).
+* Changed functions working with smilies. It is now possible to use the original emoticon packs from other customers at no additional modifications. Smiley-packs which supplied with the program are common for Qt and Gtk interfaces.
 *** eiskaltdcpp-gtk ***
 * Added Gtk interface based on code of FreeDC++ and LinuxDC++.
 * The interface is localized using gettext.
