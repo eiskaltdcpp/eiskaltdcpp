@@ -930,7 +930,7 @@ void HubFrame::init(){
     connect(comboBox_COLUMNS, SIGNAL(activated(int)), this, SLOT(slotFilterTextChanged()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
     connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
-    connect(WulforSettings::getInstance(), SIGNAL(fontChanged(QString,QString)), this, SLOT(slotFontChanged(QString,QString)));
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString, QString)), this, SLOT(slotSettingsChanged(QString,QString)));
 
 #ifdef USE_ASPELL
     connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SLOT(slotInputTextChanged()));
@@ -957,6 +957,8 @@ void HubFrame::init(){
     completer->setMaxVisibleItems(10); // This property was introduced in Qt 4.6.
 #endif
     plainTextEdit_INPUT->setCompleter(completer, model);
+
+    slotSettingsChanged(WS_APP_EMOTICON_THEME, WSGET(WS_APP_EMOTICON_THEME));//toggle emoticon button
 }
 
 void HubFrame::initMenu(){
@@ -2866,11 +2868,13 @@ void HubFrame::slotHubMenu(QAction *res){
     }
 }
 
-void HubFrame::slotFontChanged(const QString &key, const QString &value){
+void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
     Q_UNUSED(value);
 
     if (key == WS_CHAT_FONT || key == WS_CHAT_ULIST_FONT)
         updateStyles();
+    else if (key == WS_APP_EMOTICON_THEME)
+        toolButton_SMILE->setVisible(!value.isEmpty());
 }
 
 void HubFrame::slotCopyHubIP(){

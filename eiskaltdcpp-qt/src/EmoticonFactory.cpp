@@ -255,21 +255,23 @@ void EmoticonFactory::fillLayout(QLayout *l, QSize &recommendedSize){
         QLabel *lbl = new QLabel();
 
         lbl->setPixmap(i->pixmap);
-        lbl->resize(i->pixmap.size());
+        lbl->resize(i->pixmap.size()+QSize(2, 2));
+        lbl->setContentsMargins(1, 1, 1, 1);
         lbl->setToolTip(map.keys(i).first());
 
         w += lbl->width();
-        h = lbl->height();
+        h  = lbl->height();
 
         l->addWidget(lbl);
     }
 
     int square = w*h;
     int dim = static_cast<int>(sqrt(square));
+    int extra = (dim/total);//for margins
 
     //10 extra pixels
-    recommendedSize.setHeight(dim+10);
-    recommendedSize.setWidth(dim+10);
+    recommendedSize.setHeight(dim+extra+10);
+    recommendedSize.setWidth(dim+extra+10);
 }
 
 void EmoticonFactory::clear(){

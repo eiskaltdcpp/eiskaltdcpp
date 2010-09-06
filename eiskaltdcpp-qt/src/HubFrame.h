@@ -260,7 +260,7 @@ private Q_SLOTS:
     void slotStatusLinkOpen(const QString &url);
     void slotHubMenu(QAction*);
     void slotSmile();
-    void slotFontChanged(const QString &, const QString &);
+    void slotSettingsChanged(const QString &, const QString &);
     void slotCopyHubURL();
     void slotCopyHubTitle();
     void slotCopyHubIP();

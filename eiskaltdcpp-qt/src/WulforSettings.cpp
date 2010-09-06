@@ -177,6 +177,7 @@ WulforSettings::WulforSettings():
     }
 
     connect(this, SIGNAL(fontChanged(QString,QString)), this, SLOT(slotFontChanged(QString,QString)));
+    connect(this, SIGNAL(fontChanged(QString,QString)), this, SIGNAL(strValueChanged(QString,QString)));
 }
 
 WulforSettings::~WulforSettings(){
