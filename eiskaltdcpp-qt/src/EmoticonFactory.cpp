@@ -251,6 +251,11 @@ void EmoticonFactory::fillLayout(QLayout *l, QSize &recommendedSize){
 
     int w = 0, h = 0, total = list.size();
 
+    if (!total){
+        recommendedSize = QSize(50, 50);
+        return;
+    }
+
     foreach (EmoticonObject *i, list){
         QLabel *lbl = new QLabel();
 

@@ -915,6 +915,7 @@ void HubFrame::init(){
         comboBox_COLUMNS->addItem(model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
 
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+    toolButton_SMILE->setContextMenuPolicy(Qt::CustomContextMenu);
     toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
 
     connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
@@ -929,6 +930,7 @@ void HubFrame::init(){
     connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged()));
     connect(comboBox_COLUMNS, SIGNAL(activated(int)), this, SLOT(slotFilterTextChanged()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
+    connect(toolButton_SMILE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSmileContextMenu()));
     connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString, QString)), this, SLOT(slotSettingsChanged(QString,QString)));
 
@@ -2726,6 +2728,41 @@ void HubFrame::slotSmile(){
     delete dialog;
 }
 
+void HubFrame::slotSmileContextMenu(){
+#ifndef WIN32
+    QString emot = CLIENT_DATA_DIR "/emoticons/";
+#else
+    QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
+#endif//WIN32
+
+    QMenu *m = new QMenu(this);
+    QAction * a = m->addAction("");
+    a->setCheckable(true);
+    a->setChecked(true);
+
+    foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+        if (!f.isEmpty()){
+            QAction * act = m->addAction(f);
+            act->setCheckable(true);
+
+            if (f == WSGET(WS_APP_EMOTICON_THEME)){
+                a->setChecked(false);
+                act->setChecked(true);
+            }
+        }
+    }
+
+    a = m->exec(QCursor::pos());
+
+    if (a && a->isChecked()){
+        WSSET(WS_APP_EMOTICON_THEME, a->text());
+
+        EmoticonFactory::getInstance()->load();
+    }
+    else if (a)
+        WSSET(WS_APP_EMOTICON_THEME, "");
+}
+
 void HubFrame::slotInputTextChanged(){
 #ifdef USE_ASPELL
     PMWindow *p = qobject_cast<PMWindow*>(sender());
@@ -2874,7 +2911,7 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
     if (key == WS_CHAT_FONT || key == WS_CHAT_ULIST_FONT)
         updateStyles();
     else if (key == WS_APP_EMOTICON_THEME)
-        toolButton_SMILE->setVisible(!value.isEmpty());
+        toolButton_SMILE->setVisible(!value.isEmpty() && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
 }
 
 void HubFrame::slotCopyHubIP(){
