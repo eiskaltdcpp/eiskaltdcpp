@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-08-30 13:30+0300\n"
-"PO-Revision-Date: 2010-08-19 14:16+0200\n"
+"PO-Revision-Date: 2010-09-06 13:44+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -3302,7 +3302,7 @@ msgstr ""
 
 #: ../glade/settingsdialog.glade:6588
 msgid "Font select"
-msgstr ""
+msgstr "Betűkészlet kiválasztás"
 
 #: ../glade/settingsdialog.glade:6620
 msgid "gtk-apply"
@@ -3318,59 +3318,59 @@ msgstr ""
 
 #: ../glade/downloadqueue.glade:118 ../glade/downloadqueue.glade:223
 msgid "Set Priorit_y"
-msgstr ""
+msgstr "Prioritá_s beállítása"
 
 #: ../glade/downloadqueue.glade:125 ../glade/downloadqueue.glade:230
 msgid "_Paused"
-msgstr ""
+msgstr "_Megállítva"
 
 #: ../glade/downloadqueue.glade:132 ../glade/downloadqueue.glade:237
 msgid "_Lowest"
-msgstr ""
+msgstr "_Legalacsonyabb"
 
 #: ../glade/downloadqueue.glade:139 ../glade/downloadqueue.glade:244
 msgid "L_ow"
-msgstr ""
+msgstr "A_lacsony"
 
 #: ../glade/downloadqueue.glade:146 ../glade/downloadqueue.glade:251
 msgid "_Normal"
-msgstr ""
+msgstr "_Normál"
 
 #: ../glade/downloadqueue.glade:153 ../glade/downloadqueue.glade:258
 msgid "H_igh"
-msgstr ""
+msgstr "M_agas"
 
 #: ../glade/downloadqueue.glade:160 ../glade/downloadqueue.glade:265
 msgid "_Highest"
-msgstr ""
+msgstr "_Legmagasabb"
 
 #: ../glade/downloadqueue.glade:176
 msgid "_Move"
-msgstr ""
+msgstr "_Mozgatás"
 
 #: ../glade/downloadqueue.glade:211
 msgid "_Move/Rename"
-msgstr ""
+msgstr "_Mozgatás/Átnevezés"
 
 #: ../glade/downloadqueue.glade:298
 msgid "Re-_add source"
-msgstr ""
+msgstr "Forrás hozzáadása _megint"
 
 #: ../glade/downloadqueue.glade:314
 msgid "Remove So_urce"
-msgstr ""
+msgstr "Fo_rrás eltávolítása"
 
 #: ../glade/downloadqueue.glade:344
 msgid "Move to..."
-msgstr ""
+msgstr "Mozgatás ide..."
 
 #: ../glade/publichubs.glade:51
 msgid "<b>Filter</b>"
-msgstr ""
+msgstr "<b>Szűrő</b>"
 
 #: ../glade/publichubs.glade:92
 msgid "<b>Hub List</b>"
-msgstr ""
+msgstr "<b>Hublista</b>"
 
 #: ../glade/publichubs.glade:326
 msgid "Add to favorites"
@@ -3382,7 +3382,7 @@ msgstr "_Privát üzenet küldése"
 
 #: ../glade/transfers.glade:105
 msgid "_Force attempt"
-msgstr ""
+msgstr "_Kényszerítés"
 
 #: ../glade/transfers.glade:117
 msgid "_Close connection"
@@ -3390,7 +3390,7 @@ msgstr "_Kapcsolat bezárása"
 
 #: ../glade/privatemessage.glade:37 ../glade/hub.glade:66
 msgid "Chat Commands"
-msgstr ""
+msgstr "Chat parancsok"
 
 #: ../glade/privatemessage.glade:60 ../glade/hub.glade:92
 msgid "Emoticons"
@@ -3398,7 +3398,7 @@ msgstr "Hangulatjelek"
 
 #: ../glade/privatemessage.glade:97 ../glade/hub.glade:255
 msgid "_Search magnet"
-msgstr ""
+msgstr "_Magnet link keresése"
 
 #: ../glade/privatemessage.glade:141 ../glade/hub.glade:299
 msgid "_Properties/Choice"
@@ -3407,31 +3407,31 @@ msgstr "_Beállítások / Lehetőségek"
 #: ../glade/privatemessage.glade:150 ../glade/privatemessage.glade:166
 #: ../glade/hub.glade:309 ../glade/hub.glade:325
 msgid "_Copy link"
-msgstr ""
+msgstr "_Link másolása"
 
 #: ../glade/privatemessage.glade:157 ../glade/hub.glade:316
 msgid "_Open link in default application"
-msgstr ""
+msgstr "_Link megnyitása az alapértelmezett alkalmazással"
 
 #: ../glade/privatemessage.glade:173 ../glade/hub.glade:332
 msgid "_Open hub"
-msgstr ""
+msgstr "_Hub megnyitása"
 
 #: ../glade/finishedtransfers.glade:31
 msgid "Grouped by Files"
-msgstr ""
+msgstr "Csoportosítva fájlok szerint"
 
 #: ../glade/finishedtransfers.glade:60
 msgid "Grouped by Users"
-msgstr ""
+msgstr "Csoportosítva felhasználók szerint"
 
 #: ../glade/finishedtransfers.glade:137
 msgid "Open containing _folder"
-msgstr ""
+msgstr "Könyvtár _megnyitása"
 
 #: ../glade/finishedtransfers.glade:152
 msgid "Remove All"
-msgstr ""
+msgstr "Összes eltávolítása"
 
 #: ../glade/hub.glade:147
 msgid "Show/Hide user list"
@@ -3439,11 +3439,11 @@ msgstr "Felhasználói lista mutatása/elrejtése"
 
 #: ../glade/hub.glade:169
 msgid "_Copy nick"
-msgstr ""
+msgstr "_Nick másolása"
 
 #: ../glade/hub.glade:176
 msgid "_Send public message"
-msgstr ""
+msgstr "_Publikus üzenet küldése"
 
 #: ../glade/hub.glade:216
 msgid "_Remove from favorites"

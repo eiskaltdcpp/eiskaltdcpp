@@ -5,78 +5,78 @@
     <name>ADLS</name>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADL-Keresés</translation>
+        <translation>ADL Keresés</translation>
     </message>
     <message>
         <source>Add new</source>
-        <translation type="unfinished">Új hozzáadása</translation>
+        <translation>Új hozzáadása</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Módosítás</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Fájlnév</translation>
+        <translation>Fájlnév</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Könyvtár</translation>
+        <translation>Könyvtár</translation>
     </message>
     <message>
         <source>Full Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Teljes elérési út</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
 </context>
 <context>
     <name>ADLSModel</name>
     <message>
         <source>Checked</source>
-        <translation type="unfinished"></translation>
+        <translation>Ellenőrizve</translation>
     </message>
     <message>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresendő kifejezés</translation>
     </message>
     <message>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Forrás</translation>
     </message>
     <message>
         <source>Name directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Könyvtár neve</translation>
     </message>
     <message>
         <source>Min. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Min. méret</translation>
     </message>
     <message>
         <source>Max. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. méret</translation>
     </message>
     <message>
         <source>Type Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Méret</translation>
     </message>
 </context>
 <context>
@@ -1816,7 +1816,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADL-Keresés</translation>
+        <translation>ADL Keresés</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
@@ -1888,27 +1888,27 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Weboldal</translation>
     </message>
     <message>
         <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Forráskód (svn)</translation>
     </message>
     <message>
         <source>Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba jelentése</translation>
     </message>
     <message>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
+        <translation>A project Wiki oldala</translation>
     </message>
     <message>
         <source>Changelog (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Változások (svn)</translation>
     </message>
     <message>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
 </context>
 <context>
@@ -2100,23 +2100,23 @@ Kapcsolók:
     <name>QObject</name>
     <message>
         <source>Loading: </source>
-        <translation type="unfinished"></translation>
+        <translation>Betöltés: </translation>
     </message>
     <message>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználói lista ikonjai betöltve</translation>
     </message>
     <message>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Az alkalmazás ikonjai betöltve</translation>
     </message>
     <message>
         <source>Shutting down libdcpp...</source>
-        <translation type="unfinished"></translation>
+        <translation>libdcpp leállítása...</translation>
     </message>
     <message>
         <source>Quit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kilépés...</translation>
     </message>
     <message>
         <source>Cannot handle SIGPIPE</source>
@@ -2822,7 +2822,7 @@ Kapcsolók:
     </message>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADL-Keresés</translation>
+        <translation>ADL Keresés</translation>
     </message>
 </context>
 <context>
@@ -3086,86 +3086,86 @@ Biztosan le akarod állítani?
     <name>UIADLS</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>ADL Keresés</translation>
     </message>
     <message>
         <source>Add new</source>
-        <translation type="unfinished">Új hozzáadása</translation>
+        <translation>Új hozzáadása</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Módosítás</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <source>Move up</source>
-        <translation type="unfinished">Mozgatás fel</translation>
+        <translation>Mozgatás fel</translation>
     </message>
     <message>
         <source>Move down</source>
-        <translation type="unfinished">Mozgatás le</translation>
+        <translation>Mozgatás le</translation>
     </message>
 </context>
 <context>
     <name>UIADLSEditor</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Beállítások</translation>
+        <translation>ADL Beállítások</translation>
     </message>
     <message>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresendő kifejezés</translation>
     </message>
     <message>
         <source>Favorite hub name.</source>
-        <translation type="unfinished">Kedvenc hubnév.</translation>
+        <translation>Kedvenc hubnév.</translation>
     </message>
     <message>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Forrás</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Fájlnév</translation>
+        <translation>Fájlnév</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Könyvtár</translation>
+        <translation>Könyvtár</translation>
     </message>
     <message>
         <source>Min/Max Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Min/Max méret</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <source>On</source>
-        <translation type="unfinished">Be</translation>
+        <translation>Be</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished">Letöltés</translation>
+        <translation>Letöltés</translation>
     </message>
     <message>
         <source>Full path</source>
-        <translation type="unfinished"></translation>
+        <translation>Teljes elérési út</translation>
     </message>
 </context>
 <context>
@@ -4009,11 +4009,11 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Haladó</translation>
+        <translation>Haladó</translation>
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Újracsatlakozás a hubhoz</translation>
     </message>
 </context>
 <context>
@@ -5139,7 +5139,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatikusan új extra slot nyitása, ha a sebesség ez alá kerül (KiB/sec, 0 = letiltva)</translation>
     </message>
 </context>
 <context>
