@@ -1521,7 +1521,7 @@ void HubFrame::addStatus(QString msg){
 
     status   = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
 
-    bool isRotating = (msg.indexOf("is kicking because:") >= 0);
+    bool isRotating = ((msg.indexOf("is kicking") >= 0) && (msg.indexOf("because:") > 0));
 
     if (!(isRotating && WBGET(WB_CHAT_ROTATING_MSGS)))
         addOutput(status + msg);

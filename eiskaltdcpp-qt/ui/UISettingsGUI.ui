@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>460</width>
-    <height>370</height>
+    <width>458</width>
+    <height>368</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -328,7 +328,7 @@ them is usually available only to operators</string>
        <item>
         <widget class="QCheckBox" name="checkBox_ROTATING">
          <property name="text">
-          <string>Enable Rotating Messages</string>
+          <string>Filter kick-messages from the chat</string>
          </property>
         </widget>
        </item>
