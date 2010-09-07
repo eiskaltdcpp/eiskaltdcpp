@@ -51,7 +51,7 @@
 #endif
 
 #include "dcpp/ShareManager.h"
-#include <dcpp/UPnPManager.h>//NOTE: core 0.762
+#include <dcpp/ConnectivityManager.h>
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 
@@ -97,7 +97,7 @@ MainWindow::MainWindow (QWidget *parent):
     TimerManager::getInstance()->addListener(this);
     QueueManager::getInstance()->addListener(this);
 
-    startSocket();
+    startSocket(true, 0);
 
     setStatusMessage(tr("Ready"));
 
@@ -1756,35 +1756,28 @@ void MainWindow::toggleMainMenu(bool showMenu){
     WBSET(WB_MAIN_MENU_VISIBLE, showMenu);
 }
 
-void MainWindow::startSocket(){
-    SearchManager::getInstance()->disconnect();
-    ConnectionManager::getInstance()->disconnect();
-
-    if (ClientManager::getInstance()->isActive()) {
-        QString msg = "";
+void MainWindow::startSocket(bool onstart, int oldmode){
+    if (onstart) {
         try {
-            ConnectionManager::getInstance()->listen();
-        } catch(const Exception &e) {
-            msg = tr("Cannot listen socket because: \n") + QString::fromStdString(e.getError()) + tr("\n\nPlease check your connection settings");
-
-            QMessageBox::warning(this, tr("Connection Manager: Warning"), msg, QMessageBox::Ok);
+            ConnectivityManager::getInstance()->setup(true, SettingsManager::INCOMING_DIRECT);
+        } catch (const Exception& e) {
+            showPortsError(e.getError());
         }
+    qDebug() << "start";
+    } else {
         try {
-            SearchManager::getInstance()->listen();
-        } catch(const Exception &e) {
-            msg = tr("Cannot listen socket because: \n") + QString::fromStdString(e.getError()) + tr("\n\nPlease check your connection settings");
-
-            QMessageBox::warning(this, tr("Search Manager: Warning"), msg, QMessageBox::Ok);
+            ConnectivityManager::getInstance()->setup(true, oldmode);
+        } catch (const Exception& e) {
+            showPortsError(e.getError());
         }
+    qDebug() << "running";
     }
-#ifdef USE_MINIUPNP
-    if( SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP )
-        UPnPManager::getInstance()->open();
-    else if (SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP && UPnPManager::getInstance()->getOpened())
-        UPnPManager::getInstance()->close();
-#endif
+    ClientManager::getInstance()->infoUpdated();
 }
-
+void MainWindow::showPortsError(const string& port) {
+    QString msg = tr("Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.").arg(_q(port));
+    QMessageBox::warning(this, tr("Connectivity Manager: Warning"), msg, QMessageBox::Ok);
+}
 void MainWindow::showShareBrowser(dcpp::UserPtr usr, QString file, QString jump_to){
     ShareBrowser *sb = new ShareBrowser(usr, file, jump_to);
 }

@@ -118,7 +118,7 @@ void SettingsConnection::ok(){
             (SETTING(TCP_PORT) < 1024 || SETTING(UDP_PORT) < 1024 || SETTING(TLS_PORT) < 1024))
             showMsg(tr("Program need root privileges to open ports less than 1024"), NULL);
 
-        MainWindow::getInstance()->startSocket();
+        MainWindow::getInstance()->startSocket(false, old_mode);
     }
 }
 

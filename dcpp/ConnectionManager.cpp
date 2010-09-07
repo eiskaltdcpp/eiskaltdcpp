@@ -49,18 +49,26 @@ ConnectionManager::ConnectionManager() : floodCounter(0), server(0), secureServe
 
 void ConnectionManager::listen() throw(SocketException){
     disconnect();
-    uint16_t port = static_cast<uint16_t>(SETTING(TCP_PORT));
+   uint16_t port;
 
-    server = new Server(false, port, SETTING(BIND_ADDRESS));
+   if (BOOLSETTING(AUTO_DETECT_CONNECTION)) {
+        server = new Server(false, 0, Util::emptyString);
+   } else {
+        port = static_cast<uint16_t>(SETTING(TCP_PORT));
 
+       server = new Server(false, port, SETTING(BIND_ADDRESS));
+   }
     if(!CryptoManager::getInstance()->TLSOk()) {
         dcdebug("Skipping secure port: %d\n", SETTING(USE_TLS));
         return;
     }
 
-    port = static_cast<uint16_t>(SETTING(TLS_PORT));
-
-    secureServer = new Server(true, port, SETTING(BIND_ADDRESS));
+   if (BOOLSETTING(AUTO_DETECT_CONNECTION)) {
+        secureServer = new Server(true, 0, Util::emptyString);
+   } else {
+        port = static_cast<uint16_t>(SETTING(TLS_PORT));
+        secureServer = new Server(true, port, SETTING(BIND_ADDRESS));
+   }
 }
 
 /**

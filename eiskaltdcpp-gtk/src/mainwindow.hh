@@ -110,6 +110,7 @@ class MainWindow:
         void setChooseMagnetDialog_gui();
         void showMagnetDialog_gui(const std::string &magnet, const std::string &name, const int64_t size,
             const std::string &tth);
+        void showPortsError(const string& port);
 
         // GUI Callbacks
         static gboolean onWindowState_gui(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
@@ -159,7 +160,7 @@ class MainWindow:
 
         // Client functions
         void autoConnect_client();
-        void startSocket_client();
+        void startSocket_client(bool onstart, int oldmode);
         void refreshFileList_client();
         void addFileDownloadQueue_client(std::string name, int64_t size, std::string tth);
 

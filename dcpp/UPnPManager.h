@@ -29,36 +29,37 @@
 namespace dcpp {
 
 class UPnPManager :
-	public Singleton<UPnPManager>,
-	private Thread
+    public Singleton<UPnPManager>,
+    private Thread
 {
 public:
-	/**
-	* add an implementation, derived from the base UPnP class.
-	* must be allocated on the heap; its deletion will be managed by UPnPManager.
-	* first added impl will be tried first.
-	*/
-	void addImplementation(UPnP* impl);
-	void open();
-	void close();
+    /**
+    * add an implementation, derived from the base UPnP class.
+    * must be allocated on the heap; its deletion will be managed by UPnPManager.
+    * first added impl will be tried first.
+    */
+    void addImplementation(UPnP* impl);
+    bool open();
+    void close();
 
-	bool getOpened() const { return opened; }
+    bool getOpened() const { return opened; }
 
 private:
-	friend class Singleton<UPnPManager>;
+    friend class Singleton<UPnPManager>;
 
-	typedef boost::ptr_vector<UPnP> Impls;
-	Impls impls;
+    typedef boost::ptr_vector<UPnP> Impls;
+    Impls impls;
 
-	bool opened;
+    bool opened;
+    volatile long portMapping;
 
-	UPnPManager() : opened(false) { }
-	virtual ~UPnPManager() throw() { join(); }
+    UPnPManager() : opened(false) { }
+    virtual ~UPnPManager() throw() { join(); }
 
-	int run();
+    int run();
 
-	void close(UPnP& impl);
-	void log(const string& message);
+    void close(UPnP& impl);
+    void log(const string& message);
 };
 
 } // namespace dcpp

@@ -91,7 +91,7 @@ const string SettingsManager::settingTags[] =
     "SendBloom", "OwnerDrawnMenus", "Coral", "SearchFilterShared", "MaxTabChars", "FinishedDLOnlyFull",
     "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval", "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval", "SearchMerge", "HashBufferSize", "HashBufferPopulate",
     "HashBufferNoReserve", "HashBufferPrivate", "UseDHT", "DHTPort",
-     "ReconnectDelay",
+     "ReconnectDelay", "AutoDetectIncomingConnection",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -338,6 +338,7 @@ SettingsManager::SettingsManager()
     setDefault(DHT_PORT, 6245);
     setDefault(USE_DHT, false);
     setDefault(SEARCH_PASSIVE, false);
+    setDefault(AUTO_DETECT_CONNECTION, false);
 #ifdef _WIN32
     setDefault(MAIN_WINDOW_STATE, SW_SHOWNORMAL);
     setDefault(MAIN_WINDOW_SIZE_X, CW_USEDEFAULT);

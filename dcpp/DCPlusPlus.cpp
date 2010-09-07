@@ -41,9 +41,10 @@
 #include "ScriptManager.h"
 #endif
 #ifdef USE_MINIUPNP
-#include "upnp/upnpc.h"//NOTE: core 0.762
+#include "../upnp/upnpc.h"
 #endif
 #include "UPnPManager.h"
+#include "ConnectivityManager.h"
 #ifdef DHT
 #include "../dht/DHT.h"
 #endif
@@ -91,6 +92,7 @@ void startup(void (*f)(void*, const string&), void* p) {
     QueueManager::newInstance();
     FinishedManager::newInstance();
     ADLSearchManager::newInstance();
+    ConnectivityManager::newInstance();
     UPnPManager::newInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
@@ -111,9 +113,6 @@ void startup(void (*f)(void*, const string&), void* p) {
 
     FavoriteManager::getInstance()->load();
     CryptoManager::getInstance()->loadCertificates();
-#ifdef USE_MINIUPNP
-    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
-#endif
 #ifdef USE_DHT
     DHT::newInstance();
 #endif
@@ -126,6 +125,9 @@ void startup(void (*f)(void*, const string&), void* p) {
     if(f != NULL)
         (*f)(p, _("Download Queue"));
     QueueManager::getInstance()->loadQueue();
+#ifdef USE_MINIUPNP
+    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
+#endif
 }
 
 void shutdown() {
@@ -155,7 +157,7 @@ void shutdown() {
 #endif
 
     UPnPManager::deleteInstance();
-
+    ConnectivityManager::deleteInstance();
     ADLSearchManager::deleteInstance();
     FinishedManager::deleteInstance();
     ShareManager::deleteInstance();

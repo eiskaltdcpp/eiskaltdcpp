@@ -32,7 +32,7 @@
 #include <dcpp/Download.h>
 #include <dcpp/ClientManager.h>
 #include <dcpp/ADLSearch.h>
-#include <dcpp/UPnPManager.h>//NOTE: core 0.762
+#include <dcpp/ConnectivityManager.h>
 #include <dcpp/version.h>
 #include "downloadqueue.hh"
 #include "favoritehubs.hh"
@@ -297,7 +297,7 @@ void MainWindow::show()
     LogManager::getInstance()->addListener(this);
 
     typedef Func0<MainWindow> F0;
-    F0 *f0 = new F0(this, &MainWindow::startSocket_client);
+    F0 *f0 = new F0(this, &MainWindow::startSocket_client(true, 0));
     WulforManager::get()->dispatchClientFunc(f0);
 
     f0 = new F0(this, &MainWindow::autoConnect_client);
@@ -1498,11 +1498,9 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
 
     if (response == GTK_RESPONSE_OK)
     {
-        if (SETTING(INCOMING_CONNECTIONS) != lastConn || SETTING(TCP_PORT) != tcpPort || SETTING(UDP_PORT) != udpPort)
-        {
-            F0 *func = new F0(mw, &MainWindow::startSocket_client);
-            WulforManager::get()->dispatchClientFunc(func);
-        }
+        F0 *func = new F0(mw, &MainWindow::startSocket_client(false, lastConn));
+        WulforManager::get()->dispatchClientFunc(func);
+
         if (BOOLSETTING(ALWAYS_TRAY))
             gtk_status_icon_set_visible(mw->statusIcon, TRUE);
         else
@@ -1829,50 +1827,28 @@ void MainWindow::autoConnect_client()
     }
 }
 
-void MainWindow::startSocket_client()
-{
-    SearchManager::getInstance()->disconnect();
-    ConnectionManager::getInstance()->disconnect();
-
-    if (ClientManager::getInstance()->isActive())
-    {
-        try
-        {
-            ConnectionManager::getInstance()->listen();
+void MainWindow::startSocket(bool onstart, int oldmode){
+    if (onstart) {
+        try {
+        ConnectivityManager::getInstance()->setup(true, SettingsManager::INCOMING_DIRECT);
+        } catch (const Exception& e) {
+            showPortsError(e.getError());
         }
-        catch (const Exception &e)
-        {
-            string primaryText = _("Unable to open TCP/TLS port");
-            string secondaryText = _("File transfers will not work correctly until you change settings or turn off any application that might be using the TCP/TLS port.");
-            typedef Func2<MainWindow, string, string> F2;
-            F2* func = new F2(this, &MainWindow::showMessageDialog_gui, primaryText, secondaryText);
-            WulforManager::get()->dispatchGuiFunc(func);
-
+    } else {
+        try {
+            ConnectivityManager::getInstance()->setup(true, oldmode);
+        } catch (const Exception& e) {
+            showPortsError(e.getError());
         }
-        try
-        {
-            SearchManager::getInstance()->listen();
-        }
-        catch (const Exception &e)
-        {
-            string primaryText = _("Unable to open UDP port");
-            string secondaryText = _("Searching will not work correctly until you change settings or turn off any application that might be using the UDP port.");
-            typedef Func2<MainWindow, string, string> F2;
-            F2* func = new F2(this, &MainWindow::showMessageDialog_gui, primaryText, secondaryText);
-            WulforManager::get()->dispatchGuiFunc(func);
-        }
-#ifdef USE_MINIUPNP
-        // must be done after listen calls; otherwise ports won't be set
-        if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP)// NOTE: core 0.762
-            UPnPManager::getInstance()->open();
-        else if (SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP && UPnPManager::getInstance()->getOpened())
-            UPnPManager::getInstance()->close();
-#endif
     }
-
     ClientManager::getInstance()->infoUpdated();
 }
-
+void MainWindow::showPortsError(const string& port) {
+    string msg = str(F_("Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.") % port);
+    typedef Func2<MainWindow, string, string> F2;
+    F2* func = new F2(this, &MainWindow::showMessageDialog_gui, _("Connectivity Manager: Warning"), msg);
+    WulforManager::get()->dispatchGuiFunc(func);
+}
 void MainWindow::refreshFileList_client()
 {
     try

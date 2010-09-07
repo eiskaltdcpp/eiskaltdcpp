@@ -152,8 +152,9 @@ friend class dcpp::Singleton<MainWindow>;
         void redrawToolPanel();
 
         /** */
-        void startSocket();
-
+        void startSocket(bool onstart, int oldmode);
+        /** */
+        void showPortsError(const std::string& port);
         /** */
         void autoconnect();
 

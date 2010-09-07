@@ -80,8 +80,11 @@ void SearchManager::listen() throw(SocketException) {
         socket->create(Socket::TYPE_UDP);
         socket->setBlocking(true);
                 socket->setSocketOpt(SO_REUSEADDR, 1);
-        port = socket->bind(static_cast<uint16_t>(SETTING(UDP_PORT)), SETTING(BIND_ADDRESS));
-
+       if (BOOLSETTING(AUTO_DETECT_CONNECTION)) {
+           port = socket->bind(0, Util::emptyString);
+       } else {
+           port = socket->bind(static_cast<uint16_t>(SETTING(UDP_PORT)), SETTING(BIND_ADDRESS));
+       }
         start();
     } catch(...) {
         socket.reset();

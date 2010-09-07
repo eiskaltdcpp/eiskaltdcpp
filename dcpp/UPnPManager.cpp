@@ -25,6 +25,7 @@
 #include "SearchManager.h"
 #include "LogManager.h"
 #include "version.h"
+#include "ConnectivityManager.h"
 
 namespace dcpp {
 
@@ -32,16 +33,23 @@ void UPnPManager::addImplementation(UPnP* impl) {
     impls.push_back(impl);
 }
 
-void UPnPManager::open() {
+bool UPnPManager::open() {
     if(opened)
-        return;
+        return false;
 
     if(impls.empty()) {
         log(_("No UPnP implementation available"));
-        return;
+        return false;
+    }
+
+    if(Thread::safeExchange(portMapping, 1) == 1) {
+        log(_("Another UPnP port mapping attempt is in progress..."));
+        return false;
     }
 
     start();
+
+    return true;
 }
 
 void UPnPManager::close() {
@@ -76,6 +84,7 @@ int UPnPManager::run() {
 
         opened = true;
         log(str(F_("Successfully created port mappings. TCP: %1%, UDP: %2%, TLS: %3%") % conn_port % search_port % secure_port));
+        ConnectivityManager::getInstance()->mappingFinished(true);
 
         if(!BOOLSETTING(NO_IP_OVERRIDE)) {
             // now lets configure the external IP (connect to me) address
@@ -95,8 +104,9 @@ int UPnPManager::run() {
 
     if(!opened) {
         log(_("Failed to create port mappings"));
+        ConnectivityManager::getInstance()->mappingFinished(false);
     }
-
+    portMapping == 0;
     return 0;
 }
 
@@ -107,7 +117,7 @@ void UPnPManager::close(UPnP& impl) {
 }
 
 void UPnPManager::log(const string& message) {
-    LogManager::getInstance()->message(str(F_("UPnP: %1%") % message));
+    ConnectivityManager::getInstance()->log(str(F_("UPnP: %1%") % message));
 }
 
 } // namespace dcpp
