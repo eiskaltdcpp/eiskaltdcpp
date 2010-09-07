@@ -5,6 +5,7 @@
 * Added ability to use Lau-scripts (see the file INSTALL).
 * Added ability to use miniUPnP for connection (see file INSTALL).
 * Added set of sound files from the FlylinkDC++ project.
+* Kernel (dcpp) was partially updated to version 0.777.
 *** eiskaltdcpp-qt ***
 * Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
 * Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
