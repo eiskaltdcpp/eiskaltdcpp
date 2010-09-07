@@ -25,7 +25,10 @@
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
-
+#ifdef USE_MINIUPNP
+#include "../upnp/upnpc.h"
+#include "dcpp/UPnPManager.h"
+#endif
 #include "bacon-message-connection.h"
 #include "settingsmanager.hh"
 #include "wulformanager.hh"
@@ -127,6 +130,9 @@ int main(int argc, char *argv[])
 
     // Start the DC++ client core
     dcpp::startup(callBack, NULL);
+#ifdef USE_MINIUPNP
+    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
+#endif
     dcpp::TimerManager::getInstance()->start();
 
     g_thread_init(NULL);

@@ -23,7 +23,10 @@ using namespace std;
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
-
+#ifdef USE_MINIUPNP
+#include "../upnp/upnpc.h"
+#include "dcpp/UPnPManager.h"
+#endif
 #ifdef USE_JS
 #include "ScriptEngine.h"
 #endif
@@ -78,6 +81,9 @@ int main(int argc, char *argv[])
 #endif
 
     dcpp::startup(callBack, NULL);
+#ifdef USE_MINIUPNP
+    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
+#endif
     dcpp::TimerManager::getInstance()->start();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);

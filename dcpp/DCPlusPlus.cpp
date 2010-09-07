@@ -40,9 +40,6 @@
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
-#ifdef USE_MINIUPNP
-#include "../upnp/upnpc.h"
-#endif
 #include "UPnPManager.h"
 #include "ConnectivityManager.h"
 #ifdef DHT
@@ -125,9 +122,6 @@ void startup(void (*f)(void*, const string&), void* p) {
     if(f != NULL)
         (*f)(p, _("Download Queue"));
     QueueManager::getInstance()->loadQueue();
-#ifdef USE_MINIUPNP
-    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
-#endif
 }
 
 void shutdown() {
