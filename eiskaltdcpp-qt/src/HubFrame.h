@@ -339,6 +339,7 @@ private:
     bool hasMessages;
     bool hasHighlightMessages;
 
+    QStringList status_msg_history;
     QStringList out_messages;
     int out_messages_index;
 

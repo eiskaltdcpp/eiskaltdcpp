@@ -190,6 +190,7 @@ void SettingsGUI::init(){
         checkBox_EMOTFORCE->setChecked(WBGET(WB_APP_FORCE_EMOTICONS));
         checkBox_USE_CTRL_ENTER->setChecked(WBGET(WB_USE_CTRL_ENTER));
         checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
+        checkBox_ROTATING->setChecked(WBGET(WB_CHAT_ROTATING_MSGS));
     }
     {//Chat (extended) tab
         comboBox_DBL_CLICK->setCurrentIndex(WIGET(WI_CHAT_DBLCLICK_ACT));
@@ -337,6 +338,7 @@ void SettingsGUI::ok(){
         WBSET(WB_CHAT_SHOW_JOINS_FAV, checkBox_JOINSFAV->isChecked());
         WBSET(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());
         WBSET(WB_CHAT_KEEPFOCUS, checkBox_KEEPFOCUS->isChecked());
+        WBSET(WB_CHAT_ROTATING_MSGS, checkBox_ROTATING->isChecked());
         WBSET(WB_APP_ENABLE_EMOTICON, checkBox_EMOT->isChecked());
         WBSET(WB_APP_FORCE_EMOTICONS, checkBox_EMOTFORCE->isChecked());
         WBSET(WB_USE_CTRL_ENTER, checkBox_USE_CTRL_ENTER->isChecked());

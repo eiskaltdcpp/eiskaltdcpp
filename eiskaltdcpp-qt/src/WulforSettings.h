@@ -83,6 +83,7 @@ static const QString & WB_CHAT_SHOW_JOINS_FAV     = "chat-show-joins-fav-only";
 static const QString & WB_CHAT_REDIRECT_BOT_PMS   = "chat-redirect-pms-from-bot";
 static const QString & WB_CHAT_KEEPFOCUS          = "chat-keep-focus";
 static const QString & WB_CHAT_HIGHLIGHT_FAVS     = "chat-highlight-favs";
+static const QString & WB_CHAT_ROTATING_MSGS      = "chat-support-rotating-messages";
 static const QString & WB_MAINWINDOW_MAXIMIZED    = "mainwindow-maximized";
 static const QString & WB_MAINWINDOW_HIDE         = "mainwindow-autohide";
 static const QString & WB_MAINWINDOW_REMEMBER     = "mainwindow-remember-position-on-exit";

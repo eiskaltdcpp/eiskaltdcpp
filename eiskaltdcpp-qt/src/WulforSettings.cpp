@@ -113,6 +113,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_CHAT_KEEPFOCUS,        static_cast<int>(true));
         intmap.insert(WB_CHAT_SHOW_JOINS_FAV,   static_cast<int>(true));
         intmap.insert(WB_CHAT_HIGHLIGHT_FAVS,   static_cast<int>(true));
+        intmap.insert(WB_CHAT_ROTATING_MSGS,    static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_MAXIMIZED,  static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_HIDE,       static_cast<int>(false));
         intmap.insert(WB_MAINWINDOW_REMEMBER,   static_cast<int>(true));

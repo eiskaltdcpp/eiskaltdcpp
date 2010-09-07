@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>462</width>
-    <height>372</height>
+    <width>460</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -322,6 +322,13 @@ them is usually available only to operators</string>
          </property>
          <property name="autoExclusive">
           <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_ROTATING">
+         <property name="text">
+          <string>Enable Rotating Messages</string>
          </property>
         </widget>
        </item>

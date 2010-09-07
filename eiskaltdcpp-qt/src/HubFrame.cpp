@@ -1521,14 +1521,23 @@ void HubFrame::addStatus(QString msg){
 
     status   = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
 
-    addOutput(status + msg);
+    bool isRotating = (msg.indexOf("is kicking because:") >= 0);
+
+    if (!(isRotating && WBGET(WB_CHAT_ROTATING_MSGS)))
+        addOutput(status + msg);
+
     label_LAST_STATUS->setText(status + short_msg);
 
     status += pure_msg;
     WulforUtil::getInstance()->textToHtml(status, false);
 
+    status_msg_history.push_back(status);
+
+    if (status_msg_history.size() > 5)
+        status_msg_history.removeFirst();
+
     QString pre = tr("<b>Last status message on hub:</b><br/>%1").replace(" ","&nbsp;");
-    label_LAST_STATUS->setToolTip(pre.arg(status));
+    label_LAST_STATUS->setToolTip(status_msg_history.join("<br/>") + "<br/>" + pre.arg(status));
 }
 
 void HubFrame::addOutput(QString msg){
