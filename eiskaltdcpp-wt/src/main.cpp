@@ -25,6 +25,10 @@
 #include "DownloadQueue.h"
 #include "Utils.h"
 #include "Version.h"
+#ifdef USE_MINIUPNP
+#include "../upnp/upnpc.h"
+#include "dcpp/UPnPManager.h"
+#endif
 
 using namespace Wt;
 using namespace dcpp;
@@ -154,6 +158,9 @@ int main(int argc, char** argv) {
     Utils::init();
 
     dcpp::startup(callBack, NULL);
+#ifdef USE_MINIUPNP
+    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
+#endif
     dcpp::TimerManager::getInstance()->start();
     dcpp::HashManager::getInstance()->setPriority(Thread::IDLE);
 
@@ -207,5 +214,11 @@ void startSocket(){
             printf("%s %s %s\n", "Cannot listen socket because: \n", e.getError().c_str(), "\n\nPlease check your connection settings");
         }
     }
+#ifdef USE_MINIUPNP
+    if (SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP && UPnPManager::getInstance()->getOpened())
+        UPnPManager::getInstance()->close();
+    else if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP)
+        UPnPManager::getInstance()->open();
+#endif
 }
 
