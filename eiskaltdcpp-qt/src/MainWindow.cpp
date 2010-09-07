@@ -51,11 +51,7 @@
 #endif
 
 #include "dcpp/ShareManager.h"
-
-#ifdef USE_MINIUPNP
-#include "miniupnp/upnpc.h"
 #include <dcpp/UPnPManager.h>//NOTE: core 0.762
-#endif
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 

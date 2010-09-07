@@ -40,6 +40,9 @@
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
+#ifdef USE_MINIUPNP
+#include "upnp/upnpc.h"//NOTE: core 0.762
+#endif
 #include "UPnPManager.h"
 #ifdef DHT
 #include "../dht/DHT.h"
@@ -108,6 +111,9 @@ void startup(void (*f)(void*, const string&), void* p) {
 
     FavoriteManager::getInstance()->load();
     CryptoManager::getInstance()->loadCertificates();
+#ifdef USE_MINIUPNP
+    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
+#endif
 #ifdef USE_DHT
     DHT::newInstance();
 #endif

@@ -14,10 +14,6 @@ using namespace std;
 #include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
-#ifdef USE_MINIUPNP
-#include <dcpp/UPnPManager.h>//NOTE: core 0.762
-#include "miniupnp/upnpc.h"
-#endif
 #include "HubManager.h"
 #include "Notification.h"
 #include "SingleInstanceRunner.h"
@@ -100,9 +96,7 @@ int main(int argc, char *argv[])
 
     if (WulforUtil::getInstance()->loadIcons())
         std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
-#ifdef USE_MINIUPNP
-    dcpp::UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
-#endif
+
     HubManager::newInstance();
 
     MainWindow::newInstance();

@@ -255,6 +255,7 @@ endif (FORCE_XDG)
 if (USE_ICON_THEME)
  add_definitions(-DUSE_ICON_THEME )
 endif (USE_ICON_THEME)
+
 if (CMAKE_CROSSCOMPILING)
 set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -enable-auto-import")
 endif (CMAKE_CROSSCOMPILING)
@@ -315,8 +316,9 @@ else (NOT DEFINED linguas)
   endif (NOT linguas)
 endif (NOT DEFINED linguas)
 message (STATUS "Translations: ${LANGUAGES}")
+
 if (USE_MINIUPNP)
-add_subdirectory(miniupnp)
+add_subdirectory(upnp)
 endif (USE_MINIUPNP)
 
 if (DHT)
