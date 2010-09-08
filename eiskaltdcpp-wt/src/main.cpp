@@ -29,6 +29,7 @@
 #include "../upnp/upnpc.h"
 #include "dcpp/UPnPManager.h"
 #endif
+#include "dcpp/ConnectivityManager.h"
 
 using namespace Wt;
 using namespace dcpp;
@@ -62,7 +63,8 @@ void callBack(void* x, const std::string& a)
 }
 
 void autoconnect();
-void startSocket();
+void startSocket(bool onstart, int oldmode);
+void showPortsError(const std::string& port);
 
 class WApp: public Wt::WApplication{
 public:
@@ -164,7 +166,7 @@ int main(int argc, char** argv) {
     dcpp::TimerManager::getInstance()->start();
     dcpp::HashManager::getInstance()->setPriority(Thread::IDLE);
 
-    startSocket();
+    startSocket(true,0);
 
     autoconnect();
 
@@ -198,27 +200,22 @@ void autoconnect(){
     }
 }
 
-void startSocket(){
-    SearchManager::getInstance()->disconnect();
-    ConnectionManager::getInstance()->disconnect();
-
-    if (ClientManager::getInstance()->isActive()) {
+void startSocket(bool onstart, int oldmode){
+    if (onstart) {
         try {
-            ConnectionManager::getInstance()->listen();
-        } catch(const Exception &e) {
-            printf("%s %s %s\n", "Cannot listen socket because: \n", e.getError().c_str(), "\n\nPlease check your connection settings");
+            ConnectivityManager::getInstance()->setup(true, SettingsManager::INCOMING_DIRECT);
+        } catch (const Exception& e) {
+            showPortsError(e.getError());
         }
+    } else {
         try {
-            SearchManager::getInstance()->listen();
-        } catch(const Exception &e) {
-            printf("%s %s %s\n", "Cannot listen socket because: \n", e.getError().c_str(), "\n\nPlease check your connection settings");
+            ConnectivityManager::getInstance()->setup(true, oldmode);
+        } catch (const Exception& e) {
+            showPortsError(e.getError());
         }
     }
-#ifdef USE_MINIUPNP
-    if (SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP && UPnPManager::getInstance()->getOpened())
-        UPnPManager::getInstance()->close();
-    else if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP)
-        UPnPManager::getInstance()->open();
-#endif
+    ClientManager::getInstance()->infoUpdated();
 }
-
+void showPortsError(const string& port) {
+    printf("Connectivity Manager: Warning\n\n Unable to open %d port. Searching or file transfers will\n not work correctly until you change settings or turn off\n any application that might be using that port.", port.c_str());
+}
