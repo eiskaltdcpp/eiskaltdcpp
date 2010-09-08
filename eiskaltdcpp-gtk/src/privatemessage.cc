@@ -35,7 +35,7 @@ using namespace std;
 using namespace dcpp;
 
 PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
-    BookEntry(Entry::PRIVATE_MESSAGE, _("PM: ") + WulforUtil::getNicks(cid), "privatemessage.glade", cid),
+    BookEntry(Entry::PRIVATE_MESSAGE, WulforUtil::getNicks(cid), "privatemessage.glade", cid),
     cid(cid),
     hubUrl(hubUrl),
     historyIndex(0),
@@ -135,7 +135,7 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
     isBot = user ? user->isSet(User::BOT) : FALSE;
 
-    setLabel_gui(_("PM: ") + WulforUtil::getNicks(cid) + " [" + WulforUtil::getHubNames(cid) + "]");
+    setLabel_gui(WulforUtil::getNicks(cid) + " [" + WulforUtil::getHubNames(cid) + "]");
 
     /* initial tags map */
     TagsMap[TAG_PRIVATE] = createTag_gui("TAG_PRIVATE", TAG_PRIVATE);

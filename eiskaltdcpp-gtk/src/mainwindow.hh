@@ -110,7 +110,7 @@ class MainWindow:
         void setChooseMagnetDialog_gui();
         void showMagnetDialog_gui(const std::string &magnet, const std::string &name, const int64_t size,
             const std::string &tth);
-        void showPortsError(const string& port);
+        void showPortsError(const std::string& port);
 
         // GUI Callbacks
         static gboolean onWindowState_gui(GtkWidget *widget, GdkEventWindowState *event, gpointer data);

@@ -296,11 +296,12 @@ void MainWindow::show()
     TimerManager::getInstance()->addListener(this);
     LogManager::getInstance()->addListener(this);
 
+    typedef Func2<MainWindow, bool, int> F2;
     typedef Func0<MainWindow> F0;
-    F0 *f0 = new F0(this, &MainWindow::startSocket_client(true, 0));
-    WulforManager::get()->dispatchClientFunc(f0);
+    F2 *f2 = new F2(this, &MainWindow::startSocket_client, true, 0);
+    WulforManager::get()->dispatchClientFunc(f2);
 
-    f0 = new F0(this, &MainWindow::autoConnect_client);
+    F0 *f0 = new F0(this, &MainWindow::autoConnect_client);
     WulforManager::get()->dispatchClientFunc(f0);
 
     autoOpen_gui();
@@ -1484,12 +1485,11 @@ void MainWindow::onPublicHubsClicked_gui(GtkWidget *widget, gpointer data)
 void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
 {
     MainWindow *mw = (MainWindow *)data;
-    typedef Func0<MainWindow> F0;
-
+    typedef Func2<MainWindow, bool, int> F2;
     unsigned short tcpPort = (unsigned short)SETTING(TCP_PORT);
     unsigned short udpPort = (unsigned short)SETTING(UDP_PORT);
     int lastConn = SETTING(INCOMING_CONNECTIONS);
-
+    bool onstart = false;
     if (mw->useStatusIconBlink != WGETB("status-icon-blink-use"))
         WSET("status-icon-blink-use", mw->useStatusIconBlink);
     bool emoticons = WGETB("emoticons-use");
@@ -1498,7 +1498,7 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
 
     if (response == GTK_RESPONSE_OK)
     {
-        F0 *func = new F0(mw, &MainWindow::startSocket_client(false, lastConn));
+        F2 *func = new F2(mw, &MainWindow::startSocket_client, onstart, lastConn);
         WulforManager::get()->dispatchClientFunc(func);
 
         if (BOOLSETTING(ALWAYS_TRAY))
@@ -1827,7 +1827,7 @@ void MainWindow::autoConnect_client()
     }
 }
 
-void MainWindow::startSocket(bool onstart, int oldmode){
+void MainWindow::startSocket_client(bool onstart, int oldmode){
     if (onstart) {
         try {
         ConnectivityManager::getInstance()->setup(true, SettingsManager::INCOMING_DIRECT);

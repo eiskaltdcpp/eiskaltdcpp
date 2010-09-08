@@ -50,7 +50,7 @@ using namespace dcpp;
 const string Hub::tagPrefix = "#";
 
 Hub::Hub(const string &address, const string &encoding):
-    BookEntry(Entry::HUB, _("Hub: ") + address, "hub.glade", address),
+    BookEntry(Entry::HUB, address, "hub.glade", address),
     client(NULL),
     historyIndex(0),
     totalShared(0),
@@ -2772,12 +2772,12 @@ void Hub::on(ClientListener::GetPassword, Client *) throw()
 void Hub::on(ClientListener::HubUpdated, Client *) throw()
 {
     typedef Func1<Hub, string> F1;
-    string hubName = _("Hub: ");
+    string hubName;
 
     if (client->getHubName().empty())
-        hubName += client->getAddress() + ":" + Util::toString(client->getPort());
+        hubName = client->getAddress() + ":" + Util::toString(client->getPort());
     else
-        hubName += client->getHubName();
+        hubName = client->getHubName();
 
     if (!client->getHubDescription().empty())
         hubName += " - " + client->getHubDescription();

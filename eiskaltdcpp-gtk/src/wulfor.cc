@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
     // Start the DC++ client core
     dcpp::startup(callBack, NULL);
 #ifdef USE_MINIUPNP
-    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
+    dcpp::UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
 #endif
     dcpp::TimerManager::getInstance()->start();
 
