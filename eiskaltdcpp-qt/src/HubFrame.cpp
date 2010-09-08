@@ -1301,7 +1301,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             }
         }
     }
-    else if ((cmd == "/ratio" && !emptyParam) || cmd == "/ratio"){
+    else if (cmd == "/ratio"){
         double ratio;
         double down = QString(WSGET(WS_APP_TOTAL_DOWN)).toDouble();
         double up = QString(WSGET(WS_APP_TOTAL_UP)).toDouble();
@@ -1316,9 +1316,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
 
         if (param.trimmed() == "show"){
             if (fr == this)
-                sendChat(line, false, false);
+                sendChat(line, true, false);
             else if (pm)
-                pm->sendMessage(line, false, false);
+                pm->sendMessage(line, true, false);
         } else if (emptyParam){
             if (fr == this)
                 addStatus(line);
@@ -2640,12 +2640,26 @@ void HubFrame::slotFilterTextChanged(){
     if (!text.isEmpty()){
         if (!proxy){
             proxy = new UserListProxyModel();
-            proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
             proxy->setDynamicSortFilter(true);
             proxy->setSourceModel(model);
         }
 
-        proxy->setFilterFixedString(text);
+        bool isRegExp = false;
+
+        if (text.startsWith("##")){
+            isRegExp = true;
+            text.remove(0, 2);
+        }
+
+        if (!isRegExp){
+            proxy->setFilterFixedString(text);
+            proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+        }
+        else{
+            proxy->setFilterRegExp(text);
+            proxy->setFilterCaseSensitivity(Qt::CaseSensitive);
+        }
+
         proxy->setFilterKeyColumn(comboBox_COLUMNS->currentIndex());
 
         if (treeView_USERS->model() != proxy)
