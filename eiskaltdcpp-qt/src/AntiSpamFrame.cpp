@@ -39,6 +39,7 @@ void AntiSpamFrame::InitDocument() {
 
     connect(checkBox_ASENABLE, SIGNAL(clicked()), this, SLOT(slotAntiSpamSwitch()));
     connect(checkBox_ASFILTER, SIGNAL(clicked()), this, SLOT(slotAsFilter()));
+    connect(checkBox_FILTER_OPS, SIGNAL(clicked()), this, SLOT(slotFilterOps()));
 
     connect(pushButton_ADDWHITE, SIGNAL(clicked()), this, SLOT(slotAddToWhite()));
     connect(pushButton_ADDBLACK, SIGNAL(clicked()), this, SLOT(slotAddToBlack()));
@@ -112,7 +113,7 @@ void AntiSpamFrame::slotAsFilter(){
 }
 
 void AntiSpamFrame::slotFilterOps(){
-    WBSET(WB_ANTISPAM_AS_FILTER, checkBox_FILTER_OPS->isChecked());
+    WBSET(WB_ANTISPAM_FILTER_OPS, checkBox_FILTER_OPS->isChecked());
 }
 
 void AntiSpamFrame::loadGUIData() {
