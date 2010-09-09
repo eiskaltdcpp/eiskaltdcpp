@@ -35,6 +35,7 @@ SideBarModel::SideBarModel(QObject *parent) :
     CREATE_ROOT_EL(rootItem, eiFAVUSERS,    tr("Favorite Users"),   roots,  FavoriteUsers);
     CREATE_ROOT_EL(rootItem, eiSERVER,      tr("Public Hubs"),      roots,  PublicHubs);
     CREATE_ROOT_EL(rootItem, eiSPY,         tr("Spy"),              roots,  Spy);
+    CREATE_ROOT_EL(rootItem, eiGUI,         tr("Other Widgets"),    roots,  CustomWidget);
 }
 
 SideBarModel::~SideBarModel()
@@ -165,6 +166,7 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
     case ArenaWidget::PrivateMessage:
     case ArenaWidget::Search:
     case ArenaWidget::ShareBrowser:
+    case ArenaWidget::CustomWidget:
         {
             SideBarItem *i = new SideBarItem(awgt, roots[awgt->role()]);
             roots[awgt->role()]->appendChild(i);
@@ -197,6 +199,7 @@ void SideBarModel::removeWidget(ArenaWidget *awgt){
     case ArenaWidget::PrivateMessage:
     case ArenaWidget::Search:
     case ArenaWidget::ShareBrowser:
+    case ArenaWidget::CustomWidget:
         {
             SideBarItem *root  = roots[awgt->role()];
             SideBarItem *child = items[awgt];
@@ -341,6 +344,7 @@ void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
             case ArenaWidget::PrivateMessage:
             case ArenaWidget::Search:
             case ArenaWidget::ShareBrowser:
+            case ArenaWidget::CustomWidget:
                 showCloseBtn = true;
             default:
                 break;

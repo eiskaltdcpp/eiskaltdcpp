@@ -2459,6 +2459,7 @@ void MainWindow::slotSidebarHook(const QModelIndex &index){
             case ArenaWidget::PrivateMessage:
             case ArenaWidget::Search:
             case ArenaWidget::ShareBrowser:
+            case ArenaWidget::CustomWidget:
                 item->getWidget()->getWidget()->close();
                 break;
             default:
