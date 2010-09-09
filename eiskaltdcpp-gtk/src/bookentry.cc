@@ -100,7 +100,7 @@ void BookEntry::setIcon_gui(const EntryType type)
         case Entry::FAVORITE_USERS : stock = WGETS("icon-favorite-users"); break;
         case Entry::PUBLIC_HUBS : stock = WGETS("icon-public-hubs"); break;
         case Entry::DOWNLOAD_QUEUE : stock = WGETS("icon-queue"); break;
-        case Entry::SEARCH : stock = WGETS("icon-search");printf("%s \n",stock.c_str()); break;
+        case Entry::SEARCH : stock = WGETS("icon-search"); break;
         case Entry::SEARCH_ADL : stock = WGETS("icon-search-adl"); break;
         case Entry::SEARCH_SPY : stock = WGETS("icon-search-spy"); break;
         case Entry::FINISHED_DOWNLOADS : stock = WGETS("icon-finished-downloads"); break;
