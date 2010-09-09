@@ -14,6 +14,9 @@
 #include <QList>
 #include <QMap>
 #include <QMetaType>
+#include <QTextStream>
+#include <QFile>
+#include <QDateTime>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -83,6 +86,7 @@ private:
 
     inline void addToList(QList<QString>&, const QList<QString>&);
     inline void remFromList(QList<QString>&, const QList<QString>&);
+    inline void log(const QString &log_msg){ log_stream << QString("[%1] ").arg(QDateTime::currentDateTime().toString("yyyy-MM-dd hh-mm-ss")) << log_msg << "\n"; }
 
     void loadBlack();
     void loadWhite();
@@ -99,6 +103,9 @@ private:
     QString phrase;
     QList<QString> keys;
     QMap< QString, int > sandbox;
+
+    QTextStream log_stream;
+    QFile log_file;
 
     int try_count;
 

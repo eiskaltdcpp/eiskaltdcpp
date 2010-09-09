@@ -49,12 +49,19 @@ AntiSpam::AntiSpam():
         state(eIN_BLACK)
 {
     try_count = 0;
+
+    log_file.setFileName(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "antispam.log");
+
+    if (log_file.open(QIODevice::WriteOnly))
+        log_stream.setDevice(&log_file);
 }
 
 AntiSpam::~AntiSpam() {
     gray_list.clear();
     white_list.clear();
     black_list.clear();
+
+    log_file.close();
 }
 
 void AntiSpam::slotObjectChangeState(QString obj, AntiSpamObjectState from, AntiSpamObjectState to) {
@@ -124,6 +131,8 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
         return;
     }
 
+    log(tr("Checking user %1 (message: %2, cid: %3)...").arg(WulforUtil::getInstance()->getNicks(cid)).arg(msg).arg(cid));
+
     if (sandbox.contains(cid)){
         int counter = sandbox[cid];
         ++counter;
@@ -133,6 +142,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
         foreach (QString key, keys){
             if (key.toUpper() == msg.toUpper()){
                 (*this) << eIN_GRAY << WulforUtil::getInstance()->getNicks(cid);
+                log(tr("%1: Moving user to GRAY.").arg(cid));
 
                 sandbox.remove(cid);
 
@@ -142,6 +152,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
 
         if (counter > try_count){
             (*this) << eIN_BLACK << WulforUtil::getInstance()->getNicks(cid);
+            log(tr("%1: Moving user to BLACK.").arg(cid));
 
             sandbox.remove(cid);
 
@@ -149,6 +160,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
         }
 
         ClientManager::getInstance()->privateMessage(user, _tq("Try again."), false, hubUrl.toStdString());
+        log(tr("%1: Sending \"Try again\" message.").arg(cid));
 
         sandbox[cid] = counter;
     }
