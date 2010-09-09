@@ -44,6 +44,7 @@ private:
 private slots:
     void slotAntiSpamSwitch();
     void slotAsFilter();
+    void slotFilterOps();
 
     void slotAddToWhite();
     void slotAddToBlack();

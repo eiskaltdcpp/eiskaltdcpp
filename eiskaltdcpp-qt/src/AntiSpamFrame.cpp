@@ -111,6 +111,10 @@ void AntiSpamFrame::slotAsFilter(){
     groupBox_PHRASE->setEnabled(!b);
 }
 
+void AntiSpamFrame::slotFilterOps(){
+    WBSET(WB_ANTISPAM_AS_FILTER, checkBox_FILTER_OPS->isChecked());
+}
+
 void AntiSpamFrame::loadGUIData() {
     if (AntiSpam::getInstance()) {
         lineEdit_PHRASE->setText(AntiSpam::getInstance()->getPhrase());
@@ -118,6 +122,8 @@ void AntiSpamFrame::loadGUIData() {
         checkBox_ASFILTER->setChecked(WBGET(WB_ANTISPAM_AS_FILTER));
 
         spinBox_TRYCOUNT->setValue(AntiSpam::getInstance()->getAttempts());
+
+        checkBox_FILTER_OPS->setChecked(WBGET(WB_ANTISPAM_FILTER_OPS));
 
         QList<QString> keys = AntiSpam::getInstance()->getKeys();
         QString words = "";

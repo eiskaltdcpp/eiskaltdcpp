@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>569</width>
-    <height>385</height>
+    <width>571</width>
+    <height>383</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -89,14 +89,14 @@
      </layout>
     </widget>
    </item>
-   <item row="6" column="0" colspan="7">
+   <item row="7" column="0" colspan="7">
     <widget class="QCheckBox" name="checkBox_ASENABLE">
      <property name="text">
       <string>Enable AntiSpam</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="10">
+   <item row="7" column="10">
     <widget class="QPushButton" name="pushButton_OK">
      <property name="text">
       <string>OK</string>
@@ -386,6 +386,13 @@
      </property>
      <property name="flat">
       <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QCheckBox" name="checkBox_FILTER_OPS">
+     <property name="text">
+      <string>Filter Operators</string>
      </property>
     </widget>
    </item>

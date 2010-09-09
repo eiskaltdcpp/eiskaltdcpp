@@ -3177,6 +3177,11 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
             if (hasPMWindow)
                 break;
 
+            bool isOp = user.getIdentity().isOp();
+
+            if (isOp && !WBGET(WB_ANTISPAM_FILTER_OPS) && !user.getIdentity().isBot())
+                break;
+
             if (AntiSpam::getInstance()->isInBlack(nick))
                 return;
             else if (!(AntiSpam::getInstance()->isInWhite(nick) || AntiSpam::getInstance()->isInGray(nick))){

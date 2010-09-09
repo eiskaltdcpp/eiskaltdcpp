@@ -123,6 +123,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WB_SEARCH_DONTHIDEPANEL,  static_cast<int>(false));
         intmap.insert(WB_ANTISPAM_ENABLED,      static_cast<int>(false));
         intmap.insert(WB_ANTISPAM_AS_FILTER,    static_cast<int>(false));
+        intmap.insert(WB_ANTISPAM_FILTER_OPS,   static_cast<int>(false));
         intmap.insert(WB_IPFILTER_ENABLED,      static_cast<int>(false));
         intmap.insert(WB_TRAY_ENABLED,          static_cast<int>(true));
         intmap.insert(WB_EXIT_CONFIRM,          static_cast<int>(false));
