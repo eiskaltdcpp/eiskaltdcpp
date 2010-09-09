@@ -417,7 +417,7 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
         obj = qobject_cast<QObject*>(wgt);
     }
 
-    return engine->newQObject(obj);
+    return engine->newQObject(obj, QScriptEngine::AutoOwnership);
 }
 
 static QScriptValue importExtension(QScriptContext *context, QScriptEngine *engine){

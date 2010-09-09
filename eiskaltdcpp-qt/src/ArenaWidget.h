@@ -80,23 +80,27 @@ public:
     Q_PROPERTY(QString  shortTitle READ getArenaShortTitle WRITE setArenaShortTitle)
     Q_PROPERTY(QWidget* widget READ getWidget WRITE setWidget)
     Q_PROPERTY(QMenu*   menu READ getMenu WRITE setMenu)
+    Q_PROPERTY(QPixmap  pixmap READ getPixmap WRITE setPixmap)
 
 public Q_SLOTS:
     virtual QWidget *getWidget();
     virtual QString getArenaTitle();
     virtual QString getArenaShortTitle();
     virtual QMenu *getMenu();
+    virtual const QPixmap &getPixmap();
 
     virtual void  setWidget(QWidget*);
     virtual void  setArenaTitle(QString);
     virtual void  setArenaShortTitle(QString);
     virtual void  setMenu(QMenu*);
+    virtual void  setPixmap(const QPixmap&);
 
     virtual Role role() const { return ArenaWidget::CustomWidget; }
 private:
     QWidget *_wgt;
     QString _arenaTitle;
     QString _arenaShortTitle;
+    QPixmap pxm;
     QMenu *_menu;
 };
 

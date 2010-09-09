@@ -1,8 +1,9 @@
-Import("qt");
 Import("qt.core");
 Import("qt.gui");
 
-function LogDialog(parent) {
+var script_widget = null;
+
+function LogWidget(parent) {
   QWidget.call(this, parent);
   
   this.mainLayout = new QVBoxLayout(this);
@@ -17,33 +18,68 @@ function LogDialog(parent) {
   this.mainLayout.addWidget(this.textEdit_OUTPUT, 0, 0);
   
   this.windowTitle = "Log Viewer";
-  this.resize(450, 400);
   
   this.logManager = new LogManagerScript();
   this.logManager["message(QString, QString)"].connect(this, this.newMessage);
 }
 
-LogDialog.prototype = new QWidget();
+LogWidget.prototype = new QWidget();
 
-LogDialog.prototype.newMessage = function(timeStamp, message) {
+LogWidget.prototype.newMessage = function(timeStamp, message) {
   message = LinkParser.parse(message);
 
   this.textEdit_OUTPUT.append("<b>[" + timeStamp +"]</b> " + message); 
 }
 
-var dlg = new LogDialog(null);
+function hideMe() {
+  MainWindow.remArenaWidgetFromToolbar(script_widget);
+  MainWindow.remWidgetFromArena(script_widget);
+  MainWindow.remArenaWidget(script_widget);
 
-function actionClicked(){
-  dlg.show();
+  script_widget.shown = false;
+
+  MainWindow.ToolBar.LogManager.checked = false;
+}
+
+function showMe() {
+  MainWindow.addArenaWidget(script_widget);
+  MainWindow.addArenaWidgetOnToolbar(script_widget);
+  MainWindow.mapWidgetOnArena(script_widget);
+
+  MainWindow.ToolBar.LogManager.checked = true;
+  
+  script_widget.shown = true;
+}
+
+LogWidget.prototype.closeEvent = function(e) {
+  hideMe();
+
+  e.accept();
+}
+
+function toggleScriptWidget(){
+  if (script_widget == null){
+    script_widget = new ScriptWidget();
+    script_widget.title             = "LogManager View";
+    script_widget.shortTitle        = script_widget.title;
+    script_widget.widget            = new LogWidget(null);
+    script_widget.pixmap	    = new QPixmap(SCRIPT_PATH+"log_file.png");
+
+    script_widget.shown    	    = false;
+  }
+
+  if (script_widget.shown)
+    hideMe();
+  else
+    showMe();
 }
 
 var a = new MainWindowScript();
-a.addToolButton("LogViewer", "LogViewer", new 
-QIcon(SCRIPTS_PATH+"logmanager/log_file.png"));//or SCRIPT_PATH+"log_file.png"
+a.addToolButton("LogManager", "LogManager View", new QIcon(SCRIPT_PATH+"log_file.png"));
 
-MainWindow.ToolBar.LogViewer.triggered.connect(actionClicked);
+MainWindow.ToolBar.LogManager.triggered.connect(toggleScriptWidget);
+MainWindow.ToolBar.LogManager.checkable = true;
 
 function deinit(){
-  a.remToolButton("LogViewer");
-  dlg.close();
+  a.remToolButton("LogManager");
 }

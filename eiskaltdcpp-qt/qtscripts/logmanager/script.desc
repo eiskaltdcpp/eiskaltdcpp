@@ -1,4 +1,4 @@
 auth=Andrey Karlov
-name=LogViewer
-desc=Simple script that collects logs
+name=LogManager Widget
+desc=LogManager
 icon=log_file.png
