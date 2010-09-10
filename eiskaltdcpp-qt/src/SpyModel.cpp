@@ -204,7 +204,14 @@ void SpyModel::sort(){
 
 void SpyModel::addResult(QString file, bool isTTH)
 {
-    if (file.isEmpty() || file.isNull())
+    QString _temp;
+
+    foreach (QChar ch, file)
+        _temp += ((ch.isPrint() || ch == ' ')? ch : ' ');//remove all non-printable chars except space
+
+    file = _temp;
+
+    if (file.trimmed().isEmpty())
         return;
 
     SpyItem *item;
