@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 2009 Big Muscle
+/* 
+ * Copyright (C) 2009-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,281 +19,78 @@
 #ifndef _THROTTLEMANAGER_H
 #define _THROTTLEMANAGER_H
 
-#include "DownloadManager.h"
 #include "Singleton.h"
 #include "Socket.h"
 #include "Thread.h"
 #include "TimerManager.h"
-#include "UploadManager.h"
+#include "SettingsManager.h"
 
-/**
- * Manager for limiting traffic flow.
- * Inspired by Token Bucket algorithm: http://en.wikipedia.org/wiki/Token_bucket
- */
-namespace dcpp{
+namespace dcpp
+{
+	/**
+	 * Manager for throttling traffic flow.
+	 * Inspired by Token Bucket algorithm: http://en.wikipedia.org/wiki/Token_bucket
+	 */
+	class ThrottleManager :
+		public Singleton<ThrottleManager>, private TimerManagerListener
+	{
+	public:
 
-    class ThrottleManager : public Singleton<ThrottleManager>, private TimerManagerListener
-    {
-    private:
+		/*
+		 * Throttles traffic and reads a packet from the network
+		 */
+		int read(Socket* sock, void* buffer, size_t len);
 
-#ifndef _WIN32 //*nix
-        // shutdown wait
-        CriticalSection shutdownCS;
-        long n_lock, halt;
-#endif
-        // download limiter
-        int                         downLimit;
-        int64_t                     downTokens;
-        CriticalSection downCS;
-        // upload limiter
-        int                         upLimit;
-        int64_t                     upTokens;
-        CriticalSection upCS;
-        // stack up throttled read & write threads
-        CriticalSection stateCS;
-        CriticalSection waitCS[2];
-        long activeWaiter;
+		/*
+		 * Throttles traffic and writes a packet to the network
+		 * Handle this a little bit differently than downloads due to OpenSSL stupidity 
+		 */
+		int write(Socket* sock, void* buffer, size_t& len);
 
-        void waitToken() {
-            // no tokens, wait for them, so long as throttling still active
-            // avoid keeping stateCS lock on whole function
-            CriticalSection *curCS = 0;
-            {
-                Lock l(stateCS);
-                if (activeWaiter != -1)
-                    curCS = &waitCS[activeWaiter];
-            }
-            // possible post-CS aW shifts: 0->1/1->0: lock lands in wrong place, will
-            // either fall through immediately or wait depending on whether in
-            // stateCS-protected transition elsewhere; 0/1-> -1: falls through. Both harmless.
-            if (curCS)
-                Lock l(*curCS);
-        }
+		SettingsManager::IntSetting getCurSetting(SettingsManager::IntSetting setting);
 
-        friend class Singleton<ThrottleManager>;
+		int getUpLimit();
+		int getDownLimit();
 
-        // constructor
-        ThrottleManager(void) : downTokens(0), upTokens(0), downLimit(0), upLimit(0), activeWaiter(-1)
-        {
-#ifndef _WIN32 //*nix
-            n_lock = halt = 0;
-#endif
-            TimerManager::getInstance()->addListener(this);
-        }
-
-        // destructor
-        ~ThrottleManager(void)
-        {
-            shutdown();
-            TimerManager::getInstance()->removeListener(this);
-        }
-
-        // TimerManagerListener
-        void on(TimerManagerListener::Minute, uint32_t aTick) throw()
-        {
-            if (!BOOLSETTING(THROTTLE_ENABLE))
-                return;
-
-            checkLimiterSpeed();
-        }
-        void checkLimiterSpeed() {
-            if (checkLimiterTime()) {
-                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
-                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME));
-            } else {
-                SettingsManager::getInstance()->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT, SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
-                SettingsManager::getInstance()->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT, SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
-            }
-            //printf("down/up: %d/%d \ndown/up time: %d/%d \ndown/up normal: %d/%d \n", SETTING(MAX_DOWNLOAD_SPEED_LIMIT), SETTING(MAX_UPLOAD_SPEED_LIMIT), SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME), SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME), SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL), SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
-        }
-        bool checkLimiterTime() {
-            if (!SETTING(TIME_DEPENDENT_THROTTLE))
-                return false;
-
-            time_t currentTime;
-            time(&currentTime);
-            int currentHour = localtime(&currentTime)->tm_hour;
-            return ((SETTING(BANDWIDTH_LIMIT_START) < SETTING(BANDWIDTH_LIMIT_END) &&
-             currentHour >= SETTING(BANDWIDTH_LIMIT_START) && currentHour < SETTING(BANDWIDTH_LIMIT_END)) ||
-            (SETTING(BANDWIDTH_LIMIT_START) > SETTING(BANDWIDTH_LIMIT_END) &&
-             (currentHour >= SETTING(BANDWIDTH_LIMIT_START) || currentHour < SETTING(BANDWIDTH_LIMIT_END))));
-        }
-        void on(TimerManagerListener::Second, uint32_t aTick) throw() {
-            if (!BOOLSETTING(THROTTLE_ENABLE))
-                return;
-            {
-            Lock l(stateCS);
+		void shutdown();
+	private:
+		// stack up throttled read & write threads
+		CriticalSection stateCS;
+		CriticalSection waitCS[2];
+		long activeWaiter;
 
 #ifndef _WIN32 //*nix
 
-            if (halt == 1)
-            {
-                halt = -1;
-
-                // unlock shutdown and token wait
-                dcassert(n_lock == 0 || n_lock == 1);
-                waitCS[n_lock].leave();
-                shutdownCS.leave();
-
-                return;
-            }
-            else if (halt == -1)
-            {
-                return;
-            }
+		// shutdown wait
+		CriticalSection shutdownCS;
+		long n_lock, halt;
 #endif
+		// download limiter
+		CriticalSection	downCS;
+		int64_t			downTokens;
 
-            if (activeWaiter == -1)
-            {
-                // This will create slight weirdness for the read/write calls between
-                // here and the first activeWaiter-toggle below.
-                waitCS[activeWaiter = 0].enter();
+		// upload limiter
+		CriticalSection	upCS;
+		int64_t			upTokens;
 
+		friend class Singleton<ThrottleManager>;
+
+		ThrottleManager(void) : activeWaiter(-1), downTokens(0), upTokens(0)
+		{
 #ifndef _WIN32 //*nix
-
-                // lock shutdown
-                shutdownCS.enter();
+			n_lock = halt = 0;
 #endif
-            }
-            }
+			TimerManager::getInstance()->addListener(this);
+		}
 
-            downLimit   = SETTING(MAX_DOWNLOAD_SPEED_LIMIT);
-            upLimit     = SETTING(MAX_UPLOAD_SPEED_LIMIT);
+		~ThrottleManager(void);
 
-            {
-                Lock l(downCS);
-                if(downLimit > 0)
-                    downTokens = downLimit * 1024;
-                else
-                    downTokens = -1;
-            }
+		bool getCurThrottling();
+		void waitToken();
 
-            {
-                Lock l(upCS);
-                if(upLimit > 0)
-                    upTokens = upLimit * 1024;
-                else
-                    upTokens = -1;
-            }
+		// TimerManagerListener
+		void on(TimerManagerListener::Second, uint32_t /* aTick */) throw();
+	};
 
-            // let existing events drain out (fairness).
-            // www.cse.wustl.edu/~schmidt/win32-cv-1.html documents various
-            // fairer strategies, but when only broadcasting, irrelevant
-            {
-                Lock l(stateCS);
-
-                if (!(activeWaiter == 0 || activeWaiter == 1))
-                    return;
-
-                waitCS[1-activeWaiter].enter();
-                Thread::safeExchange(activeWaiter, 1-activeWaiter);
-                waitCS[1-activeWaiter].leave();
-            }
-        }
-    public:
-
-#ifdef _WIN32
-        void shutdown() {
-            Lock l(stateCS);
-            if (activeWaiter != -1) {
-                waitCS[activeWaiter].leave();
-                activeWaiter = -1;
-            }
-        }
-#else //*nix
-        void shutdown()
-        {
-            bool wait = false;
-            {
-                Lock l(stateCS);
-                if (activeWaiter != -1)
-                {
-                    n_lock = activeWaiter;
-                    activeWaiter = -1;
-                    halt = 1;
-                    wait = true;
-                }
-            }
-
-            // wait shutdown...
-            if (wait)
-            {
-                Lock l(shutdownCS);
-            }
-        }
-#endif //*nix
-
-        /*
-        * Throttles traffic and reads a packet from the network
-        */
-        int read(Socket* sock, void* buffer, size_t len) {
-            int64_t readSize = -1;
-            size_t downs = DownloadManager::getInstance()->getDownloadCount();
-            if(!SETTING(THROTTLE_ENABLE) || downTokens == -1 || downs == 0)
-                return sock->read(buffer, len);
-
-            {
-                Lock l(downCS);
-
-                if(downTokens > 0)
-                {
-                    int64_t slice = (SETTING(MAX_DOWNLOAD_SPEED_LIMIT) * 1024) / downs;
-                    readSize = min(slice, min(static_cast<int64_t>(len), downTokens));
-
-                    // read from socket
-                    readSize = sock->read(buffer, static_cast<size_t>(readSize));
-
-                    if(readSize > 0)
-                        downTokens -= readSize;
-                }
-            }
-
-            if(readSize != -1)
-            {
-                Thread::yield(); // give a chance to other transfers to get a token
-                return readSize;
-            }
-
-            waitToken();
-            return -1;  // from BufferedSocket: -1 = retry, 0 = connection close
-        }
-
-        /*
-        * Limits a traffic and writes a packet to the network
-        * We must handle this a little bit differently than downloads, because of that stupidity in OpenSSL
-        */
-        int write(Socket* sock, void* buffer, size_t& len) {
-            bool gotToken = false;
-            size_t ups = UploadManager::getInstance()->getUploadCount();
-            if(!SETTING(THROTTLE_ENABLE) || upTokens == -1 || ups == 0)
-                return sock->write(buffer, len);
-
-            {
-                Lock l(upCS);
-
-                if(upTokens > 0)
-                {
-                    size_t slice = (SETTING(MAX_DOWNLOAD_SPEED_LIMIT) * 1024) / ups;
-                    len = min(slice, min(len, static_cast<size_t>(upTokens)));
-                    upTokens -= len;
-
-                    gotToken = true; // token successfuly assigned
-                }
-            }
-
-            if(gotToken)
-            {
-                // write to socket
-                int sent = sock->write(buffer, len);
-
-                Thread::yield(); // give a chance to other transfers get a token
-                return sent;
-            }
-
-            waitToken();
-            return 0;   // from BufferedSocket: -1 = failed, 0 = retry
-        }
-
-    };
-}
-#endif  // _THROTTLEMANAGER_H
+}	// namespace dcpp
+#endif	// _THROTTLEMANAGER_H

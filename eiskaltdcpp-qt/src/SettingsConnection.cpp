@@ -98,14 +98,14 @@ void SettingsConnection::ok(){
     if (SETTING(OUTGOING_CONNECTIONS) != type)
         Socket::socksUpdated();
 
-    SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
     SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
-    SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, spinBox_DOWN_LIMIT_NORMAL->value());
-    SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_NORMAL, spinBox_UP_LIMIT_NORMAL->value());
-    SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_LIMIT_TIME, spinBox_DOWN_LIMIT_TIME->value());
-    SM->set(SettingsManager::MAX_UPLOAD_SPEED_LIMIT_TIME, spinBox_UP_LIMIT_TIME->value());
+    SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN, spinBox_DOWN_LIMIT_NORMAL->value());
+    SM->set(SettingsManager::MAX_UPLOAD_SPEED_MAIN, spinBox_UP_LIMIT_NORMAL->value());
+    SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_ALTERNATE, spinBox_DOWN_LIMIT_TIME->value());
+    SM->set(SettingsManager::MAX_UPLOAD_SPEED_ALTERNATE, spinBox_UP_LIMIT_TIME->value());
     SM->set(SettingsManager::BANDWIDTH_LIMIT_START, spinBox_BANDWIDTH_LIMIT_START->value());
     SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
+    SM->set(SettingsManager::SLOTS_ALTERNATE_LIMITING, spinBox_ALTERNATE_SLOTS->value());
     SM->set(SettingsManager::RECONNECT_DELAY, spinBox_RECONNECT_DELAY->value());
     WISET( WS_APP_DYNDNS_ENABLED, static_cast<int>(checkBox_DYNDNS->isChecked()) );
     WSSET( WS_APP_DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text());
@@ -129,19 +129,18 @@ void SettingsConnection::init(){
     spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));
     spinBox_TLS->setValue(old_tls = SETTING(TLS_PORT));
 
-    checkBox_THROTTLE_ENABLE->setChecked(BOOLSETTING(THROTTLE_ENABLE));
     checkBox_TIME_DEPENDENT_THROTTLE->setChecked(BOOLSETTING(TIME_DEPENDENT_THROTTLE));
-    spinBox_DOWN_LIMIT_NORMAL->setValue(SETTING(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL));
-    spinBox_UP_LIMIT_NORMAL->setValue(SETTING(MAX_UPLOAD_SPEED_LIMIT_NORMAL));
-    spinBox_DOWN_LIMIT_TIME->setValue(SETTING(MAX_DOWNLOAD_SPEED_LIMIT_TIME));
-    spinBox_UP_LIMIT_TIME->setValue(SETTING(MAX_UPLOAD_SPEED_LIMIT_TIME));
+    spinBox_DOWN_LIMIT_NORMAL->setValue(SETTING(MAX_DOWNLOAD_SPEED_MAIN));
+    spinBox_UP_LIMIT_NORMAL->setValue(SETTING(MAX_UPLOAD_SPEED_MAIN));
+    spinBox_DOWN_LIMIT_TIME->setValue(SETTING(MAX_DOWNLOAD_SPEED_ALTERNATE));
+    spinBox_UP_LIMIT_TIME->setValue(SETTING(MAX_UPLOAD_SPEED_ALTERNATE));
     spinBox_BANDWIDTH_LIMIT_START->setValue(SETTING(BANDWIDTH_LIMIT_START));
     spinBox_BANDWIDTH_LIMIT_END->setValue(SETTING(BANDWIDTH_LIMIT_END));
+    spinBox_ALTERNATE_SLOTS->setValue(SETTING(SLOTS_ALTERNATE_LIMITING));
     spinBox_RECONNECT_DELAY->setValue(SETTING(RECONNECT_DELAY));
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
     checkBox_DYNDNS->setCheckState( WIGET(WS_APP_DYNDNS_ENABLED) ? Qt::Checked : Qt::Unchecked );
     frame_4->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
-    frame_3->setEnabled(checkBox_THROTTLE_ENABLE->isChecked());
     frame_5->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
     lineEdit_DYNDNS_SERVER->setText(WSGET(WS_APP_DYNDNS_SERVER));
     lineEdit_DYNDNS_INDEX->setText(WSGET(WS_APP_DYNDNS_INDEX));
@@ -209,7 +208,6 @@ void SettingsConnection::init(){
 #if (defined USE_MINIUPNP)
     connect(radioButton_UPNP, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
 #endif
-    connect(checkBox_THROTTLE_ENABLE,SIGNAL(toggled(bool)),this,SLOT(slotThrottle()));
     connect(checkBox_TIME_DEPENDENT_THROTTLE,SIGNAL(toggled(bool)),this,SLOT(slotTimeThrottle()));
     connect(radioButton_DC, SIGNAL(toggled(bool)), this, SLOT(slotToggleOutgoing()));
     connect(radioButton_SOCKS, SIGNAL(toggled(bool)), this, SLOT(slotToggleOutgoing()));
@@ -240,11 +238,6 @@ void SettingsConnection::slotToggleIncomming(){
     bool b = !radioButton_PASSIVE->isChecked();
 
     frame->setEnabled(b);
-}
-
-void SettingsConnection::slotThrottle(){
-    bool b=checkBox_THROTTLE_ENABLE->isChecked();
-    frame_3->setEnabled(b);
 }
 
 void SettingsConnection::slotTimeThrottle(){

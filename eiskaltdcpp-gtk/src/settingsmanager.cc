@@ -110,6 +110,13 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("search-spy-waiting", 40));
     defaultInt.insert(IntMap::value_type("search-spy-top", 4));
     defaultInt.insert(IntMap::value_type("magnet-action", -1));//default show magnet dialog
+    defaultInt.insert(IntMap::value_type("open-public", 0));
+    defaultInt.insert(IntMap::value_type("open-favorite-hubs", 0));
+    defaultInt.insert(IntMap::value_type("open-queue", 0));
+    defaultInt.insert(IntMap::value_type("open-finished-downloads", 0));
+    defaultInt.insert(IntMap::value_type("open-finished-uploads", 0));
+    defaultInt.insert(IntMap::value_type("open-favorite-users", 0));
+    defaultInt.insert(IntMap::value_type("open-search-spy", 0));
     defaultString.insert(StringMap::value_type("magnet-choose-dir", SETTING(DOWNLOAD_DIRECTORY)));
     defaultString.insert(StringMap::value_type("downloadqueue-order", ""));
     defaultString.insert(StringMap::value_type("downloadqueue-width", ""));
@@ -218,7 +225,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("icon-queue", "eiskaltdcpp-download"));
     defaultString.insert(StringMap::value_type("icon-search", "eiskaltdcpp-edit-find"));
     defaultString.insert(StringMap::value_type("icon-search-spy", "eiskaltdcpp-spy"));
-	defaultString.insert(StringMap::value_type("icon-search-adl", "eiskaltdcpp-adls"));
+    defaultString.insert(StringMap::value_type("icon-search-adl", "eiskaltdcpp-adls"));
     defaultString.insert(StringMap::value_type("icon-upload", "eiskaltdcpp-go-up"));
     defaultString.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
     defaultString.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));

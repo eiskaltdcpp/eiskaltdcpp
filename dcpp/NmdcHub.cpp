@@ -26,6 +26,7 @@
 #include "ShareManager.h"
 #include "CryptoManager.h"
 #include "ConnectionManager.h"
+#include "ThrottleManager.h"
 #include "version.h"
 
 #include "Socket.h"
@@ -783,7 +784,7 @@ void NmdcHub::myInfo(bool alwaysSend) {
     else
         modeChar = 'P';
 string uploadSpeed;
-    int upLimit = BOOLSETTING(THROTTLE_ENABLE) ? SETTING(MAX_UPLOAD_SPEED_LIMIT) : 0;
+    int upLimit = ThrottleManager::getInstance()->getUpLimit();
     if (upLimit > 0) {
         uploadSpeed = Util::toString(upLimit) + " KiB/s";
     } else {

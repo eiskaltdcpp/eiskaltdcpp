@@ -370,20 +370,20 @@ void MainWindow::loadIcons_gui()
 
 void MainWindow::autoOpen_gui()
 {
-    if (BOOLSETTING(OPEN_PUBLIC))
-        showPublicHubs_gui();
-    if (BOOLSETTING(OPEN_QUEUE))
-        showDownloadQueue_gui();
-    if (BOOLSETTING(OPEN_FAVORITE_HUBS))
-        showFavoriteHubs_gui();
-    if (BOOLSETTING(OPEN_FAVORITE_USERS))
-        showFavoriteUsers_gui();
-    if (BOOLSETTING(OPEN_FINISHED_DOWNLOADS))
-        showFinishedDownloads_gui();
-    if (BOOLSETTING(OPEN_FINISHED_UPLOADS))
-        showFinishedUploads_gui();
-    if (BOOLSETTING(OPEN_SEARCH_SPY))
-        showSearchSpy_gui();
+    if (WGETB("open-public"))
+         showPublicHubs_gui();
+    if (WGETB("open-queue"))
+         showDownloadQueue_gui();
+    if (WGETB("open-favorite-hubs"))
+         showFavoriteHubs_gui();
+    if (WGETB("open-favorite-users"))
+         showFavoriteUsers_gui();
+    if (WGETB("open-finished-downloads"))
+         showFinishedDownloads_gui();
+    if (WGETB("open-finished-uploads"))
+         showFinishedUploads_gui();
+    if (WGETB("open-search-spy"))
+         showSearchSpy_gui();
 }
 
 void MainWindow::addBookEntry_gui(BookEntry *entry)

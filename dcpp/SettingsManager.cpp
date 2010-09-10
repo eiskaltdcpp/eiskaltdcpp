@@ -36,62 +36,66 @@ StringList SettingsManager::connectionSpeeds;
 const string SettingsManager::settingTags[] =
 {
     // Strings
-    "Nick", "UploadSpeed", "Description", "DownloadDirectory", "EMail", "ExternalIp",
-    "Font", "ConnectionsOrder", "ConnectionsWidths", "HubFrameOrder", "HubFrameWidths",
-    "SearchFrameOrder", "SearchFrameWidths", "FavHubsFrameOrder", "FavHubsFrameWidths",
-    "HublistServers", "QueueFrameOrder", "QueueFrameWidths", "PublicHubsFrameOrder", "PublicHubsFrameWidths",
-    "FinishedDLFilesOrder", "FinishedDLFilesWidths", "FinishedDLUsersOrder", "FinishedDLUsersWidths",
-    "FinishedULFilesOrder", "FinishedULFilesWidths", "FinishedULUsersOrder", "FinishedULUsersWidths",
-    "UsersFrameOrder", "UsersFrameWidths", "HttpProxy", "LogDirectory", "LogFormatPostDownload",
+    "Nick", "UploadSpeed", "Description", "DownloadDirectory", "EMail", "ExternalIp", "Font", "HublistServers", "HttpProxy",
+    "LogDirectory", "LogFormatPostDownload",
     "LogFormatPostUpload", "LogFormatMainChat", "LogFormatPrivateChat",
-    "TempDownloadDirectory", "BindAddress", "SocksServer", "SocksUser", "SocksPassword", "ConfigVersion",
-    "DefaultAwayMessage", "TimeStampsFormat", "ADLSearchFrameOrder", "ADLSearchFrameWidths",
-    "CID", "SpyFrameWidths", "SpyFrameOrder", "LogFileMainChat",
-    "LogFilePrivateChat", "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileSystem",
-    "LogFormatSystem", "LogFormatStatus", "DirectoryListingFrameOrder", "DirectoryListingFrameWidths",
-    "TLSPrivateKeyFile", "TLSCertificateFile", "TLSTrustedCertificatesPath",
-    "Language", "DownloadsOrder", "DownloadsWidth", "SkipListShare",
+    "TempDownloadDirectory", "BindAddress", "SocksServer",
+    "SocksUser", "SocksPassword", "ConfigVersion", "DefaultAwayMessage",
+    "TimeStampsFormat", "CID", "LogFileMainChat", "LogFilePrivateChat",
+    "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileSystem",
+    "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
+    "TLSCertificateFile", "TLSTrustedCertificatesPath",
+    "Language", "SkipListShare",
     "SoundMainChat", "SoundPM", "SoundPMWindow", "InternetIp",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow", "ClearSearch",
-    "BackgroundColor", "TextColor", "UseOemMonoFont", "ShareHidden", "FilterMessages", "MinimizeToTray", "AlwaysTray",
-    "AutoSearch","AutoSearchTime", "ReportFoundAlternates", "TimeStamps", "PopupHubPms",
-     "PopupBotPms", "IgnoreHubPms", "IgnoreBotPms",
-    "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed", "LogMainChat", "LogPrivateChat",
-    "LogDownloads", "LogUploads", "StatusInChat", "ShowJoins",
-    "UseSystemIcons", "PopupPMs", "MinUploadSpeed", "GetUserInfo", "UrlHandler", "MainWindowState",
-    "MainWindowSizeX", "MainWindowSizeY", "MainWindowPosX", "MainWindowPosY", "AutoAway",
-    "SocksPort", "SocksResolve", "KeepLists", "AutoKick", "QueueFrameShowTree",
-    "CompressTransfers", "SFVCheck",
+    "BackgroundColor", "TextColor", "UseOemMonoFont", "ShareHidden",
+    "FilterMessages", "MinimizeToTray", "AlwaysTray", "AutoSearch",
+    "AutoSearchTime", "ReportFoundAlternates", "TimeStamps",
+    "PopupHubPms", "PopupBotPms", "IgnoreHubPms", "IgnoreBotPms",
+    "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed",
+    "LogMainChat", "LogPrivateChat", "LogDownloads", "LogUploads",
+    "StatusInChat", "ShowJoins", "UseSystemIcons", "PopupPMs",
+    "MinUploadSpeed", "GetUserInfo", "UrlHandler", "AutoAway",
+    "SocksPort", "SocksResolve", "KeepLists", "AutoKick",
+    "QueueFrameShowTree", "CompressTransfers", "SFVCheck",
     "MaxCompression", "NoAwayMsgToBots", "SkipZeroByte", "AdlsBreakOnFirst",
-    "HubUserCommands", "AutoSearchAutoMatch", "UploadBarColor", "DownloadBarColor",  "LogSystem",
-    "LogFilelistTransfers", "SendUnknownCommands", "MaxHashSpeed", "OpenUserCmdHelp",
-    "GetUserCountry", "FavShowJoins", "LogStatusMessages", "ShowStatusbar", "AllowUpdateFilelistsOnStartup",
-    "ShowToolbar", "ShowTransferview", "PopunderPm", "PopunderFilelist", "MagnetAsk",
-    "MagnetAction", "MagnetRegister", "SearchPassiveAlways",
+    "HubUserCommands", "AutoSearchAutoMatch", "UploadBarColor",
+    "DownloadBarColor",  "LogSystem", "LogFilelistTransfers",
+    "SendUnknownCommands", "MaxHashSpeed", "OpenUserCmdHelp",
+    "GetUserCountry", "FavShowJoins", "LogStatusMessages",
+    "ShowStatusbar", "AllowUpdateFilelistsOnStartup",
+    "ShowToolbar", "ShowTransferview", "PopunderPm", "PopunderFilelist",
+    "MagnetAsk", "MagnetAction", "MagnetRegister", "SearchPassiveAlways",
     "AddFinishedInstantly", "DontDLAlreadyShared", "UseCTRLForLineHistory",
-    "OpenNewWindow", "UDPPort", "ShowLastLinesLog",
-    "AdcDebug", "ToggleActiveWindow", "SearchHistory", "SetMinislotSize", "MaxFilelistSize",
-    "HighestPrioSize", "HighPrioSize", "NormalPrioSize", "LowPrioSize", "LowestPrio",
-    "AutoDropSpeed", "AutoDropInterval", "AutoDropElapsed", "AutoDropInactivity",
-     "AutoDropMinSources", "AutoDropFilesize",
-    "AutoDropAll", "AutoDropFilelists", "AutoDropDisconnect",
-    "OpenPublic", "OpenFavoriteHubs", "OpenFavoriteUsers", "OpenQueue", "OpenFinishedDownloads",
-    "OpenFinishedUploads", "OpenSearchSpy", "OpenNetworkStatistics", "OpenNotepad", "OutgoingConnections",
-    "NoIpOverride","NoUseTempDir","ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType", "BoldFinishedDownloads", "BoldFinishedUploads", "BoldQueue",
+    "OpenNewWindow", "UDPPort", "ShowLastLinesLog", "AdcDebug",
+    "ToggleActiveWindow", "SearchHistory", "SetMinislotSize",
+    "MaxFilelistSize", "HighestPrioSize", "HighPrioSize", "NormalPrioSize",
+    "LowPrioSize", "LowestPrio", "AutoDropSpeed", "AutoDropInterval",
+    "AutoDropElapsed", "AutoDropInactivity", "AutoDropMinSources",
+    "AutoDropFilesize", "AutoDropAll", "AutoDropFilelists",
+    "AutoDropDisconnect", "OutgoingConnections", "NoIpOverride", "NoUseTempDir",
+    "ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType",
+    "BoldFinishedDownloads", "BoldFinishedUploads", "BoldQueue",
     "BoldHub", "BoldPm", "BoldSearch", "BoldSearchSpy",
-    "ThrottleEnable","UploadLimit","DownloadLimit", "UploadLimitNormal","DownloadLimitNormal",
-    "UploadLimitTime", "DownloadLimitTime", "TimeThrottle", "TimeLimitStart", "TimeLimitEnd",
-    "SocketInBuffer", "SocketOutBuffer",
-    "OpenWaitingUsers", "BoldWaitingUsers", "OpenSystemLog", "BoldSystemLog", "AutoRefreshTime",
-    "UseTLS", "AutoSearchLimit", "AltSortOrder", "AutoKickNoFavs", "PromptPassword", "SpyFrameIgnoreTthSearches",
-    "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs", "AllowUntrustedClients",
-    "TLSPort", "FastHash", "SortFavUsersFirst", "SegmentedDL", "FollowLinks",
-    "SendBloom", "OwnerDrawnMenus", "Coral", "SearchFilterShared", "MaxTabChars", "FinishedDLOnlyFull",
-    "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval", "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval", "SearchMerge", "HashBufferSize", "HashBufferPopulate",
+    "SocketInBuffer", "SocketOutBuffer", "OpenWaitingUsers",
+    "BoldWaitingUsers", "OpenSystemLog", "BoldSystemLog",
+    "AutoRefreshTime", "UseTLS", "AutoSearchLimit", "AltSortOrder",
+    "AutoKickNoFavs", "PromptPassword", "SpyFrameIgnoreTthSearches",
+    "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs",
+    "AllowUntrustedClients", "TLSPort", "FastHash", "SortFavUsersFirst",
+    "SegmentedDL", "FollowLinks", "SendBloom", "OwnerDrawnMenus",
+    "Coral", "SearchFilterShared", "MaxTabChars", "FinishedDLOnlyFull",
+    "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval",
+    "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval",
+    "SearchMerge", "HashBufferSize", "HashBufferPopulate",
     "HashBufferNoReserve", "HashBufferPrivate", "UseDHT", "DHTPort",
-     "ReconnectDelay", "AutoDetectIncomingConnection",
+    "ReconnectDelay", "AutoDetectIncomingConnection",
+    "BandwidthLimitStart", "BandwidthLimitEnd", "TimeDependentThrottle",
+    "MaxDownloadSpeedAlternate", "MaxUploadSpeedAlternate",
+    "MaxDownloadSpeedMain", "MaxUploadSpeedMain",
+    "SlotsAlternateLimiting", "SlotsPrimaryLimiting",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -206,17 +210,6 @@ SettingsManager::SettingsManager()
     setDefault(CONFIG_VERSION, "0.181");        // 0.181 is the last version missing configversion
     setDefault(KEEP_LISTS, false);
     setDefault(AUTO_KICK, false);
-    setDefault(MAX_UPLOAD_SPEED_LIMIT_NORMAL, 0);
-    setDefault(MAX_DOWNLOAD_SPEED_LIMIT_NORMAL, 0);
-    setDefault(MAX_UPLOAD_SPEED_LIMIT, 0);
-    setDefault(MAX_DOWNLOAD_SPEED_LIMIT, 0);
-    setDefault(MAX_UPLOAD_SPEED_LIMIT_TIME, 0);
-    setDefault(MAX_DOWNLOAD_SPEED_LIMIT_TIME, 0);
-    setDefault(TIME_DEPENDENT_THROTTLE, false);
-    setDefault(BANDWIDTH_LIMIT_START, 0);
-    setDefault(BANDWIDTH_LIMIT_END, 0);
-    setDefault(THROTTLE_ENABLE, false);
-   // setDefault(BWSETTING_MODE, BWSETTING_DEFAULT);
     setDefault(QUEUEFRAME_SHOW_TREE, true);
     setDefault(COMPRESS_TRANSFERS, true);
     setDefault(SFV_CHECK, true);
@@ -268,15 +261,6 @@ SettingsManager::SettingsManager()
     setDefault(AUTODROP_ALL, true);
     setDefault(AUTODROP_FILELISTS, true);
     setDefault(AUTODROP_DISCONNECT, true);
-    setDefault(OPEN_PUBLIC, false);
-    setDefault(OPEN_FAVORITE_HUBS, false);
-    setDefault(OPEN_FAVORITE_USERS, false);
-    setDefault(OPEN_QUEUE, false);
-    setDefault(OPEN_FINISHED_DOWNLOADS, false);
-    setDefault(OPEN_FINISHED_UPLOADS, false);
-    setDefault(OPEN_SEARCH_SPY, false);
-    setDefault(OPEN_NETWORK_STATISTICS, false);
-    setDefault(OPEN_NOTEPAD, false);
     setDefault(NO_IP_OVERRIDE, false);
     setDefault(NO_USE_TEMP_DIR, false);
     setDefault(ALLOW_UPDATE_FILELIST_ON_STARTUP, true);
@@ -339,16 +323,15 @@ SettingsManager::SettingsManager()
     setDefault(USE_DHT, false);
     setDefault(SEARCH_PASSIVE, false);
     setDefault(AUTO_DETECT_CONNECTION, false);
-#ifdef _WIN32
-    setDefault(MAIN_WINDOW_STATE, SW_SHOWNORMAL);
-    setDefault(MAIN_WINDOW_SIZE_X, CW_USEDEFAULT);
-    setDefault(MAIN_WINDOW_SIZE_Y, CW_USEDEFAULT);
-    setDefault(MAIN_WINDOW_POS_X, CW_USEDEFAULT);
-    setDefault(MAIN_WINDOW_POS_Y, CW_USEDEFAULT);
-    setDefault(UPLOAD_BAR_COLOR, RGB(205, 60, 55));
-    setDefault(DOWNLOAD_BAR_COLOR, RGB(55, 170, 85));
-
-#endif
+    setDefault(MAX_UPLOAD_SPEED_MAIN, 0);
+    setDefault(MAX_DOWNLOAD_SPEED_MAIN, 0);
+    setDefault(TIME_DEPENDENT_THROTTLE, false);
+    setDefault(MAX_DOWNLOAD_SPEED_ALTERNATE, 0);
+    setDefault(MAX_UPLOAD_SPEED_ALTERNATE, 0);
+    setDefault(BANDWIDTH_LIMIT_START, 1);
+    setDefault(BANDWIDTH_LIMIT_END, 1);
+    setDefault(SLOTS_ALTERNATE_LIMITING, 1);
+    setDefault(SLOTS_PRIMARY, 3);
 }
 
 void SettingsManager::load(string const& aFileName)

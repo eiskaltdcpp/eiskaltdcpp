@@ -65,6 +65,7 @@ class Settings:
         void initAppearance_gui();
         void initLog_gui();
         void initAdvanced_gui();
+        void initBandwidthLimiting_gui();//NOTE: core 0.762
         void addShare_gui(std::string path, std::string name, int64_t size);
         void selectTextColor_gui(const int select);
         void selectTextStyle_gui(const int select);
@@ -97,6 +98,7 @@ class Settings:
         static void onRemoveShare_gui(GtkWidget *widget, gpointer data);
         static gboolean onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
         static gboolean onShareHiddenPressed_gui(GtkToggleButton *button, gpointer data);
+        static void onLimitSecondToggled_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762
         ///@todo Uncomment when implemented
         //static void onWinColorClicked_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);
         //static void onDownColorClicked_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);
