@@ -33,7 +33,7 @@ public:
         QSystemTrayIcon *tray = reinterpret_cast<QSystemTrayIcon*>(obj);
 
         if (tray)
-            tray->showMessage(title, msg, QSystemTrayIcon::Information, 5000);
+            tray->showMessage(title, ((msg.length() > 400)? (msg.left(400) + "...") : msg), QSystemTrayIcon::Information, 5000);
     }
 };
 #ifdef DBUS_NOTIFY
