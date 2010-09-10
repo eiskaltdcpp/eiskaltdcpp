@@ -1213,7 +1213,7 @@ void MainWindow::initSideBar(){
     sideTree->setModel(model);
     sideTree->setItemsExpandable(true);
     sideTree->setHeaderHidden(true);
-    sideTree->setSortingEnabled(false);
+    sideTree->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     sideTree->setContextMenuPolicy(Qt::CustomContextMenu);
     sideTree->setItemDelegate(new SideBarDelegate(sideTree));
     sideTree->expandAll();
