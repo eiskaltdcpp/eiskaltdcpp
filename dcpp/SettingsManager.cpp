@@ -36,7 +36,8 @@ StringList SettingsManager::connectionSpeeds;
 const string SettingsManager::settingTags[] =
 {
     // Strings
-    "Nick", "UploadSpeed", "Description", "DownloadDirectory", "EMail", "ExternalIp", "Font", "HublistServers", "HttpProxy",
+    "Nick", "UploadSpeed", "Description", "DownloadDirectory", "EMail",
+    "ExternalIp" "HublistServers", "HttpProxy",
     "LogDirectory", "LogFormatPostDownload",
     "LogFormatPostUpload", "LogFormatMainChat", "LogFormatPrivateChat",
     "TempDownloadDirectory", "BindAddress", "SocksServer",
@@ -45,32 +46,31 @@ const string SettingsManager::settingTags[] =
     "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileSystem",
     "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
-    "Language", "SkipListShare",
-    "SoundMainChat", "SoundPM", "SoundPMWindow", "InternetIp",
+    "Language", "SkipListShare", "InternetIp",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow", "ClearSearch",
-    "BackgroundColor", "TextColor", "UseOemMonoFont", "ShareHidden",
+    "TextColor", "UseOemMonoFont", "ShareHidden",
     "FilterMessages", "MinimizeToTray", "AlwaysTray", "AutoSearch",
     "AutoSearchTime", "ReportFoundAlternates", "TimeStamps",
-    "PopupHubPms", "PopupBotPms", "IgnoreHubPms", "IgnoreBotPms",
+    "IgnoreHubPms", "IgnoreBotPms",
     "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed",
     "LogMainChat", "LogPrivateChat", "LogDownloads", "LogUploads",
-    "StatusInChat", "ShowJoins", "UseSystemIcons", "PopupPMs",
-    "MinUploadSpeed", "GetUserInfo", "UrlHandler", "AutoAway",
+    "StatusInChat", "ShowJoins", "UseSystemIcons",
+    "MinUploadSpeed", "UrlHandler", "AutoAway",
     "SocksPort", "SocksResolve", "KeepLists", "AutoKick",
-    "QueueFrameShowTree", "CompressTransfers", "SFVCheck",
+    "CompressTransfers", "SFVCheck",
     "MaxCompression", "NoAwayMsgToBots", "SkipZeroByte", "AdlsBreakOnFirst",
-    "HubUserCommands", "AutoSearchAutoMatch", "UploadBarColor",
-    "DownloadBarColor",  "LogSystem", "LogFilelistTransfers",
+    "HubUserCommands", "AutoSearchAutoMatch","LogSystem",
+    "LogFilelistTransfers",
     "SendUnknownCommands", "MaxHashSpeed", "OpenUserCmdHelp",
     "GetUserCountry", "FavShowJoins", "LogStatusMessages",
-    "ShowStatusbar", "AllowUpdateFilelistsOnStartup",
-    "ShowToolbar", "ShowTransferview", "PopunderPm", "PopunderFilelist",
+    "AllowUpdateFilelistsOnStartup",
+    "PopunderPm", "PopunderFilelist",
     "MagnetAsk", "MagnetAction", "MagnetRegister", "SearchPassiveAlways",
     "AddFinishedInstantly", "DontDLAlreadyShared", "UseCTRLForLineHistory",
     "OpenNewWindow", "UDPPort", "ShowLastLinesLog", "AdcDebug",
-    "ToggleActiveWindow", "SearchHistory", "SetMinislotSize",
+    "SearchHistory", "SetMinislotSize",
     "MaxFilelistSize", "HighestPrioSize", "HighPrioSize", "NormalPrioSize",
     "LowPrioSize", "LowestPrio", "AutoDropSpeed", "AutoDropInterval",
     "AutoDropElapsed", "AutoDropInactivity", "AutoDropMinSources",
@@ -79,14 +79,13 @@ const string SettingsManager::settingTags[] =
     "ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType",
     "BoldFinishedDownloads", "BoldFinishedUploads", "BoldQueue",
     "BoldHub", "BoldPm", "BoldSearch", "BoldSearchSpy",
-    "SocketInBuffer", "SocketOutBuffer", "OpenWaitingUsers",
-    "BoldWaitingUsers", "OpenSystemLog", "BoldSystemLog",
-    "AutoRefreshTime", "UseTLS", "AutoSearchLimit", "AltSortOrder",
+    "SocketInBuffer", "SocketOutBuffer",
+    "AutoRefreshTime", "UseTLS", "AutoSearchLimit",
     "AutoKickNoFavs", "PromptPassword", "SpyFrameIgnoreTthSearches",
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs",
     "AllowUntrustedClients", "TLSPort", "FastHash", "SortFavUsersFirst",
-    "SegmentedDL", "FollowLinks", "SendBloom", "OwnerDrawnMenus",
-    "Coral", "SearchFilterShared", "MaxTabChars", "FinishedDLOnlyFull",
+    "SegmentedDL", "FollowLinks", "SendBloom",
+    "Coral", "SearchFilterShared", "FinishedDLOnlyFull",
     "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval",
     "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval",
     "SearchMerge", "HashBufferSize", "HashBufferPopulate",
@@ -158,8 +157,6 @@ SettingsManager::SettingsManager()
     setDefault(AUTO_SEARCH_TIME, 2);
     setDefault(REPORT_ALTERNATES, true);
     setDefault(TIME_STAMPS, true);
-    setDefault(POPUP_HUB_PMS, true);
-    setDefault(POPUP_BOT_PMS, true);
     setDefault(IGNORE_HUB_PMS, false);
     setDefault(IGNORE_BOT_PMS, false);
     setDefault(LIST_DUPES, true);
@@ -187,7 +184,6 @@ SettingsManager::SettingsManager()
     setDefault(UPLOAD_SPEED, connectionSpeeds[11]);
     setDefault(USE_SYSTEM_ICONS, true);
     setDefault(USE_OEM_MONOFONT, false);
-    setDefault(POPUP_PMS, true);
     setDefault(MIN_UPLOAD_SPEED, 0);
     setDefault(LOG_FORMAT_POST_DOWNLOAD, "[%Y-%m-%d %H:%M:%S] %[target] downloaded from %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
     setDefault(LOG_FORMAT_POST_UPLOAD,   "[%Y-%m-%d %H:%M:%S] %[source] uploaded to %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
@@ -201,7 +197,6 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FILE_UPLOAD,       "Uploads.log");
     setDefault(LOG_FILE_DOWNLOAD,     "Downloads.log");
     setDefault(LOG_FILE_SYSTEM,       "System.log");
-    setDefault(GET_USER_INFO, true);
     setDefault(URL_HANDLER, false);
     setDefault(AUTO_AWAY, false);
     setDefault(BIND_ADDRESS, "0.0.0.0");
@@ -210,7 +205,6 @@ SettingsManager::SettingsManager()
     setDefault(CONFIG_VERSION, "0.181");        // 0.181 is the last version missing configversion
     setDefault(KEEP_LISTS, false);
     setDefault(AUTO_KICK, false);
-    setDefault(QUEUEFRAME_SHOW_TREE, true);
     setDefault(COMPRESS_TRANSFERS, true);
     setDefault(SFV_CHECK, true);
     setDefault(DEFAULT_AWAY_MESSAGE, "I'm away. State your business and I might answer later if you're lucky.");
@@ -225,13 +219,9 @@ SettingsManager::SettingsManager()
     setDefault(LOG_SYSTEM, false);
     setDefault(SEND_UNKNOWN_COMMANDS, true);
     setDefault(MAX_HASH_SPEED, 0);
-    setDefault(OPEN_USER_CMD_HELP, true);
     setDefault(GET_USER_COUNTRY, true);
     setDefault(FAV_SHOW_JOINS, false);
     setDefault(LOG_STATUS_MESSAGES, false);
-    setDefault(SHOW_TRANSFERVIEW, true);
-    setDefault(SHOW_STATUSBAR, true);
-    setDefault(SHOW_TOOLBAR, true);
     setDefault(POPUNDER_PM, false);
     setDefault(POPUNDER_FILELIST, false);
     setDefault(MAGNET_REGISTER, true);
@@ -243,7 +233,6 @@ SettingsManager::SettingsManager()
     setDefault(JOIN_OPEN_NEW_WINDOW, false);
     setDefault(SHOW_LAST_LINES_LOG, 0);
     setDefault(ADC_DEBUG, false);
-    setDefault(TOGGLE_ACTIVE_WINDOW, true);
     setDefault(SEARCH_HISTORY, 10);
     setDefault(SET_MINISLOT_SIZE, 64);
     setDefault(MAX_FILELIST_SIZE, 512);
@@ -270,8 +259,6 @@ SettingsManager::SettingsManager()
     setDefault(LAST_SEARCH_TYPE, 0);
     setDefault(SOCKET_IN_BUFFER, 64*1024);
     setDefault(SOCKET_OUT_BUFFER, 64*1024);
-    setDefault(OPEN_WAITING_USERS, false);
-    setDefault(OPEN_SYSTEM_LOG, true);
     setDefault(TLS_TRUSTED_CERTIFICATES_PATH, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR);
     setDefault(TLS_PRIVATE_KEY_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.key");
     setDefault(TLS_CERTIFICATE_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.crt");
@@ -282,12 +269,9 @@ SettingsManager::SettingsManager()
     setDefault(BOLD_PM, true);
     setDefault(BOLD_SEARCH, true);
     setDefault(BOLD_SEARCH_SPY, true);
-    setDefault(BOLD_WAITING_USERS, true);
-    setDefault(BOLD_SYSTEM_LOG, true);
     setDefault(AUTO_REFRESH_TIME, 60);
     setDefault(USE_TLS, true);
     setDefault(AUTO_SEARCH_LIMIT, 5);
-    setDefault(ALT_SORT_ORDER, false);
     setDefault(AUTO_KICK_NO_FAVS, false);
     setDefault(PROMPT_PASSWORD, false);
     setDefault(SPY_FRAME_IGNORE_TTH_SEARCHES, false);
@@ -300,9 +284,7 @@ SettingsManager::SettingsManager()
     setDefault(SEGMENTED_DL, true);
     setDefault(FOLLOW_LINKS, false);
     setDefault(SEND_BLOOM, true);
-    setDefault(OWNER_DRAWN_MENUS, true);
     setDefault(CORAL, true);
-    setDefault(MAX_TAB_CHARS, 20);
     setDefault(FINISHED_DL_ONLY_FULL, true);
     setDefault(CONFIRM_EXIT, true);
     setDefault(CONFIRM_HUB_CLOSING, true);

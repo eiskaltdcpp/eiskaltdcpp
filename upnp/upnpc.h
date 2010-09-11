@@ -39,8 +39,12 @@ class UPnPc :
 
 		bool add(const unsigned short port, const dcpp::UPnP::Protocol protocol, const std::string& description);
 		bool remove(const unsigned short port, const dcpp::UPnP::Protocol protocol);
+		const std::string& getName() const {
+			return name;
+		}
 
 		std::string getExternalIP();
+		static const std::string name;
 };
 
 #else

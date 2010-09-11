@@ -33,6 +33,7 @@
 
 static UPNPUrls urls;
 static IGDdatas data;
+const std::string UPnPc::name = "MiniUPnP";
 
 using namespace std;
 using namespace dcpp;

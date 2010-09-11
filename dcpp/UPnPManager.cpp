@@ -71,19 +71,23 @@ int UPnPManager::run() {
         close(impl);
 
         if(!impl.init())
+            log(str(F_("Failed to initalize the %1% interface") % impl.getName()));
             continue;
 
         if(conn_port != 0 && !impl.open(conn_port, UPnP::PROTOCOL_TCP, str(F_(APPNAME " Transfer Port (%1% TCP)") % conn_port)))
+            log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "TCP" % conn_port));
             continue;
 
         if(secure_port != 0 && !impl.open(secure_port, UPnP::PROTOCOL_TCP, str(F_(APPNAME " Encrypted Transfer Port (%1% TCP)") % secure_port)))
+            log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "TLS" % secure_port));
             continue;
 
         if(search_port != 0 && !impl.open(search_port, UPnP::PROTOCOL_UDP, str(F_(APPNAME " Search Port (%1% UDP)") % search_port)))
+            log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "UDP" % search_port));
             continue;
 
         opened = true;
-        log(str(F_("Successfully created port mappings. TCP: %1%, UDP: %2%, TLS: %3%") % conn_port % search_port % secure_port));
+        log(str(F_("Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped using the %4% interface") % conn_port % search_port % secure_port % impl.getName()));
         ConnectivityManager::getInstance()->mappingFinished(true);
 
         if(!BOOLSETTING(NO_IP_OVERRIDE)) {
