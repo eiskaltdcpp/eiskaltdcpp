@@ -371,12 +371,19 @@ void FinishedTransfersModel::addFile(QMap<QString, QVariant> params){
 
     for (int i = 0; i < fileItem->columnCount(); i++){
         if (file_header_table[i] == "USERS"){
-            QString users = params[file_header_table[i]].toString();
+            QStringList users = params[file_header_table[i]].toString().split(" ");
+            QStringList old_users = item->data(i).toString().split(" ");
 
-            if (users.trimmed().isEmpty() || users.trimmed().isNull())
+            if (users.isEmpty())
                 continue;
-            else
-                item->updateColumn(i, users);
+            else{
+                foreach (QString nick, users){
+                    if (!old_users.contains(nick))
+                        old_users.push_back(nick);
+                }
+
+                item->updateColumn(i, old_users.join(" "));
+            }
         }
         else
             item->updateColumn(i, params[file_header_table[i]]);
