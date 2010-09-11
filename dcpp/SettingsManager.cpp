@@ -37,7 +37,7 @@ const string SettingsManager::settingTags[] =
 {
     // Strings
     "Nick", "UploadSpeed", "Description", "DownloadDirectory", "EMail",
-    "ExternalIp" "HublistServers", "HttpProxy",
+    "ExternalIp", "HublistServers", "HttpProxy",
     "LogDirectory", "LogFormatPostDownload",
     "LogFormatPostUpload", "LogFormatMainChat", "LogFormatPrivateChat",
     "TempDownloadDirectory", "BindAddress", "SocksServer",
@@ -63,7 +63,7 @@ const string SettingsManager::settingTags[] =
     "MaxCompression", "NoAwayMsgToBots", "SkipZeroByte", "AdlsBreakOnFirst",
     "HubUserCommands", "AutoSearchAutoMatch","LogSystem",
     "LogFilelistTransfers",
-    "SendUnknownCommands", "MaxHashSpeed", "OpenUserCmdHelp",
+    "SendUnknownCommands", "MaxHashSpeed",
     "GetUserCountry", "FavShowJoins", "LogStatusMessages",
     "AllowUpdateFilelistsOnStartup",
     "PopunderPm", "PopunderFilelist",
