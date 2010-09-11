@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>357</width>
-    <height>453</height>
+    <width>355</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -103,7 +103,7 @@
         </property>
         <item>
          <property name="text">
-          <string>EiskaltDC++ V:2.0</string>
+          <string>EiskaltDC++ V:2.1</string>
          </property>
         </item>
         <item>
