@@ -67,6 +67,7 @@ set (SRCS
             src/SettingsUC.cpp
             src/ShareBrowser.cpp
             src/ShellCommandRunner.cpp
+	    src/ShortcutManager.cpp
             src/SideBar.cpp
             src/SingleInstanceRunner.cpp
             src/SpyFrame.cpp
@@ -136,6 +137,7 @@ set (MOC_HDRS
             src/SearchModel.h
             src/ShareBrowser.h
             src/ShellCommandRunner.h
+	    src/ShortcutManager.h
             src/SpyFrame.h
             src/SpyModel.h
             src/TabButton.h

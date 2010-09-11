@@ -56,7 +56,8 @@ HEADERS = ../Version.h \
     src/UCModel.h \
     src/CustomFontModel.h \
     src/ScriptManagerDialog.h \
-    scriptengine/ScriptConsole.h
+    scriptengine/ScriptConsole.h \
+    src/ShortcutManager.h
 SOURCES = src/main.cpp \
     src/MainWindow.cpp \
     src/ADLS.cpp \
@@ -115,7 +116,8 @@ SOURCES = src/main.cpp \
     src/CustomFontModel.cpp \
     src/ScriptManagerDialog.cpp \
     scriptengine/ScriptConsole.cpp \
-    src/MultiLineToolBar.cpp
+    src/MultiLineToolBar.cpp \
+    src/ShortcutManager.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \
@@ -152,12 +154,12 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UIADLSearch.ui \
     ui/UIADLSearchEditor.ui
 TRANSLATIONS = translations/en.ts \
-               translations/ru.ts \
-               translations/be.ts \
-               translations/hu.ts \
-               translations/fr.ts \
-               translations/pl.ts \
-               translations/sr.ts \
-               translations/uk.ts \
-               translations/es.ts \
-               translations/bg.ts
+    translations/ru.ts \
+    translations/be.ts \
+    translations/hu.ts \
+    translations/fr.ts \
+    translations/pl.ts \
+    translations/sr.ts \
+    translations/uk.ts \
+    translations/es.ts \
+    translations/bg.ts

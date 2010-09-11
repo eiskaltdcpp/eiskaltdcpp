@@ -55,6 +55,7 @@
 #include "LineEdit.h"
 #include "Func.h"
 #include "WulforSettings.h"
+#include "ShortcutManager.h"
 
 #include "ui_UIAbout.h"
 

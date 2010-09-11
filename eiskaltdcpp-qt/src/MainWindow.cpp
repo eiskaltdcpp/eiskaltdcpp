@@ -89,6 +89,8 @@ MainWindow::MainWindow (QWidget *parent):
         IPFilter::getInstance()->loadList();
     }
 
+    ShortcutManager::newInstance();
+
     init();
 
     retranslateUi();
@@ -161,6 +163,8 @@ MainWindow::~MainWindow(){
 
     delete fBar;
     delete sBar;
+
+    ShortcutManager::deleteInstance();
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
@@ -494,10 +498,11 @@ void MainWindow::saveSettings(){
 void MainWindow::initActions(){
 
     WulforUtil *WU = WulforUtil::getInstance();
+    ShortcutManager *SM = ShortcutManager::getInstance();
 
     {
         fileFileListBrowserLocal = new QAction("", this);
-        fileFileListBrowserLocal->setShortcut(tr("Ctrl+L"));
+        SM->registerShortcut(fileFileListBrowserLocal, tr("Ctrl+L"));
         fileFileListBrowserLocal->setObjectName("fileFileListBrowserLocal");
         fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
@@ -519,13 +524,13 @@ void MainWindow::initActions(){
 
         fileRefreshShareHashProgress = new QAction("", this);
         fileRefreshShareHashProgress->setObjectName("fileRefreshShareHashProgress");
-        fileRefreshShareHashProgress->setShortcut(tr("Ctrl+E"));
+        SM->registerShortcut(fileRefreshShareHashProgress, tr("Ctrl+E"));
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         connect(fileRefreshShareHashProgress, SIGNAL(triggered()), this, SLOT(slotFileRefreshShareHashProgress()));
 
         fileHideWindow = new QAction(tr("Hide window"), this);
         fileHideWindow->setObjectName("fileHideWindow");
-        fileHideWindow->setShortcut(tr("Esc"));
+        SM->registerShortcut(fileHideWindow, tr("Esc"));
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
@@ -534,38 +539,38 @@ void MainWindow::initActions(){
 
         fileQuit = new QAction("", this);
         fileQuit->setObjectName("fileQuit");
-        fileQuit->setShortcut(tr("Ctrl+Q"));
+        SM->registerShortcut(fileQuit, tr("Ctrl+Q"));
         fileQuit->setMenuRole(QAction::QuitRole);
         fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
         connect(fileQuit, SIGNAL(triggered()), this, SLOT(slotExit()));
 
         hubsHubReconnect = new QAction("", this);
         hubsHubReconnect->setObjectName("hubsHubReconnect");
-        hubsHubReconnect->setShortcut(tr("Ctrl+R"));
+        SM->registerShortcut(hubsHubReconnect, tr("Ctrl+R"));
         hubsHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
         connect(hubsHubReconnect, SIGNAL(triggered()), this, SLOT(slotHubsReconnect()));
 
         hubsQuickConnect = new QAction("", this);
         hubsQuickConnect->setObjectName("hubsQuickConnect");
-        hubsQuickConnect->setShortcut(tr("Ctrl+N"));
+        SM->registerShortcut(hubsQuickConnect, tr("Ctrl+N"));
         hubsQuickConnect->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
         connect(hubsQuickConnect, SIGNAL(triggered()), this, SLOT(slotQC()));
 
         hubsFavoriteHubs = new QAction("", this);
         hubsFavoriteHubs->setObjectName("hubsFavoriteHubs");
-        hubsFavoriteHubs->setShortcut(tr("Ctrl+H"));
+        SM->registerShortcut(hubsFavoriteHubs, tr("Ctrl+H"));
         hubsFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiFAVSERVER));
         connect(hubsFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteHubs()));
 
         hubsPublicHubs = new QAction("", this);
         hubsPublicHubs->setObjectName("hubsPublicHubs");
-        hubsPublicHubs->setShortcut(tr("Ctrl+P"));
+        SM->registerShortcut(hubsPublicHubs, tr("Ctrl+P"));
         hubsPublicHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
         connect(hubsPublicHubs, SIGNAL(triggered()), this, SLOT(slotHubsPublicHubs()));
 
         hubsFavoriteUsers = new QAction("", this);
         hubsFavoriteUsers->setObjectName("hubsFavoriteUsers");
-        hubsFavoriteUsers->setShortcut(tr("Ctrl+U"));
+        SM->registerShortcut(hubsFavoriteUsers, tr("Ctrl+U"));
         hubsFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
         connect(hubsFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteUsers()));
 
@@ -576,7 +581,7 @@ void MainWindow::initActions(){
 
         toolsOptions = new QAction("", this);
         toolsOptions->setObjectName("toolsOptions");
-        toolsOptions->setShortcut(tr("Ctrl+O"));
+        SM->registerShortcut(toolsOptions, tr("Ctrl+O"));
         toolsOptions->setMenuRole(QAction::PreferencesRole);
         toolsOptions->setIcon(WU->getPixmap(WulforUtil::eiCONFIGURE));
         connect(toolsOptions, SIGNAL(triggered()), this, SLOT(slotToolsSettings()));
@@ -588,7 +593,7 @@ void MainWindow::initActions(){
 
         toolsTransfers = new QAction("", this);
         toolsTransfers->setObjectName("toolsTransfers");
-        toolsTransfers->setShortcut(tr("Ctrl+T"));
+        SM->registerShortcut(toolsTransfers, tr("Ctrl+T"));
         toolsTransfers->setIcon(WU->getPixmap(WulforUtil::eiTRANSFER));
         toolsTransfers->setCheckable(true);
         connect(toolsTransfers, SIGNAL(toggled(bool)), this, SLOT(slotToolsTransfer(bool)));
@@ -596,7 +601,7 @@ void MainWindow::initActions(){
 
         toolsDownloadQueue = new QAction("", this);
         toolsDownloadQueue->setObjectName("toolsDownloadQueue");
-        toolsDownloadQueue->setShortcut(tr("Ctrl+D"));
+        SM->registerShortcut(toolsDownloadQueue, tr("Ctrl+D"));
         toolsDownloadQueue->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
         connect(toolsDownloadQueue, SIGNAL(triggered()), this, SLOT(slotToolsDownloadQueue()));
 
@@ -677,7 +682,7 @@ void MainWindow::initActions(){
 
         toolsSearch = new QAction("", this);
         toolsSearch->setObjectName("toolsSearch");
-        toolsSearch->setShortcut(tr("Ctrl+S"));
+        SM->registerShortcut(toolsSearch, tr("Ctrl+S"));
         toolsSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
         connect(toolsSearch, SIGNAL(triggered()), this, SLOT(slotToolsSearch()));
 
@@ -712,7 +717,7 @@ void MainWindow::initActions(){
 
         findInWidget = new QAction("", this);
         findInWidget->setObjectName("findInWidget");
-        findInWidget->setShortcut(tr("Ctrl+F"));
+        SM->registerShortcut(findInWidget, tr("Ctrl+F"));
         findInWidget->setIcon(WU->getPixmap(WulforUtil::eiFIND));
         connect(findInWidget, SIGNAL(triggered()), this, SLOT(slotFind()));
 
