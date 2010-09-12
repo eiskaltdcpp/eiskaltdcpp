@@ -3157,9 +3157,13 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 {
     const OnlineUser& user = (replyTo.getUser() == ClientManager::getInstance()->getMe()) ? to : replyTo;
 
-    if (user.getIdentity().isHub() && BOOLSETTING(IGNORE_HUB_PMS))
+    bool isBot = user.getIdentity().isBot();
+    bool isHub = user.getIdentity().isHub();
+    bool isOp = user.getIdentity().isOp();
+
+    if (isHub && BOOLSETTING(IGNORE_HUB_PMS))
         return;
-    else if (user.getIdentity().isBot() && BOOLSETTING(IGNORE_BOT_PMS))
+    else if (isBot && BOOLSETTING(IGNORE_BOT_PMS))
         return;
 
     VarMap map;
@@ -3177,9 +3181,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
             if (hasPMWindow)
                 break;
 
-            bool isOp = user.getIdentity().isOp();
-
-            if (isOp && !WBGET(WB_ANTISPAM_FILTER_OPS) && !user.getIdentity().isBot())
+            if (isOp && !WBGET(WB_ANTISPAM_FILTER_OPS) && !isBot)
                 break;
 
             if (AntiSpam::getInstance()->isInBlack(nick))
@@ -3202,11 +3204,11 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 
     if (nick == _q(client->getMyNick()))
         color = WS_CHAT_PRIV_LOCAL_COLOR;
-    else if (user.getIdentity().isOp())
+    else if (isOp)
         color = WS_CHAT_OP_COLOR;
-    else if (user.getIdentity().isBot())
+    else if (isBot)
         color = WS_CHAT_BOT_COLOR;
-    else if (user.getIdentity().isHub())
+    else if (isHub)
         color = WS_CHAT_STAT_COLOR;
 
     map["CLR"] = color;
@@ -3216,7 +3218,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
     typedef Func1<HubFrame, VarMap> FUNC;
     FUNC *func = NULL;
 
-    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && user.getIdentity().isBot())
+    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
         func = new FUNC(this, &HubFrame::newMsg, map);
     else
         func = new FUNC(this, &HubFrame::newPm, map);
@@ -3235,7 +3237,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
         LOG(LogManager::PM, params);
     }
 
-    if (from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway() && !pm.contains(_q(id.toBase32())))
+    if (!(isBot || isHub) && from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway() && !pm.contains(_q(id.toBase32())))
         ClientManager::getInstance()->privateMessage(user.getUser(), Util::getAwayMessage(), false, client->getHubUrl());
 }
 

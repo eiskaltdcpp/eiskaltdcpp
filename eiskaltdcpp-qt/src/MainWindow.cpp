@@ -1958,7 +1958,10 @@ void MainWindow::slotToolsAutoAway(){
 }
 
 void MainWindow::slotToolsSwitchAway(){
-    bool away = (sender() == toolsAwayOn)? true : false;
+    if ((sender() != toolsAwayOff) && (sender() != toolsAwayOn))
+        return;
+
+    bool away = (sender() == toolsAwayOn);
 
     Util::setAway(away);
     Util::setManualAway(away);
