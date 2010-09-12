@@ -20,9 +20,10 @@
 #include "DCPlusPlus.h"
 
 #include "User.h"
-#include "Client.h"
-#include "StringTokenizer.h"
+
+#include "AdcHub.h"
 #include "FavoriteUser.h"
+#include "StringTokenizer.h"
 
 namespace dcpp {
 
@@ -30,6 +31,18 @@ FastCriticalSection Identity::cs;
 
 OnlineUser::OnlineUser(const UserPtr& ptr, Client& client_, uint32_t sid_) : identity(ptr, sid_), client(client_) {
 
+}
+
+bool Identity::isTcpActive() const {
+        return (!user->isSet(User::NMDC)) ?
+                !getIp().empty() && supports(AdcHub::TCP4_FEATURE) :
+                !user->isSet(User::PASSIVE);
+}
+
+bool Identity::isUdpActive() const {
+        if(getIp().empty() || getUdpPort().empty())
+                return false;
+        return (!user->isSet(User::NMDC)) ? supports(AdcHub::UDP4_FEATURE) : !user->isSet(User::PASSIVE);
 }
 
 void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility) const {

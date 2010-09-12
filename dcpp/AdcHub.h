@@ -64,6 +64,7 @@ public:
 private:
     friend class ClientManager;
     friend class CommandHandler<AdcHub>;
+    friend class Identity;
 
     AdcHub(const string& aHubURL, bool secure);
 
@@ -83,6 +84,8 @@ private:
 
     string salt;
     uint32_t sid;
+
+    std::tr1::unordered_set<uint32_t> forbiddenCommands;
 
     static const string CLIENT_PROTOCOL;
     static const string SECURE_CLIENT_PROTOCOL_TEST;

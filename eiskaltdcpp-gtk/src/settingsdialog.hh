@@ -74,6 +74,7 @@ class Settings:
         void updateUserCommandTextSent_gui();
         bool validateUserCommandInput(const std::string &oldName = "");
         void showErrorDialog(const std::string error);
+        void updateShares_gui();//NOTE: core 0.762
 
         // GUI callbacks
         static void onOptionsViewToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);

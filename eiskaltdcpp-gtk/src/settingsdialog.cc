@@ -46,7 +46,7 @@ Settings::Settings(GtkWindow* parent):
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("dialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("favoriteNameDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("publicHubsDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
-    gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("virtualNameDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
+    gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("nameDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("dirChooserDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("fileChooserDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
 
@@ -144,7 +144,7 @@ Settings::~Settings()
 
     gtk_widget_destroy(getWidget("favoriteNameDialog"));
     gtk_widget_destroy(getWidget("publicHubsDialog"));
-    gtk_widget_destroy(getWidget("virtualNameDialog"));
+    gtk_widget_destroy(getWidget("nameDialog"));
     gtk_widget_destroy(getWidget("dirChooserDialog"));
     gtk_widget_destroy(getWidget("fileChooserDialog"));
     gtk_widget_destroy(getWidget("commandDialog"));
@@ -158,7 +158,7 @@ void Settings::response_gui()
 
     gtk_dialog_response(GTK_DIALOG(getWidget("favoriteNameDialog")), GTK_RESPONSE_CANCEL);
     gtk_dialog_response(GTK_DIALOG(getWidget("publicHubsDialog")), GTK_RESPONSE_CANCEL);
-    gtk_dialog_response(GTK_DIALOG(getWidget("virtualNameDialog")), GTK_RESPONSE_CANCEL);
+    gtk_dialog_response(GTK_DIALOG(getWidget("nameDialog")), GTK_RESPONSE_CANCEL);
     gtk_dialog_response(GTK_DIALOG(getWidget("dirChooserDialog")), GTK_RESPONSE_CANCEL);
     gtk_dialog_response(GTK_DIALOG(getWidget("fileChooserDialog")), GTK_RESPONSE_CANCEL);
     gtk_dialog_response(GTK_DIALOG(getWidget("commandDialog")), GTK_RESPONSE_CANCEL);
@@ -266,7 +266,7 @@ void Settings::saveSettings_client()
     { // Sharing
         sm->set(SettingsManager::FOLLOW_LINKS, (int)gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("followLinksCheckButton"))));
         sm->set(SettingsManager::MIN_UPLOAD_SPEED, (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("sharedExtraSlotSpinButton"))));
-        sm->set(SettingsManager::SLOTS_PRIMARY, (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("sharedUploadSlotsSpinButton"))));
+        sm->set(SettingsManager::SLOTS, (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("sharedUploadSlotsSpinButton"))));
     }
 
     { // Appearance
@@ -903,20 +903,8 @@ void Settings::initSharing_gui()
     g_signal_connect(shareView.get(), "button-release-event", G_CALLBACK(onShareButtonReleased_gui), (gpointer)this);
     gtk_widget_set_sensitive(getWidget("sharedRemoveButton"), FALSE);
 
-    GtkTreeIter iter;
-    StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it)
-    {
-        gtk_list_store_append(shareStore, &iter);
-        gtk_list_store_set(shareStore, &iter,
-            shareView.col("Virtual Name"), it->first.c_str(),
-            shareView.col("Directory"), it->second.c_str(),
-            shareView.col("Size"), Util::formatBytes(ShareManager::getInstance()->getShareSize(it->second)).c_str(),
-            shareView.col("Real Size"), ShareManager::getInstance()->getShareSize(it->second),
-            -1);
-    }
+    updateShares_gui();//NOTE: core 0.762
 
-    gtk_label_set_text(GTK_LABEL(getWidget("sharedSizeLabel")), string("Total size: " + Util::formatBytes(ShareManager::getInstance()->getShareSize())).c_str());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("shareHiddenCheckButton")), BOOLSETTING(SHARE_HIDDEN));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("followLinksCheckButton")), BOOLSETTING(FOLLOW_LINKS));
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("sharedExtraSlotSpinButton")), (double)SETTING(MIN_UPLOAD_SPEED));
@@ -2238,14 +2226,17 @@ void Settings::onAddShare_gui(GtkWidget *widget, gpointer data)
             if (path[path.length() - 1] != PATH_SEPARATOR)
                 path += PATH_SEPARATOR;
 
-            gtk_entry_set_text(GTK_ENTRY(s->getWidget("virtualNameDialogEntry")), Util::getLastDir(path).c_str());
-            gtk_editable_select_region(GTK_EDITABLE(s->getWidget("virtualNameDialogEntry")), 0, -1);
-            response = gtk_dialog_run(GTK_DIALOG(s->getWidget("virtualNameDialog")));
-            gtk_widget_hide(s->getWidget("virtualNameDialog"));
+                        GtkWidget *dialog = s->getWidget("nameDialog");
+                        gtk_window_set_title(GTK_WINDOW(dialog), _("Virtual name"));
+                        gtk_entry_set_text(GTK_ENTRY(s->getWidget("nameDialogEntry")), Util::getLastDir(path).c_str());
+                        gtk_editable_select_region(GTK_EDITABLE(s->getWidget("nameDialogEntry")), 0, -1);
+                        gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Name under which the others see the directory</b>"));
+                        response = gtk_dialog_run(GTK_DIALOG(dialog));
+                        gtk_widget_hide(dialog);
 
             if (response == GTK_RESPONSE_OK)
             {
-                string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("virtualNameDialogEntry")));
+                                string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("nameDialogEntry")));
                 typedef Func2<Settings, string, string> F2;
                 F2 *func = new F2(s, &Settings::addShare_client, path, name);
                 WulforManager::get()->dispatchClientFunc(func);
@@ -2931,40 +2922,52 @@ gboolean Settings::onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *
 gboolean Settings::onShareHiddenPressed_gui(GtkToggleButton *togglebutton, gpointer data)
 {
     Settings *s = (Settings *)data;
-    GtkTreeIter iter;
-    bool show;
-    int64_t size;
 
-    show = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("shareHiddenCheckButton")));
+        bool show = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("shareHiddenCheckButton")));
 
     Func1<Settings, bool> *func = new Func1<Settings, bool>(s, &Settings::shareHidden_client, show);
     WulforManager::get()->dispatchClientFunc(func);
 
-    gtk_list_store_clear(s->shareStore);
+        return FALSE;
+}
+//NOTE: core 0.762
+void Settings::updateShares_gui()
+{
+        GtkTreeIter iter;
+        int64_t size = 0;
+        string vname;
+
+        gtk_list_store_clear(shareStore);
     StringPairList directories = ShareManager::getInstance()->getDirectories();
     for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it)
     {
         size = ShareManager::getInstance()->getShareSize(it->second);
-        gtk_list_store_append(s->shareStore, &iter);
-        gtk_list_store_set(s->shareStore, &iter,
-            s->shareView.col("Virtual Name"), it->first.c_str(),
-            s->shareView.col("Directory"), it->second.c_str(),
-            s->shareView.col("Size"), Util::formatBytes(size).c_str(),
-            s->shareView.col("Real Size"), size,
+
+                if (size == -1 && !BOOLSETTING(SHARE_HIDDEN))
+                {
+                        vname = _("[HIDDEN SHARE] ") + it->first;
+                        size = 0;
+                } else
+                        vname = it->first;
+
+                gtk_list_store_append(shareStore, &iter);
+                gtk_list_store_set(shareStore, &iter,
+                        shareView.col("Virtual Name"), vname.c_str(),
+                        shareView.col("Directory"), it->second.c_str(),
+                        shareView.col("Size"), Util::formatBytes(size).c_str(),
+                        shareView.col("Real Size"), size,
             -1);
     }
 
     string text = _("Total size: ") + Util::formatBytes(ShareManager::getInstance()->getShareSize());
-    gtk_label_set_text(GTK_LABEL(s->getWidget("sharedSizeLabel")), text.c_str());
-
-    return FALSE;
+        gtk_label_set_text(GTK_LABEL(getWidget("sharedSizeLabel")), text.c_str());
 }
-
+//NOTE: core 0.762
 void Settings::onLogBrowseClicked_gui(GtkWidget *widget, gpointer data)
 {
     Settings *s = (Settings *)data;
 
-    //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
+        gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
     gtk_widget_hide(s->getWidget("dirChooserDialog"));
 
