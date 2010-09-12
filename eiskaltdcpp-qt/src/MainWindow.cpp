@@ -1962,7 +1962,7 @@ void MainWindow::slotToolsAutoAway(){
 }
 
 void MainWindow::slotToolsSwitchAway(){
-    qDebug() << sender();
+    //qDebug() << sender();
 
     if ((sender() != toolsAwayOff) && (sender() != toolsAwayOn))
         return;

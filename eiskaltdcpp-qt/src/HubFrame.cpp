@@ -344,6 +344,8 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
     if (input.isEmpty() || input.isNull())
         return input;
 
+    static QList<QChar> unwise_chars = QList<QChar>() << '{' << '}' << '|' << '\\' << '^' << '[' << ']' << '`';
+
     input.replace("<a href=","&lt;a href=");
     input.replace("</a>","&lt;/a&gt;");
     input.replace("<img alt=","&lt;img alt=");
@@ -362,7 +364,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                     QChar ch = input.at(l_pos);
 
                     if (ch.isSpace() || ch == '\n'  ||
-                        ch == '>'    || ch == '<'){
+                        ch == '>'    || ch == '<' || unwise_chars.contains(ch)){
                         break;
                     }
                     else
@@ -372,8 +374,14 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 QString link = input.left(l_pos);
                 QString toshow = link;
 
-                if (linktype == "http://"  || linktype == "https://" || linktype == "ftp://")
+                if (linktype == "http://"  || linktype == "https://" || linktype == "ftp://"){
+                    while (!QUrl(link).isValid() && !link.isEmpty()){
+                        input.prepend(link.at(link.length()-1));
+                        link.remove(link.length()-1, 1);
+                    }
+
                     toshow = QUrl::fromEncoded(link.toUtf8()).toString();
+                }
 
                 if (linktype == "magnet:"){
                     QUrl url;

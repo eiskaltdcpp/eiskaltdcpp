@@ -540,11 +540,13 @@ DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
         }
 
         if (!found){
+            static QString data = "";
+            
             for (int j = i; j < list.size(); j++){
                 QList<QVariant> rootData;
-                rootData << list.at(j)  << QString("") << QString("") << QString("")
-                         << QString("") << QString("") << QString("") << QString("")
-                         << QString("") << QString("") << QString("");
+                rootData << list.at(j)  << data << data << data
+                         << data << data << data << data
+                         << data << data << data;
 
                 DownloadQueueItem *item = new DownloadQueueItem(rootData);
                 item->dir = true;
