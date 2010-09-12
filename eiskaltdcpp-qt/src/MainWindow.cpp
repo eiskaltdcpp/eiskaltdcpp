@@ -293,6 +293,8 @@ void MainWindow::showEvent(QShowEvent *e){
     if (WBGET(WB_APP_AUTO_AWAY)){
         Util::setAway(false);
         Util::setManualAway(false);
+
+        toolsAwayOff->setChecked(true);
     }
 
     if (transfer_dock->isVisible())
@@ -329,6 +331,8 @@ void MainWindow::hideEvent(QHideEvent *e){
     if (WBGET(WB_APP_AUTO_AWAY)){
         Util::setAway(true);
         Util::setManualAway(true);
+
+        toolsAwayOn->setChecked(true);
     }
 }
 
@@ -1958,10 +1962,12 @@ void MainWindow::slotToolsAutoAway(){
 }
 
 void MainWindow::slotToolsSwitchAway(){
+    qDebug() << sender();
+
     if ((sender() != toolsAwayOff) && (sender() != toolsAwayOn))
         return;
 
-    bool away = (sender() == toolsAwayOn);
+    bool away = toolsAwayOn->isChecked();
 
     Util::setAway(away);
     Util::setManualAway(away);
