@@ -53,7 +53,7 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::FOLLOW_LINKS, checkBox_FOLLOW->isChecked());
     SM->set(SettingsManager::SHARE_TEMP_FILES, checkBox_SHARE_TEMP_FILES->isChecked());
     SM->set(SettingsManager::MIN_UPLOAD_SPEED, spinBox_EXTRA->value());
-    SM->set(SettingsManager::SLOTS/*_PRIMARY*/, spinBox_UPLOAD->value());
+    SM->set(SettingsManager::SLOTS_PRIMARY, spinBox_UPLOAD->value());
     SM->set(SettingsManager::MAX_HASH_SPEED, spinBox_MAXHASHSPEED->value());
     SM->set(SettingsManager::FAST_HASH, checkBox_FASTHASH->isChecked());
     SM->set(SettingsManager::AUTO_REFRESH_TIME, spinBox_REFRESH_TIME->value());
@@ -106,7 +106,7 @@ void SettingsSharing::init(){
     checkBox_SHAREHIDDEN->setChecked(BOOLSETTING(SHARE_HIDDEN));
     checkBox_SHARE_TEMP_FILES->setChecked(BOOLSETTING(SHARE_TEMP_FILES));
     checkBox_FOLLOW->setChecked(BOOLSETTING(FOLLOW_LINKS));
-    spinBox_UPLOAD->setValue(SETTING(SLOTS/*_PRIMARY*/));
+    spinBox_UPLOAD->setValue(SETTING(SLOTS_PRIMARY));
     spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
     spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));
     spinBox_REFRESH_TIME->setValue(SETTING(AUTO_REFRESH_TIME));

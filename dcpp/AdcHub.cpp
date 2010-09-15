@@ -873,6 +873,10 @@ void AdcHub::on(Line l, const string& aLine) throw() {
     if(BOOLSETTING(ADC_DEBUG)) {
         fire(ClientListener::StatusMessage(), this, "<ADC>" + aLine + "</ADC>");
     }
+#ifdef LUA_SCRIPT
+    if (onClientMessage(this, aLine))
+        return;
+#endif
     dispatch(aLine);
 }
 

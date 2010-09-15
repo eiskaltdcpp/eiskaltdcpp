@@ -40,6 +40,10 @@
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+if (Wt_INCLUDE_DIR AND Wt_LIBRARIES)
+  # Already in cache, be silent
+  set(Wt_FIND_QUIETLY TRUE)
+endif (Wt_INCLUDE_DIR AND Wt_LIBRARIES)
 
 FIND_PATH( Wt_INCLUDE_DIR NAMES Wt/WObject PATHS ENV PATH PATH_SUFFIXES include wt )
 

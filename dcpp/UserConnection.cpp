@@ -67,7 +67,12 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
     string param;
 
     string::size_type x;
-
+#ifdef LUA_SCRIPT
+    if(onUserConnectionMessageIn(this, aLine)) {
+        disconnect(true);
+        return;
+    }
+#endif
     if( (x = aLine.find(' ')) == string::npos) {
         cmd = aLine;
     } else {

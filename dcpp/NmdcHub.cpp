@@ -918,7 +918,11 @@ void NmdcHub::on(Connected) throw() {
 }
 
 void NmdcHub::on(Line, const string& aLine) throw() {
-    Client::on(Line(), aLine);
+#ifdef LUA_SCRIPT
+    if (onClientMessage(this, validateMessage(aLine, true)))//lua
+        return;
+#endif
+Client::on(Line(), aLine);
     onLine(aLine);
 }
 

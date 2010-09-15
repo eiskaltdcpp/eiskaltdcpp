@@ -45,6 +45,9 @@ protected:
 class UserConnection : public Speaker<UserConnectionListener>,
     private BufferedSocketListener, public Flags, private CommandHandler<UserConnection>,
     private boost::noncopyable
+#ifdef LUA_SCRIPT
+, public UserConnectionScriptInstance
+#endif
 {
 public:
     friend class ConnectionManager;
