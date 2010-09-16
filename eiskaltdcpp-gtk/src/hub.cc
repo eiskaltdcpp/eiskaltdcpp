@@ -2831,7 +2831,7 @@ void Hub::on(ClientListener::Message, Client *, const OnlineUser &from, const st
         WulforManager::get()->dispatchGuiFunc(func);
 
         // Set urgency hint if message contains user's nick
-        if (BOOLSETTING(BOLD_HUB) && from.getIdentity().getUser() != client->getMyIdentity().getUser())
+        if (WGETB("bold-hub") && from.getIdentity().getUser() != client->getMyIdentity().getUser())
         {
             if (message.find(client->getMyIdentity().getNick()) != string::npos)
             {

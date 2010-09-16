@@ -232,7 +232,7 @@ void SearchSpy::addTop_gui(const string &search, const string &type)
 		topView.col("type"), type.c_str(),
 		-1);
 
-	if (BOOLSETTING(BOLD_SEARCH_SPY))
+	if (WGETB("bold-search-spy"))
 		setUrgent_gui();
 }
 

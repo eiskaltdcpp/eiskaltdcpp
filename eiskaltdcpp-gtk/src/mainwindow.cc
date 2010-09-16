@@ -1283,7 +1283,7 @@ gboolean MainWindow::onCloseWindow_gui(GtkWidget *widget, GdkEvent *event, gpoin
         return TRUE;
     }
 
-    if (!BOOLSETTING(CONFIRM_EXIT))
+    if (!WGETB("confirm-exit"))
     {
         WulforManager::get()->deleteMainWindow();
         return FALSE;

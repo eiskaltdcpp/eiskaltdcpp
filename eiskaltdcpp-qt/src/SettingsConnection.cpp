@@ -98,6 +98,7 @@ void SettingsConnection::ok(){
     if (SETTING(OUTGOING_CONNECTIONS) != type)
         Socket::socksUpdated();
 
+    SM->set(SettingsManager::THROTTLE_ENABLE, checkBox_THROTTLE_ENABLE->isChecked());
     SM->set(SettingsManager::TIME_DEPENDENT_THROTTLE, checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
     SM->set(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN, spinBox_DOWN_LIMIT_NORMAL->value());
     SM->set(SettingsManager::MAX_UPLOAD_SPEED_MAIN, spinBox_UP_LIMIT_NORMAL->value());
@@ -129,6 +130,7 @@ void SettingsConnection::init(){
     spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));
     spinBox_TLS->setValue(old_tls = SETTING(TLS_PORT));
 
+    checkBox_THROTTLE_ENABLE->setChecked(BOOLSETTING(THROTTLE_ENABLE));
     checkBox_TIME_DEPENDENT_THROTTLE->setChecked(BOOLSETTING(TIME_DEPENDENT_THROTTLE));
     spinBox_DOWN_LIMIT_NORMAL->setValue(SETTING(MAX_DOWNLOAD_SPEED_MAIN));
     spinBox_UP_LIMIT_NORMAL->setValue(SETTING(MAX_UPLOAD_SPEED_MAIN));
@@ -140,8 +142,6 @@ void SettingsConnection::init(){
     spinBox_RECONNECT_DELAY->setValue(SETTING(RECONNECT_DELAY));
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
     checkBox_DYNDNS->setCheckState( WIGET(WS_APP_DYNDNS_ENABLED) ? Qt::Checked : Qt::Unchecked );
-    frame_4->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
-    frame_5->setEnabled(checkBox_TIME_DEPENDENT_THROTTLE->isChecked());
     lineEdit_DYNDNS_SERVER->setText(WSGET(WS_APP_DYNDNS_SERVER));
     lineEdit_DYNDNS_INDEX->setText(WSGET(WS_APP_DYNDNS_INDEX));
 
@@ -208,7 +208,6 @@ void SettingsConnection::init(){
 #if (defined USE_MINIUPNP)
     connect(radioButton_UPNP, SIGNAL(toggled(bool)), this, SLOT(slotToggleIncomming()));
 #endif
-    connect(checkBox_TIME_DEPENDENT_THROTTLE,SIGNAL(toggled(bool)),this,SLOT(slotTimeThrottle()));
     connect(radioButton_DC, SIGNAL(toggled(bool)), this, SLOT(slotToggleOutgoing()));
     connect(radioButton_SOCKS, SIGNAL(toggled(bool)), this, SLOT(slotToggleOutgoing()));
 
@@ -240,11 +239,6 @@ void SettingsConnection::slotToggleIncomming(){
     frame->setEnabled(b);
 }
 
-void SettingsConnection::slotTimeThrottle(){
-    bool b=checkBox_TIME_DEPENDENT_THROTTLE->isChecked();
-
-    frame_4->setEnabled(b);frame_5->setEnabled(b);
-}
 void SettingsConnection::slotToggleOutgoing(){
     bool b = !radioButton_DC->isChecked();
 

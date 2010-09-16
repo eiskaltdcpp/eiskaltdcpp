@@ -289,7 +289,7 @@ void DownloadQueue::addFile_gui(StringMap params, bool updateDirs)
 			fileView.col("Icon"), "icon-file",
 			-1);
 
-		if (BOOLSETTING(BOLD_QUEUE))
+		if (WGETB("bold-queue"))
 			setBold_gui();
 	}
 
@@ -428,7 +428,7 @@ void DownloadQueue::removeFile_gui(string target, int64_t size)
 
 	updateStatus_gui();
 
-	if (BOOLSETTING(BOLD_QUEUE))
+	if (WGETB("bold-queue"))
 		setBold_gui();
 }
 

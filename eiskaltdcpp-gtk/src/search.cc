@@ -27,6 +27,7 @@
 #include <dcpp/StringTokenizer.h>
 #include <dcpp/Text.h>
 #include <dcpp/UserCommand.h>
+#include "settingsmanager.hh"
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
@@ -583,7 +584,7 @@ void Search::addResult_gui(const SearchResultPtr result)
     ++searchHits;
     setStatus_gui("statusbar2", Util::toString(searchHits) + _(" items"));
 
-    if (BOOLSETTING(BOLD_SEARCH))
+    if (WGETB("bold-search"))
         setBold_gui();
 }
 

@@ -402,7 +402,7 @@ void FavoriteHubs::onRemoveEntry_gui(GtkWidget *widget, gpointer data)
 
 	if (gtk_tree_selection_get_selected(fh->favoriteSelection, NULL, &iter))
 	{
-		if (BOOLSETTING(CONFIRM_HUB_REMOVAL))
+		if (WGETB("confirm-hub-removal"))
 		{
 			string name = fh->favoriteView.getString(&iter, _("Name")).c_str();
 			GtkWindow* parent = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());

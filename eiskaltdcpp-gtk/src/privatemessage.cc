@@ -193,7 +193,7 @@ void PrivateMessage::addMessage_gui(string message, Msg::TypeMsg typemsg)
         LOG(LogManager::PM, params);
     }
 
-    if (BOOLSETTING(BOLD_PM))
+    if (WGETB("bold-pm"))
         setUrgent_gui();
 
     // Send an away message, but only the first time after setting away mode.

@@ -23,6 +23,7 @@
 #include "previewmenu.hh"
 #include <dcpp/Text.h>
 #include <dcpp/ClientManager.h>
+#include "settingsmanager.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
 
@@ -168,7 +169,7 @@ void FinishedTransfers::addUser_gui(StringMap params, bool update)
 		totalUsers++;
 	}
 	else
-	{	
+	{
 		addSize = transferred - userView.getValue<int64_t>(&iter, _("Transferred"));
 		addTime = time - userView.getValue<int64_t>(&iter, "Elapsed Time");
 	}
@@ -191,8 +192,8 @@ void FinishedTransfers::addUser_gui(StringMap params, bool update)
 	{
 		updateStatus_gui();
 
-		if ((!isUpload && BOOLSETTING(BOLD_FINISHED_DOWNLOADS)) ||
-		     (isUpload && BOOLSETTING(BOLD_FINISHED_UPLOADS)))
+		if ((!isUpload && WGETB("bold-finished-downloads")) ||
+		     (isUpload && WGETB("bold-finished-uploads")))
 		{
 			setBold_gui();
 		}
@@ -226,8 +227,8 @@ void FinishedTransfers::addFile_gui(StringMap params, bool update)
 	{
 		updateStatus_gui();
 
-		if ((!isUpload && BOOLSETTING(BOLD_FINISHED_DOWNLOADS)) ||
-		     (isUpload && BOOLSETTING(BOLD_FINISHED_UPLOADS)))
+		if ((!isUpload && WGETB("bold-finished-downloads")) ||
+		     (isUpload && WGETB("bold-finished-uploads")))
 		{
 			setBold_gui();
 		}
@@ -237,7 +238,7 @@ void FinishedTransfers::addFile_gui(StringMap params, bool update)
 void FinishedTransfers::updateStatus_gui()
 {
 	string status;
-	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(getWidget("finishedbook"))) == 
+	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(getWidget("finishedbook"))) ==
 			gtk_notebook_page_num(GTK_NOTEBOOK(getWidget("finishedbook")), getWidget("viewWindowFile")))
 		status = Util::toString(totalFiles) + _(" files");
 	else
@@ -256,7 +257,7 @@ gboolean FinishedTransfers::onButtonPressed_gui(GtkWidget *widget, GdkEventButto
 	FinishedTransfers *ft = (FinishedTransfers *)data;
 	GtkTreeSelection *selection;
 	TreeView *view;
-	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(ft->getWidget("finishedbook"))) == 
+	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(ft->getWidget("finishedbook"))) ==
 			gtk_notebook_page_num(GTK_NOTEBOOK(ft->getWidget("finishedbook")), ft->getWidget("viewWindowFile")))
 	{
 		selection = ft->fileSelection;
@@ -267,7 +268,7 @@ gboolean FinishedTransfers::onButtonPressed_gui(GtkWidget *widget, GdkEventButto
 		selection = ft->userSelection;
 		view = &ft->userView;
 	}
-	
+
 
 	if (event->button == 3)
 	{
@@ -291,7 +292,7 @@ gboolean FinishedTransfers::onButtonReleased_gui(GtkWidget *widget, GdkEventButt
 	FinishedTransfers *ft = (FinishedTransfers *)data;
 	GtkTreeSelection *selection;
 	TreeView *view;
-	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(ft->getWidget("finishedbook"))) == 
+	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(ft->getWidget("finishedbook"))) ==
 			gtk_notebook_page_num(GTK_NOTEBOOK(ft->getWidget("finishedbook")), ft->getWidget("viewWindowFile")))
 	{
 		selection = ft->fileSelection;
@@ -346,7 +347,7 @@ gboolean FinishedTransfers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *ev
 	FinishedTransfers *ft = (FinishedTransfers *)data;
 	GtkTreeSelection *selection;
 	TreeView *view;
-	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(ft->getWidget("finishedbook"))) == 
+	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(ft->getWidget("finishedbook"))) ==
 			gtk_notebook_page_num(GTK_NOTEBOOK(ft->getWidget("finishedbook")), ft->getWidget("viewWindowFile")))
 	{
 		selection = ft->fileSelection;
@@ -470,7 +471,7 @@ void FinishedTransfers::onRemoveItems_gui(GtkMenuItem *item, gpointer data)
 	GtkTreeSelection *selection;
 	TreeView *view;
 	GtkListStore *store;
-	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(ft->getWidget("finishedbook"))) == 
+	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(ft->getWidget("finishedbook"))) ==
 			gtk_notebook_page_num(GTK_NOTEBOOK(ft->getWidget("finishedbook")), ft->getWidget("viewWindowFile")))
 	{
 		selection = ft->fileSelection;
@@ -581,13 +582,13 @@ void FinishedTransfers::initializeList_client()
 	typedef Func2<FinishedTransfers, StringMap, bool> F2;
 	//F2 *func;
 	FinishedManager::getInstance()->lockLists();
-	const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload); 
-	const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload); 
+	const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
+	const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 
 	for (FinishedManager::MapByFile::const_iterator it = list.begin(); it != list.end(); ++it)
 	{
 		params.clear();
-		getFinishedParams_client(it->second, it->first, params);	
+		getFinishedParams_client(it->second, it->first, params);
 		addFile_gui(params, FALSE);
 		//func = new F2(this, &FinishedTransfers::addItem_gui, params, FALSE);
 		//WulforManager::get()->dispatchGuiFunc(func);
@@ -612,14 +613,14 @@ void FinishedTransfers::getFinishedParams_client(const FinishedFileItemPtr& item
 {
 	string nicks;
 	params["Filename"] = Util::getFileName(file);
-	params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());	
+	params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
 	params["Path"] = Util::getFilePath(file);
 	for (UserList::const_iterator it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
 	{
 		nicks += WulforUtil::getNicks(it->get()->getCID()) + ", ";
 	}
 	params["Nicks"] = nicks.substr(0, nicks.length() - 2);
-	// item->getFileSize() seems to return crap. I guess there's no way to get 
+	// item->getFileSize() seems to return crap. I guess there's no way to get
 	// the real file size with this core version? Only the transferred part (I guess
 	// the size could be asked from QueueManager (if the file isn't complete)?)
 	params["Transferred"] = Util::toString(item->getTransferred());
@@ -632,7 +633,7 @@ void FinishedTransfers::getFinishedParams_client(const FinishedFileItemPtr& item
 void FinishedTransfers::getFinishedParams_client(const FinishedUserItemPtr& item, const UserPtr& user, StringMap &params)
 {
 	string files;
-	params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());	
+	params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
 	params["Nick"] = WulforUtil::getNicks(user->getCID());
 	params["Hub"] = Util::toString(ClientManager::getInstance()->getHubNames(user->getCID()));
 	for (StringList::const_iterator it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
@@ -652,7 +653,7 @@ void FinishedTransfers::removeUser_client(string cid)
 
 	if (user)
 		FinishedManager::getInstance()->remove(isUpload, user);
-	
+
 }
 
 void FinishedTransfers::removeFile_client(string target)
@@ -660,7 +661,7 @@ void FinishedTransfers::removeFile_client(string target)
 
 	if (!target.empty())
 		FinishedManager::getInstance()->remove(isUpload, target);
-	
+
 }
 
 void FinishedTransfers::removeAll_client()
@@ -687,7 +688,7 @@ void FinishedTransfers::on(FinishedManagerListener::AddedUser, bool upload, cons
 	{
 		StringMap params;
 		getFinishedParams_client(item, user, params);
-	
+
 		typedef Func2<FinishedTransfers, StringMap, bool> F2;
 		F2 *func = new F2(this, &FinishedTransfers::addUser_gui, params, TRUE);
 		WulforManager::get()->dispatchGuiFunc(func);

@@ -77,8 +77,6 @@ const string SettingsManager::settingTags[] =
     "AutoDropFilesize", "AutoDropAll", "AutoDropFilelists",
     "AutoDropDisconnect", "OutgoingConnections", "NoIpOverride", "NoUseTempDir",
     "ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType",
-    "BoldFinishedDownloads", "BoldFinishedUploads", "BoldQueue",
-    "BoldHub", "BoldPm", "BoldSearch", "BoldSearchSpy",
     "SocketInBuffer", "SocketOutBuffer",
     "AutoRefreshTime", "UseTLS", "AutoSearchLimit",
     "AutoKickNoFavs", "PromptPassword", "SpyFrameIgnoreTthSearches",
@@ -86,15 +84,14 @@ const string SettingsManager::settingTags[] =
     "AllowUntrustedClients", "TLSPort", "FastHash", "SortFavUsersFirst",
     "SegmentedDL", "FollowLinks", "SendBloom",
     "Coral", "SearchFilterShared", "FinishedDLOnlyFull",
-    "ConfirmExit", "ConfirmHubClosing", "ConfirmHubRemoval",
-    "ConfirmUserRemoval", "ConfirmItemRemoval", "ConfirmADLSRemoval",
     "SearchMerge", "HashBufferSize", "HashBufferPopulate",
     "HashBufferNoReserve", "HashBufferPrivate", "UseDHT", "DHTPort",
     "ReconnectDelay", "AutoDetectIncomingConnection",
-    "BandwidthLimitStart", "BandwidthLimitEnd", "TimeDependentThrottle",
+    "BandwidthLimitStart", "BandwidthLimitEnd", "ThrottleEnable",
+    "TimeDependentThrottle",
     "MaxDownloadSpeedAlternate", "MaxUploadSpeedAlternate",
     "MaxDownloadSpeedMain", "MaxUploadSpeedMain",
-    "SlotsAlternateLimiting", "SlotsPrimaryLimiting",
+    "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "ShowFreeSlotsDesc",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -262,13 +259,6 @@ SettingsManager::SettingsManager()
     setDefault(TLS_TRUSTED_CERTIFICATES_PATH, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR);
     setDefault(TLS_PRIVATE_KEY_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.key");
     setDefault(TLS_CERTIFICATE_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.crt");
-    setDefault(BOLD_FINISHED_DOWNLOADS, true);
-    setDefault(BOLD_FINISHED_UPLOADS, true);
-    setDefault(BOLD_QUEUE, true);
-    setDefault(BOLD_HUB, true);
-    setDefault(BOLD_PM, true);
-    setDefault(BOLD_SEARCH, true);
-    setDefault(BOLD_SEARCH_SPY, true);
     setDefault(AUTO_REFRESH_TIME, 60);
     setDefault(USE_TLS, true);
     setDefault(AUTO_SEARCH_LIMIT, 5);
@@ -286,12 +276,6 @@ SettingsManager::SettingsManager()
     setDefault(SEND_BLOOM, true);
     setDefault(CORAL, true);
     setDefault(FINISHED_DL_ONLY_FULL, true);
-    setDefault(CONFIRM_EXIT, true);
-    setDefault(CONFIRM_HUB_CLOSING, true);
-    setDefault(CONFIRM_HUB_REMOVAL, true);
-    setDefault(CONFIRM_USER_REMOVAL, true);
-    setDefault(CONFIRM_ITEM_REMOVAL, true);
-    setDefault(CONFIRM_ADLS_REMOVAL, true);
     setDefault(SEARCH_MERGE, true);
     setDefault(HASH_BUFFER_SIZE_MB, 8);
     setDefault(HASH_BUFFER_POPULATE, true);
@@ -307,6 +291,7 @@ SettingsManager::SettingsManager()
     setDefault(AUTO_DETECT_CONNECTION, false);
     setDefault(MAX_UPLOAD_SPEED_MAIN, 0);
     setDefault(MAX_DOWNLOAD_SPEED_MAIN, 0);
+    setDefault(THROTTLE_ENABLE, false);
     setDefault(TIME_DEPENDENT_THROTTLE, false);
     setDefault(MAX_DOWNLOAD_SPEED_ALTERNATE, 0);
     setDefault(MAX_UPLOAD_SPEED_ALTERNATE, 0);
@@ -314,6 +299,7 @@ SettingsManager::SettingsManager()
     setDefault(BANDWIDTH_LIMIT_END, 1);
     setDefault(SLOTS_ALTERNATE_LIMITING, 1);
     setDefault(SLOTS_PRIMARY, 3);
+    setDefault(SHOW_FREE_SLOTS_DESC, true);
 }
 
 void SettingsManager::load(string const& aFileName)

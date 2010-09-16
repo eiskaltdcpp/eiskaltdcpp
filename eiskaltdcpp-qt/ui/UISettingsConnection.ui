@@ -434,6 +434,13 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
+           <widget class="QCheckBox" name="checkBox_THROTTLE_ENABLE">
+            <property name="text">
+             <string>Enable Throttle</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QFrame" name="frame_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">

@@ -28,7 +28,7 @@
 #include "ConnectionManager.h"
 #include "ThrottleManager.h"
 #include "version.h"
-
+#include "UploadManager.h"
 #include "Socket.h"
 #include "UserCommand.h"
 #include "StringTokenizer.h"
@@ -790,9 +790,11 @@ string uploadSpeed;
     } else {
         uploadSpeed = SETTING(UPLOAD_SPEED);
     }
+    bool gslotf = BOOLSETTING(SHOW_FREE_SLOTS_DESC);
+    string gslot = "["+Util::toString(UploadManager::getInstance()->getFreeSlots())+"]";
     string uMin = (SETTING(MIN_UPLOAD_SPEED) == 0) ? Util::emptyString : ",O:" + Util::toString(SETTING(MIN_UPLOAD_SPEED));
     string myInfoA =
-        "$MyINFO $ALL " + fromUtf8(getMyNick()) + " " + fromUtf8(escape(getCurrentDescription())) + " <"+ getClientId().c_str() + ",M:" + modeChar + ",H:" + getCounts();
+        "$MyINFO $ALL " + fromUtf8(getMyNick()) + " " + fromUtf8(escape((gslotf ? gslot :"")+getCurrentDescription())) + " <"+ getClientId().c_str() + ",M:" + modeChar + ",H:" + getCounts();
     string myInfoB = ",S:" + Util::toString(SETTING(SLOTS));
     string myInfoC = uMin +
         ">$ $" + uploadSpeed + "\x01$" + fromUtf8(escape(SETTING(EMAIL))) + '$';

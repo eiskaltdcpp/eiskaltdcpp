@@ -946,13 +946,13 @@ void Settings::initAppearance_gui()
     { // Tabs
         createOptionsView_gui(tabView, tabStore, "tabBoldingTreeView");
 
-        addOption_gui(tabStore, _("Finished Downloads"), SettingsManager::BOLD_FINISHED_DOWNLOADS);
-        addOption_gui(tabStore, _("Finished Uploads"), SettingsManager::BOLD_FINISHED_UPLOADS);
-        addOption_gui(tabStore, _("Download Queue"), SettingsManager::BOLD_QUEUE);
-        addOption_gui(tabStore, _("Hub (also sets urgency hint)"), SettingsManager::BOLD_HUB);
-        addOption_gui(tabStore, _("Private Message (also sets urgency hint)"), SettingsManager::BOLD_PM);
-        addOption_gui(tabStore, _("Search"), SettingsManager::BOLD_SEARCH);
-        addOption_gui(tabStore, _("Search Spy"), SettingsManager::BOLD_SEARCH_SPY);
+        addOption_gui(tabStore, _("Finished Downloads"), "bold-finished-downloads");
+        addOption_gui(tabStore, _("Finished Uploads"), "bold-finished-uploads");
+        addOption_gui(tabStore, _("Download Queue"), "bold-queue");
+        addOption_gui(tabStore, _("Hub (also sets urgency hint)"), "bold-hub");
+        addOption_gui(tabStore, _("Private Message (also sets urgency hint)"), "bold-pm");
+        addOption_gui(tabStore, _("Search"), "bold-search");
+        addOption_gui(tabStore, _("Search Spy"), "bold-search-spy");
     }
 
     { // Sounds
@@ -1329,8 +1329,8 @@ void Settings::initAppearance_gui()
         // Confirmation dialog
         createOptionsView_gui(windowView3, windowStore3, "windowsConfirmTreeView");
 
-        addOption_gui(windowStore3, _("Confirm application exit"), SettingsManager::CONFIRM_EXIT);
-        addOption_gui(windowStore3, _("Confirm favorite hub removal"), SettingsManager::CONFIRM_HUB_REMOVAL);
+        addOption_gui(windowStore3, _("Confirm application exit"), "confirm-exit"/*SettingsManager::CONFIRM_EXIT*/);
+        addOption_gui(windowStore3, _("Confirm favorite hub removal"), "confirm-hub-removal"/*SettingsManager::CONFIRM_HUB_REMOVAL*/);
         /// @todo: Uncomment when implemented
         //addOption_gui(windowStore3, _("Confirm item removal in download queue"), SettingsManager::CONFIRM_ITEM_REMOVAL);
     }
