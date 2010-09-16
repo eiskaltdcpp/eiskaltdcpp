@@ -22,6 +22,7 @@
 #include <QModelIndex>
 #include <QClipboard>
 #include <QHeaderView>
+#include <QKeyEvent>
 
 using namespace dcpp;
 
@@ -193,6 +194,21 @@ void ShareBrowser::closeEvent(QCloseEvent *e){
     e->accept();
 }
 
+bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
+    QTreeView *tree_view = qobject_cast<QTreeView*>(obj);
+
+    if (tree_view && (e->type() == QEvent::KeyRelease)){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if (k_e->key() == Qt::Key_Right)
+            goDown(tree_view);
+        else if (k_e->key() == Qt::Key_Left)
+            goUp(tree_view);
+    }
+
+    return QWidget::eventFilter(obj, e);
+}
+
 void ShareBrowser::init(){
     frame_FILTER->setVisible(false);
 
@@ -211,6 +227,7 @@ void ShareBrowser::init(){
     treeView_RPANE->setModel(list_model);
     treeView_RPANE->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_RPANE->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeView_RPANE->installEventFilter(this);
 
     label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(WulforUtil::formatBytes(share_size)).arg(itemsCount));
 
@@ -219,17 +236,19 @@ void ShareBrowser::init(){
     QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
-    connect(treeView_LPANE, SIGNAL(clicked(const QModelIndex&)), this, SLOT(slotLeftPaneClicked(QModelIndex)));
+    //connect(treeView_LPANE, SIGNAL(clicked(const QModelIndex&)), this, SLOT(slotLeftPaneClicked(QModelIndex)));
     connect(treeView_LPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
+    connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+            this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
 
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
 
     connect(treeView_RPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+            this, SLOT(slotRightPaneSelChanged(QItemSelection,QItemSelection)));
     connect(treeView_RPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
     connect(treeView_RPANE->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
-    connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotLeftPaneClicked(QModelIndex)));
+    connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotRightPaneClicked(QModelIndex)));
 
     setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -345,6 +364,48 @@ void ShareBrowser::initModels(){
     list_model->setRootElem(list_root, true, true);
 }
 
+void ShareBrowser::goDown(QTreeView *view){
+    if (view != treeView_RPANE)
+        return;
+
+    QItemSelectionModel *selection_model = view->selectionModel();
+    QModelIndexList selected  = selection_model->selectedRows(0);
+
+    if (selected.size() > 1 || selected.empty())
+        return;
+
+    QModelIndex index = selected.at(0);
+    FileBrowserItem *item = NULL;
+
+    if (view->model() == proxy)
+        item = static_cast<FileBrowserItem*>(proxy->mapToSource(index).internalPointer());
+    else
+        item = static_cast<FileBrowserItem*>(index.internalPointer());
+
+    if (!item || item->file)
+        return;
+
+    slotRightPaneClicked(index);
+}
+
+void ShareBrowser::goUp(QTreeView *view){
+    if (view != treeView_RPANE)
+        return;
+
+    QStringList paths = label_PATH->text().split("\\", QString::SkipEmptyParts);
+
+    if (paths.empty())//is it possible?
+        return;
+    else
+        paths.removeLast();
+
+    FileBrowserItem *tree_item = tree_model->createRootForPath(paths.join("\\"));
+    QModelIndex tree_index = tree_model->createIndexForItem(tree_item);
+
+    treeView_LPANE->selectionModel()->select(tree_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+    treeView_LPANE->scrollTo(tree_index, QAbstractItemView::PositionAtCenter);
+}
+
 void ShareBrowser::download(dcpp::DirectoryListing::Directory *dir, const QString &target){
     if (dir && !target.isEmpty()){
         try {
@@ -369,13 +430,13 @@ void ShareBrowser::download(dcpp::DirectoryListing::File *file, const QString &t
     }
 }
 
-void ShareBrowser::slotLeftPaneClicked(const QModelIndex &index){
+void ShareBrowser::slotRightPaneClicked(const QModelIndex &index){
     if (!index.isValid())
         return;
 
     FileBrowserItem *item = NULL;
 
-    if (sender() == treeView_RPANE && treeView_RPANE->model() == proxy)
+    if (treeView_RPANE->model() == proxy)
         item = static_cast<FileBrowserItem*>(proxy->mapToSource(index).internalPointer());
     else
         item = static_cast<FileBrowserItem*>(index.internalPointer());
@@ -389,36 +450,13 @@ void ShareBrowser::slotLeftPaneClicked(const QModelIndex &index){
         return;
     }
 
-    if (sender() == treeView_LPANE){
-        label_PATH->setText(tree_model->createRemotePath(item));
-    }
-    else{
-        label_PATH->setText(label_PATH->text()+"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString());
+    label_PATH->setText(label_PATH->text()+"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString());
 
-        FileBrowserItem *parent = tree_model->createRootForPath(label_PATH->text());
+    FileBrowserItem *tree_item = tree_model->createRootForPath(label_PATH->text());
+    QModelIndex tree_index = tree_model->createIndexForItem(tree_item);
 
-        if (parent){
-            QModelIndex index = tree_model->createIndexForItem(parent);
-            QStack<QModelIndex> stack;
-
-            while (index.isValid()){
-                stack.push(index);
-
-                index = index.parent();
-            }
-
-            while (!stack.isEmpty()){
-                index = stack.pop();
-
-                treeView_LPANE->expand(index);
-            }
-
-            treeView_LPANE->selectionModel()->select(index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
-            treeView_LPANE->scrollTo(index, QAbstractItemView::PositionAtCenter);
-        }
-    }
-
-    changeRoot(item->dir);
+    treeView_LPANE->selectionModel()->select(tree_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+    treeView_LPANE->scrollTo(tree_index, QAbstractItemView::PositionAtCenter);
 }
 
 void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
@@ -477,7 +515,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
     list_model->sort();
 }
 
-void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection&, const QItemSelection&){
+void ShareBrowser::slotRightPaneSelChanged(const QItemSelection &, const QItemSelection &){
     QItemSelectionModel *selection_model = treeView_RPANE->selectionModel();
     QModelIndexList list = selection_model->selectedRows(0);
     quint64 selected_size = 0;
@@ -491,6 +529,25 @@ void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection&, const QItemSele
         status += QString(tr("; Selected: %1")).arg(WulforUtil::formatBytes(selected_size));
 
     label_RIGHT->setText(status);
+}
+
+void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection&, const QItemSelection&){
+    QItemSelectionModel *selection_model = treeView_LPANE->selectionModel();
+    QModelIndexList selected  = selection_model->selectedRows(0);
+
+    if (selected.size() > 1 || selected.empty())
+        return;
+
+    QModelIndex index = selected.at(0);
+
+    if (index.isValid()){
+        FileBrowserItem *item = static_cast<FileBrowserItem*>(index.internalPointer());
+
+        changeRoot(item->dir);
+
+        label_PATH->setText(tree_model->createRemotePath(item));
+        treeView_LPANE->scrollTo(index, QAbstractItemView::PositionAtCenter);
+    }
 }
 
 void ShareBrowser::slotCustomContextMenu(const QPoint &){
@@ -661,16 +718,6 @@ void ShareBrowser::slotLoaderFinish(){
         if (jump){
             QModelIndex jump_index = tree_model->createIndexForItem(jump);
 
-            slotLeftPaneClicked(jump_index);
-
-            QModelIndex index = jump_index;
-
-            while (index.isValid()){
-                treeView_LPANE->expand(index);
-
-                index = index.parent();
-            }
-
             treeView_LPANE->selectionModel()->select(jump_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
             treeView_LPANE->scrollTo(jump_index, QAbstractItemView::PositionAtCenter);
         }
@@ -678,8 +725,7 @@ void ShareBrowser::slotLoaderFinish(){
     else {
         QModelIndex index = tree_model->index(0, 0, QModelIndex());
 
-        slotLeftPaneClicked(index);
-
+        treeView_LPANE->selectionModel()->select(index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
         treeView_LPANE->expand(index);
     }
 

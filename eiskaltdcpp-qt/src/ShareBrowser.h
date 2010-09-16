@@ -108,9 +108,11 @@ public slots:
 
 protected:
     virtual void closeEvent(QCloseEvent *);
+    virtual bool eventFilter(QObject *, QEvent *);
 
 private slots:
-    void slotLeftPaneClicked(const QModelIndex&);
+    void slotRightPaneClicked(const QModelIndex&);
+    void slotRightPaneSelChanged(const QItemSelection&, const QItemSelection&);
     void slotLeftPaneSelChanged(const QItemSelection&, const QItemSelection&);
     void slotCustomContextMenu(const QPoint&);
     void slotHeaderMenu();
@@ -131,6 +133,9 @@ private:
     void download(dcpp::DirectoryListing::File*, const QString &);
 
     void changeRoot(dcpp::DirectoryListing::Directory*);
+
+    void goUp(QTreeView *);
+    void goDown(QTreeView *);
 
     ShareBrowserLoader::LoaderFunc *loader_func;
 
