@@ -200,9 +200,9 @@ bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
     if (tree_view && (e->type() == QEvent::KeyRelease)){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if (k_e->key() == Qt::Key_Right)
+        if (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return)
             goDown(tree_view);
-        else if (k_e->key() == Qt::Key_Left)
+        else if (k_e->key() == Qt::Key_Backspace)
             goUp(tree_view);
     }
 
