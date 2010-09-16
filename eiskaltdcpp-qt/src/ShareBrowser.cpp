@@ -386,6 +386,8 @@ void ShareBrowser::goDown(QTreeView *view){
         return;
 
     slotRightPaneClicked(index);
+
+    treeView_RPANE->setFocus();
 }
 
 void ShareBrowser::goUp(QTreeView *view){
@@ -404,6 +406,8 @@ void ShareBrowser::goUp(QTreeView *view){
 
     treeView_LPANE->selectionModel()->select(tree_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
     treeView_LPANE->scrollTo(tree_index, QAbstractItemView::PositionAtCenter);
+
+    treeView_RPANE->setFocus();
 }
 
 void ShareBrowser::download(dcpp::DirectoryListing::Directory *dir, const QString &target){
