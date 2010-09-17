@@ -87,6 +87,7 @@ WulforSettings::WulforSettings():
         strmap.insert(WS_APP_FONT,              "");
         strmap.insert(WS_APP_ICONTHEME,         "default");
         strmap.insert(WS_APP_USERTHEME,         "default");
+        strmap.insert(WS_APP_SHARED_FILES_COLOR,"#01f8f1f");
         strmap.insert(WS_NOTIFY_SOUNDS,         "");
         strmap.insert(WS_NOTIFY_SND_CMD,        "");
         strmap.insert(WS_FAVUSERS_STATE,        "");
@@ -152,6 +153,7 @@ WulforSettings::WulforSettings():
         intmap.insert(WS_APP_DYNDNS_ENABLED,    static_cast<int>(false));
         intmap.insert(WI_APP_UNIT_BASE,         1024);
         intmap.insert(WI_APP_AUTOAWAY_INTERVAL, 60);
+        intmap.insert(WI_APP_SHARED_FILES_ALPHA, 127);
         intmap.insert(WI_CHAT_MAXPARAGRAPHS,    1000);
         intmap.insert(WI_DEF_MAGNET_ACTION,     0);
         intmap.insert(WI_CHAT_WIDTH,            -1);

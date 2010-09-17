@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
+    <width>467</width>
     <height>368</height>
    </rect>
   </property>
@@ -685,6 +685,9 @@ them is usually available only to operators</string>
           <string>Highlighting of search results in the chat</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="margin">
+           <number>1</number>
+          </property>
           <item>
            <widget class="QLabel" name="label_4">
             <property name="text">
@@ -720,6 +723,55 @@ them is usually available only to operators</string>
             <property name="toolTip">
              <string/>
             </property>
+            <property name="maximum">
+             <number>255</number>
+            </property>
+            <property name="value">
+             <number>127</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>Highlighting of already shared files</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_9">
+          <property name="margin">
+           <number>1</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_14">
+            <property name="text">
+             <string>Color</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QToolButton" name="toolButton_SHAREDFILES">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>Transparency</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QSlider" name="horizontalSlider_SHAREDFILES">
             <property name="maximum">
              <number>255</number>
             </property>

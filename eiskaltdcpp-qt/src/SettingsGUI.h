@@ -47,6 +47,7 @@ private:
     bool custom_style;
 
     QColor h_color; // clean color (without transparency)
+    QColor shared_files_color;
 };
 
 #endif // SETTINGSGUI_H

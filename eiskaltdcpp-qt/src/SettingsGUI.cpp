@@ -264,7 +264,14 @@ void SettingsGUI::init(){
         p.fill(c);
         toolButton_H_COLOR->setIcon(p);
 
+        c.setNamedColor(WSGET(WS_APP_SHARED_FILES_COLOR));
+        shared_files_color = c;
+        c.setAlpha(WIGET(WI_APP_SHARED_FILES_ALPHA));
+        p.fill(c);
+        toolButton_SHAREDFILES->setIcon(p);
+
         horizontalSlider_H_COLOR->setValue(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
+        horizontalSlider_SHAREDFILES->setValue(WIGET(WI_APP_SHARED_FILES_ALPHA));
     }
     {// Fonts tab
         CustomFontModel *model = new CustomFontModel(this);
@@ -286,7 +293,9 @@ void SettingsGUI::init(){
     connect(comboBox_USERS, SIGNAL(activated(int)), this, SLOT(slotUsersChanged()));
 	connect(comboBox_ICONS, SIGNAL(activated(int)), this, SLOT(slotIconsChanged()));
     connect(toolButton_H_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
+    connect(toolButton_SHAREDFILES, SIGNAL(clicked()), this, SLOT(slotGetColor()));
     connect(horizontalSlider_H_COLOR, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
+    connect(horizontalSlider_SHAREDFILES, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
 }
 
 void SettingsGUI::ok(){
@@ -378,6 +387,9 @@ void SettingsGUI::ok(){
 
         WSSET(WS_CHAT_FIND_COLOR,       h_color.name());
         WISET(WI_CHAT_FIND_COLOR_ALPHA, horizontalSlider_H_COLOR->value());
+
+        WSSET(WS_APP_SHARED_FILES_COLOR, shared_files_color.name());
+        WISET(WI_APP_SHARED_FILES_ALPHA, horizontalSlider_SHAREDFILES->value());
     }
 
     WSSET(WS_SETTINGS_GUI_FONTS_STATE, tableView->horizontalHeader()->saveState().toBase64());
@@ -398,27 +410,43 @@ void SettingsGUI::slotChatColorItemClicked(QListWidgetItem *item){
 
 void SettingsGUI::slotGetColor(){
     QPixmap p(10, 10);
-    QColor color(toolButton_H_COLOR->icon().pixmap(10, 10).toImage().pixel(0, 0));
+    QColor color = (sender() == horizontalSlider_H_COLOR)? h_color : shared_files_color;
     color = QColorDialog::getColor(color);
 
-    if (color.isValid()) {
+    if (color.isValid() && (sender() == toolButton_H_COLOR)) {
         h_color = color;
 
         color.setAlpha(horizontalSlider_H_COLOR->value());
         p.fill(color);
         toolButton_H_COLOR->setIcon(p);
     }
+    else if (color.isValid()){
+        shared_files_color = color;
+
+        color.setAlpha(horizontalSlider_SHAREDFILES->value());
+        p.fill(color);
+        toolButton_SHAREDFILES->setIcon(p);
+    }
 }
 
 void SettingsGUI::slotSetTransparency(int value){
     QPixmap p(10, 10);
-    QColor color = h_color;
+    QColor color;
+
+    if (sender() == horizontalSlider_H_COLOR)
+        color = h_color;
+    else
+        color = shared_files_color;
+
     color.setAlpha(value);
 
-    if (color.isValid()) {
+    if (color.isValid())
         p.fill(color);
+
+    if (sender() == horizontalSlider_H_COLOR)
         toolButton_H_COLOR->setIcon(p);
-    }
+    else
+        toolButton_SHAREDFILES->setIcon(p);
 }
 
 void SettingsGUI::slotTestAppTheme(){

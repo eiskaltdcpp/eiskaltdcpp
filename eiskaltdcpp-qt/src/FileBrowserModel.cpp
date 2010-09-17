@@ -88,8 +88,14 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
 
             TTHValue t(_tq(item->data(COLUMN_FILEBROWSER_TTH).toString()));
 
-            if (ShareManager::getInstance()->isTTHShared(t))
-                return QColor(0x1F, 0x8F, 0x1F);
+            if (ShareManager::getInstance()->isTTHShared(t)){
+                static QColor c;
+
+                c.setNamedColor(WSGET(WS_APP_SHARED_FILES_COLOR));
+                c.setAlpha(WIGET(WI_APP_SHARED_FILES_ALPHA));
+
+                return c;
+            }
 
             break;
         }

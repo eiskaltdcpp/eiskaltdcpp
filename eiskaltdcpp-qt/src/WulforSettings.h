@@ -73,6 +73,7 @@ static const QString & WS_APP_EMOTICON_THEME      = "app-emoticon-theme";
 static const QString & WS_APP_DYNDNS_SERVER       = "app-dyndns-server";
 static const QString & WS_APP_DYNDNS_INDEX        = "app-dyndns-server-index";
 static const QString & WS_APP_DYNDNS_ENABLED      = "app-dyndns-enabled";
+static const QString & WS_APP_SHARED_FILES_COLOR  = "app-already-shared-files-color";
 static const QString & WS_PUBLICHUBS_STATE        = "publichubs-state";
 static const QString & WS_SETTINGS_GUI_FONTS_STATE= "settings-gui-fonts-state";
 static const QString & WB_APP_AUTOAWAY_BY_TIMER   = "app-autoaway";
@@ -123,6 +124,7 @@ static const QString & WB_USE_CTRL_ENTER          = "use-ctrl-enter";
 static const QString & WB_SIMPLE_SHARE_MODE       = "use-simple-share-mode";
 static const QString & WI_APP_UNIT_BASE           = "app-unit-base";
 static const QString & WI_APP_AUTOAWAY_INTERVAL   = "app-autoaway-interval";
+static const QString & WI_APP_SHARED_FILES_ALPHA  = "app-already-shared-files-alpha";
 //
 static const QString & WI_DEF_MAGNET_ACTION       = "def-magnet-action";
 // 0 - ask, 1 - search, 2 - download
