@@ -167,6 +167,12 @@ Keys for cmake
     -Dlinguas=""      - don't install any translation
 -DCMAKE_INSTALL_PREFIX=<prefix for install> (default: /usr/local)
     .
+-DLIBDIR=<lib prefix> (default: lib)
+    install lib in <prefix for install>/<lib prefix>
+    examples:
+    -DLIBDIR=lib64 - install lib in <prefix for install>/lib64
+-DLIB_INSTALL_DIR=<lib prefix> (default: lib)
+    see -DLIBDIR
 -DESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
     .
 -PIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
