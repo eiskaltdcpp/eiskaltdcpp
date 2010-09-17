@@ -1538,16 +1538,19 @@ void HubFrame::addStatus(QString msg){
 
     label_LAST_STATUS->setText(status + short_msg);
 
-    status += pure_msg;
+    status += pure_msg.left(WIGET(WI_CHAT_STATUS_MSG_MAX_LEN));
     WulforUtil::getInstance()->textToHtml(status, false);
 
     status_msg_history.push_back(status);
 
-    if (status_msg_history.size() > 5)
-        status_msg_history.removeFirst();
+    if (WIGET(WI_CHAT_STATUS_HISTORY_SZ) > 0){
+        while (status_msg_history.size() > WIGET(WI_CHAT_STATUS_HISTORY_SZ))
+            status_msg_history.removeFirst();
+    }
+    else
+        status_msg_history.clear();
 
-    QString pre = tr("<b>Last status message on hub:</b><br/>%1").replace(" ","&nbsp;");
-    label_LAST_STATUS->setToolTip(status_msg_history.join("<br/>") + "<br/>" + pre.arg(status));
+    label_LAST_STATUS->setToolTip(status_msg_history.join("<br/>"));
 }
 
 void HubFrame::addOutput(QString msg){

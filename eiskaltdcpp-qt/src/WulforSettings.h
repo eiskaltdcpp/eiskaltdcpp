@@ -140,6 +140,8 @@ static const QString & WI_CHAT_MDLCLICK_ACT       = "chat-mdl-click-action";
 // 0 - insert nick into input widget, 1 - get file list, 2 - private message
 //
 static const QString & WI_CHAT_FIND_COLOR_ALPHA   = "chat-find-color-alpha";
+static const QString & WI_CHAT_STATUS_HISTORY_SZ  = "chat-status-history-size";
+static const QString & WI_CHAT_STATUS_MSG_MAX_LEN = "chat-status-msg-max-len";
 static const QString & WI_SEARCH_SORT_COLUMN      = "search-sort-column";
 static const QString & WI_SEARCH_SORT_ORDER       = "search-sort-order";
 static const QString & WI_SEARCH_SHARED_ACTION    = "search-shared-action";

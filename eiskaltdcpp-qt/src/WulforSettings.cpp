@@ -163,6 +163,8 @@ WulforSettings::WulforSettings():
         intmap.insert(WI_CHAT_DBLCLICK_ACT,     0);//nick in chat
         intmap.insert(WI_CHAT_MDLCLICK_ACT,     1);//browse files
         intmap.insert(WI_CHAT_FIND_COLOR_ALPHA, 127);
+        intmap.insert(WI_CHAT_STATUS_HISTORY_SZ,5);
+        intmap.insert(WI_CHAT_STATUS_MSG_MAX_LEN, 128);
         intmap.insert(WI_MAINWINDOW_HEIGHT,     -1);
         intmap.insert(WI_MAINWINDOW_WIDTH,      -1);
         intmap.insert(WI_MAINWINDOW_X,          -1);
