@@ -3227,7 +3227,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
     map["CLR"] = color;
     map["3RD"] = thirdPerson;
     map["CID"] = _q(id.toBase32());
-    map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(user).getIp());
+    map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp());
 
     typedef Func1<HubFrame, VarMap> FUNC;
     FUNC *func = NULL;
