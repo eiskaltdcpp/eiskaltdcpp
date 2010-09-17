@@ -91,7 +91,8 @@ const string SettingsManager::settingTags[] =
     "TimeDependentThrottle",
     "MaxDownloadSpeedAlternate", "MaxUploadSpeedAlternate",
     "MaxDownloadSpeedMain", "MaxUploadSpeedMain",
-    "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "ShowFreeSlotsDesc",
+    "SlotsAlternateLimiting", "SlotsPrimaryLimiting",
+    "ShowFreeSlotsDesc","UseIp",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -300,6 +301,7 @@ SettingsManager::SettingsManager()
     setDefault(SLOTS_ALTERNATE_LIMITING, 1);
     setDefault(SLOTS_PRIMARY, 3);
     setDefault(SHOW_FREE_SLOTS_DESC, true);
+    setDefault(USE_IP, true);
 }
 
 void SettingsManager::load(string const& aFileName)

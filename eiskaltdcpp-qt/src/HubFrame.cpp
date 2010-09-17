@@ -20,6 +20,7 @@
 #include "dcpp/UserCommand.h"
 #include "dcpp/CID.h"
 #include "dcpp/HashManager.h"
+#include "dcpp/Util.h"
 
 #if HAVE_MALLOC_TRIM
 #include <malloc.h>
@@ -1849,8 +1850,10 @@ void HubFrame::newMsg(VarMap map){
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
 
     output  += time;
-    if (WBGET(WB_SHOW_IP_IN_CHAT) && !map["I4"].toString().isEmpty())
-        output  += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["I4"].toString() + "]</font>";
+    string info= Util::formatAdditionalInfo(map["I4"].toString().toStdString(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+
+    if (!info.empty())
+        output  += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">" + _q(info) + "</font>";
 
     output  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
                .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
@@ -1893,8 +1896,10 @@ void HubFrame::newPm(VarMap map){
 
     message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
     full_message  += time;
-    if (WBGET(WB_SHOW_IP_IN_CHAT) && !map["I4"].toString().isEmpty())
-        full_message += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["I4"].toString() + "]</font>";
+    string info= Util::formatAdditionalInfo(map["I4"].toString().toStdString(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+
+    if (!info.empty())
+        full_message += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">" + _q(info) + "</font>";
 
     full_message  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
                      .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
@@ -3247,7 +3252,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
         params["userCID"] = id.toBase32();
         params["userNI"] = ClientManager::getInstance()->getNicks(id)[0];
         params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
-        params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user).getIp();
+        params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(from).getIp();
         LOG(LogManager::PM, params);
     }
 

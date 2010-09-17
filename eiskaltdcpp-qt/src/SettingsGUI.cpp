@@ -181,7 +181,7 @@ void SettingsGUI::init(){
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
         checkBox_JOINSFAV->setChecked(WBGET(WB_CHAT_SHOW_JOINS_FAV));
         checkBox_CHATHIDDEN->setChecked(WBGET(WB_SHOW_HIDDEN_USERS));
-        checkBox_CHAT_SHOW_IP->setChecked(WBGET(WB_SHOW_IP_IN_CHAT));
+        checkBox_CHAT_SHOW_IP->setChecked(BOOLSETTING(USE_IP));
         checkBox_IGNOREPMHUB->setChecked(BOOLSETTING(IGNORE_HUB_PMS));
         checkBox_IGNOREPMBOT->setChecked(BOOLSETTING(IGNORE_BOT_PMS));
         checkBox_REDIRECTPMBOT->setChecked(WBGET(WB_CHAT_REDIRECT_BOT_PMS));
@@ -197,7 +197,7 @@ void SettingsGUI::init(){
         comboBox_MDL_CLICK->setCurrentIndex(WIGET(WI_CHAT_MDLCLICK_ACT));
         comboBox_DEF_MAGNET_ACTION->setCurrentIndex(WIGET(WI_DEF_MAGNET_ACTION));
         comboBox_APP_UNIT_BASE->setCurrentIndex(comboBox_APP_UNIT_BASE->findText(QString::number(WIGET(WI_APP_UNIT_BASE))));
-
+        checkBox_CHAT_SHOW_CC->setChecked(BOOLSETTING(GET_USER_COUNTRY));
         lineEdit_TIMESTAMP->setText(WSGET(WS_CHAT_TIMESTAMP));
 
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
@@ -342,7 +342,7 @@ void SettingsGUI::ok(){
     }
     {//Chat tab
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());
-        WBSET(WB_SHOW_IP_IN_CHAT, checkBox_CHAT_SHOW_IP->isChecked());
+        SM->set(SettingsManager::USE_IP, checkBox_CHAT_SHOW_IP->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS_FAV, checkBox_JOINSFAV->isChecked());
         WBSET(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());
@@ -366,7 +366,7 @@ void SettingsGUI::ok(){
 
         SM->set(SettingsManager::IGNORE_BOT_PMS, checkBox_IGNOREPMBOT->isChecked());
         SM->set(SettingsManager::IGNORE_HUB_PMS, checkBox_IGNOREPMHUB->isChecked());
-
+        SM->set(SettingsManager::GET_USER_COUNTRY, checkBox_CHAT_SHOW_CC->isChecked());
         WSSET(WS_CHAT_SEPARATOR, comboBox_CHAT_SEPARATOR->currentText());
     }
     {//Color tab

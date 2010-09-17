@@ -27,6 +27,7 @@
 #include <dcpp/ShareManager.h>
 #include <dcpp/UserCommand.h>
 #include <dcpp/version.h>
+#include <dcpp/Util.h>
 #include "privatemessage.hh"
 #include "search.hh"
 #include "settingsmanager.hh"
@@ -2797,11 +2798,13 @@ void Hub::on(ClientListener::Message, Client *, const OnlineUser &from, const st
         else typemsg = Msg::GENERAL;
 
         string line;
+        string info= Util::formatAdditionalInfo(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+        line+=info;
 
         if (thirdPerson)
-            line = "* " + from.getIdentity().getNick() + " " +  message;
+            line += "* " + from.getIdentity().getNick() + " " +  message;
         else
-            line = "<" + from.getIdentity().getNick() + "> " + message;
+            line += "<" + from.getIdentity().getNick() + "> " + message;
 
         if (BOOLSETTING(FILTER_MESSAGES))
         {
@@ -2881,17 +2884,19 @@ void Hub::on(ClientListener::PrivateMessage, Client *, const OnlineUser &from,
     string error;
     const OnlineUser& user = (replyTo.getUser() == ClientManager::getInstance()->getMe()) ? to : replyTo;
     string line;
-
     Msg::TypeMsg typemsg;
+
+    string info= Util::formatAdditionalInfo(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+    line+=info;
 
     if (from.getIdentity().isOp()) typemsg = Msg::OPERATOR;
     else if (from.getUser() == client->getMyIdentity().getUser()) typemsg = Msg::MYOWN;
     else typemsg = Msg::PRIVATE;
 
     if (thirdPerson)
-        line = "* " + from.getIdentity().getNick() + " " + msg;
+        line += "* " + from.getIdentity().getNick() + " " + msg;
     else
-        line  = "<" + from.getIdentity().getNick() + "> " + msg;
+        line += "<" + from.getIdentity().getNick() + "> " + msg;
 
     if (user.getIdentity().isHub() && BOOLSETTING(IGNORE_HUB_PMS))
     {
@@ -2929,4 +2934,3 @@ void Hub::on(ClientListener::SearchFlood, Client *, const string &msg) throw()
     F3 *func = new F3(this, &Hub::addStatusMessage_gui, _("Search spam detected from ") + msg, Msg::STATUS, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(func);
 }
-

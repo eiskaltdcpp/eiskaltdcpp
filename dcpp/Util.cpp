@@ -182,7 +182,7 @@ void Util::initialize() {
 
     paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
 
-    // @todo paths[PATH_RESOURCES] = <replace from sconscript?>;
+    paths[PATH_RESOURCES] = paths[PATH_USER_CONFIG];
     // @todo paths[PATH_LOCALE] = <replace from sconscript?>;
 
 #ifdef FORCE_XDG
@@ -1158,4 +1158,24 @@ string Util::translateError(int aError) {
 #endif // _WIN32
 }
 
+string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
+	string ret = Util::emptyString;
+
+	if(!aIp.empty()) {
+		string cc = Util::getIpCountry(aIp);
+		bool showIp = BOOLSETTING(USE_IP) || sIp;
+		bool showCc = (BOOLSETTING(GET_USER_COUNTRY) || sCC) && !cc.empty();
+
+		if(showIp) {
+			ret = "[" + aIp + "] ";
+		}
+        //printf("%s\n",ret.c_str());
+		if(showCc) {
+			ret += "[" + cc + "] ";
+        //printf("%s\n",ret.c_str());
+		}
+        //printf("%s\n",ret.c_str());
+	}
+	return Text::toT(ret);
+}
 } // namespace dcpp

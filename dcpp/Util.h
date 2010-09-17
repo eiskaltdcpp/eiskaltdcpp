@@ -344,6 +344,7 @@ public:
     static string encodeURI(const string& /*aString*/, bool reverse = false);
     static string getLocalIp();
     static bool isPrivateIp(string const& ip);
+    static string formatAdditionalInfo(const std::string& aIp, bool sIp, bool sCC);
     /**
      * Case insensitive substring search.
      * @return First position found or string::npos
