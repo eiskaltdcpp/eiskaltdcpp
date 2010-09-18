@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-28 16:31+0300\n"
+"POT-Creation-Date: 2010-09-18 15:22+0300\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -31,7 +31,7 @@ msgid "Unknown error: 0x%1$x"
 msgstr ""
 
 #: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:183
+#: ../ConnectionManager.cpp:191
 msgid "Connection timeout"
 msgstr "Connection timeout"
 
@@ -60,21 +60,59 @@ msgstr ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 
-#: ../DCPlusPlus.cpp:115
+#: ../DCPlusPlus.cpp:117
 msgid "Hash database"
 msgstr "Hash database"
 
-#: ../DCPlusPlus.cpp:118
+#: ../DCPlusPlus.cpp:120
 msgid "Shared Files"
 msgstr "Shared Files"
 
-#: ../DCPlusPlus.cpp:121
+#: ../DCPlusPlus.cpp:123
 msgid "Download Queue"
 msgstr "Download Queue"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "Unable to create thread"
+
+#: ../ConnectivityManager.cpp:56
+msgid "Determining connection type..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:61
+msgid "Unable to open %1% port(s). You must set up your connection manually"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:70
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:76
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:102
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:112
+msgid "TCP/TLS"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:118
+msgid "UDP"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:129
+#, fuzzy
+msgid "Connectivity: "
+msgstr "Connectivity restored"
 
 #: ../UploadManager.cpp:157
 msgid "Unable to send file %1%: %2%"
@@ -84,18 +122,18 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr ""
 
-#: ../NmdcHub.cpp:282
+#: ../NmdcHub.cpp:283
 msgid "%1% (Nick unknown)"
 msgstr ""
 
-#: ../NmdcHub.cpp:902
+#: ../NmdcHub.cpp:905
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
 msgstr ""
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
+#: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
 msgid "Offline"
 msgstr "Offline"
 
@@ -228,41 +266,56 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr ""
 
-#: ../UPnPManager.cpp:40
+#: ../UPnPManager.cpp:41
 #, fuzzy
 msgid "No UPnP implementation available"
 msgstr "File not available"
 
-#: ../UPnPManager.cpp:68
-msgid " Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:71
-msgid " Encrypted Transfer Port (%1% TCP)"
+#: ../UPnPManager.cpp:46
+msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
 #: ../UPnPManager.cpp:74
+#, fuzzy
+msgid "Failed to initalize the %1% interface"
+msgstr "File list refresh initiated"
+
+#: ../UPnPManager.cpp:77
+msgid " Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:78 ../UPnPManager.cpp:82 ../UPnPManager.cpp:86
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr ""
+
+#: ../UPnPManager.cpp:81
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:85
 msgid " Search Port (%1% UDP)"
 msgstr ""
 
-#: ../UPnPManager.cpp:78
-msgid "Successfully created port mappings"
+#: ../UPnPManager.cpp:90
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
 msgstr ""
 
-#: ../UPnPManager.cpp:89
+#: ../UPnPManager.cpp:102
 msgid "Failed to get external IP"
 msgstr ""
 
-#: ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:110
 #, fuzzy
 msgid "Failed to create port mappings"
 msgstr "Unable to create thread"
 
-#: ../UPnPManager.cpp:105
+#: ../UPnPManager.cpp:119
 msgid "Failed to remove port mappings"
 msgstr ""
 
-#: ../UPnPManager.cpp:110
+#: ../UPnPManager.cpp:124
 msgid "UPnP: %1%"
 msgstr ""
 
@@ -406,24 +459,24 @@ msgstr "No slots available"
 msgid "%1%: File not available"
 msgstr "File not available"
 
-#: ../ConnectionManager.cpp:177
+#: ../ConnectionManager.cpp:185
 msgid "All download slots taken"
 msgstr "All download slots taken"
 
-#: ../ConnectionManager.cpp:246
+#: ../ConnectionManager.cpp:254
 msgid "Connectivity restored"
 msgstr "Connectivity restored"
 
-#: ../ConnectionManager.cpp:253
+#: ../ConnectionManager.cpp:261
 #, fuzzy
 msgid "Connectivity error: %1%"
 msgstr "Connectivity restored"
 
-#: ../SearchManager.cpp:129
+#: ../SearchManager.cpp:132
 msgid "Search enabled again"
 msgstr "Search enabled again"
 
-#: ../SearchManager.cpp:136
+#: ../SearchManager.cpp:139
 #, fuzzy
 msgid "Search disabled: %1%"
 msgstr "Search enabled again"

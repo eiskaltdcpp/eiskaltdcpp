@@ -1898,11 +1898,15 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation>Impossible d&apos;ouvrir le port %1%. Les recherches ou transferts de fichiers ne fonctionneront pas correctement tant que vous ne changerez pas de port ou fermerez toute application susceptible d&apos;utiliser ce port.</translation>
+        <translation type="obsolete">Impossible d&apos;ouvrir le port %1%. Les recherches ou transferts de fichiers ne fonctionneront pas correctement tant que vous ne changerez pas de port ou fermerez toute application susceptible d&apos;utiliser ce port.</translation>
     </message>
     <message>
         <source>Connectivity Manager: Warning</source>
         <translation>Gestionnaire de connexion: Alerte</translation>
+    </message>
+    <message>
+        <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

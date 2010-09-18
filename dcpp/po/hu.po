@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-28 16:31+0300\n"
+"POT-Creation-Date: 2010-09-18 15:22+0300\n"
 "PO-Revision-Date: 2010-09-06 12:44+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -34,7 +34,7 @@ msgid "Unknown error: 0x%1$x"
 msgstr "Ismeretlen hiba: 0x%1$x"
 
 #: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:183
+#: ../ConnectionManager.cpp:191
 msgid "Connection timeout"
 msgstr "Időtúllépés"
 
@@ -66,21 +66,59 @@ msgstr ""
 "A socks kiszolgáló beállítása az UDP port továbbításra nem sikerült "
 "(ellenőrizd a kiszolgáló címét és a portot)"
 
-#: ../DCPlusPlus.cpp:115
+#: ../DCPlusPlus.cpp:117
 msgid "Hash database"
 msgstr "Hash adatbázis"
 
-#: ../DCPlusPlus.cpp:118
+#: ../DCPlusPlus.cpp:120
 msgid "Shared Files"
 msgstr "Megosztott fájlok"
 
-#: ../DCPlusPlus.cpp:121
+#: ../DCPlusPlus.cpp:123
 msgid "Download Queue"
 msgstr "Letöltési Sor"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "A szál léterhozása sikertelen"
+
+#: ../ConnectivityManager.cpp:56
+msgid "Determining connection type..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:61
+msgid "Unable to open %1% port(s). You must set up your connection manually"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:70
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:76
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:102
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:112
+msgid "TCP/TLS"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:118
+msgid "UDP"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:129
+#, fuzzy
+msgid "Connectivity: "
+msgstr "Kapcsolódási hiba: %1%"
 
 #: ../UploadManager.cpp:157
 msgid "Unable to send file %1%: %2%"
@@ -90,11 +128,11 @@ msgstr "A fájl küldése sikertelen: %1%: %2%"
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
-#: ../NmdcHub.cpp:282
+#: ../NmdcHub.cpp:283
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nick ismeretlen)"
 
-#: ../NmdcHub.cpp:902
+#: ../NmdcHub.cpp:905
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -103,7 +141,7 @@ msgstr ""
 "értesítsd a hub üzemeltetőit, hogy javítsák a problémát."
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
+#: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
 msgid "Offline"
 msgstr "Kilépett"
 
@@ -236,39 +274,54 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Hiba a következő hashelésekor: %1%: %2%"
 
-#: ../UPnPManager.cpp:40
+#: ../UPnPManager.cpp:41
 msgid "No UPnP implementation available"
 msgstr "UPnP implementáció nem elérhető"
 
-#: ../UPnPManager.cpp:68
+#: ../UPnPManager.cpp:46
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr ""
+
+#: ../UPnPManager.cpp:74
+#, fuzzy
+msgid "Failed to initalize the %1% interface"
+msgstr "Fájl-lista %1% létrehozva"
+
+#: ../UPnPManager.cpp:77
 msgid " Transfer Port (%1% TCP)"
 msgstr " Átviteli port (%1% TCP)"
 
-#: ../UPnPManager.cpp:71
+#: ../UPnPManager.cpp:78 ../UPnPManager.cpp:82 ../UPnPManager.cpp:86
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr ""
+
+#: ../UPnPManager.cpp:81
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr " Titkosított átviteli port (%1% TCP)"
 
-#: ../UPnPManager.cpp:74
+#: ../UPnPManager.cpp:85
 msgid " Search Port (%1% UDP)"
 msgstr " Keresési port (%1% UDP)"
 
-#: ../UPnPManager.cpp:78
-msgid "Successfully created port mappings"
+#: ../UPnPManager.cpp:90
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
 msgstr ""
 
-#: ../UPnPManager.cpp:89
+#: ../UPnPManager.cpp:102
 msgid "Failed to get external IP"
 msgstr "Külső IP lekérdezése sikertelen"
 
-#: ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:110
 msgid "Failed to create port mappings"
 msgstr ""
 
-#: ../UPnPManager.cpp:105
+#: ../UPnPManager.cpp:119
 msgid "Failed to remove port mappings"
 msgstr ""
 
-#: ../UPnPManager.cpp:110
+#: ../UPnPManager.cpp:124
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -410,23 +463,23 @@ msgstr "Nincs szabad slot"
 msgid "%1%: File not available"
 msgstr "%1%: A fájl nem elérhető"
 
-#: ../ConnectionManager.cpp:177
+#: ../ConnectionManager.cpp:185
 msgid "All download slots taken"
 msgstr "Összes letöltési szál foglalt"
 
-#: ../ConnectionManager.cpp:246
+#: ../ConnectionManager.cpp:254
 msgid "Connectivity restored"
 msgstr "Kapcsolódás lehetősége visszaállítva"
 
-#: ../ConnectionManager.cpp:253
+#: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
 msgstr "Kapcsolódási hiba: %1%"
 
-#: ../SearchManager.cpp:129
+#: ../SearchManager.cpp:132
 msgid "Search enabled again"
 msgstr "Keresés ismét engedélyezve"
 
-#: ../SearchManager.cpp:136
+#: ../SearchManager.cpp:139
 msgid "Search disabled: %1%"
 msgstr "Keresés tiltva:%1%"
 
