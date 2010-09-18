@@ -125,22 +125,22 @@ Opciones:
     <message>
         <location filename="../src/Antispam.cpp" line="134"/>
         <source>Checking user %1 (message: %2, cid: %3)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Comprobando usuario %1 (Mensaje: %2, cid: %3)...</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="145"/>
         <source>%1: Moving user to GRAY.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Moviendo usuario a la lista Gris.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="155"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Moviendo usuario a la lista Negra.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="163"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Mandando mensaje &quot;Intentelo de nuevo&quot;.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
@@ -1026,10 +1026,6 @@ Opciones:
         <translation>El chat ha sido limpiado</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="obsolete">&lt;b&gt;ultimo mensaje de estado en el Hub:&lt;/b&gt;&lt;br/&gt;%1</translation>
-    </message>
-    <message>
         <location filename="../src/HubFrame.cpp" line="1674"/>
         <source>%1 become online</source>
         <translation>%1 ha quedado conectado</translation>
@@ -1683,12 +1679,12 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1787"/>
         <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"></translation>
+        <translation>No se puede habilitar e puerto %1. La búsqueda y la transferencia de archivos funcionarán incorrectamente hasta que cambie las opciones o apaque la aplicación que esté usando dicho puerto.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1788"/>
         <source>Connectivity Manager: Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Mánager de conexión: Atención</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1807"/>
@@ -1974,27 +1970,6 @@ Usuario favorito</translation>
         <location filename="../src/MainWindow.cpp" line="1742"/>
         <source>Menu</source>
         <translation>Menú</translation>
-    </message>
-    <message>
-        <source>Cannot listen socket because: 
-</source>
-        <translation type="obsolete">No se puede escuchar Socket por que:</translation>
-    </message>
-    <message>
-        <source>
-
-Please check your connection settings</source>
-        <translation type="obsolete">
-
-Por favor verifica sus opciones de conexión</translation>
-    </message>
-    <message>
-        <source>Connection Manager: Warning</source>
-        <translation type="obsolete">Manager de conexión: Advertencia</translation>
-    </message>
-    <message>
-        <source>Search Manager: Warning</source>
-        <translation type="obsolete">Manager de búsqueda: Advertencia</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2244"/>
@@ -3242,7 +3217,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="38"/>
         <source>Other Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Otros Widgets</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="102"/>
@@ -3641,10 +3616,6 @@ que continuará trabajando cuando el widget esté oculto.
         <translation>Directorio</translation>
     </message>
     <message>
-        <source>Absolete path</source>
-        <translation type="obsolete">Dirección absoluta</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
         <source>Full path</source>
         <translation>Ruta Completa</translation>
@@ -3867,7 +3838,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="395"/>
         <source>Filter Operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtro de Operadores</translation>
     </message>
 </context>
 <context>
@@ -3954,7 +3925,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="106"/>
         <source>EiskaltDC++ V:2.1</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ V:2.1</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="111"/>
@@ -4421,10 +4392,6 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
         <translation>Conexión</translation>
     </message>
     <message>
-        <source>Incomming connections</source>
-        <translation type="obsolete">conexiones entrantes</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="73"/>
         <source>Firewall with port forwarding</source>
         <translation>Cortafuegos con puertos de reenvío</translation>
@@ -4562,10 +4529,6 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
         <translation>Límites</translation>
     </message>
     <message>
-        <source>Enable total speed limit</source>
-        <translation type="obsolete">Habilitar limite de velocidad total</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="547"/>
         <source>Alternate speed limit at time from </source>
         <translation>Alternar limite de velocidad por horas </translation>
@@ -4573,7 +4536,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="689"/>
         <source>Slots</source>
-        <translation type="unfinished"></translation>
+        <translation>Slots</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="722"/>
@@ -4655,7 +4618,7 @@ El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="439"/>
         <source>Enable Throttle</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitar limites</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="486"/>
@@ -4867,16 +4830,6 @@ la fuente será abandonada (por defecto: 1024 B/s)</translation>
 started before a source can be dropped. (default: 15 s)</source>
         <translation>Cantidad de tiempo (en segundos) que tiene que pasar desde que la descarga
 comenzó antes de abandonar la fuente (por defecto: 15 s)</translation>
-    </message>
-    <message>
-        <source>This is the maximal time since the last chunk of data for
-the file was recieved. It is meant to improve speed measurement
-accuracy and to prevent dropping sources that are going to be
-disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="obsolete">Esto es el tiempo máximo desde que el ultimo trozo de archivo ha sido recibido.
-Tiene el propósito de mejorar la exactitud de la medición de la velocidad
-para evitar el abandono de la fuentes que van a ser
-desconectada sólo por su inactividad actual. (por defecto: 10 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="483"/>
@@ -5256,7 +5209,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="331"/>
         <source>Filter kick-messages from the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrar mensajes de Pateo desde el chat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="338"/>
@@ -5370,7 +5323,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="643"/>
         <source>Show country of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar pais de los usuarios en el chat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="664"/>
@@ -5402,7 +5355,8 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="750"/>
         <source>Highlighting of already shared files</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Destacar archivos ya compartidos</translatorcomment>
+        <translation>Destacar si </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="813"/>
@@ -5708,7 +5662,7 @@ se puede cambiar en las propiedades de los Hubs favoritos.</translation>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="90"/>
         <source>Auto away interval (min)</source>
-        <translation type="unfinished"></translation>
+        <translation>Intervalo de Auto-Ausente (min)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="151"/>
@@ -6011,10 +5965,6 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
         <translation>Velocidad máx. de Hasheo (MB/s) (0 = sin limite)</translation>
     </message>
     <message>
-        <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation type="obsolete">Abrir automáticamente Slot si la velocidad está por debajo de (KiB/s, 0 = sin limite)</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="536"/>
         <source>Upload slots</source>
         <translation>Slots de subida</translation>
@@ -6202,14 +6152,6 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
 </context>
 <context>
     <name>UPnPMapper</name>
-    <message>
-        <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation type="obsolete">Falló al coger IP externa via UPnP. Por favor, Establézcala usted mismo.</translation>
-    </message>
-    <message>
-        <source>Failed to create port mappings. Please set up your NAT yourself.</source>
-        <translation type="obsolete">Falló al crear el mapa de puertos. Por favor  configure su NAT.</translation>
-    </message>
 </context>
 <context>
     <name>UserListModel</name>
