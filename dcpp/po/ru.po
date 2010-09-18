@@ -13,8 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -95,16 +95,16 @@ msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
-"Обнаружена локальная сеть с возможным использованием NAT, "
-"делаю попытку пробросить порты, используя UPnP..."
+"Обнаружена локальная сеть с возможным использованием NAT, делаю попытку "
+"пробросить порты, используя UPnP..."
 
 #: ../ConnectivityManager.cpp:102
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
 msgstr ""
-"Автоматическая установка активного режима провалилась. Вы можете "
-"попробовать установить свое подключение вручную для лучшей связи"
+"Автоматическая установка активного режима провалилась. Вы можете попробовать "
+"установить свое подключение вручную для лучшей связи"
 
 #: ../ConnectivityManager.cpp:112
 msgid "TCP/TLS"
@@ -304,8 +304,8 @@ msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
 msgstr ""
-"Успешно выполнен проброс портов (TCP: %1%, UDP: %2%, TLS: %3%), "
-"используется интерфейс %4%"
+"Успешно выполнен проброс портов (TCP: %1%, UDP: %2%, TLS: %3%), используется "
+"интерфейс %4%"
 
 #: ../UPnPManager.cpp:102
 msgid "Failed to get external IP"

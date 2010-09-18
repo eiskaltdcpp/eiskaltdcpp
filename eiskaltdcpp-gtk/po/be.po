@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-18 15:22+0300\n"
+"POT-Creation-Date: 2010-09-19 00:43+0300\n"
 "PO-Revision-Date: 2010-08-17 18:49+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -415,7 +415,7 @@ msgstr "Мовіць ад трэцяе асобы"
 
 #: ../src/hub.cc:1744 ../src/settingsdialog.cc:984
 #: ../src/settingsdialog.cc:1030 ../src/settingsdialog.cc:1150
-#: ../src/settingsmanager.cc:209
+#: ../src/settingsmanager.cc:215
 msgid "Private message"
 msgstr "Асабістае паведамленьне"
 
@@ -468,20 +468,6 @@ msgstr "Дадаць назоўку A для “uname -a”"
 #: ../src/hub.cc:1758
 msgid "Alias A executing"
 msgstr "Выконваецца назоўка A"
-
-#: ../src/hub.cc:1802
-#, fuzzy
-msgid "sh"
-msgstr "с"
-
-#: ../src/hub.cc:1819
-msgid "lua"
-msgstr ""
-
-#: ../src/hub.cc:1822
-#, fuzzy
-msgid "luafile"
-msgstr " файлаў"
 
 #: ../src/hub.cc:1847
 #, fuzzy
@@ -821,7 +807,7 @@ msgid "Waiting to retry"
 msgstr "Чакаем паспрабаваць зноўку"
 
 #: ../src/transfers.cc:1073 ../src/settingsdialog.cc:981
-#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:205
+#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:211
 msgid "Download finished"
 msgstr "Скончылі сьцягваць"
 
@@ -1075,7 +1061,7 @@ msgid "Sounds"
 msgstr "Гукі"
 
 #: ../src/settingsdialog.cc:982 ../src/settingsdialog.cc:1146
-#: ../src/settingsmanager.cc:207
+#: ../src/settingsmanager.cc:213
 msgid "Download finished file list"
 msgstr ""
 
@@ -1084,23 +1070,23 @@ msgid "Upload finished"
 msgstr "Скончылі зацягваць"
 
 #: ../src/settingsdialog.cc:985 ../src/settingsdialog.cc:1154
-#: ../src/settingsmanager.cc:213
+#: ../src/settingsmanager.cc:219
 msgid "Hub connected"
 msgstr "Злучыліся з асяродкам"
 
 #: ../src/settingsdialog.cc:986 ../src/settingsdialog.cc:1158
-#: ../src/settingsmanager.cc:211
+#: ../src/settingsmanager.cc:217
 msgid "Hub disconnected"
 msgstr "Асяродак адлучаны"
 
 #: ../src/settingsdialog.cc:987 ../src/settingsdialog.cc:1162
-#: ../src/settingsmanager.cc:215
+#: ../src/settingsmanager.cc:221
 #, fuzzy
 msgid "Favorite user joined"
 msgstr "Дадалі ўлюбёнца"
 
 #: ../src/settingsdialog.cc:988 ../src/settingsdialog.cc:1166
-#: ../src/settingsmanager.cc:217
+#: ../src/settingsmanager.cc:223
 #, fuzzy
 msgid "Favorite user quit"
 msgstr "Улюбёнец далучыўся або адлучыўся"
@@ -3665,6 +3651,14 @@ msgstr ""
 #, fuzzy
 msgid "_Remove from favorites"
 msgstr "Выкрасьліць карыстальніка з улюбёнцаў"
+
+#, fuzzy
+#~ msgid "sh"
+#~ msgstr "с"
+
+#, fuzzy
+#~ msgid "luafile"
+#~ msgstr " файлаў"
 
 #~ msgid "Hub: "
 #~ msgstr "Асяродак:"

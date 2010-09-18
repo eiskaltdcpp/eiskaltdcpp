@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-18 15:22+0300\n"
+"POT-Creation-Date: 2010-09-19 00:43+0300\n"
 "PO-Revision-Date: 2010-09-18 20:38+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
@@ -411,7 +411,7 @@ msgstr "Hablar en 3º persona"
 
 #: ../src/hub.cc:1744 ../src/settingsdialog.cc:984
 #: ../src/settingsdialog.cc:1030 ../src/settingsdialog.cc:1150
-#: ../src/settingsmanager.cc:209
+#: ../src/settingsmanager.cc:215
 msgid "Private message"
 msgstr "Mensaje Privado"
 
@@ -462,18 +462,6 @@ msgstr "Añadir Alias  uname -a  como A"
 #: ../src/hub.cc:1758
 msgid "Alias A executing"
 msgstr "Ejecutando Alias A"
-
-#: ../src/hub.cc:1802
-msgid "sh"
-msgstr "sh"
-
-#: ../src/hub.cc:1819
-msgid "lua"
-msgstr "lua"
-
-#: ../src/hub.cc:1822
-msgid "luafile"
-msgstr "luafile"
 
 #: ../src/hub.cc:1847
 msgid "Aliases not found."
@@ -790,7 +778,7 @@ msgid "Waiting to retry"
 msgstr "Esperando reintento"
 
 #: ../src/transfers.cc:1073 ../src/settingsdialog.cc:981
-#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:205
+#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:211
 msgid "Download finished"
 msgstr "Descarga finalizada"
 
@@ -1041,7 +1029,7 @@ msgid "Sounds"
 msgstr "Sonidos"
 
 #: ../src/settingsdialog.cc:982 ../src/settingsdialog.cc:1146
-#: ../src/settingsmanager.cc:207
+#: ../src/settingsmanager.cc:213
 msgid "Download finished file list"
 msgstr "Descarga de la lista de archivos finalizada"
 
@@ -1050,22 +1038,22 @@ msgid "Upload finished"
 msgstr "Subida finalizada"
 
 #: ../src/settingsdialog.cc:985 ../src/settingsdialog.cc:1154
-#: ../src/settingsmanager.cc:213
+#: ../src/settingsmanager.cc:219
 msgid "Hub connected"
 msgstr "Hub conectado"
 
 #: ../src/settingsdialog.cc:986 ../src/settingsdialog.cc:1158
-#: ../src/settingsmanager.cc:211
+#: ../src/settingsmanager.cc:217
 msgid "Hub disconnected"
 msgstr "Hub desconectado"
 
 #: ../src/settingsdialog.cc:987 ../src/settingsdialog.cc:1162
-#: ../src/settingsmanager.cc:215
+#: ../src/settingsmanager.cc:221
 msgid "Favorite user joined"
 msgstr "Se ha unido usuario favorito"
 
 #: ../src/settingsdialog.cc:988 ../src/settingsdialog.cc:1166
-#: ../src/settingsmanager.cc:217
+#: ../src/settingsmanager.cc:223
 msgid "Favorite user quit"
 msgstr "Usuario favorito se ha ido"
 
@@ -1512,10 +1500,8 @@ msgid ""
 "that port."
 msgstr ""
 "No se puede habilitar e puerto %1%. La búsqueda y la transferencia de "
-"archivos "
-"funcionarán incorrectamente hasta que cambie las opciones o apague la "
-"aplicación "
-"que esté usando dicho puerto."
+"archivos funcionarán incorrectamente hasta que cambie las opciones o apague "
+"la aplicación que esté usando dicho puerto."
 
 #: ../src/mainwindow.cc:1849
 msgid "Connectivity Manager: Warning"
@@ -3602,6 +3588,15 @@ msgstr "_Enviar mensaje publico"
 #: ../glade/hub.glade:216
 msgid "_Remove from favorites"
 msgstr "_Eliminar desde favoritos"
+
+#~ msgid "sh"
+#~ msgstr "sh"
+
+#~ msgid "lua"
+#~ msgstr "lua"
+
+#~ msgid "luafile"
+#~ msgstr "luafile"
 
 #~ msgid "Hub: "
 #~ msgstr "Hub:"

@@ -103,8 +103,7 @@ msgid ""
 "UPnP..."
 msgstr ""
 "Detectado posible red local con NAT, probando los puertos con el mapa, "
-"usando "
-"UPnP..."
+"usando UPnP..."
 
 #: ../ConnectivityManager.cpp:102
 msgid ""
@@ -112,8 +111,7 @@ msgid ""
 "connection manually for better connectivity"
 msgstr ""
 "La configuración automática para el modo activo a fallado. Necesita "
-"configurar "
-"su conexión manualmente para una mejor conectividad"
+"configurar su conexión manualmente para una mejor conectividad"
 
 #: ../ConnectivityManager.cpp:112
 msgid "TCP/TLS"
@@ -316,8 +314,7 @@ msgid ""
 "using the %4% interface"
 msgstr ""
 "Creado mapa de puertos satisfactoriamente (TCP: %1%, UDP: %2%, TLS: %3%), el "
-"mapeo "
-"ha sido usado en la interface %4%"
+"mapeo ha sido usado en la interface %4%"
 
 #: ../UPnPManager.cpp:102
 msgid "Failed to get external IP"

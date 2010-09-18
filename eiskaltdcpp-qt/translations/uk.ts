@@ -995,7 +995,7 @@ Favorite user</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2066"/>
+        <location filename="../src/HubFrame.cpp" line="2073"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Користувачів: %1 | Загальна шара: %2</translation>
     </message>
@@ -1146,7 +1146,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1998"/>
-        <location filename="../src/HubFrame.cpp" line="3049"/>
+        <location filename="../src/HubFrame.cpp" line="3058"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Отримано запит перенаправлення до вже підключеного хабу</translation>
     </message>
@@ -1377,37 +1377,42 @@ Favorite user</source>
         <translation>не розшарено</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2887"/>
+        <location filename="../src/HubFrame.cpp" line="2896"/>
         <source>Suggestions</source>
         <translation>Варіанти</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2881"/>
+        <location filename="../src/HubFrame.cpp" line="2890"/>
         <source>Add to dictionary</source>
         <translation>Додати до словника</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2993"/>
+        <location filename="../src/HubFrame.cpp" line="2067"/>
+        <source>Users count: %3/%1 | Total share: %2</source>
+        <translation type="unfinished">Користувачів: %1 | Загальна шара: %2 {3/%1 ?}</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3002"/>
         <source>Connecting to %1</source>
         <translation>Connecting to %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3002"/>
+        <location filename="../src/HubFrame.cpp" line="3011"/>
         <source>Connected to %1</source>
         <translation>З&apos;єднано з %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3065"/>
+        <location filename="../src/HubFrame.cpp" line="3074"/>
         <source>Fail: %1...</source>
         <translation>Помилка: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3264"/>
+        <location filename="../src/HubFrame.cpp" line="3273"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Вибачте, але нік &quot;%1&quot; використовується іншим користувачем.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3274"/>
+        <location filename="../src/HubFrame.cpp" line="3283"/>
         <source>Search flood detected: %1</source>
         <translation>Пошуковий флуд виявлено: %1</translation>
     </message>
@@ -3287,97 +3292,97 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
 <context>
     <name>ShareBrowser</name>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="165"/>
+        <location filename="../src/ShareBrowser.cpp" line="166"/>
         <source>Own files</source>
         <translation>Свої файли</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="167"/>
+        <location filename="../src/ShareBrowser.cpp" line="168"/>
         <source>Listing: </source>
         <translation>Перелік файлів:</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="234"/>
+        <location filename="../src/ShareBrowser.cpp" line="235"/>
         <source>Filebrowser</source>
         <translation>Оглядач файлів</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="236"/>
+        <location filename="../src/ShareBrowser.cpp" line="237"/>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="351"/>
-        <location filename="../src/ShareBrowser.cpp" line="359"/>
+        <location filename="../src/ShareBrowser.cpp" line="352"/>
+        <location filename="../src/ShareBrowser.cpp" line="360"/>
         <source>Name</source>
         <translation>Ім&apos;я</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="351"/>
-        <location filename="../src/ShareBrowser.cpp" line="359"/>
+        <location filename="../src/ShareBrowser.cpp" line="352"/>
+        <location filename="../src/ShareBrowser.cpp" line="360"/>
         <source>Size</source>
         <translation>Розмір</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="352"/>
-        <location filename="../src/ShareBrowser.cpp" line="360"/>
+        <location filename="../src/ShareBrowser.cpp" line="353"/>
+        <location filename="../src/ShareBrowser.cpp" line="361"/>
         <source>Exact size</source>
         <translation>Точний розмір</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="353"/>
-        <location filename="../src/ShareBrowser.cpp" line="361"/>
+        <location filename="../src/ShareBrowser.cpp" line="354"/>
+        <location filename="../src/ShareBrowser.cpp" line="362"/>
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="232"/>
+        <location filename="../src/ShareBrowser.cpp" line="233"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Загальний розмір шари: %1; файлів: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="59"/>
+        <location filename="../src/ShareBrowser.cpp" line="60"/>
         <source>Add to favorites</source>
         <translation>Додати до обраних</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="119"/>
+        <location filename="../src/ShareBrowser.cpp" line="120"/>
         <source>Browse</source>
         <translation>Вибрати теку</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="517"/>
-        <location filename="../src/ShareBrowser.cpp" line="530"/>
+        <location filename="../src/ShareBrowser.cpp" line="518"/>
+        <location filename="../src/ShareBrowser.cpp" line="531"/>
         <source>Total size: %1</source>
         <translation>Загальний розмір: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="533"/>
+        <location filename="../src/ShareBrowser.cpp" line="534"/>
         <source>; Selected: %1</source>
         <translation>; Виділено: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="604"/>
+        <location filename="../src/ShareBrowser.cpp" line="644"/>
         <source>Select directory</source>
         <translation>Вкажіть теку</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="49"/>
+        <location filename="../src/ShareBrowser.cpp" line="50"/>
         <source>Download</source>
         <translation>Завантажити</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="51"/>
+        <location filename="../src/ShareBrowser.cpp" line="52"/>
         <source>Download to</source>
         <translation>Завантажити до</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="54"/>
+        <location filename="../src/ShareBrowser.cpp" line="55"/>
         <source>Search for alternates</source>
         <translation>Пошук альтернатив</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="56"/>
+        <location filename="../src/ShareBrowser.cpp" line="57"/>
         <source>Copy magnet</source>
         <translation>Копіювати магнет-посилання</translation>
     </message>

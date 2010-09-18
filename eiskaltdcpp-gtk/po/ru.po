@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-18 15:22+0300\n"
+"POT-Creation-Date: 2010-09-19 00:43+0300\n"
 "PO-Revision-Date: 2010-09-18 15:31+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:951
 #: ../src/settingsdialog.cc:1312 ../glade/mainwindow.glade:277
@@ -409,7 +409,7 @@ msgstr "Сказать от третьего лица"
 
 #: ../src/hub.cc:1744 ../src/settingsdialog.cc:984
 #: ../src/settingsdialog.cc:1030 ../src/settingsdialog.cc:1150
-#: ../src/settingsmanager.cc:209
+#: ../src/settingsmanager.cc:215
 msgid "Private message"
 msgstr "Личное сообщение"
 
@@ -460,18 +460,6 @@ msgstr "Добавить псевдоним A для 'uname -a'"
 #: ../src/hub.cc:1758
 msgid "Alias A executing"
 msgstr "Выполнить псевдоним A"
-
-#: ../src/hub.cc:1802
-msgid "sh"
-msgstr "sh"
-
-#: ../src/hub.cc:1819
-msgid "lua"
-msgstr "lua"
-
-#: ../src/hub.cc:1822
-msgid "luafile"
-msgstr "luafile"
 
 #: ../src/hub.cc:1847
 msgid "Aliases not found."
@@ -788,7 +776,7 @@ msgid "Waiting to retry"
 msgstr "Ожидание повтора"
 
 #: ../src/transfers.cc:1073 ../src/settingsdialog.cc:981
-#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:205
+#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:211
 msgid "Download finished"
 msgstr "Закачка окончена"
 
@@ -1034,7 +1022,7 @@ msgid "Sounds"
 msgstr "Звуки"
 
 #: ../src/settingsdialog.cc:982 ../src/settingsdialog.cc:1146
-#: ../src/settingsmanager.cc:207
+#: ../src/settingsmanager.cc:213
 msgid "Download finished file list"
 msgstr "Закачен список файлов"
 
@@ -1043,22 +1031,22 @@ msgid "Upload finished"
 msgstr "Отдача окончена"
 
 #: ../src/settingsdialog.cc:985 ../src/settingsdialog.cc:1154
-#: ../src/settingsmanager.cc:213
+#: ../src/settingsmanager.cc:219
 msgid "Hub connected"
 msgstr "Соединён с хабом"
 
 #: ../src/settingsdialog.cc:986 ../src/settingsdialog.cc:1158
-#: ../src/settingsmanager.cc:211
+#: ../src/settingsmanager.cc:217
 msgid "Hub disconnected"
 msgstr "Разъединён с хабом"
 
 #: ../src/settingsdialog.cc:987 ../src/settingsdialog.cc:1162
-#: ../src/settingsmanager.cc:215
+#: ../src/settingsmanager.cc:221
 msgid "Favorite user joined"
 msgstr "Фаворит вошел"
 
 #: ../src/settingsdialog.cc:988 ../src/settingsdialog.cc:1166
-#: ../src/settingsmanager.cc:217
+#: ../src/settingsmanager.cc:223
 msgid "Favorite user quit"
 msgstr "Фаворит вышел"
 
@@ -1503,10 +1491,8 @@ msgid ""
 "that port."
 msgstr ""
 "Невозможно открыть порт %1%. Поиск и обмен файлами не будут работать "
-"корректно "
-"пока вы не измените настройки или другое приложение не перестанет "
-"использовать "
-"этот порт."
+"корректно пока вы не измените настройки или другое приложение не перестанет "
+"использовать этот порт."
 
 #: ../src/mainwindow.cc:1849
 msgid "Connectivity Manager: Warning"
@@ -3591,6 +3577,15 @@ msgstr "_Отправить сообщение"
 #: ../glade/hub.glade:216
 msgid "_Remove from favorites"
 msgstr "_Удалить фаворита"
+
+#~ msgid "sh"
+#~ msgstr "sh"
+
+#~ msgid "lua"
+#~ msgstr "lua"
+
+#~ msgid "luafile"
+#~ msgstr "luafile"
 
 #~ msgid "Hub: "
 #~ msgstr "Хаб: "

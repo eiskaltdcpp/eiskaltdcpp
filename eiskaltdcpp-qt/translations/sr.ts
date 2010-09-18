@@ -1070,6 +1070,10 @@ Omiljeni korisnik</translation>
 </source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Users count: %3/%1 | Total share: %2</source>
+        <translation type="unfinished">Broj korisnika: %1 | Ukupno deljeno: %2 {3/%1 ?}</translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>

@@ -1137,6 +1137,10 @@ Utilisateur favoris</translation>
 </source>
         <translation>/lua &lt;chunk&gt; - execute Lua chunk</translation>
     </message>
+    <message>
+        <source>Users count: %3/%1 | Total share: %2</source>
+        <translation type="unfinished">Nombre d&apos;utilisateurs: %1 | Partage total: %2 {3/%1 ?}</translation>
+    </message>
 </context>
 <context>
     <name>HubFrame::Menu</name>

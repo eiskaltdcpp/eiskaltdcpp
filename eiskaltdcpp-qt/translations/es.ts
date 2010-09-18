@@ -1041,37 +1041,37 @@ Opciones:
         <translation>no compartido</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2887"/>
+        <location filename="../src/HubFrame.cpp" line="2896"/>
         <source>Suggestions</source>
         <translation>Sugerencias</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2881"/>
+        <location filename="../src/HubFrame.cpp" line="2890"/>
         <source>Add to dictionary</source>
         <translation>Añadir al diccionario</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2993"/>
+        <location filename="../src/HubFrame.cpp" line="3002"/>
         <source>Connecting to %1</source>
         <translation>Conectando con %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3002"/>
+        <location filename="../src/HubFrame.cpp" line="3011"/>
         <source>Connected to %1</source>
         <translation>Conectado a %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3065"/>
+        <location filename="../src/HubFrame.cpp" line="3074"/>
         <source>Fail: %1...</source>
         <translation>Fallo: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3264"/>
+        <location filename="../src/HubFrame.cpp" line="3273"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Lo siento, pero tu nick &quot;%1&quot; está siendo usado por otro usuario.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3274"/>
+        <location filename="../src/HubFrame.cpp" line="3283"/>
         <source>Search flood detected: %1</source>
         <translation>Flood de búsqueda detectado: %1</translation>
     </message>
@@ -1296,12 +1296,17 @@ Usuario favorito</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1998"/>
-        <location filename="../src/HubFrame.cpp" line="3049"/>
+        <location filename="../src/HubFrame.cpp" line="3058"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>La petición de re-dirección recibió un Hub al que ya está conectado</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2066"/>
+        <location filename="../src/HubFrame.cpp" line="2067"/>
+        <source>Users count: %3/%1 | Total share: %2</source>
+        <translation type="unfinished">Cantidad de usuarios: %1 | Total compartido: %2 {3/%1 ?}</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="2073"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Cantidad de usuarios: %1 | Total compartido: %2</translation>
     </message>
@@ -3049,97 +3054,97 @@ Descargas: %3 Subidas: %4</translation>
 <context>
     <name>ShareBrowser</name>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="49"/>
+        <location filename="../src/ShareBrowser.cpp" line="50"/>
         <source>Download</source>
         <translation>Descarga</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="51"/>
+        <location filename="../src/ShareBrowser.cpp" line="52"/>
         <source>Download to</source>
         <translation>Descargar en</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="54"/>
+        <location filename="../src/ShareBrowser.cpp" line="55"/>
         <source>Search for alternates</source>
         <translation>Búsqueda de suplentes</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="56"/>
+        <location filename="../src/ShareBrowser.cpp" line="57"/>
         <source>Copy magnet</source>
         <translation>Copiar Imán</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="59"/>
+        <location filename="../src/ShareBrowser.cpp" line="60"/>
         <source>Add to favorites</source>
         <translation>Añadir a favoritos</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="119"/>
+        <location filename="../src/ShareBrowser.cpp" line="120"/>
         <source>Browse</source>
         <translation>Explorar</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="165"/>
+        <location filename="../src/ShareBrowser.cpp" line="166"/>
         <source>Own files</source>
         <translation>Archivos propios</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="167"/>
+        <location filename="../src/ShareBrowser.cpp" line="168"/>
         <source>Listing: </source>
         <translation>Listado:</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="232"/>
+        <location filename="../src/ShareBrowser.cpp" line="233"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Cantidad total compartida: %1;  Archivos: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="234"/>
+        <location filename="../src/ShareBrowser.cpp" line="235"/>
         <source>Filebrowser</source>
         <translation>Explorador de Archivos</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="236"/>
+        <location filename="../src/ShareBrowser.cpp" line="237"/>
         <source>Close</source>
         <translation>Cerrar</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="351"/>
-        <location filename="../src/ShareBrowser.cpp" line="359"/>
+        <location filename="../src/ShareBrowser.cpp" line="352"/>
+        <location filename="../src/ShareBrowser.cpp" line="360"/>
         <source>Name</source>
         <translation>Nombre</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="351"/>
-        <location filename="../src/ShareBrowser.cpp" line="359"/>
+        <location filename="../src/ShareBrowser.cpp" line="352"/>
+        <location filename="../src/ShareBrowser.cpp" line="360"/>
         <source>Size</source>
         <translation>Tamaño</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="352"/>
-        <location filename="../src/ShareBrowser.cpp" line="360"/>
+        <location filename="../src/ShareBrowser.cpp" line="353"/>
+        <location filename="../src/ShareBrowser.cpp" line="361"/>
         <source>Exact size</source>
         <translation>Tamaño exacto</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="353"/>
-        <location filename="../src/ShareBrowser.cpp" line="361"/>
+        <location filename="../src/ShareBrowser.cpp" line="354"/>
+        <location filename="../src/ShareBrowser.cpp" line="362"/>
         <source>TTH</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="517"/>
-        <location filename="../src/ShareBrowser.cpp" line="530"/>
+        <location filename="../src/ShareBrowser.cpp" line="518"/>
+        <location filename="../src/ShareBrowser.cpp" line="531"/>
         <source>Total size: %1</source>
         <translation>Tamaño total: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="533"/>
+        <location filename="../src/ShareBrowser.cpp" line="534"/>
         <source>; Selected: %1</source>
         <translation>; Seleccionados: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="604"/>
+        <location filename="../src/ShareBrowser.cpp" line="644"/>
         <source>Select directory</source>
         <translation>Seleccionar directorio</translation>
     </message>

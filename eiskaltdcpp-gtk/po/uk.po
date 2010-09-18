@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-18 15:22+0300\n"
+"POT-Creation-Date: 2010-09-19 00:43+0300\n"
 "PO-Revision-Date: 2010-08-28 16:41+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -410,7 +410,7 @@ msgstr "Сказати від третьої особи"
 
 #: ../src/hub.cc:1744 ../src/settingsdialog.cc:984
 #: ../src/settingsdialog.cc:1030 ../src/settingsdialog.cc:1150
-#: ../src/settingsmanager.cc:209
+#: ../src/settingsmanager.cc:215
 msgid "Private message"
 msgstr "Приватне повідомлення"
 
@@ -461,18 +461,6 @@ msgstr ""
 #: ../src/hub.cc:1758
 msgid "Alias A executing"
 msgstr ""
-
-#: ../src/hub.cc:1802
-msgid "sh"
-msgstr "sh"
-
-#: ../src/hub.cc:1819
-msgid "lua"
-msgstr ""
-
-#: ../src/hub.cc:1822
-msgid "luafile"
-msgstr "lua-файл"
 
 #: ../src/hub.cc:1847
 msgid "Aliases not found."
@@ -792,7 +780,7 @@ msgid "Waiting to retry"
 msgstr ""
 
 #: ../src/transfers.cc:1073 ../src/settingsdialog.cc:981
-#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:205
+#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:211
 msgid "Download finished"
 msgstr ""
 
@@ -1036,7 +1024,7 @@ msgid "Sounds"
 msgstr ""
 
 #: ../src/settingsdialog.cc:982 ../src/settingsdialog.cc:1146
-#: ../src/settingsmanager.cc:207
+#: ../src/settingsmanager.cc:213
 msgid "Download finished file list"
 msgstr ""
 
@@ -1045,22 +1033,22 @@ msgid "Upload finished"
 msgstr ""
 
 #: ../src/settingsdialog.cc:985 ../src/settingsdialog.cc:1154
-#: ../src/settingsmanager.cc:213
+#: ../src/settingsmanager.cc:219
 msgid "Hub connected"
 msgstr ""
 
 #: ../src/settingsdialog.cc:986 ../src/settingsdialog.cc:1158
-#: ../src/settingsmanager.cc:211
+#: ../src/settingsmanager.cc:217
 msgid "Hub disconnected"
 msgstr ""
 
 #: ../src/settingsdialog.cc:987 ../src/settingsdialog.cc:1162
-#: ../src/settingsmanager.cc:215
+#: ../src/settingsmanager.cc:221
 msgid "Favorite user joined"
 msgstr ""
 
 #: ../src/settingsdialog.cc:988 ../src/settingsdialog.cc:1166
-#: ../src/settingsmanager.cc:217
+#: ../src/settingsmanager.cc:223
 msgid "Favorite user quit"
 msgstr ""
 
@@ -3528,6 +3516,12 @@ msgstr ""
 #, fuzzy
 msgid "_Remove from favorites"
 msgstr "Видалити користувача з обраних"
+
+#~ msgid "sh"
+#~ msgstr "sh"
+
+#~ msgid "luafile"
+#~ msgstr "lua-файл"
 
 #~ msgid "Hub: "
 #~ msgstr "Хаб: "

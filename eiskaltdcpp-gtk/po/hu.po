@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-18 15:22+0300\n"
+"POT-Creation-Date: 2010-09-19 00:43+0300\n"
 "PO-Revision-Date: 2010-09-06 13:44+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -411,7 +411,7 @@ msgstr "Beszéd harmadik személyben"
 
 #: ../src/hub.cc:1744 ../src/settingsdialog.cc:984
 #: ../src/settingsdialog.cc:1030 ../src/settingsdialog.cc:1150
-#: ../src/settingsmanager.cc:209
+#: ../src/settingsmanager.cc:215
 msgid "Private message"
 msgstr "Privát üzenet"
 
@@ -462,18 +462,6 @@ msgstr "\"uname -a\" álnév hozzáadása, mint A"
 #: ../src/hub.cc:1758
 msgid "Alias A executing"
 msgstr "A álnév futtatása"
-
-#: ../src/hub.cc:1802
-msgid "sh"
-msgstr "sh"
-
-#: ../src/hub.cc:1819
-msgid "lua"
-msgstr "lua"
-
-#: ../src/hub.cc:1822
-msgid "luafile"
-msgstr "luafájl"
 
 #: ../src/hub.cc:1847
 msgid "Aliases not found."
@@ -789,7 +777,7 @@ msgid "Waiting to retry"
 msgstr ""
 
 #: ../src/transfers.cc:1073 ../src/settingsdialog.cc:981
-#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:205
+#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:211
 msgid "Download finished"
 msgstr ""
 
@@ -1034,7 +1022,7 @@ msgid "Sounds"
 msgstr ""
 
 #: ../src/settingsdialog.cc:982 ../src/settingsdialog.cc:1146
-#: ../src/settingsmanager.cc:207
+#: ../src/settingsmanager.cc:213
 msgid "Download finished file list"
 msgstr ""
 
@@ -1043,22 +1031,22 @@ msgid "Upload finished"
 msgstr ""
 
 #: ../src/settingsdialog.cc:985 ../src/settingsdialog.cc:1154
-#: ../src/settingsmanager.cc:213
+#: ../src/settingsmanager.cc:219
 msgid "Hub connected"
 msgstr ""
 
 #: ../src/settingsdialog.cc:986 ../src/settingsdialog.cc:1158
-#: ../src/settingsmanager.cc:211
+#: ../src/settingsmanager.cc:217
 msgid "Hub disconnected"
 msgstr ""
 
 #: ../src/settingsdialog.cc:987 ../src/settingsdialog.cc:1162
-#: ../src/settingsmanager.cc:215
+#: ../src/settingsmanager.cc:221
 msgid "Favorite user joined"
 msgstr ""
 
 #: ../src/settingsdialog.cc:988 ../src/settingsdialog.cc:1166
-#: ../src/settingsmanager.cc:217
+#: ../src/settingsmanager.cc:223
 msgid "Favorite user quit"
 msgstr ""
 
@@ -3445,6 +3433,15 @@ msgstr "_Publikus üzenet küldése"
 #: ../glade/hub.glade:216
 msgid "_Remove from favorites"
 msgstr "_Eltávolítás a kedvencekből"
+
+#~ msgid "sh"
+#~ msgstr "sh"
+
+#~ msgid "lua"
+#~ msgstr "lua"
+
+#~ msgid "luafile"
+#~ msgstr "luafájl"
 
 #~ msgid "Hub: "
 #~ msgstr "Hub: "

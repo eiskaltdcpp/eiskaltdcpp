@@ -1195,6 +1195,10 @@ Kedvenc felhasználó</translation>
         <translation>/lua &lt;chunk&gt; - Lua kódrészlet futtatása
 </translation>
     </message>
+    <message>
+        <source>Users count: %3/%1 | Total share: %2</source>
+        <translation type="unfinished">Felhasználók száma: %1 | Összes megosztás: %2 {3/%1 ?}</translation>
+    </message>
 </context>
 <context>
     <name>IPFilter</name>
