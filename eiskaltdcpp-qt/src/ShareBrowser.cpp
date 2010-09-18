@@ -549,8 +549,9 @@ void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection&, const QItemSele
 
         changeRoot(item->dir);
 
+        treeView_RPANE->selectionModel()->select(list_model->index(0, 0, QModelIndex()), QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+
         label_PATH->setText(tree_model->createRemotePath(item));
-        treeView_LPANE->scrollTo(index, QAbstractItemView::PositionAtCenter);
     }
 }
 
