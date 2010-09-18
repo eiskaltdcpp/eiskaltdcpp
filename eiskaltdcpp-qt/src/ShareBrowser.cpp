@@ -23,6 +23,7 @@
 #include <QClipboard>
 #include <QHeaderView>
 #include <QKeyEvent>
+#include <QtConcurrentFilter>
 
 using namespace dcpp;
 
@@ -395,11 +396,14 @@ void ShareBrowser::goUp(QTreeView *view){
         return;
 
     QStringList paths = label_PATH->text().split("\\", QString::SkipEmptyParts);
+    QString old_dir = "";
 
     if (paths.empty())//is it possible?
         return;
-    else
+    else{
+        old_dir = paths.last();
         paths.removeLast();
+    }
 
     FileBrowserItem *tree_item = tree_model->createRootForPath(paths.join("\\"));
     QModelIndex tree_index = tree_model->createIndexForItem(tree_item);
@@ -535,7 +539,11 @@ void ShareBrowser::slotRightPaneSelChanged(const QItemSelection &, const QItemSe
     label_RIGHT->setText(status);
 }
 
-void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection&, const QItemSelection&){
+static bool onlyFirstColumn(const QModelIndex &index){
+    return (index.column() == 0);
+}
+
+void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection &sel, const QItemSelection &des){
     QItemSelectionModel *selection_model = treeView_LPANE->selectionModel();
     QModelIndexList selected  = selection_model->selectedRows(0);
 
@@ -549,9 +557,43 @@ void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection&, const QItemSele
 
         changeRoot(item->dir);
 
-        treeView_RPANE->selectionModel()->select(list_model->index(0, 0, QModelIndex()), QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
-
         label_PATH->setText(tree_model->createRemotePath(item));
+
+        QModelIndexList deselected_idx = des.indexes();
+        QFuture<QModelIndex> dsel_filter    = QtConcurrent::filtered(deselected_idx, onlyFirstColumn);
+
+        deselected_idx  = dsel_filter.results();
+
+        if (deselected_idx.size() != 1)
+            return;
+
+        QModelIndex old_index = deselected_idx.at(0);
+        bool switchedToParent = (old_index.parent() == index);
+
+        if (switchedToParent){
+            FileBrowserItem *old_item = static_cast<FileBrowserItem*>(old_index.internalPointer());
+            QString old_path = old_item->data(COLUMN_FILEBROWSER_NAME).toString();
+
+            FileBrowserItem *list_item = list_model->createRootForPath(old_path);
+
+            if (list_item){
+                QModelIndex i = list_model->index(list_item->row(), 0, QModelIndex());
+
+                if (i.isValid()){
+                    treeView_RPANE->selectionModel()->select(i, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+                    treeView_RPANE->selectionModel()->setCurrentIndex(i, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+                }
+            }
+        }
+        else {
+            QModelIndex i = list_model->index(0, 0, QModelIndex());
+
+            if (i.isValid()){
+                treeView_RPANE->selectionModel()->select(i, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+                treeView_RPANE->selectionModel()->setCurrentIndex(i, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+            }
+        }
+
     }
 }
 
