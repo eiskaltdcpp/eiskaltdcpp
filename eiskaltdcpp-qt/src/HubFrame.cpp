@@ -2063,9 +2063,18 @@ void HubFrame::slotActivate(){
 }
 
 void HubFrame::slotUsersUpdated(){
-    label_USERSTATE->setText(QString(tr("Users count: %1 | Total share: %2"))
-                             .arg(model->rowCount())
-                             .arg(WulforUtil::formatBytes(total_shared)));
+    if (treeView_USERS->model() == proxy){
+        label_USERSTATE->setText(QString(tr("Users count: %3/%1 | Total share: %2"))
+                                 .arg(model->rowCount())
+                                 .arg(WulforUtil::formatBytes(total_shared))
+                                 .arg(proxy->rowCount()));
+    }
+    else {
+        label_USERSTATE->setText(QString(tr("Users count: %1 | Total share: %2"))
+                                 .arg(model->rowCount())
+                                 .arg(WulforUtil::formatBytes(total_shared)));
+    }
+
     label_LAST_STATUS->setMaximumHeight(label_USERSTATE->height());
 }
 

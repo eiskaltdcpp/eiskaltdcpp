@@ -396,14 +396,11 @@ void ShareBrowser::goUp(QTreeView *view){
         return;
 
     QStringList paths = label_PATH->text().split("\\", QString::SkipEmptyParts);
-    QString old_dir = "";
 
     if (paths.empty())//is it possible?
         return;
-    else{
-        old_dir = paths.last();
+    else
         paths.removeLast();
-    }
 
     FileBrowserItem *tree_item = tree_model->createRootForPath(paths.join("\\"));
     QModelIndex tree_index = tree_model->createIndexForItem(tree_item);
