@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-09-18 15:22+0300\n"
-"PO-Revision-Date: 2010-09-04 03:16+0200\n"
+"PO-Revision-Date: 2010-09-18 20:24+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -349,7 +349,7 @@ msgstr "Modo Emoticonos Encendido"
 
 #: ../src/hub.cc:1723 ../src/hub.cc:1725
 msgid "project home: "
-msgstr ""
+msgstr "Home del proyecto: "
 
 #: ../src/hub.cc:1730 ../src/privatemessage.cc:930
 msgid "*** Available commands:"
@@ -1390,7 +1390,7 @@ msgstr "Directorio o nombre del favorito ya existe"
 
 #: ../src/settingsdialog.cc:2948
 msgid "[HIDDEN SHARE] "
-msgstr ""
+msgstr "[ESCONDER COMPARTIDOS] "
 
 #: ../src/settingsdialog.cc:2962
 msgid "Total size: "
@@ -1506,15 +1506,16 @@ msgid "Loading file list"
 msgstr "Cargando lista de archivos"
 
 #: ../src/mainwindow.cc:1847
-#, fuzzy
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
-"La transferencia de archivos no funcionará correctamente hasta que cambie la "
-"configuración o se cierren todas las aplicaciones que puedan estar "
-"utilizando el puerto TCP/TLS."
+"No se puede habilitar e puerto %1%. La búsqueda y la transferencia de "
+"archivos "
+"funcionarán incorrectamente hasta que cambie las opciones o apague la "
+"aplicación "
+"que esté usando dicho puerto."
 
 #: ../src/mainwindow.cc:1849
 msgid "Connectivity Manager: Warning"

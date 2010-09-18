@@ -1677,10 +1677,6 @@ Usuario favorito</translation>
         <translation>Libre %1 de %2</translation>
     </message>
     <message>
-        <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="obsolete">No se puede habilitar e puerto %1. La búsqueda y la transferencia de archivos funcionarán incorrectamente hasta que cambie las opciones o apaque la aplicación que esté usando dicho puerto.</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1788"/>
         <source>Connectivity Manager: Warning</source>
         <translation>Mánager de conexión: Atención</translation>
@@ -1973,7 +1969,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1787"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"></translation>
+        <translation>No se puede habilitar e puerto %1. La búsqueda y la transferencia de archivos funcionarán incorrectamente hasta que cambie las opciones o apague la aplicación que esté usando dicho puerto.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2244"/>
