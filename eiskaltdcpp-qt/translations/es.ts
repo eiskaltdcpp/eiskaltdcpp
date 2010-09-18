@@ -1677,9 +1677,8 @@ Usuario favorito</translation>
         <translation>Libre %1 de %2</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1787"/>
         <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation>No se puede habilitar e puerto %1. La búsqueda y la transferencia de archivos funcionarán incorrectamente hasta que cambie las opciones o apaque la aplicación que esté usando dicho puerto.</translation>
+        <translation type="obsolete">No se puede habilitar e puerto %1. La búsqueda y la transferencia de archivos funcionarán incorrectamente hasta que cambie las opciones o apaque la aplicación que esté usando dicho puerto.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1788"/>
@@ -1970,6 +1969,11 @@ Usuario favorito</translation>
         <location filename="../src/MainWindow.cpp" line="1742"/>
         <source>Menu</source>
         <translation>Menú</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1787"/>
+        <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2244"/>
@@ -6149,9 +6153,6 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
         <source>Result</source>
         <translation>Resultado</translation>
     </message>
-</context>
-<context>
-    <name>UPnPMapper</name>
 </context>
 <context>
     <name>UserListModel</name>

@@ -1999,9 +1999,8 @@ Favorite user</source>
         <translation>Меню</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1787"/>
         <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation>Невозможно открыть %1 порт. Поиск передач файлов не будет корректно работать, пока вы не измените настройки или выключите вероятно использующее этот порт приложение.</translation>
+        <translation type="obsolete">Невозможно открыть %1 порт. Поиск передач файлов не будет корректно работать, пока вы не измените настройки или выключите вероятно использующее этот порт приложение.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1788"/>
@@ -2241,6 +2240,11 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2202"/>
         <source>Show last status message</source>
         <translation>Показать последнее статусное сообщение</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1787"/>
+        <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
+        <translation>Невозможно открыть %1 порт. Поиск передач файлов не будет корректно работать, пока вы не измените настройки или выключите вероятно использующее этот порт приложение.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2312"/>

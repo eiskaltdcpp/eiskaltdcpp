@@ -1784,7 +1784,7 @@ void MainWindow::startSocket(bool onstart, int oldmode){
     ClientManager::getInstance()->infoUpdated();
 }
 void MainWindow::showPortsError(const string& port) {
-    QString msg = tr("Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.").arg(_q(port));
+    QString msg = tr("Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.").arg(_q(port));
     QMessageBox::warning(this, tr("Connectivity Manager: Warning"), msg, QMessageBox::Ok);
 }
 void MainWindow::showShareBrowser(dcpp::UserPtr usr, QString file, QString jump_to){

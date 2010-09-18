@@ -1726,11 +1726,11 @@ Molim proverite podešavanja vaše veze</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
+        <source>Connectivity Manager: Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Connectivity Manager: Warning</source>
+        <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

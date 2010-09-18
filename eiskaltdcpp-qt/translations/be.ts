@@ -1994,6 +1994,11 @@ Favorite user</source>
         <translation>Мэню</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="1787"/>
+        <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cannot listen socket because: 
 </source>
         <translation type="obsolete">Не магу праслухаць гняздо. Падставы: 
@@ -2253,11 +2258,6 @@ Please check your connection settings</source>
         <location filename="../src/MainWindow.cpp" line="1111"/>
         <source>Find/Filter</source>
         <translation>Шукаць/Прасеяць</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1787"/>
-        <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1788"/>
