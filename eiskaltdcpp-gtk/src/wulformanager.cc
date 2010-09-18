@@ -27,6 +27,7 @@
 #include <glib/gi18n.h>
 #include "hashdialog.hh"
 #include "settingsdialog.hh"
+#include "settingsmanager.hh"
 
 using namespace std;
 using namespace dcpp;
@@ -387,10 +388,10 @@ void WulforManager::onReceived_gui(const string link)
 {
 	dcassert(mainWin);
 
-	if (WulforUtil::isHubURL(link) && BOOLSETTING(URL_HANDLER))
+	if (WulforUtil::isHubURL(link) && WGETB("urlhandler"))
 		mainWin->showHub_gui(link);
 
-	else if (WulforUtil::isMagnet(link) && BOOLSETTING(MAGNET_REGISTER))
+	else if (WulforUtil::isMagnet(link) && WGETB("magnet-register"))
 		mainWin->actionMagnet_gui(link);
 }
 

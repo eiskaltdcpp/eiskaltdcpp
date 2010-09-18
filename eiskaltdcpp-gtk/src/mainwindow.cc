@@ -1815,12 +1815,12 @@ void MainWindow::autoConnect_client()
     typedef Func1<MainWindow, string> F1;
     F1 *func1;
 
-    if (WulforUtil::isHubURL(link) && BOOLSETTING(URL_HANDLER))
+    if (WulforUtil::isHubURL(link) && WGETB("urlhandler"))
     {
         func = new F2(this, &MainWindow::showHub_gui, link, "");
         WulforManager::get()->dispatchGuiFunc(func);
     }
-    else if (WulforUtil::isMagnet(link) && BOOLSETTING(MAGNET_REGISTER))
+    else if (WulforUtil::isMagnet(link) && WGETB("magnet-register"))
     {
         func1 = new F1(this, &MainWindow::actionMagnet_gui, link);
         WulforManager::get()->dispatchGuiFunc(func1);

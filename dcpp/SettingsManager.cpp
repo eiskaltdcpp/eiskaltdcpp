@@ -57,7 +57,7 @@ const string SettingsManager::settingTags[] =
     "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed",
     "LogMainChat", "LogPrivateChat", "LogDownloads", "LogUploads",
     "StatusInChat", "ShowJoins", "UseSystemIcons",
-    "MinUploadSpeed", "UrlHandler", "AutoAway",
+    "MinUploadSpeed", "AutoAway",
     "SocksPort", "SocksResolve", "KeepLists", "AutoKick",
     "CompressTransfers", "SFVCheck",
     "MaxCompression", "NoAwayMsgToBots", "SkipZeroByte", "AdlsBreakOnFirst",
@@ -66,10 +66,9 @@ const string SettingsManager::settingTags[] =
     "SendUnknownCommands", "MaxHashSpeed",
     "GetUserCountry", "FavShowJoins", "LogStatusMessages",
     "AllowUpdateFilelistsOnStartup",
-    "PopunderPm", "PopunderFilelist",
-    "MagnetAsk", "MagnetAction", "MagnetRegister", "SearchPassiveAlways",
+    "PopunderPm", "PopunderFilelist","SearchPassiveAlways",
     "AddFinishedInstantly", "DontDLAlreadyShared", "UseCTRLForLineHistory",
-    "OpenNewWindow", "UDPPort", "ShowLastLinesLog", "AdcDebug",
+    "UDPPort", "ShowLastLinesLog", "AdcDebug",
     "SearchHistory", "SetMinislotSize",
     "MaxFilelistSize", "HighestPrioSize", "HighPrioSize", "NormalPrioSize",
     "LowPrioSize", "LowestPrio", "AutoDropSpeed", "AutoDropInterval",
@@ -194,8 +193,6 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FILE_PRIVATE_CHAT, "PM/%B - %Y/%[userNI] (%[userCID]).log");
     setDefault(LOG_FILE_UPLOAD,       "Uploads.log");
     setDefault(LOG_FILE_DOWNLOAD,     "Downloads.log");
-    setDefault(LOG_FILE_SYSTEM,       "System.log");
-    setDefault(URL_HANDLER, false);
     setDefault(AUTO_AWAY, false);
     setDefault(BIND_ADDRESS, "0.0.0.0");
     setDefault(SOCKS_PORT, 1080);
@@ -222,13 +219,9 @@ SettingsManager::SettingsManager()
     setDefault(LOG_STATUS_MESSAGES, false);
     setDefault(POPUNDER_PM, false);
     setDefault(POPUNDER_FILELIST, false);
-    setDefault(MAGNET_REGISTER, true);
-    setDefault(MAGNET_ASK, true);
-    setDefault(MAGNET_ACTION, MAGNET_AUTO_SEARCH);
     setDefault(ADD_FINISHED_INSTANTLY, false);
     setDefault(DONT_DL_ALREADY_SHARED, false);
     setDefault(USE_CTRL_FOR_LINE_HISTORY, true);
-    setDefault(JOIN_OPEN_NEW_WINDOW, false);
     setDefault(SHOW_LAST_LINES_LOG, 0);
     setDefault(ADC_DEBUG, false);
     setDefault(SEARCH_HISTORY, 10);

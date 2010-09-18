@@ -130,6 +130,12 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("bold-search-spy", 0));
     defaultInt.insert(IntMap::value_type("bold-finished-uploads", 0));
     defaultInt.insert(IntMap::value_type("bold-finished-downloads", 0));
+    defaultInt.insert(IntMap::value_type("magnet-ask", 1));
+    defaultInt.insert(IntMap::value_type("magnet-action", 0));
+    defaultInt.insert(IntMap::value_type("magnet-register", 0));
+    defaultInt.insert(IntMap::value_type("urlhandler", 0));
+    defaultInt.insert(IntMap::value_type("join-open-new-window", 0));
+
     defaultString.insert(StringMap::value_type("magnet-choose-dir", SETTING(DOWNLOAD_DIRECTORY)));
     defaultString.insert(StringMap::value_type("downloadqueue-order", ""));
     defaultString.insert(StringMap::value_type("downloadqueue-width", ""));

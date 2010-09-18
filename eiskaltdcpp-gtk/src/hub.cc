@@ -1760,7 +1760,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "join" && !param.empty())
         {
-            if (BOOLSETTING(JOIN_OPEN_NEW_WINDOW))
+            if (WGETB("join-open-new-window"))
             {
                 // Assumption: new hub is same encoding as current hub.
                 WulforManager::get()->getMainWindow()->showHub_gui(param, hub->encoding);
@@ -1799,7 +1799,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             else
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), TRUE);
         }
-        else if (command == _("sh"))
+        else if (command == "sh")
         {
                         FILE *pipe = popen( param.c_str(), "r" );
                         gchar *command_res;
@@ -1816,10 +1816,10 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         pclose( pipe );
         }
 #ifdef LUA_SCRIPT
-        else if (command == _("lua") ) {
+        else if (command == "lua" ) {
             ScriptManager::getInstance()->EvaluateChunk(Text::fromT(param));
         }
-        else if( command == _("luafile")) {
+        else if( command == "luafile") {
             ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
         }
 #endif
