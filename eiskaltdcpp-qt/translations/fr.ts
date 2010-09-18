@@ -5,7 +5,7 @@
     <name>ADLS</name>
     <message>
         <source>ADLSearch</source>
-        <translation>ADLSearch</translation>
+        <translation type="unfinished">ADLSearch</translation>
     </message>
     <message>
         <source>Add new</source>
@@ -21,31 +21,31 @@
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Nom de fichier</translation>
+        <translation>Nom de fichier</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Répertoire</translation>
+        <translation>Répertoire</translation>
     </message>
     <message>
         <source>Full Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Chemin complet</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
 </context>
 <context>
@@ -126,19 +126,19 @@ Raccourcis:
     </message>
     <message>
         <source>Checking user %1 (message: %2, cid: %3)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérification utilisateur %1 (message: %2, cid: %3)...</translation>
     </message>
     <message>
         <source>%1: Moving user to GRAY.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Marquage de l&apos;utilisateur en GRIS.</translation>
     </message>
     <message>
         <source>%1: Moving user to BLACK.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Marquage de l&apos;utilisateur en NOIR.</translation>
     </message>
     <message>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Envoi message &quot;Try again&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1045,7 +1045,7 @@ Utilisateur favoris</translation>
     <message>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
-        <translation type="unfinished">/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND</translation>
+        <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND</translation>
     </message>
     <message>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
@@ -1135,7 +1135,7 @@ Utilisateur favoris</translation>
     <message>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished">/lua &lt;chunk&gt; - execute Lua chunk</translation>
+        <translation>/lua &lt;chunk&gt; - execute Lua chunk</translation>
     </message>
 </context>
 <context>
@@ -1897,12 +1897,12 @@ Please check your connection settings</source>
         <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
     <message>
-        <source>Connectivity Manager: Warning</source>
-        <translation type="unfinished"></translation>
+        <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
+        <translation>Impossible d&apos;ouvrir le port %1%. Les recherches ou transferts de fichiers ne fonctionneront pas correctement tant que vous ne changerez pas de port ou fermerez toute application susceptible d&apos;utiliser ce port.</translation>
     </message>
     <message>
-        <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"></translation>
+        <source>Connectivity Manager: Warning</source>
+        <translation>Gestionnaire de connexion: Alerte</translation>
     </message>
 </context>
 <context>
@@ -2898,7 +2898,7 @@ Clés:
     </message>
     <message>
         <source>Other Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Autres Widgets</translation>
     </message>
 </context>
 <context>
@@ -3437,7 +3437,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Filter Operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrer les opérateurs</translation>
     </message>
 </context>
 <context>
@@ -3567,7 +3567,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>EiskaltDC++ V:2.1</source>
-        <translation type="unfinished">EiskaltDC++ V:2.1</translation>
+        <translation>EiskaltDC++ V:2.1</translation>
     </message>
 </context>
 <context>
@@ -3983,7 +3983,7 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     </message>
     <message>
         <source>to</source>
-        <translation>et</translation>
+        <translation>à</translation>
     </message>
     <message>
         <source>Select this mode if your computer is connected directly to the internet.
@@ -4069,7 +4069,7 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>Alternate speed limit at time from </source>
-        <translation>Alterné la limite de vitesse à une tranche d&apos;horaires depuis </translation>
+        <translation>Alterner la limite de vitesse à une tranche d&apos;horaires. Depuis </translation>
     </message>
     <message>
         <source>hour(s)</source>
@@ -4094,19 +4094,20 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Avancé</translation>
+        <translation>Avancé</translation>
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Reconnection au serveur (secondes)</translation>
     </message>
     <message>
         <source>Enable Throttle</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le contrôle</translation>
     </message>
     <message>
         <source>Slots</source>
-        <translation type="unfinished"></translation>
+        <translation>
+Slots</translation>
     </message>
 </context>
 <context>
@@ -4465,7 +4466,7 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ceci est le temps maximum depuis que le dernier paquet du fichier a été reçu. Cela est utile afin d&apos;améliorer la précision des mesures de vitesse et pour éviter de supprimer des sources qui vont être déconnectées du fait de leur inactivité actuelle. (défaut: 10 s)</translation>
     </message>
 </context>
 <context>
@@ -4720,15 +4721,15 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Filter kick-messages from the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrer les messages kick (utilisateurs virés du serveur)</translation>
     </message>
     <message>
         <source>Show country of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Montrer le pays des utilisateurs dans le chat</translation>
     </message>
     <message>
         <source>Highlighting of already shared files</source>
-        <translation type="unfinished"></translation>
+        <translation>Surlignage des fichiers déjà dans le partage</translation>
     </message>
 </context>
 <context>
@@ -4944,7 +4945,7 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
     </message>
     <message>
         <source>Auto away interval (min)</source>
-        <translation type="unfinished"></translation>
+        <translation>Intervalle de l&apos;absence automatique (min)</translation>
     </message>
 </context>
 <context>
@@ -4963,7 +4964,7 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
     </message>
     <message>
         <source>Share hidden files</source>
-        <translation>Partager fichiers cachés</translation>
+        <translation>Partager les fichiers cachés</translation>
     </message>
     <message>
         <source>Restrictions</source>
@@ -4983,7 +4984,7 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
     </message>
     <message>
         <source>Follow symlinks</source>
-        <translation>Suivre liens symboliques</translation>
+        <translation>Suivre les liens symboliques</translation>
     </message>
     <message>
         <source>Max hash speed (MB/s) (0=infinite)</source>
@@ -5177,7 +5178,7 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Donner un slot automatiquement si vitesse inférieure à (KiB/s, 0 = infini)</translation>
     </message>
 </context>
 <context>
