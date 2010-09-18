@@ -124,6 +124,22 @@ Raccourcis:
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
         <translation>Hi, ceci est le robot antispam. Donc la question est &apos;%1&apos;</translation>
     </message>
+    <message>
+        <source>Checking user %1 (message: %2, cid: %3)...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Moving user to GRAY.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Moving user to BLACK.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Sending &quot;Try again&quot; message.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CustomFontModel</name>
@@ -737,7 +753,7 @@ Raccourcis:
     </message>
     <message>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation>&lt;b&gt;Dernier message d&apos;état du serveur:&lt;/b&gt;&lt;br/&gt;%1</translation>
+        <translation type="obsolete">&lt;b&gt;Dernier message d&apos;état du serveur:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <source>User online.</source>
@@ -1600,21 +1616,21 @@ Utilisateur favoris</translation>
     <message>
         <source>Cannot listen socket because: 
 </source>
-        <translation>Ne peut écouter le socket parce que:</translation>
+        <translation type="obsolete">Ne peut écouter le socket parce que:</translation>
     </message>
     <message>
         <source>
 
 Please check your connection settings</source>
-        <translation>Veuillez vérifier vos paramètres de connection</translation>
+        <translation type="obsolete">Veuillez vérifier vos paramètres de connection</translation>
     </message>
     <message>
         <source>Connection Manager: Warning</source>
-        <translation>Gestionnaire de connection: Attention</translation>
+        <translation type="obsolete">Gestionnaire de connection: Attention</translation>
     </message>
     <message>
         <source>Search Manager: Warning</source>
-        <translation>Gestionnaire de recherche: Attention</translation>
+        <translation type="obsolete">Gestionnaire de recherche: Attention</translation>
     </message>
     <message>
         <source>Ctrl+E</source>
@@ -1879,6 +1895,14 @@ Please check your connection settings</source>
     <message>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
         <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
+    </message>
+    <message>
+        <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connectivity Manager: Warning</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2872,6 +2896,10 @@ Clés:
         <source>ADLSearch</source>
         <translation>ADLSearch</translation>
     </message>
+    <message>
+        <source>Other Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3407,6 +3435,10 @@ p, li { white-space: pre-wrap; }
         <source>Move user to &quot;Black&quot; list</source>
         <translation>Déplacer l&apos;utilisateur vers liste noire</translation>
     </message>
+    <message>
+        <source>Filter Operators</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIDownloadQueue</name>
@@ -3463,7 +3495,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>EiskaltDC++ V:2.0</source>
-        <translation>EiskaltDC++ V:2.0</translation>
+        <translation type="obsolete">EiskaltDC++ V:2.0</translation>
     </message>
     <message>
         <source>++ V:0.75 </source>
@@ -3532,6 +3564,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>If hub requires password, define it here.</source>
         <translation>Si le serveur nécessite un mot de passe, précisez-le ici.</translation>
+    </message>
+    <message>
+        <source>EiskaltDC++ V:2.1</source>
+        <translation type="unfinished">EiskaltDC++ V:2.1</translation>
     </message>
 </context>
 <context>
@@ -4029,7 +4065,7 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>Enable total speed limit</source>
-        <translation>Activé la limite de vitesse totale</translation>
+        <translation type="obsolete">Activé la limite de vitesse totale</translation>
     </message>
     <message>
         <source>Alternate speed limit at time from </source>
@@ -4062,6 +4098,14 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable Throttle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slots</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4674,6 +4718,18 @@ them is usually available only to operators</source>
         <source>User theme</source>
         <translation>Thème utilisateur</translation>
     </message>
+    <message>
+        <source>Filter kick-messages from the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show country of users in chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlighting of already shared files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -4885,6 +4941,10 @@ of how fast a source you are likely to be for other users.</source>
         <translation>Contient une liste de vitesses connues.
 Choisissez la plus proche de la vôtre.
 Ne mettez pas votre vitesse de téléchargement (!).</translation>
+    </message>
+    <message>
+        <source>Auto away interval (min)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

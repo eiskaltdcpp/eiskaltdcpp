@@ -117,6 +117,22 @@ Keys:
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
         <translation>Zdravo, ovo Je antispam bot. Dakle, pitanje Je &quot;% 1&quot;</translation>
     </message>
+    <message>
+        <source>Checking user %1 (message: %2, cid: %3)...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Moving user to GRAY.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Moving user to BLACK.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Sending &quot;Try again&quot; message.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CustomFontModel</name>
@@ -802,7 +818,7 @@ Keys:
     </message>
     <message>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation>&lt;b&gt;Poslednja poruka na habu:&lt;/b&gt;&lt;br/&gt;%1</translation>
+        <translation type="obsolete">&lt;b&gt;Poslednja poruka na habu:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <source>%1 become online</source>
@@ -1506,24 +1522,24 @@ Omiljeni korisnik</translation>
     <message>
         <source>Cannot listen socket because: 
 </source>
-        <translation>Ne mogu slušati ulaz jer:
+        <translation type="obsolete">Ne mogu slušati ulaz jer:
 </translation>
     </message>
     <message>
         <source>
 
 Please check your connection settings</source>
-        <translation>
+        <translation type="obsolete">
 
 Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>Connection Manager: Warning</source>
-        <translation>Menadžer povezivanja: Upozorenje</translation>
+        <translation type="obsolete">Menadžer povezivanja: Upozorenje</translation>
     </message>
     <message>
         <source>Search Manager: Warning</source>
-        <translation>Menadžer pretrage: Upozorenje</translation>
+        <translation type="obsolete">Menadžer pretrage: Upozorenje</translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
@@ -1707,6 +1723,14 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connectivity Manager: Warning</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2612,6 +2636,10 @@ Keys:
         <source>ADLSearch</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Other Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3108,6 +3136,10 @@ p, li { white-space: pre-wrap; }
         <source>Move user to &quot;Black&quot; list</source>
         <translation>Move user to &quot;Black&quot; list</translation>
     </message>
+    <message>
+        <source>Filter Operators</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIDownloadQueue</name>
@@ -3176,7 +3208,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>EiskaltDC++ V:2.0</source>
-        <translation>EiskaltDC++ V:2.0</translation>
+        <translation type="obsolete">EiskaltDC++ V:2.0</translation>
     </message>
     <message>
         <source>++ V:0.75 </source>
@@ -3233,6 +3265,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Password</source>
         <translation>Lozinka</translation>
+    </message>
+    <message>
+        <source>EiskaltDC++ V:2.1</source>
+        <translation type="unfinished">EiskaltDC++ V:2.1</translation>
     </message>
 </context>
 <context>
@@ -3660,7 +3696,7 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
     </message>
     <message>
         <source>Enable total speed limit</source>
-        <translation>Omogući ukupno ograničenje brzine</translation>
+        <translation type="obsolete">Omogući ukupno ograničenje brzine</translation>
     </message>
     <message>
         <source>Alternate speed limit at time from </source>
@@ -3764,6 +3800,14 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable Throttle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slots</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4399,6 +4443,18 @@ them is usually available only to operators</source>
         <source>User theme</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Filter kick-messages from the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show country of users in chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlighting of already shared files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -4608,6 +4664,10 @@ Nemojte stavljati u svoju brzinu preuzimanja; ova postavka je mera.</translation
     <message>
         <source>MiB/s</source>
         <translation>MiB/s</translation>
+    </message>
+    <message>
+        <source>Auto away interval (min)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

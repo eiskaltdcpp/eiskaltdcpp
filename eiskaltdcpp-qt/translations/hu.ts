@@ -124,6 +124,22 @@ Kapcsolók:
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
         <translation>Hello, ez az AntiSpam robot. Szóval a kérdés &quot;%1&quot;</translation>
     </message>
+    <message>
+        <source>Checking user %1 (message: %2, cid: %3)...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Moving user to GRAY.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Moving user to BLACK.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1: Sending &quot;Try again&quot; message.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Compare</name>
@@ -891,7 +907,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation>&lt;b&gt;Utolsó státuszüzenet a hubon:&lt;/b&gt;&lt;br/&gt;%1</translation>
+        <translation type="obsolete">&lt;b&gt;Utolsó státuszüzenet a hubon:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <source>Hub Menu</source>
@@ -1511,24 +1527,24 @@ Kedvenc felhasználó</translation>
     <message>
         <source>Cannot listen socket because: 
 </source>
-        <translation>Cannot listen socket because: 
+        <translation type="obsolete">Cannot listen socket because: 
 </translation>
     </message>
     <message>
         <source>
 
 Please check your connection settings</source>
-        <translation>
+        <translation type="obsolete">
 
 Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Connection Manager: Warning</source>
-        <translation>Kapcsolatkezelő: Figyelmeztetés</translation>
+        <translation type="obsolete">Kapcsolatkezelő: Figyelmeztetés</translation>
     </message>
     <message>
         <source>Search Manager: Warning</source>
-        <translation>Kereséskezelő: Figyelmeztetés</translation>
+        <translation type="obsolete">Kereséskezelő: Figyelmeztetés</translation>
     </message>
     <message>
         <source>Log files (*.log);;All files (*.*)</source>
@@ -1909,6 +1925,14 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
         <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
+    </message>
+    <message>
+        <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connectivity Manager: Warning</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2824,6 +2848,10 @@ Kapcsolók:
         <source>ADLSearch</source>
         <translation>ADL Keresés</translation>
     </message>
+    <message>
+        <source>Other Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3321,6 +3349,10 @@ p, li { white-space: pre-wrap; }
         <source>Move user to &quot;Black&quot; list</source>
         <translation>Felhasználó áthelyezése a fekete listába</translation>
     </message>
+    <message>
+        <source>Filter Operators</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIDownloadQueue</name>
@@ -3377,7 +3409,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>EiskaltDC++ V:2.0</source>
-        <translation>EiskaltDC++ V:2.0</translation>
+        <translation type="obsolete">EiskaltDC++ V:2.0</translation>
     </message>
     <message>
         <source>++ V:0.75 </source>
@@ -3446,6 +3478,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>If hub requires password, define it here.</source>
         <translation>Ha a hub jelszót kér (ha regisztrálva vagy a hubon), add meg itt.</translation>
+    </message>
+    <message>
+        <source>EiskaltDC++ V:2.1</source>
+        <translation type="unfinished">EiskaltDC++ V:2.1</translation>
     </message>
 </context>
 <context>
@@ -3909,7 +3945,7 @@ Ne is próbáld megérteni...</translation>
     </message>
     <message>
         <source>Enable total speed limit</source>
-        <translation>Teljes sebességkorlátozás engedélyezése</translation>
+        <translation type="obsolete">Teljes sebességkorlátozás engedélyezése</translation>
     </message>
     <message>
         <source>Alternate speed limit at time from </source>
@@ -4014,6 +4050,14 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     <message>
         <source>Reconnect to hub(seconds)</source>
         <translation>Újracsatlakozás a hubhoz</translation>
+    </message>
+    <message>
+        <source>Enable Throttle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slots</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4658,6 +4702,18 @@ ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
         <source>User theme</source>
         <translation>Saját téma</translation>
     </message>
+    <message>
+        <source>Filter kick-messages from the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show country of users in chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlighting of already shared files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -4877,6 +4933,10 @@ of how fast a source you are likely to be for other users.</source>
 A saját feltöltési sávszélességedhez legközelebbi értéket válaszd.
 Ne a letöltésed sebességét add meg itt, ez az adat másoknak adja meg,
 hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.</translation>
+    </message>
+    <message>
+        <source>Auto away interval (min)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
