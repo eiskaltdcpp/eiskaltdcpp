@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-09-18 15:22+0300\n"
-"PO-Revision-Date: 2010-09-18 20:24+0200\n"
+"PO-Revision-Date: 2010-09-18 20:38+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -1519,7 +1519,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:1849
 msgid "Connectivity Manager: Warning"
-msgstr ""
+msgstr "Manager de conectividad: Atención"
 
 #: ../src/mainwindow.cc:1890
 msgid "file list from "
