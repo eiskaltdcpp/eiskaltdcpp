@@ -676,7 +676,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
 //}
 
 void ShareManager::updateIndices(Directory& dir) {
-    bloom.add(Text::toLower(dir.getName()));
+    bloom.add(dir.getName());
 
     for(Directory::MapIter i = dir.directories.begin(); i != dir.directories.end(); ++i) {
         updateIndices(*i->second);
@@ -719,7 +719,7 @@ void ShareManager::updateIndices(Directory& dir, const Directory::File::Set::ite
     dir.addType(getType(f.getName()));
 
     tthIndex.insert(make_pair(f.getTTH(), i));
-    bloom.add(Text::toLower(f.getName()));
+    bloom.add(f.getName());
 }
 
 void ShareManager::refresh(bool dirs /* = false */, bool aUpdate /* = true */, bool block /* = false */) throw() {
@@ -937,7 +937,7 @@ MemoryInputStream* ShareManager::generatePartialList(const string& dir, bool rec
 void ShareManager::Directory::toXml(OutputStream& xmlFile, string& indent, string& tmp2, bool fullList) const {
     xmlFile.write(indent);
     xmlFile.write(LITERAL("<Directory Name=\""));
-    xmlFile.write(SimpleXML::escape(name, tmp2, true));
+    xmlFile.write(/*SimpleXML::escape(*/name/*, tmp2, true)*/);
 
     if(fullList) {
         xmlFile.write(LITERAL("\">\r\n"));
@@ -967,7 +967,7 @@ void ShareManager::Directory::filesToXml(OutputStream& xmlFile, string& indent, 
 
         xmlFile.write(indent);
         xmlFile.write(LITERAL("<File Name=\""));
-        xmlFile.write(SimpleXML::escape(f.getName(), tmp2, true));
+        xmlFile.write(/*SimpleXML::escape(*/f.getName()/*, tmp2, true)*/);
         xmlFile.write(LITERAL("\" Size=\""));
         xmlFile.write(Util::toString(f.getSize()));
         xmlFile.write(LITERAL("\" TTH=\""));
@@ -1173,7 +1173,7 @@ void ShareManager::search(SearchResultList& results, const string& aString, int 
         }
         return;
     }
-    StringTokenizer<string> t(Text::toLower(aString), '$');
+    StringTokenizer<string> t(aString, '$');
     StringList& sl = t.getTokens();
     if(!bloom.match(sl))
         return;

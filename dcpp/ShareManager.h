@@ -117,19 +117,19 @@ private:
     class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, boost::noncopyable {
     public:
         typedef boost::intrusive_ptr<Directory> Ptr;
-        typedef unordered_map<string, Ptr, noCaseStringHash, noCaseStringEq> Map;
+        typedef unordered_map<string, Ptr, CaseStringHash, CaseStringEq> Map;
         typedef Map::iterator MapIter;
 
         struct File {
             struct StringComp {
                 StringComp(const string& s) : a(s) { }
-                bool operator()(const File& b) const { return Util::stricmp(a, b.getName()) == 0; }
+                bool operator()(const File& b) const { return Util::stricmps(a, b.getName()) == 0; }
                 const string& a;
             private:
                 StringComp& operator=(const StringComp&);
             };
             struct FileLess {
-                bool operator()(const File& a, const File& b) const { return (Util::stricmp(a.getName(), b.getName()) < 0); }
+                bool operator()(const File& a, const File& b) const { return (Util::stricmps(a.getName(), b.getName()) < 0); }
             };
             typedef set<File, FileLess> Set;
 
@@ -147,7 +147,7 @@ private:
             }
 
             bool operator==(const File& rhs) const {
-                return getParent() == rhs.getParent() && (Util::stricmp(getName(), rhs.getName()) == 0);
+                return getParent() == rhs.getParent() && (Util::stricmps(getName(), rhs.getName()) == 0);
             }
 
             string getADCPath() const { return parent->getADCPath() + name; }

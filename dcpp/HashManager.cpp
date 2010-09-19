@@ -97,8 +97,8 @@ void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const T
 void HashManager::HashStore::addFile(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tth, bool aUsed) {
     addTree(tth);
 
-    string fname = Text::toLower(Util::getFileName(aFileName));
-    string fpath = Text::toLower(Util::getFilePath(aFileName));
+    string fname = Util::getFileName(aFileName);
+    string fpath = Util::getFilePath(aFileName);
 
     FileInfoList& fileList = fileIndex[fpath];
 
@@ -186,8 +186,8 @@ size_t HashManager::HashStore::getBlockSize(const TTHValue& root) const {
 }
 
 bool HashManager::HashStore::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp) {
-    string fname = Text::toLower(Util::getFileName(aFileName));
-    string fpath = Text::toLower(Util::getFilePath(aFileName));
+    string fname = Util::getFileName(aFileName);
+    string fpath = Util::getFilePath(aFileName);
     DirIter i = fileIndex.find(fpath);
     if (i != fileIndex.end()) {
         FileInfoIter j = find(i->second.begin(), i->second.end(), fname);
@@ -206,8 +206,8 @@ bool HashManager::HashStore::checkTTH(const string& aFileName, int64_t aSize, ui
 }
 
 const TTHValue* HashManager::HashStore::getTTH(const string& aFileName) {
-    string fname = Text::toLower(Util::getFileName(aFileName));
-    string fpath = Text::toLower(Util::getFilePath(aFileName));
+    string fname = Util::getFileName(aFileName);
+    string fpath = Util::getFilePath(aFileName);
 
     DirIter i = fileIndex.find(fpath);
     if (i != fileIndex.end()) {
@@ -412,8 +412,8 @@ void HashLoader::startTag(const string& name, StringPairList& attribs, bool simp
             const string& root = getAttrib(attribs, sRoot, 2);
 
             if (!file.empty() && size >= 0 && timeStamp > 0 && !root.empty()) {
-                string fname = Text::toLower(Util::getFileName(file));
-                string fpath = Text::toLower(Util::getFilePath(file));
+                string fname = Util::getFileName(file);
+                string fpath = Util::getFilePath(file);
 
                 store.fileIndex[fpath].push_back(HashManager::HashStore::FileInfo(fname, TTHValue(root), timeStamp,
                     false));
