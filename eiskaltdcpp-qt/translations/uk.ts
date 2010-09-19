@@ -143,22 +143,22 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/Antispam.cpp" line="134"/>
         <source>Checking user %1 (message: %2, cid: %3)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевірка користувача %1 (повідомлення: %2: cid: %3)...</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="145"/>
         <source>%1: Moving user to GRAY.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Переміщення користувача до сірого списку.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="155"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Переміщення користувача до чорного списку.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="163"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Відправка повідомлення &quot;Спробуйте ще&quot;.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
@@ -1389,7 +1389,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2067"/>
         <source>Users count: %3/%1 | Total share: %2</source>
-        <translation type="unfinished">Користувачів: %1 | Загальна шара: %2 {3/%1 ?}</translation>
+        <translation>Користувачів: %3/%1 | Загальна шара: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3002"/>
@@ -1896,7 +1896,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1788"/>
         <source>Connectivity Manager: Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер з&apos;єднань: Увага</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1807"/>
@@ -2135,7 +2135,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1787"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неможливо відкрити %1 порт. Пошук передач файлів не буде коректно працювати, доки ви не зміните налащтування або вимкніть додаток, що можливо використовує цей порт.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2312"/>
@@ -3460,7 +3460,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SideBar.cpp" line="38"/>
         <source>Other Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Інші віджети</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="102"/>
@@ -4081,7 +4081,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="395"/>
         <source>Filter Operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Фільтрувати операторів</translation>
     </message>
 </context>
 <context>
@@ -4223,7 +4223,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="106"/>
         <source>EiskaltDC++ V:2.1</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ V:2.1</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="152"/>
@@ -4883,7 +4883,7 @@ SOCKS5-проксі це не те ж саме, що й HTTP-проксі.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="439"/>
         <source>Enable Throttle</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати обмеження швидкості</translation>
     </message>
     <message>
         <source>Enable total speed limit</source>
@@ -4897,7 +4897,7 @@ SOCKS5-проксі це не те ж саме, що й HTTP-проксі.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="689"/>
         <source>Slots</source>
-        <translation type="unfinished"></translation>
+        <translation>Слоти</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="722"/>
@@ -5563,7 +5563,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="331"/>
         <source>Filter kick-messages from the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Відфільтровувати kick повідомлення в чаті</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="338"/>
@@ -5606,7 +5606,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="643"/>
         <source>Show country of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати країну користувача у чаті</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="433"/>
@@ -5713,7 +5713,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="750"/>
         <source>Highlighting of already shared files</source>
-        <translation type="unfinished"></translation>
+        <translation>Підсвічувати вже розшарені файли</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="813"/>
@@ -6027,7 +6027,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="90"/>
         <source>Auto away interval (min)</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматичний режим &quot;Відійшов&quot; при бездіяльності (хв)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="151"/>
