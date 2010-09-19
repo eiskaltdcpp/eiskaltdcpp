@@ -21,6 +21,13 @@ DownloadQueueModel::DownloadQueueModel(WObject *parent) : WAbstractItemModel(par
     rootData.push_back(boost::any(WString("TTH")));
 
     rootItem = new DownloadQueueItem(rootData);
+
+    timer = new WTimer(this);
+    timer->setInterval(3000);
+    timer->setSingleShot(false);
+    timer->timeout().connect(this, &DownloadQueueModel::tick);
+
+    timer->start();
 }
 
 DownloadQueueModel::~DownloadQueueModel() {
@@ -188,6 +195,63 @@ bool DownloadQueueModel::setData(const WModelIndex &index, const boost::any &val
     return _flags;
 }*/
 
+void DownloadQueueModel::addFile(std::map<Wt::WString, boost::any> &map){
+    DownloadQueueItem *child = NULL;
+    std::vector<boost::any> childData;
+
+    childData.push_back(map["FNAME"]);
+    childData.push_back(map["STATUS"]);
+    childData.push_back(map["ESIZE"]);
+    childData.push_back(map["DOWN"]);
+    childData.push_back(map["PRIO"]);
+    childData.push_back(map["USERS"]);
+    childData.push_back(map["PATH"]);
+    childData.push_back(map["ESIZE"]);
+    childData.push_back(map["ERRORS"]);
+    childData.push_back(map["ADDED"]);
+    childData.push_back(map["TTH"]);
+
+    child = new DownloadQueueItem(childData, rootItem);
+    rootItem->appendChild(child);
+
+    items[boost::any_cast<WString>(map["TARGET"])] = child;
+}
+
+void DownloadQueueModel::updFile(std::map<Wt::WString, boost::any> &params){
+    std::map<Wt::WString, DownloadQueueItem* >::iterator it = items.find(boost::any_cast<WString>(params["TARGET"]));
+
+    if (it == items.end())
+        return;
+
+    DownloadQueueItem *item = it->second;
+
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_STATUS, params["STATUS"]);
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_DOWN,  boost::any_cast<long long>(params["DOWN"]) > 0? params["DOWN"] : 0);
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_ESIZE, boost::any_cast<long long>(params["ESIZE"]) > 0? params["ESIZE"] : 0);
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_SIZE,  boost::any_cast<long long>(params["ESIZE"]) > 0? params["ESIZE"] : 0);
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_PRIO, params["PRIO"]);
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_USER, params["USERS"]);
+    item->updateColumn(COLUMN_DOWNLOADQUEUE_ERR, params["ERRORS"]);
+}
+
+void DownloadQueueModel::remFile(std::map<Wt::WString, boost::any> &params){
+    std::map<Wt::WString, DownloadQueueItem* >::iterator it = items.find(boost::any_cast<WString>(params["TARGET"]));
+
+    if (it == items.end())
+        return;
+
+    DownloadQueueItem *item = it->second;
+
+    rootItem->childItems.erase(std::find(rootItem->childItems.begin(), rootItem->childItems.end(), item));
+    items.erase(it);
+
+    delete item;
+}
+
+void DownloadQueueModel::tick(){
+    layoutChanged().emit();
+}
+
 DownloadQueueItem::DownloadQueueItem(const std::vector<boost::any> &data, DownloadQueueItem *parent) :
     itemData(data), parentItem(parent), dir(false)
 {
@@ -249,10 +313,10 @@ int DownloadQueueItem::row() const {
 }
 
 void DownloadQueueItem::updateColumn(int column, boost::any var){
-    /*if (column > (itemData.size()-1))
+    if (column > (itemData.size()-1))
         return;
 
-    itemData[column] = var;*/
+    itemData[column] = var;
 }
 
 DownloadQueueItem *DownloadQueueItem::nextSibling(){

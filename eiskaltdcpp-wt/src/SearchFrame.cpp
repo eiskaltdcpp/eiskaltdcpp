@@ -148,8 +148,6 @@ void SearchFrame::startSearch() {
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const SearchResultPtr& aResult) throw(){
-    printf("SearchFrame::on()\n");
-
     SearchModelItem *item = new SearchModelItem();
 
     WString s =  WString::fromUTF8(aResult->getFileName(), false);

@@ -5,6 +5,7 @@
 #include <Wt/WAbstractItemModel>
 #include <Wt/WModelIndex>
 #include <Wt/WString>
+#include <Wt/WTimer>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -68,8 +69,15 @@ public:
     virtual void sort(int column, Wt::SortOrder order = Wt::AscendingOrder);
     virtual bool setData(const Wt::WModelIndex &index, const boost::any &value, int role);
 
+    virtual void addFile(std::map<Wt::WString, boost::any> &params);
+    virtual void updFile(std::map<Wt::WString, boost::any> &params);
+    virtual void remFile(std::map<Wt::WString, boost::any> &params);
 private:
+    void tick();
 
+    Wt::WTimer *timer;
+
+    std::map<Wt::WString, DownloadQueueItem* > items;
     DownloadQueueItem *rootItem;
 };
 

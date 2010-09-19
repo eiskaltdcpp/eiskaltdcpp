@@ -6,12 +6,28 @@
 
 #include <Wt/WString>
 
+#include "dcpp/stdinc.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/ClientManager.h"
+#include "dcpp/CID.h"
+
+inline Wt::WString _q(const std::string &str){ return Wt::WString(str.c_str()); }
+
 class Utils
 {
 public:
     static void init();
     static Wt::WString formatBytes(long long aBytes);
     static Wt::WString getFileImage(const Wt::WString &file);
+
+    static Wt::WString getNicks(const Wt::WString &cid){
+        return getNicks(dcpp::CID(cid.toUTF8()));
+    }
+
+    static Wt::WString getNicks(const dcpp::CID &cid){
+        const dcpp::Identity &user = dcpp::ClientManager::getInstance()->getOnlineUserIdentity(dcpp::ClientManager::getInstance()->getUser(cid));
+        return _q(user.getNick());
+    }
 
 private:
     Utils(){}
