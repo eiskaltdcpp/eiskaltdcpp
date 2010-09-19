@@ -1303,7 +1303,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="2067"/>
         <source>Users count: %3/%1 | Total share: %2</source>
-        <translation type="unfinished">Cantidad de usuarios: %1 | Total compartido: %2 {3/%1 ?}</translation>
+        <translation>Cantidad de usuarios: %3/%1 | Total compartido: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2073"/>
