@@ -937,7 +937,7 @@ MemoryInputStream* ShareManager::generatePartialList(const string& dir, bool rec
 void ShareManager::Directory::toXml(OutputStream& xmlFile, string& indent, string& tmp2, bool fullList) const {
     xmlFile.write(indent);
     xmlFile.write(LITERAL("<Directory Name=\""));
-    xmlFile.write(/*SimpleXML::escape(*/name/*, tmp2, true)*/);
+    xmlFile.write(SimpleXML::escape(name, tmp2, true));
 
     if(fullList) {
         xmlFile.write(LITERAL("\">\r\n"));
@@ -967,7 +967,7 @@ void ShareManager::Directory::filesToXml(OutputStream& xmlFile, string& indent, 
 
         xmlFile.write(indent);
         xmlFile.write(LITERAL("<File Name=\""));
-        xmlFile.write(/*SimpleXML::escape(*/f.getName()/*, tmp2, true)*/);
+        xmlFile.write(SimpleXML::escape(f.getName(), tmp2, true));
         xmlFile.write(LITERAL("\" Size=\""));
         xmlFile.write(Util::toString(f.getSize()));
         xmlFile.write(LITERAL("\" TTH=\""));
