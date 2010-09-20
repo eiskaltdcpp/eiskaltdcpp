@@ -52,6 +52,9 @@ private slots:
     void search();
     void download();
     void slotBrowse();
+    void showUI(const QString &, const qulonglong &, const QString &);
+    void search(const QString&);
+    void download(const QString &, const qulonglong &, const QString &);
 };
 
 #endif // MAGNET_H

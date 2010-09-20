@@ -52,14 +52,9 @@ void Magnet::customEvent(QEvent *e){
     e->accept();
 }
 
-void Magnet::setLink(const QString &link){
-
-    QString name = "", tth = "";
-    int64_t size = 0;
+void Magnet::showUI(const QString &name, const qulonglong &size, const QString &tth){
 
     lineEdit_SIZE->setReadOnly(true);
-
-    WulforUtil::splitMagnet(link, size, tth, name);
 
     lineEdit_FNAME->setText(name);
 
@@ -80,18 +75,24 @@ void Magnet::setLink(const QString &link){
         MainWindow::getInstance()->show();
         MainWindow::getInstance()->raise();
     }
+}
+void Magnet::setLink(const QString &link){
+    QString name = "", tth = "";
+    int64_t size = 0;
+
+    WulforUtil::splitMagnet(link, size, tth, name);
 
     if (WIGET(WI_DEF_MAGNET_ACTION) != 0) {
-        checkBox_Remember->setChecked(true);
         if (WIGET(WI_DEF_MAGNET_ACTION) == 2)
-            Magnet::download();
+            Magnet::download(name, size, tth);
         else if (WIGET(WI_DEF_MAGNET_ACTION) == 1)
-            Magnet::search();
-    } else
+            Magnet::search(tth);
+    } else {
         checkBox_Remember->setChecked(false);
+        Magnet::showUI(name, size, tth);
+    }
 
 }
-
 void Magnet::search(){
     QString tth = lineEdit_TTH->text();
 
@@ -100,19 +101,14 @@ void Magnet::search(){
 
     if (tth.isEmpty())
         return;
-
-    SearchFrame *fr = new SearchFrame();
-    fr->setAttribute(Qt::WA_DeleteOnClose);
-
-    fr->searchAlternates(tth);
-
+    Magnet::search(tth);
     typedef Func0<Magnet> FUNC;
     FUNC *f = new FUNC(this, &Magnet::accept);
 
     QApplication::postEvent(this, new MagnetCustomEvent(f));
 }
 
-void Magnet::download(){
+void Magnet::download() {
     QString tth = lineEdit_TTH->text();
 
     if (checkBox_Remember->isChecked() && WIGET(WI_DEF_MAGNET_ACTION) != 2)
@@ -125,17 +121,11 @@ void Magnet::download(){
 
     QString name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + fname.split(QDir::separator(), QString::SkipEmptyParts).last();
     qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
-    try {
-        QueueManager::getInstance()->add(_tq(name), size, TTHValue(_tq(tth)), UserPtr(), "");
-    }
-    catch (const std::exception& e){
-        QMessageBox::critical(this, tr("Error"), tr("Some error ocurred when starting download:\n %1").arg(e.what()));
-    }
+    Magnet::download(name,size,tth);
     typedef Func0<Magnet> FUNC;
     FUNC *f = new FUNC(this, &Magnet::accept);
 
     QApplication::postEvent(this, new MagnetCustomEvent(f));
-
 
 }
 
@@ -148,4 +138,29 @@ void Magnet::slotBrowse(){
     dir = QDir::toNativeSeparators(dir);
 
     lineEdit_FPATH->setText(dir + PATH_SEPARATOR_STR);
+}
+
+void Magnet::download(const QString &name, const qulonglong &size, const QString &tth) {
+    if (tth.isEmpty())
+        return;
+    QString target;
+    if (name.isEmpty())
+        target = tth;
+    else
+        target = name;
+
+    QString path=_q(SETTING(DOWNLOAD_DIRECTORY));
+    target = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + target.split(QDir::separator(), QString::SkipEmptyParts).last();
+    try {
+        QueueManager::getInstance()->add(_tq(target), size, TTHValue(_tq(tth)), UserPtr(), "");
+    }
+    catch (const std::exception& e){
+        QMessageBox::critical(this, tr("Error"), tr("Some error ocurred when starting download:\n %1").arg(e.what()));
+    }
+}
+void Magnet::search(const QString &tth) {
+    SearchFrame *fr = new SearchFrame();
+    fr->setAttribute(Qt::WA_DeleteOnClose);
+
+    fr->searchAlternates(tth);
 }

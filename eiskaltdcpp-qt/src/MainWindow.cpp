@@ -1476,8 +1476,9 @@ void MainWindow::parseCmdLine(){
         if (arg.startsWith("magnet:?xt=urn:tree:tiger:")){
             Magnet m(this);
             m.setLink(arg);
-
-            m.exec();
+            if (WIGET(WI_DEF_MAGNET_ACTION) == 0) {
+                m.exec();
+            }
         }
         else if (arg.startsWith("dchub://")){
             newHubFrame(arg, "");
@@ -1495,8 +1496,9 @@ void MainWindow::parseInstanceLine(QString data){
         if (arg.startsWith("magnet:?xt=urn:tree:tiger:")){
             Magnet m(this);
             m.setLink(arg);
-
-            m.exec();
+            if (WIGET(WI_DEF_MAGNET_ACTION) == 0) {
+                m.exec();
+            }
         }
         else if (arg.startsWith("dchub://")){
             newHubFrame(arg, "");

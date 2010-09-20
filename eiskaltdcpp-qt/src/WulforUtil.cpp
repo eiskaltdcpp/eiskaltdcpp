@@ -633,10 +633,10 @@ bool WulforUtil::openUrl(const QString &url){
         Magnet *m = new Magnet(MainWindow::getInstance());
 
         m->setLink(magnet);
-        m->setModal(true);
-
-        m->exec();
-
+        if (WIGET(WI_DEF_MAGNET_ACTION) == 0) {
+            m->setModal(true);
+            m->exec();
+        }
         delete m;
     }
     else
