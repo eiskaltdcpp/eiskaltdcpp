@@ -254,13 +254,13 @@ void FavoriteUsers::slotContextMenu(){
     menu->deleteLater();
 
     QAction *remove = new QAction(tr("Remove"), menu);
-    remove->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE));
+    remove->setIcon(WICON(WulforUtil::eiEDITDELETE));
 
     QAction *desc   = new QAction(tr("Description"), menu);
-    desc->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDIT));
+    desc->setIcon(WICON(WulforUtil::eiEDIT));
 
     QAction *grant  = new QAction(tr("Grant/Remove slot"), menu);
-    grant->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiBALL_GREEN));
+    grant->setIcon(WICON(WulforUtil::eiBALL_GREEN));
 
     menu->addActions(QList<QAction*>() << desc << grant << remove);
 

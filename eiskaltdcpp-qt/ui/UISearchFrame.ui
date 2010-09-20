@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>571</width>
-    <height>520</height>
+    <width>569</width>
+    <height>518</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -344,7 +344,7 @@
           <item row="0" column="3">
            <widget class="QToolButton" name="toolButton_CLOSEFILTER">
             <property name="text">
-             <string>X</string>
+             <string/>
             </property>
            </widget>
           </item>

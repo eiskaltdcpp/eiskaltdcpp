@@ -206,7 +206,7 @@ public:
     QString getArenaShortTitle();
     QMenu *getMenu();
     const QPixmap &getPixmap();
-    void CTRL_F_pressed() { slotHideFindFrame(); }
+    void requestFilter() { slotHideFindFrame(); }
     ArenaWidget::Role role() const { return ArenaWidget::Hub; }
 
     QString getCIDforNick(QString nick) { return model->CIDforNick(nick); }

@@ -83,7 +83,7 @@ enum Type{
     void reloadSounds();
     void resetTrayIcon(){
         if (tray)
-            tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiICON_APPL));
+            tray->setIcon(WICON(WulforUtil::eiICON_APPL));
     }
 
 public slots:

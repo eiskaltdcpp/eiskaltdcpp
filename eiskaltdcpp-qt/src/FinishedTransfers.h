@@ -87,9 +87,9 @@ public:
 
     const QPixmap &getPixmap(){
         if (isUpload)
-            return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUPLIST);
+            return WICON(WulforUtil::eiUPLIST);
         else
-            return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWNLIST);
+            return WICON(WulforUtil::eiDOWNLIST);
     }
 
 protected:

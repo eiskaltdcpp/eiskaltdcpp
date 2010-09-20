@@ -34,6 +34,8 @@
 #define USERLIST_XPM_COLUMNS    9
 #define USERLIST_XPM_ROWS       32
 
+#define WICON(x)(WulforUtil::getInstance()->getPixmap((x)))
+
 using namespace dcpp;
 
 inline QString _q (const std::string &s) __attribute__((always_inline));

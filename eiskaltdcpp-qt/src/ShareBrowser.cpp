@@ -81,7 +81,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
     qDeleteAll(down_to->actions());
     down_to->clear();
 
-    const QPixmap &dir_px = WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE);
+    const QPixmap &dir_px = WICON(WulforUtil::eiFOLDER_BLUE);
     QString aliases, paths;
 
     aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
@@ -95,7 +95,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
 
     if (!temp_pathes.isEmpty()){
         foreach (QString t, temp_pathes){
-            QAction *act = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
+            QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act->setToolTip(t);
             act->setData(t);
 
@@ -117,7 +117,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
         down_to->addSeparator();
     }
 
-    QAction *browse = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+    QAction *browse = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
     browse->setIcon(dir_px);
     browse->setData("");
 
@@ -230,11 +230,13 @@ void ShareBrowser::init(){
     treeView_RPANE->header()->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_RPANE->installEventFilter(this);
 
+    toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
+
     label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(WulforUtil::formatBytes(share_size)).arg(itemsCount));
 
     arena_menu = new QMenu(tr("Filebrowser"));
 
-    QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
+    QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
     //connect(treeView_LPANE, SIGNAL(clicked(const QModelIndex&)), this, SLOT(slotLeftPaneClicked(QModelIndex)));

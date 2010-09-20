@@ -354,7 +354,7 @@ void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     QStyledItemDelegate::paint(painter, option, index);
 
     if ((option.state & (QStyle::State_MouseOver | QStyle::State_Selected)) && showCloseBtn){
-        QPixmap px = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        QPixmap px = WICON(WulforUtil::eiEDITDELETE).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 
         painter->drawPixmap(option.rect.x() + (option.rect.width() - 16)/2,
                             option.rect.y() + (option.rect.height() - 16)/2,

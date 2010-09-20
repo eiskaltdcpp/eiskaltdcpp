@@ -76,7 +76,7 @@ void Notification::enableTray(bool enable){
         checkSystemTrayCounter = 0;
 
         tray = new QSystemTrayIcon(this);
-        tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiICON_APPL));
+        tray->setIcon(WICON(WulforUtil::eiICON_APPL));
 
         QMenu *menu = new QMenu();
         menu->setTitle("EiskaltDC++");
@@ -86,8 +86,8 @@ void Notification::enableTray(bool enable){
         QAction *sep = new QAction(menu);
         sep->setSeparator(true);
 
-        show_hide->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiHIDEWINDOW));
-        close_app->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEXIT));
+        show_hide->setIcon(WICON(WulforUtil::eiHIDEWINDOW));
+        close_app->setIcon(WICON(WulforUtil::eiEXIT));
 
         connect(show_hide, SIGNAL(triggered()), this, SLOT(slotShowHide()));
         connect(close_app, SIGNAL(triggered()), this, SLOT(slotExit()));
@@ -136,7 +136,7 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
                 break;
 
             if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS))){
-                tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE_TRAY_ICON));
+                tray->setIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
 
                 if (MainWindow::getInstance()->isVisible())
                     QApplication::alert(MainWindow::getInstance(), 0);
@@ -232,7 +232,7 @@ void Notification::slotShowHide(){
         MW->raise();
 
         if (tray)
-            tray->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiICON_APPL));
+            tray->setIcon(WICON(WulforUtil::eiICON_APPL));
     }
 }
 

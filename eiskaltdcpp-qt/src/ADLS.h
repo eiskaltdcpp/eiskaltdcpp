@@ -58,7 +58,7 @@ public:
     QString getArenaTitle();
     QString getArenaShortTitle();
     QMenu *getMenu();
-    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiADLS); }
+    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiADLS); }
     ArenaWidget::Role role() const { return ArenaWidget::ADLS; }
 
 protected:

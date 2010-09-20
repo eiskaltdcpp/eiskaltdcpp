@@ -137,13 +137,13 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
 
     if (!temp_pathes.isEmpty()){
         foreach (QString t, temp_pathes){
-            QAction *act = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
+            QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act->setToolTip(t);
             act->setData(t);
 
             down_to->addAction(act);
 
-            QAction *act1 = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
+            QAction *act1 = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act1->setToolTip(t);
             act1->setData(t);
 
@@ -156,12 +156,12 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
 
     if (a.size() == p.size() && !a.isEmpty()){
         for (int i = 0; i < a.size(); i++){
-            QAction *act = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
+            QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
             act->setData(p.at(i));
 
             down_to->addAction(act);
 
-            QAction *act1 = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
+            QAction *act1 = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
             act1->setData(p.at(i));
 
             down_wh_to->addAction(act1);
@@ -171,10 +171,10 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
         down_wh_to->addSeparator();
     }
 
-    QAction *browse = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+    QAction *browse = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
     browse->setData("");
 
-    QAction *browse1 = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+    QAction *browse1 = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
     browse->setData("");
 
     down_to->addAction(browse);
@@ -333,12 +333,14 @@ void SearchFrame::init(){
 
     frame_FILTER->setVisible(false);
 
+    toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
+
     treeView_RESULTS->setModel(model);
     treeView_RESULTS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_RESULTS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
     arena_menu = new QMenu(this->windowTitle());
-    QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
+    QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
     QList<WulforUtil::Icons> icons;
@@ -347,7 +349,7 @@ void SearchFrame::init(){
             << WulforUtil::eiFILETYPE_VIDEO    << WulforUtil::eiFOLDER_BLUE          << WulforUtil::eiFIND;
 
     for (int i = 0; i < icons.size(); i++)
-        comboBox_FILETYPES->setItemIcon(i, WulforUtil::getInstance()->getPixmap(icons.at(i)));
+        comboBox_FILETYPES->setItemIcon(i, WICON(icons.at(i)));
 
     QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
     searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
@@ -358,7 +360,7 @@ void SearchFrame::init(){
         m->addAction(s);
 
     lineEdit_SEARCHSTR->setMenu(m);
-    lineEdit_SEARCHSTR->setPixmap(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    lineEdit_SEARCHSTR->setPixmap(WICON(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
@@ -460,7 +462,7 @@ QMenu *SearchFrame::getMenu(){
 }
 
 const QPixmap &SearchFrame::getPixmap(){
-    return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILEFIND);
+    return WICON(WulforUtil::eiFILEFIND);
 }
 
 void SearchFrame::download(const SearchFrame::VarMap &params){

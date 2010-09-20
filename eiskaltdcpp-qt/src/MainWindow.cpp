@@ -391,7 +391,7 @@ void MainWindow::init(){
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
-    setWindowIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiICON_APPL));
+    setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 
     setWindowTitle(QString("%1").arg(EISKALTDCPP_WND_TITLE));
 
@@ -1743,7 +1743,7 @@ void MainWindow::toggleMainMenu(bool showMenu){
             if (!compactMenus){
                 compactMenus = new QAction(tr("Menu"), this);
                 compactMenus->setObjectName("compactMenus");
-                compactMenus->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDIT));
+                compactMenus->setIcon(WICON(WulforUtil::eiEDIT));
             }
             else {
                 compactMenus->menu()->deleteLater();
@@ -2080,7 +2080,7 @@ void MainWindow::slotFind(){
         return;
 
     ArenaWidget *awgt = qobject_cast<ArenaWidget*>(arena->widget());
-    awgt->CTRL_F_pressed();
+    awgt->requestFilter();
 }
 
 void MainWindow::slotDel(){
@@ -2088,7 +2088,7 @@ void MainWindow::slotDel(){
         return;
 
     ArenaWidget *awgt = qobject_cast<ArenaWidget*>(arena->widget());
-    awgt->DEL_pressed();
+    awgt->requestDelete();
 }
 
 void MainWindow::slotChatDisable(){
@@ -2433,7 +2433,7 @@ void MainWindow::slotSidebarContextMenu(){
     QMenu *menu = NULL;
     if (item && item->childCount() > 0){
         menu = new QMenu(this);
-        menu->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close all"));
+        menu->addAction(WICON(WulforUtil::eiEDITDELETE), tr("Close all"));
 
         if (menu->exec(QCursor::pos())){
             QList<SideBarItem*> childs = item->childItems;
@@ -2453,7 +2453,7 @@ void MainWindow::slotSidebarContextMenu(){
 
         if(!menu){
             menu = new QMenu(this);
-            menu->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close"));
+            menu->addAction(WICON(WulforUtil::eiEDITDELETE), tr("Close"));
 
             if (menu->exec(QCursor::pos()))
                 item->getWidget()->getWidget()->close();

@@ -925,7 +925,9 @@ void HubFrame::init(){
 
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
     toolButton_SMILE->setContextMenuPolicy(Qt::CustomContextMenu);
-    toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
+    toolButton_SMILE->setIcon(WICON(WulforUtil::eiEMOTICON));
+
+    toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
 
     connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
@@ -1100,11 +1102,11 @@ QMenu *HubFrame::getMenu(){
 
 const QPixmap &HubFrame::getPixmap(){
     if (hasHighlightMessages)
-        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE);
+        return WICON(WulforUtil::eiMESSAGE);
     else if (hasMessages)
-        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiHUBMSG);
+        return WICON(WulforUtil::eiHUBMSG);
     else
-        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER);
+        return WICON(WulforUtil::eiSERVER);
 }
 
 void HubFrame::clearChat(){

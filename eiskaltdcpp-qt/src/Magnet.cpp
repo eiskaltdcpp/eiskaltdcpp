@@ -26,7 +26,7 @@ Magnet::Magnet(QWidget *parent) :
 {
     setupUi(this);
 
-    pushButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
+    pushButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
 
     connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));

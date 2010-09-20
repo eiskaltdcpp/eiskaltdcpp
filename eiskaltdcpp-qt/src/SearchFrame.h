@@ -154,7 +154,7 @@ public:
     const QPixmap &getPixmap();
     ArenaWidget::Role role() const { return ArenaWidget::Search; }
 
-    void CTRL_F_pressed() { slotFilter(); }
+    void requestFilter() { slotFilter(); }
 
     bool isFindFrameActivated();
 

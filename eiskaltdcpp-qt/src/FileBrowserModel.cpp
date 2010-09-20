@@ -64,7 +64,7 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         case Qt::DecorationRole:
         {
             if (item->dir && index.column() == COLUMN_FILEBROWSER_NAME)
-                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
+                return WICON(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
             else if (index.column() == COLUMN_FILEBROWSER_NAME)
                 return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_FILEBROWSER_NAME).toString()).scaled(16, 16);
         }

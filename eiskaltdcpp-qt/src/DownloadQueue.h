@@ -104,8 +104,8 @@ public:
     QString  getArenaShortTitle(){ return getArenaTitle(); }
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return NULL; }
-    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiDOWNLOAD); }
-    void DEL_pressed();
+    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiDOWNLOAD); }
+    void requestDelete();
 
     ArenaWidget::Role role() const { return ArenaWidget::Downloads; }
 

@@ -97,8 +97,8 @@ public:
     QString  getArenaShortTitle();
     QWidget *getWidget();
     QMenu   *getMenu();
-    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiOWN_FILELIST); }
-    void CTRL_F_pressed() { slotFilter(); }
+    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiOWN_FILELIST); }
+    void requestFilter() { slotFilter(); }
     ArenaWidget::Role role() const { return ArenaWidget::ShareBrowser; }
 
     bool isFindFrameActivated();

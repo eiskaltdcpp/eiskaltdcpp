@@ -90,7 +90,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
             if (index.column() == COLUMN_SF_FILENAME && !item->isDir)
                 return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_SF_FILENAME).toString()).scaled(16, 16);
             else if (index.column() == COLUMN_SF_FILENAME && item->isDir)
-                return WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
+                return WICON(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
             break;
         }
         case Qt::DisplayRole:

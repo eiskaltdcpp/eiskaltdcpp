@@ -214,7 +214,7 @@ void DownloadQueue::customEvent(QEvent *e){
     e->accept();
 }
 
-void DownloadQueue::DEL_pressed(){
+void DownloadQueue::requestDelete(){
     if (!treeView_TARGET->hasFocus())
         return;
     

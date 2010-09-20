@@ -52,10 +52,10 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
         EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
 
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
-    toolButton_SMILE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEMOTICON));
+    toolButton_SMILE->setIcon(WICON(WulforUtil::eiEMOTICON));
 
     arena_menu = new QMenu(tr("Private message"));
-    QAction *close_wnd = new QAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
+    QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
@@ -238,11 +238,11 @@ QMenu *PMWindow::getMenu(){
 
 const QPixmap &PMWindow::getPixmap(){
     if (hasHighlightMessages)
-        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiMESSAGE);
+        return WICON(WulforUtil::eiMESSAGE);
     else if (hasMessages)
-        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiPMMSG);
+        return WICON(WulforUtil::eiPMMSG);
     else
-        return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUSERS);
+        return WICON(WulforUtil::eiUSERS);
 }
 
 void PMWindow::clearChat(){

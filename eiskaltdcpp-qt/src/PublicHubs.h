@@ -57,8 +57,8 @@ public:
     QString  getArenaShortTitle(){ return getArenaTitle(); }
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return NULL; }
-    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiSERVER); }
-    void CTRL_F_pressed() { slotFilter(); }
+    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiSERVER); }
+    void requestFilter() { slotFilter(); }
     ArenaWidget::Role role() const { return ArenaWidget::PublicHubs; }
 
     bool isFindFrameActivated();
