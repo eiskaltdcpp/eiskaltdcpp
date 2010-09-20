@@ -1772,14 +1772,14 @@ void MainWindow::startSocket(bool onstart, int oldmode){
         } catch (const Exception& e) {
             showPortsError(e.getError());
         }
-    qDebug() << "start";
+    //qDebug() << "start";
     } else {
         try {
             ConnectivityManager::getInstance()->setup(true, oldmode);
         } catch (const Exception& e) {
             showPortsError(e.getError());
         }
-    qDebug() << "running";
+    //qDebug() << "running";
     }
     ClientManager::getInstance()->infoUpdated();
 }

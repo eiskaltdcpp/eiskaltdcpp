@@ -59,7 +59,7 @@ public:
 
     bool wait() throw() {
         Lock l(cs);
-        if(count == 0) {
+        while (count == 0) {
             pthread_cond_wait(&cond, &cs.getMutex());
         }
         count--;
@@ -74,7 +74,10 @@ public:
             millis+=timev.tv_usec/1000;
             t.tv_sec = timev.tv_sec + (millis/1000);
             t.tv_nsec = (millis%1000)*1000*1000;
-            int ret = pthread_cond_timedwait(&cond, &cs.getMutex(), &t);
+            int ret;
+			do {
+				ret = pthread_cond_timedwait(&cond, &cs.getMutex(), &t);
+			} while (ret==0 && count==0);
             if(ret != 0) {
                 return false;
             }

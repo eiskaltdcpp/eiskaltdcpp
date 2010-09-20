@@ -19,7 +19,8 @@
 #if !defined(CRITICAL_SECTION_H)
 #define CRITICAL_SECTION_H
 
-#include "Thread.h"
+// header-only implementation of mutex
+#include <boost/signals2/mutex.hpp>
 
 namespace dcpp {
 
@@ -78,32 +79,11 @@ private:
  */
 class FastCriticalSection {
 public:
-#ifdef _WIN32
-    FastCriticalSection() : state(0) { }
-
-    void enter() {
-        while(Thread::safeExchange(state, 1) == 1) {
-            Thread::yield();
-        }
-    }
-    void leave() {
-        Thread::safeDec(state);
-    }
+    void enter() { mtx.lock(); }
+	void leave() { mtx.unlock(); }
 private:
-    volatile long state;
-
-#else
-    // We have to use a pthread (nonrecursive) mutex, didn't find any test_and_set on linux...
-    FastCriticalSection() {
-        static pthread_mutex_t fastmtx = PTHREAD_MUTEX_INITIALIZER;
-        mtx = fastmtx;
-    }
-    ~FastCriticalSection() { pthread_mutex_destroy(&mtx); }
-    void enter() { pthread_mutex_lock(&mtx); }
-    void leave() { pthread_mutex_unlock(&mtx); }
-private:
-    pthread_mutex_t mtx;
-#endif
+	typedef boost::signals2::mutex mutex_t;
+	mutex_t mtx;
 };
 
 template<class T>
