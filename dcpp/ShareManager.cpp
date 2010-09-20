@@ -647,7 +647,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
             // Not a directory, assume it's a file...make sure we're not sharing the settings file...
             const string l_ext = Util::getFileExt(name);
             if ((name != "Thumbs.db") &&
-                //(name != "desktop.ini") &&
+                (name != "desktop.ini") &&
                 (name != "folder.htt")
                 ) {
                 if (!BOOLSETTING(SHARE_TEMP_FILES) &&
