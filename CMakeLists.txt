@@ -86,7 +86,6 @@ option (WITH_LUASCRIPTS "Install examples of lua scripts" OFF)
 option (WITH_SOUNDS "Install sound files" OFF)
 option (DBUS_NOTIFY "QtDbus support" ON)
 option (USE_JS "QtScript support")
-option (NO_UI_DAEMON "Daemon without anyone ui")
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
@@ -343,10 +342,6 @@ endif (USE_WT)
 if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK)
-
-if (NO_UI_DAEMON)
-add_subdirectory (nasdc)
-endif (NO_UI_DAEMON)
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
