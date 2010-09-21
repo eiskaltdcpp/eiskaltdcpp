@@ -1443,12 +1443,20 @@ void MainWindow::updateHashProgressStatus() {
 }
 
 void MainWindow::setStatusMessage(QString msg){
-    QString pre = tr("<b>Last kernel message:</b><br/>%1").replace(" ","&nbsp;");
 
     WulforUtil::getInstance()->textToHtml(msg, true);
     msgLabel->setText(msg);
-    msgLabel->setToolTip(pre.arg(msg));
 
+    core_msg_history.push_back(msg);
+
+    if (WIGET(WI_STATUSBAR_HISTORY_SZ) > 0){
+        while (core_msg_history.size() > WIGET(WI_STATUSBAR_HISTORY_SZ))
+            core_msg_history.removeFirst();
+    }
+    else
+        core_msg_history.clear();
+
+    msgLabel->setToolTip(core_msg_history.join("\n"));
     msgLabel->setMaximumHeight(statusLabel->height());
 }
 

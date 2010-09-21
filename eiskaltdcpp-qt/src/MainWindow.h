@@ -323,7 +323,7 @@ friend class dcpp::Singleton<MainWindow>;
         ToolBar *sBar; //for fast search
 
         LineEdit   *searchLineEdit;
-
+        QStringList core_msg_history;
         QLabel *statusLabel;
         QLabel *statusDSPLabel;
         QLabel *statusUSPLabel;

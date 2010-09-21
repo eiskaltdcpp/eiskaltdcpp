@@ -193,6 +193,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FILE_PRIVATE_CHAT, "PM/%B - %Y/%[userNI] (%[userCID]).log");
     setDefault(LOG_FILE_UPLOAD,       "Uploads.log");
     setDefault(LOG_FILE_DOWNLOAD,     "Downloads.log");
+    setDefault(LOG_FILE_SYSTEM,       "System.log");
     setDefault(AUTO_AWAY, false);
     setDefault(BIND_ADDRESS, "0.0.0.0");
     setDefault(SOCKS_PORT, 1080);
