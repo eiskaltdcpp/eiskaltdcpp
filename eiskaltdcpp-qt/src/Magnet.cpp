@@ -83,8 +83,16 @@ void Magnet::setLink(const QString &link){
     WulforUtil::splitMagnet(link, size, tth, name);
 
     if (WIGET(WI_DEF_MAGNET_ACTION) != 0) {
-        if (WIGET(WI_DEF_MAGNET_ACTION) == 2)
-            Magnet::download(name, size, tth);
+        if (WIGET(WI_DEF_MAGNET_ACTION) == 2) {
+            QString target;
+            if (name.isEmpty())
+                target = tth;
+            else
+                target = name;
+            QString path=_q(SETTING(DOWNLOAD_DIRECTORY));
+            target = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + target.split(QDir::separator(), QString::SkipEmptyParts).last();
+            Magnet::download(target, size, tth);
+        }
         else if (WIGET(WI_DEF_MAGNET_ACTION) == 1)
             Magnet::search(tth);
     } else {
@@ -143,16 +151,8 @@ void Magnet::slotBrowse(){
 void Magnet::download(const QString &name, const qulonglong &size, const QString &tth) {
     if (tth.isEmpty())
         return;
-    QString target;
-    if (name.isEmpty())
-        target = tth;
-    else
-        target = name;
-
-    QString path=_q(SETTING(DOWNLOAD_DIRECTORY));
-    target = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + target.split(QDir::separator(), QString::SkipEmptyParts).last();
     try {
-        QueueManager::getInstance()->add(_tq(target), size, TTHValue(_tq(tth)), UserPtr(), "");
+        QueueManager::getInstance()->add(_tq(name), size, TTHValue(_tq(tth)), UserPtr(), "");
     }
     catch (const std::exception& e){
         QMessageBox::critical(this, tr("Error"), tr("Some error ocurred when starting download:\n %1").arg(e.what()));
