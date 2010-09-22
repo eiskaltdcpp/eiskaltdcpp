@@ -36,6 +36,11 @@ add_library (dcpp ${LINK} ${dcpp_srcs})
 if (USE_DHT)
 add_definitions ( -DUSE_DHT )
 endif (USE_DHT)
+
+if (Boost_VERSION VERSION_LESS 1.39)
+add_definitions(-DFIX_FOR_OLD_BOOST)
+endif()
+
 add_definitions ( -DDISABLE_NAT_TRAVERSAL )
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
 ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP})
