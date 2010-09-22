@@ -145,7 +145,6 @@ Wt::WApplication *createApplication(const Wt::WEnvironment& env)
 }
 
 int main(int argc, char** argv) {
-
     for (int i = 0; i < argc; i++){
         if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
             printHelp();

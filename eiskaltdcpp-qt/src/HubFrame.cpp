@@ -762,62 +762,6 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
     return QWidget::eventFilter(obj, e);
 }
 
-void HubFrame::customEvent(QEvent *e){
-    if (e->type() == UserUpdatedEvent::Event){
-        UserUpdatedEvent *u_e = reinterpret_cast<UserUpdatedEvent*>(e);
-
-        on_userUpdated(u_e->getMap(), u_e->getUser(), u_e->getJoin());
-    }
-    else if (e->type() == UserRemovedEvent::Event){
-        UserRemovedEvent *u_e = reinterpret_cast<UserRemovedEvent*>(e);
-
-        total_shared -= u_e->getShare();
-
-        UserPtr user = u_e->getUser();
-        QString cid = _q(user->getCID().toBase32());
-        QString nick = "";
-        UserListItem *item = model->itemForPtr(user);
-
-        if (item)
-            nick = item->nick;
-
-        if (pm.contains(cid)){
-            pmUserOffline(cid);
-
-            PMWindow *pmw = pm[cid];
-
-            pm.insert(nick, pmw);
-
-            pmw->cid = nick;
-            pmw->plainTextEdit_INPUT->setEnabled(false);//we need interface function
-
-            pm.remove(cid);
-        }
-
-        if (WulforSettings::getInstance()->getBool(WB_CHAT_SHOW_JOINS)){
-            do {
-                if (WulforSettings::getInstance()->getBool(WB_CHAT_SHOW_JOINS_FAV) &&
-                    !FavoriteManager::getInstance()->isFavoriteUser(user))
-                    break;
-
-                addStatus(nick + tr(" left the chat"));
-            } while (0);
-        }
-
-        if (FavoriteManager::getInstance()->isFavoriteUser(user))
-            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become offline").arg(nick));
-
-        model->removeUser(user);
-    }
-    else if (e->type() == UserCustomEvent::Event){
-        UserCustomEvent *u_e = reinterpret_cast<UserCustomEvent*>(e);
-
-        (*u_e->func())();
-    }
-
-    e->accept();
-}
-
 void HubFrame::closeEvent(QCloseEvent *e){
     MainWindow *MW = MainWindow::getInstance();
 
@@ -890,6 +834,9 @@ void HubFrame::hideEvent(QHideEvent *e){
 }
 
 void HubFrame::init(){
+    qRegisterMetaType<VarMap>("VarMap");
+    qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
+
     updater = new QTimer();
     updater->setInterval(1000);
     updater->setSingleShot(false);
@@ -928,6 +875,20 @@ void HubFrame::init(){
     toolButton_SMILE->setIcon(WICON(WulforUtil::eiEMOTICON));
 
     toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
+
+    connect(this, SIGNAL(coreConnecting(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreConnected(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUserUpdated(VarMap,dcpp::UserPtr,bool)), this, SLOT(on_userUpdated(VarMap,dcpp::UserPtr,bool)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUserRemoved(dcpp::UserPtr,qlonglong)), this, SLOT(on_userRemoved(dcpp::UserPtr,qlonglong)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreStatusMsg(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreFollow(QString)), this, SLOT(follow(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreFailed()), this, SLOT(clearUsers()), Qt::QueuedConnection);
+    connect(this, SIGNAL(corePassword()), this, SLOT(getPassword()), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreMessage(VarMap)), this, SLOT(newMsg(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(corePrivateMsg(VarMap)), this, SLOT(newPm(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreHubUpdated()), MainWindow::getInstance(), SLOT(redrawToolPanel()), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreFavoriteUserAdded(QString)), this, SLOT(changeFavStatus(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreFavoriteUserRemoved(QString)), this, SLOT(changeFavStatus(QString)), Qt::QueuedConnection);
 
     connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
@@ -1693,6 +1654,45 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
     total_shared += map["SHARE"].toULongLong();
 }
 
+void HubFrame::on_userRemoved(const dcpp::UserPtr &user, qlonglong share){
+    total_shared -= share;
+
+    QString cid = _q(user->getCID().toBase32());
+    QString nick = "";
+    UserListItem *item = model->itemForPtr(user);
+
+    if (item)
+        nick = item->nick;
+
+    if (pm.contains(cid)){
+        pmUserOffline(cid);
+
+        PMWindow *pmw = pm[cid];
+
+        pm.insert(nick, pmw);
+
+        pmw->cid = nick;
+        pmw->plainTextEdit_INPUT->setEnabled(false);//we need interface function
+
+        pm.remove(cid);
+    }
+
+    if (WulforSettings::getInstance()->getBool(WB_CHAT_SHOW_JOINS)){
+        do {
+            if (WulforSettings::getInstance()->getBool(WB_CHAT_SHOW_JOINS_FAV) &&
+                !FavoriteManager::getInstance()->isFavoriteUser(user))
+                break;
+
+            addStatus(nick + tr(" left the chat"));
+        } while (0);
+    }
+
+    if (FavoriteManager::getInstance()->isFavoriteUser(user))
+        Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become offline").arg(nick));
+
+    model->removeUser(user);
+}
+
 void HubFrame::browseUserFiles(const QString& id, bool match){
     string message;
     string cid = id.toStdString();
@@ -1764,7 +1764,7 @@ void HubFrame::delUserFromFav(const QString& id){
     }
 }
 
-void HubFrame::changeFavStatus(QString id) {
+void HubFrame::changeFavStatus(const QString &id) {
     if (id.isEmpty())
         return;
 
@@ -1824,7 +1824,7 @@ void HubFrame::addAsFavorite(){
     }
 }
 
-void HubFrame::newMsg(VarMap map){
+void HubFrame::newMsg(const VarMap &map){
     QString output = "";
 
     QString nick = map["NICK"].toString();
@@ -1873,7 +1873,7 @@ void HubFrame::newMsg(VarMap map){
     }
 }
 
-void HubFrame::newPm(VarMap map){
+void HubFrame::newPm(const VarMap &map){
     QString nick = map["NICK"].toString();
     QString message = map["MSG"].toString();
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";
@@ -1994,14 +1994,14 @@ void HubFrame::getPassword(){
     }
 }
 
-void HubFrame::follow(string redirect){
-    if(!redirect.empty()) {
-        if(ClientManager::getInstance()->isConnected(redirect)) {
+void HubFrame::follow(QString redirect){
+    if(!redirect.isEmpty()) {
+        if(ClientManager::getInstance()->isConnected(_tq(redirect))) {
             addStatus(tr("Redirect request received to a hub that's already connected"));
             return;
         }
 
-        string url = redirect;
+        string url = _tq(redirect);
 
         // the client is dead, long live the client!
         client->removeListener(this);
@@ -2985,37 +2985,23 @@ void HubFrame::slotCopyHubURL(){
 }
 
 void HubFrame::on(FavoriteManagerListener::UserAdded, const FavoriteUser& aUser) throw() {
-    QString cid = _q(aUser.getUser()->getCID().toBase32());
-    typedef Func1<HubFrame, QString> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::changeFavStatus, cid);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit coreFavoriteUserAdded(_q(aUser.getUser()->getCID().toBase32()));
 }
 
 void HubFrame::on(FavoriteManagerListener::UserRemoved, const FavoriteUser& aUser) throw() {
-    QString cid = _q(aUser.getUser()->getCID().toBase32());
-    typedef Func1<HubFrame, QString> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::changeFavStatus, cid);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit coreFavoriteUserRemoved(_q(aUser.getUser()->getCID().toBase32()));
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
     QString status = tr("Connecting to %1").arg(QString::fromStdString(client->getHubUrl()));
 
-    typedef Func1<HubFrame, QString> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit coreConnecting(status);
 }
 
 void HubFrame::on(ClientListener::Connected, Client*) throw(){
     QString status = tr("Connected to %1").arg(QString::fromStdString(client->getHubUrl()));
 
-    typedef Func1<HubFrame, QString> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit coreConnected(status);
 
     HubManager::getInstance()->registerHubUrl(_q(client->getHubUrl()), this);
 }
@@ -3024,26 +3010,25 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
     if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
         return;
 
-    UserUpdatedEvent *u_e = new UserUpdatedEvent(user, true);
+    VarMap params;
 
-    getParams(u_e->getMap(), user.getIdentity());
+    getParams(params, user.getIdentity());
 
-    QApplication::postEvent(this, u_e);
+    emit coreUserUpdated(params, user, true);
 }
 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) throw(){
-    UserUpdatedEvent *u_e = NULL;
     bool showHidden = WBGET(WB_SHOW_HIDDEN_USERS);
 
     for (OnlineUserList::const_iterator it = list.begin(); it != list.end(); ++it){
         if ((*(*it)).getIdentity().isHidden() && !showHidden)
             break;
 
-        u_e = new UserUpdatedEvent((*(*it)), false);
+        VarMap params;
 
-        getParams(u_e->getMap(), (*(*it)).getIdentity());
+        getParams(params, (*(*it)).getIdentity());
 
-        QApplication::postEvent(this, u_e);
+        emit coreUserUpdated(params, (*(*it)), true);
     }
 }
 
@@ -3051,55 +3036,35 @@ void HubFrame::on(ClientListener::UserRemoved, Client*, const OnlineUser &user) 
     if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
         return;
 
-    QApplication::postEvent(this, new UserRemovedEvent(user.getUser(), user.getIdentity().getBytesShared()));
+    emit coreUserRemoved(user.getUser(), user.getIdentity().getBytesShared());
 }
 
 void HubFrame::on(ClientListener::Redirect, Client*, const string &link) throw(){
     if(ClientManager::getInstance()->isConnected(link)) {
-        typedef Func1<HubFrame, QString> FUNC;
-        FUNC *func = new FUNC(this, &HubFrame::addStatus, tr("Redirect request received to a hub that's already connected"));
-
-        QApplication::postEvent(this, new UserCustomEvent(func));
+        emit coreStatusMsg(tr("Redirect request received to a hub that's already connected"));
 
         return;
     }
 
-    if(BOOLSETTING(AUTO_FOLLOW)) {
-        typedef Func1<HubFrame, string> FUNC;
-        FUNC *func = new FUNC(this, &HubFrame::follow, link);
-
-        QApplication::postEvent(this, new UserCustomEvent(func));
-    }
+    if(BOOLSETTING(AUTO_FOLLOW))
+        emit coreFollow(_q(link));
 }
 
 void HubFrame::on(ClientListener::Failed, Client*, const string &msg) throw(){
     QString status = tr("Fail: %1...").arg(_q(msg));
 
-    typedef Func1<HubFrame, QString> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
-
-    typedef Func0<HubFrame> FUNC0;
-    FUNC0 *f = new FUNC0(this, &HubFrame::clearUsers);
-
-    QApplication::postEvent(this, new UserCustomEvent(f));
+    emit coreStatusMsg(status);
+    emit coreFailed();
 
     HubManager::getInstance()->unregisterHubUrl(_q(client->getHubUrl()));
 }
 
 void HubFrame::on(GetPassword, Client*) throw(){
-    typedef Func0<HubFrame> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::getPassword);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit corePassword();
 }
 
 void HubFrame::on(ClientListener::HubUpdated, Client*) throw(){
-    typedef Func0<MainWindow> FUNC;
-    FUNC *func = new FUNC(MainWindow::getInstance(), &MainWindow::redrawToolPanel);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit coreHubUpdated();
 }
 
 void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, const string& msg, bool thirdPerson) throw(){
@@ -3117,10 +3082,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
         QString m = _q(msg);
         m.remove(0, 4);
 
-        typedef Func1<HubFrame, QString> FUNC;
-        FUNC *func = new FUNC(this, &HubFrame::addStatus, _q(user.getIdentity().getNick()) + " " + m);
-
-        QApplication::postEvent(this, new UserCustomEvent(func));
+        emit coreStatusMsg(_q(user.getIdentity().getNick()) + " " + m);
 
         return;
     }
@@ -3147,10 +3109,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
     map["3RD"] = thirdPerson;
     map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(user).getIp());
 
-    typedef Func1<HubFrame, VarMap> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::newMsg, map);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit coreMessage(map);
 
     if (BOOLSETTING(LOG_MAIN_CHAT)){
         StringMap params;
@@ -3166,10 +3125,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
 void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int) throw(){
     QString status = QString("%1 ").arg(_q(msg));
 
-    typedef Func1<HubFrame, QString> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit coreStatusMsg(status);
 
     if (BOOLSETTING(LOG_STATUS_MESSAGES)){
         StringMap params;
@@ -3245,15 +3201,10 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
     map["CID"] = _q(id.toBase32());
     map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp());
 
-    typedef Func1<HubFrame, VarMap> FUNC;
-    FUNC *func = NULL;
-
     if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
-        func = new FUNC(this, &HubFrame::newMsg, map);
+        emit coreMessage(map);
     else
-        func = new FUNC(this, &HubFrame::newPm, map);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+        emit corePrivateMsg(map);
 
     if (BOOLSETTING(LOG_PRIVATE_CHAT)){
         StringMap params;
@@ -3274,15 +3225,9 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 void HubFrame::on(ClientListener::NickTaken, Client*) throw(){
     QString status = tr("Sorry, but nick \"%1\" is already taken by another user.").arg(client->getCurrentNick().c_str());
 
-    typedef Func1<HubFrame, QString> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::addStatus, status);
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit coreStatusMsg(status);
 }
 
 void HubFrame::on(ClientListener::SearchFlood, Client*, const string &str) throw(){
-    typedef Func1<HubFrame, QString> FUNC;
-    FUNC *func = new FUNC(this, &HubFrame::addStatus, tr("Search flood detected: %1").arg(_q(str)));
-
-    QApplication::postEvent(this, new UserCustomEvent(func));
+    emit coreStatusMsg(tr("Search flood detected: %1").arg(_q(str)));
 }

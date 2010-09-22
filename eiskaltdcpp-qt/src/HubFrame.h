@@ -46,58 +46,6 @@ class PMWindow;
 
 using namespace dcpp;
 
-class UserUpdatedEvent: public QEvent, public dcpp::FastAlloc<UserUpdatedEvent>{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1200);
-
-    UserUpdatedEvent(const dcpp::UserPtr &ptr, bool join):
-            QEvent(Event),
-            ptr(ptr),
-            join(join)
-    {}
-    virtual ~UserUpdatedEvent()
-    {}
-
-    inline const dcpp::UserPtr &getUser() const { return ptr; }
-    inline bool getJoin() const {return join; }
-    inline QHash<QString, QVariant> &getMap() { return map; }
-
-private:
-    dcpp::UserPtr ptr;
-    bool join;
-    QHash<QString, QVariant> map;
-};
-
-class UserRemovedEvent: public QEvent, public dcpp::FastAlloc<UserRemovedEvent>{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1201);
-
-    UserRemovedEvent(const dcpp::UserPtr &user, qlonglong share):QEvent(Event), user(user), share(share)
-    {}
-    virtual ~UserRemovedEvent()
-    {}
-
-    const dcpp::UserPtr &getUser() const { return user; }
-    qulonglong getShare() const { return share; }
-
-private:
-    qulonglong share;
-    dcpp::UserPtr user;
-};
-
-class UserCustomEvent: public QEvent, public dcpp::FastAlloc<UserCustomEvent>{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1202);
-
-    UserCustomEvent(FuncBase *f = NULL): QEvent(Event), f(f)
-    {}
-    virtual ~UserCustomEvent(){ delete f; }
-
-    FuncBase *func() { return f; }
-private:
-    FuncBase *f;
-};
-
 class HubFrame :
         public  QWidget,
         private Ui::UIHubFrame,
@@ -213,6 +161,19 @@ public:
 
 Q_SIGNALS:
     void newMessage(HubFrame*, const QString &hubUrl, const QString &cid, const QString &nick, const QString &msg);
+    void coreConnecting(QString);
+    void coreConnected(QString);
+    void coreUserUpdated(VarMap map, const dcpp::UserPtr &user, bool join);
+    void coreUserRemoved(const dcpp::UserPtr &user, qlonglong share);
+    void coreStatusMsg(QString);
+    void coreFollow(QString);
+    void coreFailed();
+    void corePassword();
+    void coreMessage(VarMap);
+    void corePrivateMsg(VarMap);
+    void coreHubUpdated();
+    void coreFavoriteUserAdded(QString);
+    void coreFavoriteUserRemoved(QString);
 
 public Q_SLOTS:
     void disableChat();
@@ -231,7 +192,6 @@ public Q_SLOTS:
 protected:
     virtual bool eventFilter(QObject *, QEvent *);
     virtual void closeEvent(QCloseEvent*);
-    virtual void customEvent(QEvent *);
     virtual void showEvent(QShowEvent *);
     virtual void hideEvent(QHideEvent *);
 
@@ -269,9 +229,17 @@ private Q_SLOTS:
     void grantSlot(const QString&);
     void addUserToFav(const QString&);
     void delUserFromFav(const QString&);
-    void changeFavStatus(QString);
+    void changeFavStatus(const QString&);
     void delUserFromQueue(const QString&);
     void addAsFavorite();
+
+    void on_userUpdated(const VarMap&, const dcpp::UserPtr&, bool);
+    void on_userRemoved(const dcpp::UserPtr &user, qlonglong share);
+    void follow(QString);
+    void clearUsers();
+    void getPassword();
+    void newMsg(const VarMap&);
+    void newPm(const VarMap&);
 
 private:
     // Chat functions
@@ -283,17 +251,8 @@ private:
 
     QString getUserInfo(UserListItem *item);
 
-    void newMsg(VarMap);
-    void newPm(VarMap);
-
-    void clearUsers();
-
     void pmUserOffline(QString);
     void pmUserEvent(QString, QString);
-
-    void getPassword();
-
-    void follow(string);
 
     void findText(QTextDocument::FindFlags );
 
@@ -301,7 +260,7 @@ private:
 
     /** Extracts data from user identity */
     void getParams(UserMap &, const Identity &);
-    inline void on_userUpdated(const VarMap&, const UserPtr&, bool) __attribute__((always_inline));
+    //inline void on_userUpdated(const VarMap&, const UserPtr&, bool) __attribute__((always_inline));
 
     // FavoriteManagerListener
     virtual void on(FavoriteManagerListener::UserAdded, const FavoriteUser& /*aUser*/) throw();

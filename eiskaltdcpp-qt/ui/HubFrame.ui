@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>459</width>
-    <height>403</height>
+    <width>457</width>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -137,7 +137,7 @@
                <string>Hide find frame (Ctrl+F)</string>
               </property>
               <property name="text">
-               <string>X</string>
+               <string/>
               </property>
              </widget>
             </item>

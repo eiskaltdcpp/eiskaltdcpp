@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>278</width>
-    <height>260</height>
+    <width>276</width>
+    <height>258</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -140,7 +140,7 @@
           <item row="0" column="1">
            <widget class="QToolButton" name="toolButton_CLOSEFILTER">
             <property name="text">
-             <string>X</string>
+             <string/>
             </property>
            </widget>
           </item>

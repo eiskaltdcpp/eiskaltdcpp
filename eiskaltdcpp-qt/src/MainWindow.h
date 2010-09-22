@@ -150,9 +150,6 @@ friend class dcpp::Singleton<MainWindow>;
         void browseOwnFiles();
 
         /** */
-        void redrawToolPanel();
-
-        /** */
         void startSocket(bool onstart, int oldmode);
         /** */
         void showPortsError(const std::string& port);
@@ -201,6 +198,9 @@ friend class dcpp::Singleton<MainWindow>;
         void toggleMainMenu(bool);
 
         void slotChatClear();
+
+        /** */
+        void redrawToolPanel();
 
     protected:
         virtual void closeEvent(QCloseEvent*);
