@@ -6,58 +6,58 @@
     <message>
         <location filename="../src/ADLS.cpp" line="60"/>
         <source>ADLSearch</source>
-        <translation type="unfinished">Самарушна шукаць у сьпісах</translation>
+        <translation>Самарушна шукаць у сьпісах</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="146"/>
         <location filename="../src/ADLS.cpp" line="163"/>
         <source>Add new</source>
-        <translation type="unfinished">Дадаць</translation>
+        <translation>Дадаць</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="164"/>
         <source>Change</source>
-        <translation type="unfinished">Зьмяніць</translation>
+        <translation>Зьмяніць</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="165"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Выкрасьліць</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="385"/>
         <source>Filename</source>
-        <translation type="unfinished">Назоў файла</translation>
+        <translation>Назоў файла</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="386"/>
         <source>Directory</source>
-        <translation type="unfinished">Каталёг</translation>
+        <translation>Каталёг</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="387"/>
         <source>Full Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Поўны шлях</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="393"/>
         <source>B</source>
-        <translation type="unfinished">Б</translation>
+        <translation>Б</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="394"/>
         <source>KiB</source>
-        <translation type="unfinished">КіБ</translation>
+        <translation>КіБ</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="395"/>
         <source>MiB</source>
-        <translation type="unfinished">МіБ</translation>
+        <translation>МіБ</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="396"/>
         <source>GiB</source>
-        <translation type="unfinished">ГіБ</translation>
+        <translation>ГіБ</translation>
     </message>
 </context>
 <context>
@@ -65,37 +65,38 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Checked</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Абраны</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Шукаць радок</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Від крыніцы</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Каталёг</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Min. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Найм. памер</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Max. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Найб. памер</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Type Size</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>&quot;Памер у&quot;?</translatorcomment>
+        <translation type="unfinished">Памернасьць</translation>
     </message>
 </context>
 <context>
@@ -143,22 +144,22 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/Antispam.cpp" line="134"/>
         <source>Checking user %1 (message: %2, cid: %3)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Спраўджваецца карыстальнік %1 (паведамленьне: %2, cid: %3)…</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="145"/>
         <source>%1: Moving user to GRAY.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Перасоўваем карыстальніка ў шэры сьпіс.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="155"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Перасоўваем карыстальніка ў чорны сьпіс.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="163"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Дасылаем паведамленьне “Спрабуйце яшчэ”.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
@@ -1023,7 +1024,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="1323"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
-        <translation type="unfinished"></translation>
+        <translation>суадносіны: %1 (зацягнулі %2, сьцягнулі %3)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1348"/>
@@ -1053,121 +1054,141 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1419"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias &lt;НАЗОЎКА&gt;::&lt;ЗАГАД&gt; — стварыць назоўку /НАЗОЎКА да загаду /ЗАГАД
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1420"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias purge &lt;НАЗОЎКА&gt; — выкрасьліць назоўку
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1421"/>
         <source>/alias list - list all aliases
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/alias list — пералічыць усе назоўкі
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1422"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/away &lt;паведамленьне&gt; — перайсьці ў стан “адыйшоў”, ці вярнуцца
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1423"/>
         <source>/back - set away-mode off
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/back — вярнуцца са стану “адыйшоў”
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1424"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/browse &lt;мянушка&gt; — прагледзець файлы карыстальніка
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1425"/>
         <source>/clear - clear chat window
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/clear — ачысьціць ваконца гаманы
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1426"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/magnet — прадвызначанае дзеяньне па магніт-спасылцы (0 — запытацца, 1 — шукаць, 2 — сьцягнуць)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1427"/>
         <source>/close - close this hub
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/close — закрыць гэты асяродак
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1428"/>
         <source>/fav - add this hub to favorites
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/fav — дадаць гэты асяродак да ўлюбёных
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1429"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/grant &lt;мянушка&gt; — дадаць шчыліну карыстальніку
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1430"/>
         <source>/help, /?, /h - show this help
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/help, /?, /h — паказаць дапамогу (тое, што вы зараз чытаеце)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1431"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/info &lt;мянушка&gt; — паказаць зьвесткі пра карыстальніка
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1432"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/ratio [show] — паказаць суадносіны [паказаць усім у гамане]
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1433"/>
         <source>/me - say a third person
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/me — сказаць ад трэцяе асобы
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1434"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/pm &lt;мянушка&gt; — пачаць гаманіць асабіста з карыстальнікам
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1435"/>
         <source>/sh &lt;command&gt; - start command and redirect output to the chat
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/sh &lt;загад&gt; — выканаць загад і накіраваць вынік у гаману
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1437"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/luafile &lt;файл&gt; — прачыць файл Lua
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1438"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/lua &lt;скрыпт&gt; — выканаць скрыпт Lua
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1417"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off — спраўджваць (on) ці ня спраўджваць (off) правапіс
+</translation>
     </message>
     <message>
         <source>/aspell on/off - enable/disable spell checking
@@ -1346,7 +1367,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2067"/>
         <source>Users count: %3/%1 | Total share: %2</source>
-        <translation type="unfinished">Карыстальнікаў: %1 | Разам абагулілі: %2 {3/%1 ?}</translation>
+        <translation>Карыстальнікаў: %3/%1 | Разам абагулілі: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3002"/>
@@ -1888,27 +1909,27 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1130"/>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Хатняя бачына</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1132"/>
         <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Крынічнікі (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1134"/>
         <source>Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Паведаміць пра хібу</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1136"/>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki праекту</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1138"/>
         <source>Changelog (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Гісторыя зьмяненьняў (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1140"/>
@@ -2001,7 +2022,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1787"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не магу адкрыць порт %1. Каб належным чынам працаваў пошук і перадаваліся файлы, вы мусіце зьмяніць наладжваньні, ці вымкнуць праграму, якая можа выкарыстоўваць гэты порт.</translation>
     </message>
     <message>
         <source>Cannot listen socket because: 
@@ -2163,17 +2184,17 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2398"/>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.0.4)&lt;br/&gt; {1p?} {07&lt;?} {1p?} {07@?} {2.1.0 ?}</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.1.0)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2402"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Пераклаў у баўгарскую&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2404"/>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.1.0)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
@@ -2267,7 +2288,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1788"/>
         <source>Connectivity Manager: Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Кіраўнік злучэньняў: перасьцярога</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2312"/>
@@ -2526,37 +2547,37 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/main.cpp" line="45"/>
         <source>Loading: </source>
-        <translation type="unfinished"></translation>
+        <translation>Чытаецца: </translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="101"/>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Прачыталі значкі сьпісу карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="104"/>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Прачыталі значкі прыстасаваньня</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="137"/>
         <source>Shutting down libdcpp...</source>
-        <translation type="unfinished"></translation>
+        <translation>Спыняецца libdcpp…</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="162"/>
         <source>Quit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Спыняем…</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="190"/>
         <source>Cannot handle SIGPIPE</source>
-        <translation type="unfinished"></translation>
+        <translation>Не магу апрацаваць SIGPIPE</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="193"/>
         <source>Signal handlers installed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Апрацоўнікі сыгналаў усталяваныя.</translation>
     </message>
 </context>
 <context>
@@ -3077,7 +3098,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Баўгарская</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="214"/>
@@ -3444,7 +3465,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SideBar.cpp" line="38"/>
         <source>Other Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Іншыя ваконцы</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="102"/>
@@ -3784,32 +3805,32 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearch.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
-        <translation type="unfinished">Дадаць</translation>
+        <translation>Дадаць</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="73"/>
         <source>Change</source>
-        <translation type="unfinished">Зьмяніць</translation>
+        <translation>Зьмяніць</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Выкрасьліць</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="100"/>
         <source>Move up</source>
-        <translation type="unfinished">Пасунуць угору</translation>
+        <translation>Пасунуць угору</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="110"/>
         <source>Move down</source>
-        <translation type="unfinished">Пасунуць долу</translation>
+        <translation>Пасунуць долу</translation>
     </message>
 </context>
 <context>
@@ -3817,73 +3838,74 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Сьпіс адкрытых асяродкаў</translation>
+        <translation type="unfinished">Самарушна шукаць</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="20"/>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Шукаць радок</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="26"/>
         <source>Favorite hub name.</source>
-        <translation type="unfinished">Назоў улюбёнага асяродку.</translation>
+        <translation>Назоў улюбёнага асяродку.</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>&quot;від крыніцы&quot;?</translatorcomment>
+        <translation type="unfinished">Дзе шукаць</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="55"/>
         <source>Filename</source>
-        <translation type="unfinished">Назоў файла</translation>
+        <translation>Назоў файла</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="60"/>
         <location filename="../ui/UIADLSearchEditor.ui" line="162"/>
         <source>Directory</source>
-        <translation type="unfinished">Каталёг</translation>
+        <translation>Каталёг</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
         <source>Full path</source>
-        <translation type="unfinished"></translation>
+        <translation>Поўны шлях</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="76"/>
         <source>Min/Max Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Найменшы ды найбольшы памер</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="136"/>
         <source>B</source>
-        <translation type="unfinished">Б</translation>
+        <translation>Б</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="141"/>
         <source>KiB</source>
-        <translation type="unfinished">КіБ</translation>
+        <translation>КіБ</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="146"/>
         <source>MiB</source>
-        <translation type="unfinished">МіБ</translation>
+        <translation>МіБ</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="151"/>
         <source>GiB</source>
-        <translation type="unfinished">ГіБ</translation>
+        <translation>ГіБ</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="234"/>
         <source>On</source>
-        <translation type="unfinished">Адыйшоў</translation>
+        <translation>Задзейнічаць</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="241"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягнуць</translation>
     </message>
 </context>
 <context>
@@ -3939,7 +3961,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -4082,7 +4104,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="395"/>
         <source>Filter Operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Прасейваць апэратараў</translation>
     </message>
 </context>
 <context>
@@ -4171,7 +4193,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="106"/>
         <source>EiskaltDC++ V:2.1</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ V:2.1</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="111"/>
@@ -4742,7 +4764,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Incoming connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Уваходныя злучэньні</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="66"/>
@@ -4872,7 +4894,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="439"/>
         <source>Enable Throttle</source>
-        <translation type="unfinished"></translation>
+        <translation>Абмяжоўваць хуткасьці</translation>
     </message>
     <message>
         <source>Enable total speed limit</source>
@@ -4886,17 +4908,17 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="689"/>
         <source>Slots</source>
-        <translation type="unfinished"></translation>
+        <translation>Шчыліны</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="722"/>
         <source>Advanced</source>
-        <translation type="unfinished">Адмысловыя</translation>
+        <translation>Адмысловыя</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="736"/>
         <source>Reconnect to hub(seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Нанова злучацца з асяродкам праз (у сэкундах)</translation>
     </message>
     <message>
         <source>On/Off speed limits</source>
@@ -5337,7 +5359,11 @@ from the queue either, you must do that manually.</source>
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Найбольшы час, які мінуў пасьля таго, як атрымалі апошні
+кавалак файла. Гэта трэба, каб павялічыць дакладнасьць,
+зь якою вымяраецца хуткасьць, і каб не адкідаць крыніцы
+толькі таму, яны бязьдзейнічаюць.
+(Прадвызначана: 10 с.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="667"/>
@@ -5485,12 +5511,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <location filename="../ui/UISettingsGUI.ui" line="143"/>
         <location filename="../ui/UISettingsGUI.ui" line="159"/>
         <source>(need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>(трэба запусьціць нанова)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Тэма карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>
@@ -5559,7 +5585,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="331"/>
         <source>Filter kick-messages from the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Не паказваць высьпяткі ў гамане</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="338"/>
@@ -5602,7 +5628,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="643"/>
         <source>Show country of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказваць у гамане краіну карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="433"/>
@@ -5710,7 +5736,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="750"/>
         <source>Highlighting of already shared files</source>
-        <translation type="unfinished"></translation>
+        <translation>Падсьвятляць файлы, што ўжо маем абагуленымі</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="813"/>
@@ -6028,7 +6054,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="90"/>
         <source>Auto away interval (min)</source>
-        <translation type="unfinished"></translation>
+        <translation>Стан “адыйшоў”, калі бязьдзейнічаем (хв.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="151"/>
@@ -6140,7 +6166,8 @@ share is complete, share at follow-up activities start nulled.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>!!!спраўдзіць: калі 0 = infinite, тады шчыліна дадаецца заўсёды</translatorcomment>
+        <translation>Дадаць шчыліну, калі хуткасьць (у КіБ/с) меней за</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="522"/>
