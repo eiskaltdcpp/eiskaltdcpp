@@ -55,6 +55,9 @@ const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
 
 WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
 {
+    qRegisterMetaType< QMap<QString,QVariant> >("VarMap");
+    qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
+
     if (WIGET(WS_APP_DYNDNS_ENABLED)) {
         http = new QHttp();
         connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));

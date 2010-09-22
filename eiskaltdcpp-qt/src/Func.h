@@ -23,7 +23,7 @@ public:
 };
 
 template<class c>
-class Func0: public FuncBase, public dcpp::FastAlloc< Func0<c> >
+class Func0: public FuncBase
 {
 public:
     Func0(c *obj, void (c::*func)()) {
@@ -41,7 +41,7 @@ public:
 };
 
 template<class c, typename p1>
-class Func1: public FuncBase, public dcpp::FastAlloc< Func1<c,p1> >
+class Func1: public FuncBase
 {
 public:
     Func1(c *obj, void (c::*func)(p1), p1 param1):
@@ -62,7 +62,7 @@ public:
 };
 
 template<class c, typename p1, typename p2>
-class Func2: public FuncBase, public dcpp::FastAlloc< Func2<c,p1,p2> >
+class Func2: public FuncBase
 {
 public:
     Func2(c *obj, void (c::*func)(p1, p2), p1 param1, p2 param2):
@@ -85,7 +85,7 @@ public:
 };
 
 template<class c, typename p1, typename p2, typename p3>
-class Func3: public FuncBase, public dcpp::FastAlloc< Func3<c,p1,p2,p3> >
+class Func3: public FuncBase
 {
 public:
     Func3(c *obj, void (c::*func)(p1, p2, p3), p1 param1, p2 param2, p3 param3):

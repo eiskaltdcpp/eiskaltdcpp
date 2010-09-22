@@ -19,7 +19,6 @@
 #include <QHeaderView>
 
 #include "ui_UITransferView.h"
-#include "Func.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -32,19 +31,6 @@
 
 
 class TransferViewModel;
-
-class TransferViewCustomEvent: public QEvent{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1204);
-
-    TransferViewCustomEvent(FuncBase *f = NULL): QEvent(Event), f(f)
-    {}
-    virtual ~TransferViewCustomEvent(){ delete f; }
-
-    FuncBase *func() { return f; }
-private:
-    FuncBase *f;
-};
 
 class TransferView : public QWidget,
                      private Ui::UITransferView,
@@ -90,11 +76,40 @@ private:
 public:
     QSize sizeHint() const;
 
+Q_SIGNALS:
+    /** DownloadManger signals */
+    void coreDMRequesting(VarMap);
+    void coreDMStarting(VarMap);
+    void coreDMTick(VarMap);
+    void coreDMComplete(VarMap);
+    void coreDMFailed(VarMap);
+
+    /** ConnectionManager  signals */
+    void coreCMAdded(VarMap);
+    void coreCMConnected(VarMap);
+    void coreCMRemoved(VarMap);
+    void coreCMFailed(VarMap);
+    void coreCMStatusChanged(VarMap);
+
+    /** QueueManager signals */
+    void coreQMFinished(VarMap);
+    void coreQMRemoved(VarMap);
+
+    /** UploadManager signals */
+    void coreUMStarting(VarMap);
+    void coreUMTick(VarMap);
+    void coreUMComplete(VarMap);
+    void coreUMFailed(VarMap);
+
+    void coreUpdateParents();
+    void coreUpdateTransferPosition(VarMap, qint64);
+
+    void coreDownloadComplete(QString);
+
 protected:
     virtual void resizeEvent(QResizeEvent *);
     virtual void closeEvent(QCloseEvent *);
     virtual void hideEvent(QHideEvent *);
-    virtual void customEvent(QEvent *);
 
     void getFileList(const QString &, const QString &);
     void matchQueue(const QString &, const QString &);
@@ -125,18 +140,17 @@ protected:
     virtual void on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) throw();
     virtual void on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) throw();
 
-private slots:
+private Q_SLOTS:
     void slotContextMenu(const QPoint&);
     void slotHeaderMenu(const QPoint&);
-
+    void downloadComplete(QString);
+    \
 private:
     TransferView(QWidget* = NULL);
     virtual ~TransferView();
 
     void load();
     void save();
-
-    void downloadComplete(QString);
 
     inline QString      vstr(const QVariant &var) { return var.toString(); }
     inline int          vint(const QVariant &var) { return var.toInt(); }

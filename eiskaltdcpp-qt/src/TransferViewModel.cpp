@@ -258,7 +258,7 @@ void TransferViewModel::sort(int column, Qt::SortOrder order) {
     emit layoutChanged();
 }
 
-void TransferViewModel::initTransfer(VarMap params){
+void TransferViewModel::initTransfer(const VarMap &params){
     if (params.empty())
         return;
 
@@ -294,7 +294,7 @@ void TransferViewModel::initTransfer(VarMap params){
     updateTransfer(params);
 }
 
-void TransferViewModel::addConnection(VarMap params){
+void TransferViewModel::addConnection(const VarMap &params){
     if (params.empty())
         return;
 
@@ -332,7 +332,7 @@ void TransferViewModel::addConnection(VarMap params){
     emit layoutChanged();
 }
 
-void TransferViewModel::updateTransfer(VarMap params){
+void TransferViewModel::updateTransfer(const VarMap &params){
     if (params.empty())
         return;
 
@@ -368,7 +368,7 @@ void TransferViewModel::updateTransfer(VarMap params){
         item->parent()->dpos = vlng(params["FPOS"]);
 }
 
-void TransferViewModel::removeTransfer(VarMap params){
+void TransferViewModel::removeTransfer(const VarMap &params){
     if (params.empty() || vstr(params["CID"]).isEmpty())
         return;
 
@@ -546,7 +546,7 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     p->percent = p->percent == 100.0? 100.0 : progress;
 }
 
-void TransferViewModel::updateTransferPos(VarMap params, qint64 pos){
+void TransferViewModel::updateTransferPos(const VarMap &params, qint64 pos){
     if (params.empty() || !params.contains("CID"))
         return;
 
@@ -560,7 +560,7 @@ void TransferViewModel::updateTransferPos(VarMap params, qint64 pos){
     emit layoutChanged();
 }
 
-void TransferViewModel::finishParent(VarMap params){
+void TransferViewModel::finishParent(const VarMap &params){
     if (params.empty() || !params.contains("TARGET"))
         return;
 

@@ -97,22 +97,6 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
-    virtual void sort() { sort(sortColumn, sortOrder); }
-
-    /** */
-    void addConnection(VarMap);
-    /** */
-    void initTransfer(VarMap);
-    /** */
-    void updateTransfer(VarMap);
-    /** */
-    void removeTransfer(VarMap);
-    /** */
-    void updateTransferPos(VarMap, qint64);
-    /** */
-    void finishParent(VarMap);
-    /** */
-    void updateParents();
 
     /** */
     bool findTransfer(const QString &, bool, TransferViewItem**);
@@ -138,6 +122,23 @@ public:
 
 public Q_SLOTS:
     void repaint();
+
+    /** */
+    void addConnection(const VarMap&);
+    /** */
+    void initTransfer(const VarMap&);
+    /** */
+    void updateTransfer(const VarMap&);
+    /** */
+    void removeTransfer(const VarMap&);
+    /** */
+    void updateTransferPos(const VarMap&, qint64);
+    /** */
+    void finishParent(const VarMap&);
+    /** */
+    void updateParents();
+    /** Just resort*/
+    virtual void sort() { sort(sortColumn, sortOrder); }
 
 private:
     inline QString      vstr(const QVariant &var) { return var.toString(); }

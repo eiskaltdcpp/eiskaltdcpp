@@ -150,16 +150,6 @@ void TransferView::hideEvent(QHideEvent *e){
     e->accept();
 }
 
-void TransferView::customEvent(QEvent *e){
-    if (e->type() == TransferViewCustomEvent::Event){
-        TransferViewCustomEvent *u_e = reinterpret_cast<TransferViewCustomEvent*>(e);
-
-        (*u_e->func())();
-    }
-
-    e->accept();
-}
-
 void TransferView::save(){
     WSSET(WS_TRANSFERS_STATE, treeView_TRANSFERS->header()->saveState().toBase64());
 }
@@ -194,6 +184,27 @@ void TransferView::init(){
 
     connect(treeView_TRANSFERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_TRANSFERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
+
+    connect(this, SIGNAL(coreDMRequesting(VarMap)),     model, SLOT(initTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreDMStarting(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreDMTick(VarMap)),           model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUpdateParents()),          model, SLOT(updateParents()), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUpdateParents()),          model, SLOT(sort()), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreDMComplete(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUpdateTransferPosition(VarMap,qint64)), model, SLOT(updateTransferPos(VarMap,qint64)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreDMFailed(VarMap)),         model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreCMAdded(VarMap)),          model, SLOT(addConnection(VarMap)));
+    connect(this, SIGNAL(coreCMConnected(VarMap)),      model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreCMRemoved(VarMap)),        model, SLOT(removeTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreCMFailed(VarMap)),         model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreCMStatusChanged(VarMap)),  model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreQMFinished(VarMap)),       model, SLOT(finishParent(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreQMRemoved(VarMap)),        model, SLOT(finishParent(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreDownloadComplete(QString)), this, SLOT(downloadComplete(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUMStarting(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUMTick(VarMap)),           model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUMComplete(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUMFailed(VarMap)),         model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
 
     load();
 }
@@ -510,10 +521,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download*
     params["STAT"]  = tr("Requesting");
     params["FAIL"]  = false;
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::initTransfer, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreDMRequesting(params);
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Starting, dcpp::Download* dl) throw(){
@@ -524,10 +532,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Starting, dcpp::Download* d
     params["STAT"] = tr("Download starting...");
     params["FPOS"]  = (qlonglong)QueueManager::getInstance()->getPos(dl->getPath());
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreDMStarting(params);
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadList& dls) throw(){
@@ -557,21 +562,10 @@ void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadL
 
         params["STAT"] = str;
 
-        typedef Func1<TransferViewModel, VarMap> FUNC;
-        FUNC *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-        QApplication::postEvent(this, new TransferViewCustomEvent(f));
+        emit coreDMTick(params);
     }
 
-    typedef Func0<TransferViewModel> FUNC_;
-    FUNC_ *f_ = new FUNC_(model, &TransferViewModel::updateParents);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f_));
-
-    typedef Func0<TransferViewModel> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::sort);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreUpdateParents();
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* dl) throw(){
@@ -584,14 +578,8 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
 
     qint64 pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC  *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-    typedef Func2<TransferViewModel, VarMap, qint64> FUNC1;
-    FUNC1 *f1= new FUNC1(model, &TransferViewModel::updateTransferPos, params, pos);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
-    QApplication::postEvent(this, new TransferViewCustomEvent(f1));
+    emit coreDMComplete(params);
+    emit coreUpdateTransferPosition(params, pos);
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw(){
@@ -606,14 +594,8 @@ void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl,
 
     qint64 pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC  *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-    typedef Func2<TransferViewModel, VarMap, qint64> FUNC1;
-    FUNC1 *f1= new FUNC1(model, &TransferViewModel::updateTransferPos, params, pos);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
-    QApplication::postEvent(this, new TransferViewCustomEvent(f1));
+    emit coreDMFailed(params);
+    emit coreUpdateTransferPosition(params, pos);
 }
 
 void TransferView::on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQueueItem* cqi) throw(){
@@ -637,10 +619,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQu
         }
     }
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::addConnection, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreCMAdded(params);
 }
 
 void TransferView::on(dcpp::ConnectionManagerListener::Connected, dcpp::ConnectionQueueItem* cqi) throw(){
@@ -651,10 +630,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Connected, dcpp::Connecti
 
     params["STAT"] = tr("Connected");
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreCMConnected(params);
 }
 
 void TransferView::on(dcpp::ConnectionManagerListener::Removed, dcpp::ConnectionQueueItem* cqi) throw(){
@@ -662,10 +638,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Removed, dcpp::Connection
 
     getParams(params, cqi);
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::removeTransfer, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreCMRemoved(params);
 }
 
 void TransferView::on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQueueItem* cqi, const std::string &reason) throw(){
@@ -678,10 +651,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQ
     params["SPEED"] = (qlonglong)0;
     params["TLEFT"] = -1;
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreCMFailed(params);
 }
 
 void TransferView::on(dcpp::ConnectionManagerListener::StatusChanged, dcpp::ConnectionQueueItem* cqi) throw(){
@@ -695,37 +665,24 @@ void TransferView::on(dcpp::ConnectionManagerListener::StatusChanged, dcpp::Conn
     else
         params["STAT"] = tr("Waiting to retry");
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreCMStatusChanged(params);
 }
 
 void TransferView::on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem* qi, const std::string&, int64_t) throw(){
     VarMap params;
     params["TARGET"] = _q(qi->getTarget());
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::finishParent, params);
+    emit coreQMFinished(params);
 
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
-
-    if (!qi->isSet(QueueItem::FLAG_USER_LIST)){//Do not show notify for filelists
-        typedef Func1<TransferView, QString> FUNC2;
-        FUNC2 *f2 = new FUNC2(this, &TransferView::downloadComplete, _q(qi->getTarget()).split(QDir::separator()).last());
-
-        QApplication::postEvent(this, new TransferViewCustomEvent(f2));
-    }
+    if (!qi->isSet(QueueItem::FLAG_USER_LIST))//Do not show notify for filelists
+        emit coreDownloadComplete(_q(qi->getTarget()).split(QDir::separator()).last());
 }
 
 void TransferView::on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem* qi) throw(){
     VarMap params;
     params["TARGET"] = _q(qi->getTarget());
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::finishParent, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreQMRemoved(params);
 }
 
 void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) throw(){
@@ -744,10 +701,7 @@ void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) t
     params["DOWN"] = false;
     params["FAIL"] = false;
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreUMStarting(params);
 }
 
 void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) throw(){
@@ -774,21 +728,10 @@ void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList&
         params["DOWN"] = false;
         params["FAIL"] = false;
 
-        typedef Func1<TransferViewModel, VarMap> FUNC;
-        FUNC *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-        QApplication::postEvent(this, new TransferViewCustomEvent(f));
+        emit coreUMTick(params);
     }
 
-    typedef Func0<TransferViewModel> FUNC_;
-    FUNC_ *f_ = new FUNC_(model, &TransferViewModel::updateParents);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f_));
-
-    typedef Func0<TransferViewModel> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::sort);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreUpdateParents();
 }
 
 void TransferView::on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) throw(){
@@ -800,10 +743,7 @@ void TransferView::on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) t
     params["DOWN"] = false;
     params["FAIL"] = false;
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreUMComplete(params);
 }
 
 void TransferView::on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) throw(){
@@ -815,8 +755,5 @@ void TransferView::on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, con
     params["DOWN"] = false;
     params["FAIL"] = false;
 
-    typedef Func1<TransferViewModel, VarMap> FUNC;
-    FUNC *f = new FUNC(model, &TransferViewModel::updateTransfer, params);
-
-    QApplication::postEvent(this, new TransferViewCustomEvent(f));
+    emit coreUMFailed(params);
 }

@@ -129,7 +129,7 @@ public:
     };
 
     typedef QMap<QString, PMWindow*> PMMap;
-    typedef QHash<QString, QVariant > VarMap;
+    typedef QMap<QString, QVariant> VarMap;
     typedef QList<ShellCommandRunner*> ShellList;
 
     HubFrame(QWidget *parent, QString, QString);
@@ -259,7 +259,7 @@ private:
     void updateStyles();
 
     /** Extracts data from user identity */
-    void getParams(UserMap &, const Identity &);
+    void getParams(VarMap &, const Identity &);
     //inline void on_userUpdated(const VarMap&, const UserPtr&, bool) __attribute__((always_inline));
 
     // FavoriteManagerListener

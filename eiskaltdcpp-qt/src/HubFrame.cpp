@@ -834,9 +834,6 @@ void HubFrame::hideEvent(QHideEvent *e){
 }
 
 void HubFrame::init(){
-    qRegisterMetaType<VarMap>("VarMap");
-    qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
-
     updater = new QTimer();
     updater->setInterval(1000);
     updater->setSingleShot(false);

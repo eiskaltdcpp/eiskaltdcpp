@@ -24,7 +24,6 @@
 #include <dcpp/Singleton.h>
 
 #include "ArenaWidget.h"
-#include "Func.h"
 #include "WulforUtil.h"
 
 #include "ui_UIDownloadQueue.h"
@@ -32,19 +31,6 @@
 class DownloadQueueModel;
 class DownloadQueueItem;
 class DownloadQueueDelegate;
-
-class DownloadQueueCustomEvent: public QEvent{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1205);
-
-    DownloadQueueCustomEvent(FuncBase *f = NULL): QEvent(Event), f(f)
-    {}
-    virtual ~DownloadQueueCustomEvent(){ delete f; }
-
-    FuncBase *func() { return f; }
-private:
-    FuncBase *f;
-};
 
 class DownloadQueue :
         public QWidget,
@@ -58,9 +44,6 @@ class DownloadQueue :
 
 typedef QMap<QString, QVariant> VarMap;
 typedef QMap<QString, QMap<QString, QString> > SourceMap;
-typedef Func1<DownloadQueue, VarMap> AddFileFunc;
-typedef Func1<DownloadQueue, VarMap> UpdateFileFunc;
-typedef Func1<DownloadQueue, VarMap> RemFileFunc;
 
 friend class dcpp::Singleton<DownloadQueue>;
 
@@ -111,7 +94,6 @@ public:
 
 protected:
     virtual void closeEvent(QCloseEvent*);
-    virtual void customEvent(QEvent *);
     // Client callbacks
     virtual void on(dcpp::QueueManagerListener::Added, dcpp::QueueItem *item) throw();
     virtual void on(dcpp::QueueManagerListener::Moved, dcpp::QueueItem *item, const std::string &oldTarget) throw();
@@ -135,6 +117,17 @@ private Q_SLOTS:
     void slotHeaderMenu(const QPoint&);
     void slotUpdateStats(quint64 files, quint64 size);
 
+    void addFile(const VarMap&);
+    void remFile(const VarMap&);
+    void updateFile(const VarMap&);
+
+Q_SIGNALS:
+    void coreAdded(VarMap);
+    void coreMoved(VarMap);
+    void coreRemoved(VarMap);
+    void coreSourcesUpdated(VarMap);
+    void coreStatusUpdated(VarMap);
+
 private:
     DownloadQueue(QWidget* = NULL);
     virtual ~DownloadQueue();
@@ -145,10 +138,6 @@ private:
 
     void getParams(VarMap&, const dcpp::QueueItem*);
     void loadList();
-
-    void addFile(VarMap);
-    void remFile(VarMap);
-    void updateFile(VarMap);
 
     void getChilds(DownloadQueueItem *i, QList<DownloadQueueItem*>&);
     void getItems(const QModelIndexList &list, QList<DownloadQueueItem*> &items);

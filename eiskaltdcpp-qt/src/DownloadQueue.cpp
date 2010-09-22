@@ -204,16 +204,6 @@ void DownloadQueue::closeEvent(QCloseEvent *e){
     }
 }
 
-void DownloadQueue::customEvent(QEvent *e){
-    if (e->type() == DownloadQueueCustomEvent::Event){
-        DownloadQueueCustomEvent *c_e = reinterpret_cast<DownloadQueueCustomEvent*>(e);
-
-        (*c_e->func())();
-    }
-
-    e->accept();
-}
-
 void DownloadQueue::requestDelete(){
     if (!treeView_TARGET->hasFocus())
         return;
@@ -261,6 +251,13 @@ void DownloadQueue::init(){
     treeView_TARGET->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
     label_STATS->hide();
+
+    connect(this, SIGNAL(coreAdded(VarMap)),            this, SLOT(addFile(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreRemoved(VarMap)),          this, SLOT(remFile(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreSourcesUpdated(VarMap)),   this, SLOT(updateFile(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreStatusUpdated(VarMap)),    this, SLOT(updateFile(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreMoved(VarMap)),            this, SLOT(remFile(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreMoved(VarMap)),            this, SLOT(addFile(VarMap)), Qt::QueuedConnection);
 
     connect(treeView_TARGET, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_TARGET->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
@@ -445,11 +442,11 @@ void DownloadQueue::loadList(){
     QueueManager::getInstance()->unlockQueue();
 }
 
-void DownloadQueue::addFile(DownloadQueue::VarMap map){
+void DownloadQueue::addFile(const DownloadQueue::VarMap &map){
     queue_model->addItem(map);
 }
 
-void DownloadQueue::remFile(VarMap map){
+void DownloadQueue::remFile(const VarMap &map){
     if (queue_model->remItem(map)){
         SourceMap::iterator it = sources.find(map["TARGET"].toString());
 
@@ -463,7 +460,7 @@ void DownloadQueue::remFile(VarMap map){
     }
 }
 
-void DownloadQueue::updateFile(DownloadQueue::VarMap map){
+void DownloadQueue::updateFile(const DownloadQueue::VarMap &map){
     queue_model->updItem(map);
 }
 
@@ -706,10 +703,7 @@ void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw(){
     VarMap params;
     getParams(params, item);
 
-    AddFileFunc *f = new AddFileFunc(this, &DownloadQueue::addFile, params);
-
-    QApplication::postEvent(this, new DownloadQueueCustomEvent(f));
-
+    emit coreAdded(params);
     emit added(_q(item->getTargetFileName()));
 }
 
@@ -717,12 +711,7 @@ void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const std::
     VarMap params;
     getParams(params, item);
 
-    RemFileFunc *rmf  = new RemFileFunc(this, &DownloadQueue::remFile, params);
-    AddFileFunc *addf = new AddFileFunc(this, &DownloadQueue::addFile, params);
-
-    QApplication::postEvent(this, new DownloadQueueCustomEvent(rmf));
-    QApplication::postEvent(this, new DownloadQueueCustomEvent(addf));
-
+    emit coreMoved(params);
     emit moved(_q(oldTarget), _q(item->getTargetFileName()));
 }
 
@@ -730,10 +719,7 @@ void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) throw(){
     VarMap params;
     getParams(params, item);
 
-    RemFileFunc *rmf  = new RemFileFunc(this, &DownloadQueue::remFile, params);
-
-    QApplication::postEvent(this, new DownloadQueueCustomEvent(rmf));
-
+    emit coreRemoved(params);
     emit removed(_q(item->getTargetFileName()));
 }
 
@@ -741,16 +727,12 @@ void DownloadQueue::on(QueueManagerListener::SourcesUpdated, QueueItem *item) th
     VarMap params;
     getParams(params, item);
 
-    UpdateFileFunc *upf = new UpdateFileFunc(this, &DownloadQueue::updateFile, params);
-
-    QApplication::postEvent(this, new DownloadQueueCustomEvent(upf));
+    emit coreSourcesUpdated(params);
 }
 
 void DownloadQueue::on(QueueManagerListener::StatusUpdated, QueueItem *item) throw(){
     VarMap params;
     getParams(params, item);
 
-    UpdateFileFunc *upf = new UpdateFileFunc(this, &DownloadQueue::updateFile, params);
-
-    QApplication::postEvent(this, new DownloadQueueCustomEvent(upf));
+    emit coreStatusUpdated(params);
 }
