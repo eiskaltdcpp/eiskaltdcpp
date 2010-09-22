@@ -283,7 +283,7 @@ SettingsManager::SettingsManager()
     setDefault(DHT_PORT, 6245);
     setDefault(USE_DHT, false);
     setDefault(SEARCH_PASSIVE, false);
-    setDefault(AUTO_DETECT_CONNECTION, false);
+    setDefault(AUTO_DETECT_CONNECTION, true);
     setDefault(MAX_UPLOAD_SPEED_MAIN, 0);
     setDefault(MAX_DOWNLOAD_SPEED_MAIN, 0);
     setDefault(THROTTLE_ENABLE, false);

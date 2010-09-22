@@ -39,7 +39,7 @@ void SettingsConnection::ok(){
     SettingsManager *SM = SettingsManager::getInstance();
 
     int old_mode = SETTING(INCOMING_CONNECTIONS);
-
+    SM->set(SettingsManager::AUTO_DETECT_CONNECTION, checkBox_AUTO_DETECT_CONNECTION->isChecked());
     if (active){
         QString ip = lineEdit_WANIP->text();
 
@@ -129,7 +129,7 @@ void SettingsConnection::init(){
     spinBox_TCP->setValue(old_tcp = SETTING(TCP_PORT));
     spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));
     spinBox_TLS->setValue(old_tls = SETTING(TLS_PORT));
-
+    checkBox_AUTO_DETECT_CONNECTION->setChecked(BOOLSETTING(AUTO_DETECT_CONNECTION));
     checkBox_THROTTLE_ENABLE->setChecked(BOOLSETTING(THROTTLE_ENABLE));
     checkBox_TIME_DEPENDENT_THROTTLE->setChecked(BOOLSETTING(TIME_DEPENDENT_THROTTLE));
     spinBox_DOWN_LIMIT_NORMAL->setValue(SETTING(MAX_DOWNLOAD_SPEED_MAIN));
@@ -144,6 +144,7 @@ void SettingsConnection::init(){
     checkBox_DYNDNS->setCheckState( WIGET(WS_APP_DYNDNS_ENABLED) ? Qt::Checked : Qt::Unchecked );
     lineEdit_DYNDNS_SERVER->setText(WSGET(WS_APP_DYNDNS_SERVER));
     lineEdit_DYNDNS_INDEX->setText(WSGET(WS_APP_DYNDNS_INDEX));
+
 
     switch (SETTING(INCOMING_CONNECTIONS)){
     case SettingsManager::INCOMING_DIRECT:
@@ -244,7 +245,6 @@ void SettingsConnection::slotToggleOutgoing(){
 
     frame_2->setEnabled(b);
 }
-
 bool SettingsConnection::validateIp(QString &ip){
     if (ip.isEmpty() || ip.isNull())
         return false;

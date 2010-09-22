@@ -100,6 +100,7 @@ if (USE_MINIUPNP)
 
   if (LOCAL_MINIUPNP)
     add_subdirectory(miniupnpc)
+    set (MINIUPNP_INCLUDE_DIR "./")
   else (LOCAL_MINIUPNP)
     find_package (Miniupnpc REQUIRED)
   endif (LOCAL_MINIUPNP)
@@ -194,8 +195,8 @@ endif (LIB_INSTALL_DIR)
 
 if (NOT LIBDIR)
   set (LIBDIR "lib")
-  message (STATUS "Library directory: ${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
 endif (NOT LIBDIR)
+message (STATUS "Library directory: ${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
 
 if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")

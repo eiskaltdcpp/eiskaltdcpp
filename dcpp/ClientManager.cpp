@@ -369,6 +369,8 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
 
     SearchResultList l;
     ShareManager::getInstance()->search(l, aString, aSearchType, aSize, aFileType, aClient, isPassive ? 5 : 10);
+    //string bak=Text::toLower(aString);
+    //fprintf(stderr,"%s\n",bak.c_str());
 //      dcdebug("Found %d items (%s)\n", l.size(), aString.c_str());
     if(l.size() > 0) {
         if(isPassive) {
