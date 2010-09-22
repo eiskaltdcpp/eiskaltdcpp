@@ -36,6 +36,10 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(checkBox_AUTOGRANT, SIGNAL(toggled(bool)), this, SLOT(slotAutoGrant(bool)));
 
+    connect(this, SIGNAL(coreUserAdded(VarMap)),                this, SLOT(addUser(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUserRemoved(QString)),             this, SLOT(remUser(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreStatusChanged(QString,QString)),   this, SLOT(updateUser(QString,QString)), Qt::QueuedConnection);
+
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
     VarMap params;
 
@@ -81,26 +85,6 @@ void FavoriteUsers::closeEvent(QCloseEvent *e){
 
         e->ignore();
     }
-}
-
-void FavoriteUsers::customEvent(QEvent *e){
-    if (e->type() == FavUserEvent::EventAddUser){
-        FavUserEvent *u = reinterpret_cast<FavUserEvent*>(e);
-
-        addUser(u->getMap());
-    }
-    else if (e->type() == FavUserEvent::EventRemUser){
-        FavUserEvent *u = reinterpret_cast<FavUserEvent*>(e);
-
-        remUser(_q(u->getCID().toBase32()));
-    }
-    else if (e->type() == FavUserEvent::EventUpdUser){
-        FavUserEvent *u = reinterpret_cast<FavUserEvent*>(e);
-
-        updateUser(_q(u->getCID().toBase32()), u->getStat());
-    }
-
-    e->accept();
 }
 
 bool FavoriteUsers::eventFilter(QObject *obj, QEvent *e){
@@ -291,25 +275,22 @@ void FavoriteUsers::on(UserAdded, const FavoriteUser& aUser) throw() {
     if (WBGET(WB_FAVUSERS_AUTOGRANT))
         FavoriteManager::getInstance()->setAutoGrant(aUser.getUser(), true);
 
-    FavUserEvent *u_e = new FavUserEvent();
+    VarMap params;
 
-    getParams(u_e->getMap(), aUser);
+    getParams(params, aUser);
 
-    QApplication::postEvent(this, u_e);
+    emit coreUserAdded(params);
 }
 
 void FavoriteUsers::on(UserRemoved, const FavoriteUser& aUser) throw() {
-    FavUserEvent *u_e = new FavUserEvent(aUser.getUser()->getCID());
-
-    QApplication::postEvent(this, u_e);
+    emit coreUserRemoved(_q(aUser.getUser()->getCID().toBase32()));
 }
 
 void FavoriteUsers::on(StatusChanged, const UserPtr& u) throw(){
-    FavUserEvent *u_e = new FavUserEvent(u->getCID(), u->isOnline()?
-                                         tr("Online")
-                                         :
-                                        _q(Util::formatTime("%Y-%m-%d %H:%M", FavoriteManager::getInstance()->getLastSeen(u))));
+    emit coreStatusChanged(_q(u->getCID().toBase32()), u->isOnline()?
+                                                                    tr("Online")
+                                                                    :
+                                                                    _q(Util::formatTime("%Y-%m-%d %H:%M", FavoriteManager::getInstance()->getLastSeen(u))));
 
-    QApplication::postEvent(this, u_e);
 }
 

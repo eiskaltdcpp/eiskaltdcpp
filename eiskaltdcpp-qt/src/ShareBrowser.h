@@ -20,7 +20,6 @@
 #include <QSortFilterProxyModel>
 
 #include "ArenaWidget.h"
-#include "Func.h"
 #include "WulforUtil.h"
 #include "ui_UIShareBrowser.h"
 
@@ -38,21 +37,6 @@ class FileBrowserItem;
 class ShareBrowser;
 
 class QModelIndex;
-
-class ShareBrowserLoader: public QThread
-{
-    Q_OBJECT
-
-    public:
-        typedef Func2<ShareBrowser, dcpp::DirectoryListing::Directory*, FileBrowserItem*> LoaderFunc;
-
-        ShareBrowserLoader(LoaderFunc *);
-        virtual ~ShareBrowserLoader();
-
-        virtual void run();
-    private:
-        LoaderFunc *func;
-};
 
 class ShareBrowser : public  QWidget,
                      public  ArenaWidget,
@@ -103,14 +87,17 @@ public:
 
     bool isFindFrameActivated();
 
-public slots:
+Q_SIGNALS:
+    void loadFinished();
+
+public Q_SLOTS:
     void slotFilter();
 
 protected:
     virtual void closeEvent(QCloseEvent *);
     virtual bool eventFilter(QObject *, QEvent *);
 
-private slots:
+private Q_SLOTS:
     void slotRightPaneClicked(const QModelIndex&);
     void slotRightPaneSelChanged(const QItemSelection&, const QItemSelection&);
     void slotLeftPaneSelChanged(const QItemSelection&, const QItemSelection&);
@@ -119,7 +106,6 @@ private slots:
     void slotLoaderFinish();
 
 private:
-
     void init();
 
     void load();
@@ -136,8 +122,6 @@ private:
 
     void goUp(QTreeView *);
     void goDown(QTreeView *);
-
-    ShareBrowserLoader::LoaderFunc *loader_func;
 
     QMenu *arena_menu;
 

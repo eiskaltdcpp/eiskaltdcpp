@@ -100,7 +100,7 @@ private:
 class SearchModel : public QAbstractItemModel
 {
     Q_OBJECT
-
+    typedef QMap<QString, QVariant> VarMap;
 public:
 
     SearchModel(QObject *parent = 0);
@@ -146,8 +146,6 @@ public:
             const bool isDir);
 
     /** */
-    bool addResultPtr(const QMap<QString, QVariant>&);
-    /** */
     int getSortColumn() const;
     /** */
     void setSortColumn(int);
@@ -163,6 +161,10 @@ public:
 
     /** */
     void repaint();
+
+public Q_SLOTS:
+    /** */
+    bool addResultPtr(const VarMap&);
 
 private:
     /** */

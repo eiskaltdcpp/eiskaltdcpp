@@ -24,23 +24,9 @@
 #include <QHeaderView>
 #include <QKeyEvent>
 #include <QtConcurrentFilter>
+#include <QtConcurrentRun>
 
 using namespace dcpp;
-
-ShareBrowserLoader::ShareBrowserLoader(ShareBrowserLoader::LoaderFunc *f):
-        func(f)
-{
-}
-
-ShareBrowserLoader::~ShareBrowserLoader(){
-}
-
-void ShareBrowserLoader::run(){
-    if (func)
-        (*func)();
-
-    emit finished();
-}
 
 ShareBrowser::Menu::Menu(){
     menu = new QMenu();
@@ -148,7 +134,6 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         list_root(NULL),
         tree_model(NULL),
         list_model(NULL),
-        loader_func(NULL),
         proxy(NULL)
 {
     setupUi(this);
@@ -252,6 +237,7 @@ void ShareBrowser::init(){
     connect(treeView_RPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
     connect(treeView_RPANE->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotRightPaneClicked(QModelIndex)));
+    connect(this, SIGNAL(loadFinished()), this, SLOT(slotLoaderFinish()), Qt::QueuedConnection);
 
     setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -305,15 +291,10 @@ void ShareBrowser::buildList(){
         listing.getRoot()->setName(nick.toStdString());
         ADLSearchManager::getInstance()->matchListing(listing);
 
-        loader_func = new ShareBrowserLoader::LoaderFunc(this, &ShareBrowser::createTree, listing.getRoot(), tree_root);
-        ShareBrowserLoader *loader = new ShareBrowserLoader(loader_func);
-
-        connect(loader, SIGNAL(finished()), this, SLOT(slotLoaderFinish()));
+        QtConcurrent::run(this, &ShareBrowser::createTree, listing.getRoot(), tree_root);
 
         treeView_LPANE->blockSignals(true);
         treeView_RPANE->blockSignals(true);
-
-        loader->start();
     }
     catch (const Exception &e){
         //TODO: add error handling
@@ -347,6 +328,9 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
 
     for (it = dir->directories.begin(); it != dir->directories.end(); ++it)
         createTree(*it, item);
+
+    if (root == tree_root)
+        emit loadFinished();
 }
 
 void ShareBrowser::initModels(){
@@ -734,23 +718,11 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 }
 
 void ShareBrowser::slotLoaderFinish(){
-    ShareBrowserLoader *loader = static_cast<ShareBrowserLoader*>(sender());
-
-    if (!loader)
-        return;
-
-    loader->exit(0);
-    loader->wait();
-    loader->terminate();
-
     treeView_LPANE->blockSignals(false);
     treeView_RPANE->blockSignals(false);
 
     tree_model->repaint();
     list_model->repaint();
-
-    delete loader;
-    delete loader_func;
 
     load();
 

@@ -875,8 +875,8 @@ void HubFrame::init(){
 
     connect(this, SIGNAL(coreConnecting(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreConnected(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUserUpdated(VarMap,dcpp::UserPtr,bool)), this, SLOT(on_userUpdated(VarMap,dcpp::UserPtr,bool)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUserRemoved(dcpp::UserPtr,qlonglong)), this, SLOT(on_userRemoved(dcpp::UserPtr,qlonglong)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUserUpdated(VarMap,dcpp::UserPtr,bool)), this, SLOT(userUpdated(VarMap,dcpp::UserPtr,bool)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUserRemoved(dcpp::UserPtr,qlonglong)), this, SLOT(userRemoved(dcpp::UserPtr,qlonglong)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreStatusMsg(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreFollow(QString)), this, SLOT(follow(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreFailed()), this, SLOT(clearUsers()), Qt::QueuedConnection);
@@ -1570,7 +1570,7 @@ void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
     map["CID"] = _q(cid.toBase32());
 }
 
-void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, bool join){
+void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, bool join){
     static WulforUtil *WU = WulforUtil::getInstance();
     static WulforSettings *WS = WulforSettings::getInstance();
     static bool showFavJoinsOnly = WS->getBool(WB_CHAT_SHOW_JOINS_FAV);
@@ -1651,7 +1651,7 @@ void HubFrame::on_userUpdated(const HubFrame::VarMap &map, const UserPtr &user, 
     total_shared += map["SHARE"].toULongLong();
 }
 
-void HubFrame::on_userRemoved(const dcpp::UserPtr &user, qlonglong share){
+void HubFrame::userRemoved(const dcpp::UserPtr &user, qlonglong share){
     total_shared -= share;
 
     QString cid = _q(user->getCID().toBase32());

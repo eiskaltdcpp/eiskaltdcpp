@@ -233,8 +233,8 @@ private Q_SLOTS:
     void delUserFromQueue(const QString&);
     void addAsFavorite();
 
-    void on_userUpdated(const VarMap&, const dcpp::UserPtr&, bool);
-    void on_userRemoved(const dcpp::UserPtr &user, qlonglong share);
+    void userUpdated(const VarMap&, const dcpp::UserPtr&, bool);
+    void userRemoved(const dcpp::UserPtr &user, qlonglong share);
     void follow(QString);
     void clearUsers();
     void getPassword();

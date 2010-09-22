@@ -310,16 +310,6 @@ void SearchFrame::closeEvent(QCloseEvent *e){
     e->accept();
 }
 
-void SearchFrame::customEvent(QEvent *e){
-    if (e->type() == SearchCustomEvent::Event){
-        SearchCustomEvent *u_e = reinterpret_cast<SearchCustomEvent*>(e);
-
-        (*u_e->func())();
-    }
-
-    e->accept();
-}
-
 void SearchFrame::init(){
     timer1 = new QTimer(this);
     timer1->setInterval(1000);
@@ -361,6 +351,11 @@ void SearchFrame::init(){
 
     lineEdit_SEARCHSTR->setMenu(m);
     lineEdit_SEARCHSTR->setPixmap(WICON(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+
+    connect(this, SIGNAL(coreClientConnected(HubInfo*)),    this, SLOT(onHubAdded(HubInfo*)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreClientDisconnected(HubInfo*)), this, SLOT(onHubRemoved(HubInfo*)),Qt::QueuedConnection);
+    connect(this, SIGNAL(coreClientUpdated(HubInfo*)),      this, SLOT(onHubChanged(HubInfo*)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreSR(VarMap)),                   this, SLOT(addResult(VarMap)), Qt::QueuedConnection);
 
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
@@ -691,7 +686,7 @@ bool SearchFrame::getWholeDirParams(SearchFrame::VarMap &params, SearchItem *ite
     return true;
 }
 
-void SearchFrame::addResult(QMap<QString, QVariant> map){
+void SearchFrame::addResult(const QMap<QString, QVariant> &map){
     try {
         if (model->addResultPtr(map))
             results++;
@@ -1368,39 +1363,23 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
         return;
     }
 
-    typedef Func1<SearchFrame, QMap<QString, QVariant> > FUNC;
-
     QMap<QString, QVariant> map;
     getParams(map, aResult);
 
-    FUNC *func = new FUNC(this, &SearchFrame::addResult, map);
-
-    QApplication::postEvent(this, new SearchCustomEvent(func));
+    emit coreSR(map);
 }
 
 void SearchFrame::on(ClientConnected, Client* c) throw(){
-    typedef Func1<SearchFrame, HubInfo* > FUNC;
-
-    if (!hub_list.contains(c)){
-        FUNC *f = new FUNC(this, &SearchFrame::onHubAdded, new HubInfo(c, listWidget_HUBS));
-        QApplication::postEvent(this, new SearchCustomEvent(f));
-    }
+    if (!hub_list.contains(c))
+        emit coreClientConnected(new HubInfo(c, listWidget_HUBS));
 }
 
 void SearchFrame::on(ClientUpdated, Client* c) throw(){
-    typedef Func1<SearchFrame, HubInfo* > FUNC;
-
-    if (hub_list.contains(c)){
-        FUNC *f = new FUNC(this, &SearchFrame::onHubChanged, hub_list[c]);
-        QApplication::postEvent(this, new SearchCustomEvent(f));
-    }
+    if (hub_list.contains(c))
+        emit coreClientUpdated(hub_list[c]);
 }
 
 void SearchFrame::on(ClientDisconnected, Client* c) throw(){
-    typedef Func1<SearchFrame, HubInfo* > FUNC;
-
-    if (hub_list.contains(c)){
-        FUNC *f = new FUNC(this, &SearchFrame::onHubRemoved, hub_list[c]);
-        QApplication::postEvent(this, new SearchCustomEvent(f));
-    }
+    if (hub_list.contains(c))
+        emit coreClientDisconnected(hub_list[c]);
 }

@@ -43,26 +43,6 @@ Q_INTERFACES(ArenaWidget)
 friend class dcpp::Singleton<FavoriteUsers>;
 typedef QMap<QString, QVariant> VarMap;
 
-class FavUserEvent: public QEvent{
-public:
-    static const QEvent::Type EventAddUser  = static_cast<QEvent::Type>(1211);
-    static const QEvent::Type EventRemUser  = static_cast<QEvent::Type>(1212);
-    static const QEvent::Type EventUpdUser  = static_cast<QEvent::Type>(1213);
-
-    FavUserEvent(): QEvent(EventAddUser) {}
-    FavUserEvent(const dcpp::CID &cid, const QString &stat): QEvent(EventUpdUser), cid(cid), stat(stat) {}
-    FavUserEvent(const dcpp::CID &cid):QEvent(EventRemUser), cid(cid) {}
-    virtual ~FavUserEvent() { }
-
-    VarMap &getMap() { return map; }
-    QString &getStat() {return stat; }
-    dcpp::CID &getCID() {return cid; }
-private:
-    dcpp::CID cid;
-    QString stat;
-    VarMap map;
-};
-
 public:
 
     virtual QWidget *getWidget() { return this; }
@@ -72,9 +52,13 @@ public:
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiFAVUSERS); }
     ArenaWidget::Role role() const { return ArenaWidget::FavoriteUsers; }
 
+Q_SIGNALS:
+    void coreUserAdded(VarMap);
+    void coreUserRemoved(QString);
+    void coreStatusChanged(QString,QString);
+
 protected:
     virtual void closeEvent(QCloseEvent *);
-    virtual void customEvent(QEvent *);
     virtual bool eventFilter(QObject *, QEvent *);
 
     virtual void on(UserAdded, const dcpp::FavoriteUser& aUser) throw();
@@ -91,6 +75,10 @@ private Q_SLOTS:
     void slotHeaderMenu();
     void slotAutoGrant(bool b){ WBSET(WB_FAVUSERS_AUTOGRANT, b); }
 
+    void addUser(const VarMap &);
+    void updateUser(const QString &, const QString &);
+    void remUser(const QString &);
+
 private:
     FavoriteUsers(QWidget *parent = NULL);
     virtual ~FavoriteUsers();
@@ -100,10 +88,6 @@ private:
     void handleGrant(const QString &);
 
     void getParams(VarMap &map, const dcpp::FavoriteUser &);
-
-    void addUser(const VarMap &);
-    void updateUser(const QString &, const QString &);
-    void remUser(const QString &);
 
     FavoriteUsersModel *model;
 };

@@ -26,7 +26,6 @@
 
 #include "ui_UISearchFrame.h"
 #include "ArenaWidget.h"
-#include "Func.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -41,19 +40,6 @@ using namespace dcpp;
 class SearchModel;
 class SearchProxyModel;
 class SearchItem;
-
-class SearchCustomEvent: public QEvent{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1203);
-
-    SearchCustomEvent(FuncBase *f = NULL): QEvent(Event), f(f)
-    {}
-    virtual ~SearchCustomEvent(){ delete f; }
-
-    FuncBase *func() { return f; }
-private:
-    FuncBase *f;
-};
 
 class SearchFrame : public QWidget,
                     public ArenaWidget,
@@ -167,9 +153,17 @@ public Q_SLOTS:
 
 protected:
     virtual void closeEvent(QCloseEvent*);
-    virtual void customEvent(QEvent *);
 
-private slots:
+Q_SIGNALS:
+    /** SearchManager signals */
+    void coreSR(const VarMap&);
+
+    /** ClienManager signals */
+    void coreClientConnected(HubInfo*);
+    void coreClientUpdated(HubInfo*);
+    void coreClientDisconnected(HubInfo*);
+
+private Q_SLOTS:
     void timerTick();
     void slotClear();
     void slotTimer();
@@ -179,6 +173,12 @@ private slots:
     void slotToggleSidePanel();
     void slotStartSearch();
     void slotChangeProxyColumn(int);
+
+    void onHubAdded(HubInfo* info);
+    void onHubChanged(HubInfo* info);
+    void onHubRemoved(HubInfo* info);
+
+    void addResult(const VarMap &map);
 
 private:
     void init();
@@ -190,7 +190,6 @@ private:
     void getParams(VarMap&, const dcpp::SearchResultPtr&);
     bool getDownloadParams(VarMap&, SearchItem*);
     bool getWholeDirParams(VarMap&, SearchItem*);
-    void addResult(VarMap map);
 
     void download(const VarMap&);
     void getFileList(const VarMap&, bool = false);
@@ -235,10 +234,6 @@ private:
     virtual void on(ClientConnected, Client* c) throw();
     virtual void on(ClientUpdated, Client* c) throw();
     virtual void on(ClientDisconnected, Client* c) throw();
-
-    void onHubAdded(HubInfo* info);
-    void onHubChanged(HubInfo* info);
-    void onHubRemoved(HubInfo* info);
 };
 
 Q_DECLARE_METATYPE(SearchFrame*)
