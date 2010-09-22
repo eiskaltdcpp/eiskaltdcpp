@@ -39,7 +39,6 @@
 #include "UserListModel.h"
 #include "ArenaWidget.h"
 #include "EmoticonFactory.h"
-#include "Func.h"
 
 class ShellCommandRunner;
 class PMWindow;

@@ -1,6 +1,5 @@
 #include "SingleInstanceRunner.h"
 #include "MainWindow.h"
-#include "Func.h"
 
 #ifndef WIN32
 #include <stdlib.h>

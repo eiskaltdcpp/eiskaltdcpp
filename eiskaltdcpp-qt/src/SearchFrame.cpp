@@ -16,7 +16,6 @@
 #include "HubManager.h"
 #include "SearchModel.h"
 #include "WulforUtil.h"
-#include "Func.h"
 
 #include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"

@@ -73,11 +73,12 @@ public:
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
     virtual void sort();
 
-    /** */
-    void addResult(QString file, bool isTTH);
-
     /** Clear model and redraw view*/
     void clearModel();
+
+private Q_SLOTS:
+    /** */
+    void addResult(const QString &file, bool isTTH);
 
 private:
     /** */

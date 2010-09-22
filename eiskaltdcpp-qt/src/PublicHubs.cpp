@@ -53,6 +53,11 @@ PublicHubs::PublicHubs(QWidget *parent) :
 
     toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
 
+    connect(this, SIGNAL(coreDownloadStarted(QString)),  this, SLOT(setStatus(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreDownloadFailed(QString)),   this, SLOT(setStatus(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreDownloadFinished(QString)), this, SLOT(onFinished(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreCacheLoaded(QString)),      this, SLOT(onFinished(QString)), Qt::QueuedConnection);
+
     connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotDoubleClicked(QModelIndex)));
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
@@ -85,17 +90,7 @@ void PublicHubs::closeEvent(QCloseEvent *e){
     }
 }
 
-void PublicHubs::customEvent(QEvent *e){
-    if (e->type() == PublicHubsCustomEvent::Event){
-        PublicHubsCustomEvent *c_e = reinterpret_cast<PublicHubsCustomEvent*>(e);
-
-        (*c_e->func())();
-    }
-
-    e->accept();
-}
-
-void PublicHubs::setStatus(QString stat){
+void PublicHubs::setStatus(const QString &stat){
     label_STATUS->setText(stat);
 }
 
@@ -119,7 +114,7 @@ void PublicHubs::updateList(){
     }
 }
 
-void PublicHubs::onFinished(QString stat){
+void PublicHubs::onFinished(const QString &stat){
     setStatus(stat);
 
     entries = FavoriteManager::getInstance()->getPublicHubs();
@@ -267,29 +262,17 @@ void PublicHubs::slotFilterColumnChanged(){
 }
 
 void PublicHubs::on(DownloadStarting, const std::string& l) throw(){
-    typedef Func1<PublicHubs, QString> FUNC;
-    FUNC *f = new FUNC(this, &PublicHubs::setStatus, tr("Downloading public hub list... (%1)").arg(_q(l)));
-
-    QApplication::postEvent(this, new PublicHubsCustomEvent(f));
+    emit coreDownloadStarted(tr("Downloading public hub list... (%1)").arg(_q(l)));
 }
 
 void PublicHubs::on(DownloadFailed, const std::string& l) throw(){
-    typedef Func1<PublicHubs, QString> FUNC;
-    FUNC *f = new FUNC(this, &PublicHubs::setStatus, tr("Download failed: %1").arg(_q(l)));
-
-    QApplication::postEvent(this, new PublicHubsCustomEvent(f));
+    emit coreDownloadFailed(tr("Download failed: %1").arg(_q(l)));
 }
 
 void PublicHubs::on(DownloadFinished, const std::string& l) throw(){
-    typedef Func1<PublicHubs, QString> FUNC;
-    FUNC *f = new FUNC(this, &PublicHubs::onFinished, tr("Hub list downloaded... (%1)").arg(_q(l)));
-
-    QApplication::postEvent(this, new PublicHubsCustomEvent(f));
+    emit coreDownloadFinished(tr("Hub list downloaded... (%1)").arg(_q(l)));
 }
 
 void PublicHubs::on(LoadedFromCache, const std::string& l) throw(){
-    typedef Func1<PublicHubs, QString> FUNC;
-    FUNC *f = new FUNC(this, &PublicHubs::onFinished, tr("Hub list loaded from cache...").arg(_q(l)));
-
-    QApplication::postEvent(this, new PublicHubsCustomEvent(f));
+    emit coreCacheLoaded(tr("Hub list loaded from cache...").arg(_q(l)));
 }

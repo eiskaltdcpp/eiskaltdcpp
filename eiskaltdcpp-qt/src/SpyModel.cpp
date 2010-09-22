@@ -202,35 +202,35 @@ void SpyModel::sort(){
     sort(sortColumn, sortOrder);
 }
 
-void SpyModel::addResult(QString file, bool isTTH)
+void SpyModel::addResult(const QString &file, bool isTTH)
 {
     QString _temp;
 
     foreach (QChar ch, file)
         _temp += ((ch.isPrint() || ch == ' ')? ch : ' ');//remove all non-printable chars except space
 
-    file = _temp;
+    QString &_file = _temp;
 
-    if (file.trimmed().isEmpty())
+    if (_file.trimmed().isEmpty())
         return;
 
     SpyItem *item;
     SpyItem * parent = NULL;
 
-    if (hashes.contains(file))
-        parent = hashes[file];
+    if (hashes.contains(_file))
+        parent = hashes[_file];
     else
         parent = rootItem;
 
     QList<QVariant> item_data;
 
-    item_data << "" << file;
+    item_data << "" << _file;
     item = pool.construct(item_data, parent);
 
     item->isTTH = isTTH;
 
     if (parent == rootItem)
-        hashes.insert(file, item);
+        hashes.insert(_file, item);
 
     parent->appendChild(item);
 

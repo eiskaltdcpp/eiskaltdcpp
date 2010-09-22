@@ -23,7 +23,6 @@
 #include "dcpp/FavoriteManager.h"
 
 #include "ArenaWidget.h"
-#include "Func.h"
 #include "WulforUtil.h"
 
 #include "ui_UIFavoriteUsers.h"

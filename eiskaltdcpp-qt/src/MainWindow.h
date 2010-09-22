@@ -53,7 +53,6 @@
 #include "ArenaWidgetContainer.h"
 #include "HistoryInterface.h"
 #include "LineEdit.h"
-#include "Func.h"
 #include "WulforSettings.h"
 #include "ShortcutManager.h"
 
@@ -70,19 +69,6 @@ extern const char * const EISKALTDCPP_VERSION_SFX;
 extern const char * const EISKALTDCPP_WND_TITLE;
 
 class QProgressBar;
-
-class MainWindowCustomEvent: public QEvent{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1210);
-
-    MainWindowCustomEvent(FuncBase *f = NULL): QEvent(Event), f(f)
-    {}
-    virtual ~MainWindowCustomEvent(){ delete f; }
-
-    FuncBase *func() { return f; }
-private:
-    FuncBase *f;
-};
 
 class About:
         public QDialog,
@@ -139,9 +125,6 @@ friend class dcpp::Singleton<MainWindow>;
         Q_PROPERTY (QMenuBar* MenuBar READ menuBar);
 
         void beginExit();
-
-        /** */
-        void setStatusMessage(QString);
 
         /** */
         void newHubFrame(QString, QString);
@@ -202,11 +185,13 @@ friend class dcpp::Singleton<MainWindow>;
         /** */
         void redrawToolPanel();
 
+        /** */
+        void setStatusMessage(QString);
+
     protected:
         virtual void closeEvent(QCloseEvent*);
         virtual void showEvent(QShowEvent *);
         virtual void hideEvent(QHideEvent *);
-        virtual void customEvent(QEvent *);
         virtual bool eventFilter(QObject *, QEvent *);
 
     private Q_SLOTS:
@@ -266,6 +251,14 @@ friend class dcpp::Singleton<MainWindow>;
         void slotAboutClient();
         void slotAboutQt();
 
+        void showShareBrowser(dcpp::UserPtr, const QString &, const QString&);
+        void updateStatus(const QMap<QString,QString> &);
+
+    Q_SIGNALS:
+        void coreLogMessage(const QString&);
+        void coreOpenShare(dcpp::UserPtr, const QString &, const QString&);
+        void coreUpdateStats(const QMap<QString, QString> &);
+
     private:
         MainWindow (QWidget *parent=NULL);
         virtual ~MainWindow();
@@ -276,8 +269,6 @@ friend class dcpp::Singleton<MainWindow>;
         virtual void on(dcpp::TimerManagerListener::Second, uint32_t) throw();
         /** QueueManagerListener */
         virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem*, const std::string&, int64_t) throw();
-        //
-        void showShareBrowser(dcpp::UserPtr, QString, QString);
 
         // Interface setup functions
         void init();
@@ -294,7 +285,6 @@ friend class dcpp::Singleton<MainWindow>;
 
         void toggleSingletonWidget(ArenaWidget *a);
 
-        void updateStatus(QMap<QString,QString>);
         void updateHashProgressStatus();
 
         HashProgress *progress_dialog(); // Lazy initialization for _progress_dialog;

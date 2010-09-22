@@ -29,7 +29,6 @@
 #include "dcpp/Singleton.h"
 
 #include "ui_UIFinishedTransfers.h"
-#include "Func.h"
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
 #include "FinishedTransfersModel.h"
@@ -37,27 +36,24 @@
 
 using namespace dcpp;
 
-class FinishedTransfersCustomEvent: public QEvent{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1205);
-
-    FinishedTransfersCustomEvent(FuncBase *f = NULL): QEvent(Event), f(f)
-    {}
-    virtual ~FinishedTransfersCustomEvent(){ delete f; }
-
-    FuncBase *func() { return f; }
-private:
-    FuncBase *f;
-};
-
 class FinishedTransferProxy: public QWidget{
 Q_OBJECT
+typedef QMap<QString, QVariant> VarMap;
 public:
     FinishedTransferProxy(QWidget *parent):QWidget(parent){}
     ~FinishedTransferProxy(){}
 
     QString uploadTitle();
     QString downloadTitle();
+
+Q_SIGNALS:
+    void coreAddedFile(const VarMap&);
+    void coreAddedUser(const VarMap&);
+    void coreUpdatedFile(const VarMap&);
+    void coreUpdatedUser(const VarMap&);
+    void coreRemovedFile(const QString&);
+    void coreRemovedUser(const QString&);
+
 public slots:
     virtual void slotTypeChanged(int) = 0;
     virtual void slotClear() = 0;
@@ -93,16 +89,6 @@ public:
     }
 
 protected:
-    virtual void customEvent(QEvent *e){
-        if (e->type() == FinishedTransfersCustomEvent::Event){
-            FinishedTransfersCustomEvent *c_e = reinterpret_cast<FinishedTransfersCustomEvent*>(e);
-
-            (*c_e->func())();
-        }
-
-        e->accept();
-    }
-
     virtual void closeEvent(QCloseEvent *e){
         if (isUnload()){
             MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
@@ -145,6 +131,13 @@ private:
 
         treeView->setContextMenuPolicy(Qt::CustomContextMenu);
         treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+
+        QObject::connect(this, SIGNAL(coreAddedFile(VarMap)),   model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
+        QObject::connect(this, SIGNAL(coreAddedUser(VarMap)),   model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
+        QObject::connect(this, SIGNAL(coreUpdatedFile(VarMap)), model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
+        QObject::connect(this, SIGNAL(coreUpdatedUser(VarMap)), model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
+        QObject::connect(this, SIGNAL(coreRemovedFile(QString)), model, SLOT(remFile(QString)), Qt::QueuedConnection);
+        QObject::connect(this, SIGNAL(coreRemovedUser(QString)), model, SLOT(addUser(QString)), Qt::QueuedConnection);
 
         QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
         QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
@@ -335,10 +328,7 @@ private:
 
             getParams(item, file, params);
 
-            typedef Func1<FinishedTransfersModel, VarMap> FUNC;
-            FUNC *f = new FUNC(model, &FinishedTransfersModel::addFile, params);
-
-            QApplication::postEvent(this, new FinishedTransfersCustomEvent(f));
+            emit coreAddedFile(params);
         }
     }
 
@@ -348,10 +338,7 @@ private:
 
             getParams(item, user, params);
 
-            typedef Func1<FinishedTransfersModel, VarMap> FUNC;
-            FUNC *f = new FUNC(model, &FinishedTransfersModel::addUser, params);
-
-            QApplication::postEvent(this, new FinishedTransfersCustomEvent(f));
+            emit coreAddedUser(params);
         }
     }
 
@@ -361,19 +348,13 @@ private:
 
             getParams(item, file, params);
 
-            typedef Func1<FinishedTransfersModel, VarMap> FUNC;
-            FUNC *f = new FUNC(model, &FinishedTransfersModel::addFile, params);
-
-            QApplication::postEvent(this, new FinishedTransfersCustomEvent(f));
+            emit coreUpdatedFile(params);
         }
     }
 
     void on(FinishedManagerListener::RemovedFile, bool upload, const std::string &file) throw(){
         if (isUpload == upload){
-            typedef Func1<FinishedTransfersModel, QString> FUNC;
-            FUNC *f = new FUNC(model, &FinishedTransfersModel::remFile, _q(file));
-
-            QApplication::postEvent(this, new FinishedTransfersCustomEvent(f));
+            emit coreRemovedFile(_q(file));
         }
     }
 
@@ -390,19 +371,13 @@ private:
 
             getParams(item, user, params);
 
-            typedef Func1<FinishedTransfersModel, VarMap> FUNC;
-            FUNC *f = new FUNC(model, &FinishedTransfersModel::addUser, params);
-
-            QApplication::postEvent(this, new FinishedTransfersCustomEvent(f));
+            emit coreUpdatedUser(params);
         }
     }
 
     void on(FinishedManagerListener::RemovedUser, bool upload, const UserPtr &user) throw(){
         if (isUpload == upload){
-            typedef Func1<FinishedTransfersModel, QString> FUNC;
-            FUNC *f = new FUNC(model, &FinishedTransfersModel::remUser, _q(user->getCID().toBase32()));
-
-            QApplication::postEvent(this, new FinishedTransfersCustomEvent(f));
+            emit coreRemovedUser(_q(user->getCID().toBase32()));
         }
     }
 

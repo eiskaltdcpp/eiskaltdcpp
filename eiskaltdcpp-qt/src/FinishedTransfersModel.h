@@ -51,6 +51,7 @@ private:
 class FinishedTransfersModel : public QAbstractItemModel
 {
     Q_OBJECT
+    typedef QMap<QString, QVariant> VarMap;
 
 public:
 
@@ -87,16 +88,18 @@ public:
     void repaint();
 
     /** */
-    void addFile(QMap<QString, QVariant> params);
-    /** */
-    void addUser(QMap<QString, QVariant> params);
-    /** */
-    void remFile(QString file);
-    /** */
-    void remUser(QString cid);
-
-    /** */
     void switchViewType(ViewType);
+
+public Q_SLOTS:
+    /** */
+    void addFile(const VarMap &params);
+    /** */
+    void addUser(const VarMap &params);
+    /** */
+    void remFile(const QString &file);
+    /** */
+    void remUser(const QString &cid);
+
 private:
     /** */
     FinishedTransfersItem *findFile(const QString &fname);

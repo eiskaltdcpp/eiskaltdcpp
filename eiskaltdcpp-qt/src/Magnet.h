@@ -19,20 +19,6 @@
 #include "dcpp/SearchManager.h"
 
 #include "ui_UIMagnet.h"
-#include "Func.h"
-
-class MagnetCustomEvent: public QEvent{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1210);
-
-    MagnetCustomEvent(FuncBase *f = NULL): QEvent(Event), f(f)
-    {}
-    virtual ~MagnetCustomEvent(){ delete f; }
-
-    FuncBase *func() { return f; }
-private:
-    FuncBase *f;
-};
 
 class Magnet :
         public QDialog,
@@ -44,9 +30,6 @@ public:
     virtual ~Magnet();
 
     void setLink(const QString&);
-
-protected:
-    virtual void customEvent(QEvent *);
 
 private slots:
     void search();

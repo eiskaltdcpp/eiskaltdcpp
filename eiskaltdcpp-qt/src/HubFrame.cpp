@@ -1,7 +1,6 @@
 #include "HubFrame.h"
 #include "MainWindow.h"
 #include "PMWindow.h"
-#include "Func.h"
 #include "WulforUtil.h"
 #include "Antispam.h"
 #include "HubManager.h"

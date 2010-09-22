@@ -2,7 +2,6 @@
 #include "MainWindow.h"
 #include "SpyModel.h"
 #include "WulforUtil.h"
-#include "Func.h"
 #include "SearchFrame.h"
 
 #include <QMenu>
@@ -24,6 +23,8 @@ SpyFrame::SpyFrame(QWidget *parent) :
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
 
     MainWindow::getInstance()->addArenaWidget(this);
+
+    connect(this, SIGNAL(coreIncomingSearch(QString,bool)), model, SLOT(addResult(QString,bool)), Qt::QueuedConnection);
 
     connect(pushButton, SIGNAL(clicked()), this, SLOT(slotStartStop()));
     connect(pushButton_CLEAR, SIGNAL(clicked()), this, SLOT(slotClear()));
@@ -61,16 +62,6 @@ void SpyFrame::closeEvent(QCloseEvent *e){
         MainWindow::getInstance()->remWidgetFromArena(this);
 
         e->ignore();
-    }
-}
-
-void SpyFrame::customEvent(QEvent *e){
-    if (e->type() == SpyFrameCustomEvent::Event){
-        SpyFrameCustomEvent *c_e = reinterpret_cast<SpyFrameCustomEvent*>(e);
-
-        (*c_e->func())();
-
-        e->accept();
     }
 }
 
@@ -130,10 +121,7 @@ void SpyFrame::on(dcpp::ClientManagerListener::IncomingSearch, const string &s) 
     if (checkBox_IGNORETTH->isChecked() && isTTH)
         return;
 
-    typedef Func2<SpyModel, QString, bool> FUNC;
-    FUNC *f = new FUNC(model, &SpyModel::addResult, _q(s).replace("$", " "), isTTH);
-
-    QApplication::postEvent(this, new SpyFrameCustomEvent(f));
+    emit coreIncomingSearch(_q(s).replace("$", " "), isTTH);
 
     if (checkBox_AUTOSCROLLING->isChecked())
         treeView->scrollToBottom();

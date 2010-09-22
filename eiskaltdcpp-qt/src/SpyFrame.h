@@ -21,22 +21,8 @@
 #include "WulforUtil.h"
 #include "ArenaWidget.h"
 #include "ui_UISpy.h"
-#include "Func.h"
 
 class SpyModel;
-
-class SpyFrameCustomEvent: public QEvent{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1206);
-
-    SpyFrameCustomEvent(FuncBase *f = NULL): QEvent(Event), f(f)
-    {}
-    virtual ~SpyFrameCustomEvent(){ delete f; }
-
-    FuncBase *func() { return f; }
-private:
-    FuncBase *f;
-};
 
 class SpyFrame :
         public QWidget,
@@ -61,12 +47,14 @@ public:
 
 protected:
     virtual void closeEvent(QCloseEvent *);
-    virtual void customEvent(QEvent *);
 
-private slots:
+private Q_SLOTS:
     void slotStartStop();
     void slotClear();
     void contextMenu();
+
+Q_SIGNALS:
+    void coreIncomingSearch(const QString&, bool);
 
 private:
     explicit SpyFrame(QWidget *parent = 0);

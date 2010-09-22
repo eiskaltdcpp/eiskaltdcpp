@@ -8,7 +8,6 @@ HEADERS = ../Version.h \
     src/IPFilterFrame.h \
     src/IPFilterModel.h \
     src/FavoriteUsers.h \
-    src/Func.h \
     src/FavoriteUsers.h \
     src/WulforManager.h \
     src/HubFrame.h \

@@ -17,8 +17,7 @@
 #include "WulforUtil.h"
 #include "SearchFrame.h"
 #include "MainWindow.h"
-#include "Func.h"
-#include <QtDebug>
+
 using namespace dcpp;
 
 Magnet::Magnet(QWidget *parent) :
@@ -41,16 +40,6 @@ Magnet::Magnet(QWidget *parent) :
 }
 
 Magnet::~Magnet() {}
-
-void Magnet::customEvent(QEvent *e){
-    if (e->type() == MagnetCustomEvent::Event){
-        MagnetCustomEvent *c_e = reinterpret_cast<MagnetCustomEvent*>(e);
-
-        (*c_e->func())();
-    }
-
-    e->accept();
-}
 
 void Magnet::showUI(const QString &name, const qulonglong &size, const QString &tth){
 
@@ -110,10 +99,8 @@ void Magnet::search(){
     if (tth.isEmpty())
         return;
     Magnet::search(tth);
-    typedef Func0<Magnet> FUNC;
-    FUNC *f = new FUNC(this, &Magnet::accept);
 
-    QApplication::postEvent(this, new MagnetCustomEvent(f));
+    accept();
 }
 
 void Magnet::download() {
@@ -130,11 +117,8 @@ void Magnet::download() {
     QString name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + fname.split(QDir::separator(), QString::SkipEmptyParts).last();
     qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
     Magnet::download(name,size,tth);
-    typedef Func0<Magnet> FUNC;
-    FUNC *f = new FUNC(this, &Magnet::accept);
 
-    QApplication::postEvent(this, new MagnetCustomEvent(f));
-
+    accept();
 }
 
 void Magnet::slotBrowse(){

@@ -336,16 +336,6 @@ void MainWindow::hideEvent(QHideEvent *e){
     }
 }
 
-void MainWindow::customEvent(QEvent *e){
-    if (e->type() == MainWindowCustomEvent::Event){
-        MainWindowCustomEvent *c_e = reinterpret_cast<MainWindowCustomEvent*>(e);
-
-        (*c_e->func())();
-    }
-
-    e->accept();
-}
-
 bool MainWindow::eventFilter(QObject *obj, QEvent *e){
     if( obj == progressHashing && e->type() == QEvent::MouseButtonDblClick ) {
         slotFileHashProgress();
@@ -360,6 +350,10 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
 
 void MainWindow::init(){
     setObjectName("MainWindow");
+
+    connect(this, SIGNAL(coreLogMessage(QString)), this, SLOT(setStatusMessage(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreOpenShare(dcpp::UserPtr,QString,QString)), this, SLOT(showShareBrowser(dcpp::UserPtr,QString,QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUpdateStats(QMap<QString,QString>)), this, SLOT(updateStatus(QMap<QString,QString>)), Qt::QueuedConnection);
 
     arena = new QDockWidget();
 #if QT_VERSION >= 0x040500
@@ -1336,7 +1330,7 @@ void MainWindow::newHubFrame(QString address, QString enc){
     mapWidgetOnArena(fr);
 }
 
-void MainWindow::updateStatus(QMap<QString, QString> map){
+void MainWindow::updateStatus(const QMap<QString, QString> &map){
     if (!statusLabel)
         return;
 
@@ -1797,7 +1791,7 @@ void MainWindow::showPortsError(const string& port) {
     QString msg = tr("Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.").arg(_q(port));
     QMessageBox::warning(this, tr("Connectivity Manager: Warning"), msg, QMessageBox::Ok);
 }
-void MainWindow::showShareBrowser(dcpp::UserPtr usr, QString file, QString jump_to){
+void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const QString &jump_to){
     ShareBrowser *sb = new ShareBrowser(usr, file, jump_to);
 }
 
@@ -2548,21 +2542,15 @@ void MainWindow::prevMsg(){
 }
 
 void MainWindow::on(dcpp::LogManagerListener::Message, time_t t, const std::string& m) throw(){
-    typedef Func1<MainWindow, QString> FUNC;
-    FUNC *func = new FUNC(this, &MainWindow::setStatusMessage, QTextCodec::codecForLocale()->toUnicode(m.c_str()));
-
-    QApplication::postEvent(this, new MainWindowCustomEvent(func));
+    emit coreLogMessage(_q(m.c_str()));
 }
 
 void MainWindow::on(dcpp::QueueManagerListener::Finished, QueueItem *item, const std::string &dir, int64_t) throw(){
     if (item->isSet(QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_USER_LIST)){
         UserPtr user = item->getDownloads()[0]->getUser();
-        QString listName = QString::fromStdString(item->getListName());
+        QString listName = _q(item->getListName());
 
-        typedef Func3<MainWindow, UserPtr, QString, QString> FUNC;
-        FUNC *func = new FUNC(this, &MainWindow::showShareBrowser, user, listName, QString::fromStdString(dir));
-
-        QApplication::postEvent(this, new MainWindowCustomEvent(func));
+        emit coreOpenShare(user, listName, _q(dir));
     }
 }
 
@@ -2603,10 +2591,7 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
     lastUp = Socket::getTotalUp();
     lastDown = Socket::getTotalDown();
 
-    typedef Func1<MainWindow, QMap<QString, QString> > FUNC;
-    FUNC *func = new FUNC(this, &MainWindow::updateStatus, map);
-
-    QApplication::postEvent(this, new MainWindowCustomEvent(func));
+    emit coreUpdateStats(map);
 }
 
 

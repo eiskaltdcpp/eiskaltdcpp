@@ -24,22 +24,8 @@
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
 #include "PublicHubModel.h"
-#include "Func.h"
 
 #include "ui_UIPublicHubs.h"
-
-class PublicHubsCustomEvent: public QEvent{
-public:
-    static const QEvent::Type Event = static_cast<QEvent::Type>(1207);
-
-    PublicHubsCustomEvent(FuncBase *f = NULL): QEvent(Event), f(f)
-    {}
-    virtual ~PublicHubsCustomEvent(){ delete f; }
-
-    FuncBase *func() { return f; }
-private:
-    FuncBase *f;
-};
 
 class PublicHubs :
         public  QWidget,
@@ -63,32 +49,37 @@ public:
 
     bool isFindFrameActivated();
 
-public slots:
+public Q_SLOTS:
     void slotFilter();
 
 protected:
     virtual void closeEvent(QCloseEvent *);
-    virtual void customEvent(QEvent *);
 
     virtual void on(DownloadStarting, const std::string& l) throw();
     virtual void on(DownloadFailed, const std::string& l) throw();
     virtual void on(DownloadFinished, const std::string& l) throw();
     virtual void on(LoadedFromCache, const std::string& l) throw();
 
-private slots:
+private Q_SLOTS:
     void slotContextMenu();
     void slotHeaderMenu();
     void slotHubChanged(int);
     void slotFilterColumnChanged();
     void slotDoubleClicked(const QModelIndex&);
 
+    void setStatus(const QString&);
+    void onFinished(const QString&);
+
+Q_SIGNALS:
+    void coreDownloadStarted(const QString&);
+    void coreDownloadFailed (const QString&);
+    void coreDownloadFinished(const QString&);
+    void coreCacheLoaded(const QString&);
+
 private:
     PublicHubs(QWidget *parent = NULL);
     ~PublicHubs();
 
-    void setStatus(QString);
-
-    void onFinished(QString);
     void updateList();
 
     dcpp::HubEntryList entries;

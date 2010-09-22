@@ -2,7 +2,6 @@
 #include "TransferViewModel.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
-#include "Func.h"
 #include "IPFilter.h"
 #include "HubFrame.h"
 #include "HubManager.h"
