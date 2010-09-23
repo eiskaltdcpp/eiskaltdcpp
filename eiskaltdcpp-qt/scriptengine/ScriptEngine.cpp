@@ -281,8 +281,6 @@ static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngi
     QScriptValue self = context->callee();
     const QString className = self.property("className").toString();
 
-    qDebug() << QString("ScriptEngine> Constructing %1...").arg(className).toAscii().constData();
-
     QObject *obj = NULL;
 
     if (className == "AntiSpam"){

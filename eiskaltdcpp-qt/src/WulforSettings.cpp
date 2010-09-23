@@ -312,29 +312,29 @@ void WulforSettings::loadTranslation(){
 }
 
 void WulforSettings::loadTheme(){
-    if (!getStr(WS_APP_THEME).isEmpty()){
-        printf("Setting up new theme: %s\n", getStr(WS_APP_THEME).toAscii().constData());
+    if (!getStr(WS_APP_THEME).isEmpty())
         qApp->setStyle(getStr(WS_APP_THEME));
-    }
 
-    if (!getStr(WS_APP_FONT).isEmpty() && f.fromString(getStr(WS_APP_FONT))){
-        printf("Setting up new font: %s\n", f.toString().toAscii().constData());
+    if (!getStr(WS_APP_FONT).isEmpty() && f.fromString(getStr(WS_APP_FONT)))
         qApp->setFont(f);
-    }
 }
 
 QString WulforSettings::getStr(const QString & key) throw (WulforSettings::BadKey){
-    if (!strmap.contains(key))
-        throw BadKey(key);
+    WStrMap::iterator it = strmap.find(key);
 
-    return strmap.value(key);
+    if (it == strmap.end())
+       throw BadKey(key);
+
+    return it.value();
 }
 
 int WulforSettings::getInt(const QString & key) throw (WulforSettings::BadKey){
-    if (!intmap.contains(key))
+    WIntMap::iterator it = intmap.find(key);
+
+    if (it == intmap.end())
        throw BadKey(key);
 
-    return intmap.value(key);
+    return it.value();
 }
 
 bool WulforSettings::getBool(const QString & key) throw (WulforSettings::BadKey){
@@ -342,8 +342,10 @@ bool WulforSettings::getBool(const QString & key) throw (WulforSettings::BadKey)
 }
 
 void WulforSettings::setStr(const QString & key, const QString &value) throw (WulforSettings::BadKey){
-    if (!strmap.contains(key))
-        throw BadKey(key);
+    WStrMap::iterator it = strmap.find(key);
+
+    if (it == strmap.end())
+       throw BadKey(key);
 
     strmap[key] = value;
 
@@ -351,7 +353,9 @@ void WulforSettings::setStr(const QString & key, const QString &value) throw (Wu
 }
 
 void WulforSettings::setInt(const QString & key, int value) throw (WulforSettings::BadKey){
-    if (!intmap.contains(key))
+    WIntMap::iterator it = intmap.find(key);
+
+    if (it == intmap.end())
        throw BadKey(key);
 
     intmap[key] = value;

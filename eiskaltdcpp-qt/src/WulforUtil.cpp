@@ -57,6 +57,7 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
 {
     qRegisterMetaType< QMap<QString,QVariant> >("VarMap");
     qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
+    qRegisterMetaType< QMap<QString,QString> >("QMap<QString,QString>");
 
     if (WIGET(WS_APP_DYNDNS_ENABLED)) {
         http = new QHttp();
