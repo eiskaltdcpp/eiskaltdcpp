@@ -37,8 +37,11 @@ if (USE_DHT)
 add_definitions ( -DUSE_DHT )
 endif (USE_DHT)
 
-if (Boost_VERSION VERSION_LESS 1.39)
+if (Boost_VERSION VERSION_LESS 1.39.0)
+message(STATUS "@Boost_VERSION@")
 add_definitions(-DFIX_FOR_OLD_BOOST)
+else ()
+message(STATUS "@Boost_VERSION@ not old")
 endif()
 
 add_definitions ( -DDISABLE_NAT_TRAVERSAL )
