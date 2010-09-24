@@ -66,10 +66,7 @@ void ConnectivityManager::detectConnection() {
        log(str(F_("Unable to open %1% port(s). You must set up your connection manually") % e.getError()));
        fire(ConnectivityManagerListener::Finished());
        running = false;
-       return;
    }
-
-   autoDetected = true;
 
    if (!Util::isPrivateIp(Util::getLocalIp())) {
        SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
@@ -85,6 +82,8 @@ void ConnectivityManager::detectConnection() {
     if (!UPnPManager::getInstance()->open()) {
 		running = false;
     }
+
+    autoDetected = true;
 }
 
 void ConnectivityManager::setup(bool settingsChanged, int lastConnectionMode) {
@@ -92,7 +91,7 @@ void ConnectivityManager::setup(bool settingsChanged, int lastConnectionMode) {
        if (!autoDetected)
             detectConnection();
    } else {
-       if(autoDetected || settingsChanged) {
+       if(/*autoDetected || */settingsChanged) {
            if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP || lastConnectionMode == SettingsManager::INCOMING_FIREWALL_UPNP) {
                UPnPManager::getInstance()->close();
            }
