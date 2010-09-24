@@ -1,8 +1,8 @@
 !include MUI2.nsh
 
-!define PRODUCT_NAME                 "EiskaltDC++ r1410"
+!define PRODUCT_DISPLAY_VERSION      "2.1.0_testing"
+!define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
-!define PRODUCT_DISPLAY_VERSION      "r1410"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
 !define PRODUCT_UNINST_KEY           "Software\Microsoft\Windows\CurrentVersion\Uninstall\EiskaltDC++"
 !define PRODUCT_UNINST_ROOT_KEY      "HKLM"
@@ -11,6 +11,7 @@
 !define MUI_WELCOMEFINISHPAGE_BITMAP "installer\icon_164x314.bmp"
 !define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 !define MUI_WELCOMEPAGE_TITLE_3LINES
+!define MUI_FINISHPAGE_TITLE_3LINES
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
@@ -36,13 +37,14 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_LANGUAGE "Hungarian"
 !insertmacro MUI_LANGUAGE "SerbianLatin"
 !insertmacro MUI_LANGUAGE "Belarusian"
+!insertmacro MUI_LANGUAGE "Bulgarian"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY
 FunctionEnd
 
 Name "${PRODUCT_NAME}"
-OutFile "EiskaltDC++-r1410_x86.exe"
+OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}_x86.exe"
 InstallDir "${PRODUCT_INSTALL_DIR}"
 ShowInstDetails show
 ShowUnInstDetails show
@@ -65,12 +67,13 @@ Section "EiskaltDC++"
   File "installer\QtNetwork4.dll"
   File "installer\QtXml4.dll"
   File "installer\QtScript4.dll"
-  File "installer\aspell-15.dll"
+  ;File "installer\aspell-15.dll"
+  File "installer\lua51.dll"
   File /r "installer\resources"
 
   WriteUninstaller "$INSTDIR\Uninstall.exe"
   WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayName"     "${PRODUCT_NAME}"
-  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayIcon"     "$INSTDIR\EiskaltDC++.exe"
+  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayIcon"     "$INSTDIR\EiskaltDC++ Qt.exe"
   WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "UninstallString" "$INSTDIR\Uninstall.exe"
   WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayVersion"  "${PRODUCT_DISPLAY_VERSION}"
   WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "URLInfoAbout"    "${PRODUCT_WEB_SITE}"
