@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 #ifndef Q_WS_WIN
     installHandlers();
 #else
-    setlocale(LC_ALL, "UTF-8");S
+    setlocale(LC_ALL, "UTF-8");
 #endif
 
 #ifdef FORCE_XDG
