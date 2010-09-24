@@ -51,7 +51,8 @@
 #endif
 
 #include "dcpp/ShareManager.h"
-#include <dcpp/ConnectivityManager.h>
+#include "dcpp/ConnectivityManager.h"
+#include "dcpp/Singleton.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 
@@ -209,55 +210,6 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
         TransferView::deleteInstance();
     }
 
-    if (FavoriteHubs::getInstance()){
-        FavoriteHubs::getInstance()->setUnload(true);
-        FavoriteHubs::getInstance()->close();
-
-        FavoriteHubs::deleteInstance();
-    }
-
-    if (PublicHubs::getInstance()){
-        PublicHubs::getInstance()->setUnload(true);
-        PublicHubs::getInstance()->close();
-
-        PublicHubs::deleteInstance();
-    }
-
-    if (FinishedDownloads::getInstance()){
-        FinishedDownloads::getInstance()->setUnload(true);
-        FinishedDownloads::getInstance()->close();
-
-        FinishedDownloads::deleteInstance();
-    }
-
-    if (FinishedUploads::getInstance()){
-        FinishedUploads::getInstance()->setUnload(true);
-        FinishedUploads::getInstance()->close();
-
-        FinishedUploads::deleteInstance();
-    }
-
-    if (FavoriteUsers::getInstance()){
-        FavoriteUsers::getInstance()->setUnload(true);
-        FavoriteUsers::getInstance()->close();
-
-        FavoriteUsers::deleteInstance();
-    }
-
-    if (DownloadQueue::getInstance()){
-        DownloadQueue::getInstance()->setUnload(true);
-        DownloadQueue::getInstance()->close();
-
-        DownloadQueue::deleteInstance();
-    }
-
-    if (SpyFrame::getInstance()){
-        SpyFrame::getInstance()->setUnload(true);
-        SpyFrame::getInstance()->close();
-
-        SpyFrame::deleteInstance();
-    }
-
     if (SearchManager::getInstance())
         SearchManager::getInstance()->disconnect();
 
@@ -268,6 +220,15 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     QMap< ArenaWidget*, QWidget* >::iterator it = map.begin();
 
     for(; it != map.end(); ++it){
+        if (dynamic_cast< dcpp::ISingleton* >(it.value())){
+            it.key()->setUnload(true);
+            it.value()->close();
+
+            dynamic_cast< dcpp::ISingleton* >(it.value())->release();
+
+            continue;
+        }
+
         if (arenaMap.contains(it.key()))//some widgets can autodelete itself from arena widgets
             it.value()->close();
     }
