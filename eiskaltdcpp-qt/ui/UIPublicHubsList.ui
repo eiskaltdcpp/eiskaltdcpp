@@ -6,32 +6,32 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>401</width>
-    <height>225</height>
+    <width>399</width>
+    <height>223</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" rowspan="5" colspan="2">
+   <item row="0" column="0" rowspan="6" colspan="2">
     <widget class="QListWidget" name="listWidget"/>
    </item>
-   <item row="2" column="2">
+   <item row="3" column="2">
     <widget class="QPushButton" name="pushButton_UP">
      <property name="text">
       <string>Up</string>
      </property>
     </widget>
    </item>
-   <item row="3" column="2">
+   <item row="4" column="2">
     <widget class="QPushButton" name="pushButton_DOWN">
      <property name="text">
       <string>Down</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="1" colspan="2">
+   <item row="6" column="1" colspan="2">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
@@ -50,7 +50,7 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
+   <item row="6" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -70,10 +70,17 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="2">
+   <item row="2" column="2">
     <widget class="QPushButton" name="pushButton_REM">
      <property name="text">
       <string>Remove</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QPushButton" name="pushButton_EDIT">
+     <property name="text">
+      <string>Edit</string>
      </property>
     </widget>
    </item>

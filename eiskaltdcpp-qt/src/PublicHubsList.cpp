@@ -22,6 +22,7 @@ PublicHubsList::PublicHubsList(QWidget *parent): QDialog(parent)
     connect(pushButton_UP,   SIGNAL(clicked()), this, SLOT(slotUp()));
     connect(pushButton_ADD,  SIGNAL(clicked()), this, SLOT(slotAdd()));
     connect(pushButton_REM,  SIGNAL(clicked()), this, SLOT(slotRem()));
+    connect(pushButton_EDIT, SIGNAL(clicked()), this, SLOT(slotChange()));
     connect(this, SIGNAL(accepted()), this, SLOT(slotAccepted()));
 }
 
@@ -74,4 +75,17 @@ void PublicHubsList::slotRem(){
     QListWidgetItem *currentItem = listWidget->takeItem(currentRow);
 
     delete currentItem;
+}
+
+void PublicHubsList::slotChange(){
+    QListWidgetItem *item = listWidget->currentItem();
+
+    if (!item)
+        return;
+
+    bool ok = false;
+    QString link = QInputDialog::getText(this, tr("Public hub"), tr("Link"), QLineEdit::Normal, item->text(), &ok);
+
+    if (ok && !link.isEmpty())
+        item->setText(link);
 }
