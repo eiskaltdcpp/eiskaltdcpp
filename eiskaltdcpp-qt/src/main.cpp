@@ -47,7 +47,7 @@ void callBack(void* x, const std::string& a)
 
 void parseCmdLine(const QStringList &);
 
-#ifndef WIN32
+#ifndef Q_WS_WIN
 #include <unistd.h>
 #include <signal.h>
 
@@ -58,6 +58,8 @@ void installHandlers();
 void migrateConfig();
 #endif
 
+#else//WIN32
+#include <locale.h>
 #endif
 
 int main(int argc, char *argv[])
@@ -72,8 +74,10 @@ int main(int argc, char *argv[])
     if (runner.isServerRunning(qApp->arguments()))
         return 0;
 
-#ifndef WIN32
+#ifndef Q_WS_WIN
     installHandlers();
+#else
+    setlocale(LC_ALL, "UTF-8");S
 #endif
 
 #ifdef FORCE_XDG
@@ -181,7 +185,7 @@ void parseCmdLine(const QStringList &args){
     }
 }
 
-#ifndef WIN32
+#ifndef Q_WS_WIN
 void installHandlers(){
     struct sigaction sa;
     memset(&sa, 0, sizeof(sa));
