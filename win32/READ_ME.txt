@@ -53,7 +53,9 @@ http://ftp.gnu.org/gnu/gettext/gettext-runtime-0.13.1.bin.woe32.zip
 
 http://ftp.gnu.org/gnu/libiconv/libiconv-1.9.1.bin.woe32.zip
 
+  * mingw32-lua-5.1.4-2.zip or later
 
+http://sourceforge.net/projects/mingw-cross/files/[LIB] Lua/mingw32-lua-5.1.4-2/mingw32-lua-5.1.4-2.zip/download
 
 *******************************************************************************
 Compilation in MS Windows
