@@ -378,7 +378,7 @@ set (create_mo_lo 0)
 endif (CREATE_MO)
 set (mo_for_all 1)
     kwwidgets_create_gettext_targets(
-      DOMAIN_NAME "libdcpp"
+      DOMAIN_NAME "libeiskaltdcpp"
       LOCALE_LIST "${LANGUAGES}"
       COPYRIGHT_HOLDER "EiskaltDC++ team"
       SOURCES "${DCPP_SRCS};${DCPP_HDRS}"

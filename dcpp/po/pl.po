@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-25 19:44+0300\n"
+"POT-Creation-Date: 2010-09-25 22:12+0400\n"
 "PO-Revision-Date: 2009-03-03 22:46+0000\n"
 "Last-Translator: LadyStardust <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,120 +25,6 @@ msgstr "Wykop użytkownika(ów)"
 #: ../FavoriteManager.cpp:448
 msgid "Redirect user(s)"
 msgstr "Przekieruj użytkownika(ów)"
-
-#: ../Socket.cpp:61
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Nieznany błąd: 0x%1$x"
-
-#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:191
-msgid "Connection timeout"
-msgstr "Przekroczenie czasu połączenia"
-
-#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
-#: ../Socket.cpp:238 ../Socket.cpp:253
-msgid "The socks server failed establish a connection"
-msgstr "Serwer socks zakończył niepowodzeniem ustanawianie połączenia"
-
-#: ../Socket.cpp:242
-msgid "The socks server requires authentication"
-msgstr "Serwer SOCKS wymaga uwierzytelnienia"
-
-#: ../Socket.cpp:256
-msgid "The socks server doesn't support login / password authentication"
-msgstr "Serwer SOCKS nie obsługuje autoryzacji za pomocą loginu/hasła"
-
-#: ../Socket.cpp:270 ../Socket.cpp:274
-msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"Uwierzytelnienie serwera socks zakończone niepowodzeniem (nieprawidłowy "
-"login/hasło?)"
-
-#: ../Socket.cpp:409
-msgid ""
-"Failed to set up the socks server for UDP relay (check socks address and "
-"port)"
-msgstr ""
-"Nie udało się ustawić serwera socks dla przekierowań UDP (sprawdź adres i "
-"port socks)"
-
-#: ../DCPlusPlus.cpp:117
-msgid "Hash database"
-msgstr "Baza danych hashów"
-
-#: ../DCPlusPlus.cpp:120
-msgid "Shared Files"
-msgstr "Udostępnione pliki"
-
-#: ../DCPlusPlus.cpp:123
-msgid "Download Queue"
-msgstr "Kolejka pobierania"
-
-#: ../Thread.cpp:34 ../Thread.cpp:42
-msgid "Unable to create thread"
-msgstr "Nie można utworzyć wątku"
-
-#: ../ConnectivityManager.cpp:61
-msgid "Determining connection type..."
-msgstr ""
-
-#: ../ConnectivityManager.cpp:66
-msgid "Unable to open %1% port(s). You must set up your connection manually"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:73
-msgid ""
-"Public IP address detected, selecting active mode with direct connection"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:78
-msgid ""
-"Local network with possible NAT detected, trying to map the ports using "
-"UPnP..."
-msgstr ""
-
-#: ../ConnectivityManager.cpp:110
-msgid ""
-"Automatic setup of active mode has failed. You may want to set up your "
-"connection manually for better connectivity"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:120
-msgid "TCP/TLS"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:126
-msgid "UDP"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:137
-#, fuzzy
-msgid "Connectivity: "
-msgstr "Błąd łączenia: %1%"
-
-#: ../UploadManager.cpp:157
-msgid "Unable to send file %1%: %2%"
-msgstr "Niemożna wysłać pliku %1%: %2%"
-
-#: ../UploadManager.cpp:461
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Rozłączony użytkownik opuścił hub: %1%"
-
-#: ../NmdcHub.cpp:283
-msgid "%1% (Nick unknown)"
-msgstr "%1% (Nazwa użytkownika nieznana)"
-
-#: ../NmdcHub.cpp:905
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr ""
-
-#: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
-msgid "Offline"
-msgstr "Niedostępny"
 
 #: ../AdcHub.cpp:142
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
@@ -172,56 +58,22 @@ msgstr "%1% został wykopany: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nie nasłuchuje połączeń - uruchom ponownie %1%"
 
-#: ../Util.cpp:461
-#, c-format
-msgid "%d B"
-msgstr "%d B"
+#: ../Transfer.cpp:82 ../Transfer.cpp:86 ../SearchManager.cpp:247
+#: ../SearchManager.cpp:308 ../SearchManager.cpp:310 ../ClientManager.cpp:122
+msgid "Offline"
+msgstr "Niedostępny"
 
-#: ../Util.cpp:463
-#, c-format
-msgid "%.02f KiB"
-msgstr "%.02f KiB"
+#: ../DCPlusPlus.cpp:117
+msgid "Hash database"
+msgstr "Baza danych hashów"
 
-#: ../Util.cpp:465
-#, c-format
-msgid "%.02f MiB"
-msgstr "%.02f MiB"
+#: ../DCPlusPlus.cpp:120
+msgid "Shared Files"
+msgstr "Udostępnione pliki"
 
-#: ../Util.cpp:467
-#, c-format
-msgid "%.02f GiB"
-msgstr "%.02f Gb"
-
-#: ../Util.cpp:469
-#, c-format
-msgid "%.02f TiB"
-msgstr "%.02f TiB"
-
-#: ../Util.cpp:471
-#, c-format
-msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:501
-#, c-format
-msgid "%s B"
-msgstr "%s B"
-
-#: ../Util.cpp:505
-#, c-format
-msgid "%'lld B"
-msgstr "%'lld B"
-
-#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
-#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
-msgid "Error during compression"
-msgstr "Błąd podczas kompresji"
-
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
-#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
-#: ../BZUtils.cpp:94 ../BZUtils.cpp:97
-msgid "Error during decompression"
-msgstr "Błąd podczas dekompresowania"
+#: ../DCPlusPlus.cpp:123
+msgid "Download Queue"
+msgstr "Kolejka pobierania"
 
 #: ../HashManager.cpp:80 ../HashManager.cpp:280
 msgid "Hashing failed: %1%"
@@ -273,133 +125,6 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Błąd hashowania %1%: %2%"
 
-#: ../UPnPManager.cpp:41
-#, fuzzy
-msgid "No UPnP implementation available"
-msgstr "Plik niedostępny"
-
-#: ../UPnPManager.cpp:46
-msgid "Another UPnP port mapping attempt is in progress..."
-msgstr ""
-
-#: ../UPnPManager.cpp:74
-#, fuzzy
-msgid "Failed to initalize the %1% interface"
-msgstr "Zainicjowano odświeżenie listy plików"
-
-#: ../UPnPManager.cpp:78
-msgid " Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
-msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr ""
-
-#: ../UPnPManager.cpp:83
-msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:88
-msgid " Search Port (%1% UDP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:94
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:106
-msgid "Failed to get external IP"
-msgstr ""
-
-#: ../UPnPManager.cpp:114
-#, fuzzy
-msgid "Failed to create port mappings"
-msgstr "Nie można utworzyć wątku"
-
-#: ../UPnPManager.cpp:123
-msgid "Failed to remove port mappings"
-msgstr ""
-
-#: ../UPnPManager.cpp:128
-msgid "UPnP: %1%"
-msgstr ""
-
-#: ../ShareManager.cpp:429
-msgid "No directory specified"
-msgstr "Brak zdefiniowanego katalogu"
-
-#: ../ShareManager.cpp:437
-msgid "The temporary download directory cannot be shared"
-msgstr "Katalog plików tymczasowych nie może być udostępniony"
-
-#: ../ShareManager.cpp:634
-msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:655
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:710
-#, fuzzy
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr ""
-"Zduplikowany plik nie zostanie udostępniony: %1%%2% (Rozmiar: %3% B) "
-"Porównano z: %4%%5%"
-
-#: ../ShareManager.cpp:727
-msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Odświeżanie listy plików w toku, proszę poczekać do zakończenia przed "
-"ponownym odświeżeniem"
-
-#: ../ShareManager.cpp:748
-msgid "File list refresh failed: %1%"
-msgstr "Odświeżanie listy plików zakończone niepowodzeniem: %1%"
-
-#: ../ShareManager.cpp:770
-msgid "File list refresh initiated"
-msgstr "Zainicjowano odświeżenie listy plików"
-
-#: ../ShareManager.cpp:795
-msgid "File list refresh finished"
-msgstr "Odświeżanie listy plików zakończone"
-
-#: ../ShareManager.cpp:866
-#, fuzzy
-msgid "File list %1% generated"
-msgstr "Zainicjowano odświeżenie listy plików"
-
-#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Połączenie zakończone"
-
-#: ../BufferedSocket.cpp:276
-msgid "Maximum command length exceeded"
-msgstr "Przekroczono długość wykonanej komendy"
-
-#: ../BufferedSocket.cpp:453
-msgid "Disconnected"
-msgstr "Rozłączony"
-
-#: ../DirectoryListing.cpp:95
-msgid "Greater than maximum filelist size"
-msgstr "Większe niż maksymalny rozmiar listy plików"
-
-#: ../DirectoryListing.cpp:102
-msgid "File not available"
-msgstr "Plik niedostępny"
-
-#: ../DirectoryListing.cpp:165
-msgid "Directory missing name attribute"
-msgstr "Bąd nazwy przypisanego katalogu"
-
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
 msgstr "Nie wybrano pliku z kluczem prywatnym"
@@ -434,9 +159,11 @@ msgstr "Nie udało się wczytać pliku certyfikatu"
 msgid "Failed to load private key"
 msgstr "Nie udało się wczytać klucza prywatnego"
 
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "Błąd SSL: %1% (%2%, %3%)"
+#: ../CryptoManager.cpp:344 ../CryptoManager.cpp:363 ../CryptoManager.cpp:377
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../BZUtils.cpp:72 ../BZUtils.cpp:94
+#: ../BZUtils.cpp:97
+msgid "Error during decompression"
+msgstr "Błąd podczas dekompresowania"
 
 #: ../DownloadManager.cpp:222
 msgid "Invalid size"
@@ -465,26 +192,6 @@ msgstr "Brak wolnych slotów"
 #: ../DownloadManager.cpp:538
 msgid "%1%: File not available"
 msgstr "%1%: Plik niedostępny"
-
-#: ../ConnectionManager.cpp:185
-msgid "All download slots taken"
-msgstr "Wszystkie sloty pobierań są zajęte"
-
-#: ../ConnectionManager.cpp:254
-msgid "Connectivity restored"
-msgstr "Połączenie przywrócone"
-
-#: ../ConnectionManager.cpp:261
-msgid "Connectivity error: %1%"
-msgstr "Błąd łączenia: %1%"
-
-#: ../SearchManager.cpp:132
-msgid "Search enabled again"
-msgstr "Wyszukiwanie znów aktywne"
-
-#: ../SearchManager.cpp:139
-msgid "Search disabled: %1%"
-msgstr "Wyszukiwanie nieaktywne: %1%"
 
 #: ../QueueManager.cpp:343
 msgid "%1% renamed to %2%"
@@ -556,6 +263,299 @@ msgstr "Nie można otworzyć listy plików: %1%"
 #, fuzzy
 msgid "%1%: Matched %2% file"
 msgstr "%1% został wykopany: %2%"
+
+#: ../Socket.cpp:61
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Nieznany błąd: 0x%1$x"
+
+#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:191
+msgid "Connection timeout"
+msgstr "Przekroczenie czasu połączenia"
+
+#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
+#: ../Socket.cpp:238 ../Socket.cpp:253
+msgid "The socks server failed establish a connection"
+msgstr "Serwer socks zakończył niepowodzeniem ustanawianie połączenia"
+
+#: ../Socket.cpp:242
+msgid "The socks server requires authentication"
+msgstr "Serwer SOCKS wymaga uwierzytelnienia"
+
+#: ../Socket.cpp:256
+msgid "The socks server doesn't support login / password authentication"
+msgstr "Serwer SOCKS nie obsługuje autoryzacji za pomocą loginu/hasła"
+
+#: ../Socket.cpp:270 ../Socket.cpp:274
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr ""
+"Uwierzytelnienie serwera socks zakończone niepowodzeniem (nieprawidłowy "
+"login/hasło?)"
+
+#: ../Socket.cpp:409
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+"Nie udało się ustawić serwera socks dla przekierowań UDP (sprawdź adres i "
+"port socks)"
+
+#: ../UPnPManager.cpp:41
+#, fuzzy
+msgid "No UPnP implementation available"
+msgstr "Plik niedostępny"
+
+#: ../UPnPManager.cpp:46
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr ""
+
+#: ../UPnPManager.cpp:74
+#, fuzzy
+msgid "Failed to initalize the %1% interface"
+msgstr "Zainicjowano odświeżenie listy plików"
+
+#: ../UPnPManager.cpp:78
+msgid " Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr ""
+
+#: ../UPnPManager.cpp:83
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:88
+msgid " Search Port (%1% UDP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:94
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr ""
+
+#: ../UPnPManager.cpp:106
+msgid "Failed to get external IP"
+msgstr ""
+
+#: ../UPnPManager.cpp:114
+#, fuzzy
+msgid "Failed to create port mappings"
+msgstr "Nie można utworzyć wątku"
+
+#: ../UPnPManager.cpp:123
+msgid "Failed to remove port mappings"
+msgstr ""
+
+#: ../UPnPManager.cpp:128
+msgid "UPnP: %1%"
+msgstr ""
+
+#: ../NmdcHub.cpp:283
+msgid "%1% (Nick unknown)"
+msgstr "%1% (Nazwa użytkownika nieznana)"
+
+#: ../NmdcHub.cpp:905
+msgid ""
+"This hub is trying to use your client to spam %1%, please urge hub owner to "
+"fix this"
+msgstr ""
+
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Połączenie zakończone"
+
+#: ../BufferedSocket.cpp:276
+msgid "Maximum command length exceeded"
+msgstr "Przekroczono długość wykonanej komendy"
+
+#: ../BufferedSocket.cpp:453
+msgid "Disconnected"
+msgstr "Rozłączony"
+
+#: ../UploadManager.cpp:157
+msgid "Unable to send file %1%: %2%"
+msgstr "Niemożna wysłać pliku %1%: %2%"
+
+#: ../UploadManager.cpp:461
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Rozłączony użytkownik opuścił hub: %1%"
+
+#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
+#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
+msgid "Error during compression"
+msgstr "Błąd podczas kompresji"
+
+#: ../ConnectionManager.cpp:185
+msgid "All download slots taken"
+msgstr "Wszystkie sloty pobierań są zajęte"
+
+#: ../ConnectionManager.cpp:254
+msgid "Connectivity restored"
+msgstr "Połączenie przywrócone"
+
+#: ../ConnectionManager.cpp:261
+msgid "Connectivity error: %1%"
+msgstr "Błąd łączenia: %1%"
+
+#: ../SearchManager.cpp:132
+msgid "Search enabled again"
+msgstr "Wyszukiwanie znów aktywne"
+
+#: ../SearchManager.cpp:139
+msgid "Search disabled: %1%"
+msgstr "Wyszukiwanie nieaktywne: %1%"
+
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "Błąd SSL: %1% (%2%, %3%)"
+
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "Nie można utworzyć wątku"
+
+#: ../ShareManager.cpp:429
+msgid "No directory specified"
+msgstr "Brak zdefiniowanego katalogu"
+
+#: ../ShareManager.cpp:437
+msgid "The temporary download directory cannot be shared"
+msgstr "Katalog plików tymczasowych nie może być udostępniony"
+
+#: ../ShareManager.cpp:634
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:655
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:710
+#, fuzzy
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+"Zduplikowany plik nie zostanie udostępniony: %1%%2% (Rozmiar: %3% B) "
+"Porównano z: %4%%5%"
+
+#: ../ShareManager.cpp:727
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Odświeżanie listy plików w toku, proszę poczekać do zakończenia przed "
+"ponownym odświeżeniem"
+
+#: ../ShareManager.cpp:748
+msgid "File list refresh failed: %1%"
+msgstr "Odświeżanie listy plików zakończone niepowodzeniem: %1%"
+
+#: ../ShareManager.cpp:770
+msgid "File list refresh initiated"
+msgstr "Zainicjowano odświeżenie listy plików"
+
+#: ../ShareManager.cpp:795
+msgid "File list refresh finished"
+msgstr "Odświeżanie listy plików zakończone"
+
+#: ../ShareManager.cpp:866
+#, fuzzy
+msgid "File list %1% generated"
+msgstr "Zainicjowano odświeżenie listy plików"
+
+#: ../Util.cpp:461
+#, c-format
+msgid "%d B"
+msgstr "%d B"
+
+#: ../Util.cpp:463
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:465
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:467
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f Gb"
+
+#: ../Util.cpp:469
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:471
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:501
+#, c-format
+msgid "%s B"
+msgstr "%s B"
+
+#: ../Util.cpp:505
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld B"
+
+#: ../DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr "Większe niż maksymalny rozmiar listy plików"
+
+#: ../DirectoryListing.cpp:102
+msgid "File not available"
+msgstr "Plik niedostępny"
+
+#: ../DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Bąd nazwy przypisanego katalogu"
+
+#: ../ConnectivityManager.cpp:61
+msgid "Determining connection type..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:66
+msgid "Unable to open %1% port(s). You must set up your connection manually"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:73
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:78
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:110
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:120
+msgid "TCP/TLS"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:126
+msgid "UDP"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:137
+#, fuzzy
+msgid "Connectivity: "
+msgstr "Błąd łączenia: %1%"
 
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"

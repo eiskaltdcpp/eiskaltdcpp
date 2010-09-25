@@ -40,7 +40,7 @@ endif (USE_DHT)
 add_definitions ( -DDISABLE_NAT_TRAVERSAL )
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
 ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP})
-set_target_properties(dcpp PROPERTIES VERSION ${VERSION})
+set_target_properties(dcpp PROPERTIES VERSION ${VERSION} OUTPUT_NAME "eiskaltdcpp")
 if (APPLE)
 set (LIBDIR1 .)
 set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
