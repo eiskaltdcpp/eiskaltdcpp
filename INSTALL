@@ -8,7 +8,7 @@ bzip2
 zlib
 iconv (libc on GNU/Linux)
 ------
-:dcpp:
+:libeiskaltdcpp:
 ------
 gettext
 libssl (>= 0.9.8)
@@ -68,7 +68,7 @@ cmake (>= 2.6.0)
 iconv (libc on GNU/Linux)
 pkg-config
 ------
-:dcpp:
+:libeiskaltdcpp:
 ------
 gettext
 libboost-dev (headers only) (optional, see cmake keys)
@@ -109,7 +109,7 @@ svn export http://eiskaltdc.googlecode.com/svn/branches/trunk/ eiskaltdcpp-trunk
 Keys for cmake
 *******************************************************************************
 ------
-:dcpp:
+:libeiskaltdcpp:
 ------
 -DLOCAL_BOOST=ON/OFF (default: OFF)
     use local boost headers

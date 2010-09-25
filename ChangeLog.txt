@@ -1,6 +1,6 @@
 --- 2.1.0 2010-11-15 ---
 *** common changes ***
-* libdcpp library was separated from the basic binary file for unix-like systems.
+* libeiskaltdcpp library was separated from the basic binary file for unix-like systems.
 * Added localization of kernel messages. Gettext used.
 * Added ability to use Lau-scripts (see the file INSTALL).
 * Added ability to use miniUPnP for connection (see file INSTALL).

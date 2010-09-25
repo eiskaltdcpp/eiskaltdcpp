@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-25 22:12+0400\n"
+"POT-Creation-Date: 2010-09-25 22:25+0300\n"
 "PO-Revision-Date: 2009-02-06 21:06+0000\n"
 "Last-Translator: oracle <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -25,6 +25,118 @@ msgstr "Izbaci korisnika(e)"
 #: ../FavoriteManager.cpp:448
 msgid "Redirect user(s)"
 msgstr "Preusmeri korisnika(e)"
+
+#: ../Socket.cpp:61
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Nepoznata greška: 0x%1$x"
+
+#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:191
+msgid "Connection timeout"
+msgstr "Vreme povezivanja je isteklo"
+
+#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
+#: ../Socket.cpp:238 ../Socket.cpp:253
+msgid "The socks server failed establish a connection"
+msgstr "Socks server nije uspeo uspostaviti vezu"
+
+#: ../Socket.cpp:242
+msgid "The socks server requires authentication"
+msgstr "Socks server zahteva proveru"
+
+#: ../Socket.cpp:256
+msgid "The socks server doesn't support login / password authentication"
+msgstr "Socks server ne podržava proveru korisničko ime / lozinka"
+
+#: ../Socket.cpp:270 ../Socket.cpp:274
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr "Socks server provera nije uspela (loše korisničko ime / lozinka?)"
+
+#: ../Socket.cpp:409
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+"Greška pri podešavanju socks servera za UDP prenos (proveriti socks adresu i "
+"port)"
+
+#: ../DCPlusPlus.cpp:117
+msgid "Hash database"
+msgstr "Hash baze podataka"
+
+#: ../DCPlusPlus.cpp:120
+msgid "Shared Files"
+msgstr "Deljene datoteke"
+
+#: ../DCPlusPlus.cpp:123
+msgid "Download Queue"
+msgstr "Red za preuzimanje"
+
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "Ne mogu kreirati nit"
+
+#: ../ConnectivityManager.cpp:61
+msgid "Determining connection type..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:66
+msgid "Unable to open %1% port(s). You must set up your connection manually"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:73
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:78
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:110
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:120
+msgid "TCP/TLS"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:126
+msgid "UDP"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:137
+#, fuzzy
+msgid "Connectivity: "
+msgstr "Greška pri povezivanju: %1%"
+
+#: ../UploadManager.cpp:157
+msgid "Unable to send file %1%: %2%"
+msgstr "Ne mogu poslati datoteku %1%: %2%"
+
+#: ../UploadManager.cpp:461
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Isključen korisnik koji je napustio hub: %1%"
+
+#: ../NmdcHub.cpp:283
+msgid "%1% (Nick unknown)"
+msgstr "%1% (Nepoznat nadimak)"
+
+#: ../NmdcHub.cpp:905
+msgid ""
+"This hub is trying to use your client to spam %1%, please urge hub owner to "
+"fix this"
+msgstr ""
+
+#: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
+#: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
+msgid "Offline"
+msgstr "Nije na mreži"
 
 #: ../AdcHub.cpp:142
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
@@ -58,22 +170,56 @@ msgstr "%1% je izbačen: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Ne osluškujem konekcije - molim restartujte %1%"
 
-#: ../Transfer.cpp:82 ../Transfer.cpp:86 ../SearchManager.cpp:247
-#: ../SearchManager.cpp:308 ../SearchManager.cpp:310 ../ClientManager.cpp:122
-msgid "Offline"
-msgstr "Nije na mreži"
+#: ../Util.cpp:461
+#, c-format
+msgid "%d B"
+msgstr "%d B"
 
-#: ../DCPlusPlus.cpp:117
-msgid "Hash database"
-msgstr "Hash baze podataka"
+#: ../Util.cpp:463
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
 
-#: ../DCPlusPlus.cpp:120
-msgid "Shared Files"
-msgstr "Deljene datoteke"
+#: ../Util.cpp:465
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
 
-#: ../DCPlusPlus.cpp:123
-msgid "Download Queue"
-msgstr "Red za preuzimanje"
+#: ../Util.cpp:467
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:469
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:471
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:501
+#, c-format
+msgid "%s B"
+msgstr "%s B"
+
+#: ../Util.cpp:505
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld B"
+
+#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
+#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
+msgid "Error during compression"
+msgstr "Greška tokom pakovanja"
+
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
+#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
+#: ../BZUtils.cpp:94 ../BZUtils.cpp:97
+msgid "Error during decompression"
+msgstr "Greška tokom otpakivanja"
 
 #: ../HashManager.cpp:80 ../HashManager.cpp:280
 msgid "Hashing failed: %1%"
@@ -124,6 +270,133 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Greška pri hashovanju %1%: %2%"
 
+#: ../UPnPManager.cpp:41
+#, fuzzy
+msgid "No UPnP implementation available"
+msgstr "Datoteka nije dostupna"
+
+#: ../UPnPManager.cpp:46
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr ""
+
+#: ../UPnPManager.cpp:74
+#, fuzzy
+msgid "Failed to initalize the %1% interface"
+msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
+
+#: ../UPnPManager.cpp:78
+msgid " Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr ""
+
+#: ../UPnPManager.cpp:83
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:88
+msgid " Search Port (%1% UDP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:94
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr ""
+
+#: ../UPnPManager.cpp:106
+msgid "Failed to get external IP"
+msgstr ""
+
+#: ../UPnPManager.cpp:114
+#, fuzzy
+msgid "Failed to create port mappings"
+msgstr "Ne mogu kreirati nit"
+
+#: ../UPnPManager.cpp:123
+msgid "Failed to remove port mappings"
+msgstr ""
+
+#: ../UPnPManager.cpp:128
+msgid "UPnP: %1%"
+msgstr ""
+
+#: ../ShareManager.cpp:429
+msgid "No directory specified"
+msgstr "Nije određen direktorijum"
+
+#: ../ShareManager.cpp:437
+msgid "The temporary download directory cannot be shared"
+msgstr "Direktorijum za privremeno preuzimanje se ne može deliti"
+
+#: ../ShareManager.cpp:634
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:655
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:710
+#, fuzzy
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+"Duplikat datoteke neće biti deljen: %1%%2% (Veličina: %3% B) Duplikat "
+"potvrđen sa: %4%%5%"
+
+#: ../ShareManager.cpp:727
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Osvežavanje liste deljenih datoteka je u toku, molim sačekajte da se završi "
+"pre ponovnog pokretanja"
+
+#: ../ShareManager.cpp:748
+msgid "File list refresh failed: %1%"
+msgstr "Osvežavanje liste deljenih datoteka nije uspelo: %1%"
+
+#: ../ShareManager.cpp:770
+msgid "File list refresh initiated"
+msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
+
+#: ../ShareManager.cpp:795
+msgid "File list refresh finished"
+msgstr "Osvežavanje liste deljenih datoteka završeno"
+
+#: ../ShareManager.cpp:866
+#, fuzzy
+msgid "File list %1% generated"
+msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
+
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Veza je prekinuta"
+
+#: ../BufferedSocket.cpp:276
+msgid "Maximum command length exceeded"
+msgstr "Prekoračena maksimalna dužina komande"
+
+#: ../BufferedSocket.cpp:453
+msgid "Disconnected"
+msgstr "Isključen"
+
+#: ../DirectoryListing.cpp:95
+msgid "Greater than maximum filelist size"
+msgstr "Veće od maksimalne veličine liste datoteka"
+
+#: ../DirectoryListing.cpp:102
+msgid "File not available"
+msgstr "Datoteka nije dostupna"
+
+#: ../DirectoryListing.cpp:165
+msgid "Directory missing name attribute"
+msgstr "Direktorijumu nedostaje atribut ime"
+
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
 msgstr "Nije izabarana datoteka za privatni ključ"
@@ -158,11 +431,9 @@ msgstr "Ne mogu da učitam datoteku sa sertifikatom"
 msgid "Failed to load private key"
 msgstr "Ne mogu da učitam privatni ključ"
 
-#: ../CryptoManager.cpp:344 ../CryptoManager.cpp:363 ../CryptoManager.cpp:377
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../BZUtils.cpp:72 ../BZUtils.cpp:94
-#: ../BZUtils.cpp:97
-msgid "Error during decompression"
-msgstr "Greška tokom otpakivanja"
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "SSL Greška: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:222
 msgid "Invalid size"
@@ -191,6 +462,26 @@ msgstr "Nema slobodnih slotova"
 #: ../DownloadManager.cpp:538
 msgid "%1%: File not available"
 msgstr "%1%: Datoteka nije dostupna"
+
+#: ../ConnectionManager.cpp:185
+msgid "All download slots taken"
+msgstr "Svi slotovi za preuzimanje su popunjeni"
+
+#: ../ConnectionManager.cpp:254
+msgid "Connectivity restored"
+msgstr "Veza ponovo uspostavljena"
+
+#: ../ConnectionManager.cpp:261
+msgid "Connectivity error: %1%"
+msgstr "Greška pri povezivanju: %1%"
+
+#: ../SearchManager.cpp:132
+msgid "Search enabled again"
+msgstr "Pretraga ponovo omogućena"
+
+#: ../SearchManager.cpp:139
+msgid "Search disabled: %1%"
+msgstr "Pretraga onemogućena: %1%"
 
 #: ../QueueManager.cpp:343
 msgid "%1% renamed to %2%"
@@ -260,297 +551,6 @@ msgstr "Ne mogu otvoriti listu datoteka: %1%"
 #, fuzzy
 msgid "%1%: Matched %2% file"
 msgstr "%1% je izbačen: %2%"
-
-#: ../Socket.cpp:61
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Nepoznata greška: 0x%1$x"
-
-#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:191
-msgid "Connection timeout"
-msgstr "Vreme povezivanja je isteklo"
-
-#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
-#: ../Socket.cpp:238 ../Socket.cpp:253
-msgid "The socks server failed establish a connection"
-msgstr "Socks server nije uspeo uspostaviti vezu"
-
-#: ../Socket.cpp:242
-msgid "The socks server requires authentication"
-msgstr "Socks server zahteva proveru"
-
-#: ../Socket.cpp:256
-msgid "The socks server doesn't support login / password authentication"
-msgstr "Socks server ne podržava proveru korisničko ime / lozinka"
-
-#: ../Socket.cpp:270 ../Socket.cpp:274
-msgid "Socks server authentication failed (bad login / password?)"
-msgstr "Socks server provera nije uspela (loše korisničko ime / lozinka?)"
-
-#: ../Socket.cpp:409
-msgid ""
-"Failed to set up the socks server for UDP relay (check socks address and "
-"port)"
-msgstr ""
-"Greška pri podešavanju socks servera za UDP prenos (proveriti socks adresu i "
-"port)"
-
-#: ../UPnPManager.cpp:41
-#, fuzzy
-msgid "No UPnP implementation available"
-msgstr "Datoteka nije dostupna"
-
-#: ../UPnPManager.cpp:46
-msgid "Another UPnP port mapping attempt is in progress..."
-msgstr ""
-
-#: ../UPnPManager.cpp:74
-#, fuzzy
-msgid "Failed to initalize the %1% interface"
-msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
-
-#: ../UPnPManager.cpp:78
-msgid " Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
-msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr ""
-
-#: ../UPnPManager.cpp:83
-msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:88
-msgid " Search Port (%1% UDP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:94
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:106
-msgid "Failed to get external IP"
-msgstr ""
-
-#: ../UPnPManager.cpp:114
-#, fuzzy
-msgid "Failed to create port mappings"
-msgstr "Ne mogu kreirati nit"
-
-#: ../UPnPManager.cpp:123
-msgid "Failed to remove port mappings"
-msgstr ""
-
-#: ../UPnPManager.cpp:128
-msgid "UPnP: %1%"
-msgstr ""
-
-#: ../NmdcHub.cpp:283
-msgid "%1% (Nick unknown)"
-msgstr "%1% (Nepoznat nadimak)"
-
-#: ../NmdcHub.cpp:905
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr ""
-
-#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Veza je prekinuta"
-
-#: ../BufferedSocket.cpp:276
-msgid "Maximum command length exceeded"
-msgstr "Prekoračena maksimalna dužina komande"
-
-#: ../BufferedSocket.cpp:453
-msgid "Disconnected"
-msgstr "Isključen"
-
-#: ../UploadManager.cpp:157
-msgid "Unable to send file %1%: %2%"
-msgstr "Ne mogu poslati datoteku %1%: %2%"
-
-#: ../UploadManager.cpp:461
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Isključen korisnik koji je napustio hub: %1%"
-
-#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
-#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
-msgid "Error during compression"
-msgstr "Greška tokom pakovanja"
-
-#: ../ConnectionManager.cpp:185
-msgid "All download slots taken"
-msgstr "Svi slotovi za preuzimanje su popunjeni"
-
-#: ../ConnectionManager.cpp:254
-msgid "Connectivity restored"
-msgstr "Veza ponovo uspostavljena"
-
-#: ../ConnectionManager.cpp:261
-msgid "Connectivity error: %1%"
-msgstr "Greška pri povezivanju: %1%"
-
-#: ../SearchManager.cpp:132
-msgid "Search enabled again"
-msgstr "Pretraga ponovo omogućena"
-
-#: ../SearchManager.cpp:139
-msgid "Search disabled: %1%"
-msgstr "Pretraga onemogućena: %1%"
-
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "SSL Greška: %1% (%2%, %3%)"
-
-#: ../Thread.cpp:34 ../Thread.cpp:42
-msgid "Unable to create thread"
-msgstr "Ne mogu kreirati nit"
-
-#: ../ShareManager.cpp:429
-msgid "No directory specified"
-msgstr "Nije određen direktorijum"
-
-#: ../ShareManager.cpp:437
-msgid "The temporary download directory cannot be shared"
-msgstr "Direktorijum za privremeno preuzimanje se ne može deliti"
-
-#: ../ShareManager.cpp:634
-msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:655
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:710
-#, fuzzy
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr ""
-"Duplikat datoteke neće biti deljen: %1%%2% (Veličina: %3% B) Duplikat "
-"potvrđen sa: %4%%5%"
-
-#: ../ShareManager.cpp:727
-msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Osvežavanje liste deljenih datoteka je u toku, molim sačekajte da se završi "
-"pre ponovnog pokretanja"
-
-#: ../ShareManager.cpp:748
-msgid "File list refresh failed: %1%"
-msgstr "Osvežavanje liste deljenih datoteka nije uspelo: %1%"
-
-#: ../ShareManager.cpp:770
-msgid "File list refresh initiated"
-msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
-
-#: ../ShareManager.cpp:795
-msgid "File list refresh finished"
-msgstr "Osvežavanje liste deljenih datoteka završeno"
-
-#: ../ShareManager.cpp:866
-#, fuzzy
-msgid "File list %1% generated"
-msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
-
-#: ../Util.cpp:461
-#, c-format
-msgid "%d B"
-msgstr "%d B"
-
-#: ../Util.cpp:463
-#, c-format
-msgid "%.02f KiB"
-msgstr "%.02f KiB"
-
-#: ../Util.cpp:465
-#, c-format
-msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:467
-#, c-format
-msgid "%.02f GiB"
-msgstr "%.02f GiB"
-
-#: ../Util.cpp:469
-#, c-format
-msgid "%.02f TiB"
-msgstr "%.02f TiB"
-
-#: ../Util.cpp:471
-#, c-format
-msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:501
-#, c-format
-msgid "%s B"
-msgstr "%s B"
-
-#: ../Util.cpp:505
-#, c-format
-msgid "%'lld B"
-msgstr "%'lld B"
-
-#: ../DirectoryListing.cpp:95
-msgid "Greater than maximum filelist size"
-msgstr "Veće od maksimalne veličine liste datoteka"
-
-#: ../DirectoryListing.cpp:102
-msgid "File not available"
-msgstr "Datoteka nije dostupna"
-
-#: ../DirectoryListing.cpp:165
-msgid "Directory missing name attribute"
-msgstr "Direktorijumu nedostaje atribut ime"
-
-#: ../ConnectivityManager.cpp:61
-msgid "Determining connection type..."
-msgstr ""
-
-#: ../ConnectivityManager.cpp:66
-msgid "Unable to open %1% port(s). You must set up your connection manually"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:73
-msgid ""
-"Public IP address detected, selecting active mode with direct connection"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:78
-msgid ""
-"Local network with possible NAT detected, trying to map the ports using "
-"UPnP..."
-msgstr ""
-
-#: ../ConnectivityManager.cpp:110
-msgid ""
-"Automatic setup of active mode has failed. You may want to set up your "
-"connection manually for better connectivity"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:120
-msgid "TCP/TLS"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:126
-msgid "UDP"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:137
-#, fuzzy
-msgid "Connectivity: "
-msgstr "Greška pri povezivanju: %1%"
 
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
