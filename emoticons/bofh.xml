@@ -2,7 +2,7 @@
 <emoticons-map name="bofh">
 	<emoticon file="smd.png">
 		<name text=":smd:"/>
-	</emoticon>	
+	</emoticon>
 	<emoticon file="smd2.png">
 		<name text=":smd2:"/>
 	</emoticon>
@@ -10,388 +10,381 @@
 		<name text=":lazy"/>
 	</emoticon>
 	<emoticon file="crazy.png">
-	      <name text=":crazy:"/>
+		<name text=":crazy:"/>
 	</emoticon>
 	<emoticon file="swoon2.png">
 		<name text=":O"/>
 	</emoticon>
 	<emoticon file="secret.png">
-		 <name text=":secret:"/>
-	 </emoticon>
+		<name text=":secret:"/>
+ 	</emoticon>
 	<emoticon file="icon5.png">
-		  <name text=":-O"/>
+		<name text=":-O"/>
 	</emoticon>
 	<emoticon file="icon2.png">
-		  <name text=":hmph:"/>
+		<name text=":hmph:"/>
 	</emoticon>
 	<emoticon file="icon11.png">
-		  <name text=":right:"/>
-		  <name text=":arrow:"/>
+		<name text=":right:"/>
+		<name text=":arrow:"/>
 	</emoticon>
 	<emoticon file="smile.png">
-		  <name text=":}"/>
+		<name text=":}"/>
 	</emoticon>
 	<emoticon file="icon20.png">
-		  <name text=":-}"/>
+		<name text=":-}"/>
 	</emoticon>
 	<emoticon file="cry.png">
-		  <name text=":cry:"/>
+		<name text=":cry:"/>
 	</emoticon>
 	<emoticon file="icon29.png">
-		  <name text=":brow:"/>
+		<name text=":brow:"/>
 	</emoticon>
 	<emoticon file="icon36.png">
-		  <name text=":no:"/>
+		<name text=":no:"/>
 	</emoticon>
 	<emoticon file="sad.png">
-		  <name text=":("/>
+		<name text=":("/>
 	</emoticon>
 	<emoticon file="icon19.png">
-		  <name text=":-(:"/>
+		<name text=":-(:"/>
 	</emoticon>
 	<emoticon file="icon23.png">
-		  <name text=":'(:"/>
-		  <name text=":'-(:"/>
+		<name text=":'(:"/>
+		<name text=":'-(:"/>
 	</emoticon>
 	<emoticon file="icon24.png">
-		  <name text=":idea:"/>
+		<name text=":idea:"/>
 	</emoticon>
 	<emoticon file="rockin.png">
-		  <name text="\m/"/>
-		  <name text="_\m/"/>
+		<name text="\m/"/>
+		<name text="_\m/"/>
 	</emoticon>
 	<emoticon file="shout.png">
-		  <name text="|O"/>
+		<name text="|O"/>
 	</emoticon>
 	<emoticon file="icon99.png">
-		  <name text="|-O"/>
+		<name text="|-O"/>
 	</emoticon>
 	<emoticon file="rockinr.png">
-		  <name text="m/_/"/>
+		<name text="m/_/"/>
 	</emoticon>
 	<emoticon file="icon28.png">
-		  <name text=":geek:"/>
+		<name text=":geek:"/>
 	</emoticon>
 	<emoticon file="icon35.png">
-		  <name text=":yes:"/>
+		<name text=":yes:"/>
 	</emoticon>
 	<emoticon file="icon43.png">
-		  <name text="O_O"/>
+		<name text="O_O"/>
 	</emoticon>
 	<emoticon file="017.png">
-		  <name text="0_0"/>
+		<name text="0_0"/>
 	</emoticon>
 	<emoticon file="icon43.png">
-		  <name text=":weird:"/>
+		<name text=":weird:"/>
 	</emoticon>
 	<emoticon file="grin.png">
-		  <name text=":-)"/>
+		<name text="=)"/>
+		<name text=":))"/>
+		<name text=":-)"/>
 	</emoticon>
 	<emoticon file="icon1.png">
-		  <name text=":)"/>
+		<name text=":)"/>
+	</emoticon>
+	<emoticon file="blush1.png">
+		<name text="^_^"/>
 	</emoticon>
 	<emoticon file="unsure.png">
-		  <name text=":umm:"/>
+		<name text=":umm:"/>
 	</emoticon>
 	<emoticon file="icon14.png">
-		  <name text=":?:"/>
+		<name text=":?:"/>
 	</emoticon>
 	<emoticon file="icon8.png">
-		  <name text=":sick:"/>
+		<name text=":sick:"/>
 	</emoticon>
 	<emoticon file="bad.png">
-		  <name text="(sick)"/>
+		<name text="(sick)"/>
 	</emoticon>
 	<emoticon file="scare.png">
-		  <name text=":fear:"/>
-		  <name text=":scare:"/>
+		<name text=":fear:"/>
+		<name text=":scare:"/>
 	</emoticon>
 	<emoticon file="icon22.png">
-		  <name text=":ahoy:"/>
+		<name text=":ahoy:"/>
 	</emoticon>
 	<emoticon file="whistle.png">
-		  <name text=":whistle:"/>
+		<name text=":whistle:"/>
 	</emoticon>
 	<emoticon file="icon42.png">
-		  <name text=":satan:"/>
+		<name text=":satan:"/>
 	</emoticon>
 	<emoticon file="derisive.png">
-		  <name text=":D"/>
+		<name text=":D"/>
 	</emoticon>
 	<emoticon file="beee.png">
-		   <name text=":whatever:"/>
-		  <name text=":bah:"/>
+ 		<name text=":whatever:"/>
+		<name text=":bah:"/>
 	</emoticon>
 	<emoticon file="black_eye.png">
-		  <name text=":B"/>
-		  <name text=":blackeye:"/>
-		  <name text=":B:"/>
+		<name text=":B"/>
+		<name text=":blackeye:"/>
+		<name text=":B:"/>
 	</emoticon>
 	<emoticon file="icon15.png">
-		  <name text=":-D"/>
+		<name text=":-D"/>
 	</emoticon>
 	<emoticon file="blum2.png">
-		  <name text=":P"/>
+		<name text=":P"/>
 	</emoticon>
 	<emoticon file="icon18.png">
-		  <name text=":-P"/>
+		<name text=":-P"/>
 	</emoticon>
 	<emoticon file="icon13.png">
-		  <name text=":!:"/>
+		<name text=":!:"/>
 	</emoticon>
 	<emoticon file="blush2.png">
-		  <name text=":blush:"/>
+		<name text=":blush:"/>
 	</emoticon>
 	<emoticon file="icon33.png">
-		  <name text=":w00t:"/>
+		<name text=":w00t:"/>
 	</emoticon>
 	<emoticon file="011.png">
-		  <name text=":w0t:"/>
+		<name text=":w0t:"/>
 	</emoticon>
 	<emoticon file="icon41.png">
-		  <name text=":errm:"/>
+		<name text=":errm:"/>
 	</emoticon>
 	<emoticon file="diablo.png">
-		  <name text=":x"/>
+		<name text=":x"/>
 	</emoticon>
 	<emoticon file="icon7.png">
-		  <name text=":X"/>
-		  <name text=":-X"/>
+		<name text=":X"/>
+		<name text=":-X"/>
 	</emoticon>
 	<emoticon file="wink.png">
-		  <name text=";)"/>  
+		<name text=";)"/>
 	</emoticon>
 	<emoticon file="icon17.png">
-		  <name text=";-)"/>
+		<name text=";-)"/>
 	</emoticon>
 	<emoticon file="shok.png">
-		  <name text=":omg:"/>
+		<name text=":omg:"/>
 	</emoticon>
 	<emoticon file="icon32.png">
-		  <name text="(omg)"/>
-		  <name text="8-\"/>
+		<name text="(omg)"/>
+		<name text="8-\"/>
 	</emoticon>
 	<emoticon file="icon4.png">
-		  <name text=":-p"/>
+		<name text=":-p"/>
 	</emoticon>
 	<emoticon file="crego.png">
-		  <name text=":pimp:"/>
-		  <name text=":crego:"/>
+		<name text=":pimp:"/>
+		<name text=":crego:"/>
 	</emoticon>
 	<emoticon file="biggrin.png">
-		  <name text=":biggrin"/>
+		<name text=":biggrin"/>
 	</emoticon>
 	<emoticon file="icon37.png">
-		  <name text=":sketchy:"/>
+		<name text=":sketchy:"/>
 	</emoticon>
 	<emoticon file="martini.png">
-		  <name text=":martini:"/>
+		<name text=":martini:"/>
 	</emoticon>
 	<emoticon file="beer_mug.png">
-		  <name text=":beer:"/>
+		<name text=":beer:"/>
 	</emoticon>
 	<emoticon file="thumbs_down.png">
-		  <name text="(N)"/>
+		<name text="(N)"/>
 	</emoticon>
 	<emoticon file="thumbs_up.png">
-		  <name text="(Y)"/>
+		<name text="(Y)"/>
 	</emoticon>
 	<emoticon file="047.png">
-		  <name text="(atb)"/>
+		<name text="(atb)"/>
 	</emoticon>
 	<emoticon file="icon16.png">
-		  <name text=":retard:"/>
+		<name text=":retard:"/>
 	</emoticon>
 	<emoticon file="icon25.png">
-		  <name text=":|"/>
+		<name text=":|"/>
 	</emoticon>
 	<emoticon file="icon45.png">
-		  <name text=":awkward:"/>
+		<name text=":awkward:"/>
 	</emoticon>
 	<emoticon file="diablo1.png">
-		  <name text=":@"/>
+		<name text=":@"/>
 	</emoticon>
 	<emoticon file="icon65.png">
-		  <name text=":ditz:"/>
+		<name text=":ditz:"/>
 	</emoticon>
 	<emoticon file="icon61.png">
-		  <name text=":notalk:"/>
+		<name text=":notalk:"/>
 	</emoticon>
 	<emoticon file="icon60.png">
-		  <name text=":twitch:"/>
+		<name text=":twitch:"/>
 	</emoticon>
 	<emoticon file="kiss.png">
-		  <name text=":kiss:"/>
+		<name text=":*"/>
+		<name text=":-*"/>
+		<name text=":kiss:"/>
 	</emoticon>
 	<emoticon file="icon56.png">
-		  <name text=":huh:"/>
+		<name text=":huh:"/>
 	</emoticon>
 	<emoticon file="icon52.png">
-		  <name text=":topsy:"/>
+		<name text=":topsy:"/>
 	</emoticon>
 	<emoticon file="icon49.png">
-		  <name text=":-\"/>
+		<name text=":-\"/>
 	</emoticon>
 	<emoticon file="FO.png">
-		  <name text=".|."/>
+		<name text=".|."/>
 	</emoticon>
 	<emoticon file="051.png">
-		  <name text=":'o"/>
+		<name text=":'o"/>
 	</emoticon>
 	<emoticon file="icon25.png">
-		  <name text=":|"/>
+		<name text=":|"/>
 	</emoticon>
 	<emoticon file="059.png">
-		  <name text=":zz:"/>
-		  <name text=":ZZ:"/>
-		  <name text=":zZ:"/>
-		  <name text=":Zz:"/>
+		<name text=":zz:"/>
+		<name text=":ZZ:"/>
+		<name text=":zZ:"/>
+		<name text=":Zz:"/>
 	</emoticon>
 	<emoticon file="071.png">
-		  <name text=":blond:"/>
+		<name text=":blond:"/>
 	</emoticon>
 	<emoticon file="089.png">
-		  <name text=">\|"/>
+		<name text=">\|"/>
 	</emoticon>
 	<emoticon file="091.png">
-		  <name text="(091)"/>
+		<name text="(091)"/>
 	</emoticon>
 	<emoticon file="093.png">
-		  <name text="(hug)"/>
+		<name text="(hug)"/>
 	</emoticon>
 	<emoticon file="098.png">
-		  <name text="(lips)"/>
-		  <name text=":lips:"/>
-		  <name text="(ummahh)"/>
+		<name text=":lips:"/>
 	</emoticon>
 	<emoticon file="104.png">
-		  <name text="(pm)"/>
+		<name text="(pm)"/>
 	</emoticon>
 	<emoticon file="105.png">
-		  <name text="(stop)"/>
+		<name text="(stop)"/>
 	</emoticon>
 	<emoticon file="106.png">
-		  <name text="(coke)"/>
+		<name text="(coke)"/>
 	</emoticon>
 	<emoticon file="107.png">
-		  <name text="(brb)"/>
+		<name text="(brb)"/>
 	</emoticon>
 	<emoticon file="113.png">
-		  <name text="(music)"/>
+		<name text="(music)"/>
 	</emoticon>
 	<emoticon file="114.png">
-		  <name text="(wc)"/>
+		<name text="(wc)"/>
 	</emoticon>
 	<emoticon file="115.png">
-		  <name text="(tv)"/>
+		<name text="(tv)"/>
 	</emoticon>
 	<emoticon file="118.png">
-		  <name text=">\"/>
+		<name text="&gt;\"/>
 	</emoticon>
 	<emoticon file="icon32.png">
-		  <name text=":omg:"/>
-	</emoticon>
-	<emoticon file="40.png">
-		  <name text=">\"/>
+		<name text=":omg:"/>
 	</emoticon>
 	<emoticon file="icon6.png">
-		  <name text=":lol:"/>
+		<name text=":lol:"/>
 	</emoticon>
 	<emoticon file="rofl.png">
-		  <name text=":rofl:"/>
+		<name text="LOL"/>
+		<name text=":rofl:"/>
 	</emoticon>
 	<emoticon file="icon21.png">
-		  <name text=":roll:"/>
+		<name text=":roll:"/>
 	</emoticon>
 	<emoticon file="air_kiss.png">
-		  <name text=":heart:"/>
+		<name text=":heart:"/>
 	</emoticon>
 	<emoticon file=":-S.png">
-		  <name text="nea"/>
+		<name text="nea"/>
 	</emoticon>
 	<emoticon file="icon39.png">
-		  <name text=":S"/>
+		<name text=":S"/>
 	</emoticon>
 	<emoticon file="icon31.png">
-		  <name text=":sulk:"/>
-		  <name text="(sulk)"/>
+		<name text=":sulk:"/>
+		<name text="(sulk)"/>
 	</emoticon>
 	<emoticon file="icon38.png">
-		  <name text=":naughty:"/>
-		  <name text="(naughty)"/>
+		<name text=":naughty:"/>
+		<name text="(naughty)"/>
 	</emoticon>
 	<emoticon file="icon10.png">
-		  <name text="(H)"/>
+		<name text="(H)"/>
 	</emoticon>
 	<emoticon file="039.png">
-		  <name text="(badboy)"/>
+		<name text="(badboy)"/>
 	</emoticon>
 	<emoticon file="042.png">
-		  <name text="(sm)"/>
+		<name text="(sm)"/>
 	</emoticon>
 	<emoticon file="040.png">
-		  <name text="B-\"/>
+		<name text="B-\"/>
 	</emoticon>
 	<emoticon file="041.png">
-		  <name text="B-|"/>
+		<name text="B-|"/>
 	</emoticon>
 	<emoticon file="046.png">
-		  <name text="(cantsee)"/>
+		<name text="(cantsee)"/>
 	</emoticon>
 	<emoticon file="icon10.png">
-		  <name text="(8)"/>
-		  <name text="8-)"/>
+		<name text="(8)"/>
+		<name text="8-)"/>
 	</emoticon>
 	<emoticon file="icon25.png">
-		  <name text=":|"/>
-		  <name text=":-|"/>
+		<name text=":|"/>
+		<name text=":-|"/>
 	</emoticon>
 	<emoticon file="119.png">
-		  <name text="(love)"/>
+		<name text="(love)"/>
 	</emoticon>
 	<emoticon file="120.png">
-		  <name text="(fear)"/>
+		<name text="(fear)"/>
 	</emoticon>
 	<emoticon file="116.png">
-		  <name text=":nerd:"/>
-		  <name text="(nerd)"/>
+		<name text=":nerd:"/>
+		<name text="(nerd)"/>
 	</emoticon>
 	<emoticon file="bang.png">
-		  <name text="(bang)"/>
+		<name text="(bang)"/>
 	</emoticon>
 	<emoticon file="callme.png">
-		  <name text="(callme)"/>
-	</emoticon>
-	<emoticon file="dance.png">
-		  <name text="(dance)"/>
-	</emoticon>
-	<emoticon file="disco.png">
-		  <name text="(disco)"/>
-	</emoticon>
-	<emoticon file="ninja.png">
-		  <name text="(ninja)"/>
+		<name text="(callme)"/>
 	</emoticon>
 	<emoticon file="finger.png">
-		  <name text="(finger)"/>
+		<name text="(finger)"/>
 	</emoticon>
 	<emoticon file="(flex).png">
-		  <name text="(flex)"/>
+		<name text="(flex)"/>
 	</emoticon>
 	<emoticon file="hands.png">
-		  <name text="(hands)"/>
+		<name text="(hands)"/>
 	</emoticon>
 	<emoticon file="deal.png">
-		  <name text="(deal)"/>
+		<name text="(deal)"/>
 	</emoticon>
 	<emoticon file="joker.png">
-		  <name text="(joker)"/>
-		  <name text="(123)"/>
+		<name text="(joker)"/>
+		<name text="(123)"/>
 	</emoticon>
 	<emoticon file="kissing.png">
-		  <name text="(kissing)"/>
+		<name text="(kissing)"/>
 	</emoticon>
 	<emoticon file="angry.png">
-		  <name text="(angry)"/>
+		<name text="(angry)"/>
 	</emoticon>
 </emoticons-map>
-
