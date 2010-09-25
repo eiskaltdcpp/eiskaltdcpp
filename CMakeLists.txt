@@ -217,6 +217,14 @@ else (APPLE)
   set (CLIENT_DATA_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/${PROJECT_NAME_GLOBAL}")
 endif (APPLE)
 
+if (APPLE)
+  set (LOCALE_DIR "${PROJECT_NAME_GLOBAL}.app/locale")
+elseif (WIN32)
+  set (LOCALE_DIR "${SHARE_DIR}/locale")
+else (APPLE)
+  set (LOCALE_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/locale")
+endif (APPLE)
+
 set (_DATADIR "${CLIENT_DATA_DIR}") # don't change! (used by eiskaltdcpp-gtk)
 
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
@@ -387,7 +395,7 @@ set (mo_for_all 1)
       #PO_PREFIX    ""
       PO_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
       MO_BUILD_DIR "${dcpp_BINARY_DIR}/locale"
-      MO_INSTALL_DIR "/${_DATADIR}/locale"
+      MO_INSTALL_DIR "/${LOCALE_DIR}"
       CREATE_POT_TARGET ${create_pot}
       CREATE_PO_TARGET ${create_po}
       CREATE_PO_LOCALE_TARGETS ${create_po_lo}
@@ -406,7 +414,7 @@ if (USE_GTK)
       #PO_PREFIX    ""
       PO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
       MO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}/locale"
-      MO_INSTALL_DIR "/${_DATADIR}/locale"
+      MO_INSTALL_DIR "/${LOCALE_DIR}"
       CREATE_POT_TARGET ${create_pot}
       CREATE_PO_TARGET ${create_po}
       CREATE_PO_LOCALE_TARGETS ${create_po_lo}
