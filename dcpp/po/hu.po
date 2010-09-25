@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-18 15:22+0300\n"
+"POT-Creation-Date: 2010-09-25 19:44+0300\n"
 "PO-Revision-Date: 2010-09-25 13:20+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -82,45 +82,45 @@ msgstr "Letöltési Sor"
 msgid "Unable to create thread"
 msgstr "A szál léterhozása sikertelen"
 
-#: ../ConnectivityManager.cpp:56
+#: ../ConnectivityManager.cpp:61
 msgid "Determining connection type..."
 msgstr "Kapcsolat típus felderítése..."
 
-#: ../ConnectivityManager.cpp:61
+#: ../ConnectivityManager.cpp:66
 msgid "Unable to open %1% port(s). You must set up your connection manually"
 msgstr ""
 "%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani."
 
-#: ../ConnectivityManager.cpp:70
+#: ../ConnectivityManager.cpp:73
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 "Publikus IP cím sikeresen lekérdezve, aktív mód kiválasztása közvetlen "
 "kapcsolattal"
 
-#: ../ConnectivityManager.cpp:76
+#: ../ConnectivityManager.cpp:78
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
 
-#: ../ConnectivityManager.cpp:102
+#: ../ConnectivityManager.cpp:110
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
 msgstr ""
-"Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az "
-"aktív mód beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
+"Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az aktív mód "
+"beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
 
-#: ../ConnectivityManager.cpp:112
+#: ../ConnectivityManager.cpp:120
 msgid "TCP/TLS"
 msgstr "TCP/TLS"
 
-#: ../ConnectivityManager.cpp:118
+#: ../ConnectivityManager.cpp:126
 msgid "UDP"
 msgstr "UDP"
 
-#: ../ConnectivityManager.cpp:129
+#: ../ConnectivityManager.cpp:137
 msgid "Connectivity: "
 msgstr "Kapcsolatok: "
 
@@ -181,42 +181,42 @@ msgstr "%1% kirúgva: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:461
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:463
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:465
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:467
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:471
+#: ../Util.cpp:469
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:473
+#: ../Util.cpp:471
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:501
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:507
+#: ../Util.cpp:505
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -290,41 +290,41 @@ msgstr ""
 msgid "Failed to initalize the %1% interface"
 msgstr ""
 
-#: ../UPnPManager.cpp:77
+#: ../UPnPManager.cpp:78
 msgid " Transfer Port (%1% TCP)"
 msgstr " Átviteli port (%1% TCP)"
 
-#: ../UPnPManager.cpp:78 ../UPnPManager.cpp:82 ../UPnPManager.cpp:86
+#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr ""
 
-#: ../UPnPManager.cpp:81
+#: ../UPnPManager.cpp:83
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr " Titkosított átviteli port (%1% TCP)"
 
-#: ../UPnPManager.cpp:85
+#: ../UPnPManager.cpp:88
 msgid " Search Port (%1% UDP)"
 msgstr " Keresési port (%1% UDP)"
 
-#: ../UPnPManager.cpp:90
+#: ../UPnPManager.cpp:94
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
 msgstr ""
 
-#: ../UPnPManager.cpp:102
+#: ../UPnPManager.cpp:106
 msgid "Failed to get external IP"
 msgstr "Külső IP lekérdezése sikertelen"
 
-#: ../UPnPManager.cpp:110
+#: ../UPnPManager.cpp:114
 msgid "Failed to create port mappings"
 msgstr ""
 
-#: ../UPnPManager.cpp:119
+#: ../UPnPManager.cpp:123
 msgid "Failed to remove port mappings"
 msgstr ""
 
-#: ../UPnPManager.cpp:124
+#: ../UPnPManager.cpp:128
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 

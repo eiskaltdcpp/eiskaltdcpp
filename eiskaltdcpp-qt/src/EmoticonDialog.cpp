@@ -24,7 +24,7 @@ EmoticonDialog::EmoticonDialog(QWidget * parent, Qt::WindowFlags f)
     m_pLayout->setMargin(0);
     m_pLayout->setSpacing(0);
 
-    setWindowTitle(tr("Select smile"));
+    setWindowTitle(tr("Select emoticon"));
 
     QSize s;
     EmoticonFactory::getInstance()->fillLayout(m_pLayout, s);

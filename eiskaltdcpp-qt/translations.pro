@@ -16,6 +16,7 @@ HEADERS = ../Version.h \
     src/WulforSettings.h \
     src/Notification.h \
     src/ArenaWidget.h \
+    src/EmoticonDialog.h \
     src/PMWindow.h \
     src/TransferView.h \
     src/ShareBrowser.h \
@@ -74,6 +75,7 @@ SOURCES = src/main.cpp \
     src/WulforSettings.cpp \
     src/Notification.cpp \
     src/ArenaWidget.cpp \
+    src/EmoticonDialog.cpp \
     src/PMWindow.cpp \
     src/ChatComandParser.cpp \
     src/TransferView.cpp \

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
-"Report-Msgid-Bugs-To: i.kliok@gmail.com\n"
+"Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-09-19 00:43+0300\n"
 "PO-Revision-Date: 2010-08-17 18:49+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"

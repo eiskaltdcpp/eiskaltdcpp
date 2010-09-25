@@ -399,6 +399,13 @@ Kapcsolók:
     </message>
 </context>
 <context>
+    <name>EmoticonDialog</name>
+    <message>
+        <source>Select emoticon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FavoriteHubModel</name>
     <message>
         <source>Autoconnect</source>
@@ -1812,7 +1819,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation>&lt;b&gt;Utolsó kernelüzenet:&lt;/b&gt;&lt;br/&gt;%1</translation>
+        <translation type="obsolete">&lt;b&gt;Utolsó kernelüzenet:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
@@ -2381,7 +2388,7 @@ Kapcsolók:
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
     <message>
         <source>C</source>
@@ -3620,7 +3627,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
     <message>
         <source>Clear filter</source>
@@ -3762,7 +3769,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
 </context>
 <context>
@@ -3786,6 +3793,10 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <source>Remove</source>
         <translation>Törlés</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Szerkesztés</translation>
     </message>
 </context>
 <context>
@@ -4062,6 +4073,10 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     <message>
         <source>Slots</source>
         <translation>Slotok</translation>
+    </message>
+    <message>
+        <source>Auto detect connection</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5241,7 +5256,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
 </context>
 <context>

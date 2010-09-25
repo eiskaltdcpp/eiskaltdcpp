@@ -447,6 +447,13 @@ Raccourcis:
     </message>
 </context>
 <context>
+    <name>EmoticonDialog</name>
+    <message>
+        <source>Select emoticon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FavoriteHubModel</name>
     <message>
         <source>Autoconnect</source>
@@ -1790,7 +1797,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation>&lt;b&gt;Dernier message du noyau:&lt;/b&gt;&lt;br/&gt;%1</translation>
+        <translation type="obsolete">&lt;b&gt;Dernier message du noyau:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
@@ -2295,7 +2302,7 @@ Clés:
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
     <message>
         <source>Download</source>
@@ -3710,7 +3717,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
     <message>
         <source>Last status message on hub</source>
@@ -3840,7 +3847,7 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
 </context>
 <context>
@@ -3864,6 +3871,10 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <message>
         <source>Remove</source>
         <translation>Retirer</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Editer</translation>
     </message>
 </context>
 <context>
@@ -4116,6 +4127,10 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
         <source>Slots</source>
         <translation>
 Slots</translation>
+    </message>
+    <message>
+        <source>Auto detect connection</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5224,7 +5239,7 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
 </context>
 <context>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-18 15:22+0300\n"
+"POT-Creation-Date: 2010-09-25 19:44+0300\n"
 "PO-Revision-Date: 2010-09-18 20:36+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -81,23 +81,23 @@ msgstr "Cola de Descargas"
 msgid "Unable to create thread"
 msgstr "No se puede crear tarea"
 
-#: ../ConnectivityManager.cpp:56
+#: ../ConnectivityManager.cpp:61
 msgid "Determining connection type..."
 msgstr "Determinando tipo de conexión..."
 
-#: ../ConnectivityManager.cpp:61
+#: ../ConnectivityManager.cpp:66
 msgid "Unable to open %1% port(s). You must set up your connection manually"
 msgstr ""
 "No se puede habilitar e puerto(s) %1%. Debería configurar su conexión "
 "manualmente"
 
-#: ../ConnectivityManager.cpp:70
+#: ../ConnectivityManager.cpp:73
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 "IP publica detectada, Seleccionando modo activo con la conexión directa"
 
-#: ../ConnectivityManager.cpp:76
+#: ../ConnectivityManager.cpp:78
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -105,7 +105,7 @@ msgstr ""
 "Detectado posible red local con NAT, probando los puertos con el mapa, "
 "usando UPnP..."
 
-#: ../ConnectivityManager.cpp:102
+#: ../ConnectivityManager.cpp:110
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -113,15 +113,15 @@ msgstr ""
 "La configuración automática para el modo activo a fallado. Necesita "
 "configurar su conexión manualmente para una mejor conectividad"
 
-#: ../ConnectivityManager.cpp:112
+#: ../ConnectivityManager.cpp:120
 msgid "TCP/TLS"
 msgstr "TCP/TLS"
 
-#: ../ConnectivityManager.cpp:118
+#: ../ConnectivityManager.cpp:126
 msgid "UDP"
 msgstr "UDP"
 
-#: ../ConnectivityManager.cpp:129
+#: ../ConnectivityManager.cpp:137
 msgid "Connectivity: "
 msgstr "Conectividad: "
 
@@ -182,42 +182,42 @@ msgstr "%1% ha sido expulsado: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "No escuchando conexiones - por favor reinicie %1%"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:461
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:463
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:465
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:467
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:471
+#: ../Util.cpp:469
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:473
+#: ../Util.cpp:471
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:501
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:507
+#: ../Util.cpp:505
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -292,23 +292,23 @@ msgstr "Otra mapa de puertos UPnP está funcionando ahora..."
 msgid "Failed to initalize the %1% interface"
 msgstr "Fallo al inicializar la interface %1%"
 
-#: ../UPnPManager.cpp:77
+#: ../UPnPManager.cpp:78
 msgid " Transfer Port (%1% TCP)"
 msgstr "Puerto de Transferencia (%1% TCP)"
 
-#: ../UPnPManager.cpp:78 ../UPnPManager.cpp:82 ../UPnPManager.cpp:86
+#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "La interface %1% ha fallado con el mapa los puertos %2% %3%"
 
-#: ../UPnPManager.cpp:81
+#: ../UPnPManager.cpp:83
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr "Puerto de Transferencia Encriptado (%1% TCP)"
 
-#: ../UPnPManager.cpp:85
+#: ../UPnPManager.cpp:88
 msgid " Search Port (%1% UDP)"
 msgstr "Puerto de búsqueda (1%% UDP)"
 
-#: ../UPnPManager.cpp:90
+#: ../UPnPManager.cpp:94
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -316,19 +316,19 @@ msgstr ""
 "Creado mapa de puertos satisfactoriamente (TCP: %1%, UDP: %2%, TLS: %3%), el "
 "mapeo ha sido usado en la interface %4%"
 
-#: ../UPnPManager.cpp:102
+#: ../UPnPManager.cpp:106
 msgid "Failed to get external IP"
 msgstr "Fallo al recibir  IP externa"
 
-#: ../UPnPManager.cpp:110
+#: ../UPnPManager.cpp:114
 msgid "Failed to create port mappings"
 msgstr "Fallo al crear la tabla de puertos"
 
-#: ../UPnPManager.cpp:119
+#: ../UPnPManager.cpp:123
 msgid "Failed to remove port mappings"
 msgstr "Fallo al remover mapa de puertos"
 
-#: ../UPnPManager.cpp:124
+#: ../UPnPManager.cpp:128
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 

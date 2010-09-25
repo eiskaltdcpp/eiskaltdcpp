@@ -380,6 +380,13 @@ Keys:
     </message>
 </context>
 <context>
+    <name>EmoticonDialog</name>
+    <message>
+        <source>Select emoticon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FavoriteHubModel</name>
     <message>
         <source>Autoconnect</source>
@@ -1501,7 +1508,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation>&lt;b&gt;Poslednja kernel poruka:&lt;/b&gt;&lt;br/&gt;%1</translation>
+        <translation type="obsolete">&lt;b&gt;Poslednja kernel poruka:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <source>Choose file to open</source>
@@ -2085,7 +2092,7 @@ Keys:
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
     <message>
         <source>Download</source>
@@ -3407,7 +3414,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
     <message>
         <source>Last status message on hub</source>
@@ -3540,7 +3547,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
 </context>
 <context>
@@ -3564,6 +3571,10 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <source>Remove</source>
         <translation>Obriši</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Izmeni</translation>
     </message>
 </context>
 <context>
@@ -3812,6 +3823,10 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
     </message>
     <message>
         <source>Slots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto detect connection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4953,7 +4968,7 @@ odobreni slot neće biti zatvoren.</translation>
     </message>
     <message>
         <source>X</source>
-        <translation>X</translation>
+        <translation type="obsolete">X</translation>
     </message>
 </context>
 <context>
