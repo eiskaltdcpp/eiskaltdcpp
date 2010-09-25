@@ -182,8 +182,8 @@ extern void startup(void (*f)(void*, const string&), void* p);
 extern void shutdown();
 
 #ifdef BUILDING_DCPP
-#define PACKAGE "libdcpp"
-#define LOCALEDIR _DATADIR PATH_SEPARATOR_STR "locale"
+#define PACKAGE "libeiskaltdcpp"
+#define LOCALEDIR LOCALE_DIR
 #define _(String) dgettext(PACKAGE, String)
 #define F_(String) dcpp_fmt(dgettext(PACKAGE, String))
 #define FN_(String1,String2, N) dcpp_fmt(dngettext(PACKAGE, String1, String2, N))

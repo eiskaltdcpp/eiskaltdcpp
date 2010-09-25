@@ -250,7 +250,7 @@ set (CLIENT_ICONS_DEST "${CLIENT_DATA_DIR}/icons")
 set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 
 add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
-                 -D_DATADIR="${_DATADIR}" -DBUILDING_DCPP)
+                 -D_DATADIR="${_DATADIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
 
 if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H )
