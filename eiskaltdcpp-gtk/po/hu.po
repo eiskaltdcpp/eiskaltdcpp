@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-09-19 00:43+0300\n"
-"PO-Revision-Date: 2010-09-06 13:44+0200\n"
+"PO-Revision-Date: 2010-09-25 14:23+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -349,7 +349,7 @@ msgstr "Hangulatjelek mód bekapcsolva"
 
 #: ../src/hub.cc:1723 ../src/hub.cc:1725
 msgid "project home: "
-msgstr ""
+msgstr "a projekt weboldala: "
 
 #: ../src/hub.cc:1730 ../src/privatemessage.cc:930
 msgid "*** Available commands:"
@@ -592,12 +592,12 @@ msgstr "Auto extra slot"
 #: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
 #: ../src/favoriteusers.cc:584
 msgid "Hub (last seen in, if offline)"
-msgstr ""
+msgstr "Hub (utoljára online, ha éppen nem elérhető)"
 
 #: ../src/favoriteusers.cc:47 ../src/favoriteusers.cc:111
 #: ../src/favoriteusers.cc:577 ../src/favoriteusers.cc:585
 msgid "Time last seen"
-msgstr ""
+msgstr "Utoljára online"
 
 #: ../src/favoriteusers.cc:103 ../src/favoriteusers.cc:622
 #: ../src/favoriteusers.cc:641
@@ -691,13 +691,13 @@ msgstr "Felhasználó"
 #: ../src/transfers.cc:58 ../src/transfers.cc:494 ../src/transfers.cc:560
 #: ../src/transfers.cc:591 ../src/transfers.cc:860 ../src/transfers.cc:878
 msgid "Hub Name"
-msgstr ""
+msgstr "Hub"
 
 #: ../src/transfers.cc:60 ../src/transfers.cc:593 ../src/transfers.cc:624
 #: ../src/transfers.cc:887 ../src/transfers.cc:985 ../src/transfers.cc:1035
 #: ../src/transfers.cc:1154
 msgid "Time Left"
-msgstr ""
+msgstr "Hátralévő idő"
 
 #: ../src/transfers.cc:61 ../src/transfers.cc:556 ../src/transfers.cc:592
 #: ../src/transfers.cc:624 ../src/transfers.cc:765 ../src/transfers.cc:882
@@ -706,23 +706,23 @@ msgstr ""
 #: ../src/finishedtransfers.cc:61 ../src/finishedtransfers.cc:82
 #: ../src/finishedtransfers.cc:183 ../src/finishedtransfers.cc:220
 msgid "Speed"
-msgstr ""
+msgstr "Sebesség"
 
 #: ../src/transfers.cc:368
 msgid "Connecting (forced)..."
-msgstr ""
+msgstr "Kapcsolódás (kényszerítve)..."
 
 #: ../src/transfers.cc:401
 msgid "Closing connection..."
-msgstr ""
+msgstr "Kapcsolat bezárása..."
 
 #: ../src/transfers.cc:575 ../src/transfers.cc:947
 msgid "Downloaded "
-msgstr ""
+msgstr "Letöltve"
 
 #: ../src/transfers.cc:577
 msgid "Waiting for slot "
-msgstr ""
+msgstr "Várakozás szabad slotra "
 
 #: ../src/transfers.cc:580
 msgid "%) from "
@@ -730,11 +730,11 @@ msgstr ""
 
 #: ../src/transfers.cc:580
 msgid " user(s)"
-msgstr ""
+msgstr " felhasználó(k)"
 
 #: ../src/transfers.cc:670 ../src/transfers.cc:872
 msgid "File list"
-msgstr ""
+msgstr "Fájl-lista"
 
 #: ../src/transfers.cc:901
 msgid "Requesting"
@@ -742,35 +742,35 @@ msgstr ""
 
 #: ../src/transfers.cc:914
 msgid "Download starting..."
-msgstr ""
+msgstr "Letöltés kezdése..."
 
 #: ../src/transfers.cc:937 ../src/transfers.cc:1114
 msgid "[S]"
-msgstr ""
+msgstr "[S]"
 
 #: ../src/transfers.cc:939 ../src/transfers.cc:1116
 msgid "[U]"
-msgstr ""
+msgstr "[U]"
 
 #: ../src/transfers.cc:942
 msgid "[T]"
-msgstr ""
+msgstr "[T]"
 
 #: ../src/transfers.cc:944 ../src/transfers.cc:1119
 msgid "[Z]"
-msgstr ""
+msgstr "[Z]"
 
 #: ../src/transfers.cc:962
 msgid "Download complete..."
-msgstr ""
+msgstr "Letöltés kész..."
 
 #: ../src/transfers.cc:1002
 msgid "Connecting..."
-msgstr ""
+msgstr "Kapcsolódás..."
 
 #: ../src/transfers.cc:1048
 msgid "Connecting"
-msgstr ""
+msgstr "Kapcsolódás"
 
 #: ../src/transfers.cc:1050
 msgid "Waiting to retry"
@@ -779,28 +779,27 @@ msgstr ""
 #: ../src/transfers.cc:1073 ../src/settingsdialog.cc:981
 #: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:211
 msgid "Download finished"
-msgstr ""
+msgstr "Letöltés befejeződött"
 
 #: ../src/transfers.cc:1082
 msgid "Download removed"
-msgstr ""
+msgstr "Letöltés eltávolítva"
 
 #: ../src/transfers.cc:1091
 msgid "Upload starting..."
-msgstr ""
+msgstr "Feltöltés kezdése..."
 
 #: ../src/transfers.cc:1122
 msgid "Uploaded "
-msgstr ""
+msgstr "Feltöltve "
 
 #: ../src/transfers.cc:1137
 msgid "Upload complete..."
-msgstr ""
+msgstr "Feltöltés kész..."
 
 #: ../src/wulfor.cc:77
-#, fuzzy
 msgid "Loading: "
-msgstr "Fájl-lista betöltése"
+msgstr "Betöltés: "
 
 #: ../src/wulfor.cc:155
 msgid "Shutting down libdcpp..."
@@ -808,7 +807,7 @@ msgstr ""
 
 #: ../src/wulfor.cc:157
 msgid "Quit..."
-msgstr ""
+msgstr "Kilépés..."
 
 #: ../src/privatemessage.cc:933 ../glade/privatemessage.glade:197
 msgid "Clear PM"
@@ -820,7 +819,7 @@ msgstr ""
 
 #: ../src/privatemessage.cc:944
 msgid "Unknown command "
-msgstr ""
+msgstr "Ismeretlen parancs "
 
 #: ../src/privatemessage.cc:944
 msgid ": type /help for a list of available commands"
@@ -828,11 +827,11 @@ msgstr ""
 
 #: ../src/privatemessage.cc:1258
 msgid "User went offline"
-msgstr ""
+msgstr "A felhasználó kilépett"
 
 #: ../src/privatemessage.cc:1321
 msgid "Slot granted"
-msgstr ""
+msgstr "Slot biztosítva"
 
 #: ../src/settingsdialog.cc:292 ../src/settingsdialog.cc:328
 #: ../src/settingsdialog.cc:963 ../src/settingsdialog.cc:974
@@ -1334,9 +1333,8 @@ msgid "Error"
 msgstr ""
 
 #: ../src/settingsdialog.cc:2230
-#, fuzzy
 msgid "Virtual name"
-msgstr "Fájlnév"
+msgstr "Virtuális név"
 
 #: ../src/settingsdialog.cc:2233
 msgid "<b>Name under which the others see the directory</b>"
@@ -2218,9 +2216,8 @@ msgid "Homepage"
 msgstr ""
 
 #: ../glade/mainwindow.glade:399
-#, fuzzy
 msgid "Source (svn)"
-msgstr "Keresés típusa"
+msgstr "Forrás (svn)"
 
 #: ../glade/mainwindow.glade:413
 msgid "Report a Bug"

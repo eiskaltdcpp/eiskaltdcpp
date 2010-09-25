@@ -126,19 +126,19 @@ Kapcsolók:
     </message>
     <message>
         <source>Checking user %1 (message: %2, cid: %3)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználó ellenőrzése: %1 (üzenet: %2, cid: %3)...</translation>
     </message>
     <message>
         <source>%1: Moving user to GRAY.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Felhasználó áthelyezése a Szürke listára.</translation>
     </message>
     <message>
         <source>%1: Moving user to BLACK.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Felhasználó áthelyezése a Fekete listára.</translation>
     </message>
     <message>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: &quot;Próbáld újra&quot; üzenet küldése a felhasználónak.</translation>
     </message>
 </context>
 <context>
@@ -1197,7 +1197,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Users count: %3/%1 | Total share: %2</source>
-        <translation type="unfinished">Felhasználók száma: %1 | Összes megosztás: %2 {3/%1 ?}</translation>
+        <translation>Felhasználók száma: %3/%1 | Összes megosztás: %2</translation>
     </message>
 </context>
 <context>
@@ -2854,7 +2854,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Other Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyéb alkalmazások</translation>
     </message>
 </context>
 <context>
@@ -3355,7 +3355,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Filter Operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Operátorok szűrése</translation>
     </message>
 </context>
 <context>
@@ -3485,7 +3485,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>EiskaltDC++ V:2.1</source>
-        <translation type="unfinished">EiskaltDC++ V:2.1</translation>
+        <translation>EiskaltDC++ V:2.1</translation>
     </message>
 </context>
 <context>
@@ -4061,7 +4061,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Slots</source>
-        <translation type="unfinished"></translation>
+        <translation>Slotok</translation>
     </message>
 </context>
 <context>
@@ -4708,15 +4708,15 @@ ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
     </message>
     <message>
         <source>Filter kick-messages from the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Kick üzenetek szűrése a chaten</translation>
     </message>
     <message>
         <source>Show country of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználók országkódjainak mutatása a chaten</translation>
     </message>
     <message>
         <source>Highlighting of already shared files</source>
-        <translation type="unfinished"></translation>
+        <translation>A már megosztásban lévő fájlok kiemelése</translation>
     </message>
 </context>
 <context>
@@ -4940,7 +4940,7 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
     </message>
     <message>
         <source>Auto away interval (min)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatikus távollét (perc)</translation>
     </message>
 </context>
 <context>

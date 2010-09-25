@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-09-18 15:22+0300\n"
-"PO-Revision-Date: 2010-09-06 12:44+0200\n"
+"PO-Revision-Date: 2010-09-25 13:20+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -84,16 +84,19 @@ msgstr "A szál léterhozása sikertelen"
 
 #: ../ConnectivityManager.cpp:56
 msgid "Determining connection type..."
-msgstr ""
+msgstr "Kapcsolat típus felderítése..."
 
 #: ../ConnectivityManager.cpp:61
 msgid "Unable to open %1% port(s). You must set up your connection manually"
 msgstr ""
+"%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani."
 
 #: ../ConnectivityManager.cpp:70
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
+"Publikus IP cím sikeresen lekérdezve, aktív mód kiválasztása közvetlen "
+"kapcsolattal"
 
 #: ../ConnectivityManager.cpp:76
 msgid ""
@@ -106,19 +109,20 @@ msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
 msgstr ""
+"Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az "
+"aktív mód beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
 
 #: ../ConnectivityManager.cpp:112
 msgid "TCP/TLS"
-msgstr ""
+msgstr "TCP/TLS"
 
 #: ../ConnectivityManager.cpp:118
 msgid "UDP"
-msgstr ""
+msgstr "UDP"
 
 #: ../ConnectivityManager.cpp:129
-#, fuzzy
 msgid "Connectivity: "
-msgstr "Kapcsolódási hiba: %1%"
+msgstr "Kapcsolatok: "
 
 #: ../UploadManager.cpp:157
 msgid "Unable to send file %1%: %2%"
@@ -283,9 +287,8 @@ msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
 #: ../UPnPManager.cpp:74
-#, fuzzy
 msgid "Failed to initalize the %1% interface"
-msgstr "Fájl-lista %1% létrehozva"
+msgstr ""
 
 #: ../UPnPManager.cpp:77
 msgid " Transfer Port (%1% TCP)"
