@@ -21,10 +21,12 @@
 
 #include <gtk/gtk.h>
 #include <glade/glade.h>
-#include <glib/gi18n.h>
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
+#undef _
+#include <glib/gi18n.h>
+
 #ifdef USE_MINIUPNP
 #include "../upnp/upnpc.h"
 #include "dcpp/UPnPManager.h"

@@ -20,7 +20,6 @@
  */
 
 #include "WulforUtil.hh"
-#include <glib/gi18n.h>
 #include <glib/gstdio.h>
 #include <dcpp/ClientManager.h>
 #include <dcpp/Util.h>
@@ -28,6 +27,9 @@
 #include <arpa/inet.h>
 #include <fcntl.h>
 #include "settingsmanager.hh"
+
+#undef _
+#include <glib/gi18n.h>
 
 #ifdef HAVE_IFADDRS_H
 #include <ifaddrs.h>
