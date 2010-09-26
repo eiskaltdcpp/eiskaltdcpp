@@ -220,17 +220,28 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     QMap< ArenaWidget*, QWidget* >::iterator it = map.begin();
 
     for(; it != map.end(); ++it){
-        if (dynamic_cast< dcpp::ISingleton* >(it.value())){
+        dcpp::ISingleton *sg = dynamic_cast< dcpp::ISingleton* >(it.value());
+
+        if (sg && sg != dynamic_cast< dcpp::ISingleton* >(HubManager::getInstance())){
             it.key()->setUnload(true);
             it.value()->close();
 
-            dynamic_cast< dcpp::ISingleton* >(it.value())->release();
+            sg->release();
 
             continue;
         }
+        else if (sg == dynamic_cast< dcpp::ISingleton* >(HubManager::getInstance()))
+            continue;//Do not remove HubManager
 
         if (arenaMap.contains(it.key()))//some widgets can autodelete itself from arena widgets
             it.value()->close();
+    }
+
+    if (HubManager::getInstance()){
+        HubManager::getInstance()->setUnload(true);
+        HubManager::getInstance()->close();
+
+        HubManager::getInstance()->release();
     }
 
     c_e->accept();
@@ -533,6 +544,11 @@ void MainWindow::initActions(){
         hubsFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
         connect(hubsFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteUsers()));
 
+        toolsHubManager = new QAction("", this);
+        toolsHubManager->setObjectName("toolsHubManager");
+        toolsHubManager->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
+        connect(toolsHubManager, SIGNAL(triggered()), this, SLOT(slotToolsHubManager()));
+
         toolsCopyWindowTitle = new QAction("", this);
         toolsCopyWindowTitle->setObjectName("toolsCopyWindowTitle");
         toolsCopyWindowTitle->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
@@ -732,6 +748,7 @@ void MainWindow::initActions(){
                 << toolsDownloadQueue
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
+                << toolsHubManager
                 << separator1
                 << toolsSpy
                 << toolsAntiSpam
@@ -1028,6 +1045,8 @@ void MainWindow::retranslateUi(){
         toolsTransfers->setText(tr("Transfers"));
 
         toolsDownloadQueue->setText(tr("Download queue"));
+
+        toolsHubManager->setText(tr("Hub Manager"));
 
         toolsFinishedDownloads->setText(tr("Finished downloads"));
 
@@ -1883,6 +1902,13 @@ void MainWindow::slotToolsDownloadQueue(){
         DownloadQueue::newInstance();
 
     toggleSingletonWidget(DownloadQueue::getInstance());
+}
+
+void MainWindow::slotToolsHubManager(){
+    if (!HubManager::getInstance())
+        HubManager::newInstance();
+
+    toggleSingletonWidget(HubManager::getInstance());
 }
 
 void MainWindow::slotToolsFinishedDownloads(){

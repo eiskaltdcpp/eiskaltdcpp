@@ -1092,6 +1092,16 @@ void HubFrame::disableChat(){
     frame_INPUT->setVisible(!chatDisabled);
 }
 
+void HubFrame::getStatistic(quint64 &users, quint64 &share) const{
+    if (model)
+        users = model->rowCount();
+
+    share = total_shared;
+}
+
+bool HubFrame::isConnected() const {
+    return (client? client->isConnected() : false);
+}
 
 QString HubFrame::getUserInfo(UserListItem *item){
     QString ttip = "";

@@ -206,6 +206,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotHubsPublicHubs();
         void slotHubsFavoriteUsers();
         void slotToolsDownloadQueue();
+        void slotToolsHubManager();
         void slotToolsFinishedDownloads();
         void slotToolsFinishedUploads();
         void slotToolsSpy();
@@ -352,6 +353,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsAntiSpam;
         QAction *toolsIPFilter;
         QAction *menuAwayAction;
+        QAction *toolsHubManager;
         // submenu
         QMenu   *menuAway;
         QActionGroup *awayGroup;

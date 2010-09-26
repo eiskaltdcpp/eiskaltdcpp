@@ -107,10 +107,10 @@ int main(int argc, char *argv[])
     if (WulforUtil::getInstance()->loadIcons())
         std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
 
-    HubManager::newInstance();
-
     MainWindow::newInstance();
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
+
+    HubManager::newInstance();
 
     WulforSettings::getInstance()->loadTheme();
 
@@ -155,8 +155,6 @@ int main(int argc, char *argv[])
 #endif
 
     MainWindow::deleteInstance();
-
-    HubManager::deleteInstance();
 
     WulforUtil::deleteInstance();
     WulforSettings::deleteInstance();

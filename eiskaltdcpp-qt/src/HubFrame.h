@@ -186,6 +186,9 @@ public Q_SLOTS:
     void nextMsg();
     void prevMsg();
 
+    void getStatistic(quint64 &users, quint64 &share) const;
+    bool isConnected() const;
+
     void browseUserFiles(const QString&, bool=false);
 
 protected:

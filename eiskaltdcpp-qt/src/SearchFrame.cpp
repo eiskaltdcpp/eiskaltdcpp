@@ -1117,7 +1117,6 @@ void SearchFrame::slotContextMenu(const QPoint &){
         case Menu::SendPM:
         {
             HubFrame *fr = NULL;
-            HubManager *hm = HubManager::getInstance();
 
             foreach (QModelIndex i, list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
@@ -1125,7 +1124,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 QString hubUrl = item->data(COLUMN_SF_HOST).toString();
                 dcpp::CID cid(_tq(item->cid));
 
-                fr = hm->getHub(hubUrl);
+                fr = HubManager::getInstance()->getHub(hubUrl);
 
                 if (fr)
                     fr->createPMWindow(cid);

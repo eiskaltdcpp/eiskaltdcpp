@@ -153,7 +153,8 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UIScriptManager.ui \
     ui/UIDialogScriptConsole.ui \
     ui/UIADLSearch.ui \
-    ui/UIADLSearchEditor.ui
+    ui/UIADLSearchEditor.ui \
+    ui/UIHubManager.ui
 TRANSLATIONS = translations/en.ts \
     translations/ru.ts \
     translations/be.ts \

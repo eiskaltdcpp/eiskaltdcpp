@@ -21,6 +21,7 @@ class ArenaWidget
 public:
     enum Role{
         Hub=0,
+        HubManager,
         PrivateMessage,
         ShareBrowser,
         FavoriteHubs,

@@ -185,6 +185,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIScriptManager.ui
             ui/UIDialogScriptConsole.ui
             ui/UIActionCustomizer.ui
+	    ui/UIHubManager.ui
             )
 
 set (WIN_RESOURCES)
