@@ -2,6 +2,8 @@
 #include "HubFrame.h"
 #include "MainWindow.h"
 
+#include <QtDebug>
+
 HubManager::HubManager():
         active(NULL)
 {
@@ -42,7 +44,7 @@ void HubManager::registerHubUrl(const QString &url, HubFrame *hub){
 
     hubs.insert(url, hub);
 
-    QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
+    QTreeWidgetItem *item = (items.contains(hub)? (items[hub]) : (new QTreeWidgetItem(treeWidget)));
 
     quint64 users = 0, share = 0;
 
@@ -55,6 +57,7 @@ void HubManager::registerHubUrl(const QString &url, HubFrame *hub){
 
     items[hub] = item;
 
+    connect(hub, SIGNAL(closeRequest()), this, SLOT(slotHubClosed()));
     connect(hub, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)), this, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)));
     connect(hub, SIGNAL(coreUserUpdated(VarMap,dcpp::UserPtr,bool)), this, SLOT(slotHubUpdated()));
     connect(hub, SIGNAL(coreUserRemoved(dcpp::UserPtr,qlonglong)), this, SLOT(slotHubUpdated()));
@@ -67,9 +70,13 @@ void HubManager::unregisterHubUrl(const QString &url){
         hubs.erase(it);
 
         QTreeWidgetItem *item = items[(*it)];
-        items.remove((*it));
+        quint64 users = 0, share = 0;
 
-        delete item;
+        (*it)->getStatistic(users, share);
+
+        item->setText(0, (*it)->getArenaShortTitle());
+        item->setText(2, QString("%1").arg(users));
+        item->setText(3, WulforUtil::formatBytes(share));
     }
 }
 
@@ -80,8 +87,9 @@ void HubManager::setActiveHub(HubFrame *f){
 HubFrame *HubManager::getHub(const QString &url){
     HubHash::const_iterator it = hubs.find(url);
 
-    if (it != hubs.constEnd())
+    if (it != hubs.constEnd()){
         return it.value();
+    }
 
     return NULL;
 }
@@ -118,7 +126,7 @@ void HubManager::slotHubUpdated(){
 
     hub->getStatistic(users, share);
 
-    item->setText(0, hub->getArenaTitle());
+    item->setText(0, hub->getArenaShortTitle());
     item->setText(2, QString("%1").arg(users));
     item->setText(3, WulforUtil::formatBytes(share));
 }
@@ -147,4 +155,16 @@ void HubManager::slotContextMenu(){
 
         return;
     }
+}
+
+void HubManager::slotHubClosed(){
+    HubFrame *hub = qobject_cast<HubFrame* >(sender());
+
+    if (!hub)
+        return;
+
+    QTreeWidgetItem *item = items[hub];
+    items.remove(hub);
+
+    delete item;
 }

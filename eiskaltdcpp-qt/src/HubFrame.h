@@ -173,6 +173,7 @@ Q_SIGNALS:
     void coreHubUpdated();
     void coreFavoriteUserAdded(QString);
     void coreFavoriteUserRemoved(QString);
+    void closeRequest();
 
 public Q_SLOTS:
     void disableChat();

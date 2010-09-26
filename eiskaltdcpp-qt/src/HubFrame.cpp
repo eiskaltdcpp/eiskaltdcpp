@@ -813,6 +813,8 @@ void HubFrame::closeEvent(QCloseEvent *e){
     setAttribute(Qt::WA_DeleteOnClose);
 
     e->accept();
+
+    emit closeRequest();
 }
 
 void HubFrame::showEvent(QShowEvent *e){
