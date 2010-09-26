@@ -38,7 +38,12 @@
 #ifndef NOTIFY_HH
 #define NOTIFY_HH
 
+#ifdef USE_LIBNOTIFY
 #include <libnotify/notify.h>
+#else // USE_LIBNOTIFY
+enum NotifyUrgency { NOTIFY_URGENCY_LOW, NOTIFY_URGENCY_NORMAL, NOTIFY_URGENCY_CRITICAL  };
+typedef int NotifyNotification;
+#endif // USE_LIBNOTIFY
 
 class Notify
 {

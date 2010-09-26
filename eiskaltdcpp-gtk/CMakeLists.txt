@@ -12,6 +12,8 @@ file (GLOB gtk_glade ${PROJECT_SOURCE_DIR}/glade/*.glade)
 set (GTK_SRCS @gtk_srcs@ PARENT_SCOPE)
 set (GTK_HDRS @gtk_hdrs@ PARENT_SCOPE)
 set (GTK_GLADE @gtk_glade@ PARENT_SCOPE)
+set (GTHREAD "-lgthread-2.0")
+
 include_directories (
         ${GTK2_INCLUDE_DIRS}
         ${LIBGNOME2_INCLUDE_DIRS}
@@ -24,8 +26,8 @@ set (LIBS ${LIBS}
         ${LIBGNOME2_LIBRARIES}
         ${Boost_LIBRARIES}
         ${ICONV_LIBRARIES}
-        "-lnotify"
-        "-lgthread-2.0"
+        ${LIBNOTIFY}
+        ${GTHREAD}
         )
 
 if (LUA_SCRIPT)

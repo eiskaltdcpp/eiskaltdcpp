@@ -67,16 +67,22 @@ Notify* Notify::get()
 
 void Notify::init()
 {
+#ifdef USE_LIBNOTIFY
 	notify_init(g_get_application_name());
 	notification = notify_notification_new("template", "template", NULL, NULL);
+#endif // USE_LIBNOTIFY
 	action = FALSE;
 }
 
 void Notify::finalize()
 {
+#ifdef USE_LIBNOTIFY
 	notify_notification_close(notification, NULL);
 	g_object_unref(notification);
 	notify_uninit();
+#else
+	g_object_unref(notification);
+#endif // USE_LIBNOTIFY
 }
 
 void Notify::setCurrIconSize(const int size)
@@ -133,17 +139,21 @@ void Notify::showNotify(const string &head, const string &body, TypeNotify notif
 
 			if (action)
 			{
+#ifdef USE_LIBNOTIFY
 				notify_notification_clear_actions(notification);
+#endif // USE_LIBNOTIFY
 				action = FALSE;
 			}
 
 			if (wsm->getInt("notify-download-finished-use"))
 			{
+#ifdef USE_LIBNOTIFY
 				notify_notification_add_action(notification, "1", _("Open file"),
 					(NotifyActionCallback) onAction, g_strdup(body.c_str()), g_free);
 
 				notify_notification_add_action(notification, "2", _("Open folder"),
 					(NotifyActionCallback) onAction, g_strdup(Util::getFilePath(body).c_str()), g_free);
+#endif // USE_LIBNOTIFY
 
 				showNotify(wsm->getString("notify-download-finished-title"), head, Util::getFileName(body),
 					wsm->getString("notify-download-finished-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
@@ -208,10 +218,12 @@ void Notify::showNotify(const string &title, const string &head, const string &b
 	gchar *esc_body = g_markup_escape_text(body.c_str(), -1);
 	string message = head + esc_body;
 
+#ifdef USE_LIBNOTIFY
 	notify_notification_close(notification, NULL);
 	notify_notification_clear_hints(notification);
 	notify_notification_update(notification, esc_title, message.c_str(), NULL);
 	notify_notification_set_urgency(notification, urgency);
+#endif // USE_LIBNOTIFY
 
 	g_free(esc_title);
 	g_free(esc_body);
@@ -238,18 +250,24 @@ void Notify::showNotify(const string &title, const string &head, const string &b
 
 		if (pixbuf != NULL)
 		{
+#ifdef USE_LIBNOTIFY
 			notify_notification_set_icon_from_pixbuf(notification, pixbuf);
+#endif // USE_LIBNOTIFY
 			g_object_unref(pixbuf);
 		}
 	}
 
 	if (action)
 	{
+#ifdef USE_LIBNOTIFY
 		notify_notification_clear_actions(notification);
+#endif // USE_LIBNOTIFY
 		action = FALSE;
 	}
 
+#ifdef USE_LIBNOTIFY
 	notify_notification_show(notification, NULL);
+#endif // USE_LIBNOTIFY
 }
 
 void Notify::onAction(NotifyNotification *notify, const char *action, gpointer data)
@@ -259,5 +277,7 @@ void Notify::onAction(NotifyNotification *notify, const char *action, gpointer d
 	if (!target.empty())
 		WulforUtil::openURI(target);
 
+#ifdef USE_LIBNOTIFY
 	notify_notification_close(notify, NULL);
+#endif // USE_LIBNOTIFY
 }

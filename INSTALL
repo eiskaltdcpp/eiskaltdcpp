@@ -7,9 +7,9 @@ Program Depends
 bzip2
 zlib
 iconv (libc on GNU/Linux)
-------
+----------------
 :libeiskaltdcpp:
-------
+----------------
 gettext
 libssl (>= 0.9.8)
 liblua5.1 (optional, see cmake keys)
@@ -67,9 +67,9 @@ bzip2
 cmake (>= 2.6.0)
 iconv (libc on GNU/Linux)
 pkg-config
-------
+----------------
 :libeiskaltdcpp:
-------
+----------------
 gettext
 libboost-dev (headers only) (optional, see cmake keys)
 liblua5.1-dev (optional, see cmake keys)
@@ -108,9 +108,9 @@ svn export http://eiskaltdc.googlecode.com/svn/branches/trunk/ eiskaltdcpp-trunk
 *******************************************************************************
 Keys for cmake
 *******************************************************************************
-------
+----------------
 :libeiskaltdcpp:
-------
+----------------
 -DLOCAL_BOOST=ON/OFF (default: OFF)
     use local boost headers
 -DLUA_SCRIPT=ON/OFF (default: OFF)
@@ -145,6 +145,8 @@ Keys for cmake
     build EiskaltDC++ with Gtk interface (based on FreeDC++ and LinuxDC++)
 -DUSE_LIBGNOME2=ON/OFF (default: OFF)
     Enable/disable sound notifications support in EiskaltDC++ Gtk
+-DUSE_LIBNOTIFY=ON/OFF (default: ON)
+    Enable/disable popup notifications support in EiskaltDC++ Gtk
 --------
 :common:
 --------
