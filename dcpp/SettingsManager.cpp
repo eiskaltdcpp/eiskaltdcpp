@@ -91,7 +91,7 @@ const string SettingsManager::settingTags[] =
     "MaxDownloadSpeedAlternate", "MaxUploadSpeedAlternate",
     "MaxDownloadSpeedMain", "MaxUploadSpeedMain",
     "SlotsAlternateLimiting", "SlotsPrimaryLimiting",
-    "ShowFreeSlotsDesc","UseIp",
+    "ShowFreeSlotsDesc","UseIp", "CaseSensitiveFilelist",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -296,6 +296,7 @@ SettingsManager::SettingsManager()
     setDefault(SLOTS_PRIMARY, 3);
     setDefault(SHOW_FREE_SLOTS_DESC, true);
     setDefault(USE_IP, true);
+    setDefault(CASESENSITIVE_FILELIST, true);
 }
 
 void SettingsManager::load(string const& aFileName)

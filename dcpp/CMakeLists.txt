@@ -36,6 +36,9 @@ add_library (dcpp ${LINK} ${dcpp_srcs})
 if (USE_DHT)
 add_definitions ( -DUSE_DHT )
 endif (USE_DHT)
+#if (CASE_SENSITIVE_FILELIST)
+#add_definitions (-DCASE_SENSITIVE_FILELIST)
+#endif(CASE_SENSITIVE_FILELIST)
 
 add_definitions ( -DDISABLE_NAT_TRAVERSAL )
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
