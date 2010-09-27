@@ -50,20 +50,21 @@ public:
 
     bool hasNewMessages() { return (hasMessages || hasHighlightMessages); }
 
-public slots:
+public Q_SLOTS:
     void reloadSomeSettings();
     void slotActivate();
     void clearChat();
     void nextMsg();
     void prevMsg();
 
-private slots:
+private Q_SLOTS:
     void slotHub();
     void slotShare();
     void slotSmile();
-    void slotFontChanged(const QString&, const QString&);
+    void slotSettingChanged(const QString&, const QString&);
+    void slotSmileContextMenu();
 
-signals:
+Q_SIGNALS:
     void privateMessageClosed(QString);
     void inputTextChanged();
     void inputTextMenu();

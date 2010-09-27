@@ -53,6 +53,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
 
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
     toolButton_SMILE->setIcon(WICON(WulforUtil::eiEMOTICON));
+    toolButton_SMILE->setContextMenuPolicy(Qt::CustomContextMenu);
 
     arena_menu = new QMenu(tr("Private message"));
     QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
@@ -62,9 +63,10 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(pushButton_HUB, SIGNAL(clicked()), this, SLOT(slotHub()));
     connect(pushButton_SHARE, SIGNAL(clicked()), this, SLOT(slotShare()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
+    connect(toolButton_SMILE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSmileContextMenu()));
     connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SIGNAL(inputTextChanged()));
     connect(plainTextEdit_INPUT, SIGNAL(customContextMenuRequested(QPoint)), this, SIGNAL(inputTextMenu()));
-    connect(WulforSettings::getInstance(), SIGNAL(fontChanged(QString,QString)), this, SLOT(slotFontChanged(QString,QString)));
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingChanged(QString,QString)));
 
     out_messages_index = 0;
 
@@ -430,9 +432,44 @@ void PMWindow::slotSmile(){
     delete dialog;
 }
 
-void PMWindow::slotFontChanged(const QString &key, const QString &value){
+void PMWindow::slotSmileContextMenu(){
+#ifndef WIN32
+    QString emot = CLIENT_DATA_DIR "/emoticons/";
+#else
+    QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
+#endif//WIN32
+
+    QMenu *m = new QMenu(this);
+    QAction * a = m->addAction(tr("Disable emoticons"));
+
+    foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+        if (!f.isEmpty()){
+            QAction * act = m->addAction(f);
+            act->setCheckable(true);
+
+            if (f == WSGET(WS_APP_EMOTICON_THEME)){
+                a->setChecked(false);
+                act->setChecked(true);
+            }
+        }
+    }
+
+    a = m->exec(QCursor::pos());
+
+    if (a && a->isChecked()){
+        WSSET(WS_APP_EMOTICON_THEME, a->text());
+
+        EmoticonFactory::getInstance()->load();
+    }
+    else if (a)
+        WSSET(WS_APP_EMOTICON_THEME, "");
+}
+
+void PMWindow::slotSettingChanged(const QString &key, const QString &value){
     Q_UNUSED(value);
 
     if (key == WS_CHAT_PM_FONT)
         updateStyles();
+    else if (key == WS_APP_EMOTICON_THEME)
+        toolButton_SMILE->setVisible(!value.isEmpty() && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
 }

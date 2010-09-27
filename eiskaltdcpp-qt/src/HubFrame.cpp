@@ -2796,9 +2796,7 @@ void HubFrame::slotSmileContextMenu(){
 #endif//WIN32
 
     QMenu *m = new QMenu(this);
-    QAction * a = m->addAction("");
-    a->setCheckable(true);
-    a->setChecked(true);
+    QAction * a = m->addAction(tr("Disable emoticons"));
 
     foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
