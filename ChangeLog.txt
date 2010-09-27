@@ -6,7 +6,7 @@
 * Added ability to use miniUPnP for connection (see file INSTALL).
 * Added set of sound files from the FlylinkDC++ project.
 * Kernel (dcpp) was partially updated to version 0.777.
-* Made case-sensitive share. If you have directories in which located are files of file.txt, FILE.txt and/or File.txt, now it will not cause problems with the permanent updating of the share and all these files will be simultaneously available to other users for downloading. Note: when upgrading to this version of program, after restarts, it will be forced once fully rehashing your files. In other DC-clients this feature is not implemented. (see discussion: https://bugs.launchpad.net/linuxdcpp/bug/311818)
+* Made case-sensitive share (CaseSensitiveFilelist option in SettingManager (by default: false(off)). If you have directories in which located are files of file.txt, FILE.txt and/or File.txt, now it will not cause problems with the permanent updating of the share and all these files will be simultaneously available to other users for downloading. Note: when upgrading to this version of program, after restarts, it will be forced once fully rehashing your files. In other DC-clients this feature is not implemented. (see discussion: https://bugs.launchpad.net/linuxdcpp/bug/311818)
 *** eiskaltdcpp-qt ***
 * Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
 * Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
