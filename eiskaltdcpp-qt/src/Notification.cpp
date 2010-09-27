@@ -20,7 +20,7 @@ static int getBitPos(unsigned eventId){
 }
 
 Notification::Notification(QObject *parent) :
-    QObject(parent), tray(NULL), notify(NULL)
+    QObject(parent), tray(NULL), notify(NULL), supressSnd(false), supressTxt(false)
 {
     switchModule(static_cast<unsigned>(WIGET(WI_NOTIFY_MODULE)));
 
@@ -78,8 +78,22 @@ void Notification::enableTray(bool enable){
         tray = new QSystemTrayIcon(this);
         tray->setIcon(WICON(WulforUtil::eiICON_APPL));
 
-        QMenu *menu = new QMenu();
+        QMenu *menu = new QMenu(MainWindow::getInstance());
         menu->setTitle("EiskaltDC++");
+
+        QMenu *menuAdditional = new QMenu(tr("Additional"), MainWindow::getInstance());
+        QAction *actSupressSnd = new QAction(tr("Supress sound notifications"), menuAdditional);
+        QAction *actSupressTxt = new QAction(tr("Supress text notifications"), menuAdditional);
+
+        actSupressSnd->setObjectName("actSupressSnd");
+        actSupressSnd->setCheckable(true);
+        actSupressSnd->setChecked(false);
+
+        actSupressTxt->setObjectName("actSupressTxt");
+        actSupressTxt->setCheckable(true);
+        actSupressTxt->setChecked(false);
+
+        menuAdditional->addActions(QList<QAction*>() << actSupressTxt << actSupressSnd);
 
         QAction *show_hide = new QAction(tr("Show/Hide window"), menu);
         QAction *close_app = new QAction(tr("Exit"), menu);
@@ -93,8 +107,12 @@ void Notification::enableTray(bool enable){
         connect(close_app, SIGNAL(triggered()), this, SLOT(slotExit()));
         connect(tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
                 this, SLOT(slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason)));
+        connect(actSupressTxt, SIGNAL(triggered()), this, SLOT(slotSupress()));
+        connect(actSupressSnd, SIGNAL(triggered()), this, SLOT(slotSupress()));
 
-        menu->addActions(QList<QAction*>() << show_hide << sep << close_app);
+        menu->addAction(show_hide);
+        menu->addMenu(menuAdditional);
+        menu->addActions(QList<QAction*>() << sep << close_app);
 
         tray->setContextMenu(menu);
 
@@ -123,7 +141,7 @@ void Notification::switchModule(int m){
 }
 
 void Notification::showMessage(int t, const QString &title, const QString &msg){
-    if (WBGET(WB_NOTIFY_ENABLED)){
+    if (WBGET(WB_NOTIFY_ENABLED) && !supressTxt){
         do {
             if (title.isEmpty() || msg.isEmpty())
                 break;
@@ -147,7 +165,7 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
         } while (0);
     }
 
-    if (WBGET(WB_NOTIFY_SND_ENABLED)){
+    if (WBGET(WB_NOTIFY_SND_ENABLED) && !supressSnd){
         do {
             if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_SNDMAP)) & static_cast<unsigned>(t)))
                 break;
@@ -262,4 +280,14 @@ void Notification::slotCheckTray(){
     enableTray(true);
 
     timer->deleteLater();
+}
+
+void Notification::slotSupress(){
+    QAction *act = qobject_cast<QAction*>(sender());
+
+    if (!act)
+        return;
+
+    bool &b = ((act->objectName() == "actSupressSnd")? supressSnd : supressTxt);
+    b = act->isChecked();
 }

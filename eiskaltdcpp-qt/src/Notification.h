@@ -96,6 +96,7 @@ private slots:
     void slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason);
     void slotCmdFinished(bool, QString);
     void slotCheckTray();
+    void slotSupress();
 
 private:
     explicit Notification(QObject *parent = 0);
@@ -105,6 +106,9 @@ private:
 
     QSystemTrayIcon *tray;
     NotifyModule *notify;
+
+    bool supressSnd;
+    bool supressTxt;
 
     int checkSystemTrayCounter;
 };
