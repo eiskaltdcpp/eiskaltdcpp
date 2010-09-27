@@ -152,14 +152,20 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
 }
 //lua end
 #endif
-void UserConnection::connect(const string& aServer, uint16_t aPort) throw(SocketException, ThreadException) {
+//void UserConnection::connect(const string& aServer, uint16_t aPort) throw(SocketException, ThreadException) {
+    //dcassert(!socket);
+
+    //socket = BufferedSocket::getSocket(0);
+    //socket->addListener(this);
+    //socket->connect(aServer, aPort, secure, BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
+//}
+void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException) {
     dcassert(!socket);
 
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
-    socket->connect(aServer, aPort, secure, BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
+    socket->connect(aServer, aPort, localPort, natRole, secure, BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
 }
-
 void UserConnection::accept(const Socket& aServer) throw(SocketException, ThreadException) {
     dcassert(!socket);
     socket = BufferedSocket::getSocket(0);

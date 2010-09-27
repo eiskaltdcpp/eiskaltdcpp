@@ -104,7 +104,9 @@ public:
     }
 
     void nmdcConnect(const string& aServer, uint16_t aPort, const string& aMyNick, const string& hubUrl, const string& encoding);
+    //void adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure);
     void adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure);
+    void adcConnect(const OnlineUser& aUser, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure);
 
     void getDownloadConnection(const UserPtr& aUser, const string& hubHint);
     void force(const UserPtr& aUser);

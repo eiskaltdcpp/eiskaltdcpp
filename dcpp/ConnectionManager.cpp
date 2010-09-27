@@ -322,14 +322,18 @@ void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, const
     uc->setState(UserConnection::STATE_CONNECT);
     uc->setFlag(UserConnection::FLAG_NMDC);
     try {
-        uc->connect(aServer, aPort);
+        //uc->connect(aServer, aPort);
+        uc->connect(aServer, aPort, 0, BufferedSocket::NAT_NONE);
     } catch(const Exception&) {
         putConnection(uc);
         delete uc;
     }
 }
-
 void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure) {
+        adcConnect(aUser, aPort, 0, BufferedSocket::NAT_NONE, aToken, secure);
+}
+
+void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure) {
     if(shuttingDown)
         return;
 
@@ -342,12 +346,31 @@ void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, cons
         uc->setFlag(UserConnection::FLAG_OP);
     }
     try {
-        uc->connect(aUser.getIdentity().getIp(), aPort);
+                uc->connect(aUser.getIdentity().getIp(), aPort, localPort, natRole);
     } catch(const Exception&) {
         putConnection(uc);
         delete uc;
     }
 }
+//void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure) {
+    //if(shuttingDown)
+        //return;
+
+    //UserConnection* uc = getConnection(false, secure);
+    //uc->setToken(aToken);
+    //uc->setEncoding(Text::utf8);
+    //uc->setState(UserConnection::STATE_CONNECT);
+    //uc->setHubUrl(aUser.getClient().getHubUrl());
+    //if(aUser.getIdentity().isOp()) {
+        //uc->setFlag(UserConnection::FLAG_OP);
+    //}
+    //try {
+        //uc->connect(aUser.getIdentity().getIp(), aPort);
+    //} catch(const Exception&) {
+        //putConnection(uc);
+        //delete uc;
+    //}
+//}
 
 void ConnectionManager::disconnect() throw() {
     delete server;
