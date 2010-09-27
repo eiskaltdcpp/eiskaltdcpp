@@ -39,6 +39,7 @@
 #include "UserListModel.h"
 #include "ArenaWidget.h"
 #include "EmoticonFactory.h"
+#include "WulforUtil.h"
 
 class ShellCommandRunner;
 class PMWindow;
@@ -156,7 +157,7 @@ public:
     void requestFilter() { slotHideFindFrame(); }
     ArenaWidget::Role role() const { return ArenaWidget::Hub; }
 
-    QString getCIDforNick(QString nick) { return model->CIDforNick(nick); }
+    QString getCIDforNick(QString nick) { return model->CIDforNick(nick, _q(client->getHubUrl())); }
 
 Q_SIGNALS:
     void newMessage(HubFrame*, const QString &hubUrl, const QString &cid, const QString &nick, const QString &msg);

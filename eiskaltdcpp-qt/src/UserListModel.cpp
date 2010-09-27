@@ -15,6 +15,7 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/FavoriteManager.h"
+#include "dcpp/ClientManager.h"
 #include "dcpp/Util.h"
 
 #include "WulforUtil.h"
@@ -298,7 +299,6 @@ void UserListModel::clear() {
     emit layoutAboutToBeChanged();
 
     users.clear();
-    nicks.clear();
 
     qDeleteAll(rootItem->childItems);
 
@@ -327,8 +327,6 @@ void UserListModel::removeUser(const UserPtr &ptr) {
     beginRemoveRows(QModelIndex(), index, index);
 
     UserListItem *item = iter.value();
-
-    nicks.remove(item->nick);
 
     rootItem->childItems.removeAt(index);
     delete item;
@@ -385,7 +383,6 @@ void UserListModel::addUser(const QString& nick,
     item->fav = FavoriteManager::getInstance()->isFavoriteUser(ptr);
 
     users.insert(ptr, item);
-    nicks.insert(nick, ptr);
 
     if (sortColumn == -1) // if sorting disabled
     {
@@ -422,14 +419,11 @@ UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){
     return item;
 }
 
-UserListItem *UserListModel::itemForNick(const QString &nick){
+UserListItem *UserListModel::itemForNick(const QString &nick, const QString &aHubUrl){
     if (!nick.isEmpty()){
-        QHash<QString, UserPtr>::const_iterator it = nicks.find(nick);
+        dcpp::UserPtr ptr = dcpp::ClientManager::getInstance()->getUser(_tq(nick), _tq(aHubUrl));
 
-        if (it == nicks.constEnd())
-            return NULL;
-
-        USRMap::const_iterator ut = users.find(it.value());
+        USRMap::const_iterator ut = users.find(ptr);
 
         if (ut != users.constEnd())
             return ut.value();
@@ -438,15 +432,10 @@ UserListItem *UserListModel::itemForNick(const QString &nick){
     return NULL;
 }
 
-QString UserListModel::CIDforNick(const QString &nick){
-    if (!nick.isEmpty()){
-        QHash<QString, UserPtr>::const_iterator it = nicks.find(nick);
+QString UserListModel::CIDforNick(const QString &nick, const QString &aHubUrl){
+    dcpp::CID cid = dcpp::ClientManager::getInstance()->makeCid(_tq(nick), _tq(aHubUrl));
 
-        if (it != nicks.constEnd())
-            return _q(it.value()->getCID().toBase32());
-    }
-
-    return "";
+    return _q(cid.toBase32());
 }
 
 QStringList UserListModel::matchNicksContaining(const QString & part, bool stripTags) const {

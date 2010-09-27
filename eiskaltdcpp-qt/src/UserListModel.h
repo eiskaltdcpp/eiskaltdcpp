@@ -138,7 +138,7 @@ public:
                 );
 
     UserListItem *itemForPtr(const UserPtr&);
-    UserListItem *itemForNick(const QString&);
+    UserListItem *itemForNick(const QString&, const QString&);
 
     int getSortColumn() const {
         return sortColumn;
@@ -148,7 +148,7 @@ public:
         return sortOrder;
     }
 
-    QString CIDforNick(const QString&);
+    QString CIDforNick(const QString&, const QString&);
     bool hasUser(const UserPtr &usr) { return users.contains(usr); }
 
     QStringList matchNicksContaining(const QString & part, bool stripTags = false) const;
@@ -168,10 +168,8 @@ private:
     UserListItem *rootItem;
 
     typedef QHash<UserPtr, UserListItem*> USRMap;
-    typedef QHash<QString, UserPtr> NICKHash;
 
     USRMap users;
-    NICKHash nicks;
 
     int sortColumn;
     Qt::SortOrder sortOrder;

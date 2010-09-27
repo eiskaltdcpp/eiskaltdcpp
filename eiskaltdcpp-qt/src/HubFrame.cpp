@@ -663,7 +663,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
                 if (l < r){
                     nick = pressedParagraph.mid(l+2, r-l-2);
-                    cid = model->CIDforNick(nick);
+                    cid = model->CIDforNick(nick, _q(client->getHubUrl()));
                 }
                 if ((positionCursor < r) && (positionCursor > l))
                     cursoratnick = true;
@@ -716,7 +716,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
                 if (l < r){
                     nick = pressedParagraph.mid(l+2, r-l-2);
-                    cid = model->CIDforNick(nick);
+                    cid = model->CIDforNick(nick, _q(client->getHubUrl()));
                 }
                 if ((positionCursor < r) && (positionCursor > l))
                     cursoratnick = true;
@@ -1345,16 +1345,16 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         addAsFavorite();
     }
     else if (cmd == "/browse" && !emptyParam){
-        browseUserFiles(model->CIDforNick(param), false);
+        browseUserFiles(model->CIDforNick(param, _q(client->getHubUrl())), false);
     }
     else if (cmd == "/grant" && !emptyParam){
-        grantSlot(model->CIDforNick(param));
+        grantSlot(model->CIDforNick(param, _q(client->getHubUrl())));
     }
     else if (cmd == "/magnet" && !emptyParam){
         WISET(WI_DEF_MAGNET_ACTION, param.toInt());
     }
     else if (cmd == "/info" && !emptyParam){
-        UserListItem *item = model->itemForNick(param);
+        UserListItem *item = model->itemForNick(param, _q(client->getHubUrl()));
 
         if (item){
             QString ttip = "\n" + getUserInfo(item);
@@ -1380,7 +1380,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             pm->sendMessage(line, true, false);
     }
     else if (cmd == "/pm" && !emptyParam){
-        addPM(model->CIDforNick(param), "");
+        addPM(model->CIDforNick(param, _q(client->getHubUrl())), "");
     }
     else if (cmd == "/help" || cmd == "/?" || cmd == "/h"){
         QString out = "\n";
@@ -1921,7 +1921,7 @@ void HubFrame::newPm(const VarMap &map){
 }
 
 void HubFrame::createPMWindow(const QString &nick){
-    createPMWindow(CID(_tq(model->CIDforNick(nick))));
+    createPMWindow(CID(_tq(model->CIDforNick(nick, _q(client->getHubUrl())))));
 }
 
 void HubFrame::createPMWindow(const dcpp::CID &cid){
@@ -1929,7 +1929,7 @@ void HubFrame::createPMWindow(const dcpp::CID &cid){
 }
 
 bool HubFrame::hasCID(const dcpp::CID &cid, const QString &nick){
-    return (model->CIDforNick(nick) == _q(cid.toBase32()));
+    return (model->CIDforNick(nick, _q(client->getHubUrl())) == _q(cid.toBase32()));
 }
 
 bool HubFrame::isFindFrameActivated(){
@@ -2394,7 +2394,7 @@ void HubFrame::slotChatMenu(const QPoint &){
         nick = pressedParagraph.mid(nickStart, nickLen);
     }
 
-    QString cid = model->CIDforNick(nick);
+    QString cid = model->CIDforNick(nick, _q(client->getHubUrl()));
 
     if (cid.isEmpty()){
         QMenu *m = editor->createStandardContextMenu(QCursor::pos());
@@ -2411,7 +2411,7 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     Menu::Action action = Menu::getInstance()->execChatMenu(client, cid, pmw);
 
-    if (!model->itemForNick(nick))//may be user went offline
+    if (!model->itemForNick(nick, _q(client->getHubUrl())))//may be user went offline
         return;
 
     switch (action){
@@ -2448,7 +2448,7 @@ void HubFrame::slotChatMenu(const QPoint &){
         }
         case Menu::FindInList:
         {
-            UserListItem *item = model->itemForNick(nick);
+            UserListItem *item = model->itemForNick(nick, _q(client->getHubUrl()));
 
             if (item){
                 QModelIndex index = model->index(item->row(), 0, QModelIndex());
