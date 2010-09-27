@@ -137,7 +137,11 @@ SettingsManager::SettingsManager()
     }
 
     setDefault(DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS));
+#ifndef FORCE_XDG
     setDefault(TEMP_DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS) + "Incomplete" PATH_SEPARATOR_STR);
+#else
+    setDefault(TEMP_DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_USER_CONFIG) + "Incomplete" PATH_SEPARATOR_STR);
+#endif
     setDefault(SLOTS, 5);
     setDefault(TCP_PORT, 3000);
     setDefault(UDP_PORT, 3000);
