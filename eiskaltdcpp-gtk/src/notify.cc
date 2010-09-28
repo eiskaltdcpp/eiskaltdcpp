@@ -80,8 +80,6 @@ void Notify::finalize()
 	notify_notification_close(notification, NULL);
 	g_object_unref(notification);
 	notify_uninit();
-#else
-	g_object_unref(notification);
 #endif // USE_LIBNOTIFY
 }
 

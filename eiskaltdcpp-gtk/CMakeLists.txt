@@ -38,6 +38,11 @@ endif (LUA_SCRIPT)
 add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
                 ${gtk_srcs}
                 )
+
+if (USE_LIBNOTIFY)
+add_definitions (-DUSE_LIBNOTIFY)
+endif (USE_LIBNOTIFY)
+
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
                 -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
