@@ -590,7 +590,7 @@ Kapcsolók:
     </message>
     <message>
         <source>CRC checked</source>
-        <translation>CRC ellenőrizve</translation>
+        <translation type="obsolete">CRC ellenőrizve</translation>
     </message>
     <message>
         <source>Target</source>
@@ -599,6 +599,10 @@ Kapcsolók:
     <message>
         <source>/s</source>
         <translation>/s</translation>
+    </message>
+    <message>
+        <source>Check sum</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1205,6 +1209,10 @@ Kedvenc felhasználó</translation>
     <message>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Felhasználók száma: %3/%1 | Összes megosztás: %2</translation>
+    </message>
+    <message>
+        <source>Disable emoticons</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1945,6 +1953,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hub Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -1981,6 +1993,18 @@ Letöltés: %1 Feltöltés: %2
 Statisztika
 Letöltve: %3 Feltöltve %4</translation>
     </message>
+    <message>
+        <source>Additional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supress sound notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supress text notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PMWindow</name>
@@ -2007,6 +2031,10 @@ Letöltve: %3 Feltöltve %4</translation>
     <message>
         <source>%1 on hub %2</source>
         <translation>%1 a következő hubon: %2</translation>
+    </message>
+    <message>
+        <source>Disable emoticons</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2863,6 +2891,10 @@ Kapcsolók:
         <source>Other Widgets</source>
         <translation>Egyéb alkalmazások</translation>
     </message>
+    <message>
+        <source>Hub Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3640,6 +3672,29 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Last status message on hub</source>
         <translation>Utolsó státuszüzenet a hubon</translation>
+    </message>
+</context>
+<context>
+    <name>UIHubManager</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation type="unfinished">Felhasználók</translation>
+    </message>
+    <message>
+        <source>Share</source>
+        <translation type="unfinished">Megosztás</translation>
     </message>
 </context>
 <context>

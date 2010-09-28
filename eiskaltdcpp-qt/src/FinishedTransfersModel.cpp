@@ -50,7 +50,7 @@ FinishedTransfersModel::FinishedTransfersModel(QObject *parent):
 
     QList<QVariant> fileData;
     fileData << tr("Filename") << tr("Path") << tr("Time") << tr("User")
-             << tr("Transferred") << tr("Speed")   << tr("CRC checked")
+             << tr("Transferred") << tr("Speed")   << tr("Check sum")
              << tr("Target") << tr("Elapsed time");
 
     fileItem = new FinishedTransfersItem(fileData);

@@ -638,7 +638,7 @@ Raccourcis:
     </message>
     <message>
         <source>CRC checked</source>
-        <translation>Vérification CRC</translation>
+        <translation type="obsolete">Vérification CRC</translation>
     </message>
     <message>
         <source>Target</source>
@@ -647,6 +647,10 @@ Raccourcis:
     <message>
         <source>/s</source>
         <translation>/s</translation>
+    </message>
+    <message>
+        <source>Check sum</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1147,6 +1151,10 @@ Utilisateur favoris</translation>
     <message>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation type="unfinished">Nombre d&apos;utilisateurs: %1 | Partage total: %2 {3/%1 ?}</translation>
+    </message>
+    <message>
+        <source>Disable emoticons</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1919,6 +1927,10 @@ Please check your connection settings</source>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hub Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -1951,6 +1963,18 @@ Téléchargement: %1 Envoi: %2
 Statistiques
 Téléchargé: %3 Envoyé: %4</translation>
     </message>
+    <message>
+        <source>Additional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supress sound notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supress text notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PMWindow</name>
@@ -1977,6 +2001,10 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <source>%1 on hub %2</source>
         <translation>%1 sur le serveur %2</translation>
+    </message>
+    <message>
+        <source>Disable emoticons</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2915,6 +2943,10 @@ Clés:
         <source>Other Widgets</source>
         <translation>Autres Widgets</translation>
     </message>
+    <message>
+        <source>Hub Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3722,6 +3754,29 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Last status message on hub</source>
         <translation>Dernier message d&apos;état du serveur</translation>
+    </message>
+</context>
+<context>
+    <name>UIHubManager</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulaire</translation>
+    </message>
+    <message>
+        <source>Hub</source>
+        <translation type="unfinished">Serveur</translation>
+    </message>
+    <message>
+        <source>URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation type="unfinished">Utilisateurs</translation>
+    </message>
+    <message>
+        <source>Share</source>
+        <translation type="unfinished">Partage</translation>
     </message>
 </context>
 <context>

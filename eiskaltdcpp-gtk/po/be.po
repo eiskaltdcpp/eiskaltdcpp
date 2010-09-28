@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-19 00:43+0300\n"
+"POT-Creation-Date: 2010-09-28 19:26+0300\n"
 "PO-Revision-Date: 2010-08-17 18:49+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -152,7 +152,7 @@ msgid "Running..."
 msgstr "Выконваецца…"
 
 #: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
-#: ../src/WulforUtil.cc:315 ../src/WulforUtil.cc:317
+#: ../src/WulforUtil.cc:317 ../src/WulforUtil.cc:319
 msgid "Unknown"
 msgstr "Невядома"
 
@@ -208,11 +208,11 @@ msgstr "Нельга сьцягнуць: другі кліент ня цалка
 msgid "No errors"
 msgstr "Няма памылак"
 
-#: ../src/notify.cc:142
+#: ../src/notify.cc:149
 msgid "Open file"
 msgstr "Адкрыць файл"
 
-#: ../src/notify.cc:145
+#: ../src/notify.cc:152
 msgid "Open folder"
 msgstr "Адкрыць тэчку"
 
@@ -415,7 +415,7 @@ msgstr "Мовіць ад трэцяе асобы"
 
 #: ../src/hub.cc:1744 ../src/settingsdialog.cc:984
 #: ../src/settingsdialog.cc:1030 ../src/settingsdialog.cc:1150
-#: ../src/settingsmanager.cc:215
+#: ../src/settingsmanager.cc:216
 msgid "Private message"
 msgstr "Асабістае паведамленьне"
 
@@ -652,7 +652,7 @@ msgstr "засталося"
 msgid "-:--:-- left"
 msgstr "-:--:-- засталося"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:211 ../src/mainwindow.cc:1924
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:213 ../src/mainwindow.cc:1924
 #: ../src/mainwindow.cc:1926 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
@@ -807,7 +807,7 @@ msgid "Waiting to retry"
 msgstr "Чакаем паспрабаваць зноўку"
 
 #: ../src/transfers.cc:1073 ../src/settingsdialog.cc:981
-#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:211
+#: ../src/settingsdialog.cc:1142 ../src/settingsmanager.cc:212
 msgid "Download finished"
 msgstr "Скончылі сьцягваць"
 
@@ -829,16 +829,16 @@ msgstr "Зацягнулі"
 msgid "Upload complete..."
 msgstr "Скончылі зацягваць"
 
-#: ../src/wulfor.cc:77
+#: ../src/wulfor.cc:79
 #, fuzzy
 msgid "Loading: "
 msgstr "Знаказбор"
 
-#: ../src/wulfor.cc:155
+#: ../src/wulfor.cc:157
 msgid "Shutting down libdcpp..."
 msgstr ""
 
-#: ../src/wulfor.cc:157
+#: ../src/wulfor.cc:159
 #, fuzzy
 msgid "Quit..."
 msgstr "Выйсьці"
@@ -1061,7 +1061,7 @@ msgid "Sounds"
 msgstr "Гукі"
 
 #: ../src/settingsdialog.cc:982 ../src/settingsdialog.cc:1146
-#: ../src/settingsmanager.cc:213
+#: ../src/settingsmanager.cc:214
 msgid "Download finished file list"
 msgstr ""
 
@@ -1070,23 +1070,23 @@ msgid "Upload finished"
 msgstr "Скончылі зацягваць"
 
 #: ../src/settingsdialog.cc:985 ../src/settingsdialog.cc:1154
-#: ../src/settingsmanager.cc:219
+#: ../src/settingsmanager.cc:220
 msgid "Hub connected"
 msgstr "Злучыліся з асяродкам"
 
 #: ../src/settingsdialog.cc:986 ../src/settingsdialog.cc:1158
-#: ../src/settingsmanager.cc:217
+#: ../src/settingsmanager.cc:218
 msgid "Hub disconnected"
 msgstr "Асяродак адлучаны"
 
 #: ../src/settingsdialog.cc:987 ../src/settingsdialog.cc:1162
-#: ../src/settingsmanager.cc:221
+#: ../src/settingsmanager.cc:222
 #, fuzzy
 msgid "Favorite user joined"
 msgstr "Дадалі ўлюбёнца"
 
 #: ../src/settingsdialog.cc:988 ../src/settingsdialog.cc:1166
-#: ../src/settingsmanager.cc:223
+#: ../src/settingsmanager.cc:224
 #, fuzzy
 msgid "Favorite user quit"
 msgstr "Улюбёнец далучыўся або адлучыўся"
@@ -1565,86 +1565,86 @@ msgstr "сьпіс файлаў ад "
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
-#: ../src/previewmenu.cc:88 ../src/emoticonsdialog.cc:106
+#: ../src/previewmenu.cc:90 ../src/emoticonsdialog.cc:106
 #: ../glade/settingsdialog.glade:3195 ../glade/settingsdialog.glade:3788
 #: ../glade/settingsdialog.glade:3934 ../glade/settingsdialog.glade:5694
 msgid "Default"
 msgstr "Прадвызначаны"
 
-#: ../src/WulforUtil.cc:40
+#: ../src/WulforUtil.cc:42
 msgid "System default"
 msgstr "Звычайны"
 
-#: ../src/WulforUtil.cc:156
+#: ../src/WulforUtil.cc:158
 msgid "Offline"
 msgstr "Адлучаны"
 
-#: ../src/WulforUtil.cc:208
+#: ../src/WulforUtil.cc:210
 msgid "UTF-8"
 msgstr ""
 
-#: ../src/WulforUtil.cc:209
+#: ../src/WulforUtil.cc:211
 msgid "CP1252"
 msgstr ""
 
-#: ../src/WulforUtil.cc:210
+#: ../src/WulforUtil.cc:212
 msgid "CP1250"
 msgstr ""
 
-#: ../src/WulforUtil.cc:211
+#: ../src/WulforUtil.cc:213
 #, fuzzy
 msgid "ISO-8859-2"
 msgstr "ISO-8859-7 (Ґрэцыя)"
 
-#: ../src/WulforUtil.cc:212
+#: ../src/WulforUtil.cc:214
 #, fuzzy
 msgid "ISO-8859-7"
 msgstr "ISO-8859-7 (Ґрэцыя)"
 
-#: ../src/WulforUtil.cc:213
+#: ../src/WulforUtil.cc:215
 #, fuzzy
 msgid "ISO-8859-8"
 msgstr "ISO-8859-8 (Іўрыт)"
 
-#: ../src/WulforUtil.cc:214
+#: ../src/WulforUtil.cc:216
 #, fuzzy
 msgid "ISO-8859-9"
 msgstr "ISO-8859-9 (Турэцкая)"
 
-#: ../src/WulforUtil.cc:215
+#: ../src/WulforUtil.cc:217
 #, fuzzy
 msgid "ISO-2022-JP"
 msgstr "ISO-2022-JP (Японская)"
 
-#: ../src/WulforUtil.cc:216
+#: ../src/WulforUtil.cc:218
 msgid "SJIS"
 msgstr ""
 
-#: ../src/WulforUtil.cc:217
+#: ../src/WulforUtil.cc:219
 msgid "CP949"
 msgstr ""
 
-#: ../src/WulforUtil.cc:218
+#: ../src/WulforUtil.cc:220
 msgid "KOI8-R"
 msgstr ""
 
-#: ../src/WulforUtil.cc:219
+#: ../src/WulforUtil.cc:221
 msgid "CP1251"
 msgstr ""
 
-#: ../src/WulforUtil.cc:220
+#: ../src/WulforUtil.cc:222
 msgid "CP1256"
 msgstr ""
 
-#: ../src/WulforUtil.cc:221
+#: ../src/WulforUtil.cc:223
 msgid "CP1257"
 msgstr ""
 
-#: ../src/WulforUtil.cc:222
+#: ../src/WulforUtil.cc:224
 msgid "GB18030"
 msgstr ""
 
-#: ../src/WulforUtil.cc:223
+#: ../src/WulforUtil.cc:225
 #, fuzzy
 msgid "TIS-620"
 msgstr "TIS-620 (Тайская)"

@@ -571,7 +571,7 @@ Keys:
     </message>
     <message>
         <source>CRC checked</source>
-        <translation>CRC </translation>
+        <translation type="obsolete">CRC </translation>
     </message>
     <message>
         <source>Target</source>
@@ -580,6 +580,10 @@ Keys:
     <message>
         <source>/s</source>
         <translation>/s</translation>
+    </message>
+    <message>
+        <source>Check sum</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1080,6 +1084,10 @@ Omiljeni korisnik</translation>
     <message>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation type="unfinished">Broj korisnika: %1 | Ukupno deljeno: %2 {3/%1 ?}</translation>
+    </message>
+    <message>
+        <source>Disable emoticons</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1744,6 +1752,10 @@ Molim proverite podešavanja vaše veze</translation>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hub Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -1773,6 +1785,18 @@ Statistics
 Downloaded: %3 Uploaded: %4</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Additional</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supress sound notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supress text notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PMWindow</name>
@@ -1798,6 +1822,10 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>%1 on hub %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable emoticons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2651,6 +2679,10 @@ Keys:
         <source>Other Widgets</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hub Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3419,6 +3451,29 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Last status message on hub</source>
         <translation>Poslednji status poruke na habu</translation>
+    </message>
+</context>
+<context>
+    <name>UIHubManager</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Oblik</translation>
+    </message>
+    <message>
+        <source>Hub</source>
+        <translation type="unfinished">Hab</translation>
+    </message>
+    <message>
+        <source>URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation type="unfinished">Korisnici</translation>
+    </message>
+    <message>
+        <source>Share</source>
+        <translation type="unfinished">Deljeno</translation>
     </message>
 </context>
 <context>
