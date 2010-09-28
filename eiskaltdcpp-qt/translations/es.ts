@@ -465,7 +465,7 @@ Opciones:
     <message>
         <location filename="../src/EmoticonDialog.cpp" line="27"/>
         <source>Select emoticon</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar emoticon</translation>
     </message>
 </context>
 <context>
@@ -4351,7 +4351,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="83"/>
         <source>Edit</source>
-        <translation type="unfinished">Editar</translation>
+        <translation>Editar</translation>
     </message>
 </context>
 <context>
@@ -4469,7 +4469,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Auto detect connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto-detectar conexión</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="229"/>
