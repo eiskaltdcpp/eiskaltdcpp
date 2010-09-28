@@ -487,7 +487,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/EmoticonDialog.cpp" line="27"/>
         <source>Select emoticon</source>
-        <translation type="unfinished"></translation>
+        <translation>Вибрати смайл</translation>
     </message>
 </context>
 <context>
@@ -4618,7 +4618,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="83"/>
         <source>Edit</source>
-        <translation type="unfinished">Змінити</translation>
+        <translation>Редагувати</translation>
     </message>
 </context>
 <context>
@@ -4728,7 +4728,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Auto detect connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Автовизначення з&apos;єднання</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="229"/>
