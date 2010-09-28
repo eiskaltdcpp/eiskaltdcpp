@@ -88,7 +88,6 @@ option (WITH_SOUNDS "Install sound files" OFF)
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NATT "Use natt extension" ON)
-#option (CASE_SENSITIVE_FILELIST "Generate case-sensitive filelist" OFF)
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)

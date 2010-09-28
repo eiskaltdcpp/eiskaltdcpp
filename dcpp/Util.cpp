@@ -742,41 +742,7 @@ int Util::strnicmp(const char* a, const char* b, size_t n) {
     Text::utf8ToWc(b, cb);
     return (a >= end) ? 0 : ((int)Text::toLower(ca) - (int)Text::toLower(cb));
 }
-int Util::stricmps(const char* a, const char* b) {
-    while(*a) {
-        wchar_t ca = 0, cb = 0;
-        int na = Text::utf8ToWc(a, ca);
-        int nb = Text::utf8ToWc(b, cb);
-        if(ca != cb) {
-            return (int)ca - (int)cb;
-        }
-        a += abs(na);
-        b += abs(nb);
-    }
-    wchar_t ca = 0, cb = 0;
-    Text::utf8ToWc(a, ca);
-    Text::utf8ToWc(b, cb);
 
-    return (int)ca - (int)cb;
-}
-
-int Util::strnicmps(const char* a, const char* b, size_t n) {
-    const char* end = a + n;
-    while(*a && a < end) {
-        wchar_t ca = 0, cb = 0;
-        int na = Text::utf8ToWc(a, ca);
-        int nb = Text::utf8ToWc(b, cb);
-        if(ca != cb) {
-            return (int)ca - (int)cb;
-        }
-        a += abs(na);
-        b += abs(nb);
-    }
-    wchar_t ca = 0, cb = 0;
-    Text::utf8ToWc(a, ca);
-    Text::utf8ToWc(b, cb);
-    return (a >= end) ? 0 : ((int)ca - (int)cb);
-}
 string Util::encodeURI(const string& aString, bool reverse) {
     // reference: rfc2396
     string tmp = aString;

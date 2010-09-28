@@ -117,11 +117,7 @@ private:
     class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, boost::noncopyable {
     public:
         typedef boost::intrusive_ptr<Directory> Ptr;
-//#ifdef CASE_SENSITIVE_FILELIST
-        typedef unordered_map<string, Ptr, CaseStringHash, CaseStringEq> Map;
-//#else
-        //typedef unordered_map<string, Ptr, noCaseStringHash, noCaseStringEq> Map;
-//#endif
+        typedef unordered_map<string, Ptr, noCaseStringHash, noCaseStringEq> Map;
         typedef Map::iterator MapIter;
 
         struct File {
@@ -129,13 +125,10 @@ private:
                 StringComp(const string& s) : a(s) { }
 
                 bool operator()(const File& b) const {
-                //#ifdef CASE_SENSITIVE_FILELIST
                 if (BOOLSETTING(CASESENSITIVE_FILELIST))
-                    return Util::stricmps(a, b.getName()) == 0;
-                //#else
+                    return strcmp(a.c_str(), b.getName().c_str()) == 0;
                 else
                     return Util::stricmp(a, b.getName()) == 0;
-                //#endif
                 }
 
                 const string& a;
@@ -144,13 +137,10 @@ private:
             };
             struct FileLess {
                 bool operator()(const File& a, const File& b) const {
-                    //#ifdef CASE_SENSITIVE_FILELIST
                     if (BOOLSETTING(CASESENSITIVE_FILELIST))
-                        return (Util::stricmps(a.getName(), b.getName()) < 0);
-                    //#else
+                        return (strcmp(a.getName().c_str(), b.getName().c_str()) < 0);
                     else
                         return (Util::stricmp(a.getName(), b.getName()) < 0);
-                    //#endif
                 }
 
             };
@@ -170,13 +160,10 @@ private:
             }
 
             bool operator==(const File& rhs) const {
-                //#ifdef CASE_SENSITIVE_FILELIST
                 if (BOOLSETTING(CASESENSITIVE_FILELIST))
-                    return getParent() == rhs.getParent() && (Util::stricmps(getName(), rhs.getName()) == 0);
-                //#else
+                    return getParent() == rhs.getParent() && (strcmp(getName().c_str(), rhs.getName().c_str()) == 0);
                 else
                     return getParent() == rhs.getParent() && (Util::stricmp(getName(), rhs.getName()) == 0);
-                //#endif
             }
 
             string getADCPath() const { return parent->getADCPath() + name; }
