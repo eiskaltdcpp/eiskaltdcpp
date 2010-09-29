@@ -13,7 +13,7 @@
 #include <Wt/WEnvironment>
 #include <Wt/WFitLayout>
 #include <Wt/WMessageBox>
-#include <Wt/WAbstractServer>
+//#include <Wt/WAbstractServer>
 
 #include <Wt/Ext/Menu>
 #include <Wt/Ext/ToolBar>
