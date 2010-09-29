@@ -16,6 +16,10 @@
 #include <QPixmap>
 #include <QMetaType>
 
+#ifdef USE_QML
+#include <QtDeclarative>
+#endif
+
 class ArenaWidget
 {
 public:
@@ -106,5 +110,34 @@ private:
 };
 
 Q_DECLARE_METATYPE(ScriptWidget*)
+
+#ifdef USE_QML
+class DeclarativeWidget:
+    public QObject,
+    public ArenaWidget
+{
+Q_OBJECT
+Q_INTERFACES(ArenaWidget)
+
+public:
+    DeclarativeWidget(const QString &file);
+    virtual ~DeclarativeWidget();
+
+    virtual QWidget *getWidget();
+    virtual QString getArenaTitle();
+    virtual QString getArenaShortTitle();
+    virtual QMenu *getMenu();
+    virtual const QPixmap &getPixmap();
+
+    virtual Role role() const { return ArenaWidget::CustomWidget; }
+
+private:
+    QDeclarativeView *view;
+    QWidget *widget;
+};
+
+Q_DECLARE_METATYPE(DeclarativeWidget*)
+
+#endif
 
 #endif // ARENAWIDGET_H

@@ -107,10 +107,7 @@ MainWindow::MainWindow (QWidget *parent):
     TransferView::newInstance();
 
     transfer_dock->setWidget(TransferView::getInstance());
-
-    blockSignals(true);
     toolsTransfers->setChecked(transfer_dock->isVisible());
-    blockSignals(false);
 
     QFont f;
 
