@@ -708,11 +708,7 @@ Opciones:
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Check sum</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CRC checked</source>
-        <translation type="obsolete">CRC comprobado</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="54"/>
@@ -1065,7 +1061,7 @@ Opciones:
     <message>
         <location filename="../src/HubFrame.cpp" line="2799"/>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Deshabilitar emoticonos</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3002"/>
@@ -1834,7 +1830,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1049"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1063"/>
@@ -1957,10 +1953,6 @@ Usuario favorito</translation>
         <location filename="../src/MainWindow.cpp" line="1407"/>
         <source>%p%</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="obsolete">&lt;b&gt;Último mensaje de kernel:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1500"/>
@@ -2166,17 +2158,17 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/Notification.cpp" line="84"/>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicional</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="85"/>
         <source>Supress sound notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimir notificación sonora</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="86"/>
         <source>Supress text notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimir notificación de texto</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="98"/>
@@ -2235,7 +2227,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/PMWindow.cpp" line="443"/>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Deshabilitar emoticonos</translation>
     </message>
 </context>
 <context>
@@ -3260,7 +3252,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="38"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub Manager</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="39"/>
@@ -4216,27 +4208,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Forma</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
         <source>URL</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="43"/>
         <source>Users</source>
-        <translation type="unfinished">Usuarios</translation>
+        <translation>Usuarios</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="48"/>
         <source>Share</source>
-        <translation type="unfinished">Compartir</translation>
+        <translation>Compartir</translation>
     </message>
 </context>
 <context>
