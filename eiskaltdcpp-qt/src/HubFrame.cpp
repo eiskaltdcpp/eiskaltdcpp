@@ -845,6 +845,7 @@ void HubFrame::init(){
     treeView_USERS->setModel(model);
     treeView_USERS->setSortingEnabled(true);
     treeView_USERS->setItemsExpandable(false);
+    treeView_USERS->setUniformRowHeights(true);
     treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->viewport()->installEventFilter(this);

@@ -7,8 +7,8 @@ set (QT_USE_QTNETWORK 1)
 set (QT_USE_QTXML 1)
 
 if (DBUS_NOTIFY)
-set (QT_USE_QTDBUS 1)
-add_definitions (-DDBUS_NOTIFY)
+  set (QT_USE_QTDBUS 1)
+  add_definitions (-DDBUS_NOTIFY)
 endif (DBUS_NOTIFY)
 
 if (USE_JS)
@@ -16,7 +16,14 @@ if (USE_JS)
   set (QT_USE_QTSCRIPT  1)
 endif (USE_JS)
 
+if (USE_QT_QML)
+  add_definitions(-DUSE_QML)
+  set (QT_USE_QTDECLARATIVE 1)
+endif(USE_QT_QML)
+
 include (${QT_USE_FILE})
+message (STATUS ${QT_USE_FILE})
+
 set (SRCS
             src/ActionCustomizer.cpp
             src/ADLS.cpp

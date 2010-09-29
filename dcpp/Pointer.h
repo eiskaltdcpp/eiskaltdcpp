@@ -44,8 +44,10 @@ protected:
     intrusive_ptr_base() throw() : ref(0) { }
     virtual ~intrusive_ptr_base() { }
 
-private:
-    friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) { Thread::safeInc(p->ref); }
+    friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) { 
+      Thread::safeInc(p->ref); 
+      
+    }
     friend void intrusive_ptr_release(intrusive_ptr_base* p) { if(Thread::safeDec(p->ref) == 0) { delete static_cast<T*>(p); } }
 
     volatile long ref;

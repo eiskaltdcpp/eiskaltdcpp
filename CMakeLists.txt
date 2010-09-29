@@ -70,6 +70,7 @@ find_package (Subversion)
 
 
 option (USE_QT "Qt interface" ON)
+option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
 option (USE_WT "WebControl interface" OFF)
 option (USE_GTK "GTK interface" OFF)
 option (DHT "DHT support for dcpp" OFF)
@@ -113,8 +114,13 @@ elseif (NOT USE_MINIUPNP)
 endif(USE_MINIUPNP)
 
 if (USE_QT)
+    if (USE_QT_QML)
+      find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork QtDeclarative REQUIRED)
+      message (STATUS "Building with Qt Declarative Ui support")
+    else (USE_QT_QML)
+      find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+    endif (USE_QT_QML)
 
-    find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
     if (DBUS_NOTIFY)
         find_package (Qt4 4.4.0 COMPONENTS QtDBus REQUIRED)
     endif (DBUS_NOTIFY)

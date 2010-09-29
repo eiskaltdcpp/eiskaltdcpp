@@ -12,6 +12,8 @@
 #include <Wt/WContainerWidget>
 #include <Wt/WEnvironment>
 #include <Wt/WFitLayout>
+#include <Wt/WMessageBox>
+#include <Wt/WAbstractServer>
 
 #include <Wt/Ext/Menu>
 #include <Wt/Ext/ToolBar>
@@ -136,12 +138,12 @@ private:
 
 Wt::WApplication *createApplication(const Wt::WEnvironment& env)
 {
-  /*
+    /*
    * You could read information from the environment to decide whether
    * the user has permission to start a new application
    */
 
-  return new WApp(env);
+    return new WApp(env);
 }
 
 int main(int argc, char** argv) {
