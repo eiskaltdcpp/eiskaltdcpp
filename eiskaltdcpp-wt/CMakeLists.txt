@@ -21,7 +21,9 @@ set (SRCS
         src/SearchModel.cpp
         src/Utils.cpp
     )
-
+if (WIN32)
+  list (APPEND SRCS ../openssl/applink.c)
+endif (WIN32)
 
 include_directories (${Wt_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}  ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 set (LIBS ${LIBS} ${Wt_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})

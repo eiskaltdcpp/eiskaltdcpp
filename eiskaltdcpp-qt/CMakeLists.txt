@@ -90,7 +90,7 @@ set (SRCS
             src/ChatEdit.cpp
             )
 if (WIN32)
-  list (APPEND SRCS openssl/applink.c)
+  list (APPEND SRCS ../openssl/applink.c)
 endif (WIN32)
 set (MOC_HDRS
             src/ActionCustomizer.h
