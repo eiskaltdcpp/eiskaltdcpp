@@ -1,9 +1,11 @@
 #include "ArenaWidget.h"
 
 #include <QUrl>
+#include <QFile>
 #include <QVBoxLayout>
 
 #include "WulforUtil.h"
+#include "MainWindow.h"
 
 ArenaWidget::ArenaWidget(): _arenaUnload(true), toolBtn(NULL)
 {
@@ -33,30 +35,39 @@ void  ScriptWidget::setMenu(QMenu *_m) { _menu = _m; }
 void  ScriptWidget::setPixmap(const QPixmap &px) { pxm = px; }
 
 #ifdef USE_QML
-DeclarativeWidget::DeclarativeWidget(const QString &file){
+DeclarativeWidget::DeclarativeWidget(const QString &file) : QWidget(NULL) {
     view = new QDeclarativeView();
     view->setSource(QUrl::fromLocalFile(file));
 
-    widget = new QWidget();
-
-    widget->setLayout(new QVBoxLayout());
-    widget->layout()->addWidget(view);
+    setLayout(new QVBoxLayout());
+    layout()->addWidget(view);
 }
 
 DeclarativeWidget::~DeclarativeWidget(){
-    widget->deleteLater();
+}
+
+void DeclarativeWidget::closeEvent(QCloseEvent *e){
+    e->accept();
+
+    setAttribute(Qt::WA_DeleteOnClose);
+
+    MainWindow::getInstance()->remArenaWidget(this);
+    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+    MainWindow::getInstance()->remWidgetFromArena(this);
 }
 
 QWidget *DeclarativeWidget::getWidget(){
-    return widget;
+    return this;
 }
 
 QString DeclarativeWidget::getArenaTitle(){
-    return "tic-tac-toe";
+    QString fname = view->source().toLocalFile();
+
+    return (fname.right(fname.length()-fname.lastIndexOf(QDir::separator())-1));
 }
 
 QString DeclarativeWidget::getArenaShortTitle(){
-    return "tic-tac-toe";
+    return getArenaTitle();
 }
 
 QMenu *DeclarativeWidget::getMenu(){

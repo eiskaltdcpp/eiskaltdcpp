@@ -63,23 +63,35 @@ void ScriptEngine::loadScripts(){
 void ScriptEngine::loadScript(const QString &path){
     QFile f(path);
 
-    if (!(f.exists() && f.open(QIODevice::ReadOnly)) || scripts.contains(path))
+    if (!f.exists() || scripts.contains(path))
+        return;
+
+    if (path.endsWith(".js", Qt::CaseInsensitive))
+        loadJSScript(path);
+#ifdef USE_QML
+    else if (path.endsWith(".qml", Qt::CaseInsensitive))
+        loadQMLScript(path);
+#endif
+}
+
+void ScriptEngine::loadJSScript(const QString &file){
+    QFile f(file);
+
+    if (!f.open(QIODevice::ReadOnly))
         return;
 
     ScriptObject *obj = new ScriptObject;
-    obj->path = path;
+    obj->path = file;
 
     QTextStream stream(&f);
     QString data = stream.readAll();
 
     prepareThis(obj->engine);
 
-    QScriptValue scriptPath = QScriptValue(&obj->engine, path.left(path.lastIndexOf(QDir::separator())) + QDir::separator());
+    QScriptValue scriptPath = QScriptValue(&obj->engine, file.left(file.lastIndexOf(QDir::separator())) + QDir::separator());
     obj->engine.globalObject().setProperty("SCRIPT_PATH", scriptPath);
 
-    scripts.insert(path, obj);
-
-    qDebug() << QString("ScriptEngine> Starting %1 ...").arg(path).toAscii().constData();
+    scripts.insert(file, obj);
 
     obj->engine.evaluate(data);
 
@@ -88,6 +100,16 @@ void ScriptEngine::loadScript(const QString &path){
             qDebug() << s;
     }
 }
+
+#ifdef USE_QML
+void ScriptEngine::loadQMLScript(const QString &file){
+    DeclarativeWidget *wgt = new DeclarativeWidget(file);
+
+    MainWindow::getInstance()->addArenaWidget(wgt);
+    MainWindow::getInstance()->addArenaWidgetOnToolbar(wgt);
+    MainWindow::getInstance()->mapWidgetOnArena(wgt);
+}
+#endif
 
 void ScriptEngine::stopScripts(){
     QMap<QString, ScriptObject*> s = scripts;
@@ -111,8 +133,6 @@ void ScriptEngine::stopScript(const QString &path){
         obj->engine.abortEvaluation();
 
     scripts.remove(path);
-
-    qDebug() << QString("ScriptEngine> Stopping %1 ...").arg(path).toAscii().constData();
 
     if (obj->engine.hasUncaughtException())
         qDebug() << obj->engine.uncaughtExceptionBacktrace();

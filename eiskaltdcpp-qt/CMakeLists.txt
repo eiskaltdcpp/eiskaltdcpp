@@ -22,7 +22,6 @@ if (USE_QT_QML)
 endif(USE_QT_QML)
 
 include (${QT_USE_FILE})
-message (STATUS ${QT_USE_FILE})
 
 set (SRCS
             src/ActionCustomizer.cpp

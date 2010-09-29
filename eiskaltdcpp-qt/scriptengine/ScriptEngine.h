@@ -55,6 +55,11 @@ private:
     ScriptEngine();
     virtual ~ScriptEngine();
 
+    void loadJSScript(const QString&);
+#ifdef USE_QML
+    void loadQMLScript(const QString&);
+#endif
+
     ScriptEngine(const ScriptEngine&) {}
     ScriptEngine &operator =(const ScriptEngine&){}
 

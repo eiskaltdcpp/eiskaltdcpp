@@ -17,6 +17,7 @@
 #include <QMetaType>
 
 #ifdef USE_QML
+#include <QCloseEvent>
 #include <QtDeclarative>
 #endif
 
@@ -113,7 +114,7 @@ Q_DECLARE_METATYPE(ScriptWidget*)
 
 #ifdef USE_QML
 class DeclarativeWidget:
-    public QObject,
+    public QWidget,
     public ArenaWidget
 {
 Q_OBJECT
@@ -130,10 +131,10 @@ public:
     virtual const QPixmap &getPixmap();
 
     virtual Role role() const { return ArenaWidget::CustomWidget; }
-
+protected:
+    virtual void closeEvent(QCloseEvent *e);
 private:
     QDeclarativeView *view;
-    QWidget *widget;
 };
 
 Q_DECLARE_METATYPE(DeclarativeWidget*)

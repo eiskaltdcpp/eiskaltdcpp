@@ -1,0 +1,5 @@
+auth=Andrey Karlov
+name=Tic-Tac-Toe
+desc=The Tic-Tac-Toe game
+icon=x.png
+mainfile=tic-tac-toe.qml

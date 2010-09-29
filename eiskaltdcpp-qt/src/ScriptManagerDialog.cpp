@@ -161,10 +161,9 @@ void ScriptManagerModel::load(){
 }
 
 void ScriptManagerModel::loadDir(const QString &path){
-    QFile script_file(path + "/main.js");
     QFile script_desc(path+"/script.desc");
 
-    if (!(script_file.exists() && script_desc.exists()))
+    if (!script_desc.exists())
         return;
 
     if (!script_desc.open(QIODevice::ReadOnly))
@@ -188,23 +187,27 @@ void ScriptManagerModel::loadDir(const QString &path){
             item->desc = line.remove("desc=", Qt::CaseInsensitive).trimmed();
             item->desc.replace("\n", "");
         }
-        if (line.startsWith("icon=", Qt::CaseInsensitive)){
+        else if (line.startsWith("icon=", Qt::CaseInsensitive)){
             QString icon = line.remove("icon=", Qt::CaseInsensitive).trimmed();
             icon.replace("\n", "");
 
             item->icon = QIcon(path + QDir::separator() + icon);
         }
+        else if (line.startsWith("mainfile=", Qt::CaseInsensitive)){
+            item->path = line.remove("mainfile=", Qt::CaseInsensitive);
+            item->path.replace("\n", "");
+        }
     }
 
     script_desc.close();
 
-    if (item->name.isEmpty()){
+    item->path = (item->path.isEmpty()? (path + QDir::separator() + "main.js") : path + QDir::separator() + item->path);
+
+    if (item->name.isEmpty() || !QFile(item->path).exists()){
         delete item;
 
         return;
     }
-
-    item->path = path + "/main.js";
 
     if (enabled.contains(item->path))
         item->isOn = true;
