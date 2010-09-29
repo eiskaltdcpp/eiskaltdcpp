@@ -730,7 +730,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Check sum</source>
-        <translation type="unfinished"></translation>
+        <translation>Контрольна сума</translation>
     </message>
     <message>
         <source>CRC checked</source>
@@ -1406,7 +1406,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2799"/>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Вимкнути смайли</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3002"/>
@@ -1761,7 +1761,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1049"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер хабів</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1063"/>
@@ -2359,17 +2359,17 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/Notification.cpp" line="84"/>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation>Додатковий</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="85"/>
         <source>Supress sound notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Замовчувати звукові повідомлення</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="86"/>
         <source>Supress text notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Замовчувати текстові повідомлення</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="98"/>
@@ -2422,7 +2422,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="443"/>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Вимкнути смайли</translation>
     </message>
     <message>
         <source> on hub </source>
@@ -3502,7 +3502,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SideBar.cpp" line="38"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менеджер хабів</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="39"/>
@@ -4470,27 +4470,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
-        <translation type="unfinished">Хаб</translation>
+        <translation>Хаб</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
         <source>URL</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="43"/>
         <source>Users</source>
-        <translation type="unfinished">Користувачі</translation>
+        <translation>Користувачі</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="48"/>
         <source>Share</source>
-        <translation type="unfinished">Шара</translation>
+        <translation>Шара</translation>
     </message>
 </context>
 <context>
