@@ -1,4 +1,8 @@
-project (${PROJECT_NAME_GLOBAL}-wt)
+if (UNIX AND NOT APPLE)
+  project (${PROJECT_NAME_GLOBAL}-wt)
+else (UNIX AND NOT APPLE)
+  project (WebUiDaemon)
+endif (UNIX AND NOT APPLE)
 
 cmake_minimum_required (VERSION 2.6)
 

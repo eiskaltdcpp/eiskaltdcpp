@@ -1,4 +1,9 @@
-project (${PROJECT_NAME_GLOBAL}-qt)
+if (UNIX AND NOT APPLE)
+  project (${PROJECT_NAME_GLOBAL}-qt)
+else (UNIX AND NOT APPLE)
+  project (${PROJECT_NAME_GLOBAL})
+endif (UNIX AND NOT APPLE)
+
 cmake_minimum_required (VERSION 2.6)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
