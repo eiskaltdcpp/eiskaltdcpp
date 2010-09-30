@@ -131,6 +131,8 @@ Keys for cmake
     use or not use QtDBus module
 -DUSE_JS=ON/OFF (default: OFF)
     Enable/disable QtScript basic support
+-DUSE_QT_QML=ON/OFF (default: OFF)
+    Enable/disable Qt Declarative Ui support. Work only with Qt >= 4.7.0
 -DUSE_ICON_THEME=ON/OFF (default: OFF)
     Using system icon theme. Work only with Qt >= 4.6.0 and only in KDE and Gnome.
 ----------------
