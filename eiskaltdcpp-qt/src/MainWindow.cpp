@@ -2536,6 +2536,12 @@ void MainWindow::on(dcpp::QueueManagerListener::Finished, QueueItem *item, const
 
         emit coreOpenShare(user, listName, _q(dir));
     }
+
+    const int qsize = QueueManager::getInstance()->lockQueue().size();
+    QueueManager::getInstance()->unlockQueue();
+
+    if (qsize == 1)
+        emit notifyMessage(Notification::TRANSFER, tr("Download Queue"), tr("All downloads complete"));
 }
 
 void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){

@@ -259,6 +259,7 @@ friend class dcpp::Singleton<MainWindow>;
         void coreLogMessage(const QString&);
         void coreOpenShare(dcpp::UserPtr, const QString &, const QString&);
         void coreUpdateStats(const QMap<QString, QString> &);
+        void notifyMessage(int, const QString&, const QString&);
 
     private:
         MainWindow (QWidget *parent=NULL);

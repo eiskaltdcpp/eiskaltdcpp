@@ -86,11 +86,11 @@ enum Type{
             tray->setIcon(WICON(WulforUtil::eiICON_APPL));
     }
 
-public slots:
+public Q_SLOTS:
     void switchModule(int);
     void showMessage(int t, const QString&, const QString&);
 
-private slots:
+private Q_SLOTS:
     void slotExit();
     void slotShowHide();
     void slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason);

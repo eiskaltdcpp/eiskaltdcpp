@@ -7,6 +7,7 @@
 #include "HubManager.h"
 #include "Notification.h"
 #include "SearchFrame.h"
+#include "DownloadQueue.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/User.h"

@@ -29,6 +29,8 @@ Notification::Notification(QObject *parent) :
     reloadSounds();
 
     enableTray(WBGET(WB_TRAY_ENABLED));
+
+    connect(MainWindow::getInstance(), SIGNAL(notifyMessage(int,QString,QString)), this, SLOT(showMessage(int,QString,QString)), Qt::QueuedConnection);
 }
 
 Notification::~Notification(){
