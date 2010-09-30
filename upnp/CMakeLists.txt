@@ -1,7 +1,7 @@
 project(upnp)
 cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
-include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR} ${GETTEXT_INCLUDE_DIR} ${Boost_INCLUDE_DIRS})
 if (LOCAL_MINIUPNP)
 include_directories(${PROJECT_SOURCE_DIR}/..)
 else (LOCAL_MINIUPNP)
