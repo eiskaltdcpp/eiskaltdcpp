@@ -70,7 +70,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Search String</source>
-        <translation>Поисковая строка</translation>
+        <translation>Строка поиска</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
@@ -80,7 +80,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation>Директория</translation>
+        <translation>Имя каталога</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
@@ -131,7 +131,7 @@ Keys:
         <translation>Использование:
   eiskaltdcpp-qt &lt;magnet-ссылка&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Ключ&gt;
-EiskaltDC++ - программа для UNIX-систем, для работы с Direct Connect и ADC протоколами.
+EiskaltDC++ - кроссплатформенная программа для работы с Direct Connect и ADC протоколами.
 
 Ключи:
   -h, --help	 Показать это сообщение
@@ -148,12 +148,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/Antispam.cpp" line="145"/>
         <source>%1: Moving user to GRAY.</source>
-        <translation>%1: Перемещение пользователя в серый список.</translation>
+        <translation>%1: Помещение пользователя в Серый список.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="155"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation>%1: Перемещение пользователя в чёрный список.</translation>
+        <translation>%1: Помещение пользователя в Чёрный список.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="163"/>
@@ -243,7 +243,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/DownloadQueue.cpp" line="362"/>
         <source>File not available</source>
-        <translation>Файл не доступен</translation>
+        <translation>Файл недоступен</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="364"/>
@@ -253,7 +253,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/DownloadQueue.cpp" line="366"/>
         <source>CRC32 inconsistency (SFV-Check)</source>
-        <translation>Несоответствие CRC32 суммы</translation>
+        <translation>Несоответствие контрольной суммы</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="368"/>
@@ -263,12 +263,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/DownloadQueue.cpp" line="370"/>
         <source>Source too slow</source>
-        <translation>Источник слишком медленный</translation>
+        <translation>Скорость источника слишком мала</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="372"/>
         <source>Remote client does not fully support TTH - cannot download</source>
-        <translation>Удалённый клиент не полностью поддерживает) TTH - загрузка невозможна</translation>
+        <translation>Удалённый клиент не полностью поддерживает TTH - загрузка невозможна</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="379"/>
@@ -293,7 +293,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/DownloadQueue.cpp" line="34"/>
         <source>Search for alternates</source>
-        <translation>Поиск альтернатив</translation>
+        <translation>Поиск других источников</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="35"/>
@@ -454,7 +454,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="105"/>
         <source>Paused</source>
-        <translation>Приостановленно</translation>
+        <translation>Приостановлено</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="108"/>
@@ -659,12 +659,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="3"/>
         <source>Finished uploads</source>
-        <translation>Список отданного</translation>
+        <translation>Завершённые раздачи</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="4"/>
         <source>Finished downloads</source>
-        <translation>Список загруженного</translation>
+        <translation>Завершённые загрузки</translation>
     </message>
 </context>
 <context>
@@ -862,7 +862,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <location filename="../src/HubFrame.cpp" line="1266"/>
         <location filename="../src/HubFrame.cpp" line="1268"/>
         <source>Invalid alias syntax.</source>
-        <translation>Неверный синтаксис для псевдонима.</translation>
+        <translation>Ошибка в написании псевдонима.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1276"/>
@@ -911,19 +911,19 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1319"/>
         <location filename="../src/HubFrame.cpp" line="1321"/>
         <source>Aspell switched %1</source>
-        <translation>Aspell %1</translation>
+        <translation>Проверка правописания %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1319"/>
         <location filename="../src/HubFrame.cpp" line="1321"/>
         <source>on</source>
-        <translation>включен</translation>
+        <translation>вкл.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1319"/>
         <location filename="../src/HubFrame.cpp" line="1321"/>
         <source>off</source>
-        <translation>выключен</translation>
+        <translation>выкл.</translation>
     </message>
     <message>
         <source>/aspell on/off - enable/disable spell checking
@@ -1088,7 +1088,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="1991"/>
         <source>Stored password sent...</source>
-        <translation>Отправлен сохраненный пароль...</translation>
+        <translation>Отправлен сохранённый пароль...</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="75"/>
@@ -1207,7 +1207,7 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="208"/>
         <location filename="../src/HubFrame.cpp" line="296"/>
         <source>Add to Black</source>
-        <translation>Добавить в Черный список</translation>
+        <translation>Добавить в Чёрный список</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="209"/>
@@ -1234,7 +1234,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="1699"/>
         <source>%1 become offline</source>
-        <translation>%1 выходит из сети</translation>
+        <translation>%1 покидает сеть</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="944"/>
@@ -1314,7 +1314,7 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1397"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation>/magnet - действие при клике на магнет (0-спросить, 1-найти, 2-загрузить)
+        <translation>/magnet - действие при клике мышью по магнет-ссылке (0-спросить, 1-найти, 2-загрузить)
 </translation>
     </message>
     <message>
@@ -1628,12 +1628,12 @@ Favorite user</source>
     <message>
         <location filename="../src/Magnet.cpp" line="35"/>
         <source>Run search alternatives manually.</source>
-        <translation>Запустите поиск альтернатив вручную.</translation>
+        <translation>Запустите поиск других источников вручную.</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="38"/>
         <source>Download file via auto search alternatives</source>
-        <translation>Загрузить файл, используя автопоиск альтернатив</translation>
+        <translation>Загрузить файл, используя автопоиск других источников</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="142"/>
@@ -1682,12 +1682,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="571"/>
         <source>Ctrl+T</source>
-        <translation></translation>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="579"/>
         <source>Ctrl+D</source>
-        <translation></translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="660"/>
@@ -1726,7 +1726,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="512"/>
         <source>Ctrl+Q</source>
-        <translation></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="956"/>
@@ -1741,7 +1741,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="979"/>
         <source>Space free</source>
-        <translation>Свободно места на диске</translation>
+        <translation>Свободное место на диске</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1017"/>
@@ -1757,7 +1757,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1019"/>
         <location filename="../src/MainWindow.cpp" line="1791"/>
         <source>Open log file</source>
-        <translation>Открыть лог-файл</translation>
+        <translation>Открыть файл журнала</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1023"/>
@@ -1876,12 +1876,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1063"/>
         <source>On</source>
-        <translation>Вкл</translation>
+        <translation>Вкл.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1065"/>
         <source>Off</source>
-        <translation>Откл</translation>
+        <translation>Откл.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1067"/>
@@ -2036,7 +2036,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1791"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation></translation>
+        <translation>Файлы журналов (*.log);;Все файлы (*.*)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2235"/>
@@ -2056,32 +2056,32 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2318"/>
         <source>&lt;br/&gt;&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&lt;b&gt;Разработчики&lt;/b&gt;&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&lt;b&gt;Разработчики:&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2320"/>
         <source>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(главный разработчик 0.4.10 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(главный разработчик версии 0.4.10 и более поздних)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2324"/>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(сопровождение и разработка 1.89.0 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(сопровождение и разработка версии 1.89.0 и более поздних)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2328"/>
         <source>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(сопровождение и разработка 0.4.10 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(сопровождение и разработка версии 0.4.10 и более поздних)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2332"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(разработчик 2.0.3 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(разработчик версии 2.0.3 и более поздних)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2336"/>
         <source>&lt;br/&gt;&lt;b&gt;Logo and Splash Screen Logo&lt;/b&gt;&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&lt;b&gt;Логотип и загрузочная заставка&lt;/b&gt;&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&lt;b&gt;Логотип и заставка при загрузке&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2338"/>
@@ -2101,7 +2101,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2348"/>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 0.4.10 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 0.4.10 и более поздние)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2352"/>
@@ -2111,7 +2111,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2354"/>
         <source>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 1.0.40 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 1.0.40 и более поздние)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2358"/>
@@ -2121,7 +2121,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2360"/>
         <source>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.1 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 2.0.1 и более поздние)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2364"/>
@@ -2131,7 +2131,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2366"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.2 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 2.0.2 и более поздние)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2370"/>
@@ -2141,7 +2141,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2372"/>
         <source>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(для 2.0.2 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(версия 2.0.2 и более поздние)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2375"/>
@@ -2151,7 +2151,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2377"/>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.3 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 2.0.3 и более поздние)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2381"/>
@@ -2161,7 +2161,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2383"/>
         <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.3 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 2.0.3 и более поздние)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2387"/>
@@ -2171,7 +2171,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2389"/>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.1.0 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 2.1.0 и более поздние)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2393"/>
@@ -2181,7 +2181,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2395"/>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.1.0 и более поздних)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 2.1.0 и более поздние)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
@@ -2270,7 +2270,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1771"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation>Невозможно открыть %1 порт. Поиск передач файлов не будет корректно работать, пока вы не измените настройки или выключите вероятно использующее этот порт приложение.</translation>
+        <translation>Невозможно открыть порт %1. Поиск передач файлов не будет корректно работать, пока вы не измените настройки или не выключите приложение, которое, возможно, использует этот порт.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2303"/>
@@ -2305,17 +2305,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1500"/>
         <source>Choose file to open</source>
-        <translation>Выбор файла для открывания</translation>
+        <translation>Выбрать и открыть файл</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="182"/>
         <source>Exit confirm</source>
-        <translation>Подтверждение о закрытии</translation>
+        <translation>Подтверждение закрытия</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="183"/>
         <source>Exit program?</source>
-        <translation>Выйти из программы?</translation>
+        <translation>Завершить работу программы?</translation>
     </message>
     <message>
         <source>Ctrl+A</source>
@@ -2359,7 +2359,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1509"/>
         <source>Unable to load file list: Invalid file list name</source>
-        <translation>Не удалось загрузить список файлов: Недопустимое имя файла</translation>
+        <translation>Не удалось загрузить список файлов: недопустимое имя файла</translation>
     </message>
     <message>
         <source>Cannot listen socket because:
@@ -2386,7 +2386,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1045"/>
         <source>Transfers</source>
-        <translation>Список передач</translation>
+        <translation>Список активных передач</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="695"/>
@@ -2436,7 +2436,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1051"/>
         <source>Finished downloads</source>
-        <translation>Список загруженного</translation>
+        <translation>Завершённые загрузки</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1027"/>
@@ -2447,7 +2447,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1053"/>
         <source>Finished uploads</source>
-        <translation>Список отданного</translation>
+        <translation>Завершённые раздачи</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1057"/>
@@ -2710,17 +2710,17 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/main.cpp" line="105"/>
         <source>UserList icons has been loaded</source>
-        <translation>Загружены иконки для списка пользователей</translation>
+        <translation>Значки для списка пользователей загружены</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="108"/>
         <source>Application icons has been loaded</source>
-        <translation>Загружены иконки программы</translation>
+        <translation>Значки программы загружены</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="141"/>
         <source>Shutting down libdcpp...</source>
-        <translation>Завершение libdcpp...</translation>
+        <translation>Завершение работы libdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="164"/>
@@ -2909,7 +2909,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../ui/UISearchFrame.ui" line="196"/>
         <source>Only users with free slots</source>
-        <translation>Только со свободными слотами</translation>
+        <translation>У пользователей со свободными слотами</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="189"/>
@@ -2965,7 +2965,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/SearchFrame.cpp" line="40"/>
         <source>Download to</source>
-        <translation>Загрузить в</translation>
+        <translation>Загрузить в...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="43"/>
@@ -2975,7 +2975,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/SearchFrame.cpp" line="46"/>
         <source>Download Whole Directory to</source>
-        <translation>Загрузить весь каталог в</translation>
+        <translation>Загрузить весь каталог в...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="52"/>
@@ -3132,7 +3132,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/Settings.cpp" line="62"/>
         <source>Logs</source>
-        <translation>Отчёты</translation>
+        <translation>Журналы</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="67"/>
@@ -3154,7 +3154,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/SettingsConnection.cpp" line="78"/>
         <source>No valid SOCKS5 server IP found!</source>
-        <translation>Не обнаружено рабочих SOCKS5 серверов!</translation>
+        <translation>Рабочие SOCKS5 серверы не обнаружены!</translation>
     </message>
     <message>
         <location filename="../src/SettingsConnection.cpp" line="120"/>
@@ -3281,7 +3281,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/SettingsGUI.cpp" line="234"/>
         <source>Chat: Say nick</source>
-        <translation>Чат: Ник упомянут</translation>
+        <translation>Чат: ник упомянут</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="238"/>
@@ -3316,12 +3316,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/SettingsGUI.cpp" line="489"/>
         <source>Select translation</source>
-        <translation>Выберите перевод</translation>
+        <translation>Выбор файла перевода</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="489"/>
         <source>Translation (*.qm)</source>
-        <translation>Перевод (*.qm)</translation>
+        <translation>Файл перевода (*.qm)</translation>
     </message>
 </context>
 <context>
@@ -3361,7 +3361,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <location filename="../src/SettingsSharing.cpp" line="177"/>
         <location filename="../src/SettingsSharing.cpp" line="301"/>
         <source>%1 GiB</source>
-        <translation>%1 ГБ</translation>
+        <translation>%1 ГиБ</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="241"/>
@@ -3403,13 +3403,13 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <location filename="../src/SettingsSharing.cpp" line="287"/>
         <location filename="../src/SettingsSharing.cpp" line="289"/>
         <source>Enter restriction (in GiB)</source>
-        <translation>Введите ограничение (в ГБ)</translation>
+        <translation>Введите ограничение (в ГиБ)</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="287"/>
         <location filename="../src/SettingsSharing.cpp" line="289"/>
         <source>Restriction</source>
-        <translation>Ограничиние</translation>
+        <translation>Ограничение</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="309"/>
@@ -3530,12 +3530,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/ShareBrowser.cpp" line="38"/>
         <source>Download to</source>
-        <translation>Загрузить в</translation>
+        <translation>Загрузить в...</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="41"/>
         <source>Search for alternates</source>
-        <translation>Поиск альтернатив</translation>
+        <translation>Поиск других источников</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="43"/>
@@ -3586,12 +3586,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
     <message>
         <location filename="../src/SideBar.cpp" line="32"/>
         <source>Finished Uploads</source>
-        <translation>Завершенные передачи</translation>
+        <translation>Завершённые раздачи</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="33"/>
         <source>Finished Downloads</source>
-        <translation>Завершенные загрузки</translation>
+        <translation>Завершённые загрузки</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="34"/>
@@ -3644,7 +3644,7 @@ It will continue to work when the widget is hidden.
 Do you want to stop it?
 </source>
         <translation>Поисковый Шпион сейчас запущен.
-Он продолжит работать когда виджен будет спрятан.
+Он продолжит работать когда виджет будет скрыт.
 Хотите остановить его?
 </translation>
     </message>
@@ -3708,7 +3708,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="419"/>
         <source>You cannot search alternates for uploads!</source>
-        <translation>Нельзя искать альтернативы для отдач!</translation>
+        <translation>Нельзя искать другие источники для раздач!</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="520"/>
@@ -3756,7 +3756,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="575"/>
         <source>Download complete...</source>
-        <translation>Загрузка завершена...</translation>
+        <translation>Загрузка завершена</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="606"/>
@@ -3811,7 +3811,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="36"/>
         <source>Search Alternates</source>
-        <translation>Поиск альтернатив</translation>
+        <translation>Поиск других источников</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="39"/>
@@ -3996,7 +3996,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="20"/>
         <source>Search String</source>
-        <translation>Поисковая строка</translation>
+        <translation>Строка поиска</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="26"/>
@@ -4056,7 +4056,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="234"/>
         <source>On</source>
-        <translation>Вкл</translation>
+        <translation>Вкл.</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="241"/>
@@ -4215,7 +4215,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="314"/>
         <location filename="../ui/UIAntiSpam.ui" line="369"/>
         <source>Move user to &quot;White&quot; list</source>
-        <translation>Переместить пользователя в белый список</translation>
+        <translation>Поместить пользователя в Белый список</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="317"/>
@@ -4228,7 +4228,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
         <location filename="../ui/UIAntiSpam.ui" line="340"/>
         <source>Move user to &quot;Gray&quot; list</source>
-        <translation>Переместить пользователя в серый список</translation>
+        <translation>Поместить пользователя в Серый список</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="343"/>
@@ -4241,7 +4241,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
         <location filename="../ui/UIAntiSpam.ui" line="382"/>
         <source>Move user to &quot;Black&quot; list</source>
-        <translation>Переместить пользователя в чёрный список</translation>
+        <translation>Поместить пользователя в Чёрный список</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="395"/>
@@ -4298,7 +4298,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="201"/>
         <source>This description will show in the user list.</source>
-        <translation>Это описание будет выводиться в списке пользователей.</translation>
+        <translation>Это описание будет отображаться в списке пользователей.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="57"/>
@@ -4661,12 +4661,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIIPFilter.ui" line="121"/>
         <source>IN</source>
-        <translation>Вх</translation>
+        <translation>Вх.</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="128"/>
         <source>OUT</source>
-        <translation>Исх</translation>
+        <translation>Исх.</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="47"/>
@@ -4685,8 +4685,8 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIMagnet.ui" line="137"/>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
-        <translation>Добавляет магнет в очередь загрузок. Если включен автопоиск альтернатив
-в настройках, файл будет загружен без открывания диалога поиска.</translation>
+        <translation>Добавляет магнет-ссылку в очередь загрузок. Если включен автопоиск других
+источников в настройках, файл будет загружен без открытия диалога поиска.</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="161"/>
@@ -4736,7 +4736,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIMagnet.ui" line="141"/>
         <source>Add to queue</source>
-        <translation>Добавить в загрузки</translation>
+        <translation>Добавить в очередь загрузок</translation>
     </message>
     <message>
         <source>Remember my choose</source>
@@ -4893,17 +4893,17 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="161"/>
         <source>TCP port</source>
-        <translation>TCP порт</translation>
+        <translation>TCP порт:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="168"/>
         <source>UDP port</source>
-        <translation>UDP порт</translation>
+        <translation>UDP порт:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="175"/>
         <source>TLS port</source>
-        <translation>TLS порт</translation>
+        <translation>TLS порт:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="152"/>
@@ -4956,8 +4956,8 @@ connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation>Выберите этот режим, если ваш компьютер подключен к интернету напрямую.
 Не выбирайте этот режим, если у вас есть роутер или внешний брандмауэр.
-Если ваш компьютер не находится за роутером всё что вы должны сделать —
-это выбрать эту опцию и обычно больше ничего не менять в настройках
+Если ваш компьютер не находится за роутером, всё что вы должны сделать, —
+это выбрать эту опцию и, как правило, больше ничего не менять в настройках
 подключения.
 Однако, если у вас установлен программный брандмауэр, вам, возможно,
 понадобится разрешить доступ EiskaltDC++ к сети Интернет.</translation>
@@ -5068,7 +5068,7 @@ SOCKS5-прокси это не то же самое, что HTTP-прокси.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="401"/>
         <source>Automatically update external IP (restart required)</source>
-        <translation>Автоматически обновлять внешний IP (требуется перезагрузка)</translation>
+        <translation>Автоматически обновлять внешний IP (требуется перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="369"/>
@@ -5103,7 +5103,7 @@ SOCKS5-прокси это не то же самое, что HTTP-прокси.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="729"/>
         <source>Advanced</source>
-        <translation>Продвинутые</translation>
+        <translation>Дополнительно</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="743"/>
@@ -5222,7 +5222,7 @@ download speed/10 + (download speed - (download speed/10)*10)
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="221"/>
         <source>Download to</source>
-        <translation>Загрузить в</translation>
+        <translation>Загрузить в...</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="273"/>
@@ -5273,7 +5273,7 @@ download speed/10 + (download speed - (download speed/10)*10)
         <location filename="../ui/UISettingsDownloads.ui" line="449"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
         <translation>Проверять каждые x секунд, не стала ли скорость источника
-слишком малой. (по умолчанию: 10 сек)</translation>
+слишком малой. (по умолчанию: 10 с)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
@@ -5308,28 +5308,28 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
         <translation>Файлам с размером меньше указанного будет установлен
-Максимальный приоритет. (по умолчанию: 64КиБ)</translation>
+Максимальный приоритет. (по умолчанию: 64 КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="313"/>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
         <translation>Файлам с размером ниже указанного, но выше, указанного в опции
-Максимальный будет установлен Высокий приоритет. (по умолчанию: 0КиБ)</translation>
+Максимальный будет установлен Высокий приоритет. (по умолчанию: 0 КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="324"/>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
         <translation>Файлам с размером ниже указанного, но выше указанного в опциях Максимальный
-и Высокий, будет установлен Нормальный приоритет. (по умолчанию: 0КиБ)</translation>
+и Высокий, будет установлен Нормальный приоритет. (по умолчанию: 0 КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="335"/>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
         <translation>Файлам с размером ниже указанного, но выше, указанного в опциях Максимальный,
-Высокий и Нормальный, будет установлен Низкий приоритет. (по умолчанию 0КиБ)</translation>
+Высокий и Нормальный, будет установлен Низкий приоритет. (по умолчанию 0 КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="438"/>
@@ -5343,7 +5343,7 @@ the source will be dropped. (default: 1024 B/s)</source>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
         <translation>Время (в секундах), в течение которого наблюдается низкая скорость, по
-истечении которого источник будет исключён. (по умолчанию: 15 сек)</translation>
+истечении которого источник будет исключён. (по умолчанию: 15 с)</translation>
     </message>
     <message>
         <source>This is the maximal time since the last chunk of data for
@@ -5366,32 +5366,32 @@ will be dropped. (default: 1)</source>
         <location filename="../ui/UISettingsDownloads.ui" line="494"/>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
         <translation>Минимальный размер файла (в КиБ) перед исключением источника.
-(по умолчанию: 0КиБ)</translation>
+(по умолчанию: 0 КиБ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="510"/>
         <source>Drop sources below (B/s)</source>
-        <translation>Минимальная скорость (Б/с)</translation>
+        <translation>Порог минимальной скорости (Б/с)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="526"/>
         <source>Check every (s)</source>
-        <translation>Проверять каждые (сек)</translation>
+        <translation>Проверять каждые (в секундах)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="542"/>
         <source>Min. elapsed (s)</source>
-        <translation>На протяжении (сек)</translation>
+        <translation>На протяжении (в секундах)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="558"/>
         <source>Max inactivity (s)</source>
-        <translation>Время простоя выше (сек)</translation>
+        <translation>Время простоя больше (в секундах)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="574"/>
         <source>Min sources online</source>
-        <translation>Источников не менее (шт)</translation>
+        <translation>Источников не менее (шт.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="590"/>
@@ -5413,9 +5413,9 @@ will be dropped. (default: 1)</source>
         <source>With this enabled, files that are larger than Low prio max size
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
-        <translation>Если отмечено, файлам с размером, большим чем в опции Низкий
+        <translation>Если отмечено, файлам с размером, большим чем в опции Низкий,
 будет установлен Минимальный приоритет.
-Если отключено, им будет установлен Нормальный приоритет.</translation>
+Если не отмечено, им будет установлен Нормальный приоритет.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="654"/>
@@ -5423,7 +5423,7 @@ If disabled, the files will be set to Normal as priority.</source>
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation>Эта настройка удаляет медленные источники для всех элементов очереди
-(кроме файллистов). Для работы этой опции требуется включение опции
+(кроме списков файлов). Для работы этой опции требуется включение опции
 &quot;Автоматический сброс медленных источников в очереди&quot; или опции
 &quot;Удалять медленные закачки списков файлов&quot; (или обеих опций).</translation>
     </message>
@@ -5451,11 +5451,11 @@ The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
         <translation>Каждые несколько минут клиент будет искать для файлов в вашей
-Очереди загрузок альтернативные источники загрузки (других пользователей
+Очереди загрузок другие источники загрузки (других пользователей
 с этими файлами). Автопоиск находит альтернативы по хэш-сумме.
-Недостаток в том, что альтернативные источники могут быть и не найдены,
+Недостаток в том, что другие источники могут быть и не найдены,
 но при этом будет затруднено использование ручного поиска на хабах,
-на которых установлен интервал между попытками поиска.</translation>
+на которых установлен временной интервал между попытками поиска.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="721"/>
@@ -5467,15 +5467,14 @@ for many more files you&apos;re downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation>Опция включает автоматическую загрузку файллистов пользователей и
-поиск по ним файлов из вашей Очереди загрузок, если они могут быть
-истолкованы как источники загружаемых вами файлов.
-Если вы скачиваете набор (каталог) файлов, вполне вероятно, что
-пользователь, с которого вы скачиваете один файл, имеет и другие
-необходимые вам файлы. Включите опцию, если не уверены.
-Недостаток опции в том, что могут быть добавлены медленные источники,
-возможно увеличивающие время, необходимое для загрузки,
-и в том, что вы скачиваете большое количество файллистов.</translation>
+        <translation>Опция включает автоматическую загрузку списков файлов пользователей
+с поиском по ним файлов из вашей Очереди загрузок, если они могут быть
+истолкованы как источники загружаемых вами файлов. Если вы скачиваете
+набор (каталог) файлов, вполне вероятно, что пользователь, у которого вы
+скачиваете один файл, имеет и другие необходимые вам файлы. Если не
+уверены, включите эту опцию. Недостаток опции в добавлении медленных
+источников, что приведёт к увеличению времени для загрузки, и в загрузке
+большого количества списков файлов.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="742"/>
@@ -5554,11 +5553,11 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation>Если отмечено, EiskaltDC++ будет удалять файллисты, скорость которых
-определена как слишком маленькая.
-Для работы этой опции требуется включение опции
-&quot;Автоматический сброс медленных источников в очереди&quot; или опции
-&quot;Удалять медленные закачки списков файлов&quot; (или обеих опций).</translation>
+        <translation>Если отмечено, EiskaltDC++ будет удалять списки файлов,
+скорость которых определена как слишком низкая. Для работы
+этой опции требуется включение опции &quot;Автоматический сброс
+медленных источников в очереди&quot; или опции &quot;Удалять медленные
+закачки списков файлов&quot; (или обеих опций).</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="684"/>
@@ -5568,7 +5567,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="699"/>
         <source>Automatically search for alternative download locations</source>
-        <translation>Автоматически искать альтернативные источники</translation>
+        <translation>Автоматически искать другие источники</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="718"/>
@@ -5587,7 +5586,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="866"/>
         <source>Interval for auto search alternates (minutes)</source>
-        <translation>Интервал между автопоисками альтернатив (в минутах)</translation>
+        <translation>Интервал между автопоисками других источников (в минутах)</translation>
     </message>
     <message>
         <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
@@ -5626,7 +5625,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="845"/>
         <source>Advanced</source>
-        <translation>Продвинутые</translation>
+        <translation>Дополнительно</translation>
     </message>
     <message>
         <source>Interval for auto search alternates(minutes)</source>
@@ -5703,7 +5702,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>
         <source>Icon theme</source>
-        <translation>Тема иконок</translation>
+        <translation>Тема значков</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="182"/>
@@ -5713,17 +5712,17 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="201"/>
         <source>Use default ToolBar (need restart)</source>
-        <translation>Использовать стандартную панель табов (требуется перезапуск)</translation>
+        <translation>Использовать стандартную панель вкладок (требуется перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="206"/>
         <source>Use multi-line ToolBar (need restart)</source>
-        <translation>Использовать многострочную панель табов (требуется перезапуск)</translation>
+        <translation>Использовать многострочную панель вкладок (требуется перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="211"/>
         <source>Use SideBar instead of ToolBar (need restart)</source>
-        <translation>Использовать боковую панель вместо панели табов (требуется перезапуск)</translation>
+        <translation>Использовать боковую панель вместо панели вкладок (требуется перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="233"/>
@@ -5777,7 +5776,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="376"/>
         <source>Double click action</source>
-        <translation>Действие на дабл-клик</translation>
+        <translation>Действие при двойном клике</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="390"/>
@@ -5789,7 +5788,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="395"/>
         <location filename="../ui/UISettingsGUI.ui" line="414"/>
         <source>Get file list</source>
-        <translation>Скачать файл-лист</translation>
+        <translation>Скачать список файлов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="400"/>
@@ -5857,7 +5856,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="517"/>
         <source>Default action with magnet</source>
-        <translation>Действие при клике на магнет</translation>
+        <translation>Действие при клике на магнет-ссылке</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="531"/>
@@ -5958,7 +5957,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Show icon in system tray</source>
-        <translation>Отображать иконку в системном трее</translation>
+        <translation>Отображать значок в системном трее</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="251"/>
@@ -5997,7 +5996,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="29"/>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
-        <translation>Все отчёты, генерируемые EiskaltDC++, будут сохранены в этот каталог.</translation>
+        <translation>Все журналы, генерируемые EiskaltDC++, будут сохранены в этот каталог.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="46"/>
@@ -6022,12 +6021,12 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="220"/>
         <source>Auto search alternates</source>
-        <translation>Автопоиск альтернатив</translation>
+        <translation>Автопоиск других источников</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
         <source>Log directory</source>
-        <translation>Каталог для файлов отчётов</translation>
+        <translation>Каталог для файлов журналов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="58"/>
@@ -6146,14 +6145,14 @@ them is usually available only to operators</source>
         <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation>Если формат ваших звуковых файлов не поддерживается Qt, вы можете
-определить проигрыватель для их воспроизведения.
+        <translation>Если формат ваших звуковых файлов не поддерживается Qt,
+вы можете определить проигрыватель для их воспроизведения.
 Например: /usr/bin/mplayer</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="105"/>
         <source>Change icon when main window is visible</source>
-        <translation>Изменять иконку при видимом главном окне</translation>
+        <translation>Изменять значок при видимом главном окне</translation>
     </message>
     <message>
         <source>Show icon in system tray</source>
@@ -6213,8 +6212,8 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <location filename="../ui/UISettingsPersonal.ui" line="46"/>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation>Если вы находитесь в режиме &apos;отошёл&apos;, это сообщение будет отослано
-каждому, кто посылает вам личное сообщение.</translation>
+        <translation>Если вы находитесь в режиме &quot;отошёл&quot;, это сообщение будет
+отправлено каждому, кто посылает вам личное сообщение.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="61"/>
@@ -6327,8 +6326,8 @@ and may cause the client to appear to freeze.</source>
         <translation>Расшаривать файлы с атрибутом Скрытый и файлы внутри каталогов
 с этим атрибутом.
 Если опция отключена, файлы, начинающиеся с точки, не будут расшарены.
-Примечание: эта опция требует обновления файллиста, и может
-привести к некоторому притормаживанию клиента.</translation>
+Примечание: эта опция требует обновления списка файлов и может
+привести к небольшому замедлению работы программы.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="303"/>
@@ -6341,7 +6340,7 @@ share is complete, share at follow-up activities start nulled.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="334"/>
         <source>FastHash options (restart needed)</source>
-        <translation>Опции быстрого хэширования (требуется перезагрузка)</translation>
+        <translation>Опции быстрого хэширования (требуется перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="388"/>
@@ -6363,7 +6362,7 @@ share is complete, share at follow-up activities start nulled.</source>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
         <translation>Здесь вы можете ограничить максимальную скорость хэширования,
-если ваша система притормаживает при хэшировании файлов.</translation>
+если ваша система работает медленно во время хэширования файлов.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="546"/>
@@ -6380,7 +6379,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
 для загрузки файлов.
 Удалённый пользователь может использовать только один ваш слот
 на одом хабе. EiskaltDC++ поддерживает отдачу файллистов и файлов
-меньше 64КиБ другим пользователям DC++ без занятия слота.
+меньше 64 КиБ другим пользователям DC++ без занятия слота.
 Доступно 3 таких соединения, помимо обычных слотов;
 они называются минислотами.
 Примечание: Если пользователь покидает хаб, EiskaltDC++ закроет
@@ -6409,7 +6408,7 @@ if the user is back within 10 minutes, DC++ will grant him a slot.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="477"/>
         <source>Auto refresh time (minutes,0 = off)</source>
-        <translation>Период автоматического обновления (минут,0 = откл)</translation>
+        <translation>Период автоматического обновления (минут, 0 = откл.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="321"/>
@@ -6465,7 +6464,7 @@ if the user is back within 10 minutes, DC++ will grant him a slot.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="125"/>
         <source>Don&apos;t share files and folders containing:</source>
-        <translation>Не расшаривать файлы и папки содержащие:</translation>
+        <translation>Не расшаривать файлы и папки, содержащие:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="141"/>
@@ -6601,7 +6600,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="509"/>
         <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation>Макс. скорость хэширования (МиБ/с, 0=неогр.)</translation>
+        <translation>Макс. скорость хэширования (МиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
@@ -6854,7 +6853,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="167"/>
         <source>Email</source>
-        <translation>E-Mail</translation>
+        <translation>E-mail</translation>
     </message>
 </context>
 <context>
