@@ -19,6 +19,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/QueueManager.h"
 #include "dcpp/FavoriteManager.h"
+#include "dcpp/HashManager.h"
 
 #include <QItemSelectionModel>
 #include <QModelIndex>
@@ -49,10 +50,20 @@ TransferView::Menu::Menu():
     QAction *grant      = new QAction(tr("Grant extra slot"), menu);
     grant->setIcon(WU->getPixmap(WulforUtil::eiEDITADD));
 
-    QAction *copy_ip = new QAction(tr("Copy IP-address of user"), menu);
-    copy_ip->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
+    copy_column = new QMenu(tr("Copy"), menu);
+    copy_column->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
 
-    QAction *sep1       = new QAction(menu);
+    copy_column->addAction(tr("Users"));
+    copy_column->addAction(tr("Speed"));
+    copy_column->addAction(tr("Statistic"));
+    copy_column->addAction(tr("Size"));
+    copy_column->addAction(tr("Time left"));
+    copy_column->addAction(tr("Filename"));
+    copy_column->addAction(tr("Host"));
+    copy_column->addAction(tr("IP"));
+    copy_column->addAction(tr("Magnet"));
+
+    QAction *sep1        = new QAction(menu);
     sep1->setSeparator(true);
 
     QAction *rem_queue  = new QAction(tr("Remove Source"), menu);
@@ -72,7 +83,6 @@ TransferView::Menu::Menu():
     actions.insert(send_pm, SendPM);
     actions.insert(add_to_fav, AddToFav);
     actions.insert(grant, GrantExtraSlot);
-    actions.insert(copy_ip, CopyIp);
     actions.insert(rem_queue, RemoveFromQueue);
     actions.insert(force, Force);
     actions.insert(close, Close);
@@ -83,9 +93,9 @@ TransferView::Menu::Menu():
                                        << match
                                        << send_pm
                                        << add_to_fav
-                                       << grant
-                                       << copy_ip
-                                       << sep1
+                                       << grant);
+    menu->addMenu(copy_column);
+    menu->addActions(QList<QAction*>() << sep1
                                        << rem_queue
                                        << sep3
                                        << force
@@ -94,7 +104,8 @@ TransferView::Menu::Menu():
 }
 
 TransferView::Menu::~Menu(){
-    delete menu;
+    menu->deleteLater();
+    copy_column->deleteLater();
 }
 
 TransferView::Menu::Action TransferView::Menu::exec(){
@@ -102,6 +113,11 @@ TransferView::Menu::Action TransferView::Menu::exec(){
 
     if (actions.contains(ret))
         return actions.value(ret);
+    else if (ret){
+        selectedColumn = copy_column->actions().indexOf(ret);
+
+        return Copy;
+    }
 
     return None;
 }
@@ -369,11 +385,10 @@ void TransferView::slotContextMenu(const QPoint &){
         return;
 
     Menu::Action act;
+    Menu m;
 
-    {
-        Menu m;
-        act = m.exec();
-    }
+    act = m.exec();
+
 
     list = selection_model->selectedRows(0);
 
@@ -446,15 +461,31 @@ void TransferView::slotContextMenu(const QPoint &){
 
         break;
     }
-    case Menu::CopyIp:
+    case Menu::Copy:
     {
-        QString ip = "";
+        int col = m.copyColumn();
+        QString data = "";
 
-        foreach(TransferViewItem *i, items)
-            ip = i->data(COLUMN_TRANSFER_IP).toString();
+        if (col <= (model->columnCount()-1)){
+            foreach(TransferViewItem *i, items)
+                data += i->data(col).toString() + "\n";
+        }
+        else {
+            foreach(TransferViewItem *i, items){
+                const TTHValue *tth = HashManager::getInstance()->getFileTTHif(_tq(i->target));
+                QFileInfo fi(i->target);
 
-        if (!ip.isEmpty())
-            QApplication::clipboard()->setText(ip, QClipboard::Clipboard);
+                if ( tth == NULL ) {
+                    QString str = QDir::toNativeSeparators(fi.canonicalFilePath() ); // try to follow symlinks
+                    tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
+                }
+                if (tth != NULL)
+                    data += WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32())) + "\n";
+            }
+        }
+
+        if (!data.isEmpty())
+            QApplication::clipboard()->setText(data, QClipboard::Clipboard);
 
         break;
     }

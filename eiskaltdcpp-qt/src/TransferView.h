@@ -56,7 +56,7 @@ public:
         SendPM,
         AddToFav,
         GrantExtraSlot,
-        CopyIp,
+        Copy,
         RemoveFromQueue,
         Force,
         Close,
@@ -67,10 +67,13 @@ public:
     virtual ~Menu();
 
     Action exec();
+    int copyColumn() const {return selectedColumn; }
 
 private:
     QMenu *menu;
+    QMenu *copy_column;
     QMap <QAction*, Action> actions;
+    int selectedColumn;
 };
 
 public:
