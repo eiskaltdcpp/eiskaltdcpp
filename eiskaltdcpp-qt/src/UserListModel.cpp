@@ -164,7 +164,7 @@ QVariant UserListModel::headerData(int section, Qt::Orientation orientation, int
             case COLUMN_COMMENT: return tr("Comment");
             case COLUMN_TAG: return tr("Tag");
             case COLUMN_CONN: return tr("Connection");
-            case COLUMN_EMAIL: return tr("Email");
+            case COLUMN_EMAIL: return tr("E-mail");
             case COLUMN_SHARE: return tr("Share");
             case COLUMN_IP: return tr("IP");
         }

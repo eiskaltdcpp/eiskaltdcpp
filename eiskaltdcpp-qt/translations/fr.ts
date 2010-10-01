@@ -108,7 +108,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Utilise:
+        <translation type="obsolete">Utilise:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt&lt;Key&gt;
 EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les protocoles Direct Connect et ADC.
@@ -116,6 +116,17 @@ EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les proto
 Raccourcis:
   -h, --help(tab) Montre ce message
   -v, --version(tab) Montre la liste des versions</translation>
+    </message>
+    <message>
+        <source>Using:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Key&gt;
+EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -203,7 +214,7 @@ Raccourcis:
     </message>
     <message>
         <source>CRC32 inconsistency (SFV-Check)</source>
-        <translation>CRC32 Divergent  (Vérification du SFV)</translation>
+        <translation type="obsolete">CRC32 Divergent  (Vérification du SFV)</translation>
     </message>
     <message>
         <source>Full tree does not match TTH root</source>
@@ -296,6 +307,10 @@ Raccourcis:
     <message>
         <source>Download Queue</source>
         <translation>Liste des téléchargements</translation>
+    </message>
+    <message>
+        <source>Checksum mismatch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1931,6 +1946,14 @@ Please check your connection settings</source>
         <source>Hub Manager</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Download Queue</source>
+        <translation type="unfinished">Liste des téléchargements</translation>
+    </message>
+    <message>
+        <source>All downloads complete</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2338,7 +2361,7 @@ Clés:
     </message>
     <message>
         <source>Download to</source>
-        <translation>Télécharger vers</translation>
+        <translation type="obsolete">Télécharger vers</translation>
     </message>
     <message>
         <source>Download Whole Directory</source>
@@ -2346,7 +2369,7 @@ Clés:
     </message>
     <message>
         <source>Download Whole Directory to</source>
-        <translation>Télécharger le répertoire entier vers</translation>
+        <translation type="obsolete">Télécharger le répertoire entier vers</translation>
     </message>
     <message>
         <source>Search TTH</source>
@@ -2387,6 +2410,14 @@ Clés:
     <message>
         <source>Browse</source>
         <translation>Parcourir</translation>
+    </message>
+    <message>
+        <source>Download to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Whole Directory to...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2832,7 +2863,7 @@ Clés:
     </message>
     <message>
         <source>Download to</source>
-        <translation>Télécharger vers</translation>
+        <translation type="obsolete">Télécharger vers</translation>
     </message>
     <message>
         <source>Search for alternates</source>
@@ -2849,6 +2880,10 @@ Clés:
     <message>
         <source>Browse</source>
         <translation>Parcourir</translation>
+    </message>
+    <message>
+        <source>Download to...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3035,7 +3070,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Download complete...</source>
-        <translation>Téléchargement complet...</translation>
+        <translation type="obsolete">Téléchargement complet...</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3095,7 +3130,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Copy IP-address of user</source>
-        <translation>Copier l&apos;adresse ip de l&apos;utilisateur</translation>
+        <translation type="obsolete">Copier l&apos;adresse ip de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Remove Source</source>
@@ -3120,6 +3155,46 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>You cannot search alternates for uploads!</source>
         <translation>Vous ne pouvez pas rechercher d&apos;autres sources pour des envois!</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Copier</translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation type="unfinished">Utilisateurs</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished">Vitesse</translation>
+    </message>
+    <message>
+        <source>Statistic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished">Taille</translation>
+    </message>
+    <message>
+        <source>Time left</source>
+        <translation type="unfinished">Temps restant</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IP</source>
+        <translation type="unfinished">IP</translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4681,7 +4756,7 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
-        <translation>Si activé, vous verrez les smileys aussi au sein des mots.
+        <translation type="obsolete">Si activé, vous verrez les smileys aussi au sein des mots.
 Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</translation>
     </message>
     <message>
@@ -4703,7 +4778,7 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
     <message>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
-        <translation>Dépend de la configuration du serveur concerné: Les informations sont généralement disponibles pour les opérateurs seulement</translation>
+        <translation type="obsolete">Dépend de la configuration du serveur concerné: Les informations sont généralement disponibles pour les opérateurs seulement</translation>
     </message>
     <message>
         <source>Use default ToolBar (need restart)</source>
@@ -4808,6 +4883,25 @@ them is usually available only to operators</source>
     <message>
         <source>Highlighting of already shared files</source>
         <translation>Surlignage des fichiers déjà dans le partage</translation>
+    </message>
+    <message>
+        <source>If checked, you&apos;ll see emoticons even in the middle of words.
+If unchecked, you&apos;ll see emoticons only if they are isolated
+from other words by spaces.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Depending on hub configuration: information about
+them is usually available only to operators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use emoticons panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Autohide emoticons panel</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5066,7 +5160,7 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
     </message>
     <message>
         <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation>Vitesse de scan max (MB/s) (0=infini)</translation>
+        <translation type="obsolete">Vitesse de scan max (MB/s) (0=infini)</translation>
     </message>
     <message>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
@@ -5174,7 +5268,7 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
     </message>
     <message>
         <source>Auto refresh time (minutes,0 = off)</source>
-        <translation>Rafraichissement auto toutes les (en minutes, 0 = off)</translation>
+        <translation type="obsolete">Rafraichissement auto toutes les (en minutes, 0 = off)</translation>
     </message>
     <message>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
@@ -5257,6 +5351,14 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Donner un slot automatiquement si vitesse inférieure à (KiB/s, 0 = infini)</translation>
+    </message>
+    <message>
+        <source>Auto refresh time (minutes, 0 = off)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max hash speed (MB/s) (0 = infinite)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5460,7 +5562,7 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation>Email</translation>
+        <translation type="obsolete">Email</translation>
     </message>
     <message>
         <source>Share</source>
@@ -5469,6 +5571,10 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>IP</source>
         <translation>IP</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

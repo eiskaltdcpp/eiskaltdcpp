@@ -604,7 +604,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
 
     getParams(params, dl);
 
-    params["STAT"]  = tr("Download complete...");
+    params["STAT"]  = tr("Download complete");
     params["SPEED"] = 0;
 
     qint64 pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();

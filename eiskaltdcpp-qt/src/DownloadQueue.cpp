@@ -207,20 +207,20 @@ void DownloadQueue::closeEvent(QCloseEvent *e){
 void DownloadQueue::requestDelete(){
     if (!treeView_TARGET->hasFocus())
         return;
-    
+
     QModelIndexList list = treeView_TARGET->selectionModel()->selectedRows(0);
-    
+
     if (list.isEmpty())
         return;
-    
+
     QList<DownloadQueueItem*> items;
-    
+
     foreach (QModelIndex i, list){
         DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(i.internalPointer());
-        
+
         if (!item)
             continue;
-        
+
         if (item->dir)
             getChilds(item, items);
         else if (!items.contains(item))
@@ -321,7 +321,7 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
         nick = WulforUtil::getInstance()->getNicks(usr->getCID());
 
         source[nick] = _q(usr->getCID().toBase32());
-        
+
         params["USERS"] = params["USERS"].toString() + nick;
     }
 
@@ -363,7 +363,7 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
             else if (it->isSet(QueueItem::Source::FLAG_PASSIVE))
                 errors += tr("Passive user");
             else if (it->isSet(QueueItem::Source::FLAG_CRC_FAILED))
-                errors += tr("CRC32 inconsistency (SFV-Check)");
+                errors += tr("Checksum mismatch");
             else if (it->isSet(QueueItem::Source::FLAG_BAD_TREE))
                 errors += tr("Full tree does not match TTH root");
             else if (it->isSet(QueueItem::Source::FLAG_SLOW_SOURCE))

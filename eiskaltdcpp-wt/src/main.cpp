@@ -41,7 +41,7 @@ void printHelp() {
     printf("Using:\n"
            "  eiskaltdcpp-wt --http-port=<port> --http-address=<address> --docroot <path>\n"
            "  eiskaltdcpp-wt <Key>\n"
-           "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
+           "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
            "\n"
            "Keys:\n"
            "  -h, --help\t Show this message\n"

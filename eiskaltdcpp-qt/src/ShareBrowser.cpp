@@ -35,7 +35,7 @@ ShareBrowser::Menu::Menu(){
 
     QAction *down    = new QAction(tr("Download"), menu);
     down->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
-    down_to = new QMenu(tr("Download to"));
+    down_to = new QMenu(tr("Download to..."));
     down_to->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD_AS));
     QAction *sep     = new QAction(menu);
     QAction *alter   = new QAction(tr("Search for alternates"), menu);

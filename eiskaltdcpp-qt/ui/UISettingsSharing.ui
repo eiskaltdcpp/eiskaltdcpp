@@ -474,7 +474,7 @@ the granted slot will not be closed.</string>
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Auto refresh time (minutes,0 = off)</string>
+            <string>Auto refresh time (minutes, 0 = off)</string>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -506,7 +506,7 @@ the granted slot will not be closed.</string>
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Max hash speed (MB/s) (0=infinite)</string>
+            <string>Max hash speed (MB/s) (0 = infinite)</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

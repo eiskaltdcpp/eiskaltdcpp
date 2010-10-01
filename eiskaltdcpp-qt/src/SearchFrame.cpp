@@ -37,13 +37,13 @@ SearchFrame::Menu::Menu(){
     QAction *down       = new QAction(tr("Download"), NULL);
     down->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
-    down_to             = new QMenu(tr("Download to"));
+    down_to             = new QMenu(tr("Download to..."));
     down_to->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD_AS));
 
     QAction *down_wh    = new QAction(tr("Download Whole Directory"), NULL);
     down_wh->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
-    down_wh_to          = new QMenu(tr("Download Whole Directory to"));
+    down_wh_to          = new QMenu(tr("Download Whole Directory to..."));
     down_wh_to->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD_AS));
 
     QAction *sep        = new QAction(menu);

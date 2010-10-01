@@ -108,7 +108,7 @@ EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and 
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Használat:
+        <translation type="obsolete">Használat:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt&lt;Kapcsoló&gt;
 Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
@@ -116,6 +116,17 @@ Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az A
 Kapcsolók:
   -h, --help	 Help megjelenítése
   -v, --version  Verzióinformáció mutatása</translation>
+    </message>
+    <message>
+        <source>Using:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Key&gt;
+EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -278,7 +289,7 @@ Kapcsolók:
     </message>
     <message>
         <source>CRC32 inconsistency (SFV-Check)</source>
-        <translation>CRC32 inkonzisztencia (SFV-Ellenőrzéskor)</translation>
+        <translation type="obsolete">CRC32 inkonzisztencia (SFV-Ellenőrzéskor)</translation>
     </message>
     <message>
         <source>Full tree does not match TTH root</source>
@@ -311,6 +322,10 @@ Kapcsolók:
     <message>
         <source>%1 of %2 user(s) online</source>
         <translation>%1 felhasználó online a %2 -ból/ből</translation>
+    </message>
+    <message>
+        <source>Checksum mismatch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1957,6 +1972,14 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Hub Manager</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Download Queue</source>
+        <translation type="unfinished">Letöltési sor</translation>
+    </message>
+    <message>
+        <source>All downloads complete</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2332,7 +2355,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Download to</source>
-        <translation>Letöltés ide</translation>
+        <translation type="obsolete">Letöltés ide</translation>
     </message>
     <message>
         <source>Download Whole Directory</source>
@@ -2340,7 +2363,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Download Whole Directory to</source>
-        <translation>Egész könyvtár letöltése ide</translation>
+        <translation type="obsolete">Egész könyvtár letöltése ide</translation>
     </message>
     <message>
         <source>Search TTH</source>
@@ -2421,6 +2444,14 @@ Kapcsolók:
     <message>
         <source>C</source>
         <translation type="obsolete">C</translation>
+    </message>
+    <message>
+        <source>Download to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Whole Directory to...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2759,7 +2790,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Download to</source>
-        <translation>Letöltés ide</translation>
+        <translation type="obsolete">Letöltés ide</translation>
     </message>
     <message>
         <source>Search for alternates</source>
@@ -2824,6 +2855,10 @@ Kapcsolók:
     <message>
         <source>Add to favorites</source>
         <translation>Hozzáadás a kedvencekhez</translation>
+    </message>
+    <message>
+        <source>Download to...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3012,7 +3047,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Download complete...</source>
-        <translation>Letöltés kész...</translation>
+        <translation type="obsolete">Letöltés kész...</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -3056,7 +3091,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Copy IP-address of user</source>
-        <translation>Felhasználó IP címének másolása</translation>
+        <translation type="obsolete">Felhasználó IP címének másolása</translation>
     </message>
     <message>
         <source>Search Alternates</source>
@@ -3069,6 +3104,46 @@ Biztosan le akarod állítani?
     <message>
         <source>You cannot search alternates for uploads!</source>
         <translation>Feltöltésekhez nem kereshető alternatíva!</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Másolás</translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation type="unfinished">Felhasználók</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished">Sebesség</translation>
+    </message>
+    <message>
+        <source>Statistic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished">Méret</translation>
+    </message>
+    <message>
+        <source>Time left</source>
+        <translation type="unfinished">Hátralévő idő</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Fájlnév</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished">Host</translation>
+    </message>
+    <message>
+        <source>IP</source>
+        <translation type="unfinished">IP</translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4658,7 +4733,7 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
-        <translation>Ha be van jelölve, akkor a hangulatjelek láthatóak lesznek akár a szavak közepén is.
+        <translation type="obsolete">Ha be van jelölve, akkor a hangulatjelek láthatóak lesznek akár a szavak közepén is.
 Ha nincs bejelölve, a hangulatjelek csak akkor látszódnak majd,
 ha egy szünettel el vannak választva a szavaktól.</translation>
     </message>
@@ -4681,7 +4756,7 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     <message>
         <source>Depending on hub configuration: information about 
 them is usually available only to operators</source>
-        <translation>A hub beállításaitól függ: a szükséges információkat 
+        <translation type="obsolete">A hub beállításaitól függ: a szükséges információkat 
 ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
     </message>
     <message>
@@ -4787,6 +4862,25 @@ ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
     <message>
         <source>Highlighting of already shared files</source>
         <translation>A már megosztásban lévő fájlok kiemelése</translation>
+    </message>
+    <message>
+        <source>If checked, you&apos;ll see emoticons even in the middle of words.
+If unchecked, you&apos;ll see emoticons only if they are isolated
+from other words by spaces.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Depending on hub configuration: information about
+them is usually available only to operators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use emoticons panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Autohide emoticons panel</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5025,7 +5119,7 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
     </message>
     <message>
         <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation>Maximális indexelési sebesség (MB/s) (0=korlátlan)</translation>
+        <translation type="obsolete">Maximális indexelési sebesség (MB/s) (0=korlátlan)</translation>
     </message>
     <message>
         <source>Use fast hash</source>
@@ -5085,7 +5179,7 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Auto refresh time (minutes,0 = off)</source>
-        <translation>Automatikus frissítési időköz (percben, 0 = letiltva)</translation>
+        <translation type="obsolete">Automatikus frissítési időköz (percben, 0 = letiltva)</translation>
     </message>
     <message>
         <source>Run on startup refresh share </source>
@@ -5275,6 +5369,14 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Automatikusan új extra slot nyitása, ha a sebesség ez alá kerül (KiB/sec, 0 = letiltva)</translation>
     </message>
+    <message>
+        <source>Auto refresh time (minutes, 0 = off)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max hash speed (MB/s) (0 = infinite)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsUC</name>
@@ -5462,7 +5564,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>Email</source>
-        <translation>Email</translation>
+        <translation type="obsolete">Email</translation>
     </message>
     <message>
         <source>Share</source>
@@ -5471,6 +5573,10 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <source>IP</source>
         <translation>IP</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

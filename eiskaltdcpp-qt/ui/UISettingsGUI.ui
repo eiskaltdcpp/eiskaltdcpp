@@ -244,7 +244,7 @@
         <widget class="QCheckBox" name="checkBox_EMOTFORCE">
          <property name="toolTip">
           <string>If checked, you'll see emoticons even in the middle of words.
-If unchecked, you'll see emoticons only if they are isolated 
+If unchecked, you'll see emoticons only if they are isolated
 from other words by spaces.</string>
          </property>
          <property name="text">
@@ -279,7 +279,7 @@ from other words by spaces.</string>
        <item>
         <widget class="QCheckBox" name="checkBox_CHAT_SHOW_IP">
          <property name="toolTip">
-          <string>Depending on hub configuration: information about 
+          <string>Depending on hub configuration: information about
 them is usually available only to operators</string>
          </property>
          <property name="text">
@@ -345,14 +345,14 @@ them is usually available only to operators</string>
        <item>
         <widget class="QCheckBox" name="checkBox_SMILEPANEL">
          <property name="text">
-          <string>Use Smile-Panel</string>
+          <string>Use emoticons panel</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="checkBox_HIDESMILEPANEL">
          <property name="text">
-          <string>Autohide Smile-Panel</string>
+          <string>Autohide emoticons panel</string>
          </property>
         </widget>
        </item>

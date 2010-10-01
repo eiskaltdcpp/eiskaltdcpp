@@ -103,7 +103,7 @@ Keys:
         <source>Using:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
+EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
 
 Keys:
   -h, --help	 Show this message
@@ -264,7 +264,7 @@ Keys:
     </message>
     <message>
         <source>CRC32 inconsistency (SFV-Check)</source>
-        <translation>CRC32 nesaglasno (SFV-Check)</translation>
+        <translation type="obsolete">CRC32 nesaglasno (SFV-Check)</translation>
     </message>
     <message>
         <source>Full tree does not match TTH root</source>
@@ -293,6 +293,10 @@ Keys:
     <message>
         <source>Download Queue</source>
         <translation>Red za preuzimanje</translation>
+    </message>
+    <message>
+        <source>Checksum mismatch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1756,6 +1760,14 @@ Molim proverite podešavanja vaše veze</translation>
         <source>Hub Manager</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Download Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All downloads complete</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2128,7 +2140,7 @@ Keys:
     </message>
     <message>
         <source>Download to</source>
-        <translation>Preuzmi u</translation>
+        <translation type="obsolete">Preuzmi u</translation>
     </message>
     <message>
         <source>Download Whole Directory</source>
@@ -2136,7 +2148,7 @@ Keys:
     </message>
     <message>
         <source>Download Whole Directory to</source>
-        <translation>Preuzmi celu fasciklu u</translation>
+        <translation type="obsolete">Preuzmi celu fasciklu u</translation>
     </message>
     <message>
         <source>Search TTH</source>
@@ -2209,6 +2221,14 @@ Keys:
     <message>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Pronadjeno: &lt;b&gt;%1&lt;/b&gt;     Ispalo: &lt;b&gt;%2&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Download to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Whole Directory to...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2547,7 +2567,7 @@ Keys:
     </message>
     <message>
         <source>Download to</source>
-        <translation>Preuzmi u</translation>
+        <translation type="obsolete">Preuzmi u</translation>
     </message>
     <message>
         <source>Search for alternates</source>
@@ -2612,6 +2632,10 @@ Keys:
     <message>
         <source>Select directory</source>
         <translation>Izaberi fasciklu</translation>
+    </message>
+    <message>
+        <source>Download to...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2747,7 +2771,7 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <source>Copy IP-address of user</source>
-        <translation>Kopiraj  IP-adresu korisnika</translation>
+        <translation type="obsolete">Kopiraj  IP-adresu korisnika</translation>
     </message>
     <message>
         <source>Remove Source</source>
@@ -2807,7 +2831,7 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <source>Download complete...</source>
-        <translation>Preuzimanje kompletno...</translation>
+        <translation type="obsolete">Preuzimanje kompletno...</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -2855,6 +2879,46 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <source>You cannot search alternates for uploads!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopiraj</translation>
+    </message>
+    <message>
+        <source>Users</source>
+        <translation type="unfinished">Korisnici</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished">Brzina</translation>
+    </message>
+    <message>
+        <source>Statistic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished">Veličina</translation>
+    </message>
+    <message>
+        <source>Time left</source>
+        <translation type="unfinished">Preostalo vreme</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Ime fajla</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished">Host</translation>
+    </message>
+    <message>
+        <source>IP</source>
+        <translation type="unfinished">IP</translation>
+    </message>
+    <message>
+        <source>Magnet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4328,7 +4392,7 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated 
 from other words by spaces.</source>
-        <translation>Ako uključite, videćete emotikone i u sredini reči
+        <translation type="obsolete">Ako uključite, videćete emotikone i u sredini reči
 ako isključite, videćete ih samo ako su odvojeni
 od drugih reči sa razmakom.</translation>
     </message>
@@ -4418,11 +4482,6 @@ od drugih reči sa razmakom.</translation>
     </message>
     <message>
         <source>Show ip-addresses of users in chat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Depending on hub configuration: information about 
-them is usually available only to operators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4527,6 +4586,25 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Highlighting of already shared files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If checked, you&apos;ll see emoticons even in the middle of words.
+If unchecked, you&apos;ll see emoticons only if they are isolated
+from other words by spaces.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Depending on hub configuration: information about
+them is usually available only to operators</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use emoticons panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Autohide emoticons panel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4813,7 +4891,7 @@ ako tvoj sistem počinje sporo.</translation>
     </message>
     <message>
         <source>Auto refresh time (minutes,0 = off)</source>
-        <translation>Vreme auto osvežavanja  (minutes,0 = off)</translation>
+        <translation type="obsolete">Vreme auto osvežavanja  (minutes,0 = off)</translation>
     </message>
     <message>
         <source>Use fast hash</source>
@@ -4969,7 +5047,7 @@ odobreni slot neće biti zatvoren.</translation>
     </message>
     <message>
         <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation>Max brzina obnavljanja (MB/s) (0=infinite)</translation>
+        <translation type="obsolete">Max brzina obnavljanja (MB/s) (0=infinite)</translation>
     </message>
     <message>
         <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
@@ -4985,6 +5063,14 @@ odobreni slot neće biti zatvoren.</translation>
     </message>
     <message>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto refresh time (minutes, 0 = off)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5174,7 +5260,7 @@ odobreni slot neće biti zatvoren.</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation>Email</translation>
+        <translation type="obsolete">Email</translation>
     </message>
     <message>
         <source>Share</source>
@@ -5183,6 +5269,10 @@ odobreni slot neće biti zatvoren.</translation>
     <message>
         <source>IP</source>
         <translation>IP</translation>
+    </message>
+    <message>
+        <source>E-mail</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
