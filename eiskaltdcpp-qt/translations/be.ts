@@ -159,12 +159,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/Antispam.cpp" line="163"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation>%1: Дасылаем паведамленьне “Спрабуйце яшчэ”.</translation>
+        <translation>%1: Дасылаем паведамленьне «Спрабуйце яшчэ».</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation>Вас вітае бот супраць лухты. Такім чынам, пытаньне наступнае: “%1”</translation>
+        <translation>Вас вітае бот супраць лухты. Такім чынам, пытаньне наступнае: «%1»</translation>
     </message>
 </context>
 <context>
@@ -491,7 +491,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/EmoticonDialog.cpp" line="27"/>
         <source>Select emoticon</source>
-        <translation type="unfinished"></translation>
+        <translation>Абраць пачуцьцезнак</translation>
     </message>
 </context>
 <context>
@@ -999,13 +999,13 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1328"/>
         <location filename="../src/HubFrame.cpp" line="1330"/>
         <source>Away mode off</source>
-        <translation>Вярнуліся са стану “адыйшоў”</translation>
+        <translation>Вярнуліся са стану «адышоў»</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1202"/>
         <location filename="../src/HubFrame.cpp" line="1204"/>
         <source>Away mode on: </source>
-        <translation>Перайшлі ў стан “адыйшоў”: </translation>
+        <translation>Перайшлі ў стан «адышоў»: </translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1222"/>
@@ -1087,14 +1087,14 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1393"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
-        <translation>/away &lt;паведамленьне&gt; — перайсьці ў стан “адыйшоў”, ці вярнуцца
+        <translation>/away &lt;паведамленьне&gt; — перайсьці ў стан «адышоў», ці вярнуцца
 </translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1394"/>
         <source>/back - set away-mode off
 </source>
-        <translation>/back — вярнуцца са стану “адыйшоў”
+        <translation>/back — вярнуцца са стану «адышоў»
 </translation>
     </message>
     <message>
@@ -1224,8 +1224,8 @@ Favorite user</source>
 /alias &lt;НАЗОЎКА&gt;::&lt;ЗАГАД&gt; — стварыць назоўку /НАЗОЎКА да загаду /ЗАГАД
 /alias purge &lt;НАЗОЎКА&gt; — выкрасьліць назоўку
 /alias list — пералічыць усе назоўкі
-/away &lt;паведамленьне&gt; — перайсьці ў стан “адыйшоў”, ці вярнуцца
-/back — вярнуцца са стану “адыйшоў”
+/away &lt;паведамленьне&gt; — перайсьці ў стан «адышоў», ці вярнуцца
+/back — вярнуцца са стану «адышоў»
 /browse &lt;мянушка&gt; — прагледзець файлы карыстальніка
 /clear — ачысьціць ваконца гаманы
 /magnet — прадвызначанае дзеяньне па магніт-спасылцы (0 — запытацца, 1 — шукаць, 2 — сьцягнуць)
@@ -1404,7 +1404,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="3232"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation>Выбачайце, але мянушку “%1” ўжо заняў іншы карыстальнік.</translation>
+        <translation>Выбачайце, але мянушку «%1» ўжо заняў іншы карыстальнік.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3238"/>
@@ -1853,7 +1853,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1063"/>
         <source>On</source>
-        <translation>Адыйшоў</translation>
+        <translation>Адышоў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1065"/>
@@ -1863,7 +1863,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1067"/>
         <source>Away when not visible</source>
-        <translation>“Адыйшоў”, калі ня бачна ваконца</translation>
+        <translation>«Адышоў», калі ня бачна ваконца</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1075"/>
@@ -2348,7 +2348,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MultiLineToolBar.cpp" line="61"/>
         <source>Show close buttons</source>
-        <translation>Паказваць гузікі “закрыць”</translation>
+        <translation>Паказваць гузікі «закрыць»</translation>
     </message>
 </context>
 <context>
@@ -3636,7 +3636,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="419"/>
         <source>Transfer View</source>
-        <translatorcomment>???“Сьпіс перадаванага”?</translatorcomment>
+        <translatorcomment>???«Сьпіс перадаванага»?</translatorcomment>
         <translation>Сьпіс перадаванага</translation>
     </message>
     <message>
@@ -4116,7 +4116,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="314"/>
         <location filename="../ui/UIAntiSpam.ui" line="369"/>
         <source>Move user to &quot;White&quot; list</source>
-        <translation>Перанесьці карыстальніка ў “белы” сьпіс</translation>
+        <translation>Перанесьці карыстальніка ў «белы» сьпіс</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="317"/>
@@ -4129,7 +4129,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
         <location filename="../ui/UIAntiSpam.ui" line="340"/>
         <source>Move user to &quot;Gray&quot; list</source>
-        <translation>Перанесьці карыстальніка ў “шэры” сьпіс</translation>
+        <translation>Перанесьці карыстальніка ў «шэры» сьпіс</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="343"/>
@@ -4142,7 +4142,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
         <location filename="../ui/UIAntiSpam.ui" line="382"/>
         <source>Move user to &quot;Black&quot; list</source>
-        <translation>Перанесьці карыстальніка ў “чорны” сьпіс</translation>
+        <translation>Перанесьці карыстальніка ў «чорны» сьпіс</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="395"/>
@@ -4199,7 +4199,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="201"/>
         <source>This description will show in the user list.</source>
-        <translatorcomment>!!!аднолькавае тлумачэньне да палей “апісаньне” асяродку й карыстальніка</translatorcomment>
+        <translatorcomment>!!!аднолькавае тлумачэньне да палей «апісаньне» асяродку й карыстальніка</translatorcomment>
         <translation>Гэтае апісаньне будзе паказвацца ў сьпісе карыстальнікаў.</translation>
     </message>
     <message>
@@ -4830,7 +4830,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Auto detect connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Самарушна вызначаць злучэньне</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="40"/>
@@ -4944,7 +4944,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="398"/>
         <source>When enabled can hang program on exit.</source>
-        <translation>Калі задзейнічаць, праграма можа “завіснуць” па выхадзе.</translation>
+        <translation>Калі задзейнічаць, праграма можа «завіснуць» па выхадзе.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="401"/>
@@ -5319,8 +5319,8 @@ To enable autodrop, turn on either &quot;Autodrop slow sources for all queue ite
 or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation>Гэтая можнасьць выкрасьляе ўсе павольныя крыніцы з усіх пунктаў чаргі
 (акрамя сьпісаў файлаў).
-Каб крыніцы самарушна адкідаліся, задзейнічайце або “Самарушна адкідаць
-павольныя крыніцы ва ўсіх пунктах чаргі”, або “Выкрасьляць павольныя сьпісы файлаў”
+Каб крыніцы самарушна адкідаліся, задзейнічайце або «Самарушна адкідаць
+павольныя крыніцы ва ўсіх пунктах чаргі», або «Выкрасьляць павольныя сьпісы файлаў»
 (ці абедзьве гэтыя можнасьці).</translation>
     </message>
     <message>
@@ -5408,11 +5408,11 @@ If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Задзейнічайце гэтую можнасьць, калі вы хочаце пакідаць у чарзе
 ўжо сьцягнутыя файлы ды тэчкі.
-Сьцягнутыя пункты чаргі перайдуць у стан “Скончылі”, а вы зможаце
+Сьцягнутыя пункты чаргі перайдуць у стан «Скончылі», а вы зможаце
 выкрасьліць гэтыя пункты калі пажадаеце.
 Дзякуючы гэтае можнасьці вы можаце адразу ў чарзе сачыць,
 якія файлы ўжо сьцягнуліся — і ня трэба будзе кожнага разу
-адкрываць дзеля гэтага ваконца “Сьцягнутае”.
+адкрываць дзеля гэтага ваконца «Сьцягнутае».
 Уважце, што калі вы фізычна перасунеце зь мейсца прызначэньня
 ці зьнішчыце сьцягнутыя файлы, адпаведныя сьпісы ў чарзе
 застануцца й ня будуць самарушна выкрасьляцца.
@@ -5450,9 +5450,9 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation>Калі задзейнічаць гэтую можнасьць, EiskaltDC++ будзе выкрасьляць
 тыя сьпісы файлаў, што сьцягваюцца з хуткасьцю, якая прызнаецца
 запавольнаю.
-Каб крыніцы самарушна адкідаліся, задзейнічайце або “Самарушна адкідаць
-павольныя крыніцы ва ўсіх пунктах чаргі”, або “Выкрасьляць павольныя
-сьпісы файлаў” (ці абедзьве гэтыя можнасьці).</translation>
+Каб крыніцы самарушна адкідаліся, задзейнічайце або «Самарушна адкідаць
+павольныя крыніцы ва ўсіх пунктах чаргі», або «Выкрасьляць павольныя
+сьпісы файлаў» (ці абедзьве гэтыя можнасьці).</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="684"/>
@@ -5650,7 +5650,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="307"/>
         <source>Highlight favorite users in user list</source>
-        <translatorcomment>???“вылучаць”?</translatorcomment>
+        <translatorcomment>???«вылучаць»?</translatorcomment>
         <translation>Вылучаць улюбёнцаў у сьпісе карыстальнікаў</translation>
     </message>
     <message>
@@ -5661,7 +5661,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="338"/>
         <source>Use Ctrl+Enter to send messages</source>
-        <translation>Адсылаць паведамленьні спалучэньнем “Ctrl+Enter”</translation>
+        <translation>Адсылаць паведамленьні спалучэньнем «Ctrl+Enter»</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="362"/>
@@ -6017,7 +6017,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="288"/>
         <source>Favorite user event</source>
-        <translatorcomment>???удакладніць кантэкст слова “event”</translatorcomment>
+        <translatorcomment>???удакладніць кантэкст слова «event»</translatorcomment>
         <translation>Улюбёнец далучыўся або адлучыўся</translation>
     </message>
     <message>
@@ -6088,13 +6088,13 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <translation>Гэтае апісаньне будзе паказвацца ў сьпісе карыстальнікаў.
 Яно можа замяняцца на апісаньне, што можа вызначацца асобна
 для кожнага асяродку: ва ўласьцівасьцях асяродку ў ваконцы
-“Улюбёныя асяродкі”.</translation>
+«Улюбёныя асяродкі».</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="46"/>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation>Калі вы ў стане “адыйшоў”, гэтае паведамленьне будзе дасылацца
+        <translation>Калі вы ў стане «адышоў», гэтае паведамленьне будзе дасылацца
 кожнаму, хто дашле вам асабістае паведамленьне.</translation>
     </message>
     <message>
@@ -6105,7 +6105,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <translation>Гэтая мянушка будзе атаясьняць вас, калі вы далучаецеся да асяродку.
 Яна можа замяніцца на мянушку, што можа вызначацца асобна
 для кожнага асяродку: ва ўласьцівасьцях асяродку ў ваконцы
-“Улюбёныя асяродкі”.</translation>
+«Улюбёныя асяродкі».</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="69"/>
@@ -6125,7 +6125,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="90"/>
         <source>Auto away interval (min)</source>
-        <translation>Стан “адыйшоў”, калі бязьдзейнічаем (хв.)</translation>
+        <translation>Стан «адышоў», калі бязьдзейнічаем (хв.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="151"/>
@@ -6185,7 +6185,7 @@ you can specify following:
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
         <translation>Вызначае абмежаваньні сьцягваць (у ГіБ) на кожную ўяўную тэчку вашага
-абагуленага. Напрыклад, калі вы абагулілі /home/карыстальнік/Відэа як “Відэа”,
+абагуленага. Напрыклад, калі вы абагулілі /home/карыстальнік/Відэа як «Відэа»,
 вы можаце вызначыць наступнае:
 /Відэа	10
 Гэта значыць, што мець магчымасьць сьцягваць файлы з гэтае тэчкі
@@ -6204,12 +6204,12 @@ With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
         <translatorcomment>!!!удакладніць пераклад attribute, freeze, refresh</translatorcomment>
-        <translation>Абагуляць файлы, што маюць азнаку “схаваны” ды файлы ў каталёгах,
-якія маюць азнаку “схаваны”.
+        <translation>Абагуляць файлы, што маюць азнаку «схаваны» ды файлы ў каталёгах,
+якія маюць азнаку «схаваны».
 Калі гэтую можнасьць не задзейнічаць, файлы, якія пачынаюцца з кропкі
-(“.”), абагуляцца ня будуць.
+(«.»), абагуляцца ня будуць.
 Уважце: гэтая можнасьць патрабуе дапоўніць сьпіс файлаў, і пакуль ён
-дапаўняецца, вам можа падацца, што кліент “завіс”.</translation>
+дапаўняецца, вам можа падацца, што кліент «завіс».</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="303"/>
@@ -6605,19 +6605,19 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translatorcomment>???“Мэню асяродку”?</translatorcomment>
+        <translatorcomment>???«Мэню асяродку»?</translatorcomment>
         <translation>Мэню асяродку</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
         <source>Search</source>
-        <translatorcomment>???“Мэню пошуку”?</translatorcomment>
+        <translatorcomment>???«Мэню пошуку»?</translatorcomment>
         <translation>Вынікі пошуку</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="89"/>
         <source>User</source>
-        <translatorcomment>???“Мэню карыстальніка”?</translatorcomment>
+        <translatorcomment>???«Мэню карыстальніка»?</translatorcomment>
         <translation>Мэню карыстальніка</translation>
     </message>
     <message>
