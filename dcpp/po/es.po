@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-09-25 22:25+0300\n"
-"PO-Revision-Date: 2010-09-18 20:36+0200\n"
+"PO-Revision-Date: 2010-10-01 11:11+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -67,7 +67,7 @@ msgstr ""
 
 #: ../DCPlusPlus.cpp:117
 msgid "Hash database"
-msgstr "Indexación de la Base de Datos"
+msgstr "Base de Datos del Hash"
 
 #: ../DCPlusPlus.cpp:120
 msgid "Shared Files"
@@ -267,7 +267,7 @@ msgstr "Base de datos del Hash reconstruido"
 
 #: ../HashManager.cpp:837
 msgid "Hashing file: %1% (Size: %2%)"
-msgstr "Indexado Fallado: %1% (Tamaño: %2%)"
+msgstr "Indexado archivo: %1% (Tamaño: %2%)"
 
 #: ../HashManager.cpp:885
 msgid ""
