@@ -8,6 +8,7 @@
 #include "ShellCommandRunner.h"
 #include "EmoticonDialog.h"
 #include "WulforSettings.h"
+#include "FlowLayout.h"
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
@@ -44,6 +45,21 @@
 #include <QtDebug>
 
 #include <exception>
+
+static inline void clearLayout(QLayout *l){
+    if (!l)
+        return;
+
+    QLayoutItem *item = NULL;
+    while ((item = l->takeAt(0)) != NULL){
+        l->removeWidget(item->widget());
+        item->widget()->deleteLater();
+
+        delete item;
+    }
+
+    l->invalidate();
+}
 
 QStringList HubFrame::LinkParser::link_types = QString("http://,https://,ftp://,dchub://,adc://,adcs://,magnet:,www.").split(",");
 HubFrame::Menu *HubFrame::Menu::instance = NULL;
@@ -874,6 +890,18 @@ void HubFrame::init(){
     toolButton_SMILE->setIcon(WICON(WulforUtil::eiEMOTICON));
 
     toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
+
+    frame_SMILES->setLayout(new FlowLayout(frame_SMILES));
+    frame_SMILES->setVisible(false);
+
+    QSize sz;
+    Q_UNUSED(sz);
+
+    if (EmoticonFactory::getInstance())
+        EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+
+    foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+        connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
 
     connect(this, SIGNAL(coreConnecting(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreConnected(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
@@ -2765,28 +2793,59 @@ void HubFrame::slotSmile(){
     if (!(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance()))
         return;
 
-    EmoticonDialog *dialog = new EmoticonDialog(this);
+    if (WBGET(WB_CHAT_USE_SMILE_PANEL)){
+        frame_SMILES->setVisible(!frame_SMILES->isVisible());
+    }
+    else {
+        EmoticonDialog *dialog = new EmoticonDialog(this);
 
-    if (dialog->exec() == QDialog::Accepted) {
+        if (dialog->exec() == QDialog::Accepted) {
 
-        QString smiley = dialog->getEmoticonText();
+            QString smiley = dialog->getEmoticonText();
 
-        if (!smiley.isEmpty()) {
+            if (!smiley.isEmpty()) {
 
-            smiley.replace("&lt;", "<");
-            smiley.replace("&gt;", ">");
-            smiley.replace("&amp;", "&");
-            smiley.replace("&apos;", "\'");
-            smiley.replace("&quot;", "\"");
+                smiley.replace("&lt;", "<");
+                smiley.replace("&gt;", ">");
+                smiley.replace("&amp;", "&");
+                smiley.replace("&apos;", "\'");
+                smiley.replace("&quot;", "\"");
 
-            smiley += " ";
+                smiley += " ";
 
-            plainTextEdit_INPUT->textCursor().insertText(smiley);
-            plainTextEdit_INPUT->setFocus();
+                plainTextEdit_INPUT->textCursor().insertText(smiley);
+                plainTextEdit_INPUT->setFocus();
+            }
         }
+
+        delete dialog;
+    }
+}
+
+void HubFrame::slotSmileClicked(){
+    EmoticonLabel *lbl = qobject_cast<EmoticonLabel* >(sender());
+
+    if (!lbl)
+        return;
+
+    QString smiley = lbl->toolTip();
+
+    if (!smiley.isEmpty()) {
+
+        smiley.replace("&lt;", "<");
+        smiley.replace("&gt;", ">");
+        smiley.replace("&amp;", "&");
+        smiley.replace("&apos;", "\'");
+        smiley.replace("&quot;", "\"");
+
+        smiley += " ";
+
+        plainTextEdit_INPUT->textCursor().insertText(smiley);
+        plainTextEdit_INPUT->setFocus();
     }
 
-    delete dialog;
+    if (WBGET(WB_CHAT_HIDE_SMILE_PANEL))
+        frame_SMILES->setVisible(false);
 }
 
 void HubFrame::slotSmileContextMenu(){
@@ -2815,8 +2874,6 @@ void HubFrame::slotSmileContextMenu(){
 
     if (a && a->isChecked()){
         WSSET(WS_APP_EMOTICON_THEME, a->text());
-
-        EmoticonFactory::getInstance()->load();
     }
     else if (a)
         WSSET(WS_APP_EMOTICON_THEME, "");
@@ -2969,8 +3026,25 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
 
     if (key == WS_CHAT_FONT || key == WS_CHAT_ULIST_FONT)
         updateStyles();
-    else if (key == WS_APP_EMOTICON_THEME)
+    else if (key == WS_APP_EMOTICON_THEME){
+        if (EmoticonFactory::getInstance()){
+            EmoticonFactory::getInstance()->load();
+
+            frame_SMILES->setVisible(false);
+
+            clearLayout(frame_SMILES->layout());
+
+            QSize sz;
+            Q_UNUSED(sz);
+
+            EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+
+            foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+                connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
+        }
+
         toolButton_SMILE->setVisible(!value.isEmpty() && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+    }
 }
 
 void HubFrame::slotCopyHubIP(){

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>566</width>
-    <height>504</height>
+    <width>564</width>
+    <height>502</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -339,6 +339,20 @@ them is usually available only to operators</string>
          </property>
          <property name="autoExclusive">
           <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_SMILEPANEL">
+         <property name="text">
+          <string>Use Smile-Panel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_HIDESMILEPANEL">
+         <property name="text">
+          <string>Autohide Smile-Panel</string>
          </property>
         </widget>
        </item>

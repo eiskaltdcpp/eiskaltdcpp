@@ -55,6 +55,8 @@ private:
     QDomNode findSectionByName(const QDomNode &node, const QString &name);
     void getSubSectionsByName(const QDomNode &node, DomNodeList &list, const QString &name);
 
+    QString currentTheme;
+
     EmoticonMap map;
     EmoticonList list;
     TextDocumentList docs;

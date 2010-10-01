@@ -31,24 +31,22 @@ EmoticonDialog::EmoticonDialog(QWidget * parent, Qt::WindowFlags f)
 
     resize(s);
 
-    foreach(QLabel *l, findChildren<QLabel*>())
-        l->installEventFilter(this);
+    foreach(EmoticonLabel *l, findChildren<EmoticonLabel*>())
+        connect(l, SIGNAL(clicked()), this, SLOT(smileClicked()));
 }
 
 /** */
 EmoticonDialog::~EmoticonDialog() {
-    delete m_pLayout;
+    m_pLayout->deleteLater();
 }
 
-/** event filter */
-bool EmoticonDialog::eventFilter(QObject * object, QEvent * event) {
-    if ((event->type() == QEvent::MouseButtonPress) && qobject_cast<QLabel*>(object)) {
-        QLabel *l = qobject_cast<QLabel*>(object);
+void EmoticonDialog::smileClicked(){
+    EmoticonLabel *lbl = qobject_cast<EmoticonLabel* >(sender());
 
-        selectedSmile = l->toolTip();
+    if (!lbl)
+        return;
 
-        accept();
-    }
+    selectedSmile = lbl->toolTip();
 
-    return QWidget::eventFilter(object, event); // standard event processing
+    accept();
 }

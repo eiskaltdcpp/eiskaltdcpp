@@ -224,6 +224,7 @@ private Q_SLOTS:
     void slotStatusLinkOpen(const QString &url);
     void slotHubMenu(QAction*);
     void slotSmile();
+    void slotSmileClicked();
     void slotSmileContextMenu();
     void slotSettingsChanged(const QString &, const QString &);
     void slotCopyHubURL();

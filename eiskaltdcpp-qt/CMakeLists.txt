@@ -109,6 +109,7 @@ set (MOC_HDRS
             src/DownloadQueueModel.h
             src/EmoticonDialog.h
             src/EmoticonFactory.h
+	    src/EmoticonObject.h
             src/FavoriteHubModel.h
             src/FavoriteHubs.h
             src/FavoriteUsers.h

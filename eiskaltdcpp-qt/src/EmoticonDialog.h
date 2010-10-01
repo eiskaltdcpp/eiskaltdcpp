@@ -29,9 +29,8 @@ public:
 
     QString getEmoticonText() const { return selectedSmile; }
 
-protected:
-    /** */
-    bool eventFilter(QObject * object, QEvent * event);
+private Q_SLOTS:
+    void smileClicked();
 
 private:
     /** */

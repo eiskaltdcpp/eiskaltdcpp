@@ -15,6 +15,25 @@
 #include <QList>
 #include <QStringList>
 #include <QPixmap>
+#include <QLabel>
+#include <QMouseEvent>
+
+class EmoticonLabel: public QLabel{
+Q_OBJECT
+public:
+    EmoticonLabel(QWidget *parent = NULL) : QLabel(parent){}
+    virtual ~EmoticonLabel(){}
+
+Q_SIGNALS:
+    void clicked();
+
+protected:
+    virtual void mousePressEvent(QMouseEvent *ev){
+        QLabel::mousePressEvent(ev);
+
+        emit clicked();
+    }
+};
 
 struct EmoticonObject{
     QString fileName;

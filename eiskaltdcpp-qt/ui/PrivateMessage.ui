@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>475</width>
-    <height>408</height>
+    <width>473</width>
+    <height>406</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -52,7 +52,7 @@
           <property name="margin">
            <number>1</number>
           </property>
-          <item row="0" column="0">
+          <item row="1" column="0">
            <widget class="ChatEdit" name="plainTextEdit_INPUT">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -68,10 +68,26 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
+          <item row="1" column="1">
            <widget class="QToolButton" name="toolButton_SMILE">
             <property name="text">
              <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QFrame" name="frame_SMILES">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
             </property>
            </widget>
           </item>

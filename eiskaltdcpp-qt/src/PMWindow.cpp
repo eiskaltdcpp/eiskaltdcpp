@@ -6,6 +6,7 @@
 #include "Notification.h"
 #include "EmoticonFactory.h"
 #include "EmoticonDialog.h"
+#include "FlowLayout.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -23,6 +24,21 @@
 
 using namespace dcpp;
 
+static inline void clearLayout(QLayout *l){
+    if (!l)
+        return;
+
+    QLayoutItem *item = NULL;
+    while ((item = l->takeAt(0)) != NULL){
+        l->removeWidget(item->widget());
+        item->widget()->deleteLater();
+
+        delete item;
+    }
+
+    l->invalidate();
+}
+
 PMWindow::PMWindow(QString cid, QString hubUrl):
         cid(cid),
         hubUrl(hubUrl),
@@ -31,6 +47,19 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
         hasHighlightMessages(false)
 {
     setupUi(this);
+
+
+    frame_SMILES->setLayout(new FlowLayout(frame_SMILES));
+    frame_SMILES->setVisible(false);
+
+    QSize sz;
+    Q_UNUSED(sz);
+
+    if (EmoticonFactory::getInstance())
+        EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+
+    foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+        connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
 
     setAttribute(Qt::WA_DeleteOnClose);
 
@@ -409,28 +438,61 @@ void PMWindow::slotSmile(){
     if (!(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance()))
         return;
 
-    EmoticonDialog *dialog = new EmoticonDialog(this);
+    if (WBGET(WB_CHAT_USE_SMILE_PANEL)){
+        frame_SMILES->setVisible(!frame_SMILES->isVisible());
+    }
+    else {
+        EmoticonDialog *dialog = new EmoticonDialog(this);
 
-    if (dialog->exec() == QDialog::Accepted) {
-        QString smiley = dialog->getEmoticonText();
+        if (dialog->exec() == QDialog::Accepted) {
 
-        if (!smiley.isEmpty()) {
+            QString smiley = dialog->getEmoticonText();
 
-            smiley.replace("&lt;", "<");
-            smiley.replace("&gt;", ">");
-            smiley.replace("&amp;", "&");
-            smiley.replace("&apos;", "\'");
-            smiley.replace("&quot;", "\"");
+            if (!smiley.isEmpty()) {
 
-            smiley += " ";
+                smiley.replace("&lt;", "<");
+                smiley.replace("&gt;", ">");
+                smiley.replace("&amp;", "&");
+                smiley.replace("&apos;", "\'");
+                smiley.replace("&quot;", "\"");
 
-            plainTextEdit_INPUT->textCursor().insertText(smiley);
-            plainTextEdit_INPUT->setFocus();
+                smiley += " ";
+
+                plainTextEdit_INPUT->textCursor().insertText(smiley);
+                plainTextEdit_INPUT->setFocus();
+            }
         }
+
+        delete dialog;
+    }
+}
+
+void PMWindow::slotSmileClicked(){
+    EmoticonLabel *lbl = qobject_cast<EmoticonLabel* >(sender());
+
+    if (!lbl)
+        return;
+
+    QString smiley = lbl->toolTip();
+
+    if (!smiley.isEmpty()) {
+
+        smiley.replace("&lt;", "<");
+        smiley.replace("&gt;", ">");
+        smiley.replace("&amp;", "&");
+        smiley.replace("&apos;", "\'");
+        smiley.replace("&quot;", "\"");
+
+        smiley += " ";
+
+        plainTextEdit_INPUT->textCursor().insertText(smiley);
+        plainTextEdit_INPUT->setFocus();
     }
 
-    delete dialog;
+    if (WBGET(WB_CHAT_HIDE_SMILE_PANEL))
+        frame_SMILES->setVisible(false);
 }
+
 
 void PMWindow::slotSmileContextMenu(){
 #ifndef WIN32
@@ -458,8 +520,6 @@ void PMWindow::slotSmileContextMenu(){
 
     if (a && a->isChecked()){
         WSSET(WS_APP_EMOTICON_THEME, a->text());
-
-        EmoticonFactory::getInstance()->load();
     }
     else if (a)
         WSSET(WS_APP_EMOTICON_THEME, "");
@@ -470,6 +530,23 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
 
     if (key == WS_CHAT_PM_FONT)
         updateStyles();
-    else if (key == WS_APP_EMOTICON_THEME)
+    else if (key == WS_APP_EMOTICON_THEME){
+        if (EmoticonFactory::getInstance()){
+            EmoticonFactory::getInstance()->load();
+
+            frame_SMILES->setVisible(false);
+
+            clearLayout(frame_SMILES->layout());
+
+            QSize sz;
+            Q_UNUSED(sz);
+
+            EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+
+            foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+                connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
+        }
+
         toolButton_SMILE->setVisible(!value.isEmpty() && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+    }
 }

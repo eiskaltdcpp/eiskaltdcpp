@@ -63,6 +63,7 @@ private Q_SLOTS:
     void slotSmile();
     void slotSettingChanged(const QString&, const QString&);
     void slotSmileContextMenu();
+    void slotSmileClicked();
 
 Q_SIGNALS:
     void privateMessageClosed(QString);

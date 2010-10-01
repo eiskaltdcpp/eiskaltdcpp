@@ -25,6 +25,7 @@ EmoticonFactory::EmoticonFactory() :
 #ifdef WIN32
     EmotionPath.prepend( qApp->applicationDirPath()+QDir::separator() );
 #endif
+    currentTheme = "";
 }
 
 EmoticonFactory::~EmoticonFactory(){
@@ -33,6 +34,11 @@ EmoticonFactory::~EmoticonFactory(){
 
 void EmoticonFactory::load(){
     QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
+
+    if (currentTheme == emoTheme)
+        return;
+
+    currentTheme = emoTheme;
 
     if (!QDir(EmotionPath+emoTheme).exists() || emoTheme.isEmpty())
         return;
@@ -257,7 +263,7 @@ void EmoticonFactory::fillLayout(QLayout *l, QSize &recommendedSize){
     }
 
     foreach (EmoticonObject *i, list){
-        QLabel *lbl = new QLabel();
+        EmoticonLabel *lbl = new EmoticonLabel();
 
         lbl->setPixmap(i->pixmap);
         lbl->resize(i->pixmap.size()+QSize(2, 2));

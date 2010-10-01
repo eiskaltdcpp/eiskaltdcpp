@@ -191,6 +191,8 @@ void SettingsGUI::init(){
         checkBox_USE_CTRL_ENTER->setChecked(WBGET(WB_USE_CTRL_ENTER));
         checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
         checkBox_ROTATING->setChecked(WBGET(WB_CHAT_ROTATING_MSGS));
+        checkBox_SMILEPANEL->setChecked(WBGET(WB_CHAT_USE_SMILE_PANEL));
+        checkBox_HIDESMILEPANEL->setChecked(WBGET(WB_CHAT_HIDE_SMILE_PANEL));
     }
     {//Chat (extended) tab
         comboBox_DBL_CLICK->setCurrentIndex(WIGET(WI_CHAT_DBLCLICK_ACT));
@@ -352,6 +354,8 @@ void SettingsGUI::ok(){
         WBSET(WB_APP_FORCE_EMOTICONS, checkBox_EMOTFORCE->isChecked());
         WBSET(WB_USE_CTRL_ENTER, checkBox_USE_CTRL_ENTER->isChecked());
         WBSET(WB_CHAT_HIGHLIGHT_FAVS, checkBox_HIGHLIGHTFAVS->isChecked());
+        WBSET(WB_CHAT_USE_SMILE_PANEL, checkBox_SMILEPANEL->isChecked());
+        WBSET(WB_CHAT_HIDE_SMILE_PANEL, checkBox_HIDESMILEPANEL->isChecked());
     }
     {//Chat (extended) tab
         WISET(WI_CHAT_DBLCLICK_ACT, comboBox_DBL_CLICK->currentIndex());
