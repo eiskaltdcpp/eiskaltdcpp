@@ -536,7 +536,7 @@ void MainWindow::createStatusIcon_gui()
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("statusIconBlinkUseItem")), useStatusIconBlink);
     g_signal_connect(getWidget("statusIconBlinkUseItem"), "toggled", G_CALLBACK(onStatusIconBlinkUseToggled_gui), (gpointer)this);
 
-    if (BOOLSETTING(ALWAYS_TRAY))
+    if (WGETB("always-tray"))
         gtk_status_icon_set_visible(statusIcon, TRUE);
     else
         gtk_status_icon_set_visible(statusIcon, FALSE);
@@ -1276,7 +1276,7 @@ gboolean MainWindow::onCloseWindow_gui(GtkWidget *widget, GdkEvent *event, gpoin
     {
         mw->onQuit = FALSE;
     }
-    else if (WGETB("main-window-no-close") && BOOLSETTING(ALWAYS_TRAY))
+    else if (WGETB("main-window-no-close") && WGETB("always-tray"))
     {
         gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(mw->getWidget("statusIconShowInterfaceItem")), FALSE);
 
@@ -1501,7 +1501,7 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
         F2 *func = new F2(mw, &MainWindow::startSocket_client, onstart, lastConn);
         WulforManager::get()->dispatchClientFunc(func);
 
-        if (BOOLSETTING(ALWAYS_TRAY))
+        if (WGETB("always-tray"))
             gtk_status_icon_set_visible(mw->statusIcon, TRUE);
         else
             gtk_status_icon_set_visible(mw->statusIcon, FALSE);
@@ -1905,7 +1905,7 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
 void MainWindow::on(TimerManagerListener::Second, uint32_t ticks) throw()
 {
     // Avoid calculating status update if it's not needed
-    if (!BOOLSETTING(ALWAYS_TRAY) && minimized)
+    if (!WGETB("always-tray") && minimized)
         return;
 
     int64_t diff = (int64_t)((lastUpdate == 0) ? ticks - 1000 : ticks - lastUpdate);
@@ -1934,7 +1934,7 @@ void MainWindow::on(TimerManagerListener::Second, uint32_t ticks) throw()
     F5 *func = new F5(this, &MainWindow::setStats_gui, hubs, downloadSpeed, downloaded, uploadSpeed, uploaded);
     WulforManager::get()->dispatchGuiFunc(func);
 
-    if (BOOLSETTING(ALWAYS_TRAY) && !downloadSpeed.empty() && !uploadSpeed.empty())
+    if (WGETB("always-tray") && !downloadSpeed.empty() && !uploadSpeed.empty())
     {
         typedef Func2<MainWindow, string, string> F2;
         F2 *f2 = new F2(this, &MainWindow::updateStatusIconTooltip_gui, downloadSpeed, uploadSpeed);

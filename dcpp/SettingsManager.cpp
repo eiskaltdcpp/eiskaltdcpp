@@ -51,7 +51,7 @@ const string SettingsManager::settingTags[] =
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow", "ClearSearch",
     "TextColor", "UseOemMonoFont", "ShareHidden",
-    "FilterMessages", "MinimizeToTray", "AlwaysTray", "AutoSearch",
+    "FilterMessages", "AutoSearch",
     "AutoSearchTime", "ReportFoundAlternates", "TimeStamps",
     "IgnoreHubPms", "IgnoreBotPms",
     "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed",
@@ -152,8 +152,6 @@ SettingsManager::SettingsManager()
     setDefault(CLEAR_SEARCH, true);
     setDefault(SHARE_HIDDEN, false);
     setDefault(FILTER_MESSAGES, true);
-    setDefault(MINIMIZE_TRAY, true);
-    setDefault(ALWAYS_TRAY, true);
     setDefault(AUTO_SEARCH, true);
     setDefault(AUTO_SEARCH_TIME, 2);
     setDefault(REPORT_ALTERNATES, true);

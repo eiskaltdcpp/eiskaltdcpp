@@ -136,6 +136,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("magnet-register", 0));
     defaultInt.insert(IntMap::value_type("urlhandler", 0));
     defaultInt.insert(IntMap::value_type("join-open-new-window", 0));
+    defaultInt.insert(IntMap::value_type("always-tray", 0));
+    defaultInt.insert(IntMap::value_type("minimize-tray", 0));
 
     defaultString.insert(StringMap::value_type("magnet-choose-dir", SETTING(DOWNLOAD_DIRECTORY)));
     defaultString.insert(StringMap::value_type("downloadqueue-order", ""));
