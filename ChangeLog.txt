@@ -32,6 +32,7 @@
 * Added logging anti-spam bot (antispam.log file in ~/.config/eiskaltdc++/ or in a different directory, depending on build options).
 * Added ability to change some keyboard shortcuts (file shortcuts.txt in ~/.config/eiskaltdc++/ or in a different directory, depending on build options).
 * Added support of Qt Declarative UI (work only with Qt >= 4.7.0).
+* Smile-Panel (see Settings->GUI->Chat)
 *** eiskaltdcpp-gtk ***
 * Added Gtk interface based on code of FreeDC++ and LinuxDC++.
 * The interface is localized using gettext.
