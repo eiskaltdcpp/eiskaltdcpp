@@ -77,6 +77,7 @@ private slots:
     void slotDownButtonClicked();
 
 private:
+    typedef ADLSearchManager::SearchCollection::size_type VectorSize;
     ADLS(QWidget* = NULL);
     virtual ~ADLS();
 
@@ -96,7 +97,7 @@ private:
     QString SizeTypeToString(ADLSearch::SizeType);
     QString SourceTypeToString(ADLSearch::SourceType);
     ADLSItem *getItem();
-
+    /*VectorSize*/int findEntry(StrMap&);
     ADLSModel *model;
 
 };

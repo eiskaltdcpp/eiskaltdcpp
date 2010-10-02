@@ -198,7 +198,10 @@ void ADLS::slotClicked(const QModelIndex &index){
 
     ADLSItem *item = reinterpret_cast<ADLSItem*>(index.internalPointer());
     ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
-    int i = item->row();
+    StrMap mapcheck;
+    mapcheck["SSTRING"] = item->data(COLUMN_SSTRING).toString();
+    mapcheck["DIRECTORY"] = item->data(COLUMN_DIRECTORY).toString();
+    VectorSize i = findEntry(mapcheck);
     ADLSearch entry = collection[i];
 
         bool check = !item->data(COLUMN_CHECK).toBool();
@@ -239,8 +242,10 @@ void ADLS::slotChangeButtonClicked(){
     if (!item)
         return;
 
-    int i = item->row();
-
+    StrMap mapcheck;
+    mapcheck["SSTRING"] = item->data(COLUMN_SSTRING).toString();
+    mapcheck["DIRECTORY"] = item->data(COLUMN_DIRECTORY).toString();
+    VectorSize i = findEntry(mapcheck);
     ADLSEditor editor;
     ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
     ADLSearch search = collection[i];
@@ -266,7 +271,10 @@ void ADLS::slotRemoveButtonClicked(){
 
     if (!item)
         return;
-    int i = item->row();
+    StrMap mapcheck;
+    mapcheck["SSTRING"] = item->data(COLUMN_SSTRING).toString();
+    mapcheck["DIRECTORY"] = item->data(COLUMN_DIRECTORY).toString();
+    VectorSize i = findEntry(mapcheck);
     ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
         if (i < collection.size()) {
             collection.erase(collection.begin() + i);
@@ -394,5 +402,14 @@ QString ADLS::SizeTypeToString(ADLSearch::SizeType t){
         case ADLSearch::SizeKibiBytes: return tr("KiB");
         case ADLSearch::SizeMebiBytes: return tr("MiB");
         case ADLSearch::SizeGibiBytes: return tr("GiB");
+    }
+}
+/*ADLS::VectorSize*/int ADLS::findEntry(StrMap &map){
+    ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;int j=0;
+    for (ADLSearchManager::SearchCollection::iterator i = collection.begin(); i != collection.end(); ++i,++j) {
+        ADLSearch &search = *i;
+        if (_q(search.searchString) == map["SSTRING"] &&
+            _q(search.destDir) == map["DIRECTORY"])
+            return j;
     }
 }
