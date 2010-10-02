@@ -1458,7 +1458,7 @@ void MainWindow::parseCmdLine(){
     QStringList args = qApp->arguments();
 
     foreach (QString arg, args){
-        if (arg.startsWith("magnet:?xt=urn:tree:tiger:")){
+        if (arg.startsWith("magnet:?")){
             Magnet m(this);
             m.setLink(arg);
             if (WIGET(WI_DEF_MAGNET_ACTION) == 0) {

@@ -65,6 +65,7 @@ void Magnet::showUI(const QString &name, const qulonglong &size, const QString &
         MainWindow::getInstance()->raise();
     }
 }
+
 void Magnet::setLink(const QString &link){
     QString name = "", tth = "";
     int64_t size = 0;
