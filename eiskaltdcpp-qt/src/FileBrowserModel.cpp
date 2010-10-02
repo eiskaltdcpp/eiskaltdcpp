@@ -373,7 +373,9 @@ QModelIndex FileBrowserModel::createIndexForItem(FileBrowserItem *item){
     if (!rootItem || !item)
         return QModelIndex();
 
-    QStack<FileBrowserItem*> stack;
+    return createIndex(item->row(), 0, item);
+
+    /*QStack<FileBrowserItem*> stack;
     FileBrowserItem *root = item->parent();
 
     while (root && (root != rootItem)){
@@ -391,7 +393,7 @@ QModelIndex FileBrowserModel::createIndexForItem(FileBrowserItem *item){
         parent = index(el->row(), COLUMN_FILEBROWSER_NAME, parent);
     }
 
-    return index(item->row(), COLUMN_FILEBROWSER_NAME, parent);
+    return index(item->row(), COLUMN_FILEBROWSER_NAME, parent);*/
 }
 
 void FileBrowserModel::clear(){

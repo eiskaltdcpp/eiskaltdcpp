@@ -488,7 +488,8 @@ QModelIndex DownloadQueueModel::createIndexForItem(DownloadQueueItem *item){
     if (!rootItem || !item || item == rootItem)
         return QModelIndex();
 
-    QStack<DownloadQueueItem*> stack;
+    return createIndex(item->row(), 0, item);
+    /*QStack<DownloadQueueItem*> stack;
     DownloadQueueItem *root = item->parent();
 
     while (root && (root != rootItem)){
@@ -506,7 +507,7 @@ QModelIndex DownloadQueueModel::createIndexForItem(DownloadQueueItem *item){
         parent = index(el->row(), COLUMN_DOWNLOADQUEUE_NAME, parent);
     }
 
-    return index(item->row(), COLUMN_DOWNLOADQUEUE_NAME, parent);
+    return index(item->row(), COLUMN_DOWNLOADQUEUE_NAME, parent);*/
 }
 
 DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){

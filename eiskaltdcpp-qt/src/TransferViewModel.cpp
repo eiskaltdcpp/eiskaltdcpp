@@ -348,16 +348,11 @@ void TransferViewModel::updateTransfer(const VarMap &params){
             item->updateColumn(i.value(), params[i.key()]);
     }
 
-    if (params.contains("DPOS"))
-        item->dpos = vdbl(params["DPOS"]);
-    if (params.contains("PERC"))
-        item->percent = vdbl(params["PERC"]);
-    if (params.contains("TARGET"))
-        item->target = vstr(params["TARGET"]);
-    if (params.contains("FAIL"))
-        item->fail = vbol(params["FAIL"]);
-    if (params.contains("TTH"))
-        item->tth = vstr(params["TTH"]);
+    item->dpos = vdbl(params["DPOS"]);
+    item->percent = vdbl(params["PERC"]);
+    item->target = vstr(params["TARGET"]);
+    item->fail = vbol(params["FAIL"]);
+    item->tth = vstr(params["TTH"]);
 
     if (!vbol(params["DOWN"])){
         if (!rootItem->childItems.contains(item))
@@ -598,28 +593,13 @@ void TransferViewModel::setSortOrder(Qt::SortOrder o) {
 }
 
 QModelIndex TransferViewModel::createIndexForItem(TransferViewItem *item){
-    if (!rootItem || !item)
+    if (!(rootItem && item && item->parent()))
         return QModelIndex();
 
-    QStack<TransferViewItem*> stack;
-    TransferViewItem *root = item->parent();
-
-    while (root && (root != rootItem)){
-        stack.push(root);
-
-        root = root->parent();
-    }
-
-    QModelIndex parent = QModelIndex();
-    QModelIndex child;
-
-    while (!stack.empty()){
-        TransferViewItem *el = stack.pop();
-
-        parent = index(el->row(), COLUMN_TRANSFER_FNAME, parent);
-    }
-
-    return index(item->row(), COLUMN_TRANSFER_FNAME, parent);
+    if (item->parent() == rootItem)
+        return index(item->row(), COLUMN_TRANSFER_FNAME, QModelIndex());
+    else
+        return index(item->row(), COLUMN_TRANSFER_FNAME, index(item->parent()->row(), COLUMN_TRANSFER_FNAME, QModelIndex()));
 }
 
 void TransferViewModel::clear(){

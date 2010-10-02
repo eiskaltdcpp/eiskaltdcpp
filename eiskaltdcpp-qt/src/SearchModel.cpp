@@ -61,11 +61,6 @@ SearchModel::SearchModel(QObject *parent):
 
 SearchModel::~SearchModel()
 {
-    foreach(SearchItem *i, rootItem->childItems)
-        pool.destroy(i);
-
-    rootItem->childItems.clear();
-
     delete rootItem;
 }
 
@@ -208,25 +203,7 @@ QModelIndex SearchModel::createIndexForItem(SearchItem *item){
     if (!rootItem || !item)
         return QModelIndex();
 
-    QStack<SearchItem*> stack;
-    SearchItem *root = item->parent();
-
-    while (root && (root != rootItem)){
-        stack.push(root);
-
-        root = root->parent();
-    }
-
-    QModelIndex parent = QModelIndex();
-    QModelIndex child;
-
-    while (!stack.empty()){
-        SearchItem *el = stack.pop();
-
-        parent = index(el->row(), COLUMN_SF_FILENAME, parent);
-    }
-
-    return index(item->row(), COLUMN_SF_FILENAME, parent);
+    return createIndex(item->row(), COLUMN_SF_FILENAME, item);
 }
 
 namespace {
@@ -240,12 +217,8 @@ struct Compare {
         qStableSort(items.begin(), items.end(), getAttrComp(col));
     }
 
-    void static insertSorted(int col, QList<SearchItem*>& items, SearchItem* item) {
-        QList<SearchItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
-        items.insert(it, item);
-#ifdef _DEBUG_MODEL_
-        qDebug() << "Item inserted at " << items.indexOf(*it) << " position";
-#endif
+    QList<SearchItem*>::iterator static insertSorted(int col, QList<SearchItem*>& items, SearchItem* item) {
+        return qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
     }
 
     private:
@@ -297,6 +270,9 @@ bool inline Compare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
 } //namespace
 
 void SearchModel::sort(int column, Qt::SortOrder order) {
+    static Compare<Qt::AscendingOrder>  acomp = Compare<Qt::AscendingOrder>();
+    static Compare<Qt::DescendingOrder> dcomp = Compare<Qt::DescendingOrder>();
+
     sortColumn = column;
     sortOrder = order;
 
@@ -307,28 +283,15 @@ void SearchModel::sort(int column, Qt::SortOrder order) {
 
     try {
         if (order == Qt::AscendingOrder)
-            Compare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
+            acomp.sort(column, rootItem->childItems);
         else if (order == Qt::DescendingOrder)
-            Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
+            dcomp.sort(column, rootItem->childItems);
     }
     catch (SearchListException &e){
         sort(COLUMN_SF_FILENAME, order);
     }
 
     emit layoutChanged();
-}
-
-bool SearchModel::hasChildren(const QModelIndex &parent) const{
-    if (!parent.isValid())
-        return true;
-
-    SearchItem *item = reinterpret_cast<SearchItem*>(parent.internalPointer());
-
-    return (item->childCount() > 0);
-}
-
-bool SearchModel::canFetchMore(const QModelIndex &) const{
-    return true;
 }
 
 bool SearchModel::addResultPtr(const QMap<QString, QVariant> &map){
@@ -367,7 +330,10 @@ bool SearchModel::addResult
         const bool isDir
         )
 {
-    if (file.isEmpty() || file.isNull())
+    static Compare<Qt::AscendingOrder>  acomp = Compare<Qt::AscendingOrder>();
+    static Compare<Qt::DescendingOrder> dcomp = Compare<Qt::DescendingOrder>();
+
+    if (file.isEmpty())
         return false;
 
     SearchItem *item;
@@ -394,7 +360,7 @@ bool SearchModel::addResult
               << size << tth << path << nick << free_slots
               << all_slots << ip << hub << host,
 
-    item = pool.construct(item_data, parent);
+    item =new SearchItem(item_data, parent);
 
     if (!item)
         throw SearchListException();
@@ -405,23 +371,32 @@ bool SearchModel::addResult
     if (parent == rootItem && !isDir)
         tths.insert(tth, item);
     else {
-        parent->appendChild(item);
-
-        if (sortColumn != COLUMN_SF_COUNT){
-            emit layoutChanged();
+        beginInsertRows(createIndexForItem(parent), parent->childCount(), parent->childCount());
+        {
+            parent->appendChild(item);
         }
-        else
+        endInsertRows();
+
+        if (sortColumn == COLUMN_SF_COUNT)
             sort(sortColumn, sortOrder);
 
         return true;
     }
 
-    if (sortOrder == Qt::AscendingOrder)
-        Compare<Qt::AscendingOrder>().insertSorted(sortColumn, rootItem->childItems, item);
-    else if (sortOrder == Qt::DescendingOrder)
-        Compare<Qt::DescendingOrder>().insertSorted(sortColumn, rootItem->childItems, item);
+    QList<SearchItem*>::iterator it = rootItem->childItems.end();
 
-    emit layoutChanged();
+    if (sortOrder == Qt::AscendingOrder)
+        it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
+    else if (sortOrder == Qt::DescendingOrder)
+        it = dcomp.insertSorted(sortColumn, rootItem->childItems, item);
+
+    const int pos = it - rootItem->childItems.begin();
+
+    beginInsertRows(QModelIndex(), pos, pos);
+
+    rootItem->childItems.insert(it, item);
+
+    endInsertRows();
 
     return true;
 }
@@ -443,26 +418,11 @@ void SearchModel::setSortOrder(Qt::SortOrder o) {
 }
 
 void SearchModel::clearModel(){
-
-#ifdef _DEBUG_MODEL_
-    qDebug() << "Cleaning the model.";
-#endif
-    QList<SearchItem*> &childs = rootItem->childItems;
-
-    foreach(SearchItem *i, childs)
-        pool.destroy(i);
-
+    qDeleteAll(rootItem->childItems);
     rootItem->childItems.clear();
 
     tths.clear();
-
-    reset();
-
     emit layoutChanged();
-
-#ifdef _DEBUG_MODEL_
-    qDebug() << "Cleaning done";
-#endif
 }
 
 void SearchModel::removeItem(const SearchItem *item){
@@ -480,8 +440,6 @@ void SearchModel::removeItem(const SearchItem *item){
         tths.remove(item->data(COLUMN_SF_TTH).toString());
 
     endRemoveRows();
-
-    reset();
 
     delete item;
 }
@@ -519,7 +477,7 @@ SearchItem::SearchItem(const QList<QVariant> &data, SearchItem *parent) :
 
 SearchItem::~SearchItem()
 {
-    //All items allocated in pool that have auto delete
+    qDeleteAll(childItems);
 }
 
 void SearchItem::appendChild(SearchItem *item) {
