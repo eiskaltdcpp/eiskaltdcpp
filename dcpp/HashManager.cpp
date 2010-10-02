@@ -476,7 +476,7 @@ void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
         if(paused > 0)
             paused++;
         else
-        s.signal();
+            s.signal();
     }
 }
 

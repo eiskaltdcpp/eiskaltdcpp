@@ -198,6 +198,10 @@ struct Compare {
                      return AttrCmp<COLUMN_MAXSIZE>;
                  case COLUMN_MINSIZE:
                      return AttrCmp<COLUMN_MINSIZE>;
+                 case COLUMN_TYPESIZE:
+                     return AttrCmp<COLUMN_TYPESIZE>;
+                 case COLUMN_TYPE:
+                     return AttrCmp<COLUMN_TYPE>;
                  default:
                      break;//return AttrCmp<COLUMN_SSTRING>;
             }
