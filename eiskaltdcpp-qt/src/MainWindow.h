@@ -198,6 +198,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotFileOpenLogFile();
         void slotFileOpenDownloadDirectory();
         void slotFileBrowseFilelist();
+        void slotFileHasher();
         void slotFileBrowseOwnFilelist();
         void slotFileHashProgress();
         void slotFileRefreshShareHashProgress();
@@ -329,6 +330,7 @@ friend class dcpp::Singleton<MainWindow>;
 
         QMenu   *menuFile;
         QAction *fileFileListBrowser;
+        QAction *fileFileHasher;
         QAction *fileFileListBrowserLocal;
         QAction *fileRefreshShareHashProgress;
         QAction *fileOpenLogFile;

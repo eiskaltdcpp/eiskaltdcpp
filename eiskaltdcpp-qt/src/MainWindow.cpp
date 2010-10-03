@@ -38,6 +38,7 @@
 #include "IPFilterFrame.h"
 #include "ToolBar.h"
 #include "Magnet.h"
+#include "FileHasher.h"
 #include "SpyFrame.h"
 #include "SideBar.h"
 #include "ActionCustomizer.h"
@@ -485,6 +486,11 @@ void MainWindow::initActions(){
         fileFileListBrowser->setIcon(WU->getPixmap(WulforUtil::eiOPENLIST));
         connect(fileFileListBrowser, SIGNAL(triggered()), this, SLOT(slotFileBrowseFilelist()));
 
+        fileFileHasher = new QAction("", this);
+        fileFileHasher->setObjectName("fileFileHasher");
+        fileFileHasher->setIcon(WU->getPixmap(WulforUtil::eiOPENLIST));
+        connect(fileFileHasher, SIGNAL(triggered()), this, SLOT(slotFileHasher()));
+
         fileOpenLogFile = new QAction("", this);
         fileOpenLogFile->setObjectName("fileOpenLogFile");
         fileOpenLogFile->setIcon(WU->getPixmap(WulforUtil::eiOPEN_LOG_FILE));
@@ -732,6 +738,7 @@ void MainWindow::initActions(){
                 << separator0
                 << fileOpenLogFile
                 << fileOpenDownloadDirectory
+                << fileFileHasher
                 << separator1
                 << fileHideWindow
                 << separator2
@@ -1024,6 +1031,8 @@ void MainWindow::retranslateUi(){
         fileOpenDownloadDirectory->setText(tr("Open download directory"));
 
         fileFileListBrowser->setText(tr("Open filelist..."));
+
+        fileFileHasher->setText(tr("Get TTH for file"));
 
         fileFileListBrowserLocal->setText(tr("Open own filelist"));
 
@@ -1831,6 +1840,14 @@ void MainWindow::slotFileBrowseOwnFilelist(){
 void MainWindow::slotFileHashProgress(){
     progress_dialog()->slotAutoClose(false);
     progress_dialog()->show();
+}
+
+void MainWindow::slotFileHasher(){
+    FileHasher *m = new FileHasher(MainWindow::getInstance());
+    m->setModal(true);
+    m->exec();
+    delete m;
+    //FileHasher->show();
 }
 
 void MainWindow::slotFileRefreshShareHashProgress(){

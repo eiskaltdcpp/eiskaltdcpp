@@ -41,6 +41,7 @@ set (SRCS
             src/DownloadQueueModel.cpp
             src/EmoticonDialog.cpp
             src/EmoticonFactory.cpp
+            src/FileHasher.cpp
             src/FavoriteHubModel.cpp
             src/FavoriteHubs.cpp
             src/FavoriteUsers.cpp
@@ -78,7 +79,7 @@ set (SRCS
             src/SettingsUC.cpp
             src/ShareBrowser.cpp
             src/ShellCommandRunner.cpp
-	    src/ShortcutManager.cpp
+            src/ShortcutManager.cpp
             src/SideBar.cpp
             src/SingleInstanceRunner.cpp
             src/SpyFrame.cpp
@@ -109,7 +110,8 @@ set (MOC_HDRS
             src/DownloadQueueModel.h
             src/EmoticonDialog.h
             src/EmoticonFactory.h
-	    src/EmoticonObject.h
+            src/EmoticonObject.h
+            src/FileHasher.h
             src/FavoriteHubModel.h
             src/FavoriteHubs.h
             src/FavoriteUsers.h
@@ -149,7 +151,7 @@ set (MOC_HDRS
             src/SearchModel.h
             src/ShareBrowser.h
             src/ShellCommandRunner.h
-	    src/ShortcutManager.h
+            src/ShortcutManager.h
             src/SpyFrame.h
             src/SpyModel.h
             src/TabButton.h
@@ -177,6 +179,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIHashProgressDialog.ui
             ui/UIIPFilter.ui
             ui/UIMagnet.ui
+            ui/UIFileHasher.ui
             ui/UIPublicHubs.ui
             ui/UIPublicHubsList.ui
             ui/UIQuickConnect.ui
@@ -197,7 +200,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIScriptManager.ui
             ui/UIDialogScriptConsole.ui
             ui/UIActionCustomizer.ui
-	    ui/UIHubManager.ui
+            ui/UIHubManager.ui
             )
 
 set (WIN_RESOURCES)
