@@ -163,7 +163,7 @@ ShareBrowser::~ShareBrowser(){
 
     delete proxy;
 
-    MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
+    MainWindow::getInstance()->remWidgetFromArena(this);
     MainWindow::getInstance()->remArenaWidget(this);
     MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
 
@@ -752,7 +752,7 @@ void ShareBrowser::slotLoaderFinish(){
 
     MainWindow::getInstance()->addArenaWidget(this);
     MainWindow::getInstance()->addArenaWidgetOnToolbar(this);
-    MainWindow::getInstance()->mapArenaWidget(this);
+    MainWindow::getInstance()->mapWidgetOnArena(this);
 
 }
 

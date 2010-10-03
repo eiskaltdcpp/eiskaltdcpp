@@ -161,9 +161,9 @@ friend class dcpp::Singleton<MainWindow>;
         /** Disallow widget to be mapped on arena*/
         void remArenaWidget(ArenaWidget*);
         /** Show widget on arena */
-        void mapArenaWidget(ArenaWidget*);
+        void mapWidgetOnArena(ArenaWidget*);
         /** Remove widget from arena*/
-        void unmapArenaWidget(ArenaWidget*);
+        void remWidgetFromArena(ArenaWidget*);
 
         /** */
         void addArenaWidgetOnToolbar(ArenaWidget*, bool keepFocus = false);

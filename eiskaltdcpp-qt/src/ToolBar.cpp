@@ -153,7 +153,7 @@ void ToolBar::slotIndexChanged(int index){
     if (!awgt || !awgt->getWidget())
         return;
 
-    MainWindow::getInstance()->mapArenaWidget(awgt);
+    MainWindow::getInstance()->mapWidgetOnArena(awgt);
 }
 
 void ToolBar::slotTabMoved(int from, int to){

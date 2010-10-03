@@ -53,7 +53,7 @@ void DeclarativeWidget::closeEvent(QCloseEvent *e){
 
     MainWindow::getInstance()->remArenaWidget(this);
     MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-    MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
+    MainWindow::getInstance()->remWidgetFromArena(this);
 }
 
 QWidget *DeclarativeWidget::getWidget(){

@@ -35,7 +35,7 @@ ADLS::~ADLS(){
 void ADLS::closeEvent(QCloseEvent *e){
     if (isUnload()){
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
+        MainWindow::getInstance()->remWidgetFromArena(this);
         MainWindow::getInstance()->remArenaWidget(this);
 
         save();
@@ -46,7 +46,7 @@ void ADLS::closeEvent(QCloseEvent *e){
     }
     else {
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
+        MainWindow::getInstance()->remWidgetFromArena(this);
 
         e->ignore();
     }

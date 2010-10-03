@@ -781,7 +781,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
     MainWindow *MW = MainWindow::getInstance();
 
     MW->remArenaWidgetFromToolbar(this);
-    MW->unmapArenaWidget(this);
+    MW->remWidgetFromArena(this);
     MW->remArenaWidget(this);
 
     FavoriteManager::getInstance()->removeListener(this);
@@ -1574,7 +1574,7 @@ void HubFrame::addPM(QString cid, QString output){
         MainWindow::getInstance()->addArenaWidgetOnToolbar(p, WBGET(WB_CHAT_KEEPFOCUS));
 
         if (!WBGET(WB_CHAT_KEEPFOCUS))
-            MainWindow::getInstance()->mapArenaWidget(p);
+            MainWindow::getInstance()->mapWidgetOnArena(p);
 
         p->setCompleter(completer, model);
 
@@ -2127,7 +2127,7 @@ void HubFrame::slotReconnect(){
 void HubFrame::slotMapOnArena(){
     MainWindow *MW = MainWindow::getInstance();
 
-    MW->mapArenaWidget(this);
+    MW->mapWidgetOnArena(this);
 }
 
 void HubFrame::slotClose(){
@@ -2204,7 +2204,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                     addPM(item->cid, "");
 
                 if (pm.contains(cid))
-                    MainWindow::getInstance()->mapArenaWidget(pm[cid]);
+                    MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);
             }
 
             break;
@@ -2506,7 +2506,7 @@ void HubFrame::slotChatMenu(const QPoint &){
             addPM(cid, "");
 
             if (pm.contains(cid))
-                MainWindow::getInstance()->mapArenaWidget(pm[cid]);
+                MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);
 
             break;
         }
@@ -2613,7 +2613,7 @@ void HubFrame::slotShowWnd(){
 
    MainWindow *MW = MainWindow::getInstance();
 
-   MW->mapArenaWidget(this);
+   MW->mapWidgetOnArena(this);
 }
 
 void HubFrame::slotShellFinished(bool ok, QString output){

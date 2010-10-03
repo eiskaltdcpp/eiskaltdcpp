@@ -377,7 +377,7 @@ void SearchFrame::init(){
 
     mwnd->addArenaWidget(this);
     mwnd->addArenaWidgetOnToolbar(this);
-    mwnd->mapArenaWidget(this);
+    mwnd->mapWidgetOnArena(this);
 
     setAttribute(Qt::WA_DeleteOnClose);
 
