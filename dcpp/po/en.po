@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-25 22:25+0300\n"
+"POT-Creation-Date: 2010-10-03 04:04+0300\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -277,7 +277,7 @@ msgstr ""
 
 #: ../UPnPManager.cpp:74
 #, fuzzy
-msgid "Failed to initalize the %1% interface"
+msgid "Failed to initialize the %1% interface"
 msgstr "File list refresh initiated"
 
 #: ../UPnPManager.cpp:78

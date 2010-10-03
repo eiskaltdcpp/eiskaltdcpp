@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-25 22:25+0300\n"
+"POT-Creation-Date: 2010-10-03 04:04+0300\n"
 "PO-Revision-Date: 2009-02-06 21:06+0000\n"
 "Last-Translator: oracle <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -281,7 +281,7 @@ msgstr ""
 
 #: ../UPnPManager.cpp:74
 #, fuzzy
-msgid "Failed to initalize the %1% interface"
+msgid "Failed to initialize the %1% interface"
 msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
 
 #: ../UPnPManager.cpp:78

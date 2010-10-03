@@ -25,37 +25,37 @@
         <translation>Выкрасьліць</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="385"/>
+        <location filename="../src/ADLS.cpp" line="393"/>
         <source>Filename</source>
         <translation>Назоў файла</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="386"/>
+        <location filename="../src/ADLS.cpp" line="394"/>
         <source>Directory</source>
         <translation>Каталёг</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="387"/>
+        <location filename="../src/ADLS.cpp" line="395"/>
         <source>Full Path</source>
         <translation>Поўны шлях</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="393"/>
+        <location filename="../src/ADLS.cpp" line="401"/>
         <source>B</source>
         <translation>Б</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="394"/>
+        <location filename="../src/ADLS.cpp" line="402"/>
         <source>KiB</source>
         <translation>КіБ</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="395"/>
+        <location filename="../src/ADLS.cpp" line="403"/>
         <source>MiB</source>
         <translation>МіБ</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="396"/>
+        <location filename="../src/ADLS.cpp" line="404"/>
         <source>GiB</source>
         <translation>ГіБ</translation>
     </message>
@@ -1535,12 +1535,12 @@ Favorite user</source>
         <translation>Самарушна знайсьці крыніцы ды сьцягнуць файл</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Error</source>
         <translation>Памылка</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Some error ocurred when starting download:
  %1</source>
         <translation>Здарылася памылка, калі пачыналі сьцягваць:
@@ -1551,7 +1551,7 @@ Favorite user</source>
         <translation type="obsolete">Кіраўнік пошуку не гатовы. Калі ласка, паспрабуйце пазьней.</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="125"/>
+        <location filename="../src/Magnet.cpp" line="126"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
@@ -2868,78 +2868,78 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Бакавая паліца</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="189"/>
+        <location filename="../ui/UISearchFrame.ui" line="201"/>
         <source>Hubs</source>
         <translation>Асяродкі</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="208"/>
         <source>Only users with free slots</source>
         <translation>Толькі ў тых, хто мае вольныя шчыліны</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="203"/>
+        <location filename="../ui/UISearchFrame.ui" line="215"/>
         <source>Size</source>
         <translation>Памер</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="214"/>
+        <location filename="../ui/UISearchFrame.ui" line="226"/>
         <source>B</source>
         <translation>Б</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="219"/>
+        <location filename="../ui/UISearchFrame.ui" line="231"/>
         <source>KiB</source>
         <translation>КіБ</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="224"/>
+        <location filename="../ui/UISearchFrame.ui" line="236"/>
         <source>MiB</source>
         <translation>МіБ</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="229"/>
+        <location filename="../ui/UISearchFrame.ui" line="241"/>
         <source>GiB</source>
         <translation>ГіБ</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Normal</source>
         <translation>Звычайны</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="258"/>
         <source>At least</source>
         <translation>Ня меней за</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="251"/>
+        <location filename="../ui/UISearchFrame.ui" line="263"/>
         <source>At most</source>
         <translation>Ня болей за</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="272"/>
+        <location filename="../ui/UISearchFrame.ui" line="290"/>
         <source>Already shared files</source>
         <translation>Файлы, што ўжо маем абагуленымі</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="290"/>
+        <location filename="../ui/UISearchFrame.ui" line="308"/>
         <source>Hide</source>
         <translation>Схаваць</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="295"/>
+        <location filename="../ui/UISearchFrame.ui" line="313"/>
         <source>Highlight</source>
         <translatorcomment>???Падкрэсьліваць</translatorcomment>
         <translation>Падсьвечваць</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="285"/>
+        <location filename="../ui/UISearchFrame.ui" line="303"/>
         <source>Do nothing</source>
         <translation>Нічога не рабіць</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="262"/>
+        <location filename="../ui/UISearchFrame.ui" line="274"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>Не хаваць гэтую паліцу, калі шукаем</translation>
     </message>
@@ -3877,30 +3877,30 @@ Do you want to stop it?
         <translation>Сьпіс файлаў</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="522"/>
+        <location filename="../src/TransferViewModel.cpp" line="517"/>
         <source>Downloaded </source>
         <translation>Сьцягнулі </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="524"/>
+        <location filename="../src/TransferViewModel.cpp" line="519"/>
         <source>Waiting for slot </source>
         <translation>Чакаем на шчыліну </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="527"/>
+        <location filename="../src/TransferViewModel.cpp" line="522"/>
         <source> from %1/%2 user(s)</source>
         <translatorcomment>!!!множны лік</translatorcomment>
         <translation> ад %1/%2 карыстальніка(аў)</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="534"/>
-        <location filename="../src/TransferViewModel.cpp" line="536"/>
+        <location filename="../src/TransferViewModel.cpp" line="529"/>
+        <location filename="../src/TransferViewModel.cpp" line="531"/>
         <source>TTH: </source>
         <translation>Скарот (TTH): </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="573"/>
-        <location filename="../src/TransferViewModel.cpp" line="577"/>
+        <location filename="../src/TransferViewModel.cpp" line="568"/>
+        <location filename="../src/TransferViewModel.cpp" line="572"/>
         <source>Finished</source>
         <translation>Скончылі</translation>
     </message>

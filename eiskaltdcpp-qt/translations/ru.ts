@@ -25,37 +25,37 @@
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="385"/>
+        <location filename="../src/ADLS.cpp" line="393"/>
         <source>Filename</source>
         <translation>Имя файла</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="386"/>
+        <location filename="../src/ADLS.cpp" line="394"/>
         <source>Directory</source>
         <translation>Каталог</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="387"/>
+        <location filename="../src/ADLS.cpp" line="395"/>
         <source>Full Path</source>
         <translation>Полный путь</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="393"/>
+        <location filename="../src/ADLS.cpp" line="401"/>
         <source>B</source>
         <translation>Б</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="394"/>
+        <location filename="../src/ADLS.cpp" line="402"/>
         <source>KiB</source>
         <translation>КиБ</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="395"/>
+        <location filename="../src/ADLS.cpp" line="403"/>
         <source>MiB</source>
         <translation>МиБ</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="396"/>
+        <location filename="../src/ADLS.cpp" line="404"/>
         <source>GiB</source>
         <translation>ГиБ</translation>
     </message>
@@ -1658,12 +1658,12 @@ Favorite user</source>
         <translation>Загрузить файл, используя автопоиск других источников</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Some error ocurred when starting download:
  %1</source>
         <translation>Произошла ошибка при старте загрузки:
@@ -1674,7 +1674,7 @@ Favorite user</source>
         <translation type="obsolete">Менеджер поиска не готов. Попробуйте позже.</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="125"/>
+        <location filename="../src/Magnet.cpp" line="126"/>
         <source>Select directory</source>
         <translation>Выберите каталог</translation>
     </message>
@@ -2832,42 +2832,42 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Боковая панель</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="203"/>
+        <location filename="../ui/UISearchFrame.ui" line="215"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Normal</source>
         <translation>Нормальный</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="258"/>
         <source>At least</source>
         <translation>Не менее</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="251"/>
+        <location filename="../ui/UISearchFrame.ui" line="263"/>
         <source>At most</source>
         <translation>Не более</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="214"/>
+        <location filename="../ui/UISearchFrame.ui" line="226"/>
         <source>B</source>
         <translation>Б</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="219"/>
+        <location filename="../ui/UISearchFrame.ui" line="231"/>
         <source>KiB</source>
         <translation>КиБ</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="224"/>
+        <location filename="../ui/UISearchFrame.ui" line="236"/>
         <source>MiB</source>
         <translation>МиБ</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="229"/>
+        <location filename="../ui/UISearchFrame.ui" line="241"/>
         <source>GiB</source>
         <translation>ГиБ</translation>
     </message>
@@ -2921,7 +2921,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>TTH</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="262"/>
+        <location filename="../ui/UISearchFrame.ui" line="274"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>Не прятать эту панель при поиске</translation>
     </message>
@@ -2939,12 +2939,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="208"/>
         <source>Only users with free slots</source>
         <translation>Только пользователи со свободными слотами</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="189"/>
+        <location filename="../ui/UISearchFrame.ui" line="201"/>
         <source>Hubs</source>
         <translation>Хабы</translation>
     </message>
@@ -2970,22 +2970,22 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Очистить</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="272"/>
+        <location filename="../ui/UISearchFrame.ui" line="290"/>
         <source>Already shared files</source>
         <translation>Уже расшаренные файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="290"/>
+        <location filename="../ui/UISearchFrame.ui" line="308"/>
         <source>Hide</source>
         <translation>Скрывать</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="295"/>
+        <location filename="../ui/UISearchFrame.ui" line="313"/>
         <source>Highlight</source>
         <translation>Подсвечивать</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="285"/>
+        <location filename="../ui/UISearchFrame.ui" line="303"/>
         <source>Do nothing</source>
         <translation>Ничего не делать</translation>
     </message>
@@ -3990,23 +3990,23 @@ Do you want to stop it?
         <translation>/c</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="522"/>
+        <location filename="../src/TransferViewModel.cpp" line="517"/>
         <source>Downloaded </source>
         <translation>Загружено </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="524"/>
+        <location filename="../src/TransferViewModel.cpp" line="519"/>
         <source>Waiting for slot </source>
         <translation>Ожидание слота </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="527"/>
+        <location filename="../src/TransferViewModel.cpp" line="522"/>
         <source> from %1/%2 user(s)</source>
         <translation> от %1/%2 пользователя(ей)</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="573"/>
-        <location filename="../src/TransferViewModel.cpp" line="577"/>
+        <location filename="../src/TransferViewModel.cpp" line="568"/>
+        <location filename="../src/TransferViewModel.cpp" line="572"/>
         <source>Finished</source>
         <translation>Завершено</translation>
     </message>
@@ -4016,8 +4016,8 @@ Do you want to stop it?
         <translation>Список файлов</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="534"/>
-        <location filename="../src/TransferViewModel.cpp" line="536"/>
+        <location filename="../src/TransferViewModel.cpp" line="529"/>
+        <location filename="../src/TransferViewModel.cpp" line="531"/>
         <source>TTH: </source>
         <translation>TTH: </translation>
     </message>

@@ -71,7 +71,7 @@ int UPnPManager::run() {
         close(impl);
 
         if(!impl.init()){
-            log(str(F_("Failed to initalize the %1% interface") % impl.getName()));
+            log(str(F_("Failed to initialize the %1% interface") % impl.getName()));
             continue;
         }
 

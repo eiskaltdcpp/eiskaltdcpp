@@ -25,37 +25,37 @@
         <translation type="unfinished">Usuń</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="385"/>
+        <location filename="../src/ADLS.cpp" line="393"/>
         <source>Filename</source>
         <translation type="unfinished">Nazwa pliku</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="386"/>
+        <location filename="../src/ADLS.cpp" line="394"/>
         <source>Directory</source>
         <translation type="unfinished">Katalog</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="387"/>
+        <location filename="../src/ADLS.cpp" line="395"/>
         <source>Full Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="393"/>
+        <location filename="../src/ADLS.cpp" line="401"/>
         <source>B</source>
         <translation type="unfinished">B</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="394"/>
+        <location filename="../src/ADLS.cpp" line="402"/>
         <source>KiB</source>
         <translation type="unfinished">KiB</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="395"/>
+        <location filename="../src/ADLS.cpp" line="403"/>
         <source>MiB</source>
         <translation type="unfinished">MiB</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="396"/>
+        <location filename="../src/ADLS.cpp" line="404"/>
         <source>GiB</source>
         <translation type="unfinished">GiB</translation>
     </message>
@@ -1497,12 +1497,12 @@ Ulubiony użytkownik</translation>
         <translation>Pobierz plik za pomocą automatycznego wyszukiwania alternatywnych</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Some error ocurred when starting download:
  %1</source>
         <translation>Wystąpił błąd podczas uruchamiania pobierania:
@@ -1513,7 +1513,7 @@ Ulubiony użytkownik</translation>
         <translation type="obsolete">Wyszukiwanie Magneta nie gotowe. Spróbuj ponownie później.</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="125"/>
+        <location filename="../src/Magnet.cpp" line="126"/>
         <source>Select directory</source>
         <translation>Wybierz katalog</translation>
     </message>
@@ -2656,42 +2656,42 @@ Opcje:
         <translation>Pokaż/ukryj panel boczny</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="203"/>
+        <location filename="../ui/UISearchFrame.ui" line="215"/>
         <source>Size</source>
         <translation>Rozmiar</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Normal</source>
         <translation>Normalny</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="258"/>
         <source>At least</source>
         <translation>Co najmniej</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="251"/>
+        <location filename="../ui/UISearchFrame.ui" line="263"/>
         <source>At most</source>
         <translation>Najwyżej</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="214"/>
+        <location filename="../ui/UISearchFrame.ui" line="226"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="219"/>
+        <location filename="../ui/UISearchFrame.ui" line="231"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="224"/>
+        <location filename="../ui/UISearchFrame.ui" line="236"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="229"/>
+        <location filename="../ui/UISearchFrame.ui" line="241"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
@@ -2745,7 +2745,7 @@ Opcje:
         <translation>TTH</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="262"/>
+        <location filename="../ui/UISearchFrame.ui" line="274"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>Nie ukrywaj tego panelu podczas wyszukiwania</translation>
     </message>
@@ -2763,12 +2763,12 @@ Opcje:
         <translation>Szukaj</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="208"/>
         <source>Only users with free slots</source>
         <translation>Tylko użytkownicy z wolnymi slotami</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="189"/>
+        <location filename="../ui/UISearchFrame.ui" line="201"/>
         <source>Hubs</source>
         <translation>Huby</translation>
     </message>
@@ -2794,22 +2794,22 @@ Opcje:
         <translation>Wyczyść</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="272"/>
+        <location filename="../ui/UISearchFrame.ui" line="290"/>
         <source>Already shared files</source>
         <translation>Aktualnie udostępniane pliki</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="290"/>
+        <location filename="../ui/UISearchFrame.ui" line="308"/>
         <source>Hide</source>
         <translation>Ukryj</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="295"/>
+        <location filename="../ui/UISearchFrame.ui" line="313"/>
         <source>Highlight</source>
         <translation>Podświetl</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="285"/>
+        <location filename="../ui/UISearchFrame.ui" line="303"/>
         <source>Do nothing</source>
         <translation>Nic nierób</translation>
     </message>
@@ -3814,23 +3814,23 @@ Chcesz go zatrzymać?
         <translation>/s</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="522"/>
+        <location filename="../src/TransferViewModel.cpp" line="517"/>
         <source>Downloaded </source>
         <translation>Pobranо </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="524"/>
+        <location filename="../src/TransferViewModel.cpp" line="519"/>
         <source>Waiting for slot </source>
         <translation>Oczekiwanie na slot </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="527"/>
+        <location filename="../src/TransferViewModel.cpp" line="522"/>
         <source> from %1/%2 user(s)</source>
         <translation> od %1/%2 użytkownika()</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="573"/>
-        <location filename="../src/TransferViewModel.cpp" line="577"/>
+        <location filename="../src/TransferViewModel.cpp" line="568"/>
+        <location filename="../src/TransferViewModel.cpp" line="572"/>
         <source>Finished</source>
         <translation>Ukończono</translation>
     </message>
@@ -3840,8 +3840,8 @@ Chcesz go zatrzymać?
         <translation>Lista plików</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="534"/>
-        <location filename="../src/TransferViewModel.cpp" line="536"/>
+        <location filename="../src/TransferViewModel.cpp" line="529"/>
+        <location filename="../src/TransferViewModel.cpp" line="531"/>
         <source>TTH: </source>
         <translation>TTH: </translation>
     </message>

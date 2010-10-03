@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-25 22:25+0300\n"
+"POT-Creation-Date: 2010-10-03 04:04+0300\n"
 "PO-Revision-Date: 2010-08-22 20:08+0300\n"
 "Last-Translator: PsyTrip <dimitrov.rusi@gmail.com>\n"
 "Language-Team: Bulgarian <>\n"
@@ -280,7 +280,7 @@ msgstr ""
 
 #: ../UPnPManager.cpp:74
 #, fuzzy
-msgid "Failed to initalize the %1% interface"
+msgid "Failed to initialize the %1% interface"
 msgstr "Списъка с файлове %1% е генериран"
 
 #: ../UPnPManager.cpp:78

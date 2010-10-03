@@ -25,37 +25,37 @@
         <translation type="unfinished">Премахване</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="385"/>
+        <location filename="../src/ADLS.cpp" line="393"/>
         <source>Filename</source>
         <translation type="unfinished">Име на файл</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="386"/>
+        <location filename="../src/ADLS.cpp" line="394"/>
         <source>Directory</source>
         <translation type="unfinished">Директория</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="387"/>
+        <location filename="../src/ADLS.cpp" line="395"/>
         <source>Full Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="393"/>
+        <location filename="../src/ADLS.cpp" line="401"/>
         <source>B</source>
         <translation type="unfinished">B</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="394"/>
+        <location filename="../src/ADLS.cpp" line="402"/>
         <source>KiB</source>
         <translation type="unfinished">KiB</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="395"/>
+        <location filename="../src/ADLS.cpp" line="403"/>
         <source>MiB</source>
         <translation type="unfinished">MiB</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="396"/>
+        <location filename="../src/ADLS.cpp" line="404"/>
         <source>GiB</source>
         <translation type="unfinished">GiB</translation>
     </message>
@@ -1454,19 +1454,19 @@ Favorite user</source>
         <translation>Сваляне на файл чрез автоматично търсене на алтернативи</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Some error ocurred when starting download:
  %1</source>
         <translation>Получи се грешка при сваляне на:
  %1</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="125"/>
+        <location filename="../src/Magnet.cpp" line="126"/>
         <source>Select directory</source>
         <translation>Избор на директория</translation>
     </message>
@@ -2545,77 +2545,77 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Страничен панел</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="189"/>
+        <location filename="../ui/UISearchFrame.ui" line="201"/>
         <source>Hubs</source>
         <translation>Хъбове</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="208"/>
         <source>Only users with free slots</source>
         <translation>Само потребители със свободни слотове</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="203"/>
+        <location filename="../ui/UISearchFrame.ui" line="215"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="214"/>
+        <location filename="../ui/UISearchFrame.ui" line="226"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="219"/>
+        <location filename="../ui/UISearchFrame.ui" line="231"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="224"/>
+        <location filename="../ui/UISearchFrame.ui" line="236"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="229"/>
+        <location filename="../ui/UISearchFrame.ui" line="241"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Normal</source>
         <translation>Нормален</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="258"/>
         <source>At least</source>
         <translation>По-малък</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="251"/>
+        <location filename="../ui/UISearchFrame.ui" line="263"/>
         <source>At most</source>
         <translation>По-голям</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="272"/>
+        <location filename="../ui/UISearchFrame.ui" line="290"/>
         <source>Already shared files</source>
         <translation>Вече споделени файлове</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="290"/>
+        <location filename="../ui/UISearchFrame.ui" line="308"/>
         <source>Hide</source>
         <translation>Скриване</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="295"/>
+        <location filename="../ui/UISearchFrame.ui" line="313"/>
         <source>Highlight</source>
         <translation>Осветяване</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="285"/>
+        <location filename="../ui/UISearchFrame.ui" line="303"/>
         <source>Do nothing</source>
         <translation>Нищо</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="262"/>
+        <location filename="../ui/UISearchFrame.ui" line="274"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>Показване на този панел при търсене</translation>
     </message>
@@ -3662,29 +3662,29 @@ Do you want to stop it?
         <translation>Списък с файлове</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="522"/>
+        <location filename="../src/TransferViewModel.cpp" line="517"/>
         <source>Downloaded </source>
         <translation>Свалено</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="524"/>
+        <location filename="../src/TransferViewModel.cpp" line="519"/>
         <source>Waiting for slot </source>
         <translation>Изчакване за слот</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="527"/>
+        <location filename="../src/TransferViewModel.cpp" line="522"/>
         <source> from %1/%2 user(s)</source>
         <translation> от %1/%2 потребител(я)</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="534"/>
-        <location filename="../src/TransferViewModel.cpp" line="536"/>
+        <location filename="../src/TransferViewModel.cpp" line="529"/>
+        <location filename="../src/TransferViewModel.cpp" line="531"/>
         <source>TTH: </source>
         <translation>TTH: </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="573"/>
-        <location filename="../src/TransferViewModel.cpp" line="577"/>
+        <location filename="../src/TransferViewModel.cpp" line="568"/>
+        <location filename="../src/TransferViewModel.cpp" line="572"/>
         <source>Finished</source>
         <translation>Завършено</translation>
     </message>

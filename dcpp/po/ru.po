@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-09-25 22:25+0300\n"
+"POT-Creation-Date: 2010-10-03 04:04+0300\n"
 "PO-Revision-Date: 2010-09-18 15:40+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -280,7 +280,8 @@ msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Другая попытка проброса портов через UPnP еще не завершена..."
 
 #: ../UPnPManager.cpp:74
-msgid "Failed to initalize the %1% interface"
+#, fuzzy
+msgid "Failed to initialize the %1% interface"
 msgstr "Не удалось инициализировать интерфейс %1%"
 
 #: ../UPnPManager.cpp:78

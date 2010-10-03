@@ -25,37 +25,37 @@
         <translation>Borrar</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="385"/>
+        <location filename="../src/ADLS.cpp" line="393"/>
         <source>Filename</source>
         <translation>Nombre de archivo</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="386"/>
+        <location filename="../src/ADLS.cpp" line="394"/>
         <source>Directory</source>
         <translation>Directorio</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="387"/>
+        <location filename="../src/ADLS.cpp" line="395"/>
         <source>Full Path</source>
         <translation>Ruta Completa</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="393"/>
+        <location filename="../src/ADLS.cpp" line="401"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="394"/>
+        <location filename="../src/ADLS.cpp" line="402"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="395"/>
+        <location filename="../src/ADLS.cpp" line="403"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../src/ADLS.cpp" line="396"/>
+        <location filename="../src/ADLS.cpp" line="404"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
@@ -1446,19 +1446,19 @@ Usuario favorito</translation>
         <translation>Descargar archivo via auto-búsqueda de alternativas</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="142"/>
+        <location filename="../src/Magnet.cpp" line="143"/>
         <source>Some error ocurred when starting download:
  %1</source>
         <translation>Algunos errores se han producido cuando ha empezado la descarga:
  %1</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="125"/>
+        <location filename="../src/Magnet.cpp" line="126"/>
         <source>Select directory</source>
         <translation>Seleccionar directorio</translation>
     </message>
@@ -2508,77 +2508,77 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Mostrar/Ocultar panel lateral</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="189"/>
+        <location filename="../ui/UISearchFrame.ui" line="201"/>
         <source>Hubs</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="208"/>
         <source>Only users with free slots</source>
         <translation>Solo usuarios con slots libres</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="203"/>
+        <location filename="../ui/UISearchFrame.ui" line="215"/>
         <source>Size</source>
         <translation>Tamaño</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="214"/>
+        <location filename="../ui/UISearchFrame.ui" line="226"/>
         <source>B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="219"/>
+        <location filename="../ui/UISearchFrame.ui" line="231"/>
         <source>KiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="224"/>
+        <location filename="../ui/UISearchFrame.ui" line="236"/>
         <source>MiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="229"/>
+        <location filename="../ui/UISearchFrame.ui" line="241"/>
         <source>GiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Normal</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="258"/>
         <source>At least</source>
         <translation>Por lo menos</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="251"/>
+        <location filename="../ui/UISearchFrame.ui" line="263"/>
         <source>At most</source>
         <translation>Como mucho</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="272"/>
+        <location filename="../ui/UISearchFrame.ui" line="290"/>
         <source>Already shared files</source>
         <translation>Archivos ya compartidos</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="290"/>
+        <location filename="../ui/UISearchFrame.ui" line="308"/>
         <source>Hide</source>
         <translation>Ocultar</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="295"/>
+        <location filename="../ui/UISearchFrame.ui" line="313"/>
         <source>Highlight</source>
         <translation>Marcar</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="285"/>
+        <location filename="../ui/UISearchFrame.ui" line="303"/>
         <source>Do nothing</source>
         <translation>No hacer nada</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="262"/>
+        <location filename="../ui/UISearchFrame.ui" line="274"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>No ocultar este panel mientras se busca</translation>
     </message>
@@ -3624,29 +3624,29 @@ que continuará trabajando cuando el widget esté oculto.
         <translation>Lista de archivos</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="522"/>
+        <location filename="../src/TransferViewModel.cpp" line="517"/>
         <source>Downloaded </source>
         <translation>Descargado </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="524"/>
+        <location filename="../src/TransferViewModel.cpp" line="519"/>
         <source>Waiting for slot </source>
         <translation>Esperando un slot </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="527"/>
+        <location filename="../src/TransferViewModel.cpp" line="522"/>
         <source> from %1/%2 user(s)</source>
         <translation> desde %1/%2 usuario(s)</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="534"/>
-        <location filename="../src/TransferViewModel.cpp" line="536"/>
+        <location filename="../src/TransferViewModel.cpp" line="529"/>
+        <location filename="../src/TransferViewModel.cpp" line="531"/>
         <source>TTH: </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="573"/>
-        <location filename="../src/TransferViewModel.cpp" line="577"/>
+        <location filename="../src/TransferViewModel.cpp" line="568"/>
+        <location filename="../src/TransferViewModel.cpp" line="572"/>
         <source>Finished</source>
         <translation>Finalizado</translation>
     </message>
