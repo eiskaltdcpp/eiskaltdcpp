@@ -5,7 +5,7 @@
     <name>ADLS</name>
     <message>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADLSearch</translation>
+        <translation>ADLSearch</translation>
     </message>
     <message>
         <source>Add new</source>
@@ -126,7 +126,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Using:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Key&gt;
+EiskaltDC++ est un programme multi-plateformes qui utilisent les protocoles Direct Connect et ADC..
+
+Keys:
+  -h, --help	 Show this message
+  -v, --version	 Show version string</translation>
     </message>
 </context>
 <context>
@@ -310,7 +317,7 @@ Keys:
     </message>
     <message>
         <source>Checksum mismatch</source>
-        <translation type="unfinished"></translation>
+        <translation>Discordances de somme de contrôle (checksum)</translation>
     </message>
 </context>
 <context>
@@ -465,7 +472,7 @@ Keys:
     <name>EmoticonDialog</name>
     <message>
         <source>Select emoticon</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner le smiley</translation>
     </message>
 </context>
 <context>
@@ -665,7 +672,7 @@ Keys:
     </message>
     <message>
         <source>Check sum</source>
-        <translation type="unfinished"></translation>
+        <translation>Somme de contrôle</translation>
     </message>
 </context>
 <context>
@@ -1165,11 +1172,11 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Users count: %3/%1 | Total share: %2</source>
-        <translation type="unfinished">Nombre d&apos;utilisateurs: %1 | Partage total: %2 {3/%1 ?}</translation>
+        <translation>Nombre d&apos;utilisateurs: %3/%1 | Partage total: %2</translation>
     </message>
     <message>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactiver les smileys</translation>
     </message>
 </context>
 <context>
@@ -1940,19 +1947,19 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d&apos;ouvrir le port %1%. Les recherches ou transferts de fichiers ne fonctionneront pas correctement tant que vous ne changerez pas de port ou fermerez toute application susceptible d&apos;utiliser ce port.</translation>
     </message>
     <message>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionnaire de serveurs</translation>
     </message>
     <message>
         <source>Download Queue</source>
-        <translation type="unfinished">Liste des téléchargements</translation>
+        <translation>Liste des téléchargements</translation>
     </message>
     <message>
         <source>All downloads complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléchargements terminés</translation>
     </message>
 </context>
 <context>
@@ -1988,15 +1995,15 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation>Additionel</translation>
     </message>
     <message>
         <source>Supress sound notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer les notifications sonores</translation>
     </message>
     <message>
         <source>Supress text notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer les notifications textes</translation>
     </message>
 </context>
 <context>
@@ -2027,7 +2034,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactiver les smiley</translation>
     </message>
 </context>
 <context>
@@ -2413,11 +2420,11 @@ Clés:
     </message>
     <message>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Télécharger vers...</translation>
     </message>
     <message>
         <source>Download Whole Directory to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Télécharger le répertoire entier vers...</translation>
     </message>
 </context>
 <context>
@@ -2531,7 +2538,7 @@ Clés:
     </message>
     <message>
         <source>Host</source>
-        <translation>Hôte</translation>
+        <translation>Serveur</translation>
     </message>
 </context>
 <context>
@@ -2883,7 +2890,7 @@ Clés:
     </message>
     <message>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Télécharger vers...</translation>
     </message>
 </context>
 <context>
@@ -2980,7 +2987,7 @@ Clés:
     </message>
     <message>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionnaire de serveurs</translation>
     </message>
 </context>
 <context>
@@ -3158,43 +3165,43 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copier</translation>
+        <translation>Copier</translation>
     </message>
     <message>
         <source>Users</source>
-        <translation type="unfinished">Utilisateurs</translation>
+        <translation>Utilisateurs</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">Vitesse</translation>
+        <translation>Vitesse</translation>
     </message>
     <message>
         <source>Statistic</source>
-        <translation type="unfinished"></translation>
+        <translation>Statistique</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">Taille</translation>
+        <translation>Taille</translation>
     </message>
     <message>
         <source>Time left</source>
-        <translation type="unfinished">Temps restant</translation>
+        <translation>Temps restant</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de fichier</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"></translation>
+        <translation>Serveur</translation>
     </message>
     <message>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet</translation>
     </message>
 </context>
 <context>
@@ -3835,23 +3842,23 @@ p, li { white-space: pre-wrap; }
     <name>UIHubManager</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Formulaire</translation>
+        <translation>Formulaire</translation>
     </message>
     <message>
         <source>Hub</source>
-        <translation type="unfinished">Serveur</translation>
+        <translation>Serveur</translation>
     </message>
     <message>
         <source>URL</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Users</source>
-        <translation type="unfinished">Utilisateurs</translation>
+        <translation>Utilisateurs</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation type="unfinished">Partage</translation>
+        <translation>Partage</translation>
     </message>
 </context>
 <context>
@@ -4004,7 +4011,7 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Editer</translation>
+        <translation>Editer</translation>
     </message>
 </context>
 <context>
@@ -4260,7 +4267,7 @@ Slots</translation>
     </message>
     <message>
         <source>Auto detect connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Détection automatique de la connexion</translation>
     </message>
 </context>
 <context>
@@ -4888,20 +4895,21 @@ them is usually available only to operators</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si activé, vous verrez les smileys aussi au sein des mots.
+Sinon ils apparaissent uniquement s&apos;ils sont isolés des autres mots par des espaces.</translation>
     </message>
     <message>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Dépend de la configuration du serveur concerné: Les informations sont généralement disponibles pour les opérateurs seulement</translation>
     </message>
     <message>
         <source>Use emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser le panneau de smiley</translation>
     </message>
     <message>
         <source>Autohide emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cacher automatiquement le panneau de smiley</translation>
     </message>
 </context>
 <context>
@@ -5354,11 +5362,11 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>Auto refresh time (minutes, 0 = off)</source>
-        <translation type="unfinished"></translation>
+        <translation>Rafraichissement auto toutes les (en minutes, 0 = off)</translation>
     </message>
     <message>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse de scan max (MB/s) (0=infini)</translation>
     </message>
 </context>
 <context>
@@ -5574,7 +5582,7 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mail</translation>
     </message>
 </context>
 <context>
