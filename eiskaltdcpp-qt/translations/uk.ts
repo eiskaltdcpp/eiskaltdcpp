@@ -146,7 +146,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Використання:
+  eiskaltdcpp-qt &lt;magnet-посилання&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Ключ&gt;
+EiskaltDC++ - кросплатформенна програма для роботи з Direct Connect і ADC протоколами.
+
+Ключі:
+  -h, --help	 Показати це повідомлення
+  -v, --version	 Показати версію</translation>
     </message>
 </context>
 <context>
@@ -378,7 +385,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="366"/>
         <source>Checksum mismatch</source>
-        <translation type="unfinished"></translation>
+        <translation>Невідповідність контрольній сумі</translation>
     </message>
 </context>
 <context>
@@ -1923,12 +1930,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2550"/>
         <source>Download Queue</source>
-        <translation type="unfinished">Черга завантажень</translation>
+        <translation>Черга завантажень</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2550"/>
         <source>All downloads complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Усі завантаження завершено</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
@@ -2889,12 +2896,12 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SearchFrame.cpp" line="40"/>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажити до...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="46"/>
         <source>Download Whole Directory to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажити всю теку до...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="52"/>
@@ -3418,7 +3425,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/ShareBrowser.cpp" line="38"/>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажити до...</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="46"/>
@@ -3606,52 +3613,52 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="53"/>
         <source>Copy</source>
-        <translation type="unfinished">Копіювати</translation>
+        <translation>Копіювати</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="56"/>
         <source>Users</source>
-        <translation type="unfinished">Користувачі</translation>
+        <translation>Користувачі</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="57"/>
         <source>Speed</source>
-        <translation type="unfinished">Швидкість</translation>
+        <translation>Швидкість</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="58"/>
         <source>Statistic</source>
-        <translation type="unfinished"></translation>
+        <translation>Статистика</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="59"/>
         <source>Size</source>
-        <translation type="unfinished">Розмір</translation>
+        <translation>Розмір</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="60"/>
         <source>Time left</source>
-        <translation type="unfinished">Залишилось</translation>
+        <translation>Залишилось</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="61"/>
         <source>Filename</source>
-        <translation type="unfinished">Ім&apos;я файлу</translation>
+        <translation>Ім&apos;я файлу</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="62"/>
         <source>Host</source>
-        <translation type="unfinished">Хост</translation>
+        <translation>Хост</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="63"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="64"/>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Магнет</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="69"/>
@@ -5786,23 +5793,26 @@ them is usually available only to operators</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо позначено, ви будете бачити смайли навіть всередині слів.
+Якщо не позначено, ви будете бачити смайли, якщо тільки
+вони ізольовані від інших слів пробілами.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Залежить від налаштувань хабу: інформація про них
+зазвичай доступна тільки операторам</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="348"/>
         <source>Use emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати панель смайлів</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="355"/>
         <source>Autohide emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоприховувати панель смайлів</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="450"/>
@@ -6336,12 +6346,12 @@ share is complete, share at follow-up activities start nulled.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="477"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
-        <translation type="unfinished"></translation>
+        <translation>Період автоматичного оновлення (хвилин, 0 = вимк.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="509"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Макс. швидкість хешування (МіБ/с, 0 = без обмежень)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="522"/>
@@ -6832,7 +6842,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="167"/>
         <source>E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>E-Mail</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="169"/>
