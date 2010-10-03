@@ -539,30 +539,30 @@ Keys:
         <translation>Hubs favoritos</translation>
     </message>
     <message>
-        <location filename="../src/FavoriteHubs.cpp" line="156"/>
-        <location filename="../src/FavoriteHubs.cpp" line="183"/>
-        <location filename="../src/FavoriteHubs.cpp" line="259"/>
+        <location filename="../src/FavoriteHubs.cpp" line="177"/>
+        <location filename="../src/FavoriteHubs.cpp" line="207"/>
+        <location filename="../src/FavoriteHubs.cpp" line="315"/>
         <source>System default</source>
         <translation>Por defecto del sistema</translation>
     </message>
     <message>
-        <location filename="../src/FavoriteHubs.cpp" line="315"/>
-        <location filename="../src/FavoriteHubs.cpp" line="345"/>
+        <location filename="../src/FavoriteHubs.cpp" line="371"/>
+        <location filename="../src/FavoriteHubs.cpp" line="401"/>
         <source>Add new</source>
         <translation>Añadir nuevo</translation>
     </message>
     <message>
-        <location filename="../src/FavoriteHubs.cpp" line="346"/>
+        <location filename="../src/FavoriteHubs.cpp" line="402"/>
         <source>Change</source>
         <translation>Cambiar</translation>
     </message>
     <message>
-        <location filename="../src/FavoriteHubs.cpp" line="347"/>
+        <location filename="../src/FavoriteHubs.cpp" line="403"/>
         <source>Delete</source>
         <translation>Borrar</translation>
     </message>
     <message>
-        <location filename="../src/FavoriteHubs.cpp" line="348"/>
+        <location filename="../src/FavoriteHubs.cpp" line="404"/>
         <source>Connect</source>
         <translation>Conectar</translation>
     </message>
@@ -4032,7 +4032,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="201"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="171"/>
         <source>This description will show in the user list.</source>
         <translation>Esta descripción se mostrará en la lista de usuarios.</translation>
     </message>
@@ -4067,77 +4067,51 @@ p, li { white-space: pre-wrap; }
         <translation>IP externa</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="106"/>
         <source>EiskaltDC++ V:2.1</source>
-        <translation>EiskaltDC++ V:2.1</translation>
+        <translation type="obsolete">EiskaltDC++ V:2.1</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="111"/>
-        <source>++ V:0.75 </source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="116"/>
-        <source>StrgDC++ V:2.30</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="121"/>
-        <source>ApexDC++ V: 1.2.2 </source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="126"/>
-        <source>FlylinkDC++ V:(r500) </source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="131"/>
-        <source>HomeDC++ V:2.22 </source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="142"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="112"/>
         <source>000.000.000.000; </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="152"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="122"/>
         <source>Auto update from Internet</source>
         <translation>Auto-Actualizar desde Internet</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="159"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="129"/>
         <source>Disable chat</source>
         <translation>Deshabilitar chat</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="169"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="139"/>
         <source>Identification</source>
         <translation>Identificación</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="181"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="151"/>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
         <translation>El nickname, o título, le identificará cuando se una a un hub.</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="188"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="158"/>
         <source>If hub requires password, define it here.</source>
         <translation>si el Hub requiere password, defínalo aquí.</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="208"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="178"/>
         <source>Nick</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="215"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="185"/>
         <source>User description</source>
         <translation>Descripción del usuario</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="222"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="192"/>
         <source>Password</source>
         <translation></translation>
     </message>

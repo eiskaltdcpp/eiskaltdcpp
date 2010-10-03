@@ -3334,23 +3334,23 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>++ V:0.75 </source>
-        <translation>++ V:0.75 </translation>
+        <translation type="obsolete">++ V:0.75 </translation>
     </message>
     <message>
         <source>StrgDC++ V:2.30</source>
-        <translation>StrgDC++ V:2.30</translation>
+        <translation type="obsolete">StrgDC++ V:2.30</translation>
     </message>
     <message>
         <source>ApexDC++ V: 1.2.2 </source>
-        <translation>ApexDC++ V: 1.2.2 </translation>
+        <translation type="obsolete">ApexDC++ V: 1.2.2 </translation>
     </message>
     <message>
         <source>FlylinkDC++ V:(r500) </source>
-        <translation>FlylinkDC++ V:(r500)  </translation>
+        <translation type="obsolete">FlylinkDC++ V:(r500)  </translation>
     </message>
     <message>
         <source>HomeDC++ V:2.22 </source>
-        <translation>HomeDC++ V:2.22  </translation>
+        <translation type="obsolete">HomeDC++ V:2.22  </translation>
     </message>
     <message>
         <source>000.000.000.000; </source>
@@ -3390,7 +3390,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>EiskaltDC++ V:2.1</source>
-        <translation type="unfinished">EiskaltDC++ V:2.1</translation>
+        <translation type="obsolete">EiskaltDC++ V:2.1</translation>
     </message>
 </context>
 <context>
