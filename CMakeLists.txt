@@ -254,7 +254,8 @@ endif ()
 
 message (STATUS "Build svn revision: ${eiskaltdcpp_WC_REVISION}")
 if (eiskaltdcpp_WC_REVISION MATCHES [0-9]+)
-    add_definitions (-DDCPP_REVISION="\(r""${eiskaltdcpp_WC_REVISION}""\)")
+    #add_definitions (-DDCPP_REVISION="\(r""${eiskaltdcpp_WC_REVISION}""\)")
+    add_definitions (-DDCPP_REVISION="r${eiskaltdcpp_WC_REVISION}")
 endif ()
 
 if (UNIX)

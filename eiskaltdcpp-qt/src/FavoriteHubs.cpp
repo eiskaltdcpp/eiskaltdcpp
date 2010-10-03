@@ -220,6 +220,7 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     editor.checkBox_IP->setChecked(isValidIP(map["IP"].toString()));
     editor.checkBox_USEINTERNET->setChecked(map["IIP"].toBool());
     editor.checkBox_DISABLECHAT->setChecked(map["DCHAT"].toBool());
+    editor.checkBox_CID->setChecked(map["OVERTAG"].toBool());
 
     QStringList tags;
     QString tag = map["TAG"].toString();
@@ -233,11 +234,9 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     editor.comboBox_CID->addItems(tags);
 
     if (tags.indexOf(tag) > 0){
-        editor.checkBox_CID->setChecked(true);
         editor.comboBox_CID->setCurrentIndex(tags.indexOf(tag));
     }
     else {
-        editor.checkBox_CID->setChecked(false);
         editor.comboBox_CID->setCurrentIndex(0);
     }
 }
@@ -281,6 +280,7 @@ void FavoriteHubs::getParams(const FavoriteHubEntry *entry, StrMap &map){
     map["ENC"]      = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
     map["UDESC"]    = _q(entry->getUserDescription());
     map["TAG"]      = _q(entry->getClientId());
+    map["OVERTAG"]  = entry->getOverrideId();
     map["IP"]       = _q(entry->getExternalIP());
     map["IIP"]      = entry->getUseInternetIP();
     map["DCHAT"]    = entry->getDisableChat();
@@ -301,7 +301,7 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
         map["IP"] = editor.lineEdit_IP->text();
     else
         map["IP"] = "";
-
+    map["OVERTAG"] = editor.checkBox_CID->isChecked();
     if (editor.comboBox_CID->currentIndex() != 0 && editor.checkBox_CID->isChecked())
         map["TAG"] = editor.comboBox_CID->currentText();
     else
@@ -335,7 +335,7 @@ void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
     entry.setDescription(map["DESC"].toString().toStdString());
     entry.setExternalIP(map["IP"].toString().toStdString());
     entry.setClientId(map["TAG"].toString().toStdString());
-    entry.setOverrideId(map["TAG"].toString() != "EiskaltDC++ V:2.1");
+    entry.setOverrideId(map["OVERTAG"].toBool());
     entry.setUseInternetIP(map["IIP"].toBool());
     entry.setDisableChat(map["DCHAT"].toBool());
 }

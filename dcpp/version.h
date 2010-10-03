@@ -23,6 +23,7 @@
 
 namespace dcpp {
 extern const string fullVersionString;
+extern const string fullADCVersionString;
 }
 
 /* Update the .rc file as well... */
