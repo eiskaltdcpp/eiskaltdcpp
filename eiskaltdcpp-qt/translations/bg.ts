@@ -6,58 +6,58 @@
     <message>
         <location filename="../src/ADLS.cpp" line="60"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>ADL Търсене</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="146"/>
         <location filename="../src/ADLS.cpp" line="163"/>
         <source>Add new</source>
-        <translation type="unfinished">Добавяне на нов</translation>
+        <translation>Добавяне на нов</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="164"/>
         <source>Change</source>
-        <translation type="unfinished">Редактиране</translation>
+        <translation>Редактиране</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="165"/>
         <source>Delete</source>
-        <translation type="unfinished">Премахване</translation>
+        <translation>Премахване</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="393"/>
         <source>Filename</source>
-        <translation type="unfinished">Име на файл</translation>
+        <translation>Име на файл</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="394"/>
         <source>Directory</source>
-        <translation type="unfinished">Директория</translation>
+        <translation>Директория</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="395"/>
         <source>Full Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Пълен път</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="401"/>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="402"/>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="403"/>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="404"/>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
 </context>
 <context>
@@ -65,37 +65,37 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Checked</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверено</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Търсене на низ</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип източник</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Име на директория</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Min. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Мин. размер</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Max. Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Макс. размер</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Type Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип размер</translation>
     </message>
 </context>
 <context>
@@ -128,7 +128,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Използване на:
+  eiskaltdcpp-qt &lt;магнитна-връзка&gt; &lt;dchub://адрес&gt; &lt;adc(s)://адрес&gt;
+  eiskaltdcpp-qt &lt;Опция&gt;
+EiskaltDC++ е мулти-платформена програма използваща Direct Connect и ADC протоколи.
+
+Опции:
+  -h, --help	 Показва това съобщение
+  -v, --version	 Показва версията</translation>
     </message>
 </context>
 <context>
@@ -136,22 +143,22 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="134"/>
         <source>Checking user %1 (message: %2, cid: %3)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверка на потребителя %1 (съобщение: %2, cid: %3)...</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="145"/>
         <source>%1: Moving user to GRAY.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Преместване на потребителя в Сивия списък.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="155"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Преместване на потребителя в Черния списък</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="163"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Изпращане на съобщение &quot;Опитайте отново&quot;.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
@@ -317,7 +324,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="366"/>
         <source>Checksum mismatch</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверената сума не съвпада</translation>
     </message>
     <message>
         <source>CRC32 inconsistency (SFV-Check)</source>
@@ -480,7 +487,7 @@ Keys:
     <message>
         <location filename="../src/EmoticonDialog.cpp" line="27"/>
         <source>Select emoticon</source>
-        <translation type="unfinished"></translation>
+        <translation>Избор на емотикони</translation>
     </message>
 </context>
 <context>
@@ -652,12 +659,12 @@ Keys:
     <message>
         <location filename="../src/FileHasher.cpp" line="87"/>
         <source>Select file</source>
-        <translation type="unfinished">Избор на файл</translation>
+        <translation>Избор на файл</translation>
     </message>
     <message>
         <location filename="../src/FileHasher.cpp" line="87"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished">Всички файлове (*.*)</translation>
+        <translation>Всички файлове (*.*)</translation>
     </message>
 </context>
 <context>
@@ -736,7 +743,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Check sum</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверка на сума</translation>
     </message>
     <message>
         <source>CRC checked</source>
@@ -1237,12 +1244,12 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="2106"/>
         <source>Users count: %3/%1 | Total share: %2</source>
-        <translation type="unfinished">Потребители: %1 | Общо споделено: %2 {3/%1 ?}</translation>
+        <translation>Потребители: %3/%1 | Общо споделено: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2859"/>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Изключване на емотиконите</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3077"/>
@@ -1733,7 +1740,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1784"/>
         <source>Connectivity Manager: Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление на свързването: Внимание</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1803"/>
@@ -1749,7 +1756,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1783"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неуспех при отваряне на порт %1. Търсенето или трансфера на файлове няма да работи правилно, докато не промените настройките или не изключите някое приложение, което може би използва същия порт.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2323"/>
@@ -1870,7 +1877,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1035"/>
         <source>Calculate file TTH</source>
-        <translation type="unfinished"></translation>
+        <translation>Изчисляване TTH на файл</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1041"/>
@@ -1880,7 +1887,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1061"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление на хъбове</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1075"/>
@@ -1905,7 +1912,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1087"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>ADL Търсене</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1090"/>
@@ -1940,27 +1947,27 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1116"/>
         <source>Homepage</source>
-        <translation type="unfinished"></translation>
+        <translation>Домашна страница</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1118"/>
         <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Изходен код (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1120"/>
         <source>Report a Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Докладване за грешки</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1122"/>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiki на проекта</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1124"/>
         <source>Changelog (svn)</source>
-        <translation type="unfinished"></translation>
+        <translation>Списък с промени (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1126"/>
@@ -2007,12 +2014,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2567"/>
         <source>Download Queue</source>
-        <translation type="unfinished">Опашка за сваляне</translation>
+        <translation>Опашка за сваляне</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2567"/>
         <source>All downloads complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Всички сваляния са завършени</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
@@ -2077,7 +2084,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2299"/>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2336"/>
@@ -2238,17 +2245,17 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/Notification.cpp" line="86"/>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation>Допълнителни</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="87"/>
         <source>Supress sound notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Спиране на звуковото известяване</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="88"/>
         <source>Supress text notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Спиране на текстовото известяване</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="100"/>
@@ -2307,7 +2314,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="505"/>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Изключване на емотиконите</translation>
     </message>
 </context>
 <context>
@@ -2441,37 +2448,37 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/main.cpp" line="45"/>
         <source>Loading: </source>
-        <translation type="unfinished"></translation>
+        <translation>Зареждане: </translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="105"/>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Иконите за списъка с потребители са заредени</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="108"/>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Иконите за приложението са заредени</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="141"/>
         <source>Shutting down libdcpp...</source>
-        <translation type="unfinished"></translation>
+        <translation>Изключване на libdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="164"/>
         <source>Quit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Изход...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="192"/>
         <source>Cannot handle SIGPIPE</source>
-        <translation type="unfinished"></translation>
+        <translation>Не се поддържа SIGPIPE</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="195"/>
         <source>Signal handlers installed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Инсталиран сигнал за поддръжка.</translation>
     </message>
 </context>
 <context>
@@ -2662,12 +2669,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="40"/>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сваляне в...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="46"/>
         <source>Download Whole Directory to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сваляне на цялата директория в...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="52"/>
@@ -3187,7 +3194,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="38"/>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сваляне в...</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="41"/>
@@ -3308,7 +3315,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SideBar.cpp" line="30"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"></translation>
+        <translation>ADL Търсене</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="31"/>
@@ -3348,12 +3355,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SideBar.cpp" line="38"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление на хъбове</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="39"/>
         <source>Other Widgets</source>
-        <translation type="unfinished"></translation>
+        <translation>Други джаджи</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="103"/>
@@ -3446,52 +3453,52 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="53"/>
         <source>Copy</source>
-        <translation type="unfinished">Копиране</translation>
+        <translation>Копиране</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="56"/>
         <source>Users</source>
-        <translation type="unfinished">Потребители</translation>
+        <translation>Потребители</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="57"/>
         <source>Speed</source>
-        <translation type="unfinished">Скорост</translation>
+        <translation>Скорост</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="58"/>
         <source>Statistic</source>
-        <translation type="unfinished"></translation>
+        <translation>Статистика</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="59"/>
         <source>Size</source>
-        <translation type="unfinished">Размер</translation>
+        <translation>Размер</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="60"/>
         <source>Time left</source>
-        <translation type="unfinished">Оставащо време</translation>
+        <translation>Оставащо време</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="61"/>
         <source>Filename</source>
-        <translation type="unfinished">Име на файл</translation>
+        <translation>Име на файл</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="62"/>
         <source>Host</source>
-        <translation type="unfinished">Хост</translation>
+        <translation>Хост</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="63"/>
         <source>IP</source>
-        <translation type="unfinished">IP адрес</translation>
+        <translation>IP адрес</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="64"/>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Магнит</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="69"/>
@@ -3736,32 +3743,32 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearch.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
-        <translation type="unfinished">Добавяне на нов</translation>
+        <translation>Добавяне на нов</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="73"/>
         <source>Change</source>
-        <translation type="unfinished">Редактиране</translation>
+        <translation>Редактиране</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished">Премахване</translation>
+        <translation>Премахване</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="100"/>
         <source>Move up</source>
-        <translation type="unfinished">Преместване нагоре</translation>
+        <translation>Преместване нагоре</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="110"/>
         <source>Move down</source>
-        <translation type="unfinished">Преместване надолу</translation>
+        <translation>Преместване надолу</translation>
     </message>
 </context>
 <context>
@@ -3769,73 +3776,73 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Прозорец</translation>
+        <translation>Прозорец</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="20"/>
         <source>Search String</source>
-        <translation type="unfinished"></translation>
+        <translation>Търсене на низ</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="26"/>
         <source>Favorite hub name.</source>
-        <translation type="unfinished">Име на избрания хъб.</translation>
+        <translation>Име на избрания хъб.</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
         <source>Type source</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип източник</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="55"/>
         <source>Filename</source>
-        <translation type="unfinished">Име на файл</translation>
+        <translation>Име на файл</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="60"/>
         <location filename="../ui/UIADLSearchEditor.ui" line="162"/>
         <source>Directory</source>
-        <translation type="unfinished">Директория</translation>
+        <translation>Директория</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
         <source>Full path</source>
-        <translation type="unfinished"></translation>
+        <translation>Пълен път</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="76"/>
         <source>Min/Max Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Мин./Макс. размер</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="136"/>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="141"/>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="146"/>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="151"/>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="234"/>
         <source>On</source>
-        <translation type="unfinished">Включване</translation>
+        <translation>Включване</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="241"/>
         <source>Download</source>
-        <translation type="unfinished">Сваляне</translation>
+        <translation>Сваляне</translation>
     </message>
 </context>
 <context>
@@ -4038,7 +4045,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="395"/>
         <source>Filter Operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Филтриране на оператори</translation>
     </message>
 </context>
 <context>
@@ -4125,7 +4132,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="106"/>
         <source>EiskaltDC++ V:2.1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="111"/>
@@ -4254,27 +4261,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFileHasher.ui" line="29"/>
         <source>TTH Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>TTH Калкулатор</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="54"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="73"/>
         <source>Compute</source>
-        <translation type="unfinished"></translation>
+        <translation>Изчисляване</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="80"/>
         <source>Get magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Взимане на магнит</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Close</source>
-        <translation type="unfinished">Затваряне</translation>
+        <translation>Затваряне</translation>
     </message>
 </context>
 <context>
@@ -4400,27 +4407,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
-        <translation type="unfinished">Хъб</translation>
+        <translation>Хъб</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
         <source>URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрес</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="43"/>
         <source>Users</source>
-        <translation type="unfinished">Потребители</translation>
+        <translation>Потребители</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="48"/>
         <source>Share</source>
-        <translation type="unfinished">Споделено</translation>
+        <translation>Споделено</translation>
     </message>
 </context>
 <context>
@@ -4607,7 +4614,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="83"/>
         <source>Edit</source>
-        <translation type="unfinished">Промяна</translation>
+        <translation>Промяна</translation>
     </message>
 </context>
 <context>
@@ -4728,7 +4735,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Auto detect connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично определяне на свързването</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="229"/>
@@ -4808,17 +4815,17 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="696"/>
         <source>Slots</source>
-        <translation type="unfinished"></translation>
+        <translation>Слотове</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="729"/>
         <source>Advanced</source>
-        <translation type="unfinished">Разширени</translation>
+        <translation>Разширени</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="743"/>
         <source>Reconnect to hub(seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Свързване наново с хъба (сек.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="479"/>
@@ -4892,7 +4899,7 @@ SOCKS5 прокситата не са същите като HTTP прокси.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="446"/>
         <source>Enable Throttle</source>
-        <translation type="unfinished"></translation>
+        <translation>Използване на ограничение за скоростта</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="493"/>
@@ -5293,7 +5300,10 @@ from the queue either, you must do that manually.</source>
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимален интервал от време с последно постъпили данни.
+Използва се за подобряване точността на измерване на скоростта
+и предотвратява премахването на източници, които би трябвало да
+се прекъснат заради неактивния им текущ статус (по подразбиране: 10 сек)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="667"/>
@@ -5498,7 +5508,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="331"/>
         <source>Filter kick-messages from the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Филтриране на съобщения за изгонване от чата</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="338"/>
@@ -5549,23 +5559,26 @@ them is usually available only to operators</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ако е избрано, емотиконите ще се виждат дори в средата на думите.
+Ако не е избрано, емотиконите ще се виждат,
+само ако те са изолирани от други думи с интервал.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>В зависимост от настройките на хъба: информацията 
+обикновено е достъпна само за оператори</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="348"/>
         <source>Use emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Използване на панел с емотикони</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="355"/>
         <source>Autohide emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично скриване на панела с емотикони</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="450"/>
@@ -5635,7 +5648,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="657"/>
         <source>Show country of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Показване държавата на потребителите в чата</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="678"/>
@@ -5667,7 +5680,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="764"/>
         <source>Highlighting of already shared files</source>
-        <translation type="unfinished"></translation>
+        <translation>Осветяване на вече споделените файлове</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="827"/>
@@ -5975,7 +5988,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="90"/>
         <source>Auto away interval (min)</source>
-        <translation type="unfinished"></translation>
+        <translation>Интервал за авто-отсъствие (мин)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="151"/>
@@ -6202,17 +6215,17 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Авто-отваряне на допълнителен слот, ако скоростта е под (KiB/s, 0 = неогр.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="477"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
-        <translation type="unfinished"></translation>
+        <translation>Време за авто-опресняване (минути, 0 = изкл.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="509"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Максимална скорост на хеширане (MB/s) (0 = неогр.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="546"/>
@@ -6536,7 +6549,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="167"/>
         <source>E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>Електронна поща</translation>
     </message>
     <message>
         <source>Email</source>
