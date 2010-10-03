@@ -101,36 +101,6 @@
         <property name="enabled">
          <bool>false</bool>
         </property>
-        <item>
-         <property name="text">
-          <string>EiskaltDC++ V:2.1</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>++ V:0.75 </string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>StrgDC++ V:2.30</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>ApexDC++ V: 1.2.2 </string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>FlylinkDC++ V:(r500) </string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>HomeDC++ V:2.22 </string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="6" column="1">

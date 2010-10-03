@@ -35,6 +35,8 @@ class FavoriteHubEditor:
         public QDialog,
         public Ui::UIFavoriteHubEditor
 {
+    Q_OBJECT
+
     public:
         FavoriteHubEditor(QWidget *parent = NULL):
                 QDialog(parent)
@@ -79,6 +81,7 @@ private slots:
     void slotConnectButtonClicked();
     void slotUpButtonClicked();
     void slotDownButtonClicked();
+    void slotUpdateComboBox_CID();
 
 private:
     FavoriteHubs(QWidget* = NULL);
@@ -100,6 +103,9 @@ private:
     FavoriteHubItem *getItem();
 
     FavoriteHubModel *model;
+
+    QStringList fakeNMDCTags;
+    QStringList fakeADCTags;
 
     virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) throw();
     virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) throw();

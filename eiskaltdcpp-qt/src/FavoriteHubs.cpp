@@ -86,6 +86,27 @@ void FavoriteHubs::init(){
 
     treeView->setModel(model);
 
+    fakeNMDCTags = QStringList();
+    fakeADCTags = QStringList();
+
+    fakeNMDCTags << "EiskaltDC++ V:2.1"
+            << "++ V:0.75"
+            << "++ V:0.777"
+            << "StrgDC++ V:2.42"
+            << "ApexDC++ V:1.3.6"
+            << "FlylinkDC++ V:(r400)"
+            << "HomeDC++ V:2.22"
+            << "FakeDC V:1.0";
+
+    fakeADCTags << "EiskaltDC++ 2.1"
+            << "++ 0.75"
+            << "++ 0.777"
+            << "StrgDC++ 2.42"
+            << "ApexDC++ 1.3.6"
+            << "FlylinkDC++ V:(r400)"
+            << "HomeDC++ 2.22"
+            << "FakeDC 1.0";
+
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
     for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
@@ -155,6 +176,9 @@ void FavoriteHubs::init(){
 void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor){
     editor.comboBox_ENC->addItem(tr("System default"));
     editor.comboBox_ENC->addItems(WulforUtil::getInstance()->encodings());
+
+    connect(editor.checkBox_CID, SIGNAL(clicked()), this, SLOT(slotUpdateComboBox_CID()));
+    connect(editor.lineEdit_ADDRESS, SIGNAL(textChanged(QString)), this, SLOT(slotUpdateComboBox_CID()));
 }
 
 static bool isValidIP(const QString &ip){
@@ -197,18 +221,50 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     editor.checkBox_USEINTERNET->setChecked(map["IIP"].toBool());
     editor.checkBox_DISABLECHAT->setChecked(map["DCHAT"].toBool());
 
-    QString tag = map["TAG"].toString();
     QStringList tags;
-    for (int i = 0; i < editor.comboBox_CID->count(); i++)
-        tags.push_back(editor.comboBox_CID->itemText(i));
+    QString tag = map["TAG"].toString();
 
-    if (!tag.isEmpty() || tags.indexOf(tag) > 0){
+    editor.comboBox_CID->clear();
+    if (map["ADDR"].toString().startsWith("adc://",Qt::CaseInsensitive) ||
+        map["ADDR"].toString().startsWith("adcs://",Qt::CaseInsensitive))
+        tags = fakeADCTags;
+    else
+        tags = fakeNMDCTags;
+    editor.comboBox_CID->addItems(tags);
+
+    if (tags.indexOf(tag) > 0){
         editor.checkBox_CID->setChecked(true);
         editor.comboBox_CID->setCurrentIndex(tags.indexOf(tag));
     }
     else {
         editor.checkBox_CID->setChecked(false);
         editor.comboBox_CID->setCurrentIndex(0);
+    }
+}
+
+void FavoriteHubs::slotUpdateComboBox_CID(){
+    FavoriteHubEditor *editor = qobject_cast<FavoriteHubEditor *>(sender()->parent()->parent());
+
+    if(!editor)
+        return;
+
+    QStringList tags;
+    QString ADDR = editor->lineEdit_ADDRESS->text();
+
+    if (ADDR.startsWith("adc://",Qt::CaseInsensitive) ||
+        ADDR.startsWith("adcs://",Qt::CaseInsensitive))
+        tags = fakeADCTags;
+    else
+        tags = fakeNMDCTags;
+
+    QStringList old_tags;
+    for (int i = 0; i < editor->comboBox_CID->count(); i++)
+        old_tags.append(editor->comboBox_CID->itemText(i));
+
+    if (tags != old_tags){
+        editor->comboBox_CID->clear();
+        editor->comboBox_CID->addItems(tags);
+        editor->comboBox_CID->setCurrentIndex(0);
     }
 }
 
