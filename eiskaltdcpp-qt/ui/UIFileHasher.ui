@@ -9,9 +9,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>689</width>
-    <height>135</height>
+    <width>554</width>
+    <height>99</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="maximumSize">
    <size>
@@ -22,8 +28,8 @@
   <property name="windowTitle">
    <string>TTH Calculator</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0" colspan="3">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <widget class="QFrame" name="frame">
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -32,6 +38,9 @@
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="margin">
+       <number>1</number>
+      </property>
       <item row="0" column="0">
        <widget class="QLineEdit" name="lineEdit_FILE">
         <property name="readOnly">
@@ -49,29 +58,70 @@
      </layout>
     </widget>
    </item>
-   <item row="5" column="0" colspan="3">
+   <item>
     <widget class="QLineEdit" name="lineEdit_HASH">
      <property name="readOnly">
       <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item row="7" column="1">
-    <widget class="QPushButton" name="pushButton_RUN">
-     <property name="text">
-      <string>Compute</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="2">
-    <widget class="QPushButton" name="pushButton_MAGNET">
-     <property name="text">
-      <string>Get magnet</string>
-     </property>
-    </widget>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_RUN">
+       <property name="text">
+        <string>Compute</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_MAGNET">
+       <property name="text">
+        <string>Get magnet</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_CLOSE">
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_CLOSE</sender>
+   <signal>clicked()</signal>
+   <receiver>UIFileHasher</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>278</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>268</x>
+     <y>67</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

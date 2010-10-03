@@ -548,6 +548,17 @@ Keys:
     </message>
 </context>
 <context>
+    <name>FileHasher</name>
+    <message>
+        <source>Select file</source>
+        <translation type="unfinished">Fájl kiválasztása</translation>
+    </message>
+    <message>
+        <source>All files (*.*)</source>
+        <translation type="unfinished">Minden fájl (*.*)</translation>
+    </message>
+</context>
+<context>
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
@@ -1978,6 +1989,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>All downloads complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculate file TTH</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3642,6 +3657,29 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Auto grant slot to all users</source>
         <translation>Automatikus extra slot minden felhasználónak</translation>
+    </message>
+</context>
+<context>
+    <name>UIFileHasher</name>
+    <message>
+        <source>TTH Calculator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Bezárás</translation>
     </message>
 </context>
 <context>

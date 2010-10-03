@@ -1032,7 +1032,7 @@ void MainWindow::retranslateUi(){
 
         fileFileListBrowser->setText(tr("Open filelist..."));
 
-        fileFileHasher->setText(tr("Get TTH for file"));
+        fileFileHasher->setText(tr("Calculate file TTH"));
 
         fileFileListBrowserLocal->setText(tr("Open own filelist"));
 

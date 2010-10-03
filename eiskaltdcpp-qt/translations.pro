@@ -17,6 +17,7 @@ HEADERS = ../Version.h \
     src/Notification.h \
     src/ArenaWidget.h \
     src/EmoticonDialog.h \
+    src/FileHasher.h \
     src/PMWindow.h \
     src/TransferView.h \
     src/ShareBrowser.h \
@@ -76,6 +77,7 @@ SOURCES = src/main.cpp \
     src/Notification.cpp \
     src/ArenaWidget.cpp \
     src/EmoticonDialog.cpp \
+    src/FileHasher.cpp \
     src/PMWindow.cpp \
     src/ChatComandParser.cpp \
     src/TransferView.cpp \
@@ -154,6 +156,7 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UIDialogScriptConsole.ui \
     ui/UIADLSearch.ui \
     ui/UIADLSearchEditor.ui \
+    ui/UIFileHasher.ui \
     ui/UIHubManager.ui
 TRANSLATIONS = translations/en.ts \
     translations/ru.ts \

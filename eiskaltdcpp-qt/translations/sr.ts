@@ -518,6 +518,17 @@ Keys:
     </message>
 </context>
 <context>
+    <name>FileHasher</name>
+    <message>
+        <source>Select file</source>
+        <translation type="unfinished">Izaberi fajl</translation>
+    </message>
+    <message>
+        <source>All files (*.*)</source>
+        <translation type="unfinished">Svi fajlovi (*.*)</translation>
+    </message>
+</context>
+<context>
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
@@ -1766,6 +1777,10 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>All downloads complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calculate file TTH</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3418,6 +3433,29 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Auto grant slot to all users</source>
         <translation>Automatski odobri slot za sve korisnike</translation>
+    </message>
+</context>
+<context>
+    <name>UIFileHasher</name>
+    <message>
+        <source>TTH Calculator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Zatvori</translation>
     </message>
 </context>
 <context>

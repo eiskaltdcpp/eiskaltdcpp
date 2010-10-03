@@ -25,7 +25,7 @@ FileHasher::FileHasher(QWidget *parent) :
     connect(hasher, SIGNAL(finished()), this, SLOT(slotDone()));
     pushButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
 
-    connect(pushButton_RUN, SIGNAL(clicked()), this, SLOT(slotStart()));
+    connect(pushButton_RUN,    SIGNAL(clicked()), this, SLOT(slotStart()));
     connect(pushButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
     connect(pushButton_MAGNET, SIGNAL(clicked()), this, SLOT(slotMagnet()));
 }
@@ -66,10 +66,13 @@ void FileHasher::slotDone(){
 }
 
 void FileHasher::slotMagnet(){
-    QString magnet = "", tthstring = lineEdit_HASH->text(), file = lineEdit_FILE->text();
+    QString tthstring = lineEdit_HASH->text(), file = lineEdit_FILE->text();
 
-    if (tthstring.isEmpty())
+    if (tthstring.isEmpty()){
+        slotStart();
         return;
+    }
+
     qlonglong filesize = QFile(file).size();
     QStringList list = file.split("/");
 

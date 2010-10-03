@@ -603,6 +603,17 @@ Keys:
     </message>
 </context>
 <context>
+    <name>FileHasher</name>
+    <message>
+        <source>Select file</source>
+        <translation type="unfinished">Sélectionner fichier</translation>
+    </message>
+    <message>
+        <source>All files (*.*)</source>
+        <translation type="unfinished">Tous les fichiers (*.*)</translation>
+    </message>
+</context>
+<context>
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
@@ -1960,6 +1971,10 @@ Please check your connection settings</source>
     <message>
         <source>All downloads complete</source>
         <translation>Téléchargements terminés</translation>
+    </message>
+    <message>
+        <source>Calculate file TTH</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3739,6 +3754,29 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Auto grant slot to all users</source>
         <translation>Don de slot automatique à tous les utilisateurs</translation>
+    </message>
+</context>
+<context>
+    <name>UIFileHasher</name>
+    <message>
+        <source>TTH Calculator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
     </message>
 </context>
 <context>
