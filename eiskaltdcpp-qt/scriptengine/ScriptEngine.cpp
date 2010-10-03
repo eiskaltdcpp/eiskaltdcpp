@@ -107,7 +107,7 @@ void ScriptEngine::loadQMLScript(const QString &file){
 
     MainWindow::getInstance()->addArenaWidget(wgt);
     MainWindow::getInstance()->addArenaWidgetOnToolbar(wgt);
-    MainWindow::getInstance()->mapWidgetOnArena(wgt);
+    MainWindow::getInstance()->mapArenaWidget(wgt);
 }
 #endif
 
@@ -397,7 +397,7 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
             fr->setAttribute(Qt::WA_DeleteOnClose);
 
             MainWindow::getInstance()->addArenaWidget(fr);
-            MainWindow::getInstance()->mapWidgetOnArena(fr);
+            MainWindow::getInstance()->mapArenaWidget(fr);
 
             MainWindow::getInstance()->addArenaWidgetOnToolbar(fr);
 

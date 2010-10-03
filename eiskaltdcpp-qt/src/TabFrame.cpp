@@ -161,7 +161,7 @@ void TabFrame::historyPop(){
         TabButton *btn = qobject_cast<TabButton*>(item->widget());
 
         if (btn)
-            MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[btn]);
+            MainWindow::getInstance()->mapArenaWidget(tbtn_map[btn]);
 
         return;
     }
@@ -170,7 +170,7 @@ void TabFrame::historyPop(){
 
     ArenaWidget *awgt = history.takeLast();
 
-    MainWindow::getInstance()->mapWidgetOnArena(awgt);
+    MainWindow::getInstance()->mapArenaWidget(awgt);
 }
 
 void TabFrame::buttonClicked(){
@@ -181,7 +181,7 @@ void TabFrame::buttonClicked(){
 
     btn->setFocus();
 
-    MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[btn]);
+    MainWindow::getInstance()->mapArenaWidget(tbtn_map[btn]);
 }
 
 void TabFrame::closeRequsted() {
@@ -217,7 +217,7 @@ void TabFrame::nextTab(){
     if (!next)
         return;
 
-    MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[next]);
+    MainWindow::getInstance()->mapArenaWidget(tbtn_map[next]);
 }
 
 void TabFrame::prevTab(){
@@ -240,7 +240,7 @@ void TabFrame::prevTab(){
     if (!next)
         return;
 
-    MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[next]);
+    MainWindow::getInstance()->mapArenaWidget(tbtn_map[next]);
 }
 
 void TabFrame::slotShorcuts(){
@@ -257,7 +257,7 @@ void TabFrame::slotShorcuts(){
         if (!next)
             return;
 
-        MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[next]);
+        MainWindow::getInstance()->mapArenaWidget(tbtn_map[next]);
     }
 }
 

@@ -187,7 +187,7 @@ DownloadQueue::~DownloadQueue(){
 void DownloadQueue::closeEvent(QCloseEvent *e){
     if (isUnload()){
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
+        MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
         MainWindow::getInstance()->remArenaWidget(this);
 
         //setAttribute(Qt::WA_DeleteOnClose);
@@ -198,7 +198,7 @@ void DownloadQueue::closeEvent(QCloseEvent *e){
     }
     else {
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
+        MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
 
         e->ignore();
     }

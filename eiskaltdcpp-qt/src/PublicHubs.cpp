@@ -75,7 +75,7 @@ PublicHubs::~PublicHubs(){
 void PublicHubs::closeEvent(QCloseEvent *e){
     if (isUnload()){
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
+        MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
         MainWindow::getInstance()->remArenaWidget(this);
 
         WSSET(WS_PUBLICHUBS_STATE, treeView->header()->saveState().toBase64());
@@ -84,7 +84,7 @@ void PublicHubs::closeEvent(QCloseEvent *e){
     }
     else {
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
+        MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
 
         e->ignore();
     }

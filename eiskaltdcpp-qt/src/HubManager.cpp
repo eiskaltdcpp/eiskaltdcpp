@@ -23,14 +23,14 @@ HubManager::~HubManager(){
 void HubManager::closeEvent(QCloseEvent *e){
     if (isUnload()){
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
+        MainWindow::getInstance()->unmapArenaWidget(this);
         MainWindow::getInstance()->remArenaWidget(this);
 
         e->accept();
     }
     else {
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
+        MainWindow::getInstance()->unmapArenaWidget(this);
 
         e->ignore();
     }

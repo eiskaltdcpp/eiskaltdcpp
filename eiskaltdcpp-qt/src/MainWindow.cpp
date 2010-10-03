@@ -1214,7 +1214,7 @@ void MainWindow::initSideBar(){
     connect(sideTree, SIGNAL(clicked(QModelIndex)),    model, SLOT(slotIndexClicked(QModelIndex)));
     connect(sideTree, SIGNAL(activated(QModelIndex)),  model, SLOT(slotIndexClicked(QModelIndex)));
     connect(sideTree, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSidebarContextMenu()));
-    connect(model,    SIGNAL(mapWidget(ArenaWidget*)), this,  SLOT(mapWidgetOnArena(ArenaWidget*)));
+    connect(model,    SIGNAL(mapWidget(ArenaWidget*)), this,  SLOT(mapArenaWidget(ArenaWidget*)));
     connect(model,    SIGNAL(selectIndex(QModelIndex)),this,  SLOT(slotSelectSidebarIndex(QModelIndex)));
 }
 
@@ -1299,7 +1299,7 @@ void MainWindow::newHubFrame(QString address, QString enc){
     HubFrame *fr = NULL;
 
     if (fr = HubManager::getInstance()->getHub(address)){
-        mapWidgetOnArena(fr);
+        mapArenaWidget(fr);
 
         return;
     }
@@ -1310,7 +1310,7 @@ void MainWindow::newHubFrame(QString address, QString enc){
     addArenaWidget(fr);
     addArenaWidgetOnToolbar(fr);
 
-    mapWidgetOnArena(fr);
+    mapArenaWidget(fr);
 }
 
 void MainWindow::updateStatus(const QMap<QString, QString> &map){
@@ -1558,7 +1558,7 @@ void MainWindow::remArenaWidget(ArenaWidget *awgt){
     }
 }
 
-void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
+void MainWindow::mapArenaWidget(ArenaWidget *awgt){
     if (!arenaWidgets.contains(awgt))
         return;
 
@@ -1597,15 +1597,18 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
         wg->setFocus();
 }
 
-void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
+void MainWindow::unmapArenaWidget(ArenaWidget *awgt){
     if (!arenaWidgets.contains(awgt))
         return;
 
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(false);
 
-    if (arena->widget() == awgt->getWidget())
+    if (arena->widget() == awgt->getWidget()){
         arena->widget()->hide();
+
+        setWindowTitle("EiskaltDC++");
+    }
 }
 
 void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){
@@ -1707,7 +1710,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
         menuWidgets->clear();
         menuWidgets->addActions(menuWidgetsActions);
 
-        mapWidgetOnArena(a);
+        mapArenaWidget(a);
 
         wcontainer->insertWidget(a);
         wcontainer->mapped(a);
@@ -1817,7 +1820,7 @@ void MainWindow::slotFileBrowseOwnFilelist(){
     static ShareBrowser *local_share = NULL;
 
     if (arenaWidgets.contains(local_share)){
-        mapWidgetOnArena(local_share);
+        mapArenaWidget(local_share);
 
         return;
     }
@@ -2097,7 +2100,7 @@ void MainWindow::slotWidgetsToggle(){
     if (it == menuWidgetsHash.end())
         return;
 
-    mapWidgetOnArena(it.value());
+    mapArenaWidget(it.value());
 }
 
 void MainWindow::slotQC(){

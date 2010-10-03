@@ -413,7 +413,7 @@ void PMWindow::slotHub(){
     HubFrame *fr = HubManager::getInstance()->getHub(hubUrl);
 
     if (fr)
-        MainWindow::getInstance()->mapWidgetOnArena(fr);
+        MainWindow::getInstance()->mapArenaWidget(fr);
 }
 
 void PMWindow::slotShare(){

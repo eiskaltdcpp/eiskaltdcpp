@@ -92,7 +92,7 @@ protected:
     virtual void closeEvent(QCloseEvent *e){
         if (isUnload()){
             MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-            MainWindow::getInstance()->remWidgetFromArena(this);
+            MainWindow::getInstance()->unmapArenaWidget(this);
             MainWindow::getInstance()->remArenaWidget(this);
 
             //setAttribute(Qt::WA_DeleteOnClose);
@@ -106,7 +106,7 @@ protected:
         }
         else {
             MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-            MainWindow::getInstance()->remWidgetFromArena(this);
+            MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
 
             e->ignore();
         }

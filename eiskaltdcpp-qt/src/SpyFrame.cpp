@@ -38,7 +38,7 @@ SpyFrame::~SpyFrame(){
 void SpyFrame::closeEvent(QCloseEvent *e){
     if (isUnload()){
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
+        MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
         MainWindow::getInstance()->remArenaWidget(this);
 
         //setAttribute(Qt::WA_DeleteOnClose);
@@ -59,7 +59,7 @@ void SpyFrame::closeEvent(QCloseEvent *e){
         }
 
         MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
+        MainWindow::getInstance()->MainWindow::getInstance()->unmapArenaWidget(this);
 
         e->ignore();
     }
