@@ -41,14 +41,13 @@ public:
 
     static void newInstance() {
         if(instance)
-            delete instance;
+            return;
 
         instance = new T();
     }
 
     static void deleteInstance() {
-        if(instance)
-            delete instance;
+        delete instance;
         instance = NULL;
     }
 

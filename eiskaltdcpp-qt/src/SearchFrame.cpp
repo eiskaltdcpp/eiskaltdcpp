@@ -292,6 +292,10 @@ SearchFrame::~SearchFrame(){
     MainWindow::getInstance()->remArenaWidget(this);
     MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
 
+    QMap<QListWidgetItem*, HubInfo*>::iterator it = hub_items.begin();
+    for (; it != hub_items.end(); ++it)
+        delete it.value();
+
     if (completer)
         completer->deleteLater();
 

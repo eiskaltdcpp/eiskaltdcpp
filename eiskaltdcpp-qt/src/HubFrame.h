@@ -227,6 +227,7 @@ private Q_SLOTS:
     void slotSmileClicked();
     void slotSmileContextMenu();
     void slotSettingsChanged(const QString &, const QString &);
+    void slotBoolSettingsChanged(const QString&, int);
     void slotCopyHubURL();
     void slotCopyHubTitle();
     void slotCopyHubIP();

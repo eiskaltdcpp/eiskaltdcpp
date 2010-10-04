@@ -220,6 +220,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     if (AntiSpam::getInstance()){
         antispam_menu = new QMenu(NULL);
         antispam_menu->setTitle(tr("AntiSpam"));
+        antispam_menu->setIcon(WICON(WulforUtil::eiSPAM));
 
         antispam_menu->addAction(tr("Add to Black"))->setData(static_cast<int>(AntiSpamBlack));
         antispam_menu->addAction(tr("Add to White"))->setData(static_cast<int>(AntiSpamWhite));
@@ -932,6 +933,7 @@ void HubFrame::init(){
     connect(toolButton_SMILE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSmileContextMenu()));
     connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString, QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(WulforSettings::getInstance(), SIGNAL(intValueChanged(QString,int)), this, SLOT(slotBoolSettingsChanged(QString,int)));
 
 #ifdef USE_ASPELL
     connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SLOT(slotInputTextChanged()));
@@ -2856,7 +2858,6 @@ void HubFrame::slotSmileContextMenu(){
 #endif//WIN32
 
     QMenu *m = new QMenu(this);
-    QAction * a = m->addAction(tr("Disable emoticons"));
 
     foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
@@ -2864,19 +2865,18 @@ void HubFrame::slotSmileContextMenu(){
             act->setCheckable(true);
 
             if (f == WSGET(WS_APP_EMOTICON_THEME)){
-                a->setChecked(false);
+                act->setChecked(false);
                 act->setChecked(true);
             }
         }
     }
 
-    a = m->exec(QCursor::pos());
+    QAction *a = m->exec(QCursor::pos());
 
-    if (a && a->isChecked()){
+    if (a && a->isChecked())
         WSSET(WS_APP_EMOTICON_THEME, a->text());
-    }
-    else if (a)
-        WSSET(WS_APP_EMOTICON_THEME, "");
+
+    m->deleteLater();
 }
 
 void HubFrame::slotInputTextChanged(){
@@ -3042,8 +3042,40 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
             foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
                 connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
         }
+    }
+}
 
-        toolButton_SMILE->setVisible(!value.isEmpty() && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+void HubFrame::slotBoolSettingsChanged(const QString &key, int value){
+    if (key == WB_APP_ENABLE_EMOTICON){
+        bool enable = static_cast<bool>(value);
+
+        if (enable){
+            EmoticonFactory::newInstance();
+            EmoticonFactory::getInstance()->load();
+
+            frame_SMILES->setVisible(false);
+
+            clearLayout(frame_SMILES->layout());
+
+            QSize sz;
+            Q_UNUSED(sz);
+
+            EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+
+            foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+                connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
+
+        }
+        else{
+            if (EmoticonFactory::getInstance())
+                EmoticonFactory::deleteInstance();
+
+            frame_SMILES->setVisible(false);
+
+            clearLayout(frame_SMILES->layout());
+        }
+
+        toolButton_SMILE->setVisible(enable);
     }
 }
 

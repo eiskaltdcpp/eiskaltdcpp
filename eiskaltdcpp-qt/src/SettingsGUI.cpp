@@ -141,9 +141,8 @@ void SettingsGUI::init(){
 #else
         QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
 #endif//WIN32
-        comboBox_EMOT->addItem("");
         comboBox_EMOT->setCurrentIndex(0);
-        i = 1;
+        i = 0;
         foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_EMOT->addItem(f);
