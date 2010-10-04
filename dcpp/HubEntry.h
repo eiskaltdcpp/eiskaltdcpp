@@ -19,8 +19,6 @@
 #ifndef DCPLUSPLUS_DCPP_HUBENTRY_H_
 #define DCPLUSPLUS_DCPP_HUBENTRY_H_
 
-#include "version.h"
-
 namespace dcpp {
 
 class HubEntry {
@@ -58,7 +56,7 @@ public:
     GETSET(int, maxHubs, MaxHubs);
     GETSET(int, maxUsers, MaxUsers);
 };
-const string DEF_FAKE_ID = fullVersionString;
+const string DEF_FAKE_ID = "";
 class FavoriteHubEntry {
 public:
     FavoriteHubEntry() throw() : connect(false), encoding(Text::systemCharset),
