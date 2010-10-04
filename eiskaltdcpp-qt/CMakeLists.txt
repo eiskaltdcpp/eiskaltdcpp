@@ -80,6 +80,7 @@ set (SRCS
             src/ShareBrowser.cpp
             src/ShellCommandRunner.cpp
             src/ShortcutManager.cpp
+	    src/ShortcutEdit.cpp
             src/SideBar.cpp
             src/SingleInstanceRunner.cpp
             src/SpyFrame.cpp
@@ -144,6 +145,7 @@ set (MOC_HDRS
             src/SettingsPersonal.h
             src/SettingsSharing.h
             src/SettingsUC.h
+	    src/ShortcutEdit.h
             src/SideBar.h
             src/SingleInstanceRunner.h
             src/QuickConnect.h

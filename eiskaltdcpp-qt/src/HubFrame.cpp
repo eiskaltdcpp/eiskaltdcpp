@@ -202,8 +202,9 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
         return None;
 
     menu->clear();
+    menu->setProperty("iconVisibleInMenu", true);
 
-    menu->setTitle("");
+    menu->setTitle(WulforUtil::getInstance()->getNicks(cid));
 
     menu->addActions(ul_actions);
 
@@ -221,6 +222,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
         antispam_menu = new QMenu(NULL);
         antispam_menu->setTitle(tr("AntiSpam"));
         antispam_menu->setIcon(WICON(WulforUtil::eiSPAM));
+        antispam_menu->setProperty("iconVisibleInMenu", true);
 
         antispam_menu->addAction(tr("Add to Black"))->setData(static_cast<int>(AntiSpamBlack));
         antispam_menu->addAction(tr("Add to White"))->setData(static_cast<int>(AntiSpamWhite));
