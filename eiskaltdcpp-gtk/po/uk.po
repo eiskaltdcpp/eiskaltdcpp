@@ -1482,88 +1482,88 @@ msgstr "Дозволити TLS з'єднання з хабами без дові
 
 #: ../src/settingsdialog.cc:1455
 msgid "Allow TLS connections to clients without trusted certificate"
-msgstr ""
+msgstr "Дозволити TLS з'єднання з хабами без довіреного сертифікату"
 
 #: ../src/settingsdialog.cc:1511
 msgid "*** T E S T ***"
-msgstr ""
+msgstr "*** T E С T ***"
 
 #: ../src/settingsdialog.cc:1593 ../src/settingsdialog.cc:1622
 #: ../src/settingsdialog.cc:1659
 msgid "...must not be empty"
-msgstr ""
+msgstr "...не повинно бути пустим"
 
 #: ../src/settingsdialog.cc:1690 ../src/settingsdialog.cc:1714
 msgid "...must be *.theme"
-msgstr ""
+msgstr "...має бути *.theme"
 
 #: ../src/settingsdialog.cc:1729
 msgid "default icons"
-msgstr ""
+msgstr "іконки по замовчуванню"
 
 #: ../src/settingsdialog.cc:1738
 msgid " + system icons"
-msgstr ""
+msgstr " + системні іконки"
 
 #: ../src/settingsdialog.cc:1761
 msgid "default theme"
-msgstr ""
+msgstr "тема по замовчуванню"
 
 #: ../src/settingsdialog.cc:2102 ../src/settingsdialog.cc:2188
 msgid "Must not be empty..."
-msgstr ""
+msgstr "Не має бути пустим..."
 
 #: ../src/settingsdialog.cc:2110
 msgid "Error"
-msgstr ""
+msgstr "Помилка"
 
 #: ../src/settingsdialog.cc:2230
 #, fuzzy
 msgid "Virtual name"
-msgstr "Ім'я файлу"
+msgstr "Віртуальне ім'я"
 
 #: ../src/settingsdialog.cc:2233
 msgid "<b>Name under which the others see the directory</b>"
-msgstr ""
+msgstr "<b>Ім'я каталогу, котре будуть бачити інші користувачі</b>"
 
 #: ../src/settingsdialog.cc:2286 ../src/settingsdialog.cc:2387
 msgid "selected style failed"
-msgstr ""
+msgstr "не обрано стилю"
 
 #: ../src/settingsdialog.cc:2462 ../glade/settingsdialog.glade:6179
 msgid "Separator"
-msgstr ""
+msgstr "Роздільник"
 
 #: ../src/settingsdialog.cc:2550
 msgid "Name and command must not be empty"
-msgstr ""
+msgstr "Ім'я та команда не повинні бути пустими"
 
 #: ../src/settingsdialog.cc:2556
 msgid "Command name already exists"
-msgstr ""
+msgstr "Команда вже існує"
 
 #: ../src/settingsdialog.cc:2750 ../src/publichubs.cc:360
 msgid "New list"
-msgstr ""
+msgstr "Новий список"
 
 #: ../src/settingsdialog.cc:2843
 msgid "Directory or favorite name already exists"
-msgstr ""
+msgstr "Такий каталог чи ім'я вже існує"
 
 #: ../src/settingsdialog.cc:2948
 msgid "[HIDDEN SHARE] "
-msgstr ""
+msgstr "[HIDDEN SHARE] "
 
 #: ../src/settingsdialog.cc:2962
 msgid "Total size: "
-msgstr ""
+msgstr "Підсумковий розмір: "
 
 #: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:67
 #: ../src/favoritehubs.cc:121 ../src/favoritehubs.cc:237
 #: ../src/favoritehubs.cc:298 ../src/favoritehubs.cc:452
 #: ../src/favoritehubs.cc:454
 msgid "Auto Connect"
-msgstr ""
+msgstr "Авто з'єдн."
 
 #: ../src/favoritehubs.cc:55 ../src/favoritehubs.cc:127
 #: ../src/favoritehubs.cc:141 ../src/favoritehubs.cc:214
@@ -1573,32 +1573,32 @@ msgstr ""
 #: ../src/publichubs.cc:44 ../src/publichubs.cc:159 ../src/publichubs.cc:269
 #: ../src/publichubs.cc:294
 msgid "Address"
-msgstr ""
+msgstr "Адреса"
 
 #: ../src/favoritehubs.cc:57 ../src/favoritehubs.cc:125
 #: ../glade/settingsdialog.glade:636
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: ../src/favoritehubs.cc:58 ../src/favoritehubs.cc:128
 #: ../src/favoritehubs.cc:296
 msgid "User Description"
-msgstr ""
+msgstr "Опис користувача"
 
 #: ../src/favoritehubs.cc:59 ../src/favoritehubs.cc:129
 #: ../src/favoritehubs.cc:215 ../src/favoritehubs.cc:241
 #: ../src/favoritehubs.cc:297 ../src/favoritehubs.cc:441
 msgid "Encoding"
-msgstr ""
+msgstr "Кодування"
 
 #: ../src/favoritehubs.cc:376
 msgid "The name and address fields are required"
-msgstr ""
+msgstr "Ім'я та адреса обов'язкові для заповнення"
 
 #: ../src/favoritehubs.cc:411
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
+msgstr "Ви впевнені, що хочете видалити обраний хаб \"%s\"?"
 
 #: ../src/mainwindow.cc:96
 #, c-format
@@ -1656,15 +1656,15 @@ msgstr "Властивості магнетів"
 
 #: ../src/mainwindow.cc:1620 ../glade/mainwindow.glade:1137
 msgid "Select filelist to browse"
-msgstr ""
+msgstr "Виберіть список файлів"
 
 #: ../src/mainwindow.cc:1645
 msgid "Unable to load file list: Invalid file list name"
-msgstr ""
+msgstr "Неможливо завантажити список файлів: Некоректне ім'я"
 
 #: ../src/mainwindow.cc:1657
 msgid "Loading file list"
-msgstr ""
+msgstr "Завантаження списку файлів"
 
 #: ../src/mainwindow.cc:1847
 msgid ""
@@ -1672,18 +1672,22 @@ msgid ""
 "until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
+"Неможливо відкрити порт %1%. Пошук і обмін файлами не будуть працювати "
+"коректно поки ви не зміните налаштування або інший додаток не припинить "
+"використовувати цей порт."
+
 
 #: ../src/mainwindow.cc:1849
 msgid "Connectivity Manager: Warning"
-msgstr ""
+msgstr "Менеджер підключень: Попередження"
 
 #: ../src/mainwindow.cc:1890
 msgid "file list from "
-msgstr ""
+msgstr "список файлів від "
 
 #: ../src/mainwindow.cc:1900
 msgid "<b>file:</b> "
-msgstr ""
+msgstr "<b>файл:</b> "
 
 #: ../src/previewmenu.cc:90 ../src/emoticonsdialog.cc:106
 #: ../glade/settingsdialog.glade:3195 ../glade/settingsdialog.glade:3788
@@ -1693,99 +1697,99 @@ msgstr "За замовчуванням"
 
 #: ../src/WulforUtil.cc:42
 msgid "System default"
-msgstr ""
+msgstr "Системні замовчування"
 
 #: ../src/WulforUtil.cc:158
 msgid "Offline"
-msgstr ""
+msgstr "Поза мережею"
 
 #: ../src/WulforUtil.cc:210
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: ../src/WulforUtil.cc:211
 msgid "CP1252"
-msgstr ""
+msgstr "CP1252"
 
 #: ../src/WulforUtil.cc:212
 msgid "CP1250"
-msgstr ""
+msgstr "CP1250"
 
 #: ../src/WulforUtil.cc:213
 msgid "ISO-8859-2"
-msgstr ""
+msgstr "ISO-8859-2"
 
 #: ../src/WulforUtil.cc:214
 msgid "ISO-8859-7"
-msgstr ""
+msgstr "ISO-8859-7"
 
 #: ../src/WulforUtil.cc:215
 msgid "ISO-8859-8"
-msgstr ""
+msgstr "ISO-8859-8"
 
 #: ../src/WulforUtil.cc:216
 msgid "ISO-8859-9"
-msgstr ""
+msgstr "ISO-8859-9"
 
 #: ../src/WulforUtil.cc:217
 msgid "ISO-2022-JP"
-msgstr ""
+msgstr "ISO-2022-JP"
 
 #: ../src/WulforUtil.cc:218
 msgid "SJIS"
-msgstr ""
+msgstr "SJIS"
 
 #: ../src/WulforUtil.cc:219
 msgid "CP949"
-msgstr ""
+msgstr "CP949"
 
 #: ../src/WulforUtil.cc:220
 msgid "KOI8-R"
-msgstr ""
+msgstr "KOI8-R"
 
 #: ../src/WulforUtil.cc:221
 msgid "CP1251"
-msgstr ""
+msgstr "CP1251"
 
 #: ../src/WulforUtil.cc:222
 msgid "CP1256"
-msgstr ""
+msgstr "CP1256"
 
 #: ../src/WulforUtil.cc:223
 msgid "CP1257"
-msgstr ""
+msgstr "CP1257"
 
 #: ../src/WulforUtil.cc:224
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: ../src/WulforUtil.cc:225
 msgid "TIS-620"
-msgstr ""
+msgstr "TIS-620"
 
 #: ../src/finishedtransfers.cc:59 ../src/finishedtransfers.cc:218
 msgid "Nicks"
-msgstr ""
+msgstr "Ніки"
 
 #: ../src/finishedtransfers.cc:60 ../src/finishedtransfers.cc:81
 #: ../src/finishedtransfers.cc:173 ../src/finishedtransfers.cc:182
 #: ../src/finishedtransfers.cc:219 ../src/finishedtransfers.cc:551
 msgid "Transferred"
-msgstr ""
+msgstr "Передано"
 
 #: ../src/finishedtransfers.cc:62 ../src/finishedtransfers.cc:221
 msgid "CRC Checked"
-msgstr ""
+msgstr "CRC Перевірено"
 
 #: ../src/finishedtransfers.cc:79 ../src/finishedtransfers.cc:180
 #: ../src/search.cc:93 ../src/search.cc:566 ../src/search.cc:634
 #: ../src/search.cc:774 ../src/search.cc:1646
 msgid "Hub"
-msgstr ""
+msgstr "Хаб"
 
 #: ../src/finishedtransfers.cc:80 ../src/finishedtransfers.cc:181
 msgid "Files"
-msgstr ""
+msgstr "Файли"
 
 #: ../src/finishedtransfers.cc:243 ../src/sharebrowser.cc:1002
 msgid " files"
@@ -1793,15 +1797,15 @@ msgstr " файли"
 
 #: ../src/finishedtransfers.cc:245
 msgid " users"
-msgstr ""
+msgstr " користувачі"
 
 #: ../src/finishedtransfers.cc:628
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 #: ../src/finishedtransfers.cc:628
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 #: ../src/emoticonsdialog.cc:69
 msgid "Emotion packs"
@@ -1813,47 +1817,47 @@ msgstr "Розмір іконки"
 
 #: ../src/publichubs.cc:45 ../src/publichubs.cc:160
 msgid "Country"
-msgstr ""
+msgstr "Країна"
 
 #: ../src/publichubs.cc:47 ../src/publichubs.cc:162
 msgid "Min Share"
-msgstr ""
+msgstr "Мін. Шара"
 
 #: ../src/publichubs.cc:48 ../src/publichubs.cc:163
 msgid "Min Slots"
-msgstr ""
+msgstr "МІн. Слотів"
 
 #: ../src/publichubs.cc:49 ../src/publichubs.cc:164
 msgid "Max Hubs"
-msgstr ""
+msgstr "Макс. Хабів"
 
 #: ../src/publichubs.cc:50 ../src/publichubs.cc:165
 msgid "Max Users"
-msgstr ""
+msgstr "Макс. Користувачів"
 
 #: ../src/publichubs.cc:51 ../src/publichubs.cc:166
 msgid "Rating"
-msgstr ""
+msgstr "Рейтинг"
 
 #: ../src/publichubs.cc:176
 msgid "Hubs: "
-msgstr ""
+msgstr "Хаби: "
 
 #: ../src/publichubs.cc:177
 msgid "Users: "
-msgstr ""
+msgstr "Користувачі: "
 
 #: ../src/publichubs.cc:439
 msgid "Download starting: "
-msgstr ""
+msgstr "Завантаження почалось: "
 
 #: ../src/publichubs.cc:447
 msgid "Download failed: "
-msgstr ""
+msgstr "Завантажити не вдалося: "
 
 #: ../src/publichubs.cc:455
 msgid "Download finished: "
-msgstr ""
+msgstr "Завантаження завершене: "
 
 #: ../src/search.cc:88 ../src/search.cc:564 ../src/search.cc:639
 #: ../src/search.cc:777 ../src/search.cc:1616 ../src/search.cc:1617
@@ -1864,7 +1868,7 @@ msgstr "Тип"
 
 #: ../src/search.cc:91 ../src/search.cc:119 ../src/search.cc:561
 msgid "Slots"
-msgstr ""
+msgstr "Слоти"
 
 #: ../src/search.cc:304 ../src/search.cc:374 ../src/sharebrowser.cc:479
 #: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1550
@@ -1878,35 +1882,35 @@ msgstr "Огляд..."
 
 #: ../src/search.cc:467
 msgid "Searching for "
-msgstr ""
+msgstr "Шукаємо "
 
 #: ../src/search.cc:468
 msgid "0 items"
-msgstr ""
+msgstr "0 пунктів"
 
 #: ../src/search.cc:469
 msgid "0 filtered"
-msgstr ""
+msgstr "0 відфільтровано"
 
 #: ../src/search.cc:482
 msgid "Searching too soon, retry in "
-msgstr ""
+msgstr "Надто часті запити, спробуйте через "
 
 #: ../src/search.cc:585
 msgid " items"
-msgstr ""
+msgstr " пункти"
 
 #: ../src/search.cc:1821
 msgid " filtered"
-msgstr ""
+msgstr " відфільтровано"
 
 #: ../src/search.cc:1834
 msgid " dropped"
-msgstr ""
+msgstr " скинуто"
 
 #: ../src/bookentry.cc:70 ../src/bookentry.cc:75
 msgid "Close tab"
-msgstr ""
+msgstr "Закрити вікно"
 
 #: ../src/sharebrowser.cc:38 ../src/sharebrowser.cc:57
 msgid "List: "
@@ -1950,105 +1954,97 @@ msgstr "Співпадінь "
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: ../glade/sharebrowser.glade:109
-#, fuzzy
 msgid "Match Queue"
-msgstr "Співпадінь "
+msgstr "Співпадіння черги"
 
 #: ../glade/sharebrowser.glade:122
 msgid "Find"
-msgstr ""
+msgstr "Знайти"
 
 #: ../glade/sharebrowser.glade:135
 msgid "Next"
-msgstr ""
+msgstr "Далі"
 
 #: ../glade/sharebrowser.glade:154
-#, fuzzy
 msgid "Find files"
-msgstr " файли"
+msgstr "Пошук файлів"
 
 #: ../glade/sharebrowser.glade:182
 msgid "Enter text to search for"
-msgstr ""
+msgstr "Введіть текст для пошуку"
 
 #: ../glade/sharebrowser.glade:242 ../glade/sharebrowser.glade:278
-#, fuzzy
 msgid "Download to..."
-msgstr "Завантаження: "
+msgstr "Завантажити до: "
 
 #: ../glade/sharebrowser.glade:258 ../glade/sharebrowser.glade:308
 #: ../glade/transfers.glade:73
-#, fuzzy
 msgid "User commands"
-msgstr "Невідома команда '"
+msgstr "Команда користувача"
 
 #: ../glade/sharebrowser.glade:294 ../glade/downloadqueue.glade:197
 msgid "_Search for alternates"
-msgstr ""
+msgstr "_Знайти альтернативу"
 
 #: ../glade/sharebrowser.glade:301 ../glade/search.glade:486
 #: ../glade/downloadqueue.glade:204 ../glade/privatemessage.glade:129
 #: ../glade/hub.glade:287
 msgid "_Copy magnet"
-msgstr ""
+msgstr "_Копіювати магнет"
 
 #: ../glade/hash.glade:22
 msgid "<b>Processing file:</b>"
-msgstr ""
+msgstr "<b>У процесі файл:</b>"
 
 #: ../glade/hash.glade:81
 msgid "<b>Statistics</b>"
-msgstr ""
+msgstr "<b>Статистика</b>"
 
 #: ../glade/hash.glade:109
 msgid "Pause"
-msgstr ""
+msgstr "Призупинено"
 
 #: ../glade/hash.glade:138
 msgid "Run in background"
-msgstr ""
+msgstr "Виконувати у фоні"
 
 #: ../glade/adlsearch.glade:34 ../glade/adlsearch.glade:110
 msgid "Add..."
-msgstr ""
+msgstr "Додати..."
 
 #: ../glade/adlsearch.glade:47 ../glade/adlsearch.glade:117
-#, fuzzy
 msgid "Properties"
-msgstr "Властивості магнетів / Вибір"
+msgstr "Налаштування"
 
 #: ../glade/adlsearch.glade:61
 msgid "Move Up"
-msgstr ""
+msgstr "Вгору"
 
 #: ../glade/adlsearch.glade:75
 msgid "Move Down"
-msgstr ""
+msgstr "Вниз"
 
 #: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5682
-#, fuzzy
 msgid "Remove"
-msgstr "Видалити псевдонім A"
+msgstr "Видалити"
 
 #: ../glade/adlsearch.glade:124 ../glade/searchspy.glade:196
 #: ../glade/searchspy.glade:263 ../glade/search.glade:556
 #: ../glade/favoriteusers.glade:93 ../glade/downloadqueue.glade:188
 #: ../glade/downloadqueue.glade:336
 msgid "_Remove"
-msgstr ""
+msgstr "_Видалити"
 
 #: ../glade/adlsearch.glade:131
-#, fuzzy
 msgid "ADLSearch Properties"
-msgstr "Хаб вже доданий до обраних"
+msgstr "Налаштування ADL пошуку"
 
 #: ../glade/adlsearch.glade:163
-#, fuzzy
 msgid "<b>Search String</b>"
-msgstr "Опис"
+msgstr "Рядок пошуку"
 
 #: ../glade/adlsearch.glade:184
 msgid ""
@@ -2056,20 +2052,21 @@ msgid ""
 "Directory\n"
 "Full Path"
 msgstr ""
+"Ім'я файлу\n"
+"Каталог\n"
+"Повний шлях"
 
 #: ../glade/adlsearch.glade:192
 msgid "<b>Source Type</b>"
-msgstr ""
+msgstr "<b>Тип джерела</b>"
 
 #: ../glade/adlsearch.glade:233
-#, fuzzy
 msgid "<b>Min FileSize</b>"
-msgstr "Розмір іконки"
+msgstr "<b>Мінімальний розмір файлу</b>"
 
 #: ../glade/adlsearch.glade:262
-#, fuzzy
 msgid "<b>Max FileSize</b>"
-msgstr "Розмір іконки"
+msgstr "<b>Максимальний розмір файлу</b>"
 
 #: ../glade/adlsearch.glade:289 ../glade/search.glade:94
 msgid ""
@@ -2078,86 +2075,90 @@ msgid ""
 "MiB\n"
 "GiB"
 msgstr ""
+"Б\n"
+"КіБ\n"
+"МіБ\n"
+"ГіБ"
 
 #: ../glade/adlsearch.glade:298
-#, fuzzy
 msgid "<b>Size Type</b>"
-msgstr "Розмір іконки"
+msgstr "<b>Тип</b>"
 
 #: ../glade/adlsearch.glade:334
-#, fuzzy
 msgid "<b>Destination Directory</b>"
-msgstr "Опис"
+msgstr "<b>Каталог призначення</b>"
 
 #: ../glade/adlsearch.glade:366
-#, fuzzy
 msgid "Download Matches"
-msgstr "Завантаження: "
+msgstr "Завантажити до"
 
 #: ../glade/searchspy.glade:32
 msgid "Ignore TTH search"
-msgstr ""
+msgstr "Ігнорувати пошук за ТТН"
 
 #: ../glade/searchspy.glade:33
 msgid "Ignore TTH"
-msgstr ""
+msgstr "Ігнорувати ТТН"
 
 #: ../glade/searchspy.glade:56
 msgid "Apply settings"
-msgstr ""
+msgstr "Застосувати налаштування"
 
 #: ../glade/searchspy.glade:68
 msgid "Top: >"
-msgstr ""
+msgstr "Top: >"
 
 #: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3895
 msgid "Number of matches for the top"
-msgstr ""
+msgstr "Кількість співпадінь для додання в топ"
 
 #: ../glade/searchspy.glade:90
 msgid "Waiting:"
-msgstr ""
+msgstr "Очікування:"
 
 #: ../glade/searchspy.glade:101 ../glade/settingsdialog.glade:3864
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
 msgstr ""
+"Збільшення часу очікування збільшує ймовірність додання в топ, але "
+"знижує динаміку (оновлення) кадра"
 
 #: ../glade/searchspy.glade:112
 msgid "Frame:"
-msgstr ""
+msgstr "Назва:"
 
 #: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3834
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
 msgstr ""
+"Розмір кадра визначає ширину огляду, великі значення впливають на "
+"продуктивність"
 
 #: ../glade/searchspy.glade:136 ../glade/searchspy.glade:277
-#, fuzzy
 msgid "Clear"
-msgstr "Очистити чат"
+msgstr "Очистити"
 
 #: ../glade/searchspy.glade:150
 msgid "Update"
-msgstr ""
+msgstr "Оновити"
 
 #: ../glade/searchspy.glade:163
 msgid "Show top search"
-msgstr ""
+msgstr "Показати топ пошуку"
 
 #: ../glade/searchspy.glade:164 ../glade/searchspy.glade:205
 msgid "Top"
-msgstr ""
+msgstr "Топ"
 
 #: ../glade/searchspy.glade:262
 msgid "Delete item"
-msgstr ""
+msgstr "Видалити елемент"
 
 #: ../glade/search.glade:25
 msgid "Search for"
-msgstr ""
+msgstr "Знайти"
 
 #: ../glade/search.glade:74
 msgid ""
@@ -2165,11 +2166,13 @@ msgid ""
 "At least\n"
 "At most"
 msgstr ""
+"Нормальний\n"
+"Не менше\n"
+"Не більше"
 
 #: ../glade/search.glade:121
-#, fuzzy
 msgid "File type"
-msgstr "Файли: "
+msgstr "Тип файлу"
 
 #: ../glade/search.glade:131
 msgid ""
@@ -2183,10 +2186,19 @@ msgid ""
 "Directory\n"
 "TTH"
 msgstr ""
+"Будь-який\n"
+"Аудіо\n"
+"Архів\n"
+"Документ\n"
+"Виконуваний\n"
+"Зображення\n"
+"Відео\n"
+"Директорія\n"
+"TTH"
 
 #: ../glade/search.glade:158
 msgid "Group by"
-msgstr ""
+msgstr "Групувати"
 
 #: ../glade/search.glade:168
 msgid ""
@@ -2200,354 +2212,336 @@ msgid ""
 "Hub\n"
 "File type\n"
 msgstr ""
+"Не групувати\n"
+"Файл\n"
+"Шлях\n"
+"Розмір\n"
+"З'єднання\n"
+"TTH\n"
+"Нік\n"
+"Хаб\n"
+"Тип\n"
 
 #: ../glade/search.glade:197
 msgid "Search options"
-msgstr ""
+msgstr "Опції пошуку"
 
 #: ../glade/search.glade:208
 msgid "Search within local results"
-msgstr ""
+msgstr "Шукати з локальними результатами"
 
 #: ../glade/search.glade:226
 msgid "Only users with free slots"
-msgstr ""
+msgstr "Тільки у користувачів з вільними слотами"
 
 #: ../glade/search.glade:246
 msgid "Filter files already in share"
-msgstr ""
+msgstr "Фільтрувати вже розшарені файли"
 
 #: ../glade/search.glade:272 ../glade/mainwindow.glade:507
 msgid "Hubs"
-msgstr ""
+msgstr "Хаби"
 
 #: ../glade/search.glade:317
 msgid "Search for a file"
-msgstr ""
+msgstr "Пошук файлу"
 
 #: ../glade/search.glade:341
 msgid "_Search"
-msgstr ""
+msgstr "_Пошук"
 
 #: ../glade/search.glade:438 ../glade/privatemessage.glade:104
 #: ../glade/hub.glade:262
-#, fuzzy
 msgid "_Download"
-msgstr "Завантаження: "
+msgstr "_Завантажити"
 
 #: ../glade/search.glade:445 ../glade/privatemessage.glade:111
 #: ../glade/hub.glade:269
-#, fuzzy
 msgid "Download _to..."
-msgstr "Завантаження: "
+msgstr "Завантажити _до... "
 
 #: ../glade/search.glade:456
-#, fuzzy
 msgid "Download _whole directory"
-msgstr "Обрати теку"
+msgstr "Завантажити _усю теку"
 
 #: ../glade/search.glade:463
 msgid "Download whole director_y to..."
-msgstr ""
+msgstr "Завантажити усю тек_у до..."
 
 #: ../glade/search.glade:479
 msgid "_Search by TTH"
-msgstr ""
+msgstr "_Пошук за ТТН"
 
 #: ../glade/search.glade:498 ../glade/favoriteusers.glade:39
 #: ../glade/downloadqueue.glade:276 ../glade/transfers.glade:31
 #: ../glade/hub.glade:183
-#, fuzzy
 msgid "_Browse file list"
-msgstr "Отримати список файлів"
+msgstr "_Показати список файлів"
 
 #: ../glade/search.glade:505
-#, fuzzy
 msgid "_Match Queue"
-msgstr "Співпадінь "
+msgstr "_Співпадіння черги "
 
 #: ../glade/search.glade:512 ../glade/downloadqueue.glade:287
-#, fuzzy
 msgid "Send _private message"
-msgstr "Приватне повідомлення"
+msgstr "Надіслати _приватне повідомлення"
 
 #: ../glade/search.glade:519 ../glade/transfers.glade:52
 #: ../glade/hub.glade:209
-#, fuzzy
 msgid "_Add to favorites"
-msgstr "Додати хаб до обраних"
+msgstr "_Додати хаб до обраних"
 
 #: ../glade/search.glade:526 ../glade/transfers.glade:59
-#, fuzzy
 msgid "_Grant extra slot"
-msgstr "Виділити екстра слот"
+msgstr "_Виділити екстра слот"
 
 #: ../glade/search.glade:533 ../glade/downloadqueue.glade:325
-#, fuzzy
 msgid "Remove user from _queue"
-msgstr "Видалити користувача з обраних"
+msgstr "Видалити користувача з _черги"
 
 #: ../glade/search.glade:540 ../glade/hub.glade:242
 msgid "_User commands"
-msgstr ""
+msgstr "_команди користувача"
 
 #: ../glade/favoriteusers.glade:46 ../glade/transfers.glade:38
 #: ../glade/hub.glade:190
-#, fuzzy
 msgid "_Match queue"
-msgstr "Співпадінь "
+msgstr "_Співпадіння черги "
 
 #: ../glade/favoriteusers.glade:53 ../glade/hub.glade:197
-#, fuzzy
 msgid "_Private message"
-msgstr "Приватне повідомлення"
+msgstr "_Приватне повідомлення"
 
 #: ../glade/favoriteusers.glade:60 ../glade/hub.glade:228
-#, fuzzy
 msgid "_Grant slot"
-msgstr "Виділити екстра слот"
+msgstr "_Виділити слот"
 
 #: ../glade/favoriteusers.glade:67 ../glade/transfers.glade:66
 #: ../glade/hub.glade:235
-#, fuzzy
 msgid "_Remove user from queue"
-msgstr "Видалити користувача з обраних"
+msgstr "_Видалити користувача з черги"
 
 #: ../glade/favoriteusers.glade:74
-#, fuzzy
 msgid "Connect to hub"
 msgstr "З'єднатися з хабом"
 
 #: ../glade/favoriteusers.glade:135
-#, fuzzy
 msgid "<b>Description</b>"
-msgstr "Опис"
+msgstr "<b>Опис</b>"
 
 #: ../glade/favoritehubs.glade:90
-#, fuzzy
 msgid "Favorite Hub Properties"
-msgstr "Хаб вже доданий до обраних"
+msgstr "Властивості обраного хабу"
 
 #: ../glade/favoritehubs.glade:108
 msgid "<b>Hub</b>"
-msgstr ""
+msgstr "<b>Хаб</b>"
 
 #: ../glade/favoritehubs.glade:123
 msgid "Auto connect on _startup"
-msgstr ""
+msgstr "Автоз'єднання при _запуску"
 
 #: ../glade/favoritehubs.glade:142
 msgid "_Name:"
-msgstr ""
+msgstr "_Ім'я:"
 
 #: ../glade/favoritehubs.glade:173
 msgid "_Address:"
-msgstr ""
+msgstr "_Адреса:"
 
 #: ../glade/favoritehubs.glade:203
-#, fuzzy
 msgid "_Description:"
-msgstr "Опис"
+msgstr "_Опис:"
 
 #: ../glade/favoritehubs.glade:233
 msgid "_Encoding:"
-msgstr ""
+msgstr "_Кодування:"
 
 #: ../glade/favoritehubs.glade:272
 msgid "<b>Identification</b>"
-msgstr ""
+msgstr "<b>Ідентифікація</b>"
 
 #: ../glade/favoritehubs.glade:288
 msgid "N_ick:"
-msgstr ""
+msgstr "Н_ік:"
 
 #: ../glade/favoritehubs.glade:320
 msgid "_Password:"
-msgstr ""
+msgstr "_Пароль:"
 
 #: ../glade/favoritehubs.glade:352
-#, fuzzy
 msgid "_User Description:"
-msgstr "Опис"
+msgstr "_Опис користувача:"
 
 #: ../glade/favoritehubs.glade:384
 msgid "<small>Note: Leave unchecked for default values</small>"
 msgstr ""
+"<small>Примітка: Зніміть прапорець, якщо хочете залишити значення по "
+"замовчуванню</small>"
 
 #: ../glade/mainwindow.glade:19
-#, fuzzy
 msgid "_File"
-msgstr "Файл"
+msgstr "_Файл"
 
 #: ../glade/mainwindow.glade:26
-#, fuzzy
 msgid "Open _file list..."
-msgstr "Отримати список файлів"
+msgstr "Відкрити _список файлів..."
 
 #: ../glade/mainwindow.glade:41
-#, fuzzy
 msgid "Open _own list"
-msgstr "Оновити свій список файлів"
+msgstr "Відкрити _свій список файлів"
 
 #: ../glade/mainwindow.glade:55
-#, fuzzy
 msgid "_Refresh file list"
-msgstr "Отримати список файлів"
+msgstr "_Оновити список файлів"
 
 #: ../glade/mainwindow.glade:75
 msgid "_Quick connect"
-msgstr ""
+msgstr "_Швидке з'єднання"
 
 #: ../glade/mainwindow.glade:90
-#, fuzzy
 msgid "Re_connect"
-msgstr "З'єднано"
+msgstr "Пере_з'єднання"
 
 #: ../glade/mainwindow.glade:110
 msgid "_Preferences"
-msgstr ""
+msgstr "_Налаштування"
 
 #: ../glade/mainwindow.glade:125
-#, fuzzy
 msgid "_Magnet Choice"
-msgstr "Властивості магнетів"
+msgstr "_Властивості магнетів"
 
 #: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1300
 msgid "_Exit"
-msgstr ""
+msgstr "_Вихід"
 
 #: ../glade/mainwindow.glade:171
 msgid "_View"
-msgstr ""
+msgstr "_Вид"
 
 #: ../glade/mainwindow.glade:325
 msgid "Indexing Progress"
-msgstr ""
+msgstr "Прогрес хешування"
 
 #: ../glade/mainwindow.glade:343
 msgid "_Tabs"
-msgstr ""
+msgstr "_Вікна"
 
 #: ../glade/mainwindow.glade:351
 msgid "_Previous Tab"
-msgstr ""
+msgstr "_Попереднє вікно"
 
 #: ../glade/mainwindow.glade:360
 msgid "_Next Tab"
-msgstr ""
+msgstr "_Наступне вікно"
 
 #: ../glade/mainwindow.glade:385
 msgid "Homepage"
-msgstr ""
+msgstr "Дом. сторінка"
 
 #: ../glade/mainwindow.glade:399
 msgid "Source (svn)"
-msgstr ""
+msgstr "Source (svn)"
 
 #: ../glade/mainwindow.glade:413
 msgid "Report a Bug"
-msgstr ""
+msgstr "Повідомлити про помилку"
 
 #: ../glade/mainwindow.glade:427
 msgid "Wiki of project"
-msgstr ""
+msgstr "Wiki проекту"
 
 #: ../glade/mainwindow.glade:446
 msgid "Changelog (svn)"
-msgstr ""
+msgstr "Жрнал змін (svn)"
 
 #: ../glade/mainwindow.glade:465
 msgid "About EiskaltDC++"
-msgstr ""
+msgstr "Про EiskaltDC++"
 
 #: ../glade/mainwindow.glade:492
-#, fuzzy
 msgid "Quick connect to a hub"
-msgstr "З'єднатися з хабом"
+msgstr "Швидке з'єднання з хабом"
 
 #: ../glade/mainwindow.glade:531
 msgid "Browse the list of public hubs"
-msgstr ""
+msgstr "Перегляд списку відкритих хабів"
 
 #: ../glade/mainwindow.glade:544
 msgid "Edit the preferences"
-msgstr ""
+msgstr "Змінити налаштування"
 
 #: ../glade/mainwindow.glade:557
 msgid "View the hashing progress"
-msgstr ""
+msgstr "Подивитись прогрес хешування"
 
 #: ../glade/mainwindow.glade:570
 msgid "Search for files to download"
-msgstr ""
+msgstr "Пошук файлів, для завантаження"
 
 #: ../glade/mainwindow.glade:585
 msgid "ADL"
-msgstr ""
+msgstr "ADL"
 
 #: ../glade/mainwindow.glade:598
 msgid "Spy"
-msgstr ""
+msgstr "Шпигун"
 
 #: ../glade/mainwindow.glade:609
 msgid "View the files to be downloaded"
-msgstr ""
+msgstr "Показати завантажені файли"
 
 #: ../glade/mainwindow.glade:622
 msgid "View the list of finished downloads"
-msgstr ""
+msgstr "Показати список завершених завантажень"
 
 #: ../glade/mainwindow.glade:635
 msgid "View the list of finished uploads"
-msgstr ""
+msgstr "Показати список завершених віддач"
 
 #: ../glade/mainwindow.glade:648
 msgid "Quit the program"
-msgstr ""
+msgstr "Вийти з програми"
 
 #: ../glade/mainwindow.glade:711
 msgid "Show/Hide transfers panel"
-msgstr ""
+msgstr "Показати/Сховати панель передач"
 
 #: ../glade/mainwindow.glade:746
 msgid "Hubs (normal / registered / op)"
-msgstr ""
+msgstr "Хаби (норм./реєст./опер.)"
 
 #: ../glade/mainwindow.glade:787
-#, fuzzy
 msgid "Download speed"
-msgstr "Завантаження: "
+msgstr "Швидкість завантаження"
 
 #: ../glade/mainwindow.glade:828
 msgid "Total received"
-msgstr ""
+msgstr "Всього отримано"
 
 #: ../glade/mainwindow.glade:850
-#, fuzzy
 msgid "Upload speed"
-msgstr "Віддача: "
+msgstr "Швидкість віддачі"
 
 #: ../glade/mainwindow.glade:892
-#, fuzzy
 msgid "Total sent"
-msgstr "Всього: "
+msgstr "Всього віддано"
 
 #: ../glade/mainwindow.glade:914
 msgid "Exit EiskaltDC++ Gtk?"
-msgstr ""
+msgstr "Вийти з EiskaltDC++ Gtk?"
 
 #: ../glade/mainwindow.glade:925
 msgid "Do you really want to exit?"
-msgstr ""
+msgstr "Ви дійсно бажаєте вийти?"
 
 #: ../glade/mainwindow.glade:971
-#, fuzzy
 msgid "Connect to a hub"
 msgstr "З'єднатися з хабом"
 
 #: ../glade/mainwindow.glade:1005
 msgid "<b>Connect to address:</b>"
-msgstr ""
+msgstr "<b>З'єднатися з адресою:</b>"
 
 #: ../glade/mainwindow.glade:1066
 msgid ""
@@ -2560,6 +2554,14 @@ msgid ""
 " troll (http://code.google.com/p/freedcpp/)\n"
 "    "
 msgstr ""
+"Розробники\n"
+" Boris Pek (tehnick-8@mail.ru)\n"
+" Eugene Petrov (dhamp@ya.ru)\n"
+" Leliksan Floyd (leliksan@gmail.com)\n"
+"\n"
+"Співавтори\n"
+" troll (http://code.google.com/p/freedcpp/)\n"
+"    "
 
 #: ../glade/mainwindow.glade:1074
 msgid ""
@@ -2610,100 +2612,142 @@ msgid ""
 " (dimitrov.rusi@gmail.com)\n"
 "    "
 msgstr ""
+"Перекладачі\n"
+"\n"
+" Російський переклад\n"
+"\n"
+" Uladzimir Bely\n"
+" (wiselord1983@gmail.com)\n"
+"\n"
+" Білоруський переклад\n"
+"\n"
+" Paval Shalamitski aka Klyok\n"
+" (i.kliok@gmail.com)\n"
+"\n"
+" Венгерський переклад\n"
+"\n"
+" Akos Berki aka sumo\n"
+" (husumo@gmail.com)\n"
+"\n"
+" Французький переклад\n"
+"\n"
+" Alexandre Wallimann aka Ale\n"
+" (alexandre.wallimann@gmail.com)\n"
+"\n"
+" Польський переклад\n"
+"\n"
+" Arahael\n"
+"\n"
+" Український переклад\n"
+"\n"
+" Dmytro Demenko\n"
+" (dmytro.demenko@gmail.com)\n"
+"\n"
+" Сербський переклад\n"
+"\n"
+" Miroslav Petrovic\n"
+" (miroslav031@gmail.com)\n"
+"\n"
+" Іспанський переклад\n"
+"\n"
+" Gustavo Alvarez aka sL1pKn07\n"
+" (sl1pkn07@gmail.com)\n"
+"\n"
+" Болгарський переклад\n"
+"\n"
+" Rusi Dimitrov aka PsyTrip\n"
+" (dimitrov.rusi@gmail.com)\n"
+"    "
 
 #: ../glade/mainwindow.glade:1186
-#, fuzzy
 msgid "Enter line for user command"
-msgstr "Уведіть значення для "
+msgstr "Уведіть рядок для команди користувача"
 
 #: ../glade/mainwindow.glade:1274
 msgid "_Show Interface"
-msgstr ""
+msgstr "_Показати інтерфейс"
 
 #: ../glade/mainwindow.glade:1287
 msgid "Use Blinking Icon"
-msgstr ""
+msgstr "Використовувати блимаючу іконку"
 
 #: ../glade/mainwindow.glade:1314 ../glade/mainwindow.glade:1351
-#, fuzzy
 msgid "Magnet"
-msgstr "Властивості магнетів"
+msgstr "Магнет"
 
 #: ../glade/mainwindow.glade:1362
-#, fuzzy
 msgid "File name"
 msgstr "Ім'я файлу"
 
 #: ../glade/mainwindow.glade:1388
 msgid "TTH"
-msgstr ""
+msgstr "ТТН"
 
 #: ../glade/mainwindow.glade:1457
-#, fuzzy
 msgid "Exact size"
 msgstr "Точний розмір"
 
 #: ../glade/mainwindow.glade:1485
 msgid "+/-"
-msgstr ""
+msgstr "+/-"
 
 #: ../glade/mainwindow.glade:1496
-#, fuzzy
 msgid "<b>Magnet properties</b>"
-msgstr "Властивості магнетів / Вибір"
+msgstr "<b>Властивості магнетів </b>"
 
 #: ../glade/mainwindow.glade:1524
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
+"Для початку завантаження файлу увімкніть автоматичний пошук альтернатив "
+"(Налаштування/Завантаження/Черга)"
 
 #: ../glade/mainwindow.glade:1525
 msgid "Add this file to your download queue"
-msgstr ""
+msgstr "додати цей файл до черги завантажень"
 
 #: ../glade/mainwindow.glade:1569
 msgid "Start a search for this file"
-msgstr ""
+msgstr "Почати пошук цього файлу"
 
 #: ../glade/mainwindow.glade:1583
 msgid "Show magnet dialog"
-msgstr ""
+msgstr "Показати діалог магнета"
 
 #: ../glade/mainwindow.glade:1609
 msgid "Remember choice"
-msgstr ""
+msgstr "Запам'ятати вибір"
 
 #: ../glade/mainwindow.glade:1638
 msgid "<b>What would you like to do?</b>"
-msgstr ""
+msgstr "<b>Що ви хочете зробити?</b>"
 
 #: ../glade/mainwindow.glade:1666 ../glade/settingsdialog.glade:6075
 #: ../glade/settingsdialog.glade:6568 ../glade/settingsdialog.glade:6609
 msgid "gtk-cancel"
-msgstr ""
+msgstr "gtk-cancel"
 
 #: ../glade/mainwindow.glade:1676 ../glade/settingsdialog.glade:6580
 #: ../glade/settingsdialog.glade:6632
 msgid "gtk-ok"
-msgstr ""
+msgstr "gtk-ok"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"
-msgstr ""
+msgstr "Макс. швидкість віддачі (МБіт/с)"
 
 #: ../glade/settingsdialog.glade:118
-#, fuzzy
 msgid "E-Mail"
-msgstr "eMail"
+msgstr "E-Mail"
 
 #: ../glade/settingsdialog.glade:142
 msgid "Default hub encoding"
-msgstr ""
+msgstr "Кодування хабу по замовчуванню"
 
 #: ../glade/settingsdialog.glade:175
 msgid "<b>Personal Information</b>"
-msgstr ""
+msgstr "<b>Персональна інформація</b>"
 
 #: ../glade/settingsdialog.glade:192
 msgid "Personal"
@@ -2712,56 +2756,56 @@ msgstr ""
 #: ../glade/settingsdialog.glade:219
 msgid "Use UPnP to let client cofigure my router"
 msgstr ""
+"Персональна\n"
+" інформація"
 
 #: ../glade/settingsdialog.glade:404
 msgid "Ports"
-msgstr ""
+msgstr "Порти"
 
 #: ../glade/settingsdialog.glade:417
 msgid "Active"
-msgstr ""
+msgstr "Пряме з'єднання (активний режим)"
 
 #: ../glade/settingsdialog.glade:432
 msgid "Firewall (passive, last resort)"
-msgstr ""
+msgstr "Фаервол (пасивний режим, гірший варіант)"
 
 #: ../glade/settingsdialog.glade:449
 msgid "External / WAN IP"
-msgstr ""
+msgstr "Зовнішній / WAN IP"
 
 #: ../glade/settingsdialog.glade:464
 msgid "Don't allow hub/UPnP to override"
-msgstr ""
+msgstr "Не дозв. хабу/UPnP змін. адресу"
 
 #: ../glade/settingsdialog.glade:482
 msgid "Firewall with manual port forward"
-msgstr ""
+msgstr "Фаервол з ручним перенаправленням портів"
 
 #: ../glade/settingsdialog.glade:499
 msgid "<b>Incoming connection settings</b>"
-msgstr ""
+msgstr "<b>Налаштування вхідних з'єднань</b>"
 
 #: ../glade/settingsdialog.glade:589
-#, fuzzy
 msgid "Username"
-msgstr "Ім'я файлу"
+msgstr "Логін"
 
 #: ../glade/settingsdialog.glade:604
 msgid "Use SOCKS5 server to resolve hostnames"
-msgstr ""
+msgstr "Визнач. імена хостів, викор. SOCKS5 сервер"
 
 #: ../glade/settingsdialog.glade:665
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: ../glade/settingsdialog.glade:680
 msgid "Socks IP"
-msgstr ""
+msgstr "Socks IP"
 
 #: ../glade/settingsdialog.glade:712
-#, fuzzy
 msgid "Direct connection"
-msgstr "З'єднання"
+msgstr "Пряме з'єднання (активний режим)"
 
 #: ../glade/settingsdialog.glade:732
 msgid "<b>Outgoing connection settings</b>"
