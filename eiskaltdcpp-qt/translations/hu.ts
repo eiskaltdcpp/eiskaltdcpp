@@ -1236,10 +1236,6 @@ Kedvenc felhasználó</translation>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Felhasználók száma: %3/%1 | Összes megosztás: %2</translation>
     </message>
-    <message>
-        <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>IPFilter</name>

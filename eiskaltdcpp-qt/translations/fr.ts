@@ -1187,7 +1187,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Disable emoticons</source>
-        <translation>Désactiver les smileys</translation>
+        <translation type="obsolete">Désactiver les smileys</translation>
     </message>
 </context>
 <context>

@@ -1100,10 +1100,6 @@ Omiljeni korisnik</translation>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation type="unfinished">Broj korisnika: %1 | Ukupno deljeno: %2 {3/%1 ?}</translation>
     </message>
-    <message>
-        <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>IPFilter</name>
