@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-10-03 04:04+0300\n"
-"PO-Revision-Date: 2010-10-01 11:11+0200\n"
+"PO-Revision-Date: 2010-10-04 04:29+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -289,7 +289,6 @@ msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Otra mapa de puertos UPnP está funcionando ahora..."
 
 #: ../UPnPManager.cpp:74
-#, fuzzy
 msgid "Failed to initialize the %1% interface"
 msgstr "Fallo al inicializar la interface %1%"
 

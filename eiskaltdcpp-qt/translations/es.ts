@@ -101,24 +101,6 @@
 <context>
     <name>About</name>
     <message>
-        <source>Using:
-  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
-
-Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
-        <translation type="obsolete">Uso:
-  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ es un programa para sistemas UNIX que utiliza Direct Connect y el protocolo ADC
-
-Opciones:
-  -h, --help	Muestra este mensaje
-  -v, --version	 Muestra la version del programa</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.h" line="83"/>
         <source>Using:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
@@ -128,7 +110,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Using:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Key&gt;
+EiskaltDC++ es un programa de plataforma cruzada para usar el protocolo Dirrect Connect y ADC.
+
+Keys:
+  -h, --help	 Mostrar este mensaje
+  -v, --version	 Muestra la version del programa</translation>
     </message>
 </context>
 <context>
@@ -317,11 +306,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="366"/>
         <source>Checksum mismatch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CRC32 inconsistency (SFV-Check)</source>
-        <translation type="obsolete">CRC32 Inconsistente (Chequeo SFV)</translation>
+        <translation>El checksum no coincide</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="368"/>
@@ -652,12 +637,12 @@ Keys:
     <message>
         <location filename="../src/FileHasher.cpp" line="87"/>
         <source>Select file</source>
-        <translation type="unfinished">Seleccionar archivo</translation>
+        <translation>Seleccionar archivo</translation>
     </message>
     <message>
         <location filename="../src/FileHasher.cpp" line="87"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished">Todos los archivos (*.*)</translation>
+        <translation>Todos los archivos (*.*)</translation>
     </message>
 </context>
 <context>
@@ -1853,7 +1838,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1035"/>
         <source>Calculate file TTH</source>
-        <translation type="unfinished"></translation>
+        <translation>Calcula el archivo TTH</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1041"/>
@@ -2180,12 +2165,12 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2567"/>
         <source>Download Queue</source>
-        <translation type="unfinished">Cola de descarga</translation>
+        <translation>Cola de descarga</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2567"/>
         <source>All downloads complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Todas las descargas completadas</translation>
     </message>
 </context>
 <context>
@@ -2606,27 +2591,19 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Descarga</translation>
     </message>
     <message>
-        <source>Download to</source>
-        <translation type="obsolete">Descargar en</translation>
-    </message>
-    <message>
         <location filename="../src/SearchFrame.cpp" line="43"/>
         <source>Download Whole Directory</source>
         <translation>Descargar todo el directorio</translation>
     </message>
     <message>
-        <source>Download Whole Directory to</source>
-        <translation type="obsolete">Descargar todo el directorio en</translation>
-    </message>
-    <message>
         <location filename="../src/SearchFrame.cpp" line="40"/>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Descarcar en...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="46"/>
         <source>Download Whole Directory to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Descarga este directorio en...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="52"/>
@@ -3140,13 +3117,9 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Descarga</translation>
     </message>
     <message>
-        <source>Download to</source>
-        <translation type="obsolete">Descargar en</translation>
-    </message>
-    <message>
         <location filename="../src/ShareBrowser.cpp" line="38"/>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Descargar en...</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="41"/>
@@ -3402,58 +3375,54 @@ que continuará trabajando cuando el widget esté oculto.
         <translation>Conceder slot extra</translation>
     </message>
     <message>
-        <source>Copy IP-address of user</source>
-        <translation type="obsolete">Copiar dirección IP del usuario</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="53"/>
         <source>Copy</source>
-        <translation type="unfinished">Copiar</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="56"/>
         <source>Users</source>
-        <translation type="unfinished">Usuarios</translation>
+        <translation>Usuarios</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="57"/>
         <source>Speed</source>
-        <translation type="unfinished">Velocidad</translation>
+        <translation>Velocidad</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="58"/>
         <source>Statistic</source>
-        <translation type="unfinished"></translation>
+        <translation>Estadisticas</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="59"/>
         <source>Size</source>
-        <translation type="unfinished">Tamaño</translation>
+        <translation>Tamaño</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="60"/>
         <source>Time left</source>
-        <translation type="unfinished">Tiempo restante</translation>
+        <translation>Tiempo restante</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="61"/>
         <source>Filename</source>
-        <translation type="unfinished">Nombre de archivo</translation>
+        <translation>Nombre de archivo</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="62"/>
         <source>Host</source>
-        <translation type="unfinished"></translation>
+        <translation>Host</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="63"/>
         <source>IP</source>
-        <translation type="unfinished"></translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="64"/>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Imán</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="69"/>
@@ -3538,10 +3507,6 @@ que continuará trabajando cuando el widget esté oculto.
         <location filename="../src/TransferView.cpp" line="592"/>
         <source> (%1%)</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>Download complete...</source>
-        <translation type="obsolete">Descarga completada...</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="638"/>
@@ -4067,10 +4032,6 @@ p, li { white-space: pre-wrap; }
         <translation>IP externa</translation>
     </message>
     <message>
-        <source>EiskaltDC++ V:2.1</source>
-        <translation type="obsolete">EiskaltDC++ V:2.1</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="112"/>
         <source>000.000.000.000; </source>
         <translation></translation>
@@ -4172,27 +4133,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFileHasher.ui" line="29"/>
         <source>TTH Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Calculadora TTH</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="54"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="73"/>
         <source>Compute</source>
-        <translation type="unfinished"></translation>
+        <translation>Comptar</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="80"/>
         <source>Get magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Cojer Imán</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Close</source>
-        <translation type="unfinished">Cerrar</translation>
+        <translation>Cerrar</translation>
     </message>
 </context>
 <context>
@@ -5351,22 +5312,9 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
         <translation></translation>
     </message>
     <message>
-        <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated 
-from other words by spaces.</source>
-        <translation type="obsolete">Si es seleccionado, Verá los emoticonos dentro de las palabras.
-Si es de-seleccionado, Verá los emorticonos solo cuando estén solos entre las palabras, separados por espacios.</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="268"/>
         <source>Show joins only for favorite users</source>
         <translation>Solo mostrar las uniones de usuarios favoritos</translation>
-    </message>
-    <message>
-        <source>Depending on hub configuration: information about 
-them is usually available only to operators</source>
-        <translation type="obsolete">Dependiendo de la configuración del Hub: la información
-solo estará disponible para los operadores</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="286"/>
@@ -5432,23 +5380,26 @@ solo estará disponible para los operadores</translation>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si es seleccionado, Verá los emoticonos en el medio de las palabras.
+Si es de-seleccionado, Verá los emorticonos solo cuando estén solos
+entre las palabras, separados por espacios.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Dependiendo de la configuración del Hub: la información
+solo estará disponible para los operadores</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="348"/>
         <source>Use emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar panel de emoticonos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="355"/>
         <source>Autohide emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Autoesconder panel de emoticonos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="450"/>
@@ -5964,10 +5915,6 @@ if your system becomes slow while hasing files.</source>
 si su sistema se vuelve lento cuando se hashean archivos.</translation>
     </message>
     <message>
-        <source>Auto refresh time (minutes,0 = off)</source>
-        <translation type="obsolete">Tiempo de auto-refresco (minutos, 0 = apagado)</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="321"/>
         <source>Use fast hash</source>
         <translation>Usar Hash rápido</translation>
@@ -6085,12 +6032,12 @@ si su sistema se vuelve lento cuando se hashean archivos.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="477"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiempo de autorefresco (minutos, 0 = off)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="509"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Máxima velocidad de Hasheo (MB/s) (0 = infinite)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="546"/>
@@ -6162,10 +6109,6 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
         <location filename="../ui/UISettingsSharing.ui" line="493"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Aquí puede configurar el tiempo de intervalo de la auto-actualización de sus compartidos.</translation>
-    </message>
-    <message>
-        <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation type="obsolete">Velocidad máx. de Hasheo (MB/s) (0 = sin limite)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="536"/>
@@ -6388,7 +6331,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../src/UserListModel.cpp" line="167"/>
         <source>E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="168"/>
