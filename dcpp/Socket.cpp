@@ -31,6 +31,10 @@
 #endif
 #endif
 
+#ifndef MSG_NOSIGNAL
+#define MSG_NOSIGNAL 0
+#endif
+
 namespace dcpp {
 
 string Socket::udpServer;
@@ -368,7 +372,7 @@ void Socket::writeAll(const void* aBuffer, int aLen, uint32_t timeout) throw(Soc
 int Socket::write(const void* aBuffer, int aLen) throw(SocketException) {
     int sent;
     do {
-                sent = ::send(sock, (const char*)aBuffer, aLen, 0);
+                sent = ::send(sock, (const char*)aBuffer, aLen, MSG_NOSIGNAL);
     } while (sent < 0 && getLastError() == EINTR);
 
     check(sent, true);
