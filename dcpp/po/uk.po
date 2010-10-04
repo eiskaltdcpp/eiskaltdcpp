@@ -80,36 +80,42 @@ msgstr "Неможливо створити потік"
 
 #: ../ConnectivityManager.cpp:61
 msgid "Determining connection type..."
-msgstr ""
+msgstr "Визначення типу з'єднання..."
 
 #: ../ConnectivityManager.cpp:66
 msgid "Unable to open %1% port(s). You must set up your connection manually"
 msgstr ""
+"Неможливо відкрити порт(и) %1%. Вам необхідно налаштувати підключення вручну"
 
 #: ../ConnectivityManager.cpp:73
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
+"Публічна IP-адреса виявлена, вибирається активний режим із прямим підключенням"
 
 #: ../ConnectivityManager.cpp:78
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
+"Виявлена локальна мережа з можливим використанням NAT, роблю спробу "
+"прокинути порти, використовуючи UPnP..."
 
 #: ../ConnectivityManager.cpp:110
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
 msgstr ""
+"Автоматичне встановлення активного режиму провалилося. Ви можете спробувати "
+"встановити своє підключення вручну для кращого зв'язку"
 
 #: ../ConnectivityManager.cpp:120
 msgid "TCP/TLS"
-msgstr ""
+msgstr "TCP/TLS"
 
 #: ../ConnectivityManager.cpp:126
 msgid "UDP"
-msgstr ""
+msgstr "UDP"
 
 #: ../ConnectivityManager.cpp:137
 #, fuzzy
@@ -133,6 +139,7 @@ msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
 msgstr ""
+"Цей хаб намагається використовувати ваш клієнт для спаму %1%, будь ласка " "повідомте власнику хаба, щоб він виправив це"
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
@@ -174,7 +181,7 @@ msgstr "З'єднання не прослуховуються - будь лас�
 #: ../Util.cpp:461
 #, c-format
 msgid "%d B"
-msgstr ""
+msgstr "%d Б"
 
 #: ../Util.cpp:463
 #, c-format
@@ -279,7 +286,7 @@ msgstr "Файл недоступний"
 
 #: ../UPnPManager.cpp:46
 msgid "Another UPnP port mapping attempt is in progress..."
-msgstr ""
+msgstr "Інша спроба прокидання портів через UPnP ще не завершена..."
 
 #: ../UPnPManager.cpp:74
 #, fuzzy
@@ -288,29 +295,30 @@ msgstr "Оновлення списку файлів розпочато"
 
 #: ../UPnPManager.cpp:78
 msgid " Transfer Port (%1% TCP)"
-msgstr ""
+msgstr " Порт передачі (%1% TCP)"
 
 #: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
 msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr ""
+msgstr "Спроба прокинути порт %2% на %3% провалилася для інтерфейсу %1%"
 
 #: ../UPnPManager.cpp:83
 msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
+msgstr " Порт шифрованої передачі (%1% TCP)"
 
 #: ../UPnPManager.cpp:88
 msgid " Search Port (%1% UDP)"
-msgstr ""
+msgstr " Порт для пошуку (%1% UDP)"
 
 #: ../UPnPManager.cpp:94
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
 msgstr ""
+"Успішно виконане прокидання портів (TCP: %1%, UDP: %2%, TLS: %3%), " "використовується інтерфейс %4%"
 
 #: ../UPnPManager.cpp:106
 msgid "Failed to get external IP"
-msgstr ""
+msgstr "Не вдалося отримати зовнішній IP"
 
 #: ../UPnPManager.cpp:114
 #, fuzzy
@@ -319,11 +327,11 @@ msgstr "Неможливо створити потік"
 
 #: ../UPnPManager.cpp:123
 msgid "Failed to remove port mappings"
-msgstr ""
+msgstr "Не вдалося видалити прокид портів"
 
 #: ../UPnPManager.cpp:128
 msgid "UPnP: %1%"
-msgstr ""
+msgstr "UPnP: %1%"
 
 #: ../ShareManager.cpp:429
 msgid "No directory specified"
@@ -491,7 +499,7 @@ msgstr "Не вдалось виконати хешування: %1%"
 
 #: ../QueueManager.cpp:343
 msgid "%1% renamed to %2%"
-msgstr ""
+msgstr "%1% перейменовано на %2%"
 
 #: ../QueueManager.cpp:345
 msgid "Unable to rename %1%: %2%"
@@ -503,7 +511,7 @@ msgstr "Пошук TTH альтернатив для: %1%"
 
 #: ../QueueManager.cpp:589
 msgid "You're trying to download from yourself!"
-msgstr "Ви намагаєтесь завантажити з себе!"
+msgstr "Ви намагаєтесь завантажити у себе!"
 
 #: ../QueueManager.cpp:595
 msgid "A file with the same hash already exists in your share"
@@ -561,7 +569,7 @@ msgstr "%1% був відкинутий: %2%"
 
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
-msgstr ""
+msgstr "Запит пошуку поза областю даних"
 
 #: ../ADLSearch.h:48
 msgid "<Enter string>"
