@@ -681,12 +681,12 @@ EiskaltDC++ - кросплатформенна програма для робо�
     <message>
         <location filename="../src/FileHasher.cpp" line="87"/>
         <source>Select file</source>
-        <translation type="unfinished">Вібір файлу</translation>
+        <translation>Вібір файлу</translation>
     </message>
     <message>
         <location filename="../src/FileHasher.cpp" line="87"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished">Усі файли (*.*)</translation>
+        <translation>Усі файли (*.*)</translation>
     </message>
 </context>
 <context>
@@ -1781,7 +1781,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1035"/>
         <source>Calculate file TTH</source>
-        <translation type="unfinished"></translation>
+        <translation>Вирахувати ТТН файлу</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1041"/>
@@ -4429,27 +4429,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFileHasher.ui" line="29"/>
         <source>TTH Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Вирахунок ТТН</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="54"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="73"/>
         <source>Compute</source>
-        <translation type="unfinished"></translation>
+        <translation>Вирахувати</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="80"/>
         <source>Get magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Взяти магнет</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Close</source>
-        <translation type="unfinished">Закрити</translation>
+        <translation>Закрити</translation>
     </message>
 </context>
 <context>
