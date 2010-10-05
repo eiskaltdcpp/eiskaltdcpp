@@ -89,7 +89,7 @@ void FavoriteHubs::init(){
     fakeNMDCTags = QStringList();
     fakeADCTags = QStringList();
 
-    fakeNMDCTags << QString().fromStdString(fullVersionString)
+    fakeNMDCTags << QString("%1").arg(fullVersionString)
             << QString("EiskaltDC++ V:%1").arg(VERSIONSTRING)
             << "++ V:0.75"
             << "++ V:0.777"
@@ -99,7 +99,7 @@ void FavoriteHubs::init(){
             << "HomeDC++ V:2.22"
             << "FakeDC V:1.0";
 
-    fakeADCTags << QString().fromStdString(fullADCVersionString)
+    fakeADCTags << QString("%1").arg(fullADCVersionString)
             << QString("EiskaltDC++ %1").arg(VERSIONSTRING)
             << "++ 0.75"
             << "++ 0.777"
