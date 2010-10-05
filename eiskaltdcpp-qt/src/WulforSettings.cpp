@@ -192,6 +192,10 @@ WulforSettings::WulforSettings():
 WulforSettings::~WulforSettings(){
 }
 
+bool WulforSettings::hasKey(const QString &key) const{
+    return (intmap.keys().contains(key) || strmap.keys().contains(key));
+}
+
 void WulforSettings::load(){
     if (!QFile::exists(configFile))
         return;

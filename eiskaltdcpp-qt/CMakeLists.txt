@@ -37,6 +37,7 @@ set (SRCS
             src/ArenaWidget.cpp
             src/ArenaWidgetContainer.cpp
             src/CustomFontModel.cpp
+	    src/CustomSetting.cpp
             src/DownloadQueue.cpp
             src/DownloadQueueModel.cpp
             src/EmoticonDialog.cpp
@@ -76,6 +77,7 @@ set (SRCS
             src/SettingsNotification.cpp
             src/SettingsPersonal.cpp
             src/SettingsSharing.cpp
+	    src/SettingsShortcuts.cpp
             src/SettingsUC.cpp
             src/ShareBrowser.cpp
             src/ShellCommandRunner.cpp
@@ -107,6 +109,7 @@ set (MOC_HDRS
             src/AntiSpamFrame.h
             src/ArenaWidget.h
             src/CustomFontModel.h
+	    src/CustomSetting.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
             src/EmoticonDialog.h
@@ -144,6 +147,7 @@ set (MOC_HDRS
             src/SettingsNotification.h
             src/SettingsPersonal.h
             src/SettingsSharing.h
+	    src/SettingsShortcuts.h
             src/SettingsUC.h
 	    src/ShortcutEdit.h
             src/SideBar.h
@@ -194,6 +198,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsNotification.ui
             ui/UISettingsPersonal.ui
             ui/UISettingsSharing.ui
+	    ui/UISettingsShortcuts.ui
             ui/UIShareBrowser.ui
             ui/UISpy.ui
             ui/UITransferView.ui

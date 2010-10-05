@@ -57,6 +57,7 @@ public:
     GETSET(int, maxUsers, MaxUsers);
 };
 const string DEF_FAKE_ID = "";
+
 class FavoriteHubEntry {
 public:
     FavoriteHubEntry() throw() : connect(false), encoding(Text::systemCharset),

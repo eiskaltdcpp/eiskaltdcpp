@@ -7,6 +7,7 @@
 #include "SettingsNotification.h"
 #include "SettingsLog.h"
 #include "SettingsUC.h"
+#include "SettingsShortcuts.h"
 
 #include "WulforUtil.h"
 
@@ -69,6 +70,11 @@ void Settings::init(){
     connect(this, SIGNAL(timeToDie()), ucs, SLOT(ok()));
     widgets.insert(item, 7);
 
+    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiEDIT), tr("Shortcuts"), listWidget);
+    SettingsShortcuts *sshs = new SettingsShortcuts(this);
+    connect(this, SIGNAL(timeToDie()), sshs, SLOT(ok()));
+    widgets.insert(item, 8);
+
     stackedWidget->insertWidget(0, personal);
     stackedWidget->insertWidget(1, connection);
     stackedWidget->insertWidget(2, downloads);
@@ -77,6 +83,7 @@ void Settings::init(){
     stackedWidget->insertWidget(5, notify);
     stackedWidget->insertWidget(6, logs);
     stackedWidget->insertWidget(7, ucs);
+    stackedWidget->insertWidget(8, sshs);
 
     stackedWidget->setCurrentIndex(0);
 

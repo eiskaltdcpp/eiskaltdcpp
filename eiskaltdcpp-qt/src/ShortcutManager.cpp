@@ -74,17 +74,29 @@ bool ShortcutManager::registerShortcut(QAction *act, const QString &key){
 
     QString objName = act->objectName();
     QMap<QString, QKeySequence>::iterator it = shortcuts.find(objName);
+    QKeySequence sq = (it != shortcuts.end())? (it.value()) : (QKeySequence::fromString(key));
 
-    if (it != shortcuts.end()){
-        act->setShortcut(it.value());
-    }
-    else {
-        QKeySequence sq = QKeySequence::fromString(key);
+    act->setShortcut(sq);
 
-        act->setShortcut(sq);
+    shortcuts.insert(objName, sq);
 
-        shortcuts.insert(objName, sq);
-    }
+    return true;
+}
+
+bool ShortcutManager::updateShortcut(QAction *act, const QString &key){
+    if (!act || act->objectName().isEmpty())
+        return false;
+
+    QString objName = act->objectName();
+    QMap<QString, QKeySequence>::iterator it = shortcuts.find(objName);
+
+    if (it == shortcuts.end())//not registered shortcut
+        return false;
+
+    QKeySequence sq = QKeySequence::fromString(key);
+
+    act->setShortcut(sq);
+    shortcuts.insert(objName, sq);
 
     return true;
 }

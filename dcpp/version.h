@@ -22,8 +22,8 @@
 #define DCVERSIONSTRING "0.75"
 
 namespace dcpp {
-extern const string fullVersionString;
-extern const string fullADCVersionString;
+extern const char * const fullVersionString;
+extern const char * const fullADCVersionString;
 }
 
 /* Update the .rc file as well... */

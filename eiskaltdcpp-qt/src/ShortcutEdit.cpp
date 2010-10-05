@@ -44,7 +44,7 @@ bool ShortcutEdit::eventFilter(QObject *obj, QEvent *e){
     }
 
     if (e->type() != QEvent::KeyPress)
-        return QLineEdit::eventFilter(obj, e);
+        return LineEdit::eventFilter(obj, e);
 
     QKeyEvent *k_e = reinterpret_cast<QKeyEvent* >(e);
 

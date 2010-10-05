@@ -59,7 +59,8 @@ HEADERS = ../Version.h \
     src/ScriptManagerDialog.h \
     scriptengine/ScriptConsole.h \
     src/ShortcutManager.h \
-    src/ShortcutEdit.h
+    src/ShortcutEdit.h \
+    src/SettingsShortcuts.h
 SOURCES = src/main.cpp \
     src/MainWindow.cpp \
     src/ADLS.cpp \
@@ -122,7 +123,8 @@ SOURCES = src/main.cpp \
     scriptengine/ScriptConsole.cpp \
     src/MultiLineToolBar.cpp \
     src/ShortcutManager.cpp \
-    src/ShortcutEdit.cpp
+    src/ShortcutEdit.cpp \
+    src/SettingsShortcuts.cpp
 FORMS = ui/UIAntiSpam.ui \
     ui/UIFinishedTransfers.ui \
     ui/UIFavoriteUsers.ui \
@@ -159,7 +161,8 @@ FORMS = ui/UIAntiSpam.ui \
     ui/UIADLSearch.ui \
     ui/UIADLSearchEditor.ui \
     ui/UIFileHasher.ui \
-    ui/UIHubManager.ui
+    ui/UIHubManager.ui \
+    ui/UISettingsShortcuts.ui
 TRANSLATIONS = translations/en.ts \
     translations/ru.ts \
     translations/be.ts \

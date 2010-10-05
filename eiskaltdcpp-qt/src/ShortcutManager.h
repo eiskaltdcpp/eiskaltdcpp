@@ -15,6 +15,10 @@ friend class dcpp::Singleton<ShortcutManager>;
 
 public:
     bool registerShortcut(QAction *act, const QString &key);
+    bool updateShortcut(QAction *act, const QString &key);
+    QMap<QString, QKeySequence> getShortcuts() { return shortcuts; }
+
+    void save();
 
 private:
     ShortcutManager();
@@ -22,7 +26,6 @@ private:
     virtual ~ShortcutManager();
 
     void load();
-    void save();
 
     QMap<QString, QKeySequence> shortcuts;
 };

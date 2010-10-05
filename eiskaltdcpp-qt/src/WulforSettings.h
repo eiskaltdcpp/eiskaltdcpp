@@ -19,6 +19,8 @@
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
+#include "CustomSetting.h"
+
 static const QString & WS_CHAT_OP_COLOR           = "chat-op-color";
 static const QString & WS_CHAT_USER_COLOR         = "chat-us-color";
 static const QString & WS_CHAT_CORE_COLOR         = "chat-co-color";
@@ -172,6 +174,7 @@ class WulforSettings :
     typedef QMap<QString, QString> WStrMap;
 
 friend class dcpp::Singleton<WulforSettings>;
+friend void eRegisterCustomSetting(CustomSettingType type, const QString &key, const QVariant &value);
 
 public:
     class BadKey{
@@ -190,6 +193,8 @@ public:
     void loadTheme();
 
     void    parseCmd(const QString &);
+
+    bool hasKey(const QString&) const;
 
 public Q_SLOTS:
     QString getStr(const QString&) throw(BadKey);
