@@ -23,7 +23,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:951
 #: ../src/settingsdialog.cc:1312 ../glade/mainwindow.glade:277
 msgid "Download Queue"
-msgstr ""
+msgstr "Черга завантажень"
 
 #: ../src/downloadqueue.cc:65 ../src/downloadqueue.cc:89
 #: ../src/downloadqueue.cc:90 ../src/downloadqueue.cc:275
@@ -57,7 +57,7 @@ msgstr "Ім'я файлу"
 #: ../src/transfers.cc:1091 ../src/transfers.cc:1124 ../src/transfers.cc:1137
 #: ../src/transfers.cc:1150
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: ../src/downloadqueue.cc:67 ../src/downloadqueue.cc:86
 #: ../src/downloadqueue.cc:278 ../src/downloadqueue.cc:385
@@ -74,19 +74,19 @@ msgstr "Розмір"
 #: ../src/downloadqueue.cc:68 ../src/downloadqueue.cc:88
 #: ../src/downloadqueue.cc:281 ../src/downloadqueue.cc:388
 msgid "Downloaded"
-msgstr ""
+msgstr "Завантажено"
 
 #: ../src/downloadqueue.cc:69 ../src/downloadqueue.cc:283
 #: ../src/downloadqueue.cc:390
 msgid "Priority"
-msgstr ""
+msgstr "Пріоритет"
 
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
 #: ../src/publichubs.cc:58 ../src/publichubs.cc:158
 #: ../glade/mainwindow.glade:520
 msgid "Users"
-msgstr ""
+msgstr "Користувачі"
 
 #: ../src/downloadqueue.cc:71 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/transfers.cc:64 ../src/transfers.cc:715
@@ -99,7 +99,7 @@ msgstr ""
 #: ../src/search.cc:1628 ../src/search.cc:1629 ../src/search.cc:1630
 #: ../src/search.cc:1890
 msgid "Path"
-msgstr ""
+msgstr "Шлях"
 
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
 #: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386 ../src/search.cc:94
@@ -112,12 +112,12 @@ msgstr "Точний розмір"
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:285
 #: ../src/downloadqueue.cc:392
 msgid "Errors"
-msgstr ""
+msgstr "Помилки"
 
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:286
 #: ../src/downloadqueue.cc:393
 msgid "Added"
-msgstr ""
+msgstr "Додано"
 
 #: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:340
 msgid "Items: "
@@ -134,84 +134,84 @@ msgstr "Файли: "
 
 #: ../src/downloadqueue.cc:1282
 msgid "No users"
-msgstr ""
+msgstr "Немає користувачів"
 
 #: ../src/downloadqueue.cc:1287
 msgid " of "
-msgstr ""
+msgstr " із "
 
 #: ../src/downloadqueue.cc:1287
 msgid " user(s) online"
-msgstr ""
+msgstr " користувач(ів) в мережі"
 
 #: ../src/downloadqueue.cc:1289
 msgid "Running..."
-msgstr ""
+msgstr "Виконується..."
 
 #: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
 #: ../src/WulforUtil.cc:317 ../src/WulforUtil.cc:319
 msgid "Unknown"
-msgstr ""
+msgstr "Невідомо"
 
 #: ../src/downloadqueue.cc:1320
 msgid "Paused"
-msgstr ""
+msgstr "Призупинено"
 
 #: ../src/downloadqueue.cc:1323
 msgid "Lowest"
-msgstr ""
+msgstr "Найнижчий"
 
 #: ../src/downloadqueue.cc:1326
 msgid "Low"
-msgstr ""
+msgstr "Низький"
 
 #: ../src/downloadqueue.cc:1329
 msgid "High"
-msgstr ""
+msgstr "Високий"
 
 #: ../src/downloadqueue.cc:1332
 msgid "Highest"
-msgstr ""
+msgstr "Найвищий"
 
 #: ../src/downloadqueue.cc:1335
 msgid "Normal"
-msgstr ""
+msgstr "Нормальний"
 
 #: ../src/downloadqueue.cc:1353
 msgid "File not available"
-msgstr ""
+msgstr "Файл не доступний"
 
 #: ../src/downloadqueue.cc:1355
 msgid "Passive user"
-msgstr ""
+msgstr "Пасивний користувач"
 
 #: ../src/downloadqueue.cc:1357
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr ""
+msgstr "CRC32 невідповідність (SFV-Перевірка)"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
-msgstr ""
+msgstr "Не відповідність корню ТТН"
 
 #: ../src/downloadqueue.cc:1361
 msgid "Source too slow"
-msgstr ""
+msgstr "Надто повільне джерело"
 
 #: ../src/downloadqueue.cc:1363
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr ""
+msgstr "Віддалений клієнт не повністю підтримує ТТН - неможливо завантажити"
 
 #: ../src/downloadqueue.cc:1369
 msgid "No errors"
-msgstr ""
+msgstr "Без помилок"
 
 #: ../src/notify.cc:149
 msgid "Open file"
-msgstr ""
+msgstr "Відкрити файл"
 
 #: ../src/notify.cc:152
 msgid "Open folder"
-msgstr ""
+msgstr "Відкрити теку"
 
 #: ../src/hub.cc:69 ../src/hub.cc:89 ../src/hub.cc:91 ../src/hub.cc:332
 #: ../src/hub.cc:347 ../src/hub.cc:367 ../src/hub.cc:415 ../src/hub.cc:1061
@@ -456,11 +456,11 @@ msgstr "Видалити псевдонім A"
 
 #: ../src/hub.cc:1757
 msgid "Alias add uname -a as A"
-msgstr ""
+msgstr "Додати псевдо A для 'uname -a'"
 
 #: ../src/hub.cc:1758
 msgid "Alias A executing"
-msgstr ""
+msgstr "Виконати псевдо А"
 
 #: ../src/hub.cc:1847
 msgid "Aliases not found."
@@ -539,14 +539,14 @@ msgstr "Виявлено пошуковий спам від "
 
 #: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:583
 msgid "ADL Search"
-msgstr ""
+msgstr "ADL Пошук"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
 #: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
 #: ../glade/adlsearch.glade:354
 msgid "Enabled"
-msgstr ""
+msgstr "Увімкнути"
 
 #: ../src/adlsearch.cc:40 ../src/adlsearch.cc:60 ../src/adlsearch.cc:111
 #: ../src/adlsearch.cc:211 ../src/adlsearch.cc:237 ../src/searchspy.cc:54
@@ -555,47 +555,47 @@ msgstr ""
 #: ../src/searchspy.cc:292 ../src/searchspy.cc:308 ../src/searchspy.cc:467
 #: ../src/searchspy.cc:532 ../src/searchspy.cc:565
 msgid "Search String"
-msgstr ""
+msgstr "Рядок пошуку"
 
 #: ../src/adlsearch.cc:41 ../src/adlsearch.cc:61 ../src/adlsearch.cc:112
 #: ../src/adlsearch.cc:212
 msgid "Source Type"
-msgstr ""
+msgstr "Тип джерела"
 
 #: ../src/adlsearch.cc:42 ../src/adlsearch.cc:62 ../src/adlsearch.cc:113
 #: ../src/adlsearch.cc:213 ../src/adlsearch.cc:238
 #, fuzzy
 msgid "Destination Directory"
-msgstr "Тека"
+msgstr "Тека призначення"
 
 #: ../src/adlsearch.cc:43 ../src/adlsearch.cc:63 ../src/adlsearch.cc:114
 #: ../src/adlsearch.cc:214
 #, fuzzy
 msgid "Min Size"
-msgstr "Розмір: "
+msgstr "Мін. розмір"
 
 #: ../src/adlsearch.cc:44 ../src/adlsearch.cc:64 ../src/adlsearch.cc:115
 #: ../src/adlsearch.cc:215
 #, fuzzy
 msgid "Max Size"
-msgstr "Точний розмір"
+msgstr "Макс. розмір"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1209
 #: ../src/settingsdialog.cc:1256 ../src/settingsdialog.cc:1315
 #: ../glade/mainwindow.glade:193 ../glade/mainwindow.glade:518
 msgid "Favorite Users"
-msgstr ""
+msgstr "Обрані користувачі"
 
 #: ../src/favoriteusers.cc:44 ../src/favoriteusers.cc:65
 #: ../src/favoriteusers.cc:108 ../src/favoriteusers.cc:470
 #: ../src/favoriteusers.cc:472
 msgid "Auto grant slot"
-msgstr ""
+msgstr "Автовиділення слоту"
 
 #: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
 #: ../src/favoriteusers.cc:584
 msgid "Hub (last seen in, if offline)"
-msgstr ""
+msgstr "Хаб (остання видимість, якщо в офлайні)"
 
 #: ../src/favoriteusers.cc:47 ../src/favoriteusers.cc:111
 #: ../src/favoriteusers.cc:577 ../src/favoriteusers.cc:585
