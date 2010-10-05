@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>440</width>
-    <height>457</height>
+    <width>528</width>
+    <height>522</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,9 +57,6 @@
          <property name="columnCount">
           <number>3</number>
          </property>
-         <attribute name="headerDefaultSectionSize">
-          <number>200</number>
-         </attribute>
          <attribute name="headerDefaultSectionSize">
           <number>200</number>
          </attribute>
@@ -419,6 +416,9 @@ share is complete, share at follow-up activities start nulled.</string>
           </item>
           <item row="0" column="1">
            <widget class="QCheckBox" name="checkBox_MAPPOPULATE">
+            <property name="toolTip">
+             <string>If checked, a pause hashing may not work.</string>
+            </property>
             <property name="text">
              <string>Proactive read from disk</string>
             </property>

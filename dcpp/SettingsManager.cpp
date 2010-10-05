@@ -275,7 +275,7 @@ SettingsManager::SettingsManager()
     setDefault(FINISHED_DL_ONLY_FULL, true);
     setDefault(SEARCH_MERGE, true);
     setDefault(HASH_BUFFER_SIZE_MB, 8);
-    setDefault(HASH_BUFFER_POPULATE, true);
+    setDefault(HASH_BUFFER_POPULATE, false);
     setDefault(HASH_BUFFER_NORESERVE, true);
     setDefault(HASH_BUFFER_PRIVATE, true);
     setDefault(TRANSFERS_PANED_POS, .7);
