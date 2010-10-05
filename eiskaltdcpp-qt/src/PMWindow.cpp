@@ -178,7 +178,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
     else if (e->type() == QEvent::MouseButtonDblClick){
         HubFrame *fr = HubManager::getInstance()->getHub(hubUrl);
         bool cursoratnick = false;
-        QString nick = "";
+        QString nick = "",nickstatus="",nickmessage="";
         QString cid = "";
         QTextCursor cursor = textEdit_CHAT->textCursor();
 
@@ -186,9 +186,25 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
         int positionCursor = cursor.columnNumber();
         int l = pressedParagraph.indexOf(" <");
         int r = pressedParagraph.indexOf("> ");
-
-        if ((l < r) && fr){
-            nick = pressedParagraph.mid(l+2, r-l-2);
+        if (l < r)
+            nickmessage = pressedParagraph.mid(l+2, r-l-2);
+        else {
+            int l1 = pressedParagraph.indexOf(" * ");
+            //qDebug() << positionCursor << " " << l1 << " " << l << " " << r;
+            if (l1 > -1 ) {
+                QString pressedParagraphstatus = pressedParagraph.remove(0,l1+3).simplified();
+                //qDebug() << pressedParagraphstatus;
+                int r1 = pressedParagraphstatus.indexOf(" ");
+                //qDebug() << r1;
+                nickstatus = pressedParagraphstatus.mid(0, r1);
+                //qDebug() << nickstatus;
+            }
+        }
+        if ((!nickmessage.isEmpty() || !nickstatus.isEmpty())&& fr){
+            //qDebug() << nickstatus;
+            //qDebug() << nickmessage;
+            nick = nickmessage + nickstatus;
+            //qDebug() << nick;
             cid = fr->getCIDforNick(nick);
         }
         if ((positionCursor < r) && (positionCursor > l))

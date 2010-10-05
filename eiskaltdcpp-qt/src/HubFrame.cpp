@@ -728,16 +728,35 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             QTextCursor cursor = textEdit_CHAT->textCursor();
 
             if (isChat){
+                QString nickstatus="",nickmessage="";
                 QString pressedParagraph = cursor.block().text();
+                //qDebug() << pressedParagraph;
                 int positionCursor = cursor.columnNumber();
                 int l = pressedParagraph.indexOf(" <");
                 int r = pressedParagraph.indexOf("> ");
-
-                if (l < r){
-                    nick = pressedParagraph.mid(l+2, r-l-2);
-                    cid = model->CIDforNick(nick, _q(client->getHubUrl()));
+                if (l < r)
+                    nickmessage = pressedParagraph.mid(l+2, r-l-2);
+                else {
+                    int l1 = pressedParagraph.indexOf(" * ");
+                    //qDebug() << positionCursor << " " << l1 << " " << l << " " << r;
+                    if (l1 > -1 ) {
+                        QString pressedParagraphstatus = pressedParagraph.remove(0,l1+3).simplified();
+                        //qDebug() << pressedParagraphstatus;
+                        int r1 = pressedParagraphstatus.indexOf(" ");
+                        //qDebug() << r1;
+                        nickstatus = pressedParagraphstatus.mid(0, r1);
+                        //qDebug() << nickstatus;
+                    }
                 }
-                if ((positionCursor < r) && (positionCursor > l))
+                if (!nickmessage.isEmpty() || !nickstatus.isEmpty()) {
+                    //qDebug() << nickstatus;
+                    //qDebug() << nickmessage;
+                    nick = nickmessage + nickstatus;
+                    //qDebug() << nick;
+                    cid = model->CIDforNick(nick, _q(client->getHubUrl()));
+                    //qDebug() << cid;
+                    }
+                if (((positionCursor < r) && (positionCursor > l))/* || positionCursor > l1*/)
                     cursoratnick = true;
             }
             else if (isUserList){
@@ -755,10 +774,10 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             }
 
             if (!cid.isEmpty()){
-                if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1 && (cursoratnick || isUserList))
-                        browseUserFiles(cid, false);
-                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList))
-                        addPM(cid, "");
+                if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1 && (cursoratnick || isUserList)){
+                        browseUserFiles(cid, false);}
+                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList)){
+                        addPM(cid, "");}
                 else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
                     if (plainTextEdit_INPUT->textCursor().position() == 0)
                         plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
