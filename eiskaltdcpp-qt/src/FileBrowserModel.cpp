@@ -224,13 +224,16 @@ int FileBrowserModel::rowCount(const QModelIndex &parent) const
 }
 
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i){
+    static Compare<Qt::AscendingOrder> acomp = Compare<Qt::AscendingOrder>();
+    static Compare<Qt::DescendingOrder> dcomp = Compare<Qt::DescendingOrder>();
+
     if (column < 0 || !i || i->childCount() == 0)
         return;
 
     if (order == Qt::AscendingOrder)
-        Compare<Qt::AscendingOrder>().sort(column, i->childItems);
+        acomp.sort(column, i->childItems);
     else if (order == Qt::DescendingOrder)
-        Compare<Qt::DescendingOrder>().sort(column, i->childItems);
+        dcomp.sort(column, i->childItems);
 
     foreach(FileBrowserItem *ii, i->childItems)
         sortRecursive(column, order, ii);

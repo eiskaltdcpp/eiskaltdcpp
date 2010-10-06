@@ -104,6 +104,7 @@ private Q_SLOTS:
     void slotCustomContextMenu(const QPoint&);
     void slotHeaderMenu();
     void slotLoaderFinish();
+    void slotLayoutUpdated();
 
 private:
     void init();

@@ -238,6 +238,7 @@ void ShareBrowser::init(){
     connect(treeView_RPANE->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotRightPaneClicked(QModelIndex)));
     connect(this, SIGNAL(loadFinished()), this, SLOT(slotLoaderFinish()), Qt::QueuedConnection);
+    connect(tree_model, SIGNAL(layoutChanged()), this, SLOT(slotLayoutUpdated()));
 
     setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -754,6 +755,19 @@ void ShareBrowser::slotLoaderFinish(){
     MainWindow::getInstance()->addArenaWidgetOnToolbar(this);
     MainWindow::getInstance()->mapWidgetOnArena(this);
 
+}
+
+void ShareBrowser::slotLayoutUpdated(){
+    QItemSelectionModel *selection_model = treeView_LPANE->selectionModel();
+    QModelIndexList selected  = selection_model->selectedRows(0);
+
+    if (selected.size() > 1 || selected.empty())
+        return;
+
+    QModelIndex index = selected.at(0);
+
+    treeView_LPANE->clearSelection();
+    treeView_LPANE->selectionModel()->select(index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
 }
 
 void ShareBrowser::slotHeaderMenu(){
