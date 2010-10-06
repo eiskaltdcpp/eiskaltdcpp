@@ -2594,6 +2594,10 @@ Clés:
         <source>User Commands</source>
         <translation>Commandes utilisateur</translation>
     </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsConnection</name>
@@ -2685,7 +2689,7 @@ Clés:
     </message>
     <message>
         <source>Core</source>
-        <translation>noyau</translation>
+        <translation type="obsolete">noyau</translation>
     </message>
     <message>
         <source>Status</source>
@@ -2940,6 +2944,17 @@ Clés:
     <message>
         <source>Error</source>
         <translation>Erreur</translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutsModel</name>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hotkey</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5405,6 +5420,17 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Vitesse de scan max (MB/s) (0=infini)</translation>
+    </message>
+    <message>
+        <source>If checked, a pause hashing may not work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UISettingsShortcuts</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Formulaire</translation>
     </message>
 </context>
 <context>

@@ -2335,6 +2335,10 @@ Keys:
         <source>User Commands</source>
         <translation>Korisn. komande</translation>
     </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsConnection</name>
@@ -2442,7 +2446,7 @@ Keys:
     </message>
     <message>
         <source>Core</source>
-        <translation>Jezgro</translation>
+        <translation type="obsolete">Jezgro</translation>
     </message>
     <message>
         <source>Status</source>
@@ -2654,6 +2658,17 @@ Keys:
     <message>
         <source>Error</source>
         <translation>Greška</translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutsModel</name>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hotkey</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5106,6 +5121,17 @@ odobreni slot neće biti zatvoren.</translation>
     <message>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If checked, a pause hashing may not work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UISettingsShortcuts</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Oblik</translation>
     </message>
 </context>
 <context>

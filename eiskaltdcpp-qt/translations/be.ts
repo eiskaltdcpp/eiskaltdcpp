@@ -847,7 +847,7 @@ Keys:
     <name>HubFrame</name>
     <message>
         <location filename="../src/HubFrame.cpp" line="91"/>
-        <location filename="../src/HubFrame.cpp" line="979"/>
+        <location filename="../src/HubFrame.cpp" line="1000"/>
         <source>Copy</source>
         <translation>Перапісаць у буфэр</translation>
     </message>
@@ -878,7 +878,7 @@ Keys:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="97"/>
-        <location filename="../src/HubFrame.cpp" line="978"/>
+        <location filename="../src/HubFrame.cpp" line="999"/>
         <source>Add to Favorites</source>
         <translation>Дадаць да ўлюбёнцаў</translation>
     </message>
@@ -958,273 +958,273 @@ Keys:
         <translation type="obsolete">Загады</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="974"/>
+        <location filename="../src/HubFrame.cpp" line="995"/>
         <source>Hub menu</source>
         <translation>Мэню асяродку</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="976"/>
+        <location filename="../src/HubFrame.cpp" line="997"/>
         <source>Reconnect</source>
         <translation>Нанова злучыцца</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="977"/>
+        <location filename="../src/HubFrame.cpp" line="998"/>
         <source>Show widget</source>
         <translation>Паказаць ваконца</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="980"/>
+        <location filename="../src/HubFrame.cpp" line="1001"/>
         <source>Hub IP</source>
         <translation>Адрэсу IP асяродку</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="981"/>
+        <location filename="../src/HubFrame.cpp" line="1002"/>
         <source>Hub URL</source>
         <translation>Спасылку URL асяродку</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="982"/>
+        <location filename="../src/HubFrame.cpp" line="1003"/>
         <source>Hub Title</source>
         <translation>Загаловак асяродку</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="986"/>
+        <location filename="../src/HubFrame.cpp" line="1007"/>
         <source>Close</source>
         <translation>Закрыць</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="999"/>
+        <location filename="../src/HubFrame.cpp" line="1020"/>
         <source>Hub Menu</source>
         <translation>Мэню асяродку</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1059"/>
-        <location filename="../src/HubFrame.cpp" line="1077"/>
+        <location filename="../src/HubFrame.cpp" line="1080"/>
+        <location filename="../src/HubFrame.cpp" line="1098"/>
         <source>Not connected</source>
         <translatorcomment>???Не далучаны</translatorcomment>
         <translation>Не злучыліся</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1154"/>
+        <location filename="../src/HubFrame.cpp" line="1175"/>
         <source>Hub role: Operator</source>
         <translation>Роля на асяродку: апэратар</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1156"/>
+        <location filename="../src/HubFrame.cpp" line="1177"/>
         <source>Hub role: User</source>
         <translation>Роля на асяродку: карыстальнік</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1159"/>
+        <location filename="../src/HubFrame.cpp" line="1180"/>
         <source>
 Favorite user</source>
         <translation>
 Улюбёнец</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1221"/>
-        <location filename="../src/HubFrame.cpp" line="1223"/>
-        <location filename="../src/HubFrame.cpp" line="1361"/>
-        <location filename="../src/HubFrame.cpp" line="1363"/>
+        <location filename="../src/HubFrame.cpp" line="1242"/>
+        <location filename="../src/HubFrame.cpp" line="1244"/>
+        <location filename="../src/HubFrame.cpp" line="1382"/>
+        <location filename="../src/HubFrame.cpp" line="1384"/>
         <source>Away mode off</source>
         <translation>Вярнуліся са стану «адышоў»</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1235"/>
-        <location filename="../src/HubFrame.cpp" line="1237"/>
+        <location filename="../src/HubFrame.cpp" line="1256"/>
+        <location filename="../src/HubFrame.cpp" line="1258"/>
         <source>Away mode on: </source>
         <translation>Перайшлі ў стан «адышоў»: </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1255"/>
-        <location filename="../src/HubFrame.cpp" line="1257"/>
+        <location filename="../src/HubFrame.cpp" line="1276"/>
+        <location filename="../src/HubFrame.cpp" line="1278"/>
         <source>Aliases not found.</source>
         <translation>Назовак не знайшлі.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1277"/>
-        <location filename="../src/HubFrame.cpp" line="1279"/>
+        <location filename="../src/HubFrame.cpp" line="1298"/>
+        <location filename="../src/HubFrame.cpp" line="1300"/>
         <source>Alias removed.</source>
         <translation>Выкрасьлілі назоўку.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1290"/>
-        <location filename="../src/HubFrame.cpp" line="1292"/>
-        <location filename="../src/HubFrame.cpp" line="1299"/>
-        <location filename="../src/HubFrame.cpp" line="1301"/>
+        <location filename="../src/HubFrame.cpp" line="1311"/>
+        <location filename="../src/HubFrame.cpp" line="1313"/>
+        <location filename="../src/HubFrame.cpp" line="1320"/>
+        <location filename="../src/HubFrame.cpp" line="1322"/>
         <source>Invalid alias syntax.</source>
         <translation>Хібны сынтакс назоўкі.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1309"/>
-        <location filename="../src/HubFrame.cpp" line="1311"/>
+        <location filename="../src/HubFrame.cpp" line="1330"/>
+        <location filename="../src/HubFrame.cpp" line="1332"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Дадалі назоўку %1 =&gt; %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1327"/>
+        <location filename="../src/HubFrame.cpp" line="1348"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
         <translation>суадносіны: %1 (зацягнулі %2, сьцягнулі %3)</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1352"/>
-        <location filename="../src/HubFrame.cpp" line="1354"/>
+        <location filename="../src/HubFrame.cpp" line="1373"/>
+        <location filename="../src/HubFrame.cpp" line="1375"/>
         <source>Aspell switched %1</source>
         <translation>%1 Aspell</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1352"/>
-        <location filename="../src/HubFrame.cpp" line="1354"/>
+        <location filename="../src/HubFrame.cpp" line="1373"/>
+        <location filename="../src/HubFrame.cpp" line="1375"/>
         <source>on</source>
         <translation>Задзейнічалі</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1352"/>
-        <location filename="../src/HubFrame.cpp" line="1354"/>
+        <location filename="../src/HubFrame.cpp" line="1373"/>
+        <location filename="../src/HubFrame.cpp" line="1375"/>
         <source>off</source>
         <translation>Вымкнулі</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1369"/>
-        <location filename="../src/HubFrame.cpp" line="1371"/>
+        <location filename="../src/HubFrame.cpp" line="1390"/>
+        <location filename="../src/HubFrame.cpp" line="1392"/>
         <source>Chat has been cleared</source>
         <translation>Ачысьцілі гаману</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1423"/>
+        <location filename="../src/HubFrame.cpp" line="1444"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
         <translation>/alias &lt;НАЗОЎКА&gt;::&lt;ЗАГАД&gt; — стварыць назоўку /НАЗОЎКА да загаду /ЗАГАД
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1424"/>
+        <location filename="../src/HubFrame.cpp" line="1445"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
         <translation>/alias purge &lt;НАЗОЎКА&gt; — выкрасьліць назоўку
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1425"/>
+        <location filename="../src/HubFrame.cpp" line="1446"/>
         <source>/alias list - list all aliases
 </source>
         <translation>/alias list — пералічыць усе назоўкі
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1426"/>
+        <location filename="../src/HubFrame.cpp" line="1447"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
         <translation>/away &lt;паведамленьне&gt; — перайсьці ў стан «адышоў», ці вярнуцца
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1427"/>
+        <location filename="../src/HubFrame.cpp" line="1448"/>
         <source>/back - set away-mode off
 </source>
         <translation>/back — вярнуцца са стану «адышоў»
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1428"/>
+        <location filename="../src/HubFrame.cpp" line="1449"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
         <translation>/browse &lt;мянушка&gt; — прагледзець файлы карыстальніка
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1429"/>
+        <location filename="../src/HubFrame.cpp" line="1450"/>
         <source>/clear - clear chat window
 </source>
         <translation>/clear — ачысьціць ваконца гаманы
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1430"/>
+        <location filename="../src/HubFrame.cpp" line="1451"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
         <translation>/magnet — прадвызначанае дзеяньне па магніт-спасылцы (0 — запытацца, 1 — шукаць, 2 — сьцягнуць)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1431"/>
+        <location filename="../src/HubFrame.cpp" line="1452"/>
         <source>/close - close this hub
 </source>
         <translation>/close — закрыць гэты асяродак
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1432"/>
+        <location filename="../src/HubFrame.cpp" line="1453"/>
         <source>/fav - add this hub to favorites
 </source>
         <translation>/fav — дадаць гэты асяродак да ўлюбёных
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1433"/>
+        <location filename="../src/HubFrame.cpp" line="1454"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
         <translation>/grant &lt;мянушка&gt; — дадаць шчыліну карыстальніку
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1434"/>
+        <location filename="../src/HubFrame.cpp" line="1455"/>
         <source>/help, /?, /h - show this help
 </source>
         <translation>/help, /?, /h — паказаць дапамогу (тое, што вы зараз чытаеце)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1435"/>
+        <location filename="../src/HubFrame.cpp" line="1456"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
         <translation>/info &lt;мянушка&gt; — паказаць зьвесткі пра карыстальніка
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1436"/>
+        <location filename="../src/HubFrame.cpp" line="1457"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
         <translation>/ratio [show] — паказаць суадносіны [паказаць усім у гамане]
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1437"/>
+        <location filename="../src/HubFrame.cpp" line="1458"/>
         <source>/me - say a third person
 </source>
         <translation>/me — сказаць ад трэцяе асобы
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1438"/>
+        <location filename="../src/HubFrame.cpp" line="1459"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
         <translation>/pm &lt;мянушка&gt; — пачаць гаманіць асабіста з карыстальнікам
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1439"/>
+        <location filename="../src/HubFrame.cpp" line="1460"/>
         <source>/sh &lt;command&gt; - start command and redirect output to the chat
 </source>
         <translation>/sh &lt;загад&gt; — выканаць загад і накіраваць вынік у гаману
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1441"/>
+        <location filename="../src/HubFrame.cpp" line="1462"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
         <translation>/luafile &lt;файл&gt; — прачыць файл Lua
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1442"/>
+        <location filename="../src/HubFrame.cpp" line="1463"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
         <translation>/lua &lt;скрыпт&gt; — выканаць скрыпт Lua
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1421"/>
+        <location filename="../src/HubFrame.cpp" line="1442"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
         <translation>/aspell on/off — спраўджваць (on) ці ня спраўджваць (off) правапіс
@@ -1271,28 +1271,28 @@ Favorite user</source>
         <translation type="obsolete">&lt;b&gt;Апошняе апісаньне стану на асяродку:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1666"/>
+        <location filename="../src/HubFrame.cpp" line="1681"/>
         <source> joins the chat</source>
         <translation> далучаецца да гаманы</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1678"/>
+        <location filename="../src/HubFrame.cpp" line="1693"/>
         <source>%1 become online</source>
         <translation>%1 далучаецца</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1691"/>
+        <location filename="../src/HubFrame.cpp" line="1706"/>
         <source>User online.</source>
         <translation>Карыстальнік далучыўся.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1754"/>
-        <location filename="../src/HubFrame.cpp" line="1766"/>
+        <location filename="../src/HubFrame.cpp" line="1769"/>
+        <location filename="../src/HubFrame.cpp" line="1781"/>
         <source>User not found</source>
         <translation>Не знайшлі карыстальніка</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1773"/>
+        <location filename="../src/HubFrame.cpp" line="1788"/>
         <source>Slot granted to </source>
         <translation>Далі шчыліну карыстальніку </translation>
     </message>
@@ -1301,32 +1301,32 @@ Favorite user</source>
         <translation type="obsolete">Не знайшлі карыстальніка.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1830"/>
+        <location filename="../src/HubFrame.cpp" line="1845"/>
         <source> has been added to favorites.</source>
         <translation> дадалі да ўлюбёнцаў.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1830"/>
+        <location filename="../src/HubFrame.cpp" line="1845"/>
         <source> has been removed from favorites.</source>
         <translation> выкрасьлілі з улюбёнцаў.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1861"/>
+        <location filename="../src/HubFrame.cpp" line="1876"/>
         <source>Favorite hub added.</source>
         <translation>Дадалі асяродак да ўлюбёных.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1864"/>
+        <location filename="../src/HubFrame.cpp" line="1879"/>
         <source>Favorite hub already exists.</source>
         <translation>Асяродак ужо ёсьць ва ўлюбёных.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1989"/>
+        <location filename="../src/HubFrame.cpp" line="2004"/>
         <source>User offline.</source>
         <translation>Карыстальнік адлучыўся.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2024"/>
+        <location filename="../src/HubFrame.cpp" line="2039"/>
         <source>Stored password sent...</source>
         <translation>Даслалі захаванае гасло…</translation>
     </message>
@@ -1335,28 +1335,28 @@ Favorite user</source>
         <translation type="obsolete">Упішыце гасло</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2027"/>
+        <location filename="../src/HubFrame.cpp" line="2042"/>
         <source>Password</source>
         <translation>Гасло</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2041"/>
-        <location filename="../src/HubFrame.cpp" line="3159"/>
+        <location filename="../src/HubFrame.cpp" line="2056"/>
+        <location filename="../src/HubFrame.cpp" line="3171"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Атрымалі просьбу перанакіравацца да асяродку, зь якім ужо злучыліся</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2116"/>
+        <location filename="../src/HubFrame.cpp" line="2131"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Карыстальнікаў: %1 | Разам абагулілі: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2964"/>
+        <location filename="../src/HubFrame.cpp" line="2976"/>
         <source>Suggestions</source>
         <translation>Прапановы</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2958"/>
+        <location filename="../src/HubFrame.cpp" line="2970"/>
         <source>Add to dictionary</source>
         <translation>Дадаць у слоўнік</translation>
     </message>
@@ -1366,86 +1366,86 @@ Favorite user</source>
         <translation>Перапісаць зьвесткі</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="223"/>
-        <location filename="../src/HubFrame.cpp" line="313"/>
+        <location filename="../src/HubFrame.cpp" line="225"/>
+        <location filename="../src/HubFrame.cpp" line="315"/>
         <source>AntiSpam</source>
         <translation>Супраць лухты</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="227"/>
-        <location filename="../src/HubFrame.cpp" line="315"/>
+        <location filename="../src/HubFrame.cpp" line="229"/>
+        <location filename="../src/HubFrame.cpp" line="317"/>
         <source>Add to Black</source>
         <translation>Дадаць у чорны сьпіс</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="228"/>
-        <location filename="../src/HubFrame.cpp" line="316"/>
+        <location filename="../src/HubFrame.cpp" line="230"/>
+        <location filename="../src/HubFrame.cpp" line="318"/>
         <source>Add to White</source>
         <translation>Дадаць у белы сьпіс</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1727"/>
+        <location filename="../src/HubFrame.cpp" line="1742"/>
         <source> left the chat</source>
         <translation> выходзіць з гаманы</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1678"/>
-        <location filename="../src/HubFrame.cpp" line="1732"/>
+        <location filename="../src/HubFrame.cpp" line="1693"/>
+        <location filename="../src/HubFrame.cpp" line="1747"/>
         <source>Favorites</source>
         <translation>Улюбёнцы</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1732"/>
+        <location filename="../src/HubFrame.cpp" line="1747"/>
         <source>%1 become offline</source>
         <translation>%1 адлучаецца</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="531"/>
+        <location filename="../src/HubFrame.cpp" line="533"/>
         <source>not shared</source>
         <translation>не абагулілі</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2110"/>
+        <location filename="../src/HubFrame.cpp" line="2125"/>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Карыстальнікаў: %3/%1 | Разам абагулілі: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3111"/>
+        <location filename="../src/HubFrame.cpp" line="3123"/>
         <source>Connecting to %1</source>
         <translation>Злучаемся з %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3117"/>
+        <location filename="../src/HubFrame.cpp" line="3129"/>
         <source>Connected to %1</source>
         <translation>Злучыліся з %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3169"/>
+        <location filename="../src/HubFrame.cpp" line="3181"/>
         <source>Fail: %1...</source>
         <translation>Не ўдалося: %1…</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3341"/>
+        <location filename="../src/HubFrame.cpp" line="3353"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Выбачайце, але мянушку «%1» ўжо заняў іншы карыстальнік.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3347"/>
+        <location filename="../src/HubFrame.cpp" line="3359"/>
         <source>Search flood detected: %1</source>
         <translation>Выявілі назолу ў пошуку: %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1116"/>
+        <location filename="../src/HubFrame.cpp" line="1137"/>
         <source>Chat disabled.</source>
         <translation>Гаману забаранілі.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1123"/>
+        <location filename="../src/HubFrame.cpp" line="1144"/>
         <source>Chat enabled.</source>
         <translation>Гаману задзейнічалі.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1106"/>
+        <location filename="../src/HubFrame.cpp" line="1127"/>
         <source>Chat cleared.</source>
         <translation>Гаману ачысьцілі.</translation>
     </message>
@@ -2451,12 +2451,12 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Закрыць</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="251"/>
+        <location filename="../src/PMWindow.cpp" line="267"/>
         <source>%1 on hub %2</source>
         <translation>%1 на асяродку %2</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="505"/>
+        <location filename="../src/PMWindow.cpp" line="521"/>
         <source>Disable emoticons</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2465,12 +2465,12 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="obsolete"> на асяродку </translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="281"/>
+        <location filename="../src/PMWindow.cpp" line="297"/>
         <source>Chat cleared.</source>
         <translation>Гаману ачысьцілі.</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="369"/>
+        <location filename="../src/PMWindow.cpp" line="385"/>
         <source>User went offline</source>
         <translation>Карыстальнік адлучыўся</translation>
     </message>
@@ -2631,32 +2631,32 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Чытаецца: </translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="105"/>
+        <location filename="../src/main.cpp" line="109"/>
         <source>UserList icons has been loaded</source>
         <translation>Прачыталі значкі сьпісу карыстальнікаў</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="108"/>
+        <location filename="../src/main.cpp" line="112"/>
         <source>Application icons has been loaded</source>
         <translation>Прачыталі значкі прыстасаваньня</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="141"/>
+        <location filename="../src/main.cpp" line="145"/>
         <source>Shutting down libdcpp...</source>
         <translation>Спыняецца libdcpp…</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="164"/>
+        <location filename="../src/main.cpp" line="168"/>
         <source>Quit...</source>
         <translation>Спыняем…</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="192"/>
+        <location filename="../src/main.cpp" line="196"/>
         <source>Cannot handle SIGPIPE</source>
         <translation>Не магу апрацаваць SIGPIPE</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="195"/>
+        <location filename="../src/main.cpp" line="199"/>
         <source>Signal handlers installed.</source>
         <translation type="unfinished">Апрацоўнікі сыгналаў усталяваныя.</translation>
     </message>
@@ -3028,51 +3028,56 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../src/Settings.cpp" line="19"/>
+        <location filename="../src/Settings.cpp" line="20"/>
         <source>Options</source>
         <translation>Можнасьці</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="32"/>
+        <location filename="../src/Settings.cpp" line="33"/>
         <source>Personal</source>
         <translatorcomment>???Асабістыя [можнасьці]</translatorcomment>
         <translation>Асабістыя</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="37"/>
+        <location filename="../src/Settings.cpp" line="38"/>
         <source>Connection</source>
         <translation>Злучэньне</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="42"/>
+        <location filename="../src/Settings.cpp" line="43"/>
         <source>Downloads</source>
         <translatorcomment>???Сьцягваць</translatorcomment>
         <translation>Сьцягванае</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="47"/>
+        <location filename="../src/Settings.cpp" line="48"/>
         <source>Sharing</source>
         <translation>Абагуленае</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="52"/>
+        <location filename="../src/Settings.cpp" line="53"/>
         <source>GUI</source>
         <translation>Інтэрфэйс</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="57"/>
+        <location filename="../src/Settings.cpp" line="58"/>
         <source>Notifications</source>
         <translation>Апавяшчэньні</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="62"/>
+        <location filename="../src/Settings.cpp" line="63"/>
         <source>Logs</source>
         <translation>Справаздачы</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="67"/>
+        <location filename="../src/Settings.cpp" line="68"/>
         <source>User Commands</source>
         <translation>Загады карыстальніка</translation>
+    </message>
+    <message>
+        <location filename="../src/Settings.cpp" line="73"/>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3215,42 +3220,41 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Гамана: сказалі мянушку</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="239"/>
         <source>Core</source>
-        <translation>Аснова</translation>
+        <translation type="obsolete">Аснова</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="243"/>
+        <location filename="../src/SettingsGUI.cpp" line="239"/>
         <source>Status</source>
         <translation>Стан</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="247"/>
+        <location filename="../src/SettingsGUI.cpp" line="243"/>
         <source>User</source>
         <translation>Карыстальнік</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="251"/>
+        <location filename="../src/SettingsGUI.cpp" line="247"/>
         <source>Favorite User</source>
         <translation>Улюбёнец</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="255"/>
+        <location filename="../src/SettingsGUI.cpp" line="251"/>
         <source>Time stamp</source>
         <translation>Часадзнака</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="259"/>
+        <location filename="../src/SettingsGUI.cpp" line="255"/>
         <source>Message</source>
         <translation>Паведамленьне</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="492"/>
+        <location filename="../src/SettingsGUI.cpp" line="487"/>
         <source>Select translation</source>
         <translation>Абярыце пераклад</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="492"/>
+        <location filename="../src/SettingsGUI.cpp" line="487"/>
         <source>Translation (*.qm)</source>
         <translation>Пераклад (*.qm)</translation>
     </message>
@@ -3424,57 +3428,57 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Сьпіс файлаў: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="220"/>
+        <location filename="../src/ShareBrowser.cpp" line="262"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Агульны памер абагуленага: %1;  Файлаў: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="222"/>
+        <location filename="../src/ShareBrowser.cpp" line="217"/>
         <source>Filebrowser</source>
         <translation>Аглядальнік файлаў</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="224"/>
+        <location filename="../src/ShareBrowser.cpp" line="219"/>
         <source>Close</source>
         <translation>Закрыць</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="338"/>
-        <location filename="../src/ShareBrowser.cpp" line="346"/>
+        <location filename="../src/ShareBrowser.cpp" line="339"/>
+        <location filename="../src/ShareBrowser.cpp" line="347"/>
         <source>Name</source>
         <translation>Назоў</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="338"/>
-        <location filename="../src/ShareBrowser.cpp" line="346"/>
+        <location filename="../src/ShareBrowser.cpp" line="339"/>
+        <location filename="../src/ShareBrowser.cpp" line="347"/>
         <source>Size</source>
         <translation>Памер</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="339"/>
-        <location filename="../src/ShareBrowser.cpp" line="347"/>
+        <location filename="../src/ShareBrowser.cpp" line="340"/>
+        <location filename="../src/ShareBrowser.cpp" line="348"/>
         <source>Exact size</source>
         <translation>Дакладны памер</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="340"/>
-        <location filename="../src/ShareBrowser.cpp" line="348"/>
+        <location filename="../src/ShareBrowser.cpp" line="341"/>
+        <location filename="../src/ShareBrowser.cpp" line="349"/>
         <source>TTH</source>
         <translation>Скарот (TTH)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="504"/>
-        <location filename="../src/ShareBrowser.cpp" line="517"/>
+        <location filename="../src/ShareBrowser.cpp" line="505"/>
+        <location filename="../src/ShareBrowser.cpp" line="518"/>
         <source>Total size: %1</source>
         <translation>Агульны памер: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="520"/>
+        <location filename="../src/ShareBrowser.cpp" line="521"/>
         <source>; Selected: %1</source>
         <translation>; Абраныя: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="630"/>
+        <location filename="../src/ShareBrowser.cpp" line="631"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
@@ -3485,6 +3489,19 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <location filename="../src/SettingsSharing.cpp" line="627"/>
         <source>Error</source>
         <translation>Памылка</translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutsModel</name>
+    <message>
+        <location filename="../src/SettingsShortcuts.cpp" line="143"/>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsShortcuts.cpp" line="144"/>
+        <source>Hotkey</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6293,13 +6310,13 @@ of how fast a source you are likely to be for other users.</source>
         <translation>Галоўныя</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="132"/>
+        <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
         <translation>Тут вы можаце вызначыць шаблёны да назоваў файлаў,
 якія вы не жадаеце абагуляць.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="203"/>
+        <location filename="../ui/UISettingsSharing.ui" line="200"/>
         <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
 For example, if you have /home/username/Video folder shared as &quot;Video&quot;
 you can specify following:
@@ -6314,12 +6331,12 @@ will be unable to download any files from this folder.</source>
 будуць толькі тыя карыстальнікі, якія абагулілі ня меней за 10 ГіБ.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="251"/>
+        <location filename="../ui/UISettingsSharing.ui" line="248"/>
         <source>Advanced</source>
         <translation>Адмысловыя</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="276"/>
+        <location filename="../ui/UISettingsSharing.ui" line="273"/>
         <source>Share files with the Hidden attribute set and files inside directory with
 the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
@@ -6334,7 +6351,7 @@ and may cause the client to appear to freeze.</source>
 дапаўняецца, вам можа падацца, што кліент «завіс».</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="303"/>
+        <location filename="../ui/UISettingsSharing.ui" line="300"/>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
         <translation>Калі не задзейнічаць гэтую можнасьць і выйсьці  з кліенту
@@ -6342,19 +6359,24 @@ share is complete, share at follow-up activities start nulled.</source>
 памер абагуленага па наступным запуску будзе роўным нулю.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="334"/>
+        <location filename="../ui/UISettingsSharing.ui" line="331"/>
         <source>FastHash options (restart needed)</source>
         <translation>Можнасьці хутка ствараць скароты (трэба запусьціць нанова)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="388"/>
+        <location filename="../ui/UISettingsSharing.ui" line="385"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="393"/>
+        <location filename="../ui/UISettingsSharing.ui" line="390"/>
         <source>4</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="420"/>
+        <source>If checked, a pause hashing may not work.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
@@ -6405,7 +6427,7 @@ EiskaltDC++ падтрымвае зацягваць сьпісы файлаў і
         <translation type="obsolete">Дапаўняць абагуленае кожныя (у хвілінах; 0=не дапаўняць самарушна)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="321"/>
+        <location filename="../ui/UISettingsSharing.ui" line="318"/>
         <source>Use fast hash</source>
         <translation>Хуткі спосаб ствараць скароты</translation>
     </message>
@@ -6426,7 +6448,7 @@ EiskaltDC++ падтрымвае зацягваць сьпісы файлаў і
         <translation type="obsolete">Самарушна выкрасьляць каталёгі, што не існуюць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="283"/>
+        <location filename="../ui/UISettingsSharing.ui" line="280"/>
         <source>Share hidden files</source>
         <translation>Абагуляць схаваныя файлы</translation>
     </message>
@@ -6437,53 +6459,53 @@ EiskaltDC++ падтрымвае зацягваць сьпісы файлаў і
         <translation>Праглядаць абагуленае простым спосабам</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="68"/>
+        <location filename="../ui/UISettingsSharing.ui" line="65"/>
         <source>Path</source>
         <translation>Шлях</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="73"/>
+        <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Name</source>
         <translation>Назоў</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="78"/>
+        <location filename="../ui/UISettingsSharing.ui" line="75"/>
         <source>Size</source>
         <translation>Памер</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="119"/>
+        <location filename="../ui/UISettingsSharing.ui" line="116"/>
         <source>Exceptions</source>
         <translation>Выняткі</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="125"/>
+        <location filename="../ui/UISettingsSharing.ui" line="122"/>
         <source>Don&apos;t share files and folders containing:</source>
         <translatorcomment>???якія зьмяшчаюць=&gt;назовы якіх зьмяшчаюць</translatorcomment>
         <translation>Не абагуляць файлы ды тэчкі, якія зьмяшчаюць:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="141"/>
+        <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Add new</source>
         <translation>Дадаць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="151"/>
+        <location filename="../ui/UISettingsSharing.ui" line="148"/>
         <source>Select and add the directory</source>
         <translation>Абраць і дадаць каталёг</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="161"/>
+        <location filename="../ui/UISettingsSharing.ui" line="158"/>
         <source>Edit</source>
         <translation>Зьмяніць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="171"/>
+        <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
         <translation>Выкрасьліць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="197"/>
+        <location filename="../ui/UISettingsSharing.ui" line="194"/>
         <source>Restrictions</source>
         <translation>Абмежаваньні</translation>
     </message>
@@ -6496,42 +6518,42 @@ to download from this folder</source>
 каб мець магчымасьць сьцягваць з дадзенае тэчкі</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="227"/>
+        <location filename="../ui/UISettingsSharing.ui" line="224"/>
         <source>Share</source>
         <translation>Абагуленае</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="232"/>
+        <location filename="../ui/UISettingsSharing.ui" line="229"/>
         <source>Restriction</source>
         <translation>Абмежаваньне</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="240"/>
+        <location filename="../ui/UISettingsSharing.ui" line="237"/>
         <source>All changes take effect only after restart</source>
         <translation>Усе зьмяненьні пачнуць дзейнічаць пасьля наступнага запуску</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="263"/>
+        <location filename="../ui/UISettingsSharing.ui" line="260"/>
         <source>Follow symlinks</source>
         <translation>Хадзіць па спасылках</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="296"/>
+        <location filename="../ui/UISettingsSharing.ui" line="293"/>
         <source>Share temporary files</source>
         <translation>Абагуляць часовыя файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="307"/>
+        <location filename="../ui/UISettingsSharing.ui" line="304"/>
         <source>Run refresh share on startup</source>
         <translation>Дапаўняць абагуленае па запуску</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="314"/>
+        <location filename="../ui/UISettingsSharing.ui" line="311"/>
         <source>Auto remove non-existing directories</source>
         <translation>Самарушна выкрасьляць каталёгі, што не існуюць</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="342"/>
+        <location filename="../ui/UISettingsSharing.ui" line="339"/>
         <source>Private page mapping</source>
         <translatorcomment>!!!удакладніць сэнс</translatorcomment>
         <translation>Закрыта адлюстроўваць бачыны</translation>
@@ -6542,37 +6564,37 @@ to download from this folder</source>
         <translation>Загадзя чытаць з дыску</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="366"/>
+        <location filename="../ui/UISettingsSharing.ui" line="363"/>
         <source>Buffer size (MiB)</source>
         <translation>Памер буфэра (МіБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="383"/>
+        <location filename="../ui/UISettingsSharing.ui" line="380"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="398"/>
+        <location filename="../ui/UISettingsSharing.ui" line="395"/>
         <source>8</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="403"/>
+        <location filename="../ui/UISettingsSharing.ui" line="400"/>
         <source>16</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="408"/>
+        <location filename="../ui/UISettingsSharing.ui" line="405"/>
         <source>32</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="413"/>
+        <location filename="../ui/UISettingsSharing.ui" line="410"/>
         <source>64</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="349"/>
+        <location filename="../ui/UISettingsSharing.ui" line="346"/>
         <source>No reserve</source>
         <translatorcomment>???удакладніць сэнс</translatorcomment>
         <translation>Не запасаць</translation>
@@ -6611,9 +6633,17 @@ the granted slot will not be closed.</source>
         <translation>Шчылінаў зацягваць файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="101"/>
+        <location filename="../ui/UISettingsSharing.ui" line="98"/>
         <source>Total shared: %1</source>
         <translation>Разам абагулілі: %1</translation>
+    </message>
+</context>
+<context>
+    <name>UISettingsShortcuts</name>
+    <message>
+        <location filename="../ui/UISettingsShortcuts.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6864,78 +6894,78 @@ the granted slot will not be closed.</source>
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="603"/>
+        <location filename="../src/WulforUtil.cpp" line="605"/>
         <source>System default</source>
         <translation>Прадвызначаны</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="676"/>
+        <location filename="../src/WulforUtil.cpp" line="678"/>
         <source>Enter parameter value</source>
         <translation>Упішыце значэньне парамэтру</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="751"/>
-        <location filename="../src/WulforUtil.cpp" line="765"/>
+        <location filename="../src/WulforUtil.cpp" line="753"/>
+        <location filename="../src/WulforUtil.cpp" line="767"/>
         <source>%1 B</source>
         <translation>%1 Б</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="753"/>
+        <location filename="../src/WulforUtil.cpp" line="755"/>
         <source>%1 KiB</source>
         <translation>%1 КіБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="755"/>
+        <location filename="../src/WulforUtil.cpp" line="757"/>
         <source>%1 MiB</source>
         <translation>%1 МіБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="757"/>
+        <location filename="../src/WulforUtil.cpp" line="759"/>
         <source>%1 GiB</source>
         <translation>%1 ГіБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="759"/>
+        <location filename="../src/WulforUtil.cpp" line="761"/>
         <source>%1 TiB</source>
         <translation>%1 ТіБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="761"/>
+        <location filename="../src/WulforUtil.cpp" line="763"/>
         <source>%1 PiB</source>
         <translation>%1 ПіБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="767"/>
+        <location filename="../src/WulforUtil.cpp" line="769"/>
         <source>%1 KB</source>
         <translation>%1 КБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="769"/>
+        <location filename="../src/WulforUtil.cpp" line="771"/>
         <source>%1 MB</source>
         <translation>%1 КБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="771"/>
+        <location filename="../src/WulforUtil.cpp" line="773"/>
         <source>%1 GB</source>
         <translation>%1 ГБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="773"/>
+        <location filename="../src/WulforUtil.cpp" line="775"/>
         <source>%1 TB</source>
         <translation>%1 ТБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="775"/>
+        <location filename="../src/WulforUtil.cpp" line="777"/>
         <source>%1 PB</source>
         <translation>%1 ПБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="841"/>
+        <location filename="../src/WulforUtil.cpp" line="843"/>
         <source>Offline</source>
         <translation>Адлучаны</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="979"/>
+        <location filename="../src/WulforUtil.cpp" line="981"/>
         <source>User commands</source>
         <translation>Загады карыстальніка</translation>
     </message>

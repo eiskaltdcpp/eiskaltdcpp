@@ -2558,6 +2558,10 @@ Kapcsolók:
         <source>User Commands</source>
         <translation>Felhasználói parancsok</translation>
     </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsConnection</name>
@@ -2645,7 +2649,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Core</source>
-        <translation>Rendszerüzenet</translation>
+        <translation type="obsolete">Rendszerüzenet</translation>
     </message>
     <message>
         <source>Status</source>
@@ -2877,6 +2881,17 @@ Kapcsolók:
     <message>
         <source>Error</source>
         <translation>Hiba</translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutsModel</name>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hotkey</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5409,6 +5424,17 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If checked, a pause hashing may not work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UISettingsShortcuts</name>
+    <message>
+        <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
