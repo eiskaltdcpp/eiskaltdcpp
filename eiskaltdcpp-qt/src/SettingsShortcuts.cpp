@@ -13,8 +13,6 @@ static const QString &TREEVIEW_STATE_KEY = "settings-shortcuts-tableview-state";
 SettingsShortcuts::SettingsShortcuts(QWidget *parent) :
     QWidget(parent)
 {
-    eRegisterCustomSetting(StrSetting, TREEVIEW_STATE_KEY, "");
-
     setupUi(this);
 
     model = new ShortcutsModel(this);

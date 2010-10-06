@@ -380,10 +380,12 @@ QPixmap WulforUtil::loadPixmap(const QString &file){
     f = app_icons_path + "/" + file;
     f = QDir::toNativeSeparators(f);
 
+    qDebug() << file;
+
     if (p.load(f))
         return p;
 
-    printf("IconLoader::LoadPixmap: Can't load '%s'\n", file.toAscii().constData());
+    printf("LoadPixmap: Can't load '%s'\n", file.toAscii().constData());
 
     m_bError = true;
 

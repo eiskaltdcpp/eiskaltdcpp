@@ -14,6 +14,7 @@
 #include <QMap>
 #include <QTranslator>
 #include <QFont>
+#include <QSettings>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -163,7 +164,6 @@ static const QString & WI_NOTIFY_SNDMAP           = "notify-snd-map";
 static const QString & WI_NOTIFY_MODULE           = "notify-module";
 static const QString & WI_OUT_IN_HIST             = "number-of-output-messages-in-history";
 
-
 class WulforSettings :
         public QObject,
         public dcpp::Singleton<WulforSettings>
@@ -174,18 +174,8 @@ class WulforSettings :
     typedef QMap<QString, QString> WStrMap;
 
 friend class dcpp::Singleton<WulforSettings>;
-friend void eRegisterCustomSetting(CustomSettingType type, const QString &key, const QVariant &value);
 
 public:
-    class BadKey{
-    public:
-        BadKey(const QString &key): key(key){}
-        QString getKey() const {return key; }
-
-    private:
-        QString key;
-    };
-
     void load();
     void save();
 
@@ -197,13 +187,13 @@ public:
     bool hasKey(const QString&) const;
 
 public Q_SLOTS:
-    QString getStr(const QString&) throw(BadKey);
-    int     getInt(const QString&) throw(BadKey);
-    bool    getBool(const QString&)throw(BadKey);
+    QString getStr(const QString&) ;
+    int     getInt(const QString&) ;
+    bool    getBool(const QString&);
 
-    void    setStr (const QString&, const QString&) throw(BadKey);
-    void    setInt (const QString&, int) throw(BadKey);
-    void    setBool(const QString&, bool)throw(BadKey);
+    void    setStr (const QString&, const QString&);
+    void    setInt (const QString&, int) ;
+    void    setBool(const QString&, bool);
 
 Q_SIGNALS:
     void fontChanged(const QString &key, const QString &value);
@@ -216,6 +206,10 @@ private Q_SLOTS:
 private:
     WulforSettings();
     virtual ~WulforSettings();
+
+    void loadOldConfig();//load old version of config
+
+    QSettings settings;
 
     QString configFile;
 
