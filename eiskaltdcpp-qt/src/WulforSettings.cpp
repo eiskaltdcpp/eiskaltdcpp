@@ -71,7 +71,7 @@ void WulforSettings::load(){
         for (; iit != intmap.end(); ++iit)
             settings.setValue(iit.key(), iit.value());
 
-        QFile(configFile).remove();
+        // QFile(configFile).remove();
 
         intmap.clear();
         strmap.clear();
