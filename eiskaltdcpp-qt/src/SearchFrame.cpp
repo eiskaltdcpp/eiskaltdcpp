@@ -9,6 +9,7 @@
 #include <QHeaderView>
 #include <QKeyEvent>
 #include <QMessageBox>
+#include <QStringListModel>
 
 #include "SearchFrame.h"
 #include "MainWindow.h"
@@ -28,6 +29,23 @@
 #include <QtDebug>
 
 using namespace dcpp;
+
+QVariant SearchStringListModel::data(const QModelIndex &index, int role) const{
+    if (role != Qt::CheckStateRole || !index.isValid())
+        return QStringListModel::data(index, role);
+
+    return (checked.contains(index.data().toString())? Qt::Checked : Qt::Unchecked);
+}
+
+bool SearchStringListModel::setData(const QModelIndex &index, const QVariant &value, int role){
+    if (role != Qt::CheckStateRole || !index.isValid())
+        return QStringListModel::setData(index, value, role);
+
+    if (value.toInt() == Qt::Checked)
+        checked.push_back(index.data().toString());
+    else if (checked.contains(index.data().toString()))
+        checked.removeAt(checked.indexOf(index.data().toString()));
+}
 
 SearchFrame::Menu::Menu(){
     WulforUtil *WU = WulforUtil::getInstance();
@@ -261,6 +279,8 @@ SearchFrame::SearchFrame(QWidget *parent):
 {
     setupUi(this);
 
+    init();
+
     ClientManager* clientMgr = ClientManager::getInstance();
 
     clientMgr->lock();
@@ -273,14 +293,18 @@ SearchFrame::SearchFrame(QWidget *parent):
         if(!client->isConnected())
             continue;
 
-        onHubAdded(new HubInfo(client, listWidget_HUBS));
+        hubs.push_back(_q(client->getHubUrl()));
+        client_list.push_back(client);
     }
 
     clientMgr->unlock();
 
-    SearchManager::getInstance()->addListener(this);
+    str_model->setStringList(hubs);
 
-    init();
+    for (int i = 0; i < str_model->rowCount(); i++)
+        str_model->setData(str_model->index(i, 0), Qt::Checked, Qt::CheckStateRole);
+
+    SearchManager::getInstance()->addListener(this);
 }
 
 SearchFrame::~SearchFrame(){
@@ -291,10 +315,6 @@ SearchFrame::~SearchFrame(){
 
     MainWindow::getInstance()->remArenaWidget(this);
     MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-
-    QMap<QListWidgetItem*, HubInfo*>::iterator it = hub_items.begin();
-    for (; it != hub_items.end(); ++it)
-        delete it.value();
 
     if (completer)
         completer->deleteLater();
@@ -318,6 +338,7 @@ void SearchFrame::init(){
     timer1->setInterval(1000);
 
     model = new SearchModel(NULL);
+    str_model = new SearchStringListModel(this);
 
     for (int i = 0; i < model->columnCount(); i++)
         comboBox_FILTERCOLUMNS->addItem(model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
@@ -331,6 +352,8 @@ void SearchFrame::init(){
     treeView_RESULTS->setModel(model);
     treeView_RESULTS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_RESULTS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    treeView_HUBS->setModel(str_model);
 
     arena_menu = new QMenu(this->windowTitle());
     QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
@@ -355,9 +378,9 @@ void SearchFrame::init(){
     lineEdit_SEARCHSTR->setMenu(m);
     lineEdit_SEARCHSTR->setPixmap(WICON(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
-    connect(this, SIGNAL(coreClientConnected(HubInfo*)),    this, SLOT(onHubAdded(HubInfo*)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreClientDisconnected(HubInfo*)), this, SLOT(onHubRemoved(HubInfo*)),Qt::QueuedConnection);
-    connect(this, SIGNAL(coreClientUpdated(HubInfo*)),      this, SLOT(onHubChanged(HubInfo*)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreClientConnected(QString)),    this, SLOT(onHubAdded(QString)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreClientDisconnected(QString)), this, SLOT(onHubRemoved(QString)),Qt::QueuedConnection);
+    connect(this, SIGNAL(coreClientUpdated(QString)),      this, SLOT(onHubChanged(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreSR(VarMap)),                   this, SLOT(addResult(VarMap)), Qt::QueuedConnection);
 
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
@@ -572,44 +595,41 @@ void SearchFrame::timerTick(){
     }
 }
 
-void SearchFrame::onHubAdded(SearchFrame::HubInfo* info){
-    if (!info)
+void SearchFrame::onHubAdded(const QString &info){
+    if (hubs.contains(info) || info.isEmpty())
         return;
 
-    QMap<QListWidgetItem*,HubInfo*>::const_iterator it = hub_items.find(info->item);
+    hubs.push_back(info);
+    client_list.push_back(ClientManager::getInstance()->getClient(_tq(info)));
 
-    if (it == hub_items.constEnd()){
-        hub_items.insert(info->item, info);
-        hub_list.insert(info->client, info);
-    }
+    str_model->setStringList(hubs);
 }
 
-void SearchFrame::onHubChanged(SearchFrame::HubInfo* info){
-    if (!info)
+void SearchFrame::onHubChanged(const QString &info){
+    if (!hubs.contains(info) || info.isEmpty())
         return;
 
-    QMap<Client*,HubInfo*>::const_iterator it = hub_list.find(info->client);
+    Client *cl = ClientManager::getInstance()->getClient(_tq(info));
+    if (!cl || client_list.indexOf(cl) < 0)
+        return;
 
-    if (it != hub_list.constEnd()){
-        Client *client = info->client;
-        info->item->setText(QString::fromStdString(client->getHubUrl()) + ": " +QString::fromStdString(client->getHubName()));
-    }
+    hubs.removeAt(client_list.indexOf(cl));
+    client_list.removeAt(client_list.indexOf(cl));
+
+    hubs.push_back(info);
+    client_list.push_back(cl);
+
+    str_model->setStringList(hubs);
 }
 
-void SearchFrame::onHubRemoved(SearchFrame::HubInfo* info){
-    if (!info)
+void SearchFrame::onHubRemoved(const QString &info){
+    if (!hubs.contains(info) || info.isEmpty())
         return;
 
-    QMap<Client*,HubInfo*>::const_iterator it = hub_list.find(info->client);
+    client_list.removeAt(hubs.indexOf(info));
+    hubs.removeAt(hubs.indexOf(info));
 
-    if (it != hub_list.constEnd()){
-        listWidget_HUBS->takeItem(listWidget_HUBS->row(info->item));
-
-        hub_items.remove(info->item);
-        hub_list.remove(info->client);
-
-        delete info;
-    }
+    str_model->setStringList(hubs);
 }
 
 void SearchFrame::getParams(SearchFrame::VarMap &map, const dcpp::SearchResultPtr &ptr){
@@ -745,14 +765,11 @@ void SearchFrame::slotStartSearch(){
     QString s = lineEdit_SEARCHSTR->text().trimmed();
     StringList clients;
 
-    QMap<Client*,HubInfo*>::iterator it = hub_list.begin();
+    for (int i = 0; i < str_model->rowCount(); i++){
+        QModelIndex index = str_model->index(i, 0);
 
-    for (; it != hub_list.end(); ++it){
-        Client  *cl   = it.key();
-        HubInfo *info = it.value();
-
-        if (info->item && info->item->checkState() == Qt::Checked)
-            clients.push_back(cl->getHubUrl());
+        if (index.data(Qt::CheckStateRole).toInt() == Qt::Checked)
+            clients.push_back(_tq(index.data().toString()));
     }
 
     if (clients.empty())
@@ -1372,16 +1389,13 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
 }
 
 void SearchFrame::on(ClientConnected, Client* c) throw(){
-    if (!hub_list.contains(c))
-        emit coreClientConnected(new HubInfo(c, listWidget_HUBS));
+    emit coreClientConnected(_q(c->getHubUrl()));
 }
 
 void SearchFrame::on(ClientUpdated, Client* c) throw(){
-    if (hub_list.contains(c))
-        emit coreClientUpdated(hub_list[c]);
+    emit coreClientUpdated((_q(c->getHubUrl())));
 }
 
 void SearchFrame::on(ClientDisconnected, Client* c) throw(){
-    if (hub_list.contains(c))
-        emit coreClientDisconnected(hub_list[c]);
+    emit coreClientDisconnected((_q(c->getHubUrl())));
 }

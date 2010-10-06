@@ -23,6 +23,7 @@
 #include <QCustomEvent>
 #include <QCompleter>
 #include <QMetaType>
+#include <QStringListModel>
 
 #include "ui_UISearchFrame.h"
 #include "ArenaWidget.h"
@@ -40,6 +41,19 @@ using namespace dcpp;
 class SearchModel;
 class SearchProxyModel;
 class SearchItem;
+
+class SearchStringListModel: public QStringListModel{
+public:
+    SearchStringListModel(QObject *parent = NULL): QStringListModel(parent){}
+    virtual ~SearchStringListModel(){}
+
+    QVariant data(const QModelIndex &index, int role) const;
+    bool setData(const QModelIndex &index, const QVariant &value, int role);
+    Qt::ItemFlags flags(const QModelIndex &) const { return (Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsUserCheckable); }
+
+private:
+   QList<QString> checked;
+};
 
 class SearchFrame : public QWidget,
                     public ArenaWidget,
@@ -94,35 +108,6 @@ class SearchFrame : public QWidget,
         QMenu *down_wh_to;
     };
 
-    class HubInfo{
-
-    public:
-        HubInfo(Client* client, QListWidget *list):
-                client(client),
-                url(QString::fromStdString(client->getHubUrl())),
-                name(QString::fromStdString(client->getHubName())),
-                op(client->getMyIdentity().isOp()),
-                item(NULL)
-        {
-            item = new QListWidgetItem(url + ": " + name, list);
-            item->setCheckState(Qt::Checked);
-        }
-
-        ~HubInfo(){
-            delete item;
-        }
-
-        const QString& getText() const {
-            return name;
-        }
-
-        QString url;
-        QString name;
-        QListWidgetItem *item;
-        Client *client;
-        bool op;
-    };
-
 public:
     enum AlreadySharedAction{
         None=0,
@@ -159,9 +144,9 @@ Q_SIGNALS:
     void coreSR(const VarMap&);
 
     /** ClienManager signals */
-    void coreClientConnected(HubInfo*);
-    void coreClientUpdated(HubInfo*);
-    void coreClientDisconnected(HubInfo*);
+    void coreClientConnected(const QString &info);
+    void coreClientUpdated(const QString &info);
+    void coreClientDisconnected(const QString &info);
 
 private Q_SLOTS:
     void timerTick();
@@ -174,9 +159,9 @@ private Q_SLOTS:
     void slotStartSearch();
     void slotChangeProxyColumn(int);
 
-    void onHubAdded(HubInfo* info);
-    void onHubChanged(HubInfo* info);
-    void onHubRemoved(HubInfo* info);
+    void onHubAdded(const QString &info);
+    void onHubChanged(const QString &info);
+    void onHubRemoved(const QString &info);
 
     void addResult(const VarMap &map);
 
@@ -207,10 +192,10 @@ private:
     AlreadySharedAction filterShared;
     bool withFreeSlots;
 
-    QMap<QListWidgetItem*, HubInfo*> hub_items;
-    QMap<Client*, HubInfo*> hub_list;
-
+    QStringList hubs;
     QStringList searchHistory;
+
+    QList<dcpp::Client*> client_list;
 
     QTimer *timer;
     QTimer *timer1;
@@ -222,6 +207,7 @@ private:
     bool saveFileType;
 
     SearchModel *model;
+    SearchStringListModel *str_model;
     SearchProxyModel *proxy;
 
     bool isHash;
