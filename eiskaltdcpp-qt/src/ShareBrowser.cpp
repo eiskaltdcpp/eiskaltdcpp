@@ -202,9 +202,6 @@ void ShareBrowser::init(){
 
     buildList();
 
-    itemsCount = listing.getRoot()->getTotalFileCount();
-    share_size = listing.getRoot()->getTotalSize();
-
     treeView_LPANE->setModel(tree_model);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TTH);
@@ -216,8 +213,6 @@ void ShareBrowser::init(){
     treeView_RPANE->installEventFilter(this);
 
     toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
-
-    label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(WulforUtil::formatBytes(share_size)).arg(itemsCount));
 
     arena_menu = new QMenu(tr("Filebrowser"));
 
@@ -260,6 +255,11 @@ void ShareBrowser::load(){
 
     treeView_LPANE->setSortingEnabled(true);
     treeView_RPANE->setSortingEnabled(true);
+
+    itemsCount = listing.getRoot()->getTotalFileCount();
+    share_size = listing.getRoot()->getTotalSize();
+
+    label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(WulforUtil::formatBytes(share_size)).arg(itemsCount));
 }
 
 void ShareBrowser::save(){

@@ -223,7 +223,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     if (AntiSpam::getInstance()){
         antispam_menu = new QMenu(NULL);
         antispam_menu->setTitle(tr("AntiSpam"));
-        antispam_menu->setIcon(WICON(WulforUtil::eiSPAM));
+        antispam_menu->menuAction()->setIcon(WICON(WulforUtil::eiSPAM));
         antispam_menu->setProperty("iconVisibleInMenu", true);
 
         antispam_menu->addAction(tr("Add to Black"))->setData(static_cast<int>(AntiSpamBlack));
