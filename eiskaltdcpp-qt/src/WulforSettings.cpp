@@ -57,7 +57,7 @@ bool WulforSettings::hasKey(const QString &key) const{
 }
 
 void WulforSettings::load(){
-    if (QFile::exists(configFile)){
+    if (QFile::exists(configFile) && settings.value("app/firstrun", true).toBool()){
         loadOldConfig();
 
         //And load old config into QSettings
