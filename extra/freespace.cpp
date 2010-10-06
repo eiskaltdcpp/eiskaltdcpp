@@ -1,9 +1,9 @@
 //function for use fsusage
 #ifdef WIN32
     #include <io.h>
-    #include "../dcpp/stdinc.h"
-    #include "../dcpp/DCPlusPlus.h"
-    #include "../dcpp/Text.h"
+    #include <dcpp/stdinc.h>
+    #include <dcpp/DCPlusPlus.h>
+    #include <dcpp/Text.h>
 #else //WIN32
     extern "C" {
     #include "fsusage.h"

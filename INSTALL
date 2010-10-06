@@ -124,9 +124,6 @@ Keys for cmake
     forced use or not use aspell
 -DFREE_SPACE_BAR_C=ON/OFF (default: ON)
     free space bar in status panel
--DFORCE_XDG=ON/OFF (default: ON)
-    use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables
-    see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
 -DDBUS_NOTIFY=ON/OFF (default: ON)
     use or not use QtDBus module
 -DUSE_JS=ON/OFF (default: OFF)
@@ -169,6 +166,9 @@ Keys for cmake
     -Dlinguas="en ru" - install ru and en translations
     -Dlingaus="*"     - install all translations
     -Dlinguas=""      - don't install any translation
+-DFORCE_XDG=ON/OFF (default: ON)
+    use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables
+    see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
 -DCMAKE_INSTALL_PREFIX=<prefix for install> (default: /usr/local)
     .
 -DLIBDIR=<lib prefix> (default: lib)

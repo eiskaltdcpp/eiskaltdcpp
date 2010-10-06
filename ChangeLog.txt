@@ -31,7 +31,6 @@
 * Changed functions working with smilies. It is now possible to use the original emoticon packs from other customers at no additional modifications. Smiley-packs which supplied with the program are common for Qt and Gtk interfaces.
 * Added ability to use Qt regular expressions in userlist filter (enter ##<regexp> in filter)
 * Added logging anti-spam bot (antispam.log file in ~/.config/eiskaltdc++/ or in a different directory, depending on build options).
-* Added ability to change some keyboard shortcuts (file shortcuts.txt in ~/.config/eiskaltdc++/ or in a different directory, depending on build options).
 * Added shortcut manager.
 * Added support of Qt Declarative UI (work only with Qt >= 4.7.0).
 * Added emoticons panel (see suitable option in Settings-->GUI-->Chat)
