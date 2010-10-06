@@ -69,7 +69,7 @@ void WulforSettings::load(){
         WIntMap::iterator iit = intmap.begin();
 
         for (; iit != intmap.end(); ++iit)
-            settings.setValue(iit.key(), it.value());
+            settings.setValue(iit.key(), iit.value());
 
         QFile(configFile).remove();
 
