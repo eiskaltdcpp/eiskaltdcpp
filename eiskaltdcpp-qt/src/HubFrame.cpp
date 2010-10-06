@@ -175,6 +175,8 @@ HubFrame::Menu::Menu(){
                  << zoom_in
                  << zoom_out;
 
+    chat_actions_map.insert(copy_text, CopyText);
+    chat_actions_map.insert(copy_nick, CopyNick);
     chat_actions_map.insert(clear_chat, ClearChat);
     chat_actions_map.insert(find_in_chat, FindInChat);
     chat_actions_map.insert(dis_chat, DisableChat);
@@ -2463,9 +2465,6 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     Menu::Action action = Menu::getInstance()->execChatMenu(client, cid, pmw);
 
-    if (!model->itemForNick(nick, _q(client->getHubUrl())))//may be user went offline
-        return;
-
     switch (action){
         case Menu::CopyText:
         {
@@ -2488,7 +2487,7 @@ void HubFrame::slotChatMenu(const QPoint &){
             if (ret.isEmpty())
                 ret = editor->textCursor().block().text();
 
-            QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+            qApp->clipboard()->setText(ret, QClipboard::Clipboard);
 
             break;
         }
