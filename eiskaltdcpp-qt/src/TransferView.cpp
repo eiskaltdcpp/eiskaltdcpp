@@ -485,7 +485,7 @@ void TransferView::slotContextMenu(const QPoint &){
         }
 
         if (!data.isEmpty())
-            QApplication::clipboard()->setText(data, QClipboard::Clipboard);
+            qApp->clipboard()->setText(data, QClipboard::Clipboard);
 
         break;
     }

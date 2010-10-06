@@ -2023,7 +2023,7 @@ void MainWindow::slotToolsCopyWindowTitle(){
     QString text = windowTitle();
 
     if (!text.isEmpty())
-        QApplication::clipboard()->setText(text, QClipboard::Clipboard);
+        qApp->clipboard()->setText(text, QClipboard::Clipboard);
 }
 
 void MainWindow::slotToolsSettings(){

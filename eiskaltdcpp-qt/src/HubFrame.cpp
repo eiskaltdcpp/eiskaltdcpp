@@ -2242,7 +2242,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
             }
 
             if (!ttip.isEmpty())
-                QApplication::clipboard()->setText(ttip, QClipboard::Clipboard);
+                qApp->clipboard()->setText(ttip, QClipboard::Clipboard);
 
             break;
         }
@@ -2260,7 +2260,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                     ret += item->nick;
             }
 
-            QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+            qApp->clipboard()->setText(ret, QClipboard::Clipboard);
 
             break;
         }
@@ -2278,7 +2278,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                     ret += item->ip;
             }
 
-            QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+            qApp->clipboard()->setText(ret, QClipboard::Clipboard);
 
             break;
         }
@@ -2296,7 +2296,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                     ret += WulforUtil::formatBytes(item->share);
             }
 
-            QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+            qApp->clipboard()->setText(ret, QClipboard::Clipboard);
 
             break;
         }
@@ -2314,7 +2314,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                     ret += item->tag;
             }
 
-            QApplication::clipboard()->setText(ret, QClipboard::Clipboard);
+            qApp->clipboard()->setText(ret, QClipboard::Clipboard);
 
             break;
         }

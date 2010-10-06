@@ -79,7 +79,7 @@ void FileHasher::slotMagnet(){
     file = list.last();
 
     QString urlStr = WulforUtil::getInstance()->makeMagnet(file, filesize, tthstring);
-    QApplication::clipboard()->setText(urlStr);
+    qApp->clipboard()->setText(urlStr);
 }
 
 void FileHasher::slotBrowse(){
