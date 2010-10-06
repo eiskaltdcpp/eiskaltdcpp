@@ -59,7 +59,7 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
     qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
     qRegisterMetaType< QMap<QString,QString> >("QMap<QString,QString>");
 
-    if (WIGET(WS_APP_DYNDNS_ENABLED)) {
+    if (WBGET(WB_APP_DYNDNS_ENABLED)) {
         http = new QHttp();
         connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
         http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
@@ -958,7 +958,7 @@ void WulforUtil::slotHttpDone(bool error){
 }
 
 void WulforUtil::slotHttpTimer(){
-    if( WIGET(WS_APP_DYNDNS_ENABLED) ) {
+    if( WBGET(WB_APP_DYNDNS_ENABLED) ) {
         QHttpRequestHeader header("GET", WSGET(WS_APP_DYNDNS_INDEX));
         header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
         QString useragent = QString("EiskaltDCPP");

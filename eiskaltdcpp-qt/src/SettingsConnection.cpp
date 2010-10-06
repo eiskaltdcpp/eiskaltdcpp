@@ -108,7 +108,7 @@ void SettingsConnection::ok(){
     SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
     SM->set(SettingsManager::SLOTS_ALTERNATE_LIMITING, spinBox_ALTERNATE_SLOTS->value());
     SM->set(SettingsManager::RECONNECT_DELAY, spinBox_RECONNECT_DELAY->value());
-    WISET( WS_APP_DYNDNS_ENABLED, static_cast<int>(checkBox_DYNDNS->isChecked()) );
+    WBSET( WB_APP_DYNDNS_ENABLED, static_cast<int>(checkBox_DYNDNS->isChecked()) );
     WSSET( WS_APP_DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text());
     WSSET( WS_APP_DYNDNS_INDEX, lineEdit_DYNDNS_INDEX->text());
 
@@ -141,7 +141,7 @@ void SettingsConnection::init(){
     spinBox_ALTERNATE_SLOTS->setValue(SETTING(SLOTS_ALTERNATE_LIMITING));
     spinBox_RECONNECT_DELAY->setValue(SETTING(RECONNECT_DELAY));
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
-    checkBox_DYNDNS->setCheckState( WIGET(WS_APP_DYNDNS_ENABLED) ? Qt::Checked : Qt::Unchecked );
+    checkBox_DYNDNS->setCheckState( WBGET(WB_APP_DYNDNS_ENABLED) ? Qt::Checked : Qt::Unchecked );
     lineEdit_DYNDNS_SERVER->setText(WSGET(WS_APP_DYNDNS_SERVER));
     lineEdit_DYNDNS_INDEX->setText(WSGET(WS_APP_DYNDNS_INDEX));
 

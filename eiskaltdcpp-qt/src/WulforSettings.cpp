@@ -188,7 +188,7 @@ void WulforSettings::load(){
             settings.setValue(WB_MAIN_MENU_VISIBLE,     static_cast<int>(true));
             settings.setValue(WB_USE_CTRL_ENTER,        static_cast<int>(false));
             settings.setValue(WB_SIMPLE_SHARE_MODE,     static_cast<int>(false));
-            settings.setValue(WS_APP_DYNDNS_ENABLED,    static_cast<int>(false));
+            settings.setValue(WB_APP_DYNDNS_ENABLED,    static_cast<int>(false));
             settings.setValue(WI_APP_UNIT_BASE,         1024);
             settings.setValue(WI_APP_AUTOAWAY_INTERVAL, 60);
             settings.setValue(WI_APP_SHARED_FILES_ALPHA, 127);
@@ -331,7 +331,7 @@ void WulforSettings::loadOldConfig(){
         intmap.insert(WB_MAIN_MENU_VISIBLE,     static_cast<int>(true));
         intmap.insert(WB_USE_CTRL_ENTER,        static_cast<int>(false));
         intmap.insert(WB_SIMPLE_SHARE_MODE,     static_cast<int>(false));
-        strmap.insert(WS_APP_DYNDNS_ENABLED,    static_cast<int>(false));
+        intmap.insert(WB_APP_DYNDNS_ENABLED,    static_cast<int>(false));
         intmap.insert(WI_APP_UNIT_BASE,         1024);
         intmap.insert(WI_APP_AUTOAWAY_INTERVAL, 60);
         intmap.insert(WI_APP_SHARED_FILES_ALPHA, 127);
