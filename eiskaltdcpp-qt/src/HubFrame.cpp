@@ -1649,7 +1649,6 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
     QString nick = map["NICK"].toString();
 
     if (item){
-        bool needresort = false;
         bool isOp = map["ISOP"].toBool();
 
         total_shared -= item->share;
@@ -1661,10 +1660,6 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
         item->ip   = map["IP"].toString();
         item->share= map["SHARE"].toULongLong();
         item->tag  = map["TAG"].toString();
-
-        if (item->isOp != isOp)
-            needresort = true;
-
         item->isOp = isOp;
         item->px = WU->getUserIcon(user, map["AWAY"].toBool(), item->isOp, map["SPEED"].toString());
 
@@ -1675,8 +1670,7 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
 
         model->repaintData(left, right);
 
-        if (needresort)
-            model->needResort();
+        model->needResort();
     }
     else{
         if (join && WS->getBool(WB_CHAT_SHOW_JOINS)){
