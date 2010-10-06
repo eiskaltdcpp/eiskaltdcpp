@@ -234,10 +234,6 @@ void SettingsGUI::init(){
         p.fill(c);
         new QListWidgetItem(p, tr("Chat: Say nick"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_CORE_COLOR));
-        p.fill(c);
-        new QListWidgetItem(p, tr("Core"), listWidget_CHATCOLOR);
-
         c.setNamedColor(WSGET(WS_CHAT_STAT_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Status"), listWidget_CHATCOLOR);
@@ -381,7 +377,6 @@ void SettingsGUI::ok(){
         WSSET(WS_CHAT_PRIV_LOCAL_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_PRIV_USER_COLOR,  QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_SAY_NICK,         QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_CORE_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_STAT_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_USER_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
         WSSET(WS_CHAT_FAVUSER_COLOR,    QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());

@@ -3345,7 +3345,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
         LOG(LogManager::PM, params);
     }
 
-    if (!(isBot || isHub) && from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway() && !pm.contains(_q(id.toBase32())))
+    if (!(isBot || isHub) && from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway())
         ClientManager::getInstance()->privateMessage(user.getUser(), Util::getAwayMessage(), false, client->getHubUrl());
 }
 
