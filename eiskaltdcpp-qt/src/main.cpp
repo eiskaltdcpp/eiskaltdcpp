@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     EiskaltApp app(argc, argv);
     int ret = 0;
 
-    parseCmdLine(qApp->arguments());
+    parseCmdLine(app.arguments());
 
     SingleInstanceRunner runner;
 
@@ -91,6 +91,10 @@ int main(int argc, char *argv[])
     dcpp::TimerManager::getInstance()->start();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
+
+    app.setOrganizationName("EiskaltDC++ Team");
+    app.setApplicationName("EiskaltDC++");
+    app.setApplicationVersion(EISKALTDCPP_VERSION);
 
     WulforSettings::newInstance();
     WulforSettings::getInstance()->load();

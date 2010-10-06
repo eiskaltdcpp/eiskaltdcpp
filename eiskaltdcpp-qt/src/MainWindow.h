@@ -483,10 +483,6 @@ class EiskaltApp: public QApplication{
 Q_OBJECT
 public:
     EiskaltApp(int argc, char *argv[]): QApplication(argc, argv){
-        setOrganizationName("EiskaltDC++ Team");
-        setApplicationName("EiskaltDC++");
-        setApplicationVersion(EISKALTDCPP_VERSION);
-
         installEventFilter(&ef);
     }
 
