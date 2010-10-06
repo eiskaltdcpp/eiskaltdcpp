@@ -49,7 +49,7 @@ void Notification::enableTray(bool enable){
 
         MainWindow::getInstance()->setUnload(true);
 
-        WBSET(WB_TRAY_ENABLED, false);
+        //WBSET(WB_TRAY_ENABLED, false);
     }
     else {
         delete tray;
@@ -122,7 +122,7 @@ void Notification::enableTray(bool enable){
 
         MainWindow::getInstance()->setUnload(false);
 
-        WBSET(WB_TRAY_ENABLED, true);
+        //WBSET(WB_TRAY_ENABLED, true);
     }
 }
 
