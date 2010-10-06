@@ -92,9 +92,13 @@ int main(int argc, char *argv[])
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
 
-    app.setOrganizationName("EiskaltDC++ Team");
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+
+    app.setOrganizationName("Qt");
     app.setApplicationName("EiskaltDC++");
     app.setApplicationVersion(EISKALTDCPP_VERSION);
+
+    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, _q(Util::getPath(Util::PATH_USER_CONFIG)));
 
     WulforSettings::newInstance();
     WulforSettings::getInstance()->load();

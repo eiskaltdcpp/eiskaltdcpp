@@ -28,10 +28,8 @@
 using namespace dcpp;
 
 WulforSettings::WulforSettings():
-        tor(0)
+        tor(0), settings(QSettings::IniFormat, QSettings::UserScope, "Qt", "EiskaltDC++")
 {
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-
 #ifdef _WIN32
     configFile = QString::fromUtf8( Util::getPath(Util::PATH_USER_CONFIG).c_str() ) + "EiskaltDC++.xml";
 #else
