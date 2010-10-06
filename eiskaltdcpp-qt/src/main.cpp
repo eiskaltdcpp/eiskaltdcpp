@@ -24,7 +24,7 @@ using namespace std;
 #include "SpellCheck.h"
 #endif
 #ifdef USE_MINIUPNP
-#include "../upnp/upnpc.h"
+#include "extra/upnpc.h"
 #include "dcpp/UPnPManager.h"
 #endif
 #ifdef USE_JS

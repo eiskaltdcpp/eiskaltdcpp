@@ -44,7 +44,7 @@
 #include "ActionCustomizer.h"
 #include "MultiLineToolBar.h"
 #ifdef FREE_SPACE_BAR_C
-#include "fsusage/freespace.h"
+#include "extra/freespace.h"
 #endif
 #ifdef USE_JS
 #include "ScriptManagerDialog.h"

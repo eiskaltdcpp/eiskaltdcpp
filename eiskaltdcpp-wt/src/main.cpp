@@ -28,7 +28,7 @@
 #include "Utils.h"
 #include "Version.h"
 #ifdef USE_MINIUPNP
-#include "../upnp/upnpc.h"
+#include "extra/upnpc.h"
 #include "dcpp/UPnPManager.h"
 #endif
 #include "dcpp/ConnectivityManager.h"

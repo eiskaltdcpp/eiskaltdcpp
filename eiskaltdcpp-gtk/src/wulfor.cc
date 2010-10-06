@@ -28,7 +28,7 @@
 #include <glib/gi18n.h>
 
 #ifdef USE_MINIUPNP
-#include "../upnp/upnpc.h"
+#include "extra/upnpc.h"
 #include "dcpp/UPnPManager.h"
 #endif
 #include "bacon-message-connection.h"

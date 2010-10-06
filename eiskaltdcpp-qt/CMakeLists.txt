@@ -5,7 +5,6 @@ else (UNIX AND NOT APPLE)
 endif (UNIX AND NOT APPLE)
 
 cmake_minimum_required (VERSION 2.6)
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set (QT_USE_QTNETWORK 1)
@@ -99,7 +98,7 @@ set (SRCS
             src/ChatEdit.cpp
             )
 if (WIN32)
-  list (APPEND SRCS ../openssl/applink.c)
+  list (APPEND SRCS ../win32/applink.c)
 endif (WIN32)
 set (MOC_HDRS
             src/ActionCustomizer.h
@@ -287,12 +286,10 @@ if (UNIX)
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
 
-#if (UNIX)
   EXECUTE_PROCESS (
     COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} -o ${PROJECT_BINARY_DIR}/default.rcc
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
   )
-#endif (UNIX)
 
 include_directories (
         ${QT_INCLUDES}
@@ -306,9 +303,6 @@ list (APPEND LIBS ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
 if (FREE_SPACE_BAR_C)
   add_definitions (-DFREE_SPACE_BAR_C)
-  #if (NOT WIN32)
-    list (APPEND LIBS fsusage)
-  #endif (NOT WIN32)
 endif (FREE_SPACE_BAR_C)
 
 if (USE_ASPELL)

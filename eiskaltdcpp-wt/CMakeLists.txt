@@ -26,7 +26,7 @@ set (SRCS
         src/Utils.cpp
     )
 if (WIN32)
-  list (APPEND SRCS ../openssl/applink.c)
+  list (APPEND SRCS ../win32/applink.c)
 endif (WIN32)
 
 include_directories (${Wt_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}  ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
