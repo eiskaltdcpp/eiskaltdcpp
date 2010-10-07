@@ -3085,7 +3085,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/Settings.cpp" line="73"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Гарячі клавіші</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="20"/>
@@ -3507,12 +3507,12 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="143"/>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Дія</translation>
     </message>
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="144"/>
         <source>Hotkey</source>
-        <translation type="unfinished"></translation>
+        <translation>Гаряча клавіша</translation>
     </message>
 </context>
 <context>
@@ -6377,7 +6377,7 @@ share is complete, share at follow-up activities start nulled.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="420"/>
         <source>If checked, a pause hashing may not work.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо обрано, пауза хешування може не працювати.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
@@ -6657,7 +6657,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsShortcuts.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
 </context>
 <context>
