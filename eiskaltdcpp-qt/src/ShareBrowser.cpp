@@ -311,7 +311,7 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
     quint64 size = 0;
     QList<QVariant> data;
 
-    size = dir->getTotalSize();
+    size = dir->getTotalSize(true);
 
     data << QString::fromUtf8(dir->getName().c_str())
          << WulforUtil::formatBytes(size)
