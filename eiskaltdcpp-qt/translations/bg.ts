@@ -153,7 +153,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/Antispam.cpp" line="155"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation>%1: Преместване на потребителя в Черния списък</translation>
+        <translation>%1: Преместване на потребителя в Черния списък.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="163"/>
@@ -786,7 +786,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/HashProgress.cpp" line="86"/>
         <source>Refreshing file list</source>
-        <translation>Обновяване на списъка с файлове</translation>
+        <translation>Опресняване на списъка с файлове</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="117"/>
@@ -1626,7 +1626,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1039"/>
         <location filename="../src/MainWindow.cpp" line="1387"/>
         <source>Refresh share</source>
-        <translation>Обновяване на споделеното</translation>
+        <translation>Опресняване на споделеното</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1396"/>
@@ -1770,7 +1770,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2326"/>
         <source>(modified)</source>
-        <translation>(модифициран)</translation>
+        <translation>(модификация)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2327"/>
@@ -1845,7 +1845,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="690"/>
         <location filename="../src/MainWindow.cpp" line="2235"/>
         <source>Hide users statistics</source>
-        <translation>Скриване на статистика с потребители</translation>
+        <translation>Скриване на статистиката с потребители</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="695"/>
@@ -1886,17 +1886,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1061"/>
         <source>Hub Manager</source>
-        <translation>Управление на хъбове</translation>
+        <translation>Управление на хъбовете</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1075"/>
         <source>On</source>
-        <translation>Включване</translation>
+        <translation>Включено</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1077"/>
         <source>Off</source>
-        <translation>Изключване</translation>
+        <translation>Изключено</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
@@ -1956,7 +1956,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1120"/>
         <source>Report a Bug</source>
-        <translation>Докладване за грешки</translation>
+        <translation>Докладване на грешки</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1122"/>
@@ -1998,7 +1998,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1399"/>
         <source>List update</source>
-        <translation>Обновяване на списъка</translation>
+        <translation>Опресняване на списъка</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1409"/>
@@ -2088,7 +2088,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2336"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation>Използвайте &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; за съобщаване на грешки.&lt;br/&gt;</translation>
+        <translation>Използвайте &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; за докладване на грешки.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2338"/>
@@ -2384,7 +2384,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="46"/>
         <source>Downloading public hub list...</source>
-        <translation>Изтегляне на списък с публични хъбове...</translation>
+        <translation>Сваляне на списък с публични хъбове...</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="142"/>
@@ -2404,12 +2404,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="265"/>
         <source>Downloading public hub list... (%1)</source>
-        <translation>Изтегляне на списък с публични хъбове... (%1)</translation>
+        <translation>Сваляне на списък с публични хъбове... (%1)</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="269"/>
         <source>Download failed: %1</source>
-        <translation>Неуспешно изтегляне: %1</translation>
+        <translation>Неуспешно сваляне: %1</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="273"/>
@@ -2457,7 +2457,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/main.cpp" line="112"/>
         <source>Application icons has been loaded</source>
-        <translation>Иконите за приложението са заредени</translation>
+        <translation>Иконите на приложението са заредени</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="145"/>
@@ -2889,7 +2889,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="73"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Бързи клавиши</translation>
     </message>
 </context>
 <context>
@@ -3099,7 +3099,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="177"/>
         <location filename="../src/SettingsSharing.cpp" line="301"/>
         <source>%1 GiB</source>
-        <translation>%1 ГиБ</translation>
+        <translation>%1 GiB</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="241"/>
@@ -3141,7 +3141,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="287"/>
         <location filename="../src/SettingsSharing.cpp" line="289"/>
         <source>Enter restriction (in GiB)</source>
-        <translation>Въвеждане на ограничение (в ГиБ)</translation>
+        <translation>Въвеждане на ограничение (в GiB)</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="287"/>
@@ -3298,12 +3298,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="143"/>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Действие</translation>
     </message>
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="144"/>
         <source>Hotkey</source>
-        <translation type="unfinished"></translation>
+        <translation>Бърз клавиш</translation>
     </message>
 </context>
 <context>
@@ -4811,7 +4811,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="743"/>
         <source>Reconnect to hub(seconds)</source>
-        <translation>Свързване наново с хъба (сек.)</translation>
+        <translation>Свързване наново с хъба (сек)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="479"/>
@@ -5027,7 +5027,7 @@ SOCKS5 прокситата не са същите като HTTP прокси.
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="449"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation>Проверка на всеки Х секунди, ако източника е бавен (стандартно: 10 сек)</translation>
+        <translation>Проверка на всеки Х секунди, ако източника е бавен (по подразбиране: 10 сек)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
@@ -5063,7 +5063,7 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
 will be set to Highest as priority. (default: 64 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер
 ще бъдат зададени с Максимален приоритет.
-(стандартно: 64 KiB)</translation>
+(по подразбиране: 64 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="313"/>
@@ -5071,7 +5071,7 @@ will be set to Highest as priority. (default: 64 KiB)</source>
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер,
 но над Максимален приоритет,ще бъдат зададени
-с Висок приоритет. (стандартно: 0 KiB)</translation>
+с Висок приоритет. (по подразбиране: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="324"/>
@@ -5079,7 +5079,7 @@ prio max size, will be set to High as priority. (default: 0 KiB)</source>
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер,
 но над Максимален и Висок приоритет,ще бъдат зададени
-с Нормален приоритет. (стандартно: 0 KiB)</translation>
+с Нормален приоритет. (по подразбиране: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="335"/>
@@ -5087,21 +5087,21 @@ High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер,
 но над Максимален, Висок и Нормален приоритет,
-ще бъдат зададени с Нисък приоритет. (стандартно: 0 KiB)</translation>
+ще бъдат зададени с Нисък приоритет. (по подразбиране: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="438"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
         <translation>Ако скоростта за сваляне на файл е по-ниска от въведената,
-източника ще бъде премахнат (стандартно 1024 B/s)</translation>
+източника ще бъде премахнат (по подразбиране 1024 B/s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="459"/>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
         <translation>Време (в секунди) което трябва да изтече, тъй като свалянето е
-започнало преди източника да бъде премахнат (стандартно 15 сек)</translation>
+започнало преди източника да бъде премахнат (по подразбиране 15 сек)</translation>
     </message>
     <message>
         <source>This is the maximal time since the last chunk of data for
@@ -5118,13 +5118,13 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
         <translation>Минимално количество източници преди да
-бъдат премахнати останалите (стандартно: 1)</translation>
+бъдат премахнати останалите (по подразбиране: 1)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="494"/>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
         <translation>Минимален размер на файла (в KiB) преди премахване на източника.
-(стандартно: 0 KiB)</translation>
+(по подразбиране: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="510"/>
@@ -5430,12 +5430,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
-        <translation>Потребителска тема</translation>
+        <translation>Тема с потребители</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>
         <source>Icon theme</source>
-        <translation>Тема с иконки</translation>
+        <translation>Тема с икони</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="182"/>
@@ -5494,7 +5494,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="331"/>
         <source>Filter kick-messages from the chat</source>
-        <translation>Филтриране на съобщения за изгонване от чата</translation>
+        <translation>Филтриране на съобщенията за изгонване от чата</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="338"/>
@@ -5696,7 +5696,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Show icon in system tray</source>
-        <translation>Показване на иконка в областта за уведомяване</translation>
+        <translation>Показване на икона в областта за уведомяване</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="251"/>
@@ -5890,7 +5890,7 @@ For example: /usr/bin/mplayer</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="105"/>
         <source>Change icon when main window is visible</source>
-        <translation>Промяна на иконка при видим главен прозорец</translation>
+        <translation>Промяна на иконата при активен главен прозорец</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="177"/>
@@ -5927,7 +5927,7 @@ For example: /usr/bin/mplayer</source>
         <location filename="../ui/UISettingsPersonal.ui" line="110"/>
         <source>This field is for sharing your email address, if you wish it.</source>
         <translation>Ако желаете, в това поле може да въведете вашата електронна поща,
-която ще е видима за другите потребители.</translation>
+която ще бъде видима за другите потребители.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="54"/>
@@ -6051,7 +6051,7 @@ and may cause the client to appear to freeze.</source>
         <translation>Споделяне на файлове и папки с атрибут Скрит.
 Ако опцията е изключена, файлове,
 започващи с точка няма да бъдат споделени.
-Забележка: тази опция изисква обновяване на списъка с файлове
+Забележка: тази опция изисква опресняване на списъка с файлове
 и може да предизвика &quot;замръзване&quot; на клиента.</translation>
     </message>
     <message>
@@ -6059,7 +6059,7 @@ and may cause the client to appear to freeze.</source>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
         <translation>Ако тази опция не е маркирана и излезете от програмата по време на
-обновяване на информацията, то при следващото стартиране
+опресняване на информацията, то при следващото стартиране
 споделената информация ще бъде показана като нулева.</translation>
     </message>
     <message>
@@ -6171,7 +6171,7 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="260"/>
         <source>Follow symlinks</source>
-        <translation>Следване на символни връзки</translation>
+        <translation>Споделяне чрез символни връзки</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="293"/>
@@ -6181,7 +6181,7 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="304"/>
         <source>Run refresh share on startup</source>
-        <translation>Обновяване на споделеното при стартиране</translation>
+        <translation>Опресняване на споделеното при стартиране</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="311"/>
@@ -6196,7 +6196,7 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="420"/>
         <source>If checked, a pause hashing may not work.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ако е избрано, паузата при хеширане може да не работи.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="423"/>
@@ -6245,7 +6245,7 @@ EiskaltDC++ поддържа качване на файлове и списъц�
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="363"/>
         <source>Buffer size (MiB)</source>
-        <translation>Размер на буфера (МиБ)</translation>
+        <translation>Размер на буфера (MiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="380"/>
@@ -6294,7 +6294,7 @@ the granted slot will not be closed.</source>
         <location filename="../ui/UISettingsSharing.ui" line="493"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Задаване на интервал (в минути) за автоматично
-обновяване на споделената информация.</translation>
+опресняване на споделената информация.</translation>
     </message>
     <message>
         <source>Max hash speed (MB/s) (0=infinite)</source>
@@ -6320,7 +6320,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsShortcuts.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
 </context>
 <context>
@@ -6533,7 +6533,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="164"/>
         <source>Comment</source>
-        <translation>Коментар</translation>
+        <translation>Описание</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="165"/>
@@ -6596,7 +6596,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/WulforUtil.cpp" line="759"/>
         <source>%1 GiB</source>
-        <translation>%1 ГиБ</translation>
+        <translation>%1 GiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="761"/>
