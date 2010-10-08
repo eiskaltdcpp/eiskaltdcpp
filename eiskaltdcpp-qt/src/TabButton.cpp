@@ -186,7 +186,7 @@ void TabButton::updateStyles() {
         styleText_button += QString("padding-left: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
     }
 
-    styleText_pressed += QString("border-width: 1px; border-color: %1; border-style: outset; border-radius: 5;\n").arg(palette().highlight().color().name());
+    styleText_pressed += QString("border-width: 1px; border-color: %1; border-style: outset; border-radius: 4;\n").arg(palette().highlight().color().name());
 
     styleText_button    += "}\n";
     styleText_pressed   += "}\n";

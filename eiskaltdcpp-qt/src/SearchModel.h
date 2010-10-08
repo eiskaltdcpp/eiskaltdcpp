@@ -104,6 +104,8 @@ public:
     SearchModel(QObject *parent = 0);
     ~SearchModel();
 
+    bool hasChildren(const QModelIndex &parent) const;
+    bool canFetchMore(const QModelIndex &) const;
     /** */
     QVariant data(const QModelIndex &, int) const;
     /** */

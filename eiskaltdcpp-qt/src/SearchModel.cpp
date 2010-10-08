@@ -130,6 +130,22 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+
+
+
+bool SearchModel::hasChildren(const QModelIndex &parent) const{
+    if (!parent.isValid())
+        return true;
+
+    SearchItem *item = reinterpret_cast<SearchItem*>(parent.internalPointer());
+
+    return (item->childCount() > 0);
+}
+
+bool SearchModel::canFetchMore(const QModelIndex &) const{
+    return true;
+}
+
 void SearchModel::repaint(){
     emit layoutChanged();
 }
@@ -390,13 +406,12 @@ bool SearchModel::addResult
     else if (sortOrder == Qt::DescendingOrder)
         it = dcomp.insertSorted(sortColumn, rootItem->childItems, item);
 
+    emit layoutAboutToBeChanged();
+
     const int pos = it - rootItem->childItems.begin();
-
-    beginInsertRows(QModelIndex(), pos, pos);
-
     rootItem->childItems.insert(it, item);
 
-    endInsertRows();
+    emit layoutChanged();
 
     return true;
 }
