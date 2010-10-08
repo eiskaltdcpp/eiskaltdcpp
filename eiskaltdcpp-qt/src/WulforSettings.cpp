@@ -74,7 +74,7 @@ void WulforSettings::load(){
         intmap.clear();
         strmap.clear();
 
-        settings.setValue("app/firstrun", false);
+        settings.setValue("app/firstrun", false);  
     }
 
     if (settings.value("app/firstrun", true).toBool()){
@@ -379,7 +379,7 @@ void WulforSettings::loadOldConfig(){
 
             for (; it != strmap.end(); ++it){
                 if (xml.findChild(it.key().toStdString()))
-                        setStr(it.key(), QTextCodec::codecForCStrings()->fromUnicode(xml.getChildData().c_str()));
+                        strmap.insert(it.key(), QTextCodec::codecForCStrings()->fromUnicode(xml.getChildData().c_str()));
 
                 xml.resetCurrentChild();
             }
@@ -388,7 +388,7 @@ void WulforSettings::loadOldConfig(){
 
             for (; iit != intmap.end(); ++iit){
                 if (xml.findChild(iit.key().toStdString()))
-                    setInt(iit.key(), Util::toInt(xml.getChildData()));
+                    intmap.insert(iit.key(), Util::toInt(xml.getChildData()));
 
                 xml.resetCurrentChild();
             }
