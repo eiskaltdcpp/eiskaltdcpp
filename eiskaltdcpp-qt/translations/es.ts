@@ -1072,10 +1072,6 @@ Keys:
         <translation>Añadir al diccionario</translation>
     </message>
     <message>
-        <source>Disable emoticons</source>
-        <translation type="obsolete">Deshabilitar emoticonos</translation>
-    </message>
-    <message>
         <location filename="../src/HubFrame.cpp" line="3123"/>
         <source>Connecting to %1</source>
         <translation>Conectando con %1</translation>
@@ -2818,7 +2814,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="73"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Accesos rapidos</translation>
     </message>
 </context>
 <context>
@@ -2954,10 +2950,6 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/SettingsGUI.cpp" line="235"/>
         <source>Chat: Say nick</source>
         <translation>Chat: decir nick</translation>
-    </message>
-    <message>
-        <source>Core</source>
-        <translation type="obsolete">Núcleo</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="239"/>
@@ -3223,12 +3215,12 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="143"/>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Acción</translation>
     </message>
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="144"/>
         <source>Hotkey</source>
-        <translation type="unfinished"></translation>
+        <translation>Tecla Rapida</translation>
     </message>
 </context>
 <context>
@@ -6038,7 +6030,7 @@ si su sistema se vuelve lento cuando se hashean archivos.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="420"/>
         <source>If checked, a pause hashing may not work.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si se selecciona, la pausa del Haseo no funcionará.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="423"/>
@@ -6147,7 +6139,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../ui/UISettingsShortcuts.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Forma</translation>
+        <translation>Forma</translation>
     </message>
 </context>
 <context>

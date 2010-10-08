@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-10-04 22:06+0300\n"
-"PO-Revision-Date: 2010-10-04 04:29+0200\n"
+"PO-Revision-Date: 2010-10-08 19:26+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -267,7 +267,7 @@ msgstr "Base de datos del Hash reconstruido"
 
 #: ../HashManager.cpp:837
 msgid "Hashing file: %1% (Size: %2%)"
-msgstr "Indexado archivo: %1% (Tamaño: %2%)"
+msgstr "Indexando archivo: %1% (Tamaño: %2%)"
 
 #: ../HashManager.cpp:885
 msgid ""
@@ -278,7 +278,7 @@ msgstr ""
 
 #: ../HashManager.cpp:890
 msgid "Error hashing %1%: %2%"
-msgstr "Error en Indexado %1%: %2%"
+msgstr "Error en el Indexado %1%: %2%"
 
 #: ../UPnPManager.cpp:41
 msgid "No UPnP implementation available"
