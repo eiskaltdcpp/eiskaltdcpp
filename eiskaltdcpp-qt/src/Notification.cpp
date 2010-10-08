@@ -245,10 +245,19 @@ void Notification::slotShowHide(){
     MainWindow *MW = MainWindow::getInstance();
 
     if (MW->isVisible()){
-        MW->hide();
+        if (MW->isActiveWindow())
+            MW->hide();
+        else
+            MW->activateWindow();
     }
     else{
         MW->show();
+
+        if (MW->isMinimized())
+            MW->showNormal();
+        else if (MW->isMaximized())
+            MW->showMaximized();
+
         MW->raise();
 
         if (tray)
