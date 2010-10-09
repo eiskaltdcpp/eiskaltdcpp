@@ -74,7 +74,7 @@ void WulforSettings::load(){
         intmap.clear();
         strmap.clear();
 
-        settings.setValue("app/firstrun", false);  
+        settings.setValue("app/firstrun", false);
     }
 
     if (settings.value("app/firstrun", true).toBool()){
@@ -185,7 +185,7 @@ void WulforSettings::load(){
             settings.setValue(WB_SEARCH_PANEL_VISIBLE,  static_cast<int>(false));
             settings.setValue(WB_MAIN_MENU_VISIBLE,     static_cast<int>(true));
             settings.setValue(WB_USE_CTRL_ENTER,        static_cast<int>(false));
-            settings.setValue(WB_SIMPLE_SHARE_MODE,     static_cast<int>(false));
+            settings.setValue(WB_SIMPLE_SHARE_MODE,     static_cast<int>(true));
             settings.setValue(WB_APP_DYNDNS_ENABLED,    static_cast<int>(false));
             settings.setValue(WI_APP_UNIT_BASE,         1024);
             settings.setValue(WI_APP_AUTOAWAY_INTERVAL, 60);
@@ -214,7 +214,7 @@ void WulforSettings::load(){
             settings.setValue(WI_SHARE_RPANE_WIDTH,     -1);
             settings.setValue(WI_SHARE_WIDTH,           -1);
             settings.setValue(WI_NOTIFY_EVENTMAP,       0x0B);// 0b00001011, (transfer done = off)
-            settings.setValue(WI_NOTIFY_MODULE,         0);//default
+            settings.setValue(WI_NOTIFY_MODULE,         1);//default
             settings.setValue(WI_NOTIFY_SNDMAP,         0x0F);// 0b00001111, all events
             settings.setValue(WI_OUT_IN_HIST,           50);//number of output messages in history
         }
@@ -357,7 +357,7 @@ void WulforSettings::loadOldConfig(){
         intmap.insert(WI_SHARE_RPANE_WIDTH,     -1);
         intmap.insert(WI_SHARE_WIDTH,           -1);
         intmap.insert(WI_NOTIFY_EVENTMAP,       0x0B);// 0b00001011, (transfer done = off)
-        intmap.insert(WI_NOTIFY_MODULE,         0);//default
+        intmap.insert(WI_NOTIFY_MODULE,         1);//default
         intmap.insert(WI_NOTIFY_SNDMAP,         0x0F);// 0b00001111, all events
         intmap.insert(WI_OUT_IN_HIST,           50);//number of output messages in history
     }
