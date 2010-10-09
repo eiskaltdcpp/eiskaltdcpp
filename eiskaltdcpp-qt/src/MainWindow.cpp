@@ -283,7 +283,7 @@ void MainWindow::showEvent(QShowEvent *e){
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
-    if (sideDock && sideDock->isFloating())
+    if (sideDock)
         sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
     e->accept();
