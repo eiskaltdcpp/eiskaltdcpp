@@ -181,6 +181,11 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("searchRadioButton"), "toggled", G_CALLBACK(onSearchMagnetToggled_gui), (gpointer)this);
     g_signal_connect(getWidget("showRadioButton"), "toggled", G_CALLBACK(onSearchMagnetToggled_gui), (gpointer)this);
     g_signal_connect(getWidget("setMagnetChoiceItem"), "activate", G_CALLBACK(onSetMagnetChoiceDialog_gui), (gpointer)this);
+    //TTHFileDialog
+    g_signal_connect(getWidget("TTHFileMenu"), "activate", G_CALLBACK(onTTHFileDialog_gui), (gpointer)this);
+    g_signal_connect(getWidget("buttonfile"), "clicked", G_CALLBACK(onTTHFileButton_gui), (gpointer)this);
+    //GtkWidget *buttonf = getWidget("filechooserbutton");
+    //g_signal_connect(buttonf, "dialog",G_CALLBACK(onFileTTHSet), (gpointer)this);
 
     // Help menu
     g_object_set_data_full(G_OBJECT(getWidget("homeMenuItem")), "link",
