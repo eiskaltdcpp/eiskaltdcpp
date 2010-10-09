@@ -284,7 +284,7 @@ void MainWindow::showEvent(QShowEvent *e){
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
     if (sideDock && sideDock->isFloating())
-        sideDock->show();
+        sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
     e->accept();
 }
@@ -419,8 +419,12 @@ void MainWindow::loadSettings(){
     sBar->setVisible(WBGET(WB_SEARCH_PANEL_VISIBLE));
     panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
 
-    if (sideDock)
-        sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+    if (sideDock){
+        if (sideDock->isFloating() && WBGET(WB_MAINWINDOW_HIDE) && WBGET(WB_TRAY_ENABLED))
+            sideDock->hide();
+        else
+            sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+    }
     else if (mBar)
         mBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
     else if (tBar)
