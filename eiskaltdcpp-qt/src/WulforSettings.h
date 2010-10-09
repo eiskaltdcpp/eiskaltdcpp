@@ -211,7 +211,7 @@ private:
 
     QSettings settings;
 
-    QString configFile;
+    QString configFileOld;
 
     QFont f;
 

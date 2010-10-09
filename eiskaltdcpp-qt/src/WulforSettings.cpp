@@ -1,4 +1,5 @@
 #include "WulforSettings.h"
+#include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -21,20 +22,25 @@
 #include <QBrush>
 #include <QUrl>
 
+#include <QtDebug>
+
 #ifndef CLIENT_TRANSLATIONS_DIR
 #define CLIENT_TRANSLATIONS_DIR ""
 #endif
 
 using namespace dcpp;
 
+
+
 WulforSettings::WulforSettings():
-        tor(0), settings(QSettings::IniFormat, QSettings::UserScope, "Qt", "EiskaltDC++")
-{
+        tor(0),
 #ifdef _WIN32
-    configFile = QString::fromUtf8( Util::getPath(Util::PATH_USER_CONFIG).c_str() ) + "EiskaltDC++.xml";
+    settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.ini", QSettings::IniFormat) // new config
 #else
-    configFile = QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml";
+    settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++_Qt.conf", QSettings::IniFormat) // new config
 #endif
+{
+    configFileOld = _q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml";
 
     QStringList idns = QUrl::idnWhitelist();
     idns.push_back("рф");
@@ -55,7 +61,10 @@ bool WulforSettings::hasKey(const QString &key) const{
 }
 
 void WulforSettings::load(){
-    if (QFile::exists(configFile) && settings.value("app/firstrun", true).toBool()){
+#ifdef _DEBUG_MODEL_
+    qDebug() << settings.fileName();
+#endif
+    if (QFile::exists(configFileOld) && settings.value("app/firstrun", true).toBool()){
         loadOldConfig();
 
         //And load old config into QSettings
@@ -69,7 +78,7 @@ void WulforSettings::load(){
         for (; iit != intmap.end(); ++iit)
             settings.setValue(iit.key(), iit.value());
 
-        // QFile(configFile).remove();
+        // QFile(configFileOld).remove();
 
         intmap.clear();
         strmap.clear();
@@ -362,12 +371,12 @@ void WulforSettings::loadOldConfig(){
         intmap.insert(WI_OUT_IN_HIST,           50);//number of output messages in history
     }
 
-    if (!QFile::exists(configFile))
+    if (!QFile::exists(configFileOld))
         return;
 
     try{
         SimpleXML xml;
-        xml.fromXML(File(configFile.toStdString(), File::READ, File::OPEN).read());
+        xml.fromXML(File(configFileOld.toStdString(), File::READ, File::OPEN).read());
         xml.resetCurrentChild();
         xml.stepIn();
 
