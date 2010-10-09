@@ -34,6 +34,7 @@
 #include <dcpp/ADLSearch.h>
 #include <dcpp/ConnectivityManager.h>
 #include <dcpp/version.h>
+#include <dcpp/HashManager.h>
 #include "downloadqueue.hh"
 #include "favoritehubs.hh"
 #include "favoriteusers.hh"
@@ -78,6 +79,11 @@ MainWindow::MainWindow():
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("connectDialog")), window);
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("flistDialog")), window);
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("ucLineDialog")), window);
+    // TTH file get dialog
+    gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("TTHFileDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL,-1);
+    gtk_window_set_transient_for(GTK_WINDOW(getWidget("TTHFileDialog")),window);
+    ///todo response@
+    g_signal_connect(getWidget("TTHFileDialog"), "delete-event", G_CALLBACK(onDeleteEventMagnetDialog_gui), (gpointer)this);
 
     // menu
     g_object_ref_sink(getWidget("statusIconMenu"));
@@ -1940,4 +1946,59 @@ void MainWindow::on(TimerManagerListener::Second, uint32_t ticks) throw()
         F2 *f2 = new F2(this, &MainWindow::updateStatusIconTooltip_gui, downloadSpeed, uploadSpeed);
         WulforManager::get()->dispatchGuiFunc(f2);
     }
+}
+void MainWindow::onTTHFileDialog_gui(GtkWidget *widget, gpointer data)
+{
+	MainWindow *mw =(MainWindow *)data;
+	GtkWidget *dialog = mw->getWidget("TTHFileDialog");
+	gint response = gtk_dialog_run(GTK_DIALOG(dialog));
+	if(response == GTK_RESPONSE_NONE)
+			return;
+	gtk_widget_hide(dialog);
+
+}
+
+void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
+{
+	MainWindow *mw =(MainWindow *)data;
+	GtkWidget *chooser=mw->getChooserDialog_gui();
+	gtk_window_set_title(GTK_WINDOW(chooser), _("Select file to Get TTH"));
+	gtk_file_chooser_set_action(GTK_FILE_CHOOSER(chooser), GTK_FILE_CHOOSER_ACTION_OPEN);
+	gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(chooser), "/home/");
+
+	gint response = gtk_dialog_run(GTK_DIALOG(chooser));
+
+	// if the dialog gets programmatically destroyed.
+	if (response == GTK_RESPONSE_NONE)
+		return;
+
+	gtk_widget_hide(chooser);
+
+	if (response == GTK_RESPONSE_OK)
+	{
+		gchar *temp = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(chooser));
+		string TTH;
+		char *buf = new char[512*1024];
+		try {
+		File f(Text::fromT(string(temp)),File::READ, File::OPEN);
+		TigerTree tth(TigerTree::calcBlockSize(f.getSize(), 1));
+		if(f.getSize() > 0) {
+				size_t n = 512*1024;
+				while( (n = f.read(&buf[0], n)) > 0) {
+					tth.update(&buf[0], n);
+					n = 512*1024;
+				}
+		} else {
+			tth.update("", 0);
+		}
+		tth.finalize();
+
+		strcpy(&TTH[0], tth.getRoot().toBase32().c_str());
+		string magnetlink = "magnet:?xt=urn:tree:tiger:"+ TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
+		f.close();
+		g_print("%s",TTH.c_str());
+		gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
+		gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
+		} catch(...) { }
+	}
 }

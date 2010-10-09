@@ -157,6 +157,8 @@ class MainWindow:
         static void onSetMagnetChoiceDialog_gui(GtkWidget *widget, gpointer data);
         static void onResponseMagnetDialog_gui(GtkWidget *dialog, gint response, gpointer data);
         static gboolean onDeleteEventMagnetDialog_gui(GtkWidget *dialog, GdkEvent *event, gpointer data);
+        static void onTTHFileDialog_gui(GtkWidget *widget, gpointer data);
+        static void onTTHFileButton_gui(GtkWidget *widget, gpointer data);
 
         // Client functions
         void autoConnect_client();
