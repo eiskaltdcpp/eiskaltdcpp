@@ -34,11 +34,7 @@ using namespace dcpp;
 
 WulforSettings::WulforSettings():
         tor(0),
-#ifdef _WIN32
-    settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.ini", QSettings::IniFormat) // new config
-#else
-    settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++_Qt.conf", QSettings::IniFormat) // new config
-#endif
+        settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++_Qt.conf", QSettings::IniFormat)
 {
     configFileOld = _q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml";
 
