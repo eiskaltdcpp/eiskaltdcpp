@@ -283,7 +283,7 @@ void MainWindow::showEvent(QShowEvent *e){
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
-    if (sideDock)
+    if (sideDock && sideDock->isFloating())
         sideDock->show();
 
     e->accept();
@@ -301,7 +301,7 @@ void MainWindow::hideEvent(QHideEvent *e){
 
     e->accept();
 
-    if (sideDock)
+    if (sideDock && sideDock->isFloating())
         sideDock->hide();
 
     if (WBGET(WB_APP_AUTO_AWAY)){
