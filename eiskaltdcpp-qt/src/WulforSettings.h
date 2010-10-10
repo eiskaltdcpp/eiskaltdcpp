@@ -187,9 +187,9 @@ public:
     bool hasKey(const QString&) const;
 
 public Q_SLOTS:
-    QString getStr(const QString&) ;
-    int     getInt(const QString&) ;
-    bool    getBool(const QString&);
+    QString getStr(const QString&, const QString &default_value = "") ;
+    int     getInt(const QString&, const int &default_value = -1) ;
+    bool    getBool(const QString&, const bool &default_value = false);
 
     void    setStr (const QString&, const QString&);
     void    setInt (const QString&, int) ;
@@ -222,12 +222,15 @@ private:
     QTranslator qtTranslator;
 };
 
-#define WSGET(k)    (WulforSettings::getInstance()->getStr(k))
-#define WSSET(k, y) (WulforSettings::getInstance()->setStr(k, y))
-#define WIGET(k)    (WulforSettings::getInstance()->getInt(k))
-#define WISET(k, y) (WulforSettings::getInstance()->setInt(k, y))
-#define WBGET(k)    (WulforSettings::getInstance()->getBool(k))
-#define WBSET(k, y) (WulforSettings::getInstance()->setBool(k, y))
-#define WSCMD(k)    (WulforSettings::getInstance()->parseCmd(k))
+inline QString WSGET(const QString &key, const QString &default_value = ""){ return WulforSettings::getInstance()->getStr(key, default_value); }
+inline void WSSET(const QString &key, const QString &value) { WulforSettings::getInstance()->setStr(key, value); }
+
+inline int WIGET(const QString &key, const int &default_value = -1){ return WulforSettings::getInstance()->getInt(key, default_value);}
+inline void WISET(const QString &key, const int &value){ WulforSettings::getInstance()->setInt(key, value); }
+
+inline bool WBGET(const QString &key, const bool &default_value = false) { return WulforSettings::getInstance()->getBool(key, default_value);}
+inline void WBSET(const QString &key, const bool &value){ WulforSettings::getInstance()->setBool(key, value); }
+
+inline void WSCMD(const QString &cmd){ WulforSettings::getInstance()->parseCmd(cmd); }
 
 #endif // WULFORSETTINGS_H

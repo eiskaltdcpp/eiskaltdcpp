@@ -54,12 +54,14 @@
 #include "dcpp/ShareManager.h"
 #include "dcpp/ConnectivityManager.h"
 #include "dcpp/Singleton.h"
+#include "dcpp/SettingsManager.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 
 using namespace std;
 
 static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
+static const QString &EMPTY_SETTINGS = "mainwindow/empty-settings";
 
 MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
@@ -287,6 +289,9 @@ void MainWindow::showEvent(QShowEvent *e){
 
     if (sideDock)
         sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+
+    if (_q(SETTING(NICK)).isEmpty())
+        slotToolsSettings();
 
     e->accept();
 }

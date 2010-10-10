@@ -460,16 +460,16 @@ void WulforSettings::loadTheme(){
         qApp->setFont(f);
 }
 
-QString WulforSettings::getStr(const QString & key) {
-    return settings.value(key, "").toString();
+QString WulforSettings::getStr(const QString & key, const QString &default_value) {
+    return settings.value(key, default_value).toString();
 }
 
-int WulforSettings::getInt(const QString & key) {
-    return settings.value(key).toInt();
+int WulforSettings::getInt(const QString & key, const int &default_value) {
+    return settings.value(key, default_value).toInt();
 }
 
-bool WulforSettings::getBool(const QString & key) {
-    return (static_cast<bool>(getInt(key)));
+bool WulforSettings::getBool(const QString & key, const bool &default_value) {
+    return (static_cast<bool>(getInt(key, default_value)));
 }
 
 void WulforSettings::setStr(const QString & key, const QString &value) {
