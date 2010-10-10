@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-10 20:29+0300\n"
+"POT-Creation-Date: 2010-10-11 00:45+0300\n"
 "PO-Revision-Date: 2010-09-25 14:23+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -213,10 +213,10 @@ msgstr "Fájl megnyitása"
 msgid "Open folder"
 msgstr "Könyvtár megnyitása"
 
-#: ../src/hub.cc:69 ../src/hub.cc:89 ../src/hub.cc:91 ../src/hub.cc:332
-#: ../src/hub.cc:347 ../src/hub.cc:367 ../src/hub.cc:415 ../src/hub.cc:1061
-#: ../src/hub.cc:1359 ../src/hub.cc:1412 ../src/hub.cc:1975 ../src/hub.cc:2006
-#: ../src/hub.cc:2291 ../src/hub.cc:2330 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:69 ../src/hub.cc:89 ../src/hub.cc:91 ../src/hub.cc:351
+#: ../src/hub.cc:366 ../src/hub.cc:386 ../src/hub.cc:434 ../src/hub.cc:1136
+#: ../src/hub.cc:1434 ../src/hub.cc:1487 ../src/hub.cc:2050 ../src/hub.cc:2081
+#: ../src/hub.cc:2366 ../src/hub.cc:2405 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:583 ../src/favoritehubs.cc:56
@@ -228,12 +228,12 @@ msgstr "Könyvtár megnyitása"
 msgid "Nick"
 msgstr "Nick"
 
-#: ../src/hub.cc:70 ../src/hub.cc:331 ../src/hub.cc:348 ../src/hub.cc:368
-#: ../src/hub.cc:416 ../src/publichubs.cc:46 ../src/publichubs.cc:161
+#: ../src/hub.cc:70 ../src/hub.cc:350 ../src/hub.cc:367 ../src/hub.cc:387
+#: ../src/hub.cc:435 ../src/publichubs.cc:46 ../src/publichubs.cc:161
 msgid "Shared"
 msgstr "Megosztva"
 
-#: ../src/hub.cc:71 ../src/hub.cc:349 ../src/hub.cc:369
+#: ../src/hub.cc:71 ../src/hub.cc:368 ../src/hub.cc:388
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:372 ../src/favoriteusers.cc:397
 #: ../src/favoriteusers.cc:586 ../src/favoritehubs.cc:54
@@ -243,297 +243,306 @@ msgstr "Megosztva"
 msgid "Description"
 msgstr "Leírás"
 
-#: ../src/hub.cc:72 ../src/hub.cc:350 ../src/hub.cc:370
+#: ../src/hub.cc:72 ../src/hub.cc:369 ../src/hub.cc:389
 msgid "Tag"
 msgstr "Tag"
 
-#: ../src/hub.cc:73 ../src/hub.cc:351 ../src/hub.cc:371 ../src/search.cc:92
+#: ../src/hub.cc:73 ../src/hub.cc:370 ../src/hub.cc:390 ../src/search.cc:92
 #: ../src/search.cc:565 ../src/search.cc:624 ../src/search.cc:765
 #: ../src/search.cc:1645 ../glade/settingsdialog.glade:753
 msgid "Connection"
 msgstr "Kapcsolat"
 
-#: ../src/hub.cc:75 ../src/hub.cc:353 ../src/hub.cc:373
+#: ../src/hub.cc:75 ../src/hub.cc:372 ../src/hub.cc:392
 msgid "eMail"
 msgstr "E-mail"
 
-#: ../src/hub.cc:386 ../src/hub.cc:397
+#: ../src/hub.cc:405 ../src/hub.cc:416
 msgid " has joined"
 msgstr " belépett"
 
-#: ../src/hub.cc:387 ../src/hub.cc:396
+#: ../src/hub.cc:406 ../src/hub.cc:415
 msgid " has joined hub "
 msgstr " belépett "
 
-#: ../src/hub.cc:403 ../src/hub.cc:421
+#: ../src/hub.cc:422 ../src/hub.cc:440
 msgid " Users"
 msgstr " Felhasználó"
 
-#: ../src/hub.cc:427 ../src/hub.cc:437
+#: ../src/hub.cc:446 ../src/hub.cc:456
 msgid " has quit hub "
 msgstr " kilépett "
 
-#: ../src/hub.cc:428 ../src/hub.cc:438
+#: ../src/hub.cc:447 ../src/hub.cc:457
 msgid " has quit"
 msgstr " kilépett"
 
-#: ../src/hub.cc:467
+#: ../src/hub.cc:486
 msgid "0 Users"
 msgstr "0 Felhasználó"
 
-#: ../src/hub.cc:501
+#: ../src/hub.cc:520
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr ""
 "Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
 
-#: ../src/hub.cc:540
+#: ../src/hub.cc:559
 msgid "<b>Enter your password</b>"
 msgstr "<b>Add meg a jelszavad<b>"
 
-#: ../src/hub.cc:852 ../src/privatemessage.cc:526
+#: ../src/hub.cc:927 ../src/privatemessage.cc:526
 msgid " *** Emoticons not loaded"
 msgstr " *** A hangulatjelek nincsenek betöltve"
 
-#: ../src/hub.cc:857 ../src/privatemessage.cc:531
+#: ../src/hub.cc:932 ../src/privatemessage.cc:531
 msgid " *** Emoticons mode off"
 msgstr " *** Hangulatjelek mód kikapcsolva"
 
-#: ../src/hub.cc:862 ../src/hub.cc:941 ../src/privatemessage.cc:536
+#: ../src/hub.cc:937 ../src/hub.cc:1016 ../src/privatemessage.cc:536
 #: ../src/privatemessage.cc:615
 msgid " *** Emoticons limit"
 msgstr " *** Hangulatjel korlátozás"
 
-#: ../src/hub.cc:1533 ../src/privatemessage.cc:1100
+#: ../src/hub.cc:1608 ../src/privatemessage.cc:1100
 msgid "Use Emoticons"
 msgstr "Hangulatjelek használata"
 
-#: ../src/hub.cc:1614 ../src/hub.cc:1627 ../src/hub.cc:1732
+#: ../src/hub.cc:1689 ../src/hub.cc:1702 ../src/hub.cc:1807
 #: ../src/privatemessage.cc:864 ../src/privatemessage.cc:878
 #: ../src/privatemessage.cc:932 ../glade/privatemessage.glade:190
 #: ../glade/hub.glade:349
 msgid "Away mode off"
 msgstr "Away-mód kikapcsolva"
 
-#: ../src/hub.cc:1621 ../src/privatemessage.cc:872
+#: ../src/hub.cc:1696 ../src/privatemessage.cc:872
 msgid "Away mode on: "
 msgstr "Away-mód bekapcsolva: "
 
-#: ../src/hub.cc:1658 ../src/hub.cc:2302 ../src/privatemessage.cc:1270
+#: ../src/hub.cc:1733 ../src/hub.cc:2377 ../src/privatemessage.cc:1270
 msgid " is favorite user"
 msgstr " kedvenc felhasználó"
 
-#: ../src/hub.cc:1660 ../src/hub.cc:1695 ../src/hub.cc:1705 ../src/hub.cc:1785
+#: ../src/hub.cc:1735 ../src/hub.cc:1770 ../src/hub.cc:1780 ../src/hub.cc:1860
 msgid "Not found user: "
 msgstr "Felhasználó nem található: "
 
-#: ../src/hub.cc:1676 ../src/hub.cc:2341 ../src/privatemessage.cc:1290
+#: ../src/hub.cc:1751 ../src/hub.cc:2416 ../src/privatemessage.cc:1290
 msgid " is not favorite user"
 msgstr " nem kedvenc felhasználó"
 
-#: ../src/hub.cc:1685
+#: ../src/hub.cc:1760
 msgid "User favorite list:"
 msgstr "Kedvenc felhasználók listája: "
 
-#: ../src/hub.cc:1685
+#: ../src/hub.cc:1760
 msgid " empty..."
 msgstr " üres..."
 
-#: ../src/hub.cc:1712 ../src/privatemessage.cc:920
+#: ../src/hub.cc:1787 ../src/privatemessage.cc:920
 msgid "Emoticons mode off"
 msgstr "Hangulatjelek mód kikapcsolva"
 
-#: ../src/hub.cc:1717 ../src/privatemessage.cc:925
+#: ../src/hub.cc:1792 ../src/privatemessage.cc:925
 msgid "Emoticons mode on"
 msgstr "Hangulatjelek mód bekapcsolva"
 
-#: ../src/hub.cc:1723 ../src/hub.cc:1725
+#: ../src/hub.cc:1798 ../src/hub.cc:1800
 msgid "project home: "
 msgstr "a projekt weboldala: "
 
-#: ../src/hub.cc:1730 ../src/privatemessage.cc:930
+#: ../src/hub.cc:1805 ../src/privatemessage.cc:930
 msgid "*** Available commands:"
 msgstr "*** Elérhető parancsok:"
 
-#: ../src/hub.cc:1731 ../src/privatemessage.cc:931
+#: ../src/hub.cc:1806 ../src/privatemessage.cc:931
 #: ../glade/privatemessage.glade:183 ../glade/hub.glade:342
 msgid "Away mode message on/off"
 msgstr "Away-mód üzenet ki/be"
 
-#: ../src/hub.cc:1733 ../glade/hub.glade:356
+#: ../src/hub.cc:1808 ../glade/hub.glade:356
 msgid "Clear chat"
 msgstr "Chat törlése"
 
-#: ../src/hub.cc:1734
+#: ../src/hub.cc:1809
 msgid "Close chat"
 msgstr "Chat bezárása"
 
-#: ../src/hub.cc:1735 ../glade/hub.glade:363
+#: ../src/hub.cc:1810 ../glade/hub.glade:363
 msgid "Add a hub to favorites"
 msgstr "Hub hozzáadása a kedvencekhez"
 
-#: ../src/hub.cc:1736 ../src/privatemessage.cc:935
+#: ../src/hub.cc:1811 ../src/privatemessage.cc:935
 #: ../glade/privatemessage.glade:211
 msgid "Add user to favorites list"
 msgstr "Felhasználó hozzáadása a kedvencekhez"
 
-#: ../src/hub.cc:1737 ../src/privatemessage.cc:936
+#: ../src/hub.cc:1812 ../src/privatemessage.cc:936
 #: ../glade/privatemessage.glade:218
 msgid "Remove user favorite"
 msgstr "Kedvenc felhasználó törlése"
 
-#: ../src/hub.cc:1738 ../glade/hub.glade:370
+#: ../src/hub.cc:1813 ../glade/hub.glade:370
 msgid "Show favorites list"
 msgstr "Kedvencek mutatása"
 
-#: ../src/hub.cc:1739 ../src/privatemessage.cc:937
+#: ../src/hub.cc:1814 ../src/privatemessage.cc:937
 #: ../glade/privatemessage.glade:225
 msgid "Get file list"
 msgstr "Fájl-lista letöltése"
 
-#: ../src/hub.cc:1740 ../src/privatemessage.cc:938
+#: ../src/hub.cc:1815 ../src/privatemessage.cc:938
 #: ../glade/privatemessage.glade:232
 msgid "Grant extra slot"
 msgstr "Extra slot biztosítása"
 
-#: ../src/hub.cc:1741 ../src/privatemessage.cc:940
+#: ../src/hub.cc:1816 ../src/privatemessage.cc:940
 #: ../glade/privatemessage.glade:239 ../glade/hub.glade:377
 msgid "Show help"
 msgstr "Help mutatása"
 
-#: ../src/hub.cc:1742 ../glade/hub.glade:384
+#: ../src/hub.cc:1817 ../glade/hub.glade:384
 msgid "Connect to the hub"
 msgstr "Csatlakozás a hubhoz"
 
-#: ../src/hub.cc:1743 ../glade/hub.glade:391
+#: ../src/hub.cc:1818 ../glade/hub.glade:391
 msgid "Say a third person"
 msgstr "Beszéd harmadik személyben"
 
-#: ../src/hub.cc:1744 ../src/settingsdialog.cc:984
+#: ../src/hub.cc:1819 ../src/settingsdialog.cc:984
 #: ../src/settingsdialog.cc:1030 ../src/settingsdialog.cc:1150
 #: ../src/settingsmanager.cc:218
 msgid "Private message"
 msgstr "Privát üzenet"
 
-#: ../src/hub.cc:1745 ../glade/hub.glade:398
+#: ../src/hub.cc:1820 ../glade/hub.glade:398
 msgid "Rebuild hash"
 msgstr "Hash újraépítése"
 
-#: ../src/hub.cc:1746
+#: ../src/hub.cc:1821
 msgid "Update own file list"
 msgstr "Saját fájl-lista frissítése"
 
-#: ../src/hub.cc:1747
+#: ../src/hub.cc:1822
 msgid "User list show/hide"
 msgstr "Felhasználói lista mutatása/elrejtése"
 
-#: ../src/hub.cc:1748 ../glade/hub.glade:405
+#: ../src/hub.cc:1823 ../glade/hub.glade:405
 msgid "Show version"
 msgstr "Verzió mutatása"
 
-#: ../src/hub.cc:1749 ../src/privatemessage.cc:939
+#: ../src/hub.cc:1824 ../src/privatemessage.cc:939
 msgid "Emoticons on/off"
 msgstr "Hangulatjelek ki/be"
 
-#: ../src/hub.cc:1751
+#: ../src/hub.cc:1826
 msgid "Load Lua file"
 msgstr "Lua fájl betöltése"
 
-#: ../src/hub.cc:1752
+#: ../src/hub.cc:1827
 msgid "Execute Lua Chunk"
 msgstr "Lua kódrészlet futtatása"
 
-#: ../src/hub.cc:1754
+#: ../src/hub.cc:1829
 msgid "Execute code (bash)"
 msgstr "Kód futtatása (bash)"
 
-#: ../src/hub.cc:1755
+#: ../src/hub.cc:1830
 msgid "Alias List"
 msgstr "Álnevek listázása"
 
-#: ../src/hub.cc:1756
+#: ../src/hub.cc:1831
 msgid "Alias Remove A"
 msgstr "Álnév eltávolítása A"
 
-#: ../src/hub.cc:1757
+#: ../src/hub.cc:1832
 msgid "Alias add uname -a as A"
 msgstr "\"uname -a\" álnév hozzáadása, mint A"
 
-#: ../src/hub.cc:1758
+#: ../src/hub.cc:1833
 msgid "Alias A executing"
 msgstr "A álnév futtatása"
 
-#: ../src/hub.cc:1847
+#: ../src/hub.cc:1922
 msgid "Aliases not found."
 msgstr "Nem találhatóak álnevek."
 
-#: ../src/hub.cc:1948
+#: ../src/hub.cc:2023
 msgid "Unknown command '"
 msgstr "Ismeretlen parancs '"
 
-#: ../src/hub.cc:1948
+#: ../src/hub.cc:2023
 msgid "': type /help for a list of available commands"
 msgstr "': a használható parancsokat a /help használatával érheted el"
 
-#: ../src/hub.cc:2231 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1048
+#: ../src/hub.cc:2306 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1048
 #: ../src/mainwindow.cc:1116 ../glade/sharebrowser.glade:319
 #: ../glade/search.glade:563 ../glade/settingsdialog.glade:6002
 msgid "Choose a directory"
 msgstr "Könyvtár választása"
 
-#: ../src/hub.cc:2370
+#: ../src/hub.cc:2445
 msgid " added to favorites list"
 msgstr " hozzáadva a favoritokhoz"
 
-#: ../src/hub.cc:2397
+#: ../src/hub.cc:2472
 msgid " removed from favorites list"
 msgstr " törölve a favoritok közül"
 
-#: ../src/hub.cc:2509 ../src/hub.cc:2529
+#: ../src/hub.cc:2586 ../src/hub.cc:2606
 msgid "User not found"
 msgstr "Felhasználó nem található"
 
-#: ../src/hub.cc:2537 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2614 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Slot biztosítva: "
 
-#: ../src/hub.cc:2562
+#: ../src/hub.cc:2639
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "A csatlakozás nem lehetséges: a kért hubhoz már csatlakozva vagy"
 
-#: ../src/hub.cc:2616
+#: ../src/hub.cc:2693
 msgid "Favorite hub added"
 msgstr "Favorit hub hozzáadva"
 
-#: ../src/hub.cc:2621
+#: ../src/hub.cc:2698
 msgid "Favorite hub already exists"
 msgstr "Favorit hub már létezik"
 
-#: ../src/hub.cc:2695
+#: ../src/hub.cc:2783
+#, fuzzy
+msgid "loading error"
+msgstr "Nincsenek hibák"
+
+#: ../src/hub.cc:2796
+msgid "bad image"
+msgstr ""
+
+#: ../src/hub.cc:2970
 msgid "Connecting to "
 msgstr "Csatlakozás: "
 
-#: ../src/hub.cc:2702 ../src/transfers.cc:1013
+#: ../src/hub.cc:2977 ../src/transfers.cc:1013
 msgid "Connected"
 msgstr "Csatlakozva"
 
-#: ../src/hub.cc:2758
+#: ../src/hub.cc:3033
 msgid "Connect failed: "
 msgstr "Csatlakozás sikertelen: "
 
-#: ../src/hub.cc:2903
+#: ../src/hub.cc:3179
 msgid "Ignored private message from hub"
 msgstr "Huboktól érkező privát üzenetek letiltása"
 
-#: ../src/hub.cc:2910
+#: ../src/hub.cc:3186
 msgid "Ignored private message from bot "
 msgstr ""
 
-#: ../src/hub.cc:2927
+#: ../src/hub.cc:3203
 msgid "Nick already taken"
 msgstr "A nick használatban van"
 
-#: ../src/hub.cc:2934
+#: ../src/hub.cc:3210
 msgid "Search spam detected from "
 msgstr "Keresési spam érzékelve a következőtől: "
 

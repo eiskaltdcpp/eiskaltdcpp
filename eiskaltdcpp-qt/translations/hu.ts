@@ -1992,14 +1992,6 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Next tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Previous tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Next message</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2049,6 +2041,14 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Button style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous widget</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3349,7 +3349,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Search String</source>
-        <translation>Keresendő kifejezés</translation>
+        <translation type="obsolete">Keresendő kifejezés</translation>
     </message>
     <message>
         <source>Favorite hub name.</source>
@@ -3398,6 +3398,10 @@ Biztosan le akarod állítani?
     <message>
         <source>Full path</source>
         <translation>Teljes elérési út</translation>
+    </message>
+    <message>
+        <source>Search string</source>
+        <translation type="unfinished">Keresendő kifejezés</translation>
     </message>
 </context>
 <context>

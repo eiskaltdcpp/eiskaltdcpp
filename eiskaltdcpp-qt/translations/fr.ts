@@ -1977,14 +1977,6 @@ Please check your connection settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Next tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Previous tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Next message</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2034,6 +2026,14 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Button style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous widget</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3450,7 +3450,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Search String</source>
-        <translation>Chaîne de recherche</translation>
+        <translation type="obsolete">Chaîne de recherche</translation>
     </message>
     <message>
         <source>Favorite hub name.</source>
@@ -3499,6 +3499,10 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>Full path</source>
         <translation>Chemin complet</translation>
+    </message>
+    <message>
+        <source>Search string</source>
+        <translation type="unfinished">Chaîne de recherche</translation>
     </message>
 </context>
 <context>

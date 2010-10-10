@@ -1780,14 +1780,6 @@ Molim proverite podešavanja vaše veze</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Next tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Previous tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Next message</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1837,6 +1829,14 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>Button style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous widget</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3124,10 +3124,6 @@ Da li želite da zaustavite?</translation>
         <translation type="unfinished">Dijalog</translation>
     </message>
     <message>
-        <source>Search String</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Favorite hub name.</source>
         <translation type="unfinished">Omiljeni hab.</translation>
     </message>
@@ -3174,6 +3170,10 @@ Da li želite da zaustavite?</translation>
     <message>
         <source>Full path</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search string</source>
+        <translation type="unfinished">Pretraži nisku</translation>
     </message>
 </context>
 <context>
