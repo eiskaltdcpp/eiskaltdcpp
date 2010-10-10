@@ -285,7 +285,6 @@ friend class dcpp::Singleton<MainWindow>;
         void initSearchBar();
         void initToolbar();
         void initSideBar();
-        void initHotkeys();
 
         void toggleSingletonWidget(ArenaWidget *a);
 
@@ -376,6 +375,9 @@ friend class dcpp::Singleton<MainWindow>;
 #endif
 
         QMenu   *menuPanels;
+        // submenu
+        QMenu   *sh_menu;
+        // end
         QAction *panelsWidgets;
         QAction *panelsTools;
         QAction *panelsSearch;

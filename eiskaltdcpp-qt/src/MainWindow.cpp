@@ -384,8 +384,6 @@ void MainWindow::init(){
 
     initSideBar();
 
-    initHotkeys();
-
     loadSettings();
 
     connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotExit()));
@@ -823,6 +821,74 @@ void MainWindow::initActions(){
         menuWidgets = new QMenu("", this);
     }
     {
+        // submenu
+        nextTabShortCut     = new  QAction(this);
+        prevTabShortCut     = new  QAction(this);
+        nextMsgShortCut     = new  QAction(this);
+        prevMsgShortCut     = new  QAction(this);
+        closeWidgetShortCut      = new  QAction(this);
+        toggleMainMenuShortCut   = new  QAction(this);
+        delShortCut         = new  QAction(this);
+
+        nextTabShortCut->setObjectName("nextTabShortCut");
+        prevTabShortCut->setObjectName("prevTabShortCut");
+        nextMsgShortCut->setObjectName("nextMsgShortCut");
+        prevMsgShortCut->setObjectName("prevMsgShortCut");
+        closeWidgetShortCut->setObjectName("closeWidgetShortCut");
+        toggleMainMenuShortCut->setObjectName("toggleMainMenuShortCut");
+        delShortCut->setObjectName("delShortCut");
+
+        nextTabShortCut->setText(tr("Next widget"));
+        prevTabShortCut->setText(tr("Previous widget"));
+        nextMsgShortCut->setText(tr("Next message"));
+        prevMsgShortCut->setText(tr("Previous message"));
+        closeWidgetShortCut->setText(tr("Close current widget"));
+        toggleMainMenuShortCut->setText(tr("Toggle main menu"));
+        delShortCut->setText(tr("Call delete"));
+
+        nextTabShortCut->setShortcutContext(Qt::ApplicationShortcut);
+        prevTabShortCut->setShortcutContext(Qt::ApplicationShortcut);
+        nextMsgShortCut->setShortcutContext(Qt::ApplicationShortcut);
+        prevMsgShortCut->setShortcutContext(Qt::ApplicationShortcut);
+        closeWidgetShortCut->setShortcutContext(Qt::ApplicationShortcut);
+        toggleMainMenuShortCut->setShortcutContext(Qt::ApplicationShortcut);
+        delShortCut->setShortcutContext(Qt::ApplicationShortcut);
+
+        SM->registerShortcut(nextTabShortCut, tr("Ctrl+PgDown"));
+        SM->registerShortcut(prevTabShortCut, tr("Ctrl+PgUp"));
+        SM->registerShortcut(nextMsgShortCut, tr("Ctrl+Down"));
+        SM->registerShortcut(prevMsgShortCut, tr("Ctrl+Up"));
+        SM->registerShortcut(closeWidgetShortCut, tr("Ctrl+W"));
+        SM->registerShortcut(toggleMainMenuShortCut, tr("Ctrl+M"));
+        SM->registerShortcut(delShortCut, tr("Delete"));
+
+        if (tBar){
+            connect(nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
+            connect(prevTabShortCut, SIGNAL(triggered()), tBar, SLOT(prevTab()));
+        }
+        else if (mBar){
+            connect(nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
+            connect(prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
+        }
+
+        connect(nextMsgShortCut,        SIGNAL(triggered()), this, SLOT(nextMsg()));
+        connect(prevMsgShortCut,        SIGNAL(triggered()), this, SLOT(prevMsg()));
+        connect(closeWidgetShortCut,    SIGNAL(triggered()), this, SLOT(slotCloseCurrentWidget()));
+        connect(toggleMainMenuShortCut, SIGNAL(triggered()), this, SLOT(slotHideMainMenu()));
+        connect(delShortCut,            SIGNAL(triggered()), this, SLOT(slotDel()));
+        // end
+
+        sh_menu = new QMenu(this);
+        sh_menu->setTitle(tr("Actions"));
+        sh_menu->addActions(QList<QAction*>()
+                            << nextTabShortCut
+                            << prevTabShortCut
+                            << nextMsgShortCut
+                            << prevMsgShortCut
+                            << closeWidgetShortCut
+                            << toggleMainMenuShortCut
+                            << delShortCut);
+
         panelsWidgets = new QAction("", this);
         panelsWidgets->setCheckable(true);
         connect(panelsWidgets, SIGNAL(triggered()), this, SLOT(slotPanelMenuActionClicked()));
@@ -868,73 +934,6 @@ void MainWindow::initActions(){
     }
 }
 
-void MainWindow::initHotkeys(){
-    ShortcutManager *SM = ShortcutManager::getInstance();
-
-    nextTabShortCut     = new  QAction(this);
-    prevTabShortCut     = new  QAction(this);
-    nextMsgShortCut     = new  QAction(this);
-    prevMsgShortCut     = new  QAction(this);
-    closeWidgetShortCut      = new  QAction(this);
-    toggleMainMenuShortCut   = new  QAction(this);
-    delShortCut         = new  QAction(this);
-
-    nextTabShortCut->setObjectName("nextTabShortCut");
-    prevTabShortCut->setObjectName("prevTabShortCut");
-    nextMsgShortCut->setObjectName("nextMsgShortCut");
-    prevMsgShortCut->setObjectName("prevMsgShortCut");
-    closeWidgetShortCut->setObjectName("closeWidgetShortCut");
-    toggleMainMenuShortCut->setObjectName("toggleMainMenuShortCut");
-    delShortCut->setObjectName("delShortCut");
-
-    nextTabShortCut->setText(tr("Next tab"));
-    prevTabShortCut->setText(tr("Previous tab"));
-    nextMsgShortCut->setText(tr("Next message"));
-    prevMsgShortCut->setText(tr("Previous message"));
-    closeWidgetShortCut->setText(tr("Close current widget"));
-    toggleMainMenuShortCut->setText(tr("Toggle main menu"));
-    delShortCut->setText(tr("Call delete"));
-
-    nextTabShortCut->setShortcutContext(Qt::ApplicationShortcut);
-    prevTabShortCut->setShortcutContext(Qt::ApplicationShortcut);
-    nextMsgShortCut->setShortcutContext(Qt::ApplicationShortcut);
-    prevMsgShortCut->setShortcutContext(Qt::ApplicationShortcut);
-    closeWidgetShortCut->setShortcutContext(Qt::ApplicationShortcut);
-    toggleMainMenuShortCut->setShortcutContext(Qt::ApplicationShortcut);
-    delShortCut->setShortcutContext(Qt::ApplicationShortcut);
-
-    SM->registerShortcut(nextTabShortCut, tr("Ctrl+PgDown"));
-    SM->registerShortcut(prevTabShortCut, tr("Ctrl+PgUp"));
-    SM->registerShortcut(nextMsgShortCut, tr("Ctrl+Down"));
-    SM->registerShortcut(prevMsgShortCut, tr("Ctrl+Up"));
-    SM->registerShortcut(closeWidgetShortCut, tr("Ctrl+W"));
-    SM->registerShortcut(toggleMainMenuShortCut, tr("Ctrl+M"));
-    SM->registerShortcut(delShortCut, tr("Delete"));
-
-    QMenu *sh_menu = new QMenu(this);
-    sh_menu->setTitle(tr("Actions"));
-    sh_menu->addActions(QList<QAction*>() << nextTabShortCut << prevTabShortCut << nextMsgShortCut
-                                          << prevMsgShortCut << closeWidgetShortCut << toggleMainMenuShortCut
-                                          << delShortCut);
-
-    menuPanels->addMenu(sh_menu);
-
-    if (tBar){
-        connect(nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
-        connect(prevTabShortCut, SIGNAL(triggered()), tBar, SLOT(prevTab()));
-    }
-    else if (mBar){
-        connect(nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
-        connect(prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
-    }
-
-    connect(nextMsgShortCut,        SIGNAL(triggered()), this, SLOT(nextMsg()));
-    connect(prevMsgShortCut,        SIGNAL(triggered()), this, SLOT(prevMsg()));
-    connect(closeWidgetShortCut,    SIGNAL(triggered()), this, SLOT(slotCloseCurrentWidget()));
-    connect(toggleMainMenuShortCut, SIGNAL(triggered()), this, SLOT(slotHideMainMenu()));
-    connect(delShortCut,            SIGNAL(triggered()), this, SLOT(slotDel()));
-}
-
 void MainWindow::initMenuBar(){
 #ifdef Q_WS_MAC
     setMenuBar(new QMenuBar());
@@ -958,8 +957,13 @@ void MainWindow::initMenuBar(){
         menuTools->addActions(toolsMenuActions);
     }
     {
+        QAction *sep0 = new QAction("", this);
+        sep0->setSeparator(true);
+
         menuPanels = new QMenu("", this);
 
+        menuPanels->addMenu(sh_menu);
+        menuPanels->addAction(sep0);
         menuPanels->addAction(panelsWidgets);
         menuPanels->addAction(panelsTools);
         menuPanels->addAction(panelsSearch);
@@ -1206,7 +1210,7 @@ void MainWindow::initToolbar(){
     fBar->setFloatable(true);
     fBar->setAllowedAreas(Qt::AllToolBarAreas);
     fBar->setWindowTitle(tr("Actions"));
-    fBar->setToolButtonStyle(static_cast<Qt::ToolButtonStyle>(WIGET(TOOLBUTTON_STYLE)));
+    fBar->setToolButtonStyle(static_cast<Qt::ToolButtonStyle>(WIGET(TOOLBUTTON_STYLE, Qt::ToolButtonIconOnly)));
 
     connect(fBar, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotToolbarCustomization()));
 
@@ -2308,10 +2312,10 @@ void MainWindow::slotToolbarCustomization() {
     QMenu *m = new QMenu(this);
 
     QMenu *toolButtonStyle = new QMenu(tr("Button style"), this);
-    toolButtonStyle->addAction("Icon Only")->setData(Qt::ToolButtonIconOnly);
-    toolButtonStyle->addAction("Text Only")->setData(Qt::ToolButtonTextOnly);
-    toolButtonStyle->addAction("Text beside icon")->setData(Qt::ToolButtonTextBesideIcon);
-    toolButtonStyle->addAction("Text under icon")->setData(Qt::ToolButtonTextUnderIcon);
+    toolButtonStyle->addAction("Icons only")->setData(Qt::ToolButtonIconOnly);
+    toolButtonStyle->addAction("Text only")->setData(Qt::ToolButtonTextOnly);
+    toolButtonStyle->addAction("Text beside icons")->setData(Qt::ToolButtonTextBesideIcon);
+    toolButtonStyle->addAction("Text under icons")->setData(Qt::ToolButtonTextUnderIcon);
 
     foreach (QAction *a, toolButtonStyle->actions()){
         a->setCheckable(true);
