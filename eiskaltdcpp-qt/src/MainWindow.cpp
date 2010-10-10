@@ -59,6 +59,8 @@
 
 using namespace std;
 
+static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
+
 MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
         statusLabel(NULL),
@@ -1158,6 +1160,7 @@ void MainWindow::initToolbar(){
     fBar->setFloatable(true);
     fBar->setAllowedAreas(Qt::AllToolBarAreas);
     fBar->setWindowTitle(tr("Actions"));
+    fBar->setToolButtonStyle(static_cast<Qt::ToolButtonStyle>(WIGET(TOOLBUTTON_STYLE)));
 
     connect(fBar, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotToolbarCustomization()));
 
@@ -1223,6 +1226,7 @@ void MainWindow::initSideBar(){
 
     addDockWidget(Qt::LeftDockWidgetArea, sideDock);
 
+    connect(sideTree, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotSideBarDblClicked(QModelIndex)));
     connect(sideTree, SIGNAL(clicked(QModelIndex)),     this, SLOT(slotSidebarHook(QModelIndex)));
     connect(sideTree, SIGNAL(clicked(QModelIndex)),    model, SLOT(slotIndexClicked(QModelIndex)));
     connect(sideTree, SIGNAL(activated(QModelIndex)),  model, SLOT(slotIndexClicked(QModelIndex)));
@@ -2256,16 +2260,37 @@ void MainWindow::slotExit(){
 
 void MainWindow::slotToolbarCustomization() {
     QMenu *m = new QMenu(this);
-    m->addAction(tr("Customize"));
+
+    QMenu *toolButtonStyle = new QMenu(tr("Button style"), this);
+    toolButtonStyle->addAction("Icon Only")->setData(Qt::ToolButtonIconOnly);
+    toolButtonStyle->addAction("Text Only")->setData(Qt::ToolButtonTextOnly);
+    toolButtonStyle->addAction("Text beside icon")->setData(Qt::ToolButtonTextBesideIcon);
+    toolButtonStyle->addAction("Text under icon")->setData(Qt::ToolButtonTextUnderIcon);
+
+    foreach (QAction *a, toolButtonStyle->actions()){
+        a->setCheckable(true);
+        a->setChecked(fBar->toolButtonStyle() == static_cast<Qt::ToolButtonStyle>(a->data().toInt()));
+    }
+
+    m->addMenu(toolButtonStyle);
+    m->addSeparator();
+
+    QAction *customize = m->addAction(tr("Customize"));
     QAction *ret = m->exec(QCursor::pos());
 
     m->deleteLater();
+    toolButtonStyle->deleteLater();
 
-    if (ret){
+    if (ret == customize){
         ActionCustomizer customizer(toolBarActions, fBar->actions(), this);
         connect(&customizer, SIGNAL(done(QList<QAction*>)), this, SLOT(slotToolbarCustomizerDone(QList<QAction*>)));
 
         customizer.exec();
+    }
+    else if (ret){
+        fBar->setToolButtonStyle(static_cast<Qt::ToolButtonStyle>(ret->data().toInt()));
+
+        WISET(TOOLBUTTON_STYLE, static_cast<int>(fBar->toolButtonStyle()));
     }
 }
 
@@ -2479,7 +2504,7 @@ void MainWindow::slotSidebarContextMenu(){
 }
 
 void MainWindow::slotSidebarHook(const QModelIndex &index){
-    if (index.column() == 1){//18 is a close button size
+    if (index.column() == 1){
         SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
 
         if (item->getWidget()){
@@ -2496,6 +2521,47 @@ void MainWindow::slotSidebarHook(const QModelIndex &index){
             }
         }
     }
+}
+
+void MainWindow::slotSideBarDblClicked(const QModelIndex &index){
+    if (index.column() != 0)
+        return;
+    SideBarModel *model = reinterpret_cast<SideBarModel*>(sideTree->model());
+    SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
+
+    if (!model->isRootItem(item) || item->childCount() > 0)
+        return;
+
+    switch (model->rootItemRole(item)){
+    case ArenaWidget::Search:
+        {
+            slotToolsSearch();
+
+            break;
+        }
+    case ArenaWidget::Hub:
+        {
+            slotQC();
+
+            break;
+        }
+    case ArenaWidget::ShareBrowser:
+        {
+            slotFileBrowseFilelist();
+
+            break;
+        }
+    case ArenaWidget::PrivateMessage:
+        {
+            slotFileOpenLogFile();
+
+            break;
+        }
+    default:
+        break;
+    }
+
+    sideTree->setExpanded(index, true);
 }
 
 void MainWindow::slotSelectSidebarIndex(const QModelIndex &index){

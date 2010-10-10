@@ -51,7 +51,7 @@ public:
     }
 
     int childCount() const{
-        return childItems.count();
+        return childItems.size();
     }
 
     int columnCount() const{
@@ -108,6 +108,8 @@ public:
     void removeWidget(ArenaWidget *awgt);
     void insertWidget(ArenaWidget *awgt);
     bool hasWidget(ArenaWidget *awgt) const;
+    bool isRootItem(const SideBarItem *) const;
+    ArenaWidget::Role rootItemRole(const SideBarItem *) const;
     void mapped(ArenaWidget *awgt);
     void redraw() { emit layoutChanged(); }
 

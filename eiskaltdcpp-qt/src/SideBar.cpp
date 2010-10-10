@@ -274,6 +274,28 @@ void SideBarModel::mapped(ArenaWidget *awgt){
     emit selectIndex(s);
 }
 
+bool SideBarModel::isRootItem(const SideBarItem *item) const{
+    QMap<ArenaWidget::Role, SideBarItem*>::const_iterator it = roots.begin();
+
+    for(; it != roots.end(); ++it){
+        if (it.value() == item)
+            return true;
+    }
+
+    return false;
+}
+
+ArenaWidget::Role SideBarModel::rootItemRole(const SideBarItem *item) const{
+    QMap<ArenaWidget::Role, SideBarItem*>::const_iterator it = roots.begin();
+
+    for(; it != roots.end(); ++it){
+        if (it.value() == item)
+            return it.key();
+    }
+
+    return ArenaWidget::CustomWidget;
+}
+
 void SideBarModel::historyPop(){
     if (historyStack.empty())
         return;
