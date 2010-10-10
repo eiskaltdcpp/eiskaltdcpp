@@ -2798,7 +2798,7 @@ void Hub::on(ClientListener::Message, Client *, const OnlineUser &from, const st
         else typemsg = Msg::GENERAL;
 
         string line;
-        string info= Util::formatAdditionalInfo(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+        string info = Util::formatAdditionalInfo(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
         line+=info;
 
         if (thirdPerson)
