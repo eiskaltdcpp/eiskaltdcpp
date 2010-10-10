@@ -998,34 +998,22 @@ void MainWindow::initMenuBar(){
 
 void MainWindow::initStatusBar(){
     statusLabel = new QLabel(statusBar());
-    statusLabel->setFrameShadow(QFrame::Plain);
-    statusLabel->setFrameShape(QFrame::NoFrame);
+    statusLabel->setFrameShadow(QFrame::Sunken);
+    statusLabel->setFrameShape(QFrame::Box);
     statusLabel->setAlignment(Qt::AlignRight);
     statusLabel->setToolTip(tr("Counts"));
 
-    statusDSPLabel = new QLabel(statusBar());
-    statusDSPLabel->setFrameShadow(QFrame::Plain);
-    statusDSPLabel->setFrameShape(QFrame::NoFrame);
-    statusDSPLabel->setAlignment(Qt::AlignRight);
-    statusDSPLabel->setToolTip(tr("Download speed"));
-
-    statusUSPLabel = new QLabel(statusBar());
-    statusUSPLabel->setFrameShadow(QFrame::Plain);
-    statusUSPLabel->setFrameShape(QFrame::NoFrame);
-    statusUSPLabel->setAlignment(Qt::AlignRight);
-    statusUSPLabel->setToolTip(tr("Upload speed"));
+    statusSPLabel = new QLabel(statusBar());
+    statusSPLabel->setFrameShadow(QFrame::Sunken);
+    statusSPLabel->setFrameShape(QFrame::Box);
+    statusSPLabel->setAlignment(Qt::AlignRight);
+    statusSPLabel->setToolTip(tr("Download/Upload speed"));
 
     statusDLabel = new QLabel(statusBar());
-    statusDLabel->setFrameShadow(QFrame::Plain);
-    statusDLabel->setFrameShape(QFrame::NoFrame);
+    statusDLabel->setFrameShadow(QFrame::Sunken);
+    statusDLabel->setFrameShape(QFrame::Box);
     statusDLabel->setAlignment(Qt::AlignRight);
-    statusDLabel->setToolTip(tr("Downloaded"));
-
-    statusULabel = new QLabel(statusBar());
-    statusULabel->setFrameShadow(QFrame::Plain);
-    statusULabel->setFrameShape(QFrame::NoFrame);
-    statusULabel->setAlignment(Qt::AlignRight);
-    statusULabel->setToolTip(tr("Uploaded"));
+    statusDLabel->setToolTip(tr("Downloaded/Uploaded"));
 
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
@@ -1062,9 +1050,7 @@ void MainWindow::initStatusBar(){
     statusBar()->addWidget(progressHashing);
     statusBar()->addWidget(msgLabel, 1);
     statusBar()->addPermanentWidget(statusDLabel);
-    statusBar()->addPermanentWidget(statusULabel);
-    statusBar()->addPermanentWidget(statusDSPLabel);
-    statusBar()->addPermanentWidget(statusUSPLabel);
+    statusBar()->addPermanentWidget(statusSPLabel);
     statusBar()->addPermanentWidget(statusLabel);
 #if (defined FREE_SPACE_BAR_C)
     statusBar()->addPermanentWidget(progressSpace);
@@ -1385,20 +1371,16 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
         return;
 
     statusLabel->setText(map["STATS"]);
-    statusUSPLabel->setText(map["USPEED"]+tr("/s"));
-    statusDSPLabel->setText(map["DSPEED"]+tr("/s"));
-    statusDLabel->setText(map["DOWN"]);
-    statusULabel->setText(map["UP"]);
+    statusSPLabel->setText(tr("%1/s / %2/s").arg(map["DSPEED"]).arg(map["USPEED"]));
+    statusDLabel->setText(tr("%1 / %2").arg(map["DOWN"]).arg(map["UP"]));
 
     if (Notification::getInstance())
         Notification::getInstance()->setToolTip(map["DSPEED"]+tr("/s"), map["USPEED"]+tr("/s"), map["DOWN"], map["UP"]);
 
     QFontMetrics metrics(font());
 
-    statusUSPLabel->setFixedWidth(metrics.width(statusUSPLabel->text()) > statusUSPLabel->width()? metrics.width(statusUSPLabel->text()) + 10 : statusUSPLabel->width());
-    statusDSPLabel->setFixedWidth(metrics.width(statusDSPLabel->text()) > statusDSPLabel->width()? metrics.width(statusDSPLabel->text()) + 10 : statusDSPLabel->width());
-    statusDLabel->setFixedWidth(metrics.width(statusDLabel->text()) > statusDLabel->width()? metrics.width(statusDLabel->text()) + 10 : statusDLabel->width());
-    statusULabel->setFixedWidth(metrics.width(statusULabel->text()) > statusULabel->width()? metrics.width(statusULabel->text()) + 10 : statusULabel->width());
+    statusSPLabel->setFixedWidth(metrics.width(statusSPLabel->text()) > statusSPLabel->width()? metrics.width(statusSPLabel->text()) + 20 : statusSPLabel->width());
+    statusDLabel->setFixedWidth(metrics.width(statusDLabel->text()) > statusDLabel->width()? metrics.width(statusDLabel->text()) + 20 : statusDLabel->width());
 
     if (WBGET(WB_SHOW_FREE_SPACE)) {
 #ifdef FREE_SPACE_BAR_C
