@@ -407,4 +407,24 @@
       </widget>
     </child>
   </widget>
+  <widget class="GtkMenu" id="imageMenu">
+    <property name="visible">True</property>
+    <child>
+      <widget class="GtkMenuItem" id="downloadImageItem">
+        <property name="visible">True</property>
+        <property name="label">Download image</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkSeparatorMenuItem" id="separator22">
+        <property name="visible">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="removeImageItem">
+        <property name="visible">True</property>
+        <property name="label">Remove image</property>
+      </widget>
+    </child>
+  </widget>
 </glade-interface>
