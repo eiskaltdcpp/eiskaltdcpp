@@ -387,11 +387,11 @@ bool SearchModel::addResult
     if (parent == rootItem && !isDir)
         tths.insert(tth, item);
     else {
-        beginInsertRows(createIndexForItem(parent), parent->childCount(), parent->childCount());
-        {
-            parent->appendChild(item);
-        }
-        endInsertRows();
+        emit layoutAboutToBeChanged();
+
+        parent->appendChild(item);
+
+        emit layoutChanged();
 
         if (sortColumn == COLUMN_SF_COUNT)
             sort(sortColumn, sortOrder);
