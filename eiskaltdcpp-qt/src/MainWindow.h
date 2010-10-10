@@ -381,13 +381,13 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *panelsSearch;
 
         // Standalone shortcuts
-        QShortcut *ctrl_pgup;
-        QShortcut *ctrl_pgdown;
-        QShortcut *ctrl_up;
-        QShortcut *ctrl_down;
-        QShortcut *ctrl_w;
-        QShortcut *ctrl_m;
-        QShortcut *del;
+        QAction *prevTabShortCut;
+        QAction *nextTabShortCut;
+        QAction *prevMsgShortCut;
+        QAction *nextMsgShortCut;
+        QAction *closeWidgetShortCut;
+        QAction *toggleMainMenuShortCut;
+        QAction *delShortCut;
 
         QAction *chatDisable;
         QAction *findInWidget;

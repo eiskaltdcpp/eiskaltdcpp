@@ -864,29 +864,70 @@ void MainWindow::initActions(){
 }
 
 void MainWindow::initHotkeys(){
-    // Standalone shortcuts
-    ctrl_pgdown = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageDown), this);
-    ctrl_pgup   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_PageUp), this);
-    ctrl_down   = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Down), this);
-    ctrl_up     = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Up), this);
-    ctrl_w      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_W), this);
-    ctrl_m      = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_M), this);
-    del         = new QShortcut(QKeySequence(Qt::Key_Delete), this);
+    ShortcutManager *SM = ShortcutManager::getInstance();
+
+    nextTabShortCut     = new  QAction(this);
+    prevTabShortCut     = new  QAction(this);
+    nextMsgShortCut     = new  QAction(this);
+    prevMsgShortCut     = new  QAction(this);
+    closeWidgetShortCut      = new  QAction(this);
+    toggleMainMenuShortCut   = new  QAction(this);
+    delShortCut         = new  QAction(this);
+
+    nextTabShortCut->setObjectName("nextTabShortCut");
+    prevTabShortCut->setObjectName("prevTabShortCut");
+    nextMsgShortCut->setObjectName("nextMsgShortCut");
+    prevMsgShortCut->setObjectName("prevMsgShortCut");
+    closeWidgetShortCut->setObjectName("closeWidgetShortCut");
+    toggleMainMenuShortCut->setObjectName("toggleMainMenuShortCut");
+    delShortCut->setObjectName("delShortCut");
+
+    nextTabShortCut->setText(tr("Next tab"));
+    prevTabShortCut->setText(tr("Previous tab"));
+    nextMsgShortCut->setText(tr("Next message"));
+    prevMsgShortCut->setText(tr("Previous message"));
+    closeWidgetShortCut->setText(tr("Close current widget"));
+    toggleMainMenuShortCut->setText(tr("Toggle main menu"));
+    delShortCut->setText(tr("Call delete"));
+
+    nextTabShortCut->setShortcutContext(Qt::ApplicationShortcut);
+    prevTabShortCut->setShortcutContext(Qt::ApplicationShortcut);
+    nextMsgShortCut->setShortcutContext(Qt::ApplicationShortcut);
+    prevMsgShortCut->setShortcutContext(Qt::ApplicationShortcut);
+    closeWidgetShortCut->setShortcutContext(Qt::ApplicationShortcut);
+    toggleMainMenuShortCut->setShortcutContext(Qt::ApplicationShortcut);
+    delShortCut->setShortcutContext(Qt::ApplicationShortcut);
+
+    SM->registerShortcut(nextTabShortCut, tr("Ctrl+PgDown"));
+    SM->registerShortcut(prevTabShortCut, tr("Ctrl+PgUp"));
+    SM->registerShortcut(nextMsgShortCut, tr("Ctrl+Down"));
+    SM->registerShortcut(prevMsgShortCut, tr("Ctrl+Up"));
+    SM->registerShortcut(closeWidgetShortCut, tr("Ctrl+W"));
+    SM->registerShortcut(toggleMainMenuShortCut, tr("Ctrl+M"));
+    SM->registerShortcut(delShortCut, tr("Delete"));
+
+    QMenu *sh_menu = new QMenu(this);
+    sh_menu->setTitle(tr("Actions"));
+    sh_menu->addActions(QList<QAction*>() << nextTabShortCut << prevTabShortCut << nextMsgShortCut
+                                          << prevMsgShortCut << closeWidgetShortCut << toggleMainMenuShortCut
+                                          << delShortCut);
+
+    menuPanels->addMenu(sh_menu);
 
     if (tBar){
-        connect(ctrl_pgdown, SIGNAL(activated()), tBar, SLOT(nextTab()));
-        connect(ctrl_pgup,   SIGNAL(activated()), tBar, SLOT(prevTab()));
+        connect(nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
+        connect(prevTabShortCut, SIGNAL(triggered()), tBar, SLOT(prevTab()));
     }
     else if (mBar){
-        connect(ctrl_pgdown, SIGNAL(activated()), mBar, SIGNAL(nextTab()));
-        connect(ctrl_pgup,   SIGNAL(activated()), mBar, SIGNAL(prevTab()));
+        connect(nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
+        connect(prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
     }
 
-    connect(ctrl_down,   SIGNAL(activated()), this, SLOT(nextMsg()));
-    connect(ctrl_up,     SIGNAL(activated()), this, SLOT(prevMsg()));
-    connect(ctrl_w,      SIGNAL(activated()), this, SLOT(slotCloseCurrentWidget()));
-    connect(ctrl_m,      SIGNAL(activated()), this, SLOT(slotHideMainMenu()));
-    connect(del,         SIGNAL(activated()), this, SLOT(slotDel()));
+    connect(nextMsgShortCut,        SIGNAL(triggered()), this, SLOT(nextMsg()));
+    connect(prevMsgShortCut,        SIGNAL(triggered()), this, SLOT(prevMsg()));
+    connect(closeWidgetShortCut,    SIGNAL(triggered()), this, SLOT(slotCloseCurrentWidget()));
+    connect(toggleMainMenuShortCut, SIGNAL(triggered()), this, SLOT(slotHideMainMenu()));
+    connect(delShortCut,            SIGNAL(triggered()), this, SLOT(slotDel()));
 }
 
 void MainWindow::initMenuBar(){
