@@ -43,6 +43,8 @@
 * Added ability to configure connection via UPnP (used miniupnp).
 * Added /sh and /alias chat commands (see man-page or /help in chat).
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
+* Added dialog for calculating TTH of any file.
+* Displaying images in the chat ([img]magnet[/img]).
 *** eiskaltdcpp-wt ***
 * Development has begun. Attention: the program is not yet ready to use!
 * Implemented a prototype of search page. In addition to displaying the search results until there is nothing.
