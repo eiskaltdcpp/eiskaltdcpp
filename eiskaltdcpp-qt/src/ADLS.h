@@ -38,6 +38,8 @@ class ADLSEditor:
                 QDialog(parent)
         {
             setupUi(this);
+
+            setFixedSize(sizeHint());
         }
 };
 
