@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-02 01:17+0300\n"
-"PO-Revision-Date: 2010-09-18 15:31+0300\n"
+"POT-Creation-Date: 2010-10-10 20:29+0300\n"
+"PO-Revision-Date: 2010-10-10 20:32+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: \n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:951
-#: ../src/settingsdialog.cc:1312 ../glade/mainwindow.glade:277
+#: ../src/settingsdialog.cc:1312 ../glade/mainwindow.glade:284
 msgid "Download Queue"
 msgstr "Очередь закачек"
 
@@ -66,7 +66,7 @@ msgstr "Статус"
 #: ../src/search.cc:619 ../src/search.cc:762 ../src/search.cc:1619
 #: ../src/search.cc:1637 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:284 ../src/sharebrowser.cc:315
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1375
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1382
 msgid "Size"
 msgstr "Размер"
 
@@ -83,7 +83,7 @@ msgstr "Приоритет"
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
 #: ../src/publichubs.cc:58 ../src/publichubs.cc:158
-#: ../glade/mainwindow.glade:520
+#: ../glade/mainwindow.glade:527
 msgid "Users"
 msgstr "Юзеры"
 
@@ -473,8 +473,8 @@ msgstr "Неизвестная команда '"
 msgid "': type /help for a list of available commands"
 msgstr "': /help для получения списка доступных команд"
 
-#: ../src/hub.cc:2231 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1037
-#: ../src/mainwindow.cc:1105 ../glade/sharebrowser.glade:319
+#: ../src/hub.cc:2231 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1048
+#: ../src/mainwindow.cc:1116 ../glade/sharebrowser.glade:319
 #: ../glade/search.glade:563 ../glade/settingsdialog.glade:6002
 msgid "Choose a directory"
 msgstr "Выбор директории"
@@ -536,7 +536,7 @@ msgstr "Ник занят"
 msgid "Search spam detected from "
 msgstr "Обнаружен поисковый спам от "
 
-#: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:583
+#: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:590
 msgid "ADL Search"
 msgstr "ADL-поиск"
 
@@ -578,7 +578,7 @@ msgstr "Точный размер"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1209
 #: ../src/settingsdialog.cc:1256 ../src/settingsdialog.cc:1315
-#: ../glade/mainwindow.glade:193 ../glade/mainwindow.glade:518
+#: ../glade/mainwindow.glade:200 ../glade/mainwindow.glade:525
 msgid "Favorite Users"
 msgstr "Избранные Юзеры"
 
@@ -627,8 +627,8 @@ msgstr " осталось"
 msgid "-:--:-- left"
 msgstr "-:--:-- осталось"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:213 ../src/mainwindow.cc:1924
-#: ../src/mainwindow.cc:1926 ../glade/settingsdialog.glade:1574
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:213 ../src/mainwindow.cc:1935
+#: ../src/mainwindow.cc:1937 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
 msgstr "с"
@@ -639,8 +639,8 @@ msgstr "Готово"
 
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:955
 #: ../src/settingsdialog.cc:1217 ../src/settingsdialog.cc:1268
-#: ../src/settingsdialog.cc:1316 ../glade/mainwindow.glade:257
-#: ../glade/mainwindow.glade:596 ../glade/settingsdialog.glade:3978
+#: ../src/settingsdialog.cc:1316 ../glade/mainwindow.glade:264
+#: ../glade/mainwindow.glade:603 ../glade/settingsdialog.glade:3978
 msgid "Search Spy"
 msgstr "Поисковый шпион"
 
@@ -940,8 +940,8 @@ msgid "Filter kick and NMDC debug messages"
 msgstr "Фильтровать kick и NMDC в отладочных сообщениях"
 
 #: ../src/settingsdialog.cc:922
-msgid "Show status icon"
-msgstr "Показывать статус-значок"
+msgid "Show status icon in the system tray"
+msgstr "Показывать статус-значок в системном трее"
 
 #: ../src/settingsdialog.cc:923
 msgid "Show timestamps in chat by default"
@@ -989,15 +989,15 @@ msgstr "Посылать ЛС при двойном клике в списке �
 
 #: ../src/settingsdialog.cc:949 ../src/settingsdialog.cc:1210
 #: ../src/settingsdialog.cc:1272 ../src/settingsdialog.cc:1313
-#: ../src/finishedtransfers.cc:35 ../glade/mainwindow.glade:292
-#: ../glade/mainwindow.glade:624
+#: ../src/finishedtransfers.cc:35 ../glade/mainwindow.glade:299
+#: ../glade/mainwindow.glade:631
 msgid "Finished Downloads"
 msgstr "Закачано"
 
 #: ../src/settingsdialog.cc:950 ../src/settingsdialog.cc:1211
 #: ../src/settingsdialog.cc:1274 ../src/settingsdialog.cc:1314
-#: ../src/finishedtransfers.cc:40 ../glade/mainwindow.glade:306
-#: ../glade/mainwindow.glade:637
+#: ../src/finishedtransfers.cc:40 ../glade/mainwindow.glade:313
+#: ../glade/mainwindow.glade:644
 msgid "Finished Uploads"
 msgstr "Отдано"
 
@@ -1012,7 +1012,7 @@ msgstr "Личное сообщение"
 #: ../src/settingsdialog.cc:954 ../src/settingsdialog.cc:1216
 #: ../src/settingsdialog.cc:1264 ../src/search.cc:41
 #: ../glade/searchspy.glade:184 ../glade/searchspy.glade:249
-#: ../glade/mainwindow.glade:228 ../glade/mainwindow.glade:572
+#: ../glade/mainwindow.glade:235 ../glade/mainwindow.glade:579
 #: ../glade/settingsdialog.glade:5739
 msgid "Search"
 msgstr "Поиск"
@@ -1137,38 +1137,38 @@ msgstr "Отдачи"
 
 #: ../src/settingsdialog.cc:1208 ../src/settingsdialog.cc:1254
 #: ../src/settingsdialog.cc:1311 ../src/favoritehubs.cc:31
-#: ../glade/mainwindow.glade:178 ../glade/mainwindow.glade:505
+#: ../glade/mainwindow.glade:185 ../glade/mainwindow.glade:512
 msgid "Favorite Hubs"
 msgstr "Избранные Хабы"
 
 #: ../src/settingsdialog.cc:1212 ../src/settingsdialog.cc:1262
-#: ../glade/mainwindow.glade:559
+#: ../glade/mainwindow.glade:566
 msgid "Hash"
 msgstr "Хеш"
 
 #: ../src/settingsdialog.cc:1213 ../src/settingsdialog.cc:1260
-#: ../glade/mainwindow.glade:546 ../glade/settingsdialog.glade:6
+#: ../glade/mainwindow.glade:553 ../glade/settingsdialog.glade:6
 msgid "Preferences"
 msgstr "Настройки"
 
 #: ../src/settingsdialog.cc:1214 ../src/settingsdialog.cc:1258
 #: ../src/settingsdialog.cc:1310 ../src/publichubs.cc:29
-#: ../glade/mainwindow.glade:208 ../glade/mainwindow.glade:533
+#: ../glade/mainwindow.glade:215 ../glade/mainwindow.glade:540
 msgid "Public Hubs"
 msgstr "Публичные хабы"
 
 #: ../src/settingsdialog.cc:1215 ../src/settingsdialog.cc:1270
-#: ../glade/mainwindow.glade:611 ../glade/settingsdialog.glade:1740
+#: ../glade/mainwindow.glade:618 ../glade/settingsdialog.glade:1740
 msgid "Queue"
 msgstr "Очередь"
 
 #: ../src/settingsdialog.cc:1218 ../src/settingsdialog.cc:1276
-#: ../glade/mainwindow.glade:650
+#: ../glade/mainwindow.glade:657
 msgid "Quit"
 msgstr "Выход"
 
 #: ../src/settingsdialog.cc:1219 ../src/settingsdialog.cc:1252
-#: ../glade/mainwindow.glade:494
+#: ../glade/mainwindow.glade:501
 msgid "Connect"
 msgstr "Соединение"
 
@@ -1182,7 +1182,7 @@ msgstr "Переподключиться"
 msgid "Directory"
 msgstr "Директория"
 
-#: ../src/settingsdialog.cc:1223 ../glade/mainwindow.glade:243
+#: ../src/settingsdialog.cc:1223 ../glade/mainwindow.glade:250
 msgid "Search ADL"
 msgstr "Поиск ADL"
 
@@ -1418,7 +1418,7 @@ msgstr "Имя и адрес обязательны для заполнения"
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
 msgstr "Вы уверены, что хотите удалить хаб \"%s\"?"
 
-#: ../src/mainwindow.cc:96
+#: ../src/mainwindow.cc:102
 #, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
@@ -1431,7 +1431,7 @@ msgstr ""
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
 
-#: ../src/mainwindow.cc:99
+#: ../src/mainwindow.cc:105
 #, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
@@ -1444,47 +1444,47 @@ msgstr ""
 "EiskaltDC++ version: %s - %s %s\n"
 "DC++ core version: %s"
 
-#: ../src/mainwindow.cc:198
+#: ../src/mainwindow.cc:209
 msgid "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
 msgstr "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog_ru.txt"
 
-#: ../src/mainwindow.cc:214
+#: ../src/mainwindow.cc:225
 msgid "Welcome to "
 msgstr "Добро пожаловать в "
 
-#: ../src/mainwindow.cc:548
+#: ../src/mainwindow.cc:559
 msgid "Download: "
 msgstr "Закачки: "
 
-#: ../src/mainwindow.cc:548
+#: ../src/mainwindow.cc:559
 msgid "Upload: "
 msgstr "Отдачи: "
 
-#: ../src/mainwindow.cc:971
+#: ../src/mainwindow.cc:982
 msgid "Enter value for "
 msgstr "Введите значение "
 
-#: ../src/mainwindow.cc:1028
+#: ../src/mainwindow.cc:1039
 msgid "Magnet Properties / Choice"
 msgstr "Свойства магнетов / Выбор"
 
-#: ../src/mainwindow.cc:1098
+#: ../src/mainwindow.cc:1109
 msgid "Magnet Choice"
 msgstr "Свойства магнетов"
 
-#: ../src/mainwindow.cc:1620 ../glade/mainwindow.glade:1137
+#: ../src/mainwindow.cc:1631 ../glade/mainwindow.glade:1144
 msgid "Select filelist to browse"
 msgstr "Выберите список файлов"
 
-#: ../src/mainwindow.cc:1645
+#: ../src/mainwindow.cc:1656
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Невозможно загрузить файл-список: Некорректное имя файла"
 
-#: ../src/mainwindow.cc:1657
+#: ../src/mainwindow.cc:1668
 msgid "Loading file list"
 msgstr "Загружен файл-лист"
 
-#: ../src/mainwindow.cc:1847
+#: ../src/mainwindow.cc:1858
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -1494,17 +1494,21 @@ msgstr ""
 "корректно пока вы не измените настройки или другое приложение не перестанет "
 "использовать этот порт."
 
-#: ../src/mainwindow.cc:1849
+#: ../src/mainwindow.cc:1860
 msgid "Connectivity Manager: Warning"
 msgstr "Менеджер подключения: Предупреждение"
 
-#: ../src/mainwindow.cc:1890
+#: ../src/mainwindow.cc:1901
 msgid "file list from "
 msgstr "список файлов от "
 
-#: ../src/mainwindow.cc:1900
+#: ../src/mainwindow.cc:1911
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
+
+#: ../src/mainwindow.cc:1970
+msgid "Select file to Get TTH"
+msgstr "Выберите файл для расчета TTH"
 
 #: ../src/previewmenu.cc:90 ../src/emoticonsdialog.cc:106
 #: ../glade/settingsdialog.glade:3195 ../glade/settingsdialog.glade:3788
@@ -1688,7 +1692,7 @@ msgid "Slots"
 msgstr "Слоты"
 
 #: ../src/search.cc:304 ../src/search.cc:374 ../src/sharebrowser.cc:479
-#: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1550
+#: ../src/sharebrowser.cc:531 ../glade/mainwindow.glade:1557
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2728 ../glade/settingsdialog.glade:4041
 #: ../glade/settingsdialog.glade:4967 ../glade/settingsdialog.glade:4982
@@ -2055,7 +2059,7 @@ msgstr "Юзеры со свободными слотами"
 msgid "Filter files already in share"
 msgstr "Фильтровать уже расшаренные файлы"
 
-#: ../glade/search.glade:272 ../glade/mainwindow.glade:507
+#: ../glade/search.glade:272 ../glade/mainwindow.glade:514
 msgid "Hubs"
 msgstr "Хабы"
 
@@ -2228,139 +2232,143 @@ msgstr "_Настройки"
 msgid "_Magnet Choice"
 msgstr "_Свойства магнетов"
 
-#: ../glade/mainwindow.glade:153 ../glade/mainwindow.glade:1300
+#: ../glade/mainwindow.glade:153
+msgid "Get TTH from File"
+msgstr "Вычислить TTH файла"
+
+#: ../glade/mainwindow.glade:160 ../glade/mainwindow.glade:1307
 msgid "_Exit"
 msgstr "_Выход"
 
-#: ../glade/mainwindow.glade:171
+#: ../glade/mainwindow.glade:178
 msgid "_View"
 msgstr "_Вид"
 
-#: ../glade/mainwindow.glade:325
+#: ../glade/mainwindow.glade:332
 msgid "Indexing Progress"
 msgstr "Прогресс хэширования"
 
-#: ../glade/mainwindow.glade:343
+#: ../glade/mainwindow.glade:350
 msgid "_Tabs"
 msgstr "_Окно"
 
-#: ../glade/mainwindow.glade:351
+#: ../glade/mainwindow.glade:358
 msgid "_Previous Tab"
 msgstr "_Предыдущее окно"
 
-#: ../glade/mainwindow.glade:360
+#: ../glade/mainwindow.glade:367
 msgid "_Next Tab"
 msgstr "_Следуюшее окно"
 
-#: ../glade/mainwindow.glade:385
+#: ../glade/mainwindow.glade:392
 msgid "Homepage"
 msgstr "Домашняя страница"
 
-#: ../glade/mainwindow.glade:399
+#: ../glade/mainwindow.glade:406
 msgid "Source (svn)"
 msgstr "Исходники (svn)"
 
-#: ../glade/mainwindow.glade:413
+#: ../glade/mainwindow.glade:420
 msgid "Report a Bug"
 msgstr "Сообщить об ошибке"
 
-#: ../glade/mainwindow.glade:427
+#: ../glade/mainwindow.glade:434
 msgid "Wiki of project"
 msgstr "Wiki проекта"
 
-#: ../glade/mainwindow.glade:446
+#: ../glade/mainwindow.glade:453
 msgid "Changelog (svn)"
 msgstr "Журнал изменений (svn)"
 
-#: ../glade/mainwindow.glade:465
+#: ../glade/mainwindow.glade:472
 msgid "About EiskaltDC++"
 msgstr "Об EiskaltDC++"
 
-#: ../glade/mainwindow.glade:492
+#: ../glade/mainwindow.glade:499
 msgid "Quick connect to a hub"
 msgstr "Быстрое соединение с хабом"
 
-#: ../glade/mainwindow.glade:531
+#: ../glade/mainwindow.glade:538
 msgid "Browse the list of public hubs"
 msgstr "Просмотр списка открытых хабов"
 
-#: ../glade/mainwindow.glade:544
+#: ../glade/mainwindow.glade:551
 msgid "Edit the preferences"
 msgstr "Изменить настройки"
 
-#: ../glade/mainwindow.glade:557
+#: ../glade/mainwindow.glade:564
 msgid "View the hashing progress"
 msgstr "Посмотреть процесс хеширования"
 
-#: ../glade/mainwindow.glade:570
+#: ../glade/mainwindow.glade:577
 msgid "Search for files to download"
 msgstr "Поиск файлов, для загрузки"
 
-#: ../glade/mainwindow.glade:585
+#: ../glade/mainwindow.glade:592
 msgid "ADL"
 msgstr "ADL"
 
-#: ../glade/mainwindow.glade:598
+#: ../glade/mainwindow.glade:605
 msgid "Spy"
 msgstr "Шпион"
 
-#: ../glade/mainwindow.glade:609
+#: ../glade/mainwindow.glade:616
 msgid "View the files to be downloaded"
 msgstr "Посмотреть файлы"
 
-#: ../glade/mainwindow.glade:622
+#: ../glade/mainwindow.glade:629
 msgid "View the list of finished downloads"
 msgstr "Посмотреть список завершённых скачиваний"
 
-#: ../glade/mainwindow.glade:635
+#: ../glade/mainwindow.glade:642
 msgid "View the list of finished uploads"
 msgstr "Посмотреть список завершённых отдач"
 
-#: ../glade/mainwindow.glade:648
+#: ../glade/mainwindow.glade:655
 msgid "Quit the program"
 msgstr "Выход из программы"
 
-#: ../glade/mainwindow.glade:711
+#: ../glade/mainwindow.glade:718
 msgid "Show/Hide transfers panel"
 msgstr "Показать/Спрятать панель передач"
 
-#: ../glade/mainwindow.glade:746
+#: ../glade/mainwindow.glade:753
 msgid "Hubs (normal / registered / op)"
 msgstr "Хабы (норм./регист./опер.)"
 
-#: ../glade/mainwindow.glade:787
+#: ../glade/mainwindow.glade:794
 msgid "Download speed"
 msgstr "Скорость закачки"
 
-#: ../glade/mainwindow.glade:828
+#: ../glade/mainwindow.glade:835
 msgid "Total received"
 msgstr "Всего получено"
 
-#: ../glade/mainwindow.glade:850
+#: ../glade/mainwindow.glade:857
 msgid "Upload speed"
 msgstr "Скорость отдачи"
 
-#: ../glade/mainwindow.glade:892
+#: ../glade/mainwindow.glade:899
 msgid "Total sent"
 msgstr "Всего отдано"
 
-#: ../glade/mainwindow.glade:914
+#: ../glade/mainwindow.glade:921
 msgid "Exit EiskaltDC++ Gtk?"
 msgstr "Выйти из EiskaltDC++ Gtk?"
 
-#: ../glade/mainwindow.glade:925
+#: ../glade/mainwindow.glade:932
 msgid "Do you really want to exit?"
 msgstr "Точно выйти?"
 
-#: ../glade/mainwindow.glade:971
+#: ../glade/mainwindow.glade:978
 msgid "Connect to a hub"
 msgstr "Соединиться с хабом"
 
-#: ../glade/mainwindow.glade:1005
+#: ../glade/mainwindow.glade:1012
 msgid "<b>Connect to address:</b>"
 msgstr "<b>Адрес:</b>"
 
-#: ../glade/mainwindow.glade:1066
+#: ../glade/mainwindow.glade:1073
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2380,7 +2388,7 @@ msgstr ""
 " troll (http://code.google.com/p/freedcpp/)\n"
 "    "
 
-#: ../glade/mainwindow.glade:1074
+#: ../glade/mainwindow.glade:1081
 msgid ""
 "Translators\n"
 "\n"
@@ -2476,43 +2484,43 @@ msgstr ""
 " (dimitrov.rusi@gmail.com)\n"
 "    "
 
-#: ../glade/mainwindow.glade:1186
+#: ../glade/mainwindow.glade:1193
 msgid "Enter line for user command"
 msgstr "Введите строку для пользовательской команды"
 
-#: ../glade/mainwindow.glade:1274
+#: ../glade/mainwindow.glade:1281
 msgid "_Show Interface"
 msgstr "_Показать интерфейс"
 
-#: ../glade/mainwindow.glade:1287
+#: ../glade/mainwindow.glade:1294
 msgid "Use Blinking Icon"
 msgstr "Мигающий значок"
 
-#: ../glade/mainwindow.glade:1314 ../glade/mainwindow.glade:1351
+#: ../glade/mainwindow.glade:1321 ../glade/mainwindow.glade:1358
 msgid "Magnet"
 msgstr "Магнет"
 
-#: ../glade/mainwindow.glade:1362
+#: ../glade/mainwindow.glade:1369
 msgid "File name"
 msgstr "Файл"
 
-#: ../glade/mainwindow.glade:1388
+#: ../glade/mainwindow.glade:1395
 msgid "TTH"
 msgstr "TTH"
 
-#: ../glade/mainwindow.glade:1457
+#: ../glade/mainwindow.glade:1464
 msgid "Exact size"
 msgstr "Точный размер"
 
-#: ../glade/mainwindow.glade:1485
+#: ../glade/mainwindow.glade:1492
 msgid "+/-"
 msgstr "+/-"
 
-#: ../glade/mainwindow.glade:1496
+#: ../glade/mainwindow.glade:1503
 msgid "<b>Magnet properties</b>"
 msgstr "<b>Свойства магнетов</b>"
 
-#: ../glade/mainwindow.glade:1524
+#: ../glade/mainwindow.glade:1531
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
@@ -2520,35 +2528,39 @@ msgstr ""
 "Для начала закачки файла включите автоматический поиск альтернатив "
 "(Настройки/Закачки/Очередь)"
 
-#: ../glade/mainwindow.glade:1525
+#: ../glade/mainwindow.glade:1532
 msgid "Add this file to your download queue"
 msgstr "Добавить этот файл в очередь загрузок"
 
-#: ../glade/mainwindow.glade:1569
+#: ../glade/mainwindow.glade:1576
 msgid "Start a search for this file"
 msgstr "Начать поиск этого файла"
 
-#: ../glade/mainwindow.glade:1583
+#: ../glade/mainwindow.glade:1590
 msgid "Show magnet dialog"
 msgstr "Показать диалог магнета"
 
-#: ../glade/mainwindow.glade:1609
+#: ../glade/mainwindow.glade:1616
 msgid "Remember choice"
 msgstr "Запомнить выбор"
 
-#: ../glade/mainwindow.glade:1638
+#: ../glade/mainwindow.glade:1645
 msgid "<b>What would you like to do?</b>"
 msgstr "<b>Что вы хотите сделать?</b>"
 
-#: ../glade/mainwindow.glade:1666 ../glade/settingsdialog.glade:6075
+#: ../glade/mainwindow.glade:1673 ../glade/settingsdialog.glade:6075
 #: ../glade/settingsdialog.glade:6568 ../glade/settingsdialog.glade:6609
 msgid "gtk-cancel"
 msgstr "gtk-cancel"
 
-#: ../glade/mainwindow.glade:1676 ../glade/settingsdialog.glade:6580
+#: ../glade/mainwindow.glade:1683 ../glade/settingsdialog.glade:6580
 #: ../glade/settingsdialog.glade:6632
 msgid "gtk-ok"
 msgstr "gtk-ok"
+
+#: ../glade/mainwindow.glade:1712
+msgid "Chose A File"
+msgstr "Выберите файл"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"

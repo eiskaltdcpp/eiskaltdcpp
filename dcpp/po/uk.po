@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-04 22:06+0300\n"
+"POT-Creation-Date: 2010-10-10 20:29+0300\n"
 "PO-Revision-Date: 2008-05-04 16:18+0000\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -179,42 +179,42 @@ msgstr "%1% був відкинутий: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "З'єднання не прослуховуються - будь ласка, перезапустіть %1%"
 
-#: ../Util.cpp:461
+#: ../Util.cpp:473
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:475
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:477
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:479
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:481
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:471
+#: ../Util.cpp:483
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:501
+#: ../Util.cpp:513
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:505
+#: ../Util.cpp:517
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
@@ -349,8 +349,7 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"Дублікат файла не буде розшарено: %1% (Розмір: %2% Б) Копія співпала з: "
-"%3%"
+"Дублікат файла не буде розшарено: %1% (Розмір: %2% Б) Копія співпала з: %3%"
 
 #: ../ShareManager.cpp:727
 msgid ""

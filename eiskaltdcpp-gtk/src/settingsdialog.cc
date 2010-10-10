@@ -919,7 +919,7 @@ void Settings::initAppearance_gui()
         createOptionsView_gui(appearanceView, appearanceStore, "appearanceOptionsTreeView");
 
         addOption_gui(appearanceStore, _("Filter kick and NMDC debug messages"), SettingsManager::FILTER_MESSAGES);
-        addOption_gui(appearanceStore, _("Show status icon"), "always-tray");
+        addOption_gui(appearanceStore, _("Show status icon in the system tray"), "always-tray");
         addOption_gui(appearanceStore, _("Show timestamps in chat by default"), SettingsManager::TIME_STAMPS);
         addOption_gui(appearanceStore, _("View status messages in main chat"), SettingsManager::STATUS_IN_CHAT);
         addOption_gui(appearanceStore, _("Show joins / parts in chat by default"), SettingsManager::SHOW_JOINS);

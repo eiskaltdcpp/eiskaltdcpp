@@ -1976,6 +1976,66 @@ Please check your connection settings</source>
         <source>Calculate file TTH</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Next tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close current widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle main menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Call delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+M</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Button style</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
