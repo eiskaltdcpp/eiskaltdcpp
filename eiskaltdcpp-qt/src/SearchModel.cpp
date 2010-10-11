@@ -433,6 +433,8 @@ void SearchModel::setSortOrder(Qt::SortOrder o) {
 }
 
 void SearchModel::clearModel(){
+    emit layoutAboutToBeChanged();
+
     qDeleteAll(rootItem->childItems);
     rootItem->childItems.clear();
 
