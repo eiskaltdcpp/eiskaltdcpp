@@ -1761,62 +1761,62 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="843"/>
         <source>Next message</source>
-        <translation type="unfinished"></translation>
+        <translation>Наступне повідомлення</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="844"/>
         <source>Previous message</source>
-        <translation type="unfinished"></translation>
+        <translation>Попереднє повідомлення</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="845"/>
         <source>Close current widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрити поточний віджет</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="846"/>
         <source>Toggle main menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Приховати головне меню</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="847"/>
         <source>Call delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Визвати видалення</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="857"/>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="858"/>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="859"/>
         <source>Ctrl+Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Down</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="860"/>
         <source>Ctrl+Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Up</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="861"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="862"/>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="863"/>
         <source>Delete</source>
-        <translation type="unfinished">Видалити</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1010"/>
@@ -1976,12 +1976,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="841"/>
         <source>Next widget</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="842"/>
         <source>Previous widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Попередній віджет</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1388"/>
@@ -2047,7 +2047,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2314"/>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation>Стиль кпопок</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2328"/>
@@ -4110,7 +4110,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
         <source>Search string</source>
-        <translation type="unfinished">Рядок запиту</translation>
+        <translation>Рядок запиту</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="104"/>
