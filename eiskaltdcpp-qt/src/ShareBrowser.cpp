@@ -256,8 +256,8 @@ void ShareBrowser::load(){
     treeView_LPANE->setSortingEnabled(true);
     treeView_RPANE->setSortingEnabled(true);
 
-    itemsCount = listing.getRoot()->getTotalFileCount();
-    share_size = listing.getRoot()->getTotalSize();
+    itemsCount = listing.getRoot()->getTotalFileCount(true);
+    share_size = listing.getRoot()->getTotalSize(true);
 
     label_LEFT->setText(QString(tr("Total share size: %1;  Files: %2")).arg(WulforUtil::formatBytes(share_size)).arg(itemsCount));
 }
@@ -466,7 +466,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         quint64 size = 0;
         QList<QVariant> data;
 
-        size = (*it)->getTotalSize();
+        size = (*it)->getTotalSize(true);
         current_size += size;
 
         data << QString::fromUtf8((*it)->getName().c_str())
