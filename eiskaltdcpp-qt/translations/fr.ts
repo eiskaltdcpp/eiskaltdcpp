@@ -137,6 +137,17 @@ Keys:
     </message>
 </context>
 <context>
+    <name>ActionCustomizer</name>
+    <message>
+        <source>Customize actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>-- Separator --</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AntiSpam</name>
     <message>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
@@ -1291,6 +1302,13 @@ Utilisateur favoris</translation>
     <message>
         <source>Add to White</source>
         <translation type="obsolete">Ajouter à la liste blanche</translation>
+    </message>
+</context>
+<context>
+    <name>HubManager</name>
+    <message>
+        <source>Hub Manager</source>
+        <translation type="unfinished">Gestionnaire de serveurs</translation>
     </message>
 </context>
 <context>
@@ -2821,6 +2839,13 @@ Clés:
     </message>
 </context>
 <context>
+    <name>SettingsLog</name>
+    <message>
+        <source>Choose the directory</source>
+        <translation type="unfinished">Choisissez le répertoire</translation>
+    </message>
+</context>
+<context>
     <name>SettingsNotification</name>
     <message>
         <source>Select file</source>
@@ -3023,6 +3048,25 @@ Clés:
     </message>
 </context>
 <context>
+    <name>ShellCommandRunner</name>
+    <message>
+        <source>Command produced no visible output.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process exited with status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process was killed or crashed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process still running after 2 minutes, killing process...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShortcutsModel</name>
     <message>
         <source>Action</source>
@@ -3133,6 +3177,13 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>Search string</source>
         <translation>Chaîne de recherche</translation>
+    </message>
+</context>
+<context>
+    <name>TabFrame</name>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
     </message>
 </context>
 <context>
@@ -3590,6 +3641,29 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>UIActionCustomizer</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Dialogue</translation>
+    </message>
+    <message>
+        <source>&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished">Haut</translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished">Bas</translation>
     </message>
 </context>
 <context>

@@ -132,6 +132,20 @@ Keys:
     </message>
 </context>
 <context>
+    <name>ActionCustomizer</name>
+    <message>
+        <location filename="../src/ActionCustomizer.cpp" line="8"/>
+        <source>Customize actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ActionCustomizer.cpp" line="17"/>
+        <location filename="../src/ActionCustomizer.cpp" line="29"/>
+        <source>-- Separator --</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AntiSpam</name>
     <message>
         <location filename="../src/Antispam.cpp" line="134"/>
@@ -1411,6 +1425,14 @@ Ulubiony użytkownik</translation>
         <location filename="../src/HubFrame.cpp" line="3359"/>
         <source>Search flood detected: %1</source>
         <translation>Wykryty flood zapytań: %1</translation>
+    </message>
+</context>
+<context>
+    <name>HubManager</name>
+    <message>
+        <location filename="../src/HubManager.h" line="45"/>
+        <source>Hub Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3296,6 +3318,14 @@ Opcje:
     </message>
 </context>
 <context>
+    <name>SettingsLog</name>
+    <message>
+        <location filename="../src/SettingsLog.cpp" line="75"/>
+        <source>Choose the directory</source>
+        <translation type="unfinished">Wybierz katalog</translation>
+    </message>
+</context>
+<context>
     <name>SettingsNotification</name>
     <message>
         <location filename="../src/SettingsNotification.cpp" line="182"/>
@@ -3527,6 +3557,29 @@ Opcje:
     </message>
 </context>
 <context>
+    <name>ShellCommandRunner</name>
+    <message>
+        <location filename="../src/ShellCommandRunner.cpp" line="76"/>
+        <source>Command produced no visible output.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ShellCommandRunner.cpp" line="81"/>
+        <source>Process exited with status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ShellCommandRunner.cpp" line="84"/>
+        <source>Process was killed or crashed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ShellCommandRunner.cpp" line="87"/>
+        <source>Process still running after 2 minutes, killing process...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShortcutsModel</name>
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="143"/>
@@ -3664,6 +3717,14 @@ Chcesz go zatrzymać?
         <location filename="../src/SpyModel.cpp" line="9"/>
         <source>Search string</source>
         <translation>Szukany ciąg</translation>
+    </message>
+</context>
+<context>
+    <name>TabFrame</name>
+    <message>
+        <location filename="../src/TabFrame.cpp" line="276"/>
+        <source>Close</source>
+        <translation type="unfinished">Zamknij</translation>
     </message>
 </context>
 <context>
@@ -4157,6 +4218,34 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>UIActionCustomizer</name>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished">Dialog</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="29"/>
+        <source>&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="45"/>
+        <source>&lt;&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="88"/>
+        <source>Up</source>
+        <translation type="unfinished">W górę</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="95"/>
+        <source>Down</source>
+        <translation type="unfinished">W dół</translation>
     </message>
 </context>
 <context>

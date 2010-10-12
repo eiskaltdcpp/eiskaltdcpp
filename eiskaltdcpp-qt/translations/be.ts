@@ -151,6 +151,20 @@ Keys:
     </message>
 </context>
 <context>
+    <name>ActionCustomizer</name>
+    <message>
+        <location filename="../src/ActionCustomizer.cpp" line="8"/>
+        <source>Customize actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ActionCustomizer.cpp" line="17"/>
+        <location filename="../src/ActionCustomizer.cpp" line="29"/>
+        <source>-- Separator --</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AntiSpam</name>
     <message>
         <location filename="../src/Antispam.cpp" line="134"/>
@@ -1448,6 +1462,14 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1127"/>
         <source>Chat cleared.</source>
         <translation>Гаману ачысьцілі.</translation>
+    </message>
+</context>
+<context>
+    <name>HubManager</name>
+    <message>
+        <location filename="../src/HubManager.h" line="45"/>
+        <source>Hub Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3350,6 +3372,14 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     </message>
 </context>
 <context>
+    <name>SettingsLog</name>
+    <message>
+        <location filename="../src/SettingsLog.cpp" line="75"/>
+        <source>Choose the directory</source>
+        <translation type="unfinished">Абярыце каталёг</translation>
+    </message>
+</context>
+<context>
     <name>SettingsNotification</name>
     <message>
         <location filename="../src/SettingsNotification.cpp" line="182"/>
@@ -3582,6 +3612,29 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     </message>
 </context>
 <context>
+    <name>ShellCommandRunner</name>
+    <message>
+        <location filename="../src/ShellCommandRunner.cpp" line="76"/>
+        <source>Command produced no visible output.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ShellCommandRunner.cpp" line="81"/>
+        <source>Process exited with status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ShellCommandRunner.cpp" line="84"/>
+        <source>Process was killed or crashed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ShellCommandRunner.cpp" line="87"/>
+        <source>Process still running after 2 minutes, killing process...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShortcutsModel</name>
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="143"/>
@@ -3721,6 +3774,14 @@ Do you want to stop it?
         <source>Search string</source>
         <translatorcomment>???Радок запыту</translatorcomment>
         <translation>Радок, які шукаецца</translation>
+    </message>
+</context>
+<context>
+    <name>TabFrame</name>
+    <message>
+        <location filename="../src/TabFrame.cpp" line="276"/>
+        <source>Close</source>
+        <translation type="unfinished">Закрыць</translation>
     </message>
 </context>
 <context>
@@ -4235,6 +4296,34 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAbout.ui" line="103"/>
         <source>License</source>
         <translation>Ліцэнзія</translation>
+    </message>
+</context>
+<context>
+    <name>UIActionCustomizer</name>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="29"/>
+        <source>&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="45"/>
+        <source>&lt;&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="88"/>
+        <source>Up</source>
+        <translation type="unfinished">Угору</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIActionCustomizer.ui" line="95"/>
+        <source>Down</source>
+        <translation type="unfinished">Да-долу</translation>
     </message>
 </context>
 <context>
