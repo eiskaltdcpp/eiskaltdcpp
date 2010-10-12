@@ -1407,11 +1407,11 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation>Letöltve</translation>
+        <translation type="obsolete">Letöltve</translation>
     </message>
     <message>
         <source>Uploaded</source>
-        <translation>Feltöltve</translation>
+        <translation type="obsolete">Feltöltve</translation>
     </message>
     <message>
         <source>Space free</source>
@@ -1697,11 +1697,11 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Download speed</source>
-        <translation>Letöltési sebesség</translation>
+        <translation type="obsolete">Letöltési sebesség</translation>
     </message>
     <message>
         <source>Upload speed</source>
-        <translation>Feltöltési sebesség</translation>
+        <translation type="obsolete">Feltöltési sebesség</translation>
     </message>
     <message>
         <source>/s</source>
@@ -2049,6 +2049,22 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Previous widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download/Upload speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded/Uploaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1/s / %2/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

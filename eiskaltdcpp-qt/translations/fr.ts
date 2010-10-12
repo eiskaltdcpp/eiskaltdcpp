@@ -1455,11 +1455,11 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation>Téléchargé</translation>
+        <translation type="obsolete">Téléchargé</translation>
     </message>
     <message>
         <source>Uploaded</source>
-        <translation>Envoyé</translation>
+        <translation type="obsolete">Envoyé</translation>
     </message>
     <message>
         <source>Space free</source>
@@ -1710,11 +1710,11 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Download speed</source>
-        <translation>Vitesse de téléchargement</translation>
+        <translation type="obsolete">Vitesse de téléchargement</translation>
     </message>
     <message>
         <source>Upload speed</source>
-        <translation>Vitesse d&apos;envoi</translation>
+        <translation type="obsolete">Vitesse d&apos;envoi</translation>
     </message>
     <message>
         <source>Open download directory</source>
@@ -2034,6 +2034,22 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Previous widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download/Upload speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded/Uploaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1/s / %2/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

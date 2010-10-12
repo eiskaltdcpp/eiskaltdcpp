@@ -1263,11 +1263,11 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation>Preuzeto</translation>
+        <translation type="obsolete">Preuzeto</translation>
     </message>
     <message>
         <source>Uploaded</source>
-        <translation>Otpremljeno</translation>
+        <translation type="obsolete">Otpremljeno</translation>
     </message>
     <message>
         <source>Space free</source>
@@ -1463,11 +1463,11 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Download speed</source>
-        <translation>Brzina preuzimanja</translation>
+        <translation type="obsolete">Brzina preuzimanja</translation>
     </message>
     <message>
         <source>Upload speed</source>
-        <translation>Brzina otpremanja</translation>
+        <translation type="obsolete">Brzina otpremanja</translation>
     </message>
     <message>
         <source>Open download directory</source>
@@ -1837,6 +1837,22 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>Previous widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download/Upload speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded/Uploaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1/s / %2/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 / %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
