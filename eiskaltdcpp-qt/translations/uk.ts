@@ -1982,22 +1982,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1010"/>
         <source>Download/Upload speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Швидкість Завантаження/Віддачі</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1016"/>
         <source>Downloaded/Uploaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажено/Віддано</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1374"/>
         <source>%1/s / %2/s</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/с / %2/с</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1375"/>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1378"/>
