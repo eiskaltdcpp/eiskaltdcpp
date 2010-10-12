@@ -298,7 +298,9 @@ void ShareBrowser::buildList(){
         treeView_RPANE->blockSignals(true);
     }
     catch (const Exception &e){
-        //TODO: add error handling
+        QMessageBox::critical(this, file, _q(e.what()), QMessageBox::Ok);
+
+        close();
     }
 }
 

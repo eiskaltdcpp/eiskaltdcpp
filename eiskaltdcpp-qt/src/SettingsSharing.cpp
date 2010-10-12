@@ -41,7 +41,7 @@ SettingsSharing::~SettingsSharing(){
 void SettingsSharing::showEvent(QShowEvent *e){
     e->accept();
 
-    if (WSGET(WS_SHAREHEADER_STATE).isEmpty()){
+    if (WSGET(WS_SHAREHEADER_STATE).isEmpty() && model){
         for (int i = 0; i < model->columnCount(); i++)
             treeView->setColumnWidth(i, treeView->width()/4);
     }
