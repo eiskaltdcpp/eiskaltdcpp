@@ -32,8 +32,17 @@ void SettingsPersonal::ok(){
     SM->set(SettingsManager::UPLOAD_SPEED, SettingsManager::connectionSpeeds[comboBox_SPEED->currentIndex()]);
     SM->set(SettingsManager::DEFAULT_AWAY_MESSAGE, lineEdit_AWAYMSG->text().toStdString());
 
-    WSSET(WS_DEFAULT_LOCALE, comboBox_ENC->currentText());
-    Text::hubDefaultCharset = WulforUtil::getInstance()->qtEnc2DcEnc(comboBox_ENC->currentText()).toStdString();
+    QString enc = comboBox_ENC->currentText();
+
+    WSSET(WS_DEFAULT_LOCALE, enc);
+    enc = WulforUtil::getInstance()->qtEnc2DcEnc(comboBox_ENC->currentText());
+
+    if (enc.indexOf(" ") > 0){
+        enc = enc.left(enc.indexOf(" "));
+        enc.replace(" ", "");
+    }
+
+    Text::hubDefaultCharset = _tq(enc);
 
     WBSET(WB_APP_AUTOAWAY_BY_TIMER, checkBox_AUTOAWAY->isChecked());
     WISET(WI_APP_AUTOAWAY_INTERVAL, spinBox->value());

@@ -43,6 +43,13 @@ void QuickConnect::slotAccept() {
     if (hub.startsWith("adc://") || hub.startsWith("adcs://"))
         encoding = "UTF-8";
     if (!hub.isEmpty()) {
+        if (encoding.isEmpty()){//Has favorite entry for hub?
+            FavoriteHubEntry* entry = FavoriteManager::getInstance()->getFavoriteHubEntry(_tq(hub));
+
+            if (entry)
+                encoding = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
+        }
+
         MainWindow::getInstance()->newHubFrame(hub, (encoding.isEmpty())? (WSGET(WS_DEFAULT_LOCALE)) : (encoding));
 
         QStringList list = WulforSettings::getInstance()->getStr(WS_QCONNECT_HISTORY).split(" ", QString::SkipEmptyParts);
