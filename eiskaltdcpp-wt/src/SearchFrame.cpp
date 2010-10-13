@@ -2,6 +2,12 @@
 
 #include <stdio.h>
 
+#include "dcpp/SettingsManager.h"
+#include "dcpp/ClientManager.h"
+#include "dcpp/QueueManager.h"
+
+#include "Utils.h"
+
 using namespace Wt;
 using namespace dcpp;
 
@@ -49,6 +55,7 @@ SearchFrame::SearchFrame(Wt::WContainerWidget *parent): WContainerWidget(parent)
         pushButton_SEARCH->clicked().connect(this, &SearchFrame::startSearch);
 
         pushButton_DOWNLOAD = new WPushButton("Download selected");
+        pushButton_DOWNLOAD->clicked().connect(this, &SearchFrame::downloadSelected);
 
         container->addWidget(label1);
         container->addWidget(comboBox_TYPE);
@@ -145,6 +152,63 @@ void SearchFrame::startSearch() {
                                              searchMode, token);
 
     }
+}
+
+bool SearchFrame::getDownloadParams(SearchFrame::VarMap &params, SearchModelItem *item){
+    if (!item)
+        return false;
+
+    params.clear();
+
+    WString fname = item->path + item->file;
+
+    params["CID"]   = item->cid;
+    params["FNAME"] = fname;
+    params["ESIZE"] = item->size;
+    params["TTH"]   = item->tth;
+    params["HOST"]  = item->host;
+    params["TARGET"]= _q(SETTING(DOWNLOAD_DIRECTORY));
+
+    return true;
+}
+
+void SearchFrame::downloadSelected(){
+    VarMap params;
+    std::vector<SearchModelItem*> items = model->getCheckedItems();
+
+    for (std::vector<SearchModelItem*>::iterator it = items.begin(); it != items.end(); ++it){
+        if (getDownloadParams(params, *it))
+            download(params);
+    }
+}
+
+void SearchFrame::download(SearchFrame::VarMap &params){
+    string target, cid, filename, hubUrl;
+    int64_t size;
+
+    target      = _tq(boost::any_cast<WString>(params["TARGET"]));
+    cid         = _tq(boost::any_cast<WString>(params["CID"]));
+    filename    = _tq(boost::any_cast<WString>(params["FNAME"]));
+    hubUrl      = _tq(boost::any_cast<WString>(params["HOST"]));
+    size        = boost::any_cast<unsigned long>(params["ESIZE"]);
+
+    try{
+        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+
+        if (!user)
+            return;
+
+        if (!boost::any_cast<WString>(params["TTH"]).empty()){
+            TStringList list = StringTokenizer<tstring>(filename, '\\').getTokens();
+            string subdir = list.at(list.size()-1);
+
+            QueueManager::getInstance()->add(target + subdir, size, TTHValue(_tq(boost::any_cast<WString>(params["TTH"]))), user, hubUrl);
+        }
+        else{
+            QueueManager::getInstance()->addDirectory(filename, user, hubUrl, target);
+        }
+    }
+    catch (const Exception&){}
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const SearchResultPtr& aResult) throw(){

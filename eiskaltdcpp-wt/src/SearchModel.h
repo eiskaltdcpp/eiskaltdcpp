@@ -92,6 +92,7 @@ public:
     Wt::WFlags<Wt::ItemFlag> flags(const Wt::WModelIndex &index) const;
 
     virtual void addResult(SearchModelItem *item);
+    std::vector<SearchModelItem*> getCheckedItems(){ return checkedItems; }
     
 private:
     SearchModel(const SearchModel& orig){}

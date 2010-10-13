@@ -16,6 +16,9 @@
 #include "dcpp/StringTokenizer.h"
 #include "dcpp/Encoder.h"
 
+#include <map>
+#include <boost/any.hpp>
+
 #include <Wt/WContainerWidget>
 #include <Wt/WLabel>
 #include <Wt/WPushButton>
@@ -31,6 +34,8 @@ class SearchFrame:
         public Wt::WContainerWidget,
         private dcpp::SearchManagerListener
 {
+    typedef std::map<Wt::WString, boost::any> VarMap;
+
 public:
     SearchFrame(Wt::WContainerWidget *parent = 0);
     virtual ~SearchFrame();
@@ -41,6 +46,10 @@ protected:
 private:
     SearchFrame(const SearchFrame& orig);
     SearchFrame& operator=(const SearchFrame&){}
+
+    bool getDownloadParams(VarMap &params, SearchModelItem *item);
+    void download(VarMap &params);
+    void downloadSelected();
 
     void startSearch();
 

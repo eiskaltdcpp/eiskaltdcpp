@@ -12,6 +12,7 @@
 #include "dcpp/CID.h"
 
 inline Wt::WString _q(const std::string &str){ return Wt::WString(str.c_str()); }
+inline std::string _tq(const Wt::WString &str){ return str.toUTF8(); }
 
 class Utils
 {
