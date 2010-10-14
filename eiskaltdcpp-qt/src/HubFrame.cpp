@@ -713,7 +713,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                     plainTextEdit_INPUT->setFocus();
                 }
                 else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList))
-                    addPM(cid, "");
+                    addPM(cid, "", false);
                 else if (cursoratnick || isUserList)
                     browseUserFiles(cid, false);
             }
@@ -777,9 +777,11 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
             if (!cid.isEmpty()){
                 if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1 && (cursoratnick || isUserList)){
-                        browseUserFiles(cid, false);}
+                    browseUserFiles(cid, false);
+                }
                 else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList)){
-                        addPM(cid, "");}
+                    addPM(cid, "", false);
+                }
                 else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
                     if (plainTextEdit_INPUT->textCursor().position() == 0)
                         plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
@@ -1434,7 +1436,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             pm->sendMessage(line, true, false);
     }
     else if (cmd == "/pm" && !emptyParam){
-        addPM(model->CIDforNick(param, _q(client->getHubUrl())), "");
+        addPM(model->CIDforNick(param, _q(client->getHubUrl())), "", false);
     }
     else if (cmd == "/help" || cmd == "/?" || cmd == "/h"){
         QString out = "\n";
@@ -1585,7 +1587,7 @@ void HubFrame::addOutput(QString msg){
     textEdit_CHAT->append(msg);
 }
 
-void HubFrame::addPM(QString cid, QString output){
+void HubFrame::addPM(QString cid, QString output, bool keepfocus){
     if (!pm.contains(cid)){
         PMWindow *p = new PMWindow(cid, _q(client->getHubUrl().c_str()));
         p->textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -1598,7 +1600,7 @@ void HubFrame::addPM(QString cid, QString output){
         MainWindow::getInstance()->addArenaWidget(p);
         MainWindow::getInstance()->addArenaWidgetOnToolbar(p, WBGET(WB_CHAT_KEEPFOCUS));
 
-        if (!WBGET(WB_CHAT_KEEPFOCUS))
+        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS))
             MainWindow::getInstance()->mapWidgetOnArena(p);
 
         p->setCompleter(completer, model);
@@ -1614,6 +1616,9 @@ void HubFrame::addPM(QString cid, QString output){
 
         if (output.indexOf(_q(client->getMyNick())) >= 0)
             it.value()->setHasHighlightMessages(true);
+
+        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS))
+            MainWindow::getInstance()->mapWidgetOnArena(it.value());
 
         it.value()->addOutput(output);
     }
@@ -2220,7 +2225,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
-                    addPM(item->cid, "");
+                    addPM(item->cid, "", false);
 
                 if (pm.contains(cid))
                     MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);
@@ -2519,7 +2524,7 @@ void HubFrame::slotChatMenu(const QPoint &){
         }
         case Menu::PrivateMessage:
         {
-            addPM(cid, "");
+            addPM(cid, "", false);
 
             if (pm.contains(cid))
                 MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);

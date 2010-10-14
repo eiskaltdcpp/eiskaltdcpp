@@ -146,7 +146,7 @@ public:
     inline void reconnect() { slotReconnect(); }
 
     // PM functions
-    void addPM(QString, QString);
+    void addPM(QString, QString, bool keepfocus = true);
 
     // Arena Widget interface
     QWidget *getWidget();

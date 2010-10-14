@@ -1548,15 +1548,15 @@ void MainWindow::browseOwnFiles(){
 }
 
 void MainWindow::slotFileBrowseFilelist(){
-    static ShareBrowser *local_share = NULL;
     QString file = QFileDialog::getOpenFileName(this, tr("Choose file to open"), QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
             tr("Modern XML Filelists") + " (*.xml.bz2);;" +
             tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
             tr("All files") + " (*)");
     file = QDir::toNativeSeparators(file);
     UserPtr user = DirectoryListing::getUserFromFilename(_tq(file));
+
     if (user) {
-        local_share = new ShareBrowser(user, file, "");
+        new ShareBrowser(user, file, "");
     } else {
         setStatusMessage(tr("Unable to load file list: Invalid file list name"));
     }
@@ -1824,7 +1824,7 @@ void MainWindow::showPortsError(const string& port) {
     QMessageBox::warning(this, tr("Connectivity Manager: Warning"), msg, QMessageBox::Ok);
 }
 void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const QString &jump_to){
-    ShareBrowser *sb = new ShareBrowser(usr, file, jump_to);
+    new ShareBrowser(usr, file, jump_to);
 }
 
 void MainWindow::reloadSomeSettings(){
