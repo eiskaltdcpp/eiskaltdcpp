@@ -147,7 +147,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Як карыстацца:
+  eiskaltdcpp-qt &lt;магніт-спасылка&gt; &lt;dchub://спасылка&gt; &lt;adc(s)://спасылка&gt;
+  eiskaltdcpp-qt &lt;Ключ&gt;
+EiskaltDC++ — гэта міжплятформавая праграма, якая выкарыстоўвае пратаколы Direct Connect і ADC.
+
+Ключы:
+  -h, --help	 Паказвае гэтае паведамленьне
+  -v, --version	 Паказвае радок з вэрсіяй</translation>
     </message>
 </context>
 <context>
@@ -155,13 +162,13 @@ Keys:
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="8"/>
         <source>Customize actions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Наладзіць дзеяньні</translation>
     </message>
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="17"/>
         <location filename="../src/ActionCustomizer.cpp" line="29"/>
         <source>-- Separator --</source>
-        <translation type="unfinished"></translation>
+        <translation>— Аддзяляльнік —</translation>
     </message>
 </context>
 <context>
@@ -354,7 +361,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="366"/>
         <source>Checksum mismatch</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Неадпаведная кантрольная сума</translation>
     </message>
     <message>
         <source>CRC32 inconsistency (SFV-Check)</source>
@@ -779,7 +786,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Check sum</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Кантрольная сума</translation>
     </message>
     <message>
         <source>CRC checked</source>
@@ -1469,7 +1476,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubManager.h" line="45"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Кіраўнік асяродкаў</translation>
     </message>
 </context>
 <context>
@@ -1680,62 +1687,63 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="843"/>
         <source>Next message</source>
-        <translation type="unfinished"></translation>
+        <translation>Наступнае паведамленьне</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="844"/>
         <source>Previous message</source>
-        <translation type="unfinished"></translation>
+        <translation>Папярэдняе паведамленьне</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="845"/>
         <source>Close current widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыць бягучае ваконца</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="846"/>
         <source>Toggle main menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказаць або схаваць галоўнае мэню</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="847"/>
         <source>Call delete</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>???«Выклікаць выкрасьленьне»</translatorcomment>
+        <translation type="unfinished">Выкрасьляць</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="857"/>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="858"/>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="859"/>
         <source>Ctrl+Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Down</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="860"/>
         <source>Ctrl+Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Up</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="861"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="862"/>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="863"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1004"/>
@@ -1917,12 +1925,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="841"/>
         <source>Next widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Наступнае ваконца</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="842"/>
         <source>Previous widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Папярэдняе ваконца</translation>
     </message>
     <message>
         <source>Download speed</source>
@@ -1944,7 +1952,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1077"/>
         <source>Calculate file TTH</source>
-        <translation type="unfinished"></translation>
+        <translation>Падлічыць скарот (TTH) файла</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1083"/>
@@ -1964,7 +1972,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1103"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Кіраўнік асяродкаў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1117"/>
@@ -2094,22 +2102,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1010"/>
         <source>Download/Upload speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Хуткасьць сьцягваць/зацягваць</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1016"/>
         <source>Downloaded/Uploaded</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Сьцягнулі/Зацягнулі</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1374"/>
         <source>%1/s / %2/s</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1/с / %2/с</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1375"/>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 / %2</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1378"/>
@@ -2144,12 +2152,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>Download Queue</source>
-        <translation type="unfinished">Чарга сьцягваць файлы</translation>
+        <translation>Чарга сьцягваць файлы</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>All downloads complete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Сьцягнулі ўсё</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
@@ -2220,7 +2228,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2296"/>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Выгляд гузікаў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2310"/>
@@ -2506,17 +2514,17 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/Notification.cpp" line="86"/>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Дадаткова</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="87"/>
         <source>Supress sound notifications</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Прыпыніць апавяшчаць гукамі</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="88"/>
         <source>Supress text notifications</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Прыпыніць апавяшчаць тэкстам</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="100"/>
@@ -2570,7 +2578,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="521"/>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Не ўжываць пачуцьцезнакі</translation>
     </message>
     <message>
         <source> on hub </source>
@@ -2812,12 +2820,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SearchFrame.cpp" line="58"/>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягнуць у…</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="64"/>
         <source>Download Whole Directory to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягнуць увесь каталёг у…</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="70"/>
@@ -3189,7 +3197,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/Settings.cpp" line="73"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Выклічнікі</translation>
     </message>
 </context>
 <context>
@@ -3514,7 +3522,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/ShareBrowser.cpp" line="38"/>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягнуць у…</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="41"/>
@@ -3616,22 +3624,22 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="76"/>
         <source>Command produced no visible output.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Загад ня даў бачнага выніку.</translation>
     </message>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="81"/>
         <source>Process exited with status</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Працэс скончыўся са станам</translation>
     </message>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="84"/>
         <source>Process was killed or crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Працэс забілі або ён аварыйна скончыўся.</translation>
     </message>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="87"/>
         <source>Process still running after 2 minutes, killing process...</source>
-        <translation type="unfinished"></translation>
+        <translation>Працэс працягвае працаваць ужо 2 хвіліны — забіваем яго…</translation>
     </message>
 </context>
 <context>
@@ -3639,12 +3647,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="143"/>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Дзеяньне</translation>
     </message>
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="144"/>
         <source>Hotkey</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Выклічнік</translation>
     </message>
 </context>
 <context>
@@ -3713,7 +3721,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SideBar.cpp" line="38"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Кіраўнік асяродкаў</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="39"/>
@@ -3781,7 +3789,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TabFrame.cpp" line="276"/>
         <source>Close</source>
-        <translation type="unfinished">Закрыць</translation>
+        <translation>Закрыць</translation>
     </message>
 </context>
 <context>
@@ -3823,52 +3831,52 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="53"/>
         <source>Copy</source>
-        <translation type="unfinished">Перапісаць у буфэр</translation>
+        <translation>Перапісаць у буфэр</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="56"/>
         <source>Users</source>
-        <translation type="unfinished">Карыстальнікі</translation>
+        <translation>Карыстальнікі</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="57"/>
         <source>Speed</source>
-        <translation type="unfinished">Хуткасьць</translation>
+        <translation>Хуткасьць</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="58"/>
         <source>Statistic</source>
-        <translation type="unfinished"></translation>
+        <translation>Статыстыка</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="59"/>
         <source>Size</source>
-        <translation type="unfinished">Памер</translation>
+        <translation>Памер</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="60"/>
         <source>Time left</source>
-        <translation type="unfinished">Засталося</translation>
+        <translation>Засталося</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="61"/>
         <source>Filename</source>
-        <translation type="unfinished">Назоў файла</translation>
+        <translation>Назоў файла</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="62"/>
         <source>Host</source>
-        <translation type="unfinished">Вузел</translation>
+        <translation>Вузел</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="63"/>
         <source>IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Адрэса IP</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="64"/>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Магніт-спасылка</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="69"/>
@@ -4130,7 +4138,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearch.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished">Выкрасьліць</translation>
+        <translation>Выкрасьліць</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="100"/>
@@ -4303,17 +4311,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Дзеяньні</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="29"/>
         <source>&gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="45"/>
         <source>&lt;&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
@@ -4639,27 +4647,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFileHasher.ui" line="29"/>
         <source>TTH Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Падлічыць скарот (TTH)</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="54"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="73"/>
         <source>Compute</source>
-        <translation type="unfinished"></translation>
+        <translation>Падлічыць</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="80"/>
         <source>Get magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Атрымаць магніт-спасылку</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Close</source>
-        <translation type="unfinished">Закрыць</translation>
+        <translation>Закрыць</translation>
     </message>
 </context>
 <context>
@@ -4786,27 +4794,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Кіраўнік асяродкаў</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Асяродак</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
         <source>URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Спасылка</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="43"/>
         <source>Users</source>
-        <translation type="unfinished">Карыстальнікі</translation>
+        <translation>Карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="48"/>
         <source>Share</source>
-        <translation type="unfinished">Абагуленае</translation>
+        <translation>Абагуленае</translation>
     </message>
 </context>
 <context>
@@ -4993,7 +5001,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="83"/>
         <source>Edit</source>
-        <translation type="unfinished">Зьмяніць</translation>
+        <translation>Зьмяніць</translation>
     </message>
 </context>
 <context>
@@ -6011,23 +6019,27 @@ them is usually available only to operators</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі адзначыць гэты пункт, вы будзеце бачыць пачуцьцезнакі
+нат усярэдзіне словаў.
+Калі не адзначаць гэты пункт, вы пабачыце пачуцьцезнакі толькі
+тады, калі яны будуць адасабляцца ад іншых словаў прагаламі.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Залежыць ад настаўленьняў асяродку: звычайна
+зьвесткі пра адрэсы IP могуць бачыць толькі апэратары.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="348"/>
         <source>Use emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Выкарыстоўваць паліцу пачуцьцезнакаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="355"/>
         <source>Autohide emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Самарушна хаваць паліцу пачуцьцезнакаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="450"/>
