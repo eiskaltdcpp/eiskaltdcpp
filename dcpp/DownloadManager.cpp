@@ -31,8 +31,9 @@
 #include "MerkleCheckOutputStream.h"
 #include "UserConnection.h"
 #include "ZUtils.h"
-
+#include "extra/ipfilter.h"
 #include <limits>
+#include <cmath>
 
 // some strange mac definition
 #ifdef ff
@@ -130,7 +131,15 @@ void DownloadManager::addConnection(UserConnectionPtr conn) {
         conn->disconnect();
         return;
     }
-
+#ifdef STDIPFILTER
+    if (BOOLSETTING(IPFILTER) && !IPFilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_IN)) {
+        conn->error("Your IP is Blocked!");
+        LogManager::getInstance()->message(_("IPFilter: Blocked outgoing connection to ") + conn->getRemoteIp());
+        QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);
+        removeConnection(conn);
+        return;
+	}
+#endif
     conn->addListener(this);
     checkDownloads(conn);
 }
@@ -324,7 +333,8 @@ void DownloadManager::endData(UserConnection* aSource) {
         // First, finish writing the file (flushing the buffers and closing the file...)
         try {
             d->getFile()->flush();
-        } catch(const FileException& e) {
+                } catch(const Exception& e) {
+                        d->resetPos();
             failDownload(aSource, e.getError());
             return;
         }
@@ -427,7 +437,7 @@ void DownloadManager::noSlots(UserConnection* aSource) {
     failDownload(aSource, _("No slots available"));
 }
 
-void DownloadManager::on(UserConnectionListener::Failed, UserConnection* aSource, const string& aError) throw() {
+void DownloadManager::onFailed(UserConnection* aSource, const string& aError) {
     {
         Lock l(cs);
         idlers.erase(remove(idlers.begin(), idlers.end(), aSource), idlers.end());

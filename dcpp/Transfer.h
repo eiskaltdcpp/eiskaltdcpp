@@ -50,6 +50,8 @@ public:
 
     int64_t getStartPos() const { return getSegment().getStart(); }
 
+    void resetPos() { pos = 0; }
+
     void addPos(int64_t aBytes, int64_t aActual) { pos += aBytes; actual+= aActual; }
 
     enum { MIN_SAMPLES = 15, MIN_SECS = 15 };
@@ -77,17 +79,18 @@ public:
 
     UserPtr getUser();
     const UserPtr getUser() const;
+    const HintedUser getHintedUser() const;
 
     const string& getPath() const { return path; }
     const TTHValue& getTTH() const { return tth; }
 
     UserConnection& getUserConnection() { return userConnection; }
     const UserConnection& getUserConnection() const { return userConnection; }
-#ifdef DHT
+//#ifdef DHT
     //Partial
     bool getOverlapped() const { return getSegment().getOverlapped(); }
     void setOverlapped(bool overlap) { segment.setOverlapped(overlap); }
-#endif
+//#endif
     GETSET(Segment, segment, Segment);
     GETSET(Type, type, Type);
     GETSET(uint64_t, start, Start);

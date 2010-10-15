@@ -1210,7 +1210,7 @@ void MainWindow::addFileDownloadQueue_client(string name, int64_t size, string t
     {
         if (!tth.empty())
         {
-            QueueManager::getInstance()->add(name, size, TTHValue(tth), UserPtr(), "");
+            QueueManager::getInstance()->add(name, size, TTHValue(tth));
 
             // automatically search for alternative download locations
             if (BOOLSETTING(AUTO_SEARCH))
@@ -1826,12 +1826,12 @@ void MainWindow::autoConnect_client()
     typedef Func1<MainWindow, string> F1;
     F1 *func1;
 
-    if (WulforUtil::isHubURL(link) && WGETB("urlhandler"))
+    if (WulforUtil::isHubURL(link) && BOOLSETTING(URL_HANDLER))
     {
         func = new F2(this, &MainWindow::showHub_gui, link, "");
         WulforManager::get()->dispatchGuiFunc(func);
     }
-    else if (WulforUtil::isMagnet(link) && WGETB("magnet-register"))
+    else if (WulforUtil::isMagnet(link) && BOOLSETTING(MAGNET_REGISTER))
     {
         func1 = new F1(this, &MainWindow::actionMagnet_gui, link);
         WulforManager::get()->dispatchGuiFunc(func1);
@@ -1895,7 +1895,8 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
 
     if (item->isSet(QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_USER_LIST))
     {
-        UserPtr user = item->getDownloads()[0]->getUser();
+//              UserPtr user = item->getDownloads()[0]->getUser();
+                const HintedUser user = item->getDownloads()[0]->getHintedUser();//NOTE: core 0.762
         string listName = item->getListName();
 
         F3 *f3 = new F3(this, &MainWindow::showNotification_gui, _("file list from "), WulforUtil::getNicks(user),
@@ -1903,7 +1904,8 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
         WulforManager::get()->dispatchGuiFunc(f3);
 
         typedef Func4<MainWindow, UserPtr, string, string, bool> F4;
-        F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user, listName, dir, TRUE);
+//              F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user, listName, dir, TRUE);
+                F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user.user, listName, dir, TRUE);//NOTE: core 0.762
         WulforManager::get()->dispatchGuiFunc(func);
     }
     else if (!item->isSet(QueueItem::FLAG_XML_BZLIST))

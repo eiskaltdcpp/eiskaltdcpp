@@ -37,14 +37,21 @@ class WulforUtil
 		static std::string linuxSeparator(const std::string &ps);
 		static std::string windowsSeparator(const std::string &ps);
 		static std::vector<std::string> getLocalIPs();
-		static std::string getNicks(const std::string &cid);
-		static std::string getNicks(const dcpp::CID& cid);
-		static std::string getNicks(const dcpp::UserPtr& user);
-		static std::string getHubNames(const std::string &cid);
-		static std::string getHubNames(const dcpp::CID& cid);
-		static std::string getHubNames(const dcpp::UserPtr& user);
-		static dcpp::StringList getHubAddress(const dcpp::CID& cid);
-		static dcpp::StringList getHubAddress(const dcpp::UserPtr& user);
+//NOTE: core 0.762
+		/** get nick */
+		static std::string getNicks(const std::string &cid, const std::string& hintUrl);
+		static std::string getNicks(const dcpp::CID& cid, const std::string& hintUrl);
+		static std::string getNicks(const dcpp::UserPtr& user, const std::string& hintUrl);
+		static std::string getNicks(const dcpp::HintedUser& user) {return getNicks(user.user->getCID(), user.hint);}
+		/** get hub name */
+		static std::string getHubNames(const std::string &cid, const std::string& hintUrl);
+		static std::string getHubNames(const dcpp::CID& cid, const std::string& hintUrl);
+		static std::string getHubNames(const dcpp::UserPtr& user, const std::string& hintUrl);
+		static std::string getHubNames(const dcpp::HintedUser& user) {return getHubNames(user.user->getCID(), user.hint);}
+		/** get hub address */
+		static dcpp::StringList getHubAddress(const dcpp::CID& cid, const std::string& hintUrl);
+		static dcpp::StringList getHubAddress(const dcpp::UserPtr& user, const std::string& hintUrl);
+//NOTE: core 0.762
 		static std::string getTextFromMenu(GtkMenuItem *item);
 		static std::vector<std::string>& getCharsets();
 		static void openURI(const std::string &uri);
@@ -70,7 +77,7 @@ class WulforUtil
 		static void registerIcons();
 
 		static const std::string ENCODING_LOCALE;
-		
+
 	private:
 		static std::vector<std::string> charsets;
 		static const std::string magnetSignature;

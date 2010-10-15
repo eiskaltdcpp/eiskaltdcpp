@@ -30,11 +30,9 @@
 
 namespace dcpp {
 #ifdef DCPP_REVISION
-const char * const fullVersionString = APPNAME" V:(" DCPP_REVISION ")";
-const char * const  fullADCVersionString(APPNAME " " DCPP_REVISION);
+const string fullVersionString(APPNAME " V:" DCPP_REVISION );
 #else
-const char * const  fullVersionString = APPNAME " V:" VERSIONSTRING;
-const char * const  fullADCVersionString = APPNAME " " VERSIONSTRING;
+const string fullVersionString(APPNAME " V:" VERSIONSTRING );
 #endif
 }
 

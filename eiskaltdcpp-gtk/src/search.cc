@@ -27,9 +27,9 @@
 #include <dcpp/StringTokenizer.h>
 #include <dcpp/Text.h>
 #include <dcpp/UserCommand.h>
-#include "settingsmanager.hh"
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
+#include "settingsmanager.hh"
 #include "WulforUtil.hh"
 
 using namespace std;
@@ -123,6 +123,32 @@ Search::Search():
     // Initialize the user command menu
     userCommandMenu = new UserCommandMenu(getWidget("usercommandMenu"), ::UserCommand::CONTEXT_SEARCH);
     addChild(userCommandMenu);
+
+        // Initialize search types
+        GtkTreeIter iter;
+        GtkComboBox *combo_box = GTK_COMBO_BOX(getWidget("comboboxFile"));
+        GtkTreeModel *model = gtk_combo_box_get_model(combo_box);
+        GtkListStore *store = GTK_LIST_STORE(model);
+        const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
+
+        // Predefined
+        for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
+        {
+                gtk_list_store_append(store, &iter);
+                gtk_list_store_set(store, &iter, 0, SearchManager::getTypeStr(i), -1);
+        }
+
+        // Customs
+        for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
+        {
+                string type = i->first;
+                if (!(type.size() == 1 && type[0] >= '0' && type[0] <= '6'))
+                {
+                        gtk_list_store_append(store, &iter);
+                        gtk_list_store_set(store, &iter, 0, type.c_str(), -1);
+                }
+        }
+        gtk_combo_box_set_active(combo_box, 0);
 
     // Connect the signals to their callback functions.
     g_signal_connect(getContainer(), "focus-in-event", G_CALLBACK(onFocusIn_gui), (gpointer)this);
@@ -440,6 +466,41 @@ void Search::search_gui()
         mode = SearchManager::SIZE_DONTCARE;
 
     int ftype = gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxFile")));
+
+//NOTE: core 0.770
+        string ftypeStr;
+        if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_LAST)
+        {
+                ftypeStr = SearchManager::getInstance()->getTypeStr(ftype);
+        }
+        else
+        {
+                gchar *tmp = gtk_combo_box_get_active_text(GTK_COMBO_BOX(getWidget("comboboxFile")));
+                ftypeStr = tmp;
+                g_free(tmp);
+                ftype = SearchManager::TYPE_ANY;
+        }
+
+        // Get ADC searchtype extensions if any is selected
+        StringList exts;
+        try
+        {
+                if (ftype == SearchManager::TYPE_ANY)
+                {
+                        // Custom searchtype
+                        exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
+                }
+                else if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY)
+                {
+                        // Predefined searchtype
+                        exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
+                }
+        }
+        catch (const SearchTypeException&)
+        {
+                ftype = SearchManager::TYPE_ANY;
+        }
+
     isHash = (ftype == SearchManager::TYPE_TTH);
 
     // Add new searches to the dropdown list
@@ -471,7 +532,8 @@ void Search::search_gui()
 
     if (SearchManager::getInstance()->okToSearch())
     {
-        SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual");
+		dcdebug("Sent ADC extensions : %s\n",Util::toString(";", exts).c_str());//NOTE: core 0.770
+		SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);//NOTE: core 0.770
 
         if (BOOLSETTING(CLEAR_SEARCH)) // Only clear if the search was sent.
             gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
@@ -1303,10 +1365,7 @@ void Search::onSearchByTTHClicked_gui(GtkMenuItem *item, gpointer data)
             {
                 string tth = s->resultView.getString(&iter, "TTH");
                 if (!tth.empty())
-                {
-                    Search *ns = WulforManager::get()->getMainWindow()->addSearch_gui();
-                    ns->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
-                }
+                                        s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
             }
             gtk_tree_path_free(path);
         }
@@ -1639,7 +1698,8 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
         }
     }
 
-    resultMap[_("Nick")] = WulforUtil::getNicks(result->getUser());
+//      resultMap[_("Nick")] = WulforUtil::getNicks(result->getUser());
+        resultMap[_("Nick")] = WulforUtil::getNicks(result->getUser(), result->getHubURL());//NOTE: core 0.762
     resultMap["CID"] = result->getUser()->getCID().toBase32();
     resultMap["Slots"] = result->getSlotString();
     resultMap[_("Connection")] = ClientManager::getInstance()->getConnection(result->getUser()->getCID());
@@ -1667,12 +1727,14 @@ void Search::download_client(string target, string cid, string filename, int64_t
         if (!tth.empty())
         {
             string subdir = Util::getFileName(filename);
-            QueueManager::getInstance()->add(target + subdir, size, TTHValue(tth), user, hubUrl);
+//                      QueueManager::getInstance()->add(target + subdir, size, TTHValue(tth), user, hubUrl);
+                        QueueManager::getInstance()->add(target + subdir, size, TTHValue(tth), HintedUser(user, hubUrl));//NOTE: core 0.762
         }
         else
         {
             string dir = WulforUtil::windowsSeparator(filename);
-            QueueManager::getInstance()->addDirectory(dir, user, hubUrl, target);
+//                      QueueManager::getInstance()->addDirectory(dir, user, hubUrl, target);
+                        QueueManager::getInstance()->addDirectory(dir, HintedUser(user, hubUrl), target);//NOTE: core 0.762
         }
     }
     catch (const Exception&)
@@ -1699,7 +1761,8 @@ void Search::downloadDir_client(string target, string cid, string filename, stri
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
         if (user != NULL)
         {
-            QueueManager::getInstance()->addDirectory(dir, user, hubUrl, target);
+//                      QueueManager::getInstance()->addDirectory(dir, user, hubUrl, target);
+                        QueueManager::getInstance()->addDirectory(dir, HintedUser(user, hubUrl), target);//NOTE: core 0.762
         }
     }
     catch (const Exception&)
@@ -1714,7 +1777,8 @@ void Search::addSource_client(string source, string cid, int64_t size, string tt
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
         if (!tth.empty() && user != NULL)
         {
-            QueueManager::getInstance()->add(source, size, TTHValue(tth), user, hubUrl);
+//                      QueueManager::getInstance()->add(source, size, TTHValue(tth), user, hubUrl);
+                        QueueManager::getInstance()->add(source, size, TTHValue(tth), HintedUser(user, hubUrl));//NOTE: core 0.762
         }
     }
     catch (const Exception&)
@@ -1737,7 +1801,8 @@ void Search::getFileList_client(string cid, string dir, bool match, string hubUr
                 else
                     flags = QueueItem::FLAG_CLIENT_VIEW;
 
-                QueueManager::getInstance()->addList(user, hubUrl, flags, dir);
+//                              QueueManager::getInstance()->addList(user, hubUrl, flags, dir);
+                                QueueManager::getInstance()->addList(HintedUser(user, hubUrl), flags, dir);//NOTE: core 0.762
             }
         }
         catch (const Exception&)
@@ -1752,7 +1817,10 @@ void Search::grantSlot_client(string cid, string hubUrl)
     {
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
         if (user)
-            UploadManager::getInstance()->reserveSlot(user, hubUrl);
+                {
+//                      UploadManager::getInstance()->reserveSlot(user, hubUrl);
+                        UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));//NOTE: core 0.762
+                }
     }
 }
 

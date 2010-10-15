@@ -25,6 +25,8 @@
 #include <errno.h>
 
 #ifdef _WIN32
+// Berkely constants converted to the windows equivs...
+#define EADDRNOTAVAIL WSAEADDRNOTAVAIL
 
 typedef int socklen_t;
 typedef SOCKET socket_t;
@@ -58,6 +60,8 @@ public:
 private:
 	static string errorToString(int aError) throw();
 };
+
+class ServerSocket;
 
 class Socket
 {

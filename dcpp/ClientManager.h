@@ -43,15 +43,24 @@ public:
 
     size_t getUserCount() const;
     int64_t getAvailable() const;
-    StringList getHubs(const CID& cid) const;
-    StringList getHubNames(const CID& cid) const;
-    StringList getNicks(const CID& cid) const;
+
+        StringList getHubs(const CID& cid, const string& hintUrl);
+        StringList getHubNames(const CID& cid, const string& hintUrl);
+        StringList getNicks(const CID& cid, const string& hintUrl);
+
+        StringList getHubs(const CID& cid, const string& hintUrl, bool priv);
+        StringList getHubNames(const CID& cid, const string& hintUrl, bool priv);
+        StringList getNicks(const CID& cid, const string& hintUrl, bool priv);
+
+        StringList getNicks(const HintedUser& user) { return getNicks(user.user->getCID(), user.hint); }
+        StringList getHubNames(const HintedUser& user) { return getHubNames(user.user->getCID(), user.hint); }
+
     string getConnection(const CID& cid) const;
 
     bool isConnected(const string& aUrl) const;
 
     void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken);
-    void search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken);
+        void search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList);
     void infoUpdated();
 
     UserPtr getUser(const string& aNick, const string& aHubUrl) throw();
@@ -59,6 +68,12 @@ public:
 
     string findHub(const string& ipPort) const;
     string findHubEncoding(const string& aUrl) const;
+
+        /**
+        * @param priv discard any user that doesn't match the hint.
+        * @return OnlineUser* found by CID and hint; might be only by CID if priv is false.
+        */
+        OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl, bool priv) throw();
 
     UserPtr findUser(const string& aNick, const string& aHubUrl) const throw() { return findUser(makeCid(aNick, aHubUrl)); }
     UserPtr findUser(const CID& cid) const throw();
@@ -69,16 +84,16 @@ public:
         return onlineUsers.find(aUser->getCID()) != onlineUsers.end();
     }
 
-  Identity getOnlineUserIdentity(const UserPtr& aUser) const {
-    Lock l(cs);
-    OnlineMap::const_iterator i;
-    i=onlineUsers.find(aUser->getCID());
-    if ( i != onlineUsers.end() )
-    {
-      return i->second->getIdentity();
+    Identity getOnlineUserIdentity(const UserPtr& aUser) const {
+        Lock l(cs);
+        OnlineMap::const_iterator i;
+        i=onlineUsers.find(aUser->getCID());
+        if ( i != onlineUsers.end() )
+        {
+            return i->second->getIdentity();
+        }
+        return Identity();
     }
-    return Identity();
-  }
 
     bool isOp(const UserPtr& aUser, const string& aHubUrl) const;
 
@@ -90,12 +105,10 @@ public:
 
     UserPtr& getMe();
 
-    void connect(const UserPtr& p, const string& token, const string& hintUrl);
     void send(AdcCommand& c, const CID& to);
-    void privateMessage(const UserPtr& p, const string& msg, bool thirdPerson, const string& hintUrl);
-
-    void userCommand(const UserPtr& p, const UserCommand& uc, StringMap& params, bool compatibility);
-
+    void connect(const HintedUser& user, const string& token);
+    void privateMessage(const HintedUser& user, const string& msg, bool thirdPerson);
+    void userCommand(const HintedUser& user, const UserCommand& uc, StringMap& params, bool compatibility);
     int getMode(const string& aHubUrl) const;
     bool isActive(const string& aHubUrl = Util::emptyString) const { return getMode(aHubUrl) != SettingsManager::INCOMING_FIREWALL_PASSIVE; }
 
@@ -107,6 +120,10 @@ public:
     CID getMyCID();
     const CID& getMyPID();
 
+        void loadUsers();
+        void saveUsers() const;
+        void saveUser(const CID& cid);
+
 private:
     typedef unordered_map<string, UserPtr> LegacyMap;
     typedef LegacyMap::iterator LegacyIter;
@@ -114,7 +131,8 @@ private:
     typedef unordered_map<CID, UserPtr> UserMap;
     typedef UserMap::iterator UserIter;
 
-    typedef unordered_map<CID, std::string> NickMap;
+        typedef std::pair<std::string, bool> NickMapEntry; // the boolean being true means "save this".
+        typedef unordered_map<CID, NickMapEntry> NickMap;
 
     typedef unordered_multimap<CID, OnlineUser*> OnlineMap;
     typedef OnlineMap::iterator OnlineIter;
@@ -147,7 +165,18 @@ private:
 
     void updateNick(const OnlineUser& user) throw();
 
-    OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl) throw();
+        /// @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
+        OnlineUser* findOnlineUser_hint(const CID& cid, const string& hintUrl) throw() {
+                OnlinePair p;
+                return findOnlineUser_hint(cid, hintUrl, p);
+        }
+        /**
+        * @param p OnlinePair of all the users found by CID, even those who don't match the hint.
+        * @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
+        */
+        OnlineUser* findOnlineUser_hint(const CID& cid, const string& hintUrl, OnlinePair& p) throw();
+
+        string getUsersFile() const { return Util::getPath(Util::PATH_USER_LOCAL) + "Users.xml"; }
 
     // ClientListener
     virtual void on(Connected, Client* c) throw();

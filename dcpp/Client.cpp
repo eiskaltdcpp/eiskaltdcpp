@@ -70,15 +70,9 @@ void Client::shutdown() {
 void Client::reloadSettings(bool updateNick) {
     const FavoriteHubEntry* hub = FavoriteManager::getInstance()->getFavoriteHubEntry(getHubUrl());
 
-    string ClientId;
-    if (::strncmp(getHubUrl().c_str(),"adc://", 6) == 0 ||
-        ::strncmp(getHubUrl().c_str(),"adcs://", 6) == 0)
-        ClientId = fullADCVersionString;
-    else
-        ClientId = fullVersionString;
+    string ClientId = fullVersionString;
 
     if(hub) {
-
         if(updateNick) {
             setCurrentNick(checkNick(hub->getNick(true)));
         }
@@ -91,7 +85,7 @@ void Client::reloadSettings(bool updateNick) {
 
         if(!hub->getPassword().empty())
             setPassword(hub->getPassword());
-        if (hub->getOverrideId() && strlen(hub->getClientId().c_str()) > 1)
+        if (hub->getOverrideId())
             ClientId = hub->getClientId();
         if (!hub->getExternalIP().empty())
             externalIP = hub->getExternalIP();
@@ -107,7 +101,6 @@ void Client::reloadSettings(bool updateNick) {
         }
         setCurrentDescription(SETTING(DESCRIPTION));
     }
-    //fprintf(stderr,"%s\n", ClientId.c_str());
     setClientId(ClientId);
 }
 

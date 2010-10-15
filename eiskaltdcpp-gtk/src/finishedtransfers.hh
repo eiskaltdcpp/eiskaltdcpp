@@ -65,19 +65,29 @@ class FinishedTransfers:
 
 		// Client functions
 		void initializeList_client();
-		void getFinishedParams_client(const dcpp::FinishedFileItemPtr &item, const std::string &file,  dcpp::StringMap &params);
-		void getFinishedParams_client(const dcpp::FinishedUserItemPtr &item, const dcpp::UserPtr &user,  dcpp::StringMap &params);
+		void getFinishedParams_client(const dcpp::FinishedFileItemPtr &item, const std::string &file, dcpp::StringMap &params);
+		void getFinishedParams_client(const dcpp::FinishedUserItemPtr &item, const dcpp::HintedUser &user, dcpp::StringMap &params);//NOTE: core 0.762
 		void removeFile_client(std::string target);
 		void removeUser_client(std::string cid);
 		void removeAll_client();
 
+		/**
+		virtual void on(AddedFile, bool, const string&, const FinishedFileItemPtr&) throw() { }
+		virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) throw() { }
+		virtual void on(UpdatedFile, bool, const string&, const FinishedFileItemPtr&) throw() { }
+		virtual void on(UpdatedUser, bool, const HintedUser&) throw() { }
+		virtual void on(RemovedFile, bool, const string&) throw() { }
+		virtual void on(RemovedUser, bool, const HintedUser&) throw() { }
+		virtual void on(RemovedAll, bool) throw() { }
+
+		*/
 		// Client callbacks
 		virtual void on(dcpp::FinishedManagerListener::AddedFile, bool upload, const std::string &file, const dcpp::FinishedFileItemPtr &item) throw();
-		virtual void on(dcpp::FinishedManagerListener::AddedUser, bool upload, const dcpp::UserPtr &user, const dcpp::FinishedUserItemPtr &item) throw();
+		virtual void on(dcpp::FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const dcpp::FinishedUserItemPtr &item) throw();//NOTE: core 0.762
 		virtual void on(dcpp::FinishedManagerListener::UpdatedFile, bool upload, const std::string &file, const dcpp::FinishedFileItemPtr &item) throw();
 		virtual void on(dcpp::FinishedManagerListener::RemovedFile, bool upload, const std::string &file) throw();
-		virtual void on(dcpp::FinishedManagerListener::UpdatedUser, bool upload, const dcpp::UserPtr &user) throw();
-		virtual void on(dcpp::FinishedManagerListener::RemovedUser, bool upload, const dcpp::UserPtr &user) throw();
+		virtual void on(dcpp::FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) throw();//NOTE: core 0.762
+		virtual void on(dcpp::FinishedManagerListener::RemovedUser, bool upload, const dcpp::HintedUser &user) throw();//NOTE: core 0.762
 		/* virtual void on(dcpp::FinishedManagerListener::RemoveAll, bool upload) throw();  Implement? */
 
 		GtkListStore *fileStore, *userStore;

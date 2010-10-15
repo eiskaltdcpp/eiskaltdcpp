@@ -75,13 +75,13 @@ double Transfer::getAverageSpeed() const {
 
 void Transfer::getParams(const UserConnection& aSource, StringMap& params) {
     params["userCID"] = aSource.getUser()->getCID().toBase32();
-    params["userNI"] = Util::toString(ClientManager::getInstance()->getNicks(aSource.getUser()->getCID()));
+        params["userNI"] = Util::toString(ClientManager::getInstance()->getNicks(aSource.getUser()->getCID(), aSource.getHubUrl()));
     params["userI4"] = aSource.getRemoteIp();
-    StringList hubNames = ClientManager::getInstance()->getHubNames(aSource.getUser()->getCID());
+        StringList hubNames = ClientManager::getInstance()->getHubNames(aSource.getUser()->getCID(), aSource.getHubUrl());
     if(hubNames.empty())
         hubNames.push_back(_("Offline"));
     params["hub"] = Util::toString(hubNames);
-    StringList hubs = ClientManager::getInstance()->getHubs(aSource.getUser()->getCID());
+        StringList hubs = ClientManager::getInstance()->getHubs(aSource.getUser()->getCID(), aSource.getHubUrl());
     if(hubs.empty())
         hubs.push_back(_("Offline"));
     params["hubURL"] = Util::toString(hubs);
@@ -102,6 +102,10 @@ UserPtr Transfer::getUser() {
 
 const UserPtr Transfer::getUser() const {
     return getUserConnection().getUser();
+}
+
+const HintedUser Transfer::getHintedUser() const {
+        return getUserConnection().getHintedUser();
 }
 
 } // namespace dcpp

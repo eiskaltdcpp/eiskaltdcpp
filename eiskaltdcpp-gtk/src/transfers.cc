@@ -46,7 +46,7 @@ Transfers::Transfers() :
     g_object_ref_sink(getWidget("transferMenu"));
 
     // Initialize the user command menu
-    userCommandMenu = new UserCommandMenu(getWidget("userCommandMenu"), ::UserCommand::CONTEXT_CHAT);
+    userCommandMenu = new UserCommandMenu(getWidget("userCommandMenu"), ::UserCommand::CONTEXT_USER);//NOTE: core 0.762
     addChild(userCommandMenu);
 
     // Initialize the preview menu
@@ -140,8 +140,9 @@ void Transfers::popupTransferMenu_gui()
                     target = transferView.getString(&iter, "tmpTarget");
 
                 string cid = transferView.getString(&iter, "CID");
+                string hubUrl = transferView.getString(&iter, "Hub URL");//NOTE: core 0.762
                 userCommandMenu->addUser(cid);
-                userCommandMenu->addHub(WulforUtil::getHubAddress(CID(cid)));
+                userCommandMenu->addHub(WulforUtil::getHubAddress(CID(cid), hubUrl));//NOTE: core 0.762
             }
             while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(transferStore), &iter, TRUE, FALSE));
         }
@@ -783,7 +784,7 @@ void Transfers::getFileList_client(string cid, string hubUrl)
         if (!cid.empty() && !hubUrl.empty())
         {
             UserPtr user = ClientManager::getInstance()->getUser(CID(cid));
-            QueueManager::getInstance()->addList(user, hubUrl, QueueItem::FLAG_CLIENT_VIEW);
+            QueueManager::getInstance()->addList(HintedUser(user, hubUrl), QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
         }
     }
     catch (const Exception&)
@@ -798,7 +799,7 @@ void Transfers::matchQueue_client(string cid, string hubUrl)
         if (!cid.empty() && !hubUrl.empty())
         {
             UserPtr user = ClientManager::getInstance()->getUser(CID(cid));
-            QueueManager::getInstance()->addList(user, hubUrl, QueueItem::FLAG_MATCH_QUEUE);
+            QueueManager::getInstance()->addList(HintedUser(user, hubUrl), QueueItem::FLAG_MATCH_QUEUE);//NOTE: core 0.762
         }
     }
     catch (const Exception&)
@@ -820,7 +821,7 @@ void Transfers::grantExtraSlot_client(string cid, string hubUrl)
     if (!cid.empty() && !hubUrl.empty())
     {
         UserPtr user = ClientManager::getInstance()->getUser(CID(cid));
-        UploadManager::getInstance()->reserveSlot(user, hubUrl);
+        UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));//NOTE: core 0.762
     }
 }
 
@@ -853,29 +854,31 @@ void Transfers::closeConnection_client(string cid, bool download)
 
 void Transfers::getParams_client(StringMap& params, ConnectionQueueItem* cqi)
 {
-    const UserPtr& user = cqi->getUser();
+        // NOTE: const HintedUser& getUser() const { return user; }
+        const HintedUser &user = cqi->getUser();
 
-    params["CID"] = user->getCID().toBase32();
-    params[_("User")] = WulforUtil::getNicks(user);
-    params[_("Hub Name")] = WulforUtil::getHubNames(user); //TODO Get specific hub name
+        params["CID"] = user.user->getCID().toBase32();//NOTE: core 0.762
+        params[_("User")] = WulforUtil::getNicks(user);//NOTE: core 0.762
+        params[_("Hub Name")] = WulforUtil::getHubNames(user);//NOTE: core 0.762
     params["Failed"] = "0";
-    params["Hub URL"] = cqi->getHubHint();
+        params["Hub URL"] = user.hint;//NOTE: core 0.762
 }
 
 void Transfers::getParams_client(StringMap& params, Transfer* tr)
 {
-    const UserPtr& user = tr->getUser();
+        // NOTE: const HintedUser getHintedUser() const;
+        const HintedUser user = tr->getHintedUser();//NOTE: core 0.762
     double percent = 0.0;
 
-    params["CID"] = user->getCID().toBase32();
+        params["CID"] = user.user->getCID().toBase32();
     if (tr->getType() == Transfer::TYPE_FULL_LIST || tr->getType() == Transfer::TYPE_PARTIAL_LIST)
         params[_("Filename")] = _("File list");
     else if (tr->getType() == Transfer::TYPE_TREE)
         params[_("Filename")] = "TTH: " + Util::getFileName(tr->getPath());
     else
         params[_("Filename")] = Util::getFileName(tr->getPath());
-    params[_("User")] = WulforUtil::getNicks(user);
-    params[_("Hub Name")] = WulforUtil::getHubNames(user); //TODO Get specific hub name
+        params[_("User")] = WulforUtil::getNicks(user);//NOTE: core 0.762
+        params[_("Hub Name")] = WulforUtil::getHubNames(user);//NOTE: core 0.762
     params[_("Path")] = Util::getFilePath(tr->getPath());
     params[_("Size")] = Util::toString(tr->getSize());
     params["Download Position"] = Util::toString(tr->getPos());
@@ -1019,8 +1022,13 @@ void Transfers::on(ConnectionManagerListener::Connected, ConnectionQueueItem* cq
 
 void Transfers::on(ConnectionManagerListener::Removed, ConnectionQueueItem* cqi) throw()
 {
+//      typedef Func2<Transfers, const string, bool> F2;
+//      F2* f2 = new F2(this, &Transfers::removeConnection_gui, cqi->getUser()->getCID().toBase32(), cqi->getDownload());
+//      WulforManager::get()->dispatchGuiFunc(f2);
+
+        string cid = cqi->getUser().user->getCID().toBase32();//NOTE: core 0.762
     typedef Func2<Transfers, const string, bool> F2;
-    F2* f2 = new F2(this, &Transfers::removeConnection_gui, cqi->getUser()->getCID().toBase32(), cqi->getDownload());
+        F2* f2 = new F2(this, &Transfers::removeConnection_gui, cid, cqi->getDownload());
     WulforManager::get()->dispatchGuiFunc(f2);
 }
 

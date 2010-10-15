@@ -71,8 +71,8 @@ public:
     virtual void connect(const OnlineUser& user, const string& token) = 0;
     virtual void hubMessage(const string& aMessage, bool thirdPerson = false) = 0;
     virtual void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false) = 0;
-    virtual void sendUserCmd(const string& aUserCmd) = 0;
-    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken) = 0;
+    virtual void sendUserCmd(const UserCommand& command, const StringMap& params) = 0;
+    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) = 0;
     virtual void password(const string& pwd) = 0;
     virtual void info(bool force) = 0;
 

@@ -137,8 +137,7 @@ public:
     void setDataMode(int64_t aBytes = -1) { dcassert(socket); socket->setDataMode(aBytes); }
     void setLineMode(size_t rollback) { dcassert(socket); socket->setLineMode(rollback); }
 
-    //void connect(const string& aServer, uint16_t aPort) throw(SocketException, ThreadException);
-    void connect(const string& aServer, uint16_t aPort, uint16_t localPort, const BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException);
+        void connect(const string& aServer, uint16_t aPort, uint16_t localPort, const BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException);
     void accept(const Socket& aServer) throw(SocketException, ThreadException);
 
     void updated() { if(socket) socket->updated(); }
@@ -153,6 +152,8 @@ public:
 
     const UserPtr& getUser() const { return user; }
     UserPtr& getUser() { return user; }
+        const HintedUser getHintedUser() const { return HintedUser(user, hubUrl); }
+
     bool isSecure() const { return socket && socket->isSecure(); }
     bool isTrusted() const { return socket && socket->isTrusted(); }
     std::string getCipherName() const { return socket ? socket->getCipherName() : Util::emptyString; }
@@ -167,7 +168,7 @@ public:
     void handle(AdcCommand::INF t, const AdcCommand& c) { fire(t, this, c); }
     void handle(AdcCommand::GET t, const AdcCommand& c) { fire(t, this, c); }
     void handle(AdcCommand::SND t, const AdcCommand& c) { fire(t, this, c); }
-    void handle(AdcCommand::STA t, const AdcCommand& c) { fire(t, this, c); }
+        void handle(AdcCommand::STA t, const AdcCommand& c);
     void handle(AdcCommand::RES t, const AdcCommand& c) { fire(t, this, c); }
     void handle(AdcCommand::GFI t, const AdcCommand& c) { fire(t, this, c); }
 
@@ -215,6 +216,12 @@ private:
 
     void send(const string& aString) {
         lastActivity = GET_TICK();
+#ifdef LUA_SCRIPT
+        if(onUserConnectionMessageOut(this, aString)) {
+            disconnect(true);
+            return;
+        }
+#endif
         socket->write(aString);
     }
 

@@ -59,7 +59,7 @@ EmoticonsDialog::~EmoticonsDialog()
 		gtk_widget_destroy(dialog);
 }
 
-void EmoticonsDialog::buildEmotMenu_gui()
+void EmoticonsDialog::showEmotMenu_gui()
 {
 	gtk_container_foreach(GTK_CONTAINER(Menu), (GtkCallback) gtk_widget_destroy, NULL);
 
@@ -74,6 +74,8 @@ void EmoticonsDialog::buildEmotMenu_gui()
 	item = gtk_menu_item_new_with_label(_("Icon size"));
 	gtk_menu_shell_append(GTK_MENU_SHELL(Menu), item);
 	addIconSizeMenu(item);
+	gtk_widget_show_all(Menu);
+	gtk_menu_popup(GTK_MENU(Menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
 }
 
 void EmoticonsDialog::addPacksMenu(GtkWidget *item)

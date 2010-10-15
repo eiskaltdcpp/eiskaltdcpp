@@ -33,6 +33,8 @@ class BufferedSocket;
 
 typedef std::vector<uint16_t> PartsInfo;
 
+struct ChatMessage;
+
 class CID;
 
 class Client;
@@ -60,6 +62,9 @@ class FinishedUserItem;
 typedef boost::intrusive_ptr<FinishedUserItem> FinishedUserItemPtr;
 
 class FinishedManager;
+
+struct HintedUser;
+typedef std::vector<HintedUser> HintedUserList;
 
 class HubEntry;
 typedef std::vector<HubEntry> HubEntryList;
@@ -105,6 +110,7 @@ class UserConnection;
 typedef UserConnection* UserConnectionPtr;
 typedef std::vector<UserConnectionPtr> UserConnectionList;
 
+class WindowInfo;
 } // namespace dcpp
 
 #endif /*DCPLUSPLUS_DCPP_FORWARD_H_*/

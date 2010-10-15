@@ -21,8 +21,6 @@
 
 #include "settingsmanager.hh"
 #include "WulforUtil.hh"
-
-#undef _
 #include <glib/gi18n.h>
 
 #include "previewmenu.hh"

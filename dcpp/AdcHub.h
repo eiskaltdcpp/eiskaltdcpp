@@ -49,8 +49,8 @@ public:
 
     virtual void hubMessage(const string& aMessage, bool thirdPerson = false);
     virtual void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false);
-    virtual void sendUserCmd(const string& aUserCmd) { send(aUserCmd); }
-    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken);
+    virtual void sendUserCmd(const UserCommand& command, const StringMap& params);
+    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList);
     virtual void password(const string& pwd);
     virtual void info(bool alwaysSend);
 
@@ -129,6 +129,7 @@ private:
 
     void sendUDP(const AdcCommand& cmd) throw();
     void unknownProtocol(uint32_t target, const string& protocol, const string& token);
+    bool secureAvail(uint32_t target, const string& protocol, const string& token);
     virtual void on(Connecting) throw() { fire(ClientListener::Connecting(), this); }
     virtual void on(Connected) throw();
     virtual void on(Line, const string& aLine) throw();

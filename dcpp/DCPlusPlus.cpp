@@ -35,15 +35,18 @@
 #include "ResourceManager.h"
 #include "ThrottleManager.h"
 #include "ADLSearch.h"
-
+#include "WindowManager.h"
 #include "StringTokenizer.h"
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
 #include "UPnPManager.h"
 #include "ConnectivityManager.h"
+#ifdef STDIPFILTER
+#include "extra/ipfilter.h"
+#endif
 #ifdef DHT
-#include "../dht/DHT.h"
+#include "dht/DHT.h"
 #endif
 #ifdef _STLP_DEBUG
 void __stl_debug_terminate() {
@@ -84,28 +87,33 @@ void startup(void (*f)(void*, const string&), void* p) {
     DownloadManager::newInstance();
     UploadManager::newInstance();
     ThrottleManager::newInstance();
+    QueueManager::newInstance();
     ShareManager::newInstance();
     FavoriteManager::newInstance();
-    QueueManager::newInstance();
     FinishedManager::newInstance();
     ADLSearchManager::newInstance();
     ConnectivityManager::newInstance();
     UPnPManager::newInstance();
+#ifdef STDIPFILTER
+    IPFilter::newInstance();
+#endif
+    WindowManager::newInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
 #endif
     SettingsManager::getInstance()->load();
-
+#ifdef STDIPFILTER
+    IPFilter::getInstance()->loadList();
+#endif
     if(!SETTING(LANGUAGE).empty()) {
 #ifdef _WIN32
         string language = "LANGUAGE=" + SETTING(LANGUAGE);
         putenv(language.c_str());
 #else
         setenv("LANGUAGE", SETTING(LANGUAGE).c_str(), true);
-
+#endif
         // Apparently this is supposted to make gettext reload the message catalog...
         _nl_msg_cat_cntr++;
-#endif
     }
 
     FavoriteManager::getInstance()->load();
@@ -122,6 +130,9 @@ void startup(void (*f)(void*, const string&), void* p) {
     if(f != NULL)
         (*f)(p, _("Download Queue"));
     QueueManager::getInstance()->loadQueue();
+    if(f != NULL)
+        (*f)(p, _("Users"));
+    ClientManager::getInstance()->loadUsers();
 }
 
 void shutdown() {
@@ -143,13 +154,21 @@ void shutdown() {
     UPnPManager::getInstance()->close();
 
     BufferedSocket::waitShutdown();
-
+    WindowManager::getInstance()->prepareSave();
+    QueueManager::getInstance()->saveQueue(true);
+    ClientManager::getInstance()->saveUsers();
+#ifdef STDIPFILTER
+    IPFilter::getInstance()->saveList();
+#endif
     SettingsManager::getInstance()->save();
 
 #ifdef USE_DHT
     DHT::deleteInstance();
 #endif
-
+    WindowManager::deleteInstance();
+#ifdef STDIPFILTER
+    IPFilter::deleteInstance();
+#endif
     UPnPManager::deleteInstance();
     ConnectivityManager::deleteInstance();
     ADLSearchManager::deleteInstance();

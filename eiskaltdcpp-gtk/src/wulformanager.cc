@@ -27,7 +27,6 @@
 #include <glib/gi18n.h>
 #include "hashdialog.hh"
 #include "settingsdialog.hh"
-#include "settingsmanager.hh"
 
 using namespace std;
 using namespace dcpp;
@@ -372,21 +371,6 @@ void WulforManager::deleteEntry_gui(Entry *entry)
 	entry = NULL;
 }
 
-bool WulforManager::isEntry_gui(Entry *entry)
-{
-   g_static_rw_lock_writer_lock(&entryMutex);
-
-   tr1::unordered_map<string, Entry *>::const_iterator it = find_if(entries.begin(), entries.end(),
-       CompareSecond<string, Entry *>(entry));
-
-   if (it == entries.end())
-       entry = NULL;
-
-   g_static_rw_lock_writer_unlock(&entryMutex);
-
-   return (entry != NULL);
-}
-
 DialogEntry* WulforManager::getDialogEntry_gui(const string &id)
 {
 	DialogEntry *ret = NULL;
@@ -403,10 +387,10 @@ void WulforManager::onReceived_gui(const string link)
 {
 	dcassert(mainWin);
 
-	if (WulforUtil::isHubURL(link) && WGETB("urlhandler"))
+	if (WulforUtil::isHubURL(link) && BOOLSETTING(URL_HANDLER))
 		mainWin->showHub_gui(link);
 
-	else if (WulforUtil::isMagnet(link) && WGETB("magnet-register"))
+	else if (WulforUtil::isMagnet(link) && BOOLSETTING(MAGNET_REGISTER))
 		mainWin->actionMagnet_gui(link);
 }
 

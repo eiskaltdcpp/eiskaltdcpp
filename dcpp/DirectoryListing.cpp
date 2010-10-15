@@ -30,12 +30,24 @@
 #include "BZUtils.h"
 #include "CryptoManager.h"
 #include "ShareManager.h"
+#include "SimpleXMLReader.h"
+#include "File.h"
 
 #ifdef ff
 #undef ff
 #endif
 
 namespace dcpp {
+
+DirectoryListing::DirectoryListing(const HintedUser& aUser) :
+user(aUser),
+root(new Directory(NULL, Util::emptyString, false, false))
+{
+}
+
+DirectoryListing::~DirectoryListing() {
+        delete root;
+}
 
 UserPtr DirectoryListing::getUserFromFilename(const string& fileName) {
     // General file list name format: [username].[CID].[xml|xml.bz2|DcLst]
@@ -79,37 +91,16 @@ void DirectoryListing::loadFile(const string& name) throw(Exception) {
     // For now, we detect type by ending...
     string ext = Util::getFileExt(name);
 
-    if(Util::stricmp(ext, ".bz2") == 0) {
         dcpp::File ff(name, dcpp::File::READ, dcpp::File::OPEN);
+        if(Util::stricmp(ext, ".bz2") == 0) {
         FilteredInputStream<UnBZFilter, false> f(&ff);
-        const size_t BUF_SIZE = 64*1024;
-        boost::scoped_array<char> buf(new char[BUF_SIZE]);
-        size_t len;
-        size_t bytesRead = 0;
-        for(;;) {
-            size_t n = BUF_SIZE;
-            len = f.read(&buf[0], n);
-            txt.append(&buf[0], len);
-            bytesRead += len;
-            if(SETTING(MAX_FILELIST_SIZE) && bytesRead > (size_t)SETTING(MAX_FILELIST_SIZE)*1024*1024)
-                throw FileException(_("Greater than maximum filelist size"));
-            if(len < BUF_SIZE)
-                break;
-        }
+                loadXML(f, false);
     } else if(Util::stricmp(ext, ".xml") == 0) {
-        int64_t sz = dcpp::File::getSize(name);
-        if(sz == -1 || sz >= static_cast<int64_t>(txt.max_size()))
-            throw FileException(_("File not available"));
-
-        txt.resize((size_t) sz);
-        size_t n = txt.length();
-        dcpp::File(name, dcpp::File::READ, dcpp::File::OPEN).read(&txt[0], n);
+                loadXML(ff, false);
     }
-
-    loadXML(txt, false);
 }
 
-class ListLoader : public SimpleXMLReader::CallBack {
+class ListLoader : public dcpp::SimpleXMLReader::CallBack {
 public:
     ListLoader(DirectoryListing::Directory* root, bool aUpdating) : cur(root), base("/"), inListing(false), updating(aUpdating) {
     }
@@ -129,9 +120,16 @@ private:
     bool updating;
 };
 
-string DirectoryListing::loadXML(const string& xml, bool updating) {
+string DirectoryListing::updateXML(const string& xml) {
+        MemoryInputStream mis(xml);
+        return loadXML(mis, true);
+}
+
+string DirectoryListing::loadXML(InputStream& is, bool updating) {
     ListLoader ll(getRoot(), updating);
-    SimpleXMLReader(&ll).fromXML(xml);
+
+        dcpp::SimpleXMLReader(&ll).parse(is, SETTING(MAX_FILELIST_SIZE) ? (size_t)SETTING(MAX_FILELIST_SIZE)*1024*1024 : 0);
+
     return ll.getBase();
 }
 
@@ -245,20 +243,20 @@ string DirectoryListing::getPath(const Directory* d) const {
     return dir;
 }
 
-string DirectoryListing::getLocalPath(const File* f) const {
-    if(getUser() == ClientManager::getInstance()->getMe()) {
-        string path;
+StringList DirectoryListing::getLocalPaths(const File* f) const {
         try {
-            path = ShareManager::getInstance()->toReal(Util::toAdcFile(getPath(f) + f->getName()));
+                return ShareManager::getInstance()->getRealPaths(Util::toAdcFile(getPath(f) + f->getName()));
         } catch(const ShareException&) {
-            // Ignore
-        }
-        if(!path.empty() && (dcpp::File::getSize(path) != -1)) {
-            return path;
+                return StringList();
         }
     }
 
-    return string();
+StringList DirectoryListing::getLocalPaths(const Directory* d) const {
+        try {
+                return ShareManager::getInstance()->getRealPaths(Util::toAdcFile(getPath(d)));
+        } catch(const ShareException&) {
+                return StringList();
+        }
 }
 
 void DirectoryListing::download(Directory* aDir, const string& aTarget, bool highPrio) {
@@ -296,8 +294,7 @@ void DirectoryListing::download(const string& aDir, const string& aTarget, bool 
 void DirectoryListing::download(File* aFile, const string& aTarget, bool view, bool highPrio) {
     int flags = (view ? (QueueItem::FLAG_TEXT | QueueItem::FLAG_CLIENT_VIEW) : 0);
 
-    // TODO hubHint?
-    QueueManager::getInstance()->add(aTarget, aFile->getSize(), aFile->getTTH(), getUser(), Util::emptyString, flags);
+        QueueManager::getInstance()->add(aTarget, aFile->getSize(), aFile->getTTH(), getUser(), flags);
 
     if(highPrio)
         QueueManager::getInstance()->setPriority(aTarget, QueueItem::HIGHEST);

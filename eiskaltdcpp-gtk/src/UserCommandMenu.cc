@@ -177,7 +177,7 @@ void UserCommandMenu::onUserCommandClick_gui(GtkMenuItem *item, gpointer data)
 	 			params["filesizeshort"] = params["fileSIshort"];
 	 			params["tth"] = params["fileTR"];
 			}
-			F4 *func = new F4(ucm, &UserCommandMenu::sendUserCommand_client, 
+			F4 *func = new F4(ucm, &UserCommandMenu::sendUserCommand_client,
 				i->cid, commandName, hub, params);
 			WulforManager::get()->dispatchClientFunc(func);
 		}
@@ -196,7 +196,7 @@ void UserCommandMenu::sendUserCommand_client(string cid, string commandName, str
 
 		UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
 		if (user)
-			ClientManager::getInstance()->userCommand(user, uc, params, true);
+			ClientManager::getInstance()->userCommand(HintedUser(user, hub), uc, params, true);//NOTE: core 0.762
 	}
 }
 

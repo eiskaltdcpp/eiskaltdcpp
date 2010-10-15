@@ -49,7 +49,6 @@ class WulforManager
 
 		void insertEntry_gui(Entry *entry);
 		void deleteEntry_gui(Entry *entry);
-		bool isEntry_gui(Entry *entry);
 
 		// DialogEntry functions
 		gint openHashDialog_gui();

@@ -25,11 +25,9 @@
 #include "StringTokenizer.h"
 #include "SettingsManager.h"
 #include "LogManager.h"
-#include "UploadManager.h" // [+]IRainman
 #include "version.h"
 #include "File.h"
 #include "SimpleXML.h"
-#include "Socket.h"
 
 #ifndef _WIN32
 #include <sys/socket.h>
@@ -163,6 +161,7 @@ void Util::initialize() {
     const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
     string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
     paths[PATH_USER_CONFIG] = xdg_config_home + "/eiskaltdc++/";
+    printf("$XDG_CONFIG_HOME: %s\n", paths[PATH_USER_CONFIG].c_str());
 #else
     paths[PATH_USER_CONFIG] = home + "/.eiskaltdc++/";
 #endif
@@ -188,6 +187,7 @@ void Util::initialize() {
     const char *xdg_config_down_ = getenv("XDG_DOWNLOAD_DIR");
     string xdg_config_down = xdg_config_down_? (Text::toUtf8(xdg_config_down_)+"/") : (home+"/Downloads/");
     paths[PATH_DOWNLOADS] = xdg_config_down;
+    printf("$XDG_DOWNLOAD_DIR: %s\n", paths[PATH_DOWNLOADS].c_str());
 #else
     paths[PATH_DOWNLOADS] = home + "/Downloads/";
 #endif
@@ -390,6 +390,18 @@ string Util::validateFileName(string tmp) {
 
 
     return tmp;
+}
+
+bool Util::checkExtension(const string& tmp) {
+        for(int i = 0; i < tmp.length(); i++) {
+                if (tmp[i] < 0 || tmp[i] == 32 || tmp[i] == ':') {
+                        return false;
+                }
+        }
+        if(tmp.find_first_of(badChars, 0) != string::npos) {
+                return false;
+        }
+        return true;
 }
 
 string Util::cleanPathChars(string aNick) {
@@ -647,6 +659,24 @@ static wchar_t utf8ToLC(ccp& str) {
     return Text::toLower(c);
 }
 
+string Util::toString(const string& sep, const StringList& lst) {
+        string ret;
+        for(StringList::const_iterator i = lst.begin(), iend = lst.end(); i != iend; ++i) {
+                ret += *i;
+                if(i + 1 != iend)
+                        ret += sep;
+        }
+        return ret;
+}
+
+string Util::toString(const StringList& lst) {
+        if(lst.empty())
+                return emptyString;
+        if(lst.size() == 1)
+                return lst[0];
+        return '[' + toString(",", lst) + ']';
+}
+
 string::size_type Util::findSubString(const string& aString, const string& aSubString, string::size_type start) throw() {
     if(aString.length() < start)
         return (string::size_type)string::npos;
@@ -796,7 +826,7 @@ string Util::encodeURI(const string& aString, bool reverse) {
  * date/time and then finally written to the log file. If the parameter is not present at all,
  * it is removed from the string completely...
  */
-string Util::formatParams(const string& msg, StringMap& params, bool filter) {
+string Util::formatParams(const string& msg, const StringMap& params, bool filter) {
     string result = msg;
 
     string::size_type i, j, k;
@@ -806,7 +836,7 @@ string Util::formatParams(const string& msg, StringMap& params, bool filter) {
             break;
         }
         string name = result.substr(j + 2, k - j - 2);
-        StringMapIter smi = params.find(name);
+                StringMap::const_iterator smi = params.find(name);
         if(smi == params.end()) {
             result.erase(j, k-j + 1);
             i = j;
@@ -840,40 +870,6 @@ string Util::formatParams(const string& msg, StringMap& params, bool filter) {
     return result;
 }
 
-/** Fix for wide formatting bug in wcsftime in the ms c lib for multibyte encodings of unicode in singlebyte locales */
-string fixedftime(const string& format, struct tm* t) {
-    string ret = format;
-    const char codes[] = "aAbBcdHIjmMpSUwWxXyYzZ%";
-
-    char tmp[4];
-    tmp[0] = '%';
-    tmp[1] = tmp[2] = tmp[3] = 0;
-
-    StringMap sm;
-    static const size_t BUF_SIZE = 1024;
-    boost::scoped_array<char> buf(new char[BUF_SIZE]);
-    for(size_t i = 0; i < strlen(codes); ++i) {
-        tmp[1] = codes[i];
-        tmp[2] = 0;
-        strftime(&buf[0], BUF_SIZE-1, tmp, t);
-        sm[tmp] = &buf[0];
-
-        tmp[1] = '#';
-        tmp[2] = codes[i];
-        strftime(&buf[0], BUF_SIZE-1, tmp, t);
-        sm[tmp] = &buf[0];
-    }
-
-    for(StringMapIter i = sm.begin(); i != sm.end(); ++i) {
-        for(string::size_type j = ret.find(i->first); j != string::npos; j = ret.find(i->first, j)) {
-            ret.replace(j, i->first.length(), i->second);
-            j += i->second.length() - i->first.length();
-        }
-    }
-
-    return ret;
-}
-
 string Util::formatTime(const string &msg, const time_t t) {
     if (!msg.empty()) {
         size_t bufsize = msg.size() + 256;
@@ -882,19 +878,7 @@ string Util::formatTime(const string &msg, const time_t t) {
         if(!loc) {
             return Util::emptyString;
         }
-#if _WIN32
-        tstring buf(bufsize, 0);
 
-        buf.resize(_tcsftime(&buf[0], buf.size()-1, Text::toT(msg).c_str(), loc));
-
-        if(buf.empty()) {
-            return fixedftime(msg, loc);
-        }
-
-        return Text::fromT(buf);
-#else
-        // will this give wide representations for %a and %A?
-        // surely win32 can't have a leg up on linux/unixen in this area. - Todd
         string buf(bufsize, 0);
 
         buf.resize(strftime(&buf[0], bufsize-1, msg.c_str(), loc));
@@ -905,8 +889,13 @@ string Util::formatTime(const string &msg, const time_t t) {
             buf.resize(strftime(&buf[0], bufsize-1, msg.c_str(), loc));
         }
 
-        return Text::toUtf8(buf);
+#ifdef _WIN32
+                if(!Text::validateUtf8(buf))
 #endif
+                {
+                        buf = Text::toUtf8(buf);
+                }
+                return buf;
     }
     return Util::emptyString;
 }
@@ -1077,25 +1066,6 @@ string Util::getIpCountry (string IP) {
     return Util::emptyString; //if doesn't returned anything already, something is wrong...
 }
 
-string Util::formatMessage(const string& nick, const string& message, bool thirdPerson) {
-    // let's *not* obey the spec here and add a space after the star. :P
-    string tmp = (thirdPerson ? "* " + nick + ' ' : '<' + nick + "> ") + message;
-
-    // Check all '<' and '[' after newlines as they're probably pasts...
-    size_t i = 0;
-    while( (i = tmp.find('\n', i)) != string::npos) {
-        if(i + 1 < tmp.length()) {
-            if(tmp[i+1] == '[' || tmp[i+1] == '<') {
-                tmp.insert(i+1, "- ");
-                i += 2;
-            }
-        }
-        i++;
-    }
-
-    return Text::toDOS(tmp);
-}
-
 string Util::getTimeString() {
     char buf[64];
     time_t _tt;
@@ -1188,4 +1158,5 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
 	}
 	return Text::toT(ret);
 }
+
 } // namespace dcpp

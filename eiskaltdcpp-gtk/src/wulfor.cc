@@ -21,12 +21,10 @@
 
 #include <gtk/gtk.h>
 #include <glade/glade.h>
+#include <glib/gi18n.h>
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
-#undef _
-#include <glib/gi18n.h>
-
 #ifdef USE_MINIUPNP
 #include "extra/upnpc.h"
 #include "dcpp/UPnPManager.h"
@@ -38,7 +36,7 @@
 #include <iostream>
 #include <signal.h>
 
-#define GUI_LOCALE_DIR LOCALE_DIR
+#define GUI_LOCALE_DIR _DATADIR PATH_SEPARATOR_STR "locale"
 
 #define GUI_PACKAGE "eiskaltdcpp-gtk"
 
@@ -49,7 +47,7 @@ void printHelp()
     printf("Using:\n"
            "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
            "  eiskaltdcpp-gtk <Key>\n"
-           "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+           "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
            "\n"
            "Keys:\n"
            "  -h, --help\t Show this message\n"

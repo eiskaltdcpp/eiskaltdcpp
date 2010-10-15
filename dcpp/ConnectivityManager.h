@@ -43,18 +43,17 @@ public:
    void detectConnection();
    void log(const string& msg);
    void setup(bool settingsChanged, int lastConnectionMode);
-   bool isRunning() { return running; }
+   void mappingFinished(bool success);
 
 private:
    friend class Singleton<ConnectivityManager>;
-   friend class UPnPManager;
    ConnectivityManager();
    virtual ~ConnectivityManager() throw() { }
-   void mappingFinished(bool success);
+
    void startSocket();
    void listen();
    void disconnect();
-   bool running;
+
    bool autoDetected;
 };
 

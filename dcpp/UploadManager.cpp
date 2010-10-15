@@ -33,7 +33,7 @@
 #include "CryptoManager.h"
 #include "Upload.h"
 #include "UserConnection.h"
-
+#include "extra/ipfilter.h"
 #include <functional>
 
 namespace dcpp {
@@ -250,13 +250,13 @@ void UploadManager::removeUpload(Upload* aUpload) {
     delete aUpload;
 }
 
-void UploadManager::reserveSlot(const UserPtr& aUser, const string& hubHint) {
+void UploadManager::reserveSlot(const HintedUser& aUser) {
     {
         Lock l(cs);
         reservedSlots.insert(aUser);
     }
-    if(aUser->isOnline())
-        ClientManager::getInstance()->connect(aUser, Util::toString(Util::rand()), hubHint);
+    if(aUser.user->isOnline())
+        ClientManager::getInstance()->connect(aUser, Util::toString(Util::rand()));
 }
 
 void UploadManager::on(UserConnectionListener::Get, UserConnection* aSource, const string& aFile, int64_t aResume) throw() {
@@ -366,14 +366,14 @@ void UploadManager::addFailedUpload(const UserConnection& source, string filenam
         Lock l(cs);
         WaitingUserList::iterator it = find_if(waitingUsers.begin(), waitingUsers.end(), CompareFirst<UserPtr, uint32_t>(source.getUser()));
         if (it==waitingUsers.end()) {
-            waitingUsers.push_back(WaitingUser(source.getUser(), GET_TICK()));
+            waitingUsers.push_back(WaitingUser(source.getHintedUser(), GET_TICK()));
         } else {
             it->second = GET_TICK();
         }
         waitingFiles[source.getUser()].insert(filename);        //files for which user's asked
     }
 
-    fire(UploadManagerListener::WaitingAddFile(), source.getUser(), filename);
+    fire(UploadManagerListener::WaitingAddFile(), source.getHintedUser(), filename);
 }
 
 void UploadManager::clearUserFiles(const UserPtr& source) {
@@ -389,10 +389,10 @@ void UploadManager::clearUserFiles(const UserPtr& source) {
     waitingUsers.erase(sit);
 }
 
-UserList UploadManager::getWaitingUsers() {
+HintedUserList UploadManager::getWaitingUsers() const {
     Lock l(cs);
-    UserList u;
-    for(WaitingUserList::const_iterator i = waitingUsers.begin(); i != waitingUsers.end(); ++i) {
+    HintedUserList u;
+    for(WaitingUserList::const_iterator i = waitingUsers.begin(), iend = waitingUsers.end(); i != iend; ++i) {
         u.push_back(i->first);
     }
     return u;
@@ -404,6 +404,15 @@ const UploadManager::FileSet& UploadManager::getWaitingUserFiles(const UserPtr& 
 }
 
 void UploadManager::addConnection(UserConnectionPtr conn) {
+#ifdef STDIPFILTER
+    if (BOOLSETTING(IPFILTER) && !IPFilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_OUT)) {
+        conn->error("Your IP is Blocked!");// TODO translate
+        LogManager::getInstance()->message(_("IPFilter: Blocked incoming connection to ") + conn->getRemoteIp()); // TODO translate
+        //QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);
+        removeConnection(conn);
+        return;
+    }
+#endif
     conn->addListener(this);
     conn->setState(UserConnection::STATE_GET);
 }
@@ -458,7 +467,8 @@ void UploadManager::on(TimerManagerListener::Minute, uint32_t /* aTick */) throw
     }
 
     for(UserList::iterator i = disconnects.begin(); i != disconnects.end(); ++i) {
-        LogManager::getInstance()->message(str(F_("Disconnected user leaving the hub: %1%") % Util::toString(ClientManager::getInstance()->getNicks((*i)->getCID()))));
+        LogManager::getInstance()->message(str(F_("Disconnected user leaving the hub: %1%") %
+        Util::toString(ClientManager::getInstance()->getNicks((*i)->getCID(), Util::emptyString))));
         ConnectionManager::getInstance()->disconnect(*i, false);
     }
 }
@@ -505,8 +515,8 @@ void UploadManager::on(TimerManagerListener::Second, uint32_t) throw() {
         }
     }
 
-    if(ticks.size() > 0)
-        fire(UploadManagerListener::Tick(), ticks);
+    if(!uploads.empty())
+        fire(UploadManagerListener::Tick(), UploadList(uploads));
 }
 
 void UploadManager::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) throw() {

@@ -21,40 +21,29 @@
 
 namespace dcpp {
 
-class ISingleton{
-public:
-    ISingleton(){}
-
-    virtual void release() = 0;
-};
-
 template<typename T>
-class Singleton : public ISingleton {
+class Singleton {
 public:
-    Singleton() { }
-    virtual ~Singleton() { }
+        Singleton() { }
+        virtual ~Singleton() { }
 
-    static T* getInstance() {
-        dcassert(instance);
+        static T* getInstance() {
+                dcassert(instance);
         return instance;
-    }
+}
 
-    static void newInstance() {
+        static void newInstance() {
         if(instance)
-            return;
+                delete instance;
 
         instance = new T();
-    }
+}
 
-    static void deleteInstance() {
-        delete instance;
+        static void deleteInstance() {
+        if(instance)
+                delete instance;
         instance = NULL;
-    }
-
-    virtual void release(){
-        deleteInstance();
-    }
-
+}
 protected:
         static T* instance;
 private:

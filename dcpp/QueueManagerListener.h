@@ -52,15 +52,15 @@ public:
     virtual void on(SourcesUpdated, QueueItem*) throw() { }
     virtual void on(StatusUpdated, QueueItem*) throw() { }
     virtual void on(SearchStringUpdated, QueueItem*) throw() { }
-    virtual void on(PartialList, const UserPtr&, const string&) throw() { }
+        virtual void on(PartialList, const HintedUser&, const string&) throw() { }
 
-    virtual void on(RecheckStarted, QueueItem*) throw() { }
-    virtual void on(RecheckNoFile, QueueItem*) throw() { }
-    virtual void on(RecheckFileTooSmall, QueueItem*) throw() { }
-    virtual void on(RecheckDownloadsRunning, QueueItem*) throw() { }
-    virtual void on(RecheckNoTree, QueueItem*) throw() { }
-    virtual void on(RecheckAlreadyFinished, QueueItem*) throw() { }
-    virtual void on(RecheckDone, QueueItem*) throw() { }
+        virtual void on(RecheckStarted, const string&) throw() { }
+        virtual void on(RecheckNoFile, const string&) throw() { }
+        virtual void on(RecheckFileTooSmall, const string&) throw() { }
+        virtual void on(RecheckDownloadsRunning, const string&) throw() { }
+        virtual void on(RecheckNoTree, const string&) throw() { }
+        virtual void on(RecheckAlreadyFinished, const string&) throw() { }
+        virtual void on(RecheckDone, const string&) throw() { }
 };
 
 } // namespace dcpp

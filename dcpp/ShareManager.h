@@ -23,8 +23,7 @@
 #include "SearchManager.h"
 #include "SettingsManager.h"
 #include "HashManagerListener.h"
-#include "DownloadManagerListener.h"
-//#include "QueueManagerListener.h"
+#include "QueueManagerListener.h"
 
 #include "Exception.h"
 #include "CriticalSection.h"
@@ -50,8 +49,7 @@ class MemoryInputStream;
 
 struct ShareLoader;
 class ShareManager : public Singleton<ShareManager>, private SettingsManagerListener, private Thread, private TimerManagerListener,
-    private HashManagerListener, private DownloadManagerListener
-    //private HashManagerListener, private QueueManagerListener
+    private HashManagerListener, private QueueManagerListener
 {
 public:
     /**
@@ -66,6 +64,7 @@ public:
 
     string toVirtual(const TTHValue& tth) const throw(ShareException);
     string toReal(const string& virtualFile) throw(ShareException);
+    StringList getRealPaths(const string& virtualPath) throw(ShareException);
     TTHValue getTTH(const string& virtualFile) const throw(ShareException);
 
     void refresh(bool dirs = false, bool aUpdate = true, bool block = false) throw();
@@ -123,7 +122,6 @@ private:
         struct File {
             struct StringComp {
                 StringComp(const string& s) : a(s) { }
-
                 bool operator()(const File& b) const {
                 if (BOOLSETTING(CASESENSITIVE_FILELIST))
                     return strcmp(a.c_str(), b.getName().c_str()) == 0;
@@ -142,7 +140,6 @@ private:
                     else
                         return (Util::stricmp(a.getName(), b.getName()) < 0);
                 }
-
             };
             typedef set<File, FileLess> Set;
 
@@ -309,6 +306,7 @@ private:
     void generateXmlList();
     bool loadCache() throw();
     DirList::const_iterator getByVirtual(const string& virtualName) const throw();
+    pair<Directory::Ptr, string> splitVirtual(const string& virtualPath) const throw(ShareException);
 
     string findRealRoot(const string& virtualRoot, const string& virtualLeaf) const throw(ShareException);
 
@@ -316,11 +314,8 @@ private:
 
     virtual int run();
 
-    // DownloadManagerListener
-    virtual void on(DownloadManagerListener::Complete, Download* d) throw();
-
     // QueueManagerListener
-    //virtual void on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) throw();
+    virtual void on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) throw();
 
     // HashManagerListener
     virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) throw();

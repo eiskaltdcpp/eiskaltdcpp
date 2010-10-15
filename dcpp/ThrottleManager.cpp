@@ -1,4 +1,4 @@
-/*
+/* 
  * Copyright (C) 2009-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -42,7 +42,7 @@ int ThrottleManager::read(Socket* sock, void* buffer, size_t len)
 {
 	int64_t readSize = -1;
 	size_t downs = DownloadManager::getInstance()->getDownloadCount();
-	if((BOOLSETTING(THROTTLE_ENABLE) && !getCurThrottling()) || downTokens == -1 || downs == 0)
+	if(!getCurThrottling() || downTokens == -1 || downs == 0)
 		return sock->read(buffer, len);
 
 	{
@@ -73,13 +73,13 @@ int ThrottleManager::read(Socket* sock, void* buffer, size_t len)
 
 /*
  * Throttles traffic and writes a packet to the network
- * Handle this a little bit differently than downloads due to OpenSSL stupidity
+ * Handle this a little bit differently than downloads due to OpenSSL stupidity 
  */
 int ThrottleManager::write(Socket* sock, void* buffer, size_t& len)
 {
 	bool gotToken = false;
 	size_t ups = UploadManager::getInstance()->getUploadCount();
-	if((BOOLSETTING(THROTTLE_ENABLE) && !getCurThrottling()) || upTokens == -1 || ups == 0)
+	if(!getCurThrottling() || upTokens == -1 || ups == 0)
 		return sock->write(buffer, len);
 
 	{
@@ -97,7 +97,7 @@ int ThrottleManager::write(Socket* sock, void* buffer, size_t& len)
 
 	if(gotToken)
 	{
-		// write to socket
+		// write to socket			
 		int sent = sock->write(buffer, len);
 
 		Thread::yield(); // give a chance to other transfers get a token
@@ -113,7 +113,7 @@ SettingsManager::IntSetting ThrottleManager::getCurSetting(SettingsManager::IntS
 	SettingsManager::IntSetting downLimit = SettingsManager::MAX_DOWNLOAD_SPEED_MAIN;
 	SettingsManager::IntSetting slots     = SettingsManager::SLOTS_PRIMARY;
 
-	if(BOOLSETTING(TIME_DEPENDENT_THROTTLE) && BOOLSETTING(THROTTLE_ENABLE)) {
+	if(BOOLSETTING(TIME_DEPENDENT_THROTTLE)) {
 		time_t currentTime;
 		time(&currentTime);
 		int currentHour = localtime(&currentTime)->tm_hour;
