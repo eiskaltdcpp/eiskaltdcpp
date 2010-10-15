@@ -52,7 +52,6 @@ public:
     virtual void  setToolButton(QAction *btn) { if (btn) toolBtn = btn; }
     virtual const QPixmap &getPixmap(){ return _pxmap; }
 
-    virtual void requestDelete() {}
     virtual void requestFilter() {}
 
     virtual void setUnload(bool b){ _arenaUnload = b; }

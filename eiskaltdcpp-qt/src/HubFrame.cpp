@@ -1668,13 +1668,7 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
         item->isOp = isOp;
         item->px = WU->getUserIcon(user, map["AWAY"].toBool(), item->isOp, map["SPEED"].toString());
 
-        int row = item->row();
-
-        QModelIndex left = model->index(row, COLUMN_NICK);
-        QModelIndex right= model->index(row, COLUMN_EMAIL);
-
-        model->repaintData(left, right);
-
+        model->repaintItem(item);
         model->needResort();
     }
     else{

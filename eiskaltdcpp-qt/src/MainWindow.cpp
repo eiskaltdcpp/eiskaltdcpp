@@ -828,7 +828,6 @@ void MainWindow::initActions(){
         prevMsgShortCut     = new  QAction(this);
         closeWidgetShortCut      = new  QAction(this);
         toggleMainMenuShortCut   = new  QAction(this);
-        delShortCut         = new  QAction(this);
 
         nextTabShortCut->setObjectName("nextTabShortCut");
         prevTabShortCut->setObjectName("prevTabShortCut");
@@ -836,7 +835,6 @@ void MainWindow::initActions(){
         prevMsgShortCut->setObjectName("prevMsgShortCut");
         closeWidgetShortCut->setObjectName("closeWidgetShortCut");
         toggleMainMenuShortCut->setObjectName("toggleMainMenuShortCut");
-        delShortCut->setObjectName("delShortCut");
 
         nextTabShortCut->setText(tr("Next widget"));
         prevTabShortCut->setText(tr("Previous widget"));
@@ -844,7 +842,6 @@ void MainWindow::initActions(){
         prevMsgShortCut->setText(tr("Previous message"));
         closeWidgetShortCut->setText(tr("Close current widget"));
         toggleMainMenuShortCut->setText(tr("Toggle main menu"));
-        delShortCut->setText(tr("Call delete"));
 
         nextTabShortCut->setShortcutContext(Qt::ApplicationShortcut);
         prevTabShortCut->setShortcutContext(Qt::ApplicationShortcut);
@@ -852,7 +849,6 @@ void MainWindow::initActions(){
         prevMsgShortCut->setShortcutContext(Qt::ApplicationShortcut);
         closeWidgetShortCut->setShortcutContext(Qt::ApplicationShortcut);
         toggleMainMenuShortCut->setShortcutContext(Qt::ApplicationShortcut);
-        delShortCut->setShortcutContext(Qt::ApplicationShortcut);
 
         SM->registerShortcut(nextTabShortCut, tr("Ctrl+PgDown"));
         SM->registerShortcut(prevTabShortCut, tr("Ctrl+PgUp"));
@@ -860,7 +856,6 @@ void MainWindow::initActions(){
         SM->registerShortcut(prevMsgShortCut, tr("Ctrl+Up"));
         SM->registerShortcut(closeWidgetShortCut, tr("Ctrl+W"));
         SM->registerShortcut(toggleMainMenuShortCut, tr("Ctrl+M"));
-        SM->registerShortcut(delShortCut, tr("Delete"));
 
         if (tBar){
             connect(nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
@@ -875,7 +870,6 @@ void MainWindow::initActions(){
         connect(prevMsgShortCut,        SIGNAL(triggered()), this, SLOT(prevMsg()));
         connect(closeWidgetShortCut,    SIGNAL(triggered()), this, SLOT(slotCloseCurrentWidget()));
         connect(toggleMainMenuShortCut, SIGNAL(triggered()), this, SLOT(slotHideMainMenu()));
-        connect(delShortCut,            SIGNAL(triggered()), this, SLOT(slotDel()));
         // end
 
         sh_menu = new QMenu(this);
@@ -886,8 +880,7 @@ void MainWindow::initActions(){
                             << nextMsgShortCut
                             << prevMsgShortCut
                             << closeWidgetShortCut
-                            << toggleMainMenuShortCut
-                            << delShortCut);
+                            << toggleMainMenuShortCut);
 
         panelsWidgets = new QAction("", this);
         panelsWidgets->setCheckable(true);
@@ -2130,14 +2123,6 @@ void MainWindow::slotFind(){
 
     ArenaWidget *awgt = qobject_cast<ArenaWidget*>(arena->widget());
     awgt->requestFilter();
-}
-
-void MainWindow::slotDel(){
-    if (!arena->widget() || !qobject_cast<ArenaWidget*>(arena->widget()))
-        return;
-
-    ArenaWidget *awgt = qobject_cast<ArenaWidget*>(arena->widget());
-    awgt->requestDelete();
 }
 
 void MainWindow::slotChatDisable(){

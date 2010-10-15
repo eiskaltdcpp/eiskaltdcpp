@@ -17,6 +17,7 @@
 #include <QAction>
 #include <QMap>
 #include <QMetaType>
+#include <QShortcut>
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
@@ -88,7 +89,6 @@ public:
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return NULL; }
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiDOWNLOAD); }
-    void requestDelete();
 
     ArenaWidget::Role role() const { return ArenaWidget::Downloads; }
 
@@ -121,6 +121,8 @@ private Q_SLOTS:
     void remFile(const VarMap&);
     void updateFile(const VarMap&);
 
+    void requestDelete();
+
 Q_SIGNALS:
     void coreAdded(VarMap);
     void coreMoved(VarMap);
@@ -143,6 +145,8 @@ private:
     void getItems(const QModelIndexList &list, QList<DownloadQueueItem*> &items);
 
     QString getCID(const VarMap&);
+
+    QShortcut *deleteShortcut;
 
     DownloadQueueModel *queue_model;
     DownloadQueueModel *file_model;

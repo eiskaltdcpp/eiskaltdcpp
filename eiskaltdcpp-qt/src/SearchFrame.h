@@ -23,6 +23,7 @@
 #include <QCustomEvent>
 #include <QCompleter>
 #include <QMetaType>
+#include <QShortcut>
 #include <QStringListModel>
 
 #include "ui_UISearchFrame.h"
@@ -203,6 +204,8 @@ private:
     QCompleter *completer;
 
     QMenu *arena_menu;
+
+    QShortcut *focusShortcut;
 
     bool saveFileType;
 

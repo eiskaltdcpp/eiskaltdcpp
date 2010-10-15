@@ -158,7 +158,8 @@ public:
     QStringList findItems(const QString &part, Qt::MatchFlags flags, int column) const;
 
     void repaint() { emit layoutChanged(); }
-    void repaintData(const QModelIndex &left, const QModelIndex &right){ emit dataChanged(left, right); }
+    void repaintItem(const UserListItem *item);
+    inline void repaintData(const QModelIndex &left, const QModelIndex &right){ emit dataChanged(left, right); }
     void needResort();
 
 private slots:

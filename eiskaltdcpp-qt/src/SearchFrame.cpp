@@ -375,6 +375,9 @@ void SearchFrame::init(){
     foreach (QString s, searchHistory)
         m->addAction(s);
 
+    focusShortcut = new QShortcut(QKeySequence(Qt::Key_F6), this);
+    focusShortcut->setContext(Qt::WidgetWithChildrenShortcut);
+
     lineEdit_SEARCHSTR->setMenu(m);
     lineEdit_SEARCHSTR->setPixmap(WICON(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
@@ -383,6 +386,8 @@ void SearchFrame::init(){
     connect(this, SIGNAL(coreClientUpdated(QString)),      this, SLOT(onHubChanged(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreSR(VarMap)),                   this, SLOT(addResult(VarMap)), Qt::QueuedConnection);
 
+    connect(focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(setFocus()));
+    connect(focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(selectAll()));
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
     connect(pushButton_CLEAR, SIGNAL(clicked()), this, SLOT(slotClear()));
@@ -1317,6 +1322,11 @@ void SearchFrame::slotFilter(){
         treeView_RESULTS->setModel(proxy);
 
         connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+
+        if (!lineEdit_SEARCHSTR->selectedText().isEmpty()){
+            lineEdit_FILTER->setText(lineEdit_SEARCHSTR->selectedText());
+            lineEdit_FILTER->selectAll();
+        }
 
         lineEdit_FILTER->setFocus();
 

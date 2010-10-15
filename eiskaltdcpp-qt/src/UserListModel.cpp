@@ -505,6 +505,15 @@ QStringList UserListModel::findItems(const QString &part, Qt::MatchFlags flags, 
     return items;
 }
 
+void UserListModel::repaintItem(const UserListItem *item){
+    int r = rootItem->childItems.indexOf(const_cast<UserListItem*>(item));
+
+    if (!(item && r >= 0))
+        return;
+
+    repaintData(createIndex(r, COLUMN_NICK, const_cast<UserListItem*>(item)), createIndex(r, COLUMN_EMAIL, const_cast<UserListItem*>(item)));
+}
+
 UserListItem::UserListItem(UserListItem *parent) :
     isOp(false), px(NULL), parentItem(parent), fav(false)
 {

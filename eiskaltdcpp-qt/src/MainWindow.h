@@ -247,7 +247,6 @@ friend class dcpp::Singleton<MainWindow>;
         void prevMsg();
 
         void slotFind();
-        void slotDel();
         void slotChatDisable();
 
         void slotAboutOpenUrl();
@@ -387,7 +386,6 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *nextMsgShortCut;
         QAction *closeWidgetShortCut;
         QAction *toggleMainMenuShortCut;
-        QAction *delShortCut;
 
         QAction *chatDisable;
         QAction *findInWidget;

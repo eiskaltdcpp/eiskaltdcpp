@@ -252,6 +252,9 @@ void DownloadQueue::init(){
 
     label_STATS->hide();
 
+    deleteShortcut = new QShortcut(QKeySequence(Qt::Key_Delete), this);
+    deleteShortcut->setContext(Qt::WidgetWithChildrenShortcut);
+
     connect(this, SIGNAL(coreAdded(VarMap)),            this, SLOT(addFile(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreRemoved(VarMap)),          this, SLOT(remFile(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreSourcesUpdated(VarMap)),   this, SLOT(updateFile(VarMap)), Qt::QueuedConnection);
@@ -259,6 +262,7 @@ void DownloadQueue::init(){
     connect(this, SIGNAL(coreMoved(VarMap)),            this, SLOT(remFile(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreMoved(VarMap)),            this, SLOT(addFile(VarMap)), Qt::QueuedConnection);
 
+    connect(deleteShortcut, SIGNAL(activated()), this, SLOT(requestDelete()));
     connect(treeView_TARGET, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_TARGET->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
     connect(queue_model, SIGNAL(needExpand(QModelIndex)), treeView_TARGET, SLOT(expand(QModelIndex)));
