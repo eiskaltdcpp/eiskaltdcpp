@@ -2352,18 +2352,11 @@ void MainWindow::slotAboutClient(){
     qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
     qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong();
 
-#ifndef DCPP_REVISION
-    a.label->setText(QString("<b>%1</b> %2 (%3)")
+    a.label->setText(QString("<b>%1</b> %2-%3")
                      .arg(EISKALTDCPP_WND_TITLE)
                      .arg(EISKALTDCPP_VERSION)
                      .arg(EISKALTDCPP_VERSION_SFX));
-#else
-    a.label->setText(QString("<b>%1</b> %2 - %3 %4")
-                     .arg(EISKALTDCPP_WND_TITLE)
-                     .arg(EISKALTDCPP_VERSION)
-                     .arg(EISKALTDCPP_VERSION_SFX)
-                     .arg(DCPP_REVISION));
-#endif
+
     a.label_ABOUT->setTextFormat(Qt::RichText);
     a.label_ABOUT->setText(QString("%1<br/><br/> %2 %3 %4<br/><br/> %5 %6<br/><br/> %7 <b>%8</b> <br/> %9 <b>%10</b>")
                            .arg(tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols."))
