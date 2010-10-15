@@ -143,13 +143,13 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="8"/>
         <source>Customize actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройване на действия</translation>
     </message>
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="17"/>
         <location filename="../src/ActionCustomizer.cpp" line="29"/>
         <source>-- Separator --</source>
-        <translation type="unfinished"></translation>
+        <translation>-- Разделител --</translation>
     </message>
 </context>
 <context>
@@ -1400,7 +1400,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubManager.h" line="45"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Управление на хъбовете</translation>
     </message>
 </context>
 <context>
@@ -1704,22 +1704,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="841"/>
         <source>Next widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Следваща джаджа</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="842"/>
         <source>Previous widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Предишна джаджа</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1010"/>
         <source>Download/Upload speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорост на сваляне/качване</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1016"/>
         <source>Downloaded/Uploaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Свалено/Качено</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1085"/>
@@ -1769,12 +1769,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1374"/>
         <source>%1/s / %2/s</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/s / %2/s</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1375"/>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1397"/>
@@ -1810,7 +1810,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2296"/>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation>Стил на бутоните</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2384"/>
@@ -1911,62 +1911,62 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="843"/>
         <source>Next message</source>
-        <translation type="unfinished"></translation>
+        <translation>Следващо съобщение</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="844"/>
         <source>Previous message</source>
-        <translation type="unfinished"></translation>
+        <translation>Предишно съобщение</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="845"/>
         <source>Close current widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Затваряне на текущата джаджа</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="846"/>
         <source>Toggle main menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Превключване на основното меню</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="847"/>
         <source>Call delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Извикване на премахнатите</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="857"/>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="858"/>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="859"/>
         <source>Ctrl+Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Down</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="860"/>
         <source>Ctrl+Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Up</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="861"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="862"/>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="863"/>
         <source>Delete</source>
-        <translation type="unfinished">Премахване</translation>
+        <translation>Премахване</translation>
     </message>
     <message>
         <source>Download speed</source>
@@ -2971,7 +2971,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="43"/>
         <source>Downloads</source>
-        <translation>Сваляния</translation>
+        <translation>Сваляне</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="48"/>
@@ -3183,7 +3183,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsLog.cpp" line="75"/>
         <source>Choose the directory</source>
-        <translation type="unfinished">Избор на директория</translation>
+        <translation>Избор на директория</translation>
     </message>
 </context>
 <context>
@@ -3418,22 +3418,22 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="76"/>
         <source>Command produced no visible output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Командата не показва видима информация.</translation>
     </message>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="81"/>
         <source>Process exited with status</source>
-        <translation type="unfinished"></translation>
+        <translation>Процесът завърши със статус</translation>
     </message>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="84"/>
         <source>Process was killed or crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Процесът бе убит или се е разпаднал.</translation>
     </message>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="87"/>
         <source>Process still running after 2 minutes, killing process...</source>
-        <translation type="unfinished"></translation>
+        <translation>Процесът все още работи след 2 минути, убиване...</translation>
     </message>
 </context>
 <context>
@@ -3578,7 +3578,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TabFrame.cpp" line="276"/>
         <source>Close</source>
-        <translation type="unfinished">Затваряне</translation>
+        <translation>Затваряне</translation>
     </message>
 </context>
 <context>
@@ -3856,7 +3856,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="517"/>
         <source>Downloaded </source>
-        <translation>Свалено</translation>
+        <translation>Свалени </translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="519"/>
@@ -3973,7 +3973,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
         <source>Search string</source>
-        <translation type="unfinished">Търсене на низ</translation>
+        <translation>Търсене на низ</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="104"/>
@@ -4101,27 +4101,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Прозорец</translation>
+        <translation>Прозорец</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="29"/>
         <source>&gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="45"/>
         <source>&lt;&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
-        <translation type="unfinished">Нагоре</translation>
+        <translation>Нагоре</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="95"/>
         <source>Down</source>
-        <translation type="unfinished">Надолу</translation>
+        <translation>Надолу</translation>
     </message>
 </context>
 <context>
@@ -5932,7 +5932,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="116"/>
         <source>Downloads</source>
-        <translation>Сваляния</translation>
+        <translation>Свалени</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="151"/>
