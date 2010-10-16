@@ -36,7 +36,6 @@ endif (USE_DHT)
 if(STDIPFILTER)
 add_definitions ( -DSTDIPFILTER )
 endif(STDIPFILTER)
-
 if (NOT NATT)
 add_definitions ( -DDISABLE_NAT_TRAVERSAL )
 endif (NOT NATT)

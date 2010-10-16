@@ -66,7 +66,7 @@ find_package (OpenSSL REQUIRED)
 find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
 find_package (Iconv REQUIRED)
-find_package (Subversion)
+find_package (Git)
 
 
 option (USE_QT "Qt interface" ON)
@@ -250,14 +250,20 @@ message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
 
 if (DCPP_REVISION)
         set (eiskaltdcpp_WC_REVISION ${DCPP_REVISION})
-elseif (Subversion_FOUND)
-    Subversion_WC_INFO (${PROJECT_SOURCE_DIR} eiskaltdcpp)
+elseif (GIT_FOUND)
+    #if(EXISTS ${PROJECT_SOURCE_DIR}/.git)
+    execute_process (COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
+                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+                OUTPUT_VARIABLE eiskaltdcpp_WC_REVISION
+                OUTPUT_STRIP_TRAILING_WHITESPACE)
+    #endif(EXISTS ${PROJECT_SOURCE_DIR}/.git)
+    #Subversion_WC_INFO (${PROJECT_SOURCE_DIR} eiskaltdcpp)
 endif ()
 
 message (STATUS "Build svn revision: ${eiskaltdcpp_WC_REVISION}")
-if (eiskaltdcpp_WC_REVISION MATCHES [0-9]+)
+if (eiskaltdcpp_WC_REVISION MATCHES [0-9a-z]+)
     #add_definitions (-DDCPP_REVISION="\(r""${eiskaltdcpp_WC_REVISION}""\)")
-    add_definitions (-DDCPP_REVISION="r${eiskaltdcpp_WC_REVISION}")
+    add_definitions (-DDCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
 endif ()
 
 if (UNIX)
