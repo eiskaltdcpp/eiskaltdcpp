@@ -6,6 +6,13 @@
 #include <QMouseEvent>
 #include <QStyleOptionButton>
 #include <QApplication>
+#include <QPaintEvent>
+#include <QPainter>
+#include <QStyleOption>
+#include <QLinearGradient>
+#include <QBrush>
+#include <QPen>
+#include <QPointF>
 
 #include "WulforUtil.h"
 #include "WulforSettings.h"
@@ -13,7 +20,7 @@
 #include <QDataStream>
 
 static const int margin         = 2;
-static const int LABELWIDTH     = 18;
+static const int LABELWIDTH     = 20;
 static const int CLOSEPXWIDTH   = 14;
 static const int PXWIDTH        = 16;
 
@@ -140,6 +147,50 @@ void TabButton::mouseReleaseEvent(QMouseEvent *e){
     isLeftBtnHold = false;
 }
 
+void TabButton::paintEvent(QPaintEvent *e){
+    QStyleOptionButton option;
+    QPainter p(this);
+    bool checked = false;
+    bool mouseOver = false;
+
+    initStyleOption(&option);
+
+    checked = (option.state & QStyle::State_On);
+    mouseOver = (option.state & QStyle::State_MouseOver);
+
+    option.state &= ~(QStyle::State_On|QStyle::State_MouseOver|QStyle::State_Enabled|
+                      QStyle::State_HasFocus|QStyle::State_Active|QStyle::State_Sunken);//shutdown all states
+
+    qApp->style()->drawControl(QStyle::CE_PushButton, &option, &p);
+
+    if (checked){
+        QLinearGradient gr(0, 0, width(), 0);
+        gr.setSpread(QGradient::PadSpread);
+        gr.setColorAt(0.00, palette().background().color());
+        gr.setColorAt(0.25, palette().highlight().color().lighter(105));
+        gr.setColorAt(0.50, palette().highlight().color());
+        gr.setColorAt(0.75, palette().highlight().color().lighter(105));
+        gr.setColorAt(1.00, palette().background().color());
+
+        p.fillRect(0, 0, width(), 1, gr);
+        p.fillRect(0, height()-1, width(), 1, gr);
+    }
+    else if (mouseOver){
+        QLinearGradient gr(0, 0, width(), 0);
+        gr.setSpread(QGradient::PadSpread);
+        gr.setColorAt(0.00, palette().background().color());
+        gr.setColorAt(0.25, palette().highlight().color().lighter(110));
+        gr.setColorAt(0.50, palette().highlight().color().lighter(105));
+        gr.setColorAt(0.75, palette().highlight().color().lighter(110));
+        gr.setColorAt(1.00, palette().background().color());
+
+        p.fillRect(0, 0, width(), 1, gr);
+        p.fillRect(0, height()-1, width(), 1, gr);
+    }
+
+    p.end();
+}
+
 QSize TabButton::sizeHint() const {
     ensurePolished();
 
@@ -152,10 +203,7 @@ QSize TabButton::sizeHint() const {
 int TabButton::normalWidth() const {
     QFontMetrics metrics = qApp->fontMetrics();
 
-    if (WBGET(WB_APP_TBAR_SHOW_CL_BTNS))
-        return LABELWIDTH*2+metrics.width(text())+margin*3;
-    else
-        return LABELWIDTH+metrics.width(text())+margin*5;
+    return LABELWIDTH*2+metrics.width(text())+margin*3;
 }
 
 int TabButton::normalHeight() const {
@@ -172,7 +220,7 @@ void TabButton::setWidgetIcon(const QPixmap &px){
 
 void TabButton::updateStyles() {
     label->setStyleSheet(QString("QLabel { margin-left: %1; }").arg(margin));
-    px_label->setStyleSheet(QString("QLabel { margin-right: %1; }").arg(margin));
+    px_label->setStyleSheet(QString("QLabel { margin-right: %1; }").arg(margin*2));
 
     QString styleText_pressed = "QPushButton:checked {\n";
     QString styleText_button = "QPushButton {\n";
@@ -182,11 +230,9 @@ void TabButton::updateStyles() {
         styleText_button += QString("padding-right: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
     }
     else{
-        styleText_pressed += QString("padding-left: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
-        styleText_button += QString("padding-left: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
+        styleText_pressed += QString("margin-right: %1;\n margin-left: %1;\n").arg(LABELWIDTH*6);
+        styleText_button += QString("margin-right: %1;\n margin-left: %1;\n").arg(LABELWIDTH*6);
     }
-
-    styleText_pressed += QString("border-width: 1px; border-color: %1; border-style: outset; border-radius: 4;\n").arg(palette().highlight().color().name());
 
     styleText_button    += "}\n";
     styleText_pressed   += "}\n";

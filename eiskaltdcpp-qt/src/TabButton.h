@@ -8,6 +8,7 @@
 #include <QMouseEvent>
 
 class QResizeEvent;
+class QPaintEvent;
 class QLabel;
 class QEvent;
 
@@ -34,6 +35,7 @@ protected:
     virtual void mousePressEvent(QMouseEvent *e);
     virtual void mouseReleaseEvent(QMouseEvent *e);
     virtual void mouseMoveEvent(QMouseEvent *e);
+    virtual void paintEvent(QPaintEvent *e);
 
 signals:
     void closeRequest();
