@@ -456,8 +456,8 @@ namespace dht
 			node->getIdentity().setConnection(Util::formatBytes(node->getIdentity().get("US")) + "/s");
 		}
 
-		// add node to our routing table and put him online
-		addNode(node, true);
+		// add node to our routing table and put him online if it is required
+		addNode(node, (it & DHT::MAKE_ONLINE) == DHT::MAKE_ONLINE);
 
 		// do we wait for any search results from this user?
 		SearchManager::getInstance()->processSearchResults(node->getUser(), Util::toInt(node->getIdentity().get("SL")));

@@ -30,7 +30,9 @@
 
 #include <zlib.h>
 #define _DEBUG
-//#include <mswsock.h>
+#ifdef _WIN32
+#include <mswsock.h>
+#endif
 #include <openssl/rc4.h>
 
 namespace dht

@@ -86,6 +86,10 @@ namespace dht
 
 	SearchManager::~SearchManager(void)
 	{
+		for(SearchMap::const_iterator i = searches.begin(); i != searches.end(); ++i)
+		{
+			delete i->second;
+		}
 	}
 
 	/*
