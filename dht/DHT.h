@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,126 +16,143 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#pragma once
+#ifndef _DHT_H
+#define _DHT_H
 
 #include "BootstrapManager.h"
 #include "Constants.h"
 #include "KBucket.h"
 #include "UDPSocket.h"
+#include "stdafx.h"
 
-#include "../dcpp/AdcCommand.h"
-#include "../dcpp/CID.h"
-#include "../dcpp/MerkleTree.h"
-#include "../dcpp/Singleton.h"
-#include "../dcpp/TimerManager.h"
+#include "dcpp/AdcCommand.h"
+#include "dcpp/CID.h"
+#include "dcpp/MerkleTree.h"
+#include "dcpp/Singleton.h"
+#include "dcpp/TimerManager.h"
 
 namespace dht
 {
 
-    class DHT :
-        public Singleton<DHT>
-    {
-    public:
-        DHT(void);
-        ~DHT(void);
+	class DHT :
+		public Singleton<DHT>, public Speaker<ClientListener>, public ClientBase
+	{
+	public:
+		DHT(void);
+		~DHT(void);
 
-        enum InfType { NONE = 0, PING = 1, MAKE_ONLINE = 2 };
+		enum InfType { NONE = 0, PING = 1, MAKE_ONLINE = 2 };
 
-        /** Socket functions */
-        void listen();
-        void disconnect() { socket.disconnect(); }
-        uint16_t getPort() const { return BOOLSETTING(USE_DHT) ? socket.getPort() : 0; }
+		/** ClientBase derived functions */
+		const string& getHubUrl() const { return NetworkName; }
+		string getHubName() const { return NetworkName; }
+		bool isOp() const { return false; }
 
-        /** Process incoming command */
-        void dispatch(const string& aLine, const string& ip, uint16_t port);
+		/** Starts DHT. */
+		void start();
+		void stop(bool exiting = false);
 
-        /** Sends command to ip and port */
-        void send(AdcCommand& cmd, const string& ip, uint16_t port);
+		uint16_t getPort() const { return BOOLSETTING(USE_DHT) ? socket.getPort() : 0; }
 
-        /** Insert (or update) user into routing table */
-        Node::Ptr addUser(const CID& cid, const string& ip, uint16_t port);
+		/** Process incoming command */
+		void dispatch(const string& aLine, const string& ip, uint16_t port, bool isUdpKeyValid);
 
-        /** Returns counts of nodes available in k-buckets */
-        unsigned int getNodesCount() { Lock l(cs); return bucket->getNodes().size(); }
+		/** Sends command to ip and port */
+		void send(AdcCommand& cmd, const string& ip, uint16_t port, const CID& targetCID, const CID& udpKey);
 
-        /** Removes dead nodes */
-        void checkExpiration(uint64_t aTick);
+		/** Creates new (or update existing) node which is NOT added to our routing table */
+		Node::Ptr createNode(const CID& cid, const string& ip, uint16_t port, bool update, bool isUdpKeyValid);
 
-        /** Finds the file in the network */
-        void findFile(const string& tth, const string& token = Util::toString(Util::rand()));
+		/** Adds node to routing table */
+		bool addNode(const Node::Ptr& node, bool makeOnline);
 
-        /** Sends our info to specified ip:port */
-        void info(const string& ip, uint16_t port, uint32_t type);
+		/** Returns counts of nodes available in k-buckets */
+		size_t getNodesCount() { Lock l(cs); return bucket->getNodes().size(); }
 
-        /** Sends Connect To Me request to online node */
-        void connect(const OnlineUser& ou, const string& token);
+		/** Removes dead nodes */
+		void checkExpiration(uint64_t aTick);
 
-        /** Sends private message to online node */
-        void privateMessage(const OnlineUser& ou, const string& aMessage, bool thirdPerson);
+		/** Finds the file in the network */
+		void findFile(const string& tth, const string& token = Util::toString(Util::rand()));
 
-        /** Is DHT connected? */
-        bool isConnected() const { return lastPacket && (GET_TICK() - lastPacket < CONNECTED_TIMEOUT); }
+		/** Sends our info to specified ip:port */
+		void info(const string& ip, uint16_t port, uint32_t type, const CID& targetCID, const CID& udpKey);
 
-        /** Mark that network data should be saved */
-        void setDirty() { dirty = true; }
+		/** Sends Connect To Me request to online node */
+		void connect(const OnlineUser& ou, const string& token);
 
-        /** Saves network information to XML file */
-        void saveData();
+		/** Sends private message to online node */
+		void privateMessage(const OnlineUserPtr& ou, const string& aMessage, bool thirdPerson);
 
-        /** Returns if our UDP port is open */
-        bool isFirewalled() const { return firewalled; }
+		/** Is DHT connected? */
+		bool isConnected() const { return lastPacket && (GET_TICK() - lastPacket < CONNECTED_TIMEOUT); }
 
-        void setRequestFWCheck() { Lock l(cs); requestFWCheck = true; firewalledWanted.clear(); firewalledChecks.clear(); }
+		/** Mark that network data should be saved */
+		void setDirty() { dirty = true; }
 
-    private:
-        /** Classes that can access to my private members */
-        friend class Singleton<DHT>;
-        friend class SearchManager;
+		/** Saves network information to XML file */
+		void saveData();
 
-        void handle(AdcCommand::INF, const Node::Ptr& node, AdcCommand& c) throw(); // user's info
-        void handle(AdcCommand::SCH, const Node::Ptr& node, AdcCommand& c) throw(); // incoming search request
-        void handle(AdcCommand::RES, const Node::Ptr& node, AdcCommand& c) throw(); // incoming search result
-        void handle(AdcCommand::PUB, const Node::Ptr& node, AdcCommand& c) throw(); // incoming publish request
-        void handle(AdcCommand::CTM, const Node::Ptr& node, AdcCommand& c) throw(); // connection request
-        void handle(AdcCommand::RCM, const Node::Ptr& node, AdcCommand& c) throw(); // reverse connection request
-        void handle(AdcCommand::STA, const Node::Ptr& node, AdcCommand& c) throw(); // status message
-        void handle(AdcCommand::PSR, const Node::Ptr& node, AdcCommand& c) throw(); // partial file request
-        void handle(AdcCommand::MSG, const Node::Ptr& node, AdcCommand& c) throw(); // private message
-        void handle(AdcCommand::GET, const Node::Ptr& node, AdcCommand& c) throw();
-        void handle(AdcCommand::SND, const Node::Ptr& node, AdcCommand& c) throw();
+		/** Returns if our UDP port is open */
+		bool isFirewalled() const { return firewalled; }
 
-        /** Unsupported command */
-        template<typename T> void handle(T, const Node::Ptr&user, AdcCommand&) { }
+		/** Returns our IP got from the last firewall check */
+		string getLastExternalIP() const { return lastExternalIP; }
 
-        /** UDP socket */
-        UDPSocket   socket;
+		void setRequestFWCheck() { Lock l(cs); requestFWCheck = true; firewalledWanted.clear(); firewalledChecks.clear(); }
 
-        /** Routing table */
-        KBucket*    bucket;
+	private:
+		/** Classes that can access to my private members */
+		friend class Singleton<DHT>;
+		friend class SearchManager;
 
-        /** Lock to routing table */
-        CriticalSection cs;
+		void handle(AdcCommand::INF, const Node::Ptr& node, AdcCommand& c) throw();	// user's info
+		void handle(AdcCommand::SCH, const Node::Ptr& node, AdcCommand& c) throw();	// incoming search request
+		void handle(AdcCommand::RES, const Node::Ptr& node, AdcCommand& c) throw();	// incoming search result
+		void handle(AdcCommand::PUB, const Node::Ptr& node, AdcCommand& c) throw();	// incoming publish request
+		void handle(AdcCommand::CTM, const Node::Ptr& node, AdcCommand& c) throw();	// connection request
+		void handle(AdcCommand::RCM, const Node::Ptr& node, AdcCommand& c) throw();	// reverse connection request
+		void handle(AdcCommand::STA, const Node::Ptr& node, AdcCommand& c) throw();	// status message
+		void handle(AdcCommand::PSR, const Node::Ptr& node, AdcCommand& c) throw();	// partial file request
+		void handle(AdcCommand::MSG, const Node::Ptr& node, AdcCommand& c) throw(); // private message
+		void handle(AdcCommand::GET, const Node::Ptr& node, AdcCommand& c) throw();
+		void handle(AdcCommand::SND, const Node::Ptr& node, AdcCommand& c) throw();
 
-        /** Our external IP got from last firewalled check */
-        string lastExternalIP;
+		/** Unsupported command */
+		template<typename T> void handle(T, const Node::Ptr&user, AdcCommand&) { }
 
-        /** Time when last packet was received */
-        uint64_t lastPacket;
+		/** UDP socket */
+		UDPSocket	socket;
 
-        /** IPs who we received firewalled status from */
-        std::tr1::unordered_set<string> firewalledWanted;
-        std::tr1::unordered_map<string, std::pair<string, uint16_t> > firewalledChecks;
-        bool firewalled;
-        bool requestFWCheck;
+		/** Routing table */
+		KBucket*	bucket;
 
-        /** Should the network data be saved? */
-        bool dirty;
+		/** Lock to routing table */
+		CriticalSection	cs;
+		CriticalSection fwCheckCs;
 
-        /** Finds "max" closest nodes and stores them to the list */
-        void getClosestNodes(const CID& cid, std::map<CID, Node::Ptr>& closest, unsigned int max, uint8_t maxType);
+		/** Our external IP got from last firewalled check */
+		string lastExternalIP;
 
-        /** Loads network information from XML file */
-        void loadData();
-    };
+		/** Time when last packet was received */
+		uint64_t lastPacket;
+
+		/** IPs who we received firewalled status from */
+		std::unordered_set<string> firewalledWanted;
+		std::unordered_map<string, std::pair<string, uint16_t>> firewalledChecks;
+		bool firewalled;
+		bool requestFWCheck;
+
+		/** Should the network data be saved? */
+		bool dirty;
+
+		/** Finds "max" closest nodes and stores them to the list */
+		void getClosestNodes(const CID& cid, std::map<CID, Node::Ptr>& closest, unsigned int max, uint8_t maxType);
+
+		/** Loads network information from XML file */
+		void loadData();
+	};
 
 }
+
+#endif	// _DHT_H

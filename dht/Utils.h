@@ -16,33 +16,62 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#pragma once
-
-#include "../dcpp/CID.h"
-#include "../dcpp/MerkleTree.h"
+#ifndef _UTILS_H
+#define _UTILS_H
+#include "stdafx.h"
+#include "dcpp/AdcCommand.h"
+#include "dcpp/CID.h"
+#include "dcpp/MerkleTree.h"
 
 namespace dht
 {
 
-// all members must be static!
-class Utils
-{
-public:
-    /** Returns distance between two nodes */
-    static CID getDistance(const CID& cid1, const CID& cid2);
+	// all members must be static!
+	class Utils
+	{
+	public:
+		/** Returns distance between two nodes */
+		static CID getDistance(const CID& cid1, const CID& cid2);
 
-    /** Returns distance between node and file */
-    static TTHValue getDistance(const CID& cid, const TTHValue& tth)
-    {
-        return TTHValue(const_cast<uint8_t*>(getDistance(cid, CID(tth.data)).data()));
-    }
+		/** Returns distance between node and file */
+		static TTHValue getDistance(const CID& cid, const TTHValue& tth)
+		{
+			return TTHValue(const_cast<uint8_t*>(getDistance(cid, CID(tth.data)).data()));
+		}
 
-    /** Detect whether it is correct to use IP:port in DHT network */
-    static bool isGoodIPPort(const string& ip, uint16_t port);
+		/** Detect whether it is correct to use IP:port in DHT network */
+		static bool isGoodIPPort(const string& ip, uint16_t port);
 
-private:
-    Utils(void) { }
-    ~Utils(void) { }
-};
+		/** General flooding protection */
+		static bool checkFlood(const string& ip, const AdcCommand& cmd);
+
+		/** Removes tracked packets. Called once a minute. */
+		static void cleanFlood();
+
+		/** Stores outgoing request to avoid receiving invalid responses */
+		static void trackOutgoingPacket(const string& ip, const AdcCommand& cmd);
+
+		/** Generates UDP key for specified IP address */
+		static CID getUdpKey(const string& targetIp);
+
+		static const string& compressXML(string& xml);
+
+	private:
+		Utils(void) { }
+		~Utils(void) { }
+
+		struct OutPacket
+		{
+			string		ip;
+			uint64_t	time;
+			uint32_t	cmd;
+		};
+
+		static CriticalSection cs;
+		static std::unordered_map<string, std::unordered_multiset<uint32_t>> receivedPackets;
+		static std::list<OutPacket> sentPackets;
+	};
 
 } // namespace dht
+
+#endif	// _UTILS_H

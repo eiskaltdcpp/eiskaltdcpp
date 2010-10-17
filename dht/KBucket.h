@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,70 +16,102 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#pragma once
+#ifndef _KBUCKET_H
+#define _KBUCKET_H
 
-#include "../dcpp/CID.h"
-#include "../dcpp/Pointer.h"
-#include "../dcpp/SimpleXML.h"
-#include "../dcpp/TimerManager.h"
-#include "../dcpp/User.h"
+#include "Constants.h"
+
+#include "dcpp/CID.h"
+#include "dcpp/Client.h"
+#include "dcpp/MerkleTree.h"
+#include "dcpp/Pointer.h"
+#include "dcpp/SimpleXML.h"
+#include "dcpp/TimerManager.h"
+#include "dcpp/User.h"
 
 namespace dht
 {
+	struct UDPKey
+	{
+		string	ip;
+		CID		key;
+	};
 
-    struct Node :
-        public OnlineUser
-    {
-        typedef boost::intrusive_ptr<Node> Ptr;
-        typedef std::map<CID, Node::Ptr> Map;
+	struct Node :
+		public OnlineUser
+	{
+		typedef boost::intrusive_ptr<Node> Ptr;
+		typedef std::map<CID, Node::Ptr> Map;
 
-        Node();
-        Node(const UserPtr& u);
-        ~Node() { }
+		Node(const UserPtr& u);
+		~Node()	{ }
 
-        uint8_t getType() const { return type; }
-        void setAlive();
+		uint8_t getType() const { return type; }
+		bool isIpVerified() const { return ipVerified; }
 
-    private:
+		bool isOnline() const { return online; }
+		void setOnline(bool _online) { online = _online; }
 
-        friend class KBucket;
+		void setAlive();
+		void setIpVerified(bool verified) { ipVerified = verified; }
+		void setTimeout(uint64_t now = GET_TICK());
 
-        uint64_t    created;
-        uint64_t    expires;
-        uint8_t     type;
-    };
+		CID getUdpKey() const;
+		void setUdpKey(const CID& _key);
+		const UDPKey& getUDPKey() const { return key; }
 
-    class KBucket
-    {
-    public:
-        KBucket(void);
-        ~KBucket(void);
+	private:
 
-        typedef std::deque<Node::Ptr> NodeList;
+		friend class KBucket;
 
-        /** Inserts node to bucket */
-        Node::Ptr insert(const UserPtr& u);
+		UDPKey		key;
 
-        /** Finds "max" closest nodes and stores them to the list */
-        void getClosestNodes(const CID& cid, Node::Map& closest, unsigned int max, uint8_t maxType) const;
+		uint64_t	created;
+		uint64_t	expires;
+		uint8_t		type;
+		bool		ipVerified;
+		bool		online;	// getUser()->isOnline() returns true when node is online in any hub, we need info when he is online in DHT
+	};
 
-        /** Return list of all nodes in this bucket */
-        const NodeList& getNodes() const { return nodes; }
+	class KBucket
+	{
+	public:
+		KBucket(void);
+		~KBucket(void);
 
-        /** Removes dead nodes */
-        bool checkExpiration(uint64_t currentTime);
+		typedef std::deque<Node::Ptr> NodeList;
 
-        /** Loads existing nodes from disk */
-        void loadNodes(SimpleXML& xml);
+		/** Creates new (or update existing) node which is NOT added to our routing table */
+		Node::Ptr createNode(const UserPtr& u, const string& ip, uint16_t port, bool update, bool isUdpKeyValid);
 
-        /** Save bootstrap nodes to disk */
-        void saveNodes(SimpleXML& xml);
+		/** Adds node to routing table */
+		bool insert(const Node::Ptr& node);
 
-    private:
+		/** Finds "max" closest nodes and stores them to the list */
+		void getClosestNodes(const CID& cid, Node::Map& closest, unsigned int max, uint8_t maxType) const;
 
-        /** List of nodes in this bucket */
-        NodeList nodes;
+		/** Return list of all nodes in this bucket */
+		const NodeList& getNodes() const { return nodes; }
 
-    };
+		/** Removes dead nodes */
+		bool checkExpiration(uint64_t currentTime);
+
+		/** Loads existing nodes from disk */
+		void loadNodes(SimpleXML& xml);
+
+		/** Save bootstrap nodes to disk */
+		void saveNodes(SimpleXML& xml);
+
+	private:
+
+		/** List of nodes in this bucket */
+		NodeList nodes;
+
+		/** List of known IPs in this bucket */
+		StringSet ipMap;
+
+	};
 
 }
+
+#endif	// _KBUCKET_H

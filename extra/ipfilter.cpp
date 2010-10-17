@@ -51,6 +51,7 @@ uint32_t IPFilter::StringToUint32(const string& ip){
     //nip = sprintf(char_ip,"%u.%u.%u.%u",ip1,ip2,ip3,ip4);
     //nmask = sprintf(char_mask,"%u",mask1);
     fprintf(stderr,"%i.%i.%i.%i",ip1,ip2,ip3,ip4);
+    fflush(stderr);
     uint32_t ret = ip1;
     ret <<= 8;
     ret |= ip2;
@@ -59,6 +60,7 @@ uint32_t IPFilter::StringToUint32(const string& ip){
     ret <<= 8;
     ret |= ip4;
     fprintf(stderr,"%x",ret);
+    fflush(stderr);
     return ret;
 }
 
@@ -81,6 +83,7 @@ string IPFilter::Uint32ToString(uint32_t ip){
 uint32_t IPFilter::MaskToCIDR(uint32_t mask){
 #ifdef _DEBUG_IPFILTER_
     fprintf(stderr,"IPFilter::MaskToCIDR(%x)\n", mask);
+    fflush(stderr);
 #endif
     if (mask == 0)
         return 0;
@@ -185,6 +188,7 @@ void IPFilter::addToRules(string exp, eDIRECTION direction) {
             if ((el->direction != direction) && (el->action == act)){
 #ifdef _DEBUG_IPFILTER_
                 fprintf(stderr,"\tChange direction of IP\n");
+                fflush(stderr);
 #endif
                 //emit ruleChanged(exp, el->direction, eDIRECTION_BOTH, act);
 
@@ -215,6 +219,7 @@ void IPFilter::addToRules(string exp, eDIRECTION direction) {
            el->mask, IPFilter::Uint32ToString(el->ip).c_str(),
            (int)el->direction, (int)el->action
           );
+    fflush(stderr);
 #endif
 
     list_ip.insert(pair<uint32_t, IPFilterElem*>(el->ip,el));
@@ -311,6 +316,7 @@ void IPFilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
 bool IPFilter::OK(const string &exp, eDIRECTION direction){
 #ifdef _DEBUG_IPFILTER_
     fprintf(stderr,"IPFilter::OK(%s,%i)\n",exp.c_str(),(int)direction);
+    fflush(stderr);
 #endif
     string str_src(exp);
     int c_pos = strspn(str_src.c_str(),":");
@@ -338,28 +344,33 @@ bool IPFilter::OK(const string &exp, eDIRECTION direction){
            (el->ip & el->mask),
            (src    & el->mask)
           );
+    fflush(stderr);
 #endif
 
         if ((el->ip & el->mask) == (src & el->mask)){//Exact match
             bool exact_direction = ((el->direction == direction) || (el->direction == eDIRECTION_BOTH));
 #ifdef _DEBUG_IPFILTER_
             fprintf(stderr,"\tFound match... ");
+            fflush(stderr);
 #endif
             if      ((el->action == etaDROP) && exact_direction){
 #ifdef _DEBUG_IPFILTER_
                 fprintf(stderr,"DROP.\n");
+                fflush(stderr);
 #endif
                 return false;
             }
             else if ((el->action == etaACPT) && exact_direction){
 #ifdef _DEBUG_IPFILTER_
                 fprintf(stderr,"ACCEPT.\n");
+                fflush(stderr);
 #endif
                 return true;
             }
 #ifdef _DEBUG_IPFILTER_
             else
                 fprintf(stderr,"IGNORE.\n");
+                fflush(stderr);
 #endif
         }
     }
@@ -460,6 +471,7 @@ void IPFilter::loadList() {
 
 #ifdef _DEBUG_IPFILTER_
         fprintf(stderr,"%s\n",str_ip.c_str());
+        fflush(stderr);
 #endif
 
         addToRules(str_ip, direction);
@@ -524,6 +536,7 @@ void IPFilter::exportTo(string path) {
         //msgBox.setText(tr("Unable to export settings."));
         //msgBox.exec();
         fprintf(stderr,"Unable to export settings.");
+        fflush(stderr);
         return;
         }
     //}
@@ -567,6 +580,7 @@ void IPFilter::importFrom(string path) {
         loadList();
     } else {
         fprintf(stderr,"Invalid signature.");
+        fflush(stderr);
         //msgBox.setText(tr("Invalid signature."));
         //msgBox.exec();
     }

@@ -42,7 +42,9 @@ public:
         TLS_BIT,
         OLD_CLIENT_BIT,
         NO_ADC_1_0_PROTOCOL_BIT,
-        NO_ADCS_0_10_PROTOCOL_BIT
+        NO_ADCS_0_10_PROTOCOL_BIT,
+        DHT_BIT,
+        NAT_TRAVERSAL_BIT
     };
 
     /** Each flag is set if it's true in at least one hub */
@@ -55,7 +57,9 @@ public:
         TLS = 1<<TLS_BIT,               //< Client supports TLS
         OLD_CLIENT = 1<<OLD_CLIENT_BIT,  //< Can't download - old client
         NO_ADC_1_0_PROTOCOL = 1<<NO_ADC_1_0_PROTOCOL_BIT,   //< Doesn't support "ADC/1.0" (dc++ <=0.703)
-        NO_ADCS_0_10_PROTOCOL = 1<< NO_ADCS_0_10_PROTOCOL_BIT   //< Doesn't support "ADCS/0.10"
+        NO_ADCS_0_10_PROTOCOL = 1<< NO_ADCS_0_10_PROTOCOL_BIT,   //< Doesn't support "ADCS/0.10"
+        DHT = 1<<DHT_BIT,
+        NAT_TRAVERSAL = 1<<NAT_TRAVERSAL_BIT
     };
 
     struct Hash {

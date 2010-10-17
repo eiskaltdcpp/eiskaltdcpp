@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,88 +16,105 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#pragma once
+#ifndef _UDPSOCKET_H
+#define _UDPSOCKET_H
 
-#include "../dcpp/AdcCommand.h"
-#include "../dcpp/CriticalSection.h"
-#include "../dcpp/FastAlloc.h"
-#include "../dcpp/Socket.h"
-#include "../dcpp/Thread.h"
+#include "dcpp/AdcCommand.h"
+#include "dcpp/CID.h"
+#include "dcpp/FastAlloc.h"
+#include "dcpp/MerkleTree.h"
+#include "dcpp/Socket.h"
+#include "dcpp/Thread.h"
 
 namespace dht
 {
 
-    struct Packet :
-        FastAlloc<Packet>
-    {
-        /** Public constructor */
-        Packet(const string& ip_, uint16_t port_, const uint8_t* data_, size_t length_) :
-            ip(ip_), port(port_), data(data_), length(length_)
-        {
-        }
+	struct Packet :
+		FastAlloc<Packet>
+	{
+		/** Public constructor */
+		Packet(const string& ip_, uint16_t port_, const std::string& data_, const CID& _targetCID, const CID& _udpKey) :
+			ip(ip_), port(port_), data(data_), targetCID(_targetCID), udpKey(_udpKey)
+		{
+		}
 
-        /** IP where send this packet to */
-        string ip;
+		/** IP where send this packet to */
+		string ip;
 
-        /** To which port this packet should be sent */
-        uint16_t port;
+		/** To which port this packet should be sent */
+		uint16_t port;
 
-        /** Data to sent */
-        const uint8_t* data;
+		/** Data to sent */
+		std::string data;
 
-        /** Data's length */
-        size_t length;
-    };
+		/** CID of target node */
+		CID targetCID;
 
-    class UDPSocket :
-        private Thread
-    {
-    public:
-        UDPSocket(void);
-        ~UDPSocket(void);
+		/** Key to encrypt packet */
+		CID udpKey;
 
-        /** Disconnects UDP socket */
-        void disconnect() throw();
+	};
 
-        /** Starts listening to UDP socket */
-        void listen() throw(SocketException);
+	class UDPSocket :
+		private Thread
+	{
+	public:
+		UDPSocket(void);
+		~UDPSocket(void);
 
-        /** Returns port used to listening to UDP socket */
-        uint16_t getPort() const { return port; }
+		/** Disconnects UDP socket */
+		void disconnect() throw();
 
-        /** Sends command to ip and port */
-        void send(const AdcCommand& cmd, const string& ip, uint16_t port);
+		/** Starts listening to UDP socket */
+		void listen() throw(SocketException);
 
-    private:
+		/** Returns port used to listening to UDP socket */
+		uint16_t getPort() const { return port;	}
 
-        std::auto_ptr<Socket> socket;
+		/** Sends command to ip and port */
+		void send(AdcCommand& cmd, const string& ip, uint16_t port, const CID& targetCID, const CID& udpKey);
 
-        /** Indicates to stop socket thread */
-        bool stop;
+	private:
 
-        /** Port for communicating in this network */
-        uint16_t port;
+		std::unique_ptr<Socket> socket;
 
-        /** Queue for sending packets through UDP socket */
-        std::deque<Packet*> sendQueue;
+		/** Indicates to stop socket thread */
+		bool stop;
 
-        /** Locks access to sending queue */
-        // TODO:
-        // Use Fast critical section, because we don't need locking so often.
-        // Almost all shared access is done within one thread.
-        CriticalSection cs;
+		/** Port for communicating in this network */
+		uint16_t port;
+
+		/** Queue for sending packets through UDP socket */
+		std::deque<Packet*> sendQueue;
+
+		/** Antiflooding protection */
+		uint64_t delay;
+
+		/** Locks access to sending queue */
+		CriticalSection cs;
 
 #ifdef _DEBUG
-        // debug constants to optimize bandwidth
-        size_t sentBytes;
-        size_t receivedBytes;
+		// debug constants to optimize bandwidth
+		size_t sentBytes;
+		size_t receivedBytes;
+
+		size_t sentPackets;
+		size_t receivedPackets;
 #endif
 
-        /** Thread for receiving UDP packets */
-        int run();
+		/** Thread for receiving UDP packets */
+		int run();
 
-        void checkIncoming() throw(SocketException);
-        void checkOutgoing(uint64_t& timer) throw(SocketException);
-    };
+		void checkIncoming() throw(SocketException);
+		void checkOutgoing(uint64_t& timer) throw(SocketException);
+
+		void compressPacket(const string& data, uint8_t* destBuf, unsigned long& destSize);
+		void encryptPacket(const CID& targetCID, const CID& udpKey, uint8_t* destBuf, unsigned long& destSize);
+
+		bool decompressPacket(uint8_t* destBuf, unsigned long& destLen, const uint8_t* buf, size_t len);
+		bool decryptPacket(uint8_t* buf, int& len, const string& remoteIp, bool& isUdpKeyValid);
+	};
 
 }
+
+#endif // _UDPSOCKET_H
