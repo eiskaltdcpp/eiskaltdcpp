@@ -454,6 +454,7 @@ void IPFilter::loadList() {
         str_ip = *i;
 #ifdef _DEBUG_IPFILTER_
         fprintf(stderr,"%s\n",str_ip.c_str());
+        fflush(stderr);
 #endif
         //str_ip = *i;
         if (str_ip.find("|D_IN|:") == 0){
