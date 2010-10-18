@@ -857,15 +857,6 @@ void MainWindow::initActions(){
         SM->registerShortcut(closeWidgetShortCut, tr("Ctrl+W"));
         SM->registerShortcut(toggleMainMenuShortCut, tr("Ctrl+M"));
 
-        if (tBar){
-            connect(nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
-            connect(prevTabShortCut, SIGNAL(triggered()), tBar, SLOT(prevTab()));
-        }
-        else if (mBar){
-            connect(nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
-            connect(prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
-        }
-
         connect(nextMsgShortCut,        SIGNAL(triggered()), this, SLOT(nextMsg()));
         connect(prevMsgShortCut,        SIGNAL(triggered()), this, SLOT(prevMsg()));
         connect(closeWidgetShortCut,    SIGNAL(triggered()), this, SLOT(slotCloseCurrentWidget()));
@@ -1217,6 +1208,15 @@ void MainWindow::initToolbar(){
         addToolBar(tBar);
 
         wcontainer = static_cast<ArenaWidgetContainer*>(tBar);
+    }
+
+    if (tBar){
+        connect(nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
+        connect(prevTabShortCut, SIGNAL(triggered()), tBar, SLOT(prevTab()));
+    }
+    else if (mBar){
+        connect(nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
+        connect(prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
     }
 
     sBar = new ToolBar(this);
