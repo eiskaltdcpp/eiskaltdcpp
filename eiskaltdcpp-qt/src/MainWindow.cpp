@@ -1646,8 +1646,10 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(false);
 
-    if (arena->widget() == awgt->getWidget())
-        arena->widget()->hide();
+    if (arena->widget() == awgt->getWidget()){
+        awgt->getWidget()->hide();
+        arena->setWidget(NULL);
+    }
 }
 
 void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){
@@ -1712,7 +1714,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     if (!a)
         return;
 
-    if (sender() && typeid(*sender()) == typeid(QAction) && a->getWidget()){
+    if (sender() && qobject_cast<QAction*>(sender()) && a->getWidget()){
         QAction *act = reinterpret_cast<QAction*>(sender());;
 
         act->setCheckable(true);
@@ -1734,6 +1736,8 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
                 break;
             }
         }
+
+        remWidgetFromArena(a);
 
         wcontainer->removeWidget(a);
     }
@@ -2352,11 +2356,18 @@ void MainWindow::slotAboutClient(){
     qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
     qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong();
 
-    a.label->setText(QString("<b>%1</b> %2-%3")
+#ifndef DCPP_REVISION
+    a.label->setText(QString("<b>%1</b> %2 (%3)")
                      .arg(EISKALTDCPP_WND_TITLE)
                      .arg(EISKALTDCPP_VERSION)
                      .arg(EISKALTDCPP_VERSION_SFX));
-
+#else
+    a.label->setText(QString("<b>%1</b> %2 - %3 (%4)")
+                     .arg(EISKALTDCPP_WND_TITLE)
+                     .arg(EISKALTDCPP_VERSION)
+                     .arg(EISKALTDCPP_VERSION_SFX)
+                     .arg(DCPP_REVISION));
+#endif
     a.label_ABOUT->setTextFormat(Qt::RichText);
     a.label_ABOUT->setText(QString("%1<br/><br/> %2 %3 %4<br/><br/> %5 %6<br/><br/> %7 <b>%8</b> <br/> %9 <b>%10</b>")
                            .arg(tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols."))
