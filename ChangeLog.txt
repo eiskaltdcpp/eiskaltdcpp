@@ -45,10 +45,6 @@
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
 * Added dialog for calculating TTH of any file.
 * Displaying images in the chat ([img]magnet[/img]).
-*** eiskaltdcpp-wt ***
-* Development has begun. Attention: the program is not yet ready to use!
-* Implemented a prototype of search page. In addition to displaying the search results until there is nothing.
-* Launched process (see man-page) picks up the settings from configuration files that are created manually or by using graphical interface on Qt or Gtk. The result: initiated downloads is continuing, users can access to your share and so on.
 
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.

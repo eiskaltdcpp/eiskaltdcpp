@@ -71,7 +71,6 @@ find_package (Subversion)
 
 option (USE_QT "Qt interface" ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
-option (USE_WT "WebControl interface" OFF)
 option (USE_GTK "GTK interface" OFF)
 option (DHT "DHT support for dcpp" OFF)
 option (LUA_SCRIPT "Lua script" OFF)
@@ -160,10 +159,6 @@ if (FREE_SPACE_BAR_C)
 else (FREE_SPACE_BAR_C)
     message (STATUS "Building without free space bar")
 endif (FREE_SPACE_BAR_C)
-
-if (USE_WT)
-    find_package (Wt REQUIRED)
-endif (USE_WT)
 
 if (USE_GTK)
 
@@ -355,10 +350,6 @@ add_subdirectory (dcpp)
 if (USE_QT)
   add_subdirectory (eiskaltdcpp-qt)
 endif (USE_QT)
-
-if (USE_WT)
-  add_subdirectory (eiskaltdcpp-wt)
-endif (USE_WT)
 
 if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)

@@ -20,10 +20,6 @@ libqtcore4, libqtgui4, libqt4-network, libqt4-xml (>= 4.4.0)
 libqt4-script (>= 4.4.0) (optional, see cmake keys)
 libqt4-dbus (>= 4.4.0) (optional, see cmake keys)
 libaspell (optional, see cmake keys)
-----------------
-:eiskaltdcpp-wt:
-----------------
-libwt, libwtext, libwtfcgi, libwthttp
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
@@ -78,10 +74,6 @@ liblua5.1-dev (optional, see cmake keys)
 ----------------
 qt4 (>=4.4.0)
 libaspell-dev (optional, see cmake keys)
-----------------
-:eiskaltdcpp-wt:
-----------------
-libwt-dev, libwtext-dev, libwtfcgi-dev, libwthttp-dev
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
@@ -132,11 +124,6 @@ Keys for cmake
     Enable/disable Qt Declarative Ui support. Work only with Qt >= 4.7.0
 -DUSE_ICON_THEME=ON/OFF (default: OFF)
     Using system icon theme. Work only with Qt >= 4.6.0 and only in KDE and Gnome.
-----------------
-:eiskaltdcpp-wt:
-----------------
--DUSE_WT=ON/OFF (default: OFF)
-    build EiskaltDC++ with Wt (Web Toolkit) interface
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
