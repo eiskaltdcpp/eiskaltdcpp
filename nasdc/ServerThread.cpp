@@ -47,7 +47,8 @@ ServerThread::~ServerThread() {
 //---------------------------------------------------------------------------
 
 static void* ExecuteServerThread(void* SrvThread) {
-	//((ServerThread *)SrvThread)->Run();
+	((ServerThread *)SrvThread)->Run();
+	//Run();
 	return 0;
 }
 //---------------------------------------------------------------------------
@@ -84,31 +85,32 @@ void ServerThread::Run()
 	startSocket(true, 0);
 	autoConnect();
 
-	int result;
-	const uint64_t millis = 1000;
+	//int result;
+	//const uint64_t millis = 1000;
 
-	timeval tv;
-	fd_set rfd;
-	fd_set *rfdp = NULL;
+	//timeval tv;
+	//fd_set rfd;
+	//fd_set *rfdp = NULL;
 
 	while(!bTerminated)
 	{
-		//if (bWithWeb && webSock) {
-			//tv.tv_sec = static_cast<uint32_t>(millis/1000);
-			//tv.tv_usec = static_cast<uint32_t>((millis%1000)*1000);
+		////if (bWithWeb && webSock) {
+			////tv.tv_sec = static_cast<uint32_t>(millis/1000);
+			////tv.tv_usec = static_cast<uint32_t>((millis%1000)*1000);
 
-			//rfdp = &rfd;
-			//FD_ZERO(&rfd);
+			////rfdp = &rfd;
+			////FD_ZERO(&rfd);
 
-			//FD_SET(webSock, &rfd);
+			////FD_SET(webSock, &rfd);
 
-			//result = select((int)(webSock+1), rfdp, NULL, NULL, &tv);
-			//if (result < 0  && errno == EINTR) {
-				//continue;
-			//} else if (result >= 0 && rfdp && FD_ISSET(webSock, rfdp)) {
-				//WebServerManager::getInstance()->getServerSocket().incoming();
-			//}
-		//}
+			////result = select((int)(webSock+1), rfdp, NULL, NULL, &tv);
+			////if (result < 0  && errno == EINTR) {
+				////continue;
+			////} else if (result >= 0 && rfdp && FD_ISSET(webSock, rfdp)) {
+				////WebServerManager::getInstance()->getServerSocket().incoming();
+			////}
+		////}
+		usleep(1000);
 	}
 }
 

@@ -70,6 +70,6 @@ void ServerStop()
 	ServersS = NULL;
 	fprintf(stdout,"остановка либы\n");
 	dcpp::shutdown();
-
+	fprintf(stdout,"либа остановлена\n");
 	bServerRunning = false;
 }
