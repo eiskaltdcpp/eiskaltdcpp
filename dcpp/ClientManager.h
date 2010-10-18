@@ -123,7 +123,7 @@ public:
         void loadUsers();
         void saveUsers() const;
         void saveUser(const CID& cid);
-
+    OnlineUserPtr findDHTNode(const CID& cid) const;
 private:
     typedef unordered_map<string, UserPtr> LegacyMap;
     typedef LegacyMap::iterator LegacyIter;

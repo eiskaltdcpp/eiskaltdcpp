@@ -42,10 +42,12 @@ namespace dcpp {
 
 Client* ClientManager::getClient(const string& aHubURL) {
     Client* c;
-    if(Util::strnicmp("adc://", aHubURL.c_str(), 6) == 0) {
+    if(strncmp("adc://", aHubURL.c_str(), 6) == 0) {
         c = new AdcHub(aHubURL, false);
-    } else if(Util::strnicmp("adcs://", aHubURL.c_str(), 7) == 0) {
+    } else if(strncmp("adcs://", aHubURL.c_str(), 7) == 0) {
         c = new AdcHub(aHubURL, true);
+    //} else if(strncmp("nmdcs://", aHubURL.c_str(), 8) == 0) {
+        //c = new NmdcHub(aHubURL, true);
     } else {
         c = new NmdcHub(aHubURL);
     }
@@ -366,7 +368,7 @@ void ClientManager::connect(const HintedUser& user, const string& token) {
         OnlineUser* u = findOnlineUser(user.user->getCID(), user.hint, priv);
 
         if(u) {
-                u->getClient().connect(*u, token);
+                u->getClientBase().connect(*u, token);
         }
 }
 
@@ -377,7 +379,7 @@ void ClientManager::privateMessage(const HintedUser& user, const string& msg, bo
         OnlineUser* u = findOnlineUser(user.user->getCID(), user.hint, priv);
 
     if(u) {
-        u->getClient().privateMessage(*u, msg, thirdPerson);
+        u->getClientBase().privateMessage(*u, msg, thirdPerson);
     }
 }
 
@@ -389,7 +391,7 @@ void ClientManager::userCommand(const HintedUser& user, const UserCommand& uc, S
          * switched to storing only reliable HintedUsers (found with the token of the ADC command),
          * change this call to findOnlineUser_hint. */
         OnlineUser* ou = findOnlineUser(user.user->getCID(), user.hint.empty() ? uc.getHub() : user.hint, false);
-        if(!ou)
+        if(!ou || ou->getClientBase().type == ClientBase::DHT)
                 return;
 
         ou->getIdentity().getParams(params, "user", compatibility);
@@ -405,6 +407,8 @@ void ClientManager::send(AdcCommand& cmd, const CID& cid) {
     if(i != onlineUsers.end()) {
         OnlineUser& u = *i->second;
         if(cmd.getType() == AdcCommand::TYPE_UDP && !u.getIdentity().isUdpActive()) {
+            if(u.getUser()->isNMDC() || u.getClientBase().getType() == Client::DHT)
+                return;
             cmd.setType(AdcCommand::TYPE_DIRECT);
             cmd.setTo(u.getIdentity().getSID());
             u.getClient().send(cmd);

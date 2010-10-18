@@ -90,6 +90,7 @@ option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NATT "Use natt extension" ON)
 option (STDIPFILTER "ipfilter on stl" OFF)
+option (NO_UI_DAEMON "Daemon without anyone ui")
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
@@ -382,6 +383,10 @@ endif (USE_WT)
 if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK)
+
+if (NO_UI_DAEMON)
+add_subdirectory (nasdc)
+endif (NO_UI_DAEMON)
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"

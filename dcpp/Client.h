@@ -46,16 +46,16 @@ public:
 
     enum P2PType { DIRECT_CONNECT, DHT };
     P2PType type;
-
+    P2PType getType() const { return type; }
     virtual const string& getHubUrl() const = 0;
     virtual string getHubName() const = 0;
     virtual bool isOp() const = 0;
     virtual void connect(const OnlineUser& user, const string& token) = 0;
-    virtual void privateMessage(const OnlineUserPtr& user, const string& aMessage, bool thirdPerson = false) = 0;
+    virtual void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false) = 0;
 
 };
 /** Yes, this should probably be called a Hub */
-class Client : public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener
+class Client : public ClientBase, public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener
 #ifdef LUA_SCRIPT
 , public ClientScriptInstance
 #endif

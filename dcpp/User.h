@@ -29,6 +29,8 @@
 
 namespace dcpp {
 
+class ClientBase;
+
 /** A user connected to one or more hubs. */
 class User : public FastAlloc<User>, public intrusive_ptr_base<User>, public Flags, private boost::noncopyable
 {
@@ -118,11 +120,15 @@ public:
         CT_HUB = 32
     };
 
-    Identity() : sid(0) { }
-    Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr), sid(aSID) { }
-    Identity(const Identity& rhs) : Flags(), sid(0) { *this = rhs; } // Use operator= since we have to lock before reading...
-    Identity& operator=(const Identity& rhs) { FastLock l(cs); *static_cast<Flags*>(this) = rhs; user = rhs.user; sid = rhs.sid; info = rhs.info; return *this; }
-
+    //Identity() : sid(0) { }
+    //Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr), sid(aSID) { }
+    //Identity(const Identity& rhs) : Flags(), sid(0) { *this = rhs; } // Use operator= since we have to lock before reading...
+    //Identity& operator=(const Identity& rhs) { FastLock l(cs); *static_cast<Flags*>(this) = rhs; user = rhs.user; sid = rhs.sid; info = rhs.info; return *this; }
+    Identity() { }
+    Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr) { setSID(aSID); }
+    Identity(const Identity& rhs) { *this = rhs; } // Use operator= since we have to lock before reading...
+    Identity& operator=(const Identity& rhs) { FastLock l(cs); user = rhs.user; info = rhs.info; return *this; }
+    ~Identity() { }
 // GS is already defined on some systems (e.g. OpenSolaris)
 #ifdef GS
 #undef GS
@@ -151,8 +157,8 @@ public:
     bool isHidden() const { return isSet("HI"); }
     bool isBot() const { return isClientType(CT_BOT) || isSet("BO"); }
     bool isAway() const { return isSet("AW"); }
-        bool isTcpActive() const;
-        bool isUdpActive() const;
+    bool isTcpActive(const Client* = NULL) const;
+    bool isUdpActive() const;
     string get(const char* name) const;
     void set(const char* name, const string& val);
     bool isSet(const char* name) const;
@@ -180,22 +186,24 @@ public:
     typedef vector<OnlineUser*> List;
     typedef List::iterator Iter;
 
-    OnlineUser(const UserPtr& ptr, Client& client_, uint32_t sid_);
-
+    OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_);
+    virtual ~OnlineUser() throw() { }
     operator UserPtr&() { return getUser(); }
     operator const UserPtr&() const { return getUser(); }
 
     UserPtr& getUser() { return getIdentity().getUser(); }
     const UserPtr& getUser() const { return getIdentity().getUser(); }
     Identity& getIdentity() { return identity; }
-    Client& getClient() { return client; }
-    const Client& getClient() const { return client; }
-
+    Client& getClient() { return (Client&)client; }
+    const Client& getClient() const { return (const Client&)client; }
+    ClientBase& getClientBase() { return client; }
+    const ClientBase& getClientBase() const { return client; }
     GETSET(Identity, identity, Identity);
 private:
     friend class NmdcHub;
-
-    Client& client;
+    OnlineUser(const OnlineUser&);
+    OnlineUser& operator=(const OnlineUser&);
+    ClientBase& client;
 };
 
 } // namespace dcpp
