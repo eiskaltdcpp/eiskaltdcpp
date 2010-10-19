@@ -37,7 +37,6 @@
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
-#include "ShellCommand.hh"
 #include <dcpp/StringTokenizer.h>
 
 #include "Version.h"
