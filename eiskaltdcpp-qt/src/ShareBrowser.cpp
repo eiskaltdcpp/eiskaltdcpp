@@ -123,6 +123,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
 }
 
 ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
+        QWidget(MainWindow::getInstance()),
         user(user),
         file(file),
         jump_to(jump_to),
@@ -154,6 +155,8 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
     }
 
     init();
+
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 ShareBrowser::~ShareBrowser(){
@@ -177,7 +180,7 @@ ShareBrowser::~ShareBrowser(){
 void ShareBrowser::closeEvent(QCloseEvent *e){
     save();
 
-    e->accept();
+    QWidget::closeEvent(e);
 }
 
 bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){

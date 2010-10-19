@@ -1860,18 +1860,10 @@ void MainWindow::slotFileOpenDownloadDirectory(){
 }
 
 void MainWindow::slotFileBrowseOwnFilelist(){
-    static ShareBrowser *local_share = NULL;
-
-    if (arenaWidgets.contains(local_share)){
-        mapWidgetOnArena(local_share);
-
-        return;
-    }
-
     UserPtr user = ClientManager::getInstance()->getMe();
     QString file = QString::fromStdString(ShareManager::getInstance()->getOwnListFile());
 
-    local_share = new ShareBrowser(user, file, "");
+    new ShareBrowser(user, file, "");
 }
 
 void MainWindow::slotFileHashProgress(){
