@@ -3,11 +3,22 @@ cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/..)
 aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
+if (XMLRPC_DAEMON)
+include_directories(${XMLRPC_INCLUDE_DIRS})
+set (XMLRPCLIBS ${XMLRPC_LIBRARIES})
+add_definitions (-DXMLRPC_DAEMON )
+else ()
+endif (XMLRPC_DAEMON)
+list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/cxxxmlrpcserver.cpp)
+list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/cxmlrpcserver.c)
+list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/sampleclient.cpp)
 # actual target:
 add_executable (nasdc MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
-target_link_libraries (nasdc dcpp pthread)
+add_executable (sampleclient sampleclient.cpp)
+target_link_libraries (nasdc dcpp pthread ${XMLRPCLIBS})
+target_link_libraries (sampleclient ${XMLRPCLIBS})
 if (UNIX)
  set (BINDIR bin)
  if (APPLE)

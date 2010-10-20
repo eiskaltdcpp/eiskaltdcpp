@@ -14,6 +14,7 @@
 #include "dcpp/ClientListener.h"
 #include "dcpp/ShareManager.h"
 //#include "dcpp/WebServerManager.h"
+#include "xmlrpcserver.h"
 
 class ServerThread : private TimerManagerListener,
 		private QueueManagerListener,
@@ -32,13 +33,16 @@ public:
 
 	void Resume();
 	void Run();
+#ifdef XMLRPC_DAEMON
+	void XMLRPCRun();
+#endif
 	void Close();
 	void WaitFor();
 
 private:
     int server;
     unsigned int iSuspendTime;
-    pthread_t threadId;
+    pthread_t threadId, threadIdxml;
     pthread_mutex_t mtxServerThread;
 
 	bool bTerminated;

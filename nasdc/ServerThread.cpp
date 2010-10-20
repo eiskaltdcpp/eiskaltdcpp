@@ -45,16 +45,25 @@ ServerThread::~ServerThread() {
     pthread_mutex_destroy(&mtxServerThread);
 }
 //---------------------------------------------------------------------------
+#ifdef XMLRPC_DAEMON
+
+static void* ExecuteXMLRPCThread(void* XmlThread) {
+	((ServerThread *)XmlThread)->XMLRPCRun();
+	return 0;
+}
+#endif
+//---------------------------------------------------------------------------
 
 static void* ExecuteServerThread(void* SrvThread) {
 	((ServerThread *)SrvThread)->Run();
-	//Run();
 	return 0;
 }
 //---------------------------------------------------------------------------
 
 void ServerThread::Resume() {
     int iRet = pthread_create(&threadId, NULL, ExecuteServerThread, this);
+    fprintf(stdout,"нить: %i\n",iRet);
+    iRet = pthread_create(&threadIdxml, NULL, ExecuteXMLRPCThread, this);
     fprintf(stdout,"нить: %i\n",iRet);
     //if(iRet != 0) {
 		//AppendSpecialLog("[ERR] Failed to create new ServerThread!");
@@ -65,8 +74,8 @@ void ServerThread::Resume() {
 void ServerThread::Run()
 {
 	TimerManager::getInstance()->addListener(this);
-	QueueManager::getInstance()->addListener(this);
-	LogManager::getInstance()->addListener(this);
+	//QueueManager::getInstance()->addListener(this);
+	//LogManager::getInstance()->addListener(this);
 	//WebServerManager::getInstance()->addListener(this);
 
 	//bool bWithWeb = BOOLSETTING(WEBSERVER);
@@ -118,26 +127,36 @@ void ServerThread::Run()
 void ServerThread::Close()
 {
 	//WebServerManager::getInstance()->removeListener(this);
-	SearchManager::getInstance()->disconnect();
+	//SearchManager::getInstance()->disconnect();
 
-	LogManager::getInstance()->removeListener(this);
-	QueueManager::getInstance()->removeListener(this);
-	TimerManager::getInstance()->removeListener(this);
+	//LogManager::getInstance()->removeListener(this);
+	//QueueManager::getInstance()->removeListener(this);
+	//TimerManager::getInstance()->removeListener(this);
 
-	for(ClientIter i = clients.begin() ; i != clients.end() ; i++) {
-		Client* cl = i->second;
-		cl->removeListener(this);
-		cl->disconnect(true);
-		ClientManager::getInstance()->putClient(cl);
-	};
+	//for(ClientIter i = clients.begin() ; i != clients.end() ; i++) {
+		//Client* cl = i->second;
+		//cl->removeListener(this);
+		//cl->disconnect(true);
+		//ClientManager::getInstance()->putClient(cl);
+	//};
 
-	ConnectionManager::getInstance()->disconnect();
+	//ConnectionManager::getInstance()->disconnect();
 
 	bTerminated = true;
 }
 //---------------------------------------------------------------------------
 
 void ServerThread::WaitFor() {
+	fprintf(stdout,"ждём нить %lld\n",threadIdxml);
+	if(threadIdxml != 0) {
+		fprintf(stdout,"threadIdxml != 0 \n");
+		//pthread_t ii = pthread_self();
+		//pthread_exit((void*)this);
+		int i = pthread_join(threadIdxml, NULL);
+		fprintf(stdout,"join done; status %i\n",i);
+        threadIdxml = 0;
+        return;
+	}
 	fprintf(stdout,"ждём нить %lld\n",threadId);
 	if(threadId != 0) {
 		fprintf(stdout,"threadId != 0 \n");
@@ -335,3 +354,28 @@ void ServerThread::startSocket(bool onstart, int oldmode){
 void ServerThread::showPortsError(const string& port) {
     printf("Connectivity Manager: Warning\n\n Unable to open %d port. Searching or file transfers will\n not work correctly until you change settings or turn off\n any application that might be using that port.", port.c_str());
 }
+#ifdef XMLRPC_DAEMON
+
+//static void* ExecuteXMLRPCThread(void* XmlThread) {
+	//((ServerThread *)XmlThread)->XMLRPCRun();
+	//return 0;
+//}
+void ServerThread::XMLRPCRun() {
+		xmlrpc_c::registry myRegistry;
+
+		xmlrpc_c::methodPtr const sampleAddMethodP(new sampleAddMethod);
+
+		myRegistry.addMethod("sample.add", sampleAddMethodP);
+
+		xmlrpc_c::serverAbyss myAbyssServer(
+			myRegistry,
+			8080,              // TCP port on which to listen
+			"/tmp/xmlrpc_log"  // Log file
+			);
+
+		myAbyssServer.run();
+		// xmlrpc_c::serverAbyss.run() never returns
+		assert(false);
+
+}
+#endif
