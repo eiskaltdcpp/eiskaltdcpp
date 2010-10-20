@@ -6,6 +6,9 @@
 #include <QClipboard>
 #include <QFileInfo>
 #include <QMessageBox>
+
+#include <algorithm>
+
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/HashManager.h"
@@ -15,6 +18,9 @@
 #include "MainWindow.h"
 
 using namespace dcpp;
+
+static const quint64 MIN_BLOCK_SIZE = 64 * 1024;
+static const size_t BUF_SIZE = 64*1024;
 
 FileHasher::FileHasher(QWidget *parent) :
     QDialog(parent)
@@ -112,23 +118,28 @@ QString HashThread::getHash(){
 }
 
 void HashThread::calculate_tth() {
-    string TTH;
-    char *buf = new char[512*1024];
+    char TTH[40] = {0};
+    char *buf = new char[BUF_SIZE];
+
+    memset(buf, 0, BUF_SIZE);
+
     try {
-		File f(Text::fromT(_tq(file_name)),File::READ, File::OPEN);
-		TigerTree tth(TigerTree::calcBlockSize(f.getSize(), 1));
-		if(f.getSize() > 0) {
-				size_t n = 512*1024;
-				while( (n = f.read(&buf[0], n)) > 0) {
-					tth.update(&buf[0], n);
-					n = 512*1024;
-				}
-		} else {
-			tth.update("", 0);
-		}
-		tth.finalize();
-		strcpy(&TTH[0], tth.getRoot().toBase32().c_str());
+        File f(Text::fromT(_tq(file_name)),File::READ, File::OPEN);
+        TigerTree tth(max(TigerTree::calcBlockSize(f.getSize(), 10), static_cast<int64_t>(MIN_BLOCK_SIZE)));
+        if(f.getSize() > 0) {
+            size_t n = BUF_SIZE;
+            while( (n = f.read(&buf[0], n)) > 0) {
+                tth.update(&buf[0], n);
+                n = BUF_SIZE;
+            }
+        } else {
+            tth.update("", 0);
+        }
+        tth.finalize();
+        strcpy(&TTH[0], tth.getRoot().toBase32().c_str());
         hash = _q(TTH);
-		f.close();
+        f.close();
     } catch (...) {}
+
+    delete buf;
 }
