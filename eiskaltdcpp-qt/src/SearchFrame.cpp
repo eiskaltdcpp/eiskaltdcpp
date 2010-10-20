@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include <QComboBox>
 #include <QTreeView>
 #include <QAction>
@@ -322,7 +331,7 @@ SearchFrame::~SearchFrame(){
     delete model;
     delete arena_menu;
     delete timer;
-    delete proxy;
+    proxy->deleteLater();
 }
 
 void SearchFrame::closeEvent(QCloseEvent *e){
@@ -1307,12 +1316,9 @@ void SearchFrame::slotFilter(){
         treeView_RESULTS->setModel(model);
 
         disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
-
-        delete proxy;
-        proxy = NULL;
     }
     else {
-        proxy = new SearchProxyModel();
+        proxy = (proxy? proxy : (new SearchProxyModel(this)));
         proxy->setDynamicSortFilter(true);
         proxy->setFilterFixedString(lineEdit_FILTER->text());
         proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
