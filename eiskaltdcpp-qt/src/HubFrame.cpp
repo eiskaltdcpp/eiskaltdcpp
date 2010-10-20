@@ -1575,8 +1575,6 @@ void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
 
     CID cid = id.getUser()->getCID();
     map["CID"] = _q(cid.toBase32());
-
-    qDebug() << _q("");
 }
 
 void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, bool join){
