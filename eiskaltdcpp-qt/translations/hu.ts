@@ -2026,10 +2026,6 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Call delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+PgDown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2055,7 +2051,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation type="obsolete">Törlés</translation>
     </message>
     <message>
         <source>Button style</source>
@@ -4869,7 +4865,7 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
     </message>
     <message>
         <source>Do not change focus on new private message</source>
-        <translation>Ne kerüljön fókusz az újonnan érkezett privát üzenetekre</translation>
+        <translation type="obsolete">Ne kerüljön fókusz az újonnan érkezett privát üzenetekre</translation>
     </message>
     <message>
         <source>Maximum paragraphs</source>
@@ -5083,6 +5079,10 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Autohide emoticons panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do not change focus on new incoming private messages</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

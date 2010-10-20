@@ -145,6 +145,7 @@ class Hub:
         static void onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data);
         static void onRemoveImageClicked_gui(GtkMenuItem *item, gpointer data);
         static gboolean onImageEvent_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static gboolean expose(GtkWidget *widget, GdkEventExpose *event, gpointer data);
 
         // Client functions
         void addFavoriteUser_client(const std::string cid);

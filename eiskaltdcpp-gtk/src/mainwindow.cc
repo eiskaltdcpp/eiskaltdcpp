@@ -102,7 +102,7 @@ MainWindow::MainWindow():
     gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"),
         EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
 #else
-    gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s - %s %s\nDC++ core version: %s"),
+    gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s - %s (%s)\nDC++ core version: %s"),
         EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION, DCVERSIONSTRING);
 #endif
 

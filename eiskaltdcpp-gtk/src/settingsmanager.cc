@@ -28,6 +28,7 @@
 
 #undef _
 #include <glib/gi18n.h>
+#include <glib/gstdio.h>
 
 using namespace std;
 using namespace dcpp;
@@ -265,6 +266,9 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("custom-aliases", ""));
 
     load();
+
+    string path_image = Util::getPath(Util::PATH_USER_CONFIG) + "Images/";
+    g_mkdir_with_parents(path_image.c_str(), S_IRUSR | S_IWUSR | S_IXUSR);
 }
 
 WulforSettingsManager::~WulforSettingsManager()

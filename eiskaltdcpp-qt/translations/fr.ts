@@ -140,11 +140,11 @@ Keys:
     <name>ActionCustomizer</name>
     <message>
         <source>Customize actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurer les actions</translation>
     </message>
     <message>
         <source>-- Separator --</source>
-        <translation type="unfinished"></translation>
+        <translation>-- Séparateur --</translation>
     </message>
 </context>
 <context>
@@ -617,11 +617,11 @@ Keys:
     <name>FileHasher</name>
     <message>
         <source>Select file</source>
-        <translation type="unfinished">Sélectionner fichier</translation>
+        <translation>Sélectionner un fichier</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished">Tous les fichiers (*.*)</translation>
+        <translation>Tous les fichiers (*.*)</translation>
     </message>
 </context>
 <context>
@@ -1308,7 +1308,7 @@ Utilisateur favoris</translation>
     <name>HubManager</name>
     <message>
         <source>Hub Manager</source>
-        <translation type="unfinished">Gestionnaire de serveurs</translation>
+        <translation>Gestionnaire de serveurs</translation>
     </message>
 </context>
 <context>
@@ -1992,83 +1992,75 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Calculate file TTH</source>
-        <translation type="unfinished"></translation>
+        <translation>Calculer le TTH du fichier</translation>
     </message>
     <message>
         <source>Next message</source>
-        <translation type="unfinished"></translation>
+        <translation>Message suivant</translation>
     </message>
     <message>
         <source>Previous message</source>
-        <translation type="unfinished"></translation>
+        <translation>Message précédent</translation>
     </message>
     <message>
         <source>Close current widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer le widget courant</translation>
     </message>
     <message>
         <source>Toggle main menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Call delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Basculer le menu principal</translation>
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <source>Ctrl+Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Down</translation>
     </message>
     <message>
         <source>Ctrl+Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Up</translation>
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation>Style du boutton</translation>
     </message>
     <message>
         <source>Next widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Widget suivant</translation>
     </message>
     <message>
         <source>Previous widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Widget précédent</translation>
     </message>
     <message>
         <source>Download/Upload speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse d&apos;envoi/téléchargement</translation>
     </message>
     <message>
         <source>Downloaded/Uploaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléchargé/Envoyé</translation>
     </message>
     <message>
         <source>%1/s / %2/s</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/s / %2/s</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
     </message>
 </context>
 <context>
@@ -2690,7 +2682,7 @@ Clés:
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Raccourcis</translation>
     </message>
 </context>
 <context>
@@ -2842,7 +2834,7 @@ Clés:
     <name>SettingsLog</name>
     <message>
         <source>Choose the directory</source>
-        <translation type="unfinished">Choisissez le répertoire</translation>
+        <translation>Choisissez le répertoire</translation>
     </message>
 </context>
 <context>
@@ -3051,30 +3043,30 @@ Clés:
     <name>ShellCommandRunner</name>
     <message>
         <source>Command produced no visible output.</source>
-        <translation type="unfinished"></translation>
+        <translation>La commande n&apos;a rien produit.</translation>
     </message>
     <message>
         <source>Process exited with status</source>
-        <translation type="unfinished"></translation>
+        <translation>Le processus a quitté avec le statut</translation>
     </message>
     <message>
         <source>Process was killed or crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le processus a planté ou a été tué.</translation>
     </message>
     <message>
         <source>Process still running after 2 minutes, killing process...</source>
-        <translation type="unfinished"></translation>
+        <translation>Processus toujours en cours après 2 minutes, fermeture du processus...</translation>
     </message>
 </context>
 <context>
     <name>ShortcutsModel</name>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Action</translation>
     </message>
     <message>
         <source>Hotkey</source>
-        <translation type="unfinished"></translation>
+        <translation>Raccourcis</translation>
     </message>
 </context>
 <context>
@@ -3183,7 +3175,7 @@ Voulez-vous l&apos;arrêter?</translation>
     <name>TabFrame</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fermer</translation>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
@@ -3569,7 +3561,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Search string</source>
-        <translation type="unfinished">Chaîne de recherche</translation>
+        <translation>Chaîne de recherche</translation>
     </message>
 </context>
 <context>
@@ -3647,23 +3639,23 @@ p, li { white-space: pre-wrap; }
     <name>UIActionCustomizer</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Dialogue</translation>
+        <translation>Dialogue</translation>
     </message>
     <message>
         <source>&gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;&gt;</translation>
     </message>
     <message>
         <source>&lt;&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;&lt;</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished">Haut</translation>
+        <translation>Haut</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished">Bas</translation>
+        <translation>Bas</translation>
     </message>
 </context>
 <context>
@@ -3929,23 +3921,23 @@ p, li { white-space: pre-wrap; }
     <name>UIFileHasher</name>
     <message>
         <source>TTH Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Calculatrice de TTH</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Compute</source>
-        <translation type="unfinished"></translation>
+        <translation>Calculer</translation>
     </message>
     <message>
         <source>Get magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Obtenir le magnet</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fermer</translation>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
@@ -4940,7 +4932,7 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
     </message>
     <message>
         <source>Do not change focus on new private message</source>
-        <translation>Ne pas basculer d&apos;onglet lors de la réception d&apos;un message privé</translation>
+        <translation type="obsolete">Ne pas basculer d&apos;onglet lors de la réception d&apos;un message privé</translation>
     </message>
     <message>
         <source>Remember window position on exit</source>
@@ -5117,6 +5109,10 @@ them is usually available only to operators</source>
     <message>
         <source>Autohide emoticons panel</source>
         <translation>Cacher automatiquement le panneau de smiley</translation>
+    </message>
+    <message>
+        <source>Do not change focus on new incoming private messages</source>
+        <translation>Ne pas basculer d&apos;onglet lors de la réception d&apos;un message privé</translation>
     </message>
 </context>
 <context>
@@ -5577,14 +5573,14 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>If checked, a pause hashing may not work.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si coché, la pause du scan peut ne pas fonctionner.</translation>
     </message>
 </context>
 <context>
     <name>UISettingsShortcuts</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Formulaire</translation>
+        <translation>Formulaire</translation>
     </message>
 </context>
 <context>

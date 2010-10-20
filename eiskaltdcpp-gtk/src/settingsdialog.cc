@@ -889,6 +889,7 @@ void Settings::initSharing_gui()
     g_signal_connect(getWidget("shareHiddenCheckButton"), "toggled", G_CALLBACK(onShareHiddenPressed_gui), (gpointer)this);
     g_signal_connect(getWidget("sharedAddButton"), "clicked", G_CALLBACK(onAddShare_gui), (gpointer)this);
     g_signal_connect(getWidget("sharedRemoveButton"), "clicked", G_CALLBACK(onRemoveShare_gui), (gpointer)this);
+    g_signal_connect(getWidget("pictureButton"), "clicked", G_CALLBACK(onPictureShare_gui), (gpointer)this);
 
     shareView.setView(GTK_TREE_VIEW(getWidget("sharedTreeView")));
     shareView.insertColumn("Virtual Name", G_TYPE_STRING, TreeView::STRING, -1);
@@ -2243,6 +2244,17 @@ void Settings::onAddShare_gui(GtkWidget *widget, gpointer data)
             }
         }
     }
+}
+
+void Settings::onPictureShare_gui(GtkWidget *widget, gpointer data)
+{
+   Settings *s = (Settings *)data;
+
+   string name = "MAGNET-IMAGE";
+   string path = Util::getPath(Util::PATH_USER_CONFIG) + "Images/";
+   typedef Func2<Settings, string, string> F2;
+   F2 *func = new F2(s, &Settings::addShare_client, path, name);
+   WulforManager::get()->dispatchClientFunc(func);
 }
 
 void Settings::selectTextColor_gui(const int select)

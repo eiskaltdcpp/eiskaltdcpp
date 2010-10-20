@@ -1814,10 +1814,6 @@ Molim proverite podešavanja vaše veze</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Call delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+PgDown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1843,7 +1839,7 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Obriši</translation>
+        <translation type="obsolete">Obriši</translation>
     </message>
     <message>
         <source>Button style</source>
@@ -4677,7 +4673,7 @@ od drugih reči sa razmakom.</translation>
     </message>
     <message>
         <source>Do not change focus on new private message</source>
-        <translation>Ne menjaj fokus na novu privatnu poruku</translation>
+        <translation type="obsolete">Ne menjaj fokus na novu privatnu poruku</translation>
     </message>
     <message>
         <source>Show ip-addresses of users in chat</source>
@@ -4804,6 +4800,10 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Autohide emoticons panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do not change focus on new incoming private messages</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

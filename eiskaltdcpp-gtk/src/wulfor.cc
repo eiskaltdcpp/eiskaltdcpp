@@ -62,7 +62,7 @@ void printVersion()
 #ifndef DCPP_REVISION
     printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
 #else
-    printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
+    printf("%s - %s (%s) \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
 #endif
 }
 
