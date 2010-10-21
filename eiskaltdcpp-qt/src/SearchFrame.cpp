@@ -897,6 +897,7 @@ void SearchFrame::slotStartSearch(){
 }
 
 void SearchFrame::slotClear(){
+    treeView_RESULTS->clearSelection();
     model->clearModel();
     lineEdit_SEARCHSTR->clear();
     lineEdit_SIZE->setText("");

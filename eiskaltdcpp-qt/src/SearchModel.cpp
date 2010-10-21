@@ -427,7 +427,7 @@ void SearchModel::clearModel(){
 
     blockSignals(false);
 
-    emit layoutChanged();
+    reset();
 }
 
 void SearchModel::removeItem(const SearchItem *item){
