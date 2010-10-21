@@ -61,6 +61,7 @@ public:
 
     bool download;
     bool fail;
+    bool finished;
     QString cid;
     QString tth;
     QString target;

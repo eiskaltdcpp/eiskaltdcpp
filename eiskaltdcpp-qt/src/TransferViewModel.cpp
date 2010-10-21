@@ -522,9 +522,9 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     if (speed > 0)
         timeLeft = (totalSize - p->dpos) / speed;
 
-    if (active)
+    if (active && !p->finished)
         p->updateColumn(COLUMN_TRANSFER_STATS, tr("Downloaded "));
-    else
+    else if (!p->finished)
         p->updateColumn(COLUMN_TRANSFER_STATS, tr("Waiting for slot "));
 
     QString stat = vstr(p->data(COLUMN_TRANSFER_STATS)) + WulforUtil::formatBytes(p->dpos)
@@ -546,7 +546,10 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     p->updateColumn(COLUMN_TRANSFER_TLEFT, timeLeft);
     p->updateColumn(COLUMN_TRANSFER_HOST, hubs_str);
     p->updateColumn(COLUMN_TRANSFER_SPEED, speed);
-    p->updateColumn(COLUMN_TRANSFER_STATS, stat);
+
+    if (!p->finished)
+        p->updateColumn(COLUMN_TRANSFER_STATS, stat);
+
     p->percent = p->percent == 100.0? 100.0 : progress;
 }
 
@@ -559,9 +562,11 @@ void TransferViewModel::updateTransferPos(const VarMap &params, qint64 pos){
     if (!findTransfer(vstr(params["CID"]), vbol(params["DOWN"]), &item))
         return;
 
-    item->dpos = pos;
+    if (!item->finished){
+        item->dpos = pos;
 
-    emit layoutChanged();
+        emit layoutChanged();
+    }
 }
 
 void TransferViewModel::finishParent(const VarMap &params){
@@ -576,10 +581,12 @@ void TransferViewModel::finishParent(const VarMap &params){
 
     p->updateColumn(COLUMN_TRANSFER_STATS, tr("Finished"));
     p->percent = 100.0;
+    p->finished = true;
 
     foreach (TransferViewItem *i, p->childItems){
         i->updateColumn(COLUMN_TRANSFER_STATS, tr("Finished"));
         i->percent = 100.0;
+        i->finished = true;
     }
 
     emit layoutChanged();
@@ -632,7 +639,8 @@ TransferViewItem::TransferViewItem(const QList<QVariant> &data, TransferViewItem
     download(false),
     percent(0.0),
     dpos(0L),
-    fail(false)
+    fail(false),
+    finished(false)
 {
 }
 
@@ -645,6 +653,7 @@ TransferViewItem::TransferViewItem(const TransferViewItem &item){
     dpos = item.dpos;
     fail = item.fail;
     tth = item.tth;
+    finished = item.finished;
 }
 void TransferViewItem::operator=(const TransferViewItem &item){
     itemData = item.itemData;
@@ -655,6 +664,7 @@ void TransferViewItem::operator=(const TransferViewItem &item){
     dpos = item.dpos;
     fail = item.fail;
     tth = item.tth;
+    finished = item.finished;
 }
 
 TransferViewItem::~TransferViewItem()
