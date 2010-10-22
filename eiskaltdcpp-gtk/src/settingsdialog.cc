@@ -3347,7 +3347,6 @@ void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
 {
     Settings *s = (Settings *)data;
 
-    //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
     gtk_widget_hide(s->getWidget("dirChooserDialog"));
 
@@ -3359,25 +3358,28 @@ void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
             string path = Text::toUtf8(temp);
             g_free(temp);
 
-            gtk_entry_set_text(GTK_ENTRY(s->getWidget("favoriteNameDialogEntry")), "");
-            response = gtk_dialog_run(GTK_DIALOG(s->getWidget("favoriteNameDialog")));
-            gtk_widget_hide(s->getWidget("favoriteNameDialog"));
+            GtkWidget *dialog = s->getWidget("nameDialog");
+			gtk_window_set_title(GTK_WINDOW(dialog), _("Favorite name"));
+			gtk_entry_set_text(GTK_ENTRY(s->getWidget("nameDialogEntry")), "");
+			gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Under what name you see the directory</b>"));
+			response = gtk_dialog_run(GTK_DIALOG(dialog));
+			gtk_widget_hide(dialog);
 
-            if (response == GTK_RESPONSE_OK)
-            {
-                string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("favoriteNameDialogEntry")));
-                if (path[path.length() - 1] != PATH_SEPARATOR)
-                    path += PATH_SEPARATOR;
+			if (response == GTK_RESPONSE_OK)
+			{
+				string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("nameDialogEntry")));
+				if (path[path.length() - 1] != PATH_SEPARATOR)
+					path += PATH_SEPARATOR;
 
-                if (!name.empty() && FavoriteManager::getInstance()->addFavoriteDir(path, name))
-                {
-                    GtkTreeIter iter;
-                    gtk_list_store_append(s->downloadToStore, &iter);
-                    gtk_list_store_set(s->downloadToStore, &iter,
-                        s->downloadToView.col("Favorite Name"), name.c_str(),
-                        s->downloadToView.col("Directory"), path.c_str(),
-                        -1);
-                }
+				if (!name.empty() && FavoriteManager::getInstance()->addFavoriteDir(path, name))
+				{
+					GtkTreeIter iter;
+					gtk_list_store_append(s->downloadToStore, &iter);
+					gtk_list_store_set(s->downloadToStore, &iter,
+						s->downloadToView.col("Favorite Name"), name.c_str(),
+						s->downloadToView.col("Directory"), path.c_str(),
+						-1);
+				}
                 else
                 {
                     s->showErrorDialog(_("Directory or favorite name already exists"));
