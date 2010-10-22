@@ -315,8 +315,11 @@ void ShareBrowser::buildList(){
 
     try {
         listing.loadFile(file.toStdString());
-        listing.getRoot()->setName(nick.toStdString());
+        qDebug() << "listing.loadFile(file.toStdString())";
+        listing.loadFile(file.toStdString());
+        qDebug() << "listing.loadFile(file.toStdString())";
         ADLSearchManager::getInstance()->matchListing(listing);
+        qDebug() << "ADLSearchManager::getInstance()->matchListing(listing)";
 
         QThreadPool *pool = QThreadPool::globalInstance();
 
