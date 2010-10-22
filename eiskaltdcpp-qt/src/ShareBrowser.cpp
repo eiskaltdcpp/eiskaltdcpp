@@ -318,6 +318,10 @@ void ShareBrowser::buildList(){
         listing.getRoot()->setName(nick.toStdString());
         ADLSearchManager::getInstance()->matchListing(listing);
 
+        QThreadPool *pool = QThreadPool::globalInstance();
+
+        qDebug() << "Thread pool <active/max>:" << pool->activeThreadCount() << ":" << pool->maxThreadCount();
+
         QtConcurrent::run(this, &ShareBrowser::createTree, listing.getRoot(), tree_root);
 
         treeView_LPANE->blockSignals(true);
