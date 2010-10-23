@@ -24,7 +24,9 @@
 #include "dcpp/ChatMessage.h"
 
 #include "dcpp/version.h"
-
+#ifdef XMLRPC_DAEMON
+#include "xmlrpcserver.h"
+#endif
 //#include "../dht/DHT.h"
 
 ServerThread::ClientMap ServerThread::clients;
@@ -78,31 +80,13 @@ void ServerThread::Run()
 	startSocket(true, 0);
 	autoConnect();
 #ifdef XMLRPC_DAEMON
-		xmlrpc_c::registry myRegistry;
-
 		xmlrpc_c::methodPtr const sampleAddMethodP(new sampleAddMethod);
-
-		myRegistry.addMethod("sample.add", sampleAddMethodP);
-
-		xmlrpc_c::serverAbyss myAbyssServer(xmlrpc_c::serverAbyss::constrOpt()
-                                      .registryP(&myRegistry)
-                                      .portNumber(8080)
-                                      .logFileName("/tmp/xmlrpc_log")
-                                      .serverOwnsSignals(false)
-			//myRegistry,
-			//8080,              // TCP port on which to listen
-			//"/tmp/xmlrpc_log"  // Log file
-			);
-
-		myAbyssServer.run();
-		// xmlrpc_c::serverAbyss.run() never returns
-		assert(false);
-#else
-	while(!bTerminated)
-	{
+		xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
+		AbyssServer.run();
+#endif
+	while(!bTerminated) {
 		usleep(1000);
 	}
-#endif
 
 }
 
@@ -115,18 +99,19 @@ void ServerThread::Close()
 	//LogManager::getInstance()->removeListener(this);
 	//QueueManager::getInstance()->removeListener(this);
 	//TimerManager::getInstance()->removeListener(this);
-
-	for(ClientIter i = clients.begin() ; i != clients.end() ; i++) {
-		Client* cl = i->second;
-		cl->removeListener(this);
-		cl->disconnect(true);
-		ClientManager::getInstance()->putClient(cl);
-		fprintf(stdout,"wait 5 sec before disconnect next hub\n");
-		usleep(5000);
-	};
+	#ifdef XMLRPC_DAEMON
+	AbyssServer.terminate();
+	#endif
+	//for(ClientIter i = clients.begin() ; i != clients.end() ; i++) {
+		//Client* cl = i->second;
+		//cl->removeListener(this);
+		//cl->disconnect(true);
+		//ClientManager::getInstance()->putClient(cl);
+		//fprintf(stdout,"wait 5 sec before disconnect next hub\n");
+		//usleep(5000);
+	//};
 
 	//ConnectionManager::getInstance()->disconnect();
-	//myAbyssServer->terminate();
 	bTerminated = true;
 }
 //---------------------------------------------------------------------------

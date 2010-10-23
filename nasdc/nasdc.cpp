@@ -177,9 +177,9 @@ int main(int argc, char* argv[])
     uint64_t t=0;
 	while (bServerRunning) {
 		usleep(1000);
-#ifdef _DEBUG
-        while (1) {t++;if (t>=10000000000){ ServerStop();}}
-#endif
+//#ifdef _DEBUG
+        //while (1) {t++;if (t>=10000000000){ ServerStop();}}
+//#endif
 
 	}
 

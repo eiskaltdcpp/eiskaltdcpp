@@ -21,6 +21,34 @@
 
 using namespace std;
 
+xmlrpc_c::registry xmlrpcRegistry;
+
+xmlrpc_c::serverAbyss AbyssServer(xmlrpc_c::serverAbyss::constrOpt()
+                                      .registryP(&xmlrpcRegistry)
+                                      .portNumber(8080)
+                                      .logFileName("/tmp/xmlrpc_log")
+                                      .serverOwnsSignals(false)
+			//myRegistry,
+			//8080,              // TCP port on which to listen
+			//"/tmp/xmlrpc_log"  // Log file
+			);
+
+//class myshutdown : public xmlrpc_c::registry::shutdown {
+    //public:
+        //myshutdown(xmlrpc_c::serverAbyss * const serverHandle) :
+            //serverHandle(serverHandle) {}
+
+        //void doit(string const& comment,
+                  //void * const) const {
+
+            //cerr << "Shutting down because " << comment <<endl;
+            //shutdownMyServer(serverHandle);
+        //}
+
+    //private:
+        //xmlrpc_c::serverAbyss * const serverHandle;
+//};
+
 class sampleAddMethod : public xmlrpc_c::method {
 public:
     sampleAddMethod() {
@@ -69,8 +97,6 @@ public:
         *retvalP = xmlrpc_c::value_string("Magnet added in queue");
         // Sometimes, make it look hard (so client can see what it's like
         // to do an RPC that takes a while).
-        if (adder == 1)
-            SLEEP(2);
     }
 };
 #endif

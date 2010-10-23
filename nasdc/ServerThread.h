@@ -14,9 +14,6 @@
 #include "dcpp/ClientListener.h"
 #include "dcpp/ShareManager.h"
 //#include "dcpp/WebServerManager.h"
-#ifdef XMLRPC_DAEMON
-#include "xmlrpcserver.h"
-#endif
 
 class ServerThread : private TimerManagerListener,
 		private QueueManagerListener,
@@ -35,9 +32,6 @@ public:
 
 	void Resume();
 	void Run();
-#ifdef XMLRPC_DAEMON
-	void XMLRPCRun();
-#endif
 	void Close();
 	void WaitFor();
 
