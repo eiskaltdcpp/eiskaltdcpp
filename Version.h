@@ -10,8 +10,8 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-const char * const EISKALTDCPP_VERSION         = "2.1.0";
-const char * const EISKALTDCPP_VERSION_SFX     = "master";
+const char * const EISKALTDCPP_VERSION         = "2.1";
+const char * const EISKALTDCPP_VERSION_SFX     = "GIT";
 const char * const EISKALTDCPP_WND_TITLE       = "EiskaltDC++";
 
 #endif // VERSION_H
