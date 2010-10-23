@@ -776,7 +776,7 @@ void MainWindow::initActions(){
                 << toolsDownloadQueue
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
-                << toolsHubManager
+                //<< toolsHubManager
                 << separator1
                 << toolsSpy
                 << toolsAntiSpam

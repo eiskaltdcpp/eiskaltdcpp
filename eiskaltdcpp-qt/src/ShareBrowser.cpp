@@ -35,7 +35,26 @@
 #include <QtConcurrentFilter>
 #include <QtConcurrentRun>
 
+#include <boost/bind.hpp>
+
 using namespace dcpp;
+
+ShareBrowserRunner::ShareBrowserRunner(QObject *parent): QThread(parent){
+
+}
+
+ShareBrowserRunner::~ShareBrowserRunner(){
+
+}
+
+void ShareBrowserRunner::run(){
+    qDebug() << Q_FUNC_INFO;
+    runFunc();
+}
+
+void ShareBrowserRunner::setRunFunction(const boost::function<void()> &f){
+    runFunc = f;
+}
 
 ShareBrowser::Menu::Menu(){
     menu = new QMenu();
@@ -316,16 +335,19 @@ void ShareBrowser::buildList(){
     try {
         listing.loadFile(file.toStdString());
         qDebug() << "listing.loadFile(file.toStdString())";
-        listing.loadFile(file.toStdString());
-        qDebug() << "listing.loadFile(file.toStdString())";
         ADLSearchManager::getInstance()->matchListing(listing);
         qDebug() << "ADLSearchManager::getInstance()->matchListing(listing)";
 
-        QThreadPool *pool = QThreadPool::globalInstance();
+        ShareBrowserRunner *runner = new ShareBrowserRunner(this);
+        qDebug() << "Creating run function...";
+        boost::function<void()> f = boost::bind(&ShareBrowser::createTree, this, listing.getRoot(), tree_root);
+        qDebug() << "Ok.";
 
-        qDebug() << "Thread pool <active/max>:" << pool->activeThreadCount() << ":" << pool->maxThreadCount();
+        runner->setRunFunction(f);
+        connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
 
-        QtConcurrent::run(this, &ShareBrowser::createTree, listing.getRoot(), tree_root);
+        qDebug() << "Invoking function in another thread";
+        runner->start();
 
         treeView_LPANE->blockSignals(true);
         treeView_RPANE->blockSignals(true);
