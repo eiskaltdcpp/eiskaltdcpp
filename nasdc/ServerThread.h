@@ -14,7 +14,9 @@
 #include "dcpp/ClientListener.h"
 #include "dcpp/ShareManager.h"
 //#include "dcpp/WebServerManager.h"
+#ifdef XMLRPC_DAEMON
 #include "xmlrpcserver.h"
+#endif
 
 class ServerThread : private TimerManagerListener,
 		private QueueManagerListener,
@@ -76,7 +78,7 @@ private:
 	void on(GetPassword, const Client* cur) throw();
 	void on(HubUpdated, const Client* cur) throw();
 	void on(StatusMessage, const Client* cur, const string&, int = ClientListener::FLAG_NORMAL) throw();
-	//void on(ClientListener::Message, const Client*, const ChatMessage&) throw();
+	void on(ClientListener::Message, const Client*, const ChatMessage&) throw();
 	void on(NickTaken, const Client* cur) throw();
 	void on(SearchFlood, const Client* cur, const string&) throw();
 

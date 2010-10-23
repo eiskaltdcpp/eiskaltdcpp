@@ -53,4 +53,30 @@ void AppendSpecialLog(const string & sData) {
 	fclose(fw);
 }
 
-//---------------------------------------------------------------------------
+
+//bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth) {
+    //name = _("Unknown");
+    //size = 0;
+    //tth = _("Unknown");
+
+    //if (magnet.isEmpty() || magnet.find("urn:tree:tiger")!=string::npos)
+        //return FALSE;
+
+    //string::size_type nextpos = 0;
+
+    //for (string::size_type pos = magnetSignature.length(); pos < magnet.size(); pos = nextpos + 1)
+    //{
+        //nextpos = magnet.find('&', pos);
+        //if (nextpos == string::npos)
+            //nextpos = magnet.size();
+
+        //if (pos == magnetSignature.length())
+            //tth = magnet.substr(magnetSignature.length(), nextpos - magnetSignature.length());
+        //else if (magnet.compare(pos, 3, "xl=") == 0)
+            //size = Util::toInt64(magnet.substr(pos + 3, nextpos - pos - 3));
+        //else if (magnet.compare(pos, 3, "dn=") == 0)
+            //name = Util::encodeURI(magnet.substr(pos + 3, nextpos - pos - 3), TRUE);
+    //}
+
+    //return TRUE;
+//}

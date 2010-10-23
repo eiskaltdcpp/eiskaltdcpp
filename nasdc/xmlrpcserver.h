@@ -24,7 +24,7 @@ using namespace std;
 class sampleAddMethod : public xmlrpc_c::method {
 public:
     sampleAddMethod() {
-	// signature and help strings are documentation -- the client
+        // signature and help strings are documentation -- the client
         // can query this information with a system.methodSignature and
         // system.methodHelp RPC.
         this->_signature = "i:ii";
@@ -42,7 +42,32 @@ public:
         paramList.verifyEnd(2);
 
         *retvalP = xmlrpc_c::value_int(addend + adder);
-	// Sometimes, make it look hard (so client can see what it's like
+        // Sometimes, make it look hard (so client can see what it's like
+        // to do an RPC that takes a while).
+        if (adder == 1)
+            SLEEP(2);
+    }
+};
+class magnetAddMethod : public xmlrpc_c::method {
+public:
+    magnetAddMethod() {
+        // signature and help strings are documentation -- the client
+        // can query this information with a system.methodSignature and
+        // system.methodHelp RPC.
+        this->_signature = "i:magnet";
+        this->_help = "This method add queue for magnet";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const smagnet(paramList.getString(0));
+
+        paramList.verifyEnd(1);
+
+        *retvalP = xmlrpc_c::value_string("Magnet added in queue");
+        // Sometimes, make it look hard (so client can see what it's like
         // to do an RPC that takes a while).
         if (adder == 1)
             SLEEP(2);
