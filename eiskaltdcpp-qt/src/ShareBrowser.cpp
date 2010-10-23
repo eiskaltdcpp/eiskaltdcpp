@@ -48,7 +48,6 @@ ShareBrowserRunner::~ShareBrowserRunner(){
 }
 
 void ShareBrowserRunner::run(){
-    qDebug() << Q_FUNC_INFO;
     runFunc();
 }
 
@@ -165,8 +164,6 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         list_model(NULL),
         proxy(NULL)
 {
-    qDebug() << Q_FUNC_INFO;
-
     setupUi(this);
 
     nick = WulforUtil::getInstance()->getNicks(user->getCID());;
@@ -190,8 +187,6 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
 }
 
 ShareBrowser::~ShareBrowser(){
-    qDebug() << Q_FUNC_INFO;
-
     delete tree_model;
     delete list_model;
     delete arena_menu;
@@ -210,8 +205,6 @@ ShareBrowser::~ShareBrowser(){
 }
 
 void ShareBrowser::closeEvent(QCloseEvent *e){
-    qDebug() << Q_FUNC_INFO;
-
     save();
 
     QWidget::closeEvent(e);
@@ -233,8 +226,6 @@ bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
 }
 
 void ShareBrowser::init(){
-    qDebug() << Q_FUNC_INFO;
-
     frame_FILTER->setVisible(false);
 
     initModels();
@@ -278,8 +269,6 @@ void ShareBrowser::init(){
 }
 
 void ShareBrowser::load(){
-    qDebug() << Q_FUNC_INFO;
-
     int w = WIGET(WI_SHARE_WIDTH);
     int wr= WIGET(WI_SHARE_RPANE_WIDTH);
 
@@ -304,8 +293,6 @@ void ShareBrowser::load(){
 }
 
 void ShareBrowser::save(){
-    qDebug() << Q_FUNC_INFO;
-
     WSSET(WS_SHARE_LPANE_STATE, treeView_LPANE->header()->saveState().toBase64());
     WSSET(WS_SHARE_RPANE_STATE, treeView_RPANE->header()->saveState().toBase64());
 
@@ -330,23 +317,16 @@ QMenu  *ShareBrowser::getMenu(){
 }
 
 void ShareBrowser::buildList(){
-    qDebug() << Q_FUNC_INFO;
-
     try {
         listing.loadFile(file.toStdString());
-        qDebug() << "listing.loadFile(file.toStdString())";
         ADLSearchManager::getInstance()->matchListing(listing);
-        qDebug() << "ADLSearchManager::getInstance()->matchListing(listing)";
 
         ShareBrowserRunner *runner = new ShareBrowserRunner(this);
-        qDebug() << "Creating run function...";
         boost::function<void()> f = boost::bind(&ShareBrowser::createTree, this, listing.getRoot(), tree_root);
-        qDebug() << "Ok.";
 
         runner->setRunFunction(f);
         connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
 
-        qDebug() << "Invoking function in another thread";
         runner->start();
 
         treeView_LPANE->blockSignals(true);
@@ -360,13 +340,6 @@ void ShareBrowser::buildList(){
 }
 
 void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem *root){
-    static int i = 0;
-
-    if (i < 1){
-        qDebug() << Q_FUNC_INFO;
-        i++;
-    }
-
     if (!(dir && root))
         return;
 
@@ -399,8 +372,6 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
 }
 
 void ShareBrowser::initModels(){
-    qDebug() << Q_FUNC_INFO;
-
     tree_model = new FileBrowserModel();
     tree_root  = new FileBrowserItem(QList<QVariant>() << tr("Name") << tr("Size")
                                                        << tr("Exact size")
@@ -419,8 +390,6 @@ void ShareBrowser::initModels(){
 }
 
 void ShareBrowser::goDown(QTreeView *view){
-    qDebug() << Q_FUNC_INFO;
-
     if (view != treeView_RPANE)
         return;
 
@@ -447,8 +416,6 @@ void ShareBrowser::goDown(QTreeView *view){
 }
 
 void ShareBrowser::goUp(QTreeView *view){
-    qDebug() << Q_FUNC_INFO;
-
     if (view != treeView_RPANE)
         return;
 
@@ -525,8 +492,6 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
     if (!root)
         return;
 
-    qDebug() << Q_FUNC_INFO;
-
     list_model->clear();
 
     current_size = 0;
@@ -580,8 +545,6 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
 }
 
 void ShareBrowser::slotRightPaneSelChanged(const QItemSelection &, const QItemSelection &){
-    qDebug() << Q_FUNC_INFO;
-
     QItemSelectionModel *selection_model = treeView_RPANE->selectionModel();
     QModelIndexList list = selection_model->selectedRows(0);
     quint64 selected_size = 0;
@@ -793,8 +756,6 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 }
 
 void ShareBrowser::slotLoaderFinish(){
-    qDebug() << Q_FUNC_INFO;
-
     treeView_LPANE->blockSignals(false);
     treeView_RPANE->blockSignals(false);
 

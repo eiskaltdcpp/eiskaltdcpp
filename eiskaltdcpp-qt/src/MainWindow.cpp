@@ -1830,7 +1830,6 @@ void MainWindow::showPortsError(const string& port) {
     QMessageBox::warning(this, tr("Connectivity Manager: Warning"), msg, QMessageBox::Ok);
 }
 void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const QString &jump_to){
-    qDebug() << Q_FUNC_INFO << QString("%1/%2").arg(file).arg(jump_to);
     new ShareBrowser(usr, file, jump_to);
 }
 
@@ -1872,8 +1871,6 @@ void MainWindow::slotFileOpenDownloadDirectory(){
 void MainWindow::slotFileBrowseOwnFilelist(){
     UserPtr user = ClientManager::getInstance()->getMe();
     QString file = QString::fromStdString(ShareManager::getInstance()->getOwnListFile());
-
-    qDebug() << Q_FUNC_INFO << file;
 
     new ShareBrowser(user, file, "");
 }
