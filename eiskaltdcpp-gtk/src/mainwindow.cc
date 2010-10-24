@@ -98,13 +98,8 @@ MainWindow::MainWindow():
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("transferCheckButton")), TRUE);
 
     // About dialog
-#ifndef DCPP_REVISION
     gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"),
         EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
-#else
-    gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s - %s (%s)\nDC++ core version: %s"),
-        EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION, DCVERSIONSTRING);
-#endif
 
     gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), comments);
     g_free(comments);

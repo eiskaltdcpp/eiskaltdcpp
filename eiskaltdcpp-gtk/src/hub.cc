@@ -1802,11 +1802,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "version")
         {
-#ifndef DCPP_REVISION
             hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE)+" "+string(EISKALTDCPP_VERSION)+" ("+string(EISKALTDCPP_VERSION_SFX)+"), "+_("project home: ")+"http://code.google.com/p/eiskaltdc/", Msg::SYSTEM, Sound::NONE);
-#else
-            hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE)+" "+string(EISKALTDCPP_VERSION)+" - "+string(EISKALTDCPP_VERSION_SFX)+" ("+string(DCPP_REVISION)+"), "+ _("project home: ")+"http://code.google.com/p/eiskaltdc/", Msg::SYSTEM, Sound::NONE);
-#endif
         }
         else if (command == "help")
         {

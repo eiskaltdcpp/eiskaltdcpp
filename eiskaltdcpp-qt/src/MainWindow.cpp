@@ -2357,7 +2357,7 @@ void MainWindow::slotAboutClient(){
     qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
     qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong();
 
-    a.label->setText(QString("<b>%1</b> %2-%3")
+    a.label->setText(QString("<b>%1</b> %2 (%3)")
                      .arg(EISKALTDCPP_WND_TITLE)
                      .arg(EISKALTDCPP_VERSION)
                      .arg(EISKALTDCPP_VERSION_SFX));
