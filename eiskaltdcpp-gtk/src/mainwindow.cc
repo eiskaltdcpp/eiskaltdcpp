@@ -136,6 +136,7 @@ MainWindow::MainWindow():
     g_signal_connect(window, "key-press-event", G_CALLBACK(onKeyPressed_gui), (gpointer)this);
     g_signal_connect(getWidget("book"), "switch-page", G_CALLBACK(onPageSwitched_gui), (gpointer)this);
     g_signal_connect_after(getWidget("pane"), "realize", G_CALLBACK(onPaneRealized_gui), (gpointer)this);
+    g_signal_connect(getWidget("reconnect"), "clicked", G_CALLBACK(onReconnectClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("connect"), "clicked", G_CALLBACK(onConnectClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("favHubs"), "clicked", G_CALLBACK(onFavoriteHubsClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("favUsers"), "clicked", G_CALLBACK(onFavoriteUsersClicked_gui), (gpointer)this);
@@ -372,6 +373,7 @@ void MainWindow::loadIcons_gui()
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedUploads")), "icon-finished-uploads");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("searchADL")), "icon-search-adl");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("quit")), "icon-quit");
+    gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("reconnect")), "icon-reconnect");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("connect")), "icon-connect");
     gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageHubs")), "icon-public-hubs", GTK_ICON_SIZE_SMALL_TOOLBAR);
     gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageDownloadSpeed")), "icon-download", GTK_ICON_SIZE_SMALL_TOOLBAR);
@@ -883,6 +885,8 @@ void MainWindow::actionMagnet_gui(string magnet)
 
 void MainWindow::setToolbarButton_gui()
 {
+    if (!WGETB("toolbar-button-reconnect"))
+        gtk_widget_hide(getWidget("reconnect"));
     if (!WGETB("toolbar-button-connect"))
         gtk_widget_hide(getWidget("connect"));
     if (!WGETB("toolbar-button-fav-hubs"))

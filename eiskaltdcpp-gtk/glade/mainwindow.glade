@@ -566,9 +566,22 @@
               </widget>
             </child>
             <child>
+              <widget class="GtkToolButton" id="reconnect">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Reconnect to the hub</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Reconnect</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-reconnect</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
               <widget class="GtkToolButton" id="connect">
                 <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Quick connect to a hub</property>
+                <property name="tooltip" translatable="yes">Quick connect to the hub</property>
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Connect</property>
                 <property name="use_underline">True</property>
