@@ -1210,6 +1210,7 @@ void Settings::initAppearance_gui()
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Favorite Users"), "icon-favorite-users");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Finished Downloads"), "icon-finished-downloads");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Finished Uploads"), "icon-finished-uploads");
+        addOption_gui(themeIconsStore, wsm, iconTheme, _("Refresh"), "icon-refresh");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Hash"), "icon-hash");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Preferences"), "icon-preferences");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Public Hubs"), "icon-public-hubs");
@@ -1260,6 +1261,8 @@ void Settings::initAppearance_gui()
             "icon-public-hubs");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Preferences"), "toolbar-button-settings",
             "icon-preferences");
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Refresh"), "toolbar-button-refresh",
+            "icon-refresh");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Hash"), "toolbar-button-hash",
             "icon-hash");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Search"), "toolbar-button-search",

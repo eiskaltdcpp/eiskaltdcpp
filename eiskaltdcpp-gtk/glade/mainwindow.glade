@@ -522,6 +522,19 @@
               </widget>
             </child>
             <child>
+              <widget class="GtkToolButton" id="refresh">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Refresh file list</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Refresh</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-refresh</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
               <widget class="GtkToolButton" id="hash">
                 <property name="visible">True</property>
                 <property name="tooltip" translatable="yes">View the hashing progress</property>
