@@ -65,7 +65,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Checked</source>
-        <translation type="unfinished">Абраны</translation>
+        <translation>Дзейнічае</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
@@ -80,7 +80,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation type="unfinished">Каталёг</translation>
+        <translation>Назоў каталёгу</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
@@ -371,7 +371,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
         <location filename="../src/DownloadQueue.cpp" line="372"/>
         <source>Full tree does not match TTH root</source>
         <translatorcomment>Сьпіс не адпавядае скароту???</translatorcomment>
-        <translation>TTH сьцягнутага не адпавядае TTH крыніцы</translation>
+        <translation type="unfinished">Скарот (TTH) сьцягнутага не адпавядае скароту крыніцы</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="374"/>
@@ -702,12 +702,12 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FileHasher.cpp" line="87"/>
         <source>Select file</source>
-        <translation type="unfinished">Абярыце файл</translation>
+        <translation>Абярыце файл</translation>
     </message>
     <message>
         <location filename="../src/FileHasher.cpp" line="87"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished">Усе файлы (*.*)</translation>
+        <translation>Усе файлы (*.*)</translation>
     </message>
 </context>
 <context>
@@ -1991,7 +1991,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1122"/>
         <source>ADLSearch</source>
         <translatorcomment>(ADLSearch = Automatic Directory Listing Search)</translatorcomment>
-        <translation type="unfinished">Самарушна шукаць у сьпісах</translation>
+        <translation>Самарушна шукаць у сьпісах</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1125"/>
@@ -2058,7 +2058,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1153"/>
         <source>Source (svn)</source>
-        <translation type="unfinished">Крынічнікі (svn)</translation>
+        <translation>Крынічнікі (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1155"/>
@@ -2100,22 +2100,23 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1003"/>
         <source>Download/Upload speed</source>
-        <translation type="unfinished">Хуткасьць сьцягваць/зацягваць</translation>
+        <translation>Хуткасьць сьцягваць | Хуткасьць зацягваць</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1009"/>
         <source>Downloaded/Uploaded</source>
-        <translation type="unfinished">Сьцягнулі/Зацягнулі</translation>
+        <translatorcomment>Сьцягнулі — зацягнулі</translatorcomment>
+        <translation>Сьцягнулі | Зацягнулі</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1367"/>
         <source>%1/s / %2/s</source>
-        <translation type="unfinished">%1/с / %2/с</translation>
+        <translation>%1/с | %2/с</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1368"/>
         <source>%1 / %2</source>
-        <translation type="unfinished">%1 / %2</translation>
+        <translation>%1 | %2</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1371"/>
@@ -2226,7 +2227,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2281"/>
         <source>Button style</source>
-        <translation type="unfinished">Выгляд гузікаў</translation>
+        <translation>Выгляд гузікаў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2295"/>
@@ -2236,6 +2237,10 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2345"/>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
+        <translatorcomment>перакласьці
+http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt
+і атрымаць
+http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog_be.txt</translatorcomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2512,17 +2517,17 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/Notification.cpp" line="86"/>
         <source>Additional</source>
-        <translation type="unfinished">Дадаткова</translation>
+        <translation>Дадаткова</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="87"/>
         <source>Supress sound notifications</source>
-        <translation type="unfinished">Прыпыніць апавяшчаць гукамі</translation>
+        <translation>Прыпыніць апавяшчаць гукамі</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="88"/>
         <source>Supress text notifications</source>
-        <translation type="unfinished">Прыпыніць апавяшчаць тэкстам</translation>
+        <translation>Прыпыніць апавяшчаць тэкстам</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="100"/>
@@ -2853,7 +2858,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SearchFrame.cpp" line="85"/>
         <source>Add to favorites</source>
-        <translation>Дадаць да ўлюбёнцаў</translation>
+        <translation>Дадаць да ўлюбёных</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="88"/>
@@ -3453,12 +3458,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SettingsSharing.cpp" line="280"/>
         <source>Enter virtual path name</source>
-        <translation>Упішыце назоў уяўнага шляху</translation>
+        <translation>Упішыце назоў шляху</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="280"/>
         <source>Virtual path</source>
-        <translation>Уяўны шлях</translation>
+        <translation>Назоў</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="287"/>
@@ -4154,7 +4159,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="20"/>
         <source>Dialog</source>
-        <translation type="unfinished">Самарушна шукаць</translation>
+        <translation>Самарушна шукаць у сьпісах файлаў</translation>
     </message>
     <message>
         <source>Search String</source>
@@ -4169,7 +4174,7 @@ Do you want to stop it?
         <location filename="../ui/UIADLSearchEditor.ui" line="78"/>
         <source>Type source</source>
         <translatorcomment>&quot;від крыніцы&quot;?</translatorcomment>
-        <translation type="unfinished">Дзе шукаць</translation>
+        <translation type="unfinished">Від крыніцы</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="94"/>
@@ -4185,7 +4190,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
         <source>Search string</source>
-        <translation type="unfinished">Радок, які шукаецца</translation>
+        <translation type="unfinished">Шукаць радок</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="104"/>
@@ -4309,7 +4314,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished">Дзеяньні</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="29"/>
@@ -4324,12 +4329,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
-        <translation type="unfinished">Угору</translation>
+        <translation>Угору</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="95"/>
         <source>Down</source>
-        <translation type="unfinished">Да-долу</translation>
+        <translation>Да-долу</translation>
     </message>
 </context>
 <context>
@@ -4478,7 +4483,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="14"/>
         <source>Dialog</source>
-        <translation></translation>
+        <translation>Уласьцівасьці асяродку</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
@@ -4792,7 +4797,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Кіраўнік асяродкаў</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
@@ -5296,7 +5301,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="743"/>
         <source>Reconnect to hub(seconds)</source>
-        <translation type="unfinished">Нанова злучацца з асяродкам праз (у сэкундах)</translation>
+        <translation>Нанова злучацца з асяродкам праз (у сэкундах)</translation>
     </message>
     <message>
         <source>On/Off speed limits</source>
@@ -5894,17 +5899,17 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
-        <translation type="unfinished">Тэма карыстальнікаў</translation>
+        <translation type="unfinished">Набор значак карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>
         <source>Icon theme</source>
-        <translation>Набор значак</translation>
+        <translation type="unfinished">Набор агульных значак</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="182"/>
         <source>Emoticon theme</source>
-        <translation>Набор пачуцьцезнакаў</translation>
+        <translation type="unfinished">Набор пачуцьцезнакаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="201"/>
@@ -6026,7 +6031,7 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished">Залежыць ад настаўленьняў асяродку: звычайна
+        <translation>Залежыць ад настаўленьняў асяродку: звычайна
 зьвесткі пра адрэсы IP могуць бачыць толькі апэратары.</translation>
     </message>
     <message>
@@ -6573,7 +6578,7 @@ share is complete, share at follow-up activities start nulled.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="420"/>
         <source>If checked, a pause hashing may not work.</source>
-        <translation type="unfinished"></translation>
+        <translation>Калі гэта адзначыць, можа не атрымацца прыныпіць ствараць скароты.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
@@ -6584,12 +6589,12 @@ share is complete, share at follow-up activities start nulled.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="477"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
-        <translation type="unfinished"></translation>
+        <translation>Дапаўняць абагуленае кожныя (у хвілінах; 0 = не дапаўняць самарушна)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="509"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Найвялікшая хуткасьць ствараць скароты (МБ/с, 0 = не абмяжоўваць)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="522"/>
@@ -6840,7 +6845,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsShortcuts.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Кіраўнік асяродкаў</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -7071,7 +7076,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="167"/>
         <source>E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>Эл. пошта</translation>
     </message>
     <message>
         <source>Email</source>
@@ -7164,7 +7169,8 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/WulforUtil.cpp" line="981"/>
         <source>User commands</source>
-        <translation>Загады карыстальніка</translation>
+        <translatorcomment>Загады карыстальніка — задоўга</translatorcomment>
+        <translation>Загады</translation>
     </message>
 </context>
 </TS>
