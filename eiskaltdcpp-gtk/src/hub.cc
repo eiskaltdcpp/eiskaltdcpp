@@ -180,6 +180,7 @@ Hub::Hub(const string &address, const string &encoding):
     // image menu
     g_signal_connect(getWidget("downloadImageItem"), "activate", G_CALLBACK(onDownloadImageClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("removeImageItem"), "activate", G_CALLBACK(onRemoveImageClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("openImageItem"), "activate", G_CALLBACK(onOpenImageClicked_gui), (gpointer)this);
 
     GtkAdjustment *adjustment = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(getWidget("chatScroll")));
 
@@ -771,12 +772,15 @@ void Hub::applyTags_gui(const string cid, const string &line)
             else
             {
                 // support image tag
-                string::size_type i = tagName.rfind("[/img]");
-                if (g_ascii_strncasecmp(tagName.c_str(), "[img]", 5) == 0 && i != string::npos)
+                if (g_ascii_strncasecmp(tagName.c_str(), "[img]", 5) == 0)
                 {
-                    image_magnet = tagName.substr(5, i - 5);
-                    if (WulforUtil::isMagnet(image_magnet))
-                        image_tag = TRUE;
+                    string::size_type i = tagName.rfind("[/img]");
+                    if (i != string::npos)
+                    {
+                        image_magnet = tagName.substr(5, i - 5);
+                        if (WulforUtil::isMagnet(image_magnet))
+                            image_tag = TRUE;
+                    }
                 }
 
                 if (!image_tag)
@@ -807,10 +811,10 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
                 GtkTextChildAnchor *anchor = gtk_text_buffer_create_child_anchor(chatBuffer, &tag_start_iter);
                 GtkWidget *event_box = gtk_event_box_new();
-#if GTK_CHECK_VERSION(2, 4, 0)
+
                 // Creating a visible window may cause artifacts that are visible to the user.
                 gtk_event_box_set_visible_window(GTK_EVENT_BOX(event_box), FALSE);
-#endif
+
                 GtkWidget *image = gtk_image_new_from_stock(GTK_STOCK_FILE, GTK_ICON_SIZE_BUTTON);
                 gtk_container_add(GTK_CONTAINER(event_box), image);
                 gtk_text_view_add_child_at_anchor(GTK_TEXT_VIEW(getWidget("chatText")), event_box, anchor);
@@ -2826,8 +2830,7 @@ void Hub::loadImage_gui(string target, string tth)
    g_object_unref(pixbuf);
 
    // reset tips
-   string name = Util::getFileName(target);
-   string magnet = imageMagnet.first;
+   string name, magnet = imageMagnet.first;
    int64_t size;
    WulforUtil::splitMagnet(magnet, name, size, tth);
    string text = "name: " + name + "\n" + "size: " + Util::formatBytes(size);
@@ -2939,6 +2942,18 @@ void Hub::onRemoveImageClicked_gui(GtkMenuItem *item, gpointer data)
 
    hub->imageLoad.first = "";
    hub->imageLoad.second = NULL;
+}
+
+void Hub::onOpenImageClicked_gui(GtkMenuItem *item, gpointer data)
+{
+    Hub *hub = (Hub*) data;
+
+    int64_t size;
+    string name, tth;
+    const string magnet = hub->imageMagnet.first;
+    WulforUtil::splitMagnet(magnet, name, size, tth);
+    string target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + name;
+    WulforUtil::openURI(target);
 }
 
 gboolean Hub::expose(GtkWidget *widget, GdkEventExpose *event, gpointer data)

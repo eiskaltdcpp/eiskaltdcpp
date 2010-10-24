@@ -144,6 +144,7 @@ class Hub:
         static void onImageDestroy_gui(GtkWidget *widget, gpointer data);
         static void onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data);
         static void onRemoveImageClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onOpenImageClicked_gui(GtkMenuItem *item, gpointer data);
         static gboolean onImageEvent_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
         static gboolean expose(GtkWidget *widget, GdkEventExpose *event, gpointer data);
 
