@@ -497,16 +497,18 @@ void FavoriteManager::load(SimpleXML& aXml) {
         aXml.stepOut();
     }
     // parse groups that have the "Connect" param and send their hubs to WindowManager
-    for(FavHubGroups::const_iterator i = favHubGroups.begin(), iend = favHubGroups.end(); i != iend; ++i) {
-        if(i->second.connect) {
-            FavoriteHubEntryList hubs = getFavoriteHubs(i->first);
-            for(FavoriteHubEntryList::const_iterator hub = hubs.begin(), hub_end = hubs.end(); hub != hub_end; ++hub) {
-                StringMap map;
-                map[WindowInfo::address] = (*hub)->getServer();
-                WindowManager::getInstance()->add(WindowManager::hub(), map);
-            }
-        }
-    }
+    // бесполезная для нас хрень, только засирает конфиг
+    // предназначение: подобие менеджера сессий для подключённых хабов(к автоконнекту не относится).
+    //for(FavHubGroups::const_iterator i = favHubGroups.begin(), iend = favHubGroups.end(); i != iend; ++i) {
+        //if(i->second.connect) {
+            //FavoriteHubEntryList hubs = getFavoriteHubs(i->first);
+            //for(FavoriteHubEntryList::const_iterator hub = hubs.begin(), hub_end = hubs.end(); hub != hub_end; ++hub) {
+                //StringMap map;
+                //map[WindowInfo::address] = (*hub)->getServer();
+                //WindowManager::getInstance()->add(WindowManager::hub(), map);
+            //}
+        //}
+    //}
 
     aXml.resetCurrentChild();
     if(aXml.findChild("Users")) {
