@@ -141,6 +141,7 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("favUsers"), "clicked", G_CALLBACK(onFavoriteUsersClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("publicHubs"), "clicked", G_CALLBACK(onPublicHubsClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("settings"), "clicked", G_CALLBACK(onPreferencesClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("own_file_list"), "clicked", G_CALLBACK(onOpenOwnListClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("refresh"), "clicked", G_CALLBACK(onRefreshFileListClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("hash"), "clicked", G_CALLBACK(onHashClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("search"), "clicked", G_CALLBACK(onSearchClicked_gui), (gpointer)this);
@@ -361,6 +362,7 @@ void MainWindow::loadIcons_gui()
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("favUsers")), "icon-favorite-users");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("publicHubs")), "icon-public-hubs");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("settings")), "icon-preferences");
+    gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("own_file_list")), "icon-own-filelist");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("refresh")), "icon-refresh");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("hash")), "icon-hash");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("search")), "icon-search");
@@ -891,6 +893,8 @@ void MainWindow::setToolbarButton_gui()
         gtk_widget_hide(getWidget("publicHubs"));
     if (!WGETB("toolbar-button-settings"))
         gtk_widget_hide(getWidget("settings"));
+    if (!WGETB("toolbar-button-own-filelist"))
+        gtk_widget_hide(getWidget("own_file_list"));
     if (!WGETB("toolbar-button-refresh"))
         gtk_widget_hide(getWidget("refresh"));
     if (!WGETB("toolbar-button-hash"))

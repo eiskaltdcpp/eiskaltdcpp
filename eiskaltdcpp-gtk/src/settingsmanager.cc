@@ -87,6 +87,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("toolbar-button-fav-users", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-public-hubs", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-settings", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-own-filelist", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-refresh", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-hash", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-search", 1));

@@ -38,7 +38,7 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="openOwnListMenuItem">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">Open _own list</property>
+                        <property name="label" translatable="yes">Open _own file list</property>
                         <property name="use_underline">True</property>
                         <child internal-child="image">
                           <widget class="GtkImage" id="image666">
@@ -520,6 +520,19 @@
               <widget class="GtkSeparatorToolItem" id="SeparatorToolItem1">
                 <property name="visible">True</property>
               </widget>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="own_file_list">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Open _own file list</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Own file list</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-own-filelist</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
             </child>
             <child>
               <widget class="GtkToolButton" id="refresh">
