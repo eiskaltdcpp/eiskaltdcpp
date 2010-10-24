@@ -703,7 +703,7 @@ void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string 
 
     // If PM is initiated by another user, use setting except if tab is already open.
     if (useSetting)
-        raise = (entry == NULL) ? !BOOLSETTING(POPUNDER_PM) : FALSE;
+        raise = (entry == NULL) ? !WGETB("popunder-pm") : FALSE;
 
     if (entry == NULL)
     {
@@ -796,7 +796,7 @@ void MainWindow::showPublicHubs_gui()
 
 void MainWindow::showShareBrowser_gui(UserPtr user, string filename, string dir, bool useSetting)
 {
-    bool raise = useSetting ? !BOOLSETTING(POPUNDER_FILELIST) : TRUE;
+    bool raise = useSetting ? !WGETB("popunder-filelist") : TRUE;
     BookEntry *entry = findBookEntry(Entry::SHARE_BROWSER, user->getCID().toBase32());
 
     if (entry == NULL)
@@ -1831,7 +1831,7 @@ void MainWindow::autoConnect_client()
         func = new F2(this, &MainWindow::showHub_gui, link, "");
         WulforManager::get()->dispatchGuiFunc(func);
     }
-    else if (WulforUtil::isMagnet(link) && BOOLSETTING(MAGNET_REGISTER))
+    else if (WulforUtil::isMagnet(link) && WGETB("magnet-register"))
     {
         func1 = new F1(this, &MainWindow::actionMagnet_gui, link);
         WulforManager::get()->dispatchGuiFunc(func1);

@@ -68,9 +68,7 @@ const string SettingsManager::settingTags[] =
     "LogFilelistTransfers",
     "SendUnknownCommands", "MaxHashSpeed",
     "GetUserCountry", "FavShowJoins", "LogStatusMessages",
-    "AllowUpdateFilelistsOnStartup",
-    "PopunderPm", "PopunderFilelist",
-    "MagnetAsk", "MagnetAction", "MagnetRegister", "SearchPassiveAlways",
+    "AllowUpdateFilelistsOnStartup", "SearchPassiveAlways",
     "AddFinishedInstantly", "DontDLAlreadyShared", "UseCTRLForLineHistory",
     "UDPPort", "ShowLastLinesLog", "AdcDebug",
     "SearchHistory", "SetMinislotSize",
@@ -221,11 +219,6 @@ SettingsManager::SettingsManager()
     setDefault(GET_USER_COUNTRY, true);
     setDefault(FAV_SHOW_JOINS, false);
     setDefault(LOG_STATUS_MESSAGES, false);
-    setDefault(POPUNDER_PM, false);
-    setDefault(POPUNDER_FILELIST, false);
-    setDefault(MAGNET_REGISTER, true);
-    setDefault(MAGNET_ASK, true);
-    setDefault(MAGNET_ACTION, MAGNET_AUTO_SEARCH);
     setDefault(ADD_FINISHED_INSTANTLY, false);
     setDefault(DONT_DL_ALREADY_SHARED, false);
     setDefault(USE_CTRL_FOR_LINE_HISTORY, true);
