@@ -65,8 +65,8 @@ class MainWindow;
 class MultiLineToolBar;
 
 extern const char * const EISKALTDCPP_VERSION;
-extern const char * const EISKALTDCPP_VERSION_SFX;
 extern const char * const EISKALTDCPP_WND_TITLE;
+extern const char * const EISKALTDCPP_VERSION_SFX;
 
 class QProgressBar;
 
