@@ -211,9 +211,14 @@ set (UI_FORMS ui/UIAbout.ui
 
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)
+  if (CMAKE_CROSSCOMPILING)
+    set(CMAKE_RC_COMPILER i486-mingw32-windres)
+  else (CMAKE_CROSSCOMPILING)
+    set(CMAKE_RC_COMPILER windres)
+  endif (CMAKE_CROSSCOMPILING)
   ADD_CUSTOM_COMMAND (OUTPUT
             "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o"
-            COMMAND windres.exe
+            COMMAND ${CMAKE_RC_COMPILER}
             -I"${CMAKE_CURRENT_SOURCE_DIR}/"
             -i "${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp-qt.rc"
             -o "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o"
