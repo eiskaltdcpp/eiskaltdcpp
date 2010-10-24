@@ -193,10 +193,6 @@ ShareBrowser::~ShareBrowser(){
 
     delete proxy;
 
-    MainWindow::getInstance()->remWidgetFromArena(this);
-    MainWindow::getInstance()->remArenaWidget(this);
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-
     Menu::deleteInstance();
 
 #if (HAVE_MALLOC_TRIM)
@@ -206,6 +202,10 @@ ShareBrowser::~ShareBrowser(){
 
 void ShareBrowser::closeEvent(QCloseEvent *e){
     save();
+
+    MainWindow::getInstance()->remWidgetFromArena(this);
+    MainWindow::getInstance()->remArenaWidget(this);
+    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
 
     QWidget::closeEvent(e);
 }
