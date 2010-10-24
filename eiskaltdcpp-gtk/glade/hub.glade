@@ -400,6 +400,13 @@
       </widget>
     </child>
     <child>
+      <widget class="GtkMenuItem" id="limitimgCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Set download limit image</property>
+        <property name="label">/limg</property>
+      </widget>
+    </child>
+    <child>
       <widget class="GtkMenuItem" id="versionCommandItem">
         <property name="visible">True</property>
         <property name="tooltip" translatable="yes">Show version</property>
