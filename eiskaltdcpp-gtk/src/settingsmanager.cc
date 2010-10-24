@@ -82,6 +82,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("text-op-italic", 0));
     defaultInt.insert(IntMap::value_type("text-url-bold", 0));
     defaultInt.insert(IntMap::value_type("text-url-italic", 0));
+    defaultInt.insert(IntMap::value_type("toolbar-button-separators", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-reconnect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-connect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-fav-hubs", 1));

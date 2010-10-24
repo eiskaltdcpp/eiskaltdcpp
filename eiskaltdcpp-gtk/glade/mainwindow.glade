@@ -524,7 +524,7 @@
             <child>
               <widget class="GtkToolButton" id="own_file_list">
                 <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Open _own file list</property>
+                <property name="tooltip" translatable="yes">Open own file list</property>
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Own file list</property>
                 <property name="use_underline">True</property>
