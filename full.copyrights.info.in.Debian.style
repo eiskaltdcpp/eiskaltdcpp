@@ -1,0 +1,219 @@
+Files:
+ *
+Copyright:
+ Copyright 2009-2010 Andrey Karlov <dein.negativ@gmail.com>
+License:
+ GPL-3 or later
+ .
+ This program is free software: you can redistribute it and/or modify it under the
+ terms of the GNU General Public License as published by the Free Software Foundation,
+ either version 3 of the License, or(at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ See the GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along with this program.
+ If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-3'.
+
+   "In addition, as a special exception, Andrey Karlov give permission to link
+    the code of this program with the OpenSSL library (or with modified versions
+    of OpenSSL that use the same license as OpenSSL), and distribute linked
+    combinations including the two.  You must obey the GNU General Public License
+    in all respects for all of the code used other than OpenSSL. If you modify this file,
+    you may extend this exception to your version of the file, but you are not
+    obligated to do so. If you do not wish to do so, delete this
+    exception statement from your version."
+
+Files:
+ cmake/*
+Copyright:
+ Copyright 2006-2009 Kitware, Inc.
+ Copyright 2008-2009 Philip Lowman <philip@yhbt.com>
+ Copyright 2007 Juha Tuomala <tuju@iki.fi>
+ Copyright 2007 Daniel Gollub <gollub@b1-systems.de>
+ Copyright 2007 Alban Browaeys <prahal@yahoo.com>
+ Copyright 2010 Pau Garcia i Quiles, <pgquiles@elpauer.org>
+ Copyright 2006 Tristan Carel
+License:
+ BSD License
+ .
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. Neither the name of the University nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
+
+Files:
+ dcpp/*.h
+ dcpp/*.cpp
+ dht/*.h
+ dht/*.cpp
+ extra/upnpc.h
+ extra/upnpc.cpp
+ extra/freespace.h
+ extra/freespace.cpp
+Copyright:
+ Copyright 2001-2010 Jacek Sieka <arnetheduck@gmail.com>
+ Copyright 2008-2009 Big Muscle (http://strongdc.sf.net)
+ Copyright 1996-2002 Florian Schintke
+ Copyright 1997 Makoto Matsumoto and Takuji Nishimura <matumoto@math.keio.ac.jp>
+ Copyright 2010 cologic <ne5@parsoma.net>
+ Copyright 2010 ggrundik (http://code.google.com/u/ggrundik/)
+License:
+ GPL-2 or later
+ .
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+Files:
+ examples/xmms2_audacious2.ru_RU.UTF-8.php
+ examples/commands.ru_RU.UTF-8.php
+ eiskaltdcpp-qt/qtscripts/gnome/commands.ru_RU.UTF-8.php
+Copyright:
+ Copyright 2010 nE0sIghT
+ Copyright 2010 GoTLiuM InSPiRiT <gotlium@gmail.com>
+License:
+ GPL-2
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+Files:
+ examples/amr.en_US.sh
+ examples/mpris_now_playing.en_US.sh
+ examples/audacious.en_US.sh
+ examples/mpc.en_US.sh
+ examples/rhythmbox.en_US.sh
+ examples/qmmp.ru_RU.UTF-8.sh
+ qtscripts/amarok_nowplay/amarok.sh
+Copyright:
+ Copyright 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
+ Copyright 2010 Vovochka404 <vovochka13@gmail.com>
+ Copyright 2010 none
+License:
+ Public Domain
+
+Files:
+ extra/fsusage.c
+ extra/fsusage.h
+Copyright:
+ Copyright 1991-2006 Free Software Foundation, Inc.
+License:
+ GPL-3 or later
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-3'.
+
+Files:
+ icons/*
+ eiskaltdcpp-qt/icons/*
+ eiskaltdcpp-gtk/icons/*
+Copyright:
+ Copyright 2010 Oxygen icons theme team (see http://www.oxygen-icons.org/)
+ Copyright 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
+License:
+ LGPL-3
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/LGPL-3'.
+
+Files:
+ sounds/*.wav
+ emoticons/*
+Copyright:
+ Copyright 1998-2009 Hylke Bons <hylkebons@gmail.com>
+ Copyright 2010 ApexDC++ Project Team (http://www.apexdc.net/)
+ Copyright 2010 FlylinkDC++ Project Team (http://code.google.com/p/flylinkdc/)
+ Copyright 1996-2010 The KDE SC project (http://www.kde.org)
+License:
+ GPL-2
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+Files:
+ eiskaltdcpp-qt/src/FlowLayout.cpp
+ eiskaltdcpp-qt/src/FlowLayout.h
+ eiskaltdcpp-qt/qtscripts/tic-tac-toe/*
+Copyright:
+ Copyright 2010 Nokia Corporation and/or its subsidiary(-ies).
+License:
+ GPL-3
+ .
+ Commercial Usage
+ Licensees holding valid Qt Commercial licenses may use this file in
+ accordance with the Qt Commercial License Agreement provided with the
+ Software or, alternatively, in accordance with the terms contained in
+ a written agreement between you and Nokia.
+ .
+ GNU Lesser General Public License Usage
+ Alternatively, this file may be used under the terms of the GNU Lesser
+ General Public License version 2.1 as published by the Free Software
+ Foundation and appearing in the file LICENSE.LGPL included in the
+ packaging of this file.  Please review the following information to
+ ensure the GNU Lesser General Public License version 2.1 requirements
+ will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ .
+ In addition, as a special exception, Nokia gives you certain additional
+ rights.  These rights are described in the Nokia Qt LGPL Exception
+ version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ .
+ GNU General Public License Usage
+ Alternatively, this file may be used under the terms of the GNU
+ General Public License version 3.0 as published by the Free Software
+ Foundation and appearing in the file LICENSE.GPL included in the
+ packaging of this file.  Please review the following information to
+ ensure the GNU General Public License version 3.0 requirements will be
+ met: http://www.gnu.org/copyleft/gpl.html.
+ .
+ If you have questions regarding the use of this file, please contact
+ Nokia at qt-info@nokia.com.
+
+Files:
+ eiskaltdcpp-gtk/src/*
+ eiskaltdcpp-gtk/glade/*
+Copyright:
+ Copyright 2004-2010 Jens Oknelid <paskharen@gmail.com>
+ Copyright 2009-2010 freedcpp (http://code.google.com/p/freedcpp)
+ Copyright 2009-2010 Leliksan Floyd <leliksan@Quadrafon2>
+ Copyright 2003 Bastien Nocera <hadess@hadess.net>
+License:
+ GPL-2 or later
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
