@@ -141,11 +141,14 @@ MainWindow::MainWindow():
     g_signal_connect(window, "key-press-event", G_CALLBACK(onKeyPressed_gui), (gpointer)this);
     g_signal_connect(getWidget("book"), "switch-page", G_CALLBACK(onPageSwitched_gui), (gpointer)this);
     g_signal_connect_after(getWidget("pane"), "realize", G_CALLBACK(onPaneRealized_gui), (gpointer)this);
+    g_signal_connect(getWidget("reconnect"), "clicked", G_CALLBACK(onReconnectClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("connect"), "clicked", G_CALLBACK(onConnectClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("favHubs"), "clicked", G_CALLBACK(onFavoriteHubsClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("favUsers"), "clicked", G_CALLBACK(onFavoriteUsersClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("publicHubs"), "clicked", G_CALLBACK(onPublicHubsClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("settings"), "clicked", G_CALLBACK(onPreferencesClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("own_file_list"), "clicked", G_CALLBACK(onOpenOwnListClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("refresh"), "clicked", G_CALLBACK(onRefreshFileListClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("hash"), "clicked", G_CALLBACK(onHashClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("search"), "clicked", G_CALLBACK(onSearchClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("searchSpy"), "clicked", G_CALLBACK(onSearchSpyClicked_gui), (gpointer)this);
@@ -365,6 +368,8 @@ void MainWindow::loadIcons_gui()
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("favUsers")), "icon-favorite-users");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("publicHubs")), "icon-public-hubs");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("settings")), "icon-preferences");
+    gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("own_file_list")), "icon-own-filelist");
+    gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("refresh")), "icon-refresh");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("hash")), "icon-hash");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("search")), "icon-search");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("searchSpy")), "icon-search-spy");
@@ -373,6 +378,7 @@ void MainWindow::loadIcons_gui()
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("finishedUploads")), "icon-finished-uploads");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("searchADL")), "icon-search-adl");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("quit")), "icon-quit");
+    gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("reconnect")), "icon-reconnect");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("connect")), "icon-connect");
     gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageHubs")), "icon-public-hubs", GTK_ICON_SIZE_SMALL_TOOLBAR);
     gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageDownloadSpeed")), "icon-download", GTK_ICON_SIZE_SMALL_TOOLBAR);
