@@ -22,16 +22,16 @@ target_link_libraries (sampleserver ${XMLRPCLIBS})
 endif()
 target_link_libraries (nasdc dcpp pthread ${XMLRPCLIBS})
 
-if (UNIX)
- set (BINDIR bin)
- if (APPLE)
-    set (BUNDLEDIR .)
- endif ()
-elseif (WIN32)
-  set (BINDIR .)
-endif (UNIX)
+#if (UNIX)
+ #set (BINDIR bin)
+ #if (APPLE)
+    #set (BUNDLEDIR .)
+ #endif ()
+#elseif (WIN32)
+  #set (BINDIR .)
+#endif (UNIX)
 add_definitions(-D_DEBUG)
-set_property (TARGET nasdc PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-daemon")
-  install (TARGETS nasdc
-    RUNTIME DESTINATION ${BINDIR}
-    BUNDLE DESTINATION ${BUNDLEDIR})
+#set_property (TARGET nasdc PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-daemon")
+  #install (TARGETS nasdc
+    #RUNTIME DESTINATION ${BINDIR}
+    #BUNDLE DESTINATION ${BUNDLEDIR})

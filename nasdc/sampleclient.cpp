@@ -17,17 +17,23 @@ main(int argc, char **argv) {
 
     string const serverUrl("http://localhost:8080/RPC2");
     string const methodName("sample.add");
-    //string const methodNamemagnet("magnet.add");
+    string const methodNamemagnet("magnet.add");
 
     xmlrpc_c::clientSimple myClient;
     xmlrpc_c::value result;
+    xmlrpc_c::value result1;
 
     myClient.call(serverUrl, methodName, "ii", &result, 5999, 21478);
+    myClient.call(serverUrl, methodNamemagnet, "magnet", &result1, "teststring");
+
     //myClient.call(serverUrl, methodNamemagnet, "ii", &result, 5, 7);
     int const sum((xmlrpc_c::value_int(result)));
-        // Assume the method returned an integer; throws error if not
+    string const magnet((xmlrpc_c::value_string(result1)));
+    // Assume the method returned an integer; throws error if not
 
     cout << "Result of RPC (sum of 5 and 7): " << sum << endl;
+    cout << "Result of RPC (status adding magnet): " << magnet << endl;
+
 
     return 0;
 }
