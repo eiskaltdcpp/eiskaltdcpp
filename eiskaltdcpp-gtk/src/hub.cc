@@ -85,7 +85,7 @@ Hub::Hub(const string &address, const string &encoding):
 
     nickSelection = gtk_tree_view_get_selection(nickView.get());
     gtk_tree_selection_set_mode(gtk_tree_view_get_selection(nickView.get()), GTK_SELECTION_MULTIPLE);
-    string sort = BOOLSETTING(SORT_FAVUSERS_FIRST)? "Favorite" : "Nick Order";
+    string sort = WGETB("sort-favusers-first")? "Favorite" : "Nick Order";
     nickView.setSortColumn_gui(_("Nick"), sort);
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(nickStore), nickView.col(sort), GTK_SORT_ASCENDING);
     gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(nickView.get(), nickView.col(_("Nick"))), TRUE);
@@ -93,7 +93,7 @@ Hub::Hub(const string &address, const string &encoding):
     gtk_tree_view_set_search_equal_func(nickView.get(), onNickListSearch_gui, 0,0);
 
     // Initialize the chat window
-    if (BOOLSETTING(USE_OEM_MONOFONT))
+    if (WGETB("use-oem-monofont"))
     {
         PangoFontDescription *fontDesc = pango_font_description_new();
         pango_font_description_set_family(fontDesc, "Mono");
@@ -380,7 +380,7 @@ void Hub::updateUser_gui(ParamMap params)
 
         userIters.insert(UserIters::value_type(cid, iter));
 
-        if (BOOLSETTING(SHOW_JOINS))
+        if (WGETB("show-joins"))
         {
             // Show joins in chat by default
             addStatusMessage_gui(Nick + _(" has joined"), Msg::STATUS, favorite? Sound::FAVORITE_USER_JOIN : Sound::NONE);
@@ -390,7 +390,7 @@ void Hub::updateUser_gui(ParamMap params)
             if (favorite)
                 Notify::get()->showNotify("", message, Notify::FAVORITE_USER_JOIN);
         }
-        else if (BOOLSETTING(FAV_SHOW_JOINS) && favorite)
+        else if (WGETB("fav-show-joins") && favorite)
         {
             // Only show joins for favorite users
             string message = Nick + _(" has joined hub ") + client->getHubName();
@@ -421,7 +421,7 @@ void Hub::removeUser_gui(string cid)
         setStatus_gui("statusUsers", Util::toString(userMap.size()) + _(" Users"));
         setStatus_gui("statusShared", Util::formatBytes(totalShared));
 
-        if (BOOLSETTING(SHOW_JOINS))
+        if (WGETB("show-joins"))
         {
             // Show parts in chat by default
             string message = nick + _(" has quit hub ") + client->getHubName();
@@ -431,7 +431,7 @@ void Hub::removeUser_gui(string cid)
             if (order[0] == 'f')
                 Notify::get()->showNotify("", message, Notify::FAVORITE_USER_QUIT);
         }
-        else if (BOOLSETTING(FAV_SHOW_JOINS) && order[0] == 'f')
+        else if (WGETB("fav-show-joins") && order[0] == 'f')
         {
             // Only show parts for favorite users
             string message = nick + _(" has quit hub ") + client->getHubName();
@@ -581,7 +581,7 @@ void Hub::addStatusMessage_gui(string message, Msg::TypeMsg typemsg, Sound::Type
 
         setStatus_gui("statusMain", message);
 
-        if (BOOLSETTING(STATUS_IN_CHAT))
+        if (WGETB("status-in-chat"))
         {
             string line = "*** " + message;
             addMessage_gui(line, typemsg);
@@ -1057,7 +1057,7 @@ void Hub::preferences_gui()
     }
 
     // resort users
-    string sort = BOOLSETTING(SORT_FAVUSERS_FIRST)? "Favorite" : "Nick Order";
+    string sort = WGETB("sort-favusers-first")? "Favorite" : "Nick Order";
     nickView.setSortColumn_gui(_("Nick"), sort);
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(nickStore), nickView.col(sort), GTK_SORT_ASCENDING);
 }

@@ -40,7 +40,7 @@ SearchSpy::SearchSpy():
 	Top = (guint)WGETI("search-spy-top");
 
 	// Configure the dialog
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("ignoreTTHSearchCheckButton")), BOOLSETTING(SPY_FRAME_IGNORE_TTH_SEARCHES));
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("ignoreTTHSearchCheckButton")), WGETB("spyframe-ignore-tth-searches"));
 	gtk_window_set_transient_for(GTK_WINDOW(getWidget("TopSearchDialog")), GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer()));
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("frameSpinButton")), (double)FrameSize);
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("waitingSpinButton")), (double)Waiting);
@@ -510,7 +510,7 @@ void SearchSpy::onUpdateFrameClicked_gui(GtkWidget *widget, gpointer data)
 void SearchSpy::onIgnoreTTHSearchToggled_gui(GtkWidget *widget, gpointer data)
 {
 	gboolean toggle = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget));
-	SettingsManager::getInstance()->set(SettingsManager::SPY_FRAME_IGNORE_TTH_SEARCHES, toggle);
+	WSET("spyframe-ignore-tth-searches",toggle);
 }
 
 void SearchSpy::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
@@ -643,7 +643,7 @@ gboolean SearchSpy::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpo
 
 void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) throw()
 {
-	if(BOOLSETTING(SPY_FRAME_IGNORE_TTH_SEARCHES) && s.compare(0, 4, "TTH:") == 0)
+	if(WGETB("spyframe-ignore-tth-searches") && s.compare(0, 4, "TTH:") == 0)
 		return;
 
 	string search, type;

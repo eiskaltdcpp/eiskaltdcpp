@@ -927,11 +927,11 @@ void Settings::initAppearance_gui()
         addOption_gui(appearanceStore, _("Filter kick and NMDC debug messages"), SettingsManager::FILTER_MESSAGES);
         addOption_gui(appearanceStore, _("Show status icon"), "always-tray");
         addOption_gui(appearanceStore, _("Show timestamps in chat by default"), SettingsManager::TIME_STAMPS);
-        addOption_gui(appearanceStore, _("View status messages in main chat"), SettingsManager::STATUS_IN_CHAT);
-        addOption_gui(appearanceStore, _("Show joins / parts in chat by default"), SettingsManager::SHOW_JOINS);
-        addOption_gui(appearanceStore, _("Only show joins / parts for favorite users"), SettingsManager::FAV_SHOW_JOINS);
-        addOption_gui(appearanceStore, _("Sort favorite users first"), SettingsManager::SORT_FAVUSERS_FIRST);
-        addOption_gui(appearanceStore, _("Use OEM monospaced font for chat windows"), SettingsManager::USE_OEM_MONOFONT);
+        addOption_gui(appearanceStore, _("View status messages in main chat"), "status-in-chat");
+        addOption_gui(appearanceStore, _("Show joins / parts in chat by default"), "show-joins");
+        addOption_gui(appearanceStore, _("Only show joins / parts for favorite users"), "fav-show-joins");
+        addOption_gui(appearanceStore, _("Sort favorite users first"), "sort-favusers-first");
+        addOption_gui(appearanceStore, _("Use OEM monospaced font for chat windows"), "use-oem-monofont");
         addOption_gui(appearanceStore, _("Use magnet split"), "use-magnet-split");
         addOption_gui(appearanceStore, _("Use blinking status icon"), "status-icon-blink-use");
         addOption_gui(appearanceStore, _("Use emoticons"), "emoticons-use");
@@ -939,8 +939,8 @@ void Settings::initAppearance_gui()
         addOption_gui(appearanceStore, _("Send PM when double clicked in the user list"), "pm");
 
         /// @todo: Uncomment when implemented
-        //addOption_gui(appearanceStore, _("Minimize to tray"), SettingsManager::MINIMIZE_TRAY);
-        //addOption_gui(appearanceStore, _("Use system icons"), SettingsManager::USE_SYSTEM_ICONS);
+        //addOption_gui(appearanceStore, _("Minimize to tray"), "minimize-tray");
+        //addOption_gui(appearanceStore, _("Use system icons"), "use-system-icons");
 
         gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("tabPositionComboBox")), WGETI("tab-position"));
         gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("toolbarStyleComboBox")), WGETI("toolbar-style"));
@@ -1383,7 +1383,7 @@ void Settings::initAdvanced_gui()
 
         addOption_gui(advancedStore, _("Auto-away on minimize (and back on restore)"), SettingsManager::AUTO_AWAY);
         addOption_gui(advancedStore, _("Automatically follow redirects"), SettingsManager::AUTO_FOLLOW);
-        addOption_gui(advancedStore, _("Clear search box after each search"), SettingsManager::CLEAR_SEARCH);
+        addOption_gui(advancedStore, _("Clear search box after each search"), "clearsearch");
         addOption_gui(advancedStore, _("Keep duplicate files in your file list (duplicates never count towards your share size)"), SettingsManager::LIST_DUPES);
         addOption_gui(advancedStore, _("Don't delete file lists when exiting"), SettingsManager::KEEP_LISTS);
         addOption_gui(advancedStore, _("Automatically disconnect users who leave the hub"), SettingsManager::AUTO_KICK);
@@ -1395,10 +1395,10 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Add finished files to share instantly (if shared)"), SettingsManager::ADD_FINISHED_INSTANTLY);
         addOption_gui(advancedStore, _("Don't send the away message to bots"), SettingsManager::NO_AWAYMSG_TO_BOTS);
         addOption_gui(advancedStore, _("Use fast hashing method (disable if you have problems with hashing)"), SettingsManager::FAST_HASH);
-        addOption_gui(advancedStore, _("Register with the OS to handle dchub:// and adc:// URL links"), SettingsManager::URL_HANDLER);
+        addOption_gui(advancedStore, _("Register with the OS to handle dchub:// and adc:// URL links"), "urlhandler");
         addOption_gui(advancedStore, _("Register with the OS to handle magnet: URL links"), "magnet-register");
         /// @todo: Uncomment when implemented
-        //addOption_gui(advancedStore, _("Use CTRL for line history"), SettingsManager::USE_CTRL_FOR_LINE_HISTORY);
+        //addOption_gui(advancedStore, _("Use CTRL for line history"), "use-ctrl-for-line-history");
     }
 
     { // User Commands

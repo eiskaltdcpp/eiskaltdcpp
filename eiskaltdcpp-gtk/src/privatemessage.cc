@@ -43,7 +43,7 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     scrollToBottom(TRUE)
 {
     // Intialize the chat window
-    if (SETTING(USE_OEM_MONOFONT))
+    if (WGETB("use-oem-monofont"))
     {
         PangoFontDescription *fontDesc = pango_font_description_new();
         pango_font_description_set_family(fontDesc, "Mono");

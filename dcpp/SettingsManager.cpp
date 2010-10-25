@@ -52,24 +52,22 @@ const string SettingsManager::settingTags[] =
     "Language", "SkipListShare", "InternetIp",
     "SENTRY",
     // Ints
-    "IncomingConnections", "InPort", "Slots", "AutoFollow", "ClearSearch",
-    "TextColor", "UseOemMonoFont", "ShareHidden",
-    "FilterMessages", "AutoSearch",
+    "IncomingConnections", "InPort", "Slots", "AutoFollow",
+    "ShareHidden", "FilterMessages", "AutoSearch",
     "AutoSearchTime", "ReportFoundAlternates", "TimeStamps",
     "IgnoreHubPms", "IgnoreBotPms",
     "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed",
     "LogMainChat", "LogPrivateChat", "LogDownloads", "LogUploads",
-    "StatusInChat", "ShowJoins", "UseSystemIcons",
-    "MinUploadSpeed", "UrlHandler", "AutoAway",
+    "MinUploadSpeed", "AutoAway",
     "SocksPort", "SocksResolve", "KeepLists", "AutoKick",
     "CompressTransfers", "SFVCheck",
     "MaxCompression", "NoAwayMsgToBots", "SkipZeroByte", "AdlsBreakOnFirst",
     "HubUserCommands", "AutoSearchAutoMatch","LogSystem",
     "LogFilelistTransfers",
     "SendUnknownCommands", "MaxHashSpeed",
-    "GetUserCountry", "FavShowJoins", "LogStatusMessages",
+    "GetUserCountry", "LogStatusMessages",
     "AllowUpdateFilelistsOnStartup", "SearchPassiveAlways",
-    "AddFinishedInstantly", "DontDLAlreadyShared", "UseCTRLForLineHistory",
+    "AddFinishedInstantly", "DontDLAlreadyShared",
     "UDPPort", "ShowLastLinesLog", "AdcDebug",
     "SearchHistory", "SetMinislotSize",
     "MaxFilelistSize", "HighestPrioSize", "HighPrioSize", "NormalPrioSize",
@@ -80,9 +78,9 @@ const string SettingsManager::settingTags[] =
     "ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType",
     "SocketInBuffer", "SocketOutBuffer",
     "AutoRefreshTime", "UseTLS", "AutoSearchLimit",
-    "AutoKickNoFavs", "PromptPassword", "SpyFrameIgnoreTthSearches",
+    "AutoKickNoFavs", "PromptPassword",
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs",
-    "AllowUntrustedClients", "TLSPort", "FastHash", "SortFavUsersFirst",
+    "AllowUntrustedClients", "TLSPort", "FastHash",
     "SegmentedDL", "FollowLinks", "SendBloom",
     "Coral", "SearchFilterShared", "FinishedDLOnlyFull",
     "SearchMerge", "HashBufferSize", "HashBufferPopulate",
@@ -147,7 +145,6 @@ SettingsManager::SettingsManager()
     setDefault(INCOMING_CONNECTIONS, INCOMING_DIRECT);
     setDefault(OUTGOING_CONNECTIONS, OUTGOING_DIRECT);
     setDefault(AUTO_FOLLOW, true);
-    setDefault(CLEAR_SEARCH, true);
     setDefault(SHARE_HIDDEN, false);
     setDefault(FILTER_MESSAGES, true);
     setDefault(AUTO_SEARCH, true);
@@ -176,11 +173,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_DOWNLOADS, false);
     setDefault(LOG_PRIVATE_CHAT, false);
     setDefault(LOG_MAIN_CHAT, false);
-    setDefault(STATUS_IN_CHAT, true);
-    setDefault(SHOW_JOINS, false);
     setDefault(UPLOAD_SPEED, connectionSpeeds[11]);
-    setDefault(USE_SYSTEM_ICONS, true);
-    setDefault(USE_OEM_MONOFONT, false);
     setDefault(MIN_UPLOAD_SPEED, 0);
     setDefault(LOG_FORMAT_POST_DOWNLOAD, "[%Y-%m-%d %H:%M:%S] %[target] downloaded from %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
     setDefault(LOG_FORMAT_POST_UPLOAD,   "[%Y-%m-%d %H:%M:%S] %[source] uploaded to %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
@@ -194,7 +187,6 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FILE_UPLOAD,       "Uploads.log");
     setDefault(LOG_FILE_DOWNLOAD,     "Downloads.log");
     setDefault(LOG_FILE_SYSTEM,       "System.log");
-    setDefault(URL_HANDLER, false);
     setDefault(AUTO_AWAY, false);
     setDefault(BIND_ADDRESS, "0.0.0.0");
     setDefault(SOCKS_PORT, 1080);
@@ -217,11 +209,9 @@ SettingsManager::SettingsManager()
     setDefault(SEND_UNKNOWN_COMMANDS, true);
     setDefault(MAX_HASH_SPEED, 0);
     setDefault(GET_USER_COUNTRY, true);
-    setDefault(FAV_SHOW_JOINS, false);
     setDefault(LOG_STATUS_MESSAGES, false);
     setDefault(ADD_FINISHED_INSTANTLY, false);
     setDefault(DONT_DL_ALREADY_SHARED, false);
-    setDefault(USE_CTRL_FOR_LINE_HISTORY, true);
     setDefault(SHOW_LAST_LINES_LOG, 0);
     setDefault(ADC_DEBUG, false);
     setDefault(SEARCH_HISTORY, 10);
@@ -258,13 +248,11 @@ SettingsManager::SettingsManager()
     setDefault(AUTO_SEARCH_LIMIT, 5);
     setDefault(AUTO_KICK_NO_FAVS, false);
     setDefault(PROMPT_PASSWORD, false);
-    setDefault(SPY_FRAME_IGNORE_TTH_SEARCHES, false);
     setDefault(DONT_DL_ALREADY_QUEUED, false);
     setDefault(MAX_COMMAND_LENGTH, 16*1024*1024);
     setDefault(ALLOW_UNTRUSTED_HUBS, true);
     setDefault(ALLOW_UNTRUSTED_CLIENTS, true);
     setDefault(FAST_HASH, true);
-    setDefault(SORT_FAVUSERS_FIRST, false);
     setDefault(SEGMENTED_DL, true);
     setDefault(FOLLOW_LINKS, false);
     setDefault(SEND_BLOOM, true);

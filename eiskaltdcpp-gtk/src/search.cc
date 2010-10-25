@@ -535,7 +535,7 @@ void Search::search_gui()
 		dcdebug("Sent ADC extensions : %s\n",Util::toString(";", exts).c_str());//NOTE: core 0.770
 		SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);//NOTE: core 0.770
 
-        if (BOOLSETTING(CLEAR_SEARCH)) // Only clear if the search was sent.
+        if (WGETB("clearsearch")) // Only clear if the search was sent.
             gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
     }
     else
