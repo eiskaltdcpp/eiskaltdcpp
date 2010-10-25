@@ -372,6 +372,21 @@ void WulforManager::deleteEntry_gui(Entry *entry)
 	entry = NULL;
 }
 
+bool WulforManager::isEntry_gui(Entry *entry)
+{
+   g_static_rw_lock_writer_lock(&entryMutex);
+
+   tr1::unordered_map<string, Entry *>::const_iterator it = find_if(entries.begin(), entries.end(),
+       CompareSecond<string, Entry *>(entry));
+
+   if (it == entries.end())
+       entry = NULL;
+
+   g_static_rw_lock_writer_unlock(&entryMutex);
+
+   return (entry != NULL);
+}
+
 DialogEntry* WulforManager::getDialogEntry_gui(const string &id)
 {
 	DialogEntry *ret = NULL;
