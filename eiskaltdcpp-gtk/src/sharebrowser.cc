@@ -129,6 +129,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     g_signal_connect(getWidget("fileDownloadItem"), "activate", G_CALLBACK(onDownloadClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("searchForAlternatesItem"), "activate", G_CALLBACK(onSearchAlternatesClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("copyPictureItem"), "activate", G_CALLBACK(onCopyPictureClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("getDirectory"), "activate", G_CALLBACK(onDirGet), (gpointer)this);
 }
 
@@ -972,6 +973,41 @@ void ShareBrowser::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
 
     if (!magnets.empty())
         gtk_clipboard_set_text(gtk_clipboard_get(GDK_SELECTION_CLIPBOARD), magnets.c_str(), magnets.length());
+}
+
+void ShareBrowser::onCopyPictureClicked_gui(GtkMenuItem* item, gpointer data)
+{
+   ShareBrowser *sb = (ShareBrowser *)data;
+   GtkTreeIter iter;
+   GtkTreePath *path;
+   int64_t size;
+   string magnets, magnet, filename, tth;
+   GList *list = gtk_tree_selection_get_selected_rows(sb->fileSelection, NULL);
+
+   for (GList *i = list; i; i = i->next)
+   {
+       path = (GtkTreePath *)i->data;
+       if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
+       {
+           filename = sb->fileView.getString(&iter, _("Filename"));
+           size = sb->fileView.getValue<int64_t>(&iter, "Size Order");
+           tth = sb->fileView.getString(&iter, "TTH");
+           magnet = WulforUtil::makeMagnet(filename, size, tth);
+
+           if (!magnet.empty())
+           {
+               magnet = "[img]" + magnet + "[/img]";
+               if (!magnets.empty())
+                   magnets += '\n';
+               magnets += magnet;
+           }
+       }
+       gtk_tree_path_free(path);
+   }
+   g_list_free(list);
+
+   if (!magnets.empty())
+       gtk_clipboard_set_text(gtk_clipboard_get(GDK_SELECTION_CLIPBOARD), magnets.c_str(), magnets.length());
 }
 
 void ShareBrowser::downloadFile_client(DirectoryListing::File *file, string target)

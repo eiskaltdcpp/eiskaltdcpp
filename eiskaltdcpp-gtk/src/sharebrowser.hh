@@ -72,6 +72,7 @@ class ShareBrowser:
         static void onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer data);
         static void onSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer data);
         static void onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data);
+        static void onCopyPictureClicked_gui(GtkMenuItem* item, gpointer data);
         static void onDirGet(GtkMenuItem* item, gpointer data);
         // Client functions
         void downloadFile_client(dcpp::DirectoryListing::File *file, std::string target);
