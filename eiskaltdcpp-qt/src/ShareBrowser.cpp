@@ -35,7 +35,25 @@
 #include <QtConcurrentFilter>
 #include <QtConcurrentRun>
 
+#include <boost/bind.hpp>
+
 using namespace dcpp;
+
+ShareBrowserRunner::ShareBrowserRunner(QObject *parent): QThread(parent){
+
+}
+
+ShareBrowserRunner::~ShareBrowserRunner(){
+
+}
+
+void ShareBrowserRunner::run(){
+    runFunc();
+}
+
+void ShareBrowserRunner::setRunFunction(const boost::function<void()> &f){
+    runFunc = f;
+}
 
 ShareBrowser::Menu::Menu(){
     menu = new QMenu();
@@ -175,10 +193,6 @@ ShareBrowser::~ShareBrowser(){
 
     delete proxy;
 
-    MainWindow::getInstance()->remWidgetFromArena(this);
-    MainWindow::getInstance()->remArenaWidget(this);
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-
     Menu::deleteInstance();
 
 #if (HAVE_MALLOC_TRIM)
@@ -188,6 +202,10 @@ ShareBrowser::~ShareBrowser(){
 
 void ShareBrowser::closeEvent(QCloseEvent *e){
     save();
+
+    MainWindow::getInstance()->remWidgetFromArena(this);
+    MainWindow::getInstance()->remArenaWidget(this);
+    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
 
     QWidget::closeEvent(e);
 }
@@ -301,10 +319,15 @@ QMenu  *ShareBrowser::getMenu(){
 void ShareBrowser::buildList(){
     try {
         listing.loadFile(file.toStdString());
-        listing.getRoot()->setName(nick.toStdString());
         ADLSearchManager::getInstance()->matchListing(listing);
 
-        QtConcurrent::run(this, &ShareBrowser::createTree, listing.getRoot(), tree_root);
+        ShareBrowserRunner *runner = new ShareBrowserRunner(this);
+        boost::function<void()> f = boost::bind(&ShareBrowser::createTree, this, listing.getRoot(), tree_root);
+
+        runner->setRunFunction(f);
+        connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
+
+        runner->start();
 
         treeView_LPANE->blockSignals(true);
         treeView_RPANE->blockSignals(true);

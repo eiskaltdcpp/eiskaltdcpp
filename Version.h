@@ -11,7 +11,16 @@
 #define VERSION_H
 
 const char * const EISKALTDCPP_VERSION         = "2.1.0";
+<<<<<<< HEAD
 const char * const EISKALTDCPP_VERSION_SFX     = "GIT";
+=======
+>>>>>>> 2.1.x
 const char * const EISKALTDCPP_WND_TITLE       = "EiskaltDC++";
+
+#ifndef DCPP_REVISION
+const char * const EISKALTDCPP_VERSION_SFX     = "GIT";
+#else
+const char * const EISKALTDCPP_VERSION_SFX     = DCPP_REVISION;
+#endif
 
 #endif // VERSION_H

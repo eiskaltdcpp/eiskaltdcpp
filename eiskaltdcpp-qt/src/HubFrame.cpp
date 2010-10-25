@@ -2420,9 +2420,22 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     QString pressedParagraph = "", nick = "";
     int nickStart = 0, nickLen = 0;
+
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
 
+    editor->setTextCursor(cursor);
+
+    cursor.movePosition(QTextCursor::StartOfBlock);
+
     pressedParagraph = cursor.block().text();
+
+    int row_counter = 0;
+
+    while (!pressedParagraph.contains(QRegExp("(<(\\w+)>)")) && row_counter < 300){//try to find nick in above rows (max 300 rows)
+        cursor.movePosition(QTextCursor::PreviousBlock);
+        pressedParagraph = cursor.block().text();
+        row_counter++;
+    }
 
     nickStart = 1 + pressedParagraph.indexOf("<");
     nickLen = pressedParagraph.indexOf(">") - nickStart;

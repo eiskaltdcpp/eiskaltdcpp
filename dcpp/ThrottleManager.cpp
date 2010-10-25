@@ -42,7 +42,7 @@ int ThrottleManager::read(Socket* sock, void* buffer, size_t len)
 {
 	int64_t readSize = -1;
 	size_t downs = DownloadManager::getInstance()->getDownloadCount();
-	if((BOOLSETTING(THROTTLE_ENABLE) && !getCurThrottling()) || downTokens == -1 || downs == 0)
+	if(!getCurThrottling() || downTokens == -1 || downs == 0)
 		return sock->read(buffer, len);
 
 	{
@@ -79,7 +79,7 @@ int ThrottleManager::write(Socket* sock, void* buffer, size_t& len)
 {
 	bool gotToken = false;
 	size_t ups = UploadManager::getInstance()->getUploadCount();
-	if((BOOLSETTING(THROTTLE_ENABLE) && !getCurThrottling()) || upTokens == -1 || ups == 0)
+	if(!getCurThrottling() || upTokens == -1 || ups == 0)
 		return sock->write(buffer, len);
 
 	{
@@ -255,6 +255,10 @@ void ThrottleManager::on(TimerManagerListener::Second, uint32_t /* aTick */) thr
 	int downLimit = getDownLimit();
 	int upLimit   = getUpLimit();
 
+	if(!BOOLSETTING(THROTTLE_ENABLE)) {
+		downLimit = 0;
+		upLimit = 0;
+	}
 	// readd tokens
 	{
 		Lock l(downCS);
