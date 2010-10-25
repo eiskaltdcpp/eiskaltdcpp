@@ -30,7 +30,7 @@ class EmoticonsDialog
 
 		// GUI functions
 		void showEmotDialog_gui();
-		void showEmotMenu_gui();
+		void buildEmotMenu_gui();
 
 	private:
 		enum {FIRST, x16 = FIRST, x22, x24, x32, x36, x48, x64, DEFAULT, LAST};

@@ -740,6 +740,8 @@ void Hub::applyTags_gui(const string &line)
         GCallback callback = NULL;
         bool isNick = FALSE;
         gchar *temp = gtk_text_iter_get_text(&tag_start_iter, &tag_end_iter);
+        bool image_tag = FALSE;
+        string image_magnet;
 
         if (!C_EMPTY(temp))
         {
@@ -1616,7 +1618,26 @@ gboolean Hub::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, 
 
         case 3: //show emoticons menu
 
-                        hub->emotdialog->showEmotMenu_gui();
+            hub->emotdialog->buildEmotMenu_gui();
++
+            GtkWidget *check_item = NULL;
+            GtkWidget *emot_menu = hub->getWidget("emotPacksMenu");
+
+            check_item = gtk_separator_menu_item_new();
+            gtk_menu_shell_append(GTK_MENU_SHELL(emot_menu), check_item);
+            gtk_widget_show(check_item);
+
+            check_item = gtk_check_menu_item_new_with_label(_("Use Emoticons"));
+            gtk_menu_shell_append(GTK_MENU_SHELL(emot_menu), check_item);
+
+            if (hub->useEmoticons)
+                gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(check_item), TRUE);
+
+            g_signal_connect(check_item, "activate", G_CALLBACK(onUseEmoticons_gui), data);
+
+            gtk_widget_show_all(emot_menu);
+            gtk_menu_popup(GTK_MENU(emot_menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+
         break;
     }
 

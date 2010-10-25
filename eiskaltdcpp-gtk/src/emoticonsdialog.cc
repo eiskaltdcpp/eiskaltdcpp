@@ -59,7 +59,7 @@ EmoticonsDialog::~EmoticonsDialog()
 		gtk_widget_destroy(dialog);
 }
 
-void EmoticonsDialog::showEmotMenu_gui()
+void EmoticonsDialog::buildEmotMenu_gui()
 {
 	gtk_container_foreach(GTK_CONTAINER(Menu), (GtkCallback) gtk_widget_destroy, NULL);
 
