@@ -86,7 +86,7 @@ const string SettingsManager::settingTags[] =
     "SearchMerge", "HashBufferSize", "HashBufferPopulate",
     "HashBufferNoReserve", "HashBufferPrivate", "UseDHT", "DHTPort",
     "ReconnectDelay", "AutoDetectIncomingConnection",
-    "BandwidthLimitStart", "BandwidthLimitEnd", "TimeDependentThrottle",
+    "BandwidthLimitStart", "BandwidthLimitEnd", "EnableThrottle","TimeDependentThrottle",
     "MaxDownloadSpeedAlternate", "MaxUploadSpeedAlternate",
     "MaxDownloadSpeedMain", "MaxUploadSpeedMain",
     "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "KeepFinishedFiles",
@@ -274,6 +274,7 @@ SettingsManager::SettingsManager()
     setDefault(MAX_UPLOAD_SPEED_MAIN, 0);
     setDefault(MAX_DOWNLOAD_SPEED_MAIN, 0);
     setDefault(TIME_DEPENDENT_THROTTLE, false);
+    setDefault(THROTTLE_ENABLE, false);
     setDefault(MAX_DOWNLOAD_SPEED_ALTERNATE, 0);
     setDefault(MAX_UPLOAD_SPEED_ALTERNATE, 0);
     setDefault(BANDWIDTH_LIMIT_START, 1);

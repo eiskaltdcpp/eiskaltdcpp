@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2009-2010 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
@@ -73,7 +73,7 @@ int ThrottleManager::read(Socket* sock, void* buffer, size_t len)
 
 /*
  * Throttles traffic and writes a packet to the network
- * Handle this a little bit differently than downloads due to OpenSSL stupidity 
+ * Handle this a little bit differently than downloads due to OpenSSL stupidity
  */
 int ThrottleManager::write(Socket* sock, void* buffer, size_t& len)
 {
@@ -97,7 +97,7 @@ int ThrottleManager::write(Socket* sock, void* buffer, size_t& len)
 
 	if(gotToken)
 	{
-		// write to socket			
+		// write to socket
 		int sent = sock->write(buffer, len);
 
 		Thread::yield(); // give a chance to other transfers get a token
@@ -254,6 +254,11 @@ void ThrottleManager::on(TimerManagerListener::Second, uint32_t /* aTick */) thr
 
 	int downLimit = getDownLimit();
 	int upLimit   = getUpLimit();
+
+	if(!BOOLSETTING(THROTTLE_ENABLE)) {
+		downLimit = 0;
+		upLimit = 0;
+	}
 
 	// readd tokens
 	{
