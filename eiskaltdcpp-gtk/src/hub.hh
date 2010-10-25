@@ -74,6 +74,8 @@ class Hub:
         typedef std::map<std::string, std::string> ParamMap;
         typedef std::tr1::unordered_map<std::string, std::string> UserMap;
         typedef std::tr1::unordered_map<std::string, GtkTreeIter> UserIters;
+        typedef std::tr1::unordered_map<GtkWidget*, std::string> ImageList;
+        typedef std::pair<std::string, GtkWidget*> ImageLoad;
 
         // GUI functions
         void setStatus_gui(std::string statusBar, std::string text);
@@ -97,6 +99,7 @@ class Hub:
         void addFavoriteUser_gui(ParamMap params);
         void removeFavoriteUser_gui(ParamMap params);
         void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string nick, std::string cid, std::string url, std::string message, bool useSetting);
+        void loadImage_gui(std::string target, std::string tth);
 
         // GUI callbacks
         static gboolean onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data);
@@ -136,6 +139,12 @@ class Hub:
         static void onCommandClicked_gui(GtkWidget *widget, gpointer data);
         static gboolean onChatCommandButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
         static void onUseEmoticons_gui(GtkWidget *widget, gpointer data);
+        static void onImageDestroy_gui(GtkWidget *widget, gpointer data);
+        static void onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onRemoveImageClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onOpenImageClicked_gui(GtkMenuItem *item, gpointer data);
+        static gboolean onImageEvent_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static gboolean expose(GtkWidget *widget, GdkEventExpose *event, gpointer data);
 
         // Client functions
         void addFavoriteUser_client(const std::string cid);
@@ -152,6 +161,7 @@ class Hub:
         void refreshFileList_client();
         void addAsFavorite_client();
         void getParams_client(ParamMap &user, dcpp::Identity &id);
+        void download_client(std::string target, int64_t size, std::string tth, std::string cid);
 
         // Favorite callbacks
         virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) throw();
@@ -179,6 +189,9 @@ class Hub:
         UserMap userMap;
         UserIters userIters;
         UserMap userFavoriteMap;
+        ImageList imageList;
+        ImageLoad imageLoad;
+        dcpp::StringPair imageMagnet;
         GtkTextTag *TagsMap[TAG_LAST];
         std::string completionKey;
         dcpp::Client *client;
@@ -207,6 +220,10 @@ class Hub:
         EmoticonsDialog *emotdialog;
         bool PasswordDialog;
         bool WaitingPassword;
+#if !GTK_CHECK_VERSION(2, 12, 0)
+        GtkTooltips *tips;
+#endif
+        int ImgLimit;
 };
 
 #else

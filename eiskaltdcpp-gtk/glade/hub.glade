@@ -400,10 +400,43 @@
       </widget>
     </child>
     <child>
+      <widget class="GtkMenuItem" id="limitimgCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Set download limit image</property>
+        <property name="label">/limg</property>
+      </widget>
+    </child>
+    <child>
       <widget class="GtkMenuItem" id="versionCommandItem">
         <property name="visible">True</property>
         <property name="tooltip" translatable="yes">Show version</property>
         <property name="label">/version</property>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkMenu" id="imageMenu">
+    <property name="visible">True</property>
+    <child>
+      <widget class="GtkMenuItem" id="downloadImageItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Download image</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="openImageItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Open image</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkSeparatorMenuItem" id="separator22">
+        <property name="visible">True</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="removeImageItem">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Remove image</property>
       </widget>
     </child>
   </widget>
