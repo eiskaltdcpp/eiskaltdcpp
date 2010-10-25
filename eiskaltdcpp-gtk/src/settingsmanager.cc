@@ -26,7 +26,9 @@
 #include <dcpp/Util.h>
 #include "WulforUtil.hh"
 
+#undef _
 #include <glib/gi18n.h>
+#include <glib/gstdio.h>
 
 using namespace std;
 using namespace dcpp;
@@ -80,11 +82,15 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("text-op-italic", 0));
     defaultInt.insert(IntMap::value_type("text-url-bold", 0));
     defaultInt.insert(IntMap::value_type("text-url-italic", 0));
+    defaultInt.insert(IntMap::value_type("toolbar-button-separators", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-reconnect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-connect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-fav-hubs", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-fav-users", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-public-hubs", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-settings", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-own-filelist", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-refresh", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-hash", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-search", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-search-spy", 1));
@@ -275,6 +281,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("custom-aliases", ""));
 
     load();
+    string path_image = Util::getPath(Util::PATH_USER_CONFIG) + "Images/";
+    g_mkdir_with_parents(path_image.c_str(), S_IRUSR | S_IWUSR | S_IXUSR);
 }
 
 WulforSettingsManager::~WulforSettingsManager()

@@ -103,6 +103,7 @@ class Settings:
         static void onRemoveFavorite_gui(GtkWidget *widget, gpointer data);
         static gboolean onFavoriteButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
         static void onAddShare_gui(GtkWidget *widget, gpointer data);
+        static void onPictureShare_gui(GtkWidget *widget, gpointer data);
         static void onRemoveShare_gui(GtkWidget *widget, gpointer data);
         static gboolean onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
         static gboolean onShareHiddenPressed_gui(GtkToggleButton *button, gpointer data);
