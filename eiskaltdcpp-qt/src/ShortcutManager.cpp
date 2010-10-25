@@ -47,7 +47,7 @@ void ShortcutManager::load(){
 
         ops = str.split(" ");
 
-        if (ops.length() != 2)
+        if (ops.count() != 2)
             continue;
 
         shortcuts.insert(ops.at(0), QKeySequence::fromString(ops.at(1)));

@@ -16,6 +16,7 @@
 #include <QKeySequence>
 #include <QByteArray>
 #include <QtDebug>
+#include <QHeaderView>
 
 static const QString &TREEVIEW_STATE_KEY = "settings-shortcuts-tableview-state";
 
