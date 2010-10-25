@@ -67,6 +67,7 @@ find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
 find_package (Iconv REQUIRED)
 find_package (Subversion)
+find_package (Git)
 
 
 option (USE_QT "Qt interface" ON)
@@ -242,6 +243,23 @@ set (_DATADIR "${CLIENT_DATA_DIR}") # don't change! (used by eiskaltdcpp-gtk)
 
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
 
+if (DCPP_REVISION)
+    set (eiskaltdcpp_WC_REVISION ${DCPP_REVISION})
+    message (STATUS "DCPP_REVISION is set to: ${eiskaltdcpp_WC_REVISION}")
+    add_definitions (-DDCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
+elseif (GIT_FOUND)
+    execute_process (COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
+                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+                OUTPUT_VARIABLE eiskaltdcpp_WC_REVISION
+                OUTPUT_STRIP_TRAILING_WHITESPACE)
+    message (STATUS "Build Git commit ID: ${eiskaltdcpp_WC_REVISION}")
+    add_definitions (-DDCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
+elseif (Subversion_FOUND)
+    Subversion_WC_INFO (${PROJECT_SOURCE_DIR} eiskaltdcpp)
+    message (STATUS "Build SVN revision: ${eiskaltdcpp_WC_REVISION}")
+    add_definitions (-DDCPP_REVISION="r${eiskaltdcpp_WC_REVISION}")
+endif ()
+
 if (UNIX)
 add_definitions (-D_GNU_SOURCE)
 endif (UNIX)
@@ -275,8 +293,10 @@ if (NOT MSVC)
     if (CMAKE_CROSSCOMPILING)
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -enable-auto-import")
     endif (CMAKE_CROSSCOMPILING)
+    if (NOT APPLE)
     set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--as-needed")
+    endif (NOT APPLE)
     set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -pipe -DNDEBUG")
     set (CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -DQT_NO_DEBUG -pipe")
     set (CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG} -UNDEBUG -g3 -pipe")

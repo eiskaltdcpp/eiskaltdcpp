@@ -58,7 +58,8 @@ Hub::Hub(const string &address, const string &encoding):
     encoding(encoding),
     scrollToBottom(TRUE),
     PasswordDialog(FALSE),
-    WaitingPassword(FALSE)
+    WaitingPassword(FALSE),
+    ImgLimit(0)
 {
     // Configure the dialog
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("userListCheckButton")), TRUE);
@@ -171,6 +172,9 @@ Hub::Hub(const string &address, const string &encoding):
     g_object_set_data_full(G_OBJECT(getWidget("rebuildCommandItem")), "command", g_strdup("/rebuild"), g_free);
     g_signal_connect(getWidget("rebuildCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
 
+    g_object_set_data_full(G_OBJECT(getWidget("limitimgCommandItem")), "command", g_strdup("/limg"), g_free);
+    g_signal_connect(getWidget("limitimgCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
+
     g_object_set_data_full(G_OBJECT(getWidget("versionCommandItem")), "command", g_strdup("/version"), g_free);
     g_signal_connect(getWidget("versionCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
 
@@ -180,6 +184,7 @@ Hub::Hub(const string &address, const string &encoding):
     // image menu
     g_signal_connect(getWidget("downloadImageItem"), "activate", G_CALLBACK(onDownloadImageClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("removeImageItem"), "activate", G_CALLBACK(onRemoveImageClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("openImageItem"), "activate", G_CALLBACK(onOpenImageClicked_gui), (gpointer)this);
 
     GtkAdjustment *adjustment = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(getWidget("chatScroll")));
 
@@ -771,12 +776,15 @@ void Hub::applyTags_gui(const string cid, const string &line)
             else
             {
                 // support image tag
-                string::size_type i = tagName.rfind("[/img]");
-                if (g_ascii_strncasecmp(tagName.c_str(), "[img]", 5) == 0 && i != string::npos)
+                if (g_ascii_strncasecmp(tagName.c_str(), "[img]", 5) == 0)
                 {
-                    image_magnet = tagName.substr(5, i - 5);
-                    if (WulforUtil::isMagnet(image_magnet))
-                        image_tag = TRUE;
+                    string::size_type i = tagName.rfind("[/img]");
+                    if (i != string::npos)
+                    {
+                        image_magnet = tagName.substr(5, i - 5);
+                        if (WulforUtil::isMagnet(image_magnet))
+                            image_tag = TRUE;
+                    }
                 }
 
                 if (!image_tag)
@@ -807,10 +815,10 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
                 GtkTextChildAnchor *anchor = gtk_text_buffer_create_child_anchor(chatBuffer, &tag_start_iter);
                 GtkWidget *event_box = gtk_event_box_new();
-#if GTK_CHECK_VERSION(2, 4, 0)
+
                 // Creating a visible window may cause artifacts that are visible to the user.
                 gtk_event_box_set_visible_window(GTK_EVENT_BOX(event_box), FALSE);
-#endif
+
                 GtkWidget *image = gtk_image_new_from_stock(GTK_STOCK_FILE, GTK_ICON_SIZE_BUTTON);
                 gtk_container_add(GTK_CONTAINER(event_box), image);
                 gtk_text_view_add_child_at_anchor(GTK_TEXT_VIEW(getWidget("chatText")), event_box, anchor);
@@ -822,12 +830,23 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
                 imageList.insert(ImageList::value_type(image, tth));
                 string text = "name: " + name + "\n" + "size: " + Util::formatBytes(size);
-                #if GTK_CHECK_VERSION(2, 12, 0)
-                               gtk_widget_set_tooltip_text(event_box, text.c_str());
-                               #else
-                                              gtk_tooltips_set_tip(tips, event_box, text.c_str(), text.c_str());
-                                              #endif
-                                                             g_signal_connect(G_OBJECT(image), "destroy", G_CALLBACK(onImageDestroy_gui), (gpointer)this);
+#if GTK_CHECK_VERSION(2, 12, 0)
+                gtk_widget_set_tooltip_text(event_box, text.c_str());
+#else
+                gtk_tooltips_set_tip(tips, event_box, text.c_str(), text.c_str());
+#endif
+                g_signal_connect(G_OBJECT(image), "destroy", G_CALLBACK(onImageDestroy_gui), (gpointer)this);
+
+                if (ImgLimit)
+                {
+                    if (ImgLimit > 0)
+                        ImgLimit--;
+
+                    typedef Func4<Hub, string, int64_t, string, string> F4;
+                    target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + name;
+                    F4 *func = new F4(this, &Hub::download_client, target, size, tth, cid);
+                    WulforManager::get()->dispatchClientFunc(func);
+                }
             }
 
                        applyEmoticons_gui();
@@ -1796,13 +1815,30 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 hub->addStatusMessage_gui(_("Emoticons mode on"), Msg::SYSTEM, Sound::NONE);
             }
         }
+        else if (command == "limitimg" || command == "limg")
+        {
+            int n;
+            string text;
+            if (param.empty())
+            {
+                n = hub->ImgLimit;
+                if (n == 0)
+                    text = _("Download image: disable");
+                else if (n < 0)
+                    text = _("Download image: unlimit");
+                else
+                    text = _("Download limit image: ") + Util::toString(n);
+                hub->addMessage_gui("", text.c_str(), Msg::SYSTEM);
+                return;
+            }
+            n = Util::toInt(param);
+            hub->ImgLimit = n;
+            text = _("Set download limit image: ") + Util::toString(n);
+            hub->addStatusMessage_gui(text, Msg::SYSTEM, Sound::NONE);
+        }
         else if (command == "version")
         {
-#ifndef DCPP_REVISION
             hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE)+" "+string(EISKALTDCPP_VERSION)+" ("+string(EISKALTDCPP_VERSION_SFX)+"), "+_("project home: ")+"http://code.google.com/p/eiskaltdc/", Msg::SYSTEM, Sound::NONE);
-#else
-            hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE)+" "+string(EISKALTDCPP_VERSION)+" - "+string(EISKALTDCPP_VERSION_SFX)+" ("+string(DCPP_REVISION)+"), "+ _("project home: ")+"http://code.google.com/p/eiskaltdc/", Msg::SYSTEM, Sound::NONE);
-#endif
         }
         else if (command == "help")
         {
@@ -1824,6 +1860,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/rebuild\t\t\t\t - " + _("Rebuild hash") + "\n" +
             "/refresh\t\t\t\t - " + _("Update own file list") + "\n" +
             "/userlist\t\t\t\t - " + _("User list show/hide") + "\n" +
+            "/limitimg <n>, limg <n>\t - " + _("Download limit image: 0 - disable, n < 0 - unlimit, empty - info") + "\n" +
             "/version\t\t\t\t - " + _("Show version") + "\n" +
             "/emoticons, /emot\t\t - " + _("Emoticons on/off") + "\n" +
 #ifdef LUA_SCRIPT
@@ -2826,8 +2863,7 @@ void Hub::loadImage_gui(string target, string tth)
    g_object_unref(pixbuf);
 
    // reset tips
-   string name = Util::getFileName(target);
-   string magnet = imageMagnet.first;
+   string name, magnet = imageMagnet.first;
    int64_t size;
    WulforUtil::splitMagnet(magnet, name, size, tth);
    string text = "name: " + name + "\n" + "size: " + Util::formatBytes(size);
@@ -2939,6 +2975,18 @@ void Hub::onRemoveImageClicked_gui(GtkMenuItem *item, gpointer data)
 
    hub->imageLoad.first = "";
    hub->imageLoad.second = NULL;
+}
+
+void Hub::onOpenImageClicked_gui(GtkMenuItem *item, gpointer data)
+{
+    Hub *hub = (Hub*) data;
+
+    int64_t size;
+    string name, tth;
+    const string magnet = hub->imageMagnet.first;
+    WulforUtil::splitMagnet(magnet, name, size, tth);
+    string target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + name;
+    WulforUtil::openURI(target);
 }
 
 gboolean Hub::expose(GtkWidget *widget, GdkEventExpose *event, gpointer data)

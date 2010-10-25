@@ -1210,6 +1210,8 @@ void Settings::initAppearance_gui()
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Favorite Users"), "icon-favorite-users");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Finished Downloads"), "icon-finished-downloads");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Finished Uploads"), "icon-finished-uploads");
+        addOption_gui(themeIconsStore, wsm, iconTheme, _("Own file list"), "icon-own-filelist");
+        addOption_gui(themeIconsStore, wsm, iconTheme, _("Refresh"), "icon-refresh");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Hash"), "icon-hash");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Preferences"), "icon-preferences");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Public Hubs"), "icon-public-hubs");
@@ -1250,6 +1252,10 @@ void Settings::initAppearance_gui()
         g_list_free(list);
 
         GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Separators"), "toolbar-button-separators",
+            "");
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Reconnect"), "toolbar-button-reconnect",
+            "icon-reconnect");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Connect"), "toolbar-button-connect",
             "icon-connect");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Favorite Hubs"), "toolbar-button-fav-hubs",
@@ -1260,6 +1266,10 @@ void Settings::initAppearance_gui()
             "icon-public-hubs");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Preferences"), "toolbar-button-settings",
             "icon-preferences");
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Own file list"), "toolbar-button-own-filelist",
+            "icon-refresh");
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Refresh"), "toolbar-button-refresh",
+            "icon-refresh");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Hash"), "toolbar-button-hash",
             "icon-hash");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Search"), "toolbar-button-search",

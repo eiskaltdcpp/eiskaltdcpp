@@ -65,8 +65,8 @@ class MainWindow;
 class MultiLineToolBar;
 
 extern const char * const EISKALTDCPP_VERSION;
-extern const char * const EISKALTDCPP_VERSION_SFX;
 extern const char * const EISKALTDCPP_WND_TITLE;
+extern const char * const EISKALTDCPP_VERSION_SFX;
 
 class QProgressBar;
 
@@ -94,11 +94,7 @@ public:
     }
 
     void printVersion() const {
-#ifndef DCPP_REVISION
-        printf("%s-%s\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
-#else
-        printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
-#endif
+        printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
     }
 };
 

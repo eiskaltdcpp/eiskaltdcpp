@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<emoticons-map name="plain">
+
+<emoticon file="biggrin.png">
+	<name text=":-D"/>
+	<name text=":D"/>
+</emoticon>
+
+<emoticon file="confused.png">
+	<name text=":-S"/>
+	<name text=":S"/>
+	<name text=":-s"/>
+	<name text=":s"/>
+</emoticon>
+
+<emoticon file="cry.png">
+	<name text=":'-("/>
+	<name text=":'("/>
+	<name text=";-("/>
+	<name text=";("/>
+</emoticon>
+
+<emoticon file="oh.png">
+	<name text=":-O"/>
+	<name text=":O"/>
+	<name text=":-o"/>
+	<name text=":o"/>
+</emoticon>
+
+<emoticon file="smile.png">
+	<name text=":-)"/>
+	<name text=":)"/>
+	<name text=":o)"/>
+</emoticon>
+
+<emoticon file="sunglasses.png">
+	<name text="8-)"/>
+	<name text="8)"/>
+</emoticon>
+
+<emoticon file="tongue.png">
+	<name text=":-P"/>
+	<name text=":P"/>
+	<name text=":-p"/>
+	<name text=":p"/>
+</emoticon>
+
+<emoticon file="unhappy.png">
+	<name text=":-("/>
+	<name text=":("/>
+</emoticon>
+
+<emoticon file="wink.png">
+	<name text=";-)"/>
+	<name text=";)"/>
+</emoticon>
+
+<emoticon file="pig.png">
+	<name text=":3)"/>
+	<name text=";3)"/>
+	<name text=":-3"/>
+	<name text=";-3"/>
+</emoticon>
+
+
+</emoticons-map>
