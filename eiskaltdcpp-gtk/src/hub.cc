@@ -606,7 +606,7 @@ void Hub::addStatusMessage_gui(string message, Msg::TypeMsg typemsg, Sound::Type
         if (WGETB("status-in-chat"))
         {
             string line = "*** " + message;
-            addMessage_gui("",line, typemsg);
+            addMessage_gui("", line, typemsg);
         }
     }
 }
@@ -1619,7 +1619,7 @@ gboolean Hub::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, 
         case 3: //show emoticons menu
 
             hub->emotdialog->buildEmotMenu_gui();
-+
+
             GtkWidget *check_item = NULL;
             GtkWidget *emot_menu = hub->getWidget("emotPacksMenu");
 
@@ -1780,7 +1780,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             {
                 list += " " + it->second;
             }
-            hub->addMessage_gui(_("User favorite list:") + (list.empty()? list = _(" empty...") : list), Msg::SYSTEM);
+            hub->addMessage_gui("", _("User favorite list:") + (list.empty()? list = _(" empty...") : list), Msg::SYSTEM);
         }
         else if (command == "getlist")
         {
@@ -1842,7 +1842,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "help")
         {
-            hub->addMessage_gui(string(_("*** Available commands:")) + "\n\n" +
+            hub->addMessage_gui("", string(_("*** Available commands:")) + "\n\n" +
             "/away <message>\t\t - " + _("Away mode message on/off") + "\n" +
             "/back\t\t\t\t - " + _("Away mode off") + "\n" +
             "/clear\t\t\t\t - " + _("Clear chat") + "\n" +
@@ -1952,10 +1952,10 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         // вывод списка алиасов
                         /// List aliasu
                             if( !aliases.getTokens().empty() ) {
-                                hub->addMessage_gui( string( "Alias list:" ), Msg::SYSTEM);
+                                hub->addMessage_gui("", string( "Alias list:" ), Msg::SYSTEM);
 
                                 for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i) {
-                                    hub->addMessage_gui( *i, Msg::SYSTEM);
+                                    hub->addMessage_gui("", *i, Msg::SYSTEM);
                                 }
                             }
                             else
@@ -1988,7 +1988,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                             if( name.compare( param.substr( 0, param.find_first_of( "::", 0 ) ) ) == 0 )
                             {
                                 exists = true;
-                                hub->addMessage_gui( string( "This alias already exists: " + *i ), Msg::SYSTEM);
+                                hub->addMessage_gui("", string( "This alias already exists: " + *i ), Msg::SYSTEM);
                                 break;
                             }
                         }
@@ -3201,7 +3201,7 @@ void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) throw
         }
 
         typedef Func2<Hub, string, Msg::TypeMsg> F2;
-        F2 *func = new F2(this, &Hub::addMessage_gui, line, typemsg);
+        F2 *func = new F2(this, &Hub::addMessage_gui, "", line, typemsg);
         WulforManager::get()->dispatchGuiFunc(func);
 
         // Set urgency hint if message contains user's nick
@@ -3244,7 +3244,7 @@ void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int
         }
 
         typedef Func2<Hub, string, Msg::TypeMsg> F2;
-        F2 *func = new F2(this, &Hub::addMessage_gui, message, Msg::STATUS);
+        F2 *func = new F2(this, &Hub::addMessage_gui, "", message, Msg::STATUS);
         WulforManager::get()->dispatchGuiFunc(func);
     }
 }
