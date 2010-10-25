@@ -890,6 +890,16 @@ void MainWindow::actionMagnet_gui(string magnet)
 
 void MainWindow::setToolbarButton_gui()
 {
+    if (!WGETB("toolbar-button-separators")){
+        gtk_widget_hide(getWidget("SeparatorToolItem1"));
+        gtk_widget_hide(getWidget("SeparatorToolItem2"));
+        gtk_widget_hide(getWidget("SeparatorToolItem3"));
+        gtk_widget_hide(getWidget("SeparatorToolItem4"));
+        gtk_widget_hide(getWidget("SeparatorToolItem5"));
+        gtk_widget_hide(getWidget("SeparatorToolItem6"));
+    }
+    if (!WGETB("toolbar-button-reconnect"))
+        gtk_widget_hide(getWidget("reconnect"));
     if (!WGETB("toolbar-button-connect"))
         gtk_widget_hide(getWidget("connect"));
     if (!WGETB("toolbar-button-fav-hubs"))
@@ -900,6 +910,10 @@ void MainWindow::setToolbarButton_gui()
         gtk_widget_hide(getWidget("publicHubs"));
     if (!WGETB("toolbar-button-settings"))
         gtk_widget_hide(getWidget("settings"));
+    if (!WGETB("toolbar-button-own-filelist"))
+        gtk_widget_hide(getWidget("own_file_list"));
+    if (!WGETB("toolbar-button-refresh"))
+        gtk_widget_hide(getWidget("refresh"));
     if (!WGETB("toolbar-button-hash"))
         gtk_widget_hide(getWidget("hash"));
     if (!WGETB("toolbar-button-search"))
