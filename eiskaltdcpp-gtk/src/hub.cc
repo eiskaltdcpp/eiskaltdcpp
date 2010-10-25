@@ -2566,6 +2566,7 @@ void Hub::connectClient_client(string address, string encoding)
     client->addListener(this);
     client->connect();
     FavoriteManager::getInstance()->addListener(this);
+    QueueManager::getInstance()->removeListener(this);
 }
 
 void Hub::disconnect_client()
@@ -2573,6 +2574,7 @@ void Hub::disconnect_client()
     if (client)
     {
         FavoriteManager::getInstance()->removeListener(this);
+        QueueManager::getInstance()->removeListener(this);
         client->removeListener(this);
         client->disconnect(TRUE);
         ClientManager::getInstance()->putClient(client);
@@ -2788,7 +2790,7 @@ void Hub::download_client(string target, int64_t size, string tth, string cid)
            return;
 
        string hubUrl = client->getHubUrl();
-       QueueManager::getInstance()->add(target, size, TTHValue(tth), user, hubUrl);
+       QueueManager::getInstance()->add(target, size, TTHValue(tth));
    }
    catch (const Exception&)
    {
@@ -3124,6 +3126,7 @@ void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) throw
                 return;
 
         Msg::TypeMsg typemsg;
+        string cid = message.from->getIdentity().getUser()->getCID().toBase32();
         string line;
 
         string info=Util::formatAdditionalInfo(message.from->getIdentity().getIp(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
@@ -3200,8 +3203,8 @@ void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) throw
             LOG(LogManager::CHAT, params);
         }
 
-        typedef Func2<Hub, string, Msg::TypeMsg> F2;
-        F2 *func = new F2(this, &Hub::addMessage_gui, "", line, typemsg);
+        typedef Func3<Hub, string, string, Msg::TypeMsg> F3;
+        F3 *func = new F3(this, &Hub::addMessage_gui, cid, line, typemsg);
         WulforManager::get()->dispatchGuiFunc(func);
 
         // Set urgency hint if message contains user's nick
@@ -3243,8 +3246,8 @@ void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int
             LOG(LogManager::STATUS, params);
         }
 
-        typedef Func2<Hub, string, Msg::TypeMsg> F2;
-        F2 *func = new F2(this, &Hub::addMessage_gui, "", message, Msg::STATUS);
+        typedef Func3<Hub, string, string, Msg::TypeMsg> F3;
+        F3 *func = new F3(this, &Hub::addMessage_gui, "", message, Msg::STATUS);
         WulforManager::get()->dispatchGuiFunc(func);
     }
 }
