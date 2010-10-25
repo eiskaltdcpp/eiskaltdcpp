@@ -2104,83 +2104,94 @@
                   </widget>
                 </child>
                 <child>
-                  <widget class="GtkTable" id="table6">
+                  <widget class="GtkVBox" id="vbox34">
                     <property name="visible">True</property>
-                    <property name="n_rows">2</property>
-                    <property name="n_columns">3</property>
-                    <property name="column_spacing">4</property>
-                    <property name="row_spacing">4</property>
+                    <property name="border_width">10</property>
+                    <property name="spacing">2</property>
                     <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <widget class="GtkSpinButton" id="sharedUploadSlotsSpinButton">
+                      <widget class="GtkHBox" id="hbox31">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="adjustment">0 0 100 1 10 0</property>
-                        <property name="climb_rate">1</property>
+                        <property name="spacing">4</property>
+                        <child>
+                          <widget class="GtkLabel" id="label36">
+                            <property name="visible">True</property>
+                            <property name="xalign">1</property>
+                            <property name="label" translatable="yes">Automatically open extra slot if speed is below (0 = disable)</property>
+                          </widget>
+                        </child>
+                        <child>
+                          <widget class="GtkSpinButton" id="sharedExtraSlotSpinButton">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="adjustment">0 0 256 1 10 0</property>
+                            <property name="climb_rate">1</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
                       </widget>
                       <packing>
-                        <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
-                        <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options"></property>
+                        <property name="expand">False</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="label38">
+                      <widget class="GtkHBox" id="hbox33">
                         <property name="visible">True</property>
-                        <property name="xalign">1</property>
-                        <property name="label" translatable="yes">Upload slots</property>
+                        <property name="spacing">8</property>
+                        <child>
+                          <widget class="GtkLabel" id="label38">
+                            <property name="visible">True</property>
+                            <property name="xalign">1</property>
+                            <property name="label" translatable="yes">Upload slots</property>
+                          </widget>
+                        </child>
+                        <child>
+                          <widget class="GtkSpinButton" id="sharedUploadSlotsSpinButton">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="adjustment">0 0 100 1 10 0</property>
+                            <property name="climb_rate">1</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
                       </widget>
                       <packing>
-                        <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options"></property>
+                        <property name="expand">False</property>
+                        <property name="position">1</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="GtkLabel" id="label37">
+                      <widget class="GtkHBox" id="hbox34">
                         <property name="visible">True</property>
-                        <property name="xalign">0</property>
-                        <property name="label" translatable="yes">KiB/s</property>
+                        <child>
+                          <widget class="GtkButton" id="pictureButton">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="label" translatable="yes">Pictures</property>
+                            <property name="response_id">0</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
                       </widget>
                       <packing>
-                        <property name="left_attach">2</property>
-                        <property name="right_attach">3</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options"></property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkSpinButton" id="sharedExtraSlotSpinButton">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="adjustment">0 0 10000 1 10 0</property>
-                        <property name="climb_rate">1</property>
-                      </widget>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options"></property>
-                      </packing>
-                    </child>
-                    <child>
-                      <widget class="GtkLabel" id="label36">
-                        <property name="visible">True</property>
-                        <property name="xalign">1</property>
-                        <property name="label" translatable="yes">Automatically open extra slot if speed is below (0 = disable)</property>
-                      </widget>
-                      <packing>
-                        <property name="y_options"></property>
+                        <property name="position">2</property>
                       </packing>
                     </child>
                   </widget>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
