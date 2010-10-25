@@ -606,7 +606,7 @@ void Hub::addStatusMessage_gui(string message, Msg::TypeMsg typemsg, Sound::Type
         if (WGETB("status-in-chat"))
         {
             string line = "*** " + message;
-            addMessage_gui(line, typemsg);
+            addMessage_gui("",line, typemsg);
         }
     }
 }
@@ -621,7 +621,7 @@ void Hub::nickToChat_gui(const string &nick)
     gtk_editable_set_position(GTK_EDITABLE(getWidget("chatEntry")), pos);
 }
 
-void Hub::addMessage_gui(string message, Msg::TypeMsg typemsg)
+void Hub::addMessage_gui(string cid, string message, Msg::TypeMsg typemsg)
 {
     if (message.empty())
         return;
@@ -659,7 +659,7 @@ void Hub::addMessage_gui(string message, Msg::TypeMsg typemsg)
 
     totalEmoticons = 0;
 
-    applyTags_gui(line);
+    applyTags_gui(cid, line);
 
     gtk_text_buffer_get_end_iter(chatBuffer, &iter);
 
@@ -673,7 +673,7 @@ void Hub::addMessage_gui(string message, Msg::TypeMsg typemsg)
     }
 }
 
-void Hub::applyTags_gui(const string &line)
+void Hub::applyTags_gui(const string cid, const string &line)
 {
     GtkTextIter start_iter;
     gtk_text_buffer_get_end_iter(chatBuffer, &start_iter);

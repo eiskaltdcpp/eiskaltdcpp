@@ -89,8 +89,8 @@ class Hub:
         void clearNickList_gui();
         void popupNickMenu_gui();
         void getPassword_gui();
-        void addMessage_gui(std::string message, Msg::TypeMsg typemsg);
-        void applyTags_gui(const std::string &line);
+        void addMessage_gui(std::string cid, std::string message, Msg::TypeMsg typemsg);
+        void applyTags_gui(const std::string cid, const std::string &line);
         void addStatusMessage_gui(std::string message, Msg::TypeMsg typemsg, Sound::TypeSound sound);
         void applyEmoticons_gui();
         void updateCursor_gui(GtkWidget *widget);
@@ -183,6 +183,7 @@ class Hub:
         virtual void on(dcpp::ClientListener::StatusMessage, dcpp::Client *, const std::string &message, int flag) throw();
         virtual void on(dcpp::ClientListener::NickTaken, dcpp::Client *) throw();
         virtual void on(dcpp::ClientListener::SearchFlood, dcpp::Client *, const std::string &message) throw();
+        virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem *item, const std::string& dir, int64_t avSpeed) throw();
 
         UserMap userMap;
         UserIters userIters;
