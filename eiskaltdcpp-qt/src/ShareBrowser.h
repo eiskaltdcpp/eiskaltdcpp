@@ -103,9 +103,6 @@ public:
 
     bool isFindFrameActivated();
 
-Q_SIGNALS:
-    void loadFinished();
-
 public Q_SLOTS:
     void slotFilter();
 

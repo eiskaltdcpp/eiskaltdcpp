@@ -262,7 +262,6 @@ void ShareBrowser::init(){
     connect(treeView_RPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
     connect(treeView_RPANE->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotRightPaneClicked(QModelIndex)));
-    connect(this, SIGNAL(loadFinished()), this, SLOT(slotLoaderFinish()), Qt::QueuedConnection);
     connect(tree_model, SIGNAL(layoutChanged()), this, SLOT(slotLayoutUpdated()));
 
     setAttribute(Qt::WA_DeleteOnClose);
@@ -325,6 +324,7 @@ void ShareBrowser::buildList(){
         boost::function<void()> f = boost::bind(&ShareBrowser::createTree, this, listing.getRoot(), tree_root);
 
         runner->setRunFunction(f);
+        connect(runner, SIGNAL(finished()), this, SLOT(slotLoaderFinish()));
         connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
 
         runner->start();
@@ -366,9 +366,6 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
 
     for (it = dir->directories.begin(); it != dir->directories.end(); ++it)
         createTree(*it, item);
-
-    if (root == tree_root)
-        emit loadFinished();
 }
 
 void ShareBrowser::initModels(){
