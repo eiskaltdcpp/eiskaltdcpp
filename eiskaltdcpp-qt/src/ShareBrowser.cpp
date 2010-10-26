@@ -318,6 +318,7 @@ QMenu  *ShareBrowser::getMenu(){
 void ShareBrowser::buildList(){
     try {
         listing.loadFile(file.toStdString());
+        listing.getRoot()->setName(nick.toStdString());
         ADLSearchManager::getInstance()->matchListing(listing);
 
         ShareBrowserRunner *runner = new ShareBrowserRunner(this);
@@ -362,7 +363,7 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
 
     itemsCount += dir->getFileCount();
 
-    std::sort(dir->directories.begin(), dir->directories.end(), DirectoryListing::Directory::DirSort());
+    //std::sort(dir->directories.begin(), dir->directories.end(), DirectoryListing::Directory::DirSort());
 
     for (it = dir->directories.begin(); it != dir->directories.end(); ++it)
         createTree(*it, item);
@@ -370,17 +371,17 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
 
 void ShareBrowser::initModels(){
     tree_model = new FileBrowserModel();
-    tree_root  = new FileBrowserItem(QList<QVariant>() << tr("Name") << tr("Size")
-                                                       << tr("Exact size")
-                                                       << tr("TTH"),
+    tree_root  = new FileBrowserItem(QList<QVariant>() << tr("") << tr("")
+                                                       << tr("")
+                                                       << tr(""),
                                                        NULL);
 
     tree_model->setRootElem(tree_root, true, true);
 
     list_model = new FileBrowserModel();
-    list_root = new FileBrowserItem(QList<QVariant>() << tr("Name") << tr("Size")
-                                                      << tr("Exact size")
-                                                      << tr("TTH"),
+    list_root = new FileBrowserItem(QList<QVariant>() << tr("") << tr("")
+                                                      << tr("")
+                                                      << tr(""),
                                                       NULL);
 
     list_model->setRootElem(list_root, true, true);
@@ -479,6 +480,7 @@ void ShareBrowser::slotRightPaneClicked(const QModelIndex &index){
     label_PATH->setText(label_PATH->text()+"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString());
 
     FileBrowserItem *tree_item = tree_model->createRootForPath(label_PATH->text());
+
     QModelIndex tree_index = tree_model->createIndexForItem(tree_item);
 
     treeView_LPANE->selectionModel()->select(tree_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
