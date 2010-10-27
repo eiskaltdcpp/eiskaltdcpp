@@ -413,7 +413,7 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="sourceMenuItem">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">Source (svn)</property>
+                        <property name="label" translatable="yes">Source (git)</property>
                         <property name="use_underline">True</property>
                         <child internal-child="image">
                           <widget class="GtkImage" id="sourceMenuImage">
@@ -460,7 +460,7 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="changeLogItem">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">Changelog (svn)</property>
+                        <property name="label" translatable="yes">Changelog (git)</property>
                         <property name="use_underline">True</property>
                         <child internal-child="image">
                           <widget class="GtkImage" id="changeLogMenuImage">

@@ -1150,13 +1150,13 @@ void MainWindow::retranslateUi(){
 
         aboutHomepage->setText(tr("Homepage"));
 
-        aboutSource->setText(tr("Source (svn)"));
+        aboutSource->setText(tr("Source (git)"));
 
         aboutIssues->setText(tr("Report a Bug"));
 
         aboutWiki->setText(tr("Wiki of project"));
 
-        aboutChangelog->setText(tr("Changelog (svn)"));
+        aboutChangelog->setText(tr("Changelog (git)"));
 
         aboutClient->setText(tr("About EiskaltDC++"));
 
@@ -2337,7 +2337,7 @@ void MainWindow::slotAboutOpenUrl(){
         QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/"));
     }
     else if (act == aboutSource){
-        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/source/checkout"));
+        QDesktopServices::openUrl(QUrl("http://github.com/negativ/eiskaltdcpp/"));
     }
     else if (act == aboutIssues){
         QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/issues/list"));
@@ -2347,7 +2347,7 @@ void MainWindow::slotAboutOpenUrl(){
     }
     else if (act == aboutChangelog){
         // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
-        QDesktopServices::openUrl(QUrl(tr("http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt")));
+        QDesktopServices::openUrl(QUrl(tr("http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt")));
     }
 }
 
