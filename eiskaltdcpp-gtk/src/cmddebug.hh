@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2008 Jens Oknelid, paskharen@gmail.com
+ * Copyright © 2010 Mank <mank@besthub.eu>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
