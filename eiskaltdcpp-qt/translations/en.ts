@@ -1072,12 +1072,12 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2996"/>
+        <location filename="../src/HubFrame.cpp" line="2994"/>
         <source>Suggestions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2990"/>
+        <location filename="../src/HubFrame.cpp" line="2988"/>
         <source>Add to dictionary</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1201,27 +1201,27 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3143"/>
+        <location filename="../src/HubFrame.cpp" line="3141"/>
         <source>Connecting to %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3149"/>
+        <location filename="../src/HubFrame.cpp" line="3147"/>
         <source>Connected to %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3201"/>
+        <location filename="../src/HubFrame.cpp" line="3199"/>
         <source>Fail: %1...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3371"/>
+        <location filename="../src/HubFrame.cpp" line="3369"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3377"/>
+        <location filename="../src/HubFrame.cpp" line="3375"/>
         <source>Search flood detected: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1305,7 +1305,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2063"/>
-        <location filename="../src/HubFrame.cpp" line="3191"/>
+        <location filename="../src/HubFrame.cpp" line="3189"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1699,6 +1699,11 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="2350"/>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="2367"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
         <translation type="unfinished"></translation>
@@ -1886,11 +1891,6 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1153"/>
-        <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1155"/>
         <source>Report a Bug</source>
         <translation type="unfinished"></translation>
@@ -1898,11 +1898,6 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1157"/>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1159"/>
-        <source>Changelog (svn)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1987,6 +1982,16 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="1153"/>
+        <source>Source (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1159"/>
+        <source>Changelog (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="1376"/>
         <source>%1/s / %2/s</source>
         <translation type="unfinished"></translation>
@@ -2059,11 +2064,6 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2300"/>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2350"/>
-        <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3206,7 +3206,7 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="292"/>
+        <location filename="../src/ShareBrowser.cpp" line="291"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3221,42 +3221,18 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="376"/>
-        <location filename="../src/ShareBrowser.cpp" line="384"/>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="376"/>
-        <location filename="../src/ShareBrowser.cpp" line="384"/>
-        <source>Size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="377"/>
-        <location filename="../src/ShareBrowser.cpp" line="385"/>
-        <source>Exact size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="378"/>
-        <location filename="../src/ShareBrowser.cpp" line="386"/>
-        <source>TTH</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="542"/>
-        <location filename="../src/ShareBrowser.cpp" line="555"/>
+        <location filename="../src/ShareBrowser.cpp" line="541"/>
+        <location filename="../src/ShareBrowser.cpp" line="554"/>
         <source>Total size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="558"/>
+        <location filename="../src/ShareBrowser.cpp" line="557"/>
         <source>; Selected: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="668"/>
+        <location filename="../src/ShareBrowser.cpp" line="667"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3295,12 +3271,12 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>ShortcutsModel</name>
     <message>
-        <location filename="../src/SettingsShortcuts.cpp" line="152"/>
+        <location filename="../src/SettingsShortcuts.cpp" line="153"/>
         <source>Action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsShortcuts.cpp" line="153"/>
+        <location filename="../src/SettingsShortcuts.cpp" line="154"/>
         <source>Hotkey</source>
         <translation type="unfinished"></translation>
     </message>

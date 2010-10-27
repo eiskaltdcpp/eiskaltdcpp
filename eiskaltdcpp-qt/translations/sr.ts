@@ -1754,23 +1754,11 @@ Molim proverite podešavanja vaše veze</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Report a Bug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changelog (svn)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1867,6 +1855,18 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>%1 / %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changelog (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2719,19 +2719,19 @@ Keys:
     </message>
     <message>
         <source>Name</source>
-        <translation>Ime</translation>
+        <translation type="obsolete">Ime</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Veličina</translation>
+        <translation type="obsolete">Veličina</translation>
     </message>
     <message>
         <source>Exact size</source>
-        <translation>Tačna veličina</translation>
+        <translation type="obsolete">Tačna veličina</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Total size: %1</source>

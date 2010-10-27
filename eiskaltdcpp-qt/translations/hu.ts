@@ -1,4 +1,6 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
 <context>
     <name>ADLS</name>
     <message>
@@ -86,15 +88,15 @@
 EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help<byte value="x9"/> Show this message
-  -v, --version<byte value="x9"/> Show version string</source>
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
         <translation type="obsolete">Használat:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Kapcsoló&gt;
 Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
 
 Kapcsolók:
-  -h, --help<byte value="x9"/> Help megjelenítése
+  -h, --help	 Help megjelenítése
   -v, --version  Verzióinformáció mutatása</translation>
     </message>
     <message>
@@ -104,15 +106,15 @@ Kapcsolók:
 EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help<byte value="x9"/> Show this message
-  -v, --version<byte value="x9"/> Show version string</source>
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
         <translation type="obsolete">Használat:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt&lt;Kapcsoló&gt;
 Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
 
 Kapcsolók:
-  -h, --help<byte value="x9"/> Help megjelenítése
+  -h, --help	 Help megjelenítése
   -v, --version  Verzióinformáció mutatása</translation>
     </message>
     <message>
@@ -122,16 +124,16 @@ Kapcsolók:
 EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help<byte value="x9"/> Show this message
-  -v, --version<byte value="x9"/> Show version string</source>
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
         <translation>Használat:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Kapcsoló&gt;
 Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
 
 Kapcsolók:
-  -h, --help<byte value="x9"/> Help megjelenítése
-  -v, --version<byte value="x9"/> Verzióinformáció mutatása</translation>
+  -h, --help	 Help megjelenítése
+  -v, --version	 Verzióinformáció mutatása</translation>
     </message>
 </context>
 <context>
@@ -1972,7 +1974,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Source (svn)</source>
-        <translation>Forráskód (svn)</translation>
+        <translation type="obsolete">Forráskód (svn)</translation>
     </message>
     <message>
         <source>Report a Bug</source>
@@ -1984,11 +1986,11 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Changelog (svn)</source>
-        <translation>Változások (svn)</translation>
+        <translation type="obsolete">Változások (svn)</translation>
     </message>
     <message>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
+        <translation type="obsolete">http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
     <message>
         <source>Connectivity Manager: Warning</source>
@@ -2085,6 +2087,18 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>%1 / %2</source>
         <translation>%1 / %2</translation>
+    </message>
+    <message>
+        <source>Source (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changelog (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2276,15 +2290,15 @@ Letöltve: %3 Feltöltve %4</translation>
 EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help<byte value="x9"/> Show this message
-  -v, --version<byte value="x9"/> Show version string</source>
+  -h, --help	 Show this message
+  -v, --version	 Show version string</source>
         <translation type="obsolete">Használat:
   eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp &lt;Kapcsoló&gt;
 Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
 
 Kapcsolók:
-  -h, --help<byte value="x9"/> Help megjelenítése
+  -h, --help	 Help megjelenítése
   -v, --version  Verzióinformáció mutatása</translation>
     </message>
 </context>
@@ -2943,19 +2957,19 @@ Kapcsolók:
     </message>
     <message>
         <source>Name</source>
-        <translation>Név</translation>
+        <translation type="obsolete">Név</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Méret</translation>
+        <translation type="obsolete">Méret</translation>
     </message>
     <message>
         <source>Exact size</source>
-        <translation>Pontos méret</translation>
+        <translation type="obsolete">Pontos méret</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Total size: %1</source>
@@ -5512,13 +5526,13 @@ az újabb vagy megváltozott tartalom indexelése céljából.</translation>
         <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
 For example, if you have /home/username/Video folder shared as &quot;Video&quot;
 you can specify following:
-/Video<byte value="x9"/>10
+/Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
         <translation>Speciális korlátozás megadása (GiB-ban) minden &quot;virtuális&quot; könyvtárhoz a magosztásban.
 Például, ha a megosztásba kerül a /home/felhasználónév/Video könyvtár &quot;Video&quot; néven,
 a következő megadásával akalmazható a speciális korlátozás:
-/Video<byte value="x9"/>10
+/Video	10
 Ez azt jelenti, hogy bármelyik felhasználónak, akinek a megosztása kevesebb, mint 10GiB
 a letöltés nem lesz lehetséges a megadott könyvtárból.</translation>
     </message>

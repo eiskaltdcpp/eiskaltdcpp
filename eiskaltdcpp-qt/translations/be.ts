@@ -1362,7 +1362,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2063"/>
-        <location filename="../src/HubFrame.cpp" line="3191"/>
+        <location filename="../src/HubFrame.cpp" line="3189"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Атрымалі просьбу перанакіравацца да асяродку, зь якім ужо злучыліся</translation>
     </message>
@@ -1372,12 +1372,12 @@ Favorite user</source>
         <translation>Карыстальнікаў: %1 | Разам абагулілі: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2996"/>
+        <location filename="../src/HubFrame.cpp" line="2994"/>
         <source>Suggestions</source>
         <translation>Прапановы</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2990"/>
+        <location filename="../src/HubFrame.cpp" line="2988"/>
         <source>Add to dictionary</source>
         <translation>Дадаць у слоўнік</translation>
     </message>
@@ -1431,27 +1431,27 @@ Favorite user</source>
         <translation>Карыстальнікаў: %3/%1 | Разам абагулілі: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3143"/>
+        <location filename="../src/HubFrame.cpp" line="3141"/>
         <source>Connecting to %1</source>
         <translation>Злучаемся з %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3149"/>
+        <location filename="../src/HubFrame.cpp" line="3147"/>
         <source>Connected to %1</source>
         <translation>Злучыліся з %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3201"/>
+        <location filename="../src/HubFrame.cpp" line="3199"/>
         <source>Fail: %1...</source>
         <translation>Не ўдалося: %1…</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3371"/>
+        <location filename="../src/HubFrame.cpp" line="3369"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Выбачайце, але мянушку «%1» ўжо заняў іншы карыстальнік.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3377"/>
+        <location filename="../src/HubFrame.cpp" line="3375"/>
         <source>Search flood detected: %1</source>
         <translation>Выявілі назолу ў пошуку: %1</translation>
     </message>
@@ -2056,9 +2056,8 @@ Favorite user</source>
         <translation>Хатняя бачына</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1153"/>
         <source>Source (svn)</source>
-        <translation>Крынічнікі (svn)</translation>
+        <translation type="obsolete">Крынічнікі (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1155"/>
@@ -2071,9 +2070,8 @@ Favorite user</source>
         <translation>Wiki праекту</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1159"/>
         <source>Changelog (svn)</source>
-        <translation>Гісторыя зьмяненьняў (svn)</translation>
+        <translation type="obsolete">Гісторыя зьмяненьняў (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1161"/>
@@ -2107,6 +2105,16 @@ Favorite user</source>
         <source>Downloaded/Uploaded</source>
         <translatorcomment>Сьцягнулі — зацягнулі</translatorcomment>
         <translation>Сьцягнулі | Зацягнулі</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1153"/>
+        <source>Source (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1159"/>
+        <source>Changelog (git)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1376"/>
@@ -2147,6 +2155,11 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1461"/>
         <source>%p%</source>
         <translation>%p%</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2350"/>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2652"/>
@@ -2233,15 +2246,6 @@ Please check your connection settings</source>
         <location filename="../src/MainWindow.cpp" line="2300"/>
         <source>Customize</source>
         <translation>Наставіць</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2350"/>
-        <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translatorcomment>перакласьці
-http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt
-і атрымаць
-http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog_be.txt</translatorcomment>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2380"/>
@@ -3559,7 +3563,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Сьпіс файлаў: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="292"/>
+        <location filename="../src/ShareBrowser.cpp" line="291"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Агульны памер абагуленага: %1;  Файлаў: %2</translation>
     </message>
@@ -3574,42 +3578,34 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Закрыць</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="376"/>
-        <location filename="../src/ShareBrowser.cpp" line="384"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation type="obsolete">Назоў</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="376"/>
-        <location filename="../src/ShareBrowser.cpp" line="384"/>
         <source>Size</source>
-        <translation>Памер</translation>
+        <translation type="obsolete">Памер</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="377"/>
-        <location filename="../src/ShareBrowser.cpp" line="385"/>
         <source>Exact size</source>
-        <translation>Дакладны памер</translation>
+        <translation type="obsolete">Дакладны памер</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="378"/>
-        <location filename="../src/ShareBrowser.cpp" line="386"/>
         <source>TTH</source>
-        <translation>Скарот (TTH)</translation>
+        <translation type="obsolete">Скарот (TTH)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="542"/>
-        <location filename="../src/ShareBrowser.cpp" line="555"/>
+        <location filename="../src/ShareBrowser.cpp" line="541"/>
+        <location filename="../src/ShareBrowser.cpp" line="554"/>
         <source>Total size: %1</source>
         <translation>Агульны памер: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="558"/>
+        <location filename="../src/ShareBrowser.cpp" line="557"/>
         <source>; Selected: %1</source>
         <translation>; Абраныя: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="668"/>
+        <location filename="../src/ShareBrowser.cpp" line="667"/>
         <source>Select directory</source>
         <translation>Абраць каталёг</translation>
     </message>
@@ -3648,12 +3644,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
 <context>
     <name>ShortcutsModel</name>
     <message>
-        <location filename="../src/SettingsShortcuts.cpp" line="152"/>
+        <location filename="../src/SettingsShortcuts.cpp" line="153"/>
         <source>Action</source>
         <translation>Дзеяньне</translation>
     </message>
     <message>
-        <location filename="../src/SettingsShortcuts.cpp" line="153"/>
+        <location filename="../src/SettingsShortcuts.cpp" line="154"/>
         <source>Hotkey</source>
         <translation type="unfinished">Выклічнік</translation>
     </message>

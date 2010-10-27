@@ -1076,37 +1076,37 @@ Keys:
         <translation>no compartido</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2996"/>
+        <location filename="../src/HubFrame.cpp" line="2994"/>
         <source>Suggestions</source>
         <translation>Sugerencias</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2990"/>
+        <location filename="../src/HubFrame.cpp" line="2988"/>
         <source>Add to dictionary</source>
         <translation>Añadir al diccionario</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3143"/>
+        <location filename="../src/HubFrame.cpp" line="3141"/>
         <source>Connecting to %1</source>
         <translation>Conectando con %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3149"/>
+        <location filename="../src/HubFrame.cpp" line="3147"/>
         <source>Connected to %1</source>
         <translation>Conectado a %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3201"/>
+        <location filename="../src/HubFrame.cpp" line="3199"/>
         <source>Fail: %1...</source>
         <translation>Fallo: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3371"/>
+        <location filename="../src/HubFrame.cpp" line="3369"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Lo siento, pero tu nick &quot;%1&quot; está siendo usado por otro usuario.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3377"/>
+        <location filename="../src/HubFrame.cpp" line="3375"/>
         <source>Search flood detected: %1</source>
         <translation>Flood de búsqueda detectado: %1</translation>
     </message>
@@ -1331,7 +1331,7 @@ Usuario favorito</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2063"/>
-        <location filename="../src/HubFrame.cpp" line="3191"/>
+        <location filename="../src/HubFrame.cpp" line="3189"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>La petición de re-dirección recibió un Hub al que ya está conectado</translation>
     </message>
@@ -1731,6 +1731,11 @@ Usuario favorito</translation>
         <translation>Mostrar ultimo mensaje de estado</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="2350"/>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="2367"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
         <translation>EiskaltDC++ es un cliente gráfico para Direct Connect y protocolos ADC.</translation>
@@ -1918,9 +1923,8 @@ Usuario favorito</translation>
         <translation>Homepage</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1153"/>
         <source>Source (svn)</source>
-        <translation>Fuente (svn)</translation>
+        <translation type="obsolete">Fuente (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1155"/>
@@ -1933,9 +1937,8 @@ Usuario favorito</translation>
         <translation>Wiki del proyecto</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1159"/>
         <source>Changelog (svn)</source>
-        <translation>Lista de cambios (svn)</translation>
+        <translation type="obsolete">Lista de cambios (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1161"/>
@@ -2019,6 +2022,16 @@ Usuario favorito</translation>
         <translation>Descargado/Subido</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="1153"/>
+        <source>Source (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1159"/>
+        <source>Changelog (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="1376"/>
         <source>%1/s / %2/s</source>
         <translation>%1/s / %2/s</translation>
@@ -2094,9 +2107,8 @@ Usuario favorito</translation>
         <translation>Personalizar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2350"/>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
+        <translation type="obsolete">http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2380"/>
@@ -3241,7 +3253,7 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Listado:</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="292"/>
+        <location filename="../src/ShareBrowser.cpp" line="291"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Cantidad total compartida: %1;  Archivos: %2</translation>
     </message>
@@ -3256,42 +3268,30 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Cerrar</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="376"/>
-        <location filename="../src/ShareBrowser.cpp" line="384"/>
         <source>Name</source>
-        <translation>Nombre</translation>
+        <translation type="obsolete">Nombre</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="376"/>
-        <location filename="../src/ShareBrowser.cpp" line="384"/>
         <source>Size</source>
-        <translation>Tamaño</translation>
+        <translation type="obsolete">Tamaño</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="377"/>
-        <location filename="../src/ShareBrowser.cpp" line="385"/>
         <source>Exact size</source>
-        <translation>Tamaño exacto</translation>
+        <translation type="obsolete">Tamaño exacto</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="378"/>
-        <location filename="../src/ShareBrowser.cpp" line="386"/>
-        <source>TTH</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="542"/>
-        <location filename="../src/ShareBrowser.cpp" line="555"/>
+        <location filename="../src/ShareBrowser.cpp" line="541"/>
+        <location filename="../src/ShareBrowser.cpp" line="554"/>
         <source>Total size: %1</source>
         <translation>Tamaño total: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="558"/>
+        <location filename="../src/ShareBrowser.cpp" line="557"/>
         <source>; Selected: %1</source>
         <translation>; Seleccionados: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="668"/>
+        <location filename="../src/ShareBrowser.cpp" line="667"/>
         <source>Select directory</source>
         <translation>Seleccionar directorio</translation>
     </message>
@@ -3330,12 +3330,12 @@ Descargas: %3 Subidas: %4</translation>
 <context>
     <name>ShortcutsModel</name>
     <message>
-        <location filename="../src/SettingsShortcuts.cpp" line="152"/>
+        <location filename="../src/SettingsShortcuts.cpp" line="153"/>
         <source>Action</source>
         <translation>Acción</translation>
     </message>
     <message>
-        <location filename="../src/SettingsShortcuts.cpp" line="153"/>
+        <location filename="../src/SettingsShortcuts.cpp" line="154"/>
         <source>Hotkey</source>
         <translation>Tecla Rapida</translation>
     </message>

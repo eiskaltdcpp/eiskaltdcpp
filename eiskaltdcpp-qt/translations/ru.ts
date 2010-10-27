@@ -1130,7 +1130,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2063"/>
-        <location filename="../src/HubFrame.cpp" line="3191"/>
+        <location filename="../src/HubFrame.cpp" line="3189"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Получен запрос перенаправления к уже подключенному хабу</translation>
     </message>
@@ -1549,12 +1549,12 @@ Favorite user</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2996"/>
+        <location filename="../src/HubFrame.cpp" line="2994"/>
         <source>Suggestions</source>
         <translation>Варианты</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2990"/>
+        <location filename="../src/HubFrame.cpp" line="2988"/>
         <source>Add to dictionary</source>
         <translation>Добавить в словарь</translation>
     </message>
@@ -1567,27 +1567,27 @@ Favorite user</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3143"/>
+        <location filename="../src/HubFrame.cpp" line="3141"/>
         <source>Connecting to %1</source>
         <translation>Подключение к %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3149"/>
+        <location filename="../src/HubFrame.cpp" line="3147"/>
         <source>Connected to %1</source>
         <translation>Подключен к %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3201"/>
+        <location filename="../src/HubFrame.cpp" line="3199"/>
         <source>Fail: %1...</source>
         <translation>Ошибка: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3371"/>
+        <location filename="../src/HubFrame.cpp" line="3369"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Извините, но ник &quot;%1&quot; уже занят другим пользователем.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3377"/>
+        <location filename="../src/HubFrame.cpp" line="3375"/>
         <source>Search flood detected: %1</source>
         <translation>Поисковый флуд обнаружен: %1</translation>
     </message>
@@ -2077,9 +2077,8 @@ Favorite user</source>
         <translation>Домашняя страница</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1153"/>
         <source>Source (svn)</source>
-        <translation>Исходники (svn)</translation>
+        <translation type="obsolete">Исходники (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1155"/>
@@ -2092,9 +2091,8 @@ Favorite user</source>
         <translation>Wiki проекта</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1159"/>
         <source>Changelog (svn)</source>
-        <translation>Журнал изменений (svn)</translation>
+        <translation type="obsolete">Журнал изменений (svn)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1166"/>
@@ -2126,6 +2124,16 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1009"/>
         <source>Downloaded/Uploaded</source>
         <translation>Загружено/Отдано</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1153"/>
+        <source>Source (git)</source>
+        <translation>Исходники (git)</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1159"/>
+        <source>Changelog (git)</source>
+        <translation>Журнал изменений (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1376"/>
@@ -2166,6 +2174,11 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1461"/>
         <source>%p%</source>
         <translation>%p%</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2350"/>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog_ru.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2652"/>
@@ -2211,9 +2224,8 @@ Favorite user</source>
         <translation>Настроить</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2350"/>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog_ru.txt</translation>
+        <translation type="obsolete">http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog_ru.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2380"/>
@@ -3656,31 +3668,23 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="376"/>
-        <location filename="../src/ShareBrowser.cpp" line="384"/>
         <source>Name</source>
-        <translation>Имя</translation>
+        <translation type="obsolete">Имя</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="376"/>
-        <location filename="../src/ShareBrowser.cpp" line="384"/>
         <source>Size</source>
-        <translation>Размер</translation>
+        <translation type="obsolete">Размер</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="377"/>
-        <location filename="../src/ShareBrowser.cpp" line="385"/>
         <source>Exact size</source>
-        <translation>Точный размер</translation>
+        <translation type="obsolete">Точный размер</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="378"/>
-        <location filename="../src/ShareBrowser.cpp" line="386"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="292"/>
+        <location filename="../src/ShareBrowser.cpp" line="291"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Общий размер шары: %1; файлов: %2</translation>
     </message>
@@ -3700,18 +3704,18 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="542"/>
-        <location filename="../src/ShareBrowser.cpp" line="555"/>
+        <location filename="../src/ShareBrowser.cpp" line="541"/>
+        <location filename="../src/ShareBrowser.cpp" line="554"/>
         <source>Total size: %1</source>
         <translation>Общий размер: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="558"/>
+        <location filename="../src/ShareBrowser.cpp" line="557"/>
         <source>; Selected: %1</source>
         <translation>; Выделено: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="668"/>
+        <location filename="../src/ShareBrowser.cpp" line="667"/>
         <source>Select directory</source>
         <translation>Укажите каталог</translation>
     </message>
@@ -3769,12 +3773,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>ShortcutsModel</name>
     <message>
-        <location filename="../src/SettingsShortcuts.cpp" line="152"/>
+        <location filename="../src/SettingsShortcuts.cpp" line="153"/>
         <source>Action</source>
         <translation>Действие</translation>
     </message>
     <message>
-        <location filename="../src/SettingsShortcuts.cpp" line="153"/>
+        <location filename="../src/SettingsShortcuts.cpp" line="154"/>
         <source>Hotkey</source>
         <translation>Горячая клавиша</translation>
     </message>

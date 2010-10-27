@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-25 02:42+0300\n"
+"POT-Creation-Date: 2010-10-27 20:27+0300\n"
 "PO-Revision-Date: 2010-07-30 00:20+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -494,8 +494,8 @@ msgid "': type /help for a list of available commands"
 msgstr ""
 
 #: ../src/hub.cc:2347 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1063
-#: ../src/mainwindow.cc:1131 ../glade/sharebrowser.glade:319
-#: ../glade/search.glade:563 ../glade/settingsdialog.glade:6002
+#: ../src/mainwindow.cc:1131 ../glade/sharebrowser.glade:326
+#: ../glade/search.glade:563 ../glade/settingsdialog.glade:6013
 msgid "Choose a directory"
 msgstr ""
 
@@ -527,39 +527,39 @@ msgstr ""
 msgid "Favorite hub already exists"
 msgstr ""
 
-#: ../src/hub.cc:2824
+#: ../src/hub.cc:2849
 msgid "loading error"
 msgstr ""
 
-#: ../src/hub.cc:2837
+#: ../src/hub.cc:2862
 msgid "bad image"
 msgstr ""
 
-#: ../src/hub.cc:3028
+#: ../src/hub.cc:3069
 msgid "Connecting to "
 msgstr ""
 
-#: ../src/hub.cc:3035 ../src/transfers.cc:1013
+#: ../src/hub.cc:3076 ../src/transfers.cc:1013
 msgid "Connected"
 msgstr ""
 
-#: ../src/hub.cc:3091
+#: ../src/hub.cc:3132
 msgid "Connect failed: "
 msgstr ""
 
-#: ../src/hub.cc:3237
+#: ../src/hub.cc:3278
 msgid "Ignored private message from hub"
 msgstr ""
 
-#: ../src/hub.cc:3244
+#: ../src/hub.cc:3285
 msgid "Ignored private message from bot "
 msgstr ""
 
-#: ../src/hub.cc:3261
+#: ../src/hub.cc:3302
 msgid "Nick already taken"
 msgstr ""
 
-#: ../src/hub.cc:3268
+#: ../src/hub.cc:3309
 msgid "Search spam detected from "
 msgstr ""
 
@@ -667,7 +667,7 @@ msgstr ""
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:956
 #: ../src/settingsdialog.cc:1220 ../src/settingsdialog.cc:1279
 #: ../src/settingsdialog.cc:1327 ../glade/mainwindow.glade:314
-#: ../glade/mainwindow.glade:716 ../glade/settingsdialog.glade:3978
+#: ../glade/mainwindow.glade:716 ../glade/settingsdialog.glade:3989
 msgid "Search Spy"
 msgstr ""
 
@@ -892,7 +892,7 @@ msgstr ""
 #: ../src/favoritehubs.cc:73 ../src/favoritehubs.cc:122
 #: ../src/favoritehubs.cc:291 ../src/favoritehubs.cc:407
 #: ../src/publichubs.cc:41 ../src/publichubs.cc:156 ../src/publichubs.cc:292
-#: ../glade/settingsdialog.glade:6305
+#: ../glade/settingsdialog.glade:6316
 msgid "Name"
 msgstr ""
 
@@ -1038,11 +1038,11 @@ msgstr ""
 #: ../src/settingsdialog.cc:1275 ../src/search.cc:41
 #: ../glade/searchspy.glade:184 ../glade/searchspy.glade:249
 #: ../glade/mainwindow.glade:232 ../glade/mainwindow.glade:630
-#: ../glade/settingsdialog.glade:5739
+#: ../glade/settingsdialog.glade:5750
 msgid "Search"
 msgstr ""
 
-#: ../src/settingsdialog.cc:965 ../glade/settingsdialog.glade:2804
+#: ../src/settingsdialog.cc:965 ../glade/settingsdialog.glade:2815
 msgid "Sounds"
 msgstr ""
 
@@ -1111,7 +1111,7 @@ msgstr ""
 msgid "Operator"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1124 ../glade/settingsdialog.glade:3321
+#: ../src/settingsdialog.cc:1124 ../glade/settingsdialog.glade:3332
 msgid "Notify"
 msgstr ""
 
@@ -1214,7 +1214,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1225 ../src/search.cc:1632
 #: ../src/UserCommandMenu.cc:65 ../src/sharebrowser.cc:288
-#: ../glade/settingsdialog.glade:4024
+#: ../glade/settingsdialog.glade:4035
 msgid "Directory"
 msgstr ""
 
@@ -1385,7 +1385,7 @@ msgstr ""
 msgid "selected style failed"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2484 ../glade/settingsdialog.glade:6179
+#: ../src/settingsdialog.cc:2484 ../glade/settingsdialog.glade:6190
 msgid "Separator"
 msgstr ""
 
@@ -1401,7 +1401,7 @@ msgstr ""
 msgid "New list"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2844 ../glade/settingsdialog.glade:5921
+#: ../src/settingsdialog.cc:2844 ../glade/settingsdialog.glade:5932
 msgid "Favorite name"
 msgstr ""
 
@@ -1473,7 +1473,7 @@ msgid ""
 msgstr ""
 
 #: ../src/mainwindow.cc:207
-msgid "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
+msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr ""
 
 #: ../src/mainwindow.cc:223
@@ -1536,8 +1536,8 @@ msgid "Select file to Get TTH"
 msgstr ""
 
 #: ../src/previewmenu.cc:90 ../src/emoticonsdialog.cc:106
-#: ../glade/settingsdialog.glade:3195 ../glade/settingsdialog.glade:3788
-#: ../glade/settingsdialog.glade:3934 ../glade/settingsdialog.glade:5694
+#: ../glade/settingsdialog.glade:3206 ../glade/settingsdialog.glade:3799
+#: ../glade/settingsdialog.glade:3945 ../glade/settingsdialog.glade:5705
 msgid "Default"
 msgstr ""
 
@@ -1719,9 +1719,9 @@ msgstr ""
 #: ../src/search.cc:304 ../src/search.cc:374 ../src/sharebrowser.cc:480
 #: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1636
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
-#: ../glade/settingsdialog.glade:2728 ../glade/settingsdialog.glade:4041
-#: ../glade/settingsdialog.glade:4967 ../glade/settingsdialog.glade:4982
-#: ../glade/settingsdialog.glade:4997 ../glade/privatemessage.glade:118
+#: ../glade/settingsdialog.glade:2739 ../glade/settingsdialog.glade:4052
+#: ../glade/settingsdialog.glade:4978 ../glade/settingsdialog.glade:4993
+#: ../glade/settingsdialog.glade:5008 ../glade/privatemessage.glade:118
 #: ../glade/hub.glade:276
 msgid "Browse..."
 msgstr ""
@@ -1826,7 +1826,7 @@ msgstr ""
 msgid "Download to..."
 msgstr ""
 
-#: ../glade/sharebrowser.glade:258 ../glade/sharebrowser.glade:308
+#: ../glade/sharebrowser.glade:258 ../glade/sharebrowser.glade:315
 #: ../glade/transfers.glade:73
 msgid "User commands"
 msgstr ""
@@ -1839,6 +1839,10 @@ msgstr ""
 #: ../glade/downloadqueue.glade:204 ../glade/privatemessage.glade:129
 #: ../glade/hub.glade:287
 msgid "_Copy magnet"
+msgstr ""
+
+#: ../glade/sharebrowser.glade:308
+msgid "_Copy picture"
 msgstr ""
 
 #: ../glade/hash.glade:22
@@ -1873,7 +1877,7 @@ msgstr ""
 msgid "Move Down"
 msgstr ""
 
-#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5682
+#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5693
 msgid "Remove"
 msgstr ""
 
@@ -1947,7 +1951,7 @@ msgstr ""
 msgid "Top: >"
 msgstr ""
 
-#: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3895
+#: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3906
 msgid "Number of matches for the top"
 msgstr ""
 
@@ -1955,7 +1959,7 @@ msgstr ""
 msgid "Waiting:"
 msgstr ""
 
-#: ../glade/searchspy.glade:101 ../glade/settingsdialog.glade:3864
+#: ../glade/searchspy.glade:101 ../glade/settingsdialog.glade:3875
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
@@ -1965,7 +1969,7 @@ msgstr ""
 msgid "Frame:"
 msgstr ""
 
-#: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3834
+#: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3845
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
@@ -2268,7 +2272,7 @@ msgid "Homepage"
 msgstr ""
 
 #: ../glade/mainwindow.glade:416
-msgid "Source (svn)"
+msgid "Source (git)"
 msgstr ""
 
 #: ../glade/mainwindow.glade:430
@@ -2280,7 +2284,7 @@ msgid "Wiki of project"
 msgstr ""
 
 #: ../glade/mainwindow.glade:463
-msgid "Changelog (svn)"
+msgid "Changelog (git)"
 msgstr ""
 
 #: ../glade/mainwindow.glade:482
@@ -2507,13 +2511,13 @@ msgstr ""
 msgid "<b>What would you like to do?</b>"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1752 ../glade/settingsdialog.glade:6075
-#: ../glade/settingsdialog.glade:6568 ../glade/settingsdialog.glade:6609
+#: ../glade/mainwindow.glade:1752 ../glade/settingsdialog.glade:6086
+#: ../glade/settingsdialog.glade:6579 ../glade/settingsdialog.glade:6620
 msgid "gtk-cancel"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1762 ../glade/settingsdialog.glade:6580
-#: ../glade/settingsdialog.glade:6632
+#: ../glade/mainwindow.glade:1762 ../glade/settingsdialog.glade:6591
+#: ../glade/settingsdialog.glade:6643
 msgid "gtk-ok"
 msgstr ""
 
@@ -2663,8 +2667,8 @@ msgstr ""
 
 #: ../glade/settingsdialog.glade:1300 ../glade/settingsdialog.glade:1315
 #: ../glade/settingsdialog.glade:1344 ../glade/settingsdialog.glade:1359
-#: ../glade/settingsdialog.glade:1559 ../glade/settingsdialog.glade:4646
-#: ../glade/settingsdialog.glade:4863
+#: ../glade/settingsdialog.glade:1559 ../glade/settingsdialog.glade:4657
+#: ../glade/settingsdialog.glade:4874
 msgid "KiB"
 msgstr ""
 
@@ -2757,27 +2761,27 @@ msgstr ""
 msgid "<b>Shared directories</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2136
-msgid "Upload slots"
-msgstr ""
-
-#: ../glade/settingsdialog.glade:2149
-msgid "KiB/s"
-msgstr ""
-
-#: ../glade/settingsdialog.glade:2176
+#: ../glade/settingsdialog.glade:2119
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2195
+#: ../glade/settingsdialog.glade:2147
+msgid "Upload slots"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2176
+msgid "Pictures"
+msgstr ""
+
+#: ../glade/settingsdialog.glade:2206
 msgid "Sharing"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2242
+#: ../glade/settingsdialog.glade:2253
 msgid "<b>Options</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2271
+#: ../glade/settingsdialog.glade:2282
 msgid ""
 "Top\n"
 "Left\n"
@@ -2785,11 +2789,11 @@ msgid ""
 "Bottom"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2288
+#: ../glade/settingsdialog.glade:2299
 msgid "<b>Tab Position</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2312
+#: ../glade/settingsdialog.glade:2323
 msgid ""
 "Icons\n"
 "Text\n"
@@ -2799,15 +2803,15 @@ msgid ""
 "System default"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2331
+#: ../glade/settingsdialog.glade:2342
 msgid "<b>Main Toolbar Style</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2372
+#: ../glade/settingsdialog.glade:2383
 msgid "<b>Default away message</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2393
+#: ../glade/settingsdialog.glade:2404
 msgid ""
 "%a abbreviated weekday name.\n"
 "%b abbreviated month name.\n"
@@ -2819,380 +2823,380 @@ msgid ""
 "see man strftime for details."
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2408
+#: ../glade/settingsdialog.glade:2419
 msgid "<b>Timestamps</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2432 ../glade/settingsdialog.glade:2495
+#: ../glade/settingsdialog.glade:2443 ../glade/settingsdialog.glade:2506
 msgid "Note: Most of these options require that you restart the application"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2445 ../glade/settingsdialog.glade:3994
+#: ../glade/settingsdialog.glade:2456 ../glade/settingsdialog.glade:4005
 msgid "Appearance"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2481
+#: ../glade/settingsdialog.glade:2492
 msgid "<b>Tab bolding on content change</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2511
+#: ../glade/settingsdialog.glade:2522
 msgid "Tabs"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2552
+#: ../glade/settingsdialog.glade:2563
 msgid "<b>Auto-open on startup</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2590
+#: ../glade/settingsdialog.glade:2601
 msgid "<b>Window Options</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2631
+#: ../glade/settingsdialog.glade:2642
 msgid "<b>Confirmation Dialog Options</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2651
+#: ../glade/settingsdialog.glade:2662
 msgid "Windows"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2687
+#: ../glade/settingsdialog.glade:2698
 msgid "<b>Sounds</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2705
+#: ../glade/settingsdialog.glade:2716
 msgid "Play"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2756
+#: ../glade/settingsdialog.glade:2767
 msgid "Every time a private message is received"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2768
+#: ../glade/settingsdialog.glade:2779
 msgid "When a private message window is opened"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2782
+#: ../glade/settingsdialog.glade:2793
 msgid "<b>Private message sound</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2848
+#: ../glade/settingsdialog.glade:2859
 msgid "<b>Available styles</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2880
+#: ../glade/settingsdialog.glade:2891
 msgid "<b>Preview styles</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2898
+#: ../glade/settingsdialog.glade:2909
 msgid "Bold Authors of message in chat"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2917
+#: ../glade/settingsdialog.glade:2928
 msgid "Back color"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2927
+#: ../glade/settingsdialog.glade:2938
 msgid "Text color"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2940
+#: ../glade/settingsdialog.glade:2951
 msgid "Text style"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2953
+#: ../glade/settingsdialog.glade:2964
 msgid "Default styles"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:2966
+#: ../glade/settingsdialog.glade:2977
 msgid "Black/White"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3004
+#: ../glade/settingsdialog.glade:3015
 msgid "Colors & Fonts"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3042
+#: ../glade/settingsdialog.glade:3053
 msgid "<b>Notify</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3077
+#: ../glade/settingsdialog.glade:3088
 msgid "<b>Title</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3106
+#: ../glade/settingsdialog.glade:3117
 msgid "<b>Icon size</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3133
+#: ../glade/settingsdialog.glade:3144
 msgid "Test"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3158
+#: ../glade/settingsdialog.glade:3169
 msgid "Icon..."
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3182
+#: ../glade/settingsdialog.glade:3193
 msgid "None icon"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3251
+#: ../glade/settingsdialog.glade:3262
 msgid "Maximum message length (0 = infinite)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3267
+#: ../glade/settingsdialog.glade:3278
 msgid "Show only when the application is not active."
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3282
+#: ../glade/settingsdialog.glade:3293
 msgid "<b>Private message</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3299 ../glade/settingsdialog.glade:6145
+#: ../glade/settingsdialog.glade:3310 ../glade/settingsdialog.glade:6156
 msgid "PM"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3361
+#: ../glade/settingsdialog.glade:3372
 msgid "<b>Icons</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3393
+#: ../glade/settingsdialog.glade:3404
 msgid "<b>Text styles</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3415
+#: ../glade/settingsdialog.glade:3426
 msgid "<b>Current theme name:</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3425
+#: ../glade/settingsdialog.glade:3436
 msgid "theme"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3448
+#: ../glade/settingsdialog.glade:3459
 msgid "Export..."
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3460
+#: ../glade/settingsdialog.glade:3471
 msgid "Import..."
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3485
+#: ../glade/settingsdialog.glade:3496
 msgid "Default icons"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3498
+#: ../glade/settingsdialog.glade:3509
 msgid "System icons"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3511
+#: ../glade/settingsdialog.glade:3522
 msgid "Theme default"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3533
+#: ../glade/settingsdialog.glade:3544
 msgid "Themes"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3571
+#: ../glade/settingsdialog.glade:3582
 msgid "<b>Toolbar buttons</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3588
+#: ../glade/settingsdialog.glade:3599
 msgid "Toolbar"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3632
+#: ../glade/settingsdialog.glade:3643
 msgid "New string or TTH"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3663
+#: ../glade/settingsdialog.glade:3674
 msgid "Adding string or TTH in the top"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3695
+#: ../glade/settingsdialog.glade:3706
 msgid "State of preparedness"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3727
+#: ../glade/settingsdialog.glade:3738
 msgid "Matches"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3759
+#: ../glade/settingsdialog.glade:3770
 msgid "Updating string or TTH"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3807
+#: ../glade/settingsdialog.glade:3818
 msgid "<b>Colors</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3844
+#: ../glade/settingsdialog.glade:3855
 msgid "Frame (size)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3874
+#: ../glade/settingsdialog.glade:3885
 msgid "Waiting (seconds)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3905
+#: ../glade/settingsdialog.glade:3916
 msgid "Top (number of matches, more than)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3953
+#: ../glade/settingsdialog.glade:3964
 msgid "<b>Frame</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4060
+#: ../glade/settingsdialog.glade:4071
 msgid "Log main chat"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4080 ../glade/settingsdialog.glade:4123
-#: ../glade/settingsdialog.glade:4166 ../glade/settingsdialog.glade:4209
+#: ../glade/settingsdialog.glade:4091 ../glade/settingsdialog.glade:4134
+#: ../glade/settingsdialog.glade:4177 ../glade/settingsdialog.glade:4220
 msgid "Format"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4103
+#: ../glade/settingsdialog.glade:4114
 msgid "Log private chat"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4146
+#: ../glade/settingsdialog.glade:4157
 msgid "Log downloads"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4189
+#: ../glade/settingsdialog.glade:4200
 msgid "Log uploads"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4232
+#: ../glade/settingsdialog.glade:4243
 msgid "Log system messages"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4247
+#: ../glade/settingsdialog.glade:4258
 msgid "Log status messages"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4262
+#: ../glade/settingsdialog.glade:4273
 msgid "Log filelist transfers"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4278
+#: ../glade/settingsdialog.glade:4289
 msgid "<b>Logging</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4295
+#: ../glade/settingsdialog.glade:4306
 msgid "Logs"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4334 ../glade/settingsdialog.glade:5183
+#: ../glade/settingsdialog.glade:4345 ../glade/settingsdialog.glade:5194
 msgid "Advanced"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4448
+#: ../glade/settingsdialog.glade:4459
 msgid "User Commands"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4474
+#: ../glade/settingsdialog.glade:4485
 msgid "Max hash speed"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4486
+#: ../glade/settingsdialog.glade:4497
 msgid "PM history"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4498
+#: ../glade/settingsdialog.glade:4509
 msgid "Mini slot size"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4510
+#: ../glade/settingsdialog.glade:4521
 msgid "Max filelist size"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4624
+#: ../glade/settingsdialog.glade:4635
 msgid "MiB/s"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4658
+#: ../glade/settingsdialog.glade:4669
 msgid "MiB"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4690
+#: ../glade/settingsdialog.glade:4701
 msgid "Write buffer size"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4701
+#: ../glade/settingsdialog.glade:4712
 msgid "Search history"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4713
+#: ../glade/settingsdialog.glade:4724
 msgid "Bind address"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4725
+#: ../glade/settingsdialog.glade:4736
 msgid "Socket read buffer"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4737
+#: ../glade/settingsdialog.glade:4748
 msgid "Socket write buffer"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4749
+#: ../glade/settingsdialog.glade:4760
 msgid "Auto refresh time"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4892 ../glade/settingsdialog.glade:4904
+#: ../glade/settingsdialog.glade:4903 ../glade/settingsdialog.glade:4915
 msgid "B"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4940
+#: ../glade/settingsdialog.glade:4951
 msgid "Experts Only"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5042
+#: ../glade/settingsdialog.glade:5053
 msgid "Trusted certificates path"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5056
+#: ../glade/settingsdialog.glade:5067
 msgid "Certificate file"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5070
+#: ../glade/settingsdialog.glade:5081
 msgid "Private key file"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5086
+#: ../glade/settingsdialog.glade:5097
 msgid "<b>Certificate Paths</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5122
+#: ../glade/settingsdialog.glade:5133
 msgid "<b>Other Security Options</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5140
+#: ../glade/settingsdialog.glade:5151
 msgid "Generate certificates"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5167
+#: ../glade/settingsdialog.glade:5178
 msgid "Security Certificates"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5224 ../glade/settingsdialog.glade:5467
+#: ../glade/settingsdialog.glade:5235 ../glade/settingsdialog.glade:5478
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5261 ../glade/settingsdialog.glade:5504
+#: ../glade/settingsdialog.glade:5272 ../glade/settingsdialog.glade:5515
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5289
+#: ../glade/settingsdialog.glade:5300
 msgid "<b>Transfer Rate Limiting</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5316
+#: ../glade/settingsdialog.glade:5327
 msgid "Use second set of bandwidth limits"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5338
+#: ../glade/settingsdialog.glade:5349
 msgid "from"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5348 ../glade/settingsdialog.glade:5391
+#: ../glade/settingsdialog.glade:5359 ../glade/settingsdialog.glade:5402
 msgid ""
 "Midnight\n"
 "1AM\n"
@@ -3220,145 +3224,145 @@ msgid ""
 "11PM"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5381
+#: ../glade/settingsdialog.glade:5392
 msgid "to"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5426
+#: ../glade/settingsdialog.glade:5437
 msgid "<b>Secondary Transfer Rate Limiting</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5544
+#: ../glade/settingsdialog.glade:5555
 msgid "Upload Slots"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5572
+#: ../glade/settingsdialog.glade:5583
 msgid "<b>Secondary Transfer Rate Settings</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5605
+#: ../glade/settingsdialog.glade:5616
 msgid ""
 "Bandwidth\n"
 "Limiting"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5649
+#: ../glade/settingsdialog.glade:5660
 msgid "Add"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5658
+#: ../glade/settingsdialog.glade:5669
 msgid "Modify"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5670
+#: ../glade/settingsdialog.glade:5681
 msgid "Rename"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5711
+#: ../glade/settingsdialog.glade:5722
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5724
+#: ../glade/settingsdialog.glade:5735
 msgid "<b>Search types</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5792 ../glade/publichubs.glade:190
+#: ../glade/settingsdialog.glade:5803 ../glade/publichubs.glade:190
 msgid "Configure hub lists"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5882 ../glade/publichubs.glade:276
+#: ../glade/settingsdialog.glade:5893 ../glade/publichubs.glade:276
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6054
+#: ../glade/settingsdialog.glade:6065
 msgid "Choose a File"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6085
+#: ../glade/settingsdialog.glade:6096
 msgid "gtk-open"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6103
+#: ../glade/settingsdialog.glade:6114
 msgid "Modify User Command"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6129
+#: ../glade/settingsdialog.glade:6140
 msgid "Raw"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6163
+#: ../glade/settingsdialog.glade:6174
 msgid "Chat"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6193
+#: ../glade/settingsdialog.glade:6204
 msgid "<b>Command Type</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6216
+#: ../glade/settingsdialog.glade:6227
 msgid "Search Menu"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6231
+#: ../glade/settingsdialog.glade:6242
 msgid "Chat Menu"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6246
+#: ../glade/settingsdialog.glade:6257
 msgid "Filelist Menu"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6263
+#: ../glade/settingsdialog.glade:6274
 msgid "Hub Menu"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6277
+#: ../glade/settingsdialog.glade:6288
 msgid "<b>Context</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6333
+#: ../glade/settingsdialog.glade:6344
 msgid "Command"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6364
+#: ../glade/settingsdialog.glade:6375
 msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6395
+#: ../glade/settingsdialog.glade:6406
 msgid "To (empty for selected user)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6423
+#: ../glade/settingsdialog.glade:6434
 msgid "Send once per nick"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6439
+#: ../glade/settingsdialog.glade:6450
 msgid "<b>Parameters</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6475
+#: ../glade/settingsdialog.glade:6486
 msgid "<b>Text sent to hub</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6540
+#: ../glade/settingsdialog.glade:6551
 msgid "Color select"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6557
+#: ../glade/settingsdialog.glade:6568
 msgid "gtk-help"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6588
+#: ../glade/settingsdialog.glade:6599
 msgid "Font select"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6620
+#: ../glade/settingsdialog.glade:6631
 msgid "gtk-apply"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6662
+#: ../glade/settingsdialog.glade:6673
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6730
+#: ../glade/settingsdialog.glade:6741
 msgid "gtk-edit"
 msgstr ""
 

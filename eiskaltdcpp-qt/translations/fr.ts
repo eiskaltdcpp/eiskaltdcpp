@@ -1948,7 +1948,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Source (svn)</source>
-        <translation>Source (svn)</translation>
+        <translation type="obsolete">Source (svn)</translation>
     </message>
     <message>
         <source>Report a Bug</source>
@@ -1960,11 +1960,11 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Changelog (svn)</source>
-        <translation>Changelog (svn)</translation>
+        <translation type="obsolete">Changelog (svn)</translation>
     </message>
     <message>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
+        <translation type="obsolete">http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
     <message>
         <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
@@ -2061,6 +2061,18 @@ Please check your connection settings</source>
     <message>
         <source>%1 / %2</source>
         <translation>%1 / %2</translation>
+    </message>
+    <message>
+        <source>Source (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changelog (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2950,19 +2962,19 @@ Clés:
     </message>
     <message>
         <source>Name</source>
-        <translation>Nom</translation>
+        <translation type="obsolete">Nom</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Taille</translation>
+        <translation type="obsolete">Taille</translation>
     </message>
     <message>
         <source>Exact size</source>
-        <translation>Taille exacte</translation>
+        <translation type="obsolete">Taille exacte</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Total size: %1</source>
