@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-10-10 20:29+0300\n"
-"PO-Revision-Date: 2010-09-25 13:20+0200\n"
+"PO-Revision-Date: 2010-10-27 12:58+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -103,6 +103,8 @@ msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
+"Helyi hálózat és lehetséges NAT észlelve, kísérlet a portok feltérképezésére "
+"UPnP használatával ..."
 
 #: ../ConnectivityManager.cpp:110
 msgid ""
@@ -284,11 +286,11 @@ msgstr "UPnP implementáció nem elérhető"
 
 #: ../UPnPManager.cpp:46
 msgid "Another UPnP port mapping attempt is in progress..."
-msgstr ""
+msgstr "Egy másik UPnP port feltérképezés folyamatban van ..."
 
 #: ../UPnPManager.cpp:74
 msgid "Failed to initialize the %1% interface"
-msgstr ""
+msgstr "%1% interfész inicializálása nem sikerült"
 
 #: ../UPnPManager.cpp:78
 msgid " Transfer Port (%1% TCP)"
@@ -296,7 +298,7 @@ msgstr " Átviteli port (%1% TCP)"
 
 #: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
 msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr ""
+msgstr "A(z) %1% interfésznek nem sikerült a(z) %2% %3% portok felderítése"
 
 #: ../UPnPManager.cpp:83
 msgid " Encrypted Transfer Port (%1% TCP)"
