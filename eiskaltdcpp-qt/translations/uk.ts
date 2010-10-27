@@ -5926,10 +5926,11 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation>Чат</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsGUI.ui" line="246"/>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="obsolete">Якщо відмічено, ви будете бачити смайли навіть в середині слів.
+        <translation type="unfinished">Якщо відмічено, ви будете бачити смайли навіть в середині слів.
 Якщо не відмічено, ви будете бачити смайли, якщо тільки
 вони ізольовані від інших слів пробілами.</translation>
     </message>
@@ -5939,9 +5940,10 @@ from other words by spaces.</source>
         <translation>Вхід/вихід тільки для обраних користувачів</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="obsolete">Залежить від налаштувань хабу: інформація про
+        <translation type="unfinished">Залежить від налаштувань хабу: інформація про
 них, як правило, доступна лише операторам</translation>
     </message>
     <message>
@@ -6007,22 +6009,6 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="483"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
         <translation>показувати кібібайти (КіБ) або кілобайти (КБ), і т.п.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="246"/>
-        <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated
-from other words by spaces.</source>
-        <translation>Якщо позначено, ви будете бачити смайли навіть всередині слів.
-Якщо не позначено, ви будете бачити смайли, якщо тільки
-вони ізольовані від інших слів пробілами.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="282"/>
-        <source>Depending on hub configuration: information about
-them is usually available only to operators</source>
-        <translation>Залежить від налаштувань хабу: інформація про них
-зазвичай доступна тільки операторам</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="321"/>
