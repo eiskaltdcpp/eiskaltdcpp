@@ -22,7 +22,7 @@
 #include "Client.h"
 
 #include "BufferedSocket.h"
-
+#include "DebugManager.h"
 #include "FavoriteManager.h"
 #include "TimerManager.h"
 #include "ClientManager.h"
@@ -146,6 +146,7 @@ void Client::send(const char* aMessage, size_t aLen) {
         return;
     updateActivity();
     sock->write(aMessage, aLen);
+    COMMAND_DEBUG(aMessage, DebugManager::HUB_OUT, getIpPort());
 }
 
 void Client::on(Connected) throw() {
@@ -226,8 +227,8 @@ string Client::getLocalIp() const {
     return localIp;
 }
 
-void Client::on(Line, const string& /*aLine*/) throw() {
-    updateActivity();
+void Client::on(Line, const string& aLine) throw() {
+    updateActivity();COMMAND_DEBUG(aLine, DebugManager::HUB_IN, getIpPort())
 }
 
 void Client::on(Second, uint32_t aTick) throw() {

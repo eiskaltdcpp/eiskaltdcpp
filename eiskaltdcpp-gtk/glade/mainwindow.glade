@@ -256,6 +256,13 @@
                       </widget>
                     </child>
                     <child>
+                      <widget class="GtkMenuItem" id="cmdDebugMenuItem">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">CMDDebug Tab</property>
+                        <property name="use_underline">True</property>
+                      </widget>
+                    </child>
+                    <child>
                       <widget class="GtkSeparatorMenuItem" id="tools_separator_0">
                         <property name="visible">True</property>
                       </widget>

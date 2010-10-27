@@ -26,6 +26,7 @@
 #include "AdcCommand.h"
 #include "Transfer.h"
 #include "ScriptManager.h"
+#include "DebugManager.h"
 
 namespace dcpp {
 
@@ -51,6 +52,7 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
                 fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
         return;
         }
+    COMMAND_DEBUG(aLine, DebugManager::CLIENT_IN, getRemoteIp());
 
     if(aLine[0] == 'C' && !isSet(FLAG_NMDC)) {
         if(!Text::validateUtf8(aLine)) {

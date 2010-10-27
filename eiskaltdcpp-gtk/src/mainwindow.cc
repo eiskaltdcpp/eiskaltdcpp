@@ -53,6 +53,7 @@
 #include "adlsearch.hh"
 #include "WulforUtil.hh"
 #include "Version.h"
+#include "cmddebug.hh"
 
 using namespace std;
 using namespace dcpp;
@@ -187,8 +188,7 @@ MainWindow::MainWindow():
     //TTHFileDialog
     g_signal_connect(getWidget("TTHFileMenu"), "activate", G_CALLBACK(onTTHFileDialog_gui), (gpointer)this);
     g_signal_connect(getWidget("buttonfile"), "clicked", G_CALLBACK(onTTHFileButton_gui), (gpointer)this);
-    //GtkWidget *buttonf = getWidget("filechooserbutton");
-    //g_signal_connect(buttonf, "dialog",G_CALLBACK(onFileTTHSet), (gpointer)this);
+    g_signal_connect(getWidget("cmdDebugMenuItem"), "activate", G_CALLBACK(onDebugCMD), (gpointer)this);
 
     // Help menu
     g_object_set_data_full(G_OBJECT(getWidget("homeMenuItem")), "link",
@@ -701,7 +701,19 @@ void MainWindow::showSearchADL_gui()
 
         raisePage_gui(entry->getContainer());
 }
+void MainWindow::showCmdDebug_gui()
+{
+	BookEntry *entry = findBookEntry(Entry::CMD);
 
+	if(entry == NULL)
+	{
+		entry = new cmddebug();
+		addBookEntry_gui(entry);
+
+	}
+	raisePage_gui(entry->getContainer());
+
+}
 void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string hubUrl, string message, bool useSetting)
 {
     BookEntry *entry = findBookEntry(Entry::PRIVATE_MESSAGE, cid);
@@ -1819,6 +1831,12 @@ void MainWindow::onLinkClicked_gui(GtkWidget *widget, gpointer data)
 {
     string link = (gchar*) g_object_get_data(G_OBJECT(widget), "link");
     WulforUtil::openURI(link);
+}
+
+void MainWindow::onDebugCMD(GtkWidget *widget, gpointer data)
+{
+	MainWindow *mw = (MainWindow *)data;
+	mw->showCmdDebug_gui();
 }
 
 void MainWindow::autoConnect_client()

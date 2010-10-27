@@ -48,6 +48,8 @@
 #ifdef DHT
 #include "dht/DHT.h"
 #endif
+#include "DebugManager.h"
+
 #ifdef _STLP_DEBUG
 void __stl_debug_terminate() {
     int* x = 0;
@@ -101,6 +103,8 @@ void startup(void (*f)(void*, const string&), void* p) {
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
 #endif
+    DebugManager::newInstance();
+
     SettingsManager::getInstance()->load();
 #ifdef STDIPFILTER
     IPFilter::getInstance()->loadList();
@@ -140,6 +144,7 @@ void shutdown() {
 #ifndef _WIN32 //*nix system
     ThrottleManager::getInstance()->shutdown();
 #endif
+    DebugManager::deleteInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::deleteInstance();
 #endif
