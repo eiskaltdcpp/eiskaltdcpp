@@ -2077,7 +2077,7 @@ msgstr ""
 "TTH\n"
 "Nick\n"
 "Hub\n"
-"Fájl típus"
+"Fájl típus\n"
 
 #: ../glade/search.glade:197
 msgid "Search options"
