@@ -3141,7 +3141,7 @@ Clés:
     </message>
     <message>
         <source>Hub Manager</source>
-        <translation>Gestionnaire de serveurs</translation>
+        <translation type="obsolete">Gestionnaire de serveurs</translation>
     </message>
 </context>
 <context>

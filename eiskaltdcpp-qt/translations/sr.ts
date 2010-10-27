@@ -2845,10 +2845,6 @@ Keys:
         <source>Other Widgets</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SpyFrame</name>

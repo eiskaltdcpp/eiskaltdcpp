@@ -3089,7 +3089,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Hub Manager</source>
-        <translation>Hub kezelő</translation>
+        <translation type="obsolete">Hub kezelő</translation>
     </message>
 </context>
 <context>

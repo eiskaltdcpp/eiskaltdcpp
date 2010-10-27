@@ -3514,9 +3514,8 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Шпионин</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="47"/>
         <source>Hub Manager</source>
-        <translation>Управление на хъбове</translation>
+        <translation type="obsolete">Управление на хъбове</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="48"/>

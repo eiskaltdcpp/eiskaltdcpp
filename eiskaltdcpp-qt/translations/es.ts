@@ -3403,9 +3403,8 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Espía</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="47"/>
         <source>Hub Manager</source>
-        <translation>Hub Manager</translation>
+        <translation type="obsolete">Hub Manager</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="48"/>

@@ -3846,9 +3846,8 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Шпион</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="47"/>
         <source>Hub Manager</source>
-        <translation>Менеджер хабов</translation>
+        <translation type="obsolete">Менеджер хабов</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="48"/>

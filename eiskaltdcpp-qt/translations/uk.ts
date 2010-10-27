@@ -2010,12 +2010,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1153"/>
         <source>Source (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Джерело (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1159"/>
         <source>Changelog (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Журнал змін (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1376"/>
@@ -3723,9 +3723,8 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
         <translation>Шпигун</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="47"/>
         <source>Hub Manager</source>
-        <translation>Менеджер хабів</translation>
+        <translation type="obsolete">Менеджер хабів</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="48"/>
@@ -5930,7 +5929,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished">Якщо відмічено, ви будете бачити смайли навіть в середині слів.
+        <translation>Якщо відмічено, ви будете бачити смайли навіть в середині слів.
 Якщо не відмічено, ви будете бачити смайли, якщо тільки
 вони ізольовані від інших слів пробілами.</translation>
     </message>
@@ -5943,7 +5942,7 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished">Залежить від налаштувань хабу: інформація про
+        <translation>Залежить від налаштувань хабу: інформація про
 них, як правило, доступна лише операторам</translation>
     </message>
     <message>

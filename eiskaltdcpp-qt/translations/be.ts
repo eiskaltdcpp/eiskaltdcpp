@@ -3718,9 +3718,8 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <translation>Шпег</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="47"/>
         <source>Hub Manager</source>
-        <translation>Кіраўнік асяродкаў</translation>
+        <translation type="obsolete">Кіраўнік асяродкаў</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="48"/>

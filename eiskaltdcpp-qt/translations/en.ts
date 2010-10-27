@@ -3344,11 +3344,6 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="47"/>
-        <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/SideBar.cpp" line="48"/>
         <source>Other Widgets</source>
         <translation type="unfinished"></translation>
