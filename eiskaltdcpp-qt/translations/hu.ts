@@ -2816,6 +2816,10 @@ Kapcsolók:
         <source>Bulgarian</source>
         <translation>Bolgár</translation>
     </message>
+    <message>
+        <source>Slovak</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>

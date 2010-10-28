@@ -2574,6 +2574,10 @@ Keys:
         <source>Bulgarian</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Slovak</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>

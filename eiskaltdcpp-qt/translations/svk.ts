@@ -3005,67 +3005,72 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Bulharsky</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="224"/>
+        <location filename="../src/SettingsGUI.cpp" line="99"/>
+        <source>Slovak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsGUI.cpp" line="226"/>
         <source>Local user</source>
         <translation>Lokálny užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="228"/>
+        <location filename="../src/SettingsGUI.cpp" line="230"/>
         <source>Operator</source>
         <translation>Operátor</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="232"/>
+        <location filename="../src/SettingsGUI.cpp" line="234"/>
         <source>Bot</source>
         <translation>Bot</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="236"/>
+        <location filename="../src/SettingsGUI.cpp" line="238"/>
         <source>Private: local user</source>
         <translation>Súkromné: lokálny užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="240"/>
+        <location filename="../src/SettingsGUI.cpp" line="242"/>
         <source>Private: user</source>
         <translation>Súkromné:užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="244"/>
+        <location filename="../src/SettingsGUI.cpp" line="246"/>
         <source>Chat: Say nick</source>
         <translation>Chat: Povedz prezývku</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="248"/>
+        <location filename="../src/SettingsGUI.cpp" line="250"/>
         <source>Status</source>
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="252"/>
+        <location filename="../src/SettingsGUI.cpp" line="254"/>
         <source>User</source>
         <translation>Užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="256"/>
+        <location filename="../src/SettingsGUI.cpp" line="258"/>
         <source>Favorite User</source>
         <translation>Obľúbený Užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="260"/>
+        <location filename="../src/SettingsGUI.cpp" line="262"/>
         <source>Time stamp</source>
         <translation>Časová značka</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="264"/>
+        <location filename="../src/SettingsGUI.cpp" line="266"/>
         <source>Message</source>
         <translation>Správa</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="496"/>
+        <location filename="../src/SettingsGUI.cpp" line="498"/>
         <source>Select translation</source>
         <translation>Vybrať preklad</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="496"/>
+        <location filename="../src/SettingsGUI.cpp" line="498"/>
         <source>Translation (*.qm)</source>
         <translation>Preklad (*.qm)</translation>
     </message>
@@ -4737,7 +4742,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="300"/>
         <source>IP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">IP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="307"/>
@@ -4783,7 +4788,7 @@ However, if you have a software firewall installed, you may need further configu
         <location filename="../ui/UISettingsConnection.ui" line="425"/>
         <location filename="../ui/UISettingsConnection.ui" line="440"/>
         <source>Limits</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Limity</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="554"/>
@@ -4809,7 +4814,7 @@ However, if you have a software firewall installed, you may need further configu
         <location filename="../ui/UISettingsConnection.ui" line="479"/>
         <location filename="../ui/UISettingsConnection.ui" line="625"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Stiahnúť</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="73"/>
@@ -4960,7 +4965,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="278"/>
         <source>Alias</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alias</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="287"/>
@@ -5498,12 +5503,12 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="550"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hľadať</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="555"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Stiahnúť</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="573"/>
@@ -5889,12 +5894,12 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formulár</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Základné nastavenia</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
@@ -6005,7 +6010,7 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="158"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Upraviť</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="168"/>
@@ -6025,7 +6030,7 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="229"/>
         <source>Restriction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Výnimky</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="237"/>
@@ -6152,7 +6157,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="98"/>
         <source>Total shared: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Celkovo zdieľané: %1</translation>
     </message>
 </context>
 <context>

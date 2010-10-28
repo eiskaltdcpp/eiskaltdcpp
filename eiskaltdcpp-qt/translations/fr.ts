@@ -2841,6 +2841,10 @@ Clés:
         <source>Bulgarian</source>
         <translation>Bulgare</translation>
     </message>
+    <message>
+        <source>Slovak</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
