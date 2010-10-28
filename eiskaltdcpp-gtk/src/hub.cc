@@ -842,7 +842,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                         ImgLimit--;
 
                     typedef Func4<Hub, string, int64_t, string, string> F4;
-                    target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + name;
+                    target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + tth;
                     F4 *func = new F4(this, &Hub::download_client, target, size, tth, cid);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
@@ -2783,6 +2783,16 @@ void Hub::getParams_client(ParamMap &params, Identity &id)
 }
 void Hub::download_client(string target, int64_t size, string tth, string cid)
 {
+   string real = realFile_client(tth);
+   if (!real.empty())
+   {
+       typedef Func2<Hub, string, string> F2;
+       F2 *f2 = new F2(this, &Hub::loadImage_gui, real, tth);
+       WulforManager::get()->dispatchGuiFunc(f2);
+
+       return;
+   }
+
    try
    {
        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
@@ -2798,6 +2808,21 @@ void Hub::download_client(string target, int64_t size, string tth, string cid)
        F2 *f2 = new F2(this, &Hub::loadImage_gui, target, tth);
        WulforManager::get()->dispatchGuiFunc(f2);
    }
+}
+
+string Hub::realFile_client(string tth)
+{
+   try
+   {
+       string virt = ShareManager::getInstance()->toVirtual(TTHValue(tth));
+       string real = ShareManager::getInstance()->toReal(virt);
+
+       return real;
+   }
+   catch (const Exception&)
+   {
+   }
+   return "";
 }
 
 void Hub::on(QueueManagerListener::Finished, QueueItem *item, const string& dir, int64_t avSpeed) throw()
@@ -2952,7 +2977,7 @@ void Hub::onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data)
        hub->imageLoad.second = (GtkWidget*)childs->data;
        g_list_free(childs);
 
-       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + name;
+       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + tth;
        typedef Func4<Hub, string, int64_t, string, string> F4;
        F4 *func = new F4(hub, &Hub::download_client, target, size, tth, cid);
        WulforManager::get()->dispatchClientFunc(func);
@@ -2986,7 +3011,23 @@ void Hub::onOpenImageClicked_gui(GtkMenuItem *item, gpointer data)
     string name, tth;
     const string magnet = hub->imageMagnet.first;
     WulforUtil::splitMagnet(magnet, name, size, tth);
-    string target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + name;
+    typedef Func1<Hub, string> F1;
+    F1 *f = new F1(hub, &Hub::openImage_client, tth);
+    WulforManager::get()->dispatchClientFunc(f);
+}
+
+void Hub::openImage_client(string tth)
+{
+    string real = realFile_client(tth);
+    typedef Func1<Hub, string> F1;
+    F1 *f = new F1(this, &Hub::openImage_gui, real.empty() ? tth : real);
+    WulforManager::get()->dispatchGuiFunc(f);
+}
+
+void Hub::openImage_gui(string target)
+{
+    if (!File::isAbsolute(target))
+       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + target;
     WulforUtil::openURI(target);
 }
 

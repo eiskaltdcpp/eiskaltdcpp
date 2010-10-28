@@ -102,6 +102,7 @@ class Hub:
         void removeFavoriteUser_gui(ParamMap params);
         void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string nick, std::string cid, std::string url, std::string message, bool useSetting);
         void loadImage_gui(std::string target, std::string tth);
+        void openImage_gui(std::string target);
 
         // GUI callbacks
         static gboolean onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data);
@@ -164,6 +165,8 @@ class Hub:
         void addAsFavorite_client();
         void getParams_client(ParamMap &user, dcpp::Identity &id);
         void download_client(std::string target, int64_t size, std::string tth, std::string cid);
+        std::string realFile_client(std::string tth);
+        void openImage_client(std::string tth);
 
         // Favorite callbacks
         virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) throw();
