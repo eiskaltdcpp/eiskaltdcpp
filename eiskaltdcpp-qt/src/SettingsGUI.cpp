@@ -95,6 +95,8 @@ void SettingsGUI::init(){
                 lang = tr("Spanish");
             else if (f == "bg.qm")
                 lang = tr("Bulgarian");
+            else if (f == "svk.qm")
+                lang = tr("Slovak");
 
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);

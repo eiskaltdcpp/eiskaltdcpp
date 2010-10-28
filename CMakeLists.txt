@@ -344,6 +344,7 @@ set (AllLanguages
             pl
             ru
             sr
+	    svk
             uk
             )
 if (NOT DEFINED linguas)
