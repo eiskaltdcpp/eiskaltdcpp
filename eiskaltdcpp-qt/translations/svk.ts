@@ -663,12 +663,12 @@ Kľúčové skratky:
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="12"/>
         <source>Finished uploads</source>
-        <translation>dokončené uploady</translation>
+        <translation>Dokončené uploady</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="13"/>
         <source>Finished downloads</source>
-        <translation>ukončené sťahovania</translation>
+        <translation>Ukončené sťahovania</translation>
     </message>
 </context>
 <context>
@@ -1542,19 +1542,19 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="535"/>
         <location filename="../src/MainWindow.cpp" line="2074"/>
         <source>Show/hide find frame</source>
-        <translation>Zobraziť/ukryť nájdený obraz</translation>
+        <translation>Zobraziť/Skryť políčko pre hľadanie</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="691"/>
         <location filename="../src/MainWindow.cpp" line="2231"/>
         <source>Hide free space bar</source>
-        <translation>Hide free space bar</translation>
+        <translation>Skryť ukazovateľ voľného miesta na disku</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="694"/>
         <location filename="../src/MainWindow.cpp" line="2226"/>
         <source>Show free space bar</source>
-        <translation>Show free space bar</translation>
+        <translation>Zobraziť ukazovateľ voľného miesta na disku</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="539"/>
@@ -1585,7 +1585,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1064"/>
         <location filename="../src/MainWindow.cpp" line="1849"/>
         <source>Open log file</source>
-        <translation>Otvoriť záznam súboru</translation>
+        <translation>Otvoriť záznam</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1068"/>
@@ -1654,7 +1654,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="701"/>
         <location filename="../src/MainWindow.cpp" line="2245"/>
         <source>Hide last status message</source>
-        <translation>Ukryť naposledy použitu správu o stave</translation>
+        <translation>Skryť naposledy použitú správu o stave</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1078"/>
@@ -1842,7 +1842,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1066"/>
         <source>Open download directory</source>
-        <translation>Otvoriť priečinok na sťahovanie</translation>
+        <translation>Otvoriť priečinok so stiahnutými súbormi</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1070"/>
@@ -1968,7 +1968,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="853"/>
         <source>Toggle main menu</source>
-        <translation>Prepnúť na hlavné menu</translation>
+        <translation>Zapnúť/Vypnúť hlavné menu</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="862"/>
@@ -2233,12 +2233,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2463"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovenský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2465"/>
         <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2495"/>
@@ -2606,7 +2606,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="186"/>
         <source>Only users with free slots</source>
-        <translation>Iba užívateľia s voľnými slotmi</translation>
+        <translation>Iba užívatelia s voľnými slotmi</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="193"/>
@@ -3017,7 +3017,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="99"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation>Slovensky</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="226"/>
@@ -3168,13 +3168,13 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <location filename="../src/SettingsSharing.cpp" line="296"/>
         <location filename="../src/SettingsSharing.cpp" line="298"/>
         <source>Enter restriction (in GiB)</source>
-        <translation>Zadaj výnimky (v GiB)</translation>
+        <translation>Zadať obmedzenie (v GiB)</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="296"/>
         <location filename="../src/SettingsSharing.cpp" line="298"/>
         <source>Restriction</source>
-        <translation>Výnimky</translation>
+        <translation>Obmedzenia</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="318"/>
@@ -4323,7 +4323,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="35"/>
         <source>Users</source>
-        <translation>Užívatelia</translation>
+        <translation>Užívateľov</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
@@ -4414,7 +4414,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="137"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation>Ukryť nájdený výraz (Ctrl+F)</translation>
+        <translation>Skryť políčko pre hľadanie (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="272"/>
@@ -6061,7 +6061,7 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
         <source>Restrictions</source>
-        <translation>Výnimky</translation>
+        <translation>Obmedzenia</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="224"/>
@@ -6071,7 +6071,7 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="229"/>
         <source>Restriction</source>
-        <translation>Výnimky</translation>
+        <translation>Obmedzenia</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="237"/>
