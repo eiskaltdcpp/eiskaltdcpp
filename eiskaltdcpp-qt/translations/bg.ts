@@ -42,22 +42,22 @@
     <message>
         <location filename="../src/ADLS.cpp" line="410"/>
         <source>B</source>
-        <translation>B</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="411"/>
         <source>KiB</source>
-        <translation>KiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="412"/>
         <source>MiB</source>
-        <translation>MiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="413"/>
         <source>GiB</source>
-        <translation>GiB</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -446,7 +446,7 @@ EiskaltDC++ е мулти-платформена програма използв
         <location filename="../src/DownloadQueueModel.cpp" line="55"/>
         <location filename="../src/DownloadQueueModel.cpp" line="237"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="141"/>
@@ -549,7 +549,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="58"/>
         <source>******</source>
-        <translation>******</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -665,7 +665,7 @@ EiskaltDC++ е мулти-платформена програма използв
         <location filename="../src/FileBrowserModel.cpp" line="34"/>
         <location filename="../src/FileBrowserModel.cpp" line="170"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -772,7 +772,7 @@ EiskaltDC++ е мулти-платформена програма използв
         <location filename="../src/FinishedTransfersModel.cpp" line="115"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="123"/>
         <source>/s</source>
-        <translation>/s</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -795,7 +795,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/HashProgress.cpp" line="125"/>
         <source>-.-- files/h, %1 files left</source>
-        <translation>-.-- файла/ч, оставащи %1 файла</translation>
+        <translation>-.-- файла/ч, остават %1 файла</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="95"/>
@@ -805,28 +805,28 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/HashProgress.cpp" line="126"/>
         <source>-.-- B/s, %1 left</source>
-        <translation>-.-- B/s, оставащи %1</translation>
+        <translation>-.-- B/s, остават %1</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="127"/>
         <location filename="../src/HashProgress.cpp" line="138"/>
         <source>-:--:--</source>
-        <translation>-:--:--</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="132"/>
         <source>%1 files/h, %2 files left</source>
-        <translation>%1 файла/ч, оставащи %2 файла</translation>
+        <translation>%1 файла/ч, остават %2 файла</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="133"/>
         <source>%1/s, %2 left, %3 shared</source>
-        <translation>%1/s, %2 оставащи, %3 споделено</translation>
+        <translation>%1/s, остават %2, споделени %3</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="147"/>
         <source>%p% %1 left</source>
-        <translation>%p% %1 оставащи</translation>
+        <translation>%p%, остават %1</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="151"/>
@@ -1532,37 +1532,37 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="586"/>
         <source>Ctrl+O</source>
-        <translation>Ctrl+O</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="497"/>
         <source>Ctrl+L</source>
-        <translation>Ctrl+L</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="546"/>
         <source>Ctrl+R</source>
-        <translation>Ctrl+R</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="558"/>
         <source>Ctrl+H</source>
-        <translation>Ctrl+H</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="598"/>
         <source>Ctrl+T</source>
-        <translation>Ctrl+T</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="606"/>
         <source>Ctrl+D</source>
-        <translation>Ctrl+D</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="687"/>
         <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="528"/>
@@ -1573,7 +1573,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="530"/>
         <source>Esc</source>
-        <translation>Esc</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="535"/>
@@ -1596,12 +1596,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="539"/>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="722"/>
         <source>Ctrl+F</source>
-        <translation>Ctrl+F</translation>
+        <translation></translation>
     </message>
     <message>
         <source>Downloaded</source>
@@ -1769,22 +1769,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1153"/>
         <source>Source (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Изходен код (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1159"/>
         <source>Changelog (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Списък с промени (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1376"/>
         <source>%1/s / %2/s</source>
-        <translation>%1/s / %2/s</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1377"/>
         <source>%1 / %2</source>
-        <translation>%1 / %2</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1399"/>
@@ -1825,7 +1825,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2350"/>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2367"/>
@@ -1890,22 +1890,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="524"/>
         <source>Ctrl+E</source>
-        <translation>Ctrl+E</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="552"/>
         <source>Ctrl+N</source>
-        <translation>Ctrl+N</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="564"/>
         <source>Ctrl+P</source>
-        <translation>Ctrl+P</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="570"/>
         <source>Ctrl+U</source>
-        <translation>Ctrl+U</translation>
+        <translation></translation>
     </message>
     <message>
         <source>Ctrl+A</source>
@@ -1950,32 +1950,32 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="862"/>
         <source>Ctrl+PgDown</source>
-        <translation>Ctrl+PgDown</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="863"/>
         <source>Ctrl+PgUp</source>
-        <translation>Ctrl+PgUp</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="864"/>
         <source>Ctrl+Down</source>
-        <translation>Ctrl+Down</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="865"/>
         <source>Ctrl+Up</source>
-        <translation>Ctrl+Up</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="866"/>
         <source>Ctrl+W</source>
-        <translation>Ctrl+W</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="867"/>
         <source>Ctrl+M</source>
-        <translation>Ctrl+M</translation>
+        <translation></translation>
     </message>
     <message>
         <source>Delete</source>
@@ -2081,7 +2081,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1155"/>
         <source>Report a Bug</source>
-        <translation>Докладване на грешки</translation>
+        <translation>Докладване на проблем</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1157"/>
@@ -2116,7 +2116,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1380"/>
         <source>/s</source>
-        <translation>/s</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1441"/>
@@ -2131,7 +2131,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1461"/>
         <source>%p%</source>
-        <translation>%p%</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2652"/>
@@ -2210,7 +2210,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2380"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation>Използвайте &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; за докладване на грешки.&lt;br/&gt;</translation>
+        <translation>Използвайте &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; за докладване на проблеми.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2382"/>
@@ -2245,7 +2245,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2402"/>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 0.4.10 и следващи&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(версия 0.4.10 и следващи)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2409"/>
@@ -2678,7 +2678,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="128"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="67"/>
@@ -2708,22 +2708,22 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="204"/>
         <source>B</source>
-        <translation>B</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="209"/>
         <source>KiB</source>
-        <translation>KiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="214"/>
         <source>MiB</source>
-        <translation>MiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="219"/>
         <source>GiB</source>
-        <translation>GiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="231"/>
@@ -2923,7 +2923,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
@@ -3121,7 +3121,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="99"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation>Словашки</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="226"/>
@@ -3234,7 +3234,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="186"/>
         <location filename="../src/SettingsSharing.cpp" line="310"/>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="250"/>
@@ -3728,24 +3728,24 @@ Do you want to stop it?
         <location filename="../src/TransferView.cpp" line="590"/>
         <location filename="../src/TransferView.cpp" line="758"/>
         <source>[S]</source>
-        <translation>[S]</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="592"/>
         <location filename="../src/TransferView.cpp" line="760"/>
         <source>[U]</source>
-        <translation>[U]</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="596"/>
         <source>[T]</source>
-        <translation>[T]</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="598"/>
         <location filename="../src/TransferView.cpp" line="763"/>
         <source>[Z]</source>
-        <translation>[Z]</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="600"/>
@@ -3755,7 +3755,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="601"/>
         <source> (%1%)</source>
-        <translation> (%1%)</translation>
+        <translation></translation>
     </message>
     <message>
         <source>Download complete...</source>
@@ -3852,7 +3852,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="103"/>
         <source>/s</source>
-        <translation>/s</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="279"/>
@@ -3994,27 +3994,27 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="166"/>
         <source>B</source>
-        <translation>B</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="171"/>
         <source>KiB</source>
-        <translation>KiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="176"/>
         <source>MiB</source>
-        <translation>MiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="181"/>
         <source>GiB</source>
-        <translation>GiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="242"/>
         <source>On</source>
-        <translation>Включване</translation>
+        <translation>Включено</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="229"/>
@@ -4042,11 +4042,7 @@ Do you want to stop it?
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="61"/>
@@ -4095,11 +4091,7 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -4112,12 +4104,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="29"/>
         <source>&gt;&gt;</source>
-        <translation>&gt;&gt;</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="45"/>
         <source>&lt;&lt;</source>
-        <translation>&lt;&lt;</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
@@ -4182,14 +4174,14 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="197"/>
         <location filename="../ui/UIAntiSpam.ui" line="263"/>
         <source>+</source>
-        <translation>+</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="144"/>
         <location filename="../ui/UIAntiSpam.ui" line="210"/>
         <location filename="../ui/UIAntiSpam.ui" line="276"/>
         <source>-</source>
-        <translation>–</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="157"/>
@@ -4226,7 +4218,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="330"/>
         <location filename="../ui/UIAntiSpam.ui" line="385"/>
         <source>&gt;&gt;&gt;</source>
-        <translation>&gt;&gt;&gt;</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
@@ -4239,7 +4231,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="356"/>
         <location filename="../ui/UIAntiSpam.ui" line="372"/>
         <source>&lt;&lt;&lt;</source>
-        <translation>&lt;&lt;&lt;</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
@@ -4337,7 +4329,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="112"/>
         <source>000.000.000.000; </source>
-        <translation>000.000.000.000; </translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="122"/>
@@ -4530,12 +4522,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="98"/>
         <source>&lt;</source>
-        <translation>&lt;</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="101"/>
         <source>Shift+F3</source>
-        <translation>Shift+F3</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="108"/>
@@ -4545,12 +4537,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="111"/>
         <source>&gt;</source>
-        <translation>&gt;</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="114"/>
         <source>F3</source>
-        <translation>F3</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="121"/>
@@ -4560,7 +4552,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="124"/>
         <source>A</source>
-        <translation>A</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="137"/>
@@ -4696,7 +4688,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIMagnet.ui" line="58"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="65"/>
@@ -4884,7 +4876,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="287"/>
         <source>000.000.000.000; </source>
-        <translation>000.000.000.000; </translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="161"/>
@@ -4924,7 +4916,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="265"/>
         <source>SOCKS5</source>
-        <translation>SOCKS5</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="300"/>
@@ -4949,7 +4941,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="334"/>
         <source>00000; </source>
-        <translation>00000; </translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="341"/>
@@ -5081,7 +5073,7 @@ SOCKS5 прокситата не са същите като HTTP прокси.
         <location filename="../ui/UISettingsConnection.ui" line="639"/>
         <location filename="../ui/UISettingsConnection.ui" line="673"/>
         <source>KiB/s</source>
-        <translation>KiB/s</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="513"/>
@@ -5110,7 +5102,7 @@ SOCKS5 прокситата не са същите като HTTP прокси.
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
         <source>Downloads</source>
-        <translation>Сваляния</translation>
+        <translation>Сваляне</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="36"/>
@@ -5720,7 +5712,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="512"/>
         <source>Middle click action</source>
-        <translation>Натискане със средно копче на мишката</translation>
+        <translation>Натискане със среден бутон на мишката</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="447"/>
@@ -5747,17 +5739,17 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="321"/>
         <source>Do not change focus on new incoming private messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Да не се променя фокуса при ново входящо лично съобщение</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="348"/>
         <source>Use emoticons panel</source>
-        <translation>Използване на панел с емотикони</translation>
+        <translation>Използване на лента с емотикони</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="355"/>
         <source>Autohide emoticons panel</source>
-        <translation>Автоматично скриване на панела с емотикони</translation>
+        <translation>Автоматично скриване на лентата с емотикони</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="450"/>
@@ -5767,12 +5759,12 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="464"/>
         <source>1024</source>
-        <translation>1024</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="469"/>
         <source>1000</source>
-        <translation>1000</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="486"/>
@@ -5941,7 +5933,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="116"/>
         <source>Downloads</source>
-        <translation>Свалени</translation>
+        <translation>Сваляне</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="151"/>
@@ -6016,7 +6008,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsNotification.ui" line="49"/>
         <location filename="../ui/UISettingsNotification.ui" line="192"/>
         <source>Your nick is mentioned in main chat</source>
-        <translation>Псевдонима Ви е споменат в чата</translation>
+        <translation>Псевдонима ви е споменат в чата</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="56"/>
@@ -6063,7 +6055,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="149"/>
         <source>D-Bus</source>
-        <translation>D-Bus</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="288"/>
@@ -6192,7 +6184,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="186"/>
         <source>MiB/s</source>
-        <translation>MiB/s</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -6262,12 +6254,12 @@ share is complete, share at follow-up activities start nulled.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="385"/>
         <source>2</source>
-        <translation>2</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="390"/>
         <source>4</source>
-        <translation>4</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="522"/>
@@ -6442,27 +6434,27 @@ EiskaltDC++ поддържа качване на файлове и списъц�
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="380"/>
         <source>1</source>
-        <translation>1</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="395"/>
         <source>8</source>
-        <translation>8</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="400"/>
         <source>16</source>
-        <translation>16</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="405"/>
         <source>32</source>
-        <translation>32</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="410"/>
         <source>64</source>
-        <translation>64</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="346"/>
@@ -6773,57 +6765,57 @@ the granted slot will not be closed.</source>
         <location filename="../src/WulforUtil.cpp" line="760"/>
         <location filename="../src/WulforUtil.cpp" line="774"/>
         <source>%1 B</source>
-        <translation>%1 B</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="762"/>
         <source>%1 KiB</source>
-        <translation>%1 KiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="764"/>
         <source>%1 MiB</source>
-        <translation>%1 MiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="766"/>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="768"/>
         <source>%1 TiB</source>
-        <translation>%1 TiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="770"/>
         <source>%1 PiB</source>
-        <translation>%1 PiB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="776"/>
         <source>%1 KB</source>
-        <translation>%1 KB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="778"/>
         <source>%1 MB</source>
-        <translation>%1 MB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="780"/>
         <source>%1 GB</source>
-        <translation>%1 GB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="782"/>
         <source>%1 TB</source>
-        <translation>%1 TB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="784"/>
         <source>%1 PB</source>
-        <translation>%1 PB</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="850"/>

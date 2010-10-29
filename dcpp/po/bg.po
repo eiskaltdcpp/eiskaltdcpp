@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-10-10 20:29+0300\n"
-"PO-Revision-Date: 2010-10-15 19:32+0300\n"
+"PO-Revision-Date: 2010-10-29 01:34+0300\n"
 "Last-Translator: PsyTrip <dimitrov.rusi@gmail.com>\n"
 "Language-Team: Bulgarian < >\n"
 "Language: Bulgarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: UTF-8\n"
-"Plural-Forms:  nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -354,20 +354,20 @@ msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
 msgstr ""
-"В момента тече обновяване на списъка с файловете, моля изчакайте преди да "
+"В момента тече опресняване на списъка с файловете, моля изчакайте преди да "
 "опитате да обновите отново"
 
 #: ../ShareManager.cpp:748
 msgid "File list refresh failed: %1%"
-msgstr "Грешка при обновяване на списъка с файлове: %1%"
+msgstr "Грешка при опресняване на списъка с файлове: %1%"
 
 #: ../ShareManager.cpp:770
 msgid "File list refresh initiated"
-msgstr "Започва обновяване на списъка с файлове"
+msgstr "Започва опресняване на списъка с файлове"
 
 #: ../ShareManager.cpp:795
 msgid "File list refresh finished"
-msgstr "Обновяването на списъка с файлове завърши"
+msgstr "Опресняването на списъка с файлове завърши"
 
 #: ../ShareManager.cpp:866
 msgid "File list %1% generated"

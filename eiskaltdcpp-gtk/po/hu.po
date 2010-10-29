@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-10-27 20:27+0300\n"
-"PO-Revision-Date: 2010-10-27 14:55+0200\n"
+"PO-Revision-Date: 2010-10-29 15:15+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -556,7 +556,7 @@ msgstr "Huboktól érkező privát üzenetek letiltása"
 
 #: ../src/hub.cc:3285
 msgid "Ignored private message from bot "
-msgstr ""
+msgstr "Némított privát üzenet a következőtől: "
 
 #: ../src/hub.cc:3302
 msgid "Nick already taken"
@@ -930,10 +930,14 @@ msgstr "Amarok player"
 #: ../src/settingsdialog.cc:875
 msgid "Set lowest priority for newly added files larger than low priority size"
 msgstr ""
+"Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új "
+"fájlokhoz"
 
 #: ../src/settingsdialog.cc:876
 msgid "Auto-drop slow sources for all queue items (except filelists)"
 msgstr ""
+"Lassú források automatikus eldobása a sor minden eléménél (kivéve "
+"fájl-listáknál)"
 
 #: ../src/settingsdialog.cc:877
 msgid "Remove slow filelists"
@@ -942,30 +946,32 @@ msgstr "Lassú fájl-listák eltávolítása"
 #: ../src/settingsdialog.cc:878
 msgid "Don't remove the source when auto-dropping, only disconnect"
 msgstr ""
+"Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás legyen"
 
 #: ../src/settingsdialog.cc:879
 msgid "Automatically search for alternative download locations"
-msgstr ""
+msgstr "Alternatív letöltési helyek automatikus keresése"
 
 #: ../src/settingsdialog.cc:880
 msgid "Automatically match queue for auto search hits"
 msgstr ""
+"Listák automatikus egyeztetése a letöltésekkel alternatív forrás találásakor"
 
 #: ../src/settingsdialog.cc:881
 msgid "Skip zero-byte files"
-msgstr ""
+msgstr "Nulla hosszúságú fájlok kihagyása"
 
 #: ../src/settingsdialog.cc:882
 msgid "Don't download files already in share"
-msgstr ""
+msgstr "Már megosztott fájlok letöltésének kihagyása"
 
 #: ../src/settingsdialog.cc:883
 msgid "Don't download files already in the queue"
-msgstr ""
+msgstr "Ne töltse le azokat a fájlokat, amik már a Letöltési sorban vannak"
 
 #: ../src/settingsdialog.cc:922
 msgid "Filter kick and NMDC debug messages"
-msgstr ""
+msgstr "Kick és NMDC debug  üzenetek szűrése"
 
 #: ../src/settingsdialog.cc:923
 msgid "Show status icon in the system tray"
@@ -973,23 +979,23 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:924
 msgid "Show timestamps in chat by default"
-msgstr ""
+msgstr "Időbélyeg megjelenítése a chaten alapértelmezés szerint"
 
 #: ../src/settingsdialog.cc:925
 msgid "View status messages in main chat"
-msgstr ""
+msgstr "Státusz üzenetek megjelenítése a chaten"
 
 #: ../src/settingsdialog.cc:926
 msgid "Show joins / parts in chat by default"
-msgstr ""
+msgstr "Ki és belépések mutatása a chaten alapértelmezés szerint"
 
 #: ../src/settingsdialog.cc:927
 msgid "Only show joins / parts for favorite users"
-msgstr ""
+msgstr "Csak a kedvenc felhasználók ki és belépésének mutatása a chaten"
 
 #: ../src/settingsdialog.cc:928
 msgid "Sort favorite users first"
-msgstr ""
+msgstr "Kedvenc felhasználók előre helyezése a listában"
 
 #: ../src/settingsdialog.cc:929
 msgid "Use OEM monospaced font for chat windows"
@@ -1071,12 +1077,12 @@ msgstr ""
 #: ../src/settingsdialog.cc:988 ../src/settingsdialog.cc:1163
 #: ../src/settingsmanager.cc:229
 msgid "Favorite user joined"
-msgstr ""
+msgstr "Kedvenc felhasználó belépett"
 
 #: ../src/settingsdialog.cc:989 ../src/settingsdialog.cc:1167
 #: ../src/settingsmanager.cc:231
 msgid "Favorite user quit"
-msgstr ""
+msgstr "Kedvenc felhasználó kilépett"
 
 #: ../src/settingsdialog.cc:1022
 msgid "General text"
@@ -1182,7 +1188,7 @@ msgstr "Frissítés"
 #: ../src/settingsdialog.cc:1215 ../src/settingsdialog.cc:1273
 #: ../glade/mainwindow.glade:555
 msgid "Hash"
-msgstr ""
+msgstr "Index"
 
 #: ../src/settingsdialog.cc:1216 ../src/settingsdialog.cc:1267
 #: ../glade/mainwindow.glade:511 ../glade/settingsdialog.glade:6
@@ -1235,11 +1241,11 @@ msgstr "ADLkeresés"
 
 #: ../src/settingsdialog.cc:1333
 msgid "Open file list window in the background"
-msgstr ""
+msgstr "Fájl-lista megnyitása a háttérben"
 
 #: ../src/settingsdialog.cc:1334
 msgid "Open new private messages from other users in the background"
-msgstr ""
+msgstr "Felhasználóktól kapott új privát üzenet megnyitása a háttérben"
 
 #: ../src/settingsdialog.cc:1335
 msgid "Open new window when using /join"
@@ -1247,11 +1253,11 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1336
 msgid "Ignore private messages from the hub"
-msgstr ""
+msgstr "A huboktól érkező privát üzenetek figyelmen kívül hagyása"
 
 #: ../src/settingsdialog.cc:1337
 msgid "Ignore private messages from bots"
-msgstr ""
+msgstr "A botoktól érkező privát üzenetek figyelmen kívül hagyása"
 
 #: ../src/settingsdialog.cc:1338
 msgid "Popup box to input password for hubs"
@@ -1259,19 +1265,20 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1343
 msgid "Confirm application exit"
-msgstr ""
+msgstr "Kilépés megerősítése"
 
 #: ../src/settingsdialog.cc:1344
 msgid "Confirm favorite hub removal"
-msgstr ""
+msgstr "Megerősítés kérése kedvenc hub eltávolításakor"
 
 #: ../src/settingsdialog.cc:1389
 msgid "Auto-away on minimize (and back on restore)"
 msgstr ""
+"Minimalizáláskor automatikus away mód (és maximalizáláskor visszavonás)"
 
 #: ../src/settingsdialog.cc:1390
 msgid "Automatically follow redirects"
-msgstr ""
+msgstr "Átirányítások automatikus követése"
 
 #: ../src/settingsdialog.cc:1391
 msgid "Clear search box after each search"
@@ -1282,6 +1289,8 @@ msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
 msgstr ""
+"Többször szereplő fájlok megosztásban tartása (a duplikációk nem növelik a "
+"megosztás méretét)"
 
 #: ../src/settingsdialog.cc:1393
 msgid "Don't delete file lists when exiting"
@@ -1293,11 +1302,11 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1395
 msgid "Enable segmented downloads"
-msgstr ""
+msgstr "Szegmentált letöltés engedélyezése"
 
 #: ../src/settingsdialog.cc:1396
 msgid "Enable automatic SFV checking"
-msgstr ""
+msgstr "Automatikus SFV ellenőrzés engedélyezése"
 
 #: ../src/settingsdialog.cc:1397
 msgid "Enable safe and compressed transfers"
@@ -1481,7 +1490,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:207
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
-msgstr ""
+msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 
 #: ../src/mainwindow.cc:223
 msgid "Welcome to "
@@ -1852,9 +1861,8 @@ msgid "_Copy magnet"
 msgstr "Magnet _másolása"
 
 #: ../glade/sharebrowser.glade:308
-#, fuzzy
 msgid "_Copy picture"
-msgstr "_Nick másolása"
+msgstr "_Kép másolása"
 
 #: ../glade/hash.glade:22
 msgid "<b>Processing file:</b>"
@@ -2311,9 +2319,8 @@ msgid "Homepage"
 msgstr "Weboldal"
 
 #: ../glade/mainwindow.glade:416
-#, fuzzy
 msgid "Source (git)"
-msgstr "Forrás (svn)"
+msgstr "Forrás (git)"
 
 #: ../glade/mainwindow.glade:430
 msgid "Report a Bug"
@@ -2324,9 +2331,8 @@ msgid "Wiki of project"
 msgstr "A project Wiki oldala"
 
 #: ../glade/mainwindow.glade:463
-#, fuzzy
 msgid "Changelog (git)"
-msgstr "Változások (svn)"
+msgstr "Változások (git)"
 
 #: ../glade/mainwindow.glade:482
 msgid "About EiskaltDC++"

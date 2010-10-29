@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="hu_HU" sourcelanguage="en_US">
 <context>
     <name>ADLS</name>
     <message>
@@ -2090,15 +2090,15 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Source (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Forrás (git)</translation>
     </message>
     <message>
         <source>Changelog (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Változások (git)</translation>
     </message>
     <message>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
     </message>
 </context>
 <context>
@@ -2818,7 +2818,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation>Szlovák</translation>
     </message>
 </context>
 <context>

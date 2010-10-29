@@ -3326,7 +3326,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SettingsGUI.cpp" line="99"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation>Словацька</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="226"/>

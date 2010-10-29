@@ -239,7 +239,7 @@ Kľúčové skratky:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="52"/>
         <source>Paused</source>
-        <translation>Pozastavené</translation>
+        <translation>Pozastaviť</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="55"/>
@@ -269,7 +269,7 @@ Kľúčové skratky:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="73"/>
         <source>Browse files</source>
-        <translation>Prehľiadať súbory</translation>
+        <translation>Prehliadať súbory</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="74"/>
@@ -753,12 +753,12 @@ Kľúčové skratky:
     <message>
         <location filename="../src/HashProgress.cpp" line="225"/>
         <source>Resume</source>
-        <translation>pokračovať</translation>
+        <translation>Pokračovať</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="222"/>
         <source>Pause</source>
-        <translation>prestávka</translation>
+        <translation>Prestávka</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="218"/>
@@ -822,7 +822,7 @@ Kľúčové skratky:
     <message>
         <location filename="../src/HubFrame.cpp" line="103"/>
         <source>Browse files</source>
-        <translation>prehľiadať súbory</translation>
+        <translation>Prehliadať súbory</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="104"/>
@@ -1267,7 +1267,7 @@ Kľúčové skratky:
     <message>
         <location filename="../src/HubFrame.cpp" line="133"/>
         <source>Copy data</source>
-        <translation>kopírovať dáta</translation>
+        <translation>Kopírovať dáta</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1008"/>
@@ -2003,7 +2003,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1003"/>
         <source>Download/Upload speed</source>
-        <translation>Rýchlosť sťahovania/uloadovania</translation>
+        <translation>Rýchlosť sťahovania/uploadovania</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1009"/>
@@ -2696,7 +2696,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="85"/>
         <source>Browse files</source>
-        <translation>Prehľiadať súbory</translation>
+        <translation>Prehliadať súbory</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="88"/>
@@ -3005,72 +3005,67 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Bulharsky</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="99"/>
-        <source>Slovak</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SettingsGUI.cpp" line="226"/>
+        <location filename="../src/SettingsGUI.cpp" line="224"/>
         <source>Local user</source>
         <translation>Lokálny užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="230"/>
+        <location filename="../src/SettingsGUI.cpp" line="228"/>
         <source>Operator</source>
         <translation>Operátor</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="234"/>
+        <location filename="../src/SettingsGUI.cpp" line="232"/>
         <source>Bot</source>
         <translation>Bot</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="238"/>
+        <location filename="../src/SettingsGUI.cpp" line="236"/>
         <source>Private: local user</source>
         <translation>Súkromné: lokálny užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="242"/>
+        <location filename="../src/SettingsGUI.cpp" line="240"/>
         <source>Private: user</source>
         <translation>Súkromné:užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="246"/>
+        <location filename="../src/SettingsGUI.cpp" line="244"/>
         <source>Chat: Say nick</source>
         <translation>Chat: Povedz prezývku</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="250"/>
+        <location filename="../src/SettingsGUI.cpp" line="248"/>
         <source>Status</source>
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="254"/>
+        <location filename="../src/SettingsGUI.cpp" line="252"/>
         <source>User</source>
         <translation>Užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="258"/>
+        <location filename="../src/SettingsGUI.cpp" line="256"/>
         <source>Favorite User</source>
         <translation>Obľúbený Užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="262"/>
+        <location filename="../src/SettingsGUI.cpp" line="260"/>
         <source>Time stamp</source>
         <translation>Časová značka</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="266"/>
+        <location filename="../src/SettingsGUI.cpp" line="264"/>
         <source>Message</source>
         <translation>Správa</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="498"/>
+        <location filename="../src/SettingsGUI.cpp" line="496"/>
         <source>Select translation</source>
         <translation>Vybrať preklad</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="498"/>
+        <location filename="../src/SettingsGUI.cpp" line="496"/>
         <source>Translation (*.qm)</source>
         <translation>Preklad (*.qm)</translation>
     </message>
@@ -3453,7 +3448,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../src/TransferView.cpp" line="44"/>
         <source>Browse files</source>
-        <translation>Prehľiadať súbory</translation>
+        <translation>Prehliadať súbory</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="47"/>
@@ -3652,12 +3647,12 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../src/TransferView.cpp" line="782"/>
         <source>Upload complete</source>
-        <translation>Uload dokončený</translation>
+        <translation>Upload dokončený</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="794"/>
         <source>Upload failed</source>
-        <translation>Uload zlyhal</translation>
+        <translation>Upload zlyhal</translation>
     </message>
 </context>
 <context>
@@ -4677,144 +4672,147 @@ If your computer is not behind a router all you have to do is to choose
 this option and usually you don&apos;t need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľ si tento režim ak je tvoj počítač pripojený priamo ku internetu.
+Nevyberaj si tento režim ak je tvoj počítač pripojený k routru alebo ak používaš extérny firewall.
+Ak nepoužívaš router, tak si vyber túto možnosť.
+Ak máš nainštalovaný firewall, tak bude možno potrebné nastaviť tvoj firewall na správne fungovanie EiskaltDC++.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="98"/>
         <source>Passive mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasívny mód</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="113"/>
         <source>Firewall with UPnP</source>
-        <translation type="unfinished"></translation>
+        <translation>Firewall s UPnP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="138"/>
         <source>External/WAN IP:</source>
-        <translation type="unfinished"></translation>
+        <translation>Extérna/WAN IP:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="287"/>
         <source>000.000.000.000; </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="161"/>
         <source>TCP port</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="168"/>
         <source>UDP port</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="175"/>
         <source>TLS port</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="152"/>
         <source>Don&apos;t allow Hub/UPnP to override</source>
-        <translation type="unfinished"></translation>
+        <translation>Nedovoliť nahradiť Hub(u)/UPnP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Auto detect connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky zistiť pripojenie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="229"/>
         <source>Outgoing connections</source>
-        <translation type="unfinished"></translation>
+        <translation>Odchádzajúce pripojenia</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="249"/>
         <source>Direct connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Priame spojenie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="265"/>
         <source>SOCKS5</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="300"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="307"/>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Užívateľ</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="314"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Heslo</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="321"/>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="334"/>
         <source>00000; </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="341"/>
         <source>Use to resolve hostnames</source>
-        <translation type="unfinished"></translation>
+        <translation>Použiť k vyriešeniu hostiteľov</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="398"/>
         <source>When enabled can hang program on exit.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="401"/>
         <source>Automatically update external IP (restart required)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky aktualizovať extérnu IP adresu (potrebný reštart)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="369"/>
         <source>DynDNS Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>DynDNS Adresa:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="425"/>
         <location filename="../ui/UISettingsConnection.ui" line="440"/>
         <source>Limits</source>
-        <translation type="unfinished">Limity</translation>
+        <translation>Limity</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="554"/>
         <source>Alternate speed limit at time from </source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaviť časový limit pre sťahovanie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="696"/>
         <source>Slots</source>
-        <translation type="unfinished"></translation>
+        <translation>Sloty</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="729"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozšírené</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="743"/>
         <source>Reconnect to hub(seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Znova pripojiť ku hubu(v sekundách)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="479"/>
         <location filename="../ui/UISettingsConnection.ui" line="625"/>
         <source>Download</source>
-        <translation type="unfinished">Stiahnúť</translation>
+        <translation>Sťahovanie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="73"/>
@@ -4823,7 +4821,9 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľte si tento mód ak máte zapnutý router alebo firewall.Bude pravdepodobne potrebné nastaviť TCP, UDP a TLS port forwarding.
+Bude potrebné nastaviť extérnu IP adresu vášho routra v nastaveniach nižšie, ak chcete aby sťahovania súborov prebiehali v poriadku.
+Zvoľte si tento mód ak predchádzajúce riešenia neboli úspešné.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="90"/>
@@ -4833,7 +4833,12 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľte si tento mód ak predchádzajúce módy neboli použiteľné. Tento mód zahrňuje nasledovné:
+EiskaltDC++ sa nebude pokúšať vytvoriť prichádzajúce spojenia ale iba odchádzajúce spojenia.
+Tento mód má nasledujúce obmedzenia:
+  * pri vyhľadávaní sa zobrazí iba 5 výsledkov na užívateľa;
+  * nebude možné sťahovať od pasívnych užívateľov;
+  * pravdepodobne nebude možné sťahovať alebo hľadať v určitých huboch.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="105"/>
@@ -4843,14 +4848,19 @@ Most routers do support UPnP but you may need to enable it
 in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľ tento mód ak sa nachádzate za firewallom alebo routrom, ktorý podporuje
+UPnP.
+Mnoho routrov podporuje UPnP ale treba ho zapnúť v routri.
+Týmto spôsobom EiskaltDC++ automaticky nastaví porty ak to bude potrebné na získanie extérnej IP adresy.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="244"/>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľ si tento mód ak môžes vytvoriť neobmedzené odchádzajúce pripojenie.
+Toto zahrňuje pripojenie ku hociakej IP adrese alebo portu.
+Ak si nie si istý zvoľ si túto možnosť.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="259"/>
@@ -4858,12 +4868,15 @@ Choose this option if unsure.</source>
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľ si tento mód ak môžes vytvoriť neobmedzené odchádzajúce pripojenie
+cez SOCKS proxy. Napíš tu aj výnimky pre pasívny mód.
+SOSKS5 proxy niesú totožné ako HTTP proxy.
+DC++ SOCKS5 nepodporuje GSSAPI.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="446"/>
         <source>Enable Throttle</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapnúť regulátor pre:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="493"/>
@@ -4871,23 +4884,23 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <location filename="../ui/UISettingsConnection.ui" line="639"/>
         <location filename="../ui/UISettingsConnection.ui" line="673"/>
         <source>KiB/s</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="513"/>
         <location filename="../ui/UISettingsConnection.ui" line="659"/>
         <source>Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="577"/>
         <source>to</source>
-        <translation type="unfinished"></translation>
+        <translation>do</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="591"/>
         <source>hour(s)</source>
-        <translation type="unfinished"></translation>
+        <translation>hodina(y)</translation>
     </message>
 </context>
 <context>
@@ -4935,77 +4948,78 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="159"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
-        <translation type="unfinished"></translation>
+        <translation>Poznámka: Kvôli zmene v nastaveniach rýchlosti sťahovania toto nieje 100% presné</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="172"/>
         <source>Public Hub lists</source>
-        <translation type="unfinished"></translation>
+        <translation>Verejný Hub zoznam </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="190"/>
         <source>Http proxy (hub list only)</source>
-        <translation type="unfinished"></translation>
+        <translation>Http proxy (iba hub list)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="197"/>
         <source>Configure Public Hub Lists</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaviť Public Hub List</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="221"/>
         <source>Download to</source>
-        <translation type="unfinished"></translation>
+        <translation>Stiahnúť do</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="273"/>
         <source>Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Cesta</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="278"/>
         <source>Alias</source>
-        <translation type="unfinished">Alias</translation>
+        <translation>Alias</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="287"/>
         <source>Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Fronta</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="293"/>
         <source>Auto-priority settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatické nastavenie priorít</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="352"/>
         <source>Highest priority max size (KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Najvyššia priorita: maximálna veľkosť v (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="368"/>
         <source>High priority max size (KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vysoká priorita: maximálna veľkosť v (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="384"/>
         <source>Normal priority max size (KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Normálna priorita: maximálna veľkosť v (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="400"/>
         <source>Low priority max size (KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nízka priorita: maximálna veľkosť v (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="429"/>
         <source>Auto-drop settings</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Auto-drop nastavenia</translatorcomment>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="449"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Skontrolovať každých x sekúnd, či je zdroj pomalý. (štandardne 10 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
@@ -5013,7 +5027,10 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ďalšia metóda pre obmedzenie súbežných sťahovaní, ktorá bola navrhnutá tak, aby
+ zabránila vzniku nových sťahovaní pri prekroční určitej hranice už existujúcich.
+Je meraná v kibibytes za sekundu,
+a hodnota nula vypne tento limit.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
@@ -5083,17 +5100,17 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="526"/>
         <source>Check every (s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Skontroluj každých(s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="542"/>
         <source>Min. elapsed (s)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mi</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="558"/>
         <source>Max inactivity (s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. neaktivita</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="574"/>
@@ -5463,7 +5480,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="355"/>
         <source>Autohide emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatické skrývanie panelu so smajlíkmi</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="450"/>
@@ -5473,22 +5490,22 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="464"/>
         <source>1024</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="469"/>
         <source>1000</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="486"/>
         <source>Timestamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Časová pečiatka</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="499"/>
         <source>hh:mm:ss</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="531"/>
@@ -5498,104 +5515,104 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="545"/>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyžiadať si/žiadať</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="550"/>
         <source>Search</source>
-        <translation type="unfinished">Hľadať</translation>
+        <translation>Hľadať</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="555"/>
         <source>Download</source>
-        <translation type="unfinished">Stiahnúť</translation>
+        <translation>Stiahnúť</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="573"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pamätať odchádzajúce správy (0 = don&apos;t remember)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="628"/>
         <source>Separator in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Oddeľovač pri chatovaní</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="642"/>
         <source>:</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="647"/>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="657"/>
         <source>Show country of users in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukázať krajinu pôvodu užívateľov pri chatovaní</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="678"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Farby</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="684"/>
         <source>Text colors in chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Farba textu pri chatovaní</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="706"/>
         <source>Highlighting of search results in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvýrazniť výsledky vyhľadávania pri chatovaní</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="715"/>
         <location filename="../ui/UISettingsGUI.ui" line="773"/>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Farba</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="735"/>
         <location filename="../ui/UISettingsGUI.ui" line="790"/>
         <source>Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Priehľadnosť</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="764"/>
         <source>Highlighting of already shared files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvýrazniť súbory, ktoré su zdieľané</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="827"/>
         <source>Fonts</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonty</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="258"/>
         <source>Show joins</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť užívateľov, ktorí su pripojení</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="275"/>
         <source>Show hidden users</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť užívateľov, ktorí sú skrytí</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="602"/>
         <source>Maximum paragraphs</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximum bodov</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="239"/>
         <source>Enable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapnúť smajlíkov</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Show icon in system tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť ikony v oznamovacom poli</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="251"/>
@@ -5605,17 +5622,17 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="293"/>
         <source>Ignore private messages from Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorovať súkromné správy z Hubu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="300"/>
         <source>Ignore private messages from Bot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorovať súkromné správy od Bota</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="314"/>
         <source>Redirect messages from Bot to the main chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Presmerovať správy od Bota do hlavného chatu</translation>
     </message>
 </context>
 <context>
@@ -5777,7 +5794,8 @@ them is usually available only to operators</source>
         <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation type="unfinished"></translation>
+        <translation>Ak vaše hudobné súbory nepodporuje Qt, tak môžte nastaviť váš vlastný hudobný prehrávač.
+Príklad: /usr/bin/mplayer</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="105"/>
@@ -5881,12 +5899,12 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="199"/>
         <source>Default hub encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Štandartné kódovanie hubu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="186"/>
         <source>MiB/s</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -5894,12 +5912,12 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Formulár</translation>
+        <translation>Formulár</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
-        <translation type="unfinished">Základné nastavenia</translation>
+        <translation>Základné nastavenia</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
@@ -5919,7 +5937,7 @@ will be unable to download any files from this folder.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="248"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozšírené</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="273"/>
@@ -5944,12 +5962,12 @@ share is complete, share at follow-up activities start nulled.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="385"/>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="390"/>
         <source>4</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="522"/>
@@ -5965,102 +5983,102 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="280"/>
         <source>Share hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zdieľať skryté súbory</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="33"/>
         <source>View share in simple mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť zdieľanie v jednoduchom móde</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="65"/>
         <source>Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Cesta</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Meno</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="75"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Veľkosť</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="116"/>
         <source>Exceptions</source>
-        <translation type="unfinished"></translation>
+        <translation>Výnimky</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="122"/>
         <source>Don&apos;t share files and folders containing:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nezdieľať súbory a priečinky, ktoré obsahujú:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Add new</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať nové</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="148"/>
         <source>Select and add the directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrať a pridať priečinok</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="158"/>
         <source>Edit</source>
-        <translation type="unfinished">Upraviť</translation>
+        <translation>Upraviť</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazať</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
         <source>Restrictions</source>
-        <translation type="unfinished"></translation>
+        <translation>Výnimky</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="224"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Zdieľané</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="229"/>
         <source>Restriction</source>
-        <translation type="unfinished">Výnimky</translation>
+        <translation>Výnimky</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="237"/>
         <source>All changes take effect only after restart</source>
-        <translation type="unfinished"></translation>
+        <translation>Všetky zmeny budú viditeľné až po reštarte</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="260"/>
         <source>Follow symlinks</source>
-        <translation type="unfinished"></translation>
+        <translation>Nasleduj symbolické odkazy</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="293"/>
         <source>Share temporary files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zdieľať dočasné súbory</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="304"/>
         <source>Run refresh share on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustiť obnovenie zdieľania súborov pri štarte programu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="311"/>
         <source>Auto remove non-existing directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky vymazať neexistujúce priečinky</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="339"/>
         <source>Private page mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Sukromné mapovanie stránky</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="420"/>
@@ -6075,17 +6093,17 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky otvoriť extra slot ak rýchlosť klesne pod (KiB/s, 0 = infinite)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="477"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatické obnovovanie (minutes, 0 = off)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="509"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximálna hash rýchlosť (MB/s) (0 = infinite)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="546"/>
@@ -6103,37 +6121,37 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="363"/>
         <source>Buffer size (MiB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Veľkosť buffera (MiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="380"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="395"/>
         <source>8</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="400"/>
         <source>16</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="405"/>
         <source>32</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="410"/>
         <source>64</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="346"/>
         <source>No reserve</source>
-        <translation type="unfinished"></translation>
+        <translation>Bez zálohy/rezervácie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="457"/>
@@ -6142,22 +6160,24 @@ an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
 If the speed of the original uploads increases,
 the granted slot will not be closed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ak priemerná rýchlosť uploadu padne pod určitú hodnotu, tak aplikácia pridá extra slot.
+Tieto sloty sú poskytované raz za  30 sekúnd 
+Ak rýchosť uploadovania vzrastie, tak tento extra slot sa uzavrie.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="493"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tu môžte nastaviť časový interval opätovného obnovovania vaších zdieľaných súborov.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="536"/>
         <source>Upload slots</source>
-        <translation type="unfinished"></translation>
+        <translation>Sloty pre upload</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="98"/>
         <source>Total shared: %1</source>
-        <translation type="unfinished">Celkovo zdieľané: %1</translation>
+        <translation>Celkovo zdieľané: %1</translation>
     </message>
 </context>
 <context>
