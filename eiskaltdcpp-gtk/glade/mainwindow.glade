@@ -1206,8 +1206,7 @@ Contributors
  Slovak translation
 
  Martin Durisin
- <martin.durisin@gmail.com>
- (for 2.1.0 and later)
+ (martin.durisin@gmail.com)
 </property>
     <property name="wrap_license">True</property>
     <child internal-child="vbox">
