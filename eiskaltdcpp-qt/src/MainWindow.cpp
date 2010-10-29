@@ -2459,6 +2459,12 @@ void MainWindow::slotAboutClient(){
             tr("<br/>"
                "&nbsp;Rusi Dimitrov aka PsyTrip<br/>"
                "&nbsp;&lt;dimitrov.rusi@gmail.com&gt;<br/>"
+               "&nbsp;(for 2.1.0 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>Slovak translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Martin Durisin<br/>"
+               "&nbsp;&lt;martin.durisin@gmail.com&gt;<br/>"
                "&nbsp;(for 2.1.0 and later)<br/>")
             );
 
