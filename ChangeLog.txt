@@ -15,7 +15,7 @@
 * Added option to display the ip-addresses of users in the chat. (Depending on hub configuration: information about them is usually available only to operators)
 * Fixed a problem with minimum width of main window in Mac OS X.
 * Multi-line widgets panel (tabs).
-* Added ability to hide close buttons from tabs (see context menu on multi-line widgets panel).
+* Added ability to hide close buttons from tabs (see context menu on the panel).
 * Thanks to Gustavo Alvarez the Spanish translation is now available.
 * Thanks to Rusi Dimitrov the Bulgarian translation is now available.
 * Thanks to Martin Durisin the Slovak translation is now available.
