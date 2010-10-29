@@ -414,18 +414,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 }
 
                 if (linktype == "magnet:"){
-                    QUrl url;
-                    toshow = link;
-                    toshow.replace("+", "%20");
-                    toshow.replace("!", "%21");
-                    url.setEncodedUrl(toshow.toAscii());
+                    QString name, tth;
+                    int64_t size;
 
-                    if (url.hasQueryItem("dn")) {
-                        toshow = url.queryItemValue("dn");
-
-                        if (url.hasQueryItem("xl"))
-                            toshow += " (" + WulforUtil::formatBytes(url.queryItemValue("xl").toULongLong()) + ")";
-                    }
+                    WulforUtil::splitMagnet(link, size, tth, name);
+                    toshow = QString("%1 (%2)").arg(name).arg(WulforUtil::formatBytes(size));
                 }
 
                 if (linktype == "www.")
@@ -435,8 +428,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
                 if (linktype != "magnet:")
                     html_link = QString("<a href=\"%1\" title=\"%1\" style=\"cursor: hand\">%1</a>").arg(toshow);
-                else
-                    html_link = QString("<a href=\"%1\" title=\"%2\" style=\"cursor: hand\">%2</a>").arg(link).arg(toshow);
+                else{
+                    html_link = "<a href=\"" + link + "\" title=\"" + toshow + "\" style=\"cursor: hand\">" + toshow + "</a>";
+                }
 
                 output += html_link;
                 input.remove(0, l_pos);
