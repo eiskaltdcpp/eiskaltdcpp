@@ -71,6 +71,7 @@ using namespace std;
 
 static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
 static const QString &EMPTY_SETTINGS = "mainwindow/empty-settings";
+static const QString &SIDEBAR_SHOW_CLOSEBUTTONS = "mainwindow/sidebar-with-close-buttons";
 
 MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
@@ -334,8 +335,14 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
         return true;
     }
     else if (obj == sideTree && sideTree && e->type() == QEvent::Resize) {
-        sideTree->header()->resizeSection(0, sideTree->contentsRect().width() - 20);
-        sideTree->header()->resizeSection(1, 18);
+        if (WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true)){
+            sideTree->header()->resizeSection(0, sideTree->contentsRect().width() - 20);
+            sideTree->header()->resizeSection(1, 18);
+        }
+        else{
+            sideTree->header()->resizeSection(0, sideTree->contentsRect().width());
+            sideTree->header()->resizeSection(1, 0);
+        }
     }
     return QMainWindow::eventFilter(obj, e);
 }
@@ -1250,6 +1257,7 @@ void MainWindow::initSideBar(){
     sideDock->setFeatures(sideDock->features() & (~QDockWidget::DockWidgetClosable));
     sideDock->setObjectName("sideDock");
     sideDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    sideDock->setContextMenuPolicy(Qt::CustomContextMenu);
     sideTree->setModel(model);
     sideTree->setItemsExpandable(true);
     sideTree->setHeaderHidden(true);
@@ -1264,6 +1272,7 @@ void MainWindow::initSideBar(){
 
     addDockWidget(Qt::LeftDockWidgetArea, sideDock);
 
+    connect(sideDock, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSideBarDockMenu()));
     connect(sideTree, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotSideBarDblClicked(QModelIndex)));
     connect(sideTree, SIGNAL(clicked(QModelIndex)),     this, SLOT(slotSidebarHook(QModelIndex)));
     connect(sideTree, SIGNAL(clicked(QModelIndex)),    model, SLOT(slotIndexClicked(QModelIndex)));
@@ -1386,28 +1395,28 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
 
     if (WBGET(WB_SHOW_FREE_SPACE)) {
 #ifdef FREE_SPACE_BAR_C
-    std::string s = SETTING(DOWNLOAD_DIRECTORY);
-    unsigned long long available = 0;
-    unsigned long long total = 0;
-    if (!s.empty()) {
-        if (FreeSpace::FreeDiscSpace(s, &available, &total) == false) {
-            available = 0;
-            total = 0;
+        std::string s = SETTING(DOWNLOAD_DIRECTORY);
+        unsigned long long available = 0;
+        unsigned long long total = 0;
+        if (!s.empty()) {
+            if (FreeSpace::FreeDiscSpace(s, &available, &total) == false) {
+                available = 0;
+                total = 0;
+            }
         }
-    }
-    float percent = 100.0f*(total-available)/total;
-    QString format = tr("Free %1")
+        float percent = 100.0f*(total-available)/total;
+        QString format = tr("Free %1")
                          .arg(WulforUtil::formatBytes(available));
 
-    QString tooltip = tr("Free %1 of %2")
-                         .arg(WulforUtil::formatBytes(available))
-                         .arg(WulforUtil::formatBytes(total));
+        QString tooltip = tr("Free %1 of %2")
+                          .arg(WulforUtil::formatBytes(available))
+                          .arg(WulforUtil::formatBytes(total));
 
-            progressSpace->setFormat(format);
-            progressSpace->setToolTip(tooltip);
-            progressSpace->setValue(static_cast<unsigned>(percent));
+        progressSpace->setFormat(format);
+        progressSpace->setToolTip(tooltip);
+        progressSpace->setValue(static_cast<unsigned>(percent));
 
-            progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 40 : progressSpace->width());
+        progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(progressSpace->text()) + 40 : progressSpace->width());
 #endif //FREE_SPACE_BAR_C
     }
 
@@ -2583,6 +2592,28 @@ void MainWindow::slotSideBarDblClicked(const QModelIndex &index){
     }
 
     sideTree->setExpanded(index, true);
+}
+
+void MainWindow::slotSideBarDockMenu(){
+    QMenu *m = new QMenu(this);
+    QAction *act = new QAction(tr("Show close buttons"), m);
+
+    act->setCheckable(true);
+    act->setChecked(WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true));
+
+    m->addAction(act);
+
+    if (m->exec(QCursor::pos()) != NULL){
+        WBSET(SIDEBAR_SHOW_CLOSEBUTTONS, act->isChecked());
+
+        //repaint rows!
+        if (sideDock && act->isChecked())
+            sideDock->resize(sideDock->size()+QSize(18, 0));
+        else if(sideDock)
+            sideDock->resize(sideDock->size()+QSize(-18, 0));
+    }
+
+    m->deleteLater();
 }
 
 void MainWindow::slotSelectSidebarIndex(const QModelIndex &index){

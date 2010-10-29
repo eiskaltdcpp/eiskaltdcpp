@@ -230,6 +230,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotSidebarContextMenu();
         void slotSidebarHook(const QModelIndex&);
         void slotSideBarDblClicked(const QModelIndex&);
+        void slotSideBarDockMenu();
         void slotSelectSidebarIndex(const QModelIndex&);
         void slotExit();
         void slotToolbarCustomization();
