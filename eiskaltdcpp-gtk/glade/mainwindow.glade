@@ -1152,11 +1152,11 @@ You should have received a copy of the GNU General Public License along with thi
     <property name="authors" translatable="yes">Developers
  Boris Pek (tehnick-8@mail.ru)
  Eugene Petrov (dhamp@ya.ru)
- Leliksan Floyd (leliksan@gmail.com)
 
 Contributors
- troll (http://code.google.com/p/freedcpp/)
-    </property>
+ troll (troll.freedcpp@gmail.com) [http://code.google.com/p/freedcpp/]
+ Mank (mank@jabbim.cz) [http://sourceforge.net/projects/freedcppmv/]
+</property>
     <property name="translator-credits" translatable="yes">Translators
 
  Russian translation
@@ -1202,7 +1202,13 @@ Contributors
 
  Rusi Dimitrov aka PsyTrip
  (dimitrov.rusi@gmail.com)
-    </property>
+
+ Slovak translation
+
+ Martin Durisin
+ <martin.durisin@gmail.com>
+ (for 2.1.0 and later)
+</property>
     <property name="wrap_license">True</property>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox3">

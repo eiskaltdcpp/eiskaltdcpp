@@ -1,7 +1,7 @@
 EiskaltDC++ Gtk:
 ----------------
-Eugene Petrov <dhamp@ya.ru>
 Boris Pek <tehnick-8@mail.ru>
+Eugene Petrov <dhamp@ya.ru>
 
 Contributors:
 troll <troll.freedcpp@gmail.com> (http://code.google.com/p/freedcpp/)
