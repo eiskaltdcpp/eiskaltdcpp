@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-27 20:27+0300\n"
+"POT-Creation-Date: 2010-10-29 21:22+0300\n"
 "PO-Revision-Date: 2010-10-29 15:15+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -67,7 +67,7 @@ msgstr "Státusz"
 #: ../src/search.cc:619 ../src/search.cc:762 ../src/search.cc:1619
 #: ../src/search.cc:1637 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:285 ../src/sharebrowser.cc:316
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1461
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1466
 msgid "Size"
 msgstr "Méret"
 
@@ -936,8 +936,8 @@ msgstr ""
 #: ../src/settingsdialog.cc:876
 msgid "Auto-drop slow sources for all queue items (except filelists)"
 msgstr ""
-"Lassú források automatikus eldobása a sor minden eléménél (kivéve "
-"fájl-listáknál)"
+"Lassú források automatikus eldobása a sor minden eléménél (kivéve fájl-"
+"listáknál)"
 
 #: ../src/settingsdialog.cc:877
 msgid "Remove slow filelists"
@@ -1516,7 +1516,7 @@ msgstr "Magnet beállítások / lehetőségek"
 msgid "Magnet Choice"
 msgstr ""
 
-#: ../src/mainwindow.cc:1646 ../glade/mainwindow.glade:1223
+#: ../src/mainwindow.cc:1646 ../glade/mainwindow.glade:1228
 msgid "Select filelist to browse"
 msgstr "Fájl-lista böngészése"
 
@@ -1736,7 +1736,7 @@ msgid "Slots"
 msgstr "Slotok"
 
 #: ../src/search.cc:304 ../src/search.cc:374 ../src/sharebrowser.cc:480
-#: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1636
+#: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1641
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2739 ../glade/settingsdialog.glade:4052
 #: ../glade/settingsdialog.glade:4978 ../glade/settingsdialog.glade:4993
@@ -2270,7 +2270,7 @@ msgstr "_Magnet lehetőségek"
 msgid "Calculate file TTH"
 msgstr "Fájl TTH kiszámítása"
 
-#: ../glade/mainwindow.glade:116 ../glade/mainwindow.glade:1386
+#: ../glade/mainwindow.glade:116 ../glade/mainwindow.glade:1391
 msgid "_Exit"
 msgstr "_Kilépés"
 
@@ -2435,15 +2435,15 @@ msgid "<b>Connect to address:</b>"
 msgstr "<b>Csatlakozás a címhez:</b>"
 
 #: ../glade/mainwindow.glade:1152
+#, fuzzy
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
 " Eugene Petrov (dhamp@ya.ru)\n"
-" Leliksan Floyd (leliksan@gmail.com)\n"
 "\n"
 "Contributors\n"
-" troll (http://code.google.com/p/freedcpp/)\n"
-"    "
+" troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/\n"
+" Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 msgstr ""
 "Fejlesztők\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2455,6 +2455,7 @@ msgstr ""
 "    "
 
 #: ../glade/mainwindow.glade:1160
+#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2501,7 +2502,11 @@ msgid ""
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
-"    "
+"\n"
+" Slovak translation\n"
+"\n"
+" Martin Durisin\n"
+" (martin.durisin@gmail.com)\n"
 msgstr ""
 "Fordítók\n"
 "\n"
@@ -2550,79 +2555,79 @@ msgstr ""
 " (dimitrov.rusi@gmail.com)\n"
 "    "
 
-#: ../glade/mainwindow.glade:1272
+#: ../glade/mainwindow.glade:1277
 msgid "Enter line for user command"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1360
+#: ../glade/mainwindow.glade:1365
 msgid "_Show Interface"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1373
+#: ../glade/mainwindow.glade:1378
 msgid "Use Blinking Icon"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1400 ../glade/mainwindow.glade:1437
+#: ../glade/mainwindow.glade:1405 ../glade/mainwindow.glade:1442
 msgid "Magnet"
 msgstr "Magnet"
 
-#: ../glade/mainwindow.glade:1448
+#: ../glade/mainwindow.glade:1453
 msgid "File name"
 msgstr "Fájlnév"
 
-#: ../glade/mainwindow.glade:1474
+#: ../glade/mainwindow.glade:1479
 msgid "TTH"
 msgstr "TTH"
 
-#: ../glade/mainwindow.glade:1543
+#: ../glade/mainwindow.glade:1548
 msgid "Exact size"
 msgstr "Pontos méret"
 
-#: ../glade/mainwindow.glade:1571
+#: ../glade/mainwindow.glade:1576
 msgid "+/-"
 msgstr "+/-"
 
-#: ../glade/mainwindow.glade:1582
+#: ../glade/mainwindow.glade:1587
 msgid "<b>Magnet properties</b>"
 msgstr "<b>Magnet beállítások</b>"
 
-#: ../glade/mainwindow.glade:1610
+#: ../glade/mainwindow.glade:1615
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1611
+#: ../glade/mainwindow.glade:1616
 msgid "Add this file to your download queue"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1655
+#: ../glade/mainwindow.glade:1660
 msgid "Start a search for this file"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1669
+#: ../glade/mainwindow.glade:1674
 msgid "Show magnet dialog"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1695
+#: ../glade/mainwindow.glade:1700
 msgid "Remember choice"
 msgstr "Emlékezz a válaszra"
 
-#: ../glade/mainwindow.glade:1724
+#: ../glade/mainwindow.glade:1729
 msgid "<b>What would you like to do?</b>"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1752 ../glade/settingsdialog.glade:6086
+#: ../glade/mainwindow.glade:1757 ../glade/settingsdialog.glade:6086
 #: ../glade/settingsdialog.glade:6579 ../glade/settingsdialog.glade:6620
 msgid "gtk-cancel"
 msgstr "gtk-cancel"
 
-#: ../glade/mainwindow.glade:1762 ../glade/settingsdialog.glade:6591
+#: ../glade/mainwindow.glade:1767 ../glade/settingsdialog.glade:6591
 #: ../glade/settingsdialog.glade:6643
 msgid "gtk-ok"
 msgstr "gtk-ok"
 
-#: ../glade/mainwindow.glade:1791
+#: ../glade/mainwindow.glade:1796
 msgid "Chose A File"
 msgstr "Fájl választása"
 

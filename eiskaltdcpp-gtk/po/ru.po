@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-27 20:27+0300\n"
-"PO-Revision-Date: 2010-10-27 20:32+0300\n"
+"POT-Creation-Date: 2010-10-29 21:22+0300\n"
+"PO-Revision-Date: 2010-10-29 21:25+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: \n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:952
 #: ../src/settingsdialog.cc:1323 ../glade/mainwindow.glade:266
@@ -67,7 +67,7 @@ msgstr "Статус"
 #: ../src/search.cc:619 ../src/search.cc:762 ../src/search.cc:1619
 #: ../src/search.cc:1637 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:285 ../src/sharebrowser.cc:316
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1461
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1466
 msgid "Size"
 msgstr "Размер"
 
@@ -1513,7 +1513,7 @@ msgstr "Свойства магнетов / Выбор"
 msgid "Magnet Choice"
 msgstr "Свойства магнетов"
 
-#: ../src/mainwindow.cc:1646 ../glade/mainwindow.glade:1223
+#: ../src/mainwindow.cc:1646 ../glade/mainwindow.glade:1228
 msgid "Select filelist to browse"
 msgstr "Выберите список файлов"
 
@@ -1733,7 +1733,7 @@ msgid "Slots"
 msgstr "Слоты"
 
 #: ../src/search.cc:304 ../src/search.cc:374 ../src/sharebrowser.cc:480
-#: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1636
+#: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1641
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2739 ../glade/settingsdialog.glade:4052
 #: ../glade/settingsdialog.glade:4978 ../glade/settingsdialog.glade:4993
@@ -2273,7 +2273,7 @@ msgstr "_Свойства магнетов"
 msgid "Calculate file TTH"
 msgstr "Вычислить TTH файла"
 
-#: ../glade/mainwindow.glade:116 ../glade/mainwindow.glade:1386
+#: ../glade/mainwindow.glade:116 ../glade/mainwindow.glade:1391
 msgid "_Exit"
 msgstr "_Выход"
 
@@ -2442,20 +2442,18 @@ msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
 " Eugene Petrov (dhamp@ya.ru)\n"
-" Leliksan Floyd (leliksan@gmail.com)\n"
 "\n"
 "Contributors\n"
-" troll (http://code.google.com/p/freedcpp/)\n"
-"    "
+" troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/\n"
+" Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 msgstr ""
 "Разработчики\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
 " Eugene Petrov (dhamp@ya.ru)\n"
-" Leliksan Floyd (leliksan@gmail.com)\n"
 "\n"
 "Соавторы\n"
-" troll (http://code.google.com/p/freedcpp/)\n"
-"    "
+" troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/\n"
+" Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 
 #: ../glade/mainwindow.glade:1160
 msgid ""
@@ -2504,7 +2502,11 @@ msgid ""
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
-"    "
+"\n"
+" Slovak translation\n"
+"\n"
+" Martin Durisin\n"
+" (martin.durisin@gmail.com)\n"
 msgstr ""
 "Переводчики\n"
 "\n"
@@ -2551,45 +2553,49 @@ msgstr ""
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
-"    "
+"\n"
+" Словацкий перевод\n"
+"\n"
+" Martin Durisin\n"
+" (martin.durisin@gmail.com)\n"
 
-#: ../glade/mainwindow.glade:1272
+#: ../glade/mainwindow.glade:1277
 msgid "Enter line for user command"
 msgstr "Введите строку для пользовательской команды"
 
-#: ../glade/mainwindow.glade:1360
+#: ../glade/mainwindow.glade:1365
 msgid "_Show Interface"
 msgstr "_Показать интерфейс"
 
-#: ../glade/mainwindow.glade:1373
+#: ../glade/mainwindow.glade:1378
 msgid "Use Blinking Icon"
 msgstr "Мигающий значок"
 
-#: ../glade/mainwindow.glade:1400 ../glade/mainwindow.glade:1437
+#: ../glade/mainwindow.glade:1405 ../glade/mainwindow.glade:1442
 msgid "Magnet"
 msgstr "Магнет"
 
-#: ../glade/mainwindow.glade:1448
+#: ../glade/mainwindow.glade:1453
 msgid "File name"
 msgstr "Файл"
 
-#: ../glade/mainwindow.glade:1474
+#: ../glade/mainwindow.glade:1479
 msgid "TTH"
 msgstr "TTH"
 
-#: ../glade/mainwindow.glade:1543
+#: ../glade/mainwindow.glade:1548
 msgid "Exact size"
 msgstr "Точный размер"
 
-#: ../glade/mainwindow.glade:1571
+#: ../glade/mainwindow.glade:1576
 msgid "+/-"
 msgstr "+/-"
 
-#: ../glade/mainwindow.glade:1582
+#: ../glade/mainwindow.glade:1587
 msgid "<b>Magnet properties</b>"
 msgstr "<b>Свойства магнетов</b>"
 
-#: ../glade/mainwindow.glade:1610
+#: ../glade/mainwindow.glade:1615
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
@@ -2597,37 +2603,37 @@ msgstr ""
 "Для начала закачки файла включите автоматический поиск альтернатив "
 "(Настройки/Закачки/Очередь)"
 
-#: ../glade/mainwindow.glade:1611
+#: ../glade/mainwindow.glade:1616
 msgid "Add this file to your download queue"
 msgstr "Добавить этот файл в очередь загрузок"
 
-#: ../glade/mainwindow.glade:1655
+#: ../glade/mainwindow.glade:1660
 msgid "Start a search for this file"
 msgstr "Начать поиск этого файла"
 
-#: ../glade/mainwindow.glade:1669
+#: ../glade/mainwindow.glade:1674
 msgid "Show magnet dialog"
 msgstr "Показать диалог магнета"
 
-#: ../glade/mainwindow.glade:1695
+#: ../glade/mainwindow.glade:1700
 msgid "Remember choice"
 msgstr "Запомнить выбор"
 
-#: ../glade/mainwindow.glade:1724
+#: ../glade/mainwindow.glade:1729
 msgid "<b>What would you like to do?</b>"
 msgstr "<b>Что вы хотите сделать?</b>"
 
-#: ../glade/mainwindow.glade:1752 ../glade/settingsdialog.glade:6086
+#: ../glade/mainwindow.glade:1757 ../glade/settingsdialog.glade:6086
 #: ../glade/settingsdialog.glade:6579 ../glade/settingsdialog.glade:6620
 msgid "gtk-cancel"
 msgstr "gtk-cancel"
 
-#: ../glade/mainwindow.glade:1762 ../glade/settingsdialog.glade:6591
+#: ../glade/mainwindow.glade:1767 ../glade/settingsdialog.glade:6591
 #: ../glade/settingsdialog.glade:6643
 msgid "gtk-ok"
 msgstr "gtk-ok"
 
-#: ../glade/mainwindow.glade:1791
+#: ../glade/mainwindow.glade:1796
 msgid "Chose A File"
 msgstr "Выберите файл"
 

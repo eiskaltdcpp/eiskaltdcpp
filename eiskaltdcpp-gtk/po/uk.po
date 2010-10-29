@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-27 20:27+0300\n"
+"POT-Creation-Date: 2010-10-29 21:22+0300\n"
 "PO-Revision-Date: 2010-08-28 16:41+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -68,7 +68,7 @@ msgstr "Статус"
 #: ../src/search.cc:619 ../src/search.cc:762 ../src/search.cc:1619
 #: ../src/search.cc:1637 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:285 ../src/sharebrowser.cc:316
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1461
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1466
 msgid "Size"
 msgstr "Розмір"
 
@@ -1517,7 +1517,7 @@ msgstr "Властивості магнетів / Вибір"
 msgid "Magnet Choice"
 msgstr "Властивості магнетів"
 
-#: ../src/mainwindow.cc:1646 ../glade/mainwindow.glade:1223
+#: ../src/mainwindow.cc:1646 ../glade/mainwindow.glade:1228
 msgid "Select filelist to browse"
 msgstr ""
 
@@ -1734,7 +1734,7 @@ msgid "Slots"
 msgstr ""
 
 #: ../src/search.cc:304 ../src/search.cc:374 ../src/sharebrowser.cc:480
-#: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1636
+#: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1641
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2739 ../glade/settingsdialog.glade:4052
 #: ../glade/settingsdialog.glade:4978 ../glade/settingsdialog.glade:4993
@@ -2278,7 +2278,7 @@ msgstr "Властивості магнетів"
 msgid "Calculate file TTH"
 msgstr ""
 
-#: ../glade/mainwindow.glade:116 ../glade/mainwindow.glade:1386
+#: ../glade/mainwindow.glade:116 ../glade/mainwindow.glade:1391
 msgid "_Exit"
 msgstr ""
 
@@ -2458,11 +2458,10 @@ msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
 " Eugene Petrov (dhamp@ya.ru)\n"
-" Leliksan Floyd (leliksan@gmail.com)\n"
 "\n"
 "Contributors\n"
-" troll (http://code.google.com/p/freedcpp/)\n"
-"    "
+" troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/\n"
+" Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 msgstr ""
 
 #: ../glade/mainwindow.glade:1160
@@ -2512,87 +2511,91 @@ msgid ""
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
-"    "
+"\n"
+" Slovak translation\n"
+"\n"
+" Martin Durisin\n"
+" (martin.durisin@gmail.com)\n"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1272
+#: ../glade/mainwindow.glade:1277
 #, fuzzy
 msgid "Enter line for user command"
 msgstr "Уведіть значення для "
 
-#: ../glade/mainwindow.glade:1360
+#: ../glade/mainwindow.glade:1365
 msgid "_Show Interface"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1373
+#: ../glade/mainwindow.glade:1378
 msgid "Use Blinking Icon"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1400 ../glade/mainwindow.glade:1437
+#: ../glade/mainwindow.glade:1405 ../glade/mainwindow.glade:1442
 #, fuzzy
 msgid "Magnet"
 msgstr "Властивості магнетів"
 
-#: ../glade/mainwindow.glade:1448
+#: ../glade/mainwindow.glade:1453
 #, fuzzy
 msgid "File name"
 msgstr "Ім'я файлу"
 
-#: ../glade/mainwindow.glade:1474
+#: ../glade/mainwindow.glade:1479
 msgid "TTH"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1543
+#: ../glade/mainwindow.glade:1548
 #, fuzzy
 msgid "Exact size"
 msgstr "Точний розмір"
 
-#: ../glade/mainwindow.glade:1571
+#: ../glade/mainwindow.glade:1576
 msgid "+/-"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1582
+#: ../glade/mainwindow.glade:1587
 #, fuzzy
 msgid "<b>Magnet properties</b>"
 msgstr "Властивості магнетів / Вибір"
 
-#: ../glade/mainwindow.glade:1610
+#: ../glade/mainwindow.glade:1615
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1611
+#: ../glade/mainwindow.glade:1616
 msgid "Add this file to your download queue"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1655
+#: ../glade/mainwindow.glade:1660
 msgid "Start a search for this file"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1669
+#: ../glade/mainwindow.glade:1674
 msgid "Show magnet dialog"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1695
+#: ../glade/mainwindow.glade:1700
 msgid "Remember choice"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1724
+#: ../glade/mainwindow.glade:1729
 msgid "<b>What would you like to do?</b>"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1752 ../glade/settingsdialog.glade:6086
+#: ../glade/mainwindow.glade:1757 ../glade/settingsdialog.glade:6086
 #: ../glade/settingsdialog.glade:6579 ../glade/settingsdialog.glade:6620
 msgid "gtk-cancel"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1762 ../glade/settingsdialog.glade:6591
+#: ../glade/mainwindow.glade:1767 ../glade/settingsdialog.glade:6591
 #: ../glade/settingsdialog.glade:6643
 msgid "gtk-ok"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1791
+#: ../glade/mainwindow.glade:1796
 #, fuzzy
 msgid "Chose A File"
 msgstr "Обрати теку"
