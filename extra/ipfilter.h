@@ -21,12 +21,6 @@
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
-//#ifdef _DEBUG_
-//#include <QtDebug>
-//#endif
-
-using namespace dcpp;
-
 enum eDIRECTION {
     eDIRECTION_IN = 0,
     eDIRECTION_OUT,
