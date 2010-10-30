@@ -1,4 +1,4 @@
---- 2.1.0 2010-11-15 ---
+--- 2.1.0 2010-11-07 ---
 *** common changes ***
 * libeiskaltdcpp library was separated from the basic binary file for unix-like systems.
 * Added localization of kernel messages. Gettext used.
