@@ -22,6 +22,7 @@ include_directories (
         ${Boost_INCLUDE_DIRS}
         )
 set (LIBS ${LIBS}
+        ${X11_LIBRARIES}
         ${GTK2_LIBRARIES}
         ${LIBGNOME2_LIBRARIES}
         ${Boost_LIBRARIES}
