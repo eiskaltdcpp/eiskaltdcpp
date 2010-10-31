@@ -263,7 +263,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/DownloadQueue.cpp" line="55"/>
         <source>Lowest</source>
-        <translation>Минимален</translation>
+        <translation>Най-нисък</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="58"/>
@@ -283,7 +283,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/DownloadQueue.cpp" line="67"/>
         <source>Highest</source>
-        <translation>Максимален</translation>
+        <translation>Най-висок</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="73"/>
@@ -473,7 +473,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="108"/>
         <source>Lowest</source>
-        <translation>Минимален</translation>
+        <translation>Най-нисък</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="111"/>
@@ -488,7 +488,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="117"/>
         <source>Highest</source>
-        <translation>Максимален</translation>
+        <translation>Най-висок</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="120"/>
@@ -501,7 +501,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/EmoticonDialog.cpp" line="27"/>
         <source>Select emoticon</source>
-        <translation>Избор на емотикони</translation>
+        <translation>Емотикони</translation>
     </message>
 </context>
 <context>
@@ -2136,7 +2136,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2599"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Показване на бутон за затваряне</translation>
+        <translation>Показване на бутони за затваряне</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2689"/>
@@ -2713,7 +2713,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="186"/>
         <source>Only users with free slots</source>
-        <translation>Само потребители със свободни слотове</translation>
+        <translation>Само потребители със свободен слот</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="193"/>
@@ -2913,7 +2913,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="52"/>
         <source>Count</source>
-        <translation>Количество</translation>
+        <translation>Брой</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="52"/>
@@ -3309,7 +3309,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="318"/>
         <location filename="../src/SettingsSharing.cpp" line="347"/>
         <source>Enter text:</source>
-        <translation>Въвеждане на текст:</translation>
+        <translation>Въведете текст:</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="325"/>
@@ -3586,7 +3586,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/SpyModel.cpp" line="18"/>
         <source>Count</source>
-        <translation>Количество</translation>
+        <translation>Брой</translation>
     </message>
     <message>
         <location filename="../src/SpyModel.cpp" line="18"/>
@@ -5205,7 +5205,7 @@ SOCKS5 прокситата не са същите като HTTP прокси.
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="352"/>
         <source>Highest priority max size (KiB)</source>
-        <translation>Максимален</translation>
+        <translation>Най-висок</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="368"/>
@@ -5265,7 +5265,7 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер
-ще бъдат зададени с Максимален приоритет.
+ще бъдат зададени с Най-висок приоритет.
 (по подразбиране: 64 KiB)</translation>
     </message>
     <message>
@@ -5273,7 +5273,7 @@ will be set to Highest as priority. (default: 64 KiB)</source>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер,
-но над Максимален приоритет,ще бъдат зададени
+но над Най-висок приоритет,ще бъдат зададени
 с Висок приоритет. (по подразбиране: 0 KiB)</translation>
     </message>
     <message>
@@ -5281,7 +5281,7 @@ prio max size, will be set to High as priority. (default: 0 KiB)</source>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер,
-но над Максимален и Висок приоритет,ще бъдат зададени
+но над Най-висок и Висок приоритет,ще бъдат зададени
 с Нормален приоритет. (по подразбиране: 0 KiB)</translation>
     </message>
     <message>
@@ -5289,7 +5289,7 @@ High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
         <translation>Файлове със същия или по-малък от въведения размер,
-но над Максимален, Висок и Нормален приоритет,
+но над Най-висок, Висок и Нормален приоритет,
 ще бъдат зададени с Нисък приоритет. (по подразбиране: 0 KiB)</translation>
     </message>
     <message>
@@ -5375,7 +5375,7 @@ will be dropped. (default: 1)</source>
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
         <translation>С избора на тази опция, файловете по-големи от Нисък приоритет
-ще бъдат зададени с Минимален приоритет.
+ще бъдат зададени с Най-нисък приоритет.
 Ако не е избрана, файловете ще бъдат с Нормален приоритет.</translation>
     </message>
     <message>
