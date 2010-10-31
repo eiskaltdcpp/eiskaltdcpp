@@ -2,17 +2,20 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
 
 #include "ipfilter.h"
 #define _DEBUG_IPFILTER_
-//#include <sys/stat.h>
-//#include <unistd.h>
 #include <stdlib.h>
-#include <iostream>
+#include <sstream>
+#ifndef WIN32
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#endif
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Util.h"
@@ -58,8 +61,7 @@ string IPFilter::Uint32ToString(uint32_t ip){
 
 uint32_t IPFilter::MaskToCIDR(uint32_t mask){
 #ifdef _DEBUG_IPFILTER_
-    fprintf(stderr,"IPFilter::MaskToCIDR(%x)\n", mask);
-    fflush(stderr);
+    fprintf(stdout,"IPFilter::MaskToCIDR(%x)\n", mask);fflush(stdout);
 #endif
     if (mask == 0)
         return 0;
@@ -110,20 +112,17 @@ bool IPFilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
     str_ip = exp.substr(exp.find("!") != string::npos);
     if (str_ip.find("/") != string::npos) {
         #ifdef _DEBUG_IPFILTER_
-        fprintf(stdout,"%s %s\n",str_ip.c_str(),str_mask.c_str());
-        fflush(stdout);
+        fprintf(stdout,"%s %s\n",str_ip.c_str(),str_mask.c_str());fflush(stdout);
         #endif
         if (sscanf(str_ip.c_str(),"%3u.%3u.%3u.%3u/%2u",&ip1,&ip2,&ip3,&ip4,&mask1) != 5 || ip1 > 255 || ip2 > 255 || ip3 > 255 || ip4 > 255) {
             #ifdef _DEBUG_IPFILTER_
             fprintf(stdout,"fail parse with mask\n"); fflush(stdout);
-            //fprintf(stdout,"%d %d %d %d %d \n",ip1,ip2,ip3,ip4,mask1); fflush(stdout);
             #endif
             return false;}
     } else {
         if (sscanf(str_ip.c_str(),"%3u.%3u.%3u.%3u",&ip1,&ip2,&ip3,&ip4) != 4 || ip1 > 255 || ip2 > 255 || ip3 > 255 || ip4 > 255) {
             #ifdef _DEBUG_IPFILTER_
             fprintf(stdout,"fail parse without mask\n"); fflush(stdout);
-            //fprintf(stdout,"%d %d %d %d\n",ip1,ip2,ip3,ip4); fflush(stdout);
             #endif
             return false;}
     }
@@ -155,9 +154,9 @@ void IPFilter::addToRules(string exp, eDIRECTION direction) {
 
     IPFilterElem *el = NULL;
 
-    //if (list_ip.contains(exp_ip)) {
+    if (list_ip.find(exp_ip) != list_ip.end()) {
 #ifdef _DEBUG_IPFILTER_
-    //fprintf(stderr,"\tIP already in list\n");
+    fprintf(stdout,"\tIP already in list\n");
 #endif
         QIPHash::const_iterator it = list_ip.find(exp_ip);
 
@@ -166,11 +165,8 @@ void IPFilter::addToRules(string exp, eDIRECTION direction) {
 
             if ((el->direction != direction) && (el->action == act)){
 #ifdef _DEBUG_IPFILTER_
-                fprintf(stderr,"\tChange direction of IP\n");
-                fflush(stderr);
+                fprintf(stdout,"\tChange direction of IP\n");fflush(stdout);
 #endif
-                //emit ruleChanged(exp, el->direction, eDIRECTION_BOTH, act);
-
                 el->direction = eDIRECTION_BOTH;
 
                 return;
@@ -180,7 +176,7 @@ void IPFilter::addToRules(string exp, eDIRECTION direction) {
 
             ++it;
         }
-    //}
+    }
 
     el = new IPFilterElem;
 
@@ -190,21 +186,18 @@ void IPFilter::addToRules(string exp, eDIRECTION direction) {
     el->action    = act;
 
 #ifdef _DEBUG_IPFILTER_
-    fprintf(stderr,"\tCreated new element:\n");
-    fprintf(stderr,"\t\tMASK: 0x%x\n"
+    fprintf(stdout,"\tCreated new element:\n");
+    fprintf(stdout,"\t\tMASK: 0x%x\n"
            "\t\tIP  : %i\n"
            "\t\tD   : %i\n"
            "\t\tA   : %i\n",
            el->mask, el->ip,
            (int)el->direction, (int)el->action
-          );
-    fflush(stderr);
+          );fflush(stdout);
 #endif
 
     list_ip.insert(pair<uint32_t, IPFilterElem*>(el->ip,el));
     rules.push_back(el);
-
-    //emit ruleAdded(exp, direction);
 }
 
 void IPFilter::remFromRules(string exp, eTableAction act) {
@@ -218,10 +211,10 @@ void IPFilter::remFromRules(string exp, eTableAction act) {
 
     exp_ip = IPFilter::StringToUint32(str_ip);
 
-    //if (!list_ip.contains(exp_ip))
-        //return;
+    if (list_ip.find(exp_ip) == list_ip.end())
+        return;
 
-    QIPHash::/*const_*/iterator it = list_ip.find(exp_ip);
+    QIPHash::iterator it = list_ip.find(exp_ip);
     IPFilterElem *el;
 
     while (it != list_ip.end() && it->first == exp_ip){
@@ -233,17 +226,12 @@ void IPFilter::remFromRules(string exp, eTableAction act) {
         if (el->action == act){
             list_ip.erase(it);
 
-            //if (rules.)
             QIPList::iterator itt = rules.begin();
             while (itt != rules.end() && *itt == el){
                     rules.erase(itt);
             }
 
-
-            //emit ruleRemoved(exp, el->direction, el->action);
-
             delete el;
-
             return;
         }
 
@@ -267,10 +255,8 @@ void IPFilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
             return;
 
         if (el->action == act){
-            //emit ruleChanged(exp, el->direction, direction, act);
 
             el->direction = direction;
-
             return;
         }
 
@@ -280,14 +266,13 @@ void IPFilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
 
 bool IPFilter::OK(const string &exp, eDIRECTION direction){
 #ifdef _DEBUG_IPFILTER_
-    fprintf(stdout,"IPFilter::OK(%s,%i)\n",exp.c_str(),(int)direction);
-    fflush(stdout);
+    fprintf(stdout,"IPFilter::OK(%s,%i)\n",exp.c_str(),(int)direction);fflush(stdout);
 #endif
     string str_src(exp);
     size_t pos = str_src.find(":") != string::npos;
     if (pos > 0) {
         str_src = str_src.erase(pos);
-        ////XXX.XXX.XXX.XXX:PORT -> XXX.XXX.XXX.XXX
+        //XXX.XXX.XXX.XXX:PORT -> XXX.XXX.XXX.XXX
     }
 
     uint32_t src = IPFilter::StringToUint32(str_src);
@@ -301,34 +286,29 @@ bool IPFilter::OK(const string &exp, eDIRECTION direction){
            "\tsrc    & el->mask == %x\n",
            (el->ip & el->mask),
            (src    & el->mask)
-          );
-    fflush(stdout);
+          );fflush(stdout);
 #endif
 
         if ((el->ip & el->mask) == (src & el->mask)){//Exact match
             bool exact_direction = ((el->direction == direction) || (el->direction == eDIRECTION_BOTH));
 #ifdef _DEBUG_IPFILTER_
-            fprintf(stdout,"\tFound match... ");
-            fflush(stdout);
+            fprintf(stdout,"\tFound match... ");fflush(stdout);
 #endif
             if      ((el->action == etaDROP) && exact_direction){
 #ifdef _DEBUG_IPFILTER_
-                fprintf(stdout,"DROP.\n");
-                fflush(stdout);
+                fprintf(stdout,"DROP.\n");fflush(stdout);
 #endif
                 return false;
             }
             else if ((el->action == etaACPT) && exact_direction){
 #ifdef _DEBUG_IPFILTER_
-                fprintf(stdout,"ACCEPT.\n");
-                fflush(stdout);
+                fprintf(stdout,"ACCEPT.\n");fflush(stdout);
 #endif
                 return true;
             }
-#ifdef _DEBUG_IPFILTER_
             else
-                fprintf(stdout,"IGNORE.\n");
-                fflush(stdout);
+#ifdef _DEBUG_IPFILTER_
+                fprintf(stdout,"IGNORE.\n");fflush(stdout);
 #endif
         }
     }
@@ -355,7 +335,6 @@ void IPFilter::step(uint32_t ip, eTableAction act, bool down){
         return;
 
     int index;
-    //QIPList::iterator itt = rules.begin();
     int itt=0;
     while (itt < rules.size() && rules.at(itt) == el){
         index=itt;itt++;
@@ -389,8 +368,9 @@ void IPFilter::loadList() {
     File file(Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter", File::READ, File::OPEN);
     string f = file.read();
     file.close();
-    fprintf(stdout,"full string: %s\n",f.c_str());
-
+#ifdef _DEBUG_IPFILTER_
+    fprintf(stdout,"full string: %s\n",f.c_str());fflush(stdout);
+#endif
     if (!list_ip.empty())
         clearRules();
 
@@ -400,8 +380,7 @@ void IPFilter::loadList() {
         eDIRECTION direction = eDIRECTION_IN;
         str_ip = *i;
 #ifdef _DEBUG_IPFILTER_
-        fprintf(stderr,"pointer on part string: %s\n",str_ip.c_str());
-        fflush(stderr);
+        fprintf(stdout,"pointer on part string: %s\n",str_ip.c_str());fflush(stdout);
 #endif
         if (str_ip.find("|D_IN|:") == 0){
             str_ip = str_ip.erase(0,7);//delete "|D_IN|:"
@@ -417,8 +396,7 @@ void IPFilter::loadList() {
             continue;
 
 #ifdef _DEBUG_IPFILTER_
-        fprintf(stderr,"string without direction: %s\n",str_ip.c_str());
-        fflush(stderr);
+        fprintf(stdout,"string without direction: %s\n",str_ip.c_str());fflush(stdout);
 #endif
 
         addToRules(str_ip, direction);
@@ -451,51 +429,32 @@ void IPFilter::saveList(){
 
 void IPFilter::exportTo(string path) {
     string file = Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter";
-    //File f(file, File::READ, File::OPEN);
-
     saveList();
-    //if (stat(file.c_str(),&stFileInfo) != 0){
-        //fprintf(stderr,"Nothing to export.");
-        ////msgBox.setText(tr("Nothing to export."));
-        ////msgBox.exec();
-
-        //return;
-    //}
-
-    //File f(path, File::WRITE, File::CREATE | File::TRUNCATE);
-
-    //if (stat(path.c_str(),&stFileInfo) == 0){
+#ifndef WIN32
+    struct stat stFileInfo;
+    if (stat(file.c_str(),&stFileInfo) != 0){
+        fprintf(stdout,"Nothing to export.");fflush(stdout);
+        return;
+    }
+#endif
         File::deleteFile(path);
-
         try{
             File::copyFile(file,path);
         } catch (...) {
-        //msgBox.setText(tr("Unable to export settings."));
-        //msgBox.exec();
-        fprintf(stderr,"Unable to export settings.");
-        fflush(stderr);
+        fprintf(stdout,"Unable to export settings.");fflush(stdout);
         return;
         }
-    //}
-    //return;
+    return;
 }
 
 void IPFilter::importFrom(string path) {
-    //QFile file(path);
-    //QMessageBox msgBox;
-
-    //msgBox.setStandardButtons(QMessageBox::Ok);
-    //msgBox.setDefaultButton(QMessageBox::Ok);
-    //msgBox.setIcon(QMessageBox::Warning);
-
-    //if (!file.exists() || !file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-    //if (stat(path.c_str(),&stFileInfo) == 0) {
-        ////msgBox.setText(tr("Nothing to import."));
-        ////msgBox.exec();
-        ////file.close();
-        //fprintf(stderr,"Nothing to export.");
-        //return;
-    //}
+#ifndef WIN32
+    struct stat stFileInfo;
+    if (stat(path.c_str(),&stFileInfo) != 0) {
+        fprintf(stdout,"Nothing to export.");fflush(stdout);
+        return;
+    }
+#endif
     File f(path, File::READ, File::OPEN);
     string sign = f.read();//in.readLine();
     StringTokenizer<string> st(sign, "\n");
@@ -503,18 +462,15 @@ void IPFilter::importFrom(string path) {
 
     if (*st.getTokens().begin() == signature) {
         string old_file = Util::getPath(Util::PATH_USER_CONFIG)+ "ipfilter";
-        //old_file.remove();
         File::deleteFile(old_file);
         try{
-            File::copyFile(path,Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter");
+            File::copyFile(path,old_file);
         } catch (...) {}
 
         clearRules();
-
         loadList();
     } else {
-        fprintf(stdout,"Invalid signature.");
-        fflush(stdout);
+        fprintf(stdout,"Invalid signature.");fflush(stdout);
     }
 }
 

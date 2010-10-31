@@ -10,13 +10,7 @@
 #ifndef DCIPFILTER_H
 #define DCIPFILTER_H
 
-//#include <QObject>
-//#include <QRegExp>
-//#include <QHash>
-//#include <QFile>
-//#include <hash_map>
 #include <string>
-#include <sstream>
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
@@ -41,7 +35,6 @@ typedef struct _IPFilterElem{
 } IPFilterElem;
 
 typedef std::map<uint32_t, IPFilterElem*> QIPHash;
-//typedef std::vector<string> StringList;
 typedef std::vector<IPFilterElem*> QIPList;
 
 class IPFilter :
@@ -111,11 +104,6 @@ private:
     QIPHash list_ip;
     /** */
     QIPList rules;
-
-//signals:
-    //void ruleAdded(std::string, eDIRECTION);
-    //void ruleRemoved(std::string, eDIRECTION, eTableAction);
-    //void ruleChanged(std::string, eDIRECTION, eDIRECTION, eTableAction);
 };
 
 #endif // DCIPFILTER_H
