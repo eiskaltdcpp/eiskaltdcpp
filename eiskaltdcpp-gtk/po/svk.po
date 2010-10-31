@@ -1,25 +1,27 @@
 # Language svk translations for PACKAGE package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2010.
 #
+# Automatically generated, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-10-29 21:22+0300\n"
-"PO-Revision-Date: 2010-10-27 20:27+0300\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2010-10-31 12:12+0100\n"
+"Last-Translator: \n"
+"Language-Team: Slovenčina <kde-i18n-doc@kde.org>\n"
 "Language: svk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:952
 #: ../src/settingsdialog.cc:1323 ../glade/mainwindow.glade:266
 msgid "Download Queue"
-msgstr ""
+msgstr "Fronta sťahovania"
 
 #: ../src/downloadqueue.cc:65 ../src/downloadqueue.cc:89
 #: ../src/downloadqueue.cc:90 ../src/downloadqueue.cc:275
@@ -41,7 +43,7 @@ msgstr ""
 #: ../src/sharebrowser.cc:589 ../src/sharebrowser.cc:952
 #: ../src/sharebrowser.cc:986
 msgid "Filename"
-msgstr ""
+msgstr "Názov súboru "
 
 #: ../src/downloadqueue.cc:66 ../src/downloadqueue.cc:277
 #: ../src/downloadqueue.cc:384 ../src/searchspy.cc:57 ../src/searchspy.cc:295
@@ -54,7 +56,7 @@ msgstr ""
 #: ../src/transfers.cc:1091 ../src/transfers.cc:1124 ../src/transfers.cc:1137
 #: ../src/transfers.cc:1150
 msgid "Status"
-msgstr ""
+msgstr "Stav"
 
 #: ../src/downloadqueue.cc:67 ../src/downloadqueue.cc:86
 #: ../src/downloadqueue.cc:278 ../src/downloadqueue.cc:385
@@ -66,24 +68,24 @@ msgstr ""
 #: ../src/sharebrowser.cc:285 ../src/sharebrowser.cc:316
 #: ../glade/search.glade:60 ../glade/mainwindow.glade:1466
 msgid "Size"
-msgstr ""
+msgstr "Veľkosť"
 
 #: ../src/downloadqueue.cc:68 ../src/downloadqueue.cc:88
 #: ../src/downloadqueue.cc:281 ../src/downloadqueue.cc:388
 msgid "Downloaded"
-msgstr ""
+msgstr "Stiahnuté"
 
 #: ../src/downloadqueue.cc:69 ../src/downloadqueue.cc:283
 #: ../src/downloadqueue.cc:390
 msgid "Priority"
-msgstr ""
+msgstr "Priorita"
 
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
 #: ../src/publichubs.cc:58 ../src/publichubs.cc:158
 #: ../glade/mainwindow.glade:617
 msgid "Users"
-msgstr ""
+msgstr "Užívatelia"
 
 #: ../src/downloadqueue.cc:71 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/transfers.cc:64 ../src/transfers.cc:715
@@ -96,7 +98,7 @@ msgstr ""
 #: ../src/search.cc:1628 ../src/search.cc:1629 ../src/search.cc:1630
 #: ../src/search.cc:1890
 msgid "Path"
-msgstr ""
+msgstr "Cesta"
 
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
 #: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386 ../src/search.cc:94
@@ -104,111 +106,111 @@ msgstr ""
 #: ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
 #: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317
 msgid "Exact Size"
-msgstr ""
+msgstr "Veľkosť"
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:285
 #: ../src/downloadqueue.cc:392
 msgid "Errors"
-msgstr ""
+msgstr "Chyby"
 
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:286
 #: ../src/downloadqueue.cc:393
 msgid "Added"
-msgstr ""
+msgstr "Pridané"
 
 #: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:341
 msgid "Items: "
-msgstr ""
+msgstr "Položky"
 
 #: ../src/downloadqueue.cc:237 ../src/downloadqueue.cc:239
 #: ../src/sharebrowser.cc:342
 msgid "Size: "
-msgstr ""
+msgstr "Veľkosť:"
 
 #: ../src/downloadqueue.cc:238 ../src/sharebrowser.cc:336
 msgid "Files: "
-msgstr ""
+msgstr "Zložky"
 
 #: ../src/downloadqueue.cc:1282
 msgid "No users"
-msgstr ""
+msgstr "Žiadny užívatelia"
 
 #: ../src/downloadqueue.cc:1287
 msgid " of "
-msgstr ""
+msgstr "z"
 
 #: ../src/downloadqueue.cc:1287
 msgid " user(s) online"
-msgstr ""
+msgstr "Užívateľ(ia) prihlásený"
 
 #: ../src/downloadqueue.cc:1289
 msgid "Running..."
-msgstr ""
+msgstr "Prebiehajúci"
 
 #: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
 #: ../src/WulforUtil.cc:317 ../src/WulforUtil.cc:319
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámy"
 
 #: ../src/downloadqueue.cc:1320
 msgid "Paused"
-msgstr ""
+msgstr "Pozastavený"
 
 #: ../src/downloadqueue.cc:1323
 msgid "Lowest"
-msgstr ""
+msgstr "Najnižšia"
 
 #: ../src/downloadqueue.cc:1326
 msgid "Low"
-msgstr ""
+msgstr "Nízka"
 
 #: ../src/downloadqueue.cc:1329
 msgid "High"
-msgstr ""
+msgstr "Vysoká"
 
 #: ../src/downloadqueue.cc:1332
 msgid "Highest"
-msgstr ""
+msgstr "Najvyššia"
 
 #: ../src/downloadqueue.cc:1335
 msgid "Normal"
-msgstr ""
+msgstr "Normálna"
 
 #: ../src/downloadqueue.cc:1353
 msgid "File not available"
-msgstr ""
+msgstr "Súbor neprístupný"
 
 #: ../src/downloadqueue.cc:1355
 msgid "Passive user"
-msgstr ""
+msgstr "Pasívny užívateľ"
 
 #: ../src/downloadqueue.cc:1357
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr ""
+msgstr "CRC32 inconsistency (SFV-Check)"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
-msgstr ""
+msgstr "Full tree does not match TTH root"
 
 #: ../src/downloadqueue.cc:1361
 msgid "Source too slow"
-msgstr ""
+msgstr "Zdroj je príliš pomalý"
 
 #: ../src/downloadqueue.cc:1363
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr ""
+msgstr "Vzdialený klient nemá plnú podporu TTH - nieje možné sťahovanie"
 
 #: ../src/downloadqueue.cc:1369
 msgid "No errors"
-msgstr ""
+msgstr "Bez chýb"
 
 #: ../src/notify.cc:149
 msgid "Open file"
-msgstr ""
+msgstr "Otvoriť súbor"
 
 #: ../src/notify.cc:152
 msgid "Open folder"
-msgstr ""
+msgstr "Otvoriť priečinok"
 
 #: ../src/hub.cc:69 ../src/hub.cc:89 ../src/hub.cc:91 ../src/hub.cc:355
 #: ../src/hub.cc:370 ../src/hub.cc:390 ../src/hub.cc:438 ../src/hub.cc:1159
@@ -223,12 +225,12 @@ msgstr ""
 #: ../src/search.cc:771 ../src/search.cc:1642
 #: ../glade/settingsdialog.glade:131
 msgid "Nick"
-msgstr ""
+msgstr "Prezývka"
 
 #: ../src/hub.cc:70 ../src/hub.cc:354 ../src/hub.cc:371 ../src/hub.cc:391
 #: ../src/hub.cc:439 ../src/publichubs.cc:46 ../src/publichubs.cc:161
 msgid "Shared"
-msgstr ""
+msgstr "Zdieľané"
 
 #: ../src/hub.cc:71 ../src/hub.cc:372 ../src/hub.cc:392
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:112
@@ -238,222 +240,224 @@ msgstr ""
 #: ../src/publichubs.cc:42 ../src/publichubs.cc:157 ../src/publichubs.cc:293
 #: ../glade/favoriteusers.glade:81 ../glade/settingsdialog.glade:105
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 #: ../src/hub.cc:72 ../src/hub.cc:373 ../src/hub.cc:393
 msgid "Tag"
-msgstr ""
+msgstr "Označiť"
 
 #: ../src/hub.cc:73 ../src/hub.cc:374 ../src/hub.cc:394 ../src/search.cc:92
 #: ../src/search.cc:565 ../src/search.cc:624 ../src/search.cc:765
 #: ../src/search.cc:1645 ../glade/settingsdialog.glade:753
 msgid "Connection"
-msgstr ""
+msgstr "Spojenie"
 
 #: ../src/hub.cc:75 ../src/hub.cc:376 ../src/hub.cc:396
 msgid "eMail"
-msgstr ""
+msgstr "eMail"
 
 #: ../src/hub.cc:409 ../src/hub.cc:420
 msgid " has joined"
-msgstr ""
+msgstr "sa pripojil"
 
 #: ../src/hub.cc:410 ../src/hub.cc:419
 msgid " has joined hub "
-msgstr ""
+msgstr "sa pripojil k hubu"
 
 #: ../src/hub.cc:426 ../src/hub.cc:444
 msgid " Users"
-msgstr ""
+msgstr "Užívatelia"
 
 #: ../src/hub.cc:450 ../src/hub.cc:460
 msgid " has quit hub "
-msgstr ""
+msgstr "opustil hub"
 
 #: ../src/hub.cc:451 ../src/hub.cc:461
 msgid " has quit"
-msgstr ""
+msgstr "opustil"
 
 #: ../src/hub.cc:490
 msgid "0 Users"
-msgstr ""
+msgstr "0 Užívateľov"
 
 #: ../src/hub.cc:524
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr ""
+msgstr "Čakám na zadanie hesla"
 
 #: ../src/hub.cc:563
 msgid "<b>Enter your password</b>"
-msgstr ""
+msgstr "<b>Zadať heslo</b>"
 
 #: ../src/hub.cc:950 ../src/privatemessage.cc:526
 msgid " *** Emoticons not loaded"
-msgstr ""
+msgstr "*** Smajlíkovia neboli načítaný"
 
 #: ../src/hub.cc:955 ../src/privatemessage.cc:531
 msgid " *** Emoticons mode off"
-msgstr ""
+msgstr "*** Vypnúť smajlíkov"
 
 #: ../src/hub.cc:960 ../src/hub.cc:1039 ../src/privatemessage.cc:536
 #: ../src/privatemessage.cc:615
 msgid " *** Emoticons limit"
-msgstr ""
+msgstr "*** Obmedzenia smajlíkov"
 
 #: ../src/hub.cc:1631 ../src/privatemessage.cc:1100
 msgid "Use Emoticons"
-msgstr ""
+msgstr "Použiť smajlíkov"
 
 #: ../src/hub.cc:1712 ../src/hub.cc:1725 ../src/hub.cc:1847
 #: ../src/privatemessage.cc:864 ../src/privatemessage.cc:878
 #: ../src/privatemessage.cc:932 ../glade/privatemessage.glade:190
 #: ../glade/hub.glade:349
 msgid "Away mode off"
-msgstr ""
+msgstr "Režim \"Preč\" vypnutý"
 
 #: ../src/hub.cc:1719 ../src/privatemessage.cc:872
 msgid "Away mode on: "
-msgstr ""
+msgstr "Režim \"Preč\" zapnutý"
 
 #: ../src/hub.cc:1756 ../src/hub.cc:2418 ../src/privatemessage.cc:1270
 msgid " is favorite user"
-msgstr ""
+msgstr "je obľúbený užívateľ"
 
 #: ../src/hub.cc:1758 ../src/hub.cc:1793 ../src/hub.cc:1803 ../src/hub.cc:1901
 msgid "Not found user: "
-msgstr ""
+msgstr "Užívateľ nenájdený:"
 
 #: ../src/hub.cc:1774 ../src/hub.cc:2457 ../src/privatemessage.cc:1290
 msgid " is not favorite user"
-msgstr ""
+msgstr "nie je obľúbený užívateľ"
 
 #: ../src/hub.cc:1783
 msgid "User favorite list:"
-msgstr ""
+msgstr "Obľúbený zoznam užívateľa:"
 
 #: ../src/hub.cc:1783
 msgid " empty..."
-msgstr ""
+msgstr "prázdny..."
 
 #: ../src/hub.cc:1810 ../src/privatemessage.cc:920
 msgid "Emoticons mode off"
-msgstr ""
+msgstr "Režim smajlíkov vypnutý"
 
 #: ../src/hub.cc:1815 ../src/privatemessage.cc:925
 msgid "Emoticons mode on"
-msgstr ""
+msgstr "Režim smajlíkov zapnutý"
 
 #: ../src/hub.cc:1826
 msgid "Download image: disable"
-msgstr ""
+msgstr "Sťahovanie obrázkov: vypnuté"
 
 #: ../src/hub.cc:1828
 msgid "Download image: unlimit"
-msgstr ""
+msgstr "Sťahovanie obrázkov: neobmedzené"
 
 #: ../src/hub.cc:1830
 msgid "Download limit image: "
-msgstr ""
+msgstr "Obmedzenia pre sťahovanie obrázkov:"
 
 #: ../src/hub.cc:1836
 msgid "Set download limit image: "
-msgstr ""
+msgstr "Nastaviť obmedzenia pre sťahovanie obrázkov:"
 
 #: ../src/hub.cc:1841
 msgid "project home: "
-msgstr ""
+msgstr "Domovská stránka projektu:"
 
 #: ../src/hub.cc:1845 ../src/privatemessage.cc:930
 msgid "*** Available commands:"
-msgstr ""
+msgstr "*** Dostupné príkazy:"
 
 #: ../src/hub.cc:1846 ../src/privatemessage.cc:931
 #: ../glade/privatemessage.glade:183 ../glade/hub.glade:342
 msgid "Away mode message on/off"
-msgstr ""
+msgstr "Zanechanie správy v režime \"Preč\" zap./vyp."
 
 #: ../src/hub.cc:1848 ../glade/hub.glade:356
 msgid "Clear chat"
-msgstr ""
+msgstr "Zmazať chat"
 
 #: ../src/hub.cc:1849
 msgid "Close chat"
-msgstr ""
+msgstr "Zatvoriť chat"
 
 #: ../src/hub.cc:1850 ../glade/hub.glade:363
 msgid "Add a hub to favorites"
-msgstr ""
+msgstr "Pridať hub k obľúbeným"
 
 #: ../src/hub.cc:1851 ../src/privatemessage.cc:935
 #: ../glade/privatemessage.glade:211
 msgid "Add user to favorites list"
-msgstr ""
+msgstr "Pridať užívateľa k obľúbeným"
 
 #: ../src/hub.cc:1852 ../src/privatemessage.cc:936
 #: ../glade/privatemessage.glade:218
 msgid "Remove user favorite"
-msgstr ""
+msgstr "Odstrániť užívateľa z obľúbených"
 
 #: ../src/hub.cc:1853 ../glade/hub.glade:370
 msgid "Show favorites list"
-msgstr ""
+msgstr "Zobraziť obľúbené zoznamy"
 
 #: ../src/hub.cc:1854 ../src/privatemessage.cc:937
 #: ../glade/privatemessage.glade:225
 msgid "Get file list"
-msgstr ""
+msgstr "Stiahnúť zoznam súborov"
 
 #: ../src/hub.cc:1855 ../src/privatemessage.cc:938
 #: ../glade/privatemessage.glade:232
 msgid "Grant extra slot"
-msgstr ""
+msgstr "Udeliť extra slot"
 
 #: ../src/hub.cc:1856 ../src/privatemessage.cc:940
 #: ../glade/privatemessage.glade:239 ../glade/hub.glade:377
 msgid "Show help"
-msgstr ""
+msgstr "Zobraziť nápovedu"
 
 #: ../src/hub.cc:1857 ../glade/hub.glade:384
 msgid "Connect to the hub"
-msgstr ""
+msgstr "Pripojiť sa ku hubu"
 
 #: ../src/hub.cc:1858 ../glade/hub.glade:391
 msgid "Say a third person"
-msgstr ""
+msgstr "Hovorí"
 
 #: ../src/hub.cc:1859 ../src/settingsdialog.cc:985
 #: ../src/settingsdialog.cc:1031 ../src/settingsdialog.cc:1151
 #: ../src/settingsmanager.cc:223
 msgid "Private message"
-msgstr ""
+msgstr "Súkromná správa"
 
 #: ../src/hub.cc:1860 ../glade/hub.glade:398
 msgid "Rebuild hash"
-msgstr ""
+msgstr "Prerobiť hash"
 
 #: ../src/hub.cc:1861
 msgid "Update own file list"
-msgstr ""
+msgstr "Aktualizovať vlastný zoznam súborov"
 
 #: ../src/hub.cc:1862
 msgid "User list show/hide"
-msgstr ""
+msgstr "Zobraziť/skryť užívateľov zoznam"
 
 #: ../src/hub.cc:1863
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
+"Obmedzenie pre sťahovanie obrázkov: 0 - deaktivované, n < 0 - neobmedzené, "
+"prázdne - info "
 
 #: ../src/hub.cc:1864 ../glade/hub.glade:412
 msgid "Show version"
-msgstr ""
+msgstr "Zobraziť verziu"
 
 #: ../src/hub.cc:1865 ../src/privatemessage.cc:939
 msgid "Emoticons on/off"
-msgstr ""
+msgstr "Zapnúť/Vypnúť smajlíkov"
 
 #: ../src/hub.cc:1867
 msgid "Load Lua file"
-msgstr ""
+msgstr "Načítať Lua súbor"
 
 #: ../src/hub.cc:1868
 msgid "Execute Lua Chunk"
@@ -465,11 +469,11 @@ msgstr ""
 
 #: ../src/hub.cc:1871
 msgid "Alias List"
-msgstr ""
+msgstr "Zoznam aliasov"
 
 #: ../src/hub.cc:1872
 msgid "Alias Remove A"
-msgstr ""
+msgstr "Vymazať Alias A"
 
 #: ../src/hub.cc:1873
 msgid "Alias add uname -a as A"
@@ -481,81 +485,82 @@ msgstr ""
 
 #: ../src/hub.cc:1963
 msgid "Aliases not found."
-msgstr ""
+msgstr "Aliasy nenájdené"
 
 #: ../src/hub.cc:2064
 msgid "Unknown command '"
-msgstr ""
+msgstr "Príkaz neznámy"
 
 #: ../src/hub.cc:2064
 msgid "': type /help for a list of available commands"
-msgstr ""
+msgstr "': napíš /help pre zobrazenie zoznamu dostupných príkazov"
 
 #: ../src/hub.cc:2347 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1063
 #: ../src/mainwindow.cc:1131 ../glade/sharebrowser.glade:326
 #: ../glade/search.glade:563 ../glade/settingsdialog.glade:6013
 msgid "Choose a directory"
-msgstr ""
+msgstr "Vybrať priečinok"
 
 #: ../src/hub.cc:2486
 msgid " added to favorites list"
-msgstr ""
+msgstr "pridať do obľúbeného zoznamu"
 
 #: ../src/hub.cc:2513
 msgid " removed from favorites list"
-msgstr ""
+msgstr "odstrániť z obľúbeného zoznamu"
 
 #: ../src/hub.cc:2627 ../src/hub.cc:2647
 msgid "User not found"
-msgstr ""
+msgstr "Užívateľ nenájdený"
 
 #: ../src/hub.cc:2655 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
-msgstr ""
+msgstr "Slot udelený"
 
 #: ../src/hub.cc:2680
 msgid "Unable to connect: already connected to the requested hub"
 msgstr ""
+"Nie je možné sa pripojiť k požadovanému hubu(práve ste k nemu pripojený)"
 
 #: ../src/hub.cc:2734
 msgid "Favorite hub added"
-msgstr ""
+msgstr "Obľúbený hub pridaný"
 
 #: ../src/hub.cc:2739
 msgid "Favorite hub already exists"
-msgstr ""
+msgstr "Obľúbený hub už existuje"
 
 #: ../src/hub.cc:2849
 msgid "loading error"
-msgstr ""
+msgstr "chyba pri načítaní"
 
 #: ../src/hub.cc:2862
 msgid "bad image"
-msgstr ""
+msgstr "zlé zobrazenie (bad image)"
 
 #: ../src/hub.cc:3069
 msgid "Connecting to "
-msgstr ""
+msgstr "Pripájam sa k"
 
 #: ../src/hub.cc:3076 ../src/transfers.cc:1013
 msgid "Connected"
-msgstr ""
+msgstr "Pripojený"
 
 #: ../src/hub.cc:3132
 msgid "Connect failed: "
-msgstr ""
+msgstr "Spojenie neúspešné"
 
 #: ../src/hub.cc:3278
 msgid "Ignored private message from hub"
-msgstr ""
+msgstr "Ignorovať súkromné správy z hubu"
 
 #: ../src/hub.cc:3285
 msgid "Ignored private message from bot "
-msgstr ""
+msgstr "Ignorovať súkromné správy od Bota"
 
 #: ../src/hub.cc:3302
 msgid "Nick already taken"
-msgstr ""
+msgstr "Prezývka prijatá"
 
 #: ../src/hub.cc:3309
 msgid "Search spam detected from "
@@ -563,14 +568,14 @@ msgstr ""
 
 #: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:703
 msgid "ADL Search"
-msgstr ""
+msgstr "ADL Hľadanie"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
 #: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
 #: ../glade/adlsearch.glade:354
 msgid "Enabled"
-msgstr ""
+msgstr "Zapnutý"
 
 #: ../src/adlsearch.cc:40 ../src/adlsearch.cc:60 ../src/adlsearch.cc:111
 #: ../src/adlsearch.cc:211 ../src/adlsearch.cc:237 ../src/searchspy.cc:54
@@ -579,39 +584,39 @@ msgstr ""
 #: ../src/searchspy.cc:292 ../src/searchspy.cc:308 ../src/searchspy.cc:467
 #: ../src/searchspy.cc:532 ../src/searchspy.cc:565
 msgid "Search String"
-msgstr ""
+msgstr "Hľadať reťazec"
 
 #: ../src/adlsearch.cc:41 ../src/adlsearch.cc:61 ../src/adlsearch.cc:112
 #: ../src/adlsearch.cc:212
 msgid "Source Type"
-msgstr ""
+msgstr "Typ zdroja"
 
 #: ../src/adlsearch.cc:42 ../src/adlsearch.cc:62 ../src/adlsearch.cc:113
 #: ../src/adlsearch.cc:213 ../src/adlsearch.cc:238
 msgid "Destination Directory"
-msgstr ""
+msgstr "Cieľový priečinok"
 
 #: ../src/adlsearch.cc:43 ../src/adlsearch.cc:63 ../src/adlsearch.cc:114
 #: ../src/adlsearch.cc:214
 msgid "Min Size"
-msgstr ""
+msgstr "Min veľkosť"
 
 #: ../src/adlsearch.cc:44 ../src/adlsearch.cc:64 ../src/adlsearch.cc:115
 #: ../src/adlsearch.cc:215
 msgid "Max Size"
-msgstr ""
+msgstr "Max veľkosť"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1210
 #: ../src/settingsdialog.cc:1263 ../src/settingsdialog.cc:1326
 #: ../glade/mainwindow.glade:206 ../glade/mainwindow.glade:615
 msgid "Favorite Users"
-msgstr ""
+msgstr "Obľúbený užívatelia"
 
 #: ../src/favoriteusers.cc:44 ../src/favoriteusers.cc:65
 #: ../src/favoriteusers.cc:108 ../src/favoriteusers.cc:470
 #: ../src/favoriteusers.cc:472
 msgid "Auto grant slot"
-msgstr ""
+msgstr "Automaticky udeliť slot"
 
 #: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
 #: ../src/favoriteusers.cc:584
@@ -621,58 +626,58 @@ msgstr ""
 #: ../src/favoriteusers.cc:47 ../src/favoriteusers.cc:111
 #: ../src/favoriteusers.cc:577 ../src/favoriteusers.cc:585
 msgid "Time last seen"
-msgstr ""
+msgstr "Naposledy videný"
 
 #: ../src/favoriteusers.cc:103 ../src/favoriteusers.cc:622
 #: ../src/favoriteusers.cc:641
 msgid "Online"
-msgstr ""
+msgstr "Pripojený"
 
 #: ../src/favoriteusers.cc:438
 msgid "Are you sure you want to delete favorite user(s)?"
-msgstr ""
+msgstr "Ste si istý, že chcete vymazať užívateľa(ov) spomedzi obľúbených?"
 
 #: ../src/hashdialog.cc:42 ../src/hashdialog.cc:130
 msgid "Paused..."
-msgstr ""
+msgstr "Pozastavené..."
 
 #: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../glade/hash.glade:7
 msgid "Indexing files..."
-msgstr ""
+msgstr "Indexovanie súborov..."
 
 #: ../src/hashdialog.cc:70 ../glade/settingsdialog.glade:1602
 msgid "B/s"
-msgstr ""
+msgstr "B/s"
 
 #: ../src/hashdialog.cc:70 ../src/hashdialog.cc:79 ../src/hashdialog.cc:88
 msgid " left"
-msgstr ""
+msgstr "vľavo"
 
 #: ../src/hashdialog.cc:71 ../src/hashdialog.cc:83
 msgid "-:--:-- left"
-msgstr ""
+msgstr "-:--:-- vľavo"
 
 #: ../src/hashdialog.cc:79 ../src/treeview.cc:213 ../src/mainwindow.cc:1950
 #: ../src/mainwindow.cc:1952 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
-msgstr ""
+msgstr "s"
 
 #: ../src/hashdialog.cc:108
 msgid "Done"
-msgstr ""
+msgstr "Dokončené"
 
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:956
 #: ../src/settingsdialog.cc:1220 ../src/settingsdialog.cc:1279
 #: ../src/settingsdialog.cc:1327 ../glade/mainwindow.glade:314
 #: ../glade/mainwindow.glade:716 ../glade/settingsdialog.glade:3989
 msgid "Search Spy"
-msgstr ""
+msgstr "Search Spy"
 
 #: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
 msgid "Count"
-msgstr ""
+msgstr "Počet"
 
 #: ../src/searchspy.cc:56 ../src/searchspy.cc:269 ../src/searchspy.cc:294
 #: ../src/searchspy.cc:310 ../src/finishedtransfers.cc:56
@@ -681,15 +686,15 @@ msgstr ""
 #: ../src/finishedtransfers.cc:91 ../src/finishedtransfers.cc:178
 #: ../src/finishedtransfers.cc:215
 msgid "Time"
-msgstr ""
+msgstr "Čas"
 
 #: ../src/searchspy.cc:295 ../src/searchspy.cc:363
 msgid "waiting..."
-msgstr ""
+msgstr "vyčkávanie"
 
 #: ../src/searchspy.cc:358
 msgid "top..."
-msgstr ""
+msgstr "top..."
 
 #: ../src/searchspy.cc:389 ../glade/searchspy.glade:149
 msgid "Update frame search"
@@ -710,18 +715,18 @@ msgstr ""
 #: ../src/transfers.cc:1033 ../src/transfers.cc:1051 ../src/transfers.cc:1092
 #: ../src/transfers.cc:1138 ../src/transfers.cc:1151
 msgid "User"
-msgstr ""
+msgstr "Užívateľ"
 
 #: ../src/transfers.cc:58 ../src/transfers.cc:494 ../src/transfers.cc:560
 #: ../src/transfers.cc:591 ../src/transfers.cc:860 ../src/transfers.cc:878
 msgid "Hub Name"
-msgstr ""
+msgstr "Názov Hubu"
 
 #: ../src/transfers.cc:60 ../src/transfers.cc:593 ../src/transfers.cc:624
 #: ../src/transfers.cc:887 ../src/transfers.cc:985 ../src/transfers.cc:1035
 #: ../src/transfers.cc:1154
 msgid "Time Left"
-msgstr ""
+msgstr "Zostávajúci čas"
 
 #: ../src/transfers.cc:61 ../src/transfers.cc:556 ../src/transfers.cc:592
 #: ../src/transfers.cc:624 ../src/transfers.cc:765 ../src/transfers.cc:882
@@ -730,157 +735,157 @@ msgstr ""
 #: ../src/finishedtransfers.cc:61 ../src/finishedtransfers.cc:82
 #: ../src/finishedtransfers.cc:183 ../src/finishedtransfers.cc:220
 msgid "Speed"
-msgstr ""
+msgstr "Rýchlosť"
 
 #: ../src/transfers.cc:368
 msgid "Connecting (forced)..."
-msgstr ""
+msgstr "Pripájanie (vynútené)..."
 
 #: ../src/transfers.cc:401
 msgid "Closing connection..."
-msgstr ""
+msgstr "Ukončovanie pripojenia..."
 
 #: ../src/transfers.cc:575 ../src/transfers.cc:947
 msgid "Downloaded "
-msgstr ""
+msgstr "Stiahnuté"
 
 #: ../src/transfers.cc:577
 msgid "Waiting for slot "
-msgstr ""
+msgstr "Čakanie na slot"
 
 #: ../src/transfers.cc:580
 msgid "%) from "
-msgstr ""
+msgstr "%) z"
 
 #: ../src/transfers.cc:580
 msgid " user(s)"
-msgstr ""
+msgstr "užívateľ(ia)"
 
 #: ../src/transfers.cc:670 ../src/transfers.cc:872
 msgid "File list"
-msgstr ""
+msgstr "Zoznam súborov"
 
 #: ../src/transfers.cc:901
 msgid "Requesting"
-msgstr ""
+msgstr "Žiadajúci"
 
 #: ../src/transfers.cc:914
 msgid "Download starting..."
-msgstr ""
+msgstr "Sťahovanie začalo..."
 
 #: ../src/transfers.cc:937 ../src/transfers.cc:1114
 msgid "[S]"
-msgstr ""
+msgstr "[S]"
 
 #: ../src/transfers.cc:939 ../src/transfers.cc:1116
 msgid "[U]"
-msgstr ""
+msgstr "[U]"
 
 #: ../src/transfers.cc:942
 msgid "[T]"
-msgstr ""
+msgstr "[T]"
 
 #: ../src/transfers.cc:944 ../src/transfers.cc:1119
 msgid "[Z]"
-msgstr ""
+msgstr "[Z]"
 
 #: ../src/transfers.cc:962
 msgid "Download complete..."
-msgstr ""
+msgstr "Sťahovanie ukončené..."
 
 #: ../src/transfers.cc:1002
 msgid "Connecting..."
-msgstr ""
+msgstr "Pripájanie"
 
 #: ../src/transfers.cc:1048
 msgid "Connecting"
-msgstr ""
+msgstr "Pripájanie"
 
 #: ../src/transfers.cc:1050
 msgid "Waiting to retry"
-msgstr ""
+msgstr "Čakám na opätovný pokus"
 
 #: ../src/transfers.cc:1073 ../src/settingsdialog.cc:982
 #: ../src/settingsdialog.cc:1143 ../src/settingsmanager.cc:219
 msgid "Download finished"
-msgstr ""
+msgstr "Sťahovanie ukončené"
 
 #: ../src/transfers.cc:1082
 msgid "Download removed"
-msgstr ""
+msgstr "Sťahovanie vymazané"
 
 #: ../src/transfers.cc:1091
 msgid "Upload starting..."
-msgstr ""
+msgstr "Odovzdávanie začína..."
 
 #: ../src/transfers.cc:1122
 msgid "Uploaded "
-msgstr ""
+msgstr "Odovzdané"
 
 #: ../src/transfers.cc:1137
 msgid "Upload complete..."
-msgstr ""
+msgstr "Odovzdávanie ukončené..."
 
 #: ../src/wulfor.cc:75
 msgid "Loading: "
-msgstr ""
+msgstr "Načítavanie:"
 
 #: ../src/wulfor.cc:153
 msgid "Shutting down libdcpp..."
-msgstr ""
+msgstr "Vypnúť libdcpp..."
 
 #: ../src/wulfor.cc:155
 msgid "Quit..."
-msgstr ""
+msgstr "Ukončiť..."
 
 #: ../src/privatemessage.cc:933 ../glade/privatemessage.glade:197
 msgid "Clear PM"
-msgstr ""
+msgstr "Vyčistiť PM"
 
 #: ../src/privatemessage.cc:934 ../glade/privatemessage.glade:204
 msgid "Close PM"
-msgstr ""
+msgstr "Zatvoriť PM"
 
 #: ../src/privatemessage.cc:944
 msgid "Unknown command "
-msgstr ""
+msgstr "Príkaz neznámy"
 
 #: ../src/privatemessage.cc:944
 msgid ": type /help for a list of available commands"
-msgstr ""
+msgstr ": napiš /help pre zobrazenie zoznamu dostupných príkazov"
 
 #: ../src/privatemessage.cc:1258
 msgid "User went offline"
-msgstr ""
+msgstr "Užívateľ sa odhlásil"
 
 #: ../src/privatemessage.cc:1321
 msgid "Slot granted"
-msgstr ""
+msgstr "Slot udelený"
 
 #: ../src/settingsdialog.cc:292 ../src/settingsdialog.cc:328
 #: ../src/settingsdialog.cc:964 ../src/settingsdialog.cc:975
 #: ../src/settingsdialog.cc:1123 ../src/settingsdialog.cc:1138
 msgid "Use"
-msgstr ""
+msgstr "Použiť"
 
 #: ../src/settingsdialog.cc:293 ../src/settingsdialog.cc:966
 #: ../src/settingsdialog.cc:1224 ../src/settingsdialog.cc:2052
 #: ../src/settingsdialog.cc:2068 ../src/UserCommandMenu.cc:67
 msgid "File"
-msgstr ""
+msgstr "Súbor"
 
 #: ../src/settingsdialog.cc:329 ../src/settingsdialog.cc:1125
 #: ../src/settingsdialog.cc:1519 ../src/settingsdialog.cc:1575
 #: ../src/settingsdialog.cc:1591 ../src/settingsdialog.cc:1613
 #: ../src/settingsdialog.cc:1617 ../src/settingsdialog.cc:1667
 msgid "Title"
-msgstr ""
+msgstr "Názov"
 
 #: ../src/settingsdialog.cc:330 ../src/settingsdialog.cc:1126
 #: ../src/settingsdialog.cc:1520 ../src/settingsdialog.cc:1554
 #: ../src/settingsdialog.cc:1631 ../src/settingsdialog.cc:1667
 msgid "Icon"
-msgstr ""
+msgstr "Ikona"
 
 #: ../src/settingsdialog.cc:815 ../src/settingsdialog.cc:850
 #: ../src/settingsdialog.cc:2130 ../src/settingsdialog.cc:2146
@@ -892,39 +897,41 @@ msgstr ""
 #: ../src/publichubs.cc:41 ../src/publichubs.cc:156 ../src/publichubs.cc:292
 #: ../glade/settingsdialog.glade:6316
 msgid "Name"
-msgstr ""
+msgstr "Meno"
 
 #: ../src/settingsdialog.cc:816 ../src/settingsdialog.cc:851
 #: ../src/settingsdialog.cc:2131 ../src/settingsdialog.cc:2165
 #: ../src/settingsdialog.cc:2183 ../src/settingsdialog.cc:2214
 msgid "Application"
-msgstr ""
+msgstr "Aplikácia"
 
 #: ../src/settingsdialog.cc:817 ../src/settingsdialog.cc:852
 #: ../src/settingsdialog.cc:2132 ../src/settingsdialog.cc:2166
 #: ../src/settingsdialog.cc:2184 ../src/settingsdialog.cc:2215
 msgid "Extensions"
-msgstr ""
+msgstr "Rozšírenia"
 
 #: ../src/settingsdialog.cc:840
 msgid "Xine player"
-msgstr ""
+msgstr "Xine player"
 
 #: ../src/settingsdialog.cc:841
 msgid "Kaffeine player"
-msgstr ""
+msgstr "Kaffeine player"
 
 #: ../src/settingsdialog.cc:842
 msgid "Mplayer player"
-msgstr ""
+msgstr "Mplayer player"
 
 #: ../src/settingsdialog.cc:843
 msgid "Amarok player"
-msgstr ""
+msgstr "Amarok player"
 
 #: ../src/settingsdialog.cc:875
 msgid "Set lowest priority for newly added files larger than low priority size"
 msgstr ""
+"Nastaviť najnižšiu prioritu pre novopridané súbory, ktoré sú väčšie než "
+"nastavená hodnota pre súbory s nízkou prioritou."
 
 #: ../src/settingsdialog.cc:876
 msgid "Auto-drop slow sources for all queue items (except filelists)"
@@ -932,7 +939,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:877
 msgid "Remove slow filelists"
-msgstr ""
+msgstr "Vymazať pomalé zoznamy súborov"
 
 #: ../src/settingsdialog.cc:878
 msgid "Don't remove the source when auto-dropping, only disconnect"
@@ -940,7 +947,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:879
 msgid "Automatically search for alternative download locations"
-msgstr ""
+msgstr "Automaticky hľadať alternatívy pre sťahovanie"
 
 #: ../src/settingsdialog.cc:880
 msgid "Automatically match queue for auto search hits"
@@ -948,15 +955,15 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:881
 msgid "Skip zero-byte files"
-msgstr ""
+msgstr "Preskočiť súbory, ktoré majú 0 bytov"
 
 #: ../src/settingsdialog.cc:882
 msgid "Don't download files already in share"
-msgstr ""
+msgstr "Nesťahovať súbory, ktoré sú zdieľané"
 
 #: ../src/settingsdialog.cc:883
 msgid "Don't download files already in the queue"
-msgstr ""
+msgstr "Nesťahovať súbory, ktoré su práve vo fronte sťahovania"
 
 #: ../src/settingsdialog.cc:922
 msgid "Filter kick and NMDC debug messages"
@@ -964,15 +971,15 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:923
 msgid "Show status icon in the system tray"
-msgstr ""
+msgstr "Zobraziť ikonu stavu na lište"
 
 #: ../src/settingsdialog.cc:924
 msgid "Show timestamps in chat by default"
-msgstr ""
+msgstr "Zobraziť čas pri chatovaní (štandartne)"
 
 #: ../src/settingsdialog.cc:925
 msgid "View status messages in main chat"
-msgstr ""
+msgstr "Zobraziť správu o stave v hlavnom chate"
 
 #: ../src/settingsdialog.cc:926
 msgid "Show joins / parts in chat by default"
@@ -3515,3 +3522,5 @@ msgstr ""
 #: ../glade/hub.glade:439
 msgid "Remove image"
 msgstr ""
+
+
