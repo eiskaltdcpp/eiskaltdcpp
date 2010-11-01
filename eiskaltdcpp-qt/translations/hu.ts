@@ -140,7 +140,7 @@ Kapcsolók:
     <name>ActionCustomizer</name>
     <message>
         <source>Customize actions</source>
-        <translation>Akciók tesztreszabása</translation>
+        <translation>Eszköztár tesztreszabása</translation>
     </message>
     <message>
         <source>-- Separator --</source>
@@ -2102,15 +2102,15 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Szlovák fordítás&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.1.0 és újabb)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>Show close buttons</source>
-        <translation type="unfinished">Bezárási gombok mutatása</translation>
+        <translation>Bezárási gombok mutatása</translation>
     </message>
 </context>
 <context>
@@ -2342,7 +2342,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Signal handlers installed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelfeldolgozó telepítve.</translation>
     </message>
 </context>
 <context>
@@ -3159,7 +3159,7 @@ Biztosan le akarod állítani?
     <name>ToolBar</name>
     <message>
         <source>Show close buttons</source>
-        <translation type="unfinished">Bezárási gombok mutatása</translation>
+        <translation>Bezárási gombok mutatása</translation>
     </message>
 </context>
 <context>
@@ -3737,7 +3737,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Client ID</source>
-        <translation>Cliens azonosító</translation>
+        <translation>Kliens azonosító</translation>
     </message>
     <message>
         <source>External IP</source>
@@ -4415,7 +4415,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>When enabled can hang program on exit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha be van jelölve, a program beragadhat kilépéskor.</translation>
     </message>
     <message>
         <source>Automatically update external IP (restart required)</source>
@@ -4486,7 +4486,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
-        <translation>Megjegyzés: A letöltési sebesség folytonos változása miatt, ez nem 100% pontosságú</translation>
+        <translation>Megjegyzés: A letöltési sebesség folytonos változása miatt ez nem 100% pontosságú</translation>
     </message>
     <message>
         <source>Public Hub lists</source>
@@ -4832,7 +4832,11 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a maximális idő ami eltelhet két adatcsomag érkezése között.
+A beállítás a sebességmérés pontosságát hivatott javítani, annak érdekében,
+hogy az egyes források szétkapcsolása ne történjen meg,
+ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünetek keletkeznek.
+(alapértelmezés: 10s)</translation>
     </message>
 </context>
 <context>
@@ -5498,7 +5502,7 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Private page mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Privát lapozás</translation>
     </message>
     <message>
         <source>Proactive read from disk</source>
@@ -5572,7 +5576,9 @@ Az opció megváltoztatása a fájl-lista frissítését eredményezi, ezért ek
     <message>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha ez nincs bejelölve, akkor a klienst hagyni kell,
+hogy a megosztás indexelését teljesen elvégezze,
+addig, amíg a folyamatjelző nullát nem mutat.</translation>
     </message>
     <message>
         <source>If the average upload speed drops below the given number,
@@ -5626,7 +5632,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>If checked, a pause hashing may not work.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha be van jelölve, az indexelés szüneteltetése nem biztos, hogy működni fog.</translation>
     </message>
 </context>
 <context>

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-10-29 21:22+0300\n"
-"PO-Revision-Date: 2010-10-29 15:15+0200\n"
+"PO-Revision-Date: 2010-11-01 14:21+0100\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -677,7 +677,7 @@ msgstr "Keresési megfigyelő"
 #: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
 msgid "Count"
-msgstr ""
+msgstr "Darabszám"
 
 #: ../src/searchspy.cc:56 ../src/searchspy.cc:269 ../src/searchspy.cc:294
 #: ../src/searchspy.cc:310 ../src/finishedtransfers.cc:56
@@ -975,7 +975,7 @@ msgstr "Kick és NMDC debug  üzenetek szűrése"
 
 #: ../src/settingsdialog.cc:923
 msgid "Show status icon in the system tray"
-msgstr ""
+msgstr "Ikon mutatása a tálcán"
 
 #: ../src/settingsdialog.cc:924
 msgid "Show timestamps in chat by default"
@@ -999,7 +999,7 @@ msgstr "Kedvenc felhasználók előre helyezése a listában"
 
 #: ../src/settingsdialog.cc:929
 msgid "Use OEM monospaced font for chat windows"
-msgstr ""
+msgstr "Egyforma szélességű OEM betűtípus használata a chat ablakokban"
 
 #: ../src/settingsdialog.cc:930
 msgid "Use magnet split"
@@ -1007,7 +1007,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:931
 msgid "Use blinking status icon"
-msgstr ""
+msgstr "Villogó ikon használata"
 
 #: ../src/settingsdialog.cc:932
 msgid "Use emoticons"
@@ -1015,11 +1015,11 @@ msgstr "Hangulatjelek használata"
 
 #: ../src/settingsdialog.cc:933
 msgid "Do not close the program, hide in the system tray"
-msgstr ""
+msgstr "Program bezárása helyett a tálcára helyezés"
 
 #: ../src/settingsdialog.cc:934
 msgid "Send PM when double clicked in the user list"
-msgstr ""
+msgstr "Privát üzenet küldése dupla kattintásra a felhasználói listában"
 
 #: ../src/settingsdialog.cc:950 ../src/settingsdialog.cc:1211
 #: ../src/settingsdialog.cc:1283 ../src/settingsdialog.cc:1324
@@ -1058,7 +1058,7 @@ msgstr "Hangok"
 #: ../src/settingsdialog.cc:983 ../src/settingsdialog.cc:1147
 #: ../src/settingsmanager.cc:221
 msgid "Download finished file list"
-msgstr ""
+msgstr "Fájl-lista letöltése kész"
 
 #: ../src/settingsdialog.cc:984
 msgid "Upload finished"
@@ -1067,12 +1067,12 @@ msgstr "Feltöltés befejezve"
 #: ../src/settingsdialog.cc:986 ../src/settingsdialog.cc:1155
 #: ../src/settingsmanager.cc:227
 msgid "Hub connected"
-msgstr ""
+msgstr "Csatlakozva a hubhoz"
 
 #: ../src/settingsdialog.cc:987 ../src/settingsdialog.cc:1159
 #: ../src/settingsmanager.cc:225
 msgid "Hub disconnected"
-msgstr ""
+msgstr "Hub szétkapcsolva"
 
 #: ../src/settingsdialog.cc:988 ../src/settingsdialog.cc:1163
 #: ../src/settingsmanager.cc:229
@@ -1204,7 +1204,7 @@ msgstr "Publikus hubok"
 #: ../src/settingsdialog.cc:1218 ../src/settingsdialog.cc:1281
 #: ../glade/mainwindow.glade:661 ../glade/settingsdialog.glade:1740
 msgid "Queue"
-msgstr ""
+msgstr "Letöltési sor"
 
 #: ../src/settingsdialog.cc:1221 ../src/settingsdialog.cc:1287
 #: ../glade/mainwindow.glade:736
@@ -1249,7 +1249,7 @@ msgstr "Felhasználóktól kapott új privát üzenet megnyitása a háttérben"
 
 #: ../src/settingsdialog.cc:1335
 msgid "Open new window when using /join"
-msgstr ""
+msgstr "/join használatakor új ablak nyitása"
 
 #: ../src/settingsdialog.cc:1336
 msgid "Ignore private messages from the hub"
@@ -1261,7 +1261,7 @@ msgstr "A botoktól érkező privát üzenetek figyelmen kívül hagyása"
 
 #: ../src/settingsdialog.cc:1338
 msgid "Popup box to input password for hubs"
-msgstr ""
+msgstr "Felugró ablak használata jelszó megadásához"
 
 #: ../src/settingsdialog.cc:1343
 msgid "Confirm application exit"
@@ -1282,7 +1282,7 @@ msgstr "Átirányítások automatikus követése"
 
 #: ../src/settingsdialog.cc:1391
 msgid "Clear search box after each search"
-msgstr ""
+msgstr "Keresés után a beviteli mező törlése"
 
 #: ../src/settingsdialog.cc:1392
 msgid ""
@@ -1294,11 +1294,11 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1393
 msgid "Don't delete file lists when exiting"
-msgstr ""
+msgstr "Kilépéskor ne törölje a fájl-listákat"
 
 #: ../src/settingsdialog.cc:1394
 msgid "Automatically disconnect users who leave the hub"
-msgstr ""
+msgstr "A hubról kilépő felhasználó automatikus szétkapcsolása"
 
 #: ../src/settingsdialog.cc:1395
 msgid "Enable segmented downloads"
@@ -1310,47 +1310,54 @@ msgstr "Automatikus SFV ellenőrzés engedélyezése"
 
 #: ../src/settingsdialog.cc:1397
 msgid "Enable safe and compressed transfers"
-msgstr ""
+msgstr "Tömörített és biztonságos átvitelek engedélyezése"
 
 #: ../src/settingsdialog.cc:1398
 msgid "Accept custom user commands from hub"
-msgstr ""
+msgstr "Felhasználói parancsok elfogadása a hubtól"
 
 #: ../src/settingsdialog.cc:1399
 msgid "Send unknown /commands to the hub"
-msgstr ""
+msgstr "Ismeretlen /parancsok elküldése a hubnak"
 
 #: ../src/settingsdialog.cc:1400
 msgid "Add finished files to share instantly (if shared)"
 msgstr ""
+"Letöltött fájlok azonnali megosztása (ha a megosztási mappán belül van)"
+"	"
 
 #: ../src/settingsdialog.cc:1401
 msgid "Don't send the away message to bots"
-msgstr ""
+msgstr "Ne küldjön away üzenetet a botoknak"
 
 #: ../src/settingsdialog.cc:1402
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr ""
+"Gyors indexelés használata (kapcsold ki, ha problémát észlelsz indexeléskor)"
 
 #: ../src/settingsdialog.cc:1403
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr ""
+"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása "
+"a rendszerben"
 
 #: ../src/settingsdialog.cc:1404
 msgid "Register with the OS to handle magnet: URL links"
-msgstr ""
+msgstr "A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
 
 #: ../src/settingsdialog.cc:1464
 msgid "Use TLS when remote client supports it"
-msgstr ""
+msgstr "TLS használata, ha a távoli kliens támogatja azt"
 
 #: ../src/settingsdialog.cc:1465
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr ""
+"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli huboknál is"
 
 #: ../src/settingsdialog.cc:1466
 msgid "Allow TLS connections to clients without trusted certificate"
 msgstr ""
+"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli klienseknél is"
 
 #: ../src/settingsdialog.cc:1522
 msgid "*** T E S T ***"
@@ -1359,11 +1366,11 @@ msgstr "*** T E S Z T ***"
 #: ../src/settingsdialog.cc:1604 ../src/settingsdialog.cc:1633
 #: ../src/settingsdialog.cc:1670
 msgid "...must not be empty"
-msgstr ""
+msgstr "...nem lehet üres"
 
 #: ../src/settingsdialog.cc:1701 ../src/settingsdialog.cc:1725
 msgid "...must be *.theme"
-msgstr ""
+msgstr "... *.theme kiterjesztésűnek kell lennie"
 
 #: ../src/settingsdialog.cc:1740
 msgid "default icons"
@@ -1379,7 +1386,7 @@ msgstr "alapértelmezett téma"
 
 #: ../src/settingsdialog.cc:2113 ../src/settingsdialog.cc:2199
 msgid "Must not be empty..."
-msgstr ""
+msgstr "Nem lehet üres..."
 
 #: ../src/settingsdialog.cc:2121
 msgid "Error"
@@ -1403,11 +1410,11 @@ msgstr "Elválasztó"
 
 #: ../src/settingsdialog.cc:2572
 msgid "Name and command must not be empty"
-msgstr ""
+msgstr "A név és a parancs nem lehet üres"
 
 #: ../src/settingsdialog.cc:2578
 msgid "Command name already exists"
-msgstr ""
+msgstr "Ez a parancs név már létezik"
 
 #: ../src/settingsdialog.cc:2772 ../src/publichubs.cc:360
 msgid "New list"
@@ -1474,6 +1481,7 @@ msgstr ""
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
 msgstr ""
+"Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
 
 #: ../src/mainwindow.cc:101
 #, c-format
@@ -1823,7 +1831,7 @@ msgstr "?"
 
 #: ../glade/sharebrowser.glade:109
 msgid "Match Queue"
-msgstr ""
+msgstr "Egyeztetés a letöltésekkel"
 
 #: ../glade/sharebrowser.glade:122
 msgid "Find"
@@ -2007,7 +2015,7 @@ msgstr "Törlés"
 
 #: ../glade/searchspy.glade:150
 msgid "Update"
-msgstr ""
+msgstr "Frissítés"
 
 #: ../glade/searchspy.glade:163
 msgid "Show top search"
@@ -2019,7 +2027,7 @@ msgstr ""
 
 #: ../glade/searchspy.glade:262
 msgid "Delete item"
-msgstr ""
+msgstr "Tétel törlése"
 
 #: ../glade/search.glade:25
 msgid "Search for"
@@ -2241,6 +2249,8 @@ msgstr "_Felhasználói leírás:"
 #: ../glade/favoritehubs.glade:384
 msgid "<small>Note: Leave unchecked for default values</small>"
 msgstr ""
+"<small>Megjegyzés: Ha nincs bejelölve, az alapértelmezett beállítások "
+"lesznek érvényben</small>"
 
 #: ../glade/mainwindow.glade:19
 msgid "_File"
@@ -2364,23 +2374,23 @@ msgstr "Gyors csatlakozás a hubhoz"
 
 #: ../glade/mainwindow.glade:628
 msgid "Search for files to download"
-msgstr ""
+msgstr "Fájlok keresése letöltéshez"
 
 #: ../glade/mainwindow.glade:641
 msgid "Browse the list of public hubs"
-msgstr ""
+msgstr "Publikus hublista böngészése"
 
 #: ../glade/mainwindow.glade:659
 msgid "View the files to be downloaded"
-msgstr ""
+msgstr "Letöltött fájlok megtekintése"
 
 #: ../glade/mainwindow.glade:672
 msgid "View the list of finished downloads"
-msgstr ""
+msgstr "Befejezett letöltések listázása"
 
 #: ../glade/mainwindow.glade:685
 msgid "View the list of finished uploads"
-msgstr ""
+msgstr "Befejezett feltöltések listázása"
 
 #: ../glade/mainwindow.glade:705
 msgid "ADL"
@@ -2388,15 +2398,15 @@ msgstr "ADL"
 
 #: ../glade/mainwindow.glade:718
 msgid "Spy"
-msgstr ""
+msgstr "Keresések megfigyelése"
 
 #: ../glade/mainwindow.glade:734
 msgid "Quit the program"
-msgstr ""
+msgstr "Kilépés a programból"
 
 #: ../glade/mainwindow.glade:797
 msgid "Show/Hide transfers panel"
-msgstr ""
+msgstr "Átvitelek mutatása/elrejtése "
 
 #: ../glade/mainwindow.glade:832
 msgid "Hubs (normal / registered / op)"
@@ -2420,11 +2430,11 @@ msgstr "Összes kimenő adatmennyiség"
 
 #: ../glade/mainwindow.glade:1000
 msgid "Exit EiskaltDC++ Gtk?"
-msgstr ""
+msgstr "Kilépsz az EiskaltDC++ Gtk-ból?"
 
 #: ../glade/mainwindow.glade:1011
 msgid "Do you really want to exit?"
-msgstr ""
+msgstr "Tényleg ki akarsz lépni?"
 
 #: ../glade/mainwindow.glade:1057
 msgid "Connect to a hub"
@@ -2435,7 +2445,6 @@ msgid "<b>Connect to address:</b>"
 msgstr "<b>Csatlakozás a címhez:</b>"
 
 #: ../glade/mainwindow.glade:1152
-#, fuzzy
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2448,14 +2457,13 @@ msgstr ""
 "Fejlesztők\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
 " Eugene Petrov (dhamp@ya.ru)\n"
-" Leliksan Floyd (leliksan@gmail.com)\n"
 "\n"
 "Közreműködők\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
+" Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 "    "
 
 #: ../glade/mainwindow.glade:1160
-#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2553,7 +2561,11 @@ msgstr ""
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
-"    "
+"\n"
+" Szlovák fordítás\n"
+"\n"
+" Martin Durisin\n"
+" (martin.durisin@gmail.com)\n   "
 
 #: ../glade/mainwindow.glade:1277
 msgid "Enter line for user command"
@@ -2565,7 +2577,7 @@ msgstr ""
 
 #: ../glade/mainwindow.glade:1378
 msgid "Use Blinking Icon"
-msgstr ""
+msgstr "Villogó ikon használata"
 
 #: ../glade/mainwindow.glade:1405 ../glade/mainwindow.glade:1442
 msgid "Magnet"
@@ -2596,14 +2608,16 @@ msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
+"A letöltés megkezdéséhez be kell kapcsolnod az alternatívák automatikus "
+"keresését (Beállítások/Letöltések/Letöltési sor)"
 
 #: ../glade/mainwindow.glade:1616
 msgid "Add this file to your download queue"
-msgstr ""
+msgstr "A fájl hozzáadása a letöltési sorhoz"
 
 #: ../glade/mainwindow.glade:1660
 msgid "Start a search for this file"
-msgstr ""
+msgstr "Keresés indítása erre a fájlra"
 
 #: ../glade/mainwindow.glade:1674
 msgid "Show magnet dialog"
@@ -2615,7 +2629,7 @@ msgstr "Emlékezz a válaszra"
 
 #: ../glade/mainwindow.glade:1729
 msgid "<b>What would you like to do?</b>"
-msgstr ""
+msgstr "<b>Mit szeretnél tenni?</b>"
 
 #: ../glade/mainwindow.glade:1757 ../glade/settingsdialog.glade:6086
 #: ../glade/settingsdialog.glade:6579 ../glade/settingsdialog.glade:6620
@@ -2633,7 +2647,7 @@ msgstr "Fájl választása"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"
-msgstr ""
+msgstr "Max feltöltési sebesség (MiB/s)"
 
 #: ../glade/settingsdialog.glade:118
 msgid "E-Mail"
@@ -2653,7 +2667,7 @@ msgstr "Személyes"
 
 #: ../glade/settingsdialog.glade:219
 msgid "Use UPnP to let client cofigure my router"
-msgstr ""
+msgstr "A kliens használhat UPnP-t a router beállításához"
 
 #: ../glade/settingsdialog.glade:404
 msgid "Ports"
@@ -2669,15 +2683,15 @@ msgstr "Tűzfal (passzív, utolsó lehetőség)"
 
 #: ../glade/settingsdialog.glade:449
 msgid "External / WAN IP"
-msgstr ""
+msgstr "Külső / WAN IP"
 
 #: ../glade/settingsdialog.glade:464
 msgid "Don't allow hub/UPnP to override"
-msgstr ""
+msgstr "Ne engedje a hubnak/UPnP-nek felülírni"
 
 #: ../glade/settingsdialog.glade:482
 msgid "Firewall with manual port forward"
-msgstr ""
+msgstr "Tűzfal kézi port-továbbítással (magam állítom be a routerem)"
 
 #: ../glade/settingsdialog.glade:499
 msgid "<b>Incoming connection settings</b>"
@@ -2689,7 +2703,7 @@ msgstr "Felhasználói név"
 
 #: ../glade/settingsdialog.glade:604
 msgid "Use SOCKS5 server to resolve hostnames"
-msgstr ""
+msgstr "SOCKS5 használata a hosztnevek feloldásához"
 
 #: ../glade/settingsdialog.glade:665
 msgid "Port"
@@ -2721,15 +2735,16 @@ msgstr "<b>Könyvtárak</b>"
 
 #: ../glade/settingsdialog.glade:899
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr ""
+msgstr "Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
 
 #: ../glade/settingsdialog.glade:914
 msgid "Maximum simultaneous downloads (0 = infinite)"
-msgstr ""
+msgstr "Egyszerre folytatható letöltések száma (0 = korlátlan)"
 
 #: ../glade/settingsdialog.glade:958
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
+"Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
 
 #: ../glade/settingsdialog.glade:971
 msgid "<b>Limits</b>"
@@ -2737,11 +2752,11 @@ msgstr "<b>Limitek</b>"
 
 #: ../glade/settingsdialog.glade:1000
 msgid "Public Hubs list URL"
-msgstr ""
+msgstr "Publikus hublista URL"
 
 #: ../glade/settingsdialog.glade:1014
 msgid "Configure Public Hub Lists"
-msgstr ""
+msgstr "Publikus hublisták beállításai"
 
 #: ../glade/settingsdialog.glade:1045
 msgid "HTTP Proxy (for hublist only)"
@@ -2870,6 +2885,8 @@ msgstr "<b>Megosztott könyvtárak</b>"
 #: ../glade/settingsdialog.glade:2119
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
+"Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = "
+"letiltva)"
 
 #: ../glade/settingsdialog.glade:2147
 msgid "Upload slots"
@@ -2946,6 +2963,8 @@ msgstr "<b>Időbélyeg</b>"
 #: ../glade/settingsdialog.glade:2443 ../glade/settingsdialog.glade:2506
 msgid "Note: Most of these options require that you restart the application"
 msgstr ""
+"Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program újraindítása "
+"szükséges"
 
 #: ../glade/settingsdialog.glade:2456 ../glade/settingsdialog.glade:4005
 msgid "Appearance"
@@ -3210,11 +3229,11 @@ msgstr "Felhasználói parancsok"
 
 #: ../glade/settingsdialog.glade:4485
 msgid "Max hash speed"
-msgstr ""
+msgstr "Az indexelés maximális sebessége"
 
 #: ../glade/settingsdialog.glade:4497
 msgid "PM history"
-msgstr ""
+msgstr "PM előzmény"
 
 #: ../glade/settingsdialog.glade:4509
 msgid "Mini slot size"
@@ -3234,27 +3253,27 @@ msgstr "MiB"
 
 #: ../glade/settingsdialog.glade:4701
 msgid "Write buffer size"
-msgstr ""
+msgstr "Írási puffer méret"
 
 #: ../glade/settingsdialog.glade:4712
 msgid "Search history"
-msgstr ""
+msgstr "Keresési előzmény"
 
 #: ../glade/settingsdialog.glade:4724
 msgid "Bind address"
-msgstr ""
+msgstr "Kötési cím"
 
 #: ../glade/settingsdialog.glade:4736
 msgid "Socket read buffer"
-msgstr ""
+msgstr "Socket olvasási puffer"
 
 #: ../glade/settingsdialog.glade:4748
 msgid "Socket write buffer"
-msgstr ""
+msgstr "Socket írási puffer"
 
 #: ../glade/settingsdialog.glade:4760
 msgid "Auto refresh time"
-msgstr ""
+msgstr "Automatikus újraellenőrzés ideje"
 
 #: ../glade/settingsdialog.glade:4903 ../glade/settingsdialog.glade:4915
 msgid "B"
@@ -3266,11 +3285,11 @@ msgstr "Haladó beállítások"
 
 #: ../glade/settingsdialog.glade:5053
 msgid "Trusted certificates path"
-msgstr ""
+msgstr "Megbízható tanúsítványok helye"
 
 #: ../glade/settingsdialog.glade:5067
 msgid "Certificate file"
-msgstr ""
+msgstr "Tanúsítvány fájl"
 
 #: ../glade/settingsdialog.glade:5081
 msgid "Private key file"
@@ -3278,35 +3297,35 @@ msgstr "Privát kulcs"
 
 #: ../glade/settingsdialog.glade:5097
 msgid "<b>Certificate Paths</b>"
-msgstr ""
+msgstr "<b>Tanúsítvány helye</b>"
 
 #: ../glade/settingsdialog.glade:5133
 msgid "<b>Other Security Options</b>"
-msgstr ""
+msgstr "<b>Egyéb Biztonsági Beállítások</b>"
 
 #: ../glade/settingsdialog.glade:5151
 msgid "Generate certificates"
-msgstr ""
+msgstr "Tanúsítvány létrehozása"
 
 #: ../glade/settingsdialog.glade:5178
 msgid "Security Certificates"
-msgstr ""
+msgstr "Biztonsági Tanúsítványok"
 
 #: ../glade/settingsdialog.glade:5235 ../glade/settingsdialog.glade:5478
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
-msgstr ""
+msgstr "Maximális feltöltési sebesség (KiB/s, 0 = letiltva)"
 
 #: ../glade/settingsdialog.glade:5272 ../glade/settingsdialog.glade:5515
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
-msgstr ""
+msgstr "Maximális letöltési sebesség (KiB/s; 0 = letiltva)"
 
 #: ../glade/settingsdialog.glade:5300
 msgid "<b>Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Átviteli sebesség korlátozás</b>"
 
 #: ../glade/settingsdialog.glade:5327
 msgid "Use second set of bandwidth limits"
-msgstr ""
+msgstr "Másodlagos átviteli sebesség korlátozás használata"
 
 #: ../glade/settingsdialog.glade:5349
 msgid "from"
@@ -3370,7 +3389,7 @@ msgstr ""
 
 #: ../glade/settingsdialog.glade:5437
 msgid "<b>Secondary Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Másodlagos átviteli sebesség korlátozás</b>"
 
 #: ../glade/settingsdialog.glade:5555
 msgid "Upload Slots"
@@ -3378,13 +3397,15 @@ msgstr "Feltöltési szálak"
 
 #: ../glade/settingsdialog.glade:5583
 msgid "<b>Secondary Transfer Rate Settings</b>"
-msgstr ""
+msgstr "<b>Másodlagos átviteli sebesség korlátozás beállításai</b>"
 
 #: ../glade/settingsdialog.glade:5616
 msgid ""
 "Bandwidth\n"
 "Limiting"
 msgstr ""
+"Sávszélesség\n"
+"Korlátozás"
 
 #: ../glade/settingsdialog.glade:5660
 msgid "Add"
@@ -3392,7 +3413,7 @@ msgstr "Hozzáadás"
 
 #: ../glade/settingsdialog.glade:5669
 msgid "Modify"
-msgstr ""
+msgstr "Módosítás"
 
 #: ../glade/settingsdialog.glade:5681
 msgid "Rename"
@@ -3408,7 +3429,7 @@ msgstr ""
 
 #: ../glade/settingsdialog.glade:5803 ../glade/publichubs.glade:190
 msgid "Configure hub lists"
-msgstr ""
+msgstr "Hublisták beállítása"
 
 #: ../glade/settingsdialog.glade:5893 ../glade/publichubs.glade:276
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
