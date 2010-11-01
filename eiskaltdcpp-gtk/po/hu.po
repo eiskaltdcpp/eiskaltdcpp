@@ -2461,7 +2461,6 @@ msgstr ""
 "Közreműködők\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
 " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
-"    "
 
 #: ../glade/mainwindow.glade:1160
 msgid ""
@@ -2565,7 +2564,7 @@ msgstr ""
 " Szlovák fordítás\n"
 "\n"
 " Martin Durisin\n"
-" (martin.durisin@gmail.com)\n   "
+" (martin.durisin@gmail.com)\n"
 
 #: ../glade/mainwindow.glade:1277
 msgid "Enter line for user command"
