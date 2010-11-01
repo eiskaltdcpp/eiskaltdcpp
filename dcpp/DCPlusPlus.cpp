@@ -113,16 +113,14 @@ void startup(void (*f)(void*, const string&), void* p) {
 
 #ifdef _WIN32
     if(!SETTING(LANGUAGE).empty()) {
-//#ifdef _WIN32
         string language = "LANGUAGE=" + SETTING(LANGUAGE);
         putenv(language.c_str());
-//#else
-        //setenv("LANGUAGE", SETTING(LANGUAGE).c_str(), true);
-//#endif
+
         // Apparently this is supposted to make gettext reload the message catalog...
         _nl_msg_cat_cntr++;
     }
 #endif
+
     FavoriteManager::getInstance()->load();
     CryptoManager::getInstance()->loadCertificates();
 #ifdef USE_DHT
