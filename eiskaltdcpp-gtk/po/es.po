@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-10-29 21:22+0300\n"
-"PO-Revision-Date: 2010-10-20 03:14+0200\n"
+"PO-Revision-Date: 2010-11-01 03:55+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -349,23 +349,20 @@ msgid "Emoticons mode on"
 msgstr "Modo Emoticonos Encendido"
 
 #: ../src/hub.cc:1826
-#, fuzzy
 msgid "Download image: disable"
-msgstr "Descarga finalizada"
+msgstr "Descargar imagen: deshabilitado"
 
 #: ../src/hub.cc:1828
-#, fuzzy
 msgid "Download image: unlimit"
-msgstr "Descarga fallida:"
+msgstr "Descargar imagen: sin limites"
 
 #: ../src/hub.cc:1830
-#, fuzzy
 msgid "Download limit image: "
-msgstr "Descarga comenzada:"
+msgstr "Descargar limite de imagen: "
 
 #: ../src/hub.cc:1836
 msgid "Set download limit image: "
-msgstr ""
+msgstr "Configurar descarga imagen limite: "
 
 #: ../src/hub.cc:1841
 msgid "project home: "
@@ -450,6 +447,8 @@ msgstr "Mostrar/Ocultar lista de usuarios"
 #: ../src/hub.cc:1863
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
+"Descargar limite de imagen: 0 - deshabilitado, n < 0 - sin limite, vacio - "
+"información"
 
 #: ../src/hub.cc:1864 ../glade/hub.glade:412
 msgid "Show version"
@@ -977,9 +976,8 @@ msgid "Filter kick and NMDC debug messages"
 msgstr "Filtrar mensajes de Expulsión y NMDC"
 
 #: ../src/settingsdialog.cc:923
-#, fuzzy
 msgid "Show status icon in the system tray"
-msgstr "Mostrar icono de estado"
+msgstr "Mostrar icono de estado en la bandeja de sistema"
 
 #: ../src/settingsdialog.cc:924
 msgid "Show timestamps in chat by default"
@@ -1183,14 +1181,13 @@ msgstr "Hub favorito"
 
 #: ../src/settingsdialog.cc:1213 ../src/settingsdialog.cc:1269
 #: ../glade/mainwindow.glade:529
-#, fuzzy
 msgid "Own file list"
-msgstr "Abrir lista de _archivos"
+msgstr "Lista de archivos propios"
 
 #: ../src/settingsdialog.cc:1214 ../src/settingsdialog.cc:1271
 #: ../glade/mainwindow.glade:542
 msgid "Refresh"
-msgstr ""
+msgstr "Refrescar"
 
 #: ../src/settingsdialog.cc:1215 ../src/settingsdialog.cc:1273
 #: ../glade/mainwindow.glade:555
@@ -1239,9 +1236,8 @@ msgid "Search ADL"
 msgstr "Búsqueda ADL"
 
 #: ../src/settingsdialog.cc:1255
-#, fuzzy
 msgid "Separators"
-msgstr "Separador"
+msgstr "Separadores"
 
 #: ../src/settingsdialog.cc:1277
 msgid "searchADL"
@@ -1499,7 +1495,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:207
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
-msgstr ""
+msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 
 #: ../src/mainwindow.cc:223
 msgid "Welcome to "
@@ -2266,7 +2262,6 @@ msgid "Open _file list..."
 msgstr "Abrir lista de _archivos"
 
 #: ../glade/mainwindow.glade:41
-#, fuzzy
 msgid "Open _own file list"
 msgstr "Abrir lista de archivos _propios"
 
@@ -2283,18 +2278,16 @@ msgid "_Magnet Choice"
 msgstr "_Elección de Imán"
 
 #: ../glade/mainwindow.glade:104
-#, fuzzy
 msgid "Calculate file TTH"
-msgstr "Seleccionar archivo para dar TTH"
+msgstr "Calcular archivo TTH"
 
 #: ../glade/mainwindow.glade:116 ../glade/mainwindow.glade:1391
 msgid "_Exit"
 msgstr "_Salir"
 
 #: ../glade/mainwindow.glade:134
-#, fuzzy
 msgid "_Hubs"
-msgstr "Hubs"
+msgstr "_Hubs"
 
 #: ../glade/mainwindow.glade:141
 msgid "_Quick connect"
@@ -2305,9 +2298,8 @@ msgid "Re_connect"
 msgstr "Re_conectar"
 
 #: ../glade/mainwindow.glade:225
-#, fuzzy
 msgid "_Tools"
-msgstr "Barra de herramientas"
+msgstr "_herramientas"
 
 #: ../glade/mainwindow.glade:334
 msgid "_Preferences"
@@ -2315,34 +2307,31 @@ msgstr "_Preferencias"
 
 #: ../glade/mainwindow.glade:353
 msgid "_Widgets"
-msgstr ""
+msgstr "_Widgets"
 
 #: ../glade/mainwindow.glade:361
-#, fuzzy
 msgid "_Previous widget"
-msgstr "_Pestaña anterior"
+msgstr "_Widget anterior"
 
 #: ../glade/mainwindow.glade:370
 msgid "_Next widget"
-msgstr ""
+msgstr "_Siguiente widget"
 
 #: ../glade/mainwindow.glade:378
-#, fuzzy
 msgid "_Close widget"
-msgstr "Cerrar pestaña"
+msgstr "_Cerrar widget"
 
 #: ../glade/mainwindow.glade:395
 msgid "_Help"
-msgstr ""
+msgstr "_Ayuda"
 
 #: ../glade/mainwindow.glade:402
 msgid "Homepage"
 msgstr "Homepage"
 
 #: ../glade/mainwindow.glade:416
-#, fuzzy
 msgid "Source (git)"
-msgstr "Fuente (svn)"
+msgstr "Fuente (git)"
 
 #: ../glade/mainwindow.glade:430
 msgid "Report a Bug"
@@ -2353,9 +2342,8 @@ msgid "Wiki of project"
 msgstr "Wiki del proyecto"
 
 #: ../glade/mainwindow.glade:463
-#, fuzzy
 msgid "Changelog (git)"
-msgstr "Lista de cambios (svn)"
+msgstr "Lista de cambios (git)"
 
 #: ../glade/mainwindow.glade:482
 msgid "About EiskaltDC++"
@@ -2366,26 +2354,22 @@ msgid "Edit the preferences"
 msgstr "Editar las preferencias"
 
 #: ../glade/mainwindow.glade:527
-#, fuzzy
 msgid "Open own file list"
-msgstr "Actualizar lista de archivos propios"
+msgstr "Abrir lista de archivos propios"
 
 #: ../glade/mainwindow.glade:540
-#, fuzzy
 msgid "Refresh file list"
-msgstr "_Actualizar lista de archivos"
+msgstr "Actualizar lista de archivos"
 
 #: ../glade/mainwindow.glade:553
 msgid "View the hashing progress"
 msgstr "Ver el progreso del hasheo"
 
 #: ../glade/mainwindow.glade:571
-#, fuzzy
 msgid "Reconnect to the hub"
-msgstr "Conectar con el Hub"
+msgstr "Reconectar con el Hub"
 
 #: ../glade/mainwindow.glade:584
-#, fuzzy
 msgid "Quick connect to the hub"
 msgstr "Conectar rápidamente con el Hub"
 
@@ -2462,7 +2446,6 @@ msgid "<b>Connect to address:</b>"
 msgstr "<b>Conectar con la dirección:</b>"
 
 #: ../glade/mainwindow.glade:1152
-#, fuzzy
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2475,14 +2458,12 @@ msgstr ""
 "Desarrolladores\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
 " Eugene Petrov (dhamp@ya.ru)\n"
-" Leliksan Floyd (leliksan@gmail.com)\n"
 "\n"
 "Contribuidores\n"
 " troll (http://code.google.com/p/freedcpp/)\n"
-"    "
+" Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 
 #: ../glade/mainwindow.glade:1160
-#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2580,7 +2561,11 @@ msgstr ""
 "\n"
 " Rusi Dimitrov aka PsyTrip\n"
 " (dimitrov.rusi@gmail.com)\n"
-"     "
+"\n"
+" Traducción al Eslovaco\n"
+"\n"
+" Martin Durisin\n"
+" (martin.durisin@gmail.com)\n"
 
 #: ../glade/mainwindow.glade:1277
 msgid "Enter line for user command"
@@ -3689,22 +3674,19 @@ msgstr "_Eliminar desde favoritos"
 
 #: ../glade/hub.glade:405
 msgid "Set download limit image"
-msgstr ""
+msgstr "Configurar limite de descarga de la imagen"
 
 #: ../glade/hub.glade:422
-#, fuzzy
 msgid "Download image"
-msgstr "Descargado"
+msgstr "Descargar imagen"
 
 #: ../glade/hub.glade:428
-#, fuzzy
 msgid "Open image"
-msgstr "Abrir Archivo"
+msgstr "Abrir imagen"
 
 #: ../glade/hub.glade:439
-#, fuzzy
 msgid "Remove image"
-msgstr "Eliminar"
+msgstr "Eliminar imagen"
 
 #~ msgid "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
 #~ msgstr "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"

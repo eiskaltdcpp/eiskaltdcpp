@@ -1824,7 +1824,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1103"/>
         <source>Hub Manager</source>
-        <translation type="unfinished">Huba Manager</translation>
+        <translation>Huba Manager</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1117"/>
@@ -1955,7 +1955,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1470"/>
         <source>%p%</source>
-        <translation type="unfinished"></translation>
+        <translation>%p%</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
@@ -2124,12 +2124,12 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2472"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Słowackie&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2474"/>
         <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(dla wersji 2.1.0 i późniejszych)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2504"/>
@@ -2144,7 +2144,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2599"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Pokaż przyciska zamykania</translation>
+        <translation>Pokaż przyciska zamykania</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2689"/>
@@ -3266,7 +3266,7 @@ Opcje:
     <message>
         <location filename="../src/SettingsGUI.cpp" line="99"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation>Słowacki</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="226"/>
@@ -3740,7 +3740,7 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../src/ToolBar.cpp" line="211"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Pokaż przyciska zamykania</translation>
+        <translation>Pokaż przyciski zamykania</translation>
     </message>
 </context>
 <context>
@@ -5766,7 +5766,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
-        <translation type="unfinished">Zestaw ikon użytkowników</translation>
+        <translation>Zestaw ikon użytkowników</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>

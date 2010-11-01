@@ -1733,7 +1733,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2359"/>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2376"/>
@@ -2024,12 +2024,12 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1160"/>
         <source>Source (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuente (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1166"/>
         <source>Changelog (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de cambios (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1385"/>
@@ -2248,12 +2248,12 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2472"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;traducción al Eslovaco&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2474"/>
         <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(para 2.1.0 y posteriores)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2504"/>
@@ -2268,7 +2268,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2599"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Mostrar botones de cerrar</translation>
+        <translation>Mostrar botones de cerrar</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2689"/>
@@ -3037,7 +3037,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="99"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation>Eslovaco</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="226"/>
@@ -3499,7 +3499,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/ToolBar.cpp" line="211"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Mostrar botones de cerrar</translation>
+        <translation>Mostrar botones de cerrar</translation>
     </message>
 </context>
 <context>
