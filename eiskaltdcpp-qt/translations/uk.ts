@@ -2065,17 +2065,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2472"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Словацький переклад&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2474"/>
         <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.1.0 та пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2599"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Показувати кнопки закриття</translation>
+        <translation>Показувати кнопки закриття</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2689"/>
@@ -3819,7 +3819,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/ToolBar.cpp" line="211"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Показувати кнопки закриття</translation>
+        <translation>Показувати кнопки закриття</translation>
     </message>
 </context>
 <context>

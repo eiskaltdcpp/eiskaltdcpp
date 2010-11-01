@@ -707,7 +707,7 @@ Kľúčové skratky:
         <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Transferred</source>
-        <translation>prenesené</translation>
+        <translation>trenesené</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="47"/>
@@ -3807,12 +3807,12 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UIADLSearch.ui" line="100"/>
         <source>Move up</source>
-        <translation>Zdvihnúť</translation>
+        <translation>Posunúť nahor</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="110"/>
         <source>Move down</source>
-        <translation>Presunúť</translation>
+        <translation>Posunúť nadol</translation>
     </message>
 </context>
 <context>
@@ -5059,7 +5059,8 @@ a hodnota nula vypne tento limit.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zadané číslo nastaví max. množstvo paralélnych stahovaní.
+Hodnota 0 znamená bez limitov.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="181"/>
@@ -5072,19 +5073,20 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
         <location filename="../ui/UISettingsDownloads.ui" line="302"/>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Súbory s rovnakou alebo menšou veľkosťou budú zaradené ako Najvyššia priorita (štandartne: 64 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="313"/>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Súbory s rovnakou alebo menšou veľkosťou , ale s max. veľkosťou súboru nepresahujúcu Najvyššou prioritou,
+ budú zaradené ako Vysoká priorita. (štandartne: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="324"/>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Súbory s rovnakou alebo menšou veľkosťou, ale  budú zaradené ako</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="335"/>
@@ -5487,13 +5489,14 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ak je zaškrtnuté, uvidíš smajlíkov aj bez medzeri medzi smajlíkom a slovom.
+Ak nie je zaškrtnuté, tak neuvidíš smajlíkov ak nie je medzera medzi slovom a smajlíkom.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="282"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Závisí od nastavenia hubu: informácie o nich sú zvyčajne prístupné iba operátorom</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="348"/>
@@ -5640,7 +5643,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="251"/>
         <source>Force emoticon parsing</source>
-        <translation type="unfinished"></translation>
+        <translation>Syntaktická analýza smajlíkov</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="293"/>
@@ -5945,7 +5948,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation type="unfinished"></translation>
+        <translation>Tu môžete špecifikovať výnimky pre súbori, ktoré nechcete zdieľať. </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="200"/>
@@ -5955,7 +5958,10 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaviť obmedzenie pre každý váš zdieľaný priečinok.
+Príklad: Ak máte priečinok /home/meno/Video zdieľaný ako &quot;Video&quot;
+/Video	10
+Znamená to, že užívatelia, ktorí zdieľajú menej než 10GiB nebudú môcť sťahovať z tohto priečinku.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="248"/>
@@ -5980,7 +5986,7 @@ share is complete, share at follow-up activities start nulled.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="331"/>
         <source>FastHash options (restart needed)</source>
-        <translation type="unfinished"></translation>
+        <translation>FashHash možnosti (potrebný reštart)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="385"/>
@@ -5996,7 +6002,7 @@ share is complete, share at follow-up activities start nulled.</source>
         <location filename="../ui/UISettingsSharing.ui" line="522"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaviť max rýchlosť hashovania.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="318"/>
@@ -6106,12 +6112,12 @@ if your system becomes slow while hasing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="420"/>
         <source>If checked, a pause hashing may not work.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ak je zaškrtnuté, pauza na hash nemusí fungovať.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="423"/>
         <source>Proactive read from disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Proaktívne čítanie z disku</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="441"/>
@@ -6139,7 +6145,12 @@ There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaveniť množstvo slotov, ktoré môžu užívatelia použiť
+pre sťahovanie súborov od vás.
+EiskaltDC++ podporuje odovzdávanie zoznamu súborov a súborov s veľkosťou pod 64 KiB
+ďalším DC++ užívateľom bez potreby slotu.
+Poznámka: Ak užívateľ opustí hub, EiskaltDC++ uzatvorí jeho sloty,
+avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="363"/>
