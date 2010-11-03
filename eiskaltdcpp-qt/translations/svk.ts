@@ -707,7 +707,7 @@ Kľúčové skratky:
         <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Transferred</source>
-        <translation>trenesené</translation>
+        <translation>prenesené</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="47"/>
@@ -2576,7 +2576,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="118"/>
         <source>Video</source>
-        <translation>Vido</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="123"/>
