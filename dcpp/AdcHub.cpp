@@ -528,8 +528,9 @@ void AdcHub::handle(AdcCommand::GET, AdcCommand& c) throw() {
             send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC, "Unsupported m"));
             return;
         }
-
-        ShareManager::getInstance()->getBloom(v, k, m, h);
+        if (m > 0){
+            ShareManager::getInstance()->getBloom(v, k, m, h);
+        }
         AdcCommand cmd(AdcCommand::CMD_SND, AdcCommand::TYPE_HUB);
         cmd.addParam(c.getParam(0));
         cmd.addParam(c.getParam(1));
@@ -537,7 +538,9 @@ void AdcHub::handle(AdcCommand::GET, AdcCommand& c) throw() {
         cmd.addParam(c.getParam(3));
         cmd.addParam(c.getParam(4));
         send(cmd);
-        send((char*)&v[0], v.size());
+        if (m > 0) {
+            send((char*)&v[0], v.size());
+        }
     }
 }
 void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) throw() {
