@@ -274,9 +274,8 @@ void MainWindow::showEvent(QShowEvent *e){
     if (showMax)
         showMaximized();
 
-    if (WBGET(WB_APP_AUTO_AWAY)){
+    if (WBGET(WB_APP_AUTO_AWAY) && !Util::getManualAway()){
         Util::setAway(false);
-        Util::setManualAway(false);
 
         toolsAwayOff->setChecked(true);
     }
@@ -323,7 +322,6 @@ void MainWindow::hideEvent(QHideEvent *e){
 
     if (WBGET(WB_APP_AUTO_AWAY)){
         Util::setAway(true);
-        Util::setManualAway(true);
 
         toolsAwayOn->setChecked(true);
     }

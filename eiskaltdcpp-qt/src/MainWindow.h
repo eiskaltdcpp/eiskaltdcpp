@@ -437,9 +437,8 @@ protected:
             has_activity = true;
             counter = 0;
 
-            if (WBGET(WB_APP_AUTOAWAY_BY_TIMER)){
+            if (WBGET(WB_APP_AUTOAWAY_BY_TIMER) && !dcpp::Util::getManualAway()){
                 dcpp::Util::setAway(false);
-                dcpp::Util::setManualAway(false);
             }
         }
         else {
@@ -464,7 +463,6 @@ private Q_SLOTS:
 
             if (mins <= mins_done){
                 dcpp::Util::setAway(true);
-                dcpp::Util::setManualAway(true);
             }
         }
     }
