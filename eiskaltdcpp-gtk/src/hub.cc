@@ -662,7 +662,6 @@ void Hub::addMessage_gui(string cid, string message, Msg::TypeMsg typemsg)
     applyTags_gui(cid, line);
 
     gtk_text_buffer_get_end_iter(chatBuffer, &iter);
-
     // Limit size of chat text
     if (gtk_text_buffer_get_line_count(chatBuffer) > maxLines + 1)
     {
@@ -1648,7 +1647,7 @@ void Hub::onChatScroll_gui(GtkAdjustment *adjustment, gpointer data)
 {
     Hub *hub = (Hub *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
-    hub->scrollToBottom = value >= (adjustment->upper);
+    hub->scrollToBottom = value >= (adjustment->upper-adjustment->page_size);
 }
 
 void Hub::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
@@ -1656,7 +1655,7 @@ void Hub::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
     Hub *hub = (Hub *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
 
-    if (hub->scrollToBottom /*&& value < (adjustment->upper)*/)
+    if (hub->scrollToBottom && value < (adjustment->upper-adjustment->page_size))
     {
         GtkTextIter iter;
 
