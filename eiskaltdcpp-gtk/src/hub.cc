@@ -1648,7 +1648,7 @@ void Hub::onChatScroll_gui(GtkAdjustment *adjustment, gpointer data)
 {
     Hub *hub = (Hub *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
-    hub->scrollToBottom = value >= (adjustment->upper);
+    hub->scrollToBottom = value >= (adjustment->upper-adjustment->page_size);
 }
 
 void Hub::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
@@ -1656,7 +1656,7 @@ void Hub::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
     Hub *hub = (Hub *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
 
-    if (hub->scrollToBottom && value < (adjustment->upper))
+    if (hub->scrollToBottom && value < (adjustment->upper-adjustment->page_size))
     {
         GtkTextIter iter;
 
