@@ -283,6 +283,9 @@ void MainWindow::showEvent(QShowEvent *e){
     if (transfer_dock->isVisible())
         toolsTransfers->setChecked(true);
 
+    if (sideDock)
+        sideDock->setVisible(panelsWidgets->isChecked());
+
     ArenaWidget *awgt = qobject_cast<ArenaWidget*>(arena->widget());
 
     if (!awgt)
@@ -295,9 +298,6 @@ void MainWindow::showEvent(QShowEvent *e){
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
-
-    if (sideDock)
-        sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
     if (_q(SETTING(NICK)).isEmpty())
         slotToolsSettings();
@@ -373,6 +373,7 @@ void MainWindow::init(){
     transfer_dock->setFeatures(QDockWidget::NoDockWidgetFeatures);
     transfer_dock->setContextMenuPolicy(Qt::CustomContextMenu);
     transfer_dock->setTitleBarWidget(new QWidget(transfer_dock));
+    transfer_dock->setMinimumSize(QSize(8, 8));
 
     setCentralWidget(arena);
     //addDockWidget(Qt::RightDockWidgetArea, arena);
