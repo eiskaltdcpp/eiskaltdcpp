@@ -65,10 +65,10 @@ void cmddebug::add_gui(time_t t,string file)
     // Limit size of chat text
     if (gtk_text_buffer_get_line_count(buffer) > maxLines + 1)
     {
-	    GtkTextIter next;
-	    gtk_text_buffer_get_start_iter(buffer, &iter);
-	    gtk_text_buffer_get_iter_at_line(buffer, &next, 1);
-	    gtk_text_buffer_delete(buffer, &iter, &next);
+            GtkTextIter next;
+            gtk_text_buffer_get_start_iter(buffer, &iter);
+            gtk_text_buffer_get_iter_at_line(buffer, &next, 1);
+            gtk_text_buffer_delete(buffer, &iter, &next);
     }
     gtk_text_view_place_cursor_onscreen(GTK_TEXT_VIEW(getWidget("cmdtextview")));
 
@@ -88,57 +88,57 @@ void cmddebug::show()
 
 void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw()
 {
-	switch(typedir) {
-	    case dcpp::DebugManager::HUB_IN :
-		if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_in_button"))) == TRUE)
-		{
-		    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
-		    {
-			if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-			    addCmd("HUB_IN: "+ip+": "+mess);
-		    }
-		    else
-			addCmd("HUB_IN: "+ip+": "+mess);
-		}
-		break;
-	    case dcpp::DebugManager::HUB_OUT :
-		if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_out_button"))) == TRUE)
-		{
-		    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
-		    {
-			if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-			    addCmd("HUB_OUT: "+ip+": "+mess);
-		    }
-		    else
-			addCmd("HUB_OUT: "+ip+": "+mess);
-		}
-		break;
-	    case dcpp::DebugManager::CLIENT_IN:
-		if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_in_button"))) == TRUE)
-		{
-		    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
-		    {
-			if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-			    addCmd("CL_IN: "+ip+": "+mess);
-		    }
-		    else
-			addCmd("CL_IN: "+ip+": "+mess);
-		}
-		break;
-	    case dcpp::DebugManager::CLIENT_OUT:
-		if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_out_button"))) == TRUE)
-		{
-		    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
-		    {
-			if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-			    addCmd("CL_OUT: "+ip+": "+mess);
-		    }
-		    else
-			addCmd("CL_OUT: "+ip+": "+mess);
-		}
-		break;
-	    default: dcassert(0);
-	}
+        switch(typedir) {
+            case dcpp::DebugManager::HUB_IN :
+                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_in_button"))) == TRUE)
+                {
+                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
+                    {
+                        if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
+                            addCmd("HUB_IN: "+ip+": "+mess);
+                    }
+                    else
+                        addCmd("HUB_IN: "+ip+": "+mess);
+                }
+                break;
+            case dcpp::DebugManager::HUB_OUT :
+                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_out_button"))) == TRUE)
+                {
+                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
+                    {
+                        if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
+                            addCmd("HUB_OUT: "+ip+": "+mess);
+                    }
+                    else
+                        addCmd("HUB_OUT: "+ip+": "+mess);
+                }
+                break;
+            case dcpp::DebugManager::CLIENT_IN:
+                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_in_button"))) == TRUE)
+                {
+                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
+                    {
+                        if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
+                            addCmd("CL_IN: "+ip+": "+mess);
+                    }
+                    else
+                        addCmd("CL_IN: "+ip+": "+mess);
+                }
+                break;
+            case dcpp::DebugManager::CLIENT_OUT:
+                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_out_button"))) == TRUE)
+                {
+                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
+                    {
+                        if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
+                            addCmd("CL_OUT: "+ip+": "+mess);
+                    }
+                    else
+                        addCmd("CL_OUT: "+ip+": "+mess);
+                }
+                break;
+            default: dcassert(0);
+        }
 }
 void cmddebug::onScroll_gui(GtkAdjustment *adjustment, gpointer data)
 {

@@ -35,82 +35,82 @@
 
 
 class cmddebug:
-	public BookEntry,
-	private dcpp::DebugManagerListener,
-	public dcpp::Thread
+    public BookEntry,
+    private dcpp::DebugManagerListener,
+    public dcpp::Thread
 {
-	public:
-		cmddebug();
-		virtual ~cmddebug();
-		virtual void show();
-		//GUI FCE
-		void add_gui(time_t t,std::string file);
+    public:
+        cmddebug();
+        virtual ~cmddebug();
+        virtual void show();
+        //GUI FCE
+        void add_gui(time_t t,std::string file);
 
-	private:
-		// Client functions
-		void ini_client();
-		bool stop;
+    private:
+        // Client functions
+        void ini_client();
+        bool stop;
 
-		dcpp::CriticalSection cs;
-		dcpp::Semaphore s;
-		std::deque<std::string> cmdList;
+        dcpp::CriticalSection cs;
+        dcpp::Semaphore s;
+        std::deque<std::string> cmdList;
 
-		int run() {
-			setThreadPriority(dcpp::Thread::LOW);
-			std::string x ;//= dcpp::Util::emptyString;
-			stop = false;
+        int run() {
+            setThreadPriority(dcpp::Thread::LOW);
+            std::string x ;//= dcpp::Util::emptyString;
+            stop = false;
 
-			while(true) {
-				s.wait();
+            while(true) {
+                s.wait();
 
-				if(stop)
-					break;
+                if(stop)
+                    break;
 
-				{
-					dcpp::Lock l(cs);
+                {
+                    dcpp::Lock l(cs);
 
-					//if(cmdList.empty()) continue;
+                    //if(cmdList.empty()) continue;
 
-					x = cmdList.front();
-					cmdList.pop_front();
+                    x = cmdList.front();
+                    cmdList.pop_front();
 
-				}
-			typedef Func2<cmddebug,time_t,std::string> F2;
-			time_t tt = time(NULL);
-			F2 *func = new F2(this, &cmddebug::add_gui, tt, x);
-			WulforManager::get()->dispatchGuiFunc(func);
-			}
+                }
+            typedef Func2<cmddebug,time_t,std::string> F2;
+            time_t tt = time(NULL);
+            F2 *func = new F2(this, &cmddebug::add_gui, tt, x);
+            WulforManager::get()->dispatchGuiFunc(func);
+            }
 
-		stop = false;
-		return 0;
-	}
+        stop = false;
+        return 0;
+    }
 
-	void addCmd(const std::string& cmd) {
-		{
-			dcpp::Lock l(cs);
-			g_print("CMD %s\n",cmd.c_str());
-			cmdList.push_back(cmd);
-		}
+    void addCmd(const std::string& cmd) {
+        {
+            dcpp::Lock l(cs);
+            g_print("CMD %s\n",cmd.c_str());
+            cmdList.push_back(cmd);
+        }
 
-		s.signal();
-	}
+        s.signal();
+    }
 
-	//DebugManager
-	void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) throw()
-	{
-	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("detection_button"))) == TRUE)
-		addCmd(com);
-	}
-	void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw();
+    //DebugManager
+    void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) throw()
+    {
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("detection_button"))) == TRUE)
+        addCmd(com);
+    }
+    void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw();
 
-	static void onScroll_gui(GtkAdjustment *adjustment, gpointer data);
-	static void onResize_gui(GtkAdjustment *adjustment, gpointer data);
+    static void onScroll_gui(GtkAdjustment *adjustment, gpointer data);
+    static void onResize_gui(GtkAdjustment *adjustment, gpointer data);
 
-	GtkTextBuffer *buffer;
-	static const int maxLines = 1000;
-	GtkTextIter iter;
-	bool scrollToBottom;
-	GtkTextMark *cmdMark;
+    GtkTextBuffer *buffer;
+    static const int maxLines = 1000;
+    GtkTextIter iter;
+    bool scrollToBottom;
+    GtkTextMark *cmdMark;
 
 };
 
