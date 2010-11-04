@@ -294,18 +294,18 @@ if (USE_ICON_THEME)
  add_definitions(-DUSE_ICON_THEME )
 endif (USE_ICON_THEME)
 
-#if (CMAKE_COMPILER_IS_GNUСXX AND CMAKE_COMPILER_IS_GNUC)
-if (NOT MSVC)
+if (CMAKE_COMPILER_IS_GNUCXX)
     if (CMAKE_CROSSCOMPILING)
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -enable-auto-import")
     endif (CMAKE_CROSSCOMPILING)
-    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
+    if (CMAKE_C_COMPILER_ID STREQUAL GNU)
+        set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
+    endif (CMAKE_C_COMPILER_ID STREQUAL GNU)
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--as-needed")
     set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -pipe -DNDEBUG")
     set (CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -DQT_NO_DEBUG -pipe")
     set (CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG} -UNDEBUG -g3 -pipe")
-#endif (CMAKE_COMPILER_IS_GNUСXX AND CMAKE_COMPILER_IS_GNUC)
-endif (NOT MSVC)
+endif (CMAKE_COMPILER_IS_GNUCXX)
 
 include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
@@ -315,7 +315,9 @@ message(STATUS "CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
 message(STATUS "CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS "CMAKE_SYSTEM_VERSION: ${CMAKE_SYSTEM_VERSION}")
-
+message(STATUS "CMAKE_COMPILER_IS_GNUСXX: ${CMAKE_COMPILER_IS_GNUCXX}")
+message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
+message(STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
 message(STATUS "CMAKE will use this libs(and headers) during build:
 
                 upnp (headers){miniupnpc}:${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
@@ -480,7 +482,7 @@ if (USE_QT OR USE_GTK)
         install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
         PATTERN ".svn" EXCLUDE)
     endif (WITH_EMOTICONS)
-list(APPEND iconsize 16 22 24 32 48 128)
+list(APPEND iconsize 16 22 24 32 48 64 128)
 foreach (isize ${iconsize})
   install (FILES icons/icon_${isize}x${isize}.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/${isize}x${isize}/apps RENAME eiskaltdcpp.png)
 endforeach (isize)
