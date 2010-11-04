@@ -8,7 +8,7 @@
  ***************************************************************************/
 
 #include "ipfilter.h"
-#define _DEBUG_IPFILTER_
+//#define _DEBUG_IPFILTER_
 #include <stdlib.h>
 #include <sstream>
 #ifndef WIN32
@@ -29,7 +29,7 @@ const string signature = "$EISKALTDC IPFILTERLIST$";
 
 inline static uint32_t make_ip(unsigned int a, unsigned int b, unsigned int c, unsigned int d)
 {
-	return ((a << 24) | (b << 16) | (c << 8) | d);
+    return ((a << 24) | (b << 16) | (c << 8) | d);
 }
 
 IPFilter::IPFilter() {
@@ -306,8 +306,8 @@ bool IPFilter::OK(const string &exp, eDIRECTION direction){
 #endif
                 return true;
             }
-            else
 #ifdef _DEBUG_IPFILTER_
+            else
                 fprintf(stdout,"IGNORE.\n");fflush(stdout);
 #endif
         }

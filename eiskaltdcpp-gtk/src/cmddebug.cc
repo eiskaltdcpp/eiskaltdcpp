@@ -32,7 +32,7 @@ using namespace dcpp;
 cmddebug::cmddebug():
 BookEntry(Entry::CMD,_("CMD"),"cmddebug.glade"),stop(false)
 {
-    buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (getWidget("cmdtextview")));//GtkTextIter iter;
+    buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (getWidget("cmdtextview")));
     gtk_text_buffer_get_end_iter(buffer, &iter);
     cmdMark = gtk_text_buffer_create_mark(buffer, NULL, &iter, FALSE);
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(getWidget("hub_in_button")) ,TRUE);
@@ -92,49 +92,25 @@ void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& m
             case dcpp::DebugManager::HUB_IN :
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_in_button"))) == TRUE)
                 {
-                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
-                    {
-                        if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-                            addCmd("HUB_IN: "+ip+": "+mess);
-                    }
-                    else
-                        addCmd("HUB_IN: "+ip+": "+mess);
+                    addCmd("HUB_IN: "+ip+": "+mess, ip);
                 }
                 break;
             case dcpp::DebugManager::HUB_OUT :
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_out_button"))) == TRUE)
                 {
-                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
-                    {
-                        if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-                            addCmd("HUB_OUT: "+ip+": "+mess);
-                    }
-                    else
-                        addCmd("HUB_OUT: "+ip+": "+mess);
+                    addCmd("HUB_OUT: "+ip+": "+mess, ip);
                 }
                 break;
             case dcpp::DebugManager::CLIENT_IN:
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_in_button"))) == TRUE)
                 {
-                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
-                    {
-                        if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-                            addCmd("CL_IN: "+ip+": "+mess);
-                    }
-                    else
-                        addCmd("CL_IN: "+ip+": "+mess);
+                    addCmd("CL_IN: "+ip+": "+mess, ip);
                 }
                 break;
             case dcpp::DebugManager::CLIENT_OUT:
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_out_button"))) == TRUE)
                 {
-                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE)
-                    {
-                        if(strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-                            addCmd("CL_OUT: "+ip+": "+mess);
-                    }
-                    else
-                        addCmd("CL_OUT: "+ip+": "+mess);
+                    addCmd("CL_OUT: "+ip+": "+mess, ip);
                 }
                 break;
             default: dcassert(0);

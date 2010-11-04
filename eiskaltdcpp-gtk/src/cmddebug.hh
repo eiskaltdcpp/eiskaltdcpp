@@ -69,7 +69,7 @@ class cmddebug:
                 {
                     dcpp::Lock l(cs);
 
-                    //if(cmdList.empty()) continue;
+                    if(cmdList.empty()) continue;
 
                     x = cmdList.front();
                     cmdList.pop_front();
@@ -85,11 +85,16 @@ class cmddebug:
         return 0;
     }
 
-    void addCmd(const std::string& cmd) {
+    void addCmd(const std::string& cmd,const std::string& ip) {
         {
             dcpp::Lock l(cs);
             //g_print("CMD %s\n",cmd.c_str());
-            cmdList.push_back(cmd);
+            if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE) {
+                if (strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
+                    cmdList.push_back(cmd);
+            }
+            else
+                cmdList.push_back(cmd);
         }
 
         s.signal();
@@ -99,7 +104,7 @@ class cmddebug:
     void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) throw()
     {
     if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("detection_button"))) == TRUE)
-        addCmd(com);
+        addCmd(com,"");
     }
     void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw();
 
