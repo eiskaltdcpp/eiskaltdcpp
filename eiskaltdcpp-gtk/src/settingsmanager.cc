@@ -42,8 +42,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("main-window-pos-x", 100));
     defaultInt.insert(IntMap::value_type("main-window-pos-y", 100));
     defaultInt.insert(IntMap::value_type("main-window-no-close", 0));
-    defaultInt.insert(IntMap::value_type("transfer-pane-position", 482));
-    defaultInt.insert(IntMap::value_type("nick-pane-position", 500));
+    defaultInt.insert(IntMap::value_type("transfer-pane-position", 200));
+    defaultInt.insert(IntMap::value_type("nick-pane-position", 255));
     defaultInt.insert(IntMap::value_type("downloadqueue-pane-position", 200));
     defaultInt.insert(IntMap::value_type("sharebrowser-pane-position", 200));
     defaultInt.insert(IntMap::value_type("tab-position", 0));
