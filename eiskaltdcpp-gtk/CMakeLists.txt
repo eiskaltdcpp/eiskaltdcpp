@@ -21,7 +21,7 @@ include_directories (
         ${PROJECT_SOURCE_DIR}/..
         ${Boost_INCLUDE_DIRS}
         )
-set (LIBS ${LIBS}
+list(APPEND LIBS
         ${GTK2_LIBRARIES}
         ${LIBGNOME2_LIBRARIES}
         ${Boost_LIBRARIES}
@@ -40,7 +40,7 @@ add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
                 )
 
 if (USE_LIBNOTIFY)
-add_definitions (-DUSE_LIBNOTIFY)
+    add_definitions (-DUSE_LIBNOTIFY)
 endif (USE_LIBNOTIFY)
 
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"

@@ -338,7 +338,7 @@ else ()
 endif ()
 
 option (LANGUAGES "Using translations")
-set (AllLanguages
+list(APPEND AllLanguages
             be
             bg
             en
@@ -480,7 +480,7 @@ if (USE_QT OR USE_GTK)
         install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
         PATTERN ".svn" EXCLUDE)
     endif (WITH_EMOTICONS)
-set(iconsize 16 22 24 32 48 128)
+list(APPEND iconsize 16 22 24 32 48 128)
 foreach (isize ${iconsize})
   install (FILES icons/icon_${isize}x${isize}.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/${isize}x${isize}/apps RENAME eiskaltdcpp.png)
 endforeach (isize)
