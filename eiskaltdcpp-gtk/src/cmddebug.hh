@@ -88,7 +88,7 @@ class cmddebug:
     void addCmd(const std::string& cmd) {
         {
             dcpp::Lock l(cs);
-            g_print("CMD %s\n",cmd.c_str());
+            //g_print("CMD %s\n",cmd.c_str());
             cmdList.push_back(cmd);
         }
 
