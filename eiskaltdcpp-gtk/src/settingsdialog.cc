@@ -44,7 +44,6 @@ Settings::Settings(GtkWindow* parent):
 {
     // Configure the dialogs.
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("dialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
-    gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("favoriteNameDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("publicHubsDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("nameDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("dirChooserDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
@@ -142,7 +141,6 @@ Settings::~Settings()
     if (getResponseID() == GTK_RESPONSE_OK)
         saveSettings_client();
 
-    gtk_widget_destroy(getWidget("favoriteNameDialog"));
     gtk_widget_destroy(getWidget("publicHubsDialog"));
     gtk_widget_destroy(getWidget("nameDialog"));
     gtk_widget_destroy(getWidget("dirChooserDialog"));
@@ -156,7 +154,6 @@ void Settings::response_gui()
 {
     gtk_dialog_response(GTK_DIALOG(getContainer()), GTK_RESPONSE_CANCEL);
 
-    gtk_dialog_response(GTK_DIALOG(getWidget("favoriteNameDialog")), GTK_RESPONSE_CANCEL);
     gtk_dialog_response(GTK_DIALOG(getWidget("publicHubsDialog")), GTK_RESPONSE_CANCEL);
     gtk_dialog_response(GTK_DIALOG(getWidget("nameDialog")), GTK_RESPONSE_CANCEL);
     gtk_dialog_response(GTK_DIALOG(getWidget("dirChooserDialog")), GTK_RESPONSE_CANCEL);
