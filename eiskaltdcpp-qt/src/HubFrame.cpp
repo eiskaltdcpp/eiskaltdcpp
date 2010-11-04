@@ -707,13 +707,13 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             if (!cid.isEmpty()){
                 if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0){
                     if (plainTextEdit_INPUT->textCursor().position() == 0)
-                        plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                        plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
                     else
-                        plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
+                        plainTextEdit_INPUT->textCursor().insertText(nick + " ");
 
                     plainTextEdit_INPUT->setFocus();
                 }
-                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList))
+                else if (WIGET(WI_CHAT_MDLCLICK_ACT) == 2 && (cursoratnick || isUserList))
                     addPM(cid, "", false);
                 else if (cursoratnick || isUserList)
                     browseUserFiles(cid, false);
