@@ -1117,7 +1117,7 @@ void PrivateMessage::onChatScroll_gui(GtkAdjustment *adjustment, gpointer data)
 {
     PrivateMessage *pm = (PrivateMessage *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
-    pm->scrollToBottom = value >= (adjustment->upper);
+    pm->scrollToBottom = value >= (adjustment->upper-adjustment->page_size);
 }
 
 void PrivateMessage::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
@@ -1125,7 +1125,7 @@ void PrivateMessage::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
     PrivateMessage *pm = (PrivateMessage *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
 
-    if (pm->scrollToBottom && value < (adjustment->upper))
+    if (pm->scrollToBottom && value < (adjustment->upper-adjustment->page_size))
     {
         GtkTextIter iter;
 
