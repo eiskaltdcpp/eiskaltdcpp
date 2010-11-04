@@ -1,5 +1,6 @@
 /*
  * Copyright © 2010 Mank <mank@besthub.eu>
+ * Copyright © 2010 Eugene Petrov <dhamp@ya.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +35,9 @@
 
 
 class cmddebug:
-	public BookEntry, private dcpp::DebugManagerListener, public dcpp::Thread
+	public BookEntry,
+	private dcpp::DebugManagerListener,
+	public dcpp::Thread
 {
 	public:
 		cmddebug();
@@ -85,7 +88,7 @@ class cmddebug:
 	void addCmd(const std::string& cmd) {
 		{
 			dcpp::Lock l(cs);
-		//	g_print("CMD %s",cmd.c_str());
+			g_print("CMD %s\n",cmd.c_str());
 			cmdList.push_back(cmd);
 		}
 
@@ -95,66 +98,19 @@ class cmddebug:
 	//DebugManager
 	void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) throw()
 	{
-	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkbutton5"))) == TRUE)
+	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("detection_button"))) == TRUE)
 		addCmd(com);
 	}
-	void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw()
-	{
-	switch(typedir) {
-			case dcpp::DebugManager::HUB_IN :
-					if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkbutton1"))) == TRUE)
-					{
-						if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkbutton6"))) == TRUE)
-						{
-							if(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))) == ip.c_str())
-								addCmd("HUB_IN: "+ip+": "+mess);
-						}
-						else
-								addCmd("HUB_IN: "+ip+": "+mess);
-					}
-					break;
-			case dcpp::DebugManager::HUB_OUT :
-					if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkbutton2"))) == TRUE)
-					{
+	void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw();
 
-						if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkbutton6"))) == TRUE)
-						{
-							if(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))) == ip.c_str())
-								addCmd("HUB_IN: "+ip+": "+mess);
-						}
-						else
-						{	addCmd("HUB_OUT: "+ip+": "+mess); }
-					}
-					break;
-			case dcpp::DebugManager::CLIENT_IN:
-					if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkbutton3"))) == TRUE)
-					{
-						if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkbutton6"))) == TRUE)
-						{
-							if(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))) == ip.c_str())
-								addCmd("HUB_IN: "+ip+": "+mess);
-						}
-						else
-						{	addCmd("CL_IN: "+ip+": "+mess); }
-					}
-					break;
-			case dcpp::DebugManager::CLIENT_OUT:
-					if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkbutton4"))) == TRUE)
-					{
-						if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkbutton6"))) == TRUE)
-						{
-							if(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))) == ip.c_str())
-								addCmd("HUB_IN: "+ip+": "+mess);
-						}else
-						{		addCmd("CL_OUT: "+ip+": "+mess); }
-					}
-					break;
-			default: dcassert(0);
-		}
-	}
+	static void onScroll_gui(GtkAdjustment *adjustment, gpointer data);
+	static void onResize_gui(GtkAdjustment *adjustment, gpointer data);
+
 	GtkTextBuffer *buffer;
 	static const int maxLines = 1000;
 	GtkTextIter iter;
+	bool scrollToBottom;
+	GtkTextMark *cmdMark;
 
 };
 
