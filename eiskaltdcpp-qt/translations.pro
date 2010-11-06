@@ -11,4 +11,4 @@ TRANSLATIONS = translations/en.ts \
     translations/uk.ts \
     translations/es.ts \
     translations/bg.ts \
-    translations/svk.ts
+    translations/sk.ts

@@ -146,7 +146,7 @@ msgstr " з "
 
 #: ../src/downloadqueue.cc:1287
 msgid " user(s) online"
-msgstr " карыстальнік(аў) далучаныя"
+msgstr " карыстальнік(і,аў) далучаныя"
 
 #: ../src/downloadqueue.cc:1289
 msgid "Running..."
@@ -270,15 +270,15 @@ msgstr " далучыўся да асяродку"
 
 #: ../src/hub.cc:426 ../src/hub.cc:444
 msgid " Users"
-msgstr " Карыстальнікі"
+msgstr " карыстальнікаў"
 
 #: ../src/hub.cc:450 ../src/hub.cc:460
 msgid " has quit hub "
-msgstr " сыйшоў з асяродку"
+msgstr " сышоў з асяродку"
 
 #: ../src/hub.cc:451 ../src/hub.cc:461
 msgid " has quit"
-msgstr " сыйшоў"
+msgstr " сышоў"
 
 #: ../src/hub.cc:490
 msgid "0 Users"
@@ -287,7 +287,7 @@ msgstr "0 карыстальнікаў"
 #: ../src/hub.cc:524
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr "Чакаем на гасло (не сьцірайце “/password” перад гаслом)"
+msgstr "Чакаем на гасло (не сьцірайце «/password» перад гаслом)"
 
 #: ../src/hub.cc:563
 msgid "<b>Enter your password</b>"
@@ -315,11 +315,11 @@ msgstr "Ужываць пачуцьцезнакі"
 #: ../src/privatemessage.cc:932 ../glade/privatemessage.glade:190
 #: ../glade/hub.glade:349
 msgid "Away mode off"
-msgstr "Вярнуліся са стану “адыйшоў”"
+msgstr "Вярнуліся са стану «адышоў»"
 
 #: ../src/hub.cc:1719 ../src/privatemessage.cc:872
 msgid "Away mode on: "
-msgstr "Перайшлі ў стан “адыйшоў”: "
+msgstr "Перайшлі ў стан «адышоў»: "
 
 #: ../src/hub.cc:1756 ../src/hub.cc:2418 ../src/privatemessage.cc:1270
 msgid " is favorite user"
@@ -367,7 +367,7 @@ msgstr "Вызначылі абмежаваньне сьцягваць малю�
 
 #: ../src/hub.cc:1841
 msgid "project home: "
-msgstr "бачына праекту:"
+msgstr "бачына праекту: "
 
 #: ../src/hub.cc:1845 ../src/privatemessage.cc:930
 msgid "*** Available commands:"
@@ -376,7 +376,7 @@ msgstr "*** Даступныя загады:"
 #: ../src/hub.cc:1846 ../src/privatemessage.cc:931
 #: ../glade/privatemessage.glade:183 ../glade/hub.glade:342
 msgid "Away mode message on/off"
-msgstr "Перайсьці ў стан “Адыйшоў”, ці вярнуцца"
+msgstr "Перайсьці ў стан «адышоў», ці вярнуцца"
 
 #: ../src/hub.cc:1848 ../glade/hub.glade:356
 msgid "Clear chat"
@@ -420,7 +420,6 @@ msgid "Show help"
 msgstr "Паказаць даведку"
 
 #: ../src/hub.cc:1857 ../glade/hub.glade:384
-#, fuzzy
 msgid "Connect to the hub"
 msgstr "Злучыцца з асяродкам"
 
@@ -435,7 +434,6 @@ msgid "Private message"
 msgstr "Асабістае паведамленьне"
 
 #: ../src/hub.cc:1860 ../glade/hub.glade:398
-#, fuzzy
 msgid "Rebuild hash"
 msgstr "Стварыць нанова скароты"
 
@@ -448,11 +446,9 @@ msgid "User list show/hide"
 msgstr "Паказаць або схаваць сьпіс карыстальнікаў"
 
 #: ../src/hub.cc:1863
-#, fuzzy
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
-"Відарысы: 0 — ня сьцягваць, n<0 — сьцягваць усе, пуста — паказаць дадатковыя "
-"зьвесткі"
+"Відарысы: 0 — ня сьцягваць; n<0 — сьцягваць усе; пуста — паказаць бягучы стан"
 
 #: ../src/hub.cc:1864 ../glade/hub.glade:412
 msgid "Show version"
@@ -484,11 +480,11 @@ msgstr "Выкрасьліць назоўку A"
 
 #: ../src/hub.cc:1873
 msgid "Alias add uname -a as A"
-msgstr "Дадаць назоўку A для “uname -a”"
+msgstr "Дадаць назоўку A для «uname -a»"
 
 #: ../src/hub.cc:1874
 msgid "Alias A executing"
-msgstr "Выконваецца назоўка A"
+msgstr "Выканаць назоўку A"
 
 #: ../src/hub.cc:1963
 msgid "Aliases not found."
@@ -500,7 +496,7 @@ msgstr "Невядомы загад «"
 
 #: ../src/hub.cc:2064
 msgid "': type /help for a list of available commands"
-msgstr "»: надрукуйце “/help”, каб атрымаць сьпіс даступных загадаў"
+msgstr "»: надрукуйце «/help», каб атрымаць сьпіс даступных загадаў"
 
 #: ../src/hub.cc:2347 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1063
 #: ../src/mainwindow.cc:1131 ../glade/sharebrowser.glade:326
@@ -525,7 +521,6 @@ msgid "Slot granted to "
 msgstr "Далі шчыліну карыстальніку "
 
 #: ../src/hub.cc:2680
-#, fuzzy
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "Не магу злучыцца: з запытаным асяродкам ужо маецца злучэньне"
 
@@ -535,16 +530,15 @@ msgstr "Дадалі ўлюбёны асяродак"
 
 #: ../src/hub.cc:2739
 msgid "Favorite hub already exists"
-msgstr "Асяродак ужо ёсьць ва ўлюбёных."
+msgstr "Асяродак ужо ёсьць ва ўлюбёных"
 
 #: ../src/hub.cc:2849
-#, fuzzy
 msgid "loading error"
 msgstr "здарылася памылка, калі чыталі"
 
 #: ../src/hub.cc:2862
 msgid "bad image"
-msgstr ""
+msgstr "кепскі відарыс"
 
 #: ../src/hub.cc:3069
 msgid "Connecting to "
@@ -572,12 +566,10 @@ msgstr "Мянушку ўжо занялі"
 
 # ???«Выявілі назолу ў пошуку»
 #: ../src/hub.cc:3309
-#, fuzzy
 msgid "Search spam detected from "
 msgstr "Выявілі непажаданы пошук ад "
 
 #: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:703
-#, fuzzy
 msgid "ADL Search"
 msgstr "Самарушна шукаць у сьпісах файлаў"
 
@@ -625,13 +617,11 @@ msgstr "Улюбёнцы"
 #: ../src/favoriteusers.cc:44 ../src/favoriteusers.cc:65
 #: ../src/favoriteusers.cc:108 ../src/favoriteusers.cc:470
 #: ../src/favoriteusers.cc:472
-#, fuzzy
 msgid "Auto grant slot"
 msgstr "Дадаваць шчыліну"
 
 #: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
 #: ../src/favoriteusers.cc:584
-#, fuzzy
 msgid "Hub (last seen in, if offline)"
 msgstr "Асяродак (апошні раз быў далучаным)"
 
@@ -647,15 +637,13 @@ msgstr "Далучаны"
 
 #: ../src/favoriteusers.cc:438
 msgid "Are you sure you want to delete favorite user(s)?"
-msgstr "Ці ўпэўненыя вы, што хочаце выкрасьліць улюбёнца(аў)?"
+msgstr "Ці ўпэўненыя вы, што хочаце выкрасьліць карыстальніка з улюбёнцаў?"
 
 #: ../src/hashdialog.cc:42 ../src/hashdialog.cc:130
-#, fuzzy
 msgid "Paused..."
 msgstr "Прыпынілі…"
 
 #: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../glade/hash.glade:7
-#, fuzzy
 msgid "Indexing files..."
 msgstr "Ствараецца паказьнік файлаў…"
 
@@ -707,22 +695,18 @@ msgid "waiting..."
 msgstr "чакаем…"
 
 #: ../src/searchspy.cc:358
-#, fuzzy
 msgid "top..."
 msgstr "найлепшыя…"
 
 #: ../src/searchspy.cc:389 ../glade/searchspy.glade:149
-#, fuzzy
 msgid "Update frame search"
 msgstr "Абнавіць ваконца пошуку"
 
 #: ../src/searchspy.cc:412
-#, fuzzy
 msgid "top/waiting/frame: "
-msgstr "наверсе/чакаюць/бачныя: "
+msgstr "найлепшыя/чакаюць/бачныя: "
 
 #: ../src/searchspy.cc:500 ../glade/searchspy.glade:135
-#, fuzzy
 msgid "Clear frame search"
 msgstr "Ачысьціць ваконца пошуку"
 
@@ -772,13 +756,12 @@ msgid "Waiting for slot "
 msgstr "Чакаем на шчыліну "
 
 #: ../src/transfers.cc:580
-#, fuzzy
 msgid "%) from "
 msgstr "%) ад "
 
 #: ../src/transfers.cc:580
 msgid " user(s)"
-msgstr " карыстальнік(а,аў)"
+msgstr " карыстальнік(і,аў)"
 
 #: ../src/transfers.cc:670 ../src/transfers.cc:872
 msgid "File list"
@@ -794,19 +777,19 @@ msgstr "Пачынаем сьцягваць…"
 
 #: ../src/transfers.cc:937 ../src/transfers.cc:1114
 msgid "[S]"
-msgstr ""
+msgstr "[S]"
 
 #: ../src/transfers.cc:939 ../src/transfers.cc:1116
 msgid "[U]"
-msgstr ""
+msgstr "[U]"
 
 #: ../src/transfers.cc:942
 msgid "[T]"
-msgstr ""
+msgstr "[T]"
 
 #: ../src/transfers.cc:944 ../src/transfers.cc:1119
 msgid "[Z]"
-msgstr ""
+msgstr "[Z]"
 
 #: ../src/transfers.cc:962
 msgid "Download complete..."
@@ -830,7 +813,6 @@ msgid "Download finished"
 msgstr "Скончылі сьцягваць"
 
 #: ../src/transfers.cc:1082
-#, fuzzy
 msgid "Download removed"
 msgstr "Скасавалі"
 
@@ -859,12 +841,10 @@ msgid "Quit..."
 msgstr "Выходзім…"
 
 #: ../src/privatemessage.cc:933 ../glade/privatemessage.glade:197
-#, fuzzy
 msgid "Clear PM"
 msgstr "Ачысьціць ваконца асабістых паведамленьняў"
 
 #: ../src/privatemessage.cc:934 ../glade/privatemessage.glade:204
-#, fuzzy
 msgid "Close PM"
 msgstr "Закрыць ваконца асабістых паведамленьняў"
 
@@ -874,7 +854,7 @@ msgstr "Невядомы загад "
 
 #: ../src/privatemessage.cc:944
 msgid ": type /help for a list of available commands"
-msgstr ": надрукуйце “/help”, каб атрымаць сьпіс даступных загадаў"
+msgstr ": надрукуйце «/help», каб атрымаць сьпіс даступных загадаў"
 
 #: ../src/privatemessage.cc:1258
 msgid "User went offline"
@@ -887,7 +867,6 @@ msgstr "Далі шчыліну"
 #: ../src/settingsdialog.cc:292 ../src/settingsdialog.cc:328
 #: ../src/settingsdialog.cc:964 ../src/settingsdialog.cc:975
 #: ../src/settingsdialog.cc:1123 ../src/settingsdialog.cc:1138
-#, fuzzy
 msgid "Use"
 msgstr "Ужываць"
 
@@ -932,7 +911,7 @@ msgstr "Прыстасаваньне"
 #: ../src/settingsdialog.cc:2132 ../src/settingsdialog.cc:2166
 #: ../src/settingsdialog.cc:2184 ../src/settingsdialog.cc:2215
 msgid "Extensions"
-msgstr "Пашырэньне"
+msgstr "Пашырэньні"
 
 #: ../src/settingsdialog.cc:840
 msgid "Xine player"
@@ -1008,11 +987,11 @@ msgstr "Паказваць апісаньні стану ў галоўнай г�
 
 #: ../src/settingsdialog.cc:926
 msgid "Show joins / parts in chat by default"
-msgstr "Звычайна паказваць у гамане, калі хто ўваходзіць ці выходзіць"
+msgstr "Паказваць у гамане, калі хто ўваходзіць ці выходзіць"
 
 #: ../src/settingsdialog.cc:927
 msgid "Only show joins / parts for favorite users"
-msgstr "Паведамляць, калі ўлюбёнца ўвайшоў ці выйшаў"
+msgstr "Паведамляць, калі ўлюбёнец увайшоў ці выйшаў"
 
 #: ../src/settingsdialog.cc:928
 msgid "Sort favorite users first"
@@ -1020,27 +999,28 @@ msgstr "Упарадкаваць першымі ўлюбёнцаў"
 
 #: ../src/settingsdialog.cc:929
 msgid "Use OEM monospaced font for chat windows"
-msgstr ""
+msgstr "Ужываць роўнашырокі шрыфт у ваконцах гаманы"
 
 #: ../src/settingsdialog.cc:930
 msgid "Use magnet split"
-msgstr ""
+msgstr "Паказваць магніт-спасылкі сьцісла"
 
 #: ../src/settingsdialog.cc:931
 msgid "Use blinking status icon"
-msgstr ""
+msgstr "Мігцець значкаю стану"
 
 #: ../src/settingsdialog.cc:932
 msgid "Use emoticons"
-msgstr ""
+msgstr "Ужываць пачуцьцезнакі"
 
 #: ../src/settingsdialog.cc:933
 msgid "Do not close the program, hide in the system tray"
-msgstr ""
+msgstr "Не закрываць праграму, а хаваць у сыстэмны латок"
 
 #: ../src/settingsdialog.cc:934
 msgid "Send PM when double clicked in the user list"
 msgstr ""
+"Дасылаць асабістае паведамленьне падвойным пстрыкам у сьпісе карыстальнікаў"
 
 #: ../src/settingsdialog.cc:950 ../src/settingsdialog.cc:1211
 #: ../src/settingsdialog.cc:1283 ../src/settingsdialog.cc:1324
@@ -1058,11 +1038,11 @@ msgstr "Зацягнутае"
 
 #: ../src/settingsdialog.cc:953
 msgid "Hub (also sets urgency hint)"
-msgstr ""
+msgstr "Асяродак (таксама усталёўвае патрабаваньне ўвагі)"
 
 #: ../src/settingsdialog.cc:954
 msgid "Private Message (also sets urgency hint)"
-msgstr ""
+msgstr "Асабістае паведамленьне (таксама усталёўвае патрабаваньне ўвагі)"
 
 #: ../src/settingsdialog.cc:955 ../src/settingsdialog.cc:1219
 #: ../src/settingsdialog.cc:1275 ../src/search.cc:41
@@ -1070,16 +1050,16 @@ msgstr ""
 #: ../glade/mainwindow.glade:232 ../glade/mainwindow.glade:630
 #: ../glade/settingsdialog.glade:5750
 msgid "Search"
-msgstr "Шукаць"
+msgstr "Пошук"
 
 #: ../src/settingsdialog.cc:965 ../glade/settingsdialog.glade:2815
 msgid "Sounds"
-msgstr "Гукі"
+msgstr "Гук"
 
 #: ../src/settingsdialog.cc:983 ../src/settingsdialog.cc:1147
 #: ../src/settingsmanager.cc:221
 msgid "Download finished file list"
-msgstr ""
+msgstr "Скончылі сьцягваць сьпіс файлаў"
 
 #: ../src/settingsdialog.cc:984
 msgid "Upload finished"
@@ -1107,15 +1087,15 @@ msgstr "Улюбёнец выйшаў"
 
 #: ../src/settingsdialog.cc:1022
 msgid "General text"
-msgstr ""
+msgstr "Звычайны тэкст"
 
 #: ../src/settingsdialog.cc:1025
 msgid "My nick"
-msgstr ""
+msgstr "Мая мянушка"
 
 #: ../src/settingsdialog.cc:1028
 msgid "My own message"
-msgstr ""
+msgstr "Маё ўласнае паведамленьне"
 
 #: ../src/settingsdialog.cc:1034
 msgid "System message"
@@ -1123,7 +1103,7 @@ msgstr "Паведамленьне сыстэмы"
 
 #: ../src/settingsdialog.cc:1037
 msgid "Status message"
-msgstr "Паведамленьне стану"
+msgstr "Апісаньне стану"
 
 #: ../src/settingsdialog.cc:1040 ../src/settingsdialog.cc:1068
 msgid "Timestamp"
@@ -1131,7 +1111,7 @@ msgstr "Часадзнака"
 
 #: ../src/settingsdialog.cc:1043
 msgid "URL"
-msgstr ""
+msgstr "Спасылка"
 
 #: ../src/settingsdialog.cc:1046
 msgid "Favorite User"
@@ -1142,64 +1122,53 @@ msgid "Operator"
 msgstr "Апэратар"
 
 #: ../src/settingsdialog.cc:1124 ../glade/settingsdialog.glade:3332
-#, fuzzy
 msgid "Notify"
 msgstr "Апавяшчэньне"
 
 #: ../src/settingsdialog.cc:1198
-#, fuzzy
 msgid "User (dc)"
 msgstr "Карыстальнік (dc)"
 
 #: ../src/settingsdialog.cc:1199
-#, fuzzy
 msgid "User firewall (dc)"
 msgstr "Карыстальнік за сетказаслонаю (dc)"
 
 #: ../src/settingsdialog.cc:1200
-#, fuzzy
 msgid "User operator firewall (dc)"
-msgstr "Карыстальнік-апэратар за сетказаслонаю (dc)"
+msgstr "Карыстальнік — апэратар за сетказаслонаю (dc)"
 
 #: ../src/settingsdialog.cc:1201
-#, fuzzy
 msgid "User operator (dc)"
-msgstr "Карыстальнік-апэратар (dc)"
+msgstr "Карыстальнік — апэратар (dc)"
 
 #: ../src/settingsdialog.cc:1202
-#, fuzzy
 msgid "User (normal)"
 msgstr "Карыстальнік (звычайны)"
 
 #: ../src/settingsdialog.cc:1203
-#, fuzzy
 msgid "User firewall (normal)"
 msgstr "Карыстальнік за сетказаслонаю (звычайны)"
 
 #: ../src/settingsdialog.cc:1204
-#, fuzzy
 msgid "User operator firewall (normal)"
-msgstr "Карыстальнік-апэратар за сетказаслонаю (звычайны)"
+msgstr "Карыстальнік — апэратар за сетказаслонаю (звычайны)"
 
 #: ../src/settingsdialog.cc:1205
-#, fuzzy
 msgid "User operator (normal)"
-msgstr "Карыстальнік-апэратар (звычайны)"
+msgstr "Карыстальнік — апэратар (звычайны)"
 
 #: ../src/settingsdialog.cc:1206
-#, fuzzy
 msgid "Button smile"
 msgstr "Гузік усьмешак"
 
 #: ../src/settingsdialog.cc:1207 ../glade/sharebrowser.glade:235
 #: ../glade/sharebrowser.glade:271
 msgid "Download"
-msgstr "Сьцягнуць"
+msgstr "Сьцягванае"
 
 #: ../src/settingsdialog.cc:1208
-#, fuzzy
 msgid "Upload"
-msgstr "Зацягнуць"
+msgstr "Зацягванае"
 
 #: ../src/settingsdialog.cc:1209 ../src/settingsdialog.cc:1261
 #: ../src/settingsdialog.cc:1322 ../src/favoritehubs.cc:31
@@ -1215,17 +1184,17 @@ msgstr "Уласны сьпіс файлаў"
 #: ../src/settingsdialog.cc:1214 ../src/settingsdialog.cc:1271
 #: ../glade/mainwindow.glade:542
 msgid "Refresh"
-msgstr ""
+msgstr "Дапоўніць"
 
 #: ../src/settingsdialog.cc:1215 ../src/settingsdialog.cc:1273
 #: ../glade/mainwindow.glade:555
 msgid "Hash"
-msgstr ""
+msgstr "Стварэньне скаротаў"
 
 #: ../src/settingsdialog.cc:1216 ../src/settingsdialog.cc:1267
 #: ../glade/mainwindow.glade:511 ../glade/settingsdialog.glade:6
 msgid "Preferences"
-msgstr ""
+msgstr "Перавагі"
 
 #: ../src/settingsdialog.cc:1217 ../src/settingsdialog.cc:1265
 #: ../src/settingsdialog.cc:1321 ../src/publichubs.cc:29
@@ -1260,20 +1229,16 @@ msgid "Directory"
 msgstr "Каталёг"
 
 #: ../src/settingsdialog.cc:1226 ../glade/mainwindow.glade:247
-#, fuzzy
 msgid "Search ADL"
 msgstr "Самарушна шукаць у сьпісах файлаў"
 
 #: ../src/settingsdialog.cc:1255
-#, fuzzy
 msgid "Separators"
 msgstr "Аддзяляльнікі"
 
-# ???перакладаць?
 #: ../src/settingsdialog.cc:1277
-#, fuzzy
 msgid "searchADL"
-msgstr ""
+msgstr "Самарушна шукаць у сьпісах файлаў"
 
 #: ../src/settingsdialog.cc:1333
 msgid "Open file list window in the background"
@@ -1285,7 +1250,7 @@ msgstr "Адкрываць новыя вокны асаб. паведамлен�
 
 #: ../src/settingsdialog.cc:1335
 msgid "Open new window when using /join"
-msgstr "Адкрыць новае вакно па загаду /join"
+msgstr "Адкрыць новае вакно па загаду «/join»"
 
 #: ../src/settingsdialog.cc:1336
 msgid "Ignore private messages from the hub"
@@ -1309,7 +1274,7 @@ msgstr "Пацьвярджаць, калі сьціраем улюбёны ас�
 
 #: ../src/settingsdialog.cc:1389
 msgid "Auto-away on minimize (and back on restore)"
-msgstr "У стан “адыйшоў”, калі найменшылі (і вяртацца, калі аднавілі)"
+msgstr "У стан «адышоў», калі найменшылі (і вяртацца, калі аднавілі)"
 
 #: ../src/settingsdialog.cc:1390
 msgid "Automatically follow redirects"
@@ -1324,6 +1289,8 @@ msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
 msgstr ""
+"Пакідаць падвойныя файлы ў сьпісе файлаў (яны не ўплываюць на памер "
+"абагуленага)"
 
 #: ../src/settingsdialog.cc:1393
 msgid "Don't delete file lists when exiting"
@@ -1339,11 +1306,11 @@ msgstr "Дазволіць сьцягваць па частках"
 
 #: ../src/settingsdialog.cc:1396
 msgid "Enable automatic SFV checking"
-msgstr ""
+msgstr "Дазволіць самарушна спраўджваць SFV"
 
 #: ../src/settingsdialog.cc:1397
 msgid "Enable safe and compressed transfers"
-msgstr "Дазволіць бясьпечна перадаваць і сьціскаць"
+msgstr "Дазволіць бясьпечна перадаваць і сьціскаць перадаванае"
 
 #: ../src/settingsdialog.cc:1398
 msgid "Accept custom user commands from hub"
@@ -1360,7 +1327,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1401
 msgid "Don't send the away message to bots"
-msgstr "Не тлумачыць ботам стан “адыйшоў”"
+msgstr "Не тлумачыць ботам стан «адышоў»"
 
 #: ../src/settingsdialog.cc:1402
 msgid "Use fast hashing method (disable if you have problems with hashing)"
@@ -1371,10 +1338,11 @@ msgstr ""
 #: ../src/settingsdialog.cc:1403
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr ""
+"Запісацца ў апэрацыйнае сыстэме як апрацоўнік спасылак dchub:// і adc://"
 
 #: ../src/settingsdialog.cc:1404
 msgid "Register with the OS to handle magnet: URL links"
-msgstr ""
+msgstr "Запісацца ў апэрацыйнае сыстэме як апрацоўнік спасылак magnet:URL"
 
 #: ../src/settingsdialog.cc:1464
 msgid "Use TLS when remote client supports it"
@@ -1390,50 +1358,48 @@ msgstr "Дазволіць злучацца праз TLS з кліентамі �
 
 #: ../src/settingsdialog.cc:1522
 msgid "*** T E S T ***"
-msgstr ""
+msgstr "*** С П Р О Б А ***"
 
 #: ../src/settingsdialog.cc:1604 ../src/settingsdialog.cc:1633
 #: ../src/settingsdialog.cc:1670
 msgid "...must not be empty"
-msgstr ""
+msgstr "…нельга, каб быў пустым"
 
 #: ../src/settingsdialog.cc:1701 ../src/settingsdialog.cc:1725
 msgid "...must be *.theme"
-msgstr ""
+msgstr "…мусіць заканчвацца на «.theme»"
 
 #: ../src/settingsdialog.cc:1740
 msgid "default icons"
-msgstr ""
+msgstr "звычайныя значкі"
 
 #: ../src/settingsdialog.cc:1749
 msgid " + system icons"
-msgstr ""
+msgstr " + сыстэмныя значкі"
 
 #: ../src/settingsdialog.cc:1772
 msgid "default theme"
-msgstr ""
+msgstr "звычайная тэма"
 
 #: ../src/settingsdialog.cc:2113 ../src/settingsdialog.cc:2199
 msgid "Must not be empty..."
-msgstr ""
+msgstr "Нельга, каб было пустым…"
 
 #: ../src/settingsdialog.cc:2121
 msgid "Error"
 msgstr "Памылка"
 
 #: ../src/settingsdialog.cc:2241
-#, fuzzy
 msgid "Virtual name"
 msgstr "Уяўны назоў"
 
 #: ../src/settingsdialog.cc:2244
-#, fuzzy
 msgid "<b>Name under which the others see the directory</b>"
-msgstr "<b>Назоў каталёгу, які будуць бачыць іншыя карыстальнікі</b>"
+msgstr "<b>Назоў, які будуць бачыць іншыя карыстальнікі</b>"
 
 #: ../src/settingsdialog.cc:2308 ../src/settingsdialog.cc:2409
 msgid "selected style failed"
-msgstr ""
+msgstr "не абралі від тэксту"
 
 #: ../src/settingsdialog.cc:2484 ../glade/settingsdialog.glade:6190
 msgid "Separator"
@@ -1441,39 +1407,35 @@ msgstr "Аддзяляльнік"
 
 #: ../src/settingsdialog.cc:2572
 msgid "Name and command must not be empty"
-msgstr ""
+msgstr "Нельга, каб назоў і загад былі пустымі"
 
 #: ../src/settingsdialog.cc:2578
 msgid "Command name already exists"
-msgstr ""
+msgstr "Загад з такім назовам ужо існуе"
 
 #: ../src/settingsdialog.cc:2772 ../src/publichubs.cc:360
 msgid "New list"
-msgstr ""
+msgstr "Новы сьпіс"
 
 #: ../src/settingsdialog.cc:2844 ../glade/settingsdialog.glade:5932
-#, fuzzy
 msgid "Favorite name"
-msgstr "Улюбёны назоў"
+msgstr "Назоў"
 
 #: ../src/settingsdialog.cc:2846
-#, fuzzy
 msgid "<b>Under what name you see the directory</b>"
-msgstr "<b>Назоў каталёгу, які будзеце бачыць вы</b>"
+msgstr "<b>Назоў, які будзеце бачыць вы</b>"
 
 #: ../src/settingsdialog.cc:2867
-#, fuzzy
 msgid "Directory or favorite name already exists"
 msgstr "Такі каталёг (або назоў каталёгу) ужо існуе"
 
 #: ../src/settingsdialog.cc:2972
 msgid "[HIDDEN SHARE] "
-msgstr ""
+msgstr "[HIDDEN SHARE] "
 
 #: ../src/settingsdialog.cc:2986
-#, fuzzy
 msgid "Total size: "
-msgstr "Разам:"
+msgstr "Агульны памер:"
 
 #: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:67
 #: ../src/favoritehubs.cc:121 ../src/favoritehubs.cc:237
@@ -1510,12 +1472,12 @@ msgstr "Знаказбор"
 
 #: ../src/favoritehubs.cc:376
 msgid "The name and address fields are required"
-msgstr ""
+msgstr "Трэба запоўніць палі «Назоў» і «Адрэса»"
 
 #: ../src/favoritehubs.cc:411
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
+msgstr "Ці ўпэўненыя вы, што хочаце выкрасьліць асяродак «%s» з улюбёных?"
 
 #: ../src/mainwindow.cc:101
 #, c-format
@@ -1532,34 +1494,29 @@ msgstr ""
 
 #: ../src/mainwindow.cc:207
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
-msgstr ""
+msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 
 #: ../src/mainwindow.cc:223
 msgid "Welcome to "
 msgstr "Вітаем вас у "
 
 #: ../src/mainwindow.cc:560
-#, fuzzy
 msgid "Download: "
 msgstr "Сьцягнулі: "
 
 #: ../src/mainwindow.cc:560
-#, fuzzy
 msgid "Upload: "
 msgstr "Зацягнулі: "
 
 #: ../src/mainwindow.cc:997
-#, fuzzy
 msgid "Enter value for "
 msgstr "Упішыце значэньне "
 
 #: ../src/mainwindow.cc:1054
-#, fuzzy
 msgid "Magnet Properties / Choice"
 msgstr "Уласьцівасьці магніт-спасылкі (выбар)"
 
 #: ../src/mainwindow.cc:1124
-#, fuzzy
 msgid "Magnet Choice"
 msgstr "Выбар па магніт-спасылцы"
 
@@ -1598,7 +1555,6 @@ msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
 #: ../src/mainwindow.cc:1985
-#, fuzzy
 msgid "Select file to Get TTH"
 msgstr "Абярыце файл, скарот якога трэба вылічыць"
 
@@ -1618,15 +1574,15 @@ msgstr "Адлучаны"
 
 #: ../src/WulforUtil.cc:210
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: ../src/WulforUtil.cc:211
 msgid "CP1252"
-msgstr ""
+msgstr "CP1252"
 
 #: ../src/WulforUtil.cc:212
 msgid "CP1250"
-msgstr ""
+msgstr "CP1250"
 
 #: ../src/WulforUtil.cc:213
 msgid "ISO-8859-2"
@@ -1650,31 +1606,31 @@ msgstr "ISO-2022-JP"
 
 #: ../src/WulforUtil.cc:218
 msgid "SJIS"
-msgstr ""
+msgstr "SJIS"
 
 #: ../src/WulforUtil.cc:219
 msgid "CP949"
-msgstr ""
+msgstr "CP949"
 
 #: ../src/WulforUtil.cc:220
 msgid "KOI8-R"
-msgstr ""
+msgstr "KOI8-R"
 
 #: ../src/WulforUtil.cc:221
 msgid "CP1251"
-msgstr ""
+msgstr "CP1251"
 
 #: ../src/WulforUtil.cc:222
 msgid "CP1256"
-msgstr ""
+msgstr "CP1256"
 
 #: ../src/WulforUtil.cc:223
 msgid "CP1257"
-msgstr ""
+msgstr "CP1257"
 
 #: ../src/WulforUtil.cc:224
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: ../src/WulforUtil.cc:225
 msgid "TIS-620"
@@ -1691,7 +1647,6 @@ msgid "Transferred"
 msgstr "Перадалося"
 
 #: ../src/finishedtransfers.cc:62 ../src/finishedtransfers.cc:221
-#, fuzzy
 msgid "CRC Checked"
 msgstr "CRC спраўдзілі"
 
@@ -1723,7 +1678,7 @@ msgstr "Не"
 
 #: ../src/emoticonsdialog.cc:69
 msgid "Emotion packs"
-msgstr "Наборы пачуцьцёзнакаў"
+msgstr "Наборы пачуцьцезнакаў"
 
 #: ../src/emoticonsdialog.cc:74
 msgid "Icon size"
@@ -1735,33 +1690,31 @@ msgstr "Краіна"
 
 #: ../src/publichubs.cc:47 ../src/publichubs.cc:162
 msgid "Min Share"
-msgstr "Найменшае абагуленае"
+msgstr "Найм. абагуленае"
 
 #: ../src/publichubs.cc:48 ../src/publichubs.cc:163
 msgid "Min Slots"
-msgstr "Найменшая колькасьць шчылінаў"
+msgstr "Найм. шчылінаў"
 
 #: ../src/publichubs.cc:49 ../src/publichubs.cc:164
 msgid "Max Hubs"
-msgstr "Найбольшая колькасьць асяродкаў"
+msgstr "Найб. асяродкаў"
 
 #: ../src/publichubs.cc:50 ../src/publichubs.cc:165
 msgid "Max Users"
-msgstr "Найбольшая колькасьць карыстальнікаў"
+msgstr "Найб. карыстальнікаў"
 
 #: ../src/publichubs.cc:51 ../src/publichubs.cc:166
 msgid "Rating"
 msgstr "Ацэнка"
 
 #: ../src/publichubs.cc:176
-#, fuzzy
 msgid "Hubs: "
 msgstr "Асяродкі: "
 
 #: ../src/publichubs.cc:177
-#, fuzzy
 msgid "Users: "
-msgstr "Карыстальнікі: "
+msgstr "Карыстачы: "
 
 #: ../src/publichubs.cc:439
 msgid "Download starting: "
@@ -1870,20 +1823,19 @@ msgstr "Супала "
 
 #: ../src/sharebrowser.hh:142 ../src/sharebrowser.hh:145
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: ../glade/sharebrowser.glade:109
-#, fuzzy
 msgid "Match Queue"
 msgstr "Узгадніць чаргу"
 
 #: ../glade/sharebrowser.glade:122
 msgid "Find"
-msgstr ""
+msgstr "Шукаць"
 
 #: ../glade/sharebrowser.glade:135
 msgid "Next"
-msgstr ""
+msgstr "Наступнае"
 
 #: ../glade/sharebrowser.glade:154
 msgid "Find files"
@@ -1903,21 +1855,18 @@ msgid "User commands"
 msgstr "Загады карыстальніка"
 
 #: ../glade/sharebrowser.glade:294 ../glade/downloadqueue.glade:197
-#, fuzzy
 msgid "_Search for alternates"
-msgstr "Шукаць дадатковыя крыніцы"
+msgstr "Шукаць дадатковыя _крыніцы"
 
 #: ../glade/sharebrowser.glade:301 ../glade/search.glade:486
 #: ../glade/downloadqueue.glade:204 ../glade/privatemessage.glade:129
 #: ../glade/hub.glade:287
-#, fuzzy
 msgid "_Copy magnet"
-msgstr "Перапісаць магніт-спасылку"
+msgstr "Перапісаць _магніт-спасылку"
 
 #: ../glade/sharebrowser.glade:308
-#, fuzzy
 msgid "_Copy picture"
-msgstr "Перапісаць малюнак"
+msgstr "Перапісаць _малюнак"
 
 #: ../glade/hash.glade:22
 msgid "<b>Processing file:</b>"
@@ -1928,12 +1877,10 @@ msgid "<b>Statistics</b>"
 msgstr "<b>Статыстыка</b>"
 
 #: ../glade/hash.glade:109
-#, fuzzy
 msgid "Pause"
 msgstr "Прыпыніць"
 
 #: ../glade/hash.glade:138
-#, fuzzy
 msgid "Run in background"
 msgstr "Выконваць на заднім пляне"
 
@@ -1951,7 +1898,7 @@ msgstr "Пасунуць угору"
 
 #: ../glade/adlsearch.glade:75
 msgid "Move Down"
-msgstr "Пасунуць долу"
+msgstr "Пасунуць да-долу"
 
 #: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5693
 msgid "Remove"
@@ -1961,21 +1908,18 @@ msgstr "Выкрасьліць"
 #: ../glade/searchspy.glade:263 ../glade/search.glade:556
 #: ../glade/favoriteusers.glade:93 ../glade/downloadqueue.glade:188
 #: ../glade/downloadqueue.glade:336
-#, fuzzy
 msgid "_Remove"
-msgstr "Выкрасьліць"
+msgstr "_Выкрасьліць"
 
 #: ../glade/adlsearch.glade:131
 msgid "ADLSearch Properties"
 msgstr "Уласьцівасьці самарушнага пошуку"
 
 #: ../glade/adlsearch.glade:163
-#, fuzzy
 msgid "<b>Search String</b>"
 msgstr "<b>Шукаць радок</b>"
 
 #: ../glade/adlsearch.glade:184
-#, fuzzy
 msgid ""
 "Filename\n"
 "Directory\n"
@@ -1986,17 +1930,16 @@ msgstr ""
 "Поўны шлях"
 
 #: ../glade/adlsearch.glade:192
-#, fuzzy
 msgid "<b>Source Type</b>"
 msgstr "<b>Від крыніцы</b>"
 
 #: ../glade/adlsearch.glade:233
 msgid "<b>Min FileSize</b>"
-msgstr "<b>Найменшы памер</b>"
+msgstr "<b>Найменшы і</b>"
 
 #: ../glade/adlsearch.glade:262
 msgid "<b>Max FileSize</b>"
-msgstr "<b>Найбольшы памер</b> "
+msgstr "<b>найбольшы</b>"
 
 #: ../glade/adlsearch.glade:289 ../glade/search.glade:94
 msgid ""
@@ -2005,18 +1948,20 @@ msgid ""
 "MiB\n"
 "GiB"
 msgstr ""
+"Б\n"
+"КіБ\n"
+"МіБ\n"
+"ГіБ"
 
 #: ../glade/adlsearch.glade:298
-#, fuzzy
 msgid "<b>Size Type</b>"
-msgstr "<b>Памернасьць</b> "
+msgstr "<b>памер, вымяраць у</b>"
 
 #: ../glade/adlsearch.glade:334
 msgid "<b>Destination Directory</b>"
 msgstr "<b>Каталёг прызначэньня</b>"
 
 #: ../glade/adlsearch.glade:366
-#, fuzzy
 msgid "Download Matches"
 msgstr "Сьцягваць супадзеньні"
 
@@ -2033,12 +1978,10 @@ msgid "Apply settings"
 msgstr "Ужыць наладжваньні"
 
 #: ../glade/searchspy.glade:68
-#, fuzzy
 msgid "Top: >"
 msgstr "Найлепшыя: >"
 
 #: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3906
-#, fuzzy
 msgid "Number of matches for the top"
 msgstr "Колькасьць супадзеньняў, каб дадаць у найлепшыя"
 
@@ -2055,12 +1998,10 @@ msgstr ""
 "але чашчыня абнаўленьня кадру паменшыцца"
 
 #: ../glade/searchspy.glade:112
-#, fuzzy
 msgid "Frame:"
 msgstr "Кадр:"
 
 #: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3845
-#, fuzzy
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
@@ -2129,9 +2070,8 @@ msgstr ""
 "Скарот (TTH)"
 
 #: ../glade/search.glade:158
-#, fuzzy
 msgid "Group by"
-msgstr "Упарадкоўваць па"
+msgstr "Аб’ядноўваць па"
 
 #: ../glade/search.glade:168
 msgid ""
@@ -2145,7 +2085,7 @@ msgid ""
 "Hub\n"
 "File type\n"
 msgstr ""
-"(не ўпарадкоўваць)\n"
+"(не аб’ядноўваць)\n"
 "назове файла\n"
 "шляху\n"
 "памеры\n"
@@ -2160,13 +2100,12 @@ msgid "Search options"
 msgstr "Можнасьці пошуку"
 
 #: ../glade/search.glade:208
-#, fuzzy
 msgid "Search within local results"
-msgstr "Шукаць і ў сябе"
+msgstr "Шукаць сярод знойдзенага"
 
 #: ../glade/search.glade:226
 msgid "Only users with free slots"
-msgstr "Толькі ў тых, хто мае вольныя шчыліны"
+msgstr "Тых, хто мае вольныя шчыліны"
 
 #: ../glade/search.glade:246
 msgid "Filter files already in share"
@@ -2234,7 +2173,7 @@ msgstr "_Выкрасьліць карыстальніка з чаргі"
 
 #: ../glade/search.glade:540 ../glade/hub.glade:242
 msgid "_User commands"
-msgstr "_Загады карыстальніка"
+msgstr "Загады _карыстальніка"
 
 #: ../glade/favoriteusers.glade:46 ../glade/transfers.glade:38
 #: ../glade/hub.glade:190
@@ -2308,7 +2247,7 @@ msgstr "Апісаньне _карыстальніка:"
 
 #: ../glade/favoritehubs.glade:384
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr "<small>Заўвага: ня стаўце птушачку, каб пакінуць звычайным</small>"
+msgstr "<small>Уважце: ня стаўце птушачку, каб пакінуць звычайным</small>"
 
 #: ../glade/mainwindow.glade:19
 msgid "_File"
@@ -2323,7 +2262,6 @@ msgid "Open _own file list"
 msgstr "Адкрыць _уласны сьпіс файлаў"
 
 #: ../glade/mainwindow.glade:55
-#, fuzzy
 msgid "_Refresh file list"
 msgstr "_Дапоўніць сьпіс файлаў"
 
@@ -2332,7 +2270,6 @@ msgid "Indexing Progress"
 msgstr "Поступ стварэньня скаротаў"
 
 #: ../glade/mainwindow.glade:89
-#, fuzzy
 msgid "_Magnet Choice"
 msgstr "Выбар па _магніт-спасылцы"
 
@@ -2357,7 +2294,6 @@ msgid "Re_connect"
 msgstr "Нанова _злучыцца"
 
 #: ../glade/mainwindow.glade:225
-#, fuzzy
 msgid "_Tools"
 msgstr "Пры_лады"
 
@@ -2366,7 +2302,6 @@ msgid "_Preferences"
 msgstr "_Перавагі"
 
 #: ../glade/mainwindow.glade:353
-#, fuzzy
 msgid "_Widgets"
 msgstr "_Ваконцы"
 
@@ -2436,11 +2371,11 @@ msgstr "Хутка злучыцца з асяродкам"
 
 #: ../glade/mainwindow.glade:628
 msgid "Search for files to download"
-msgstr "Шукаць, што сьцягнуць"
+msgstr "Шукаць, што можна сьцягнуць"
 
 #: ../glade/mainwindow.glade:641
 msgid "Browse the list of public hubs"
-msgstr "Зірнуць сьпіс адкрытых асяродкаў"
+msgstr "Зірнуць сьпіс асяродкаў адкрытага доступу"
 
 #: ../glade/mainwindow.glade:659
 msgid "View the files to be downloaded"
@@ -2455,17 +2390,14 @@ msgid "View the list of finished uploads"
 msgstr "Зірнуць сьпіс зацягнутага"
 
 #: ../glade/mainwindow.glade:705
-#, fuzzy
 msgid "ADL"
 msgstr "Самарушна шукаць у сьпісах"
 
 #: ../glade/mainwindow.glade:718
-#, fuzzy
 msgid "Spy"
 msgstr "Шпег"
 
 #: ../glade/mainwindow.glade:734
-#, fuzzy
 msgid "Quit the program"
 msgstr "Выйсьці з праграмы"
 
@@ -2474,7 +2406,6 @@ msgid "Show/Hide transfers panel"
 msgstr "Паказаць або схаваць паліцу перадаванага"
 
 #: ../glade/mainwindow.glade:832
-#, fuzzy
 msgid "Hubs (normal / registered / op)"
 msgstr "Асяродкі (звычайныя / запісаны / апэратар)"
 
@@ -2484,7 +2415,7 @@ msgstr "Хуткасьць сьцягваць"
 
 #: ../glade/mainwindow.glade:914
 msgid "Total received"
-msgstr "Разам атрымалі"
+msgstr "Агулам атрымалі"
 
 #: ../glade/mainwindow.glade:936
 msgid "Upload speed"
@@ -2492,11 +2423,11 @@ msgstr "Хуткасьць зацягваць"
 
 #: ../glade/mainwindow.glade:978
 msgid "Total sent"
-msgstr "Разам адаслалі"
+msgstr "Агулам адаслалі"
 
 #: ../glade/mainwindow.glade:1000
 msgid "Exit EiskaltDC++ Gtk?"
-msgstr "Выйсьці з EiskaltDC++ Gtk?"
+msgstr "Ці выйсьці з EiskaltDC++ Gtk?"
 
 #: ../glade/mainwindow.glade:1011
 msgid "Do you really want to exit?"
@@ -2673,6 +2604,8 @@ msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
+"Каб файл пачаў сьцягваццца, трэба дазволіць самарушна шукаць крыніцы "
+"(Перавагі/Сьцягванае/Чарга)"
 
 #: ../glade/mainwindow.glade:1616
 msgid "Add this file to your download queue"
@@ -2692,7 +2625,7 @@ msgstr "Запомніць, што я абраў"
 
 #: ../glade/mainwindow.glade:1729
 msgid "<b>What would you like to do?</b>"
-msgstr "<b>Што вы хочаце зрабіць?</b>"
+msgstr "<b>Што вы хочаце рабіць?</b>"
 
 #: ../glade/mainwindow.glade:1757 ../glade/settingsdialog.glade:6086
 #: ../glade/settingsdialog.glade:6579 ../glade/settingsdialog.glade:6620
@@ -2710,7 +2643,7 @@ msgstr "Абярыце файл"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"
-msgstr "Найвялікшая хуткасьць зацягваць (МіБ/с)"
+msgstr "Найв. хутк. зацягваць (МіБ/с)"
 
 #: ../glade/settingsdialog.glade:118
 msgid "E-Mail"
@@ -2718,50 +2651,49 @@ msgstr "Пошта"
 
 #: ../glade/settingsdialog.glade:142
 msgid "Default hub encoding"
-msgstr ""
+msgstr "Звычайны знаказбор"
 
 #: ../glade/settingsdialog.glade:175
 msgid "<b>Personal Information</b>"
-msgstr ""
+msgstr "<b>Асабістыя зьвесткі</b>"
 
 #: ../glade/settingsdialog.glade:192
 msgid "Personal"
-msgstr ""
+msgstr "Асабістае"
 
 #: ../glade/settingsdialog.glade:219
 msgid "Use UPnP to let client cofigure my router"
-msgstr ""
+msgstr "Выкарыстоўваць UPnP, каб кліент наладзіўся праз маршрутавальнік"
 
 #: ../glade/settingsdialog.glade:404
 msgid "Ports"
-msgstr ""
+msgstr "Порты"
 
 #: ../glade/settingsdialog.glade:417
 msgid "Active"
-msgstr ""
+msgstr "Дзейны спосаб"
 
 #: ../glade/settingsdialog.glade:432
 msgid "Firewall (passive, last resort)"
-msgstr ""
+msgstr "Сетказаслона (нядзейны — найгоршы спосаб)"
 
 #: ../glade/settingsdialog.glade:449
 msgid "External / WAN IP"
-msgstr ""
+msgstr "Вонкавая або WAN адрэса IP"
 
 #: ../glade/settingsdialog.glade:464
 msgid "Don't allow hub/UPnP to override"
-msgstr ""
+msgstr "Не дазваляць асяродку або UPnP замяняць"
 
 #: ../glade/settingsdialog.glade:482
 msgid "Firewall with manual port forward"
-msgstr ""
+msgstr "Сетказаслона з ручным перасыланьнем портаў"
 
 #: ../glade/settingsdialog.glade:499
 msgid "<b>Incoming connection settings</b>"
 msgstr "<b>Наладжваньні ўваходных злучэньняў</b>"
 
 #: ../glade/settingsdialog.glade:589
-#, fuzzy
 msgid "Username"
 msgstr "Карыстальнік"
 
@@ -2787,7 +2719,7 @@ msgstr "<b>Наладжваньні выходных злучэньняў</b>"
 
 #: ../glade/settingsdialog.glade:783
 msgid "Default download directory"
-msgstr "Прадвызначаны каталёг на сьцягнутае"
+msgstr "Звычайны каталёг на сьцягнутае"
 
 #: ../glade/settingsdialog.glade:824
 msgid "Unfinished downloads directory"
@@ -2820,7 +2752,6 @@ msgid "Public Hubs list URL"
 msgstr "Спасылка на сьпіс адкрытых асяродкаў"
 
 #: ../glade/settingsdialog.glade:1014
-#, fuzzy
 msgid "Configure Public Hub Lists"
 msgstr "Наставіць сьпісы"
 
@@ -2833,7 +2764,6 @@ msgid "<b>Public Hubs list</b>"
 msgstr "<b>Сьпіс адкрытых асяродкаў</b>"
 
 #: ../glade/settingsdialog.glade:1091 ../glade/settingsdialog.glade:1966
-#, fuzzy
 msgid "Downloads"
 msgstr "Сьцягванае"
 
@@ -2937,7 +2867,7 @@ msgstr ""
 
 #: ../glade/settingsdialog.glade:2023
 msgid "Total size: 0 B"
-msgstr "Разам: 0 Б"
+msgstr "Агульны памер: 0 Б"
 
 #: ../glade/settingsdialog.glade:2034
 msgid "Share hidden files"
@@ -2964,7 +2894,6 @@ msgid "Pictures"
 msgstr "Малюнкі"
 
 #: ../glade/settingsdialog.glade:2206
-#, fuzzy
 msgid "Sharing"
 msgstr "Абагуленае"
 
@@ -3048,7 +2977,7 @@ msgstr "Выгляд"
 
 #: ../glade/settingsdialog.glade:2492
 msgid "<b>Tab bolding on content change</b>"
-msgstr "<b>Вылучаць тлустым калі маюцца зьмяненьні</b>"
+msgstr "<b>Вылучаць тлустым, калі маюцца зьмяненьні</b>"
 
 #: ../glade/settingsdialog.glade:2522
 msgid "Tabs"
@@ -3092,7 +3021,7 @@ msgstr "<b>Гук асабістых паведамленьняў</b>"
 
 #: ../glade/settingsdialog.glade:2859
 msgid "<b>Available styles</b>"
-msgstr "<b>Даступнае</b>"
+msgstr "<b>Віды тэксту</b>"
 
 #: ../glade/settingsdialog.glade:2891
 msgid "<b>Preview styles</b>"
@@ -3116,7 +3045,7 @@ msgstr "Выгляд тэксту"
 
 #: ../glade/settingsdialog.glade:2964
 msgid "Default styles"
-msgstr "Прадвызначанае"
+msgstr "Прадвызначана"
 
 #: ../glade/settingsdialog.glade:2977
 msgid "Black/White"
@@ -3215,27 +3144,22 @@ msgid "Toolbar"
 msgstr "Паліца прыладаў"
 
 #: ../glade/settingsdialog.glade:3643
-#, fuzzy
 msgid "New string or TTH"
 msgstr "Новы радок або скарот (TTH)"
 
 #: ../glade/settingsdialog.glade:3674
-#, fuzzy
 msgid "Adding string or TTH in the top"
 msgstr "Скарот або радок дадаецца ў найлепшыя"
 
 #: ../glade/settingsdialog.glade:3706
-#, fuzzy
 msgid "State of preparedness"
 msgstr "Стан падрыхтаванасьці"
 
 #: ../glade/settingsdialog.glade:3738
-#, fuzzy
 msgid "Matches"
 msgstr "Супала"
 
 #: ../glade/settingsdialog.glade:3770
-#, fuzzy
 msgid "Updating string or TTH"
 msgstr "Абнаўляецца радок або скарот"
 
@@ -3252,12 +3176,10 @@ msgid "Waiting (seconds)"
 msgstr "Чакаць (у сэкундах)"
 
 #: ../glade/settingsdialog.glade:3916
-#, fuzzy
 msgid "Top (number of matches, more than)"
 msgstr "Найлепшыя (неабходная колькасьць супадзеньняў)"
 
 #: ../glade/settingsdialog.glade:3964
-#, fuzzy
 msgid "<b>Frame</b>"
 msgstr "<b>Кадр</b>"
 
@@ -3292,7 +3214,7 @@ msgstr "Занатоўваць паведамленьні стану"
 
 #: ../glade/settingsdialog.glade:4273
 msgid "Log filelist transfers"
-msgstr "Перадаваныя сьпісы файлаў"
+msgstr "Перададзеныя сьпісы файлаў"
 
 #: ../glade/settingsdialog.glade:4289
 msgid "<b>Logging</b>"
@@ -3396,11 +3318,11 @@ msgstr "Пасьведчаньні бясьпекі"
 
 #: ../glade/settingsdialog.glade:5235 ../glade/settingsdialog.glade:5478
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
-msgstr "Найвялікшая хуткасьць зацягваць (КіБ/с; 0 = не абмяджоўваць)"
+msgstr "Найвялікшая хуткасьць зацягваць (КіБ/с; 0 = не абмяжоўваць)"
 
 #: ../glade/settingsdialog.glade:5272 ../glade/settingsdialog.glade:5515
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
-msgstr "Найвялікшая хуткасьць сьцягваць (КіБ/с; 0 = не абмяджоўваць)"
+msgstr "Найвялікшая хуткасьць сьцягваць (КіБ/с; 0 = не абмяжоўваць)"
 
 #: ../glade/settingsdialog.glade:5300
 msgid "<b>Transfer Rate Limiting</b>"
@@ -3503,7 +3425,6 @@ msgid "Rename"
 msgstr "Даць новы назоў"
 
 #: ../glade/settingsdialog.glade:5722
-#, fuzzy
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr "Уважце: абраныя віды пошуку будуць працаваць толькі на асяродках ADC!"
 
@@ -3518,8 +3439,7 @@ msgstr "Наставіць сьпісы асяродкаў"
 #: ../glade/settingsdialog.glade:5893 ../glade/publichubs.glade:276
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
-"<b>Уважце:</b> спасылкі, ужо абраныя ў сьпісе, рэдагуюцца па першым пстрыку "
-"мышкаю"
+"<b>Уважце:</b> абраныя ў сьпісе спасылкі рэдагуюцца па першым пстрыку мышкаю"
 
 #: ../glade/settingsdialog.glade:6065
 msgid "Choose a File"
@@ -3547,19 +3467,19 @@ msgstr "<b>Від загаду</b>"
 
 #: ../glade/settingsdialog.glade:6227
 msgid "Search Menu"
-msgstr "Пошук"
+msgstr "Мэню пошуку"
 
 #: ../glade/settingsdialog.glade:6242
 msgid "Chat Menu"
-msgstr "Гамана"
+msgstr "Мэню гаманы"
 
 #: ../glade/settingsdialog.glade:6257
 msgid "Filelist Menu"
-msgstr "Сьпіс файлаў"
+msgstr "Мэню сьпісу файлаў"
 
 #: ../glade/settingsdialog.glade:6274
 msgid "Hub Menu"
-msgstr "Асяродак"
+msgstr "Мэню асяродку"
 
 #: ../glade/settingsdialog.glade:6288
 msgid "<b>Context</b>"
@@ -3587,7 +3507,7 @@ msgstr "<b>Парамэтры</b>"
 
 #: ../glade/settingsdialog.glade:6486
 msgid "<b>Text sent to hub</b>"
-msgstr "<b>Тэкст, які дасылаецца асяродку</b>"
+msgstr "<b>Тэкст, які дашлецца асяродку</b>"
 
 #: ../glade/settingsdialog.glade:6551
 msgid "Color select"
@@ -3663,7 +3583,7 @@ msgstr "Перасунуць у…"
 
 #: ../glade/publichubs.glade:51
 msgid "<b>Filter</b>"
-msgstr "<b>Сіта</b>"
+msgstr "<b>Прасеяць</b>"
 
 #: ../glade/publichubs.glade:92
 msgid "<b>Hub List</b>"
@@ -3740,7 +3660,7 @@ msgstr "Перапісаць _мянушку"
 
 #: ../glade/hub.glade:176
 msgid "_Send public message"
-msgstr "_Даслаць агульнае паведамленьне"
+msgstr "_Даслаць паведамленьне ў агульную гаману"
 
 #: ../glade/hub.glade:216
 msgid "_Remove from favorites"
@@ -3851,7 +3771,7 @@ msgstr "Сьцерці відарыс"
 #~ msgstr "Паслужнік Socks патрабуе спраўджацца"
 
 #~ msgid "The socks server doesn't support login / password authentication"
-#~ msgstr "Паслужнік Socks не падтрымлівае спраўджаньня “ўліковае ймя — гасло”"
+#~ msgstr "Паслужнік Socks не падтрымлівае спраўджаньня «ўліковае ймя — гасло»"
 
 #~ msgid "Socks server authentication failed (bad login / password?)"
 #~ msgstr ""
