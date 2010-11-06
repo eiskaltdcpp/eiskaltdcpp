@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/ADLS.cpp" line="69"/>
         <source>ADLSearch</source>
-        <translation>ADL-търсене</translation>
+        <translation>ADL Търсене</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="155"/>
@@ -2630,7 +2630,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ScriptManagerDialog.cpp" line="39"/>
         <source>Script Manager</source>
-        <translation>Управление на скриптове</translation>
+        <translation>Управление на скриптовете</translation>
     </message>
 </context>
 <context>
@@ -3902,7 +3902,7 @@ Do you want to stop it?
         <location filename="../src/TransferViewModel.cpp" line="538"/>
         <location filename="../src/TransferViewModel.cpp" line="540"/>
         <source>TTH: </source>
-        <translation>TTH: </translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="582"/>
@@ -4457,7 +4457,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFileHasher.ui" line="54"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="73"/>
@@ -4608,7 +4608,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
         <source>URL</source>
-        <translation>Адрес</translation>
+        <translation>URL aдрес</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="43"/>
@@ -5833,12 +5833,12 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="642"/>
         <source>:</source>
-        <translation>:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="647"/>
         <source>,</source>
-        <translation>,</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="657"/>
