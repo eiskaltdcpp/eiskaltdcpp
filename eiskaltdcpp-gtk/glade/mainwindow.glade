@@ -550,368 +550,6 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkMenu" id="toolbarMenu">
-            <property name="visible">True</property>
-            <child>
-              <widget class="GtkCheckMenuItem" id="connectMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Connect</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="favHubsMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Hubs</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="favUsersMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Users</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="publicHubsMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Public Hubs</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="settingsMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Preferences</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="hashMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Hash</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="searchMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Search</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="searchADLMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">ADL</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="searchSpyMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Spy</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="queueMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Queue</property>
-                <property name="use_underline">True</property>
-            </widget>
-            </child>
-            <child>
-            <widget class="GtkCheckMenuItem" id="finishedDownloadsMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Finished Downloads</property>
-                <property name="use_underline">True</property>
-            </widget>
-            </child>
-            <child>
-            <widget class="GtkCheckMenuItem" id="finishedUploadsMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Finished Uploads</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkCheckMenuItem" id="quitMenuItemBar">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Quit</property>
-                <property name="use_underline">True</property>
-              </widget>
-            </child>
-          </widget>
-        </child>
-        <child>
-          <widget class="GtkToolbar" id="toolbar1">
-            <property name="visible">True</property>
-            <child>
-              <widget class="GtkToolButton" id="settings">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Edit the preferences</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Preferences</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-preferences</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem1">
-                <property name="visible">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="own_file_list">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Open own file list</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Own file list</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-own-filelist</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="refresh">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Refresh file list</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Refresh</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-refresh</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="hash">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">View the hashing progress</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Hash</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-hash</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem2">
-                <property name="visible">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="reconnect">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Reconnect to the hub</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Reconnect</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-reconnect</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="connect">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Quick connect to the hub</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Connect</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-connect</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem3">
-                <property name="visible">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="favHubs">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Favorite Hubs</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Hubs</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-favorite-hubs</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="favUsers">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Favorite Users</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Users</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-favorite-users</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="search">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Search for files to download</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Search</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-search</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="publicHubs">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Browse the list of public hubs</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Public Hubs</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-public-hubs</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem4">
-                <property name="visible">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="queue">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">View the files to be downloaded</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Queue</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-queue</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="finishedDownloads">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">View the list of finished downloads</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Finished Downloads</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-finished-downloads</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="finishedUploads">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">View the list of finished uploads</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Finished Uploads</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-finished-uploads</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem5">
-                <property name="visible">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="searchADL">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">ADL Search</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">ADL</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-search-adl</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="searchSpy">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Search Spy</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Spy</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-search-spy</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem6">
-                <property name="visible">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="quit">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Quit the program</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">Quit</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">icon-quit</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem7">
-                <property name="visible">True</property>
-              </widget>
-            </child>
-            <child>
-              <widget class="GtkToolButton" id="add">
-                <property name="visible">True</property>
-                <property name="tooltip" translatable="yes">Add / Remove</property>
-                <property name="is_important">True</property>
-                <property name="label" translatable="yes">+/-</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">gtk-add</property>
-              </widget>
-              <packing>
-                <property name="expand">False</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
           <widget class="GtkVPaned" id="pane">
             <property name="can_focus">True</property>
             <child>
@@ -2040,4 +1678,392 @@ Contributors
       </widget>
     </child>
   </widget>
+          <widget class="GtkMenu" id="toolbarMenu">
+            <property name="visible">True</property>
+            <child>
+              <widget class="GtkCheckMenuItem" id="addMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">+/-</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="separatorsMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Separators</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="reconnectMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Reconnect</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="connectMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Connect</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="favHubsMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Hubs</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="favUsersMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Users</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="publicHubsMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Public Hubs</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="settingsMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Preferences</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="own_filelistMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Own file list</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="refreshMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Refresh</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="hashMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Hash</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="searchMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Search</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="searchADLMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">ADL</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="searchSpyMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Spy</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="queueMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Queue</property>
+                <property name="use_underline">True</property>
+            </widget>
+            </child>
+            <child>
+            <widget class="GtkCheckMenuItem" id="finishedDownloadsMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Finished Downloads</property>
+                <property name="use_underline">True</property>
+            </widget>
+            </child>
+            <child>
+            <widget class="GtkCheckMenuItem" id="finishedUploadsMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Finished Uploads</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkCheckMenuItem" id="quitMenuItemBar">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Quit</property>
+                <property name="use_underline">True</property>
+              </widget>
+            </child>
+          </widget>
+          <widget class="GtkToolbar" id="toolbar1">
+            <property name="visible">True</property>
+            <child>
+              <widget class="GtkToolButton" id="settings">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Edit the preferences</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Preferences</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-preferences</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem1">
+                <property name="visible">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="own_file_list">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Open own file list</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Own file list</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-own-filelist</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="refresh">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Refresh file list</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Refresh</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-refresh</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="hash">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">View the hashing progress</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Hash</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-hash</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem2">
+                <property name="visible">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="reconnect">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Reconnect to the hub</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Reconnect</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-reconnect</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="connect">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Quick connect to the hub</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Connect</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-connect</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem3">
+                <property name="visible">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="favHubs">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Favorite Hubs</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Hubs</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-favorite-hubs</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="favUsers">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Favorite Users</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Users</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-favorite-users</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="search">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Search for files to download</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Search</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-search</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="publicHubs">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Browse the list of public hubs</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Public Hubs</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-public-hubs</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem4">
+                <property name="visible">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="queue">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">View the files to be downloaded</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Queue</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-queue</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="finishedDownloads">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">View the list of finished downloads</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Finished Downloads</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-finished-downloads</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="finishedUploads">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">View the list of finished uploads</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Finished Uploads</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-finished-uploads</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem5">
+                <property name="visible">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="searchADL">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">ADL Search</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">ADL</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-search-adl</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="searchSpy">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Search Spy</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Spy</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-search-spy</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem6">
+                <property name="visible">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="quit">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Quit the program</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">Quit</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">icon-quit</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSeparatorToolItem" id="SeparatorToolItem7">
+                <property name="visible">True</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="add">
+                <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Add / Remove</property>
+                <property name="is_important">True</property>
+                <property name="label" translatable="yes">+/-</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">gtk-add</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+          </widget>
 </glade-interface>

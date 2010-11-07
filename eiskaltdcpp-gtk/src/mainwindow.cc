@@ -81,11 +81,14 @@ MainWindow::MainWindow():
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("ucLineDialog")), window);
 
     // toolbar
+    setToolbarMenu_gui("reconnectMenuItemBar", "reconnect", "toolbar-button-reconnect");
     setToolbarMenu_gui("connectMenuItemBar", "connect", "toolbar-button-connect");
     setToolbarMenu_gui("favHubsMenuItemBar", "favHubs", "toolbar-button-fav-hubs");
     setToolbarMenu_gui("favUsersMenuItemBar", "favUsers", "toolbar-button-fav-users");
     setToolbarMenu_gui("publicHubsMenuItemBar", "publicHubs", "toolbar-button-public-hubs");
     setToolbarMenu_gui("settingsMenuItemBar", "settings", "toolbar-button-settings");
+    setToolbarMenu_gui("own_filelistMenuItemBar", "openOwnList", "toolbar-button-own-filelist");
+    setToolbarMenu_gui("refreshMenuItemBar", "refresh", "toolbar-button-refresh");
     setToolbarMenu_gui("hashMenuItemBar", "hash", "toolbar-button-hash");
     setToolbarMenu_gui("searchMenuItemBar", "search", "toolbar-button-search");
     setToolbarMenu_gui("searchADLMenuItemBar", "searchADL", "toolbar-button-search-adl");
@@ -980,6 +983,8 @@ void MainWindow::setToolbarButton_gui()
         gtk_widget_hide(getWidget("finishedUploads"));
     if (!WGETB("toolbar-button-search-adl"))
         gtk_widget_hide(getWidget("searchADL"));
+    if (!WGETB("toolbar-button-add"))
+        gtk_widget_hide(getWidget("add"));
 }
 
 void MainWindow::setTabPosition_gui(int position)
@@ -1477,11 +1482,16 @@ void MainWindow::onToolToggled_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::checkToolbarMenu_gui()
 {
+   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("addMenuItemBar")), WGETB("toolbar-button-add"));
+   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("separatorsMenuItemBar")), WGETB("toolbar-button-separators"));
+   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("reconnectMenuItemBar")), WGETB("toolbar-button-reconnect"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("connectMenuItemBar")), WGETB("toolbar-button-connect"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("favHubsMenuItemBar")), WGETB("toolbar-button-fav-hubs"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("favUsersMenuItemBar")), WGETB("toolbar-button-fav-users"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("publicHubsMenuItemBar")), WGETB("toolbar-button-public-hubs"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("settingsMenuItemBar")), WGETB("toolbar-button-settings"));
+   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("own_filelistMenuItemBar")), WGETB("toolbar-button-own-filelist"));
+   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("refreshMenuItemBar")), WGETB("toolbar-button-refresh"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hashMenuItemBar")), WGETB("toolbar-button-hash"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("searchMenuItemBar")), WGETB("toolbar-button-search"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("searchSpyMenuItemBar")), WGETB("toolbar-button-search-spy"));
@@ -1490,6 +1500,7 @@ void MainWindow::checkToolbarMenu_gui()
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("finishedDownloadsMenuItemBar")), WGETB("toolbar-button-finished-downloads"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("finishedUploadsMenuItemBar")), WGETB("toolbar-button-finished-uploads"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("quitMenuItemBar")), WGETB("toolbar-button-quit"));
+   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("add")), WGETB("toolbar-button-add"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), ((ToolbarStyle = WGETI("toolbar-style")) == 4) ? TRUE : FALSE);
 }
 

@@ -1251,6 +1251,8 @@ void Settings::initAppearance_gui()
         GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
         addOption_gui(toolbarStore, wsm, iconTheme, _("Separators"), "toolbar-button-separators",
             "");
+        addOption_gui(toolbarStore, wsm, iconTheme, _("+/-"), "toolbar-button-add",
+            ""); //GTK_STOCK_ADD
         addOption_gui(toolbarStore, wsm, iconTheme, _("Reconnect"), "toolbar-button-reconnect",
             "icon-reconnect");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Connect"), "toolbar-button-connect",
@@ -1264,7 +1266,7 @@ void Settings::initAppearance_gui()
         addOption_gui(toolbarStore, wsm, iconTheme, _("Preferences"), "toolbar-button-settings",
             "icon-preferences");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Own file list"), "toolbar-button-own-filelist",
-            "icon-refresh");
+            "icon-own-filelist");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Refresh"), "toolbar-button-refresh",
             "icon-refresh");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Hash"), "toolbar-button-hash",

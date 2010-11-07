@@ -82,7 +82,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("text-op-italic", 0));
     defaultInt.insert(IntMap::value_type("text-url-bold", 0));
     defaultInt.insert(IntMap::value_type("text-url-italic", 0));
-    defaultInt.insert(IntMap::value_type("toolbar-button-separators", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-separators", 0));
     defaultInt.insert(IntMap::value_type("toolbar-button-reconnect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-connect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-fav-hubs", 1));
@@ -99,6 +99,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("toolbar-button-finished-downloads", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-search-adl", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-finished-uploads", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-add", 0));
     defaultInt.insert(IntMap::value_type("notify-download-finished-use", 0));
     defaultInt.insert(IntMap::value_type("notify-download-finished-ul-use", 0));
     defaultInt.insert(IntMap::value_type("notify-private-message-use", 0));
