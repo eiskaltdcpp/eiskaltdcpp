@@ -222,8 +222,6 @@ MainWindow::MainWindow():
 
     gtk_window_move(window, posX, posY);
     gtk_window_resize(window, sizeX, sizeY);
-    if (WGETI("main-window-maximized"))
-        gtk_window_maximize(window);
 
     setMainStatus_gui(_("Welcome to ") + string(g_get_application_name()));
 
@@ -244,6 +242,10 @@ MainWindow::MainWindow():
     Sound::start();
     Emoticons::start();
     Notify::start();
+    
+    if (WGETI("main-window-maximized"))
+        gtk_window_maximize(window);
+    
 #ifdef LUA_SCRIPT
     ScriptManager::getInstance()->load();//aded
     // Start as late as possible, as we might (formatting.lua) need to examine settings
