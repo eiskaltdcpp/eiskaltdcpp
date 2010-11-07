@@ -42,8 +42,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("main-window-pos-x", 100));
     defaultInt.insert(IntMap::value_type("main-window-pos-y", 100));
     defaultInt.insert(IntMap::value_type("main-window-no-close", 0));
-    defaultInt.insert(IntMap::value_type("transfer-pane-position", 482));
-    defaultInt.insert(IntMap::value_type("nick-pane-position", 500));
+    defaultInt.insert(IntMap::value_type("transfer-pane-position", 204));
+    defaultInt.insert(IntMap::value_type("nick-pane-position", 255));
     defaultInt.insert(IntMap::value_type("downloadqueue-pane-position", 200));
     defaultInt.insert(IntMap::value_type("sharebrowser-pane-position", 200));
     defaultInt.insert(IntMap::value_type("tab-position", 0));
@@ -82,7 +82,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("text-op-italic", 0));
     defaultInt.insert(IntMap::value_type("text-url-bold", 0));
     defaultInt.insert(IntMap::value_type("text-url-italic", 0));
-    defaultInt.insert(IntMap::value_type("toolbar-button-separators", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-separators", 0));
     defaultInt.insert(IntMap::value_type("toolbar-button-reconnect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-connect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-fav-hubs", 1));
