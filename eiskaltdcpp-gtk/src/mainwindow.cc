@@ -1508,7 +1508,7 @@ void MainWindow::checkToolbarMenu_gui()
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("finishedDownloadsMenuItemBar")), WGETB("toolbar-button-finished-downloads"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("finishedUploadsMenuItemBar")), WGETB("toolbar-button-finished-uploads"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("quitMenuItemBar")), WGETB("toolbar-button-quit"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("add")), WGETB("toolbar-button-add"));
+   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("addMenuItemBar")), WGETB("toolbar-button-add"));
    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), ((ToolbarStyle = WGETI("toolbar-style")) == 4) ? TRUE : FALSE);
 }
 
