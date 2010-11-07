@@ -99,6 +99,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("toolbar-button-finished-downloads", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-search-adl", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-finished-uploads", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-add", 0));
     defaultInt.insert(IntMap::value_type("notify-download-finished-use", 0));
     defaultInt.insert(IntMap::value_type("notify-download-finished-ul-use", 0));
     defaultInt.insert(IntMap::value_type("notify-private-message-use", 0));
@@ -116,6 +117,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("search-spy-waiting", 40));
     defaultInt.insert(IntMap::value_type("search-spy-top", 4));
     defaultInt.insert(IntMap::value_type("magnet-action", -1));//default show magnet dialog
+    defaultInt.insert(IntMap::value_type("toolbar-position", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-small", 0));
     defaultInt.insert(IntMap::value_type("open-public", 0));
     defaultInt.insert(IntMap::value_type("open-favorite-hubs", 0));
     defaultInt.insert(IntMap::value_type("open-queue", 0));
