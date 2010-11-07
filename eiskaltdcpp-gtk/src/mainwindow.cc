@@ -276,12 +276,11 @@ MainWindow::~MainWindow()
     if (!(gdkState & GDK_WINDOW_STATE_MAXIMIZED))
     {
         maximized = FALSE;
-        // The get pos/size functions return junk when window is maximized
-        WSET("main-window-pos-x", posX);
-        WSET("main-window-pos-y", posY);
-        WSET("main-window-size-x", sizeX);
-        WSET("main-window-size-y", sizeY);
     }
+    WSET("main-window-pos-x", posX);
+    WSET("main-window-pos-y", posY);
+    WSET("main-window-size-x", sizeX);
+    WSET("main-window-size-y", sizeY);
 
     WSET("main-window-maximized", maximized);
     if (transferPanePosition > 10)
