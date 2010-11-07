@@ -1249,10 +1249,10 @@ void Settings::initAppearance_gui()
         g_list_free(list);
 
         GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
-        addOption_gui(toolbarStore, wsm, iconTheme, _("Separators"), "toolbar-button-separators",
-            "");
         addOption_gui(toolbarStore, wsm, iconTheme, _("+/-"), "toolbar-button-add",
             ""); //GTK_STOCK_ADD
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Separators"), "toolbar-button-separators",
+            "");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Reconnect"), "toolbar-button-reconnect",
             "icon-reconnect");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Connect"), "toolbar-button-connect",

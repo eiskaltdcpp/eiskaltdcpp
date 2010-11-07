@@ -81,13 +81,21 @@ MainWindow::MainWindow():
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("ucLineDialog")), window);
 
     // toolbar
+    setToolbarMenu_gui("addMenuItemBar", "add", "toolbar-button-add");
+    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem1", "toolbar-button-separators");
+    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem2", "toolbar-button-separators");
+    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem3", "toolbar-button-separators");
+    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem4", "toolbar-button-separators");
+    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem5", "toolbar-button-separators");
+    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem6", "toolbar-button-separators");
+    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem7", "toolbar-button-separators");
     setToolbarMenu_gui("reconnectMenuItemBar", "reconnect", "toolbar-button-reconnect");
     setToolbarMenu_gui("connectMenuItemBar", "connect", "toolbar-button-connect");
     setToolbarMenu_gui("favHubsMenuItemBar", "favHubs", "toolbar-button-fav-hubs");
     setToolbarMenu_gui("favUsersMenuItemBar", "favUsers", "toolbar-button-fav-users");
     setToolbarMenu_gui("publicHubsMenuItemBar", "publicHubs", "toolbar-button-public-hubs");
     setToolbarMenu_gui("settingsMenuItemBar", "settings", "toolbar-button-settings");
-    setToolbarMenu_gui("own_filelistMenuItemBar", "openOwnList", "toolbar-button-own-filelist");
+    setToolbarMenu_gui("own_filelistMenuItemBar", "own_file_list", "toolbar-button-own-filelist");
     setToolbarMenu_gui("refreshMenuItemBar", "refresh", "toolbar-button-refresh");
     setToolbarMenu_gui("hashMenuItemBar", "hash", "toolbar-button-hash");
     setToolbarMenu_gui("searchMenuItemBar", "search", "toolbar-button-search");
