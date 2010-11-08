@@ -25,7 +25,9 @@
 #include "StringTokenizer.h"
 #include "AdcCommand.h"
 #include "Transfer.h"
+#ifdef LUA_SCRIPT
 #include "ScriptManager.h"
+#endif
 #include "DebugManager.h"
 
 namespace dcpp {
