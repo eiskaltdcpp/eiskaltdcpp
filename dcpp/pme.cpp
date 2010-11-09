@@ -17,8 +17,7 @@
 #include "pme.h"
 #include "Text.h"
 
-using namespace dcpp;
-using namespace std;
+namespace dcpp {
 
 unsigned int PME::DeterminePcreOptions ( const std::string & opts ///< perl style character modifiers -- i.e. "gi" is global, case-insensitive
  )
@@ -104,7 +103,7 @@ PME::PME( )
 	extra = NULL;
 	lastglobalposition = 0;
 	m_isglobal = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 }
 
 PME::PME(const std::string & s ///< string to copmile into regular expression
@@ -117,7 +116,7 @@ PME::PME(const std::string & s ///< string to copmile into regular expression
 	compile(s);
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 
 }
 
@@ -131,7 +130,7 @@ PME::PME(const std::wstring & s ///< string to copmile into regular expression
 	compile(Text::wideToAcp(s));
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 }
 
 PME::PME ( const std::string & s, ///< string to compile into regular expression
@@ -144,7 +143,7 @@ PME::PME ( const std::string & s, ///< string to compile into regular expression
 	compile ( s );
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 
 }
 
@@ -158,10 +157,9 @@ PME::PME ( const std::wstring & s, ///< string to compile into regular expressio
 	compile ( Text::wideToAcp(s) );
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 
 }
-
 
 PME::PME(const char * s, ///< string to compile into regular expression
 			 unsigned opts ///< PCRE-style option flags to be set on PME object
@@ -173,7 +171,7 @@ PME::PME(const char * s, ///< string to compile into regular expression
 	compile(s);
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 
 }
 
@@ -187,7 +185,7 @@ PME::PME(const wchar_t * s, ///< string to compile into regular expression
 	compile( Text::wideToAcp(s) );
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 
 }
 
@@ -201,7 +199,7 @@ PME::PME ( const char * s, ///< string to compile into regular expression
 	compile ( s );
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 
 }
 
@@ -215,7 +213,7 @@ PME::PME ( const wchar_t * s, ///< string to compile into regular expression
 	compile ( Text::wideToAcp(s) );
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 
 }
 
@@ -229,15 +227,19 @@ PME::PME(const PME & r ///< PME object to make copy of
 	re = clone_re(r.re);
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 
 }
 
 
 PME::~PME()
 {
-	if ( re )
+	if ( re ) {
 		pcre_free ( re );
+	}
+	if ( extra ) {
+ 	    pcre_free ( extra );
+ 	}
 }
 
 
@@ -251,10 +253,8 @@ PME::match(const std::string & s, ///< s String to match against
 	msize = 3*(msize+1);
 	int *m = new int[msize];
 
-	vector<markers> marks;
-
 	// if we got a new string, reset the global position counter
-	if ( addressoflaststring != (void *) &s ) {
+    if ( AddressOfLastString != (void *) &s ) {
 //		fprintf ( stderr, "PME RESETTING: new string\n" );
 		lastglobalposition = 0;
 	}
@@ -263,41 +263,47 @@ PME::match(const std::string & s, ///< s String to match against
 		offset += lastglobalposition;
 	}
 
-	//check that the offset isn't at the last position in the string
-	if( offset == s.length() )
-		return 0;
+	m_nMatches = pcre_exec(re, extra, s.c_str(), s.length(), offset, 0, m, msize);
 
-	nMatches = pcre_exec(re, extra, s.c_str(), s.length(), offset, 0, m, msize);
+   // clear out the old marks and make room for the new ones
+    m_marks.clear ( );
 	
-	for ( int i = 0, *p = m ; i < nMatches ; i++, p+=2 ) {
-		marks.push_back(markers(p[0], p[1]));
+    if ( m_nMatches > 0 ) {
+		m_marks.reserve ( m_nMatches );
+    }
+
+    // go through all the matches and fill out our data structures
+    int * p = m;
+    for ( int i = 0; i < m_nMatches ; i++, p+=2 ) {
+		m_marks.push_back(markers(p[0], p[1]));
 	}
 
 	delete[] m;
 
 	// store the last set of results locally, as well as returning them
-	m_marks = marks;
 	laststringmatched = s;
-	addressoflaststring = (void *) &s;
+    AddressOfLastString = (void *) &s;
 
 	if ( m_isglobal ) {
 
-		if ( nMatches == PCRE_ERROR_NOMATCH ) {
+		if ( m_nMatches == PCRE_ERROR_NOMATCH ) {
 //			fprintf ( stderr, "PME RESETTING: reset for no match\n" );
 			lastglobalposition = 0; // reset the position for next match (perl does this)
-		} else if ( nMatches > 0 ) {
+		} else if ( m_nMatches > 0 ) {
 //			fprintf ( stderr, "PME RESETTING: setting to %d\n", marks[0].second );
-			lastglobalposition = marks[0].second; // increment by the end of the match
+			lastglobalposition = m_marks[0].second; // increment by the end of the match
 		} else {
 //			fprintf ( stderr, "PME RESETTING: reset for no unknown\n" );
 			lastglobalposition = 0;
 		}
 	}
 
-
 	int returnvalue = 0;
-	if ( nMatches > 0 )
-		returnvalue = nMatches;
+    if ( m_nMatches > 0 ) {
+	returnvalue = m_nMatches;
+    } else {
+	returnvalue = 0;
+    }
 
 	return returnvalue;
 }
@@ -311,7 +317,7 @@ PME::match(const std::wstring & s, ///< s String to match against
 }
 
 std::string
-PME::substr(const std::string & s, const vector<PME::markers> & marks,
+PME::substr(const std::string & s, const std::vector<PME::markers> & marks,
 			  unsigned index)
 {
 
@@ -326,10 +332,11 @@ PME::substr(const std::string & s, const vector<PME::markers> & marks,
 	return s.substr(begin, end-begin);
 }
 
+
 void PME::reset ( )
 {
 
-	addressoflaststring = NULL;
+    AddressOfLastString = NULL;
 	lastglobalposition = 0;
 	m_marks.clear ( );
 #ifdef HAVE_STL_CLEAR
@@ -353,14 +360,14 @@ int
 PME::split(const std::string & s, unsigned maxfields)
 {
 	/// stores the marks for the split
-	vector<markers> oMarks;
+	std::vector<markers> oMarks;
 
 	// this is a list of current trailing empty matches if maxfields is 
 	//   unspecified or 0.  If there is stuff in it and a non-empty match
 	//   is found, then everything in here is pushed into oMarks and then 
 	//   the new match is pushed on.  If the end of the string is reached
 	//   and there are empty matches in here, they are discarded.
-	vector<markers> oCurrentTrailingEmpties; 
+	std::vector<markers> oCurrentTrailingEmpties; 
 
 	int nOffset = 0;
 	unsigned int nMatchesFound = 0;
@@ -369,9 +376,10 @@ PME::split(const std::string & s, unsigned maxfields)
 	//   (meaning we get all matches), or we haven't gotten to the number
 	//   of specified matches
 	int nMatchStatus;
-	while ( ( nMatchStatus = match ( s, nOffset ) ) &&
+	while ( ( nMatchStatus = match ( s, nOffset ) )  > 0 &&
 			( ( maxfields < 1 ) ||
 			  nMatchesFound < maxfields ) ) {
+
 		nMatchesFound++;
 //		printf ( "nMatchesFound = %d\n", nMatchesFound );
 		// check to see if the match is empty
@@ -434,14 +442,15 @@ PME::split(const std::string & s, unsigned maxfields)
 	// else we have to add another entry for the end of the string
 	else {
 //		printf ( "Something REALLY else..\n" );
-		oMarks.push_back ( markers ( m_marks [ 0 ].second, s.length ( ) ) );
+		oMarks.push_back ( markers ( /*marks [ 0 ].second*/nOffset, s.length ( ) ) );
 	}
 
-	
+    // set the PME object's marks to the split's marks
 	m_marks = oMarks;
+    m_nMatches = m_marks.size ( );
 
 	//fprintf ( stderr, "match returning %d\n", m_marks.size ( ) );
-	nMatches = m_marks.size ( );
+
 	return m_marks.size ( );
 }
 
@@ -528,7 +537,7 @@ StringVector PME::GetStringVector ( )
 	StringVector oStringVector;
 
 	for ( int nCurrentMatch = 0;
-		  nCurrentMatch < nMatches;
+		  nCurrentMatch < m_nMatches;
 		  nCurrentMatch++ ) {
 
 		oStringVector.insert ( oStringVector.end ( ), (*this)[nCurrentMatch] );
@@ -544,7 +553,7 @@ WStringVector PME::GetStringVectorW ( )
 	WStringVector oStringVector;
 
 	for ( int nCurrentMatch = 0;
-		  nCurrentMatch < nMatches;
+		  nCurrentMatch < m_nMatches;
 		  nCurrentMatch++ ) {
 
 			  oStringVector.insert( oStringVector.end ( ), Text::utf8ToWide( (*this)[nCurrentMatch] ) );
@@ -555,7 +564,7 @@ WStringVector PME::GetStringVectorW ( )
 
 int PME::GetStartPos( int _backRef )
 {
-	if( _backRef >= nMatches || _backRef < 0 )
+	if( _backRef >= m_nMatches || _backRef < 0 )
 		return -1;
 
 	return m_marks[_backRef].first;
@@ -563,7 +572,7 @@ int PME::GetStartPos( int _backRef )
 
 int PME::GetLength( int _backRef )
 {
-	if( _backRef >= nMatches || _backRef < 0 )
+	if( _backRef >= m_nMatches || _backRef < 0 )
 		return -1;
 
 	return m_marks[_backRef].second - m_marks[_backRef].first;
@@ -579,7 +588,7 @@ void PME::Init(const std::string & s, unsigned opts )
 	compile ( s );
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 }
 
 void PME::Init(const std::wstring & s, unsigned opts )
@@ -598,10 +607,12 @@ void PME::Init(const std::string & s, const std::string & opts )
 	compile ( s );
 	extra = NULL;
 	lastglobalposition = 0;
-	nMatches = 0;
+	m_nMatches = 0;
 }
 
 void PME::Init(const std::wstring & s, const std::wstring & opts )
 {
 	Init( Text::wideToAcp( s ), Text::wideToAcp(opts) );
 }
+
+} // namespace pme

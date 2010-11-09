@@ -25,7 +25,7 @@
 
 #include "extra/regex/pcre.h"
 
-
+namespace dcpp {
 
 /// PME wraps the PCRE C API into a more perl-like syntax
 /**
@@ -63,7 +63,7 @@ public:
 	/// PME copy constructor
 	PME(const PME & r);
 
-	/// PME = PME assignment operator, lazy asignment operator, it doesn't copy state just the options.
+	/// PME = PME assignment operator
 	const PME & operator = (const PME & r);
 
 	/// destructor
@@ -108,7 +108,7 @@ public:
 	void                    reset();
 
 	/// returns the number of back references returned by the last match/sub call
-	int                     NumBackRefs ( ) { return nMatches; }
+	int                     NumBackRefs ( ) { return m_nMatches; }
 
 	/// returns the start position of the specified back reference 
 	int						GetStartPos( int _backRef );
@@ -135,9 +135,8 @@ public:
 protected:
 
 	/// used internally for operator[]
-	/** \deprecated going away */
 	std::string		       	substr(const std::string & s,
-								const std::vector< markers > & marks, unsigned index);
+								const std::vector<markers> & marks, unsigned index);
 
 
 	pcre * re; ///< pcre structure from pcre_compile
@@ -146,12 +145,12 @@ protected:
 
 	pcre_extra * extra;	///< results from pcre_study
 
-	int nMatches; ///< number of matches returned from last pcre_exec call
+	int m_nMatches; ///< number of matches returned from last pcre_exec call
 
 	std::vector<markers> m_marks; ///< last set of indexes of matches
 
 	std::string laststringmatched; ///< copy of the last string matched
-	void * addressoflaststring; ///< used for checking for change of string in global match
+    void * AddressOfLastString; ///< used for checking for change of string in global match
 
 	int m_isglobal; ///< non-pcre flag for 'g' behaviour
 	int lastglobalposition; ///< end of last match when m_isglobal != 0
@@ -170,5 +169,6 @@ protected:
 
 };
 
+} // namespace pme
 
 #endif // PME_H

@@ -48,7 +48,11 @@ public:
 
     // Constructor
     ADLSearch() : searchString(_("<Enter string>")), isActive(true), isAutoQueue(false), sourceType(OnlyFile),
-        minFileSize(-1), maxFileSize(-1), typeFileSize(SizeBytes), destDir("ADLSearch"), ddIndex(0) {}
+        minFileSize(-1), maxFileSize(-1), typeFileSize(SizeBytes), destDir("ADLSearch"), ddIndex(0)
+        #ifdef PCRE
+        ,bUseRegexp(false)
+        #endif
+        {}
 
     // Prepare search
     void Prepare(StringMap& params) {
