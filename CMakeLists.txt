@@ -91,6 +91,7 @@ option (NATT "Use natt extension" ON)
 option (STDIPFILTER "ipfilter on stl" OFF)
 option (NO_UI_DAEMON "Daemon without anyone ui")
 option (XMLRPC_DAEMON "Mаке no ui daemon as xmlrpc server" OFF)
+option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)

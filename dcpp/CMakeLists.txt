@@ -12,6 +12,9 @@ set (DCPP_HDRS @dcpp_hdrs@ PARENT_SCOPE)
 if (NOT LUA_SCRIPT)
   list (REMOVE_ITEM dcpp_srcs ${CMAKE_CURRENT_SOURCE_DIR}/ScriptManager.cpp)
 endif ()
+if (NOT PERL_REGEX)
+    list (REMOVE_ITEM dcpp_srcs ${CMAKE_CURRENT_SOURCE_DIR}/pme.cpp)
+endif ()
 
 include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${GETTEXT_INCLUDE_DIR} ${LUA_INCLUDE_DIR})
 
@@ -40,6 +43,10 @@ endif(STDIPFILTER)
 if (NOT NATT)
 add_definitions ( -DDISABLE_NAT_TRAVERSAL )
 endif (NOT NATT)
+if (PERL_REGEX)
+add_definitions ( -DPCRE )
+endif (PERL_REGEX)
+
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
 ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP})
 set_target_properties(dcpp PROPERTIES VERSION ${VERSION} OUTPUT_NAME "eiskaltdcpp")

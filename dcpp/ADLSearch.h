@@ -32,7 +32,9 @@
 #include "StringTokenizer.h"
 #include "Singleton.h"
 #include "DirectoryListing.h"
-
+#ifdef PCRE
+#include "pme.h"
+#endif
 namespace dcpp {
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -52,18 +54,26 @@ public:
     void Prepare(StringMap& params) {
         // Prepare quick search of substrings
         stringSearchList.clear();
+        #ifdef PCRE
+        if(searchString.find("$Re:") == 0){
+			regexp.Init(Text::utf8ToAcp(searchString.substr(4)), "i");
+			bUseRegexp = true;
+		} else {
+        #endif
+            // Replace parameters such as %[nick]
+            string stringParams = Util::formatParams(searchString, params, false);
 
-        // Replace parameters such as %[nick]
-        string stringParams = Util::formatParams(searchString, params, false);
-
-        // Split into substrings
-        StringTokenizer<string> st(stringParams, ' ');
-        for(StringList::iterator i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-            if(i->size() > 0) {
-                // Add substring search
-                stringSearchList.push_back(StringSearch(*i));
+            // Split into substrings
+            StringTokenizer<string> st(stringParams, ' ');
+            for(StringList::iterator i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+                if(i->size() > 0) {
+                    // Add substring search
+                    stringSearchList.push_back(StringSearch(*i));
+                }
             }
+        #ifdef PCRE
         }
+        #endif
     }
 
     // The search string
@@ -200,17 +210,32 @@ public:
     }
 
 private:
-
+    #ifdef PCRE
+    //decide if regexps should be used
+    bool bUseRegexp;
+    PME regexp;
+    #endif
     // Substring searches
     StringSearch::List stringSearchList;
     bool SearchAll(const string& s) {
-        // Match all substrings
-        for(StringSearch::List::iterator i = stringSearchList.begin(); i != stringSearchList.end(); ++i) {
-            if(!i->match(s)) {
+        #ifdef PCRE
+        if(bUseRegexp){
+            if(regexp.match( Text::utf8ToAcp(s) ))
+                return true;
+            else
                 return false;
+        } else {
+        #endif
+        // Match all substrings
+            for(StringSearch::List::iterator i = stringSearchList.begin(); i != stringSearchList.end(); ++i) {
+                if(!i->match(s)) {
+                    return false;
+                }
             }
+            return (stringSearchList.size() != 0);
+        #ifdef PCRE
         }
-        return (stringSearchList.size() != 0);
+        #endif
     }
 };
 
