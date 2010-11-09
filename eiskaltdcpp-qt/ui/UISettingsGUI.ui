@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>564</width>
-    <height>502</height>
+    <width>562</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -193,6 +193,13 @@
           <widget class="QComboBox" name="comboBox_EMOT"/>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_ICONTHEME">
+         <property name="text">
+          <string>Try to use system icons (need restart)</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QComboBox" name="comboBox_TABBAR">

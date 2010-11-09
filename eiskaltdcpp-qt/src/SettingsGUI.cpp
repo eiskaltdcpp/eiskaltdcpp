@@ -186,6 +186,12 @@ void SettingsGUI::init(){
         else
             comboBox_TABBAR->setCurrentIndex(0);
 
+#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+        checkBox_ICONTHEME->setChecked(WBGET("app/use-icon-theme", false));
+#else
+        checkBox_ICONTHEME->hide();
+#endif
+
     }
     {//Chat tab
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
@@ -347,6 +353,8 @@ void SettingsGUI::ok(){
             WBSET(WB_MAINWINDOW_USE_SIDEBAR, false);
             WBSET(WB_MAINWINDOW_USE_M_TABBAR, false);
         }
+
+        WBSET("app/use-icon-theme", checkBox_ICONTHEME->isChecked());
     }
     {//Chat tab
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());

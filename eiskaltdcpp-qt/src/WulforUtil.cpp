@@ -270,8 +270,9 @@ QPixmap WulforUtil::FROMTHEME(const QString &name, bool resource){
         return QIcon(":/"+name+".png").pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
     }
     else{
-#if defined(Q_WS_X11) && QT_VERSION >= 0x040600 && defined(USE_ICON_THEME)
-        return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
+#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+        if (WBGET("app/use-icon-theme", false))
+            return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
 #endif
         return loadPixmap(name+".png");
     }
@@ -281,8 +282,9 @@ QPixmap WulforUtil::FROMTHEME_SIDE(const QString &name, bool resource, const int
     if (resource)
         return QIcon(":/"+name+".png").pixmap(side, side);
     else{
-#if defined(Q_WS_X11) && QT_VERSION >= 0x040600 && defined(USE_ICON_THEME)
-        return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
+#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+        if (WBGET("app/use-icon-theme", false))
+            return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
 #endif
         return loadPixmap(name+".png").scaled(side, side);
     }
@@ -299,10 +301,8 @@ bool WulforUtil::loadIcons(){
 #endif//WIN32
     bool resourceFound = false;
 
-#ifndef USE_ICON_THEME
-    if (QFile(fname).exists())
+    if (QFile(fname).exists() && !WBGET("app/use-icon-theme", false))
         resourceFound = QResource::registerResource(fname);
-#endif
 
     app_icons_path = findAppIconsPath();
 
