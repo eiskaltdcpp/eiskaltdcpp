@@ -131,19 +131,18 @@ void Client::connect() {
         sock->addListener(this);
         sock->connect(address, port, secure, BOOLSETTING(ALLOW_UNTRUSTED_HUBS), true);
     } catch(const Exception& e) {
-        if(sock) {
-            BufferedSocket::putSocket(sock);
-            sock = 0;
-        }
+        shutdown();
+        /// @todo at this point, this hub instance is completely useless
         fire(ClientListener::Failed(), this, e.getError());
     }
     updateActivity();
 }
 
 void Client::send(const char* aMessage, size_t aLen) {
-    dcassert(sock);
-    if(!sock)
+    if(!isReady()) {
+        dcassert(0);
         return;
+    }
     updateActivity();
     sock->write(aMessage, aLen);
     COMMAND_DEBUG(aMessage, DebugManager::HUB_OUT, getIpPort());
@@ -170,15 +169,15 @@ void Client::disconnect(bool graceLess) {
 }
 
 bool Client::isSecure() const {
-    return sock && sock->isSecure();
+    return isReady() && sock->isSecure();
 }
 
 bool Client::isTrusted() const {
-    return sock && sock->isTrusted();
+    return isReady() && sock->isTrusted();
 }
 
 std::string Client::getCipherName() const {
-    return sock ? sock->getCipherName() : Util::emptyString;
+    return isReady() ? sock->getCipherName() : Util::emptyString;
 }
 
 void Client::updateCounts(bool aRemove) {
