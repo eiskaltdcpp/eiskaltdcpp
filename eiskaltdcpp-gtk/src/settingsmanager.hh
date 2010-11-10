@@ -32,6 +32,7 @@
 #define WGETI(key) WulforSettingsManager::getInstance()->getInt(key)
 #define WGETS(key) WulforSettingsManager::getInstance()->getString(key)
 #define WGETB(key) WulforSettingsManager::getInstance()->getBool(key)
+#define WSCMD(cmd) WulforSettingsManager::getInstance()->parseCmd(cmd);
 
 /* default font theme */
 #define TEXT_WEIGHT_NORMAL PANGO_WEIGHT_NORMAL
@@ -67,6 +68,7 @@ class WulforSettingsManager : public dcpp::Singleton<WulforSettingsManager>
 		void set(const std::string &key, int value);
 		void set(const std::string &key, bool value);
 		void set(const std::string &key, const std::string &value);
+		const std::string parseCmd(const std::string cmd);
 		void load();
 		void save();
 

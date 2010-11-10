@@ -29,6 +29,7 @@
 #include <dcpp/version.h>
 #include <dcpp/ChatMessage.h>//NOTE: core 0.762
 #include <dcpp/Util.h>
+#include <dcpp/StringTokenizer.h>
 #include "privatemessage.hh"
 #include "search.hh"
 #include "settingsmanager.hh"
@@ -36,8 +37,7 @@
 #include "emoticons.hh"
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
-#include "WulforUtil.hh"
-#include <dcpp/StringTokenizer.h>
+#include "WulforUtil.hh""
 
 #include "Version.h"
 
@@ -1878,6 +1878,11 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/alias A::uname -a\t\t - " +  _("Alias add uname -a as A")+"\n" +
             "/A\t\t\t\t\t - " + _("Alias A executing")+"\n"
             , Msg::SYSTEM);
+        }
+        else if (command == "ws" && !param.empty())
+        {
+            string msg = WSCMD(param);
+            hub->addStatusMessage_gui(msg, Msg::SYSTEM, Sound::NONE);
         }
         else if (command == "join" && !param.empty())
         {

@@ -24,6 +24,7 @@
 #include <dcpp/File.h>
 #include <dcpp/SimpleXML.h>
 #include <dcpp/Util.h>
+#include <dcpp/StringTokenizer.h>
 #include "WulforUtil.hh"
 
 #undef _
@@ -492,4 +493,21 @@ bool WulforSettingsManager::getPreviewApp(string &name, PreviewApp::size &index)
         if((*item)->name == name) return true;
 
     return false;
+}
+const std::string WulforSettingsManager::parseCmd(const std::string cmd)
+{
+    StringTokenizer<string> sl(cmd, ' ');
+        if (sl.getTokens().size() == 2) {
+            if (intMap.find(sl.getTokens().at(0)) != intMap.end()) {
+                int i = atoi(sl.getTokens().at(1).c_str());
+                WSET(sl.getTokens().at(0), i);
+            }
+            else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end())
+                WSET(sl.getTokens().at(0), sl.getTokens().at(1));
+            else
+                return _("Error: setting not found!");
+        string msg = _("Change setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
+        return msg;
+        }
+    return _("Error: params have been not 2!");
 }

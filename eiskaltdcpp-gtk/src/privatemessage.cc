@@ -925,6 +925,11 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 pm->addStatusMessage_gui(_("Emoticons mode on"), Msg::SYSTEM);
             }
         }
+        else if (command == "ws" && !param.empty())
+        {
+            string msg = WSCMD(param);
+            pm->addStatusMessage_gui(msg, Msg::SYSTEM);
+        }
         else if (command == "help")
         {
             pm->addLine_gui(Msg::SYSTEM, string(_("*** Available commands:")) + "\n\n" +
