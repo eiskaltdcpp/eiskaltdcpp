@@ -322,9 +322,10 @@ if (LUA_SCRIPT)
 endif (LUA_SCRIPT)
 
 if (APPLE)
-  set (MACOSICON "${CMAKE_CURRENT_SOURCE_DIR}/../icons/icon_128x128.icns")
+  set (MACOSICON "../icons/icon_128x128.icns")
+  set (MACOSICONINBUNDLE "Resources/icon_128x128.icns")
   # set how it shows up in the Info.plist file
-  SET(MACOSX_BUNDLE_ICON_FILE ${MACOSICON})
+  SET(MACOSX_BUNDLE_ICON_FILE ${MACOSICONINBUNDLE})
   # set where in the bundle to put the icns file
   SET_SOURCE_FILES_PROPERTIES(${MACOSICON} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
   # include the icns file in the target
@@ -393,12 +394,12 @@ if (APPLE)
   set(CPACK_BUNDLE_ICON ${MACOSICON})
   set(CPACK_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
   if (eiskaltdcpp_WC_REVISION MATCHES [0-9]+)
-    set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-${eiskaltdcpp_WC_REVISION}")
+    set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-${eiskaltdcpp_WC_REVISION}-${CMAKE_SYSTEM_PROCESSOR}")
   else ()
-    set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-stable")
+    set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-stable-${CMAKE_SYSTEM_PROCESSOR}")
   endif ()
   set (MACOSX_BUNDLE_INFO_STRING "DC and ADC client")
-  set (MACOSX_BUNDLE_ICON_FILE ${MACOSICON})
+  #set (MACOSX_BUNDLE_ICON_FILE ${MACOSICONINBUNDLE})
 
 # doesn't work this way :(
 #  set (MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
