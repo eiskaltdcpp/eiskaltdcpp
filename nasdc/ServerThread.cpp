@@ -81,7 +81,10 @@ void ServerThread::Run()
 	autoConnect();
 #ifdef XMLRPC_DAEMON
 		xmlrpc_c::methodPtr const sampleAddMethodP(new sampleAddMethod);
+		xmlrpc_c::methodPtr const magnetAddMethodP(new magnetAddMethod);
 		xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
+		xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
+		
 		AbyssServer.run();
 #endif
 	while(!bTerminated) {
@@ -288,5 +291,6 @@ void ServerThread::startSocket(bool onstart, int oldmode){
     ClientManager::getInstance()->infoUpdated();
 }
 void ServerThread::showPortsError(const string& port) {
-    printf("Connectivity Manager: Warning\n\n Unable to open %d port. Searching or file transfers will\n not work correctly until you change settings or turn off\n any application that might be using that port.", port.c_str());
+    fprintf(stdout,"Connectivity Manager: Warning\n\n Unable to open %d port. Searching or file transfers will\n not work correctly until you change settings or turn off\n any application that might be using that port.", port.c_str());
+    fflush(stdout);
 }

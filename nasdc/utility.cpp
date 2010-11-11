@@ -7,7 +7,10 @@
 
 //---------------------------------------------------------------------------
 #include "stdafx.h"
+#include "utility.h"
 #include "dcpp/DCPlusPlus.h"
+#include "dcpp/Util.h"
+#include "dcpp/StringTokenizer.h"
 //---------------------------------------------------------------------------
 
 string PATH = "", sTitle = "";
@@ -54,29 +57,45 @@ void AppendSpecialLog(const string & sData) {
 }
 
 
-//bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth) {
-    //name = _("Unknown");
-    //size = 0;
-    //tth = _("Unknown");
+bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth) {
+    name = "Unknown";
+    size = 0;
+    tth = "Unknown";
+    string tmp;
 
-    //if (magnet.isEmpty() || magnet.find("urn:tree:tiger")!=string::npos)
-        //return FALSE;
-
+    if (!magnet.empty() && magnet.find("urn:tree:tiger")!=string::npos)
+        return false;
+    
+    fprintf(stderr,"split:%s\n",magnet.c_str());
+    fflush(stderr);
+    tmp = magnet.substr(8);	//magnet:?
+    fprintf(stderr,"split:%s\n",tmp.c_str());
+    fflush(stderr);
+    StringTokenizer<string> st(tmp, "&");
+    for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+	string str;
+	str=*i;
+	if (str.compare(0, 3, "xt=") == 0)
+	    tth=str.substr(3+18);
+	else if (str.compare(0, 3, "xl=") == 0)
+	    size = Util::toInt64(str.substr(3));
+	else if (str.compare(0, 3, "dn=") == 0)
+	    name = Util::encodeURI(str.substr(3), true);
+    }
     //string::size_type nextpos = 0;
-
-    //for (string::size_type pos = magnetSignature.length(); pos < magnet.size(); pos = nextpos + 1)
+    //for (string::size_type pos = 0; pos < magnet.size(); pos = nextpos + 1)
     //{
         //nextpos = magnet.find('&', pos);
         //if (nextpos == string::npos)
             //nextpos = magnet.size();
 
-        //if (pos == magnetSignature.length())
+        //if (magnet.compare(pos, 3, "xl=") == 0)
             //tth = magnet.substr(magnetSignature.length(), nextpos - magnetSignature.length());
         //else if (magnet.compare(pos, 3, "xl=") == 0)
             //size = Util::toInt64(magnet.substr(pos + 3, nextpos - pos - 3));
         //else if (magnet.compare(pos, 3, "dn=") == 0)
-            //name = Util::encodeURI(magnet.substr(pos + 3, nextpos - pos - 3), TRUE);
+            //name = Util::encodeURI(magnet.substr(pos + 3, nextpos - pos - 3), true);
     //}
 
-    //return TRUE;
-//}
+    return true;
+}

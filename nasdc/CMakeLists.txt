@@ -17,8 +17,8 @@ add_executable (nasdc MACOSX_BUNDLE WIN32
 if (XMLRPC_DAEMON)
 add_executable (sampleclient sampleclient.cpp)
 target_link_libraries (sampleclient ${XMLRPCLIBS})
-add_executable (sampleserver sampleserver.cpp)
-target_link_libraries (sampleserver ${XMLRPCLIBS})
+#add_executable (sampleserver sampleserver.cpp)
+#target_link_libraries (sampleserver ${XMLRPCLIBS})
 endif()
 target_link_libraries (nasdc dcpp pthread ${XMLRPCLIBS})
 
