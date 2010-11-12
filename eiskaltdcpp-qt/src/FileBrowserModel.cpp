@@ -400,7 +400,7 @@ QModelIndex FileBrowserModel::createIndexForItem(FileBrowserItem *item){
 }
 
 void FileBrowserModel::clear(){
-    beginRemoveRows(QModelIndex(), 0, rowCount()-1);
+    beginRemoveRows(QModelIndex(), 0, (rowCount() >= 1? rowCount() : 1)-1);
     {
         qDeleteAll(rootItem->childItems);
         rootItem->childItems.clear();
