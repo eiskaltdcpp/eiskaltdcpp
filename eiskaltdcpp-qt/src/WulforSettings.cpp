@@ -424,17 +424,7 @@ void WulforSettings::parseCmd(const QString &cmd){
     QString sname   = args.at(0);
     QString svalue  = args.at(1);
 
-    if (intmap.contains(sname)){
-        bool ok = false;
-
-        int val = svalue.toInt(&ok);
-
-        if (ok)
-            intmap[sname] = val;
-    }
-    else if (strmap.contains(sname)){
-        strmap[sname] = svalue;
-    }
+    setStr(sname, svalue);
 }
 
 void WulforSettings::loadTranslation(){
