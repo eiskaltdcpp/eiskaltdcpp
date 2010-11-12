@@ -25,7 +25,6 @@
 #include <sstream>
 #include <iomanip>
 #include <iterator>
-#include <dcpp/FavoriteManager.h>
 #include <dcpp/ShareManager.h>
 #include <dcpp/Text.h>
 #include <dcpp/Upload.h>
@@ -138,6 +137,24 @@ MainWindow::MainWindow():
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("TTHFileDialog")),window);
     ///todo response@
     g_signal_connect(getWidget("TTHFileDialog"), "delete-event", G_CALLBACK(onDeleteEventMagnetDialog_gui), (gpointer)this);
+
+    GtkWidget *menu = gtk_menu_new();
+    gtk_menu_tool_button_set_menu(GTK_MENU_TOOL_BUTTON(getWidget("favHubs")), menu);
+    const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();
+    gtk_container_foreach(GTK_CONTAINER(menu), (GtkCallback)gtk_widget_destroy, NULL);
+
+    for (FavoriteHubEntryList::const_iterator it = fh.begin(); it != fh.end(); ++it)
+    {
+        FavoriteHubEntry *entry = *it;
+        string address = entry->getServer();
+        string encoding = entry->getEncoding();
+        GtkWidget *item = gtk_menu_item_new_with_label(address.c_str());
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+        g_object_set_data_full(G_OBJECT(item), "address", g_strdup(address.c_str()), g_free);
+        g_object_set_data_full(G_OBJECT(item), "encoding", g_strdup(encoding.c_str()), g_free);
+        g_signal_connect(G_OBJECT(item), "activate", G_CALLBACK(onHubClicked_gui), (gpointer)this);
+    }
+    gtk_widget_show_all(menu);
 
     // menu
     g_object_ref_sink(getWidget("statusIconMenu"));
@@ -946,6 +963,49 @@ void MainWindow::actionMagnet_gui(string magnet)
     {
         showMagnetDialog_gui(magnet, name, size, tth);
     }
+}
+
+void MainWindow::updateFavoriteHubMenu_client(const FavoriteHubEntryList &fh)
+{
+    ListParamPair list;
+    for (FavoriteHubEntryList::const_iterator it = fh.begin(); it != fh.end(); ++it)
+    {
+        ParamPair param;
+        FavoriteHubEntry *entry = *it;
+        param.first = entry->getServer();
+        param.second = entry->getEncoding();
+        list.push_back(param);
+    }
+
+    Func1<MainWindow, ListParamPair> *func = new Func1<MainWindow, ListParamPair>(this, &MainWindow::updateFavoriteHubMenu_gui, list);
+    WulforManager::get()->dispatchGuiFunc(func);
+}
+
+void MainWindow::updateFavoriteHubMenu_gui(ListParamPair list)
+{
+    GtkWidget *menu = gtk_menu_tool_button_get_menu(GTK_MENU_TOOL_BUTTON(getWidget("favHubs")));
+    gtk_container_foreach(GTK_CONTAINER(menu), (GtkCallback)gtk_widget_destroy, NULL);
+
+    for (ListParamPair::const_iterator it = list.begin(); it != list.end(); ++it)
+    {
+        const ParamPair &param = *it;
+        string address = param.first;
+        string encoding = param.second;
+        GtkWidget *item = gtk_menu_item_new_with_label(address.c_str());
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+        g_object_set_data_full(G_OBJECT(item), "address", g_strdup(address.c_str()), g_free);
+        g_object_set_data_full(G_OBJECT(item), "encoding", g_strdup(encoding.c_str()), g_free);
+        g_signal_connect(G_OBJECT(item), "activate", G_CALLBACK(onHubClicked_gui), (gpointer)this);
+    }
+    gtk_widget_show_all(menu);
+}
+
+void MainWindow::onHubClicked_gui(GtkWidget *widget, gpointer data)
+{
+    MainWindow *mw = (MainWindow *)data;
+    string address = (gchar*)g_object_get_data(G_OBJECT(widget), "address");
+    string encoding = (gchar*)g_object_get_data(G_OBJECT(widget), "encoding");
+    mw->showHub_gui(address, encoding);
 }
 
 void MainWindow::setToolbarButton_gui()

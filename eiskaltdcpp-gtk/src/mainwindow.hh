@@ -30,6 +30,7 @@
 #include <dcpp/QueueManager.h>
 #include <dcpp/TimerManager.h>
 #include <dcpp/UploadManager.h>
+#include <dcpp/FavoriteManager.h>
 
 #include "entry.hh"
 #include "treeview.hh"
@@ -83,12 +84,15 @@ class MainWindow:
         void showNotification_gui(std::string head, std::string body, Notify::TypeNotify notify);
         GtkWidget* getChooserDialog_gui();
         void fileToDownload_gui(std::string magnet, std::string path);
-        void checkToolbarMenu_gui();
 
         // Client functions
         void openOwnList_client(bool useSetting);
+        void updateFavoriteHubMenu_client(const dcpp::FavoriteHubEntryList &fh);
 
     private:
+        typedef std::pair<std::string, std::string> ParamPair;
+        typedef std::vector<ParamPair> ListParamPair;
+
         // GUI functions
         void loadIcons_gui();
         void showTransfersPane_gui();
@@ -113,6 +117,8 @@ class MainWindow:
             const std::string &tth);
         void showPortsError(const std::string& port);
         void setToolbarMenu_gui(const std::string &item_key, const std::string &button_key, const std::string &key);
+        void updateFavoriteHubMenu_gui(ListParamPair list);
+        void checkToolbarMenu_gui();
 
         // GUI Callbacks
         static gboolean onWindowState_gui(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
@@ -167,6 +173,7 @@ class MainWindow:
         static void onLeftToolbarToggled_gui(GtkWidget *widget, gpointer data);
         static void onHideToolbarToggled_gui(GtkWidget *widget, gpointer data);
         static void onSizeToolbarToggled_gui(GtkWidget *widget, gpointer data);
+        static void onHubClicked_gui(GtkWidget *widget, gpointer data);
         static void onTTHFileDialog_gui(GtkWidget *widget, gpointer data);
         static void onTTHFileButton_gui(GtkWidget *widget, gpointer data);
 

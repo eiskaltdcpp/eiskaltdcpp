@@ -1226,7 +1226,7 @@ Kľúčové skratky:
     <message>
         <location filename="../src/HubFrame.cpp" line="2132"/>
         <source>Users count: %3/%1 | Total share: %2</source>
-        <translation>Users count: %3/%1 | Total share: %2</translation>
+        <translation>Počet pripojených užívateľov: %3/%1 | Celkovo zdieľané: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3141"/>
@@ -1283,7 +1283,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="1688"/>
         <source> joins the chat</source>
-        <translation> pripojiť sa ku chatu</translation>
+        <translation> sa pripojil ku chatu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1776"/>
@@ -1340,7 +1340,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2138"/>
         <source>Users count: %1 | Total share: %2</source>
-        <translation>Users count: %1 | Total share: %2</translation>
+        <translation>Počet pripojených užívateľov: %1 | Celkovo zdieľané: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1137"/>
@@ -1709,7 +1709,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1402"/>
         <source>Free %1 of %2</source>
-        <translation>Voľný %1 z %2</translation>
+        <translation>Voľný priestor na disku %1 z %2</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1830"/>
@@ -2541,17 +2541,17 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="60"/>
         <source>Search for</source>
-        <translation>Pátrať</translation>
+        <translation>Hľadať</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="88"/>
         <source>Any</source>
-        <translation>Hocijaký</translation>
+        <translation>Hocičo</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="93"/>
         <source>Audio</source>
-        <translation>Zvukový</translation>
+        <translation>Zvuk</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="98"/>
@@ -2611,7 +2611,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="193"/>
         <source>Size</source>
-        <translation>veľkosť</translation>
+        <translation>Veľkosť</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="204"/>
@@ -3511,7 +3511,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../src/TransferView.cpp" line="66"/>
         <source>Speed</source>
-        <translation>Rychlosť</translation>
+        <translation>Rýchlosť</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="67"/>
@@ -3688,7 +3688,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="48"/>
         <source>Speed</source>
-        <translation>Rychlosť</translation>
+        <translation>Rýchlosť</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="48"/>
@@ -5251,7 +5251,7 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="667"/>
         <source>Remove slow filelists</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstrániť pomalé zoznamy súborov</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="670"/>
@@ -5279,27 +5279,27 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="797"/>
         <source>Keep downloaded filelists</source>
-        <translation type="unfinished"></translation>
+        <translation>Ponechať si stiahnutý zoznam súborov</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="866"/>
         <source>Interval for auto search alternates (minutes)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaviť interval pre opätovné vyhľadávanie alternatív (minúty)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="739"/>
         <source>Skip zero-byte files</source>
-        <translation type="unfinished"></translation>
+        <translation>Preskočiť súbory, ktoré majú 0 bytov</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="756"/>
         <source>Don&apos;t download files already in share</source>
-        <translation type="unfinished"></translation>
+        <translation>Nesťahovať súbory, ktoré sú zdieľané</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="771"/>
         <source>Don&apos;t download files already in the queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Nesťahovať súbory, ktoré sú práve vo fronte sťahovania</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="786"/>
@@ -5309,12 +5309,12 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="819"/>
         <source>Compressed transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Komprimované prenosy</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="830"/>
         <source>Segmented downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Segmentované sťahovanie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="845"/>

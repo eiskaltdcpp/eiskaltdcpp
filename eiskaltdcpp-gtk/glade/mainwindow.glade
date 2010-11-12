@@ -1903,7 +1903,7 @@ Contributors
               </widget>
             </child>
             <child>
-              <widget class="GtkToolButton" id="favHubs">
+              <widget class="GtkMenuToolButton" id="favHubs">
                 <property name="visible">True</property>
                 <property name="tooltip" translatable="yes">Favorite Hubs</property>
                 <property name="is_important">True</property>

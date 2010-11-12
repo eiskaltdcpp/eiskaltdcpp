@@ -2064,27 +2064,27 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Source (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Source (git)</translation>
     </message>
     <message>
         <source>Changelog (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Log (git)</translation>
     </message>
     <message>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Traduction Slovaque&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.1.0 et plus)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>Show close buttons</source>
-        <translation type="unfinished">Montrer les boutons de fermeture</translation>
+        <translation>Montrer les boutons de fermeture</translation>
     </message>
 </context>
 <context>
@@ -2855,7 +2855,7 @@ Clés:
     </message>
     <message>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation>Slovaque</translation>
     </message>
 </context>
 <context>
@@ -3210,7 +3210,7 @@ Voulez-vous l&apos;arrêter?</translation>
     <name>ToolBar</name>
     <message>
         <source>Show close buttons</source>
-        <translation type="unfinished">Montrer les boutons de fermeture</translation>
+        <translation>Montrer les boutons de fermeture</translation>
     </message>
 </context>
 <context>

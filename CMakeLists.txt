@@ -289,10 +289,6 @@ if (FORCE_XDG)
   add_definitions (-DFORCE_XDG)
 endif (FORCE_XDG)
 
-if (USE_ICON_THEME)
- add_definitions(-DUSE_ICON_THEME )
-endif (USE_ICON_THEME)
-
 #if (CMAKE_COMPILER_IS_GNUСXX AND CMAKE_COMPILER_IS_GNUC)
 if (NOT MSVC)
     if (CMAKE_CROSSCOMPILING)

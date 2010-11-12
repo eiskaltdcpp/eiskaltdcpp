@@ -1,3 +1,9 @@
+--- 2.1.0 2010-12-12 ---
+*** common changes ***
+*** eiskaltdcpp-qt ***
+*** eiskaltdcpp-gtk ***
+* Improvements in the toolbar.
+
 --- 2.1.0 2010-11-07 ---
 *** common changes ***
 * libeiskaltdcpp library was separated from the basic binary file for unix-like systems.
