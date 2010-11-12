@@ -322,7 +322,7 @@ if (LUA_SCRIPT)
 endif (LUA_SCRIPT)
 
 if (APPLE)
-  set (MACOSICON "../icons/icon_128x128.icns")
+  set (MACOSICON "${PROJECT_SOURCE_DIR}/../icons/icon_128x128.icns")
   set (MACOSICONINBUNDLE "icon_128x128.icns")
   # set how it shows up in the Info.plist file
   SET(MACOSX_BUNDLE_ICON_FILE ${MACOSICONINBUNDLE})
