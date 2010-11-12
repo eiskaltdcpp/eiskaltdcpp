@@ -32,8 +32,8 @@
 #include "StringTokenizer.h"
 #include "Singleton.h"
 #include "DirectoryListing.h"
-#ifdef PCRE
-#include "pme.h"
+#ifdef USE_PCRE
+#include "pcrecpp.h"
 #endif
 namespace dcpp {
 
@@ -48,19 +48,17 @@ public:
 
     // Constructor
     ADLSearch() : searchString(_("<Enter string>")), isActive(true), isAutoQueue(false), sourceType(OnlyFile),
-        minFileSize(-1), maxFileSize(-1), typeFileSize(SizeBytes), destDir("ADLSearch"), ddIndex(0)
-        #ifdef PCRE
-        ,bUseRegexp(false)
-        #endif
+        minFileSize(-1), maxFileSize(-1), typeFileSize(SizeBytes), destDir("ADLSearch"), ddIndex(0), bUseRegexp(false)
         {}
 
     // Prepare search
     void Prepare(StringMap& params) {
         // Prepare quick search of substrings
         stringSearchList.clear();
-        #ifdef PCRE
+        #ifdef USE_PCRE
         if(searchString.find("$Re:") == 0){
-			regexp.Init(Text::utf8ToAcp(searchString.substr(4)), "i");
+            regexpstring.clear();
+            regexpstring=searchString.substr(4);
 			bUseRegexp = true;
 		} else {
         #endif
@@ -75,7 +73,7 @@ public:
                     stringSearchList.push_back(StringSearch(*i));
                 }
             }
-        #ifdef PCRE
+        #ifdef USE_PCRE
         }
         #endif
     }
@@ -214,17 +212,19 @@ public:
     }
 
 private:
-    #ifdef PCRE
-    //decide if regexps should be used
+    //decide if regexp should be used
     bool bUseRegexp;
-    PME regexp;
-    #endif
+    string regexpstring;
     // Substring searches
     StringSearch::List stringSearchList;
     bool SearchAll(const string& s) {
-        #ifdef PCRE
+        #ifdef USE_PCRE
         if(bUseRegexp){
-            if(regexp.match( Text::utf8ToAcp(s) ))
+            pcrecpp::RE_Options options;
+            options.set_utf8(true);
+            options.set_caseless(true);
+			pcrecpp::RE regexp(regexpstring, options);
+            if(regexp.FullMatch(s))
                 return true;
             else
                 return false;
@@ -237,7 +237,7 @@ private:
                 }
             }
             return (stringSearchList.size() != 0);
-        #ifdef PCRE
+        #ifdef USE_PCRE
         }
         #endif
     }

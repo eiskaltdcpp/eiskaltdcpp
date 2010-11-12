@@ -252,13 +252,11 @@ Hub::Hub(const string &address, const string &encoding):
 
     // Set the pane position
     gint panePosition = WGETI("nick-pane-position");
-    g_print("init: panePosition: %u\n",panePosition);
     if (panePosition > 10)
     {
         gint width;
         GtkWindow *window = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
         gtk_window_get_size(window, &width, NULL);
-        g_print("init: width: %u\n",width);
         gtk_paned_set_position(GTK_PANED(getWidget("pane")), width - panePosition);
     }
 
@@ -272,10 +270,7 @@ Hub::~Hub()
     gint width;
     GtkWindow *window = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
     gtk_window_get_size(window, &width, NULL);
-    g_print("save: width: %u\n",width);
     gint panePosition = width - gtk_paned_get_position(GTK_PANED(getWidget("pane")));
-    g_print("save: pane: %u\n",gtk_paned_get_position(GTK_PANED(getWidget("pane"))));
-    g_print("save: panePosition: %u\n",panePosition);
     if (panePosition > 10)
         WSET("nick-pane-position", panePosition);
 
