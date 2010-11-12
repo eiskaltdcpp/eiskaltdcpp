@@ -880,7 +880,7 @@ void HubFrame::hideEvent(QHideEvent *e){
 
 void HubFrame::init(){
     updater = new QTimer();
-    updater->setInterval(1000);
+    updater->setInterval(5000);
     updater->setSingleShot(false);
 
     model = new UserListModel(this);
@@ -1047,6 +1047,7 @@ void HubFrame::save(){
     WISET(WI_CHAT_USERLIST_WIDTH, treeView_USERS->width());
     WISET(WI_CHAT_SORT_COLUMN, model->getSortColumn());
     WISET(WI_CHAT_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(model->getSortOrder()));
+    WSSET("hubframe/chat-background-color", textEdit_CHAT->palette().color(QPalette::Active, QPalette::Background).name());
 }
 
 void HubFrame::load(){
@@ -1074,6 +1075,19 @@ void HubFrame::reloadSomeSettings(){
     label_USERSTATE->setVisible(WBGET(WB_USERS_STATISTICS));
 
     label_LAST_STATUS->setVisible(WBGET(WB_LAST_STATUS));
+
+    if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
+        QPalette p = textEdit_CHAT->palette();
+        QColor clr = p.color(QPalette::Active, QPalette::Base);
+
+        clr.setNamedColor(WSGET("hubframe/chat-background-color"));
+
+        if (clr.isValid()){
+            p.setColor(QPalette::Base, clr);
+
+            textEdit_CHAT->setPalette(p);
+        }
+    }
 }
 
 QWidget *HubFrame::getWidget(){
@@ -3067,6 +3081,18 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
 
             foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
                 connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
+        }
+    }
+    else if (key == "hubframe/chat-background-color"){
+        QPalette p = textEdit_CHAT->palette();
+        QColor clr = p.color(QPalette::Active, QPalette::Base);
+
+        clr.setNamedColor(value);
+
+        if (clr.isValid()){
+            p.setColor(QPalette::Base, clr);
+
+            textEdit_CHAT->setPalette(p);
         }
     }
 }
