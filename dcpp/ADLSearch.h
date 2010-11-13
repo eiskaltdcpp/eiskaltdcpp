@@ -32,7 +32,9 @@
 #include "StringTokenizer.h"
 #include "Singleton.h"
 #include "DirectoryListing.h"
-
+#ifdef USE_PCRE
+#include "pcrecpp.h"
+#endif
 namespace dcpp {
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -46,24 +48,34 @@ public:
 
     // Constructor
     ADLSearch() : searchString(_("<Enter string>")), isActive(true), isAutoQueue(false), sourceType(OnlyFile),
-        minFileSize(-1), maxFileSize(-1), typeFileSize(SizeBytes), destDir("ADLSearch"), ddIndex(0) {}
+        minFileSize(-1), maxFileSize(-1), typeFileSize(SizeBytes), destDir("ADLSearch"), ddIndex(0), bUseRegexp(false)
+        {}
 
     // Prepare search
     void Prepare(StringMap& params) {
         // Prepare quick search of substrings
         stringSearchList.clear();
+        #ifdef USE_PCRE
+        if(searchString.find("$Re:") == 0){
+            regexpstring.clear();
+            regexpstring=searchString.substr(4);
+			bUseRegexp = true;
+		} else {
+        #endif
+            // Replace parameters such as %[nick]
+            string stringParams = Util::formatParams(searchString, params, false);
 
-        // Replace parameters such as %[nick]
-        string stringParams = Util::formatParams(searchString, params, false);
-
-        // Split into substrings
-        StringTokenizer<string> st(stringParams, ' ');
-        for(StringList::iterator i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-            if(i->size() > 0) {
-                // Add substring search
-                stringSearchList.push_back(StringSearch(*i));
+            // Split into substrings
+            StringTokenizer<string> st(stringParams, ' ');
+            for(StringList::iterator i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+                if(i->size() > 0) {
+                    // Add substring search
+                    stringSearchList.push_back(StringSearch(*i));
+                }
             }
+        #ifdef USE_PCRE
         }
+        #endif
     }
 
     // The search string
@@ -200,17 +212,34 @@ public:
     }
 
 private:
-
+    //decide if regexp should be used
+    bool bUseRegexp;
+    string regexpstring;
     // Substring searches
     StringSearch::List stringSearchList;
     bool SearchAll(const string& s) {
-        // Match all substrings
-        for(StringSearch::List::iterator i = stringSearchList.begin(); i != stringSearchList.end(); ++i) {
-            if(!i->match(s)) {
+        #ifdef USE_PCRE
+        if(bUseRegexp){
+            pcrecpp::RE_Options options;
+            options.set_utf8(true);
+            options.set_caseless(true);
+			pcrecpp::RE regexp(regexpstring, options);
+            if(regexp.FullMatch(s))
+                return true;
+            else
                 return false;
+        } else {
+        #endif
+        // Match all substrings
+            for(StringSearch::List::iterator i = stringSearchList.begin(); i != stringSearchList.end(); ++i) {
+                if(!i->match(s)) {
+                    return false;
+                }
             }
+            return (stringSearchList.size() != 0);
+        #ifdef USE_PCRE
         }
-        return (stringSearchList.size() != 0);
+        #endif
     }
 };
 
