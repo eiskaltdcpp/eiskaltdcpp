@@ -357,7 +357,9 @@ void TransferViewModel::updateTransfer(const VarMap &params){
             item->updateColumn(i.value(), params[i.key()]);
     }
 
-    item->dpos = vdbl(params["DPOS"]);
+    qlonglong dpos = vdbl(params["DPOS"]);
+    item->delta = (dpos - item->dpos) >= 0? (dpos - item->dpos) : 0;
+    item->dpos = dpos;
     item->percent = vdbl(params["PERC"]);
     item->target = vstr(params["TARGET"]);
     item->fail = vbol(params["FAIL"]);
@@ -368,8 +370,12 @@ void TransferViewModel::updateTransfer(const VarMap &params){
             rootItem->appendChild(item);
     }
 
-    if (item->parent() != rootItem && rootItem->childItems.contains(item->parent()) && params.contains("FPOS"))
-        item->parent()->dpos = vlng(params["FPOS"]);
+    if (item->parent() != rootItem && rootItem->childItems.contains(item->parent()) && params.contains("FPOS")){
+        item->parent()->dpos += item->delta;
+
+        if (vlng(params["FPOS"]) > item->parent()->dpos)
+            item->parent()->dpos = vlng(params["FPOS"]);
+    }
 }
 
 void TransferViewModel::removeTransfer(const VarMap &params){
@@ -639,6 +645,7 @@ TransferViewItem::TransferViewItem(const QList<QVariant> &data, TransferViewItem
     download(false),
     percent(0.0),
     dpos(0L),
+    delta(0L),
     fail(false),
     finished(false)
 {
@@ -654,6 +661,7 @@ TransferViewItem::TransferViewItem(const TransferViewItem &item){
     fail = item.fail;
     tth = item.tth;
     finished = item.finished;
+    delta = item.delta;
 }
 void TransferViewItem::operator=(const TransferViewItem &item){
     itemData = item.itemData;
@@ -665,6 +673,7 @@ void TransferViewItem::operator=(const TransferViewItem &item){
     fail = item.fail;
     tth = item.tth;
     finished = item.finished;
+    delta = item.delta;
 }
 
 TransferViewItem::~TransferViewItem()
