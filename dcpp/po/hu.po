@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-10 20:29+0300\n"
+"POT-Creation-Date: 2010-11-13 15:58+0200\n"
 "PO-Revision-Date: 2010-10-27 12:58+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -66,15 +66,15 @@ msgstr ""
 "A socks kiszolgáló beállítása az UDP port továbbításra nem sikerült "
 "(ellenőrizd a kiszolgáló címét és a portot)"
 
-#: ../DCPlusPlus.cpp:117
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
 msgstr "Hash adatbázis"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "Megosztott fájlok"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "Letöltési Sor"
 
@@ -179,7 +179,7 @@ msgstr "%1%-t kirúgta %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% kirúgva: %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 

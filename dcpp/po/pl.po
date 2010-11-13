@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-10 20:29+0300\n"
+"POT-Creation-Date: 2010-11-13 15:58+0200\n"
 "PO-Revision-Date: 2009-03-03 22:46+0000\n"
 "Last-Translator: LadyStardust <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,15 +63,15 @@ msgstr ""
 "Nie udało się ustawić serwera socks dla przekierowań UDP (sprawdź adres i "
 "port socks)"
 
-#: ../DCPlusPlus.cpp:117
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
 msgstr "Baza danych hashów"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "Udostępnione pliki"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "Kolejka pobierania"
 
@@ -168,7 +168,7 @@ msgstr "%1% został wykopany przez %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% został wykopany: %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nie nasłuchuje połączeń - uruchom ponownie %1%"
 

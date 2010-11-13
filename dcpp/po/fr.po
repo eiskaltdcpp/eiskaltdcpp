@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-10 20:29+0300\n"
+"POT-Creation-Date: 2010-11-13 15:58+0200\n"
 "PO-Revision-Date: 2009-02-22 14:17+0000\n"
 "Last-Translator: poy <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,15 +65,15 @@ msgstr ""
 "Impossible de configurer le serveur socks en tant que relais UDP (vérifier "
 "l'adresse et le port du serveur socks)"
 
-#: ../DCPlusPlus.cpp:117
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
 msgstr "Base de données des clés"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "Fichiers Partagés"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "Liste de Téléchargement"
 
@@ -170,7 +170,7 @@ msgstr "%1% a été expulsé par %2% : %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% a été expulsé : %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "Échec dans l'écoute des connexions - veuillez relancer %1%"
 

@@ -391,7 +391,7 @@
             <child>
               <widget class="GtkMenuItem" id="toolbarItem">
                 <property name="visible">True</property>
-                <property name="label">Toolbar</property>
+                <property name="label" translatable="yes">Toolbar</property>
                 <property name="use_underline">True</property>
                 <child>
                   <widget class="GtkMenu" id="position">

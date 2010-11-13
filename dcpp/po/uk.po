@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-10 20:29+0300\n"
+"POT-Creation-Date: 2010-11-13 15:58+0200\n"
 "PO-Revision-Date: 2008-05-04 16:18+0000\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,15 +62,15 @@ msgstr ""
 "Не вдалось налаштувати сокет-сервер для UDP передачі (перевірте адресу і "
 "порт сокета)"
 
-#: ../DCPlusPlus.cpp:117
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
 msgstr "Хешувати базу даних"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "Файли у доступі"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "В черзі"
 
@@ -175,7 +175,7 @@ msgstr "%1% був відкинутий %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% був відкинутий: %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "З'єднання не прослуховуються - будь ласка, перезапустіть %1%"
 

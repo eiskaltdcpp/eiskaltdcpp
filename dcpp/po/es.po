@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-10 20:29+0300\n"
+"POT-Creation-Date: 2010-11-13 15:58+0200\n"
 "PO-Revision-Date: 2010-10-08 19:26+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -65,15 +65,15 @@ msgstr ""
 "Fallada la conexión con el servidor socks por retraso UDP (chequear "
 "dirección socks y puerto)"
 
-#: ../DCPlusPlus.cpp:117
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
 msgstr "Base de Datos del Hash"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "Archivos compartidos"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "Cola de Descargas"
 
@@ -178,7 +178,7 @@ msgstr "%1% ha sido expulsado de %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% ha sido expulsado: %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "No escuchando conexiones - por favor reinicie %1%"
 
