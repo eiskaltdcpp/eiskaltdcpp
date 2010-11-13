@@ -163,7 +163,7 @@ public:
     void needResort();
 
 private slots:
-    void slotResort(){ sort(sortColumn, sortOrder); _needResort = false; }
+    void slotResort(){ sort(sortColumn, sortOrder); _needResort = false; users.squeeze();}
 
 private:
     UserListItem *rootItem;
