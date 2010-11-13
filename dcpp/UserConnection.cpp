@@ -49,12 +49,12 @@ const string UserConnection::UPLOAD = "Upload";
 const string UserConnection::DOWNLOAD = "Download";
 
 void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw () {
+        COMMAND_DEBUG(aLine, DebugManager::CLIENT_IN, getRemoteIp());
 
         if(aLine.length() < 2) {
                 fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
         return;
         }
-    COMMAND_DEBUG(aLine, DebugManager::CLIENT_IN, getRemoteIp());
 
     if(aLine[0] == 'C' && !isSet(FLAG_NMDC)) {
         if(!Text::validateUtf8(aLine)) {

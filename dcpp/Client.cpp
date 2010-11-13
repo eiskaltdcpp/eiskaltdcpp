@@ -227,7 +227,8 @@ string Client::getLocalIp() const {
 }
 
 void Client::on(Line, const string& aLine) throw() {
-    updateActivity();COMMAND_DEBUG(aLine, DebugManager::HUB_IN, getIpPort())
+    updateActivity();
+    COMMAND_DEBUG(aLine, DebugManager::HUB_IN, getIpPort())
 }
 
 void Client::on(Second, uint32_t aTick) throw() {

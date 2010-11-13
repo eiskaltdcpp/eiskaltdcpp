@@ -29,6 +29,7 @@
 #include "User.h"
 #include "AdcCommand.h"
 #include "MerkleTree.h"
+#include "DebugManager.h"
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
@@ -216,6 +217,7 @@ private:
 
     void send(const string& aString) {
         lastActivity = GET_TICK();
+        COMMAND_DEBUG(aString, DebugManager::CLIENT_OUT, getRemoteIp());
 #ifdef LUA_SCRIPT
         if(onUserConnectionMessageOut(this, aString)) {
             disconnect(true);
