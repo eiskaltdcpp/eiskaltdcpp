@@ -112,7 +112,7 @@ if (USE_MINIUPNP)
 
     add_definitions (-DUSE_MINIUPNP)
 elseif (NOT USE_MINIUPNP)
-    message (STATUS "Building without UPNP support( miniupnpc)")
+    message (STATUS "Building without UPNP support (miniupnpc)")
 endif(USE_MINIUPNP)
 
 if (USE_QT)
@@ -309,9 +309,9 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
    ${GMP_INCLUDE_DIR}
    )
 
-message(STATUS "CMAKE will use this libs(and headers) during build:
+message(STATUS "CMAKE will use this libs (and headers) during build:
 
-                upnp (headers){miniupnpc}:${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
+                miniupnpc (headers):${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
                 lua (headers): ${LUA_LIBRARIES} (${LUA_INCLUDE_DIR})
                 boost (headers): ${Boost_LIBRARIES} (${Boost_INCLUDE_DIR})
                 bzip2 (headers): ${BZIP2_LIBRARIES} (${BZIP2_INCLUDE_DIR})
