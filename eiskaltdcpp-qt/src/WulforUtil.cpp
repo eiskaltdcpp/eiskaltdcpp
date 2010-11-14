@@ -640,7 +640,7 @@ bool WulforUtil::openUrl(const QString &url){
     else if (url.startsWith("dchub://")){
         MainWindow::getInstance()->newHubFrame(url, WSGET(WS_DEFAULT_LOCALE));
     }
-    else if (url.startsWith("magnet:")){
+    else if (url.startsWith("magnet:") && url.contains("urn:tree:tiger")){
         QString magnet = url;
 
         Magnet *m = new Magnet(MainWindow::getInstance());
@@ -651,6 +651,9 @@ bool WulforUtil::openUrl(const QString &url){
             m->exec();
         }
         delete m;
+    }
+    else if (url.startsWith("magnet:")){
+        QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
     }
     else
         return false;
@@ -805,9 +808,6 @@ void WulforUtil::splitMagnet(const QString &magnet, int64_t &size, QString &tth,
     tth = "";
     name = "";
 
-    if (magnet.isEmpty() || !magnet.contains("urn:tree:tiger"))
-        return;
-
     QUrl url;
 
     if (!magnet.contains("+"))
@@ -825,7 +825,7 @@ void WulforUtil::splitMagnet(const QString &magnet, int64_t &size, QString &tth,
     if (url.hasQueryItem("xl"))
         size = url.queryItemValue("xl").toLongLong();
 
-    if (url.hasQueryItem("xt"))
+    if (url.hasQueryItem("xt") && magnet.contains("urn:tree:tiger"))
         tth = magnet.mid(magnet.indexOf("urn:tree:tiger:") + 15, 39);
 }
 
