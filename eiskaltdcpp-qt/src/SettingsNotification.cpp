@@ -107,7 +107,7 @@ void SettingsNotification::playFile(const QString &file){
         if (!WBGET(WB_NOTIFY_SND_EXTERNAL))
             QSound::play(file);
         else {
-            QString cmd = WSGET(WS_NOTIFY_SND_CMD);
+            QString cmd = lineEdit_SNDCMD->text();
 
             if (cmd.isEmpty())
                 return;
