@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "ShareBrowser.h"
 #include "WulforUtil.h"
 #include "FileBrowserModel.h"
@@ -26,7 +35,25 @@
 #include <QtConcurrentFilter>
 #include <QtConcurrentRun>
 
+#include <boost/bind.hpp>
+
 using namespace dcpp;
+
+ShareBrowserRunner::ShareBrowserRunner(QObject *parent): QThread(parent){
+
+}
+
+ShareBrowserRunner::~ShareBrowserRunner(){
+
+}
+
+void ShareBrowserRunner::run(){
+    runFunc();
+}
+
+void ShareBrowserRunner::setRunFunction(const boost::function<void()> &f){
+    runFunc = f;
+}
 
 ShareBrowser::Menu::Menu(){
     menu = new QMenu();
@@ -123,6 +150,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
 }
 
 ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
+        QWidget(MainWindow::getInstance()),
         user(user),
         file(file),
         jump_to(jump_to),
@@ -154,6 +182,8 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
     }
 
     init();
+
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 ShareBrowser::~ShareBrowser(){
@@ -162,10 +192,6 @@ ShareBrowser::~ShareBrowser(){
     delete arena_menu;
 
     delete proxy;
-
-    MainWindow::getInstance()->remWidgetFromArena(this);
-    MainWindow::getInstance()->remArenaWidget(this);
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
 
     Menu::deleteInstance();
 
@@ -177,7 +203,11 @@ ShareBrowser::~ShareBrowser(){
 void ShareBrowser::closeEvent(QCloseEvent *e){
     save();
 
-    e->accept();
+    MainWindow::getInstance()->remWidgetFromArena(this);
+    MainWindow::getInstance()->remArenaWidget(this);
+    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+
+    QWidget::closeEvent(e);
 }
 
 bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
@@ -232,7 +262,6 @@ void ShareBrowser::init(){
     connect(treeView_RPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
     connect(treeView_RPANE->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotRightPaneClicked(QModelIndex)));
-    connect(this, SIGNAL(loadFinished()), this, SLOT(slotLoaderFinish()), Qt::QueuedConnection);
     connect(tree_model, SIGNAL(layoutChanged()), this, SLOT(slotLayoutUpdated()));
 
     setAttribute(Qt::WA_DeleteOnClose);
@@ -292,7 +321,14 @@ void ShareBrowser::buildList(){
         listing.getRoot()->setName(nick.toStdString());
         ADLSearchManager::getInstance()->matchListing(listing);
 
-        QtConcurrent::run(this, &ShareBrowser::createTree, listing.getRoot(), tree_root);
+        ShareBrowserRunner *runner = new ShareBrowserRunner(this);
+        boost::function<void()> f = boost::bind(&ShareBrowser::createTree, this, listing.getRoot(), tree_root);
+
+        runner->setRunFunction(f);
+        connect(runner, SIGNAL(finished()), this, SLOT(slotLoaderFinish()));
+        connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
+
+        runner->start();
 
         treeView_LPANE->blockSignals(true);
         treeView_RPANE->blockSignals(true);
@@ -327,28 +363,25 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
 
     itemsCount += dir->getFileCount();
 
-    std::sort(dir->directories.begin(), dir->directories.end(), DirectoryListing::Directory::DirSort());
+    //std::sort(dir->directories.begin(), dir->directories.end(), DirectoryListing::Directory::DirSort());
 
     for (it = dir->directories.begin(); it != dir->directories.end(); ++it)
         createTree(*it, item);
-
-    if (root == tree_root)
-        emit loadFinished();
 }
 
 void ShareBrowser::initModels(){
     tree_model = new FileBrowserModel();
-    tree_root  = new FileBrowserItem(QList<QVariant>() << tr("Name") << tr("Size")
-                                                       << tr("Exact size")
-                                                       << tr("TTH"),
+    tree_root  = new FileBrowserItem(QList<QVariant>() << tr("") << tr("")
+                                                       << tr("")
+                                                       << tr(""),
                                                        NULL);
 
     tree_model->setRootElem(tree_root, true, true);
 
     list_model = new FileBrowserModel();
-    list_root = new FileBrowserItem(QList<QVariant>() << tr("Name") << tr("Size")
-                                                      << tr("Exact size")
-                                                      << tr("TTH"),
+    list_root = new FileBrowserItem(QList<QVariant>() << tr("") << tr("")
+                                                      << tr("")
+                                                      << tr(""),
                                                       NULL);
 
     list_model->setRootElem(list_root, true, true);
@@ -447,6 +480,7 @@ void ShareBrowser::slotRightPaneClicked(const QModelIndex &index){
     label_PATH->setText(label_PATH->text()+"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString());
 
     FileBrowserItem *tree_item = tree_model->createRootForPath(label_PATH->text());
+
     QModelIndex tree_index = tree_model->createIndexForItem(tree_item);
 
     treeView_LPANE->selectionModel()->select(tree_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);

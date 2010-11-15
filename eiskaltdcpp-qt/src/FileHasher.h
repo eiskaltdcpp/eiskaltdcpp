@@ -6,6 +6,7 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+
 #ifndef FILEHASHER_H
 #define FILEHASHER_H
 

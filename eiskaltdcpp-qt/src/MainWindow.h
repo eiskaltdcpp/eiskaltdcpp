@@ -65,8 +65,8 @@ class MainWindow;
 class MultiLineToolBar;
 
 extern const char * const EISKALTDCPP_VERSION;
-extern const char * const EISKALTDCPP_VERSION_SFX;
 extern const char * const EISKALTDCPP_WND_TITLE;
+extern const char * const EISKALTDCPP_VERSION_SFX;
 
 class QProgressBar;
 
@@ -94,11 +94,7 @@ public:
     }
 
     void printVersion() const {
-#ifndef DCPP_REVISION
         printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
-#else
-        printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
-#endif
     }
 };
 
@@ -234,6 +230,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotSidebarContextMenu();
         void slotSidebarHook(const QModelIndex&);
         void slotSideBarDblClicked(const QModelIndex&);
+        void slotSideBarDockMenu();
         void slotSelectSidebarIndex(const QModelIndex&);
         void slotExit();
         void slotToolbarCustomization();
@@ -440,9 +437,8 @@ protected:
             has_activity = true;
             counter = 0;
 
-            if (WBGET(WB_APP_AUTOAWAY_BY_TIMER)){
+            if (WBGET(WB_APP_AUTOAWAY_BY_TIMER) && !dcpp::Util::getManualAway()){
                 dcpp::Util::setAway(false);
-                dcpp::Util::setManualAway(false);
             }
         }
         else {
@@ -467,7 +463,6 @@ private Q_SLOTS:
 
             if (mins <= mins_done){
                 dcpp::Util::setAway(true);
-                dcpp::Util::setManualAway(true);
             }
         }
     }

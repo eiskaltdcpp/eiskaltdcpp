@@ -203,7 +203,7 @@ QModelIndex FileBrowserModel::parent(const QModelIndex &index) const
     FileBrowserItem *childItem = static_cast<FileBrowserItem*>(index.internalPointer());
     FileBrowserItem *parentItem = childItem->parent();
 
-    if (parentItem == rootItem)
+    if (parentItem == rootItem || !parentItem)
         return QModelIndex();
 
     return createIndex(parentItem->row(), 0, parentItem);
@@ -334,7 +334,7 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
         return NULL;
 
     foreach (QString s, list){
-        if (s.isEmpty() || s.isNull())
+        if (s.isEmpty())
             continue;
 
         if (!root)
@@ -354,9 +354,9 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
             if (!item->dir)
                 continue;
 
-            QString name = item->data(COLUMN_FILEBROWSER_NAME).toString();
+            QString name = (item == rootItem?"":item->data(COLUMN_FILEBROWSER_NAME).toString());
 
-            if (name == s){
+            if (!name.compare(s, Qt::CaseInsensitive)){
                 root = item;
                 found = true;
 
@@ -400,7 +400,7 @@ QModelIndex FileBrowserModel::createIndexForItem(FileBrowserItem *item){
 }
 
 void FileBrowserModel::clear(){
-    beginRemoveRows(QModelIndex(), 0, rowCount()-1);
+    beginRemoveRows(QModelIndex(), 0, (rowCount() >= 1? rowCount() : 1)-1);
     {
         qDeleteAll(rootItem->childItems);
         rootItem->childItems.clear();

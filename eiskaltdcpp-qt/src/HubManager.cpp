@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "HubManager.h"
 #include "HubFrame.h"
 #include "MainWindow.h"
@@ -61,12 +70,14 @@ void HubManager::registerHubUrl(const QString &url, HubFrame *hub){
     connect(hub, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)), this, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)));
     connect(hub, SIGNAL(coreUserUpdated(VarMap,dcpp::UserPtr,bool)), this, SLOT(slotHubUpdated()));
     connect(hub, SIGNAL(coreUserRemoved(dcpp::UserPtr,qlonglong)), this, SLOT(slotHubUpdated()));
+    connect(hub, SIGNAL(coreConnected(QString)), this, SLOT(slotHubUpdated()));
+    connect(hub, SIGNAL(coreFailed()), this, SLOT(slotHubUpdated()));
 }
 
 void HubManager::unregisterHubUrl(const QString &url){
     HubHash::iterator it = hubs.find(url);
 
-    if (it != hubs.constEnd()){
+    if (it != hubs.end()){
         hubs.erase(it);
 
         QTreeWidgetItem *item = items[(*it)];

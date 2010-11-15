@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "ShortcutManager.h"
 #include "WulforUtil.h"
 
@@ -38,7 +47,7 @@ void ShortcutManager::load(){
 
         ops = str.split(" ");
 
-        if (ops.length() != 2)
+        if (ops.count() != 2)
             continue;
 
         shortcuts.insert(ops.at(0), QKeySequence::fromString(ops.at(1)));

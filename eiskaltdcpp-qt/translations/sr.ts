@@ -1754,23 +1754,11 @@ Molim proverite podešavanja vaše veze</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Source (svn)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Report a Bug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wiki of project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Changelog (svn)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1814,10 +1802,6 @@ Molim proverite podešavanja vaše veze</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Call delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+PgDown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1843,7 +1827,7 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Obriši</translation>
+        <translation type="obsolete">Obriši</translation>
     </message>
     <message>
         <source>Button style</source>
@@ -1871,6 +1855,30 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>%1 / %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changelog (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show close buttons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2578,6 +2586,10 @@ Keys:
         <source>Bulgarian</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Slovak</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
@@ -2723,19 +2735,19 @@ Keys:
     </message>
     <message>
         <source>Name</source>
-        <translation>Ime</translation>
+        <translation type="obsolete">Ime</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Veličina</translation>
+        <translation type="obsolete">Veličina</translation>
     </message>
     <message>
         <source>Exact size</source>
-        <translation>Tačna veličina</translation>
+        <translation type="obsolete">Tačna veličina</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Total size: %1</source>
@@ -2849,10 +2861,6 @@ Keys:
         <source>Other Widgets</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -2898,6 +2906,13 @@ Da li želite da zaustavite?</translation>
     <message>
         <source>Close</source>
         <translation type="unfinished">Zatvori</translation>
+    </message>
+</context>
+<context>
+    <name>ToolBar</name>
+    <message>
+        <source>Show close buttons</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4677,7 +4692,7 @@ od drugih reči sa razmakom.</translation>
     </message>
     <message>
         <source>Do not change focus on new private message</source>
-        <translation>Ne menjaj fokus na novu privatnu poruku</translation>
+        <translation type="obsolete">Ne menjaj fokus na novu privatnu poruku</translation>
     </message>
     <message>
         <source>Show ip-addresses of users in chat</source>
@@ -4804,6 +4819,10 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Autohide emoticons panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do not change focus on new incoming private messages</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

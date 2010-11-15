@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "SettingsConnection.h"
 #include "MainWindow.h"
 #include "WulforSettings.h"
@@ -41,11 +50,6 @@ void SettingsConnection::ok(){
     int old_mode = SETTING(INCOMING_CONNECTIONS);
     SM->set(SettingsManager::AUTO_DETECT_CONNECTION, checkBox_AUTO_DETECT_CONNECTION->isChecked());
     if (active){
-        QString ip = lineEdit_WANIP->text();
-
-        if (!validateIp(ip))
-            ip = "";
-
         if (radioButton_ACTIVE->isChecked())
             SM->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
         else if (radioButton_PORT->isChecked())
@@ -58,10 +62,7 @@ void SettingsConnection::ok(){
         SM->set(SettingsManager::UDP_PORT, spinBox_UDP->value());
         SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
 
-        ip.replace(" ", "");
-        ip = ip.trimmed();
-
-        SM->set(SettingsManager::EXTERNAL_IP, ip.toStdString());
+        SM->set(SettingsManager::EXTERNAL_IP, lineEdit_WANIP->text().toStdString());
         SM->set(SettingsManager::NO_IP_OVERRIDE, checkBox_DONTOVERRIDE->checkState() == Qt::Checked);
     }
     else {

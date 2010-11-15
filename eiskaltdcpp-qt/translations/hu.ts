@@ -126,18 +126,25 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation type="unfinished"></translation>
+        <translation>Használat:
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;Kapcsoló&gt;
+Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
+
+Kapcsolók:
+  -h, --help	 Help megjelenítése
+  -v, --version	 Verzióinformáció mutatása</translation>
     </message>
 </context>
 <context>
     <name>ActionCustomizer</name>
     <message>
         <source>Customize actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Eszköztár tesztreszabása</translation>
     </message>
     <message>
         <source>-- Separator --</source>
-        <translation type="unfinished"></translation>
+        <translation>-- Elválasztó --</translation>
     </message>
 </context>
 <context>
@@ -336,7 +343,7 @@ Keys:
     </message>
     <message>
         <source>Checksum mismatch</source>
-        <translation type="unfinished"></translation>
+        <translation>Az ellenőrző-összeg eltérő</translation>
     </message>
 </context>
 <context>
@@ -428,7 +435,7 @@ Keys:
     <name>EmoticonDialog</name>
     <message>
         <source>Select emoticon</source>
-        <translation type="unfinished"></translation>
+        <translation>Hangulatjel kiválasztása</translation>
     </message>
 </context>
 <context>
@@ -562,11 +569,11 @@ Keys:
     <name>FileHasher</name>
     <message>
         <source>Select file</source>
-        <translation type="unfinished">Fájl kiválasztása</translation>
+        <translation>Fájl kiválasztása</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished">Minden fájl (*.*)</translation>
+        <translation>Minden fájl (*.*)</translation>
     </message>
 </context>
 <context>
@@ -639,7 +646,7 @@ Keys:
     </message>
     <message>
         <source>Check sum</source>
-        <translation type="unfinished"></translation>
+        <translation>Ellenőrző-összeg</translation>
     </message>
 </context>
 <context>
@@ -1252,7 +1259,7 @@ Kedvenc felhasználó</translation>
     <name>HubManager</name>
     <message>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub kezelő</translation>
     </message>
 </context>
 <context>
@@ -1843,7 +1850,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;</source>
-        <translation>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.1 és újabb)&lt;br/&gt;</translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Attila Mándy  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.1 és újabb)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</source>
@@ -1967,7 +1974,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Source (svn)</source>
-        <translation>Forráskód (svn)</translation>
+        <translation type="obsolete">Forráskód (svn)</translation>
     </message>
     <message>
         <source>Report a Bug</source>
@@ -1979,111 +1986,131 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Changelog (svn)</source>
-        <translation>Változások (svn)</translation>
+        <translation type="obsolete">Változások (svn)</translation>
     </message>
     <message>
         <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
+        <translation type="obsolete">http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
     <message>
         <source>Connectivity Manager: Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapcsolat kezelő: Figyelmeztetés</translation>
     </message>
     <message>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"></translation>
+        <translation>A %1 port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a kívánt portot használó alkalmazást be nem zárod.</translation>
     </message>
     <message>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub kezelő</translation>
     </message>
     <message>
         <source>Download Queue</source>
-        <translation type="unfinished">Letöltési sor</translation>
+        <translation>Letöltési sor</translation>
     </message>
     <message>
         <source>All downloads complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Minden letöltés kész</translation>
     </message>
     <message>
         <source>Calculate file TTH</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl TTH kiszámítása</translation>
     </message>
     <message>
         <source>Next message</source>
-        <translation type="unfinished"></translation>
+        <translation>Következő üzenet</translation>
     </message>
     <message>
         <source>Previous message</source>
-        <translation type="unfinished"></translation>
+        <translation>Előző üzenet</translation>
     </message>
     <message>
         <source>Close current widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelenlegi ablak bezárása</translation>
     </message>
     <message>
         <source>Toggle main menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Call delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Főmenü váltása</translation>
     </message>
     <message>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <source>Ctrl+Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Down</translation>
     </message>
     <message>
         <source>Ctrl+Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Up</translation>
     </message>
     <message>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Törlés</translation>
+        <translation type="obsolete">Törlés</translation>
     </message>
     <message>
         <source>Button style</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikon stílus</translation>
     </message>
     <message>
         <source>Next widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Következő ablak</translation>
     </message>
     <message>
         <source>Previous widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Előző ablak</translation>
     </message>
     <message>
         <source>Download/Upload speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltési/Feltöltési sebesség</translation>
     </message>
     <message>
         <source>Downloaded/Uploaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltve/Feltöltve</translation>
     </message>
     <message>
         <source>%1/s / %2/s</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/s / %2/s</translation>
     </message>
     <message>
         <source>%1 / %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2</translation>
+    </message>
+    <message>
+        <source>Source (git)</source>
+        <translation>Forrás (git)</translation>
+    </message>
+    <message>
+        <source>Changelog (git)</source>
+        <translation>Változások (git)</translation>
+    </message>
+    <message>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Szlovák fordítás&lt;/u&gt;&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.1.0 és újabb)&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>Show close buttons</source>
+        <translation>Bezárási gombok mutatása</translation>
     </message>
 </context>
 <context>
@@ -2123,15 +2150,15 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation>Továbbiak</translation>
     </message>
     <message>
         <source>Supress sound notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Hangüzenetek elhagyása</translation>
     </message>
     <message>
         <source>Supress text notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveges üzenetek elhagyása</translation>
     </message>
 </context>
 <context>
@@ -2162,7 +2189,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Disable emoticons</source>
-        <translation type="unfinished"></translation>
+        <translation>Hangulatjelek tiltása</translation>
     </message>
 </context>
 <context>
@@ -2311,11 +2338,11 @@ Kapcsolók:
     </message>
     <message>
         <source>Cannot handle SIGPIPE</source>
-        <translation type="unfinished"></translation>
+        <translation>SIGPIPE nem kezelhető</translation>
     </message>
     <message>
         <source>Signal handlers installed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelfeldolgozó telepítve.</translation>
     </message>
 </context>
 <context>
@@ -2552,11 +2579,11 @@ Kapcsolók:
     </message>
     <message>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltés ide ...</translation>
     </message>
     <message>
         <source>Download Whole Directory to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Egész könyvtár letöltése ide ...</translation>
     </message>
 </context>
 <context>
@@ -2654,7 +2681,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Billentyű-parancsok</translation>
     </message>
 </context>
 <context>
@@ -2801,12 +2828,16 @@ Kapcsolók:
         <source>Bulgarian</source>
         <translation>Bolgár</translation>
     </message>
+    <message>
+        <source>Slovak</source>
+        <translation>Szlovák</translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
     <message>
         <source>Choose the directory</source>
-        <translation type="unfinished">Könyvtár kiválasztása</translation>
+        <translation>Könyvtár kiválasztása</translation>
     </message>
 </context>
 <context>
@@ -2942,19 +2973,19 @@ Kapcsolók:
     </message>
     <message>
         <source>Name</source>
-        <translation>Név</translation>
+        <translation type="obsolete">Név</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Méret</translation>
+        <translation type="obsolete">Méret</translation>
     </message>
     <message>
         <source>Exact size</source>
-        <translation>Pontos méret</translation>
+        <translation type="obsolete">Pontos méret</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Total size: %1</source>
@@ -2974,7 +3005,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Download to...</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltés ide ...</translation>
     </message>
 </context>
 <context>
@@ -2988,30 +3019,30 @@ Kapcsolók:
     <name>ShellCommandRunner</name>
     <message>
         <source>Command produced no visible output.</source>
-        <translation type="unfinished"></translation>
+        <translation>A parancsnak nincs látható kimenete.</translation>
     </message>
     <message>
         <source>Process exited with status</source>
-        <translation type="unfinished"></translation>
+        <translation>A folyamat kilépett a következő státuszüzenettel </translation>
     </message>
     <message>
         <source>Process was killed or crashed.</source>
-        <translation type="unfinished"></translation>
+        <translation>A folyamat kilőve, vagy összeomlott.</translation>
     </message>
     <message>
         <source>Process still running after 2 minutes, killing process...</source>
-        <translation type="unfinished"></translation>
+        <translation>A folyamat 2 perc után sem állt le, folyamat kilövése...</translation>
     </message>
 </context>
 <context>
     <name>ShortcutsModel</name>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Akció</translation>
     </message>
     <message>
         <source>Hotkey</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyorsgomb</translation>
     </message>
 </context>
 <context>
@@ -3074,7 +3105,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Hub Manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Hub kezelő</translation>
     </message>
 </context>
 <context>
@@ -3121,7 +3152,14 @@ Biztosan le akarod állítani?
     <name>TabFrame</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Bezárás</translation>
+        <translation>Bezárás</translation>
+    </message>
+</context>
+<context>
+    <name>ToolBar</name>
+    <message>
+        <source>Show close buttons</source>
+        <translation>Bezárási gombok mutatása</translation>
     </message>
 </context>
 <context>
@@ -3260,43 +3298,43 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Másolás</translation>
+        <translation>Másolás</translation>
     </message>
     <message>
         <source>Users</source>
-        <translation type="unfinished">Felhasználók</translation>
+        <translation>Felhasználók</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">Sebesség</translation>
+        <translation>Sebesség</translation>
     </message>
     <message>
         <source>Statistic</source>
-        <translation type="unfinished"></translation>
+        <translation>Statisztika</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">Méret</translation>
+        <translation>Méret</translation>
     </message>
     <message>
         <source>Time left</source>
-        <translation type="unfinished">Hátralévő idő</translation>
+        <translation>Hátralévő idő</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Fájlnév</translation>
+        <translation>Fájlnév</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished">Host</translation>
+        <translation>Host</translation>
     </message>
     <message>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet</translation>
     </message>
 </context>
 <context>
@@ -3468,7 +3506,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Search string</source>
-        <translation type="unfinished">Keresendő kifejezés</translation>
+        <translation>Keresendő kifejezés</translation>
     </message>
 </context>
 <context>
@@ -3546,23 +3584,23 @@ p, li { white-space: pre-wrap; }
     <name>UIActionCustomizer</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>&gt;&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;&gt;</translation>
     </message>
     <message>
         <source>&lt;&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;&lt;</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished">Fel</translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished">Le</translation>
+        <translation>Le</translation>
     </message>
 </context>
 <context>
@@ -3699,7 +3737,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Client ID</source>
-        <translation>Cliens azonosító</translation>
+        <translation>Kliens azonosító</translation>
     </message>
     <message>
         <source>External IP</source>
@@ -3828,23 +3866,23 @@ p, li { white-space: pre-wrap; }
     <name>UIFileHasher</name>
     <message>
         <source>TTH Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>TTH Kalkulátor</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Compute</source>
-        <translation type="unfinished"></translation>
+        <translation>Számítás</translation>
     </message>
     <message>
         <source>Get magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnetlink másolása</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Bezárás</translation>
+        <translation>Bezárás</translation>
     </message>
 </context>
 <context>
@@ -3956,23 +3994,23 @@ p, li { white-space: pre-wrap; }
     <name>UIHubManager</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <source>URL</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Users</source>
-        <translation type="unfinished">Felhasználók</translation>
+        <translation>Felhasználók</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation type="unfinished">Megosztás</translation>
+        <translation>Megosztás</translation>
     </message>
 </context>
 <context>
@@ -4129,7 +4167,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Szerkesztés</translation>
+        <translation>Szerkesztés</translation>
     </message>
 </context>
 <context>
@@ -4377,7 +4415,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>When enabled can hang program on exit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha be van jelölve, a program beragadhat kilépéskor.</translation>
     </message>
     <message>
         <source>Automatically update external IP (restart required)</source>
@@ -4401,7 +4439,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Enable Throttle</source>
-        <translation type="unfinished"></translation>
+        <translation>Limitálás engedélyezése</translation>
     </message>
     <message>
         <source>Slots</source>
@@ -4409,7 +4447,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Auto detect connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapcsolat-típus automatikus detektálása</translation>
     </message>
 </context>
 <context>
@@ -4448,7 +4486,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
-        <translation>Megjegyzés: A letöltési sebesség folytonos változása miatt, ez nem 100% pontosságú</translation>
+        <translation>Megjegyzés: A letöltési sebesség folytonos változása miatt ez nem 100% pontosságú</translation>
     </message>
     <message>
         <source>Public Hub lists</source>
@@ -4794,7 +4832,11 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a maximális idő ami eltelhet két adatcsomag érkezése között.
+A beállítás a sebességmérés pontosságát hivatott javítani, annak érdekében,
+hogy az egyes források szétkapcsolása ne történjen meg,
+ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünetek keletkeznek.
+(alapértelmezés: 10s)</translation>
     </message>
 </context>
 <context>
@@ -4869,11 +4911,10 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
     </message>
     <message>
         <source>Do not change focus on new private message</source>
-        <translation>Ne kerüljön fókusz az újonnan érkezett privát üzenetekre</translation>
+        <translation type="obsolete">Ne kerüljön fókusz az újonnan érkezett privát üzenetekre</translation>
     </message>
     <message>
         <source>Maximum paragraphs</source>
-        <translatorcomment>Ennyi hozzászólásig görgethető vissza a chat.</translatorcomment>
         <translation>Maximum sorok a chaten</translation>
     </message>
     <message>
@@ -5070,20 +5111,27 @@ ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikor be van jelölve, a hangulatjelek láthatóak akár a szavak közepén is.
+Ha nincs bejelölve, a hangulatjelek csak akkor láthatóak,
+ha azok egy szóközzel el vannak választva a szavaktól.</translation>
     </message>
     <message>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"></translation>
+        <translation>Az adott hub konfigurációjától függhet: erről használható információt
+a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
         <source>Use emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Hangulatjel panel használata</translation>
     </message>
     <message>
         <source>Autohide emoticons panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Hangulatjel panel automatikus elrejtése</translation>
+    </message>
+    <message>
+        <source>Do not change focus on new incoming private messages</source>
+        <translation>Ne változzon a fókusz új bejövö privát üzenetnél</translation>
     </message>
 </context>
 <context>
@@ -5438,11 +5486,11 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>No reserve</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs lefoglalás</translation>
     </message>
     <message>
         <source>FastHash options (restart needed)</source>
-        <translation>Gyors Indexelés beállításai</translation>
+        <translation>Gyors Indexelés beállításai (újraindítás szükséges)</translation>
     </message>
     <message>
         <source>2</source>
@@ -5454,7 +5502,7 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Private page mapping</source>
-        <translation type="unfinished"></translation>
+        <translation>Privát lapozás</translation>
     </message>
     <message>
         <source>Proactive read from disk</source>
@@ -5528,7 +5576,9 @@ Az opció megváltoztatása a fájl-lista frissítését eredményezi, ezért ek
     <message>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha ez nincs bejelölve, akkor a klienst hagyni kell,
+hogy a megosztás indexelését teljesen elvégezze,
+addig, amíg a folyamatjelző nullát nem mutat.</translation>
     </message>
     <message>
         <source>If the average upload speed drops below the given number,
@@ -5570,26 +5620,26 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Automatikusan új extra slot nyitása, ha a sebesség ez alá kerül (KiB/sec, 0 = letiltva)</translation>
+        <translation>Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = letiltva)</translation>
     </message>
     <message>
         <source>Auto refresh time (minutes, 0 = off)</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatikus újraellenőrzés ideje (percben, 0 = letiltva)</translation>
     </message>
     <message>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximális indexelési sebesség (MB/s, 0 = letiltva)</translation>
     </message>
     <message>
         <source>If checked, a pause hashing may not work.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha be van jelölve, az indexelés szüneteltetése nem biztos, hogy működni fog.</translation>
     </message>
 </context>
 <context>
     <name>UISettingsShortcuts</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
 </context>
 <context>
@@ -5790,7 +5840,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mail</translation>
     </message>
 </context>
 <context>

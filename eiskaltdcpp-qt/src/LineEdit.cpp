@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "LineEdit.h"
 #include "WulforUtil.h"
 
@@ -60,7 +69,7 @@ bool LineEdit::eventFilter(QObject *obj, QEvent *e){
             if (!menu)
                 clear();
             else{
-                QAction *act = menu->exec(QCursor::pos());
+                QAction *act = menu->exec(mapToGlobal(label->pos()+QPoint(0, label->size().height())));
 
                 if (act && role == InsertText)
                     setText(act->text());

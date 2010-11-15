@@ -76,21 +76,21 @@
       <property name="frameShadow">
        <enum>QFrame::Plain</enum>
       </property>
-      <layout class="QGridLayout" name="gridLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <property name="margin">
         <number>0</number>
        </property>
-       <item row="4" column="0" colspan="2">
-        <widget class="QLabel" name="label_RIGHT">
-         <property name="layoutDirection">
-          <enum>Qt::RightToLeft</enum>
-         </property>
+       <item>
+        <widget class="QLabel" name="label_PATH">
          <property name="text">
           <string/>
          </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
-       <item row="1" column="0" colspan="2">
+       <item>
         <widget class="QTreeView" name="treeView_RPANE">
          <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
@@ -112,14 +112,7 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_PATH">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0" colspan="2">
+       <item>
         <widget class="QFrame" name="frame_FILTER">
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -145,6 +138,16 @@
            </widget>
           </item>
          </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_RIGHT">
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
         </widget>
        </item>
       </layout>

@@ -19,6 +19,8 @@
 #include <QCloseEvent>
 #include <QSortFilterProxyModel>
 
+#include <boost/function.hpp>
+
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
 #include "ui_UIShareBrowser.h"
@@ -37,6 +39,20 @@ class FileBrowserItem;
 class ShareBrowser;
 
 class QModelIndex;
+
+class ShareBrowserRunner: public QThread{
+Q_OBJECT
+public:
+    ShareBrowserRunner(QObject * = NULL);
+    virtual ~ShareBrowserRunner();
+
+    virtual void run();
+
+    void setRunFunction(const boost::function<void()> &f);
+
+private:
+    boost::function<void()> runFunc;
+};
 
 class ShareBrowser : public  QWidget,
                      public  ArenaWidget,
@@ -86,9 +102,6 @@ public:
     ArenaWidget::Role role() const { return ArenaWidget::ShareBrowser; }
 
     bool isFindFrameActivated();
-
-Q_SIGNALS:
-    void loadFinished();
 
 public Q_SLOTS:
     void slotFilter();

@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "SettingsGUI.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
@@ -86,6 +95,8 @@ void SettingsGUI::init(){
                 lang = tr("Spanish");
             else if (f == "bg.qm")
                 lang = tr("Bulgarian");
+            else if (f == "sk.qm")
+                lang = tr("Slovak");
 
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);
@@ -174,6 +185,12 @@ void SettingsGUI::init(){
             comboBox_TABBAR->setCurrentIndex(1);
         else
             comboBox_TABBAR->setCurrentIndex(0);
+
+#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+        checkBox_ICONTHEME->setChecked(WBGET("app/use-icon-theme", false));
+#else
+        checkBox_ICONTHEME->hide();
+#endif
 
     }
     {//Chat tab
@@ -336,6 +353,8 @@ void SettingsGUI::ok(){
             WBSET(WB_MAINWINDOW_USE_SIDEBAR, false);
             WBSET(WB_MAINWINDOW_USE_M_TABBAR, false);
         }
+
+        WBSET("app/use-icon-theme", checkBox_ICONTHEME->isChecked());
     }
     {//Chat tab
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());

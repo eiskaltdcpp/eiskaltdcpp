@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "MainWindow.h"
 #include "Notification.h"
 
@@ -62,6 +71,7 @@ using namespace std;
 
 static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
 static const QString &EMPTY_SETTINGS = "mainwindow/empty-settings";
+static const QString &SIDEBAR_SHOW_CLOSEBUTTONS = "mainwindow/sidebar-with-close-buttons";
 
 MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
@@ -264,15 +274,17 @@ void MainWindow::showEvent(QShowEvent *e){
     if (showMax)
         showMaximized();
 
-    if (WBGET(WB_APP_AUTO_AWAY)){
+    if (WBGET(WB_APP_AUTO_AWAY) && !Util::getManualAway()){
         Util::setAway(false);
-        Util::setManualAway(false);
 
         toolsAwayOff->setChecked(true);
     }
 
     if (transfer_dock->isVisible())
         toolsTransfers->setChecked(true);
+
+    if (sideDock)
+        sideDock->setVisible(panelsWidgets->isChecked());
 
     ArenaWidget *awgt = qobject_cast<ArenaWidget*>(arena->widget());
 
@@ -286,9 +298,6 @@ void MainWindow::showEvent(QShowEvent *e){
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
-
-    if (sideDock)
-        sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
     if (_q(SETTING(NICK)).isEmpty())
         slotToolsSettings();
@@ -313,7 +322,6 @@ void MainWindow::hideEvent(QHideEvent *e){
 
     if (WBGET(WB_APP_AUTO_AWAY)){
         Util::setAway(true);
-        Util::setManualAway(true);
 
         toolsAwayOn->setChecked(true);
     }
@@ -325,8 +333,14 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
         return true;
     }
     else if (obj == sideTree && sideTree && e->type() == QEvent::Resize) {
-        sideTree->header()->resizeSection(0, sideTree->contentsRect().width() - 20);
-        sideTree->header()->resizeSection(1, 18);
+        if (WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true)){
+            sideTree->header()->resizeSection(0, sideTree->contentsRect().width() - 20);
+            sideTree->header()->resizeSection(1, 18);
+        }
+        else{
+            sideTree->header()->resizeSection(0, sideTree->contentsRect().width());
+            sideTree->header()->resizeSection(1, 0);
+        }
     }
     return QMainWindow::eventFilter(obj, e);
 }
@@ -359,6 +373,7 @@ void MainWindow::init(){
     transfer_dock->setFeatures(QDockWidget::NoDockWidgetFeatures);
     transfer_dock->setContextMenuPolicy(Qt::CustomContextMenu);
     transfer_dock->setTitleBarWidget(new QWidget(transfer_dock));
+    transfer_dock->setMinimumSize(QSize(8, 8));
 
     setCentralWidget(arena);
     //addDockWidget(Qt::RightDockWidgetArea, arena);
@@ -767,7 +782,7 @@ void MainWindow::initActions(){
                 << toolsDownloadQueue
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
-                << toolsHubManager
+                //<< toolsHubManager
                 << separator1
                 << toolsSpy
                 << toolsAntiSpam
@@ -856,15 +871,6 @@ void MainWindow::initActions(){
         SM->registerShortcut(prevMsgShortCut, tr("Ctrl+Up"));
         SM->registerShortcut(closeWidgetShortCut, tr("Ctrl+W"));
         SM->registerShortcut(toggleMainMenuShortCut, tr("Ctrl+M"));
-
-        if (tBar){
-            connect(nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
-            connect(prevTabShortCut, SIGNAL(triggered()), tBar, SLOT(prevTab()));
-        }
-        else if (mBar){
-            connect(nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
-            connect(prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
-        }
 
         connect(nextMsgShortCut,        SIGNAL(triggered()), this, SLOT(nextMsg()));
         connect(prevMsgShortCut,        SIGNAL(triggered()), this, SLOT(prevMsg()));
@@ -1150,13 +1156,13 @@ void MainWindow::retranslateUi(){
 
         aboutHomepage->setText(tr("Homepage"));
 
-        aboutSource->setText(tr("Source (svn)"));
+        aboutSource->setText(tr("Source (git)"));
 
         aboutIssues->setText(tr("Report a Bug"));
 
         aboutWiki->setText(tr("Wiki of project"));
 
-        aboutChangelog->setText(tr("Changelog (svn)"));
+        aboutChangelog->setText(tr("Changelog (git)"));
 
         aboutClient->setText(tr("About EiskaltDC++"));
 
@@ -1219,6 +1225,15 @@ void MainWindow::initToolbar(){
         wcontainer = static_cast<ArenaWidgetContainer*>(tBar);
     }
 
+    if (tBar){
+        connect(nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
+        connect(prevTabShortCut, SIGNAL(triggered()), tBar, SLOT(prevTab()));
+    }
+    else if (mBar){
+        connect(nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
+        connect(prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
+    }
+
     sBar = new ToolBar(this);
     sBar->setObjectName("sBar");
     sBar->addWidget(searchLineEdit);
@@ -1241,6 +1256,7 @@ void MainWindow::initSideBar(){
     sideDock->setFeatures(sideDock->features() & (~QDockWidget::DockWidgetClosable));
     sideDock->setObjectName("sideDock");
     sideDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    sideDock->setContextMenuPolicy(Qt::CustomContextMenu);
     sideTree->setModel(model);
     sideTree->setItemsExpandable(true);
     sideTree->setHeaderHidden(true);
@@ -1255,6 +1271,7 @@ void MainWindow::initSideBar(){
 
     addDockWidget(Qt::LeftDockWidgetArea, sideDock);
 
+    connect(sideDock, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSideBarDockMenu()));
     connect(sideTree, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotSideBarDblClicked(QModelIndex)));
     connect(sideTree, SIGNAL(clicked(QModelIndex)),     this, SLOT(slotSidebarHook(QModelIndex)));
     connect(sideTree, SIGNAL(clicked(QModelIndex)),    model, SLOT(slotIndexClicked(QModelIndex)));
@@ -1377,28 +1394,28 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
 
     if (WBGET(WB_SHOW_FREE_SPACE)) {
 #ifdef FREE_SPACE_BAR_C
-    std::string s = SETTING(DOWNLOAD_DIRECTORY);
-    unsigned long long available = 0;
-    unsigned long long total = 0;
-    if (!s.empty()) {
-        if (FreeSpace::FreeDiscSpace(s, &available, &total) == false) {
-            available = 0;
-            total = 0;
+        std::string s = SETTING(DOWNLOAD_DIRECTORY);
+        unsigned long long available = 0;
+        unsigned long long total = 0;
+        if (!s.empty()) {
+            if (FreeSpace::FreeDiscSpace(s, &available, &total) == false) {
+                available = 0;
+                total = 0;
+            }
         }
-    }
-    float percent = 100.0f*(total-available)/total;
-    QString format = tr("Free %1")
+        float percent = 100.0f*(total-available)/total;
+        QString format = tr("Free %1")
                          .arg(WulforUtil::formatBytes(available));
 
-    QString tooltip = tr("Free %1 of %2")
-                         .arg(WulforUtil::formatBytes(available))
-                         .arg(WulforUtil::formatBytes(total));
+        QString tooltip = tr("Free %1 of %2")
+                          .arg(WulforUtil::formatBytes(available))
+                          .arg(WulforUtil::formatBytes(total));
 
-            progressSpace->setFormat(format);
-            progressSpace->setToolTip(tooltip);
-            progressSpace->setValue(static_cast<unsigned>(percent));
+        progressSpace->setFormat(format);
+        progressSpace->setToolTip(tooltip);
+        progressSpace->setValue(static_cast<unsigned>(percent));
 
-            progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(format) + 40 : progressSpace->width());
+        progressSpace->setFixedWidth(metrics.width(format) > progressSpace->width()? metrics.width(progressSpace->text()) + 40 : progressSpace->width());
 #endif //FREE_SPACE_BAR_C
     }
 
@@ -1646,8 +1663,10 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(false);
 
-    if (arena->widget() == awgt->getWidget())
-        arena->widget()->hide();
+    if (arena->widget() == awgt->getWidget()){
+        awgt->getWidget()->hide();
+        arena->setWidget(NULL);
+    }
 }
 
 void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){
@@ -1712,7 +1731,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     if (!a)
         return;
 
-    if (sender() && typeid(*sender()) == typeid(QAction) && a->getWidget()){
+    if (sender() && qobject_cast<QAction*>(sender()) && a->getWidget()){
         QAction *act = reinterpret_cast<QAction*>(sender());;
 
         act->setCheckable(true);
@@ -1734,6 +1753,8 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
                 break;
             }
         }
+
+        remWidgetFromArena(a);
 
         wcontainer->removeWidget(a);
     }
@@ -1856,18 +1877,10 @@ void MainWindow::slotFileOpenDownloadDirectory(){
 }
 
 void MainWindow::slotFileBrowseOwnFilelist(){
-    static ShareBrowser *local_share = NULL;
-
-    if (arenaWidgets.contains(local_share)){
-        mapWidgetOnArena(local_share);
-
-        return;
-    }
-
     UserPtr user = ClientManager::getInstance()->getMe();
     QString file = QString::fromStdString(ShareManager::getInstance()->getOwnListFile());
 
-    local_share = new ShareBrowser(user, file, "");
+    new ShareBrowser(user, file, "");
 }
 
 void MainWindow::slotFileHashProgress(){
@@ -2332,7 +2345,7 @@ void MainWindow::slotAboutOpenUrl(){
         QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/"));
     }
     else if (act == aboutSource){
-        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/source/checkout"));
+        QDesktopServices::openUrl(QUrl("http://github.com/negativ/eiskaltdcpp/"));
     }
     else if (act == aboutIssues){
         QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/issues/list"));
@@ -2342,7 +2355,7 @@ void MainWindow::slotAboutOpenUrl(){
     }
     else if (act == aboutChangelog){
         // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
-        QDesktopServices::openUrl(QUrl(tr("http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt")));
+        QDesktopServices::openUrl(QUrl(tr("http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt")));
     }
 }
 
@@ -2352,18 +2365,11 @@ void MainWindow::slotAboutClient(){
     qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
     qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong();
 
-#ifndef DCPP_REVISION
     a.label->setText(QString("<b>%1</b> %2 (%3)")
                      .arg(EISKALTDCPP_WND_TITLE)
                      .arg(EISKALTDCPP_VERSION)
                      .arg(EISKALTDCPP_VERSION_SFX));
-#else
-    a.label->setText(QString("<b>%1</b> %2 - %3 %4")
-                     .arg(EISKALTDCPP_WND_TITLE)
-                     .arg(EISKALTDCPP_VERSION)
-                     .arg(EISKALTDCPP_VERSION_SFX)
-                     .arg(DCPP_REVISION));
-#endif
+
     a.label_ABOUT->setTextFormat(Qt::RichText);
     a.label_ABOUT->setText(QString("%1<br/><br/> %2 %3 %4<br/><br/> %5 %6<br/><br/> %7 <b>%8</b> <br/> %9 <b>%10</b>")
                            .arg(tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols."))
@@ -2461,6 +2467,12 @@ void MainWindow::slotAboutClient(){
             tr("<br/>"
                "&nbsp;Rusi Dimitrov aka PsyTrip<br/>"
                "&nbsp;&lt;dimitrov.rusi@gmail.com&gt;<br/>"
+               "&nbsp;(for 2.1.0 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>Slovak translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Martin Durisin<br/>"
+               "&nbsp;&lt;martin.durisin@gmail.com&gt;<br/>"
                "&nbsp;(for 2.1.0 and later)<br/>")
             );
 
@@ -2579,6 +2591,28 @@ void MainWindow::slotSideBarDblClicked(const QModelIndex &index){
     }
 
     sideTree->setExpanded(index, true);
+}
+
+void MainWindow::slotSideBarDockMenu(){
+    QMenu *m = new QMenu(this);
+    QAction *act = new QAction(tr("Show close buttons"), m);
+
+    act->setCheckable(true);
+    act->setChecked(WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true));
+
+    m->addAction(act);
+
+    if (m->exec(QCursor::pos()) != NULL){
+        WBSET(SIDEBAR_SHOW_CLOSEBUTTONS, act->isChecked());
+
+        //repaint rows!
+        if (sideDock && act->isChecked())
+            sideDock->resize(sideDock->size()+QSize(18, 0));
+        else if(sideDock)
+            sideDock->resize(sideDock->size()+QSize(-18, 0));
+    }
+
+    m->deleteLater();
 }
 
 void MainWindow::slotSelectSidebarIndex(const QModelIndex &index){

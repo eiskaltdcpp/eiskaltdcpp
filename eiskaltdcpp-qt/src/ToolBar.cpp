@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "ToolBar.h"
 #include "WulforUtil.h"
 
@@ -13,6 +22,7 @@ ToolBar::ToolBar(QWidget *parent):
     QToolBar(parent),
     tabbar(NULL)
 {
+    setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
 ToolBar::~ToolBar(){
@@ -72,7 +82,7 @@ void ToolBar::initTabs(){
     tabbar = new QTabBar(parentWidget());
     tabbar->setObjectName("arenaTabbar");
 #if QT_VERSION >= 0x040500
-    tabbar->setTabsClosable(true);
+    tabbar->setTabsClosable(WBGET(WB_APP_TBAR_SHOW_CL_BTNS));
     tabbar->setDocumentMode(true);
     tabbar->setMovable(true);
     tabbar->setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
@@ -194,14 +204,26 @@ void ToolBar::slotClose(int index){
 
 void ToolBar::slotContextMenu(const QPoint &p){
     int tab = tabbar->tabAt(p);
-
-    if (tab < 0)
-        return;
-
     ArenaWidget *awgt = findWidgetForIndex(tab);
 
-    if (!awgt)
+    if (!awgt){
+        QMenu *m = new QMenu(this);
+        QAction *act = new QAction(tr("Show close buttons"), m);
+
+        act->setCheckable(true);
+        act->setChecked(WBGET(WB_APP_TBAR_SHOW_CL_BTNS));
+
+        m->addAction(act);
+
+        if (m->exec(QCursor::pos()) != NULL){
+            WBSET(WB_APP_TBAR_SHOW_CL_BTNS, act->isChecked());
+            tabbar->setTabsClosable(act->isChecked());
+        }
+
+        m->deleteLater();
+
         return;
+    }
 
     QMenu *m = awgt->getMenu();
 

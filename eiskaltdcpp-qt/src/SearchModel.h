@@ -25,9 +25,11 @@
 #include "dcpp/SearchManager.h"
 
 class SearchProxyModel: public QSortFilterProxyModel {
-    Q_OBJECT
-
+Q_OBJECT
 public:
+    SearchProxyModel(QObject *parent = NULL): QSortFilterProxyModel(parent){}
+    virtual ~SearchProxyModel(){}
+
     virtual void sort(int column, Qt::SortOrder order);
 };
 
@@ -104,8 +106,6 @@ public:
     SearchModel(QObject *parent = 0);
     ~SearchModel();
 
-    bool hasChildren(const QModelIndex &parent) const;
-    bool canFetchMore(const QModelIndex &) const;
     /** */
     QVariant data(const QModelIndex &, int) const;
     /** */

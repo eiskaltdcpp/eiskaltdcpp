@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "MainWindow.h"
 #include "Magnet.h"
 #include "WulforUtil.h"
@@ -261,8 +270,9 @@ QPixmap WulforUtil::FROMTHEME(const QString &name, bool resource){
         return QIcon(":/"+name+".png").pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
     }
     else{
-#if defined(Q_WS_X11) && QT_VERSION >= 0x040600 && defined(USE_ICON_THEME)
-        return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
+#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+        if (WBGET("app/use-icon-theme", false))
+            return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
 #endif
         return loadPixmap(name+".png");
     }
@@ -272,8 +282,9 @@ QPixmap WulforUtil::FROMTHEME_SIDE(const QString &name, bool resource, const int
     if (resource)
         return QIcon(":/"+name+".png").pixmap(side, side);
     else{
-#if defined(Q_WS_X11) && QT_VERSION >= 0x040600 && defined(USE_ICON_THEME)
-        return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
+#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+        if (WBGET("app/use-icon-theme", false))
+            return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
 #endif
         return loadPixmap(name+".png").scaled(side, side);
     }
@@ -290,10 +301,8 @@ bool WulforUtil::loadIcons(){
 #endif//WIN32
     bool resourceFound = false;
 
-#ifndef USE_ICON_THEME
-    if (QFile(fname).exists())
+    if (QFile(fname).exists() && !WBGET("app/use-icon-theme", false))
         resourceFound = QResource::registerResource(fname);
-#endif
 
     app_icons_path = findAppIconsPath();
 
@@ -380,12 +389,10 @@ QPixmap WulforUtil::loadPixmap(const QString &file){
     f = app_icons_path + "/" + file;
     f = QDir::toNativeSeparators(f);
 
-    qDebug() << file;
-
     if (p.load(f))
         return p;
 
-    printf("LoadPixmap: Can't load '%s'\n", file.toAscii().constData());
+    printf("loadPixmap: Can't load '%s'\n", f.toAscii().constData());
 
     m_bError = true;
 
@@ -633,7 +640,7 @@ bool WulforUtil::openUrl(const QString &url){
     else if (url.startsWith("dchub://")){
         MainWindow::getInstance()->newHubFrame(url, WSGET(WS_DEFAULT_LOCALE));
     }
-    else if (url.startsWith("magnet:")){
+    else if (url.startsWith("magnet:") && url.contains("urn:tree:tiger")){
         QString magnet = url;
 
         Magnet *m = new Magnet(MainWindow::getInstance());
@@ -644,6 +651,9 @@ bool WulforUtil::openUrl(const QString &url){
             m->exec();
         }
         delete m;
+    }
+    else if (url.startsWith("magnet:")){
+        QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
     }
     else
         return false;
@@ -798,9 +808,6 @@ void WulforUtil::splitMagnet(const QString &magnet, int64_t &size, QString &tth,
     tth = "";
     name = "";
 
-    if (magnet.isEmpty() || !magnet.contains("urn:tree:tiger"))
-        return;
-
     QUrl url;
 
     if (!magnet.contains("+"))
@@ -818,7 +825,7 @@ void WulforUtil::splitMagnet(const QString &magnet, int64_t &size, QString &tth,
     if (url.hasQueryItem("xl"))
         size = url.queryItemValue("xl").toLongLong();
 
-    if (url.hasQueryItem("xt"))
+    if (url.hasQueryItem("xt") && magnet.contains("urn:tree:tiger"))
         tth = magnet.mid(magnet.indexOf("urn:tree:tiger:") + 15, 39);
 }
 

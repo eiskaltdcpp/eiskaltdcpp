@@ -1,3 +1,12 @@
+/***************************************************************************
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 3 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #include "HubFrame.h"
 #include "MainWindow.h"
 #include "PMWindow.h"
@@ -405,18 +414,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 }
 
                 if (linktype == "magnet:"){
-                    QUrl url;
-                    toshow = link;
-                    toshow.replace("+", "%20");
-                    toshow.replace("!", "%21");
-                    url.setEncodedUrl(toshow.toAscii());
+                    QString name, tth;
+                    int64_t size;
 
-                    if (url.hasQueryItem("dn")) {
-                        toshow = url.queryItemValue("dn");
-
-                        if (url.hasQueryItem("xl"))
-                            toshow += " (" + WulforUtil::formatBytes(url.queryItemValue("xl").toULongLong()) + ")";
-                    }
+                    WulforUtil::splitMagnet(link, size, tth, name);
+                    toshow = QString("%1 (%2)").arg(name).arg(WulforUtil::formatBytes(size));
                 }
 
                 if (linktype == "www.")
@@ -426,8 +428,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
                 if (linktype != "magnet:")
                     html_link = QString("<a href=\"%1\" title=\"%1\" style=\"cursor: hand\">%1</a>").arg(toshow);
-                else
-                    html_link = QString("<a href=\"%1\" title=\"%2\" style=\"cursor: hand\">%2</a>").arg(link).arg(toshow);
+                else{
+                    html_link = "<a href=\"" + link + "\" title=\"" + toshow + "\" style=\"cursor: hand\">" + toshow + "</a>";
+                }
 
                 output += html_link;
                 input.remove(0, l_pos);
@@ -506,9 +509,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
         }
     }
 
-    output = out;
-
-    return output;
+    return out;
 }
 
 void HubFrame::LinkParser::parseForMagnetAlias(QString &output){
@@ -706,13 +707,13 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             if (!cid.isEmpty()){
                 if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0){
                     if (plainTextEdit_INPUT->textCursor().position() == 0)
-                        plainTextEdit_INPUT->textCursor().insertText(nick+ ": ");
+                        plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
                     else
-                        plainTextEdit_INPUT->textCursor().insertText(nick+ " ");
+                        plainTextEdit_INPUT->textCursor().insertText(nick + " ");
 
                     plainTextEdit_INPUT->setFocus();
                 }
-                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList))
+                else if (WIGET(WI_CHAT_MDLCLICK_ACT) == 2 && (cursoratnick || isUserList))
                     addPM(cid, "", false);
                 else if (cursoratnick || isUserList)
                     browseUserFiles(cid, false);
@@ -812,8 +813,9 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     FavoriteManager::getInstance()->removeListener(this);
 
-    client->removeListener(this);
     HubManager::getInstance()->unregisterHubUrl(_q(client->getHubUrl()));
+
+    client->removeListener(this);
     client->disconnect(true);
     ClientManager::getInstance()->putClient(client);
 
@@ -878,7 +880,7 @@ void HubFrame::hideEvent(QHideEvent *e){
 
 void HubFrame::init(){
     updater = new QTimer();
-    updater->setInterval(1000);
+    updater->setInterval(5000);
     updater->setSingleShot(false);
 
     model = new UserListModel(this);
@@ -1045,6 +1047,7 @@ void HubFrame::save(){
     WISET(WI_CHAT_USERLIST_WIDTH, treeView_USERS->width());
     WISET(WI_CHAT_SORT_COLUMN, model->getSortColumn());
     WISET(WI_CHAT_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(model->getSortOrder()));
+    WSSET("hubframe/chat-background-color", textEdit_CHAT->palette().color(QPalette::Active, QPalette::Background).name());
 }
 
 void HubFrame::load(){
@@ -1072,6 +1075,19 @@ void HubFrame::reloadSomeSettings(){
     label_USERSTATE->setVisible(WBGET(WB_USERS_STATISTICS));
 
     label_LAST_STATUS->setVisible(WBGET(WB_LAST_STATUS));
+
+    if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
+        QPalette p = textEdit_CHAT->palette();
+        QColor clr = p.color(QPalette::Active, QPalette::Base);
+
+        clr.setNamedColor(WSGET("hubframe/chat-background-color"));
+
+        if (clr.isValid()){
+            p.setColor(QPalette::Base, clr);
+
+            textEdit_CHAT->setPalette(p);
+        }
+    }
 }
 
 QWidget *HubFrame::getWidget(){
@@ -2412,9 +2428,20 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     QString pressedParagraph = "", nick = "";
     int nickStart = 0, nickLen = 0;
+
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
 
+    cursor.movePosition(QTextCursor::StartOfBlock);
+
     pressedParagraph = cursor.block().text();
+
+    int row_counter = 0;
+
+    while (!pressedParagraph.contains(QRegExp("(<(\\w+)>)")) && row_counter < 600){//try to find nick in above rows (max 600 rows)
+        cursor.movePosition(QTextCursor::PreviousBlock);
+        pressedParagraph = cursor.block().text();
+        row_counter++;
+    }
 
     nickStart = 1 + pressedParagraph.indexOf("<");
     nickLen = pressedParagraph.indexOf(">") - nickStart;
@@ -2914,18 +2941,18 @@ void HubFrame::slotInputTextChanged(){
 
     QTextCursor c = plainTextEdit_INPUT->textCursor();
 
-    plainTextEdit_INPUT->moveCursor(QTextCursor::Start);
-
     QTextEdit::ExtraSelection selection;
     selection.format.setUnderlineStyle(QTextCharFormat::WaveUnderline);
     selection.format.setUnderlineColor(Qt::red);
 
     bool ok = false;
-    foreach (QString s, words){
+    while (!words.empty()){
+        QString s = words.takeLast();
+
         if ((s.toLongLong(&ok) && ok) || !QUrl(s).scheme().isEmpty())
             continue;
 
-        if (plainTextEdit_INPUT->find(s) && !sp->ok(s)){
+        if (plainTextEdit_INPUT->find(s, QTextDocument::FindBackward) && !sp->ok(s)){
             selection.cursor = plainTextEdit_INPUT->textCursor();
             extraSelections.append(selection);
         }
@@ -3056,6 +3083,18 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
                 connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
         }
     }
+    else if (key == "hubframe/chat-background-color"){
+        QPalette p = textEdit_CHAT->palette();
+        QColor clr = p.color(QPalette::Active, QPalette::Base);
+
+        clr.setNamedColor(value);
+
+        if (clr.isValid()){
+            p.setColor(QPalette::Base, clr);
+
+            textEdit_CHAT->setPalette(p);
+        }
+    }
 }
 
 void HubFrame::slotBoolSettingsChanged(const QString &key, int value){
@@ -3181,8 +3220,6 @@ void HubFrame::on(ClientListener::Failed, Client*, const string &msg) throw(){
 
     emit coreStatusMsg(status);
     emit coreFailed();
-
-    HubManager::getInstance()->unregisterHubUrl(_q(client->getHubUrl()));
 }
 
 void HubFrame::on(GetPassword, Client*) throw(){
