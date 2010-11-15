@@ -115,10 +115,12 @@ if (USE_MINIUPNP)
   else (LOCAL_MINIUPNP)
     find_package (Miniupnpc REQUIRED)
   endif (LOCAL_MINIUPNP)
-
+    
     add_definitions (-DUSE_MINIUPNP)
 elseif (NOT USE_MINIUPNP)
-    message (STATUS "Building without UPNP support( miniupnpc)")
+    unset (MINIUPNP_INCLUDE_DIR CACHE)
+    unset (MINIUPNP_LIBRARY CACHE)
+    message (STATUS "Building without UPNP support(miniupnpc)")
 endif(USE_MINIUPNP)
 
 if (XMLRPC_DAEMON)
