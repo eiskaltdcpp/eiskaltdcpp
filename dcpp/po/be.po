@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-10-10 20:29+0300\n"
+"POT-Creation-Date: 2010-11-13 15:58+0200\n"
 "PO-Revision-Date: 2010-08-07 15:38+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -67,15 +67,15 @@ msgstr ""
 "Не ўдалося наладзіць паслужнік socks перасылаць UDP (спраўдзіце адрэсу і "
 "порт socks)"
 
-#: ../DCPlusPlus.cpp:117
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
 msgstr "база зьвестак скаротаў"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "абагуленыя файлы"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "чарга сьцягваньня"
 
@@ -177,7 +177,7 @@ msgstr "%2% даў высьпятка карыстальніку %1%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "Карыстальніку %1% далі высьпятка: %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "Ня чую злучэньняў — калі ласка, запусьціце %1% нанова"
 

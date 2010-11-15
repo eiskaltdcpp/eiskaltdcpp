@@ -5133,6 +5133,10 @@ a hub operátoraitól kaphatsz</translation>
         <source>Do not change focus on new incoming private messages</source>
         <translation>Ne változzon a fókusz új bejövö privát üzenetnél</translation>
     </message>
+    <message>
+        <source>Try to use system icons (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
