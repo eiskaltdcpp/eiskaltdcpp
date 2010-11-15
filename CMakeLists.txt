@@ -269,9 +269,6 @@ elseif (GIT_FOUND)
 endif ()
 
 message (STATUS "Build Git commit ID: ${eiskaltdcpp_WC_REVISION}")
-if (eiskaltdcpp_WC_REVISION MATCHES [0-9a-z]+)
-    add_definitions (-DDCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
-endif ()
 
 if (UNIX)
 add_definitions (-D_GNU_SOURCE)
