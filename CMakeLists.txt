@@ -112,6 +112,8 @@ if (USE_MINIUPNP)
 
     add_definitions (-DUSE_MINIUPNP)
 elseif (NOT USE_MINIUPNP)
+    unset (MINIUPNP_INCLUDE_DIR CACHE)
+    unset (MINIUPNP_LIBRARY CACHE)
     message (STATUS "Building without UPNP support (miniupnpc)")
 endif(USE_MINIUPNP)
 
