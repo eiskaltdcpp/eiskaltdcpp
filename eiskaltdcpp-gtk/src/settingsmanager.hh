@@ -69,6 +69,7 @@ class WulforSettingsManager : public dcpp::Singleton<WulforSettingsManager>
 		void set(const std::string &key, bool value);
 		void set(const std::string &key, const std::string &value);
 		const std::string parseCmd(const std::string cmd);
+		const std::string parseCoreCmd(const std::string cmd);
 		void load();
 		void save();
 

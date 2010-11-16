@@ -50,7 +50,7 @@ add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 )
                 
 if (eiskaltdcpp_WC_REVISION MATCHES [0-9a-z]+)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/wulfor.cc  PROPERTY COMPILE_DEFINITIONS DCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/wulfor.cc  ${PROJECT_SOURCE_DIR}/src/mainwindow.cc PROPERTY COMPILE_DEFINITIONS DCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
 endif ()
 
 if (APPLE)

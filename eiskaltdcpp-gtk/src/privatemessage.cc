@@ -930,6 +930,11 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
             string msg = WSCMD(param);
             pm->addStatusMessage_gui(msg, Msg::SYSTEM);
         }
+        else if (command == "dcpps" && !param.empty())
+        {
+            string msg = WulforSettingsManager::getInstance()->parseCoreCmd (param);
+            pm->addStatusMessage_gui(msg, Msg::SYSTEM);
+        }
         else if (command == "help")
         {
             pm->addLine_gui(Msg::SYSTEM, string(_("*** Available commands:")) + "\n\n" +
