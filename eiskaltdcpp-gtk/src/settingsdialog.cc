@@ -447,6 +447,7 @@ void Settings::saveSettings_client()
     }
     //NOTE: core 0.762
     {
+        sm->set(SettingsManager::THROTTLE_ENABLE,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useLimitCheckButton"))));
         // Transfer Rate Limiting
         sm->set(SettingsManager::MAX_UPLOAD_SPEED_MAIN,
                 (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("transferMaxUpload"))));
@@ -1395,6 +1396,9 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Use fast hashing method (disable if you have problems with hashing)"), SettingsManager::FAST_HASH);
         addOption_gui(advancedStore, _("Register with the OS to handle dchub:// and adc:// URL links"), "urlhandler");
         addOption_gui(advancedStore, _("Register with the OS to handle magnet: URL links"), "magnet-register");
+        addOption_gui(advancedStore, _("Show IP's' in chats"), SettingsManager::USE_IP);
+        addOption_gui(advancedStore, _("Show user country in chat"), SettingsManager::GET_USER_COUNTRY);
+        
         /// @todo: Uncomment when implemented
         //addOption_gui(advancedStore, _("Use CTRL for line history"), "use-ctrl-for-line-history");
     }
@@ -1464,6 +1468,7 @@ void Settings::initAdvanced_gui()
 //NOTE: core 0.762
 void Settings::initBandwidthLimiting_gui()
 {
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useLimitCheckButton")), BOOLSETTING( THROTTLE_ENABLE));
         // Transfer Rate Limiting
         gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("transferMaxUpload")), (double)SETTING(MAX_UPLOAD_SPEED_MAIN));
         gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("transferMaxDownload")), (double)SETTING(MAX_DOWNLOAD_SPEED_MAIN));

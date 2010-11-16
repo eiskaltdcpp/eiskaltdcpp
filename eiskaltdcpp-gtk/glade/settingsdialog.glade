@@ -5205,6 +5205,18 @@ default</property>
                 <property name="border_width">4</property>
                 <property name="spacing">8</property>
                 <child>
+                      <widget class="GtkCheckButton" id="useLimitCheckButton">
+                        <property name="label" translatable="yes">Use bandwidth limits</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </widget>
+                      <packing>
+                            <property name="expand">False</property>
+                      </packing>
+                </child>
+                <child>
                   <widget class="GtkFrame" id="frame32">
                     <property name="visible">True</property>
                     <property name="border_width">4</property>
