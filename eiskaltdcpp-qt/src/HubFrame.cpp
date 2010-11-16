@@ -1047,7 +1047,7 @@ void HubFrame::save(){
     WISET(WI_CHAT_USERLIST_WIDTH, treeView_USERS->width());
     WISET(WI_CHAT_SORT_COLUMN, model->getSortColumn());
     WISET(WI_CHAT_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(model->getSortOrder()));
-    WSSET("hubframe/chat-background-color", textEdit_CHAT->palette().color(QPalette::Active, QPalette::Background).name());
+    WSSET("hubframe/chat-background-color", textEdit_CHAT->palette().color(QPalette::Active, QPalette::Base).name());
 }
 
 void HubFrame::load(){

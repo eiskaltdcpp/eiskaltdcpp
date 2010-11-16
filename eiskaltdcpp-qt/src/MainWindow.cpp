@@ -408,6 +408,9 @@ void MainWindow::init(){
     string defaultluascript="startup.lua";
     ScriptManager::getInstance()->EvaluateFile(defaultluascript);
 #endif
+
+    totalDown = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
+    totalUp =  WSGET(WS_APP_TOTAL_UP).toULongLong();
 }
 
 void MainWindow::loadSettings(){
@@ -489,6 +492,8 @@ void MainWindow::saveSettings(){
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
     WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
+    WSSET(WS_APP_TOTAL_DOWN, QString().setNum(totalDown));
+    WSSET(WS_APP_TOTAL_UP, QString().setNum(totalUp));
 
     stateIsSaved = true;
 }
@@ -2362,8 +2367,8 @@ void MainWindow::slotAboutOpenUrl(){
 void MainWindow::slotAboutClient(){
     About a(this);
 
-    qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
-    qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong();
+    volatile const qulonglong &app_total_down = totalDown;
+    volatile const qulonglong &app_total_up   = totalUp;
 
     a.label->setText(QString("<b>%1</b> %2 (%3)")
                      .arg(EISKALTDCPP_WND_TITLE)
@@ -2715,12 +2720,8 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
     map["USPEED"]   = WulforUtil::formatBytes(upBytes);
     map["UP"]       = WulforUtil::formatBytes(Socket::getTotalUp());
 
-    qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong()+downDiff;
-    qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong()+upDiff;
-
-    WSSET(WS_APP_TOTAL_DOWN, QString().setNum(app_total_down));
-    WSSET(WS_APP_TOTAL_UP, QString().setNum(app_total_up));
-
+    totalDown = totalDown+downDiff;
+    totalUp = totalUp+upDiff;
     lastUpdate = ticks;
     lastUp = Socket::getTotalUp();
     lastDown = Socket::getTotalDown();
