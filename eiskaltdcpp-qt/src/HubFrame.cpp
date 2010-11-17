@@ -376,16 +376,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
     static QList<QChar> unwise_chars = QList<QChar>() << '{' << '}' << '|' << '\\' << '^' << '[' << ']' << '`';
 
-    input.replace("<a href=","&lt;a href=");
-    input.replace("</a>","&lt;/a&gt;");
-    input.replace("<img alt=","&lt;img alt=");
-    input.replace("\" />","\" /&gt;");
-
     QString output = "";
 
     while (!input.isEmpty()){
         for (int j = 0; j < link_types.size(); j++){
-            QString linktype = link_types.at(j);
+            const QString &linktype = link_types.at(j);
 
             if (input.startsWith(linktype)){
                 int l_pos = linktype.length();
@@ -443,6 +438,58 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
         if (input.isEmpty())
             break;
 
+        if (input.startsWith("[b]") && input.indexOf("[/b]") > 0){
+            input.remove(0, 3);
+            int c_len = input.indexOf("[/b]");
+
+            QString chunk = Qt::escape(input.left(c_len));
+
+            output += "<b>" + chunk + "</b>";
+            input.remove(0, c_len+4);
+
+            continue;
+        }
+        else if (input.startsWith("[u]") && input.indexOf("[/u]") > 0){
+            input.remove(0, 3);
+            int c_len = input.indexOf("[/u]");
+
+            QString chunk = Qt::escape(input.left(c_len));
+
+            output += "<u>" + chunk + "</u>";
+            input.remove(0, c_len+4);
+
+            continue;
+        }
+        else if (input.startsWith("[i]") && input.indexOf("[/i]") > 0){
+            input.remove(0, 3);
+            int c_len = input.indexOf("[/i]");
+
+            QString chunk = Qt::escape(input.left(c_len));
+
+            output += "<i>" + chunk + "</i>";
+            input.remove(0, c_len+4);
+
+            continue;
+        }
+        else if (input.startsWith("<")){
+            output += "&lt;";
+            input.remove(0, 1);
+
+            continue;
+        }
+        else if (input.startsWith(">")){
+            output += "&gt;";
+            input.remove(0, 1);
+
+            continue;
+        }
+        else if (input.startsWith("&")){
+            input.remove(0, 1);
+            output += "&amp;";
+
+            continue;
+        }      
+
         output += input.at(0);
 
         input.remove(0, 1);
@@ -451,65 +498,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
     if (use_emot && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         output = EmoticonFactory::getInstance()->convertEmoticons(output);
 
-    QString out = "";
-    QString buf = output;
-
-    while (!buf.isEmpty()){
-        if (buf.startsWith("<a href=") && buf.indexOf("</a>") > 0){
-            QString add = buf.left(buf.indexOf("</a>")) + "</a>";
-
-            out += add;
-            buf.remove(0, add.length());
-        }
-        else if (buf.startsWith("<img alt=") && buf.indexOf("\" />") > 0){
-            QString add = buf.left(buf.indexOf("\" />")) + "\" />";
-
-            out += add;
-            buf.remove(0, add.length());
-        }
-        else if (buf.startsWith("&lt;a href=")){
-            out += "&lt;a href=";
-            buf.remove(0, QString("&lt;a href=").length());
-        }
-        else if (buf.startsWith("&lt;/a&gt;")){
-            out += "&lt;/a&gt;";
-            buf.remove(0, QString("&lt;/a&gt;").length());
-        }
-        else if (buf.startsWith("&lt;img alt=")){
-            out += "&lt;img alt=";
-            buf.remove(0, QString("&lt;img alt=").length());
-        }
-        else if (buf.startsWith("\" /&gt;")){
-            out += "\" /&gt;";
-            buf.remove(0, QString("\" /&gt;").length());
-        }
-        else if (buf.startsWith(";")){
-            out += "&#59;";
-            buf.remove(0, 1);
-        }
-        else if (buf.startsWith("<")){
-            out += "&lt;";
-            buf.remove(0, 1);
-        }
-        else if (buf.startsWith(">")){
-            out += "&gt;";
-            buf.remove(0, 1);
-        }
-        else if (buf.startsWith(' ')){
-            if (out.endsWith(" "))
-                out += "&nbsp;";
-            else
-                out += ' ';
-
-            buf.remove(0, 1);
-        }
-        else{
-            out += buf.at(0);
-            buf.remove(0, 1);
-        }
-    }
-
-    return out;
+    return output;
 }
 
 void HubFrame::LinkParser::parseForMagnetAlias(QString &output){
