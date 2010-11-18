@@ -103,6 +103,7 @@ class Hub:
         void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string nick, std::string cid, std::string url, std::string message, bool useSetting);
         void loadImage_gui(std::string target, std::string tth);
         void openImage_gui(std::string target);
+        void insertBBcodeEntry_gui(std::string ch);
 
         // GUI callbacks
         static gboolean onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data);
@@ -148,6 +149,9 @@ class Hub:
         static void onOpenImageClicked_gui(GtkMenuItem *item, gpointer data);
         static gboolean onImageEvent_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
         static gboolean expose(GtkWidget *widget, GdkEventExpose *event, gpointer data);
+        static void onItalicButtonClicked_gui(GtkWidget *widget, gpointer data);
+        static void onBoldButtonClicked_gui(GtkWidget *widget, gpointer data);
+        static void onUnderlineButtonClicked_gui(GtkWidget *widget, gpointer data);
 
         // Client functions
         void addFavoriteUser_client(const std::string cid);
