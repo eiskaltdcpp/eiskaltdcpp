@@ -282,8 +282,11 @@ void ServerThread::startSocket(bool onstart, int oldmode){
             showPortsError(e.getError());
         }
     } else {
+        bool b = false;
+        if (oldmode != SETTING(INCOMING_CONNECTIONS))
+            b = true;
         try {
-            ConnectivityManager::getInstance()->setup(true, oldmode);
+            ConnectivityManager::getInstance()->setup(b, oldmode);
         } catch (const Exception& e) {
             showPortsError(e.getError());
         }

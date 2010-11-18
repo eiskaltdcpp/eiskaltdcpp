@@ -131,7 +131,6 @@ void DownloadManager::addConnection(UserConnectionPtr conn) {
         conn->disconnect();
         return;
     }
-#ifdef STDIPFILTER
     if (BOOLSETTING(IPFILTER) && !IPFilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_IN)) {
         conn->error("Your IP is Blocked!");
         LogManager::getInstance()->message(_("IPFilter: Blocked outgoing connection to ") + conn->getRemoteIp());
@@ -139,7 +138,6 @@ void DownloadManager::addConnection(UserConnectionPtr conn) {
         removeConnection(conn);
         return;
 	}
-#endif
     conn->addListener(this);
     checkDownloads(conn);
 }

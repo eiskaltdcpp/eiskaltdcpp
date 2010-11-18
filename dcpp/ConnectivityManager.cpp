@@ -82,7 +82,7 @@ void ConnectivityManager::setup(bool settingsChanged, int lastConnectionMode) {
    if(BOOLSETTING(AUTO_DETECT_CONNECTION)) {
        if (!autoDetected) detectConnection();
    } else {
-       if(autoDetected || settingsChanged) {
+       if(autoDetected ||  settingsChanged) {
            if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP || lastConnectionMode == SettingsManager::INCOMING_FIREWALL_UPNP) {
                UPnPManager::getInstance()->close();
            }
@@ -120,8 +120,8 @@ void ConnectivityManager::listen() {
 }
 
 void ConnectivityManager::disconnect() {
-   SearchManager::getInstance()->disconnect();
-   ConnectionManager::getInstance()->disconnect();
+        SearchManager::getInstance()->disconnect();
+        ConnectionManager::getInstance()->disconnect();
 }
 
 void ConnectivityManager::log(const string& message) {

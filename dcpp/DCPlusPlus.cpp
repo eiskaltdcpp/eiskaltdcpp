@@ -42,9 +42,7 @@
 #endif
 #include "UPnPManager.h"
 #include "ConnectivityManager.h"
-#ifdef STDIPFILTER
 #include "extra/ipfilter.h"
-#endif
 #ifdef DHT
 #include "dht/DHT.h"
 #endif
@@ -97,9 +95,7 @@ void startup(void (*f)(void*, const string&), void* p) {
     ADLSearchManager::newInstance();
     ConnectivityManager::newInstance();
     UPnPManager::newInstance();
-#ifdef STDIPFILTER
     IPFilter::newInstance();
-#endif
     WindowManager::newInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
@@ -107,9 +103,7 @@ void startup(void (*f)(void*, const string&), void* p) {
     DebugManager::newInstance();
 
     SettingsManager::getInstance()->load();
-#ifdef STDIPFILTER
     IPFilter::getInstance()->loadList();
-#endif
 
 #ifdef _WIN32
     if(!SETTING(LANGUAGE).empty()) {
@@ -163,18 +157,14 @@ void shutdown() {
     WindowManager::getInstance()->prepareSave();
     QueueManager::getInstance()->saveQueue(true);
     ClientManager::getInstance()->saveUsers();
-#ifdef STDIPFILTER
     IPFilter::getInstance()->saveList();
-#endif
     SettingsManager::getInstance()->save();
 
 #ifdef USE_DHT
     DHT::deleteInstance();
 #endif
     WindowManager::deleteInstance();
-#ifdef STDIPFILTER
     IPFilter::deleteInstance();
-#endif
     UPnPManager::deleteInstance();
     ConnectivityManager::deleteInstance();
     ADLSearchManager::deleteInstance();
