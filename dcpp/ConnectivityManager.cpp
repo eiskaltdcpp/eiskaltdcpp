@@ -89,7 +89,7 @@ void ConnectivityManager::setup(bool settingsChanged, int lastConnectionMode) {
        if (!autoDetected)
             detectConnection();
    } else {
-       if(autoDetected || settingsChanged) {
+       if(autoDetected ||  settingsChanged || SearchManager::getInstance()->getPort() != SETTING(UDP_PORT) || ConnectionManager::getInstance()->getPort() != SETTING(TCP_PORT) || ConnectionManager::getInstance()->getSecurePort() != SETTING(TLS_PORT)) {
            if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP || lastConnectionMode == SettingsManager::INCOMING_FIREWALL_UPNP) {
                UPnPManager::getInstance()->close();
            }
