@@ -142,7 +142,7 @@ Keys for cmake
     If ON install examples/
 -DWITH_LUASCRIPTS=ON/OFF (default: OFF)
     If ON install luascripts/
--DUSE_MINIUPNP=ON/OFF (default: ON)
+-DUSE_MINIUPNP=ON/OFF (default: OFF)
     use or not use miniupnpc lib
 -DLOCAL_MINIUPNP=ON/OFF (default: OFF)
     If ON use local miniupnpc lib (not set this in ON if you not set USE_MINIUPNP in ON)

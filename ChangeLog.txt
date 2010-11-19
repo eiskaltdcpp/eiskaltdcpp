@@ -1,9 +1,14 @@
 --- 2.1.1 2010-11-21 ---
 *** common changes ***
 * Fixed TigerHash for ARM architecture.
+* -DUSE_MINIUPNP is set to OFF by default.
+* Fixed issue with blocking ports on restarting the program.
 *** eiskaltdcpp-qt ***
-* Fixed crash when deleting last characters in the input field of the chat. (The problem manifested only with Qt 4.7.1)
+* Fixed crash when deleting last characters in the input field of the chat by using the Backspace. (The problem manifested only with Qt 4.7.1)
 * Optimized link parser. Very long new chat messages are displayed much faster.
+* Fixed opening torrent's magnet links from chat.
+* Added ability to forced change the background color in the chat.
+* Fixed wrong icon path for App Bundle in Mac OS X. (The problem was added in 2.1.0)
 * BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
 *** eiskaltdcpp-gtk ***
 * Improvements in the toolbar.
