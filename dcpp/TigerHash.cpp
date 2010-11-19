@@ -34,7 +34,7 @@ namespace dcpp {
 #if defined(__x86_64__) || defined(__alpha)
 #define TIGER_ARCH64
 #endif
-#if !(defined(__i386__) || defined(__x86_64__) || defined(__alpha))
+#if !(defined(__i386__) || defined(__x86_64__) || defined(__alpha)  || defined(__arm__))
 #define TIGER_BIG_ENDIAN
 #endif
 #endif // _WIN32
