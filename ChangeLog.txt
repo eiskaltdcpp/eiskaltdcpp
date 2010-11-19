@@ -1,6 +1,10 @@
 --- 2.1.1 2010-11-21 ---
 *** common changes ***
+* Fixed TigerHash for ARM architecture.
 *** eiskaltdcpp-qt ***
+* Fixed crash when deleting last characters in the input field of the chat. (The problem manifested only with Qt 4.7.1)
+* Optimized link parser. Very long new chat messages are displayed much faster.
+* BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
 *** eiskaltdcpp-gtk ***
 * Improvements in the toolbar.
 * BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
