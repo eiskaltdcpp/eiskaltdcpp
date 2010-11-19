@@ -219,6 +219,9 @@ Hub::Hub(const string &address, const string &encoding):
     g_signal_connect(getWidget("removeFavoriteUserItem"), "activate", G_CALLBACK(onRemoveFavoriteUserClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("downloadBrowseItem"), "activate", G_CALLBACK(onDownloadToClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("downloadItem"), "activate", G_CALLBACK(onDownloadClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("italicButton"), "clicked", G_CALLBACK(onItalicButtonClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("boldButton"), "clicked", G_CALLBACK(onBoldButtonClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("underlineButton"), "clicked", G_CALLBACK(onUnderlineButtonClicked_gui), (gpointer)this);
 
     gtk_widget_grab_focus(getWidget("chatEntry"));
 
@@ -740,9 +743,12 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
         GCallback callback = NULL;
         bool isNick = FALSE;
-        gchar *temp = gtk_text_iter_get_text(&tag_start_iter, &tag_end_iter);
         bool image_tag = FALSE;
-        string image_magnet;
+        bool bold_tag = FALSE;
+        bool italic_tag = FALSE;
+        bool underline_tag = FALSE;
+        string image_magnet, bold_text, italic_text, underline_text;
+        gchar *temp = gtk_text_iter_get_text(&tag_start_iter, &tag_end_iter);
 
         if (!C_EMPTY(temp))
         {
@@ -775,7 +781,10 @@ void Hub::applyTags_gui(const string cid, const string &line)
             }
             else
             {
-                // support image tag
+                // Support bbCode: [i]italic-text[/i], [u]underline-text[/u]
+                // [img]magnet-link[/img]
+
+                bool notlink = FALSE;
                 if (g_ascii_strncasecmp(tagName.c_str(), "[img]", 5) == 0)
                 {
                     string::size_type i = tagName.rfind("[/img]");
@@ -783,11 +792,38 @@ void Hub::applyTags_gui(const string cid, const string &line)
                     {
                         image_magnet = tagName.substr(5, i - 5);
                         if (WulforUtil::isMagnet(image_magnet))
-                            image_tag = TRUE;
+                            notlink = image_tag = TRUE;
+                    }
+                }
+                else if (g_ascii_strncasecmp(tagName.c_str(), "[b]", 3) == 0)
+                {
+                    string::size_type i = tagName.rfind("[/b]");
+                    if (i != string::npos)
+                    {
+                        bold_text = tagName.substr(3, i - 3);
+                        notlink = bold_tag = TRUE;
+                    }
+                }
+                else if (g_ascii_strncasecmp(tagName.c_str(), "[i]", 3) == 0)
+                {
+                    string::size_type i = tagName.rfind("[/i]");
+                    if (i != string::npos)
+                    {
+                        italic_text = tagName.substr(3, i - 3);
+                        notlink = italic_tag = TRUE;
+                    }
+                }
+                else if (g_ascii_strncasecmp(tagName.c_str(), "[u]", 3) == 0)
+                {
+                    string::size_type i = tagName.rfind("[/u]");
+                    if (i != string::npos)
+                    {
+                        underline_text = tagName.substr(3, i - 3);
+                        notlink = underline_tag = TRUE;
                     }
                 }
 
-                if (!image_tag)
+                if (!notlink)
                 {
                     if (WulforUtil::isLink(tagName))
                         callback = G_CALLBACK(onLinkTagEvent_gui);
@@ -843,22 +879,66 @@ void Hub::applyTags_gui(const string cid, const string &line)
                         ImgLimit--;
 
                     typedef Func4<Hub, string, int64_t, string, string> F4;
-                    target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + tth;
+                    target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + tth;
                     F4 *func = new F4(this, &Hub::download_client, target, size, tth, cid);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
             }
+        }
+        else if (bold_tag)
+        {
+            dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
 
-                       applyEmoticons_gui();
+            gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
+            GtkTextTag *tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table(chatBuffer), tagName.c_str());
 
-                       gtk_text_buffer_get_iter_at_mark(chatBuffer, &start_iter, tag_mark);
+            if (!tag)
+                tag = gtk_text_buffer_create_tag(chatBuffer, tagName.c_str(), "weight", PANGO_WEIGHT_BOLD, NULL);
 
-                       if (gtk_text_iter_is_end(&start_iter))
-                           return;
+            gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
+            gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
+                                             bold_text.c_str(), bold_text.size(), tag, TagsMap[tagMsg], NULL);
+        }
+        else if (italic_tag)
+        {
+            dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
 
-                       start = FALSE;
+            gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
+            GtkTextTag *tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table(chatBuffer), tagName.c_str());
 
-                       continue;
+            if (!tag)
+                tag = gtk_text_buffer_create_tag(chatBuffer, tagName.c_str(), "style", PANGO_STYLE_ITALIC, NULL);
+            gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
+            gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
+                                             italic_text.c_str(), italic_text.size(), tag, TagsMap[tagMsg], NULL);
+        }
+        else if (underline_tag)
+        {
+            dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
+
+            gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
+            GtkTextTag *tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table(chatBuffer), tagName.c_str());
+
+            if (!tag)
+                tag = gtk_text_buffer_create_tag(chatBuffer, tagName.c_str(), "underline", PANGO_UNDERLINE_SINGLE, NULL);
+            gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
+            gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
+                                             underline_text.c_str(), underline_text.size(), tag, TagsMap[tagMsg], NULL);
+        }
+
+        if (image_tag || bold_tag || italic_tag || underline_tag)
+        {
+
+            applyEmoticons_gui();
+
+            gtk_text_buffer_get_iter_at_mark(chatBuffer, &start_iter, tag_mark);
+
+            if (gtk_text_iter_is_end(&start_iter))
+                return;
+
+            start = FALSE;
+
+            continue;
         }
 
         if (callback)
@@ -889,7 +969,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
                     gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
                     gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
-                        line.c_str(), line.size(), tag, TagsMap[tagStyle], NULL);
+                                                     line.c_str(), line.size(), tag, TagsMap[tagStyle], NULL);
                 }
             }
             else
@@ -2976,7 +3056,7 @@ void Hub::onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data)
        hub->imageLoad.second = (GtkWidget*)childs->data;
        g_list_free(childs);
 
-       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + tth;
+       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + tth;
        typedef Func4<Hub, string, int64_t, string, string> F4;
        F4 *func = new F4(hub, &Hub::download_client, target, size, tth, cid);
        WulforManager::get()->dispatchClientFunc(func);
@@ -3026,7 +3106,7 @@ void Hub::openImage_client(string tth)
 void Hub::openImage_gui(string target)
 {
     if (!File::isAbsolute(target))
-       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + target;
+       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + target;
     WulforUtil::openURI(target);
 }
 
@@ -3034,6 +3114,74 @@ gboolean Hub::expose(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 {
     GTK_WIDGET_CLASS(GTK_WIDGET_GET_CLASS(widget))->expose_event(widget, event);
     return true;
+}
+
+void Hub::onItalicButtonClicked_gui(GtkWidget *widget, gpointer data)
+{
+    Hub *hub = (Hub*) data;
+
+    hub->insertBBcodeEntry_gui("i");
+}
+
+void Hub::onBoldButtonClicked_gui(GtkWidget *widget, gpointer data)
+{
+    Hub *hub = (Hub*) data;
+
+    hub->insertBBcodeEntry_gui("b");
+}
+
+void Hub::onUnderlineButtonClicked_gui(GtkWidget *widget, gpointer data)
+{
+    Hub *hub = (Hub*) data;
+
+    hub->insertBBcodeEntry_gui("u");
+}
+
+void Hub::insertBBcodeEntry_gui(string ch)
+{
+    gint start_pos;
+    gint end_pos;
+    GtkEditable *chatEntry = GTK_EDITABLE(getWidget("chatEntry"));
+    if (gtk_editable_get_selection_bounds(chatEntry, &start_pos, &end_pos))
+    {
+        gchar *tmp = gtk_editable_get_chars(chatEntry, start_pos, end_pos);
+        string text = tmp;
+        g_free(tmp);
+        string::size_type a = 0, b = 0;
+        string res;
+
+        for (;;)
+        {
+            a = text.find_first_not_of("\r\n\t ", b);
+
+            if (a != string::npos)
+            {
+                b = text.find_first_of("\r\n\t ", a);
+
+                if (b != string::npos)
+                {
+                    res += "[" + ch + "]" + text.substr(a, b - a) + "[/" + ch + "] ";
+                }
+                else
+                {
+                    res += "[" + ch + "]" + text.substr(a) + "[/" + ch + "]";
+                    break;
+                }
+            }
+            else
+                break;
+        }
+
+        gtk_editable_delete_text(chatEntry, start_pos, end_pos);
+        gtk_editable_insert_text(chatEntry, res.c_str(), -1, &start_pos);
+        gtk_editable_set_position(chatEntry, -1);
+    }
+    else
+    {
+        start_pos = gtk_editable_get_position(chatEntry);
+        gtk_editable_insert_text(chatEntry, string("[" + ch + "][/" + ch + "]").c_str(), -1, &start_pos);
+        gtk_editable_set_position(chatEntry, start_pos - 4);
+    }
 }
 
 void Hub::on(FavoriteManagerListener::UserAdded, const FavoriteUser &user) throw()

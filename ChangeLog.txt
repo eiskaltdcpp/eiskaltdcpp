@@ -3,6 +3,7 @@
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
 * Improvements in the toolbar.
+* BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
 
 --- 2.1.0 2010-11-07 ---
 *** common changes ***
