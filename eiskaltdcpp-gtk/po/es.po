@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-11-13 16:24+0200\n"
-"PO-Revision-Date: 2010-11-01 03:55+0100\n"
+"PO-Revision-Date: 2010-11-20 08:31+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -2335,22 +2335,20 @@ msgid "Toolbar"
 msgstr "Barra de herramientas"
 
 #: ../glade/mainwindow.glade:401
-#, fuzzy
 msgid "Top position"
-msgstr "Aplicación"
+msgstr "Posición arriba"
 
 #: ../glade/mainwindow.glade:408
 msgid "Left position"
-msgstr ""
+msgstr "Posición izquierda"
 
 #: ../glade/mainwindow.glade:421
-#, fuzzy
 msgid "Small toolbar"
-msgstr "Barra de herramientas"
+msgstr "Barra de herramientas pequeña"
 
 #: ../glade/mainwindow.glade:433
 msgid "Hide tools"
-msgstr ""
+msgstr "Esconder herramientas"
 
 #: ../glade/mainwindow.glade:444
 msgid "_Help"
@@ -2673,9 +2671,8 @@ msgid "Quit the program"
 msgstr "Salir del programa"
 
 #: ../glade/mainwindow.glade:2058
-#, fuzzy
 msgid "Add / Remove"
-msgstr "Eliminar"
+msgstr "Añadir / Eliminar"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"

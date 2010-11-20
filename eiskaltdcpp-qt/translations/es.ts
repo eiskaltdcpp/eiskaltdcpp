@@ -5481,7 +5481,7 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="200"/>
         <source>Try to use system icons (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tratar de usar los iconos del sistema (requiere reiniciar)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="208"/>
