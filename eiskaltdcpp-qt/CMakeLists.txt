@@ -36,7 +36,7 @@ set (SRCS
             src/ArenaWidget.cpp
             src/ArenaWidgetContainer.cpp
             src/CustomFontModel.cpp
-	    src/CustomSetting.cpp
+            src/CustomSetting.cpp
             src/DownloadQueue.cpp
             src/DownloadQueueModel.cpp
             src/EmoticonDialog.cpp
@@ -76,12 +76,12 @@ set (SRCS
             src/SettingsNotification.cpp
             src/SettingsPersonal.cpp
             src/SettingsSharing.cpp
-	    src/SettingsShortcuts.cpp
+            src/SettingsShortcuts.cpp
             src/SettingsUC.cpp
             src/ShareBrowser.cpp
             src/ShellCommandRunner.cpp
             src/ShortcutManager.cpp
-	    src/ShortcutEdit.cpp
+            src/ShortcutEdit.cpp
             src/SideBar.cpp
             src/SingleInstanceRunner.cpp
             src/SpyFrame.cpp
@@ -96,6 +96,13 @@ set (SRCS
             src/WulforSettings.cpp
             src/WulforUtil.cpp
             src/ChatEdit.cpp
+            src/createdmd.cpp
+            src/qdmd.cpp
+            src/viewdmd.cpp
+            src/qtypecontentbutton.cpp
+            src/uploadsframe.cpp
+            src/lib7z.cpp
+            src/getnamedmd.cpp
             )
 if (WIN32)
   list (APPEND SRCS ../win32/applink.c)
@@ -108,7 +115,7 @@ set (MOC_HDRS
             src/AntiSpamFrame.h
             src/ArenaWidget.h
             src/CustomFontModel.h
-	    src/CustomSetting.h
+            src/CustomSetting.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
             src/EmoticonDialog.h
@@ -146,9 +153,9 @@ set (MOC_HDRS
             src/SettingsNotification.h
             src/SettingsPersonal.h
             src/SettingsSharing.h
-	    src/SettingsShortcuts.h
+            src/SettingsShortcuts.h
             src/SettingsUC.h
-	    src/ShortcutEdit.h
+            src/ShortcutEdit.h
             src/SideBar.h
             src/SingleInstanceRunner.h
             src/QuickConnect.h
@@ -169,6 +176,13 @@ set (MOC_HDRS
             src/WulforSettings.h
             src/WulforUtil.h
             src/ChatEdit.h
+            src/createdmd.h
+            src/qdmd.h
+            src/viewdmd.h
+            src/qtypecontentbutton.h
+            src/uploadsframe.h
+            src/lib7z.h
+            src/getnamedmd.h
             )
 set (UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui
@@ -197,7 +211,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsNotification.ui
             ui/UISettingsPersonal.ui
             ui/UISettingsSharing.ui
-	    ui/UISettingsShortcuts.ui
+            ui/UISettingsShortcuts.ui
             ui/UIShareBrowser.ui
             ui/UISpy.ui
             ui/UITransferView.ui
@@ -207,7 +221,11 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIDialogScriptConsole.ui
             ui/UIActionCustomizer.ui
             ui/UIHubManager.ui
-            )
+            ui/createdmd.ui
+            ui/viewdmd.ui
+            ui/UiUploadsFrame.ui
+            ui/getnamedmd.ui
+           )
 
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)

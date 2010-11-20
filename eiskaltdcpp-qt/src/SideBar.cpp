@@ -46,6 +46,7 @@ SideBarModel::SideBarModel(QObject *parent) :
     CREATE_ROOT_EL(rootItem, eiSPY,         tr("Spy"),              roots,  Spy);
     //CREATE_ROOT_EL(rootItem, eiSERVER,      tr("Hub Manager"),      roots,  HubManager);
     CREATE_ROOT_EL(rootItem, eiGUI,         tr("Other Widgets"),    roots,  CustomWidget);
+    CREATE_ROOT_EL(rootItem, eiDOWN,        tr("Uploads"),          roots,  MyUploads);
 }
 
 SideBarModel::~SideBarModel()
@@ -172,6 +173,17 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
     QModelIndex ind;
 
     switch (awgt->role()){
+    case ArenaWidget::UploadView:
+	{
+	    SideBarItem *i = new SideBarItem(awgt, roots[ArenaWidget::MyUploads]);
+	    roots[ArenaWidget::MyUploads]->appendChild(i);
+
+	    items.insert(awgt, i);
+
+	    ind = index(i->row(), 0, index(roots[ArenaWidget::MyUploads]->row(), 0, QModelIndex()));
+
+	    break;
+	}
     case ArenaWidget::Hub:
     case ArenaWidget::PrivateMessage:
     case ArenaWidget::Search:
@@ -205,6 +217,30 @@ void SideBarModel::removeWidget(ArenaWidget *awgt){
         return;
 
     switch (awgt->role()){
+    case ArenaWidget::UploadView:
+	{
+	    SideBarItem *root  = roots[ArenaWidget::MyUploads];
+	    SideBarItem *child = items[awgt];
+
+	    items.remove(awgt);
+
+	    QModelIndex par_root = index(root->row(), 0, QModelIndex());
+
+	    beginRemoveRows(par_root, child->row(), child->row());
+	    {
+		root->childItems.removeAt(root->childItems.indexOf(child));
+
+		delete child;
+	    }
+	    endRemoveRows();
+
+	    if (!historyAtTop(awgt))
+		historyPurge(awgt);
+
+	    historyPop();
+
+	    break;
+	}
     case ArenaWidget::Hub:
     case ArenaWidget::PrivateMessage:
     case ArenaWidget::Search:
@@ -267,7 +303,12 @@ void SideBarModel::mapped(ArenaWidget *awgt){
 
     if (items.contains(awgt)){
         SideBarItem *root  = roots[awgt->role()];
-        SideBarItem *child = items[awgt];
+	if (awgt->role() == ArenaWidget::UploadView){
+	    root  = roots[ArenaWidget::MyUploads];
+	} else {
+	    root  = roots[awgt->role()];
+	}
+	SideBarItem *child = items[awgt];
 
         QModelIndex par_root = index(root->row(), 0, QModelIndex());
         s = index(child->row(), 0, par_root);
@@ -372,7 +413,8 @@ void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 
     if (awgt){
         switch (awgt->role()){
-            case ArenaWidget::Hub:
+	    case ArenaWidget::UploadView:
+	    case ArenaWidget::Hub:
             case ArenaWidget::PrivateMessage:
             case ArenaWidget::Search:
             case ArenaWidget::ShareBrowser:

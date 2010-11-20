@@ -1,0 +1,170 @@
+--- eiskaltdcpp-qt/src/MainWindow.cpp
++++ eiskaltdcpp-qt/src/MainWindow.cpp
+@@ -688,7 +707,15 @@
+         connect(toolsJSConsole, SIGNAL(triggered()), this, SLOT(slotToolsJSConsole()));
+ #endif
+ 
+-        menuAwayAction = new QAction("", this);
++	toolsUploads = new QAction("", this);
++	toolsUploads->setObjectName("Uploads");
++	toolsUploads->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
++	toolsUploads->setCheckable(true);
++	toolsUploads->setChecked(false);
++	connect(toolsUploads, SIGNAL(triggered()), this, SLOT(slotToolsUploads()));
++        connect(WulforUtil::getInstance(), SIGNAL(outLoadDMD(QString)), this, SLOT(loadDMD(QString)));
++
++	menuAwayAction = new QAction("", this);
+         // submenu
+         QAction *away_sep = new QAction("", this);
+         away_sep->setSeparator(true);
+@@ -774,6 +801,9 @@
+         QAction *separator6 = new QAction("", this);
+         separator6->setObjectName("separator6");
+         separator6->setSeparator(true);
++	QAction *separator7 = new QAction("", this);
++	separator7->setObjectName("separator7");
++	separator7->setSeparator(true);
+ 
+         fileMenuActions << fileFileListBrowser
+                 << fileFileListBrowserLocal
+@@ -795,7 +825,8 @@
+                 << hubsFavoriteUsers;
+ 
+         toolsMenuActions << toolsSearch
+-                << toolsADLS
++		<< toolsUploads
++		<< toolsADLS
+                 << separator0
+                 << toolsTransfers
+                 << toolsDownloadQueue
+@@ -824,31 +855,33 @@
+ 
+         toolBarActions << toolsOptions
+                 << separator0
+-                << fileFileListBrowserLocal
++		<< toolsUploads
++		<< separator1
++		<< fileFileListBrowserLocal
+                 << fileRefreshShareHashProgress
+-                << separator1
++		<< separator2
+                 << hubsHubReconnect
+                 << hubsQuickConnect
+-                << separator2
++		<< separator3
+                 << hubsFavoriteHubs
+                 << hubsFavoriteUsers
+                 << toolsSearch
+                 << hubsPublicHubs
+-                << separator3
++		<< separator4
+                 << toolsTransfers
+                 << toolsDownloadQueue
+                 << toolsFinishedDownloads
+                 << toolsFinishedUploads
+-                << separator4
++		<< separator5
+                 << chatClear
+                 << findInWidget
+                 << chatDisable
+-                << separator5
++		<< separator6
+                 << toolsADLS
+                 << toolsSpy
+                 << toolsAntiSpam
+                 << toolsIPFilter
+-                << separator6
++		<< separator7
+                 << fileQuit;
+     }
+     {
+@@ -1152,7 +1185,9 @@
+         toolsJSConsole->setText(tr("Script Console"));
+ #endif
+ 
+-        chatClear->setText(tr("Clear chat"));
++	toolsUploads->setText(tr("Uploads"));;
++
++	chatClear->setText(tr("Clear chat"));
+ 
+         findInWidget->setText(tr("Find/Filter"));
+ 
+@@ -1269,6 +1304,7 @@
+ 
+     SideBarModel *model = new SideBarModel(this);
+     sideTree = new QTreeView(this);
++    sideTree->setMinimumWidth(220);
+     sideDock = new QDockWidget("", this);
+ 
+     sideDock->setWidget(sideTree);
+@@ -1523,6 +1566,51 @@
+ }
+ 
+ void MainWindow::autoconnect(){
++    FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry("dchub://sunny.it-com.tv");
++    if (entry->getNick().size() == 0){
++	QString nick = "";
++	QString pass = "";
++	while (nick.length() == 0){
++	    QDialog *d = new QDialog(this);
++	    d->setWindowTitle(tr("Set nick on IT-COM hub"));
++	    QVBoxLayout *lay = new QVBoxLayout(d);
++
++	    QLabel *n = new QLabel(d);
++	    n->setText(tr("Enter nick"));
++
++	    QLineEdit *en = new QLineEdit(d);
++	    en->setText(QString::fromStdString(entry->getNick()));
++
++	    QLabel *p = new QLabel(d);
++	    p->setText(tr("Enter password"));
++
++	    QLineEdit *ep = new QLineEdit(d);
++	    ep->setText(QString::fromStdString(entry->getPassword()));
++            ep->setEchoMode(QLineEdit::Password);
++
++	    QPushButton *b = new QPushButton(d);
++	    b->setText(tr("Ok"));
++
++	    lay->addWidget(n);
++	    lay->addWidget(en);
++	    lay->addWidget(p);
++	    lay->addWidget(ep);
++	    lay->addWidget(b);
++
++	    connect(b, SIGNAL(clicked()), d, SLOT(accept()));
++
++	    d->exec();
++
++	    nick = en->text();
++	    pass = ep->text();
++
++	    delete d;
++	}
++	entry->setNick(nick.toStdString());
++	entry->setPassword(pass.toStdString());
++
++	FavoriteManager::getInstance()->save();
++    }
+     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
+ 
+     for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
+@@ -1668,7 +1756,7 @@
+     HubFrame     *fr = qobject_cast<HubFrame *>(wg);
+     PMWindow     *pm = qobject_cast<PMWindow *>(wg);
+ 
+-    bool widgetWithFilter = role == ArenaWidget::Hub || role == ArenaWidget::ShareBrowser || role == ArenaWidget::PublicHubs || role == ArenaWidget::Search;
++    bool widgetWithFilter = role == ArenaWidget::Hub || role == ArenaWidget::ShareBrowser || role == ArenaWidget::PublicHubs || role == ArenaWidget::Search || role == ArenaWidget::UploadView;
+ 
+     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
+     findInWidget->setEnabled(widgetWithFilter);
+@@ -2564,7 +2652,8 @@
+ 
+         if (item->getWidget()){
+             switch (item->getWidget()->role()){
+-            case ArenaWidget::Hub:
++	    case ArenaWidget::UploadView:
++	    case ArenaWidget::Hub:
+             case ArenaWidget::PrivateMessage:
+             case ArenaWidget::Search:
+             case ArenaWidget::ShareBrowser:

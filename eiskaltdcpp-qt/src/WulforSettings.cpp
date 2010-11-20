@@ -168,8 +168,8 @@ void WulforSettings::load(){
             settings.setValue(WB_MAINWINDOW_MAXIMIZED,  static_cast<int>(true));
             settings.setValue(WB_MAINWINDOW_HIDE,       static_cast<int>(false));
             settings.setValue(WB_MAINWINDOW_REMEMBER,   static_cast<int>(true));
-            settings.setValue(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(true));
-            settings.setValue(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(false));
+	    settings.setValue(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(false));
+	    settings.setValue(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(true));
             settings.setValue(WB_SEARCHFILTER_NOFREE,   static_cast<int>(false));
             settings.setValue(WB_SEARCH_DONTHIDEPANEL,  static_cast<int>(false));
             settings.setValue(WB_ANTISPAM_ENABLED,      static_cast<int>(false));
@@ -195,8 +195,8 @@ void WulforSettings::load(){
             settings.setValue(WB_APP_AUTO_AWAY,         static_cast<int>(false));
             settings.setValue(WB_APP_TBAR_SHOW_CL_BTNS, static_cast<int>(true));
             settings.setValue(WB_WIDGETS_PANEL_VISIBLE, static_cast<int>(true));
-            settings.setValue(WB_TOOLS_PANEL_VISIBLE,   static_cast<int>(true));
-            settings.setValue(WB_SEARCH_PANEL_VISIBLE,  static_cast<int>(false));
+	    settings.setValue(WB_TOOLS_PANEL_VISIBLE,   static_cast<int>(false));
+	    settings.setValue(WB_SEARCH_PANEL_VISIBLE,  static_cast<int>(false));
             settings.setValue(WB_MAIN_MENU_VISIBLE,     static_cast<int>(true));
             settings.setValue(WB_USE_CTRL_ENTER,        static_cast<int>(false));
             settings.setValue(WB_SIMPLE_SHARE_MODE,     static_cast<int>(true));
@@ -311,8 +311,8 @@ void WulforSettings::loadOldConfig(){
         intmap.insert(WB_MAINWINDOW_MAXIMIZED,  static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_HIDE,       static_cast<int>(false));
         intmap.insert(WB_MAINWINDOW_REMEMBER,   static_cast<int>(true));
-        intmap.insert(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(true));
-        intmap.insert(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(false));
+	intmap.insert(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(false));
+	intmap.insert(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(true));
         intmap.insert(WB_SEARCHFILTER_NOFREE,   static_cast<int>(false));
         intmap.insert(WB_SEARCH_DONTHIDEPANEL,  static_cast<int>(false));
         intmap.insert(WB_ANTISPAM_ENABLED,      static_cast<int>(false));
@@ -338,8 +338,8 @@ void WulforSettings::loadOldConfig(){
         intmap.insert(WB_APP_AUTO_AWAY,         static_cast<int>(false));
         intmap.insert(WB_APP_TBAR_SHOW_CL_BTNS, static_cast<int>(true));
         intmap.insert(WB_WIDGETS_PANEL_VISIBLE, static_cast<int>(true));
-        intmap.insert(WB_TOOLS_PANEL_VISIBLE,   static_cast<int>(true));
-        intmap.insert(WB_SEARCH_PANEL_VISIBLE,  static_cast<int>(false));
+	intmap.insert(WB_TOOLS_PANEL_VISIBLE,   static_cast<int>(false));
+	intmap.insert(WB_SEARCH_PANEL_VISIBLE,  static_cast<int>(false));
         intmap.insert(WB_MAIN_MENU_VISIBLE,     static_cast<int>(true));
         intmap.insert(WB_USE_CTRL_ENTER,        static_cast<int>(false));
         intmap.insert(WB_SIMPLE_SHARE_MODE,     static_cast<int>(false));

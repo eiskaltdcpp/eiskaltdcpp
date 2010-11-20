@@ -986,11 +986,61 @@ static const char* typeExecutable[] = { ".exe" };
 static const char* typePicture[] = { ".jpg", ".gif", ".png", ".eps", ".img", ".pct", ".psp", ".pic", ".tif", ".rle", ".bmp", ".pcx" };
 static const char* typeVideo[] = { ".mpg", ".mov", ".asf", ".avi", ".pxp", ".wmv", ".ogm", ".mkv" };
 
-static const string type2Audio[] = { ".au", ".aiff", ".flac" };
-static const string type2Picture[] = { ".ai", ".ps", ".pict" };
-static const string type2Video[] = { ".rm", ".divx", ".mpeg" };
+static const string type2Audio[] = { ".au",
+                                     ".aiff",
+                                     ".flac",
+                                     ".roc_aud_dmd",
+                                     ".pop_aud_dmd",
+                                     ".jaz_aud_dmd",
+                                     ".blu_aud_dmd",
+                                     ".ele_aud_dmd",
+                                     ".sou_aud_dmd",
+                                     ".not_aud_dmd",
+                                     ".aud_aud_dmd",
+                                     ".oth_aud_dmd",
+                                     "" };
+
+static const string type2Picture[] = { ".ai",
+                                       ".ps",
+                                       ".pict"
+                                       ".ava_img_dmd",
+                                       ".wal_img_dmd",
+                                       ".ani_img_dmd",
+                                       ".nat_img_dmd",
+                                       ".mal_img_dmd",
+                                       ".car_img_dmd",
+                                       ".hum_img_dmd",
+                                       ".spo_img_dmd",
+                                       ".scr_img_dmd",
+                                       ".art_img_dmd",
+                                       ".abs_img_dmd",
+                                       ".ero_img_dmd",
+                                       ".oth_img_dmd",
+                                       "" };
+
+static const string type2Video[] = { ".rm",
+                                     ".divx",
+                                     ".mpeg",
+                                     ".fof_vid_dmd",
+                                     ".fos_vid_dmd",
+                                     ".foc_vid_dmd",
+                                     ".uof_vid_dmd",
+                                     ".ous_vid_dmd",
+                                     ".ouc_vid_dmd",
+                                     ".tut_vid_dmd",
+                                     ".cli_vid_dmd",
+                                     ".con_vid_dmd",
+                                     ".kar_vid_dmd",
+                                     ".hum_vid_dmd",
+                                     ".ani_vid_dmd",
+                                     ".ero_vid_dmd",
+                                     ".oth_vid_dmd",
+                                     "" };
+
+static const string type2Document[] = { ".hum_boo_dmd", ".man_boo_dmd", ".tut_boo_dmd", ".fea_boo_dmd", ".tec_boo_dmd", ".oth_boo_dmd" };
 
 #define IS_TYPE(x) ( type == (*((uint32_t*)x)) )
+#define IS_TYPE3(x) (Util::stricmp(Util::getFileExt(aString).c_str(), x.c_str()) == 0)
 #define IS_TYPE2(x) (Util::stricmp(aString.c_str() + aString.length() - x.length(), x.c_str()) == 0)
 
 static bool checkType(const string& aString, int aType) {
@@ -1014,7 +1064,18 @@ static bool checkType(const string& aString, int aType) {
                     return true;
                 }
             }
-            if( IS_TYPE2(type2Audio[0]) || IS_TYPE2(type2Audio[1]) || IS_TYPE2(type2Audio[2]) ) {
+            if( IS_TYPE2(type2Audio[0]) ||
+                IS_TYPE2(type2Audio[1]) ||
+                IS_TYPE2(type2Audio[2]) ||
+                IS_TYPE2(type2Audio[3]) ||
+                IS_TYPE2(type2Audio[4]) ||
+                IS_TYPE2(type2Audio[5]) ||
+                IS_TYPE2(type2Audio[6]) ||
+                IS_TYPE2(type2Audio[7]) ||
+                IS_TYPE2(type2Audio[8]) ||
+                IS_TYPE2(type2Audio[9]) ||
+                IS_TYPE2(type2Audio[10]) ||
+                IS_TYPE2(type2Audio[11]) ) {
                 return true;
             }
         }
@@ -1027,6 +1088,14 @@ static bool checkType(const string& aString, int aType) {
     case SearchManager::TYPE_DOCUMENT:
         if( IS_TYPE(typeDocument[0]) || IS_TYPE(typeDocument[1]) ||
             IS_TYPE(typeDocument[2]) || IS_TYPE(typeDocument[3]) ) {
+            return true;
+        }
+        if( IS_TYPE2(type2Document[0]) ||
+            IS_TYPE2(type2Document[1]) ||
+            IS_TYPE2(type2Document[2]) ||
+            IS_TYPE2(type2Document[3]) ||
+            IS_TYPE2(type2Document[4]) ||
+            IS_TYPE2(type2Document[5]) ) {
             return true;
         }
         break;
@@ -1042,7 +1111,22 @@ static bool checkType(const string& aString, int aType) {
                     return true;
                 }
             }
-            if( IS_TYPE2(type2Picture[0]) || IS_TYPE2(type2Picture[1]) || IS_TYPE2(type2Picture[2]) ) {
+            if( IS_TYPE2(type2Picture[0]) ||
+                IS_TYPE2(type2Picture[1]) ||
+                IS_TYPE2(type2Picture[2]) ||
+                IS_TYPE2(type2Picture[3]) ||
+                IS_TYPE2(type2Picture[4]) ||
+                IS_TYPE2(type2Picture[5]) ||
+                IS_TYPE2(type2Picture[6]) ||
+                IS_TYPE2(type2Picture[7]) ||
+                IS_TYPE2(type2Picture[8]) ||
+                IS_TYPE2(type2Picture[9]) ||
+                IS_TYPE2(type2Picture[10]) ||
+                IS_TYPE2(type2Picture[11]) ||
+                IS_TYPE2(type2Picture[12]) ||
+                IS_TYPE2(type2Picture[13]) ||
+                IS_TYPE2(type2Picture[14]) ||
+                IS_TYPE2(type2Picture[15]) ) {
                 return true;
             }
         }
@@ -1054,7 +1138,23 @@ static bool checkType(const string& aString, int aType) {
                     return true;
                 }
             }
-            if( IS_TYPE2(type2Video[0]) || IS_TYPE2(type2Video[1]) || IS_TYPE2(type2Video[2]) ) {
+            if( IS_TYPE2(type2Video[0]) ||
+                IS_TYPE2(type2Video[1]) ||
+                IS_TYPE2(type2Video[2]) ||
+                IS_TYPE2(type2Video[3]) ||
+                IS_TYPE2(type2Video[4]) ||
+                IS_TYPE2(type2Video[5]) ||
+                IS_TYPE2(type2Video[6]) ||
+                IS_TYPE2(type2Video[7]) ||
+                IS_TYPE2(type2Video[8]) ||
+                IS_TYPE2(type2Video[9]) ||
+                IS_TYPE2(type2Video[10]) ||
+                IS_TYPE2(type2Video[11]) ||
+                IS_TYPE2(type2Video[12]) ||
+                IS_TYPE2(type2Video[13]) ||
+                IS_TYPE2(type2Video[14]) ||
+                IS_TYPE2(type2Video[15]) ||
+                IS_TYPE2(type2Video[16]) ) {
                 return true;
             }
         }

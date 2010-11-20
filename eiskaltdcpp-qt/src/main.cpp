@@ -28,6 +28,7 @@ using namespace std;
 #include "SingleInstanceRunner.h"
 #include "Version.h"
 #include "EmoticonFactory.h"
+#include "uploadsframe.h"
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
@@ -146,6 +147,8 @@ int main(int argc, char *argv[])
 
     MainWindow::getInstance()->autoconnect();
     MainWindow::getInstance()->parseCmdLine();
+
+    //UploadsFrame::newInstance();
 
 #ifdef USE_JS
     ScriptEngine::newInstance();

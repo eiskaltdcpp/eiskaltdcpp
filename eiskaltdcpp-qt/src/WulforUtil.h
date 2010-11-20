@@ -27,6 +27,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
+#include "dcpp/SearchManager.h"
 
 #include "WulforSettings.h"
 
@@ -172,10 +173,18 @@ public:
 
     QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* = 0);
 
+    QStringList getTypeData(SearchManager::TypeModes type);
+    QList<int> getTypeKeys();
+
+Q_SIGNALS:
+    void outLoadDMD(QString);
+
 public Q_SLOTS:
     const QPixmap &getPixmap(Icons);
     QString getNicks(const QString&);
     bool openUrl(const QString&);
+
+    void inLoadDMD(QString);
 
 private Q_SLOTS:
     void slotHttpDone(bool);
@@ -217,6 +226,7 @@ private:
     QHttp *http;
     QTimer *http_timer;
     QString internetIP;
+    QMap<int, QStringList> types;
 };
 
 Q_DECLARE_METATYPE(WulforUtil*);

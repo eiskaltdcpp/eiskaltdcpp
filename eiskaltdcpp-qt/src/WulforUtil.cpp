@@ -132,6 +132,12 @@ WulforUtil::~WulforUtil(){
     clearUserIconCache();
 }
 
+void WulforUtil::inLoadDMD(QString file)
+{
+    emit outLoadDMD(file);
+}
+
+
 bool WulforUtil::loadUserIcons(){
     //Try to find icons directory
     QString user_theme = WSGET(WS_APP_USERTHEME);
@@ -583,6 +589,81 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["VIV"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["VOB"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["WMV"]   = eiFILETYPE_VIDEO;
+
+    types.clear();
+    #define SM SearchManager
+    #define SL QStringList
+    types[SM::TYPE_VIDEO_FOREIGN_FILMS]	    = SL() << tr("Foreign films")	<< tr(".fof_vid_dmd");
+    types[SM::TYPE_VIDEO_FOREIGN_SERIALS]   = SL() << tr("Foreign serials")	<< tr(".fos_vid_dmd");
+    types[SM::TYPE_VIDEO_FOREIGN_CARTOONS]  = SL() << tr("Foreign cartoons")	<< tr(".foc_vid_dmd");
+    types[SM::TYPE_VIDEO_OUR_FILMS]	    = SL() << tr("Our films")		<< tr(".uof_vid_dmd");
+    types[SM::TYPE_VIDEO_OUR_SERIALS]	    = SL() << tr("Our serials")		<< tr(".ous_vid_dmd");
+    types[SM::TYPE_VIDEO_OUR_CARTOONS]	    = SL() << tr("Our cartoons")	<< tr(".ouc_vid_dmd");
+    types[SM::TYPE_VIDEO_TUTORIAL]	    = SL() << tr("Video Tutorial")	<< tr(".tut_vid_dmd");
+    types[SM::TYPE_VIDEO_CLIPS]		    = SL() << tr("Clips")		<< tr(".cli_vid_dmd");
+    types[SM::TYPE_VIDEO_CONCERTS]	    = SL() << tr("Concerts")		<< tr(".con_vid_dmd");
+    types[SM::TYPE_VIDEO_KARAOKE]	    = SL() << tr("Caraoke")		<< tr(".kar_vid_dmd");
+    types[SM::TYPE_VIDEO_HUMOR]		    = SL() << tr("Humor video")		<< tr(".hum_vid_dmd");
+    types[SM::TYPE_VIDEO_ANIME]		    = SL() << tr("Anime video")		<< tr(".ani_vid_dmd");
+    types[SM::TYPE_VIDEO_18]		    = SL() << tr("Video 18+")		<< tr(".ero_vid_dmd");
+    types[SM::TYPE_VIDEO_OTHER]		    = SL() << tr("Other video")		<< tr(".oth_vid_dmd");
+
+    types[SM::TYPE_AUDIO_ROCK]		= SL() << tr("Rock")		    << tr(".roc_aud_dmd");
+    types[SM::TYPE_AUDIO_POP]		= SL() << tr("Pop")		    << tr(".pop_aud_dmd");
+    types[SM::TYPE_AUDIO_JAZZ]		= SL() << tr("Jazz")		    << tr(".jaz_aud_dmd");
+    types[SM::TYPE_AUDIO_BLUES]		= SL() << tr("Blues")		    << tr(".blu_aud_dmd");
+    types[SM::TYPE_AUDIO_ELECTRONIC]	= SL() << tr("Electronic music")    << tr(".ele_aud_dmd");
+    types[SM::TYPE_AUDIO_SOUNDTRACKS]	= SL() << tr("Soundtracks")	    << tr(".sou_aud_dmd");
+    types[SM::TYPE_AUDIO_NOTES]		= SL() << tr("Notes")		    << tr(".not_aud_dmd");
+    types[SM::TYPE_AUDIO_AUDIOBOOKS]	= SL() << tr("Audiobooks")	    << tr(".aud_aud_dmd");
+    types[SM::TYPE_AUDIO_OTHER]		= SL() << tr("Other music")	    << tr(".oth_aud_dmd");
+
+    types[SM::TYPE_IMAGE_AVATARS]	= SL() << tr("Avatars")		<< tr(".ava_img_dmd");
+    types[SM::TYPE_IMAGE_WALLPAPERS]	= SL() << tr("Wallpapers")	<< tr(".wal_img_dmd");
+    types[SM::TYPE_IMAGE_ANIME]		= SL() << tr("Anime images")	<< tr(".ani_img_dmd");
+    types[SM::TYPE_IMAGE_NATURE]	= SL() << tr("Nature")		<< tr(".nat_img_dmd");
+    types[SM::TYPE_IMAGE_ANIMALS]	= SL() << tr("Animals")		<< tr(".mal_img_dmd");
+    types[SM::TYPE_IMAGE_CARS]		= SL() << tr("Cars and moto")	<< tr(".car_img_dmd");
+    types[SM::TYPE_IMAGE_HUMOR]		= SL() << tr("Humor images")	<< tr(".hum_img_dmd");
+    types[SM::TYPE_IMAGE_SPORT]		= SL() << tr("Sport")		<< tr(".spo_img_dmd");
+    types[SM::TYPE_IMAGE_SCREENSHOTS]	= SL() << tr("Screenshots")	<< tr(".scr_img_dmd");
+    types[SM::TYPE_IMAGE_ARTISTIC]	= SL() << tr("Artistic photo")	<< tr(".art_img_dmd");
+    types[SM::TYPE_IMAGE_ABSTRACT]	= SL() << tr("Abstract")	<< tr(".abs_img_dmd");
+    types[SM::TYPE_IMAGE_18]		= SL() << tr("Images 18+")	<< tr(".ero_img_dmd");
+    types[SM::TYPE_IMAGE_OTHER]		= SL() << tr("Other images")	<< tr(".oth_img_dmd");
+
+    types[SM::TYPE_GAMES_ACTION]    = SL() << tr("Action")	    << tr(".act_gam_dmd");
+    types[SM::TYPE_GAMES_RPG]	    = SL() << tr("RPG")		    << tr(".rpg_gam_dmd");
+    types[SM::TYPE_GAMES_STRATEGY]  = SL() << tr("Strategy")	    << tr(".str_gam_dmd");
+    types[SM::TYPE_GAMES_SIM]	    = SL() << tr("Sim")		    << tr(".sim_gam_dmd");
+    types[SM::TYPE_GAMES_QUESTS]    = SL() << tr("Quests")	    << tr(".que_gam_dmd");
+    types[SM::TYPE_GAMES_ARCADE]    = SL() << tr("Arcade")	    << tr(".arc_gam_dmd");
+    types[SM::TYPE_GAMES_MINI]	    = SL() << tr("Mini-games")	    << tr(".min_gam_dmd");
+    types[SM::TYPE_GAMES_CONSOLES]  = SL() << tr("For consoles")    << tr(".con_gam_dmd");
+    types[SM::TYPE_GAMES_LINUX]	    = SL() << tr("For Linux")	    << tr(".lin_gam_dmd");
+    types[SM::TYPE_GAMES_MAC]	    = SL() << tr("For Mac")	    << tr(".mac_gam_dmd");
+    types[SM::TYPE_GAMES_ADD_ON]    = SL() << tr("Add-ons")	    << tr(".add_gam_dmd");
+    types[SM::TYPE_GAMES_OTHER]	    = SL() << tr("Other games")	    << tr(".oth_gam_dmd");
+
+    types[SM::TYPE_SOFT_SYSTEM]		= SL() << tr("System soft")		<< tr(".sys_sof_dmd");
+    types[SM::TYPE_SOFT_ANTI_VIR]	= SL() << tr("Anti-viruses")		<< tr(".avr_sof_dmd");
+    types[SM::TYPE_SOFT_AUDIO]		= SL() << tr("Audio soft")		<< tr(".aud_sof_dmd");
+    types[SM::TYPE_SOFT_VIDEO]		= SL() << tr("Video soft")		<< tr(".vid_sof_dmd");
+    types[SM::TYPE_SOFT_GRAPHIC]	= SL() << tr("Graphic soft")		<< tr(".gra_sof_dmd");
+    types[SM::TYPE_SOFT_OFFICE]		= SL() << tr("Office soft")		<< tr(".off_sof_dmd");
+    types[SM::TYPE_SOFT_DRIVERS]	= SL() << tr("Drivers and frimware")	<< tr(".drv_sof_dmd");
+    types[SM::TYPE_SOFT_DEVELOP]	= SL() << tr("Develop")			<< tr(".dev_sof_dmd");
+    types[SM::TYPE_SOFT_DIRECTORIES]	= SL() << tr("Directories and gis")	<< tr(".dir_sof_dmd");
+    types[SM::TYPE_SOFT_OTHER]		= SL() << tr("Other soft")		<< tr(".oth_sof_dmd");
+
+    types[SM::TYPE_BOOK_HUMOR]	    = SL() << tr("Humor")	    << tr(".hum_boo_dmd");
+    types[SM::TYPE_BOOK_MANGA]	    = SL() << tr("Manga")	    << tr(".man_boo_dmd");
+    types[SM::TYPE_BOOK_TUTORIAL]   = SL() << tr("Tutorial")	    << tr(".tut_boo_dmd");
+    types[SM::TYPE_BOOK_FEATURE]    = SL() << tr("Feature book")    << tr(".fea_boo_dmd");
+    types[SM::TYPE_BOOK_TECHNIKAL]  = SL() << tr("Technikal")	    << tr(".tec_boo_dmd");
+    types[SM::TYPE_BOOK_OTHER]	    = SL() << tr("Other books")	    << tr(".oth_boo_dmd");
+
+    types[SM::TYPE_UP_OTHER]	    = SL() << tr("Other uploads")   << tr(".oth_oth_dmd");
 }
 
 QPixmap WulforUtil::getPixmapForFile(const QString &file){
@@ -1048,4 +1129,14 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
     }
 
     return usr_menu;
+}
+
+QStringList WulforUtil::getTypeData(SearchManager::TypeModes type)
+{
+    return types[type];
+}
+
+QList<int> WulforUtil::getTypeKeys()
+{
+    return types.keys();
 }
