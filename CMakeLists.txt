@@ -90,6 +90,11 @@ option (WITH_SOUNDS "Install sound files" OFF)
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NATT "Use natt extension" ON)
+option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
+
+if (PERL_REGEX)
+find_package(Pcre REQUIRED)
+endif (PERL_REGEX)
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
@@ -322,6 +327,7 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
                 iconv (headers): ${ICONV_LIBRARIES} (${ICONV_INCLUDE_DIR})
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
+                pcre(cpp) (headers): ${PCRE_LIBRARY} (${PCRE_INCLUDE_DIR})
                 ")
 
 if (UNIX AND NOT APPLE)
