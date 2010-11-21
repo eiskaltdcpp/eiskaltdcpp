@@ -13,17 +13,18 @@ pkg_check_modules(PCRE libpcrecpp)
 set (PCRE_INCLUDE_DIR ${PCRE_INCLUDE_DIRS})
 set (PCRE_LIBRARY ${PCRE_LDFLAGS})
 
-if (PCRE_INCLUDE_DIR AND PCRE_LIBRARY)
-    set (PCRE_FOUND TRUE)
-else ()
+if (NOT PCRE_LIBRARY)
     execute_process (COMMAND ${PCRE_CONFIG} --libs-cpp
                     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
                     OUTPUT_VARIABLE RE_LIBRARY
                     OUTPUT_STRIP_TRAILING_WHITESPACE)
+                    set (PCRE_LIBRARY ${RE_LIBRARY})
+endif (PCRE_LIBRARY)
+
+if (NOT PCRE_INCLUDE_DIR)
     find_path(RE_INCLUDE_DIR pcrecpp.h)
     set (PCRE_INCLUDE_DIR ${RE_INCLUDE_DIR})
-    set (PCRE_LIBRARY ${RE_LIBRARY})
-endif (PCRE_INCLUDE_DIR AND PCRE_LIBRARY)
+endif()
 
 if (PCRE_INCLUDE_DIR AND PCRE_LIBRARY)
     set (PCRE_FOUND TRUE)
