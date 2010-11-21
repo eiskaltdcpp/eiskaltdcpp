@@ -13,6 +13,7 @@
 * BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
 * Support for *bold* and _underlined_ text like in Psi.
 *** eiskaltdcpp-gtk ***
+* Improvements in the main menu.
 * Improvements in the toolbar.
 * BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
 
