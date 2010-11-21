@@ -3,6 +3,7 @@
 * Fixed TigerHash for ARM architecture.
 * -DUSE_MINIUPNP is set to OFF by default.
 * Fixed issue with blocking ports on restarting the program.
+* Added ability to use pcre library for regex in perl style (see option PERL_REGEX in file INSTALL). Currently it uses only in ADL Search.
 *** eiskaltdcpp-qt ***
 * Fixed crash when deleting last characters in the input field of the chat by using the Backspace. (The problem manifested only with Qt 4.7.1)
 * Optimized link parser. Very long new chat messages are displayed much faster.

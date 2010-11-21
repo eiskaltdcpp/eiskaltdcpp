@@ -389,37 +389,50 @@
               </widget>
             </child>
             <child>
-              <widget class="GtkMenuItem" id="toolbarItem">
+              <widget class="GtkMenuItem" id="panelsItem">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Toolbar</property>
+                <property name="label" translatable="yes">Panels</property>
                 <property name="use_underline">True</property>
                 <child>
-                  <widget class="GtkMenu" id="position">
+                  <widget class="GtkMenu" id="toolbarItemMenu">
                     <child>
-                      <widget class="GtkRadioMenuItem" id="topToolbarItem">
+                      <widget class="GtkMenuItem" id="toolbarItem">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">Top position</property>
+                        <property name="label" translatable="yes">Tools panel</property>
                         <property name="use_underline">True</property>
-                      </widget>
-                    </child>
-                    <child>
-                      <widget class="GtkRadioMenuItem" id="leftToolbarItem">
-                        <property name="visible">True</property>
-                        <property name="label" translatable="yes">Left position</property>
-                        <property name="use_underline">True</property>
-                        <property name="group">topToolbarItem</property>
-                      </widget>
-                    </child>
-                    <child>
-                      <widget class="GtkSeparatorMenuItem" id="separatorPosition">
-                        <property name="visible">True</property>
-                      </widget>
-                    </child>
-                    <child>
-                      <widget class="GtkCheckMenuItem" id="sizeToolbarItem">
-                        <property name="visible">True</property>
-                        <property name="label" translatable="yes">Small toolbar</property>
-                        <property name="use_underline">True</property>
+                        <child>
+                          <widget class="GtkMenu" id="position">
+                            <child>
+                              <widget class="GtkRadioMenuItem" id="topToolbarItem">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Top position</property>
+                                <property name="use_underline">True</property>
+                                <property name="draw_as_radio">True</property>
+                              </widget>
+                            </child>
+                            <child>
+                              <widget class="GtkRadioMenuItem" id="leftToolbarItem">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Left position</property>
+                                <property name="use_underline">True</property>
+                                <property name="draw_as_radio">True</property>
+                                <property name="group">topToolbarItem</property>
+                              </widget>
+                            </child>
+                            <child>
+                              <widget class="GtkSeparatorMenuItem" id="separatorPosition">
+                                <property name="visible">True</property>
+                              </widget>
+                            </child>
+                            <child>
+                              <widget class="GtkCheckMenuItem" id="sizeToolbarItem">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Small icons</property>
+                                <property name="use_underline">True</property>
+                              </widget>
+                            </child>
+                          </widget>
+                        </child>
                       </widget>
                     </child>
                     <child>
@@ -430,7 +443,7 @@
                     <child>
                       <widget class="GtkCheckMenuItem" id="hideToolbarItem">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes">Hide tools</property>
+                        <property name="label" translatable="yes">Hide tools panel</property>
                         <property name="use_underline">True</property>
                       </widget>
                     </child>

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-13 16:24+0200\n"
-"PO-Revision-Date: 2010-11-01 14:21+0100\n"
+"POT-Creation-Date: 2010-11-21 19:03+0200\n"
+"PO-Revision-Date: 2010-11-21 14:00+0100\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -67,7 +67,7 @@ msgstr "Státusz"
 #: ../src/search.cc:619 ../src/search.cc:762 ../src/search.cc:1619
 #: ../src/search.cc:1637 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:285 ../src/sharebrowser.cc:316
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1262
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1275
 msgid "Size"
 msgstr "Méret"
 
@@ -84,7 +84,7 @@ msgstr "Prioritás"
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
 #: ../src/publichubs.cc:58 ../src/publichubs.cc:158
-#: ../glade/mainwindow.glade:1721 ../glade/mainwindow.glade:1923
+#: ../glade/mainwindow.glade:1734 ../glade/mainwindow.glade:1936
 msgid "Users"
 msgstr "Felhasználó"
 
@@ -214,10 +214,10 @@ msgstr "Fájl megnyitása"
 msgid "Open folder"
 msgstr "Könyvtár megnyitása"
 
-#: ../src/hub.cc:69 ../src/hub.cc:89 ../src/hub.cc:91 ../src/hub.cc:355
-#: ../src/hub.cc:370 ../src/hub.cc:390 ../src/hub.cc:438 ../src/hub.cc:1159
-#: ../src/hub.cc:1457 ../src/hub.cc:1510 ../src/hub.cc:2091 ../src/hub.cc:2122
-#: ../src/hub.cc:2407 ../src/hub.cc:2446 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:69 ../src/hub.cc:89 ../src/hub.cc:91 ../src/hub.cc:362
+#: ../src/hub.cc:377 ../src/hub.cc:397 ../src/hub.cc:445 ../src/hub.cc:1230
+#: ../src/hub.cc:1528 ../src/hub.cc:1581 ../src/hub.cc:2162 ../src/hub.cc:2193
+#: ../src/hub.cc:2478 ../src/hub.cc:2517 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:583 ../src/favoritehubs.cc:56
@@ -229,12 +229,12 @@ msgstr "Könyvtár megnyitása"
 msgid "Nick"
 msgstr "Nick"
 
-#: ../src/hub.cc:70 ../src/hub.cc:354 ../src/hub.cc:371 ../src/hub.cc:391
-#: ../src/hub.cc:439 ../src/publichubs.cc:46 ../src/publichubs.cc:161
+#: ../src/hub.cc:70 ../src/hub.cc:361 ../src/hub.cc:378 ../src/hub.cc:398
+#: ../src/hub.cc:446 ../src/publichubs.cc:46 ../src/publichubs.cc:161
 msgid "Shared"
 msgstr "Megosztva"
 
-#: ../src/hub.cc:71 ../src/hub.cc:372 ../src/hub.cc:392
+#: ../src/hub.cc:71 ../src/hub.cc:379 ../src/hub.cc:399
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:372 ../src/favoriteusers.cc:397
 #: ../src/favoriteusers.cc:586 ../src/favoritehubs.cc:54
@@ -244,329 +244,329 @@ msgstr "Megosztva"
 msgid "Description"
 msgstr "Leírás"
 
-#: ../src/hub.cc:72 ../src/hub.cc:373 ../src/hub.cc:393
+#: ../src/hub.cc:72 ../src/hub.cc:380 ../src/hub.cc:400
 msgid "Tag"
 msgstr "Tag"
 
-#: ../src/hub.cc:73 ../src/hub.cc:374 ../src/hub.cc:394 ../src/search.cc:92
+#: ../src/hub.cc:73 ../src/hub.cc:381 ../src/hub.cc:401 ../src/search.cc:92
 #: ../src/search.cc:565 ../src/search.cc:624 ../src/search.cc:765
 #: ../src/search.cc:1645 ../glade/settingsdialog.glade:753
 msgid "Connection"
 msgstr "Kapcsolat"
 
-#: ../src/hub.cc:75 ../src/hub.cc:376 ../src/hub.cc:396
+#: ../src/hub.cc:75 ../src/hub.cc:383 ../src/hub.cc:403
 msgid "eMail"
 msgstr "E-mail"
 
-#: ../src/hub.cc:409 ../src/hub.cc:420
+#: ../src/hub.cc:416 ../src/hub.cc:427
 msgid " has joined"
 msgstr " belépett"
 
-#: ../src/hub.cc:410 ../src/hub.cc:419
+#: ../src/hub.cc:417 ../src/hub.cc:426
 msgid " has joined hub "
 msgstr " belépett "
 
-#: ../src/hub.cc:426 ../src/hub.cc:444
+#: ../src/hub.cc:433 ../src/hub.cc:451
 msgid " Users"
 msgstr " Felhasználó"
 
-#: ../src/hub.cc:450 ../src/hub.cc:460
+#: ../src/hub.cc:457 ../src/hub.cc:467
 msgid " has quit hub "
 msgstr " kilépett "
 
-#: ../src/hub.cc:451 ../src/hub.cc:461
+#: ../src/hub.cc:458 ../src/hub.cc:468
 msgid " has quit"
 msgstr " kilépett"
 
-#: ../src/hub.cc:490
+#: ../src/hub.cc:497
 msgid "0 Users"
 msgstr "0 Felhasználó"
 
-#: ../src/hub.cc:524
+#: ../src/hub.cc:531
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr ""
 "Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
 
-#: ../src/hub.cc:563
+#: ../src/hub.cc:570
 msgid "<b>Enter your password</b>"
 msgstr "<b>Add meg a jelszavad<b>"
 
-#: ../src/hub.cc:950 ../src/privatemessage.cc:526
+#: ../src/hub.cc:1021 ../src/privatemessage.cc:526
 msgid " *** Emoticons not loaded"
 msgstr " *** A hangulatjelek nincsenek betöltve"
 
-#: ../src/hub.cc:955 ../src/privatemessage.cc:531
+#: ../src/hub.cc:1026 ../src/privatemessage.cc:531
 msgid " *** Emoticons mode off"
 msgstr " *** Hangulatjelek mód kikapcsolva"
 
-#: ../src/hub.cc:960 ../src/hub.cc:1039 ../src/privatemessage.cc:536
+#: ../src/hub.cc:1031 ../src/hub.cc:1110 ../src/privatemessage.cc:536
 #: ../src/privatemessage.cc:615
 msgid " *** Emoticons limit"
 msgstr " *** Hangulatjel korlátozás"
 
-#: ../src/hub.cc:1631 ../src/privatemessage.cc:1100
+#: ../src/hub.cc:1702 ../src/privatemessage.cc:1100
 msgid "Use Emoticons"
 msgstr "Hangulatjelek használata"
 
-#: ../src/hub.cc:1712 ../src/hub.cc:1725 ../src/hub.cc:1847
+#: ../src/hub.cc:1783 ../src/hub.cc:1796 ../src/hub.cc:1918
 #: ../src/privatemessage.cc:864 ../src/privatemessage.cc:878
 #: ../src/privatemessage.cc:932 ../glade/privatemessage.glade:190
-#: ../glade/hub.glade:349
+#: ../glade/hub.glade:405
 msgid "Away mode off"
 msgstr "Away-mód kikapcsolva"
 
-#: ../src/hub.cc:1719 ../src/privatemessage.cc:872
+#: ../src/hub.cc:1790 ../src/privatemessage.cc:872
 msgid "Away mode on: "
 msgstr "Away-mód bekapcsolva: "
 
-#: ../src/hub.cc:1756 ../src/hub.cc:2418 ../src/privatemessage.cc:1270
+#: ../src/hub.cc:1827 ../src/hub.cc:2489 ../src/privatemessage.cc:1270
 msgid " is favorite user"
 msgstr " kedvenc felhasználó"
 
-#: ../src/hub.cc:1758 ../src/hub.cc:1793 ../src/hub.cc:1803 ../src/hub.cc:1901
+#: ../src/hub.cc:1829 ../src/hub.cc:1864 ../src/hub.cc:1874 ../src/hub.cc:1972
 msgid "Not found user: "
 msgstr "Felhasználó nem található: "
 
-#: ../src/hub.cc:1774 ../src/hub.cc:2457 ../src/privatemessage.cc:1290
+#: ../src/hub.cc:1845 ../src/hub.cc:2528 ../src/privatemessage.cc:1290
 msgid " is not favorite user"
 msgstr " nem kedvenc felhasználó"
 
-#: ../src/hub.cc:1783
+#: ../src/hub.cc:1854
 msgid "User favorite list:"
 msgstr "Kedvenc felhasználók listája: "
 
-#: ../src/hub.cc:1783
+#: ../src/hub.cc:1854
 msgid " empty..."
 msgstr " üres..."
 
-#: ../src/hub.cc:1810 ../src/privatemessage.cc:920
+#: ../src/hub.cc:1881 ../src/privatemessage.cc:920
 msgid "Emoticons mode off"
 msgstr "Hangulatjelek mód kikapcsolva"
 
-#: ../src/hub.cc:1815 ../src/privatemessage.cc:925
+#: ../src/hub.cc:1886 ../src/privatemessage.cc:925
 msgid "Emoticons mode on"
 msgstr "Hangulatjelek mód bekapcsolva"
 
-#: ../src/hub.cc:1826
+#: ../src/hub.cc:1897
 msgid "Download image: disable"
 msgstr ""
 
-#: ../src/hub.cc:1828
+#: ../src/hub.cc:1899
 msgid "Download image: unlimit"
 msgstr ""
 
-#: ../src/hub.cc:1830
+#: ../src/hub.cc:1901
 msgid "Download limit image: "
 msgstr ""
 
-#: ../src/hub.cc:1836
+#: ../src/hub.cc:1907
 msgid "Set download limit image: "
 msgstr ""
 
-#: ../src/hub.cc:1841
+#: ../src/hub.cc:1912
 msgid "project home: "
 msgstr "a projekt weboldala: "
 
-#: ../src/hub.cc:1845 ../src/privatemessage.cc:930
+#: ../src/hub.cc:1916 ../src/privatemessage.cc:930
 msgid "*** Available commands:"
 msgstr "*** Elérhető parancsok:"
 
-#: ../src/hub.cc:1846 ../src/privatemessage.cc:931
-#: ../glade/privatemessage.glade:183 ../glade/hub.glade:342
+#: ../src/hub.cc:1917 ../src/privatemessage.cc:931
+#: ../glade/privatemessage.glade:183 ../glade/hub.glade:398
 msgid "Away mode message on/off"
 msgstr "Away-mód üzenet ki/be"
 
-#: ../src/hub.cc:1848 ../glade/hub.glade:356
+#: ../src/hub.cc:1919 ../glade/hub.glade:412
 msgid "Clear chat"
 msgstr "Chat törlése"
 
-#: ../src/hub.cc:1849
+#: ../src/hub.cc:1920
 msgid "Close chat"
 msgstr "Chat bezárása"
 
-#: ../src/hub.cc:1850 ../glade/hub.glade:363
+#: ../src/hub.cc:1921 ../glade/hub.glade:419
 msgid "Add a hub to favorites"
 msgstr "Hub hozzáadása a kedvencekhez"
 
-#: ../src/hub.cc:1851 ../src/privatemessage.cc:935
+#: ../src/hub.cc:1922 ../src/privatemessage.cc:935
 #: ../glade/privatemessage.glade:211
 msgid "Add user to favorites list"
 msgstr "Felhasználó hozzáadása a kedvencekhez"
 
-#: ../src/hub.cc:1852 ../src/privatemessage.cc:936
+#: ../src/hub.cc:1923 ../src/privatemessage.cc:936
 #: ../glade/privatemessage.glade:218
 msgid "Remove user favorite"
 msgstr "Kedvenc felhasználó törlése"
 
-#: ../src/hub.cc:1853 ../glade/hub.glade:370
+#: ../src/hub.cc:1924 ../glade/hub.glade:426
 msgid "Show favorites list"
 msgstr "Kedvencek mutatása"
 
-#: ../src/hub.cc:1854 ../src/privatemessage.cc:937
+#: ../src/hub.cc:1925 ../src/privatemessage.cc:937
 #: ../glade/privatemessage.glade:225
 msgid "Get file list"
 msgstr "Fájl-lista letöltése"
 
-#: ../src/hub.cc:1855 ../src/privatemessage.cc:938
+#: ../src/hub.cc:1926 ../src/privatemessage.cc:938
 #: ../glade/privatemessage.glade:232
 msgid "Grant extra slot"
 msgstr "Extra slot biztosítása"
 
-#: ../src/hub.cc:1856 ../src/privatemessage.cc:940
-#: ../glade/privatemessage.glade:239 ../glade/hub.glade:377
+#: ../src/hub.cc:1927 ../src/privatemessage.cc:940
+#: ../glade/privatemessage.glade:239 ../glade/hub.glade:433
 msgid "Show help"
 msgstr "Help mutatása"
 
-#: ../src/hub.cc:1857 ../glade/hub.glade:384
+#: ../src/hub.cc:1928 ../glade/hub.glade:440
 msgid "Connect to the hub"
 msgstr "Csatlakozás a hubhoz"
 
-#: ../src/hub.cc:1858 ../glade/hub.glade:391
+#: ../src/hub.cc:1929 ../glade/hub.glade:447
 msgid "Say a third person"
 msgstr "Beszéd harmadik személyben"
 
-#: ../src/hub.cc:1859 ../src/settingsdialog.cc:982
+#: ../src/hub.cc:1930 ../src/settingsdialog.cc:982
 #: ../src/settingsdialog.cc:1028 ../src/settingsdialog.cc:1148
 #: ../src/settingsmanager.cc:226
 msgid "Private message"
 msgstr "Privát üzenet"
 
-#: ../src/hub.cc:1860 ../glade/hub.glade:398
+#: ../src/hub.cc:1931 ../glade/hub.glade:454
 msgid "Rebuild hash"
 msgstr "Hash újraépítése"
 
-#: ../src/hub.cc:1861
+#: ../src/hub.cc:1932
 msgid "Update own file list"
 msgstr "Saját fájl-lista frissítése"
 
-#: ../src/hub.cc:1862
+#: ../src/hub.cc:1933
 msgid "User list show/hide"
 msgstr "Felhasználói lista mutatása/elrejtése"
 
-#: ../src/hub.cc:1863
+#: ../src/hub.cc:1934
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
 
-#: ../src/hub.cc:1864 ../glade/hub.glade:412
+#: ../src/hub.cc:1935 ../glade/hub.glade:468
 msgid "Show version"
 msgstr "Verzió mutatása"
 
-#: ../src/hub.cc:1865 ../src/privatemessage.cc:939
+#: ../src/hub.cc:1936 ../src/privatemessage.cc:939
 msgid "Emoticons on/off"
 msgstr "Hangulatjelek ki/be"
 
-#: ../src/hub.cc:1867
+#: ../src/hub.cc:1938
 msgid "Load Lua file"
 msgstr "Lua fájl betöltése"
 
-#: ../src/hub.cc:1868
+#: ../src/hub.cc:1939
 msgid "Execute Lua Chunk"
 msgstr "Lua kódrészlet futtatása"
 
-#: ../src/hub.cc:1870
+#: ../src/hub.cc:1941
 msgid "Execute code (bash)"
 msgstr "Kód futtatása (bash)"
 
-#: ../src/hub.cc:1871
+#: ../src/hub.cc:1942
 msgid "Alias List"
 msgstr "Álnevek listázása"
 
-#: ../src/hub.cc:1872
+#: ../src/hub.cc:1943
 msgid "Alias Remove A"
 msgstr "Álnév eltávolítása A"
 
-#: ../src/hub.cc:1873
+#: ../src/hub.cc:1944
 msgid "Alias add uname -a as A"
 msgstr "\"uname -a\" álnév hozzáadása, mint A"
 
-#: ../src/hub.cc:1874
+#: ../src/hub.cc:1945
 msgid "Alias A executing"
 msgstr "A álnév futtatása"
 
-#: ../src/hub.cc:1963
+#: ../src/hub.cc:2034
 msgid "Aliases not found."
 msgstr "Nem találhatóak álnevek."
 
-#: ../src/hub.cc:2064
+#: ../src/hub.cc:2135
 msgid "Unknown command '"
 msgstr "Ismeretlen parancs '"
 
-#: ../src/hub.cc:2064
+#: ../src/hub.cc:2135
 msgid "': type /help for a list of available commands"
 msgstr "': a használható parancsokat a /help használatával érheted el"
 
-#: ../src/hub.cc:2347 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1186
+#: ../src/hub.cc:2418 ../src/privatemessage.cc:1177 ../src/mainwindow.cc:1186
 #: ../src/mainwindow.cc:1254 ../glade/sharebrowser.glade:326
 #: ../glade/search.glade:563 ../glade/settingsdialog.glade:6013
 msgid "Choose a directory"
 msgstr "Könyvtár választása"
 
-#: ../src/hub.cc:2486
+#: ../src/hub.cc:2557
 msgid " added to favorites list"
 msgstr " hozzáadva a favoritokhoz"
 
-#: ../src/hub.cc:2513
+#: ../src/hub.cc:2584
 msgid " removed from favorites list"
 msgstr " törölve a favoritok közül"
 
-#: ../src/hub.cc:2627 ../src/hub.cc:2647
+#: ../src/hub.cc:2698 ../src/hub.cc:2718
 msgid "User not found"
 msgstr "Felhasználó nem található"
 
-#: ../src/hub.cc:2655 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2726 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Slot biztosítva: "
 
-#: ../src/hub.cc:2680
+#: ../src/hub.cc:2751
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "A csatlakozás nem lehetséges: a kért hubhoz már csatlakozva vagy"
 
-#: ../src/hub.cc:2734
+#: ../src/hub.cc:2805
 msgid "Favorite hub added"
 msgstr "Favorit hub hozzáadva"
 
-#: ../src/hub.cc:2739
+#: ../src/hub.cc:2810
 msgid "Favorite hub already exists"
 msgstr "Favorit hub már létezik"
 
-#: ../src/hub.cc:2849
+#: ../src/hub.cc:2920
 msgid "loading error"
 msgstr "hiba betöltése"
 
-#: ../src/hub.cc:2862
+#: ../src/hub.cc:2933
 msgid "bad image"
 msgstr ""
 
-#: ../src/hub.cc:3069
+#: ../src/hub.cc:3208
 msgid "Connecting to "
 msgstr "Csatlakozás: "
 
-#: ../src/hub.cc:3076 ../src/transfers.cc:1013
+#: ../src/hub.cc:3215 ../src/transfers.cc:1013
 msgid "Connected"
 msgstr "Csatlakozva"
 
-#: ../src/hub.cc:3132
+#: ../src/hub.cc:3271
 msgid "Connect failed: "
 msgstr "Csatlakozás sikertelen: "
 
-#: ../src/hub.cc:3278
+#: ../src/hub.cc:3417
 msgid "Ignored private message from hub"
 msgstr "Huboktól érkező privát üzenetek letiltása"
 
-#: ../src/hub.cc:3285
+#: ../src/hub.cc:3424
 msgid "Ignored private message from bot "
 msgstr "Némított privát üzenet a következőtől: "
 
-#: ../src/hub.cc:3302
+#: ../src/hub.cc:3441
 msgid "Nick already taken"
 msgstr "A nick használatban van"
 
-#: ../src/hub.cc:3309
+#: ../src/hub.cc:3448
 msgid "Search spam detected from "
 msgstr "Keresési spam érzékelve a következőtől: "
 
-#: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:2009
+#: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:2022
 msgid "ADL Search"
 msgstr "ADL keresés"
 
@@ -608,7 +608,7 @@ msgstr "Maximum méret"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1207
 #: ../src/settingsdialog.cc:1262 ../src/settingsdialog.cc:1325
-#: ../glade/mainwindow.glade:205 ../glade/mainwindow.glade:1921
+#: ../glade/mainwindow.glade:205 ../glade/mainwindow.glade:1934
 msgid "Favorite Users"
 msgstr "Kedvenc felhasználók"
 
@@ -657,8 +657,8 @@ msgstr " maradt"
 msgid "-:--:-- left"
 msgstr "-:--:-- maradt"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:213 ../src/mainwindow.cc:2187
-#: ../src/mainwindow.cc:2189 ../glade/settingsdialog.glade:1574
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:213 ../src/mainwindow.cc:2190
+#: ../src/mainwindow.cc:2192 ../glade/settingsdialog.glade:1574
 #: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
 msgid "s"
 msgstr "s"
@@ -670,7 +670,7 @@ msgstr "Kész"
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:953
 #: ../src/settingsdialog.cc:1217 ../src/settingsdialog.cc:1278
 #: ../src/settingsdialog.cc:1326 ../glade/mainwindow.glade:313
-#: ../glade/mainwindow.glade:2022 ../glade/settingsdialog.glade:3989
+#: ../glade/mainwindow.glade:2035 ../glade/settingsdialog.glade:3989
 msgid "Search Spy"
 msgstr "Keresési megfigyelő"
 
@@ -1024,14 +1024,14 @@ msgstr "Privát üzenet küldése dupla kattintásra a felhasználói listában"
 #: ../src/settingsdialog.cc:947 ../src/settingsdialog.cc:1208
 #: ../src/settingsdialog.cc:1282 ../src/settingsdialog.cc:1323
 #: ../src/finishedtransfers.cc:35 ../glade/mainwindow.glade:280
-#: ../glade/mainwindow.glade:1791 ../glade/mainwindow.glade:1980
+#: ../glade/mainwindow.glade:1804 ../glade/mainwindow.glade:1993
 msgid "Finished Downloads"
 msgstr "Befejezett letöltések"
 
 #: ../src/settingsdialog.cc:948 ../src/settingsdialog.cc:1209
 #: ../src/settingsdialog.cc:1284 ../src/settingsdialog.cc:1324
 #: ../src/finishedtransfers.cc:40 ../glade/mainwindow.glade:294
-#: ../glade/mainwindow.glade:1798 ../glade/mainwindow.glade:1993
+#: ../glade/mainwindow.glade:1811 ../glade/mainwindow.glade:2006
 msgid "Finished Uploads"
 msgstr "Befejezett feltöltések"
 
@@ -1046,8 +1046,8 @@ msgstr ""
 #: ../src/settingsdialog.cc:952 ../src/settingsdialog.cc:1216
 #: ../src/settingsdialog.cc:1274 ../src/search.cc:41
 #: ../glade/searchspy.glade:184 ../glade/searchspy.glade:249
-#: ../glade/mainwindow.glade:231 ../glade/mainwindow.glade:1763
-#: ../glade/mainwindow.glade:1936 ../glade/settingsdialog.glade:5750
+#: ../glade/mainwindow.glade:231 ../glade/mainwindow.glade:1776
+#: ../glade/mainwindow.glade:1949 ../glade/settingsdialog.glade:5750
 msgid "Search"
 msgstr "Keresés"
 
@@ -1171,56 +1171,56 @@ msgstr "Feltöltés"
 
 #: ../src/settingsdialog.cc:1206 ../src/settingsdialog.cc:1260
 #: ../src/settingsdialog.cc:1321 ../src/favoritehubs.cc:31
-#: ../glade/mainwindow.glade:170 ../glade/mainwindow.glade:1908
+#: ../glade/mainwindow.glade:170 ../glade/mainwindow.glade:1921
 msgid "Favorite Hubs"
 msgstr "Kedvenc hubok"
 
 #: ../src/settingsdialog.cc:1210 ../src/settingsdialog.cc:1268
-#: ../glade/mainwindow.glade:1742 ../glade/mainwindow.glade:1835
+#: ../glade/mainwindow.glade:1755 ../glade/mainwindow.glade:1848
 msgid "Own file list"
 msgstr "Saját fájl-lista"
 
 #: ../src/settingsdialog.cc:1211 ../src/settingsdialog.cc:1270
-#: ../glade/mainwindow.glade:1749 ../glade/mainwindow.glade:1848
+#: ../glade/mainwindow.glade:1762 ../glade/mainwindow.glade:1861
 msgid "Refresh"
 msgstr "Frissítés"
 
 #: ../src/settingsdialog.cc:1212 ../src/settingsdialog.cc:1272
-#: ../glade/mainwindow.glade:1756 ../glade/mainwindow.glade:1861
+#: ../glade/mainwindow.glade:1769 ../glade/mainwindow.glade:1874
 msgid "Hash"
 msgstr "Index"
 
 #: ../src/settingsdialog.cc:1213 ../src/settingsdialog.cc:1266
-#: ../glade/mainwindow.glade:1735 ../glade/mainwindow.glade:1817
+#: ../glade/mainwindow.glade:1748 ../glade/mainwindow.glade:1830
 #: ../glade/settingsdialog.glade:6
 msgid "Preferences"
 msgstr "Beállítások"
 
 #: ../src/settingsdialog.cc:1214 ../src/settingsdialog.cc:1264
 #: ../src/settingsdialog.cc:1320 ../src/publichubs.cc:29
-#: ../glade/mainwindow.glade:185 ../glade/mainwindow.glade:1728
-#: ../glade/mainwindow.glade:1949
+#: ../glade/mainwindow.glade:185 ../glade/mainwindow.glade:1741
+#: ../glade/mainwindow.glade:1962
 msgid "Public Hubs"
 msgstr "Publikus hubok"
 
 #: ../src/settingsdialog.cc:1215 ../src/settingsdialog.cc:1280
-#: ../glade/mainwindow.glade:1784 ../glade/mainwindow.glade:1967
+#: ../glade/mainwindow.glade:1797 ../glade/mainwindow.glade:1980
 #: ../glade/settingsdialog.glade:1740
 msgid "Queue"
 msgstr "Letöltési sor"
 
 #: ../src/settingsdialog.cc:1218 ../src/settingsdialog.cc:1286
-#: ../glade/mainwindow.glade:1805 ../glade/mainwindow.glade:2042
+#: ../glade/mainwindow.glade:1818 ../glade/mainwindow.glade:2055
 msgid "Quit"
 msgstr "Kilépés"
 
 #: ../src/settingsdialog.cc:1219 ../src/settingsdialog.cc:1258
-#: ../glade/mainwindow.glade:1707 ../glade/mainwindow.glade:1892
+#: ../glade/mainwindow.glade:1720 ../glade/mainwindow.glade:1905
 msgid "Connect"
 msgstr "Csatlakozás"
 
 #: ../src/settingsdialog.cc:1220 ../src/settingsdialog.cc:1256
-#: ../glade/mainwindow.glade:1700 ../glade/mainwindow.glade:1879
+#: ../glade/mainwindow.glade:1713 ../glade/mainwindow.glade:1892
 msgid "Reconnect"
 msgstr "Újracsatlakozás"
 
@@ -1234,12 +1234,12 @@ msgstr "Könyvtár"
 msgid "Search ADL"
 msgstr "ADL keresés"
 
-#: ../src/settingsdialog.cc:1252 ../glade/mainwindow.glade:1372
-#: ../glade/mainwindow.glade:1686 ../glade/mainwindow.glade:2060
+#: ../src/settingsdialog.cc:1252 ../glade/mainwindow.glade:1385
+#: ../glade/mainwindow.glade:1699 ../glade/mainwindow.glade:2073
 msgid "+/-"
 msgstr "+/-"
 
-#: ../src/settingsdialog.cc:1254 ../glade/mainwindow.glade:1693
+#: ../src/settingsdialog.cc:1254 ../glade/mainwindow.glade:1706
 msgid "Separators"
 msgstr "Elválasztók"
 
@@ -1531,7 +1531,7 @@ msgstr "Magnet beállítások / lehetőségek"
 msgid "Magnet Choice"
 msgstr ""
 
-#: ../src/mainwindow.cc:1883 ../glade/mainwindow.glade:1024
+#: ../src/mainwindow.cc:1883 ../glade/mainwindow.glade:1037
 msgid "Select filelist to browse"
 msgstr "Fájl-lista böngészése"
 
@@ -1543,7 +1543,7 @@ msgstr "Fájl-lista betöltése sikertelen: Nem megfelelő fájl-lista név"
 msgid "Loading file list"
 msgstr "Fájl-lista betöltése"
 
-#: ../src/mainwindow.cc:2110
+#: ../src/mainwindow.cc:2113
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -1553,19 +1553,19 @@ msgstr ""
 "megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a "
 "kívánt portot használó alkalmazást be nem zárod."
 
-#: ../src/mainwindow.cc:2112
+#: ../src/mainwindow.cc:2115
 msgid "Connectivity Manager: Warning"
 msgstr "Kapcsolat kezelő: Figyelmeztetés"
 
-#: ../src/mainwindow.cc:2153
+#: ../src/mainwindow.cc:2156
 msgid "file list from "
 msgstr ""
 
-#: ../src/mainwindow.cc:2163
+#: ../src/mainwindow.cc:2166
 msgid "<b>file:</b> "
 msgstr "<b>fájl</b> "
 
-#: ../src/mainwindow.cc:2222
+#: ../src/mainwindow.cc:2225
 msgid "Select file to Get TTH"
 msgstr "Fájl kiválasztása TTH másolásához"
 
@@ -1751,12 +1751,12 @@ msgid "Slots"
 msgstr "Slotok"
 
 #: ../src/search.cc:304 ../src/search.cc:374 ../src/sharebrowser.cc:480
-#: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1437
+#: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1450
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2739 ../glade/settingsdialog.glade:4052
 #: ../glade/settingsdialog.glade:4978 ../glade/settingsdialog.glade:4993
 #: ../glade/settingsdialog.glade:5008 ../glade/privatemessage.glade:118
-#: ../glade/hub.glade:276
+#: ../glade/hub.glade:332
 msgid "Browse..."
 msgstr "Böngészés..."
 
@@ -1871,7 +1871,7 @@ msgstr "_Alternatívák keresése"
 
 #: ../glade/sharebrowser.glade:301 ../glade/search.glade:486
 #: ../glade/downloadqueue.glade:204 ../glade/privatemessage.glade:129
-#: ../glade/hub.glade:287
+#: ../glade/hub.glade:343
 msgid "_Copy magnet"
 msgstr "Magnet _másolása"
 
@@ -2118,8 +2118,8 @@ msgstr ""
 msgid "Filter files already in share"
 msgstr ""
 
-#: ../glade/search.glade:272 ../glade/mainwindow.glade:1714
-#: ../glade/mainwindow.glade:1910
+#: ../glade/search.glade:272 ../glade/mainwindow.glade:1727
+#: ../glade/mainwindow.glade:1923
 msgid "Hubs"
 msgstr "Hubok"
 
@@ -2132,12 +2132,12 @@ msgid "_Search"
 msgstr "_Keresés"
 
 #: ../glade/search.glade:438 ../glade/privatemessage.glade:104
-#: ../glade/hub.glade:262
+#: ../glade/hub.glade:318
 msgid "_Download"
 msgstr "_Letöltés"
 
 #: ../glade/search.glade:445 ../glade/privatemessage.glade:111
-#: ../glade/hub.glade:269
+#: ../glade/hub.glade:325
 msgid "Download _to..."
 msgstr "Letöltés _ide..."
 
@@ -2155,7 +2155,7 @@ msgstr "_Keresés TTH alapján"
 
 #: ../glade/search.glade:498 ../glade/favoriteusers.glade:39
 #: ../glade/downloadqueue.glade:276 ../glade/transfers.glade:31
-#: ../glade/hub.glade:183
+#: ../glade/hub.glade:239
 msgid "_Browse file list"
 msgstr "Fájl-lista _böngészése"
 
@@ -2168,7 +2168,7 @@ msgid "Send _private message"
 msgstr "_Privát üzenet küldése"
 
 #: ../glade/search.glade:519 ../glade/transfers.glade:52
-#: ../glade/hub.glade:209
+#: ../glade/hub.glade:265
 msgid "_Add to favorites"
 msgstr "_Hozzáadás a kedvencekhez"
 
@@ -2180,25 +2180,25 @@ msgstr "_Extra slot biztosítása"
 msgid "Remove user from _queue"
 msgstr "Felhasználó törlése a _sorból"
 
-#: ../glade/search.glade:540 ../glade/hub.glade:242
+#: ../glade/search.glade:540 ../glade/hub.glade:298
 msgid "_User commands"
 msgstr "_Felhasználó parancsok"
 
 #: ../glade/favoriteusers.glade:46 ../glade/transfers.glade:38
-#: ../glade/hub.glade:190
+#: ../glade/hub.glade:246
 msgid "_Match queue"
 msgstr ""
 
-#: ../glade/favoriteusers.glade:53 ../glade/hub.glade:197
+#: ../glade/favoriteusers.glade:53 ../glade/hub.glade:253
 msgid "_Private message"
 msgstr "_Privát üzenet"
 
-#: ../glade/favoriteusers.glade:60 ../glade/hub.glade:228
+#: ../glade/favoriteusers.glade:60 ../glade/hub.glade:284
 msgid "_Grant slot"
 msgstr "_Slot biztosítása"
 
 #: ../glade/favoriteusers.glade:67 ../glade/transfers.glade:66
-#: ../glade/hub.glade:235
+#: ../glade/hub.glade:291
 msgid "_Remove user from queue"
 msgstr "_Felhasználó törlése a sorból"
 
@@ -2288,7 +2288,7 @@ msgstr "_Magnet lehetőségek"
 msgid "Calculate file TTH"
 msgstr "Fájl TTH kiszámítása"
 
-#: ../glade/mainwindow.glade:115 ../glade/mainwindow.glade:1187
+#: ../glade/mainwindow.glade:115 ../glade/mainwindow.glade:1200
 msgid "_Exit"
 msgstr "_Kilépés"
 
@@ -2328,96 +2328,101 @@ msgstr "_Következő ablak"
 msgid "_Close widget"
 msgstr "Ablak _bezárása"
 
-#: ../glade/mainwindow.glade:394 ../glade/settingsdialog.glade:3599
-msgid "Toolbar"
+#: ../glade/mainwindow.glade:394
+msgid "Panels"
 msgstr ""
 
 #: ../glade/mainwindow.glade:401
-#, fuzzy
-msgid "Top position"
-msgstr "Alkalmazás"
+msgid "Tools panel"
+msgstr ""
 
 #: ../glade/mainwindow.glade:408
+msgid "Top position"
+msgstr ""
+
+#: ../glade/mainwindow.glade:416
 msgid "Left position"
 msgstr ""
 
-#: ../glade/mainwindow.glade:421
-msgid "Small toolbar"
-msgstr ""
+#: ../glade/mainwindow.glade:430
+#, fuzzy
+msgid "Small icons"
+msgstr "Rendszer ikonok"
 
-#: ../glade/mainwindow.glade:433
-msgid "Hide tools"
-msgstr ""
+#: ../glade/mainwindow.glade:446
+#, fuzzy
+msgid "Hide tools panel"
+msgstr "Átvitelek mutatása/elrejtése "
 
-#: ../glade/mainwindow.glade:444
+#: ../glade/mainwindow.glade:457
 msgid "_Help"
 msgstr "_Segítség"
 
-#: ../glade/mainwindow.glade:451
+#: ../glade/mainwindow.glade:464
 msgid "Homepage"
 msgstr "Weboldal"
 
-#: ../glade/mainwindow.glade:465
+#: ../glade/mainwindow.glade:478
 msgid "Source (git)"
 msgstr "Forrás (git)"
 
-#: ../glade/mainwindow.glade:479
+#: ../glade/mainwindow.glade:492
 msgid "Report a Bug"
 msgstr "Hiba jelentése"
 
-#: ../glade/mainwindow.glade:493
+#: ../glade/mainwindow.glade:506
 msgid "Wiki of project"
 msgstr "A project Wiki oldala"
 
-#: ../glade/mainwindow.glade:512
+#: ../glade/mainwindow.glade:525
 msgid "Changelog (git)"
 msgstr "Változások (git)"
 
-#: ../glade/mainwindow.glade:531
+#: ../glade/mainwindow.glade:544
 msgid "About EiskaltDC++"
 msgstr "Névjegy: EiskaltDC++"
 
-#: ../glade/mainwindow.glade:603
+#: ../glade/mainwindow.glade:616
 msgid "Show/Hide transfers panel"
 msgstr "Átvitelek mutatása/elrejtése "
 
-#: ../glade/mainwindow.glade:636
+#: ../glade/mainwindow.glade:649
 msgid "Hubs (normal / registered / op)"
 msgstr ""
 
-#: ../glade/mainwindow.glade:675
+#: ../glade/mainwindow.glade:688
 msgid "Download speed"
 msgstr "Letöltési sebesség"
 
-#: ../glade/mainwindow.glade:713
+#: ../glade/mainwindow.glade:726
 msgid "Total received"
 msgstr "Összes bejövő adatmennyiség"
 
-#: ../glade/mainwindow.glade:735
+#: ../glade/mainwindow.glade:748
 msgid "Upload speed"
 msgstr "Feltöltési sebesség"
 
-#: ../glade/mainwindow.glade:774
+#: ../glade/mainwindow.glade:787
 msgid "Total sent"
 msgstr "Összes kimenő adatmennyiség"
 
-#: ../glade/mainwindow.glade:796
+#: ../glade/mainwindow.glade:809
 msgid "Exit EiskaltDC++ Gtk?"
 msgstr "Kilépsz az EiskaltDC++ Gtk-ból?"
 
-#: ../glade/mainwindow.glade:807
+#: ../glade/mainwindow.glade:820
 msgid "Do you really want to exit?"
 msgstr "Tényleg ki akarsz lépni?"
 
-#: ../glade/mainwindow.glade:853
+#: ../glade/mainwindow.glade:866
 msgid "Connect to a hub"
 msgstr "Csatlakozás a hubhoz"
 
-#: ../glade/mainwindow.glade:887
+#: ../glade/mainwindow.glade:900
 msgid "<b>Connect to address:</b>"
 msgstr "<b>Csatlakozás a címhez:</b>"
 
-#: ../glade/mainwindow.glade:948
+#: ../glade/mainwindow.glade:961
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2435,7 +2440,7 @@ msgstr ""
 " troll (http://code.google.com/p/freedcpp/)\n"
 " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 
-#: ../glade/mainwindow.glade:956
+#: ../glade/mainwindow.glade:969
 msgid ""
 "Translators\n"
 "\n"
@@ -2539,39 +2544,39 @@ msgstr ""
 " Martin Durisin\n"
 " (martin.durisin@gmail.com)\n"
 
-#: ../glade/mainwindow.glade:1073
+#: ../glade/mainwindow.glade:1086
 msgid "Enter line for user command"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1161
+#: ../glade/mainwindow.glade:1174
 msgid "_Show Interface"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1174
+#: ../glade/mainwindow.glade:1187
 msgid "Use Blinking Icon"
 msgstr "Villogó ikon használata"
 
-#: ../glade/mainwindow.glade:1201 ../glade/mainwindow.glade:1238
+#: ../glade/mainwindow.glade:1214 ../glade/mainwindow.glade:1251
 msgid "Magnet"
 msgstr "Magnet"
 
-#: ../glade/mainwindow.glade:1249
+#: ../glade/mainwindow.glade:1262
 msgid "File name"
 msgstr "Fájlnév"
 
-#: ../glade/mainwindow.glade:1275
+#: ../glade/mainwindow.glade:1288
 msgid "TTH"
 msgstr "TTH"
 
-#: ../glade/mainwindow.glade:1344
+#: ../glade/mainwindow.glade:1357
 msgid "Exact size"
 msgstr "Pontos méret"
 
-#: ../glade/mainwindow.glade:1383
+#: ../glade/mainwindow.glade:1396
 msgid "<b>Magnet properties</b>"
 msgstr "<b>Magnet beállítások</b>"
 
-#: ../glade/mainwindow.glade:1411
+#: ../glade/mainwindow.glade:1424
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
@@ -2579,100 +2584,99 @@ msgstr ""
 "A letöltés megkezdéséhez be kell kapcsolnod az alternatívák automatikus "
 "keresését (Beállítások/Letöltések/Letöltési sor)"
 
-#: ../glade/mainwindow.glade:1412
+#: ../glade/mainwindow.glade:1425
 msgid "Add this file to your download queue"
 msgstr "A fájl hozzáadása a letöltési sorhoz"
 
-#: ../glade/mainwindow.glade:1456
+#: ../glade/mainwindow.glade:1469
 msgid "Start a search for this file"
 msgstr "Keresés indítása erre a fájlra"
 
-#: ../glade/mainwindow.glade:1470
+#: ../glade/mainwindow.glade:1483
 msgid "Show magnet dialog"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1496
+#: ../glade/mainwindow.glade:1509
 msgid "Remember choice"
 msgstr "Emlékezz a válaszra"
 
-#: ../glade/mainwindow.glade:1525
+#: ../glade/mainwindow.glade:1538
 msgid "<b>What would you like to do?</b>"
 msgstr "<b>Mit szeretnél tenni?</b>"
 
-#: ../glade/mainwindow.glade:1553 ../glade/settingsdialog.glade:6086
+#: ../glade/mainwindow.glade:1566 ../glade/settingsdialog.glade:6086
 #: ../glade/settingsdialog.glade:6579 ../glade/settingsdialog.glade:6620
 msgid "gtk-cancel"
 msgstr "gtk-cancel"
 
-#: ../glade/mainwindow.glade:1563 ../glade/settingsdialog.glade:6591
+#: ../glade/mainwindow.glade:1576 ../glade/settingsdialog.glade:6591
 #: ../glade/settingsdialog.glade:6643
 msgid "gtk-ok"
 msgstr "gtk-ok"
 
-#: ../glade/mainwindow.glade:1592
+#: ../glade/mainwindow.glade:1605
 msgid "Chose A File"
 msgstr "Fájl választása"
 
-#: ../glade/mainwindow.glade:1770 ../glade/mainwindow.glade:2011
+#: ../glade/mainwindow.glade:1783 ../glade/mainwindow.glade:2024
 msgid "ADL"
 msgstr "ADL"
 
-#: ../glade/mainwindow.glade:1777 ../glade/mainwindow.glade:2024
+#: ../glade/mainwindow.glade:1790 ../glade/mainwindow.glade:2037
 msgid "Spy"
 msgstr "Keresések megfigyelése"
 
-#: ../glade/mainwindow.glade:1815
+#: ../glade/mainwindow.glade:1828
 msgid "Edit the preferences"
 msgstr "Beállítások szerkesztése"
 
-#: ../glade/mainwindow.glade:1833
+#: ../glade/mainwindow.glade:1846
 msgid "Open own file list"
 msgstr "Saját fájl-lista megnyitása"
 
-#: ../glade/mainwindow.glade:1846
+#: ../glade/mainwindow.glade:1859
 msgid "Refresh file list"
 msgstr "Fájl-lista frissítése"
 
-#: ../glade/mainwindow.glade:1859
+#: ../glade/mainwindow.glade:1872
 msgid "View the hashing progress"
 msgstr "Indexelés folyamata"
 
-#: ../glade/mainwindow.glade:1877
+#: ../glade/mainwindow.glade:1890
 msgid "Reconnect to the hub"
 msgstr "Újracsatlakozás a hubhoz"
 
-#: ../glade/mainwindow.glade:1890
+#: ../glade/mainwindow.glade:1903
 msgid "Quick connect to the hub"
 msgstr "Gyors csatlakozás a hubhoz"
 
-#: ../glade/mainwindow.glade:1934
+#: ../glade/mainwindow.glade:1947
 msgid "Search for files to download"
 msgstr "Fájlok keresése letöltéshez"
 
-#: ../glade/mainwindow.glade:1947
+#: ../glade/mainwindow.glade:1960
 msgid "Browse the list of public hubs"
 msgstr "Publikus hublista böngészése"
 
-#: ../glade/mainwindow.glade:1965
+#: ../glade/mainwindow.glade:1978
 msgid "View the files to be downloaded"
 msgstr "Letöltött fájlok megtekintése"
 
-#: ../glade/mainwindow.glade:1978
+#: ../glade/mainwindow.glade:1991
 msgid "View the list of finished downloads"
 msgstr "Befejezett letöltések listázása"
 
-#: ../glade/mainwindow.glade:1991
+#: ../glade/mainwindow.glade:2004
 msgid "View the list of finished uploads"
 msgstr "Befejezett feltöltések listázása"
 
-#: ../glade/mainwindow.glade:2040
+#: ../glade/mainwindow.glade:2053
 msgid "Quit the program"
 msgstr "Kilépés a programból"
 
-#: ../glade/mainwindow.glade:2058
-#, fuzzy
+#: ../glade/mainwindow.glade:2071
 msgid "Add / Remove"
-msgstr "Törlés"
+msgstr "Hozzáadás / Eltávolítás"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"
@@ -3163,6 +3167,10 @@ msgstr "Témák"
 msgid "<b>Toolbar buttons</b>"
 msgstr ""
 
+#: ../glade/settingsdialog.glade:3599
+msgid "Toolbar"
+msgstr ""
+
 #: ../glade/settingsdialog.glade:3643
 msgid "New string or TTH"
 msgstr ""
@@ -3632,24 +3640,24 @@ msgstr "Chat parancsok"
 msgid "Emoticons"
 msgstr "Hangulatjelek"
 
-#: ../glade/privatemessage.glade:97 ../glade/hub.glade:255
+#: ../glade/privatemessage.glade:97 ../glade/hub.glade:311
 msgid "_Search magnet"
 msgstr "_Magnet link keresése"
 
-#: ../glade/privatemessage.glade:141 ../glade/hub.glade:299
+#: ../glade/privatemessage.glade:141 ../glade/hub.glade:355
 msgid "_Properties/Choice"
 msgstr "_Beállítások / Lehetőségek"
 
 #: ../glade/privatemessage.glade:150 ../glade/privatemessage.glade:166
-#: ../glade/hub.glade:309 ../glade/hub.glade:325
+#: ../glade/hub.glade:365 ../glade/hub.glade:381
 msgid "_Copy link"
 msgstr "_Link másolása"
 
-#: ../glade/privatemessage.glade:157 ../glade/hub.glade:316
+#: ../glade/privatemessage.glade:157 ../glade/hub.glade:372
 msgid "_Open link in default application"
 msgstr "_Link megnyitása az alapértelmezett alkalmazással"
 
-#: ../glade/privatemessage.glade:173 ../glade/hub.glade:332
+#: ../glade/privatemessage.glade:173 ../glade/hub.glade:388
 msgid "_Open hub"
 msgstr "_Hub megnyitása"
 
@@ -3669,35 +3677,35 @@ msgstr "Könyvtár _megnyitása"
 msgid "Remove All"
 msgstr "Összes eltávolítása"
 
-#: ../glade/hub.glade:147
+#: ../glade/hub.glade:203
 msgid "Show/Hide user list"
 msgstr "Felhasználói lista mutatása/elrejtése"
 
-#: ../glade/hub.glade:169
+#: ../glade/hub.glade:225
 msgid "_Copy nick"
 msgstr "_Nick másolása"
 
-#: ../glade/hub.glade:176
+#: ../glade/hub.glade:232
 msgid "_Send public message"
 msgstr "_Publikus üzenet küldése"
 
-#: ../glade/hub.glade:216
+#: ../glade/hub.glade:272
 msgid "_Remove from favorites"
 msgstr "_Eltávolítás a kedvencekből"
 
-#: ../glade/hub.glade:405
+#: ../glade/hub.glade:461
 msgid "Set download limit image"
 msgstr ""
 
-#: ../glade/hub.glade:422
+#: ../glade/hub.glade:478
 msgid "Download image"
 msgstr ""
 
-#: ../glade/hub.glade:428
+#: ../glade/hub.glade:484
 msgid "Open image"
 msgstr ""
 
-#: ../glade/hub.glade:439
+#: ../glade/hub.glade:495
 msgid "Remove image"
 msgstr ""
 

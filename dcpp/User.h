@@ -113,7 +113,8 @@ public:
         CT_OP = 4,
         CT_SU = 8,
         CT_OWNER = 16,
-        CT_HUB = 32
+        CT_HUB = 32,
+        CT_HIDDEN = 64
     };
 
     Identity() : sid(0) { }
@@ -146,7 +147,7 @@ public:
     bool isHub() const { return isClientType(CT_HUB) || isSet("HU"); }
     bool isOp() const { return isClientType(CT_OP) || isClientType(CT_SU) || isClientType(CT_OWNER) || isSet("OP"); }
     bool isRegistered() const { return isClientType(CT_REGGED) || isSet("RG"); }
-    bool isHidden() const { return isSet("HI"); }
+    bool isHidden() const { return isClientType(CT_HIDDEN) || isSet("HI"); }
     bool isBot() const { return isClientType(CT_BOT) || isSet("BO"); }
     bool isAway() const { return isSet("AW"); }
         bool isTcpActive() const;
