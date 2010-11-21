@@ -11,13 +11,22 @@ find_program(PCRE_CONFIG pcre-config)
 pkg_check_modules(PCRE libpcrecpp)
 set (PCRE_INCLUDE_DIR ${PCRE_INCLUDE_DIRS})
 set (PCRE_LIBRARY ${PCRE_LDFLAGS})
-
 if (NOT PCRE_LIBRARY)
-    execute_process (COMMAND ${PCRE_CONFIG} --libs-cpp
+    execute_process (COMMAND ${PCRE_CONFIG} --version
                     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-                    OUTPUT_VARIABLE RE_LIBRARY
+                    OUTPUT_VARIABLE RE_VERSION
                     OUTPUT_STRIP_TRAILING_WHITESPACE)
-                    set (PCRE_LIBRARY ${RE_LIBRARY})
+    if (RE_VERSION VERSION_LESS 8.02)
+        find_library(RECPP_LIBRARY NAMES pcrecpp libpcrecpp)
+        find_library(REC_LIBRARY NAMES pcre libpcre)
+        set (PCRE_LIBRARY ${REC_LIBRARY} ${RECPP_LIBRARY})
+    else ()
+        execute_process (COMMAND ${PCRE_CONFIG} --libs-cpp
+                        WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+                        OUTPUT_VARIABLE RE_LIBRARY
+                        OUTPUT_STRIP_TRAILING_WHITESPACE)
+                        set (PCRE_LIBRARY ${RE_LIBRARY})
+    endif()
 endif ()
 
 if (NOT PCRE_INCLUDE_DIR)
