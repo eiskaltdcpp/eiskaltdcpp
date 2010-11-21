@@ -156,12 +156,25 @@ Files:
  sounds/*.wav
  emoticons/*
 Copyright:
- Copyright 1998-2009 Hylke Bons <hylkebons@gmail.com>
  Copyright 2010 ApexDC++ Project Team (http://www.apexdc.net/)
  Copyright 2010 FlylinkDC++ Project Team (http://code.google.com/p/flylinkdc/)
  Copyright 1996-2010 The KDE SC project (http://www.kde.org)
 License:
  GPL-2
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+Files:
+ emoticons/default/*
+ eiskaltdcpp-gtk/themes/hicolor/22x22/status/linuxdcpp*
+ eiskaltdcpp-gtk/themes/hicolor/16x16/status/humanity*
+Copyright:
+ Copyright 1998-2009 Hylke Bons <hylkebons@gmail.com>
+ Copyright 2004-2010 team of LinuxDC++ project (https://launchpad.net/linuxdcpp)
+ Copyright 2010 ZwS (anton.sudak@gmail.com)
+License:
+ GPL-2 or later
  .
  On Debian systems, the complete text of the GNU General
  Public License can be found in `/usr/share/common-licenses/GPL-2'.
