@@ -9,7 +9,6 @@ find_program(PCRE_CONFIG pcre-config)
 #pkg_check_modules(PCRE libpcre libpcrecpp libpcreposix)
 
 pkg_check_modules(PCRE libpcrecpp)
-
 set (PCRE_INCLUDE_DIR ${PCRE_INCLUDE_DIRS})
 set (PCRE_LIBRARY ${PCRE_LDFLAGS})
 
@@ -19,7 +18,7 @@ if (NOT PCRE_LIBRARY)
                     OUTPUT_VARIABLE RE_LIBRARY
                     OUTPUT_STRIP_TRAILING_WHITESPACE)
                     set (PCRE_LIBRARY ${RE_LIBRARY})
-endif (PCRE_LIBRARY)
+endif ()
 
 if (NOT PCRE_INCLUDE_DIR)
     find_path(RE_INCLUDE_DIR pcrecpp.h)
