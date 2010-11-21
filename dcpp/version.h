@@ -17,7 +17,7 @@
  */
 
 #define APPNAME "EiskaltDC++"
-#define VERSIONSTRING "2.1.1"
+#define VERSIONSTRING "2.1.2"
 #define VERSIONFLOAT 2.1
 #define DCVERSIONSTRING "0.75"
 
