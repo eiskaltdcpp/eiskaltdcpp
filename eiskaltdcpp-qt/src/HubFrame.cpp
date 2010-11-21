@@ -478,7 +478,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 QString chunk = Qt::escape(input.left(c_len));
                 chunk.remove(0, 1);
 
-                if (!chunk.contains(QRegExp("\\s"))){
+                QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
+
+                if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
                     output += "<u>" + chunk + "</u>";
 
                     input.remove(0, c_len + 1);
@@ -492,7 +494,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 QString chunk = Qt::escape(input.left(c_len));
                 chunk.remove(0, 1);
 
-                if (!chunk.contains(QRegExp("\\s"))){
+                QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
+
+                if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
                     output += "<b>" + chunk + "</b>";
 
                     input.remove(0, c_len + 1);
