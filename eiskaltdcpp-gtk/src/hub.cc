@@ -250,6 +250,10 @@ Hub::Hub(const string &address, const string &encoding):
     TagsMap[TAG_FAVORITE] = createTag_gui("TAG_FAVORITE", TAG_FAVORITE);
     TagsMap[TAG_URL] = createTag_gui("TAG_URL", TAG_URL);
 
+    BoldTag = gtk_text_buffer_create_tag(chatBuffer, "TAG_WEIGHT", "weight", PANGO_WEIGHT_BOLD, NULL);
+    UnderlineTag = gtk_text_buffer_create_tag(chatBuffer, "TAG_UNDERLINE", "underline", PANGO_UNDERLINE_SINGLE, NULL);
+    ItalicTag = gtk_text_buffer_create_tag(chatBuffer, "TAG_STYLE", "style", PANGO_STYLE_ITALIC, NULL);
+
     // Initialize favorite users list
     FavoriteManager::FavoriteMap map = FavoriteManager::getInstance()->getFavoriteUsers();
     FavoriteManager::FavoriteMap::const_iterator it;
@@ -890,40 +894,27 @@ void Hub::applyTags_gui(const string cid, const string &line)
             dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
 
             gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
-            GtkTextTag *tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table(chatBuffer), tagName.c_str());
-
-            if (!tag)
-                tag = gtk_text_buffer_create_tag(chatBuffer, tagName.c_str(), "weight", PANGO_WEIGHT_BOLD, NULL);
-
             gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
             gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
-                                             bold_text.c_str(), bold_text.size(), tag, TagsMap[tagMsg], NULL);
+                                             bold_text.c_str(), bold_text.size(), BoldTag, TagsMap[tagMsg], NULL);
         }
         else if (italic_tag)
         {
             dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
 
             gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
-            GtkTextTag *tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table(chatBuffer), tagName.c_str());
-
-            if (!tag)
-                tag = gtk_text_buffer_create_tag(chatBuffer, tagName.c_str(), "style", PANGO_STYLE_ITALIC, NULL);
             gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
             gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
-                                             italic_text.c_str(), italic_text.size(), tag, TagsMap[tagMsg], NULL);
+                                             italic_text.c_str(), italic_text.size(), ItalicTag, TagsMap[tagMsg], NULL);
         }
         else if (underline_tag)
         {
             dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
 
             gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
-            GtkTextTag *tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table(chatBuffer), tagName.c_str());
-
-            if (!tag)
-                tag = gtk_text_buffer_create_tag(chatBuffer, tagName.c_str(), "underline", PANGO_UNDERLINE_SINGLE, NULL);
             gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
             gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
-                                             underline_text.c_str(), underline_text.size(), tag, TagsMap[tagMsg], NULL);
+                                             underline_text.c_str(), underline_text.size(), UnderlineTag, TagsMap[tagMsg], NULL);
         }
 
         if (image_tag || bold_tag || italic_tag || underline_tag)

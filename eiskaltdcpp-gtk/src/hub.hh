@@ -232,6 +232,7 @@ class Hub:
         GtkTooltips *tips;
 #endif
         int ImgLimit;
+        GtkTextTag *BoldTag, *UnderlineTag, *ItalicTag;
 };
 
 #else
