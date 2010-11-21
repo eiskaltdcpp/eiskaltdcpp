@@ -1852,12 +1852,9 @@ void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const 
 void MainWindow::reloadSomeSettings(){
     for (int k = 0; k < arenaWidgets.size(); ++k){
         HubFrame *fr = qobject_cast<HubFrame *>(arenaMap[arenaWidgets.at(k)]);
-        PMWindow *pm = qobject_cast<PMWindow *>(arenaMap[arenaWidgets.at(k)]);
 
         if (fr)
             fr->reloadSomeSettings();
-        else if (pm)
-            pm->reloadSomeSettings();
     }
 }
 
