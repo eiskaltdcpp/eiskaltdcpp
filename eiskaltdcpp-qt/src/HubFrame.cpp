@@ -471,6 +471,34 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
             continue;
         }
+        else if (input.startsWith("_") && input.length() >= 3){
+            int c_len = input.indexOf("_", 1);
+
+            if (c_len > 1){
+                QString chunk = Qt::escape(input.left(c_len));
+                chunk.remove(0, 1);
+
+                if (!chunk.contains(QRegExp("\\s"))){
+                    output += "<u>" + chunk + "</u>";
+
+                    input.remove(0, c_len + 1);
+                }
+            }
+        }
+        else if (input.startsWith("*") && input.length() >= 3){
+            int c_len = input.indexOf("*", 1);
+
+            if (c_len > 1){
+                QString chunk = Qt::escape(input.left(c_len));
+                chunk.remove(0, 1);
+
+                if (!chunk.contains(QRegExp("\\s"))){
+                    output += "<b>" + chunk + "</b>";
+
+                    input.remove(0, c_len + 1);
+                }
+            }
+        }
         else if (input.startsWith("<")){
             output += "&lt;";
             input.remove(0, 1);
