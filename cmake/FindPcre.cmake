@@ -3,7 +3,7 @@ if (PCRE_INCLUDE_DIR AND PCRE_LIBRARY)
   set(PCREPP_FIND_QUIETLY TRUE)
 endif ()
 
-#find_program(PCRE_CONFIG pcre-config)
+find_program(PCRE_CONFIG pcre-config)
 #`pcre-config --cflags`
 #`pcre-config --libs-cpp`
 #pkg_check_modules(PCRE libpcre libpcrecpp libpcreposix)
