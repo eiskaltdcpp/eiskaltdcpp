@@ -11,6 +11,7 @@
 * Added ability to forced change the background color in the chat.
 * Fixed wrong icon path for App Bundle in Mac OS X. (The problem was added in 2.1.0)
 * BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
+* Support for *bold* and _underlined_ text like in Psi.
 *** eiskaltdcpp-gtk ***
 * Improvements in the toolbar.
 * BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
