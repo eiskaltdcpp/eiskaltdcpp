@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-11-13 16:24+0200\n"
-"PO-Revision-Date: 2010-11-01 14:21+0100\n"
+"PO-Revision-Date: 2010-11-21 14:00+0100\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -2333,9 +2333,8 @@ msgid "Toolbar"
 msgstr ""
 
 #: ../glade/mainwindow.glade:401
-#, fuzzy
 msgid "Top position"
-msgstr "Alkalmazás"
+msgstr ""
 
 #: ../glade/mainwindow.glade:408
 msgid "Left position"
@@ -2670,9 +2669,8 @@ msgid "Quit the program"
 msgstr "Kilépés a programból"
 
 #: ../glade/mainwindow.glade:2058
-#, fuzzy
 msgid "Add / Remove"
-msgstr "Törlés"
+msgstr "Hozzáadás / Eltávolítás"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"
