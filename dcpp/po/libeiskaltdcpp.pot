@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-13 15:58+0200\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -534,11 +534,11 @@ msgstr ""
 msgid "Request to seek beyond the end of data"
 msgstr ""
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr ""
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr ""
 

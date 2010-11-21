@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-13 15:58+0200\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
 "PO-Revision-Date: 2010-08-07 15:38+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -559,11 +559,11 @@ msgstr "%1%: супала %2% файл(ы,аў)"
 msgid "Request to seek beyond the end of data"
 msgstr "Запыталіся шукаць па-за мяжою дадзеных"
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr "<Упішыце радок>"
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr "Адкінуць"
 

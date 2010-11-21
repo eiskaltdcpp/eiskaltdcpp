@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-13 15:58+0200\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
 "PO-Revision-Date: 2010-10-08 19:26+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -564,11 +564,11 @@ msgstr "%1%: Emparejado %2% archivo"
 msgid "Request to seek beyond the end of data"
 msgstr "Solicitar búsqueda más allá del final de los datos"
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr "<Ingrese cadena>"
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr "Descartar"
 

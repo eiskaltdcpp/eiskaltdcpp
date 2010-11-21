@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-13 15:58+0200\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
 "PO-Revision-Date: 2009-02-22 14:17+0000\n"
 "Last-Translator: poy <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -564,11 +564,11 @@ msgstr "%1% a été expulsé : %2%"
 msgid "Request to seek beyond the end of data"
 msgstr "Demande de recherche au-delà de la fin des données"
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr "<Entrer chaîne de recherche>"
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr "Abandonner"
 

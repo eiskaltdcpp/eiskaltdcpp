@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-13 15:58+0200\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
 "PO-Revision-Date: 2008-05-04 16:18+0000\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -557,11 +557,11 @@ msgstr "%1%: Узгоджений файл %2%"
 msgid "Request to seek beyond the end of data"
 msgstr "Запит пошуку поза областю даних"
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr "<Введіть рядок>"
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr "Не зважати"
 

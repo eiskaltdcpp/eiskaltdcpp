@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-13 15:58+0200\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
 "PO-Revision-Date: 2010-10-03 20:20+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -552,11 +552,11 @@ msgstr "%1%: Согласован файл %2%"
 msgid "Request to seek beyond the end of data"
 msgstr "Запрос поиска вне области данных"
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr "<Введите строку>"
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr "Отклонить"
 
