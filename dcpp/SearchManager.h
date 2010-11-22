@@ -54,7 +54,8 @@ public:
         TYPE_PICTURE,
         TYPE_VIDEO,
         TYPE_DIRECTORY,
-        TYPE_TTH
+        TYPE_TTH,
+        TYPE_CD_IMAGE
     };
 
     void search(const string& aName, int64_t aSize, TypeModes aTypeMode, SizeModes aSizeMode, const string& aToken);

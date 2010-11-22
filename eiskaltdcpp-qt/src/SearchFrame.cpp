@@ -371,7 +371,8 @@ void SearchFrame::init(){
     QList<WulforUtil::Icons> icons;
     icons   << WulforUtil::eiFILETYPE_UNKNOWN  << WulforUtil::eiFILETYPE_MP3         << WulforUtil::eiFILETYPE_ARCHIVE
             << WulforUtil::eiFILETYPE_DOCUMENT << WulforUtil::eiFILETYPE_APPLICATION << WulforUtil::eiFILETYPE_PICTURE
-            << WulforUtil::eiFILETYPE_VIDEO    << WulforUtil::eiFOLDER_BLUE          << WulforUtil::eiFIND;
+            << WulforUtil::eiFILETYPE_VIDEO    << WulforUtil::eiFOLDER_BLUE          << WulforUtil::eiFIND
+            << WulforUtil::eiFILETYPE_ARCHIVE;
 
     for (int i = 0; i < icons.size(); i++)
         comboBox_FILETYPES->setItemIcon(i, WICON(icons.at(i)));
