@@ -97,6 +97,19 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
+    if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
+        QPalette p = textEdit_CHAT->palette();
+        QColor clr = p.color(QPalette::Active, QPalette::Base);
+
+        clr.setNamedColor(WSGET("hubframe/chat-background-color"));
+
+        if (clr.isValid()){
+            p.setColor(QPalette::Base, clr);
+
+            textEdit_CHAT->setPalette(p);
+        }
+    }
+
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_HUB, SIGNAL(clicked()), this, SLOT(slotHub()));
     connect(pushButton_SHARE, SIGNAL(clicked()), this, SLOT(slotShare()));
@@ -107,8 +120,6 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingChanged(QString,QString)));
 
     out_messages_index = 0;
-
-    reloadSomeSettings();
 }
 
 void PMWindow::setCompleter(QCompleter *completer, UserListModel *model) {
@@ -263,9 +274,6 @@ void PMWindow::showEvent(QShowEvent *e){
 
 void PMWindow::slotActivate(){
     plainTextEdit_INPUT->setFocus();
-}
-
-void PMWindow::reloadSomeSettings(){
 }
 
 QString PMWindow::getArenaTitle(){
@@ -573,5 +581,17 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
         }
 
         toolButton_SMILE->setVisible(!value.isEmpty() && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+    }
+    else if (key == "hubframe/chat-background-color"){
+        QPalette p = textEdit_CHAT->palette();
+        QColor clr = p.color(QPalette::Active, QPalette::Base);
+
+        clr.setNamedColor(value);
+
+        if (clr.isValid()){
+            p.setColor(QPalette::Base, clr);
+
+            textEdit_CHAT->setPalette(p);
+        }
     }
 }

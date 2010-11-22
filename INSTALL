@@ -95,8 +95,10 @@ make -j2
 sudo make install
 
 ---------
-# Note: you can get the lastest program sorces from subversion
-svn export http://eiskaltdc.googlecode.com/svn/branches/trunk/ eiskaltdcpp-trunk
+# Note: you can get the lastest program sorces from git repository
+git clone git://github.com/negativ/eiskaltdcpp.git
+# or
+wget -4 http://nodeload.github.com/negativ/eiskaltdcpp/tarball/master
 
 
 *******************************************************************************
@@ -126,8 +128,6 @@ Keys for cmake
     Enable/disable QtScript basic support
 -DUSE_QT_QML=ON/OFF (default: OFF)
     Enable/disable Qt Declarative Ui support. Work only with Qt >= 4.7.0
--DUSE_ICON_THEME=ON/OFF (default: OFF)
-    Using system icon theme. Work only with Qt >= 4.6.0 and only in KDE and Gnome.
 -----------------
 :eiskaltdcpp-gtk:
 -----------------

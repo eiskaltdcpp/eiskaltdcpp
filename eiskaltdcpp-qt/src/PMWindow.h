@@ -51,7 +51,6 @@ public:
     bool hasNewMessages() { return (hasMessages || hasHighlightMessages); }
 
 public Q_SLOTS:
-    void reloadSomeSettings();
     void slotActivate();
     void clearChat();
     void nextMsg();
