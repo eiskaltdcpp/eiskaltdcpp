@@ -91,7 +91,7 @@ const string SettingsManager::settingTags[] =
     "MaxDownloadSpeedMain", "MaxUploadSpeedMain",
     "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "KeepFinishedFiles",
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
-    "IpFilter",
+    "IpFilter", "TextColor",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",

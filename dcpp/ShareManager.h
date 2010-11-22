@@ -224,28 +224,13 @@ private:
     struct AdcSearch {
         AdcSearch(const StringList& params);
 
-        bool isExcluded(const string& str) {
-            for(StringSearch::List::iterator i = exclude.begin(); i != exclude.end(); ++i) {
-                if(i->match(str))
-                    return true;
-            }
-            return false;
-        }
-
-        bool hasExt(const string& name) {
-            if(ext.empty())
-                return true;
-            for(StringIter i = ext.begin(); i != ext.end(); ++i) {
-                if(name.length() >= i->length() && Util::stricmp(name.c_str() + name.length() - i->length(), i->c_str()) == 0)
-                    return true;
-            }
-            return false;
-        }
-
+        bool isExcluded(const string& str);
+        bool hasExt(const string& name);
         StringSearch::List* include;
         StringSearch::List includeX;
         StringSearch::List exclude;
         StringList ext;
+        StringList noExt;
 
         int64_t gt;
         int64_t lt;

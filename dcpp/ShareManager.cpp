@@ -20,7 +20,7 @@
 #include "DCPlusPlus.h"
 
 #include "ShareManager.h"
-
+#include "AdcHub.h"
 #include "CryptoManager.h"
 #include "ClientManager.h"
 #include "LogManager.h"
@@ -1276,6 +1276,11 @@ ShareManager::AdcSearch::AdcSearch(const StringList& params) : include(&includeX
             exclude.push_back(StringSearch(p.substr(2)));
         } else if(toCode('E', 'X') == cmd) {
             ext.push_back(p.substr(2));
+        } else if(toCode('G', 'R') == cmd) {
+           StringList exts = AdcHub::parseSearchExts(Util::toInt(p.substr(2)));
+            ext.insert(ext.begin(), exts.begin(), exts.end());
+        } else if(toCode('R', 'M') == cmd) {
+            noExt.push_back(p.substr(2));
         } else if(toCode('G', 'E') == cmd) {
             gt = Util::toInt64(p.substr(2));
         } else if(toCode('L', 'E') == cmd) {
@@ -1287,6 +1292,45 @@ ShareManager::AdcSearch::AdcSearch(const StringList& params) : include(&includeX
         }
     }
 }
+
+bool ShareManager::AdcSearch::isExcluded(const string& str) {
+	for(StringSearch::List::iterator i = exclude.begin(); i != exclude.end(); ++i) {
+		if(i->match(str))
+			return true;
+	}
+	return false;
+}
+
+bool ShareManager::AdcSearch::hasExt(const string& name) {
+	if(ext.empty())
+		return true;
+	if(!noExt.empty()) {
+		ext = StringList(ext.begin(), set_difference(ext.begin(), ext.end(), noExt.begin(), noExt.end(), ext.begin()));
+		noExt.clear();
+	}
+	for(StringIter i = ext.begin(), iend = ext.end(); i != iend; ++i) {
+		if(name.length() >= i->length() && Util::stricmp(name.c_str() + name.length() - i->length(), i->c_str()) == 0)
+			return true;
+	}
+	return false;
+}
+//-		bool isExcluded(const string& str) {
+//-			for(StringSearch::List::iterator i = exclude.begin(); i != exclude.end(); ++i) {
+//-				if(i->match(str))
+//-					return true;
+//-			}
+//-			return false;
+//-		}
+//-
+//-		bool hasExt(const string& name) {
+//-			if(ext.empty())
+//-				return true;
+//-			for(StringIter i = ext.begin(); i != ext.end(); ++i) {
+//-				if(name.length() >= i->length() && Util::stricmp(name.c_str() + name.length() - i->length(), i->c_str()) == 0)
+//-					return true;
+//-			}
+//-			return false;
+//-		}
 
 void ShareManager::Directory::search(SearchResultList& aResults, AdcSearch& aStrings, StringList::size_type maxResults) const throw() {
     StringSearch::List* cur = aStrings.include;
