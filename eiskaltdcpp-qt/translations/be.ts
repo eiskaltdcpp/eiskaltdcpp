@@ -70,7 +70,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Search String</source>
-        <translation type="unfinished">Шукаць радок</translation>
+        <translation>Шукаць радок</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
@@ -96,7 +96,7 @@
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Type Size</source>
         <translatorcomment>&quot;Памер у&quot;?</translatorcomment>
-        <translation type="unfinished">Памернасьць</translation>
+        <translation>Памернасьць</translation>
     </message>
 </context>
 <context>
@@ -162,7 +162,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="17"/>
         <source>Customize actions</source>
-        <translation type="unfinished">Наладзіць дзеяньні</translation>
+        <translation>Наладзіць дзеяньні</translation>
     </message>
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="26"/>
@@ -361,7 +361,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/DownloadQueue.cpp" line="379"/>
         <source>Checksum mismatch</source>
-        <translation type="unfinished">Неадпаведная кантрольная сума</translation>
+        <translation>Неадпаведная кантрольная сума</translation>
     </message>
     <message>
         <source>CRC32 inconsistency (SFV-Check)</source>
@@ -371,7 +371,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
         <location filename="../src/DownloadQueue.cpp" line="381"/>
         <source>Full tree does not match TTH root</source>
         <translatorcomment>Сьпіс не адпавядае скароту???</translatorcomment>
-        <translation type="unfinished">Скарот (TTH) сьцягнутага не адпавядае скароту крыніцы</translation>
+        <translation>Скарот (TTH) сьцягнутага не адпавядае скароту крыніцы</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="383"/>
@@ -786,7 +786,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Check sum</source>
-        <translation type="unfinished">Кантрольная сума</translation>
+        <translation>Кантрольная сума</translation>
     </message>
     <message>
         <source>CRC checked</source>
@@ -2109,12 +2109,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1164"/>
         <source>Source (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Крынічнікі (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1170"/>
         <source>Changelog (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Гісторыя зьмяненьняў (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1389"/>
@@ -2164,17 +2164,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2479"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Пераклаў у славацкую&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2481"/>
         <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(ад вэрсіі 2.1.0)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2606"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Паказваць гузікі «закрыць»</translation>
+        <translation>Паказваць гузікі «закрыць»</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2696"/>
@@ -2184,7 +2184,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2696"/>
         <source>All downloads complete</source>
-        <translation type="unfinished">Сьцягнулі ўсё</translation>
+        <translation>Сьцягнулі ўсё</translation>
     </message>
     <message>
         <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
@@ -2600,7 +2600,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="530"/>
         <source>Disable emoticons</source>
-        <translation type="unfinished">Не ўжываць пачуцьцезнакі</translation>
+        <translation>Не ўжываць пачуцьцезнакі</translation>
     </message>
     <message>
         <source> on hub </source>
@@ -2800,7 +2800,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/main.cpp" line="210"/>
         <source>Signal handlers installed.</source>
-        <translation type="unfinished">Апрацоўнікі сыгналаў усталяваныя.</translation>
+        <translation>Апрацоўнікі сыгналаў усталяваныя.</translation>
     </message>
 </context>
 <context>
@@ -3334,7 +3334,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SettingsGUI.cpp" line="99"/>
         <source>Slovak</source>
-        <translation type="unfinished"></translation>
+        <translation>Славацкая</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="232"/>
@@ -3411,7 +3411,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SettingsLog.cpp" line="84"/>
         <source>Choose the directory</source>
-        <translation type="unfinished">Абярыце каталёг</translation>
+        <translation>Абярыце каталёг</translation>
     </message>
 </context>
 <context>
@@ -3643,17 +3643,17 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="76"/>
         <source>Command produced no visible output.</source>
-        <translation type="unfinished">Загад ня даў бачнага выніку.</translation>
+        <translation>Загад ня даў бачнага выніку.</translation>
     </message>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="81"/>
         <source>Process exited with status</source>
-        <translation type="unfinished">Працэс скончыўся са станам</translation>
+        <translation>Працэс скончыўся са станам</translation>
     </message>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="84"/>
         <source>Process was killed or crashed.</source>
-        <translation type="unfinished">Працэс забілі або ён аварыйна скончыўся.</translation>
+        <translation>Працэс забілі або ён аварыйна скончыўся.</translation>
     </message>
     <message>
         <location filename="../src/ShellCommandRunner.cpp" line="87"/>
@@ -3671,7 +3671,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SettingsShortcuts.cpp" line="154"/>
         <source>Hotkey</source>
-        <translation type="unfinished">Выклічнік</translation>
+        <translation>Выклічнік</translation>
     </message>
 </context>
 <context>
@@ -3700,7 +3700,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SideBar.cpp" line="39"/>
         <source>ADLSearch</source>
-        <translation type="unfinished">Самарушна шукаць у сьпісах</translation>
+        <translation>Самарушна шукаць у сьпісах</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="40"/>
@@ -3815,7 +3815,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/ToolBar.cpp" line="211"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Паказваць гузікі «закрыць»</translation>
+        <translation>Паказваць гузікі «закрыць»</translation>
     </message>
 </context>
 <context>
@@ -3902,7 +3902,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="73"/>
         <source>Magnet</source>
-        <translation type="unfinished">Магніт-спасылка</translation>
+        <translation>Магніт-спасылка</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="78"/>
@@ -4197,7 +4197,7 @@ Do you want to stop it?
         <location filename="../ui/UIADLSearchEditor.ui" line="78"/>
         <source>Type source</source>
         <translatorcomment>&quot;від крыніцы&quot;?</translatorcomment>
-        <translation type="unfinished">Від крыніцы</translation>
+        <translation>Від крыніцы</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="94"/>
@@ -4213,7 +4213,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
         <source>Search string</source>
-        <translation type="unfinished">Шукаць радок</translation>
+        <translation>Шукаць радок</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="104"/>
@@ -5921,17 +5921,17 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
-        <translation type="unfinished">Набор значак карыстальнікаў</translation>
+        <translation>Набор значак карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>
         <source>Icon theme</source>
-        <translation type="unfinished">Набор агульных значак</translation>
+        <translation>Набор агульных значак</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="182"/>
         <source>Emoticon theme</source>
-        <translation type="unfinished">Набор пачуцьцезнакаў</translation>
+        <translation>Набор пачуцьцезнакаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="208"/>
@@ -6042,7 +6042,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="200"/>
         <source>Try to use system icons (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Спрабаваць ужываць сыстэмныя значкі (трэба запусьціць нанова)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="253"/>
@@ -6059,12 +6059,12 @@ from other words by spaces.</source>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
         <translation>Залежыць ад настаўленьняў асяродку: звычайна
-зьвесткі пра адрэсы IP могуць бачыць толькі апэратары.</translation>
+зьвесткі пра адрэсы IP могуць бачыць толькі апэратары</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="328"/>
         <source>Do not change focus on new incoming private messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Не пераходзіць да новых асабістых паведамленьняў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="355"/>
