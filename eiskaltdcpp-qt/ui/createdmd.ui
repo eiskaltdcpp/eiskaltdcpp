@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>727</width>
+    <width>728</width>
     <height>468</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Описание</string>
+       <string>Description</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
@@ -31,7 +31,7 @@
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Скриншоты</string>
+       <string>Screenshots</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
@@ -63,8 +63,11 @@
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <widget class="QLabel" name="label">
-           <property name="text">
+           <property name="toolTip">
             <string>Первый скриншот станет обложной</string>
+           </property>
+           <property name="text">
+            <string>The first screenshot will cover.</string>
            </property>
           </widget>
          </item>
@@ -84,7 +87,7 @@
          <item>
           <widget class="QPushButton" name="pushButton_10">
            <property name="toolTip">
-            <string>Добавить скриншот</string>
+            <string>Add screenshot</string>
            </property>
            <property name="text">
             <string/>
@@ -94,7 +97,7 @@
          <item>
           <widget class="QPushButton" name="pushButton_11">
            <property name="toolTip">
-            <string>Удалить скриншот</string>
+            <string>Delete screenshot</string>
            </property>
            <property name="text">
             <string/>
@@ -111,7 +114,7 @@
          <item>
           <widget class="QPushButton" name="pushButton_2">
            <property name="toolTip">
-            <string>Поднять</string>
+            <string>Up</string>
            </property>
            <property name="text">
             <string/>
@@ -121,7 +124,7 @@
          <item>
           <widget class="QPushButton" name="pushButton">
            <property name="toolTip">
-            <string>Опустить</string>
+            <string>Down</string>
            </property>
            <property name="text">
             <string/>
@@ -134,7 +137,7 @@
      </widget>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
-       <string>Файлы</string>
+       <string>Files</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
@@ -154,17 +157,20 @@
          <attribute name="headerDefaultSectionSize">
           <number>200</number>
          </attribute>
-         <attribute name="headerDefaultSectionSize">
-          <number>200</number>
-         </attribute>
         </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
           <widget class="QLabel" name="label_2">
-           <property name="text">
+           <property name="toolTip">
             <string>Добавляемые файлы должны быть на раздаче</string>
+           </property>
+           <property name="statusTip">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Adding files must be shared</string>
            </property>
           </widget>
          </item>
@@ -184,21 +190,21 @@
          <item>
           <widget class="QPushButton" name="pushButton_4">
            <property name="text">
-            <string>Добавить файл</string>
+            <string>Add file</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton_9">
            <property name="text">
-            <string>Добавить папку</string>
+            <string>Add directory</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton_5">
            <property name="text">
-            <string>Удалить</string>
+            <string>Delete</string>
            </property>
           </widget>
          </item>
@@ -226,21 +232,21 @@
      <item>
       <widget class="QPushButton" name="pushButton_8">
        <property name="text">
-        <string>Предпросмотр</string>
+        <string>Preview</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_6">
        <property name="text">
-        <string>Сохранить</string>
+        <string>Save</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_7">
        <property name="text">
-        <string>Отмена</string>
+        <string>Cancel</string>
        </property>
       </widget>
      </item>

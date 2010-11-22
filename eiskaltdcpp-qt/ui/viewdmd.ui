@@ -31,16 +31,6 @@
        <height>32</height>
       </size>
      </property>
-     <widget class="QWidget" name="tab">
-      <attribute name="title">
-       <string>View</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QTextBrowser" name="textBrowser"/>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
        <string>Files</string>
@@ -48,6 +38,16 @@
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QTreeView" name="treeView"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>View</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QTextBrowser" name="textBrowser"/>
        </item>
       </layout>
      </widget>
@@ -70,15 +70,18 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton">
-       <property name="text">
+       <property name="toolTip">
         <string>Принять</string>
+       </property>
+       <property name="text">
+        <string>Download</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_2">
        <property name="text">
-        <string>Закрыть</string>
+        <string>Close</string>
        </property>
       </widget>
      </item>
