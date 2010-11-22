@@ -227,8 +227,7 @@ msgstr "Адкрыць тэчку"
 #: ../src/favoritehubs.cc:124 ../src/favoritehubs.cc:294
 #: ../src/finishedtransfers.cc:78 ../src/finishedtransfers.cc:179
 #: ../src/search.cc:87 ../src/search.cc:559 ../src/search.cc:630
-#: ../src/search.cc:771 ../src/search.cc:1642
-#: ../glade/settingsdialog.glade:131
+#: ../src/search.cc:771 ../src/search.cc:1642 ../glade/settingsdialog.glade:131
 msgid "Nick"
 msgstr "Мянушка"
 
@@ -576,8 +575,7 @@ msgstr "Самарушна шукаць у сьпісах файлаў"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
-#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
-#: ../glade/adlsearch.glade:354
+#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393 ../glade/adlsearch.glade:354
 msgid "Enabled"
 msgstr "Задзейнічаць"
 
@@ -2170,8 +2168,7 @@ msgstr "Узгадніць _чаргу"
 msgid "Send _private message"
 msgstr "Асабістае _паведамленьне"
 
-#: ../glade/search.glade:519 ../glade/transfers.glade:52
-#: ../glade/hub.glade:265
+#: ../glade/search.glade:519 ../glade/transfers.glade:52 ../glade/hub.glade:265
 msgid "_Add to favorites"
 msgstr "_Дадаць да ўлюбёнцаў"
 
@@ -2338,23 +2335,20 @@ msgid "Tools panel"
 msgstr ""
 
 #: ../glade/mainwindow.glade:408
-#, fuzzy
 msgid "Top position"
-msgstr "Прыстасаваньне"
+msgstr "Уверсе"
 
 #: ../glade/mainwindow.glade:416
 msgid "Left position"
 msgstr ""
 
 #: ../glade/mainwindow.glade:430
-#, fuzzy
 msgid "Small icons"
-msgstr "Сыстэмныя значкі"
+msgstr "Маленькія значкі"
 
 #: ../glade/mainwindow.glade:446
-#, fuzzy
 msgid "Hide tools panel"
-msgstr "Паказаць або схаваць паліцу перадаванага"
+msgstr "Схаваць паліцу прылад"
 
 #: ../glade/mainwindow.glade:457
 msgid "_Help"
@@ -2677,9 +2671,8 @@ msgid "Quit the program"
 msgstr "Выйсьці з праграмы"
 
 #: ../glade/mainwindow.glade:2071
-#, fuzzy
 msgid "Add / Remove"
-msgstr "Выкрасьліць"
+msgstr "Дадаць / Выкрасьліць"
 
 #: ../glade/settingsdialog.glade:92
 msgid "Max upload speed (MiB/s)"
@@ -3722,7 +3715,6 @@ msgstr "Адкрыць відарыс"
 msgid "Remove image"
 msgstr "Сьцерці відарыс"
 
-#, fuzzy
 #~ msgid "Small toolbar"
 #~ msgstr "Паліца прыладаў"
 
