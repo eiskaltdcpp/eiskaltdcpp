@@ -819,58 +819,61 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
         }
 
         if(!aExtList.empty()) {
-			StringList exts = aExtList;
+            StringList exts = aExtList;
 
-			if(exts.size() > 2) {
-				sort(exts.begin(), exts.end());
+            if(exts.size() > 2) {
+                sort(exts.begin(), exts.end());
 
-				uint8_t gr = 0;
+                uint8_t gr = 0;
 
-				defineSearchExts();
-				for(std::vector<StringList>::iterator i = searchExts.begin(), iend = searchExts.end(); i != iend; ++i) {
-					const StringList& def = *i;
+                defineSearchExts();
+                for(std::vector<StringList>::iterator i = searchExts.begin(), iend = searchExts.end(); i != iend; ++i) {
+                    const StringList& def = *i;
 
-					// gather the exts not present in any of the lists
-					StringList temp(def.size() + exts.size());
-					temp = StringList(temp.begin(), set_symmetric_difference(def.begin(), def.end(),
-						exts.begin(), exts.end(), temp.begin()));
+                    // gather the exts not present in any of the lists
+                    StringList temp(def.size() + exts.size());
+                    temp = StringList(temp.begin(), set_symmetric_difference(def.begin(), def.end(),
+                        exts.begin(), exts.end(), temp.begin()));
 
-					// figure out whether the remaining exts have to be added or removed from the set
-					StringList rm;
-					bool ok = true;
-					for(StringIter diff = temp.begin(); diff != temp.end();) {
-						if(find(def.begin(), def.end(), *diff) == def.end()) {
-							++diff; // will be added further below as an "EX"
-						} else {
-							if(rm.size() == 2) {
-								ok = false;
-								break;
-							}
-							rm.push_back(*diff);
-							diff = temp.erase(diff);
-						}
-					}
-					if(!ok) // too many "RM"s necessary - disregard this group
-						continue;
+                    // figure out whether the remaining exts have to be added or removed from the set
+                    StringList rm;
+                    bool ok = true;
+                    for(StringIter diff = temp.begin(); diff != temp.end();) {
+                        if(find(def.begin(), def.end(), *diff) == def.end()) {
+                            ++diff; // will be added further below as an "EX"
+                        } else {
+                            if(rm.size() == 2) {
+                                ok = false;
+                                break;
+                            }
+                            rm.push_back(*diff);
+                            diff = temp.erase(diff);
+                        }
+                    }
+                    if(!ok) // too many "RM"s necessary - disregard this group
+                        continue;
 
-					// let's include this group!
-					gr += 1 << (i - searchExts.begin());
+                    // let's include this group!
+                    gr += 1 << (i - searchExts.begin());
 
-					exts = temp; // the exts to still add (that were not defined in the group)
+                    exts = temp; // the exts to still add (that were not defined in the group)
 
-					for(StringIter rmi = rm.begin(), rmiend = rm.end(); rmi != rmiend; ++rmi)
-						c.addParam("RM", *rmi);
+                    for(StringIter rmi = rm.begin(), rmiend = rm.end(); rmi != rmiend; ++rmi)
+                        c.addParam("RM", *rmi);
 
-					if(exts.size() <= 2)
-						break;
-					// keep looping to see if there are more exts that can be grouped
-				}
+                    if(exts.size() <= 2)
+                        break;
+                    // keep looping to see if there are more exts that can be grouped
+                }
 
-				if(gr)
-					c.addParam("GR", Util::toString(gr));
-			}
+                if(gr)
+                    c.addParam("GR", Util::toString(gr));
+            }
 
-			for(StringIterC i = exts.begin(), iend = exts.end(); i != iend; ++i)
+            //for(StringIterC i = exts.begin(), iend = exts.end(); i != iend; ++i)
+            //так как большинство клиентов не поддерживает сейчас параметр GR в поисковом запросе
+            // пока шлём полный список экстеншенов, иначе возвращаются нерелевантные результаты
+            for(StringIterC i = aExtList.begin(); i != aExtList.end(); ++i)
                 c.addParam("EX", *i);
         }
     }
