@@ -59,6 +59,9 @@ void parseCmdLine(const QStringList &);
 #ifndef Q_WS_WIN
 #include <unistd.h>
 #include <signal.h>
+#include <execinfo.h>
+
+#include "Backtrace.h"
 
 void installHandlers();
 
@@ -199,6 +202,16 @@ void parseCmdLine(const QStringList &args){
 }
 
 #ifndef Q_WS_WIN
+void printBacktrace(int){
+    std::cerr << "\n\n*************************************************************\n";
+    std::cerr << "Oops! Please report a bug at http://code.google.com/p/eiskaltdc/issues/list provide the following backtrace:\n";
+    print_stacktrace();
+
+    raise(SIGINT);
+
+    std::abort();
+}
+
 void installHandlers(){
     struct sigaction sa;
     memset(&sa, 0, sizeof(sa));
@@ -206,6 +219,8 @@ void installHandlers(){
     if (sigaction(SIGPIPE, &sa, NULL) == -1){
         std::cout << QObject::tr("Cannot handle SIGPIPE").toStdString() << std::endl;
     }
+
+    signal(SIGSEGV, printBacktrace);
 
     std::cout << QObject::tr("Signal handlers installed.").toStdString() << std::endl;
 }

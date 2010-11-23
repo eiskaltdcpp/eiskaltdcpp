@@ -107,6 +107,7 @@ set (MOC_HDRS
             src/Antispam.h
             src/AntiSpamFrame.h
             src/ArenaWidget.h
+            src/Backtrace.h
             src/CustomFontModel.h
 	    src/CustomSetting.h
             src/DownloadQueue.h
