@@ -155,7 +155,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("spyframe-ignore-tth-searches", 0));
     defaultInt.insert(IntMap::value_type("fav-show-joins", 0));
     defaultInt.insert(IntMap::value_type("show-joins", 0));
-
+    defaultInt.insert(IntMap::value_type("show-preferences-on-startup", 1));
     defaultString.insert(StringMap::value_type("magnet-choose-dir", SETTING(DOWNLOAD_DIRECTORY)));
     defaultString.insert(StringMap::value_type("downloadqueue-order", ""));
     defaultString.insert(StringMap::value_type("downloadqueue-width", ""));

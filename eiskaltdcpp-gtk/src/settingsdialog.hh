@@ -45,17 +45,17 @@ class Settings:
         // GUI functions
         void addOption_gui(GtkListStore *store, const std::string &name, dcpp::SettingsManager::IntSetting setting);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, const std::string &name,
-            const std::string &key1, const std::string &key2, const std::string &key3, const std::string &key4);
+        const std::string &key1, const std::string &key2, const std::string &key3, const std::string &key4);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm,
-            const std::string &name, const std::string &key1, const std::string &key2,
-            const std::string &key3, const int key4);
+        const std::string &name, const std::string &key1, const std::string &key2,
+        const std::string &key3, const int key4);
         void addOption_gui(GtkListStore *store, const std::string &name, const std::string &setting);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, const std::string &name,
-            const std::string &key1, const std::string &key2);
+        const std::string &key1, const std::string &key2);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, GtkIconTheme *iconTheme,
-            const std::string &name, const std::string &key1);
+        const std::string &name, const std::string &key1);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, GtkIconTheme *iconTheme,
-            const std::string &name, const std::string &key1, const std::string &key2);
+        const std::string &name, const std::string &key1, const std::string &key2);
         void addOption_gui(GtkListStore *store, const std::string &type, const dcpp::StringList &exts, bool predefined, const int key);//NOTE: core 0.770
         void createOptionsView_gui(TreeView &treeView, GtkListStore *&store, const std::string &widgetName);
         void saveOptionsView_gui(TreeView &treeView, dcpp::SettingsManager *sm);
@@ -85,7 +85,6 @@ class Settings:
         // GUI callbacks
         static void onOptionsViewToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);
         static void onInDirect_gui(GtkToggleButton *button, gpointer data);
-                ///@todo Uncomment when implemented
         static void onInFW_UPnP_gui(GtkToggleButton *button, gpointer data); //NOTE: core 0.762
         static void onInPassive_gui(GtkToggleButton *button, gpointer data);
         static void onInFW_NAT_gui(GtkToggleButton *button, gpointer data);
@@ -157,19 +156,19 @@ class Settings:
         static void onDefaultThemeButton_gui(GtkWidget *widget, gpointer data);
         static void onDefaultColorsSPButton_gui(GtkWidget *widget, gpointer data);
         static void onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data);
-                static void onLimitSecondToggled_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762
-                static void onAddSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onModifySTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onRenameSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onRemoveSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onDefaultSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onAddExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onEditExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onRemoveExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onUpExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onDownExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
-                static void onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);//NOTE: core 0.770
-                static void onSTButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);//NOTE: core 0.770
+        static void onLimitSecondToggled_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762
+        static void onAddSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onModifySTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onRenameSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onRemoveSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onDefaultSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onAddExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onEditExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onRemoveExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onUpExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onDownExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);//NOTE: core 0.770
+        static void onSTButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);//NOTE: core 0.770
 
         // Client functions
         void saveSettings_client();

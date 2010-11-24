@@ -487,7 +487,6 @@ void FavoriteUsers::getFileList_client(const string cid, const string hubUrl, bo
 		{
 			const HintedUser hintedUser(user, hubUrl);//NOTE: core 0.762
 			if (match)
-
 				QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);//NOTE: core 0.762
 			else
 				QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762

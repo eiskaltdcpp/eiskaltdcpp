@@ -242,10 +242,10 @@ MainWindow::MainWindow():
     Sound::start();
     Emoticons::start();
     Notify::start();
-    
+
     if (WGETI("main-window-maximized"))
         gtk_window_maximize(window);
-    
+
 #ifdef LUA_SCRIPT
     ScriptManager::getInstance()->load();//aded
     // Start as late as possible, as we might (formatting.lua) need to examine settings
@@ -320,6 +320,13 @@ void MainWindow::show()
     WulforManager::get()->dispatchClientFunc(f0);
 
     autoOpen_gui();
+
+	if (WGETI("show-preferences-on-startup"))
+    {
+       onPreferencesClicked_gui(NULL, (gpointer)this);
+        WSET("show-preferences-on-startup", 0);
+    }
+
 }
 
 void MainWindow::setTitle(const string& text)
@@ -1937,8 +1944,7 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
 
     if (item->isSet(QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_USER_LIST))
     {
-//              UserPtr user = item->getDownloads()[0]->getUser();
-                const HintedUser user = item->getDownloads()[0]->getHintedUser();//NOTE: core 0.762
+        const HintedUser user = item->getDownloads()[0]->getHintedUser();//NOTE: core 0.762
         string listName = item->getListName();
 
         F3 *f3 = new F3(this, &MainWindow::showNotification_gui, _("file list from "), WulforUtil::getNicks(user),
@@ -1946,8 +1952,7 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
         WulforManager::get()->dispatchGuiFunc(f3);
 
         typedef Func4<MainWindow, UserPtr, string, string, bool> F4;
-//              F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user, listName, dir, TRUE);
-                F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user.user, listName, dir, TRUE);//NOTE: core 0.762
+        F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user.user, listName, dir, TRUE);//NOTE: core 0.762
         WulforManager::get()->dispatchGuiFunc(func);
     }
     else if (!item->isSet(QueueItem::FLAG_XML_BZLIST))

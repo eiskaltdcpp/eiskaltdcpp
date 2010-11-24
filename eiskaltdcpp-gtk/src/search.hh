@@ -70,9 +70,11 @@ class Search:
 		void search_gui();
 		void addResult_gui(const dcpp::SearchResultPtr result);
 		void updateParentRow_gui(GtkTreeIter *parent, GtkTreeIter *child = NULL);
+		GtkTreeIter createParentRow_gui(GtkTreeIter *child, const std::string &groupStr, gint position = -1);
 		void ungroup_gui();
 		void regroup_gui();
 		std::string getGroupingColumn(GroupType groupBy);
+		void download_gui(const std::string &target);
 
 		// GUI callbacks
 		static gboolean onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data);

@@ -854,31 +854,31 @@ void Transfers::closeConnection_client(string cid, bool download)
 
 void Transfers::getParams_client(StringMap& params, ConnectionQueueItem* cqi)
 {
-        // NOTE: const HintedUser& getUser() const { return user; }
-        const HintedUser &user = cqi->getUser();
+    // NOTE: const HintedUser& getUser() const { return user; }
+    const HintedUser &user = cqi->getUser();
 
-        params["CID"] = user.user->getCID().toBase32();//NOTE: core 0.762
-        params[_("User")] = WulforUtil::getNicks(user);//NOTE: core 0.762
-        params[_("Hub Name")] = WulforUtil::getHubNames(user);//NOTE: core 0.762
+    params["CID"] = user.user->getCID().toBase32();//NOTE: core 0.762
+    params[_("User")] = WulforUtil::getNicks(user);//NOTE: core 0.762
+    params[_("Hub Name")] = WulforUtil::getHubNames(user);//NOTE: core 0.762
     params["Failed"] = "0";
-        params["Hub URL"] = user.hint;//NOTE: core 0.762
+    params["Hub URL"] = user.hint;//NOTE: core 0.762
 }
 
 void Transfers::getParams_client(StringMap& params, Transfer* tr)
 {
-        // NOTE: const HintedUser getHintedUser() const;
-        const HintedUser user = tr->getHintedUser();//NOTE: core 0.762
+    // NOTE: const HintedUser getHintedUser() const;
+    const HintedUser user = tr->getHintedUser();//NOTE: core 0.762
     double percent = 0.0;
 
-        params["CID"] = user.user->getCID().toBase32();
+    params["CID"] = user.user->getCID().toBase32();
     if (tr->getType() == Transfer::TYPE_FULL_LIST || tr->getType() == Transfer::TYPE_PARTIAL_LIST)
         params[_("Filename")] = _("File list");
     else if (tr->getType() == Transfer::TYPE_TREE)
         params[_("Filename")] = "TTH: " + Util::getFileName(tr->getPath());
     else
         params[_("Filename")] = Util::getFileName(tr->getPath());
-        params[_("User")] = WulforUtil::getNicks(user);//NOTE: core 0.762
-        params[_("Hub Name")] = WulforUtil::getHubNames(user);//NOTE: core 0.762
+    params[_("User")] = WulforUtil::getNicks(user);//NOTE: core 0.762
+    params[_("Hub Name")] = WulforUtil::getHubNames(user);//NOTE: core 0.762
     params[_("Path")] = Util::getFilePath(tr->getPath());
     params[_("Size")] = Util::toString(tr->getSize());
     params["Download Position"] = Util::toString(tr->getPos());
@@ -1022,13 +1022,9 @@ void Transfers::on(ConnectionManagerListener::Connected, ConnectionQueueItem* cq
 
 void Transfers::on(ConnectionManagerListener::Removed, ConnectionQueueItem* cqi) throw()
 {
-//      typedef Func2<Transfers, const string, bool> F2;
-//      F2* f2 = new F2(this, &Transfers::removeConnection_gui, cqi->getUser()->getCID().toBase32(), cqi->getDownload());
-//      WulforManager::get()->dispatchGuiFunc(f2);
-
-        string cid = cqi->getUser().user->getCID().toBase32();//NOTE: core 0.762
+    string cid = cqi->getUser().user->getCID().toBase32();//NOTE: core 0.762
     typedef Func2<Transfers, const string, bool> F2;
-        F2* f2 = new F2(this, &Transfers::removeConnection_gui, cid, cqi->getDownload());
+    F2* f2 = new F2(this, &Transfers::removeConnection_gui, cid, cqi->getDownload());
     WulforManager::get()->dispatchGuiFunc(f2);
 }
 
