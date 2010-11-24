@@ -2,10 +2,10 @@ EiskaltDC++ Gtk:
 ----------------
 Boris Pek <tehnick-8@mail.ru>
 Eugene Petrov <dhamp@ya.ru>
-Leliksan Floyd <leliksan@gmail.com>
 
 Contributors:
-troll (http://code.google.com/p/freedcpp/)
+troll <troll.freedcpp@gmail.com> (http://code.google.com/p/freedcpp/)
+Mank <mank@jabbim.cz> (http://sourceforge.net/projects/freedcppmv/)
 
 FreeDC++:
 ---------
