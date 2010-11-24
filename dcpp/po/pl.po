@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-28 16:31+0300\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
 "PO-Revision-Date: 2009-03-03 22:46+0000\n"
 "Last-Translator: LadyStardust <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,36 +26,36 @@ msgstr "Wykop użytkownika(ów)"
 msgid "Redirect user(s)"
 msgstr "Przekieruj użytkownika(ów)"
 
-#: ../Socket.cpp:61
+#: ../Socket.cpp:65
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Nieznany błąd: 0x%1$x"
 
-#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:183
+#: ../Socket.cpp:165 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:191
 msgid "Connection timeout"
 msgstr "Przekroczenie czasu połączenia"
 
-#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
-#: ../Socket.cpp:238 ../Socket.cpp:253
+#: ../Socket.cpp:173 ../Socket.cpp:181 ../Socket.cpp:214 ../Socket.cpp:218
+#: ../Socket.cpp:242 ../Socket.cpp:257
 msgid "The socks server failed establish a connection"
 msgstr "Serwer socks zakończył niepowodzeniem ustanawianie połączenia"
 
-#: ../Socket.cpp:242
+#: ../Socket.cpp:246
 msgid "The socks server requires authentication"
 msgstr "Serwer SOCKS wymaga uwierzytelnienia"
 
-#: ../Socket.cpp:256
+#: ../Socket.cpp:260
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Serwer SOCKS nie obsługuje autoryzacji za pomocą loginu/hasła"
 
-#: ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:274 ../Socket.cpp:278
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
 "Uwierzytelnienie serwera socks zakończone niepowodzeniem (nieprawidłowy "
 "login/hasło?)"
 
-#: ../Socket.cpp:409
+#: ../Socket.cpp:413
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -63,21 +63,59 @@ msgstr ""
 "Nie udało się ustawić serwera socks dla przekierowań UDP (sprawdź adres i "
 "port socks)"
 
-#: ../DCPlusPlus.cpp:115
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
 msgstr "Baza danych hashów"
 
-#: ../DCPlusPlus.cpp:118
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "Udostępnione pliki"
 
-#: ../DCPlusPlus.cpp:121
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "Kolejka pobierania"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "Nie można utworzyć wątku"
+
+#: ../ConnectivityManager.cpp:61
+msgid "Determining connection type..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:66
+msgid "Unable to open %1% port(s). You must set up your connection manually"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:73
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:78
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:110
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:120
+msgid "TCP/TLS"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:126
+msgid "UDP"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:137
+#, fuzzy
+msgid "Connectivity: "
+msgstr "Błąd łączenia: %1%"
 
 #: ../UploadManager.cpp:157
 msgid "Unable to send file %1%: %2%"
@@ -87,18 +125,18 @@ msgstr "Niemożna wysłać pliku %1%: %2%"
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Rozłączony użytkownik opuścił hub: %1%"
 
-#: ../NmdcHub.cpp:282
+#: ../NmdcHub.cpp:283
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nazwa użytkownika nieznana)"
 
-#: ../NmdcHub.cpp:902
+#: ../NmdcHub.cpp:905
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
 msgstr ""
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
+#: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
 msgid "Offline"
 msgstr "Niedostępny"
 
@@ -130,46 +168,46 @@ msgstr "%1% został wykopany przez %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% został wykopany: %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nie nasłuchuje połączeń - uruchom ponownie %1%"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:473
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:475
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:477
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:479
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f Gb"
 
-#: ../Util.cpp:471
+#: ../Util.cpp:481
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:473
+#: ../Util.cpp:483
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:513
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:507
+#: ../Util.cpp:517
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -235,41 +273,56 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Błąd hashowania %1%: %2%"
 
-#: ../UPnPManager.cpp:40
+#: ../UPnPManager.cpp:41
 #, fuzzy
 msgid "No UPnP implementation available"
 msgstr "Plik niedostępny"
 
-#: ../UPnPManager.cpp:68
-msgid " Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:71
-msgid " Encrypted Transfer Port (%1% TCP)"
+#: ../UPnPManager.cpp:46
+msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
 #: ../UPnPManager.cpp:74
+#, fuzzy
+msgid "Failed to initialize the %1% interface"
+msgstr "Zainicjowano odświeżenie listy plików"
+
+#: ../UPnPManager.cpp:78
+msgid " Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr ""
+
+#: ../UPnPManager.cpp:83
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:88
 msgid " Search Port (%1% UDP)"
 msgstr ""
 
-#: ../UPnPManager.cpp:78
-msgid "Successfully created port mappings"
+#: ../UPnPManager.cpp:94
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
 msgstr ""
 
-#: ../UPnPManager.cpp:89
+#: ../UPnPManager.cpp:106
 msgid "Failed to get external IP"
 msgstr ""
 
-#: ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:114
 #, fuzzy
 msgid "Failed to create port mappings"
 msgstr "Nie można utworzyć wątku"
 
-#: ../UPnPManager.cpp:105
+#: ../UPnPManager.cpp:123
 msgid "Failed to remove port mappings"
 msgstr ""
 
-#: ../UPnPManager.cpp:110
+#: ../UPnPManager.cpp:128
 msgid "UPnP: %1%"
 msgstr ""
 
@@ -413,23 +466,23 @@ msgstr "Brak wolnych slotów"
 msgid "%1%: File not available"
 msgstr "%1%: Plik niedostępny"
 
-#: ../ConnectionManager.cpp:177
+#: ../ConnectionManager.cpp:185
 msgid "All download slots taken"
 msgstr "Wszystkie sloty pobierań są zajęte"
 
-#: ../ConnectionManager.cpp:246
+#: ../ConnectionManager.cpp:254
 msgid "Connectivity restored"
 msgstr "Połączenie przywrócone"
 
-#: ../ConnectionManager.cpp:253
+#: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
 msgstr "Błąd łączenia: %1%"
 
-#: ../SearchManager.cpp:129
+#: ../SearchManager.cpp:132
 msgid "Search enabled again"
 msgstr "Wyszukiwanie znów aktywne"
 
-#: ../SearchManager.cpp:136
+#: ../SearchManager.cpp:139
 msgid "Search disabled: %1%"
 msgstr "Wyszukiwanie nieaktywne: %1%"
 
@@ -508,11 +561,11 @@ msgstr "%1% został wykopany: %2%"
 msgid "Request to seek beyond the end of data"
 msgstr "Poproś o wyszukanie poza końcem danych"
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr "<wprowadź tekst>"
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr "Porzuć"
 

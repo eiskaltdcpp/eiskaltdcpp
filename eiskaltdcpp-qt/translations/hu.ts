@@ -4435,7 +4435,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
-        <translation>Újracsatlakozás a hubhoz</translation>
+        <translation>Újracsatlakozás a hubhoz (másodpercekben)</translation>
     </message>
     <message>
         <source>Enable Throttle</source>
@@ -4470,7 +4470,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Use unfinished downloads directory</source>
-        <translation>Befejezettlen letöltés könyvtár használata</translation>
+        <translation>Befejezetlen letöltési könyvtár használata</translation>
     </message>
     <message>
         <source>Limits</source>
@@ -5132,6 +5132,10 @@ a hub operátoraitól kaphatsz</translation>
     <message>
         <source>Do not change focus on new incoming private messages</source>
         <translation>Ne változzon a fókusz új bejövö privát üzenetnél</translation>
+    </message>
+    <message>
+        <source>Try to use system icons (need restart)</source>
+        <translation>Próbálja használni a rendszerikonokat (újraindítás szükséges) </translation>
     </message>
 </context>
 <context>

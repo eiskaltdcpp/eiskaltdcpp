@@ -42,7 +42,7 @@ public:
 //      typedef FinishedItemList::const_iterator;
         enum {
                 COLUMN_FIRST,
-                COLUMN_FILE = COLUMN_FIRST,
+                COLUMN_FILE,
                 COLUMN_DONE,
                 COLUMN_PATH,
                 COLUMN_NICK,

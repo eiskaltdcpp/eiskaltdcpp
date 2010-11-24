@@ -97,6 +97,19 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
+    if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
+        QPalette p = textEdit_CHAT->palette();
+        QColor clr = p.color(QPalette::Active, QPalette::Base);
+
+        clr.setNamedColor(WSGET("hubframe/chat-background-color"));
+
+        if (clr.isValid()){
+            p.setColor(QPalette::Base, clr);
+
+            textEdit_CHAT->setPalette(p);
+        }
+    }
+
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_HUB, SIGNAL(clicked()), this, SLOT(slotHub()));
     connect(pushButton_SHARE, SIGNAL(clicked()), this, SLOT(slotShare()));
@@ -107,8 +120,6 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingChanged(QString,QString)));
 
     out_messages_index = 0;
-
-    reloadSomeSettings();
 }
 
 void PMWindow::setCompleter(QCompleter *completer, UserListModel *model) {
@@ -265,9 +276,6 @@ void PMWindow::slotActivate(){
     plainTextEdit_INPUT->setFocus();
 }
 
-void PMWindow::reloadSomeSettings(){
-}
-
 QString PMWindow::getArenaTitle(){
     QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid;
 
@@ -378,6 +386,7 @@ void PMWindow::addOutput(QString msg){
 }
 
 void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
+#warning
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
     if (user && user->isOnline()){
@@ -388,7 +397,7 @@ void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
         if (msg.isEmpty() || msg == "\n")
             return;
 
-        ClientManager::getInstance()->privateMessage(user, msg.toStdString(), thirdPerson, hubUrl.toStdString());
+        //ClientManager::getInstance()->privateMessage(user, msg.toStdString(), thirdPerson, hubUrl.toStdString());
     }
     else {
         addStatusMessage(tr("User went offline"));
@@ -452,7 +461,7 @@ void PMWindow::slotShare(){
                 if (user == ClientManager::getInstance()->getMe())
                     MainWindow::getInstance()->browseOwnFiles();
                 else
-                    QueueManager::getInstance()->addList(user, _tq(hubUrl), QueueItem::FLAG_CLIENT_VIEW);
+                    QueueManager::getInstance()->addList(HintedUser(user, _tq(hubUrl)), QueueItem::FLAG_CLIENT_VIEW, "");
             }
         }
         catch (const Exception &e){}
@@ -573,5 +582,17 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
         }
 
         toolButton_SMILE->setVisible(!value.isEmpty() && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+    }
+    else if (key == "hubframe/chat-background-color"){
+        QPalette p = textEdit_CHAT->palette();
+        QColor clr = p.color(QPalette::Active, QPalette::Base);
+
+        clr.setNamedColor(value);
+
+        if (clr.isValid()){
+            p.setColor(QPalette::Base, clr);
+
+            textEdit_CHAT->setPalette(p);
+        }
     }
 }

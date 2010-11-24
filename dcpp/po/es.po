@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-28 16:31+0300\n"
-"PO-Revision-Date: 2010-09-04 03:08+0200\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
+"PO-Revision-Date: 2010-10-08 19:26+0200\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -28,36 +28,36 @@ msgstr "Expulsar Usuario(s)"
 msgid "Redirect user(s)"
 msgstr "Redireccionar usuario(s)"
 
-#: ../Socket.cpp:61
+#: ../Socket.cpp:65
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Error Desconocido: 0x%1$x"
 
-#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:183
+#: ../Socket.cpp:165 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:191
 msgid "Connection timeout"
 msgstr "Conexión fuera de tiempo"
 
-#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
-#: ../Socket.cpp:238 ../Socket.cpp:253
+#: ../Socket.cpp:173 ../Socket.cpp:181 ../Socket.cpp:214 ../Socket.cpp:218
+#: ../Socket.cpp:242 ../Socket.cpp:257
 msgid "The socks server failed establish a connection"
 msgstr "No se ha establecido conexión con el servidor socks"
 
-#: ../Socket.cpp:242
+#: ../Socket.cpp:246
 msgid "The socks server requires authentication"
 msgstr "El servidor socks requiere autentificación"
 
-#: ../Socket.cpp:256
+#: ../Socket.cpp:260
 msgid "The socks server doesn't support login / password authentication"
 msgstr "El servidor socks no soporta autentificación de usuario / contraseña"
 
-#: ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:274 ../Socket.cpp:278
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
 "No se ha establecido conexión con el servidor socks (¿usuario / contraseña "
 "errónea?)"
 
-#: ../Socket.cpp:409
+#: ../Socket.cpp:413
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -65,21 +65,65 @@ msgstr ""
 "Fallada la conexión con el servidor socks por retraso UDP (chequear "
 "dirección socks y puerto)"
 
-#: ../DCPlusPlus.cpp:115
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
-msgstr "Indexación de la Base de Datos"
+msgstr "Base de Datos del Hash"
 
-#: ../DCPlusPlus.cpp:118
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "Archivos compartidos"
 
-#: ../DCPlusPlus.cpp:121
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "Cola de Descargas"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "No se puede crear tarea"
+
+#: ../ConnectivityManager.cpp:61
+msgid "Determining connection type..."
+msgstr "Determinando tipo de conexión..."
+
+#: ../ConnectivityManager.cpp:66
+msgid "Unable to open %1% port(s). You must set up your connection manually"
+msgstr ""
+"No se puede habilitar e puerto(s) %1%. Debería configurar su conexión "
+"manualmente"
+
+#: ../ConnectivityManager.cpp:73
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+"IP publica detectada, Seleccionando modo activo con la conexión directa"
+
+#: ../ConnectivityManager.cpp:78
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+"Detectado posible red local con NAT, probando los puertos con el mapa, "
+"usando UPnP..."
+
+#: ../ConnectivityManager.cpp:110
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+"La configuración automática para el modo activo a fallado. Necesita "
+"configurar su conexión manualmente para una mejor conectividad"
+
+#: ../ConnectivityManager.cpp:120
+msgid "TCP/TLS"
+msgstr "TCP/TLS"
+
+#: ../ConnectivityManager.cpp:126
+msgid "UDP"
+msgstr "UDP"
+
+#: ../ConnectivityManager.cpp:137
+msgid "Connectivity: "
+msgstr "Conectividad: "
 
 #: ../UploadManager.cpp:157
 msgid "Unable to send file %1%: %2%"
@@ -89,20 +133,20 @@ msgstr "Imposible enviar archivo  %1%: %2%"
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Usuario desconectado ha dejado el hub: %1%"
 
-#: ../NmdcHub.cpp:282
+#: ../NmdcHub.cpp:283
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nick desconocido)"
 
-#: ../NmdcHub.cpp:902
+#: ../NmdcHub.cpp:905
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
 msgstr ""
-"Este hub está intentado que se use tu cliente para hacer spam de %1%, "
-"por favor, inste al dueño del hub que arregle esto"
+"Este hub está intentado que se use tu cliente para hacer spam de %1%, por "
+"favor, inste al dueño del hub que arregle esto"
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
+#: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
 msgid "Offline"
 msgstr "Desconectado"
 
@@ -134,46 +178,46 @@ msgstr "%1% ha sido expulsado de %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% ha sido expulsado: %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "No escuchando conexiones - por favor reinicie %1%"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:473
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:475
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:477
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:479
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:471
+#: ../Util.cpp:481
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:473
+#: ../Util.cpp:483
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:513
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:507
+#: ../Util.cpp:517
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -223,7 +267,7 @@ msgstr "Base de datos del Hash reconstruido"
 
 #: ../HashManager.cpp:837
 msgid "Hashing file: %1% (Size: %2%)"
-msgstr "Indexado Fallado: %1% (Tamaño: %2%)"
+msgstr "Indexando archivo: %1% (Tamaño: %2%)"
 
 #: ../HashManager.cpp:885
 msgid ""
@@ -234,41 +278,57 @@ msgstr ""
 
 #: ../HashManager.cpp:890
 msgid "Error hashing %1%: %2%"
-msgstr "Error en Indexado %1%: %2%"
+msgstr "Error en el Indexado %1%: %2%"
 
-#: ../UPnPManager.cpp:40
+#: ../UPnPManager.cpp:41
 msgid "No UPnP implementation available"
 msgstr "Implementación UPnP no disponible"
 
-#: ../UPnPManager.cpp:68
+#: ../UPnPManager.cpp:46
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr "Otra mapa de puertos UPnP está funcionando ahora..."
+
+#: ../UPnPManager.cpp:74
+msgid "Failed to initialize the %1% interface"
+msgstr "Fallo al inicializar la interface %1%"
+
+#: ../UPnPManager.cpp:78
 msgid " Transfer Port (%1% TCP)"
 msgstr "Puerto de Transferencia (%1% TCP)"
 
-#: ../UPnPManager.cpp:71
+#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr "La interface %1% ha fallado con el mapa los puertos %2% %3%"
+
+#: ../UPnPManager.cpp:83
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr "Puerto de Transferencia Encriptado (%1% TCP)"
 
-#: ../UPnPManager.cpp:74
+#: ../UPnPManager.cpp:88
 msgid " Search Port (%1% UDP)"
 msgstr "Puerto de búsqueda (1%% UDP)"
 
-#: ../UPnPManager.cpp:78
-msgid "Successfully created port mappings"
-msgstr "Mapa de puertos creado satisfactoriamente"
+#: ../UPnPManager.cpp:94
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr ""
+"Creado mapa de puertos satisfactoriamente (TCP: %1%, UDP: %2%, TLS: %3%), el "
+"mapeo ha sido usado en la interface %4%"
 
-#: ../UPnPManager.cpp:89
+#: ../UPnPManager.cpp:106
 msgid "Failed to get external IP"
 msgstr "Fallo al recibir  IP externa"
 
-#: ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:114
 msgid "Failed to create port mappings"
 msgstr "Fallo al crear la tabla de puertos"
 
-#: ../UPnPManager.cpp:105
+#: ../UPnPManager.cpp:123
 msgid "Failed to remove port mappings"
 msgstr "Fallo al remover mapa de puertos"
 
-#: ../UPnPManager.cpp:110
+#: ../UPnPManager.cpp:128
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -295,8 +355,7 @@ msgid ""
 "%3%"
 msgstr ""
 "El archivo duplicado %1% no será compartido (Tamaño: %2% B) Comparado con el "
-"duplicado: "
-"%3%"
+"duplicado: %3%"
 
 #: ../ShareManager.cpp:727
 msgid ""
@@ -412,23 +471,23 @@ msgstr "Slots no Disponibles"
 msgid "%1%: File not available"
 msgstr "%1%: Archivo no disponible"
 
-#: ../ConnectionManager.cpp:177
+#: ../ConnectionManager.cpp:185
 msgid "All download slots taken"
 msgstr "Todos los slots de descarga están ocupados"
 
-#: ../ConnectionManager.cpp:246
+#: ../ConnectionManager.cpp:254
 msgid "Connectivity restored"
 msgstr "Conectividad restaurada"
 
-#: ../ConnectionManager.cpp:253
+#: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
 msgstr "Error de conectividad: %1%"
 
-#: ../SearchManager.cpp:129
+#: ../SearchManager.cpp:132
 msgid "Search enabled again"
 msgstr "Búsqueda habilitada nuevamente"
 
-#: ../SearchManager.cpp:136
+#: ../SearchManager.cpp:139
 msgid "Search disabled: %1%"
 msgstr "Búsqueda desactivada: %1%"
 
@@ -505,11 +564,11 @@ msgstr "%1%: Emparejado %2% archivo"
 msgid "Request to seek beyond the end of data"
 msgstr "Solicitar búsqueda más allá del final de los datos"
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr "<Ingrese cadena>"
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr "Descartar"
 
@@ -520,6 +579,9 @@ msgstr "Más bytes escritos de los requeridos"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Incoherencia TTH"
+
+#~ msgid "Successfully created port mappings"
+#~ msgstr "Mapa de puertos creado satisfactoriamente"
 
 #~ msgid "Directory already shared"
 #~ msgstr "Carpeta ya Compartida"

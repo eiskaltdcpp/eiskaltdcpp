@@ -4825,6 +4825,10 @@ them is usually available only to operators</source>
         <source>Do not change focus on new incoming private messages</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Try to use system icons (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>

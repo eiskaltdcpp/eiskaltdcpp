@@ -21,8 +21,8 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
-#include "dcpp/FinishedManager.h"
-#include "dcpp/FinishedManagerListener.h"
+//#include "dcpp/FinishedManager.h"
+//#include "dcpp/FinishedManagerListener.h"
 #include "dcpp/Util.h"
 #include "dcpp/FinishedItem.h"
 #include "dcpp/User.h"
@@ -34,364 +34,364 @@
 #include "FinishedTransfersModel.h"
 #include "MainWindow.h"
 
-using namespace dcpp;
+//using namespace dcpp;
 
-class FinishedTransferProxy: public QWidget{
-Q_OBJECT
-typedef QMap<QString, QVariant> VarMap;
-public:
-    FinishedTransferProxy(QWidget *parent):QWidget(parent){}
-    ~FinishedTransferProxy(){}
+//class FinishedTransferProxy: public QWidget{
+//Q_OBJECT
+//typedef QMap<QString, QVariant> VarMap;
+//public:
+//    FinishedTransferProxy(QWidget *parent):QWidget(parent){}
+//    ~FinishedTransferProxy(){}
 
-    QString uploadTitle();
-    QString downloadTitle();
+//    QString uploadTitle();
+//    QString downloadTitle();
 
-Q_SIGNALS:
-    void coreAddedFile(const VarMap&);
-    void coreAddedUser(const VarMap&);
-    void coreUpdatedFile(const VarMap&);
-    void coreUpdatedUser(const VarMap&);
-    void coreRemovedFile(const QString&);
-    void coreRemovedUser(const QString&);
+//Q_SIGNALS:
+//    void coreAddedFile(const VarMap&);
+//    void coreAddedUser(const VarMap&);
+//    void coreUpdatedFile(const VarMap&);
+//    void coreUpdatedUser(const VarMap&);
+//    void coreRemovedFile(const QString&);
+//    void coreRemovedUser(const QString&);
 
-public slots:
-    virtual void slotTypeChanged(int) = 0;
-    virtual void slotClear() = 0;
-    virtual void slotContextMenu() = 0;
-    virtual void slotHeaderMenu() = 0;
-};
+//public slots:
+//    virtual void slotTypeChanged(int) = 0;
+//    virtual void slotClear() = 0;
+//    virtual void slotContextMenu() = 0;
+//    virtual void slotHeaderMenu() = 0;
+//};
 
-template <bool isUpload>
-class FinishedTransfers :
-        public dcpp::FinishedManagerListener,
-        private Ui::UIFinishedTransfers,
-        public dcpp::Singleton< FinishedTransfers<isUpload> >,
-        public ArenaWidget,
-        public FinishedTransferProxy
-{
-Q_INTERFACES(ArenaWidget)
+//template <bool isUpload>
+//class FinishedTransfers :
+//        public dcpp::FinishedManagerListener,
+//        private Ui::UIFinishedTransfers,
+//        public dcpp::Singleton< FinishedTransfers<isUpload> >,
+//        public ArenaWidget,
+//        public FinishedTransferProxy
+//{
+//Q_INTERFACES(ArenaWidget)
 
-typedef QMap<QString, QVariant> VarMap;
-friend class dcpp::Singleton< FinishedTransfers<isUpload> >;
+//typedef QMap<QString, QVariant> VarMap;
+//friend class dcpp::Singleton< FinishedTransfers<isUpload> >;
 
-public:
-    QWidget *getWidget() { return this;}
-    QString getArenaTitle(){ return (isUpload? uploadTitle() : downloadTitle()); }
-    QString getArenaShortTitle(){ return getArenaTitle(); }
-    QMenu *getMenu() { return NULL; }
-    ArenaWidget::Role role() const;
+//public:
+//    QWidget *getWidget() { return this;}
+//    QString getArenaTitle(){ return (isUpload? uploadTitle() : downloadTitle()); }
+//    QString getArenaShortTitle(){ return getArenaTitle(); }
+//    QMenu *getMenu() { return NULL; }
+//    ArenaWidget::Role role() const;
 
-    const QPixmap &getPixmap(){
-        if (isUpload)
-            return WICON(WulforUtil::eiUPLIST);
-        else
-            return WICON(WulforUtil::eiDOWNLIST);
-    }
+//    const QPixmap &getPixmap(){
+//        if (isUpload)
+//            return WICON(WulforUtil::eiUPLIST);
+//        else
+//            return WICON(WulforUtil::eiDOWNLIST);
+//    }
 
-protected:
-    virtual void closeEvent(QCloseEvent *e){
-        if (isUnload()){
-            MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-            MainWindow::getInstance()->remWidgetFromArena(this);
-            MainWindow::getInstance()->remArenaWidget(this);
+//protected:
+//    virtual void closeEvent(QCloseEvent *e){
+//        if (isUnload()){
+//            MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+//            MainWindow::getInstance()->remWidgetFromArena(this);
+//            MainWindow::getInstance()->remArenaWidget(this);
 
-            //setAttribute(Qt::WA_DeleteOnClose);
+//            //setAttribute(Qt::WA_DeleteOnClose);
 
-            QString key = (comboBox->currentIndex() == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
-            QString state = treeView->header()->saveState().toBase64();
+//            QString key = (comboBox->currentIndex() == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
+//            QString state = treeView->header()->saveState().toBase64();
 
-            WSSET(key, state);
+//            WSSET(key, state);
 
-            e->accept();
-        }
-        else {
-            MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-            MainWindow::getInstance()->remWidgetFromArena(this);
+//            e->accept();
+//        }
+//        else {
+//            MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+//            MainWindow::getInstance()->remWidgetFromArena(this);
 
-            e->ignore();
-        }
-    }
+//            e->ignore();
+//        }
+//    }
 
-private:
-    FinishedTransfers(QWidget *parent = NULL) :
-        FinishedTransferProxy(parent)
-    {
-        setupUi(this);
+//private:
+//    FinishedTransfers(QWidget *parent = NULL) :
+//        FinishedTransferProxy(parent)
+//    {
+//        setupUi(this);
 
-        model = new FinishedTransfersModel();
+//        model = new FinishedTransfersModel();
 
-        treeView->setModel(model);
+//        treeView->setModel(model);
 
-        loadList();
+//        loadList();
 
-        MainWindow::getInstance()->addArenaWidget(this);
-        FinishedManager::getInstance()->addListener(this);
+//        MainWindow::getInstance()->addArenaWidget(this);
+//        FinishedManager::getInstance()->addListener(this);
 
-        setUnload(false);
+//        setUnload(false);
 
-        treeView->setContextMenuPolicy(Qt::CustomContextMenu);
-        treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+//        treeView->setContextMenuPolicy(Qt::CustomContextMenu);
+//        treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
-        QObject::connect(this, SIGNAL(coreAddedFile(VarMap)),   model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreAddedUser(VarMap)),   model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreUpdatedFile(VarMap)), model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreUpdatedUser(VarMap)), model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreRemovedFile(QString)), model, SLOT(remFile(QString)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreRemovedUser(QString)), model, SLOT(addUser(QString)), Qt::QueuedConnection);
+//        QObject::connect(this, SIGNAL(coreAddedFile(VarMap)),   model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
+//        QObject::connect(this, SIGNAL(coreAddedUser(VarMap)),   model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
+//        QObject::connect(this, SIGNAL(coreUpdatedFile(VarMap)), model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
+//        QObject::connect(this, SIGNAL(coreUpdatedUser(VarMap)), model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
+//        QObject::connect(this, SIGNAL(coreRemovedFile(QString)), model, SLOT(remFile(QString)), Qt::QueuedConnection);
+//        QObject::connect(this, SIGNAL(coreRemovedUser(QString)), model, SLOT(addUser(QString)), Qt::QueuedConnection);
 
-        QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
-        QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
-        QObject::connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
-        QObject::connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
+//        QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
+//        QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
+//        QObject::connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
+//        QObject::connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
 
-        slotTypeChanged(0);
-    }
+//        slotTypeChanged(0);
+//    }
 
-    ~FinishedTransfers(){
-        FinishedManager::getInstance()->removeListener(this);
+//    ~FinishedTransfers(){
+//        FinishedManager::getInstance()->removeListener(this);
 
-        model->clearModel();
+//        model->clearModel();
 
-        delete model;
-    }
+//        delete model;
+//    }
 
-    void loadList(){
-        VarMap params;
+//    void loadList(){
+//        VarMap params;
 
-        FinishedManager::getInstance()->lockLists();
-        const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
-        const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
+//        FinishedManager::getInstance()->lockLists();
+//        const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
+//        const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 
-        for (FinishedManager::MapByFile::const_iterator it = list.begin(); it != list.end(); ++it){
-            params.clear();
+//        for (FinishedManager::MapByFile::const_iterator it = list.begin(); it != list.end(); ++it){
+//            params.clear();
 
-            getParams(it->second, it->first, params);
+//            getParams(it->second, it->first, params);
 
-            model->addFile(params);
-        }
+//            model->addFile(params);
+//        }
 
-        for (FinishedManager::MapByUser::const_iterator uit = user.begin(); uit != user.end(); ++uit){
-            params.clear();
+//        for (FinishedManager::MapByUser::const_iterator uit = user.begin(); uit != user.end(); ++uit){
+//            params.clear();
 
-            getParams(uit->second, uit->first, params);
+//            getParams(uit->second, uit->first, params);
 
-            model->addUser(params);;
-        }
+//            model->addUser(params);;
+//        }
 
-        FinishedManager::getInstance()->unLockLists();
-    }
+//        FinishedManager::getInstance()->unLockLists();
+//    }
 
-    void getParams(const FinishedFileItemPtr& item, const string& file, FinishedTransfers::VarMap &params){
-        QString nicks = "";
+//    void getParams(const FinishedFileItemPtr& item, const string& file, FinishedTransfers::VarMap &params){
+//        QString nicks = "";
 
-        params["FNAME"] = _q(file).split(QDir::separator()).last();
-        params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
-        params["PATH"]  = _q(Util::getFilePath(file));
+//        params["FNAME"] = _q(file).split(QDir::separator()).last();
+//        params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
+//        params["PATH"]  = _q(Util::getFilePath(file));
 
-        for (UserList::const_iterator it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
-                nicks += WulforUtil::getInstance()->getNicks(it->get()->getCID()) + " ";
+//        for (HintedUserList::const_iterator it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
+//                nicks += WulforUtil::getInstance()->getNicks(it->user->getCID()) + " ";
 
-        params["USERS"] = nicks;
-        params["TR"]    = (qlonglong)item->getTransferred();
-        params["SPEED"] = (qlonglong)item->getAverageSpeed();
-        params["CRC32"] = item->getCrc32Checked();
-        params["TARGET"]= _q(file);
-        params["ELAP"]  = (qlonglong)item->getMilliSeconds();
-    }
+//        params["USERS"] = nicks;
+//        params["TR"]    = (qlonglong)item->getTransferred();
+//        params["SPEED"] = (qlonglong)item->getAverageSpeed();
+//        params["CRC32"] = item->getCrc32Checked();
+//        params["TARGET"]= _q(file);
+//        params["ELAP"]  = (qlonglong)item->getMilliSeconds();
+//    }
 
-    void getParams(const FinishedUserItemPtr& item, const UserPtr& user, FinishedTransfers::VarMap &params){
-        QString files = "";
+//    void getParams(const FinishedUserItemPtr& item, const UserPtr& user, FinishedTransfers::VarMap &params){
+//        QString files = "";
 
-        params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
-        params["NICK"]  = WulforUtil::getInstance()->getNicks(user->getCID());
+//        params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
+//        params["NICK"]  = WulforUtil::getInstance()->getNicks(user->getCID());
 
-        for (StringList::const_iterator it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
-                files += _q(*it) + " ";
+//        for (StringList::const_iterator it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
+//                files += _q(*it) + " ";
 
-        params["FILES"] = files;
-        params["TR"]    = (qlonglong)item->getTransferred();
-        params["SPEED"] = (qlonglong)item->getAverageSpeed();
-        params["CID"]   = _q(user->getCID().toBase32());
-        params["ELAP"]  = (qlonglong)item->getMilliSeconds();
-    }
+//        params["FILES"] = files;
+//        params["TR"]    = (qlonglong)item->getTransferred();
+//        params["SPEED"] = (qlonglong)item->getAverageSpeed();
+//        params["CID"]   = _q(user->getCID().toBase32());
+//        params["ELAP"]  = (qlonglong)item->getMilliSeconds();
+//    }
 
-    void slotTypeChanged(int index){
-        QString from_key = (index == 0)? WS_FTRANSFERS_USERS_STATE : WS_FTRANSFERS_FILES_STATE;
-        QString to_key = (index == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
-        QString old_state = treeView->header()->saveState().toBase64();
+//    void slotTypeChanged(int index){
+//        QString from_key = (index == 0)? WS_FTRANSFERS_USERS_STATE : WS_FTRANSFERS_FILES_STATE;
+//        QString to_key = (index == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
+//        QString old_state = treeView->header()->saveState().toBase64();
 
-        if (sender() == comboBox)
-            WSSET(from_key, old_state);
+//        if (sender() == comboBox)
+//            WSSET(from_key, old_state);
 
-        treeView->header()->restoreState(QByteArray::fromBase64(WSGET(to_key).toAscii()));
-        treeView->setSortingEnabled(true);
+//        treeView->header()->restoreState(QByteArray::fromBase64(WSGET(to_key).toAscii()));
+//        treeView->setSortingEnabled(true);
 
-        model->switchViewType(static_cast<FinishedTransfersModel::ViewType>(index));
-    }
+//        model->switchViewType(static_cast<FinishedTransfersModel::ViewType>(index));
+//    }
 
-    void slotClear(){
-        model->clearModel();
+//    void slotClear(){
+//        model->clearModel();
 
-        try {
-            FinishedManager::getInstance()->removeAll(isUpload);
-        }
-        catch (const std::exception&){}
-    }
+//        try {
+//            FinishedManager::getInstance()->removeAll(isUpload);
+//        }
+//        catch (const std::exception&){}
+//    }
 
-    void slotContextMenu(){
-        static WulforUtil *WU = WulforUtil::getInstance();
+//    void slotContextMenu(){
+//        static WulforUtil *WU = WulforUtil::getInstance();
 
-        QItemSelectionModel *s_model = treeView->selectionModel();
-        QModelIndexList indexes = s_model->selectedRows(0);
+//        QItemSelectionModel *s_model = treeView->selectionModel();
+//        QModelIndexList indexes = s_model->selectedRows(0);
 
-        if (indexes.size() < 1)
-            return;
+//        if (indexes.size() < 1)
+//            return;
 
-        QStringList files;
+//        QStringList files;
 
-        if (comboBox->currentIndex() == 0){
-            FinishedTransfersItem *item = NULL;
-            QString file;
+//        if (comboBox->currentIndex() == 0){
+//            FinishedTransfersItem *item = NULL;
+//            QString file;
 
-            foreach (QModelIndex i, indexes){
-                item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
-                file = item->data(COLUMN_FINISHED_TARGET).toString();
+//            foreach (QModelIndex i, indexes){
+//                item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
+//                file = item->data(COLUMN_FINISHED_TARGET).toString();
 
-                if (!file.isEmpty())
-                    files.push_back(file);
-            }
-        }
-        else {
-            FinishedTransfersItem *item = NULL;
-            QString file_list;
+//                if (!file.isEmpty())
+//                    files.push_back(file);
+//            }
+//        }
+//        else {
+//            FinishedTransfersItem *item = NULL;
+//            QString file_list;
 
-            foreach (QModelIndex i, indexes){
-                item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
-                file_list = item->data(COLUMN_FINISHED_PATH).toString();
+//            foreach (QModelIndex i, indexes){
+//                item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
+//                file_list = item->data(COLUMN_FINISHED_PATH).toString();
 
-                if (!file_list.isEmpty()){
-#if QT_VERSION >= 0x040500
-                    files.append(file_list.split("; ", QString::SkipEmptyParts));
-#else
-                    QStringList s = file_list.split("; ", QString::SkipEmptyParts);
-                    foreach (QString i, s)
-                        files.push_back(i);
-#endif
-                }
+//                if (!file_list.isEmpty()){
+//#if QT_VERSION >= 0x040500
+//                    files.append(file_list.split("; ", QString::SkipEmptyParts));
+//#else
+//                    QStringList s = file_list.split("; ", QString::SkipEmptyParts);
+//                    foreach (QString i, s)
+//                        files.push_back(i);
+//#endif
+//                }
                     
-            }
-        }
+//            }
+//        }
 
-        QMenu *m = new QMenu();
-        QAction *open_f   = new QAction(tr("Open file"), m);
-        QAction *open_dir = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Open directory"), m);
+//        QMenu *m = new QMenu();
+//        QAction *open_f   = new QAction(tr("Open file"), m);
+//        QAction *open_dir = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Open directory"), m);
 
-        m->addAction(open_f);
-        m->addAction(open_dir);
+//        m->addAction(open_f);
+//        m->addAction(open_dir);
 
-        QAction *ret = m->exec(QCursor::pos());
+//        QAction *ret = m->exec(QCursor::pos());
 
-        delete m;
+//        delete m;
 
-        if (ret == open_f){
-            foreach (QString f, files){
-                if (f.startsWith("/"))
-                    f = "file://" + f;
-                else
-                    f = "file:///" + f;
+//        if (ret == open_f){
+//            foreach (QString f, files){
+//                if (f.startsWith("/"))
+//                    f = "file://" + f;
+//                else
+//                    f = "file:///" + f;
 
-                QDesktopServices::openUrl(f);
-            }
-        }
-        else if (ret == open_dir){
-            foreach (QString f, files){
-                f = f.left(f.lastIndexOf(QDir::separator()));
+//                QDesktopServices::openUrl(f);
+//            }
+//        }
+//        else if (ret == open_dir){
+//            foreach (QString f, files){
+//                f = f.left(f.lastIndexOf(QDir::separator()));
 
-                if (f.startsWith("/"))
-                    f = "file://" + f;
-                else
-                    f = "file:///" + f;
+//                if (f.startsWith("/"))
+//                    f = "file://" + f;
+//                else
+//                    f = "file:///" + f;
 
-                QDesktopServices::openUrl(f);
-            }
-        }
+//                QDesktopServices::openUrl(f);
+//            }
+//        }
 
-    }
+//    }
 
-    void slotHeaderMenu(){
-        WulforUtil::headerMenu(treeView);
-    }
+//    void slotHeaderMenu(){
+//        WulforUtil::headerMenu(treeView);
+//    }
 
-    void on(FinishedManagerListener::AddedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) throw(){
-        if (isUpload == upload){
-            VarMap params;
+//    void on(FinishedManagerListener::AddedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) throw(){
+//        if (isUpload == upload){
+//            VarMap params;
 
-            getParams(item, file, params);
+//            getParams(item, file, params);
 
-            emit coreAddedFile(params);
-        }
-    }
+//            emit coreAddedFile(params);
+//        }
+//    }
 
-    void on(FinishedManagerListener::AddedUser, bool upload, const dcpp::UserPtr &user, const FinishedUserItemPtr &item) throw(){
-        if (isUpload == upload){
-            VarMap params;
+//    void on(FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const FinishedUserItemPtr &item) throw(){
+//        if (isUpload == upload){
+//            VarMap params;
 
-            getParams(item, user, params);
+//            getParams(item, user, params);
 
-            emit coreAddedUser(params);
-        }
-    }
+//            emit coreAddedUser(params);
+//        }
+//    }
 
-    void on(FinishedManagerListener::UpdatedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) throw(){
-        if (isUpload == upload){
-            VarMap params;
+//    void on(FinishedManagerListener::UpdatedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) throw(){
+//        if (isUpload == upload){
+//            VarMap params;
 
-            getParams(item, file, params);
+//            getParams(item, file, params);
 
-            emit coreUpdatedFile(params);
-        }
-    }
+//            emit coreUpdatedFile(params);
+//        }
+//    }
 
-    void on(FinishedManagerListener::RemovedFile, bool upload, const std::string &file) throw(){
-        if (isUpload == upload){
-            emit coreRemovedFile(_q(file));
-        }
-    }
+//    void on(FinishedManagerListener::RemovedFile, bool upload, const std::string &file) throw(){
+//        if (isUpload == upload){
+//            emit coreRemovedFile(_q(file));
+//        }
+//    }
 
-    void on(FinishedManagerListener::UpdatedUser, bool upload, const UserPtr &user) throw(){
-        if (isUpload == upload){
-            const FinishedManager::MapByUser &umap = FinishedManager::getInstance()->getMapByUser(isUpload);
-            FinishedManager::MapByUser::const_iterator userit = umap.find(user);
-            if (userit == umap.end())
-                return;
+//    void on(FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) throw(){
+//        if (isUpload == upload){
+//            const FinishedManager::MapByUser &umap = FinishedManager::getInstance()->getMapByUser(isUpload);
+//            FinishedManager::MapByUser::const_iterator userit = umap.find(user);
+//            if (userit == umap.end())
+//                return;
 
-            const FinishedUserItemPtr &item = userit->second;
+//            const FinishedUserItemPtr &item = userit->second;
 
-            VarMap params;
+//            VarMap params;
 
-            getParams(item, user, params);
+//            getParams(item, user, params);
 
-            emit coreUpdatedUser(params);
-        }
-    }
+//            emit coreUpdatedUser(params);
+//        }
+//    }
 
-    void on(FinishedManagerListener::RemovedUser, bool upload, const UserPtr &user) throw(){
-        if (isUpload == upload){
-            emit coreRemovedUser(_q(user->getCID().toBase32()));
-        }
-    }
+//    void on(FinishedManagerListener::RemovedUser, bool upload, const dcpp::HintedUser &user) throw(){
+//        if (isUpload == upload){
+//            emit coreRemovedUser(_q(user.user->getCID().toBase32()));
+//        }
+//    }
 
-    FinishedTransfersModel *model;
-};
+//    FinishedTransfersModel *model;
+//};
 
-template <>
-inline ArenaWidget::Role FinishedTransfers<false>::role() const { return ArenaWidget::FinishedDownloads; }
+//template <>
+//inline ArenaWidget::Role FinishedTransfers<false>::role() const { return ArenaWidget::FinishedDownloads; }
 
-template <>
-inline ArenaWidget::Role FinishedTransfers<true>::role() const { return ArenaWidget::FinishedUploads; }
+//template <>
+//inline ArenaWidget::Role FinishedTransfers<true>::role() const { return ArenaWidget::FinishedUploads; }
 
-typedef FinishedTransfers<true>  FinishedUploads;
-typedef FinishedTransfers<false> FinishedDownloads;
+//typedef FinishedTransfers<true>  FinishedUploads;
+//typedef FinishedTransfers<false> FinishedDownloads;
 
 #else
 

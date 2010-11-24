@@ -135,7 +135,7 @@ void WulforSettings::load(){
             settings.setValue(WS_APP_FONT,              "");
             settings.setValue(WS_APP_ICONTHEME,         "default");
             settings.setValue(WS_APP_USERTHEME,         "default");
-            settings.setValue(WS_APP_SHARED_FILES_COLOR,"#01f8f1f");
+            settings.setValue(WS_APP_SHARED_FILES_COLOR,"#1f8f1f");
             settings.setValue(WS_NOTIFY_SOUNDS,         "");
             settings.setValue(WS_NOTIFY_SND_CMD,        "");
             settings.setValue(WS_FAVUSERS_STATE,        "");
@@ -278,7 +278,7 @@ void WulforSettings::loadOldConfig(){
         strmap.insert(WS_APP_FONT,              "");
         strmap.insert(WS_APP_ICONTHEME,         "default");
         strmap.insert(WS_APP_USERTHEME,         "default");
-        strmap.insert(WS_APP_SHARED_FILES_COLOR,"#01f8f1f");
+        strmap.insert(WS_APP_SHARED_FILES_COLOR,"#1f8f1f");
         strmap.insert(WS_NOTIFY_SOUNDS,         "");
         strmap.insert(WS_NOTIFY_SND_CMD,        "");
         strmap.insert(WS_FAVUSERS_STATE,        "");

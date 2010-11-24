@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-28 16:31+0300\n"
-"PO-Revision-Date: 2010-08-20 14:59+0300\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
+"PO-Revision-Date: 2010-10-03 20:20+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -24,56 +24,99 @@ msgstr "Кикнуть пользователя(ей)"
 msgid "Redirect user(s)"
 msgstr "Перенаправление пользователя(ей)"
 
-#: ../Socket.cpp:61
+#: ../Socket.cpp:65
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Неизвестная ошибка: 0x%1$x"
 
-#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:183
+#: ../Socket.cpp:165 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:191
 msgid "Connection timeout"
 msgstr "Таймаут соединения"
 
-#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
-#: ../Socket.cpp:238 ../Socket.cpp:253
+#: ../Socket.cpp:173 ../Socket.cpp:181 ../Socket.cpp:214 ../Socket.cpp:218
+#: ../Socket.cpp:242 ../Socket.cpp:257
 msgid "The socks server failed establish a connection"
 msgstr "Socks серверу не удалось установить соединение"
 
-#: ../Socket.cpp:242
+#: ../Socket.cpp:246
 msgid "The socks server requires authentication"
 msgstr "Socks серверу требуется авторизация"
 
-#: ../Socket.cpp:256
+#: ../Socket.cpp:260
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Socks сервер не поддерживает авторизацию"
 
-#: ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:274 ../Socket.cpp:278
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
 "Авторизация на socks сервере отклонена, возможно неверный логин или пароль"
 
-#: ../Socket.cpp:409
+#: ../Socket.cpp:413
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 msgstr ""
 "Не удалось настроить socks сервер для UDP (проверьте socks адрес и порт)"
 
-#: ../DCPlusPlus.cpp:115
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
 msgstr "Хеш базы данных"
 
-#: ../DCPlusPlus.cpp:118
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "Расшаренные файлы"
 
-#: ../DCPlusPlus.cpp:121
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "Очередь"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "Невозможно создать поток"
+
+#: ../ConnectivityManager.cpp:61
+msgid "Determining connection type..."
+msgstr "Определение типа соединения..."
+
+#: ../ConnectivityManager.cpp:66
+msgid "Unable to open %1% port(s). You must set up your connection manually"
+msgstr ""
+"Невозможно открыть порт(ы) %1%. Вам необходимо настроить подключение вручную"
+
+#: ../ConnectivityManager.cpp:73
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+"Публичный IP-адрес обнаружен, выбирается активный режим с прямым подключением"
+
+#: ../ConnectivityManager.cpp:78
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+"Обнаружена локальная сеть с возможным использованием NAT, делаю попытку "
+"пробросить порты, используя UPnP..."
+
+#: ../ConnectivityManager.cpp:110
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+"Автоматическая установка активного режима провалилась. Вы можете попробовать "
+"установить свое подключение вручную для лучшей связи"
+
+#: ../ConnectivityManager.cpp:120
+msgid "TCP/TLS"
+msgstr "TCP/TLS"
+
+#: ../ConnectivityManager.cpp:126
+msgid "UDP"
+msgstr "UDP"
+
+#: ../ConnectivityManager.cpp:137
+msgid "Connectivity: "
+msgstr "Подключение: "
 
 #: ../UploadManager.cpp:157
 msgid "Unable to send file %1%: %2%"
@@ -83,11 +126,11 @@ msgstr "Невозможно передать файл %1%: %2%"
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Пользователь %1% отключился и покинул хаб"
 
-#: ../NmdcHub.cpp:282
+#: ../NmdcHub.cpp:283
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Ник неизвестен)"
 
-#: ../NmdcHub.cpp:902
+#: ../NmdcHub.cpp:905
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -96,7 +139,7 @@ msgstr ""
 "владельцу хаба, чтобы он исправил это"
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
+#: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
 msgid "Offline"
 msgstr "Не в сети"
 
@@ -128,46 +171,46 @@ msgstr "%1% кикнут %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% кикнут %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "Соединения не обрабатываются - пожалуйста перезапустите %1%"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:473
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:475
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:477
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:479
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:471
+#: ../Util.cpp:481
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:473
+#: ../Util.cpp:483
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:513
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:507
+#: ../Util.cpp:517
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
@@ -228,39 +271,55 @@ msgstr "%1% не расшарен из-за несоответсвия хеш-с
 msgid "Error hashing %1%: %2%"
 msgstr "Ошибка хэширования %1%: %2%"
 
-#: ../UPnPManager.cpp:40
+#: ../UPnPManager.cpp:41
 msgid "No UPnP implementation available"
 msgstr "Нет доступной реализации UPnP"
 
-#: ../UPnPManager.cpp:68
+#: ../UPnPManager.cpp:46
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr "Другая попытка проброса портов через UPnP еще не завершена..."
+
+#: ../UPnPManager.cpp:74
+msgid "Failed to initialize the %1% interface"
+msgstr "Не удалось инициализировать интерфейс %1%"
+
+#: ../UPnPManager.cpp:78
 msgid " Transfer Port (%1% TCP)"
 msgstr " Порт передачи (%1% TCP)"
 
-#: ../UPnPManager.cpp:71
+#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr "Попытка пробросить порт %2% на %3% провалилась для интерфейса %1%"
+
+#: ../UPnPManager.cpp:83
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr " Порт шифрованной передачи (%1% TCP)"
 
-#: ../UPnPManager.cpp:74
+#: ../UPnPManager.cpp:88
 msgid " Search Port (%1% UDP)"
 msgstr " Порт для поиска (%1% UDP)"
 
-#: ../UPnPManager.cpp:78
-msgid "Successfully created port mappings"
-msgstr "Успешно выполнен проброс портов"
+#: ../UPnPManager.cpp:94
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr ""
+"Успешно выполнен проброс портов (TCP: %1%, UDP: %2%, TLS: %3%), используется "
+"интерфейс %4%"
 
-#: ../UPnPManager.cpp:89
+#: ../UPnPManager.cpp:106
 msgid "Failed to get external IP"
 msgstr "Не удалось получить внешний IP"
 
-#: ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:114
 msgid "Failed to create port mappings"
 msgstr "Невозможно создать перенаправление портов"
 
-#: ../UPnPManager.cpp:105
+#: ../UPnPManager.cpp:123
 msgid "Failed to remove port mappings"
 msgstr "Не удалось удалить проброс портов"
 
-#: ../UPnPManager.cpp:110
+#: ../UPnPManager.cpp:128
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -401,23 +460,23 @@ msgstr "Нет доступных слотов"
 msgid "%1%: File not available"
 msgstr "%1%: Файл недоступен"
 
-#: ../ConnectionManager.cpp:177
+#: ../ConnectionManager.cpp:185
 msgid "All download slots taken"
 msgstr "Все слоты закачек заняты"
 
-#: ../ConnectionManager.cpp:246
+#: ../ConnectionManager.cpp:254
 msgid "Connectivity restored"
 msgstr "Соединение восстановлено"
 
-#: ../ConnectionManager.cpp:253
+#: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
 msgstr "Ошибка соединения: %1%"
 
-#: ../SearchManager.cpp:129
+#: ../SearchManager.cpp:132
 msgid "Search enabled again"
 msgstr "Поиск снова включен"
 
-#: ../SearchManager.cpp:136
+#: ../SearchManager.cpp:139
 msgid "Search disabled: %1%"
 msgstr "Поиск отключен: %1%"
 
@@ -493,11 +552,11 @@ msgstr "%1%: Согласован файл %2%"
 msgid "Request to seek beyond the end of data"
 msgstr "Запрос поиска вне области данных"
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr "<Введите строку>"
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr "Отклонить"
 
@@ -508,6 +567,9 @@ msgstr "Записано больше байт чем требуется"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Несовпадение TTH"
+
+#~ msgid "Successfully created port mappings"
+#~ msgstr "Успешно выполнен проброс портов"
 
 #~ msgid "Directory already shared"
 #~ msgstr "Папка уже расшарена"

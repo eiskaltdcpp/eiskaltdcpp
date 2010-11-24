@@ -107,6 +107,7 @@ set (MOC_HDRS
             src/Antispam.h
             src/AntiSpamFrame.h
             src/ArenaWidget.h
+            src/Backtrace.h
             src/CustomFontModel.h
 	    src/CustomSetting.h
             src/DownloadQueue.h
@@ -359,7 +360,7 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-  target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp iconv upnp ixml)
+  target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp iconv ixml)
 else (APPLE)
   target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp)
 endif (APPLE)

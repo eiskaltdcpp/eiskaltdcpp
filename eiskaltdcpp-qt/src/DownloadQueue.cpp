@@ -610,7 +610,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
                 if (user){
                     try {
-                        QM->addList(user, "", QueueItem::FLAG_CLIENT_VIEW);
+                        QM->addList(HintedUser(user, ""), QueueItem::FLAG_CLIENT_VIEW, "");
                     }
                     catch (const Exception&){}
                 }

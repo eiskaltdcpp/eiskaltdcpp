@@ -157,7 +157,7 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         share_size(0),
         current_size(0),
         itemsCount(0),
-        listing(user),
+        listing(HintedUser(user, "")),
         tree_root(NULL),
         list_root(NULL),
         tree_model(NULL),
@@ -169,7 +169,7 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
     nick = WulforUtil::getInstance()->getNicks(user->getCID());;
 
     if (nick.indexOf(_q(user->getCID().toBase32()) >= 0)){//User offline
-        nick = _q(ClientManager::getInstance()->getNicks(user->getCID())[0]);
+        nick = _q(ClientManager::getInstance()->getNicks(HintedUser(user, ""))[0]);
 
         QFileInfo info(file);
 

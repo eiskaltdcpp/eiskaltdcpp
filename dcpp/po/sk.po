@@ -1,85 +1,82 @@
-# French translations for the DC++ package.
-# Copyright (C) 2008 The translators
-# This file is distributed under the same license as the DC++ package.
-#  <spok@users.sourceforge.net>, 2008.
+# Slovak translation for dcplusplus
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the dcplusplus package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: dcpp\n"
+"Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-11-21 18:39+0200\n"
-"PO-Revision-Date: 2009-02-22 14:17+0000\n"
-"Last-Translator: poy <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2009-03-24 12:27+0000\n"
+"Last-Translator: helix84 <Unknown>\n"
+"Language-Team: Slovak <sk@li.org>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
+"X-Launchpad-Export-Date: 2010-07-05 15:21+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
-msgstr "Expulser l(es) utilisateur(s)"
+msgstr "Vykopnúť používateľa"
 
 #: ../FavoriteManager.cpp:448
 msgid "Redirect user(s)"
-msgstr "Rediriger l(es) utilisateur(s)"
+msgstr "Presmerovať používateľov"
 
 #: ../Socket.cpp:65
 #, c-format
 msgid "Unknown error: 0x%1$x"
-msgstr "Erreur inconnue : 0x%1$x"
+msgstr "Neznáma chyba: 0x%1$x"
 
 #: ../Socket.cpp:165 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
 #: ../ConnectionManager.cpp:191
 msgid "Connection timeout"
-msgstr "Temps d'attente dépassé"
+msgstr "Vypršal maximálny čas nečinnosti spojenia"
 
 #: ../Socket.cpp:173 ../Socket.cpp:181 ../Socket.cpp:214 ../Socket.cpp:218
 #: ../Socket.cpp:242 ../Socket.cpp:257
 msgid "The socks server failed establish a connection"
-msgstr "Le serveur socks n'a pas pu établir de connexion"
+msgstr "SOCKS serveru sa nepodarilo nadviazať spojenie"
 
 #: ../Socket.cpp:246
 msgid "The socks server requires authentication"
-msgstr "Le serveur socks requiert une authentification"
+msgstr "SOCKS server vyžaduje overenie"
 
 #: ../Socket.cpp:260
 msgid "The socks server doesn't support login / password authentication"
-msgstr ""
-"Le serveur socks ne supporte pas l'autentification par identifiant / mot de "
-"passe"
+msgstr "SOCKS server nepodporuje overenie menom a heslom"
 
 #: ../Socket.cpp:274 ../Socket.cpp:278
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
-"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot "
-"de passe ?)"
+"Zlyhalo overenie u SOCKS servera (chybné prihlasovacie meno alebo heslo?)"
 
 #: ../Socket.cpp:413
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 msgstr ""
-"Impossible de configurer le serveur socks en tant que relais UDP (vérifier "
-"l'adresse et le port du serveur socks)"
+"Nepodarilo sa nastaviť SOCKS server, aby robil UDP relé (skontrolujte adresu "
+"a port SOCKS)"
 
 #: ../DCPlusPlus.cpp:116
 msgid "Hash database"
-msgstr "Base de données des clés"
+msgstr "Databáza hašov"
 
 #: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
-msgstr "Fichiers Partagés"
+msgstr "Zdieľané súbory"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
-msgstr "Liste de Téléchargement"
+msgstr "Front sťahovaní"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
-msgstr "Création de thread impossile"
+msgstr "Nepodarilo sa vytvoriť vlákno"
 
 #: ../ConnectivityManager.cpp:61
 msgid "Determining connection type..."
@@ -117,19 +114,19 @@ msgstr ""
 #: ../ConnectivityManager.cpp:137
 #, fuzzy
 msgid "Connectivity: "
-msgstr "Erreur de connectivité : %1%"
+msgstr "Chyba konektivity: %1%"
 
 #: ../UploadManager.cpp:157
 msgid "Unable to send file %1%: %2%"
-msgstr "Impossible d'envoyer le fichier %1% : %2%"
+msgstr "Nepodarilo sa poslať súbor %1%: %2%"
 
 #: ../UploadManager.cpp:461
 msgid "Disconnected user leaving the hub: %1%"
-msgstr "Déconnexion de l'utilisateur : %1% (sorti du hub)"
+msgstr "Používateľ, ktorý opustil hub, bol odpojený: %1%"
 
 #: ../NmdcHub.cpp:283
 msgid "%1% (Nick unknown)"
-msgstr "%1% (Pseudo inconnu)"
+msgstr "%1% (neznáma prezývka)"
 
 #: ../NmdcHub.cpp:905
 msgid ""
@@ -140,11 +137,11 @@ msgstr ""
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
 msgid "Offline"
-msgstr "Déconnecté"
+msgstr "Odpojený"
 
 #: ../AdcHub.cpp:142
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr "%1% (%2%) a le même CID {%3%} que %4% (%5%), ignoré"
+msgstr "%1% (%2%) má rovnaký CID {%3%} ako %4% (%5%), ignoruje sa"
 
 #: ../AdcHub.cpp:178
 msgid "%1%/s"
@@ -152,142 +149,140 @@ msgstr "%1%/s"
 
 #: ../AdcHub.cpp:213
 msgid "Failed to negotiate base protocol"
-msgstr "Impossible de négocier le protocole de base"
+msgstr "Nepodarilo sa vyjednať základný protokol"
 
 #: ../AdcHub.cpp:219
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
 msgstr ""
-"Le hub utilise probablement une ancienne version d'ADC, veuillez encourager "
-"l'hébergeur à mettre à jour son programme d'hébergement"
+"Hub pravdepodobne používa starú verziu ADC, prosím, navrhnite vlastníkovi, "
+"aby ho aktualizoval"
 
 #: ../AdcHub.cpp:288
 msgid "%1% was kicked by %2%: %3%"
-msgstr "%1% a été expulsé par %2% : %3%"
+msgstr "%2% vykopol %1%: %3%"
 
 #: ../AdcHub.cpp:291
 msgid "%1% was kicked: %2%"
-msgstr "%1% a été expulsé : %2%"
+msgstr "%1% bol vykopnutý: %2%"
 
 #: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
-msgstr "Échec dans l'écoute des connexions - veuillez relancer %1%"
+msgstr "Nepočúvajú sa nové spojenia - prosím reštartujte %1%"
 
 #: ../Util.cpp:473
 #, c-format
 msgid "%d B"
-msgstr "%d o"
+msgstr "%d B"
 
 #: ../Util.cpp:475
 #, c-format
 msgid "%.02f KiB"
-msgstr "%.02f Kio"
+msgstr "%.02f KiB"
 
 #: ../Util.cpp:477
 #, c-format
 msgid "%.02f MiB"
-msgstr "%.02f Mio"
+msgstr "%.02f MiB"
 
 #: ../Util.cpp:479
 #, c-format
 msgid "%.02f GiB"
-msgstr "%.02f Gio"
+msgstr "%.02f GiB"
 
 #: ../Util.cpp:481
 #, c-format
 msgid "%.02f TiB"
-msgstr "%.02f Tio"
+msgstr "%.02f TiB"
 
 #: ../Util.cpp:483
 #, c-format
 msgid "%.02f PiB"
-msgstr "%.02f Pio"
+msgstr "%.02f PiB"
 
 #: ../Util.cpp:513
 #, c-format
 msgid "%s B"
-msgstr "%s o"
+msgstr "%s B"
 
 #: ../Util.cpp:517
 #, c-format
 msgid "%'lld B"
-msgstr "%'lld o"
+msgstr "%'lld B"
 
 #: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
 #: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
 msgid "Error during compression"
-msgstr "Erreur de compression"
+msgstr "Chyba počas kompresie"
 
 #: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
 #: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
 #: ../BZUtils.cpp:94 ../BZUtils.cpp:97
 msgid "Error during decompression"
-msgstr "Erreur de décompression"
+msgstr "Chyba počas dekompresie"
 
 #: ../HashManager.cpp:80 ../HashManager.cpp:280
 msgid "Hashing failed: %1%"
-msgstr "Génération de la clé échouée : %1%"
+msgstr "Nepodarilo sa hašovanie: %1%"
 
 #: ../HashManager.cpp:87
 #, fuzzy
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Clé générée : %1% (%2%/s)"
+msgstr "Skončilo hašovanie: %1% (%2%/s)"
 
 #: ../HashManager.cpp:90
 #, fuzzy
 msgid "Finished hashing: %1% (%2%)"
-msgstr "Clé générée : %1% (%2%/s)"
+msgstr "Skončilo hašovanie: %1% (%2%/s)"
 
 #: ../HashManager.cpp:93
 msgid "Finished hashing: %1%"
-msgstr "Clé générée : %1%"
+msgstr "Skončilo hašovanie: %1%"
 
 #: ../HashManager.cpp:122 ../HashManager.cpp:336
 msgid "Error saving hash data: %1%"
-msgstr "Erreur lors de la sauvegarde de la base de données des clés : %1%"
+msgstr "Chyba pri ukladaní hašov: %1%"
 
 #: ../HashManager.cpp:135
 msgid "Unable to read hash data file"
-msgstr "Impossible de lire la base de données des clés"
+msgstr "Nepodarilo sa prečítať súbor s hašmi"
 
 #: ../HashManager.cpp:469
 msgid "Error creating hash data file: %1%"
-msgstr "Erreur lors de la création de la base de données des clés : %1%"
+msgstr "Chyba pri vytváraní dátového súboru hašov: %1%"
 
 #: ../HashManager.cpp:785
 msgid "Hash database rebuilt"
-msgstr "Base de données des clés re-créée"
+msgstr "Databáza hašov znovu zostavená"
 
 #: ../HashManager.cpp:837
 #, fuzzy
 msgid "Hashing file: %1% (Size: %2%)"
-msgstr "Génération de la clé échouée : %1%"
+msgstr "Nepodarilo sa hašovanie: %1%"
 
 #: ../HashManager.cpp:885
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
-"%1% non partagé ; le CRC32 calculé ne correspond pas avec celui trouvé dans "
-"le fichier SFV ."
+"%1% nie je zdieľaný; vypočítaný CRC32 sa nezhoduje so súčtom v SFV súbore."
 
 #: ../HashManager.cpp:890
 msgid "Error hashing %1%: %2%"
-msgstr "Erreur lors de la génération de la clé de %1% : %2%"
+msgstr "Chyba pri vytváraní hašu %1%: %2%"
 
 #: ../UPnPManager.cpp:41
 #, fuzzy
 msgid "No UPnP implementation available"
-msgstr "Fichier indisponible"
+msgstr "Nie sú dostupné sloty"
 
 #: ../UPnPManager.cpp:46
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
 #: ../UPnPManager.cpp:74
-#, fuzzy
 msgid "Failed to initialize the %1% interface"
-msgstr "Mise à jour de la liste de fichiers commencée"
+msgstr ""
 
 #: ../UPnPManager.cpp:78
 msgid " Transfer Port (%1% TCP)"
@@ -318,7 +313,7 @@ msgstr ""
 #: ../UPnPManager.cpp:114
 #, fuzzy
 msgid "Failed to create port mappings"
-msgstr "Création de thread impossile"
+msgstr "Nepodarilo sa vytvoriť vlákno"
 
 #: ../UPnPManager.cpp:123
 msgid "Failed to remove port mappings"
@@ -330,11 +325,11 @@ msgstr ""
 
 #: ../ShareManager.cpp:429
 msgid "No directory specified"
-msgstr "Pas de dossier spécifié"
+msgstr "Nebol zadaný adresár"
 
 #: ../ShareManager.cpp:437
 msgid "The temporary download directory cannot be shared"
-msgstr "Le dossier des téléchargements en cours ne peut pas être partagé"
+msgstr "Dočasný adresár sťahovaní nemožno zdieľať"
 
 #: ../ShareManager.cpp:634
 msgid "User has chosen not to share file: %1% (Size: %2%)"
@@ -349,150 +344,152 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"Ficher en double non partagé : %1% (Taille : %2% o) Est identique à : %3%"
+"Duplicitný súbor sa nebude zdieľať: %1% (Veľkosť: %2% B) Zhoduje sa s: %3%"
 
 #: ../ShareManager.cpp:727
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
 msgstr ""
-"La mise à jour de la liste de fichiers est en cours, veuillez attendre "
-"qu'elle se termine avant de ré-essayer"
+"Prebieha obnovenie zoznamu súborov, počkajte prosím, kým skončí, než ho "
+"skúsite znova obnoviť"
 
 #: ../ShareManager.cpp:748
 msgid "File list refresh failed: %1%"
-msgstr "Mise à jour de la liste de fichiers échouée : %1%"
+msgstr "Nepodarilo sa obnoviť zoznam súborov: %1%"
 
 #: ../ShareManager.cpp:770
 msgid "File list refresh initiated"
-msgstr "Mise à jour de la liste de fichiers commencée"
+msgstr "Obnovenie zoznamu súborov sa začalo"
 
 #: ../ShareManager.cpp:795
 msgid "File list refresh finished"
-msgstr "Mise à jour de la liste de fichiers terminée"
+msgstr "Obnovenie zoznamu súborov bolo dokončené"
 
 #: ../ShareManager.cpp:866
 #, fuzzy
 msgid "File list %1% generated"
-msgstr "Mise à jour de la liste de fichiers commencée"
+msgstr "Obnovenie zoznamu súborov sa začalo"
 
 #: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
 msgid "Connection closed"
-msgstr "Connexion fermée"
+msgstr "Spojenie ukončené"
 
 #: ../BufferedSocket.cpp:276
 msgid "Maximum command length exceeded"
-msgstr "Dépassement de la longueur maximale de la commande"
+msgstr "Bola prekročená maximálna dĺžka príkazu"
 
 #: ../BufferedSocket.cpp:453
 msgid "Disconnected"
-msgstr "Déconnecté"
+msgstr "Odpojený"
 
 #: ../DirectoryListing.cpp:95
 msgid "Greater than maximum filelist size"
-msgstr "Plus grand que la taille maximale des listes de fichiers"
+msgstr ""
 
 #: ../DirectoryListing.cpp:102
+#, fuzzy
 msgid "File not available"
-msgstr "Fichier indisponible"
+msgstr "%1%: Súbor nie je dostupný"
 
 #: ../DirectoryListing.cpp:165
 msgid "Directory missing name attribute"
-msgstr "Dossier sans nom"
+msgstr "Adresáru chýba atribút názov"
 
 #: ../CryptoManager.cpp:140
 msgid "No private key file chosen"
-msgstr "Aucun fichier de clé privée choisi"
+msgstr "Nebol vybraný súbor s privátnym kľúčom"
 
 #: ../CryptoManager.cpp:143
 msgid "No certificate file chosen"
-msgstr "Aucun fichier de certificat choisi"
+msgstr "Nebol zvolený súbor s certifikátom"
 
 #: ../CryptoManager.cpp:154
 msgid "Error generating certificate"
-msgstr "Erreur lors de la génération du certificat"
+msgstr "Chyba pri tvorbe certifikátu"
 
 #: ../CryptoManager.cpp:213
 msgid "TLS disabled, no certificate file set"
-msgstr "TLS désactivé, aucun fichier de certificat n'est défini"
+msgstr "TLS vypnuté, nebol nastavený súbor s certifikátom"
 
 #: ../CryptoManager.cpp:221
 msgid "Generated new TLS certificate"
-msgstr "Nouveau certificat TLS généré"
+msgstr "Vytvorený nový TLS certifikát"
 
 #: ../CryptoManager.cpp:223
 msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "TLS désactivé, impossible de générer le certificat : %1%"
+msgstr "TLS vypnuté, nepodarilo sa vygenerovať certifikát: %1%"
 
 #: ../CryptoManager.cpp:228 ../CryptoManager.cpp:232 ../CryptoManager.cpp:237
 #: ../CryptoManager.cpp:241
 msgid "Failed to load certificate file"
-msgstr "Impossible de charger le fichier de certificat"
+msgstr "Nepodarilo sa načítať súbor s certifikátom"
 
 #: ../CryptoManager.cpp:246 ../CryptoManager.cpp:250 ../CryptoManager.cpp:255
 #: ../CryptoManager.cpp:259
 msgid "Failed to load private key"
-msgstr "Impossible de charger la clé privée"
+msgstr "Nepodarilo sa načítať privátny kľúč"
 
 #: ../SSLSocket.cpp:160
 msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "Erreur SSL : %1% (%2%, %3%)"
+msgstr "Chyba SSL: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:222
 msgid "Invalid size"
-msgstr "Taille invalide"
+msgstr "Neplatná veľkosť"
 
 #: ../DownloadManager.cpp:227
 msgid "Response does not match request"
-msgstr "Le résultat ne correspond pas à la demande"
+msgstr "Odpoveď nezodpovedá požiadavke"
 
 #: ../DownloadManager.cpp:234
 msgid "Could not open target file: %1%"
-msgstr "Impossible d'ouvrir le fichier cible : %1%"
+msgstr "Nebolo možné otvoriť cieľový súbor: %1%"
 
 #: ../DownloadManager.cpp:313
 msgid "Full tree does not match TTH root"
-msgstr "La concaténation des clés ne correspond pas à la clé TTH racine"
+msgstr "Úplný strom nezodpovedá TTH koreňu"
 
 #: ../DownloadManager.cpp:382 ../DownloadManager.cpp:384
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr "Incompatibilité CRC32 (Contrôle SFV)"
+msgstr "nekonzistentný CRC32 (kontrola v SFV)"
 
 #: ../DownloadManager.cpp:427
 msgid "No slots available"
-msgstr "Pas de slot disponible"
+msgstr "Nie sú dostupné sloty"
 
 #: ../DownloadManager.cpp:538
 msgid "%1%: File not available"
-msgstr "%1% : Fichier indisponible"
+msgstr "%1%: Súbor nie je dostupný"
 
 #: ../ConnectionManager.cpp:185
 msgid "All download slots taken"
-msgstr "Tous les slots de téléchargement sont pris"
+msgstr "Všetky sťahovacie sloty sú obsadené"
 
 #: ../ConnectionManager.cpp:254
 msgid "Connectivity restored"
-msgstr "Connectivité restaurée"
+msgstr "Konektivita bola obnovená"
 
 #: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
-msgstr "Erreur de connectivité : %1%"
+msgstr "Chyba konektivity: %1%"
 
 #: ../SearchManager.cpp:132
 msgid "Search enabled again"
-msgstr "Recherche à nouveau activée"
+msgstr "Hľadanie znova zapnuté"
 
 #: ../SearchManager.cpp:139
 msgid "Search disabled: %1%"
-msgstr "Recherche désactivée : %1%"
+msgstr "Hľadanie vypnuté: %1%"
 
 #: ../QueueManager.cpp:343
 msgid "%1% renamed to %2%"
-msgstr "%1% renommé en %2%"
+msgstr ""
 
 #: ../QueueManager.cpp:345
+#, fuzzy
 msgid "Unable to rename %1%: %2%"
-msgstr "Impossible de renommer %1% : %2%"
+msgstr "Nepodarilo sa poslať súbor %1%: %2%"
 
 #: ../QueueManager.cpp:561
 msgid "Searching TTH alternates for: %1%"
@@ -500,100 +497,109 @@ msgstr ""
 
 #: ../QueueManager.cpp:589
 msgid "You're trying to download from yourself!"
-msgstr "Vous essayez de télécharger sur vous-même !"
+msgstr "Pokúšate sa sťahovať sám od seba!"
 
 #: ../QueueManager.cpp:595
 msgid "A file with the same hash already exists in your share"
-msgstr "Un fichier avec la même clé existe déjà dans votre partage"
+msgstr "Súbor s rovnakým hašom sa už nachádza vo fronte"
 
 #: ../QueueManager.cpp:622
 msgid "This file is already queued"
-msgstr "Ce fichier est déjà dans la liste de téléchargement"
+msgstr "Tento súbor sa už nachádza vo fronte"
 
 #: ../QueueManager.cpp:632
 msgid "A file with a different size already exists in the queue"
-msgstr ""
-"Un fichier d'une taille différente existe déjà dans la liste de "
-"téléchargement"
+msgstr "Súbor s inou veľkosťou sa už nachádza vo fronte"
 
 #: ../QueueManager.cpp:635
+#, fuzzy
 msgid "A file with different tth root already exists in the queue"
-msgstr ""
-"Un fichier avec une clé TTH racine différente existe déjà dans la liste de "
-"téléchargement"
+msgstr "Súbor s iným koreňom TTH sa už nachádza vo fronte"
 
 #: ../QueueManager.cpp:679 ../QueueManager.cpp:688
 msgid "Target filename too long"
-msgstr "Nom du fichier cible trop long"
+msgstr "Cieľový názov súboru je príliš dlhý"
 
 #: ../QueueManager.cpp:684 ../QueueManager.cpp:692
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
 msgstr ""
-"Fichier cible invalide (dossier manquant ; vérifier l'option du dossier des "
-"téléchargements par défaut)"
+"Neplatný cieľový súbor (chýba adresár, skontrolujte štandardné nastavenie "
+"adresára pre sťahovanie)"
 
 #: ../QueueManager.cpp:701
+#, fuzzy
 msgid "A file of equal or larger size already exists at the target location"
 msgstr ""
-"Un fichier d'une taille égale ou supérieure existe déjà à l'emplacement cible"
+"Súbor s rovnakou alebo väčšou veľkosťou sa už na danom cieľovom mieste "
+"nachádza"
 
 #: ../QueueManager.cpp:714 ../QueueManager.cpp:718
 msgid "Duplicate source: %1%"
-msgstr "Source en double : %1%"
+msgstr "Duplicitný zdroj: %1%"
 
 #: ../QueueManager.cpp:988
 msgid "Target removed"
-msgstr "Cible enlevée"
+msgstr "Cieľ bol odstránený"
 
 #: ../QueueManager.cpp:996
 msgid "Target file is missing or wrong size"
-msgstr "Le fichier cible est introuvable ou n'a pas la bonne taille"
+msgstr "Cieľový súbor chýba alebo má chybnú veľkosť"
 
 #: ../QueueManager.cpp:1206
 msgid "Unable to open filelist: %1%"
-msgstr "Impossible d'ouvrir la liste de fichiers : %1%"
+msgstr "Nepodarilo sa otvoriť zoznam súborov: %1%"
 
 #: ../QueueManager.cpp:1230
 #, fuzzy
 msgid "%1%: Matched %2% file"
-msgstr "%1% a été expulsé : %2%"
+msgstr "%1% bol vykopnutý: %2%"
 
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
-msgstr "Demande de recherche au-delà de la fin des données"
+msgstr "Požiadavka o čítanie za koncom údajov"
 
 #: ../ADLSearch.h:50
 msgid "<Enter string>"
-msgstr "<Entrer chaîne de recherche>"
+msgstr "<Zadajte reťazec>"
 
 #: ../ADLSearch.h:306
 msgid "Discard"
-msgstr "Abandonner"
+msgstr "Zahodiť"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"
-msgstr "Trop d'octets ont été écrits"
+msgstr "Bolo zapísaných viac bajtov ako bolo vyžiadaných"
 
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
-msgstr "Incohérence de TTH"
+msgstr "nekonzistencia TTH"
+
+#, fuzzy
+#~ msgid "Directory"
+#~ msgstr "Adresár je už zdieľaný"
 
 #~ msgid "Directory already shared"
-#~ msgstr "Dossier déjà partagé"
+#~ msgstr "Adresár je už zdieľaný"
+
+#, fuzzy
+#~ msgid "Directory is hidden"
+#~ msgstr "Adresár je už zdieľaný"
+
+#, fuzzy
+#~ msgid "Invalid data"
+#~ msgstr "Neplatná veľkosť"
 
 #~ msgid "Remove all subdirectories before adding this one"
-#~ msgstr "Enlevez tous les sous-dossiers avant d'ajouter celui-ci"
+#~ msgstr "Odstrániť všetky podadresáre pred pridaním tohto"
+
+#, fuzzy
+#~ msgid "This file has already finished downloading"
+#~ msgstr "Tento súbor sa už nachádza vo fronte"
 
 #~ msgid "downloaded from"
-#~ msgstr "téléchargé de"
+#~ msgstr "stiahnuté od"
 
 #~ msgid "uploaded to"
-#~ msgstr "envoyé à"
-
-#~ msgid "More data was sent than was expected"
-#~ msgstr "Plus de données ont été envoyées que ce qu'il était attendu"
-
-#~ msgid "Virtual directory name already exists"
-#~ msgstr "Nom de répertoire virtuel déjà existant"
+#~ msgstr "nahrané komu"

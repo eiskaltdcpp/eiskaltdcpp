@@ -137,31 +137,33 @@ void UCModel::sort(int column, Qt::SortOrder order) {
 }
 
 void UCModel::loadUC(){
-    UserCommand::List lst = FavoriteManager::getInstance()->getUserCommands();
+#warning
+    /*UserCommand::List lst = FavoriteManager::getInstance()->getUserCommands();
     for(UserCommand::List::const_iterator i = lst.begin(); i != lst.end(); ++i) {
         const UserCommand& uc = *i;
         if(!uc.isSet(UserCommand::FLAG_NOSAVE))
             addUC(uc);
-    }
+    }*/
 }
 
 void UCModel::addUC(const dcpp::UserCommand &uc){
-    UCItem *item = new UCItem(rootItem);
+#warning
+//    UCItem *item = new UCItem(rootItem);
 
-    item->name = ((uc.getType() == dcpp::UserCommand::TYPE_SEPARATOR)? tr("Separator") : _q(uc.getName()));
-    item->comm = _q(uc.getCommand());
-    item->hub  = _q(uc.getHub());
-    item->id   = uc.getId();
-    item->type = uc.getType();
-    item->ctx  = uc.getCtx();
+//    item->name = ((uc.getType() == dcpp::UserCommand::TYPE_SEPARATOR)? tr("Separator") : _q(uc.getName()));
+//    item->comm = _q(uc.getCommand());
+//    item->hub  = _q(uc.getHub());
+//    item->id   = uc.getId();
+//    item->type = uc.getType();
+//    item->ctx  = uc.getCtx();
 
-    beginInsertRows(QModelIndex(), rootItem->childCount(), rootItem->childCount());
-    rootItem->appendChild(item);
-    endInsertRows();
+//    beginInsertRows(QModelIndex(), rootItem->childCount(), rootItem->childCount());
+//    rootItem->appendChild(item);
+//    endInsertRows();
 }
 
 void UCModel::newUC(){
-    UCDialog ucd(MainWindow::getInstance());
+    /*UCDialog ucd(MainWindow::getInstance());
 
     if (ucd.exec() == QDialog::Accepted){
         addUC(FavoriteManager::getInstance()->addUserCommand(ucd.getType(),
@@ -171,7 +173,7 @@ void UCModel::newUC(){
                                                              _tq(ucd.getCmd()),
                                                              _tq(ucd.getHub())
                                                              ));
-    }
+    }*/
 }
 
 void UCModel::changeUC(const QModelIndex &i){
@@ -267,7 +269,7 @@ void UCModel::moveDown(const QModelIndex &i){
 }
 
 void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
-    unsigned long ctx   = item.ctx;
+    /*unsigned long ctx   = item.ctx;
     unsigned long type  = item.type;
     QString name        = item.name;
     QString comm        = item.comm;
@@ -277,7 +279,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
         dlg.radioButton_SEP->toggle();
         dlg.lineEdit_CMD->clear();
     }
-    else if (/*type == 2 && */comm.startsWith("<%[myNI]> ")){
+    else if (comm.startsWith("<%[myNI]> ")){
         dlg.radioButton_CHAT->toggle();
 
         int from = QString("<%[myNI]> ").length();
@@ -287,7 +289,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
 
         dlg.lineEdit_CMD->setText(cmd);
     }
-    else if (/*type == 3 &&*/ comm.startsWith("$To: ") && comm.indexOf(" From: %[myNI] $<%[myNI]> ") > 0){
+    else if ( comm.startsWith("$To: ") && comm.indexOf(" From: %[myNI] $<%[myNI]> ") > 0){
         QRegExp reg_exp("^\\$To: ([^\t]+) From: %\\[myNI\\] \\$<%\\[myNI\\]> ([^\t^|]+)");
         (void)reg_exp.indexIn(comm);
         QStringList list = reg_exp.capturedTexts();
@@ -313,7 +315,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
     dlg.checkBox_FB->setChecked(ctx & UserCommand::CONTEXT_FILELIST);
     dlg.checkBox_HUB->setChecked(ctx & UserCommand::CONTEXT_HUB);
     dlg.checkBox_USER->setChecked(ctx & UserCommand::CONTEXT_CHAT);
-    dlg.checkBox_SEARCH->setChecked(ctx & UserCommand::CONTEXT_SEARCH);
+    dlg.checkBox_SEARCH->setChecked(ctx & UserCommand::CONTEXT_SEARCH);*/
 }
 
 UCItem::UCItem(UCItem *parent) :
@@ -368,14 +370,14 @@ UCDialog::UCDialog(QWidget *parent): QDialog(parent){
 unsigned long UCDialog::getCtx() const {
     unsigned long ctx = 0;
 
-    if (checkBox_HUB->isChecked())
-        ctx |= UserCommand::CONTEXT_HUB;
-    if (checkBox_SEARCH->isChecked())
-        ctx |= UserCommand::CONTEXT_SEARCH;
-    if (checkBox_USER->isChecked())
-        ctx |= UserCommand::CONTEXT_CHAT;
-    if (checkBox_FB->isChecked())
-        ctx |= UserCommand::CONTEXT_FILELIST;
+//    if (checkBox_HUB->isChecked())
+//        ctx |= UserCommand::CONTEXT_HUB;
+//    if (checkBox_SEARCH->isChecked())
+//        ctx |= UserCommand::CONTEXT_SEARCH;
+//    if (checkBox_USER->isChecked())
+//        ctx |= UserCommand::CONTEXT_CHAT;
+//    if (checkBox_FB->isChecked())
+//        ctx |= UserCommand::CONTEXT_FILELIST;
 
     return ctx;
 }

@@ -5149,6 +5149,10 @@ them is usually available only to operators</source>
         <source>Do not change focus on new incoming private messages</source>
         <translation>Ne pas basculer d&apos;onglet lors de la réception d&apos;un message privé</translation>
     </message>
+    <message>
+        <source>Try to use system icons (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>

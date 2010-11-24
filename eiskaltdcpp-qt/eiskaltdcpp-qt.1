@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp-qt" 1 "02 Oct 2010"
+.TH "eiskaltdcpp-qt" 1 "21 Nov 2010"
 .SH "NAME"
 EiskaltDC++_Qt \- GUI based on Qt
 .SH "SYNOPSIS"
@@ -146,9 +146,13 @@ Delete selected items. Now available in Download Queue widget.
     (0 \- insert nick into input widget, 1 \- get file list, 2 \- private message)
     /ws app-unit-base <1024 or 1000> (show kibibyte (KiB) or kilobyte (KB), etc.)
     /ws chat-timestamp <hh:mm:ss, hh:mm, hh and etc.> (set chat timestamp)
+    /ws hubframe/chat-background-color <color> (set background color in the chat, where <color> is in HTML format)
 .SH "FILES"
 .TP
-.B "~/.eiskaltdc++" or "~/.config/eiskaltdc++/" or "$XDG_CONFIG_HOME/eiskaltdc++/"
+.B "/usr/share/eiskaltdcpp/qt"
+Directory with some resource files
+.TP
+.B "~/.config/eiskaltdc++/" or "$XDG_CONFIG_HOME/eiskaltdc++/"
 Directory with configuration files
 .TP
 .B "/usr/share/eiskaltdcpp/examples"

@@ -242,7 +242,7 @@ void TransferView::getFileList(const QString &cid, const QString &host){
         dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
 
         if (user)
-            QueueManager::getInstance()->addList(user, _tq(host), QueueItem::FLAG_CLIENT_VIEW);
+            QueueManager::getInstance()->addList(HintedUser(user, _tq(host)), QueueItem::FLAG_CLIENT_VIEW, "");
     }
     catch (const Exception&){}
 }
@@ -255,7 +255,7 @@ void TransferView::matchQueue(const QString &cid, const QString &host){
         dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
 
         if (user)
-            QueueManager::getInstance()->addList(user, _tq(host), QueueItem::FLAG_MATCH_QUEUE);
+            QueueManager::getInstance()->addList(HintedUser(user, _tq(host)), QueueItem::FLAG_MATCH_QUEUE, "");
     }
     catch (const Exception&){}
 }
@@ -281,7 +281,7 @@ void TransferView::grantSlot(const QString &cid, const QString &host){
         dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
 
         if (user)
-            UploadManager::getInstance()->reserveSlot(user, _tq(host));
+            UploadManager::getInstance()->reserveSlot(HintedUser(user, _tq(host)));
     }
     catch (const Exception&){}
 }
@@ -345,7 +345,7 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Connectio
     params["USER"]  = WU->getNicks(user->getCID());
     params["HUB"]   = WU->getHubNames(user);
     params["FAIL"]  = false;
-    params["HOST"]  = _q(item->getHubHint());
+    params["HOST"]  = _q(item->getUser().hint);
     params["DOWN"]  = item->getDownload();
 }
 
@@ -549,12 +549,13 @@ void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download*
 
     getParams(params, dl);
 
-    if (IPFilter::getInstance()){
-        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_IN)){
-            closeConection(vstr(params["CID"]), true);
-            return;
-        }
-    }
+#warning
+//    if (IPFilter::getInstance()){
+//        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_IN)){
+//            closeConection(vstr(params["CID"]), true);
+//            return;
+//        }
+//    }
 
     params["ESIZE"] = (qlonglong)QueueManager::getInstance()->getSize(dl->getPath());
     params["FPOS"]  = (qlonglong)QueueManager::getInstance()->getPos(dl->getPath());
@@ -730,12 +731,13 @@ void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) t
 
     getParams(params, ul);
 
-    if (IPFilter::getInstance()){
-        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_OUT)){
-            closeConection(vstr(params["CID"]), false);
-            return;
-        }
-    }
+#warning
+//    if (IPFilter::getInstance()){
+//        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_OUT)){
+//            closeConection(vstr(params["CID"]), false);
+//            return;
+//        }
+//    }
 
     params["STAT"] = tr("Upload starting...");
     params["DOWN"] = false;

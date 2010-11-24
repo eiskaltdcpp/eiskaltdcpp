@@ -100,9 +100,10 @@ MainWindow::MainWindow (QWidget *parent):
     }
 
     if (WBGET(WB_IPFILTER_ENABLED)){
-        IPFilter::newInstance();
+#warning "Check this"
+        //IPFilter::newInstance();
 
-        IPFilter::getInstance()->loadList();
+        //IPFilter::getInstance()->loadList();
     }
 
     ShortcutManager::newInstance();
@@ -167,10 +168,11 @@ MainWindow::~MainWindow(){
         AntiSpam::deleteInstance();
     }
 
-    if (IPFilter::getInstance()){
-        IPFilter::getInstance()->saveList();
-        IPFilter::deleteInstance();
-    }
+#warning "Check this"
+    //if (IPFilter::getInstance()){
+      //  IPFilter::getInstance()->saveList();
+        //IPFilter::deleteInstance();
+    //}
 
     delete arena;
 
@@ -408,6 +410,9 @@ void MainWindow::init(){
     string defaultluascript="startup.lua";
     ScriptManager::getInstance()->EvaluateFile(defaultluascript);
 #endif
+
+    totalDown = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
+    totalUp =  WSGET(WS_APP_TOTAL_UP).toULongLong();
 }
 
 void MainWindow::loadSettings(){
@@ -489,6 +494,8 @@ void MainWindow::saveSettings(){
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
     WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
+    WSSET(WS_APP_TOTAL_DOWN, QString().setNum(totalDown));
+    WSSET(WS_APP_TOTAL_UP, QString().setNum(totalUp));
 
     stateIsSaved = true;
 }
@@ -639,7 +646,8 @@ void MainWindow::initActions(){
         toolsIPFilter->setObjectName("toolsIPFilter");
         toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
         toolsIPFilter->setCheckable(true);
-        toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
+#warning
+        //toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
         connect(toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
 
         toolsAwayOn = new QAction("", this);
@@ -1301,15 +1309,17 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         }
     case ArenaWidget::FinishedUploads:
         {
-            if (!FinishedUploads::getInstance()) FinishedUploads::newInstance();
-            awgt = FinishedUploads::getInstance();
+#warning
+//            if (!FinishedUploads::getInstance()) FinishedUploads::newInstance();
+//            awgt = FinishedUploads::getInstance();
 
             break;
         }
     case ArenaWidget::FinishedDownloads:
         {
-            if (!FinishedDownloads::getInstance()) FinishedDownloads::newInstance();
-            awgt = FinishedDownloads::getInstance();
+#warning
+//            if (!FinishedDownloads::getInstance()) FinishedDownloads::newInstance();
+//            awgt = FinishedDownloads::getInstance();
 
             break;
         }
@@ -1824,8 +1834,11 @@ void MainWindow::startSocket(bool onstart, int oldmode){
         }
     //qDebug() << "start";
     } else {
+        bool b = false;
+        if (oldmode != SETTING(INCOMING_CONNECTIONS))
+            b = true;
         try {
-            ConnectivityManager::getInstance()->setup(true, oldmode);
+            ConnectivityManager::getInstance()->setup(b, oldmode);
         } catch (const Exception& e) {
             showPortsError(e.getError());
         }
@@ -1844,12 +1857,9 @@ void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const 
 void MainWindow::reloadSomeSettings(){
     for (int k = 0; k < arenaWidgets.size(); ++k){
         HubFrame *fr = qobject_cast<HubFrame *>(arenaMap[arenaWidgets.at(k)]);
-        PMWindow *pm = qobject_cast<PMWindow *>(arenaMap[arenaWidgets.at(k)]);
 
         if (fr)
             fr->reloadSomeSettings();
-        else if (pm)
-            pm->reloadSomeSettings();
     }
 }
 
@@ -1978,17 +1988,19 @@ void MainWindow::slotToolsHubManager(){
 }
 
 void MainWindow::slotToolsFinishedDownloads(){
-    if (!FinishedDownloads::getInstance())
-        FinishedDownloads::newInstance();
+#warning
+//    if (!FinishedDownloads::getInstance())
+//        FinishedDownloads::newInstance();
 
-    toggleSingletonWidget(FinishedDownloads::getInstance());
+//    toggleSingletonWidget(FinishedDownloads::getInstance());
 }
 
 void MainWindow::slotToolsFinishedUploads(){
-    if (!FinishedUploads::getInstance())
-        FinishedUploads::newInstance();
+#warning
+//    if (!FinishedUploads::getInstance())
+//        FinishedUploads::newInstance();
 
-    toggleSingletonWidget(FinishedUploads::getInstance());
+//    toggleSingletonWidget(FinishedUploads::getInstance());
 }
 
 void MainWindow::slotToolsSpy(){
@@ -2007,11 +2019,12 @@ void MainWindow::slotToolsAntiSpam(){
 }
 
 void MainWindow::slotToolsIPFilter(){
-    IPFilterFrame fr(this);
+#warning
+//    IPFilterFrame fr(this);
 
-    fr.exec();
+//    fr.exec();
 
-    toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
+//    toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
 }
 
 void MainWindow::slotToolsAutoAway(){
@@ -2362,8 +2375,8 @@ void MainWindow::slotAboutOpenUrl(){
 void MainWindow::slotAboutClient(){
     About a(this);
 
-    qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
-    qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong();
+    volatile const qulonglong &app_total_down = totalDown;
+    volatile const qulonglong &app_total_up   = totalUp;
 
     a.label->setText(QString("<b>%1</b> %2 (%3)")
                      .arg(EISKALTDCPP_WND_TITLE)
@@ -2715,12 +2728,8 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
     map["USPEED"]   = WulforUtil::formatBytes(upBytes);
     map["UP"]       = WulforUtil::formatBytes(Socket::getTotalUp());
 
-    qulonglong app_total_down = WSGET(WS_APP_TOTAL_DOWN).toULongLong()+downDiff;
-    qulonglong app_total_up   = WSGET(WS_APP_TOTAL_UP).toULongLong()+upDiff;
-
-    WSSET(WS_APP_TOTAL_DOWN, QString().setNum(app_total_down));
-    WSSET(WS_APP_TOTAL_UP, QString().setNum(app_total_up));
-
+    totalDown = totalDown+downDiff;
+    totalUp = totalUp+upDiff;
     lastUpdate = ticks;
     lastUp = Socket::getTotalUp();
     lastDown = Socket::getTotalDown();

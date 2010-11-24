@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-08-28 16:31+0300\n"
-"PO-Revision-Date: 2010-08-22 20:08+0300\n"
+"POT-Creation-Date: 2010-11-21 18:39+0200\n"
+"PO-Revision-Date: 2010-11-06 19:34+0200\n"
 "Last-Translator: PsyTrip <dimitrov.rusi@gmail.com>\n"
-"Language-Team: Bulgarian <>\n"
+"Language-Team: Bulgarian < >\n"
 "Language: Bulgarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../FavoriteManager.cpp:444
 msgid "Kick user(s)"
@@ -26,34 +26,34 @@ msgstr "Изгони потребител(и)"
 msgid "Redirect user(s)"
 msgstr "Пренасочване на потребител(и)"
 
-#: ../Socket.cpp:61
+#: ../Socket.cpp:65
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Неизвестна грешка: 0x%1$x"
 
-#: ../Socket.cpp:161 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:183
+#: ../Socket.cpp:165 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:191
 msgid "Connection timeout"
 msgstr "Времето за свързване изтече"
 
-#: ../Socket.cpp:169 ../Socket.cpp:177 ../Socket.cpp:210 ../Socket.cpp:214
-#: ../Socket.cpp:238 ../Socket.cpp:253
+#: ../Socket.cpp:173 ../Socket.cpp:181 ../Socket.cpp:214 ../Socket.cpp:218
+#: ../Socket.cpp:242 ../Socket.cpp:257
 msgid "The socks server failed establish a connection"
 msgstr "Socks сървъра не можа да установи връзка"
 
-#: ../Socket.cpp:242
+#: ../Socket.cpp:246
 msgid "The socks server requires authentication"
 msgstr "Socks сървъра изисква идентификация (име и парола)"
 
-#: ../Socket.cpp:256
+#: ../Socket.cpp:260
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Socks сървъра не поддържа идентификация с име / парола"
 
-#: ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:274 ../Socket.cpp:278
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr "Грешка при свързването със Socks сървъра. (грешно име / парола?)"
 
-#: ../Socket.cpp:409
+#: ../Socket.cpp:413
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -61,21 +61,64 @@ msgstr ""
 "Грешка при настройването на Socks сървъра за UDP (проверете адреса и порта "
 "на сървъра)"
 
-#: ../DCPlusPlus.cpp:115
+#: ../DCPlusPlus.cpp:116
 msgid "Hash database"
 msgstr "База-данни с хешове"
 
-#: ../DCPlusPlus.cpp:118
+#: ../DCPlusPlus.cpp:119
 msgid "Shared Files"
 msgstr "Споделени файлове"
 
-#: ../DCPlusPlus.cpp:121
+#: ../DCPlusPlus.cpp:122
 msgid "Download Queue"
 msgstr "Опашка за сваляне"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "Грешка при създаване на нишка"
+
+#: ../ConnectivityManager.cpp:61
+msgid "Determining connection type..."
+msgstr "Определяне типа на свързване..."
+
+#: ../ConnectivityManager.cpp:66
+msgid "Unable to open %1% port(s). You must set up your connection manually"
+msgstr ""
+"Грешка при отваряне на %1% порт(а). Трябва да зададете ръчно вашата връзка"
+
+#: ../ConnectivityManager.cpp:73
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+"Засечен е външен IP адрес, избиране на Активен режим с директно свързване"
+
+#: ../ConnectivityManager.cpp:78
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+"Засечена е локална мрежа с възможност за NAT, опит за пренасочване на "
+"портове чрез UPnP..."
+
+#: ../ConnectivityManager.cpp:110
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+"Автоматичното настройване на активния режим се провали. Може да искате да "
+"настроите връзката ръчно за по-добра свързаност"
+
+#: ../ConnectivityManager.cpp:120
+msgid "TCP/TLS"
+msgstr "TCP/TLS"
+
+#: ../ConnectivityManager.cpp:126
+msgid "UDP"
+msgstr "UDP"
+
+#: ../ConnectivityManager.cpp:137
+msgid "Connectivity: "
+msgstr "Свързване: "
 
 #: ../UploadManager.cpp:157
 msgid "Unable to send file %1%: %2%"
@@ -85,11 +128,11 @@ msgstr "Не може да изпрати файл %1%: %2%"
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Потребител напуска хъба поради прекъсната връзка: %1%"
 
-#: ../NmdcHub.cpp:282
+#: ../NmdcHub.cpp:283
 msgid "%1% (Nick unknown)"
-msgstr "%1% (неизвестен псевдоним)"
+msgstr "%1% (неизвестен прякор)"
 
-#: ../NmdcHub.cpp:902
+#: ../NmdcHub.cpp:905
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -98,7 +141,7 @@ msgstr ""
 "хъба да го поправи"
 
 #: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:244 ../SearchManager.cpp:305 ../SearchManager.cpp:307
+#: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
 msgid "Offline"
 msgstr "Извън линия"
 
@@ -130,46 +173,46 @@ msgstr "%1% бе изгонен от %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% бе изгонен: %2%"
 
-#: ../AdcHub.cpp:621
+#: ../AdcHub.cpp:624
 msgid "Not listening for connections - please restart %1%"
 msgstr "Не се следи за връзки - моля, рестартирайте %1%"
 
-#: ../Util.cpp:463
+#: ../Util.cpp:473
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:465
+#: ../Util.cpp:475
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:467
+#: ../Util.cpp:477
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:469
+#: ../Util.cpp:479
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:471
+#: ../Util.cpp:481
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:473
+#: ../Util.cpp:483
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:503
+#: ../Util.cpp:513
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:507
+#: ../Util.cpp:517
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -232,39 +275,53 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Грешка при хеширане %1%: %2%"
 
-#: ../UPnPManager.cpp:40
+#: ../UPnPManager.cpp:41
 msgid "No UPnP implementation available"
 msgstr "Недостъпна реализация на UPnP"
 
-#: ../UPnPManager.cpp:68
+#: ../UPnPManager.cpp:46
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr "В действие е друг опит за UPnP пренасочване..."
+
+#: ../UPnPManager.cpp:74
+msgid "Failed to initialize the %1% interface"
+msgstr "Неуспех при инициализиране на %1% интерфейс"
+
+#: ../UPnPManager.cpp:78
 msgid " Transfer Port (%1% TCP)"
 msgstr " Порт за прехвърляне (%1% TCP)"
 
-#: ../UPnPManager.cpp:71
+#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr "%1% интерфейса се провали провали при пренасочване на %2% %3% порта"
+
+#: ../UPnPManager.cpp:83
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr " Шифриран порт за прехвърляне (%1% TCP)"
 
-#: ../UPnPManager.cpp:74
+#: ../UPnPManager.cpp:88
 msgid " Search Port (%1% UDP)"
 msgstr " Търсене на порт (%1% UDP)"
 
-#: ../UPnPManager.cpp:78
-msgid "Successfully created port mappings"
-msgstr "Успешно създадено пренасочване на порт"
+#: ../UPnPManager.cpp:94
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr "Успешно пренасочване на портове "
 
-#: ../UPnPManager.cpp:89
+#: ../UPnPManager.cpp:106
 msgid "Failed to get external IP"
 msgstr "Грешка при взимане на външен IP адрес"
 
-#: ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:114
 msgid "Failed to create port mappings"
 msgstr "Грешка при създаване пренасочването на порт"
 
-#: ../UPnPManager.cpp:105
+#: ../UPnPManager.cpp:123
 msgid "Failed to remove port mappings"
 msgstr "Грешка при махане пренасочването на порт"
 
-#: ../UPnPManager.cpp:110
+#: ../UPnPManager.cpp:128
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -297,20 +354,20 @@ msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
 msgstr ""
-"В момента тече обновяване на списъка с файловете, моля изчакайте преди да "
+"В момента тече опресняване на списъка с файловете, моля изчакайте преди да "
 "опитате да обновите отново"
 
 #: ../ShareManager.cpp:748
 msgid "File list refresh failed: %1%"
-msgstr "Грешка при обновяване на списъка с файлове: %1%"
+msgstr "Грешка при опресняване на списъка с файлове: %1%"
 
 #: ../ShareManager.cpp:770
 msgid "File list refresh initiated"
-msgstr "Започва обновяване на списъка с файлове"
+msgstr "Започва опресняване на списъка с файлове"
 
 #: ../ShareManager.cpp:795
 msgid "File list refresh finished"
-msgstr "Обновяването на списъка с файлове завърши"
+msgstr "Опресняването на списъка с файлове завърши"
 
 #: ../ShareManager.cpp:866
 msgid "File list %1% generated"
@@ -406,23 +463,23 @@ msgstr "Няма налични слотове"
 msgid "%1%: File not available"
 msgstr "%1%: Файла не е достъпен"
 
-#: ../ConnectionManager.cpp:177
+#: ../ConnectionManager.cpp:185
 msgid "All download slots taken"
 msgstr "Всички слотове за сваляне са заети"
 
-#: ../ConnectionManager.cpp:246
+#: ../ConnectionManager.cpp:254
 msgid "Connectivity restored"
 msgstr "Връзката е възстановена"
 
-#: ../ConnectionManager.cpp:253
+#: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
 msgstr "Грешка при свързване: %1%"
 
-#: ../SearchManager.cpp:129
+#: ../SearchManager.cpp:132
 msgid "Search enabled again"
 msgstr "Търсенето е включено отново"
 
-#: ../SearchManager.cpp:136
+#: ../SearchManager.cpp:139
 msgid "Search disabled: %1%"
 msgstr "Търсенето е изключено: %1%"
 
@@ -498,11 +555,11 @@ msgstr "%1%: Съвпадащи %2% файла"
 msgid "Request to seek beyond the end of data"
 msgstr "Искане за търсене след края на данните"
 
-#: ../ADLSearch.h:48
+#: ../ADLSearch.h:50
 msgid "<Enter string>"
 msgstr "<Въведете низ>"
 
-#: ../ADLSearch.h:277
+#: ../ADLSearch.h:306
 msgid "Discard"
 msgstr "Отхвърляне"
 
@@ -513,3 +570,6 @@ msgstr "Записани са повече байтове от заявения 
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "ТТH несъвпадение"
+
+#~ msgid "Successfully created port mappings"
+#~ msgstr "Успешно създадено пренасочване на порт"
