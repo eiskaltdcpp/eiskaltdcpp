@@ -114,8 +114,7 @@ if (USE_MINIUPNP)
   else (LOCAL_MINIUPNP)
     find_package (Miniupnpc REQUIRED)
   endif (LOCAL_MINIUPNP)
-    
-    add_definitions (-DUSE_MINIUPNP)
+
 elseif (NOT USE_MINIUPNP)
     unset (MINIUPNP_INCLUDE_DIR CACHE)
     unset (MINIUPNP_LIBRARY CACHE)
@@ -333,7 +332,7 @@ message(STATUS "CMAKE will use this libs(and headers) during build:
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
                 pcre(cpp) (headers): ${PCRE_LIBRARY} (${PCRE_INCLUDE_DIR})
-                
+
                 ")
 
 if (UNIX AND NOT APPLE)

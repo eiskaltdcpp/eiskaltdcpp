@@ -103,6 +103,9 @@ void startup(void (*f)(void*, const string&), void* p) {
     DebugManager::newInstance();
 
     SettingsManager::getInstance()->load();
+#ifdef USE_MINIUPNP
+    UPnPManager::getInstance()->runMiniUPnP();
+#endif
     IPFilter::getInstance()->loadList();
 
 #ifdef _WIN32

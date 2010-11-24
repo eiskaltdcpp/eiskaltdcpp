@@ -27,6 +27,7 @@
 #ifdef XMLRPC_DAEMON
 #include "xmlrpcserver.h"
 #endif
+
 //#include "../dht/DHT.h"
 
 ServerThread::ClientMap ServerThread::clients;
@@ -79,12 +80,18 @@ void ServerThread::Run()
 
 	startSocket(true, 0);
 	autoConnect();
+#ifdef LUA_SCRIPT
+    ScriptManager::getInstance()->load();//aded
+    // Start as late as possible, as we might (formatting.lua) need to examine settings
+    string defaultluascript="startup.lua";
+    ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+#endif
 #ifdef XMLRPC_DAEMON
 		xmlrpc_c::methodPtr const sampleAddMethodP(new sampleAddMethod);
 		xmlrpc_c::methodPtr const magnetAddMethodP(new magnetAddMethod);
 		xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
 		xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
-		
+
 		AbyssServer.run();
 #endif
 	while(!bTerminated) {

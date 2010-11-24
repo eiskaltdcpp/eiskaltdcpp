@@ -9,10 +9,6 @@
 #include "stdafx.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Util.h"
-#ifdef USE_MINIUPNP
-#include "extra/upnpc.h"
-#include "dcpp/UPnPManager.h"
-#endif
 //---------------------------------------------------------------------------
 #include "ServerManager.h"
 #include "ServerThread.h"
@@ -43,9 +39,7 @@ bool ServerStart()
 {
 
 	dcpp::startup(callBack, NULL);
-#ifdef USE_MINIUPNP
-    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
-#endif
+
 	ServersS = new ServerThread();
 
 	if(ServersS == NULL)

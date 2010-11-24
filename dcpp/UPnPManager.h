@@ -38,6 +38,8 @@ public:
     * must be allocated on the heap; its deletion will be managed by UPnPManager.
     * first added impl will be tried first.
     */
+
+    void runMiniUPnP();
     void addImplementation(UPnP* impl);
     bool open();
     void close();
