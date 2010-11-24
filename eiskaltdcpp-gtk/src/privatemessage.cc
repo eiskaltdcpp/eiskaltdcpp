@@ -185,10 +185,10 @@ void PrivateMessage::addMessage_gui(string message, Msg::TypeMsg typemsg)
     {
         StringMap params;
         params["message"] = message;
-                params["hubNI"] = WulforUtil::getHubNames(cid, hubUrl);//NOTE: core 0.762
-                params["hubURL"] = hubUrl;//NOTE: core 0.762
+        params["hubNI"] = WulforUtil::getHubNames(cid, hubUrl);//NOTE: core 0.762
+        params["hubURL"] = hubUrl;//NOTE: core 0.762
         params["userCID"] = cid;
-                params["userNI"] = ClientManager::getInstance()->getNicks(CID(cid), hubUrl)[0];//NOTE: core 0.762
+        params["userNI"] = ClientManager::getInstance()->getNicks(CID(cid), hubUrl)[0];//NOTE: core 0.762
         params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
         LOG(LogManager::PM, params);
     }
@@ -1311,7 +1311,7 @@ void PrivateMessage::getFileList_client()
     {
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
         if (user)
-                        QueueManager::getInstance()->addList(HintedUser(user, hubUrl), QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
+            QueueManager::getInstance()->addList(HintedUser(user, hubUrl), QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
     }
     catch (const Exception& e)
     {
@@ -1326,7 +1326,7 @@ void PrivateMessage::grantSlot_client()
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
     if (user)
     {
-                UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));//NOTE: core 0.762
+        UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));//NOTE: core 0.762
     }
     else
     {
@@ -1340,9 +1340,9 @@ void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUs
 {
         if (aUser->getCID() == CID(cid))
         {
-                typedef Func1<PrivateMessage, bool> F1;
-                F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
-                WulforManager::get()->dispatchGuiFunc(func);
+            typedef Func1<PrivateMessage, bool> F1;
+            F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
+            WulforManager::get()->dispatchGuiFunc(func);
         }
 }
 
@@ -1350,8 +1350,8 @@ void PrivateMessage::on(ClientManagerListener::UserDisconnected, const UserPtr& 
 {
         if (aUser->getCID() == CID(cid))
         {
-                typedef Func1<PrivateMessage, bool> F1;
-                F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
-                WulforManager::get()->dispatchGuiFunc(func);
+            typedef Func1<PrivateMessage, bool> F1;
+            F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
+            WulforManager::get()->dispatchGuiFunc(func);
         }
 }

@@ -1399,7 +1399,7 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Show IP's' in chats"), SettingsManager::USE_IP);
         addOption_gui(advancedStore, _("Show user country in chat"), SettingsManager::GET_USER_COUNTRY);
         addOption_gui(advancedStore, _("Allow overlap chunks"), SettingsManager::OVERLAP_CHUNKS);
-        
+
         /// @todo: Uncomment when implemented
         //addOption_gui(advancedStore, _("Use CTRL for line history"), "use-ctrl-for-line-history");
     }
@@ -3044,7 +3044,7 @@ void Settings::saveUserCommand(UserCommand *uc)
 
     if (uc == NULL)
     {
-                FavoriteManager::getInstance()->addUserCommand(type, ctx, 0, name, command, ""/*to*/, hub);//NOTE: core 0.762
+        FavoriteManager::getInstance()->addUserCommand(type, ctx, 0, name, command, ""/*to*/, hub);//NOTE: core 0.762
         gtk_list_store_append(userCommandStore, &iter);
     }
     else
@@ -3623,7 +3623,7 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
         string command, nick;
         FavoriteManager::getInstance()->getUserCommand(cid, uc);
         bool hub = uc.getCtx() & UserCommand::CONTEXT_HUB;
-                bool user = uc.getCtx() & UserCommand::CONTEXT_USER;//NOTE: core 0.762
+        bool user = uc.getCtx() & UserCommand::CONTEXT_USER;//NOTE: core 0.762
         bool search = uc.getCtx() & UserCommand::CONTEXT_SEARCH;
         bool filelist = uc.getCtx() & UserCommand::CONTEXT_FILELIST;
 
