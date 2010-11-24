@@ -41,6 +41,7 @@ public:
     void addEmoticons(QTextDocument *to);
     QString convertEmoticons(const QString &html);
     void fillLayout(QLayout *l, QSize &recommendedSize);
+    const EmoticonMap &getEmoticons() { return map; }
 
 private slots:
     void slotDocDeleted();

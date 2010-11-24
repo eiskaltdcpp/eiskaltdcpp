@@ -378,6 +378,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
     QString output = "";
 
+    EmoticonMap emoticons;
+
+    if (use_emot && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
+        emoticons = EmoticonFactory::getInstance()->getEmoticons();
+
     while (!input.isEmpty()){
         for (int j = 0; j < link_types.size(); j++){
             const QString &linktype = link_types.at(j);
@@ -437,6 +442,54 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
         if (input.isEmpty())
             break;
+
+        EmoticonMap::iterator it = emoticons.begin();
+        EmoticonMap::iterator end_it = emoticons.end();
+        const QString &emo_theme = WSGET(WS_APP_EMOTICON_THEME);
+        bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
+        bool emoticon_found = false;
+
+        for (; it != end_it; ++it){
+            const QString &emo_text = it.key();
+            EmoticonObject *obj = it.value();
+
+            if (input.startsWith(emo_text) && obj){
+                if (force_emot || input == emo_text){
+                    QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
+                                  .arg(emo_text)
+                                  .arg(emo_theme)
+                                  .arg(obj->id);
+
+                    output += img + " ";
+                    input.remove(0, emo_text.length());
+
+                    emoticon_found = true;
+
+                    break;
+                }
+                else if (input.length() > emo_text.length()){
+                    QChar nextChar =input.at(emo_text.length());
+
+                    if (!(nextChar.isSpace() || nextChar == '\n'))
+                        break;
+
+                    QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
+                                  .arg(emo_text)
+                                  .arg(emo_theme)
+                                  .arg(obj->id);
+
+                    output += img + " ";
+                    input.remove(0, emo_text.length());
+
+                    emoticon_found = true;
+
+                    break;
+                }
+            }
+        }
+
+        if (emoticon_found)
+            continue;
 
         if (input.startsWith("[b]") && input.indexOf("[/b]") > 0){
             input.remove(0, 3);
@@ -526,9 +579,6 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
         input.remove(0, 1);
     }
-
-    if (use_emot && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        output = EmoticonFactory::getInstance()->convertEmoticons(output);
 
     return output;
 }

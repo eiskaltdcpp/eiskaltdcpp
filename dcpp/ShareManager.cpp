@@ -979,8 +979,9 @@ void ShareManager::Directory::filesToXml(OutputStream& xmlFile, string& indent, 
 
 // These ones we can look up as ints (4 bytes...)...
 
-static const char* typeAudio[] = { ".mp3", ".mp2", ".mid", ".wav", ".ogg", ".wma" };
-static const char* typeCompressed[] = { ".zip", ".ace", ".rar" };
+static const char* typeAudio[] = { ".mp3", ".mp2", ".mid", ".wav", ".ogg", ".wma", ".ape" };
+static const char* typeCompressed[] = { ".zip", ".ace", ".rar", ".tar", ".bz2",  ".iso", ".nrg", ".mdf", ".mds"};
+static const char* typeCDImages[] = { ".iso", ".nrg", ".mdf", ".mds", ".vcd", ".bwt", ".ccd", ".cdi", ".pdi", ".cue", ".isz", ".img", ".vc4" };
 static const char* typeDocument[] = { ".htm", ".doc", ".txt", ".nfo" };
 static const char* typeExecutable[] = { ".exe" };
 static const char* typePicture[] = { ".jpg", ".gif", ".png", ".eps", ".img", ".pct", ".psp", ".pic", ".tif", ".rle", ".bmp", ".pcx" };
@@ -989,6 +990,7 @@ static const char* typeVideo[] = { ".mpg", ".mov", ".asf", ".avi", ".pxp", ".wmv
 static const string type2Audio[] = { ".au", ".aiff", ".flac" };
 static const string type2Picture[] = { ".ai", ".ps", ".pict" };
 static const string type2Video[] = { ".rm", ".divx", ".mpeg" };
+static const string type2Compressed[] = { ".xz", ".gz", ".7z"};
 
 #define IS_TYPE(x) ( type == (*((uint32_t*)x)) )
 #define IS_TYPE2(x) (Util::stricmp(aString.c_str() + aString.length() - x.length(), x.c_str()) == 0)
@@ -1020,10 +1022,26 @@ static bool checkType(const string& aString, int aType) {
         }
         break;
     case SearchManager::TYPE_COMPRESSED:
-        if( IS_TYPE(typeCompressed[0]) || IS_TYPE(typeCompressed[1]) || IS_TYPE(typeCompressed[2]) ) {
+        for(size_t i = 0; i < (sizeof(typeCompressed) / sizeof(typeCompressed[0])); i++) {
+            if(IS_TYPE(typeCompressed[i])) {
+                return true;
+            }
+        }
+
+        if( IS_TYPE2(type2Compressed[0]) || IS_TYPE2(type2Compressed[1]) || IS_TYPE2(type2Compressed[2]) ) {
             return true;
         }
+
         break;
+    case SearchManager::TYPE_CD_IMAGE:
+        for(size_t i = 0; i < (sizeof(typeCDImages) / sizeof(typeCDImages[0])); i++) {
+            if(IS_TYPE(typeCDImages[i])) {
+                return true;
+            }
+        }
+
+        break;
+
     case SearchManager::TYPE_DOCUMENT:
         if( IS_TYPE(typeDocument[0]) || IS_TYPE(typeDocument[1]) ||
             IS_TYPE(typeDocument[2]) || IS_TYPE(typeDocument[3]) ) {
@@ -1083,6 +1101,8 @@ SearchManager::TypeModes ShareManager::getType(const string& aFileName) const th
         return SearchManager::TYPE_EXECUTABLE;
     else if(checkType(aFileName, SearchManager::TYPE_PICTURE))
         return SearchManager::TYPE_PICTURE;
+    else if(checkType(aFileName, SearchManager::TYPE_CD_IMAGE))
+        return SearchManager::TYPE_CD_IMAGE;
 
     return SearchManager::TYPE_ANY;
 }
