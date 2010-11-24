@@ -386,6 +386,7 @@ void PMWindow::addOutput(QString msg){
 }
 
 void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
+#warning
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
     if (user && user->isOnline()){
@@ -396,7 +397,7 @@ void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
         if (msg.isEmpty() || msg == "\n")
             return;
 
-        ClientManager::getInstance()->privateMessage(user, msg.toStdString(), thirdPerson, hubUrl.toStdString());
+        //ClientManager::getInstance()->privateMessage(user, msg.toStdString(), thirdPerson, hubUrl.toStdString());
     }
     else {
         addStatusMessage(tr("User went offline"));
@@ -460,7 +461,7 @@ void PMWindow::slotShare(){
                 if (user == ClientManager::getInstance()->getMe())
                     MainWindow::getInstance()->browseOwnFiles();
                 else
-                    QueueManager::getInstance()->addList(user, _tq(hubUrl), QueueItem::FLAG_CLIENT_VIEW);
+                    QueueManager::getInstance()->addList(HintedUser(user, _tq(hubUrl)), QueueItem::FLAG_CLIENT_VIEW, "");
             }
         }
         catch (const Exception &e){}

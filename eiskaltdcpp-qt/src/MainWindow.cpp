@@ -100,9 +100,10 @@ MainWindow::MainWindow (QWidget *parent):
     }
 
     if (WBGET(WB_IPFILTER_ENABLED)){
-        IPFilter::newInstance();
+#warning "Check this"
+        //IPFilter::newInstance();
 
-        IPFilter::getInstance()->loadList();
+        //IPFilter::getInstance()->loadList();
     }
 
     ShortcutManager::newInstance();
@@ -167,10 +168,11 @@ MainWindow::~MainWindow(){
         AntiSpam::deleteInstance();
     }
 
-    if (IPFilter::getInstance()){
-        IPFilter::getInstance()->saveList();
-        IPFilter::deleteInstance();
-    }
+#warning "Check this"
+    //if (IPFilter::getInstance()){
+      //  IPFilter::getInstance()->saveList();
+        //IPFilter::deleteInstance();
+    //}
 
     delete arena;
 
@@ -644,7 +646,8 @@ void MainWindow::initActions(){
         toolsIPFilter->setObjectName("toolsIPFilter");
         toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
         toolsIPFilter->setCheckable(true);
-        toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
+#warning
+        //toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
         connect(toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
 
         toolsAwayOn = new QAction("", this);
@@ -1306,15 +1309,17 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         }
     case ArenaWidget::FinishedUploads:
         {
-            if (!FinishedUploads::getInstance()) FinishedUploads::newInstance();
-            awgt = FinishedUploads::getInstance();
+#warning
+//            if (!FinishedUploads::getInstance()) FinishedUploads::newInstance();
+//            awgt = FinishedUploads::getInstance();
 
             break;
         }
     case ArenaWidget::FinishedDownloads:
         {
-            if (!FinishedDownloads::getInstance()) FinishedDownloads::newInstance();
-            awgt = FinishedDownloads::getInstance();
+#warning
+//            if (!FinishedDownloads::getInstance()) FinishedDownloads::newInstance();
+//            awgt = FinishedDownloads::getInstance();
 
             break;
         }
@@ -1983,17 +1988,19 @@ void MainWindow::slotToolsHubManager(){
 }
 
 void MainWindow::slotToolsFinishedDownloads(){
-    if (!FinishedDownloads::getInstance())
-        FinishedDownloads::newInstance();
+#warning
+//    if (!FinishedDownloads::getInstance())
+//        FinishedDownloads::newInstance();
 
-    toggleSingletonWidget(FinishedDownloads::getInstance());
+//    toggleSingletonWidget(FinishedDownloads::getInstance());
 }
 
 void MainWindow::slotToolsFinishedUploads(){
-    if (!FinishedUploads::getInstance())
-        FinishedUploads::newInstance();
+#warning
+//    if (!FinishedUploads::getInstance())
+//        FinishedUploads::newInstance();
 
-    toggleSingletonWidget(FinishedUploads::getInstance());
+//    toggleSingletonWidget(FinishedUploads::getInstance());
 }
 
 void MainWindow::slotToolsSpy(){
@@ -2012,11 +2019,12 @@ void MainWindow::slotToolsAntiSpam(){
 }
 
 void MainWindow::slotToolsIPFilter(){
-    IPFilterFrame fr(this);
+#warning
+//    IPFilterFrame fr(this);
 
-    fr.exec();
+//    fr.exec();
 
-    toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
+//    toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
 }
 
 void MainWindow::slotToolsAutoAway(){

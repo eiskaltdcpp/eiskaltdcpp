@@ -26,6 +26,9 @@
 #include "LogManager.h"
 #include "version.h"
 #include "ConnectivityManager.h"
+#ifdef USE_MINIUPNP
+#include "extra/upnpc.h"
+#endif
 
 namespace dcpp {
 
@@ -127,5 +130,9 @@ void UPnPManager::close(UPnP& impl) {
 void UPnPManager::log(const string& message) {
     ConnectivityManager::getInstance()->log(str(F_("UPnP: %1%") % message));
 }
-
+#ifdef USE_MINIUPNP
+void UPnPManager::runMiniUPnP() {
+        addImplementation(new UPnPc());
+}
+#endif
 } // namespace dcpp

@@ -56,8 +56,7 @@ public:
     GETSET(int, maxHubs, MaxHubs);
     GETSET(int, maxUsers, MaxUsers);
 };
-const string DEF_FAKE_ID = "";
-
+const string DEF_FAKE_ID = "EiskaltDC++ V:2.1";
 class FavoriteHubEntry {
 public:
     FavoriteHubEntry() throw() : connect(false), encoding(Text::systemCharset),
@@ -97,6 +96,7 @@ public:
     GETSET(string, externalIP, ExternalIP);
     GETSET(bool, useInternetIp, UseInternetIP);
     GETSET(bool, disableChat, DisableChat);
+    GETSET(string, group, Group);
 private:
     string nick;
 };

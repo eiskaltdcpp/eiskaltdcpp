@@ -57,7 +57,7 @@ FinishedFileItem::FinishedFileItem(
     time_t time_,
     int64_t fileSize_,
     bool crc32Checked_,
-    const UserPtr& user
+        const HintedUser& user
     ) :
 FinishedItemBase(transferred_, milliSeconds_, time_),
 fileSize(fileSize_),
@@ -71,14 +71,19 @@ void FinishedFileItem::update(
     int64_t milliSeconds_,
     time_t time_,
     bool crc32Checked_,
-    const UserPtr& user
+        const HintedUser& user
     )
 {
     FinishedItemBase::update(transferred_, milliSeconds_, time_);
+
     if(crc32Checked_)
         crc32Checked = true;
-    if(find(users.begin(), users.end(), user) == users.end())
+
+        HintedUserList::iterator i = find(users.begin(), users.end(), user);
+        if(i == users.end())
         users.push_back(user);
+        else
+                *i = user; // update, the hint might have changed
 }
 
 double FinishedFileItem::getTransferredPercentage() const {

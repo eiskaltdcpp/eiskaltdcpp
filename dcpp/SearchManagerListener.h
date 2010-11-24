@@ -23,6 +23,8 @@
 
 namespace dcpp {
 
+class SearchQueueItem;
+
 class SearchManagerListener {
 public:
     virtual ~SearchManagerListener() { }

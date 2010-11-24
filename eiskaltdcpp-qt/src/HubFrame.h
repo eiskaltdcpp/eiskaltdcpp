@@ -282,9 +282,8 @@ private:
     virtual void on(ClientListener::Failed, Client*, const string&) throw();
     virtual void on(ClientListener::GetPassword, Client*) throw();
     virtual void on(ClientListener::HubUpdated, Client*) throw();
-    virtual void on(ClientListener::Message, Client*, const OnlineUser&, const string&, bool = false) throw();
+    virtual void on(ClientListener::Message, Client*, const ChatMessage&) throw();
     virtual void on(ClientListener::StatusMessage, Client*, const string&, int = ClientListener::FLAG_NORMAL) throw();
-    virtual void on(ClientListener::PrivateMessage, Client*, const OnlineUser&, const OnlineUser&, const OnlineUser&, const string&, bool = false) throw();
     virtual void on(ClientListener::NickTaken, Client*) throw();
     virtual void on(ClientListener::SearchFlood, Client*, const string&) throw();
 

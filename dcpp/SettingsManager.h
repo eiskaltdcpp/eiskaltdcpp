@@ -22,8 +22,11 @@
 #include "Util.h"
 #include "Speaker.h"
 #include "Singleton.h"
+#include "Exception.h"
 
 namespace dcpp {
+
+STANDARD_EXCEPTION(SearchTypeException);
 
 class SimpleXML;
 
@@ -34,15 +37,19 @@ public:
 
     typedef X<0> Load;
     typedef X<1> Save;
+    typedef X<2> SearchTypesChanged;
 
     virtual void on(Load, SimpleXML&) throw() { }
     virtual void on(Save, SimpleXML&) throw() { }
+    virtual void on(SearchTypesChanged) throw() { }
 };
 
 class SettingsManager : public Singleton<SettingsManager>, public Speaker<SettingsManagerListener>
 {
 public:
-
+    typedef std::tr1::unordered_map<string, StringList> SearchTypes;
+    typedef SearchTypes::iterator SearchTypesIter;
+    typedef SearchTypes::const_iterator SearchTypesIterC;
     static StringList connectionSpeeds;
 
     enum StrSetting { STR_FIRST,
@@ -63,25 +70,23 @@ public:
 
     enum IntSetting { INT_FIRST = STR_LAST + 1,
         INCOMING_CONNECTIONS = INT_FIRST, TCP_PORT, SLOTS,
-        AUTO_FOLLOW, CLEAR_SEARCH, TEXT_COLOR,
-        USE_OEM_MONOFONT, SHARE_HIDDEN, FILTER_MESSAGES,
+        AUTO_FOLLOW, SHARE_HIDDEN, FILTER_MESSAGES,
         AUTO_SEARCH, AUTO_SEARCH_TIME,
         REPORT_ALTERNATES, TIME_STAMPS,
         IGNORE_HUB_PMS, IGNORE_BOT_PMS, LIST_DUPES, BUFFER_SIZE,
         DOWNLOAD_SLOTS, MAX_DOWNLOAD_SPEED, LOG_MAIN_CHAT,
-        LOG_PRIVATE_CHAT, LOG_DOWNLOADS, LOG_UPLOADS, STATUS_IN_CHAT,
-        SHOW_JOINS, USE_SYSTEM_ICONS, MIN_UPLOAD_SPEED,
+        LOG_PRIVATE_CHAT, LOG_DOWNLOADS, LOG_UPLOADS,
+        MIN_UPLOAD_SPEED,
         AUTO_AWAY, SOCKS_PORT, SOCKS_RESOLVE,
         KEEP_LISTS, AUTO_KICK, COMPRESS_TRANSFERS,
         SFV_CHECK, MAX_COMPRESSION, NO_AWAYMSG_TO_BOTS, SKIP_ZERO_BYTE,
         ADLS_BREAK_ON_FIRST, HUB_USER_COMMANDS, AUTO_SEARCH_AUTO_MATCH,
         LOG_SYSTEM,
         LOG_FILELIST_TRANSFERS, SEND_UNKNOWN_COMMANDS, MAX_HASH_SPEED,
-        GET_USER_COUNTRY, FAV_SHOW_JOINS,
+        GET_USER_COUNTRY,
         LOG_STATUS_MESSAGES, ALLOW_UPDATE_FILELIST_ON_STARTUP,
-        POPUNDER_PM, POPUNDER_FILELIST, SEARCH_PASSIVE,
-        ADD_FINISHED_INSTANTLY, DONT_DL_ALREADY_SHARED,
-        USE_CTRL_FOR_LINE_HISTORY, UDP_PORT,
+        SEARCH_PASSIVE,
+        ADD_FINISHED_INSTANTLY, DONT_DL_ALREADY_SHARED, UDP_PORT,
         SHOW_LAST_LINES_LOG, ADC_DEBUG,
         SEARCH_HISTORY, SET_MINISLOT_SIZE, MAX_FILELIST_SIZE,
         PRIO_HIGHEST_SIZE, PRIO_HIGH_SIZE, PRIO_NORMAL_SIZE,
@@ -94,9 +99,9 @@ public:
         SOCKET_IN_BUFFER, SOCKET_OUT_BUFFER,
         AUTO_REFRESH_TIME, USE_TLS, AUTO_SEARCH_LIMIT,
         AUTO_KICK_NO_FAVS, PROMPT_PASSWORD,
-        SPY_FRAME_IGNORE_TTH_SEARCHES, DONT_DL_ALREADY_QUEUED,
+        DONT_DL_ALREADY_QUEUED,
         MAX_COMMAND_LENGTH, ALLOW_UNTRUSTED_HUBS, ALLOW_UNTRUSTED_CLIENTS,
-        TLS_PORT, FAST_HASH, SORT_FAVUSERS_FIRST, SEGMENTED_DL,
+        TLS_PORT, FAST_HASH, SEGMENTED_DL,
         FOLLOW_LINKS, SEND_BLOOM, CORAL,
         SEARCH_FILTER_SHARED, FINISHED_DL_ONLY_FULL,
         SEARCH_MERGE, HASH_BUFFER_SIZE_MB, HASH_BUFFER_POPULATE,
@@ -105,8 +110,9 @@ public:
         BANDWIDTH_LIMIT_END, THROTTLE_ENABLE, TIME_DEPENDENT_THROTTLE,
         MAX_DOWNLOAD_SPEED_ALTERNATE, MAX_UPLOAD_SPEED_ALTERNATE,
         MAX_DOWNLOAD_SPEED_MAIN, MAX_UPLOAD_SPEED_MAIN,
-        SLOTS_ALTERNATE_LIMITING, SLOTS_PRIMARY, SHOW_FREE_SLOTS_DESC,
-        USE_IP, CASESENSITIVE_FILELIST,
+        SLOTS_ALTERNATE_LIMITING, SLOTS_PRIMARY, KEEP_FINISHED_FILES,
+        SHOW_FREE_SLOTS_DESC, USE_IP, OVERLAP_CHUNKS, CASESENSITIVE_FILELIST,
+        IPFILTER, TEXT_COLOR,
         INT_LAST };
 
     enum Int64Setting { INT64_FIRST = INT_LAST + 1,
@@ -230,7 +236,18 @@ public:
         //aded end
 
         bool getType(const char* name, int& n, int& type) const;
+	// Search types
+	void validateSearchTypeName(const string& name) const;
+	void setSearchTypeDefaults();
+	void addSearchType(const string& name, const StringList& extensions, bool validated = false);
+	void delSearchType(const string& name);
+	void renameSearchType(const string& oldName, const string& newName);
+	void modSearchType(const string& name, const StringList& extensions);
 
+	const SearchTypes& getSearchTypes() const {
+	    return searchTypes;
+	}
+	const StringList& getExtensions(const string& name);
 private:
     friend class Singleton<SettingsManager>;
     SettingsManager();
@@ -251,6 +268,11 @@ private:
     bool isSet[SETTINGS_LAST];
 
     string getConfigFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "DCPlusPlus.xml"; }
+
+        // Search types
+        SearchTypes searchTypes; // name, extlist
+
+        SearchTypesIter getSearchType(const string& name);
 };
 
 // Shorthand accessor macros

@@ -30,7 +30,7 @@ public:
         virtual const char* what() const throw() { return getError().c_str(); }
 
         virtual ~Exception() throw() { }
-        virtual const std::string& getError() const throw() { return error; }
+        virtual const string& getError() const throw() { return error; }
 protected:
         string error;
 };

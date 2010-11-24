@@ -33,7 +33,7 @@ namespace dcpp {
 
 class SocketException;
 
-class ConnectionQueueItem {
+class ConnectionQueueItem : boost::noncopyable {
 public:
     typedef ConnectionQueueItem* Ptr;
     typedef vector<Ptr> List;
@@ -46,21 +46,19 @@ public:
         ACTIVE                      // In one up/downmanager
     };
 
-    ConnectionQueueItem(const UserPtr& aUser, bool aDownload, const string& hubHint_) : token(Util::toString(Util::rand())), hubHint(hubHint_), lastAttempt(0), state(WAITING), download(aDownload), user(aUser) { }
-
-    UserPtr& getUser() { return user; }
-    const UserPtr& getUser() const { return user; }
+        ConnectionQueueItem(const HintedUser& aUser, bool aDownload) : token(Util::toString(Util::rand())),
+                lastAttempt(0), errors(0), state(WAITING), download(aDownload), user(aUser) { }
 
     GETSET(string, token, Token);
-    GETSET(string, hubHint, HubHint);
     GETSET(uint64_t, lastAttempt, LastAttempt);
+        GETSET(int, errors, Errors); // Number of connection errors, or -1 after a protocol error
     GETSET(State, state, State);
     GETSET(bool, download, Download);
-private:
-    ConnectionQueueItem(const ConnectionQueueItem&);
-    ConnectionQueueItem& operator=(const ConnectionQueueItem&);
 
-    UserPtr user;
+        const HintedUser& getUser() const { return user; }
+
+private:
+        HintedUser user;
 };
 
 class ExpectedMap {
@@ -104,11 +102,10 @@ public:
     }
 
     void nmdcConnect(const string& aServer, uint16_t aPort, const string& aMyNick, const string& hubUrl, const string& encoding);
-    //void adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure);
     void adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure);
-    void adcConnect(const OnlineUser& aUser, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure);
+        void adcConnect(const OnlineUser& aUser, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure);
 
-    void getDownloadConnection(const UserPtr& aUser, const string& hubHint);
+        void getDownloadConnection(const HintedUser& aUser);
     void force(const UserPtr& aUser);
 
     void disconnect(const UserPtr& aUser); // disconnect downloads and uploads
@@ -173,14 +170,17 @@ private:
     void addUploadConnection(UserConnection* uc);
     void addDownloadConnection(UserConnection* uc);
 
-    ConnectionQueueItem* getCQI(const UserPtr& aUser, bool download, const string& hubHint);
+        ConnectionQueueItem* getCQI(const HintedUser& aUser, bool download);
     void putCQI(ConnectionQueueItem* cqi);
 
     void accept(const Socket& sock, bool secure) throw();
 
+        void failed(UserConnection* aSource, const string& aError, bool protocolError);
+
     // UserConnectionListener
     virtual void on(Connected, UserConnection*) throw();
     virtual void on(Failed, UserConnection*, const string&) throw();
+        virtual void on(ProtocolError, UserConnection*, const string&) throw();
     virtual void on(CLock, UserConnection*, const string&, const string&) throw();
     virtual void on(Key, UserConnection*, const string&) throw();
     virtual void on(Direction, UserConnection*, const string&, const string&) throw();

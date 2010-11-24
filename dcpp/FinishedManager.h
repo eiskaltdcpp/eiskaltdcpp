@@ -29,30 +29,105 @@
 #include "Util.h"
 #include "User.h"
 
+#include "MerkleTree.h"
+#include "ClientManager.h"
+
 namespace dcpp {
 
+/*RTF*/
+class FinishedItem
+{
+public:
+        typedef vector<FinishedItem> FinishedItemList;
+//      typedef FinishedItemList::const_iterator;
+        enum {
+                COLUMN_FIRST,
+                COLUMN_FILE,
+                COLUMN_DONE,
+                COLUMN_PATH,
+                COLUMN_NICK,
+                COLUMN_HUB,
+                COLUMN_SIZE,
+                COLUMN_SPEED,
+                COLUMN_LAST
+        };
+
+        FinishedItem(string const& aTarget, const UserPtr& aUser, string const& aHub,
+                int64_t aSize, int64_t aSpeed, time_t aTime,
+                const string& aTTH = Util::emptyString) :
+                target(aTarget), user(aUser), hub(aHub), size(aSize), avgSpeed(aSpeed),
+                time(aTime), tth(aTTH)
+        {
+        }
+
+        const string getText(uint8_t col) const {
+                dcassert(col >= 0 && col < COLUMN_LAST);
+                switch(col) {
+                        case COLUMN_FILE: return Text::toT(Util::getFileName(getTarget()));
+                        case COLUMN_DONE: return Text::toT(Util::formatTime("%Y-%m-%d %H:%M:%S", getTime()));
+                        case COLUMN_PATH: return Text::toT(Util::getFilePath(getTarget()));
+                        case COLUMN_NICK: return getUser() ? Text::toT(Util::toString(ClientManager::getInstance()->getNicks(getUser()->getCID(),"",false))) : Util::emptyStringT;
+                        case COLUMN_HUB: return Text::toT(getHub());
+                        case COLUMN_SIZE: return Util::formatBytes(getSize());
+                        case COLUMN_SPEED: return Util::formatBytes(getAvgSpeed()) + "/s";
+                        default: return Util::emptyStringT;
+                }
+        }
+
+        static int compareItems(const FinishedItem* a, const FinishedItem* b, uint8_t col) {
+                switch(col) {
+                        case COLUMN_SPEED:      return compare(a->getAvgSpeed(), b->getAvgSpeed());
+                        case COLUMN_SIZE:       return compare(a->getSize(), b->getSize());
+                        default:                        return Util::stricmp(a->getText(col).c_str(), b->getText(col).c_str());
+                }
+        }
+        int imageIndex() const;
+
+        GETSET(string, target, Target);
+        GETSET(string, hub, Hub);
+        GETSET(string, tth, TTH);
+
+        GETSET(int64_t, size, Size);
+        GETSET(int64_t, avgSpeed, AvgSpeed);
+        GETSET(time_t, time, Time);
+        GETSET(UserPtr, user, User);
+
+private:
+        friend class FinishedManager;
+
+};
+/**/
 class FinishedManager : public Singleton<FinishedManager>,
     public Speaker<FinishedManagerListener>, private DownloadManagerListener, private UploadManagerListener
 {
 public:
     typedef unordered_map<string, FinishedFileItemPtr> MapByFile;
-    typedef unordered_map<UserPtr, FinishedUserItemPtr, User::Hash> MapByUser;
+        typedef unordered_map<HintedUser, FinishedUserItemPtr, User::Hash> MapByUser;
 
     void lockLists();
+        const FinishedItem::FinishedItemList& lockList(bool upload = false) { cs.enter(); return upload ? uploads : downloads; }
     const MapByFile& getMapByFile(bool upload) const;
     const MapByUser& getMapByUser(bool upload) const;
     void unLockLists();
+        void unlockList() { cs.leave(); }
 
     void remove(bool upload, const string& file);
-    void remove(bool upload, const UserPtr& user);
+        void remove(bool upload, const HintedUser& user);
     void removeAll(bool upload);
+        //Partial
+        /** Get file full path by tth to share */
+        string getTarget(const string& aTTH);
 
+        bool handlePartialRequest(const TTHValue& tth, vector<uint16_t>& outPartialInfo);
+        //end
 private:
     friend class Singleton<FinishedManager>;
 
     CriticalSection cs;
     MapByFile DLByFile, ULByFile;
     MapByUser DLByUser, ULByUser;
+        //Partial
+        FinishedItem::FinishedItemList downloads, uploads;
 
     FinishedManager();
     virtual ~FinishedManager() throw();

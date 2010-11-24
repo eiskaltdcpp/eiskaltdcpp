@@ -209,7 +209,7 @@ HubFrame::Menu::~Menu(){
 }
 
 HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QString &cid = QString()){
-    if (!client)
+   if (!client)
         return None;
 
     menu->clear();
@@ -222,9 +222,9 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
+        /*user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
                         UserCommand::CONTEXT_CHAT);
-        menu->addMenu(user_menu);
+        menu->addMenu(user_menu);*/
     }
 
     QMenu *antispam_menu = NULL;
@@ -255,7 +255,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
     else if (res && !res->toolTip().isEmpty()){//User command{
-        last_user_cmd = res->toolTip();
+       /* last_user_cmd = res->toolTip();
         QString cmd_name = res->statusTip();
         QString hub = res->data().toString();
 
@@ -276,7 +276,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
             return UserCommands;
         }
         else
-            return None;
+            return None;*/
     }
     else
         return None;
@@ -312,8 +312,8 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty() && !pmw){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_CHAT);
+        /*user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
+                        UserCommand::CONTEXT_CHAT);*/
         menu->addMenu(user_menu);
     }
 
@@ -343,7 +343,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
     else if (res && !res->toolTip().isEmpty()){//User command
-        last_user_cmd = res->toolTip();
+        /*last_user_cmd = res->toolTip();
         QString cmd_name = res->statusTip();
         QString hub = res->data().toString();
 
@@ -364,7 +364,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
             return UserCommands;
         }
         else
-            return None;
+            return None;*/
     }
     else
         return None;
@@ -1847,9 +1847,9 @@ void HubFrame::browseUserFiles(const QString& id, bool match){
                 if (user == ClientManager::getInstance()->getMe())
                     MainWindow::getInstance()->browseOwnFiles();
                 else if (match)
-                    QueueManager::getInstance()->addList(user, client->getHubUrl(), QueueItem::FLAG_MATCH_QUEUE);
+                    QueueManager::getInstance()->addList(HintedUser(user, client->getHubUrl()), QueueItem::FLAG_MATCH_QUEUE, "");
                 else
-                    QueueManager::getInstance()->addList(user, client->getHubUrl(), QueueItem::FLAG_CLIENT_VIEW);
+                    QueueManager::getInstance()->addList(HintedUser(user, client->getHubUrl()), QueueItem::FLAG_CLIENT_VIEW, "");
             }
             else {
                 message = QString(tr("User not found")).toStdString();
@@ -1870,7 +1870,7 @@ void HubFrame::grantSlot(const QString& id){
         UserPtr user = ClientManager::getInstance()->findUser(CID(id.toStdString()));
 
         if (user){
-            UploadManager::getInstance()->reserveSlot(user, client->getHubUrl());
+            UploadManager::getInstance()->reserveSlot(HintedUser(user, client->getHubUrl()));
             message = tr("Slot granted to ") + WulforUtil::getInstance()->getNicks(user->getCID());
         }
     }
@@ -3127,7 +3127,8 @@ void HubFrame::slotHubMenu(QAction *res){
             client->getHubIdentity().getParams(params, "hub", false);
 
             client->escapeParams(params);
-            client->sendUserCmd(Util::formatParams(uc.getCommand(), params, false));
+#warning "Disabled sending commands"
+            //client->sendUserCmd(Util::formatParams(uc.getCommand(), params, false));
         }
     }
 }
@@ -3301,8 +3302,8 @@ void HubFrame::on(ClientListener::HubUpdated, Client*) throw(){
     emit coreHubUpdated();
 }
 
-void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, const string& msg, bool thirdPerson) throw(){
-    if (chatDisabled)
+void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &msg) throw(){
+    /*if (chatDisabled)
         return;
 
     VarMap map;
@@ -3353,7 +3354,7 @@ void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, cons
         params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user).getIp();
         client->getMyIdentity().getParams(params, "my", true);
         LOG(LogManager::CHAT, params);
-    }
+    }*/
 }
 
 void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int) throw(){
@@ -3371,7 +3372,7 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
     }
 }
 
-void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &from, const OnlineUser &to, const OnlineUser &replyTo,
+/*void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &from, const OnlineUser &to, const OnlineUser &replyTo,
                   const string &msg, bool thirdPerson) throw()
 {
     const OnlineUser& user = (replyTo.getUser() == ClientManager::getInstance()->getMe()) ? to : replyTo;
@@ -3454,7 +3455,7 @@ void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &fro
 
     if (!(isBot || isHub) && from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway())
         ClientManager::getInstance()->privateMessage(user.getUser(), Util::getAwayMessage(), false, client->getHubUrl());
-}
+}*/
 
 void HubFrame::on(ClientListener::NickTaken, Client*) throw(){
     QString status = tr("Sorry, but nick \"%1\" is already taken by another user.").arg(client->getCurrentNick().c_str());

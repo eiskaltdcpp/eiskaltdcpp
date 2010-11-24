@@ -20,6 +20,8 @@
 #include "DCPlusPlus.h"
 
 #include "AdcHub.h"
+
+#include "ChatMessage.h"
 #include "ClientManager.h"
 #include "ShareManager.h"
 #include "StringTokenizer.h"
@@ -140,7 +142,8 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) throw() {
                     nick = "[nick unknown]";
                 }
                 fire(ClientListener::StatusMessage(), this, str(F_("%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring")
-                    % u->getIdentity().getNick() % u->getIdentity().getSIDString() % cid % nick % AdcCommand::fromSID(c.getFrom())));
+                                        % u->getIdentity().getNick() % u->getIdentity().getSIDString() % cid % nick % AdcCommand::fromSID(c.getFrom())),
+                                        ClientListener::FLAG_IS_SPAM);
                 return;
             }
         } else {
@@ -239,24 +242,28 @@ void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) throw() {
     if(c.getParameters().empty())
         return;
 
-    OnlineUser* from = findUser(c.getFrom());
-    if(!from)
-        return;
+        ChatMessage message = { c.getParam(0), findUser(c.getFrom()) };
 
-    string pmFrom;
-    if(c.getParam("PM", 1, pmFrom)) { // add PM<group-cid> as well
-        OnlineUser* to = findUser(c.getTo());
-        if(!to)
+        if(!message.from)
             return;
 
-        OnlineUser* replyTo = findUser(AdcCommand::toSID(pmFrom));
-        if(!replyTo)
+        string temp;
+        if(c.getParam("PM", 1, temp)) { // add PM<group-cid> as well
+                message.to = findUser(c.getTo());
+                if(!message.to)
             return;
 
-        fire(ClientListener::PrivateMessage(), this, *from, *to, *replyTo, c.getParam(0), c.hasFlag("ME", 1));
-    } else {
-        fire(ClientListener::Message(), this, *from, c.getParam(0), c.hasFlag("ME", 1));
+                message.replyTo = findUser(AdcCommand::toSID(temp));
+                if(!message.replyTo)
+                        return;
     }
+
+        message.thirdPerson = c.hasFlag("ME", 1);
+
+        if(c.getParam("TS", 1, temp))
+                message.timestamp = Util::toInt64(temp);
+
+        fire(ClientListener::Message(), this, message);
 }
 
 void AdcHub::handle(AdcCommand::GPA, AdcCommand& c) throw() {
@@ -272,9 +279,7 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) throw() {
     uint32_t s = AdcCommand::toSID(c.getParam(0));
 
     OnlineUser* victim = findUser(s);
-    if(!victim) {
-        return;
-    }
+        if(victim) {
 
     string tmp;
     if(c.getParam("MS", 1, tmp)) {
@@ -294,8 +299,12 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) throw() {
     }
 
     putUser(s, c.getParam("DI", 1, tmp));
+        }
 
     if(s == sid) {
+                // this QUI is directed to us
+
+                string tmp;
         if(c.getParam("TL", 1, tmp)) {
             if(tmp == "-1") {
                 setAutoReconnect(false);
@@ -304,6 +313,9 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) throw() {
                 setReconnDelay(Util::toUInt32(tmp));
             }
         }
+                if(!victim && c.getParam("MS", 1, tmp)) {
+                        fire(ClientListener::StatusMessage(), this, tmp, ClientListener::FLAG_NORMAL);
+                }
         if(c.getParam("RD", 1, tmp)) {
             fire(ClientListener::Redirect(), this, tmp);
         }
@@ -314,7 +326,7 @@ void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) throw() {
     OnlineUser* u = findUser(c.getFrom());
     if(!u || u->getUser() == ClientManager::getInstance()->getMe())
         return;
-    if(c.getParameters().size() < 2)
+        if(c.getParameters().size() < 3)
         return;
 
     const string& protocol = c.getParam(0);
@@ -442,7 +454,7 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) throw() {
     if(c.getParameters().size() < 2)
         return;
 
-    OnlineUser* u = findUser(c.getFrom());
+        OnlineUser* u = c.getFrom() == AdcCommand::HUB_SID ? &getUser(c.getFrom(), CID()) : findUser(c.getFrom());
     if(!u)
         return;
 
@@ -451,24 +463,40 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) throw() {
         return;
     }
 
-    int code = Util::toInt(c.getParam(0).substr(1));
+        switch(Util::toInt(c.getParam(0).substr(1))) {
 
-    if(code == AdcCommand::ERROR_BAD_PASSWORD) {
+        case AdcCommand::ERROR_BAD_PASSWORD:
+                {
         setPassword(Util::emptyString);
-    } else if(code == AdcCommand::ERROR_PROTOCOL_UNSUPPORTED) {
-        string tmp;
-        if(c.getParam("PR", 1, tmp)) {
-            if(tmp == CLIENT_PROTOCOL) {
-                u->getUser()->setFlag(User::NO_ADC_1_0_PROTOCOL);
-            } else if(tmp == SECURE_CLIENT_PROTOCOL_TEST) {
-                u->getUser()->setFlag(User::NO_ADCS_0_10_PROTOCOL);
-                u->getUser()->unsetFlag(User::TLS);
-            }
-            // Try again...
-            ConnectionManager::getInstance()->force(u->getUser());
+                        break;
+                }
+
+        case AdcCommand::ERROR_COMMAND_ACCESS:
+                {
+                        string tmp;
+                        if(c.getParam("FC", 1, tmp) && tmp.size() == 4)
+                                forbiddenCommands.insert(AdcCommand::toFourCC(tmp.c_str()));
+                        break;
+                }
+
+        case AdcCommand::ERROR_PROTOCOL_UNSUPPORTED:
+                {
+                string tmp;
+                if(c.getParam("PR", 1, tmp)) {
+                    if(tmp == CLIENT_PROTOCOL) {
+                        u->getUser()->setFlag(User::NO_ADC_1_0_PROTOCOL);
+                    } else if(tmp == SECURE_CLIENT_PROTOCOL_TEST) {
+                        u->getUser()->setFlag(User::NO_ADCS_0_10_PROTOCOL);
+                        u->getUser()->unsetFlag(User::TLS);
+                    }
+                // Try again...
+                ConnectionManager::getInstance()->force(u->getUser());
+                }
+                return;
+                }
         }
-    }
-    fire(ClientListener::Message(), this, *u, c.getParam(1));
+    ChatMessage message = { c.getParam(1), u };
+    fire(ClientListener::Message(), this, message);
 }
 
 void AdcHub::handle(AdcCommand::SCH, AdcCommand& c) throw() {
@@ -496,13 +524,23 @@ void AdcHub::handle(AdcCommand::PSR, AdcCommand& c) throw() {
         dcdebug("Invalid user in AdcHub::onPSR\n");
         return;
     }
-    //SearchManager::getInstance()->onPSR(c, ou->getUser());
+    SearchManager::getInstance()->onPSR(c, ou->getUser());
 }
 
 void AdcHub::handle(AdcCommand::GET, AdcCommand& c) throw() {
     if(c.getParameters().size() < 5) {
-        dcdebug("Get with few parameters");
-        // TODO return STA?
+        if(c.getParameters().size() > 0) {
+            if(c.getParam(0) == "blom") {
+                send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_PROTOCOL_GENERIC,
+                        "Too few parameters for blom", AdcCommand::TYPE_HUB));
+            } else {
+                send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC,
+                        "Unknown transfer type", AdcCommand::TYPE_HUB));
+            }
+        } else {
+            send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_PROTOCOL_GENERIC,
+                    "Too few parameters for GET", AdcCommand::TYPE_HUB));
+        }
         return;
     }
     const string& type = c.getParam(0);
@@ -514,21 +552,24 @@ void AdcHub::handle(AdcCommand::GET, AdcCommand& c) throw() {
         size_t h = Util::toUInt32(sh);
 
         if(k > 8 || k < 1) {
-            send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC, "Unsupported k"));
+            send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC,
+                            "Unsupported k", AdcCommand::TYPE_HUB));
             return;
         }
         if(h > 64 || h < 1) {
-            send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC, "Unsupported h"));
+            send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC,
+                            "Unsupported h", AdcCommand::TYPE_HUB));
             return;
         }
         size_t n = ShareManager::getInstance()->getSharedFiles();
 
         // Ideal size for m is n * k / ln(2), but we allow some slack
-        if(m > (5 * n * k / log(2.)) || m > static_cast<size_t>(1 << h)) {
-            send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC, "Unsupported m"));
+        if(m > (5 * Util::roundUp((int64_t)(n * k / log(2.)), (int64_t)64)) || m > static_cast<size_t>(1 << h)) {
+            send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC,
+                            "Unsupported m", AdcCommand::TYPE_HUB));
             return;
         }
-        if (m > 0){
+        if (m > 0) {
             ShareManager::getInstance()->getBloom(v, k, m, h);
         }
         AdcCommand cmd(AdcCommand::CMD_SND, AdcCommand::TYPE_HUB);
@@ -614,6 +655,10 @@ void AdcHub::connect(const OnlineUser& user, string const& token, bool secure) {
         }
         proto = &SECURE_CLIENT_PROTOCOL_TEST;
     } else {
+        if(user.getUser()->isSet(User::NO_ADC_1_0_PROTOCOL)) {
+            /// @todo log
+            return;
+        }
         proto = &CLIENT_PROTOCOL;
     }
 
@@ -651,7 +696,107 @@ void AdcHub::privateMessage(const OnlineUser& user, const string& aMessage, bool
     send(c);
 }
 
-void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken) {
+void AdcHub::sendUserCmd(const UserCommand& command, const StringMap& params) {
+        if(state != STATE_NORMAL)
+                return;
+        string cmd = Util::formatParams(command.getCommand(), params, false);
+        if(command.isChat()) {
+                if(command.getTo().empty()) {
+                        hubMessage(cmd);
+                } else {
+                        const string& to = command.getTo();
+                        Lock l(cs);
+                        for(SIDMap::const_iterator i = users.begin(); i != users.end(); ++i) {
+                                if(i->second->getIdentity().getNick() == to) {
+                                        privateMessage(*i->second, cmd);
+                                        return;
+                                }
+                        }
+                }
+        } else {
+                send(cmd);
+        }
+}
+
+namespace {
+static vector<StringList> searchExts;
+
+static void defineSearchExts() {
+	if(!searchExts.empty())
+		return;
+
+	searchExts.resize(6);
+
+	/// @todo simplify this as searchExts[0] = { "mp3", "etc" } when VC++ supports initializer lists
+
+	{
+		StringList& l = searchExts[0];
+		l.push_back("mp3"); l.push_back("flac"); l.push_back("ogg"); l.push_back("mpc");
+		l.push_back("ape"); l.push_back("wma");l.push_back("wav"); l.push_back("m4a");
+		l.push_back("mp2"); l.push_back("mid"); l.push_back("au"); l.push_back("aiff");
+		l.push_back("ra");
+		sort(l.begin(), l.end());
+	}
+
+	{
+		StringList& l = searchExts[1];
+		l.push_back("rar"); l.push_back("7z"); l.push_back("zip"); l.push_back("tar");
+		l.push_back("gz"); l.push_back("bz2"); l.push_back("z"); l.push_back("ace");
+		l.push_back("lha"); l.push_back("lzh"); l.push_back("arj");
+		sort(l.begin(), l.end());
+	}
+
+	{
+		StringList& l = searchExts[2];
+		l.push_back("doc"); l.push_back("xls"); l.push_back("ppt"); l.push_back("docx");
+		l.push_back("xlsx"); l.push_back("pptx"); l.push_back("odf"); l.push_back("odt");
+		l.push_back("ods"); l.push_back("odp"); l.push_back("pdf"); l.push_back("xps");
+		l.push_back("htm"); l.push_back("html"); l.push_back("xml"); l.push_back("txt");
+		l.push_back("nfo"); l.push_back("rtf");
+		sort(l.begin(), l.end());
+	}
+
+	{
+		StringList& l = searchExts[3];
+		l.push_back("exe"); l.push_back("com"); l.push_back("bat"); l.push_back("cmd");
+		l.push_back("dll"); l.push_back("vbs"); l.push_back("ps1"); l.push_back("msi");
+		sort(l.begin(), l.end());
+	}
+
+	{
+		StringList& l = searchExts[4];
+		l.push_back("bmp"); l.push_back("ico"); l.push_back("jpg"); l.push_back("jpeg");
+		l.push_back("png"); l.push_back("gif"); l.push_back("tga"); l.push_back("ai");
+		l.push_back("ps"); l.push_back("pict"); l.push_back("eps"); l.push_back("img");
+		l.push_back("pct"); l.push_back("psp"); l.push_back("tif"); l.push_back("rle");
+		l.push_back("pcx"); l.push_back("sfw"); l.push_back("psd"); l.push_back("cdr");
+		sort(l.begin(), l.end());
+	}
+
+	{
+		StringList& l = searchExts[5];
+		l.push_back("mpg"); l.push_back("avi"); l.push_back("mkv"); l.push_back("wmv");
+		l.push_back("mov"); l.push_back("mp4"); l.push_back("3gp"); l.push_back("qt");
+		l.push_back("asx"); l.push_back("divx"); l.push_back("asf"); l.push_back("pxp");
+		l.push_back("ogm"); l.push_back("flv"); l.push_back("rm"); l.push_back("rmvb");
+		l.push_back("webm"); l.push_back("mpeg");
+		sort(l.begin(), l.end());
+	}
+}
+}
+
+StringList AdcHub::parseSearchExts(int flag) {
+	defineSearchExts();
+	StringList ret;
+	for(std::vector<StringList>::iterator i = searchExts.begin(), iend = searchExts.end(); i != iend; ++i) {
+		if(flag & (1 << (i - searchExts.begin()))) {
+			ret.insert(ret.begin(), i->begin(), i->end());
+		}
+	}
+	return ret;
+}
+
+void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) {
     if(state != STATE_NORMAL)
         return;
 
@@ -671,6 +816,65 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
         }
         if(aFileType == SearchManager::TYPE_DIRECTORY) {
             c.addParam("TY", "2");
+        }
+
+        if(!aExtList.empty()) {
+            StringList exts = aExtList;
+
+            if(exts.size() > 2) {
+                sort(exts.begin(), exts.end());
+
+                uint8_t gr = 0;
+
+                defineSearchExts();
+                for(std::vector<StringList>::iterator i = searchExts.begin(), iend = searchExts.end(); i != iend; ++i) {
+                    const StringList& def = *i;
+
+                    // gather the exts not present in any of the lists
+                    StringList temp(def.size() + exts.size());
+                    temp = StringList(temp.begin(), set_symmetric_difference(def.begin(), def.end(),
+                        exts.begin(), exts.end(), temp.begin()));
+
+                    // figure out whether the remaining exts have to be added or removed from the set
+                    StringList rm;
+                    bool ok = true;
+                    for(StringIter diff = temp.begin(); diff != temp.end();) {
+                        if(find(def.begin(), def.end(), *diff) == def.end()) {
+                            ++diff; // will be added further below as an "EX"
+                        } else {
+                            if(rm.size() == 2) {
+                                ok = false;
+                                break;
+                            }
+                            rm.push_back(*diff);
+                            diff = temp.erase(diff);
+                        }
+                    }
+                    if(!ok) // too many "RM"s necessary - disregard this group
+                        continue;
+
+                    // let's include this group!
+                    gr += 1 << (i - searchExts.begin());
+
+                    exts = temp; // the exts to still add (that were not defined in the group)
+
+                    for(StringIter rmi = rm.begin(), rmiend = rm.end(); rmi != rmiend; ++rmi)
+                        c.addParam("RM", *rmi);
+
+                    if(exts.size() <= 2)
+                        break;
+                    // keep looping to see if there are more exts that can be grouped
+                }
+
+                if(gr)
+                    c.addParam("GR", Util::toString(gr));
+            }
+
+            //for(StringIterC i = exts.begin(), iend = exts.end(); i != iend; ++i)
+            //так как большинство клиентов не поддерживает сейчас параметр GR в поисковом запросе
+            // пока шлём полный список экстеншенов, иначе возвращаются нерелевантные результаты
+            for(StringIterC i = aExtList.begin(); i != aExtList.end(); ++i)
+                c.addParam("EX", *i);
         }
     }
 
@@ -736,15 +940,15 @@ void AdcHub::info(bool /*alwaysSend*/) {
     reloadSettings(false);
 
     AdcCommand c(AdcCommand::CMD_INF, AdcCommand::TYPE_BROADCAST);
-
+    if (state == STATE_NORMAL) {
     updateCounts(false);
-
+    }
     addParam(lastInfoMap, c, "ID", ClientManager::getInstance()->getMyCID().toBase32());
     addParam(lastInfoMap, c, "PD", ClientManager::getInstance()->getMyPID().toBase32());
     addParam(lastInfoMap, c, "NI", getCurrentNick());
     bool gslotf = BOOLSETTING(SHOW_FREE_SLOTS_DESC);
     string gslot = "["+Util::toString(UploadManager::getInstance()->getFreeSlots())+"]";
-    addParam(lastInfoMap, c, "DE", (gslotf ? gslot : "")+getCurrentDescription());
+    addParam(lastInfoMap, c, "DE", (gslotf ? gslot :"")+getCurrentDescription());
     addParam(lastInfoMap, c, "SL", Util::toString(SETTING(SLOTS)));
     addParam(lastInfoMap, c, "SS", ShareManager::getInstance()->getShareSizeString());
     addParam(lastInfoMap, c, "SF", Util::toString(ShareManager::getInstance()->getSharedFiles()));
@@ -835,9 +1039,11 @@ string AdcHub::checkNick(const string& aNick) {
 }
 
 void AdcHub::send(const AdcCommand& cmd) {
-    if(cmd.getType() == AdcCommand::TYPE_UDP)
-        sendUDP(cmd);
-    send(cmd.toString(sid));
+    if(forbiddenCommands.find(AdcCommand::toFourCC(cmd.getFourCC().c_str())) == forbiddenCommands.end()) {
+        if(cmd.getType() == AdcCommand::TYPE_UDP)
+            sendUDP(cmd);
+        send(cmd.toString(sid));
+    }
 }
 
 void AdcHub::unknownProtocol(uint32_t target, const string& protocol, const string& token) {
@@ -854,6 +1060,7 @@ void AdcHub::on(Connected c) throw() {
 
     lastInfoMap.clear();
     sid = 0;
+    forbiddenCommands.clear();
 
     AdcCommand cmd(AdcCommand::CMD_SUP, AdcCommand::TYPE_HUB);
     cmd.addParam(BAS0_SUPPORT).addParam(BASE_SUPPORT).addParam(TIGR_SUPPORT);

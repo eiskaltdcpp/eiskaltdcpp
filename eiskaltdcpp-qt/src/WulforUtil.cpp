@@ -844,7 +844,7 @@ Qt::SortOrder WulforUtil::intToSortOrder(int i){
 }
 
 QString WulforUtil::getHubNames(const dcpp::CID &cid){
-    StringList hubs = ClientManager::getInstance()->getHubNames(cid);
+    StringList hubs = ClientManager::getInstance()->getHubNames(cid, "");
 
     if (hubs.empty())
         return tr("Offline");

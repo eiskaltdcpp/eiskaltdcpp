@@ -15,6 +15,6 @@ if (NOT USE_MINIUPNP)
     list (REMOVE_ITEM extra_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/upnpc.cpp)
 endif(NOT USE_MINIUPNP)
 
-add_library(extra STATIC ${extra_SRCS})
+add_library(extra SHARED ${extra_SRCS})
 target_link_libraries (extra ${MINIUPNP_LIBRARY})
 #set_target_properties(extra PROPERTIES OUTPUT_NAME "eiskaltdcpp-extra")

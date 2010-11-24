@@ -46,7 +46,7 @@ private slots:
     void slotCheckBoxClick();
 
     /** */
-    void slotRuleAdded(QString, eDIRECTION);
+    //void slotRuleAdded(QString, eDIRECTION);
 
     /** */
     void slotTreeViewContextMenu(QPoint);

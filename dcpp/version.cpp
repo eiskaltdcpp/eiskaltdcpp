@@ -21,11 +21,20 @@
 
 #include "version.h"
 
+//#ifndef DCPP_REVISION
+//#define DCPP_REVISION 0
+//#endif
+
 //#define xstrver(s) strver(s)
 //#define strver(s) #s
 
 namespace dcpp {
+#ifdef DCPP_REVISION
+const char * const fullVersionString = APPNAME" V:(" DCPP_REVISION ")";
+const char * const  fullADCVersionString(APPNAME " " DCPP_REVISION);
+#else
 const char * const  fullVersionString = APPNAME " V:" VERSIONSTRING;
 const char * const  fullADCVersionString = APPNAME " " VERSIONSTRING;
+#endif
 }
 
