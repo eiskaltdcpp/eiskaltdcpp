@@ -1,4 +1,28 @@
---- 2.1.0 2010-11-15 ---
+--- 2.1.2 2010-12-19 ---
+*** common changes ***
+*** eiskaltdcpp-qt ***
+*** eiskaltdcpp-gtk ***
+
+--- 2.1.1 2010-11-21 ---
+*** common changes ***
+* Fixed TigerHash for ARM architecture.
+* -DUSE_MINIUPNP is set to OFF by default.
+* Fixed issue with blocking ports on restarting the program.
+* Added ability to use pcre library for regex in perl style (see option PERL_REGEX in file INSTALL). Currently it uses only in ADL Search.
+*** eiskaltdcpp-qt ***
+* Fixed crash when deleting last characters in the input field of the chat by using the Backspace. (The problem manifested only with Qt 4.7.1)
+* Optimized link parser. Very long new chat messages are displayed much faster.
+* Fixed opening torrent's magnet links from chat.
+* Added ability to forced change the background color in the chat.
+* Fixed wrong icon path for App Bundle in Mac OS X. (The problem was added in 2.1.0)
+* BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
+* Support for *bold* and _underlined_ text like in Psi.
+*** eiskaltdcpp-gtk ***
+* Improvements in the main menu.
+* Improvements in the toolbar.
+* BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
+
+--- 2.1.0 2010-11-07 ---
 *** common changes ***
 * libeiskaltdcpp library was separated from the basic binary file for unix-like systems.
 * Added localization of kernel messages. Gettext used.
@@ -15,9 +39,10 @@
 * Added option to display the ip-addresses of users in the chat. (Depending on hub configuration: information about them is usually available only to operators)
 * Fixed a problem with minimum width of main window in Mac OS X.
 * Multi-line widgets panel (tabs).
-* Added ability to hide close buttons from tabs (see context menu on multi-line widgets panel).
+* Added ability to hide close buttons from tabs (see context menu on the panel).
 * Thanks to Gustavo Alvarez the Spanish translation is now available.
 * Thanks to Rusi Dimitrov the Bulgarian translation is now available.
+* Thanks to Martin Durisin the Slovak translation is now available.
 * Added ability to build program without libupnp and QtDBus (see file INSTALL).
 * Added ability to build program on MS Windows (see file win32/READ_ME.txt).
 * Added a hash progress indicator in the status line. Combined menu 'Refresh share' and 'Hash progress'.
@@ -45,10 +70,6 @@
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
 * Added dialog for calculating TTH of any file.
 * Displaying images in the chat ([img]magnet[/img]).
-*** eiskaltdcpp-wt ***
-* Development has begun. Attention: the program is not yet ready to use!
-* Implemented a prototype of search page. In addition to displaying the search results until there is nothing.
-* Launched process (see man-page) picks up the settings from configuration files that are created manually or by using graphical interface on Qt or Gtk. The result: initiated downloads is continuing, users can access to your share and so on.
 
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.

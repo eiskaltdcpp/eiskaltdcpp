@@ -13,6 +13,7 @@ iconv (libc on GNU/Linux)
 gettext
 libssl (>= 0.9.8)
 liblua5.1 (optional, see cmake keys)
+libpcrecpp0 (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -20,10 +21,6 @@ libqtcore4, libqtgui4, libqt4-network, libqt4-xml (>= 4.4.0)
 libqt4-script (>= 4.4.0) (optional, see cmake keys)
 libqt4-dbus (>= 4.4.0) (optional, see cmake keys)
 libaspell (optional, see cmake keys)
-----------------
-:eiskaltdcpp-wt:
-----------------
-libwt, libwtext, libwtfcgi, libwthttp
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
@@ -73,15 +70,12 @@ pkg-config
 gettext
 libboost-dev (headers only) (optional, see cmake keys)
 liblua5.1-dev (optional, see cmake keys)
+libpcre3-dev (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
 qt4 (>=4.4.0)
 libaspell-dev (optional, see cmake keys)
-----------------
-:eiskaltdcpp-wt:
-----------------
-libwt-dev, libwtext-dev, libwtfcgi-dev, libwthttp-dev
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
@@ -101,8 +95,10 @@ make -j2
 sudo make install
 
 ---------
-# Note: you can get the lastest program sorces from subversion
-svn export http://eiskaltdc.googlecode.com/svn/branches/trunk/ eiskaltdcpp-trunk
+# Note: you can get the lastest program sorces from git repository
+git clone git://github.com/negativ/eiskaltdcpp.git
+# or
+wget -4 http://nodeload.github.com/negativ/eiskaltdcpp/tarball/master
 
 
 *******************************************************************************
@@ -115,6 +111,8 @@ Keys for cmake
     use local boost headers
 -DLUA_SCRIPT=ON/OFF (default: OFF)
     lua scripts
+-DPERL_REGEX=ON/OFF (default: OFF)
+    use pcre lib for regex in perl style (now it uses only in ADL Search)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -130,13 +128,6 @@ Keys for cmake
     Enable/disable QtScript basic support
 -DUSE_QT_QML=ON/OFF (default: OFF)
     Enable/disable Qt Declarative Ui support. Work only with Qt >= 4.7.0
--DUSE_ICON_THEME=ON/OFF (default: OFF)
-    Using system icon theme. Work only with Qt >= 4.6.0 and only in KDE and Gnome.
-----------------
-:eiskaltdcpp-wt:
-----------------
--DUSE_WT=ON/OFF (default: OFF)
-    build EiskaltDC++ with Wt (Web Toolkit) interface
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
@@ -155,7 +146,7 @@ Keys for cmake
     If ON install examples/
 -DWITH_LUASCRIPTS=ON/OFF (default: OFF)
     If ON install luascripts/
--DUSE_MINIUPNP=ON/OFF (default: ON)
+-DUSE_MINIUPNP=ON/OFF (default: OFF)
     use or not use miniupnpc lib
 -DLOCAL_MINIUPNP=ON/OFF (default: OFF)
     If ON use local miniupnpc lib (not set this in ON if you not set USE_MINIUPNP in ON)
@@ -188,7 +179,7 @@ And other standart cmake keys...
 ---------
 # Example of the complete assembly:
 mkdir -p builddir && cd builddir
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT=ON -DUSE_WT=ON -DUSE_GTK=ON -DUSE_JS=ON -DUSE_ASPELL=ON -DFREE_SPACE_BAR_C=ON  -DCREATE_MO=ON -DLUA_SCRIPT=ON -DWITH_SOUNDS=ON -DWITH_LUASCRIPTS=ON -DUSE_MINIUPNP=ON -DLOCAL_MINIUPNP=ON ../
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT=ON -DUSE_GTK=ON -DUSE_JS=ON -DUSE_ASPELL=ON -DFREE_SPACE_BAR_C=ON  -DCREATE_MO=ON -DLUA_SCRIPT=ON -DWITH_SOUNDS=ON -DWITH_LUASCRIPTS=ON -DUSE_MINIUPNP=ON -DLOCAL_MINIUPNP=ON ../
 make
 sudo make install
 
