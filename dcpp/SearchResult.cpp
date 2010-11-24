@@ -32,11 +32,11 @@ SearchResult::SearchResult(const UserPtr& aUser, Types aType, int aSlots, int aF
     int64_t aSize, const string& aFile, const string& aHubName,
     const string& aHubURL, const string& ip, TTHValue aTTH, const string& aToken) :
 file(aFile), hubName(aHubName), hubURL(aHubURL), user(aUser),
-        size(aSize), type(aType), _slots(aSlots), freeSlots(aFreeSlots), IP(ip),
+    size(aSize), type(aType), slots(aSlots), freeSlots(aFreeSlots), IP(ip),
     tth(aTTH), token(aToken) { }
 
 SearchResult::SearchResult(Types aType, int64_t aSize, const string& aFile, const TTHValue& aTTH) :
-        file(aFile), user(ClientManager::getInstance()->getMe()), size(aSize), type(aType), _slots(SETTING(SLOTS)),
+    file(aFile), user(ClientManager::getInstance()->getMe()), size(aSize), type(aType), slots(SETTING(SLOTS)),
     freeSlots(UploadManager::getInstance()->getFreeSlots()),
     tth(aTTH) { }
 
@@ -59,7 +59,7 @@ string SearchResult::toSR(const Client& c) const {
     tmp.append(1, ' ');
     tmp.append(Util::toString(freeSlots));
     tmp.append(1, '/');
-        tmp.append(Util::toString(_slots));
+    tmp.append(Util::toString(slots));
     tmp.append(1, '\x05');
     tmp.append("TTH:" + getTTH().toBase32());
     tmp.append(" (", 2);
