@@ -1,4 +1,8 @@
-/*#include "antispam.h"
+#include <QDir>
+#include <QFile>
+#include <QTextStream>
+
+#include "antispam.h"
 //#include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
@@ -459,4 +463,3 @@ void AntiSpam::setAttempts(int i){
 int AntiSpam::getAttempts() const{
     return try_count;
 }
-*/

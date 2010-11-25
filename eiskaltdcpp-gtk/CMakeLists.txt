@@ -21,7 +21,7 @@ include_directories (
         ${PROJECT_SOURCE_DIR}/..
         ${Boost_INCLUDE_DIRS}
         )
-set (LIBS ${LIBS}
+list(APPEND LIBS
         ${X11_LIBRARIES}
         ${GTK2_LIBRARIES}
         ${LIBGNOME2_LIBRARIES}
@@ -41,7 +41,7 @@ add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
                 )
 
 if (USE_LIBNOTIFY)
-add_definitions (-DUSE_LIBNOTIFY)
+    add_definitions (-DUSE_LIBNOTIFY)
 endif (USE_LIBNOTIFY)
 
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
@@ -49,6 +49,13 @@ add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
                 -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/gtk/icons"
                 )
+
+if (eiskaltdcpp_WC_REVISION)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/wulfor.cc  ${PROJECT_SOURCE_DIR}/src/mainwindow.cc PROPERTY COMPILE_DEFINITIONS DCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
+endif ()
+if (USE_MINIUPNP)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/settingsdialog.cc  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
+endif()
 
 if (APPLE)
   add_definitions(-DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")

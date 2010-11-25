@@ -22,7 +22,7 @@
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/User.h"
 #include "dcpp/Singleton.h"
-/*
+
 enum AntiSpamObjectState {
     eIN_BLACK = 0,
     eIN_GRAY,
@@ -118,6 +118,6 @@ public slots:
 
 };
 
-//Q_DECLARE_METATYPE(AntiSpam*)*/
+//Q_DECLARE_METATYPE(AntiSpam*)
 
 #endif // DCANTISPAM_H
