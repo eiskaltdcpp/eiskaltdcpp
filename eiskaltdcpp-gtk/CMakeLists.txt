@@ -34,6 +34,7 @@ list(APPEND LIBS
 if (LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
   list (APPEND LIBS ${LUA_LIBRARIES})
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/mainwindow.cc ${PROJECT_SOURCE_DIR}/src/hub.cc PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
 endif (LUA_SCRIPT)
 
 add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
@@ -53,9 +54,14 @@ add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
 if (eiskaltdcpp_WC_REVISION)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/wulfor.cc  ${PROJECT_SOURCE_DIR}/src/mainwindow.cc PROPERTY COMPILE_DEFINITIONS DCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
 endif ()
+
 if (USE_MINIUPNP)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/settingsdialog.cc  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
 endif()
+
+if (HAVE_IFADDRS_H)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/WulforUtil.cc PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H )
+endif (HAVE_IFADDRS_H)
 
 if (APPLE)
   add_definitions(-DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
