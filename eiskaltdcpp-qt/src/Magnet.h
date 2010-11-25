@@ -15,7 +15,6 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
-#include "dcpp/SearchResult.h"
 #include "dcpp/SearchManager.h"
 
 #include "ui_UIMagnet.h"

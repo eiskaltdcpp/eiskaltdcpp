@@ -10,6 +10,9 @@ add_definitions (-DXMLRPC_DAEMON )
 endif (XMLRPC_DAEMON)
 list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/sampleclient.cpp)
 list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/sampleserver.cpp)
+if (LUA_SCRIPT)
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/ServerThread.cpp PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
+endif (LUA_SCRIPT)
 # actual target:
 add_executable (nasdc MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
