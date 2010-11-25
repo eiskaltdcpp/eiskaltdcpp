@@ -30,6 +30,7 @@
 #include "dcpp/CID.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/Util.h"
+#include "dcpp/ChatMessage.h"
 
 #if HAVE_MALLOC_TRIM
 #include <malloc.h>
@@ -314,7 +315,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     if (!cid.isEmpty() && !pmw){
         /*user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
                         UserCommand::CONTEXT_CHAT);*/
-        menu->addMenu(user_menu);
+        //menu->addMenu(user_menu);
     }
 
     QMenu *antispam_menu = NULL;
@@ -3302,59 +3303,148 @@ void HubFrame::on(ClientListener::HubUpdated, Client*) throw(){
     emit coreHubUpdated();
 }
 
-void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &msg) throw(){
-    /*if (chatDisabled)
+void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) throw(){
+    if (message.text.empty())
         return;
+#warning "No antispam check"
 
     VarMap map;
+    QString msg = _q(message.text);
+    bool third = false;
 
-    if (AntiSpam::getInstance()){
-        if (AntiSpam::getInstance()->isInBlack(_q(user.getIdentity().getNick())))
+    if (msg.startsWith("/me ")){
+        msg.remove(0, 4);
+
+        third = true;
+    }
+
+    if(message.to && message.replyTo)
+    {
+        //private message
+        const OnlineUser *user = (message.replyTo->getUser() == ClientManager::getInstance()->getMe())?
+                                 message.to : message.replyTo;
+
+        bool isBot = user->getIdentity().isBot();
+        bool isHub = user->getIdentity().isHub();
+        bool isOp  = user->getIdentity().isOp();
+
+        if (isHub && BOOLSETTING(IGNORE_HUB_PMS))
             return;
+        else if (isBot && BOOLSETTING(IGNORE_BOT_PMS))
+            return;
+
+        VarMap map;
+        CID id           = user->getUser()->getCID();
+        QString nick     =  _q(message.from->getIdentity().getNick());
+        bool isInSandBox = false;
+        bool isEcho      = (message.from->getUser() == ClientManager::getInstance()->getMe());
+        bool hasPMWindow = pm.contains(_q(id.toBase32()));//PMWindow is created
+
+        /*if (AntiSpam::getInstance())
+            isInSandBox = AntiSpam::getInstance()->isInSandBox(_q(id.toBase32()));
+
+        if (AntiSpam::getInstance() && !isEcho){
+            do {
+                if (hasPMWindow)
+                    break;
+
+                if (isOp && !WBGET(WB_ANTISPAM_FILTER_OPS) && !isBot)
+                    break;
+
+                if (AntiSpam::getInstance()->isInBlack(nick))
+                    return;
+                else if (!(AntiSpam::getInstance()->isInWhite(nick) || AntiSpam::getInstance()->isInGray(nick))){
+                    AntiSpam::getInstance()->checkUser(_q(id.toBase32()), _q(msg), _q(client->getHubUrl()));
+
+                    return;
+                }
+            } while (0);
+        }
+        else if (isEcho && isInSandBox && !hasPMWindow)
+            return;*/
+
+        map["NICK"]  = nick;
+        map["MSG"]   = msg;
+        map["TIME"]  = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
+
+        QString color = WS_CHAT_PRIV_USER_COLOR;
+
+        if (nick == _q(client->getMyNick()))
+            color = WS_CHAT_PRIV_LOCAL_COLOR;
+        else if (isOp)
+            color = WS_CHAT_OP_COLOR;
+        else if (isBot)
+            color = WS_CHAT_BOT_COLOR;
+        else if (isHub)
+            color = WS_CHAT_STAT_COLOR;
+
+        map["CLR"] = color;
+        map["3RD"] = third;
+        map["CID"] = _q(id.toBase32());
+        map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp());
+
+        if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
+            emit coreMessage(map);
+        else
+            emit corePrivateMsg(map);
+
+        if (BOOLSETTING(LOG_PRIVATE_CHAT)){
+            StringMap params;
+            //params["message"] = Util::formatMessage(from.getIdentity().getNick(), msg, thirdPerson);
+            params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
+            params["hubURL"] = client->getHubUrl();
+            params["userCID"] = id.toBase32();
+            params["userNI"] = ClientManager::getInstance()->getNicks(HintedUser(user->getUser(), client->getHubUrl()))[0];
+            params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
+            params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp();
+            LOG(LogManager::PM, params);
+        }
+
+//        if (!(isBot || isHub) && from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway())
+//            ClientManager::getInstance()->privateMessage(user.getUser(), Util::getAwayMessage(), false, client->getHubUrl());
     }
+    else
+    {
+        // chat message
+        const OnlineUser *user = message.from;
 
-    if (_q(msg).startsWith("/me ")){
-        QString m = _q(msg);
-        m.remove(0, 4);
+        if (chatDisabled)
+            return;
 
-        emit coreStatusMsg(_q(user.getIdentity().getNick()) + " " + m);
+        map["NICK"] = _q(user->getIdentity().getNick());
+        map["MSG"]  = msg;
+        map["TIME"] = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
 
-        return;
+        QString color = WS_CHAT_USER_COLOR;
+
+        if (user->getIdentity().isHub())
+            color = WS_CHAT_STAT_COLOR;
+        else if (user->getUser() == client->getMyIdentity().getUser())
+            color = WS_CHAT_LOCAL_COLOR;
+        else if (user->getIdentity().isOp())
+            color = WS_CHAT_OP_COLOR;
+        else if (user->getIdentity().isBot())
+            color = WS_CHAT_BOT_COLOR;
+
+        if (FavoriteManager::getInstance()->isFavoriteUser(user->getUser()))
+            color = WS_CHAT_FAVUSER_COLOR;
+
+        map["CLR"] = color;
+        map["3RD"] = third;
+        map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp());
+
+        emit coreMessage(map);
+
+        if (BOOLSETTING(LOG_MAIN_CHAT)){
+            StringMap params;
+            params["message"] = _tq(msg);
+            client->getHubIdentity().getParams(params, "hub", false);
+            params["hubURL"] = client->getHubUrl();
+            params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp();
+            client->getMyIdentity().getParams(params, "my", true);
+            LOG(LogManager::CHAT, params);
+        }
     }
-
-    map["NICK"] = _q(user.getIdentity().getNick());
-    map["MSG"]  = _q(msg.c_str());
-    map["TIME"] = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
-
-    QString color = WS_CHAT_USER_COLOR;
-
-    if (user.getIdentity().isHub())
-        color = WS_CHAT_STAT_COLOR;
-    else if (user.getUser() == client->getMyIdentity().getUser())
-        color = WS_CHAT_LOCAL_COLOR;
-    else if (user.getIdentity().isOp())
-        color = WS_CHAT_OP_COLOR;
-    else if (user.getIdentity().isBot())
-        color = WS_CHAT_BOT_COLOR;
-
-    if (FavoriteManager::getInstance()->isFavoriteUser(user.getUser()))
-        color = WS_CHAT_FAVUSER_COLOR;
-
-    map["CLR"] = color;
-    map["3RD"] = thirdPerson;
-    map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(user).getIp());
-
-    emit coreMessage(map);
-
-    if (BOOLSETTING(LOG_MAIN_CHAT)){
-        StringMap params;
-        params["message"] = Util::formatMessage(user.getIdentity().getNick(), msg, thirdPerson);
-        client->getHubIdentity().getParams(params, "hub", false);
-        params["hubURL"] = client->getHubUrl();
-        params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user).getIp();
-        client->getMyIdentity().getParams(params, "my", true);
-        LOG(LogManager::CHAT, params);
-    }*/
 }
 
 void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int) throw(){
@@ -3371,91 +3461,6 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
         LOG(LogManager::STATUS, params);
     }
 }
-
-/*void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &from, const OnlineUser &to, const OnlineUser &replyTo,
-                  const string &msg, bool thirdPerson) throw()
-{
-    const OnlineUser& user = (replyTo.getUser() == ClientManager::getInstance()->getMe()) ? to : replyTo;
-
-    bool isBot = user.getIdentity().isBot();
-    bool isHub = user.getIdentity().isHub();
-    bool isOp = user.getIdentity().isOp();
-
-    if (isHub && BOOLSETTING(IGNORE_HUB_PMS))
-        return;
-    else if (isBot && BOOLSETTING(IGNORE_BOT_PMS))
-        return;
-
-    VarMap map;
-    CID id           = user.getUser()->getCID();
-    QString nick     =  _q(from.getIdentity().getNick());
-    bool isInSandBox = false;
-    bool isEcho      = (from.getUser() == ClientManager::getInstance()->getMe());
-    bool hasPMWindow = pm.contains(_q(id.toBase32()));//PMWindow is created
-
-    if (AntiSpam::getInstance())
-        isInSandBox = AntiSpam::getInstance()->isInSandBox(_q(id.toBase32()));
-
-    if (AntiSpam::getInstance() && !isEcho){
-        do {
-            if (hasPMWindow)
-                break;
-
-            if (isOp && !WBGET(WB_ANTISPAM_FILTER_OPS) && !isBot)
-                break;
-
-            if (AntiSpam::getInstance()->isInBlack(nick))
-                return;
-            else if (!(AntiSpam::getInstance()->isInWhite(nick) || AntiSpam::getInstance()->isInGray(nick))){
-                AntiSpam::getInstance()->checkUser(_q(id.toBase32()), _q(msg), _q(client->getHubUrl()));
-
-                return;
-            }
-        } while (0);
-    }
-    else if (isEcho && isInSandBox && !hasPMWindow)
-        return;
-
-    map["NICK"]  = nick;
-    map["MSG"]   = _q(msg);
-    map["TIME"]  = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
-
-    QString color = WS_CHAT_PRIV_USER_COLOR;
-
-    if (nick == _q(client->getMyNick()))
-        color = WS_CHAT_PRIV_LOCAL_COLOR;
-    else if (isOp)
-        color = WS_CHAT_OP_COLOR;
-    else if (isBot)
-        color = WS_CHAT_BOT_COLOR;
-    else if (isHub)
-        color = WS_CHAT_STAT_COLOR;
-
-    map["CLR"] = color;
-    map["3RD"] = thirdPerson;
-    map["CID"] = _q(id.toBase32());
-    map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp());
-
-    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
-        emit coreMessage(map);
-    else
-        emit corePrivateMsg(map);
-
-    if (BOOLSETTING(LOG_PRIVATE_CHAT)){
-        StringMap params;
-        params["message"] = Util::formatMessage(from.getIdentity().getNick(), msg, thirdPerson);
-        params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
-        params["hubURL"] = Util::toString(ClientManager::getInstance()->getHubs(id));
-        params["userCID"] = id.toBase32();
-        params["userNI"] = ClientManager::getInstance()->getNicks(id)[0];
-        params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
-        params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(from).getIp();
-        LOG(LogManager::PM, params);
-    }
-
-    if (!(isBot || isHub) && from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway())
-        ClientManager::getInstance()->privateMessage(user.getUser(), Util::getAwayMessage(), false, client->getHubUrl());
-}*/
 
 void HubFrame::on(ClientListener::NickTaken, Client*) throw(){
     QString status = tr("Sorry, but nick \"%1\" is already taken by another user.").arg(client->getCurrentNick().c_str());

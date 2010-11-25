@@ -397,7 +397,7 @@ void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
         if (msg.isEmpty() || msg == "\n")
             return;
 
-        //ClientManager::getInstance()->privateMessage(user, msg.toStdString(), thirdPerson, hubUrl.toStdString());
+        ClientManager::getInstance()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq(msg), thirdPerson);
     }
     else {
         addStatusMessage(tr("User went offline"));
