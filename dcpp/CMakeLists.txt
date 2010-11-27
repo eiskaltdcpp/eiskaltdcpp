@@ -16,30 +16,34 @@ endif ()
 include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${GETTEXT_INCLUDE_DIR} ${LUA_INCLUDE_DIR})
 
 if (WIN32)
-set (LINK STATIC)
-set (WIN32_LIBS "ws2_32")
+  set (LINK STATIC)
+  set (WIN32_LIBS "ws2_32")
 endif (WIN32)
 
 if (NOT LINK)
-set (LINK SHARED)
+  set (LINK SHARED)
 endif (NOT LINK)
 
 if (APPLE)
-set (APPLE_LIBS "iconv")
+  set (APPLE_LIBS "iconv")
 endif (APPLE)
 if (USE_MINIUPNP OR FREE_SPACE_BAR_C)
-set (UPNP "extra")
+  set (UPNP "extra")
 endif (USE_MINIUPNP OR FREE_SPACE_BAR_C)
+
 add_library (dcpp ${LINK} ${dcpp_srcs})
+
 if (USE_DHT)
-add_definitions ( -DUSE_DHT )
+  add_definitions ( -DUSE_DHT )
 endif (USE_DHT)
+
 if (NOT NATT)
-add_definitions ( -DDISABLE_NAT_TRAVERSAL )
+  add_definitions ( -DDISABLE_NAT_TRAVERSAL )
 endif (NOT NATT)
+
 if (PERL_REGEX)
-add_definitions ( -DUSE_PCRE )
-set(PCRE ${PCRE_LIBRARY})
+  add_definitions ( -DUSE_PCRE )
+  set(PCRE ${PCRE_LIBRARY})
 endif (PERL_REGEX)
 
 if (eiskaltdcpp_WC_REVISION)
@@ -66,12 +70,17 @@ if (FORCE_XDG)
    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
 endif (FORCE_XDG)
 
+if (USE_MINIUPNP)
+  set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
+endif()
+
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
 ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE})
 set_target_properties(dcpp PROPERTIES VERSION ${VERSION} OUTPUT_NAME "eiskaltdcpp")
+
 if (APPLE)
-set (LIBDIR1 .)
-set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
+  set (LIBDIR1 .)
+  set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
 endif(APPLE)
 
 if (LINK STREQUAL SHARED)
