@@ -25,6 +25,7 @@
 #include <sstream>
 #include <iomanip>
 #include <iterator>
+#include <dcpp/FavoriteManager.h>
 #include <dcpp/ShareManager.h>
 #include <dcpp/Text.h>
 #include <dcpp/Upload.h>
@@ -52,6 +53,7 @@
 #include "adlsearch.hh"
 #include "WulforUtil.hh"
 #include "Version.h"
+#include "cmddebug.hh"
 
 using namespace std;
 using namespace dcpp;
@@ -78,87 +80,14 @@ MainWindow::MainWindow():
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("connectDialog")), window);
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("flistDialog")), window);
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("ucLineDialog")), window);
-
-    // toolbar
-    setToolbarMenu_gui("addMenuItemBar", "add", "toolbar-button-add");
-    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem1", "toolbar-button-separators");
-    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem2", "toolbar-button-separators");
-    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem3", "toolbar-button-separators");
-    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem4", "toolbar-button-separators");
-    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem5", "toolbar-button-separators");
-    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem6", "toolbar-button-separators");
-    setToolbarMenu_gui("separatorsMenuItemBar", "SeparatorToolItem7", "toolbar-button-separators");
-    setToolbarMenu_gui("reconnectMenuItemBar", "reconnect", "toolbar-button-reconnect");
-    setToolbarMenu_gui("connectMenuItemBar", "connect", "toolbar-button-connect");
-    setToolbarMenu_gui("favHubsMenuItemBar", "favHubs", "toolbar-button-fav-hubs");
-    setToolbarMenu_gui("favUsersMenuItemBar", "favUsers", "toolbar-button-fav-users");
-    setToolbarMenu_gui("publicHubsMenuItemBar", "publicHubs", "toolbar-button-public-hubs");
-    setToolbarMenu_gui("settingsMenuItemBar", "settings", "toolbar-button-settings");
-    setToolbarMenu_gui("own_filelistMenuItemBar", "own_file_list", "toolbar-button-own-filelist");
-    setToolbarMenu_gui("refreshMenuItemBar", "refresh", "toolbar-button-refresh");
-    setToolbarMenu_gui("hashMenuItemBar", "hash", "toolbar-button-hash");
-    setToolbarMenu_gui("searchMenuItemBar", "search", "toolbar-button-search");
-    setToolbarMenu_gui("searchADLMenuItemBar", "searchADL", "toolbar-button-search-adl");
-    setToolbarMenu_gui("searchSpyMenuItemBar", "searchSpy", "toolbar-button-search-spy");
-    setToolbarMenu_gui("queueMenuItemBar", "queue", "toolbar-button-queue");
-    setToolbarMenu_gui("finishedDownloadsMenuItemBar", "finishedDownloads", "toolbar-button-finished-downloads");
-    setToolbarMenu_gui("finishedUploadsMenuItemBar", "finishedUploads", "toolbar-button-finished-uploads");
-    setToolbarMenu_gui("quitMenuItemBar", "quit", "toolbar-button-quit");
-
-    gint pos = 0;
-    ToolbarStyle = 0;
-    GtkBox *box = GTK_BOX(getWidget("hbox4"));
-    GtkWidget *child = getWidget("toolbar1");
-    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("leftToolbarItem")), TRUE);
-    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), (WGETI("toolbar-style") == 4) ? TRUE : FALSE);
-    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("sizeToolbarItem")), WGETB("toolbar-small"));
-    if (WGETB("toolbar-small"))
-        g_object_set(G_OBJECT(child), "icon-size", GTK_ICON_SIZE_SMALL_TOOLBAR, NULL);
-
-    if (WGETI("toolbar-position") == 0)
-    {
-        box = GTK_BOX(getWidget("vbox1"));
-        gtk_toolbar_set_orientation(GTK_TOOLBAR(child), GTK_ORIENTATION_HORIZONTAL);
-        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("topToolbarItem")), TRUE);
-        pos = 1;
-    }
-    gtk_box_pack_start(box, child, FALSE, FALSE, 2);
-    gtk_box_reorder_child(box, child, pos);
-    g_object_unref(child);
-
-    g_signal_connect(G_OBJECT(getWidget("sizeToolbarItem")), "toggled", G_CALLBACK(onSizeToolbarToggled_gui), (gpointer)this);
-    g_signal_connect(G_OBJECT(getWidget("hideToolbarItem")), "toggled", G_CALLBACK(onHideToolbarToggled_gui), (gpointer)this);
-    g_signal_connect(G_OBJECT(getWidget("topToolbarItem")), "toggled", G_CALLBACK(onTopToolbarToggled_gui), (gpointer)this);
-    g_signal_connect(G_OBJECT(getWidget("leftToolbarItem")), "toggled", G_CALLBACK(onLeftToolbarToggled_gui), (gpointer)this);
-    g_signal_connect(G_OBJECT(getWidget("add")), "clicked", G_CALLBACK(onAddButtonClicked_gui), (gpointer)this);
-
     // TTH file get dialog
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("TTHFileDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL,-1);
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("TTHFileDialog")),window);
     ///todo response@
     g_signal_connect(getWidget("TTHFileDialog"), "delete-event", G_CALLBACK(onDeleteEventMagnetDialog_gui), (gpointer)this);
 
-    GtkWidget *menu = gtk_menu_new();
-    gtk_menu_tool_button_set_menu(GTK_MENU_TOOL_BUTTON(getWidget("favHubs")), menu);
-    const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();
-    gtk_container_foreach(GTK_CONTAINER(menu), (GtkCallback)gtk_widget_destroy, NULL);
-
-    for (FavoriteHubEntryList::const_iterator it = fh.begin(); it != fh.end(); ++it)
-    {
-        FavoriteHubEntry *entry = *it;
-        string address = entry->getServer();
-        string encoding = entry->getEncoding();
-        GtkWidget *item = gtk_menu_item_new_with_label(address.c_str());
-        gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-        g_object_set_data_full(G_OBJECT(item), "address", g_strdup(address.c_str()), g_free);
-        g_object_set_data_full(G_OBJECT(item), "encoding", g_strdup(encoding.c_str()), g_free);
-        g_signal_connect(G_OBJECT(item), "activate", G_CALLBACK(onHubClicked_gui), (gpointer)this);
-    }
-    gtk_widget_show_all(menu);
-
     // menu
     g_object_ref_sink(getWidget("statusIconMenu"));
-    g_object_ref_sink(getWidget("toolbarMenu"));
 
     // magnet dialog
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("MagnetDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
@@ -170,8 +99,13 @@ MainWindow::MainWindow():
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("transferCheckButton")), TRUE);
 
     // About dialog
+#ifndef DCPP_REVISION
     gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"),
         EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
+#else
+    gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s - %s %s\nDC++ core version: %s"),
+        EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION, DCVERSIONSTRING);
+#endif
 
     gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), comments);
     g_free(comments);
@@ -254,8 +188,7 @@ MainWindow::MainWindow():
     //TTHFileDialog
     g_signal_connect(getWidget("TTHFileMenu"), "activate", G_CALLBACK(onTTHFileDialog_gui), (gpointer)this);
     g_signal_connect(getWidget("buttonfile"), "clicked", G_CALLBACK(onTTHFileButton_gui), (gpointer)this);
-    //GtkWidget *buttonf = getWidget("filechooserbutton");
-    //g_signal_connect(buttonf, "dialog",G_CALLBACK(onFileTTHSet), (gpointer)this);
+    g_signal_connect(getWidget("cmdDebugMenuItem"), "activate", G_CALLBACK(onDebugCMD), (gpointer)this);
 
     // Help menu
     g_object_set_data_full(G_OBJECT(getWidget("homeMenuItem")), "link",
@@ -263,7 +196,7 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("homeMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     g_object_set_data_full(G_OBJECT(getWidget("sourceMenuItem")), "link",
-        g_strdup("http://github.com/negativ/eiskaltdcpp/"), g_free);
+        g_strdup("http://code.google.com/p/eiskaltdc/source/checkout"), g_free);
     g_signal_connect(getWidget("sourceMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     g_object_set_data_full(G_OBJECT(getWidget("issueMenuItem")), "link",
@@ -276,7 +209,7 @@ MainWindow::MainWindow():
 
     // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
     g_object_set_data_full(G_OBJECT(getWidget("changeLogItem")), "link",
-        g_strdup(_("http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt")), g_free);
+        g_strdup(_("http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt")), g_free);
     g_signal_connect(getWidget("changeLogItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     onQuit = FALSE;
@@ -341,8 +274,9 @@ MainWindow::~MainWindow()
     transferPanePosition = sizeY - gtk_paned_get_position(GTK_PANED(getWidget("pane")));
 
     if (!(gdkState & GDK_WINDOW_STATE_MAXIMIZED))
+    {
         maximized = FALSE;
-
+    }
     WSET("main-window-pos-x", posX);
     WSET("main-window-pos-y", posY);
     WSET("main-window-size-x", sizeX);
@@ -360,7 +294,6 @@ MainWindow::~MainWindow()
     gtk_widget_destroy(GTK_WIDGET(window));
     g_object_unref(statusIcon);
     g_object_unref(getWidget("statusIconMenu"));
-    g_object_unref(getWidget("toolbarMenu"));
 
     Sound::stop();
     Emoticons::stop();
@@ -387,6 +320,13 @@ void MainWindow::show()
     WulforManager::get()->dispatchClientFunc(f0);
 
     autoOpen_gui();
+
+	if (WGETI("show-preferences-on-startup"))
+    {
+       onPreferencesClicked_gui(NULL, (gpointer)this);
+        WSET("show-preferences-on-startup", 0);
+    }
+
 }
 
 void MainWindow::setTitle(const string& text)
@@ -469,15 +409,6 @@ void MainWindow::autoOpen_gui()
          showFinishedUploads_gui();
     if (WGETB("open-search-spy"))
          showSearchSpy_gui();
-}
-
-void MainWindow::setToolbarMenu_gui(const string &item_key, const string &button_key, const string &key)
-{
-    GtkWidget *item = getWidget(item_key);
-    GtkWidget *button = getWidget(button_key);
-    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), WGETB(key));
-    g_object_set_data_full(G_OBJECT(item), "key", g_strdup(key.c_str()), g_free);
-    g_signal_connect(G_OBJECT(item), "toggled", G_CALLBACK(onToolToggled_gui), (gpointer)button);
 }
 
 void MainWindow::addBookEntry_gui(BookEntry *entry)
@@ -778,7 +709,19 @@ void MainWindow::showSearchADL_gui()
 
         raisePage_gui(entry->getContainer());
 }
+void MainWindow::showCmdDebug_gui()
+{
+	BookEntry *entry = findBookEntry(Entry::CMD);
 
+	if(entry == NULL)
+	{
+		entry = new cmddebug();
+		addBookEntry_gui(entry);
+
+	}
+	raisePage_gui(entry->getContainer());
+
+}
 void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string hubUrl, string message, bool useSetting)
 {
     BookEntry *entry = findBookEntry(Entry::PRIVATE_MESSAGE, cid);
@@ -786,7 +729,7 @@ void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string 
 
     // If PM is initiated by another user, use setting except if tab is already open.
     if (useSetting)
-        raise = (entry == NULL) ? !BOOLSETTING(POPUNDER_PM) : FALSE;
+        raise = (entry == NULL) ? !WGETB("popunder-pm") : FALSE;
 
     if (entry == NULL)
     {
@@ -879,7 +822,7 @@ void MainWindow::showPublicHubs_gui()
 
 void MainWindow::showShareBrowser_gui(UserPtr user, string filename, string dir, bool useSetting)
 {
-    bool raise = useSetting ? !BOOLSETTING(POPUNDER_FILELIST) : TRUE;
+    bool raise = useSetting ? !WGETB("popunder-filelist") : TRUE;
     BookEntry *entry = findBookEntry(Entry::SHARE_BROWSER, user->getCID().toBase32());
 
     if (entry == NULL)
@@ -965,49 +908,6 @@ void MainWindow::actionMagnet_gui(string magnet)
     }
 }
 
-void MainWindow::updateFavoriteHubMenu_client(const FavoriteHubEntryList &fh)
-{
-    ListParamPair list;
-    for (FavoriteHubEntryList::const_iterator it = fh.begin(); it != fh.end(); ++it)
-    {
-        ParamPair param;
-        FavoriteHubEntry *entry = *it;
-        param.first = entry->getServer();
-        param.second = entry->getEncoding();
-        list.push_back(param);
-    }
-
-    Func1<MainWindow, ListParamPair> *func = new Func1<MainWindow, ListParamPair>(this, &MainWindow::updateFavoriteHubMenu_gui, list);
-    WulforManager::get()->dispatchGuiFunc(func);
-}
-
-void MainWindow::updateFavoriteHubMenu_gui(ListParamPair list)
-{
-    GtkWidget *menu = gtk_menu_tool_button_get_menu(GTK_MENU_TOOL_BUTTON(getWidget("favHubs")));
-    gtk_container_foreach(GTK_CONTAINER(menu), (GtkCallback)gtk_widget_destroy, NULL);
-
-    for (ListParamPair::const_iterator it = list.begin(); it != list.end(); ++it)
-    {
-        const ParamPair &param = *it;
-        string address = param.first;
-        string encoding = param.second;
-        GtkWidget *item = gtk_menu_item_new_with_label(address.c_str());
-        gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-        g_object_set_data_full(G_OBJECT(item), "address", g_strdup(address.c_str()), g_free);
-        g_object_set_data_full(G_OBJECT(item), "encoding", g_strdup(encoding.c_str()), g_free);
-        g_signal_connect(G_OBJECT(item), "activate", G_CALLBACK(onHubClicked_gui), (gpointer)this);
-    }
-    gtk_widget_show_all(menu);
-}
-
-void MainWindow::onHubClicked_gui(GtkWidget *widget, gpointer data)
-{
-    MainWindow *mw = (MainWindow *)data;
-    string address = (gchar*)g_object_get_data(G_OBJECT(widget), "address");
-    string encoding = (gchar*)g_object_get_data(G_OBJECT(widget), "encoding");
-    mw->showHub_gui(address, encoding);
-}
-
 void MainWindow::setToolbarButton_gui()
 {
     if (!WGETB("toolbar-button-separators")){
@@ -1017,7 +917,6 @@ void MainWindow::setToolbarButton_gui()
         gtk_widget_hide(getWidget("SeparatorToolItem4"));
         gtk_widget_hide(getWidget("SeparatorToolItem5"));
         gtk_widget_hide(getWidget("SeparatorToolItem6"));
-        gtk_widget_hide(getWidget("SeparatorToolItem7"));
     }
     if (!WGETB("toolbar-button-reconnect"))
         gtk_widget_hide(getWidget("reconnect"));
@@ -1051,8 +950,6 @@ void MainWindow::setToolbarButton_gui()
         gtk_widget_hide(getWidget("finishedUploads"));
     if (!WGETB("toolbar-button-search-adl"))
         gtk_widget_hide(getWidget("searchADL"));
-    if (!WGETB("toolbar-button-add"))
-        gtk_widget_hide(getWidget("add"));
 }
 
 void MainWindow::setTabPosition_gui(int position)
@@ -1086,6 +983,9 @@ void MainWindow::setToolbarStyle_gui(int style)
 
     switch (style)
     {
+        case 0:
+            toolbarStyle = GTK_TOOLBAR_ICONS;
+            break;
         case 1:
             toolbarStyle = GTK_TOOLBAR_TEXT;
             break;
@@ -1097,9 +997,11 @@ void MainWindow::setToolbarStyle_gui(int style)
             break;
         case 4:
             gtk_widget_hide(getWidget("toolbar1"));
+            break;
+        case 5:
             return;
         default:
-            toolbarStyle = GTK_TOOLBAR_ICONS;
+            toolbarStyle = GTK_TOOLBAR_BOTH;
     }
 
     if (style != 4)
@@ -1348,7 +1250,7 @@ void MainWindow::addFileDownloadQueue_client(string name, int64_t size, string t
     {
         if (!tth.empty())
         {
-            QueueManager::getInstance()->add(name, size, TTHValue(tth), UserPtr(), "");
+            QueueManager::getInstance()->add(name, size, TTHValue(tth));
 
             // automatically search for alternative download locations
             if (BOOLSETTING(AUTO_SEARCH))
@@ -1455,121 +1357,6 @@ gboolean MainWindow::onDeleteEventMagnetDialog_gui(GtkWidget *dialog, GdkEvent *
     gtk_widget_hide(dialog);
 
     return TRUE;
-}
-
-void MainWindow::onTopToolbarToggled_gui(GtkWidget *widget, gpointer data)
-{
-   MainWindow *mw = (MainWindow *)data;
-
-   GtkWidget *parent = mw->getWidget("hbox4");
-   GtkWidget *child = mw->getWidget("toolbar1");
-   if (child->parent != GTK_WIDGET(parent))
-       return;
-   g_object_ref(child);
-   gtk_container_remove(GTK_CONTAINER(parent), child);
-   parent = mw->getWidget("vbox1");
-   gtk_toolbar_set_orientation(GTK_TOOLBAR(child), GTK_ORIENTATION_HORIZONTAL);
-   gtk_box_pack_start(GTK_BOX(parent), child, FALSE, FALSE, 2);
-   gtk_box_reorder_child(GTK_BOX(parent), child, 1);
-   g_object_unref(child);
-   WSET("toolbar-position", 0);
-}
-
-void MainWindow::onLeftToolbarToggled_gui(GtkWidget *widget, gpointer data)
-{
-   MainWindow *mw = (MainWindow *)data;
-
-   GtkWidget *parent = mw->getWidget("vbox1");
-   GtkWidget *child = mw->getWidget("toolbar1");
-   if (child->parent != GTK_WIDGET(parent))
-       return;
-   g_object_ref(child);
-   gtk_container_remove(GTK_CONTAINER(parent), child);
-   parent = mw->getWidget("hbox4");
-   gtk_toolbar_set_orientation(GTK_TOOLBAR(child), GTK_ORIENTATION_VERTICAL);
-   gtk_box_pack_start(GTK_BOX(parent), child, FALSE, FALSE, 2);
-   gtk_box_reorder_child(GTK_BOX(parent), child, 0);
-   g_object_unref(child);
-   WSET("toolbar-position", 1);
-}
-
-void MainWindow::onHideToolbarToggled_gui(GtkWidget *widget, gpointer data)
-{
-   MainWindow *mw = (MainWindow *)data;
-
-   gboolean active = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(mw->getWidget("hideToolbarItem")));
-   if (active)
-   {
-       gtk_widget_hide(mw->getWidget("toolbar1"));
-       mw->ToolbarStyle = WGETI("toolbar-style");
-       WSET("toolbar-style", 4);
-   }
-   else
-   {
-       gtk_widget_show(mw->getWidget("toolbar1"));
-       WSET("toolbar-style", mw->ToolbarStyle);
-   }
-}
-
-void MainWindow::onSizeToolbarToggled_gui(GtkWidget *widget, gpointer data)
-{
-   MainWindow *mw = (MainWindow *)data;
-
-   gboolean active = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(mw->getWidget("sizeToolbarItem")));
-   GtkWidget *toolbar = mw->getWidget("toolbar1");
-   GtkIconSize size;
-   if (active)
-   {
-       WSET("toolbar-small", TRUE);
-       size = GTK_ICON_SIZE_SMALL_TOOLBAR;
-   }
-   else
-   {
-       WSET("toolbar-small", FALSE);
-       size = GTK_ICON_SIZE_LARGE_TOOLBAR;
-   }
-   g_object_set(G_OBJECT(toolbar), "icon-size", size, NULL);
-}
-
-gboolean MainWindow::onAddButtonClicked_gui(GtkWidget *widget, gpointer data)
-{
-   MainWindow *mw = (MainWindow *)data;
-
-   gtk_menu_popup(GTK_MENU(mw->getWidget("toolbarMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-   return FALSE;
-}
-
-void MainWindow::onToolToggled_gui(GtkWidget *widget, gpointer data)
-{
-   string key = (gchar*) g_object_get_data(G_OBJECT(widget), "key");
-   GtkWidget *button = (GtkWidget*) data;
-   bool active = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widget));
-   active ? gtk_widget_show(button) : gtk_widget_hide(button);
-   WSET(key, active);
-}
-
-void MainWindow::checkToolbarMenu_gui()
-{
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("addMenuItemBar")), WGETB("toolbar-button-add"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("separatorsMenuItemBar")), WGETB("toolbar-button-separators"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("reconnectMenuItemBar")), WGETB("toolbar-button-reconnect"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("connectMenuItemBar")), WGETB("toolbar-button-connect"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("favHubsMenuItemBar")), WGETB("toolbar-button-fav-hubs"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("favUsersMenuItemBar")), WGETB("toolbar-button-fav-users"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("publicHubsMenuItemBar")), WGETB("toolbar-button-public-hubs"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("settingsMenuItemBar")), WGETB("toolbar-button-settings"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("own_filelistMenuItemBar")), WGETB("toolbar-button-own-filelist"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("refreshMenuItemBar")), WGETB("toolbar-button-refresh"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hashMenuItemBar")), WGETB("toolbar-button-hash"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("searchMenuItemBar")), WGETB("toolbar-button-search"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("searchSpyMenuItemBar")), WGETB("toolbar-button-search-spy"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("searchADLMenuItemBar")), WGETB("toolbar-button-search-adl"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("queueMenuItemBar")), WGETB("toolbar-button-queue"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("finishedDownloadsMenuItemBar")), WGETB("toolbar-button-finished-downloads"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("finishedUploadsMenuItemBar")), WGETB("toolbar-button-finished-uploads"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("quitMenuItemBar")), WGETB("toolbar-button-quit"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("addMenuItemBar")), WGETB("toolbar-button-add"));
-   gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), ((ToolbarStyle = WGETI("toolbar-style")) == 4) ? TRUE : FALSE);
 }
 
 gboolean MainWindow::onKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -1806,7 +1593,8 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
             Emoticons::get()->reloadPack_gui();
 
         // Toolbar
-        mw->checkToolbarMenu_gui();
+        gtk_widget_show_all(mw->getWidget("toolbar1"));
+        mw->setToolbarButton_gui();
     }
 }
 
@@ -2053,6 +1841,12 @@ void MainWindow::onLinkClicked_gui(GtkWidget *widget, gpointer data)
     WulforUtil::openURI(link);
 }
 
+void MainWindow::onDebugCMD(GtkWidget *widget, gpointer data)
+{
+	MainWindow *mw = (MainWindow *)data;
+	mw->showCmdDebug_gui();
+}
+
 void MainWindow::autoConnect_client()
 {
     FavoriteHubEntry *hub;
@@ -2150,7 +1944,7 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
 
     if (item->isSet(QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_USER_LIST))
     {
-        UserPtr user = item->getDownloads()[0]->getUser();
+        const HintedUser user = item->getDownloads()[0]->getHintedUser();//NOTE: core 0.762
         string listName = item->getListName();
 
         F3 *f3 = new F3(this, &MainWindow::showNotification_gui, _("file list from "), WulforUtil::getNicks(user),
@@ -2158,7 +1952,7 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
         WulforManager::get()->dispatchGuiFunc(f3);
 
         typedef Func4<MainWindow, UserPtr, string, string, bool> F4;
-        F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user, listName, dir, TRUE);
+        F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user.user, listName, dir, TRUE);//NOTE: core 0.762
         WulforManager::get()->dispatchGuiFunc(func);
     }
     else if (!item->isSet(QueueItem::FLAG_XML_BZLIST))

@@ -114,66 +114,10 @@
         <property name="visible">True</property>
         <property name="spacing">5</property>
         <child>
-          <widget class="GtkButton" id="italicButton">
-            <property name="visible">True</property>
-            <property name="focus_on_click">False</property>
-            <property name="response_id">0</property>
-            <child>
-              <widget class="GtkImage" id="italicButtonImage">
-                <property name="visible">True</property>
-                <property name="stock">gtk-italic</property>
-                <property name="icon_size">1</property>
-              </widget>
-            </child>
-          </widget>
-          <packing>
-            <property name="expand">False</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkButton" id="boldButton">
-            <property name="visible">True</property>
-            <property name="focus_on_click">False</property>
-            <property name="response_id">0</property>
-            <child>
-              <widget class="GtkImage" id="boldButtonImage">
-                <property name="visible">True</property>
-                <property name="stock">gtk-bold</property>
-                <property name="icon_size">1</property>
-              </widget>
-            </child>
-          </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkButton" id="underlineButton">
-            <property name="visible">True</property>
-            <property name="focus_on_click">False</property>
-            <property name="response_id">0</property>
-            <child>
-              <widget class="GtkImage" id="underlineButtonImage">
-                <property name="visible">True</property>
-                <property name="stock">gtk-underline</property>
-                <property name="icon_size">1</property>
-              </widget>
-            </child>
-          </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-        <child>
           <widget class="GtkStatusbar" id="statusMain">
             <property name="visible">True</property>
             <property name="has_resize_grip">False</property>
           </widget>
-          <packing>
-            <property name="position">3</property>
-          </packing>
         </child>
         <child>
           <widget class="GtkStatusbar" id="statusUsers">
@@ -183,7 +127,7 @@
           </widget>
           <packing>
             <property name="expand">False</property>
-            <property name="position">4</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -194,7 +138,7 @@
           </widget>
           <packing>
             <property name="expand">False</property>
-            <property name="position">5</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
@@ -208,7 +152,7 @@
           </widget>
           <packing>
             <property name="expand">False</property>
-            <property name="position">6</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </widget>

@@ -131,50 +131,51 @@ vector<string> WulforUtil::getLocalIPs()
     return addresses;
 }
 
-string WulforUtil::getNicks(const string &cid)
+//NOTE: core 0.762
+string WulforUtil::getNicks(const string &cid, const string& hintUrl)
 {
-    return getNicks(CID(cid));
+        return getNicks(CID(cid), hintUrl);
 }
 
-string WulforUtil::getNicks(const CID& cid)
+string WulforUtil::getNicks(const CID& cid, const string& hintUrl)
 {
-    return Util::toString(ClientManager::getInstance()->getNicks(cid));
+        return Util::toString(ClientManager::getInstance()->getNicks(cid, hintUrl));
 }
 
-string WulforUtil::getNicks(const UserPtr& user)
+string WulforUtil::getNicks(const UserPtr& user, const string& hintUrl)
 {
-    return getNicks(user->getCID());
+        return getNicks(user->getCID(), hintUrl);
 }
 
-string WulforUtil::getHubNames(const string &cid)
+string WulforUtil::getHubNames(const string &cid, const string& hintUrl)
 {
-    return getHubNames(CID(cid));
+        return getHubNames(CID(cid), hintUrl);
 }
 
-string WulforUtil::getHubNames(const CID& cid)
+string WulforUtil::getHubNames(const CID& cid, const string& hintUrl)
 {
-    StringList hubs = ClientManager::getInstance()->getHubNames(cid);
+        StringList hubs = ClientManager::getInstance()->getHubNames(cid, hintUrl);
     if (hubs.empty())
         return _("Offline");
     else
         return Util::toString(hubs);
 }
 
-string WulforUtil::getHubNames(const UserPtr& user)
+string WulforUtil::getHubNames(const UserPtr& user, const string& hintUrl)
 {
-    return getHubNames(user->getCID());
+        return getHubNames(user->getCID(), hintUrl);
 }
 
-StringList WulforUtil::getHubAddress(const CID& cid)
+StringList WulforUtil::getHubAddress(const CID& cid, const string& hintUrl)
 {
-    return ClientManager::getInstance()->getHubs(cid);
+        return ClientManager::getInstance()->getHubs(cid, hintUrl);
 }
 
-StringList WulforUtil::getHubAddress(const UserPtr& user)
+StringList WulforUtil::getHubAddress(const UserPtr& user, const string& hintUrl)
 {
-    return getHubAddress(user->getCID());
+        return getHubAddress(user->getCID(), hintUrl);
 }
-
+//NOTE: core 0.762
 string WulforUtil::getTextFromMenu(GtkMenuItem *item)
 {
     string text;
@@ -389,8 +390,17 @@ bool WulforUtil::profileIsLocked()
 
     // We can't use Util::getConfigPath() since the core has not been started yet.
     // Also, Util::getConfigPath() is utf8 and we need system encoding for g_open().
+    string configPath;
     char *home = getenv("HOME");
-    string configPath = home ? string(home) + "/.dc++/" : "/tmp/";
+#ifdef FORCE_XDG
+    const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
+    string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (Text::toUtf8(home) +"/.config");
+    xdg_config_home += "/eiskaltdc++/";
+    printf("$XDG_CONFIG_HOME: %s\n", xdg_config_home.c_str());
+#else
+    string xdg_config_home = Text::toUtf8(home) + "/.eiskaltdc++/";
+#endif
+    configPath = xdg_config_home.size() > 0 ? xdg_config_home : "/tmp/";
     string profileLockingFile = configPath + "profile.lck";
     int flags = O_WRONLY | O_CREAT;
     int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;

@@ -26,11 +26,6 @@
 #include <dcpp/DCPlusPlus.h>
 #undef _
 #include <glib/gi18n.h>
-
-#ifdef USE_MINIUPNP
-#include "extra/upnpc.h"
-#include "dcpp/UPnPManager.h"
-#endif
 #include "bacon-message-connection.h"
 #include "settingsmanager.hh"
 #include "wulformanager.hh"
@@ -38,7 +33,7 @@
 #include <iostream>
 #include <signal.h>
 
-#define GUI_LOCALE_DIR LOCALE_DIR
+#define GUI_LOCALE_DIR _DATADIR PATH_SEPARATOR_STR "locale"
 
 #define GUI_PACKAGE "eiskaltdcpp-gtk"
 
@@ -49,7 +44,7 @@ void printHelp()
     printf("Using:\n"
            "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
            "  eiskaltdcpp-gtk <Key>\n"
-           "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+           "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
            "\n"
            "Keys:\n"
            "  -h, --help\t Show this message\n"
@@ -59,7 +54,11 @@ void printHelp()
 
 void printVersion()
 {
+#ifndef DCPP_REVISION
     printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+#else
+    printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
+#endif
 }
 
 BaconMessageConnection *connection = NULL;
@@ -128,9 +127,7 @@ int main(int argc, char *argv[])
 
     // Start the DC++ client core
     dcpp::startup(callBack, NULL);
-#ifdef USE_MINIUPNP
-    dcpp::UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
-#endif
+
     dcpp::TimerManager::getInstance()->start();
 
     g_thread_init(NULL);

@@ -103,7 +103,6 @@ class Hub:
         void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string nick, std::string cid, std::string url, std::string message, bool useSetting);
         void loadImage_gui(std::string target, std::string tth);
         void openImage_gui(std::string target);
-        void insertBBcodeEntry_gui(std::string ch);
 
         // GUI callbacks
         static gboolean onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data);
@@ -149,9 +148,6 @@ class Hub:
         static void onOpenImageClicked_gui(GtkMenuItem *item, gpointer data);
         static gboolean onImageEvent_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
         static gboolean expose(GtkWidget *widget, GdkEventExpose *event, gpointer data);
-        static void onItalicButtonClicked_gui(GtkWidget *widget, gpointer data);
-        static void onBoldButtonClicked_gui(GtkWidget *widget, gpointer data);
-        static void onUnderlineButtonClicked_gui(GtkWidget *widget, gpointer data);
 
         // Client functions
         void addFavoriteUser_client(const std::string cid);
@@ -186,10 +182,8 @@ class Hub:
         virtual void on(dcpp::ClientListener::Failed, dcpp::Client *, const std::string &reason) throw();
         virtual void on(dcpp::ClientListener::GetPassword, dcpp::Client *) throw();
         virtual void on(dcpp::ClientListener::HubUpdated, dcpp::Client *) throw();
-        virtual void on(dcpp::ClientListener::Message, dcpp::Client *, const dcpp::OnlineUser &user, const std::string &message, bool thirdPerson) throw();
+        virtual void on(dcpp::ClientListener::Message, dcpp::Client*, const dcpp::ChatMessage& message) throw();//NOTE: core 0.762
         virtual void on(dcpp::ClientListener::StatusMessage, dcpp::Client *, const std::string &message, int flag) throw();
-        virtual void on(dcpp::ClientListener::PrivateMessage, dcpp::Client *, const dcpp::OnlineUser &from,
-            const dcpp::OnlineUser &to, const dcpp::OnlineUser &replyTo, const std::string &message, bool thirdPerson) throw();
         virtual void on(dcpp::ClientListener::NickTaken, dcpp::Client *) throw();
         virtual void on(dcpp::ClientListener::SearchFlood, dcpp::Client *, const std::string &message) throw();
         virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem *item, const std::string& dir, int64_t avSpeed) throw();
@@ -232,7 +226,6 @@ class Hub:
         GtkTooltips *tips;
 #endif
         int ImgLimit;
-        GtkTextTag *BoldTag, *UnderlineTag, *ItalicTag;
 };
 
 #else

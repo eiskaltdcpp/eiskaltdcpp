@@ -30,7 +30,6 @@
 #include <dcpp/QueueManager.h>
 #include <dcpp/TimerManager.h>
 #include <dcpp/UploadManager.h>
-#include <dcpp/FavoriteManager.h>
 
 #include "entry.hh"
 #include "treeview.hh"
@@ -73,6 +72,7 @@ class MainWindow:
         void showHub_gui(std::string address, std::string encoding = "");
         void showSearchSpy_gui();
         void showSearchADL_gui();
+        void showCmdDebug_gui();
         void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string hubUrl = "", std::string message = "", bool useSetting = FALSE);
         void addPrivateStatusMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string message = "");
         void showPublicHubs_gui();
@@ -87,12 +87,8 @@ class MainWindow:
 
         // Client functions
         void openOwnList_client(bool useSetting);
-        void updateFavoriteHubMenu_client(const dcpp::FavoriteHubEntryList &fh);
 
     private:
-        typedef std::pair<std::string, std::string> ParamPair;
-        typedef std::vector<ParamPair> ListParamPair;
-
         // GUI functions
         void loadIcons_gui();
         void showTransfersPane_gui();
@@ -116,9 +112,6 @@ class MainWindow:
         void showMagnetDialog_gui(const std::string &magnet, const std::string &name, const int64_t size,
             const std::string &tth);
         void showPortsError(const std::string& port);
-        void setToolbarMenu_gui(const std::string &item_key, const std::string &button_key, const std::string &key);
-        void updateFavoriteHubMenu_gui(ListParamPair list);
-        void checkToolbarMenu_gui();
 
         // GUI Callbacks
         static gboolean onWindowState_gui(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
@@ -165,17 +158,10 @@ class MainWindow:
         static void onSetMagnetChoiceDialog_gui(GtkWidget *widget, gpointer data);
         static void onResponseMagnetDialog_gui(GtkWidget *dialog, gint response, gpointer data);
         static gboolean onDeleteEventMagnetDialog_gui(GtkWidget *dialog, GdkEvent *event, gpointer data);
-        static gboolean onMenuButtonClicked_gui(GtkWidget *widget, gpointer data);
-        static gboolean onAddButtonClicked_gui(GtkWidget *widget, gpointer data);
-        static void menuPosition_gui(GtkMenu *menu, gint *x, gint *y, gboolean *push, gpointer data);
-        static void onToolToggled_gui(GtkWidget *widget, gpointer data);
-        static void onTopToolbarToggled_gui(GtkWidget *widget, gpointer data);
-        static void onLeftToolbarToggled_gui(GtkWidget *widget, gpointer data);
-        static void onHideToolbarToggled_gui(GtkWidget *widget, gpointer data);
-        static void onSizeToolbarToggled_gui(GtkWidget *widget, gpointer data);
-        static void onHubClicked_gui(GtkWidget *widget, gpointer data);
         static void onTTHFileDialog_gui(GtkWidget *widget, gpointer data);
         static void onTTHFileButton_gui(GtkWidget *widget, gpointer data);
+        static void onDebugCMD(GtkWidget *widget, gpointer data);
+
 
         // Client functions
         void autoConnect_client();
@@ -198,7 +184,6 @@ class MainWindow:
         int statusFrame;
         bool useStatusIconBlink;
         bool onQuit;
-        int ToolbarStyle;
 };
 
 #else

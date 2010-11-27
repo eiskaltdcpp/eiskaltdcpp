@@ -1279,7 +1279,7 @@ ShareManager::AdcSearch::AdcSearch(const StringList& params) : include(&includeX
         } else if(toCode('G', 'R') == cmd) {
            StringList exts = AdcHub::parseSearchExts(Util::toInt(p.substr(2)));
             ext.insert(ext.begin(), exts.begin(), exts.end());
-        } else if(toCode('R', 'M') == cmd) {
+        } else if(toCode('R', 'X') == cmd) {
             noExt.push_back(p.substr(2));
         } else if(toCode('G', 'E') == cmd) {
             gt = Util::toInt64(p.substr(2));

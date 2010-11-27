@@ -27,7 +27,9 @@
 #include <dcpp/ShareManager.h>
 #include <dcpp/UserCommand.h>
 #include <dcpp/version.h>
+#include <dcpp/ChatMessage.h>//NOTE: core 0.762
 #include <dcpp/Util.h>
+#include <dcpp/StringTokenizer.h>
 #include "privatemessage.hh"
 #include "search.hh"
 #include "settingsmanager.hh"
@@ -35,8 +37,7 @@
 #include "emoticons.hh"
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
-#include "WulforUtil.hh"
-#include <dcpp/StringTokenizer.h>
+#include "WulforUtil.hh""
 
 #include "Version.h"
 
@@ -85,7 +86,7 @@ Hub::Hub(const string &address, const string &encoding):
 
     nickSelection = gtk_tree_view_get_selection(nickView.get());
     gtk_tree_selection_set_mode(gtk_tree_view_get_selection(nickView.get()), GTK_SELECTION_MULTIPLE);
-    string sort = BOOLSETTING(SORT_FAVUSERS_FIRST)? "Favorite" : "Nick Order";
+    string sort = WGETB("sort-favusers-first")? "Favorite" : "Nick Order";
     nickView.setSortColumn_gui(_("Nick"), sort);
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(nickStore), nickView.col(sort), GTK_SORT_ASCENDING);
     gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(nickView.get(), nickView.col(_("Nick"))), TRUE);
@@ -93,7 +94,7 @@ Hub::Hub(const string &address, const string &encoding):
     gtk_tree_view_set_search_equal_func(nickView.get(), onNickListSearch_gui, 0,0);
 
     // Initialize the chat window
-    if (BOOLSETTING(USE_OEM_MONOFONT))
+    if (WGETB("use-oem-monofont"))
     {
         PangoFontDescription *fontDesc = pango_font_description_new();
         pango_font_description_set_family(fontDesc, "Mono");
@@ -115,7 +116,6 @@ Hub::Hub(const string &address, const string &encoding):
     emot_mark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, TRUE);
 
     handCursor = gdk_cursor_new(GDK_HAND2);
-
 #if !GTK_CHECK_VERSION(2, 12, 0)
 	tips = gtk_tooltips_new();
 	g_object_ref_sink(tips);
@@ -125,7 +125,6 @@ Hub::Hub(const string &address, const string &encoding):
 	imageLoad.second = NULL;
 	imageMagnet.first = "";
 	imageMagnet.second = "";
-
     // menu
     g_object_ref_sink(getWidget("nickMenu"));
     g_object_ref_sink(getWidget("magnetMenu"));
@@ -135,7 +134,7 @@ Hub::Hub(const string &address, const string &encoding):
     g_object_ref_sink(getWidget("imageMenu"));
 
     // Initialize the user command menu
-    userCommandMenu = new UserCommandMenu(getWidget("usercommandMenu"), ::UserCommand::CONTEXT_CHAT);
+    userCommandMenu = new UserCommandMenu(getWidget("usercommandMenu"), ::UserCommand::CONTEXT_USER);//NOTE: core 0.762
     addChild(userCommandMenu);
 
     // Emoticons dialog
@@ -185,7 +184,6 @@ Hub::Hub(const string &address, const string &encoding):
     g_signal_connect(getWidget("downloadImageItem"), "activate", G_CALLBACK(onDownloadImageClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("removeImageItem"), "activate", G_CALLBACK(onRemoveImageClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("openImageItem"), "activate", G_CALLBACK(onOpenImageClicked_gui), (gpointer)this);
-
     GtkAdjustment *adjustment = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(getWidget("chatScroll")));
 
     // Connect the signals to their callback functions.
@@ -219,21 +217,8 @@ Hub::Hub(const string &address, const string &encoding):
     g_signal_connect(getWidget("removeFavoriteUserItem"), "activate", G_CALLBACK(onRemoveFavoriteUserClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("downloadBrowseItem"), "activate", G_CALLBACK(onDownloadToClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("downloadItem"), "activate", G_CALLBACK(onDownloadClicked_gui), (gpointer)this);
-    g_signal_connect(getWidget("italicButton"), "clicked", G_CALLBACK(onItalicButtonClicked_gui), (gpointer)this);
-    g_signal_connect(getWidget("boldButton"), "clicked", G_CALLBACK(onBoldButtonClicked_gui), (gpointer)this);
-    g_signal_connect(getWidget("underlineButton"), "clicked", G_CALLBACK(onUnderlineButtonClicked_gui), (gpointer)this);
 
     gtk_widget_grab_focus(getWidget("chatEntry"));
-
-    // Set the pane position
-    gint panePosition = WGETI("nick-pane-position");
-    if (panePosition > 10)
-    {
-        gint width;
-        GtkWindow *window = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
-        gtk_window_get_size(window, &width, NULL);
-        gtk_paned_set_position(GTK_PANED(getWidget("pane")), width - panePosition);
-    }
 
     history.push_back("");
 
@@ -250,10 +235,6 @@ Hub::Hub(const string &address, const string &encoding):
     TagsMap[TAG_FAVORITE] = createTag_gui("TAG_FAVORITE", TAG_FAVORITE);
     TagsMap[TAG_URL] = createTag_gui("TAG_URL", TAG_URL);
 
-    BoldTag = gtk_text_buffer_create_tag(chatBuffer, "TAG_WEIGHT", "weight", PANGO_WEIGHT_BOLD, NULL);
-    UnderlineTag = gtk_text_buffer_create_tag(chatBuffer, "TAG_UNDERLINE", "underline", PANGO_UNDERLINE_SINGLE, NULL);
-    ItalicTag = gtk_text_buffer_create_tag(chatBuffer, "TAG_STYLE", "style", PANGO_STYLE_ITALIC, NULL);
-
     // Initialize favorite users list
     FavoriteManager::FavoriteMap map = FavoriteManager::getInstance()->getFavoriteUsers();
     FavoriteManager::FavoriteMap::const_iterator it;
@@ -268,6 +249,17 @@ Hub::Hub(const string &address, const string &encoding):
 
     // set default select tag (fix error show cursor in neutral space).
     selectedTag = TagsMap[TAG_GENERAL];
+
+    // Set the pane position
+    gint panePosition = WGETI("nick-pane-position");
+    if (panePosition > 10)
+    {
+        gint width;
+        GtkWindow *window = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
+        gtk_window_get_size(window, &width, NULL);
+        gtk_paned_set_position(GTK_PANED(getWidget("pane")), width - panePosition);
+    }
+
 }
 
 Hub::~Hub()
@@ -293,6 +285,7 @@ Hub::~Hub()
 #if !GTK_CHECK_VERSION(2, 12, 0)
     g_object_unref(tips);
 #endif
+
     g_object_unref(getWidget("nickMenu"));
     g_object_unref(getWidget("magnetMenu"));
     g_object_unref(getWidget("linkMenu"));
@@ -410,7 +403,7 @@ void Hub::updateUser_gui(ParamMap params)
 
         userIters.insert(UserIters::value_type(cid, iter));
 
-        if (BOOLSETTING(SHOW_JOINS))
+        if (WGETB("show-joins"))
         {
             // Show joins in chat by default
             addStatusMessage_gui(Nick + _(" has joined"), Msg::STATUS, favorite? Sound::FAVORITE_USER_JOIN : Sound::NONE);
@@ -420,7 +413,7 @@ void Hub::updateUser_gui(ParamMap params)
             if (favorite)
                 Notify::get()->showNotify("", message, Notify::FAVORITE_USER_JOIN);
         }
-        else if (BOOLSETTING(FAV_SHOW_JOINS) && favorite)
+        else if (WGETB("fav-show-joins") && favorite)
         {
             // Only show joins for favorite users
             string message = Nick + _(" has joined hub ") + client->getHubName();
@@ -451,7 +444,7 @@ void Hub::removeUser_gui(string cid)
         setStatus_gui("statusUsers", Util::toString(userMap.size()) + _(" Users"));
         setStatus_gui("statusShared", Util::formatBytes(totalShared));
 
-        if (BOOLSETTING(SHOW_JOINS))
+        if (WGETB("show-joins"))
         {
             // Show parts in chat by default
             string message = nick + _(" has quit hub ") + client->getHubName();
@@ -461,7 +454,7 @@ void Hub::removeUser_gui(string cid)
             if (order[0] == 'f')
                 Notify::get()->showNotify("", message, Notify::FAVORITE_USER_QUIT);
         }
-        else if (BOOLSETTING(FAV_SHOW_JOINS) && order[0] == 'f')
+        else if (WGETB("fav-show-joins") && order[0] == 'f')
         {
             // Only show parts for favorite users
             string message = nick + _(" has quit hub ") + client->getHubName();
@@ -611,7 +604,7 @@ void Hub::addStatusMessage_gui(string message, Msg::TypeMsg typemsg, Sound::Type
 
         setStatus_gui("statusMain", message);
 
-        if (BOOLSETTING(STATUS_IN_CHAT))
+        if (WGETB("status-in-chat"))
         {
             string line = "*** " + message;
             addMessage_gui("", line, typemsg);
@@ -670,7 +663,6 @@ void Hub::addMessage_gui(string cid, string message, Msg::TypeMsg typemsg)
     applyTags_gui(cid, line);
 
     gtk_text_buffer_get_end_iter(chatBuffer, &iter);
-
     // Limit size of chat text
     if (gtk_text_buffer_get_line_count(chatBuffer) > maxLines + 1)
     {
@@ -747,12 +739,9 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
         GCallback callback = NULL;
         bool isNick = FALSE;
-        bool image_tag = FALSE;
-        bool bold_tag = FALSE;
-        bool italic_tag = FALSE;
-        bool underline_tag = FALSE;
-        string image_magnet, bold_text, italic_text, underline_text;
         gchar *temp = gtk_text_iter_get_text(&tag_start_iter, &tag_end_iter);
+        bool image_tag = FALSE;
+        string image_magnet;
 
         if (!C_EMPTY(temp))
         {
@@ -785,10 +774,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
             }
             else
             {
-                // Support bbCode: [i]italic-text[/i], [u]underline-text[/u]
-                // [img]magnet-link[/img]
-
-                bool notlink = FALSE;
+                // support image tag
                 if (g_ascii_strncasecmp(tagName.c_str(), "[img]", 5) == 0)
                 {
                     string::size_type i = tagName.rfind("[/img]");
@@ -796,38 +782,11 @@ void Hub::applyTags_gui(const string cid, const string &line)
                     {
                         image_magnet = tagName.substr(5, i - 5);
                         if (WulforUtil::isMagnet(image_magnet))
-                            notlink = image_tag = TRUE;
-                    }
-                }
-                else if (g_ascii_strncasecmp(tagName.c_str(), "[b]", 3) == 0)
-                {
-                    string::size_type i = tagName.rfind("[/b]");
-                    if (i != string::npos)
-                    {
-                        bold_text = tagName.substr(3, i - 3);
-                        notlink = bold_tag = TRUE;
-                    }
-                }
-                else if (g_ascii_strncasecmp(tagName.c_str(), "[i]", 3) == 0)
-                {
-                    string::size_type i = tagName.rfind("[/i]");
-                    if (i != string::npos)
-                    {
-                        italic_text = tagName.substr(3, i - 3);
-                        notlink = italic_tag = TRUE;
-                    }
-                }
-                else if (g_ascii_strncasecmp(tagName.c_str(), "[u]", 3) == 0)
-                {
-                    string::size_type i = tagName.rfind("[/u]");
-                    if (i != string::npos)
-                    {
-                        underline_text = tagName.substr(3, i - 3);
-                        notlink = underline_tag = TRUE;
+                            image_tag = TRUE;
                     }
                 }
 
-                if (!notlink)
+                if (!image_tag)
                 {
                     if (WulforUtil::isLink(tagName))
                         callback = G_CALLBACK(onLinkTagEvent_gui);
@@ -883,53 +842,22 @@ void Hub::applyTags_gui(const string cid, const string &line)
                         ImgLimit--;
 
                     typedef Func4<Hub, string, int64_t, string, string> F4;
-                    target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + tth;
+                    target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + tth;
                     F4 *func = new F4(this, &Hub::download_client, target, size, tth, cid);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
             }
-        }
-        else if (bold_tag)
-        {
-            dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
 
-            gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
-            gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
-            gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
-                                             bold_text.c_str(), bold_text.size(), BoldTag, TagsMap[tagMsg], NULL);
-        }
-        else if (italic_tag)
-        {
-            dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
+                       applyEmoticons_gui();
 
-            gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
-            gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
-            gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
-                                             italic_text.c_str(), italic_text.size(), ItalicTag, TagsMap[tagMsg], NULL);
-        }
-        else if (underline_tag)
-        {
-            dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
+                       gtk_text_buffer_get_iter_at_mark(chatBuffer, &start_iter, tag_mark);
 
-            gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
-            gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
-            gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
-                                             underline_text.c_str(), underline_text.size(), UnderlineTag, TagsMap[tagMsg], NULL);
-        }
+                       if (gtk_text_iter_is_end(&start_iter))
+                           return;
 
-        if (image_tag || bold_tag || italic_tag || underline_tag)
-        {
+                       start = FALSE;
 
-            applyEmoticons_gui();
-
-            gtk_text_buffer_get_iter_at_mark(chatBuffer, &start_iter, tag_mark);
-
-            if (gtk_text_iter_is_end(&start_iter))
-                return;
-
-            start = FALSE;
-
-            continue;
+                       continue;
         }
 
         if (callback)
@@ -960,7 +888,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
                     gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
                     gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
-                                                     line.c_str(), line.size(), tag, TagsMap[tagStyle], NULL);
+                        line.c_str(), line.size(), tag, TagsMap[tagStyle], NULL);
                 }
             }
             else
@@ -1226,7 +1154,7 @@ void Hub::preferences_gui()
     }
 
     // resort users
-    string sort = BOOLSETTING(SORT_FAVUSERS_FIRST)? "Favorite" : "Nick Order";
+    string sort = WGETB("sort-favusers-first")? "Favorite" : "Nick Order";
     nickView.setSortColumn_gui(_("Nick"), sort);
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(nickStore), nickView.col(sort), GTK_SORT_ASCENDING);
 }
@@ -1709,6 +1637,7 @@ gboolean Hub::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, 
 
             gtk_widget_show_all(emot_menu);
             gtk_menu_popup(GTK_MENU(emot_menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+
         break;
     }
 
@@ -1929,9 +1858,9 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/me <message>\t\t - " + _("Say a third person") + "\n" +
             "/pm <nick>\t\t\t - " + _("Private message") + "\n" +
             "/rebuild\t\t\t\t - " + _("Rebuild hash") + "\n" +
+            "/limitimg <n>, limg <n>\t - " + _("Download limit image: 0 - disable, n < 0 - unlimit, empty - info") + "\n" +
             "/refresh\t\t\t\t - " + _("Update own file list") + "\n" +
             "/userlist\t\t\t\t - " + _("User list show/hide") + "\n" +
-            "/limitimg <n>, limg <n>\t - " + _("Download limit image: 0 - disable, n < 0 - unlimit, empty - info") + "\n" +
             "/version\t\t\t\t - " + _("Show version") + "\n" +
             "/emoticons, /emot\t\t - " + _("Emoticons on/off") + "\n" +
 #ifdef LUA_SCRIPT
@@ -1944,6 +1873,16 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/alias A::uname -a\t\t - " +  _("Alias add uname -a as A")+"\n" +
             "/A\t\t\t\t\t - " + _("Alias A executing")+"\n"
             , Msg::SYSTEM);
+        }
+        else if (command == "ws" && !param.empty())
+        {
+            string msg = WSCMD(param);
+            hub->addStatusMessage_gui(msg, Msg::SYSTEM, Sound::NONE);
+        }
+        else if (command == "dcpps" && !param.empty())
+        {
+            string msg = WulforSettingsManager::getInstance()->parseCoreCmd (param);
+            hub->addStatusMessage_gui(msg, Msg::SYSTEM, Sound::NONE);
         }
         else if (command == "join" && !param.empty())
         {
@@ -2637,7 +2576,7 @@ void Hub::connectClient_client(string address, string encoding)
     client->addListener(this);
     client->connect();
     FavoriteManager::getInstance()->addListener(this);
-    QueueManager::getInstance()->addListener(this);
+    QueueManager::getInstance()->removeListener(this);
 }
 
 void Hub::disconnect_client()
@@ -2679,6 +2618,7 @@ void Hub::getFileList_client(string cid, bool match)
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
             if (user)
             {
+                const HintedUser hintedUser(user, client->getHubUrl());//NOTE: core 0.762
                 if (user == ClientManager::getInstance()->getMe())
                 {
                     // Don't download file list, open locally instead
@@ -2686,11 +2626,11 @@ void Hub::getFileList_client(string cid, bool match)
                 }
                 else if (match)
                 {
-                    QueueManager::getInstance()->addList(user, client->getHubUrl(), QueueItem::FLAG_MATCH_QUEUE);
+                    QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);//NOTE: core 0.762
                 }
                 else
                 {
-                    QueueManager::getInstance()->addList(user, client->getHubUrl(), QueueItem::FLAG_CLIENT_VIEW);
+                    QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
                 }
             }
             else
@@ -2722,8 +2662,9 @@ void Hub::grantSlot_client(string cid)
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
         if (user)
         {
-            UploadManager::getInstance()->reserveSlot(user, client->getHubUrl());
-            message = _("Slot granted to ") + WulforUtil::getNicks(user);
+            const string hubUrl = client->getHubUrl();//NOTE: core 0.762
+            UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));//NOTE: core 0.762
+            message = _("Slot granted to ") + WulforUtil::getNicks(user, hubUrl);//NOTE: core 0.762
         }
     }
 
@@ -2850,7 +2791,6 @@ void Hub::getParams_client(ParamMap &params, Identity &id)
     params.insert(ParamMap::value_type("eMail", id.getEmail()));
     params.insert(ParamMap::value_type("CID", id.getUser()->getCID().toBase32()));
 }
-
 void Hub::download_client(string target, int64_t size, string tth, string cid)
 {
    string real = realFile_client(tth);
@@ -2870,7 +2810,7 @@ void Hub::download_client(string target, int64_t size, string tth, string cid)
            return;
 
        string hubUrl = client->getHubUrl();
-       QueueManager::getInstance()->add(target, size, TTHValue(tth), user, hubUrl);
+       QueueManager::getInstance()->add(target, size, TTHValue(tth));
    }
    catch (const Exception&)
    {
@@ -3047,7 +2987,7 @@ void Hub::onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data)
        hub->imageLoad.second = (GtkWidget*)childs->data;
        g_list_free(childs);
 
-       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + tth;
+       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + tth;
        typedef Func4<Hub, string, int64_t, string, string> F4;
        F4 *func = new F4(hub, &Hub::download_client, target, size, tth, cid);
        WulforManager::get()->dispatchClientFunc(func);
@@ -3097,7 +3037,7 @@ void Hub::openImage_client(string tth)
 void Hub::openImage_gui(string target)
 {
     if (!File::isAbsolute(target))
-       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + target;
+       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images/" + target;
     WulforUtil::openURI(target);
 }
 
@@ -3106,75 +3046,6 @@ gboolean Hub::expose(GtkWidget *widget, GdkEventExpose *event, gpointer data)
     GTK_WIDGET_CLASS(GTK_WIDGET_GET_CLASS(widget))->expose_event(widget, event);
     return true;
 }
-
-void Hub::onItalicButtonClicked_gui(GtkWidget *widget, gpointer data)
-{
-    Hub *hub = (Hub*) data;
-
-    hub->insertBBcodeEntry_gui("i");
-}
-
-void Hub::onBoldButtonClicked_gui(GtkWidget *widget, gpointer data)
-{
-    Hub *hub = (Hub*) data;
-
-    hub->insertBBcodeEntry_gui("b");
-}
-
-void Hub::onUnderlineButtonClicked_gui(GtkWidget *widget, gpointer data)
-{
-    Hub *hub = (Hub*) data;
-
-    hub->insertBBcodeEntry_gui("u");
-}
-
-void Hub::insertBBcodeEntry_gui(string ch)
-{
-    gint start_pos;
-    gint end_pos;
-    GtkEditable *chatEntry = GTK_EDITABLE(getWidget("chatEntry"));
-    if (gtk_editable_get_selection_bounds(chatEntry, &start_pos, &end_pos))
-    {
-        gchar *tmp = gtk_editable_get_chars(chatEntry, start_pos, end_pos);
-        string text = tmp;
-        g_free(tmp);
-        string::size_type a = 0, b = 0;
-        string res;
-
-        for (;;)
-        {
-            a = text.find_first_not_of("\r\n\t ", b);
-
-            if (a != string::npos)
-            {
-                b = text.find_first_of("\r\n\t ", a);
-
-                if (b != string::npos)
-                {
-                    res += "[" + ch + "]" + text.substr(a, b - a) + "[/" + ch + "] ";
-                }
-                else
-                {
-                    res += "[" + ch + "]" + text.substr(a) + "[/" + ch + "]";
-                    break;
-                }
-            }
-            else
-                break;
-        }
-
-        gtk_editable_delete_text(chatEntry, start_pos, end_pos);
-        gtk_editable_insert_text(chatEntry, res.c_str(), -1, &start_pos);
-        gtk_editable_set_position(chatEntry, -1);
-    }
-    else
-    {
-        start_pos = gtk_editable_get_position(chatEntry);
-        gtk_editable_insert_text(chatEntry, string("[" + ch + "][/" + ch + "]").c_str(), -1, &start_pos);
-        gtk_editable_set_position(chatEntry, start_pos - 4);
-    }
-}
-
 void Hub::on(FavoriteManagerListener::UserAdded, const FavoriteUser &user) throw()
 {
     if (user.getUrl() != client->getHubUrl())
@@ -3300,30 +3171,70 @@ void Hub::on(ClientListener::HubUpdated, Client *) throw()
     WulforManager::get()->dispatchGuiFunc(func1);
 }
 
-void Hub::on(ClientListener::Message, Client *, const OnlineUser &from, const string &message, bool thirdPerson) throw()
-{
-    if (!message.empty())
+void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) throw() //NOTE: core 0.762
     {
+        if (message.text.empty())
+                return;
+
         Msg::TypeMsg typemsg;
-        string cid = from.getIdentity().getUser()->getCID().toBase32();
-
-        if (from.getIdentity().isHub()) typemsg = Msg::STATUS;
-        else if (from.getUser() == client->getMyIdentity().getUser()) typemsg = Msg::MYOWN;
-        else typemsg = Msg::GENERAL;
-
+        string cid = message.from->getIdentity().getUser()->getCID().toBase32();
         string line;
-        string info = Util::formatAdditionalInfo(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+
+        string info=Util::formatAdditionalInfo(message.from->getIdentity().getIp(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
         line+=info;
 
-        if (thirdPerson)
-            line += "* " + from.getIdentity().getNick() + " " +  message;
+        if (message.thirdPerson)
+                line += "* " + message.from->getIdentity().getNick() + " " +  message.text;
         else
-            line += "<" + from.getIdentity().getNick() + "> " + message;
+                line += "<" + message.from->getIdentity().getNick() + "> " + message.text;
+
+        if(message.to && message.replyTo)
+        {
+                //private message
+
+                string error;
+                const OnlineUser *user = (message.replyTo->getUser() == ClientManager::getInstance()->getMe())?
+                        message.to : message.replyTo;
+
+                if (message.from->getIdentity().isOp()) typemsg = Msg::OPERATOR;
+                else if (message.from->getUser() == client->getMyIdentity().getUser()) typemsg = Msg::MYOWN;
+                else typemsg = Msg::PRIVATE;
+
+                if (user->getIdentity().isHub() && BOOLSETTING(IGNORE_HUB_PMS))
+                {
+                        error = _("Ignored private message from hub");
+                        typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
+                        F3 *func = new F3(this, &Hub::addStatusMessage_gui, error, Msg::STATUS, Sound::NONE);
+                        WulforManager::get()->dispatchGuiFunc(func);
+                }
+                else if (user->getIdentity().isBot() && BOOLSETTING(IGNORE_BOT_PMS))
+                {
+                        error = _("Ignored private message from bot ") + user->getIdentity().getNick();
+                        typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
+                        F3 *func = new F3(this, &Hub::addStatusMessage_gui, error, Msg::STATUS, Sound::NONE);
+                        WulforManager::get()->dispatchGuiFunc(func);
+                }
+        else
+                {
+                        typedef Func6<Hub, Msg::TypeMsg, string, string, string, string, bool> F6;
+                        F6 *func = new F6(this, &Hub::addPrivateMessage_gui, typemsg, message.from->getUser()->getCID().toBase32(),
+                        user->getUser()->getCID().toBase32(), client->getHubUrl(), line, TRUE);
+                        WulforManager::get()->dispatchGuiFunc(func);
+                }
+        }
+        else
+        {
+                 // chat message
+
+                if (message.from->getIdentity().isHub()) typemsg = Msg::STATUS;
+                else if (message.from->getUser() == client->getMyIdentity().getUser()) typemsg = Msg::MYOWN;
+                else typemsg = Msg::GENERAL;
 
         if (BOOLSETTING(FILTER_MESSAGES))
         {
-            if ((message.find("Hub-Security") != string::npos && message.find("was kicked by") != string::npos) ||
-                (message.find("is kicking") != string::npos && message.find("because:") != string::npos))
+                        if ((message.text.find("Hub-Security") != string::npos &&
+                                message.text.find("was kicked by") != string::npos) ||
+                                (message.text.find("is kicking") != string::npos && message.text.find("because:") != string::npos))
             {
                 typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
                 F3 *func = new F3(this, &Hub::addStatusMessage_gui, line, Msg::STATUS, Sound::NONE);
@@ -3348,9 +3259,9 @@ void Hub::on(ClientListener::Message, Client *, const OnlineUser &from, const st
         WulforManager::get()->dispatchGuiFunc(func);
 
         // Set urgency hint if message contains user's nick
-        if (WGETB("bold-hub") && from.getIdentity().getUser() != client->getMyIdentity().getUser())
+                if (WGETB("bold-hub") && message.from->getIdentity().getUser() != client->getMyIdentity().getUser())
         {
-            if (message.find(client->getMyIdentity().getNick()) != string::npos)
+                        if (message.text.find(client->getMyIdentity().getNick()) != string::npos)
             {
                 typedef Func0<Hub> F0;
                 F0 *func = new F0(this, &Hub::setUrgent_gui);
@@ -3358,7 +3269,7 @@ void Hub::on(ClientListener::Message, Client *, const OnlineUser &from, const st
             }
         }
     }
-}
+} //NOTE: core 0.762
 
 void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int /* flag */) throw()
 {
@@ -3392,49 +3303,6 @@ void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int
     }
 }
 
-void Hub::on(ClientListener::PrivateMessage, Client *, const OnlineUser &from,
-    const OnlineUser& to, const OnlineUser& replyTo, const string &msg, bool thirdPerson) throw()
-{
-    string error;
-    const OnlineUser& user = (replyTo.getUser() == ClientManager::getInstance()->getMe()) ? to : replyTo;
-    string line;
-    Msg::TypeMsg typemsg;
-
-    string info= Util::formatAdditionalInfo(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
-    line+=info;
-
-    if (from.getIdentity().isOp()) typemsg = Msg::OPERATOR;
-    else if (from.getUser() == client->getMyIdentity().getUser()) typemsg = Msg::MYOWN;
-    else typemsg = Msg::PRIVATE;
-
-    if (thirdPerson)
-        line += "* " + from.getIdentity().getNick() + " " + msg;
-    else
-        line += "<" + from.getIdentity().getNick() + "> " + msg;
-
-    if (user.getIdentity().isHub() && BOOLSETTING(IGNORE_HUB_PMS))
-    {
-        error = _("Ignored private message from hub");
-        typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
-        F3 *func = new F3(this, &Hub::addStatusMessage_gui, error, Msg::STATUS, Sound::NONE);
-        WulforManager::get()->dispatchGuiFunc(func);
-    }
-    else if (user.getIdentity().isBot() && BOOLSETTING(IGNORE_BOT_PMS))
-    {
-        error = _("Ignored private message from bot ") + user.getIdentity().getNick();
-        typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
-        F3 *func = new F3(this, &Hub::addStatusMessage_gui, error, Msg::STATUS, Sound::NONE);
-        WulforManager::get()->dispatchGuiFunc(func);
-    }
-    else
-    {
-        typedef Func6<Hub, Msg::TypeMsg, string, string, string, string, bool> F6;
-        F6 *func = new F6(this, &Hub::addPrivateMessage_gui, typemsg, from.getUser()->getCID().toBase32(),
-            user.getUser()->getCID().toBase32(), client->getHubUrl(), line, TRUE);
-        WulforManager::get()->dispatchGuiFunc(func);
-    }
-}
-
 void Hub::on(ClientListener::NickTaken, Client *) throw()
 {
     typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
@@ -3448,3 +3316,4 @@ void Hub::on(ClientListener::SearchFlood, Client *, const string &msg) throw()
     F3 *func = new F3(this, &Hub::addStatusMessage_gui, _("Search spam detected from ") + msg, Msg::STATUS, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(func);
 }
+

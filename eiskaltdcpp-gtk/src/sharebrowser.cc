@@ -35,11 +35,11 @@ using namespace std;
 using namespace dcpp;
 
 ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initialDirectory):
-    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(user), "sharebrowser.glade", user->getCID().toBase32()),
+    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(user, ""), "sharebrowser.glade", user->getCID().toBase32()),//NOTE: core 0.762
     user(user),
     file(file),
     initialDirectory(initialDirectory),
-    listing(user),
+    listing(HintedUser(user, "")),//NOTE: core 0.762
     shareSize(0),
     currentSize(0),
     shareItems(0),
@@ -48,7 +48,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     skipHits(0)
 {
     // Use the nick from the file name in case the user is offline and core only returns CID
-    nick = WulforUtil::getNicks(user);
+    nick = WulforUtil::getNicks(user, "");//NOTE: core 0.762
     if (nick.find(user->getCID().toBase32(), 1) != string::npos)
     {
         string name = Util::getFileName(file);
@@ -482,11 +482,11 @@ void ShareBrowser::popupFileMenu_gui()
     gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("fileDownloadMenu")), menuItem);
 
     // Build user command menu
-    StringList hubs = WulforUtil::getHubAddress(listing.getUser()->getCID());
+    StringList hubs = WulforUtil::getHubAddress(listing.getUser().user->getCID(), "");//NOTE: core 0.762
     fileUserCommandMenu->addHub(hubs);
     GtkTreeIter iter;
     GList *list = gtk_tree_selection_get_selected_rows(fileSelection, NULL);
-    string cid = listing.getUser()->getCID().toBase32();
+    string cid = listing.getUser().user->getCID().toBase32();//NOTE: core 0.762
 
     for (GList *i = list; i; i = i->next)
     {
@@ -534,11 +534,11 @@ void ShareBrowser::popupDirMenu_gui()
     gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("dirDownloadMenu")), menuItem);
 
     // Add user commands.
-    StringList hubs = WulforUtil::getHubAddress(listing.getUser()->getCID());
+    StringList hubs = WulforUtil::getHubAddress(listing.getUser().user->getCID(), "");//NOTE: core 0.762
     dirUserCommandMenu->addHub(hubs);
     GtkTreeIter iter;
     GList *list = gtk_tree_selection_get_selected_rows(dirSelection, NULL);
-    string cid = listing.getUser()->getCID().toBase32();
+    string cid = listing.getUser().user->getCID().toBase32();//NOTE: core 0.762
 
     for (GList *i = list; i; i = i->next)
     {
@@ -1034,7 +1034,7 @@ void ShareBrowser::downloadDir_client(DirectoryListing::Directory *dir, string t
 
 void ShareBrowser::matchQueue_client()
 {
-    int matched = QueueManager::getInstance()->matchListing(listing, "");
+    int matched = QueueManager::getInstance()->matchListing(listing);
     string message = _("Matched ") + Util::toString(matched) + _(" files");
 
     typedef Func2<ShareBrowser, string, string> F2;

@@ -301,9 +301,9 @@ add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
   #add_definitions (-DICONV_CONST=const)
 #endif (ICONV_SECOND_ARGUMENT_IS_CONST)
 
-if (FORCE_XDG)
-  add_definitions (-DFORCE_XDG)
-endif (FORCE_XDG)
+#if (FORCE_XDG)
+  #add_definitions (-DFORCE_XDG)
+#endif (FORCE_XDG)
 
 if (CMAKE_COMPILER_IS_GNUСXX)
     if (CMAKE_CROSSCOMPILING)
