@@ -54,8 +54,9 @@ public:
         TYPE_PICTURE,
         TYPE_VIDEO,
         TYPE_DIRECTORY,
-                TYPE_TTH,
-                TYPE_LAST
+        TYPE_TTH,
+        TYPE_CD_IMAGE,
+        TYPE_LAST
     };
 private:
         static const char* types[TYPE_LAST];

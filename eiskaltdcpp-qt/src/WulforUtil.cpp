@@ -1007,8 +1007,8 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
             QString raw_name = _q(uc.getName());
             QAction *action = NULL;
 
-            if (raw_name.contains("\\")){
-                QStringList submenus = raw_name.split("\\", QString::SkipEmptyParts);
+            if (raw_name.contains("/")){
+                QStringList submenus = raw_name.split("/", QString::SkipEmptyParts);
                 if (!submenus.isEmpty()){
                 QString name = submenus.takeLast();
                 QString key = "";
@@ -1016,7 +1016,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
                 QMenu *submenu;
 
                 foreach (QString s, submenus){
-                    key += s + "\\";
+                    key += s + "/";
 
                     if (registered_menus.contains(key))
                         parent = registered_menus[key];

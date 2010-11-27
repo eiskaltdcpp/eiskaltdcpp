@@ -27,6 +27,7 @@ using namespace std;
 #include "Notification.h"
 #include "SingleInstanceRunner.h"
 #include "Version.h"
+#include "IPFilter.h"
 #include "EmoticonFactory.h"
 
 #ifdef USE_ASPELL
@@ -172,6 +173,11 @@ int main(int argc, char *argv[])
     WulforSettings::deleteInstance();
 
     dcpp::shutdown();
+
+    if (IPFilter::getInstance()){
+        IPFilter::getInstance()->saveList();
+        IPFilter::deleteInstance();
+    }
 
     std::cout << QObject::tr("Quit...").toStdString() << std::endl;
 

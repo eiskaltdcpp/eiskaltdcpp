@@ -168,7 +168,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
             return;
         }
 
-        //ClientManager::getInstance()->privateMessage(user, _tq("Try again."), false, hubUrl.toStdString());
+        ClientManager::getInstance()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq("Try again."), false);
         log(tr("%1: Sending \"Try again\" message.").arg(cid));
 
         sandbox[cid] = counter;
@@ -178,7 +178,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
 
         QString question = tr("Hi, this is AntiSpam bot. So question is \"%1\"").arg(phrase);
 
-        //ClientManager::getInstance()->privateMessage(user, _tq(question), false, hubUrl.toStdString());
+        ClientManager::getInstance()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq(question), false);
     }
 }
 

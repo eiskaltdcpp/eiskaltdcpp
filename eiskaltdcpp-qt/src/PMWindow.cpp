@@ -386,7 +386,6 @@ void PMWindow::addOutput(QString msg){
 }
 
 void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
-#warning
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
     if (user && user->isOnline()){

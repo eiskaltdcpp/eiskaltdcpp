@@ -41,7 +41,8 @@ const char* SearchManager::types[TYPE_LAST] = {
         N_("Picture"),
         N_("Video"),
         N_("Directory"),
-        N_("TTH")
+        N_("TTH"),
+        N_("CD Image")
 };
 const char* SearchManager::getTypeStr(int type) {
         return _(types[type]);

@@ -1248,43 +1248,42 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::UserCommands:
         {
-#warning
-//            foreach (QModelIndex i, list){
-//               SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
-//               QString cmd_name = Menu::getInstance()->ucParams["NAME"];
-//               QString hub      = Menu::getInstance()->ucParams["HOST"];
-//               QString last_user_cmd = Menu::getInstance()->ucParams["LAST"];
+            foreach (QModelIndex i, list){
+                SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                QString cmd_name = Menu::getInstance()->ucParams["NAME"];
+                QString hub      = Menu::getInstance()->ucParams["HOST"];
+                QString last_user_cmd = Menu::getInstance()->ucParams["LAST"];
 
-//               int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
-//               UserCommand uc;
+                int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
+                UserCommand uc;
 
-//               if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
-//                   break;
+                if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
+                    break;
 
-//               StringMap params;
+                StringMap params;
 
-//               if (WulforUtil::getInstance()->getUserCommandParams(last_user_cmd, params)){
-//                   UserPtr user = ClientManager::getInstance()->findUser(CID(item->cid.toStdString()));
+                if (WulforUtil::getInstance()->getUserCommandParams(last_user_cmd, params)){
+                    UserPtr user = ClientManager::getInstance()->findUser(CID(item->cid.toStdString()));
 
-//                   if (user && user->isOnline()){
-//                       params["fileFN"]     = _tq(item->data(COLUMN_SF_PATH).toString() + item->data(COLUMN_SF_FILENAME).toString());
-//                       params["fileSI"]     = _tq(item->data(COLUMN_SF_ESIZE).toString());
-//                       params["fileSIshort"]= _tq(item->data(COLUMN_SF_SIZE).toString());
+                    if (user && user->isOnline()){
+                        params["fileFN"]     = _tq(item->data(COLUMN_SF_PATH).toString() + item->data(COLUMN_SF_FILENAME).toString());
+                        params["fileSI"]     = _tq(item->data(COLUMN_SF_ESIZE).toString());
+                        params["fileSIshort"]= _tq(item->data(COLUMN_SF_SIZE).toString());
 
-//                       if(!item->isDir)
-//                           params["fileTR"] = _tq(item->data(COLUMN_SF_TTH).toString());
+                        if(!item->isDir)
+                            params["fileTR"] = _tq(item->data(COLUMN_SF_TTH).toString());
 
-//                       // compatibility with 0.674 and earlier
-//                       params["file"] = params["fileFN"];
-//                       params["filesize"] = params["fileSI"];
-//                       params["filesizeshort"] = params["fileSIshort"];
-//                       params["tth"] = params["fileTR"];
+                        // compatibility with 0.674 and earlier
+                        params["file"] = params["fileFN"];
+                        params["filesize"] = params["fileSI"];
+                        params["filesizeshort"] = params["fileSIshort"];
+                        params["tth"] = params["fileTR"];
 
-//                       ClientManager::getInstance()->userCommand(user, uc, params, true);
-//                   }
+                        ClientManager::getInstance()->userCommand(HintedUser(user, _tq(hub)), uc, params, true);
+                    }
 
-//                }
-//            }
+                }
+            }
 
             break;
         }
