@@ -390,8 +390,17 @@ bool WulforUtil::profileIsLocked()
 
     // We can't use Util::getConfigPath() since the core has not been started yet.
     // Also, Util::getConfigPath() is utf8 and we need system encoding for g_open().
+    string configPath;
     char *home = getenv("HOME");
-    string configPath = home ? string(home) + "/.dc++/" : "/tmp/";
+#ifdef FORCE_XDG
+    const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
+    string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (Text::toUtf8(home) +"/.config");
+    xdg_config_home += "/eiskaltdc++/";
+    printf("$XDG_CONFIG_HOME: %s\n", xdg_config_home.c_str());
+#else
+    string xdg_config_home = Text::toUtf8(home) + "/.eiskaltdc++/";
+#endif
+    configPath = xdg_config_home.size() > 0 ? xdg_config_home : "/tmp/";
     string profileLockingFile = configPath + "profile.lck";
     int flags = O_WRONLY | O_CREAT;
     int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;

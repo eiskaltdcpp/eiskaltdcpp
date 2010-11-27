@@ -63,6 +63,10 @@ if (HAVE_IFADDRS_H)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/WulforUtil.cc PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H )
 endif (HAVE_IFADDRS_H)
 
+if (FORCE_XDG)
+   set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/WulforUtil.cc PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
+endif (FORCE_XDG)
+
 if (APPLE)
   add_definitions(-DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
 else (APPLE)
