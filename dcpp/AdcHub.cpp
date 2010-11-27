@@ -850,7 +850,7 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
                             diff = temp.erase(diff);
                         }
                     }
-                    if(!ok) // too many "RM"s necessary - disregard this group
+                    if(!ok) // too many "RX"s necessary - disregard this group
                         continue;
 
                     // let's include this group!
@@ -859,7 +859,7 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
                     exts = temp; // the exts to still add (that were not defined in the group)
 
                     for(StringIter rmi = rm.begin(), rmiend = rm.end(); rmi != rmiend; ++rmi)
-                        c.addParam("RM", *rmi);
+                        c.addParam("RX", *rmi);
 
                     if(exts.size() <= 2)
                         break;
