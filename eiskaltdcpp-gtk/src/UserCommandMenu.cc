@@ -53,12 +53,13 @@ void UserCommandMenu::addUser(const string &cid)
 	ucParams.push_back(u);
 }
 
-void UserCommandMenu::addFile(const string &cid, const string &name,
+void UserCommandMenu::addFile(const std::string &cid, const std::string &name, const std::string &path,
 	const int64_t &size, const string &tth)
 {
 	UCParam u;
 	u.cid = cid;
 	u.name = name;
+	u.path = path;
 	u.size = size;
 	u.tth = tth;
 	if (u.tth.empty())
@@ -168,10 +169,11 @@ void UserCommandMenu::onUserCommandClick_gui(GtkMenuItem *item, gpointer data)
 			if (!i->name.empty() && !i->type.empty())
 			{
 				params["type"] = i->type;
-	 			params["fileFN"] = i->name;
+	 			params["fileFN"] = i->path + i->name;
 	 			params["fileSI"] = Util::toString(i->size);
 	 			params["fileSIshort"] = Util::formatBytes(i->size);
 	 			params["fileTR"] = i->tth;
+	 			params["fileMN"] = WulforUtil::makeMagnet(i->name, i->size, i->tth);
 	 			params["file"] = params["fileFN"];
 	 			params["filesize"] = params["fileSI"];
 	 			params["filesizeshort"] = params["fileSIshort"];
@@ -199,4 +201,3 @@ void UserCommandMenu::sendUserCommand_client(string cid, string commandName, str
 			ClientManager::getInstance()->userCommand(HintedUser(user, hub), uc, params, true);//NOTE: core 0.762
 	}
 }
-

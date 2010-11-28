@@ -37,8 +37,8 @@ class UserCommandMenu : public Entry
 		void addHub(const std::string &hub);
 		void addHub(const dcpp::StringList &hubs2);
 		void addUser(const std::string &cid);
-		void addFile(const std::string &cid, const std::string &name,
-			const int64_t &size, const std::string &tth);
+		void addFile(const std::string &cid, const std::string &name, const std::string &path,
+			const int64_t &size = 0, const std::string &tth = "");
 		void cleanMenu_gui();
 		void buildMenu_gui();
 
@@ -59,6 +59,7 @@ class UserCommandMenu : public Entry
 		{
  			std::string cid;
  			std::string name;
+ 			std::string path;
  			int64_t size;
  			std::string tth;
  			std::string type;
@@ -69,4 +70,3 @@ class UserCommandMenu : public Entry
 #else
 class UserCommandMenu;
 #endif
-

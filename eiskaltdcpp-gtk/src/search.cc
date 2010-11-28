@@ -342,6 +342,7 @@ void Search::popupMenu_gui()
             userCommandMenu->addHub(resultView.getString(&iter, "Hub URL"));
             userCommandMenu->addFile(resultView.getString(&iter, "CID"),
                 resultView.getString(&iter, _("Filename")),
+                resultView.getString(&iter, "Path"),
                 resultView.getValue<int64_t>(&iter, "Real Size"),
                 resultView.getString(&iter, "TTH"));
 
