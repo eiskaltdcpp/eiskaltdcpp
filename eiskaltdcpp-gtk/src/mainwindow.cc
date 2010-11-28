@@ -1370,7 +1370,7 @@ void MainWindow::addFileDownloadQueue_client(string name, int64_t size, string t
     {
         if (!tth.empty())
         {
-            QueueManager::getInstance()->add(name, size, TTHValue(tth), UserPtr(), "");
+            QueueManager::getInstance()->add(name, size, TTHValue(tth));
 
             // automatically search for alternative download locations
             if (BOOLSETTING(AUTO_SEARCH))

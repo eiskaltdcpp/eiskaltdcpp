@@ -1034,7 +1034,7 @@ void ShareBrowser::downloadDir_client(DirectoryListing::Directory *dir, string t
 
 void ShareBrowser::matchQueue_client()
 {
-    int matched = QueueManager::getInstance()->matchListing(listing, "");
+    int matched = QueueManager::getInstance()->matchListing(listing);
     string message = _("Matched ") + Util::toString(matched) + _(" files");
 
     typedef Func2<ShareBrowser, string, string> F2;

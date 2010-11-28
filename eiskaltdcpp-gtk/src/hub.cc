@@ -2884,7 +2884,7 @@ void Hub::download_client(string target, int64_t size, string tth, string cid)
            return;
 
        string hubUrl = client->getHubUrl();
-       QueueManager::getInstance()->add(target, size, TTHValue(tth), user, hubUrl);
+       QueueManager::getInstance()->add(target, size, TTHValue(tth));
    }
    catch (const Exception&)
    {
@@ -3442,49 +3442,6 @@ void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int
 
         typedef Func3<Hub, string, string, Msg::TypeMsg> F3;
         F3 *func = new F3(this, &Hub::addMessage_gui, "", message, Msg::STATUS);
-        WulforManager::get()->dispatchGuiFunc(func);
-    }
-}
-
-void Hub::on(ClientListener::PrivateMessage, Client *, const OnlineUser &from,
-    const OnlineUser& to, const OnlineUser& replyTo, const string &msg, bool thirdPerson) throw()
-{
-    string error;
-    const OnlineUser& user = (replyTo.getUser() == ClientManager::getInstance()->getMe()) ? to : replyTo;
-    string line;
-    Msg::TypeMsg typemsg;
-
-    string info= Util::formatAdditionalInfo(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
-    line+=info;
-
-    if (from.getIdentity().isOp()) typemsg = Msg::OPERATOR;
-    else if (from.getUser() == client->getMyIdentity().getUser()) typemsg = Msg::MYOWN;
-    else typemsg = Msg::PRIVATE;
-
-    if (thirdPerson)
-        line += "* " + from.getIdentity().getNick() + " " + msg;
-    else
-        line += "<" + from.getIdentity().getNick() + "> " + msg;
-
-    if (user.getIdentity().isHub() && BOOLSETTING(IGNORE_HUB_PMS))
-    {
-        error = _("Ignored private message from hub");
-        typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
-        F3 *func = new F3(this, &Hub::addStatusMessage_gui, error, Msg::STATUS, Sound::NONE);
-        WulforManager::get()->dispatchGuiFunc(func);
-    }
-    else if (user.getIdentity().isBot() && BOOLSETTING(IGNORE_BOT_PMS))
-    {
-        error = _("Ignored private message from bot ") + user.getIdentity().getNick();
-        typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
-        F3 *func = new F3(this, &Hub::addStatusMessage_gui, error, Msg::STATUS, Sound::NONE);
-        WulforManager::get()->dispatchGuiFunc(func);
-    }
-    else
-    {
-        typedef Func6<Hub, Msg::TypeMsg, string, string, string, string, bool> F6;
-        F6 *func = new F6(this, &Hub::addPrivateMessage_gui, typemsg, from.getUser()->getCID().toBase32(),
-            user.getUser()->getCID().toBase32(), client->getHubUrl(), line, TRUE);
         WulforManager::get()->dispatchGuiFunc(func);
     }
 }

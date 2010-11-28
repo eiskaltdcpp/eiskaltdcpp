@@ -188,8 +188,6 @@ class Hub:
         virtual void on(dcpp::ClientListener::HubUpdated, dcpp::Client *) throw();
         virtual void on(dcpp::ClientListener::Message, dcpp::Client*, const dcpp::ChatMessage& message) throw();//NOTE: core 0.762
         virtual void on(dcpp::ClientListener::StatusMessage, dcpp::Client *, const std::string &message, int flag) throw();
-        virtual void on(dcpp::ClientListener::PrivateMessage, dcpp::Client *, const dcpp::OnlineUser &from,
-            const dcpp::OnlineUser &to, const dcpp::OnlineUser &replyTo, const std::string &message, bool thirdPerson) throw();
         virtual void on(dcpp::ClientListener::NickTaken, dcpp::Client *) throw();
         virtual void on(dcpp::ClientListener::SearchFlood, dcpp::Client *, const std::string &message) throw();
         virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem *item, const std::string& dir, int64_t avSpeed) throw();
