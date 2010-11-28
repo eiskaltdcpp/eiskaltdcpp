@@ -125,6 +125,7 @@ public:
     void setType(char t) { type = t; }
     string getFourCC() const { string tmp(4, 0); tmp[0] = type; tmp[1] = cmd[0]; tmp[2] = cmd[1]; tmp[3] = cmd[2]; return tmp; }
 
+    const string& getFeatures() const { return features; }
     AdcCommand& setFeatures(const string& feat) { features = feat; return *this; }
 
     StringList& getParameters() { return parameters; }
