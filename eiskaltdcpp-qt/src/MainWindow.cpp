@@ -1302,17 +1302,15 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         }
     case ArenaWidget::FinishedUploads:
         {
-#warning
-//            if (!FinishedUploads::getInstance()) FinishedUploads::newInstance();
-//            awgt = FinishedUploads::getInstance();
+            if (!FinishedUploads::getInstance()) FinishedUploads::newInstance();
+            awgt = FinishedUploads::getInstance();
 
             break;
         }
     case ArenaWidget::FinishedDownloads:
         {
-#warning
-//            if (!FinishedDownloads::getInstance()) FinishedDownloads::newInstance();
-//            awgt = FinishedDownloads::getInstance();
+            if (!FinishedDownloads::getInstance()) FinishedDownloads::newInstance();
+            awgt = FinishedDownloads::getInstance();
 
             break;
         }
@@ -1981,19 +1979,17 @@ void MainWindow::slotToolsHubManager(){
 }
 
 void MainWindow::slotToolsFinishedDownloads(){
-#warning
-//    if (!FinishedDownloads::getInstance())
-//        FinishedDownloads::newInstance();
+    if (!FinishedDownloads::getInstance())
+        FinishedDownloads::newInstance();
 
-//    toggleSingletonWidget(FinishedDownloads::getInstance());
+    toggleSingletonWidget(FinishedDownloads::getInstance());
 }
 
 void MainWindow::slotToolsFinishedUploads(){
-#warning
-//    if (!FinishedUploads::getInstance())
-//        FinishedUploads::newInstance();
+   if (!FinishedUploads::getInstance())
+        FinishedUploads::newInstance();
 
-//    toggleSingletonWidget(FinishedUploads::getInstance());
+    toggleSingletonWidget(FinishedUploads::getInstance());
 }
 
 void MainWindow::slotToolsSpy(){

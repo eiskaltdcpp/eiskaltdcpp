@@ -40,17 +40,6 @@ class FinishedItem
 public:
         typedef vector<FinishedItem> FinishedItemList;
 //      typedef FinishedItemList::const_iterator;
-        enum {
-                COLUMN_FIRST,
-                COLUMN_FILE,
-                COLUMN_DONE,
-                COLUMN_PATH,
-                COLUMN_NICK,
-                COLUMN_HUB,
-                COLUMN_SIZE,
-                COLUMN_SPEED,
-                COLUMN_LAST
-        };
 
         FinishedItem(string const& aTarget, const UserPtr& aUser, string const& aHub,
                 int64_t aSize, int64_t aSpeed, time_t aTime,
@@ -60,27 +49,6 @@ public:
         {
         }
 
-        const string getText(uint8_t col) const {
-                dcassert(col >= 0 && col < COLUMN_LAST);
-                switch(col) {
-                        case COLUMN_FILE: return Text::toT(Util::getFileName(getTarget()));
-                        case COLUMN_DONE: return Text::toT(Util::formatTime("%Y-%m-%d %H:%M:%S", getTime()));
-                        case COLUMN_PATH: return Text::toT(Util::getFilePath(getTarget()));
-                        case COLUMN_NICK: return getUser() ? Text::toT(Util::toString(ClientManager::getInstance()->getNicks(getUser()->getCID(),"",false))) : Util::emptyStringT;
-                        case COLUMN_HUB: return Text::toT(getHub());
-                        case COLUMN_SIZE: return Util::formatBytes(getSize());
-                        case COLUMN_SPEED: return Util::formatBytes(getAvgSpeed()) + "/s";
-                        default: return Util::emptyStringT;
-                }
-        }
-
-        static int compareItems(const FinishedItem* a, const FinishedItem* b, uint8_t col) {
-                switch(col) {
-                        case COLUMN_SPEED:      return compare(a->getAvgSpeed(), b->getAvgSpeed());
-                        case COLUMN_SIZE:       return compare(a->getSize(), b->getSize());
-                        default:                        return Util::stricmp(a->getText(col).c_str(), b->getText(col).c_str());
-                }
-        }
         int imageIndex() const;
 
         GETSET(string, target, Target);
