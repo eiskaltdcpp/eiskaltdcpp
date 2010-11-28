@@ -2328,11 +2328,11 @@ msgstr "_Закрыць ваконца"
 
 #: ../glade/mainwindow.glade:394
 msgid "Panels"
-msgstr ""
+msgstr "Паліцы"
 
 #: ../glade/mainwindow.glade:401
 msgid "Tools panel"
-msgstr ""
+msgstr "Паліца прыладаў"
 
 #: ../glade/mainwindow.glade:408
 msgid "Top position"
@@ -2340,7 +2340,7 @@ msgstr "Уверсе"
 
 #: ../glade/mainwindow.glade:416
 msgid "Left position"
-msgstr ""
+msgstr "Леваруч"
 
 #: ../glade/mainwindow.glade:430
 msgid "Small icons"
@@ -3408,7 +3408,7 @@ msgstr ""
 "9AM\n"
 "10AM\n"
 "11AM\n"
-"Noon\n"
+"поўдня\n"
 "1PM\n"
 "2PM\n"
 "3PM\n"
