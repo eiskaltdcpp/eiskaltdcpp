@@ -5151,7 +5151,7 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Try to use system icons (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser les icônes du système</translation>
     </message>
 </context>
 <context>
