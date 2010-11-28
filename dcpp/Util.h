@@ -118,7 +118,8 @@ public:
         PATH_LAST
     };
 
-    static void initialize();
+    typedef std::map<Util::Paths, std::string> PathsMap;
+    static void initialize(PathsMap pathOverrides = PathsMap());
 
     /** Path of temporary storage */
     static string getTempPath() {

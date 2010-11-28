@@ -107,7 +107,7 @@ static string getDownloadsPath(const string& def) {
 
 #endif
 
-void Util::initialize() {
+void Util::initialize(PathsMap pathOverrides) {
     Text::initialize();
 
     sgenrand((unsigned long)time(NULL));
@@ -181,7 +181,7 @@ void Util::initialize() {
     paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
 
     paths[PATH_RESOURCES] = paths[PATH_USER_CONFIG];
-    // @todo paths[PATH_LOCALE] = <replace from sconscript?>;
+    paths[PATH_LOCALE] = LOCALEDIR;
 
 #ifdef FORCE_XDG
     const char *xdg_config_down_ = getenv("XDG_DOWNLOAD_DIR");
@@ -197,6 +197,13 @@ void Util::initialize() {
     paths[PATH_FILE_LISTS] = paths[PATH_USER_LOCAL] + "FileLists" PATH_SEPARATOR_STR;
     paths[PATH_HUB_LISTS] = paths[PATH_USER_LOCAL] + "HubLists" PATH_SEPARATOR_STR;
     paths[PATH_NOTEPAD] = paths[PATH_USER_CONFIG] + "Notepad.txt";
+
+    // Override core generated paths
+    for (PathsMap::const_iterator it = pathOverrides.begin(); it != pathOverrides.end(); ++it)
+    {
+        if (!it->second.empty())
+            paths[it->first] = it->second;
+    }
 
     File::ensureDirectory(paths[PATH_USER_CONFIG]);
     File::ensureDirectory(paths[PATH_USER_LOCAL]);
