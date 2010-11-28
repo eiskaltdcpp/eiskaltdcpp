@@ -1530,29 +1530,33 @@ void Search::onRemoveClicked_gui(GtkMenuItem *item, gpointer data)
         GtkTreePath *path;
         vector<GtkTreeIter> remove;
         GList *list = g_list_reverse(gtk_tree_selection_get_selected_rows(s->selection, NULL));
+        GList *refList = NULL;
 
+        // Convert it to list of GtkTreeRowReferences since modifying the model with a list of Paths is bad.
         for (GList *i = list; i; i = i->next)
         {
             path = (GtkTreePath *)i->data;
-            if (gtk_tree_model_get_iter(s->sortedFilterModel, &iter, path))
-            {
-                // Remove the top-level node and it will remove any children nodes (if applicable)
-                gtk_tree_model_sort_convert_iter_to_child_iter(GTK_TREE_MODEL_SORT(s->sortedFilterModel), &filterIter, &iter);
-                gtk_tree_model_filter_convert_iter_to_child_iter(GTK_TREE_MODEL_FILTER(s->searchFilterModel), &iter, &filterIter);
-
-                // обходим функцию gtk_tree_store_remove(s->resultStore, &iter), т.к пути меняются
-                remove.push_back(iter);
-            }
+            refList = g_list_append(refList, gtk_tree_row_reference_new(s->sortedFilterModel, path));
             gtk_tree_path_free(path);
         }
         g_list_free(list);
-
-        // удаляем
-        for (vector<GtkTreeIter>::const_iterator it = remove.begin(); it != remove.end(); it++)
+        for (GList *i = refList; i; i = i->next)
         {
-            iter = *it;
-            gtk_tree_store_remove(s->resultStore, &iter);
+            path = gtk_tree_row_reference_get_path((GtkTreeRowReference*)i->data);
+            if (path != NULL)
+            {
+                if (gtk_tree_model_get_iter(s->sortedFilterModel, &iter, path))
+                {
+                    // Remove the top-level node and it will remove any children nodes (if applicable)
+                    gtk_tree_model_sort_convert_iter_to_child_iter(GTK_TREE_MODEL_SORT(s->sortedFilterModel), &filterIter, &iter);
+                    gtk_tree_model_filter_convert_iter_to_child_iter(GTK_TREE_MODEL_FILTER(s->searchFilterModel), &iter, &filterIter);
+                    gtk_tree_store_remove(s->resultStore, &iter);
+                }
+                gtk_tree_path_free(path);
+            }
+            gtk_tree_row_reference_free((GtkTreeRowReference*)i->data);
         }
+        g_list_free(refList);
     }
 }
 
@@ -1946,4 +1950,3 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
 
     return TRUE;
 }
-
