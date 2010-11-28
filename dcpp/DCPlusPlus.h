@@ -183,7 +183,7 @@ extern void shutdown();
 
 #ifdef BUILDING_DCPP
 #define PACKAGE "libdcpp"
-#define LOCALEDIR _DATADIR PATH_SEPARATOR_STR "locale"
+#define LOCALEDIR LOCALE_DIR
 #define _(String) dgettext(PACKAGE, String)
 #define gettext_noop(String) String
 #define N_(String) gettext_noop (String)

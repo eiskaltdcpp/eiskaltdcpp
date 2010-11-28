@@ -33,7 +33,7 @@
 #include <iostream>
 #include <signal.h>
 
-#define GUI_LOCALE_DIR _DATADIR PATH_SEPARATOR_STR "locale"
+#define GUI_LOCALE_DIR LOCALE_DIR
 
 #define GUI_PACKAGE "eiskaltdcpp-gtk"
 
