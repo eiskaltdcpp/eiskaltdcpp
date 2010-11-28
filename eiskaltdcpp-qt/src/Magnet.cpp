@@ -146,7 +146,6 @@ void Magnet::download(const QString &name, const qulonglong &size, const QString
     if (tth.isEmpty())
         return;
     try {
-#warning "Check this"
         QueueManager::getInstance()->add(_tq(name), size, TTHValue(_tq(tth)));
     }
     catch (const std::exception& e){

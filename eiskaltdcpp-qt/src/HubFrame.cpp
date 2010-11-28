@@ -223,9 +223,9 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        /*user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_CHAT);
-        menu->addMenu(user_menu);*/
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
+                        UserCommand::CONTEXT_USER);
+        menu->addMenu(user_menu);
     }
 
     QMenu *antispam_menu = NULL;
@@ -256,7 +256,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
     else if (res && !res->toolTip().isEmpty()){//User command{
-       /* last_user_cmd = res->toolTip();
+        last_user_cmd = res->toolTip();
         QString cmd_name = res->statusTip();
         QString hub = res->data().toString();
 
@@ -272,12 +272,12 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
             if (user)
-                ClientManager::getInstance()->userCommand(user, uc, params, true);
+                ClientManager::getInstance()->userCommand(HintedUser(user, client->getHubUrl()), uc, params, true);
 
             return UserCommands;
         }
         else
-            return None;*/
+            return None;
     }
     else
         return None;
@@ -313,8 +313,8 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty() && !pmw){
-        /*user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_CHAT);*/
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
+                        UserCommand::CONTEXT_USER);
         //menu->addMenu(user_menu);
     }
 
@@ -344,7 +344,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
     else if (res && !res->toolTip().isEmpty()){//User command
-        /*last_user_cmd = res->toolTip();
+        last_user_cmd = res->toolTip();
         QString cmd_name = res->statusTip();
         QString hub = res->data().toString();
 
@@ -360,12 +360,12 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
             if (user)
-                ClientManager::getInstance()->userCommand(user, uc, params, true);
+                ClientManager::getInstance()->userCommand(HintedUser(user, client->getHubUrl()), uc, params, true);
 
             return UserCommands;
         }
         else
-            return None;*/
+            return None;
     }
     else
         return None;
@@ -3128,8 +3128,7 @@ void HubFrame::slotHubMenu(QAction *res){
             client->getHubIdentity().getParams(params, "hub", false);
 
             client->escapeParams(params);
-#warning "Disabled sending commands"
-            //client->sendUserCmd(Util::formatParams(uc.getCommand(), params, false));
+            client->sendUserCmd(uc, params);
         }
     }
 }
@@ -3306,7 +3305,6 @@ void HubFrame::on(ClientListener::HubUpdated, Client*) throw(){
 void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) throw(){
     if (message.text.empty())
         return;
-#warning "No antispam check"
 
     VarMap map;
     QString msg = _q(message.text);
@@ -3340,7 +3338,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         bool isEcho      = (message.from->getUser() == ClientManager::getInstance()->getMe());
         bool hasPMWindow = pm.contains(_q(id.toBase32()));//PMWindow is created
 
-        /*if (AntiSpam::getInstance())
+        if (AntiSpam::getInstance())
             isInSandBox = AntiSpam::getInstance()->isInSandBox(_q(id.toBase32()));
 
         if (AntiSpam::getInstance() && !isEcho){
@@ -3354,14 +3352,14 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
                 if (AntiSpam::getInstance()->isInBlack(nick))
                     return;
                 else if (!(AntiSpam::getInstance()->isInWhite(nick) || AntiSpam::getInstance()->isInGray(nick))){
-                    AntiSpam::getInstance()->checkUser(_q(id.toBase32()), _q(msg), _q(client->getHubUrl()));
+                    AntiSpam::getInstance()->checkUser(_q(id.toBase32()), msg, _q(client->getHubUrl()));
 
                     return;
                 }
             } while (0);
         }
         else if (isEcho && isInSandBox && !hasPMWindow)
-            return;*/
+            return;
 
         map["NICK"]  = nick;
         map["MSG"]   = msg;
@@ -3390,7 +3388,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
 
         if (BOOLSETTING(LOG_PRIVATE_CHAT)){
             StringMap params;
-            //params["message"] = Util::formatMessage(from.getIdentity().getNick(), msg, thirdPerson);
+            params["message"] = _tq(msg);
             params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
             params["hubURL"] = client->getHubUrl();
             params["userCID"] = id.toBase32();
@@ -3399,9 +3397,6 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp();
             LOG(LogManager::PM, params);
         }
-
-//        if (!(isBot || isHub) && from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway())
-//            ClientManager::getInstance()->privateMessage(user.getUser(), Util::getAwayMessage(), false, client->getHubUrl());
     }
     else
     {

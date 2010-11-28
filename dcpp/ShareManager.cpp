@@ -1040,16 +1040,24 @@ void ShareManager::Directory::filesToXml(OutputStream& xmlFile, string& indent, 
 
 // These ones we can look up as ints (4 bytes...)...
 
-static const char* typeAudio[] = { ".mp3", ".mp2", ".mid", ".wav", ".ogg", ".wma" };
-static const char* typeCompressed[] = { ".zip", ".ace", ".rar" };
-static const char* typeDocument[] = { ".htm", ".doc", ".txt", ".nfo" };
-static const char* typeExecutable[] = { ".exe" };
-static const char* typePicture[] = { ".jpg", ".gif", ".png", ".eps", ".img", ".pct", ".psp", ".pic", ".tif", ".rle", ".bmp", ".pcx" };
-static const char* typeVideo[] = { ".mpg", ".mov", ".asf", ".avi", ".pxp", ".wmv", ".ogm", ".mkv" };
+static const char* typeAudio[] = { ".mp3", ".mp2", ".mid", ".wav", ".ogg", ".wma", ".669", ".aac", ".aif", ".amf", ".ams", ".ape", ".dbm", ".dmf", ".dsm", ".far", ".mdl", ".med", ".mod", ".mol", ".mp1", ".mpa", ".mpc", ".mpp", ".mtm", ".nst", ".okt", ".psm", ".ptm", ".rmi", ".s3m", ".stm", ".ult", ".umx", ".wow" };
+static const char* typeCompressed[] = { ".rar", ".zip", ".ace", ".arj", ".hqx", ".lha", ".sea", ".tar", ".tgz", ".uc2" };
+static const char* typeDocument[] = { ".htm", ".doc", ".txt", ".nfo", ".pdf", ".chm",
+                                      ".rtf", // [+] from flylinkdc++
+                                      ".xls",
+                                      ".ppt",
+                                      ".odt",
+                                      ".ods",
+                                      ".odf",
+                                      ".odp" };
+static const char* typeExecutable[] = { ".exe", ".com", ".msi" };
+static const char* typePicture[] = { ".jpg", ".gif", ".png", ".eps", ".img", ".pct", ".psp", ".pic", ".tif", ".rle", ".bmp", ".pcx", ".jpe", ".dcx", ".emf", ".ico", ".psd", ".tga", ".wmf", ".xif" };
+static const char* typeVideo[] = { ".avi", ".mpg", ".mov", ".flv", ".asf",  ".pxp", ".wmv", ".ogm", ".mkv", ".m1v", ".m2v", ".mpe", ".mps", ".mpv", ".ram", ".vob", ".mp4" };
+static const char* typeCDImage[] = {".iso", ".mdf", ".mds", ".nrg", ".vcd", ".bwt", ".ccd", ".cdi", ".pdi", ".cue", ".isz", ".img", ".vc4"};
 
-static const string type2Audio[] = { ".au", ".aiff", ".flac" };
-static const string type2Picture[] = { ".ai", ".ps", ".pict" };
-static const string type2Video[] = { ".rm", ".divx", ".mpeg" };
+static const string type2Audio[] = { ".au", ".it", ".ra", ".xm", ".aiff", ".flac", ".midi" };
+static const string type2Picture[] = { ".ai", ".ps", ".pict", ".jpeg", ".tiff" };
+static const string type2Video[] = { ".rm", ".divx", ".mpeg", ".mp1v", ".mp2v", ".mpv1", ".mpv2", ".qt", ".rv", ".vivo", ".ts", ".ps" };
 
 #define IS_TYPE(x) ( type == (*((uint32_t*)x)) )
 #define IS_TYPE2(x) (Util::stricmp(aString.c_str() + aString.length() - x.length(), x.c_str()) == 0)
@@ -1079,6 +1087,14 @@ static bool checkType(const string& aString, int aType) {
                 return true;
             }
         }
+        break;
+    case SearchManager::TYPE_CD_IMAGE:
+        for(size_t i = 0; i < (sizeof(typeCDImage) / sizeof(typeCDImage[0])); i++) {
+            if(IS_TYPE(typeCDImage[i])) {
+                return true;
+            }
+        }
+
         break;
     case SearchManager::TYPE_COMPRESSED:
         if( IS_TYPE(typeCompressed[0]) || IS_TYPE(typeCompressed[1]) || IS_TYPE(typeCompressed[2]) ) {
@@ -1144,6 +1160,8 @@ SearchManager::TypeModes ShareManager::getType(const string& aFileName) const th
         return SearchManager::TYPE_EXECUTABLE;
     else if(checkType(aFileName, SearchManager::TYPE_PICTURE))
         return SearchManager::TYPE_PICTURE;
+    else if(checkType(aFileName, SearchManager::TYPE_CD_IMAGE))
+        return SearchManager::TYPE_CD_IMAGE;
 
     return SearchManager::TYPE_ANY;
 }

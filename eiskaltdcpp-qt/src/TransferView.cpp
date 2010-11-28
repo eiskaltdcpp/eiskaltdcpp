@@ -11,12 +11,12 @@
 #include "TransferViewModel.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
-#include "IPFilter.h"
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "Notification.h"
 #include "SearchFrame.h"
 #include "DownloadQueue.h"
+#include "IPFilter.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/User.h"
@@ -549,13 +549,12 @@ void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download*
 
     getParams(params, dl);
 
-#warning
-//    if (IPFilter::getInstance()){
-//        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_IN)){
-//            closeConection(vstr(params["CID"]), true);
-//            return;
-//        }
-//    }
+    if (IPFilter::getInstance()){
+        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_IN)){
+            closeConection(vstr(params["CID"]), true);
+            return;
+        }
+    }
 
     params["ESIZE"] = (qlonglong)QueueManager::getInstance()->getSize(dl->getPath());
     params["FPOS"]  = (qlonglong)QueueManager::getInstance()->getPos(dl->getPath());
@@ -731,13 +730,12 @@ void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) t
 
     getParams(params, ul);
 
-#warning
-//    if (IPFilter::getInstance()){
-//        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_OUT)){
-//            closeConection(vstr(params["CID"]), false);
-//            return;
-//        }
-//    }
+    if (IPFilter::getInstance()){
+        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_OUT)){
+            closeConection(vstr(params["CID"]), false);
+            return;
+        }
+    }
 
     params["STAT"] = tr("Upload starting...");
     params["DOWN"] = false;
