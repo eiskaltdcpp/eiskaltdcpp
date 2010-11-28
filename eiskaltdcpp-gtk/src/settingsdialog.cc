@@ -924,7 +924,7 @@ void Settings::initAppearance_gui()
         createOptionsView_gui(appearanceView, appearanceStore, "appearanceOptionsTreeView");
 
         addOption_gui(appearanceStore, _("Filter kick and NMDC debug messages"), SettingsManager::FILTER_MESSAGES);
-        addOption_gui(appearanceStore, _("Show status icon"), "always-tray");
+        addOption_gui(appearanceStore, _("Show status icon in the system tray"), "always-tray");
         addOption_gui(appearanceStore, _("Show timestamps in chat by default"), SettingsManager::TIME_STAMPS);
         addOption_gui(appearanceStore, _("View status messages in main chat"), "status-in-chat");
         addOption_gui(appearanceStore, _("Show joins / parts in chat by default"), "show-joins");
@@ -952,7 +952,7 @@ void Settings::initAppearance_gui()
         createOptionsView_gui(tabView, tabStore, "tabBoldingTreeView");
 
         addOption_gui(tabStore, _("Finished Downloads"), "bold-finished-downloads");
-        addOption_gui(tabStore, _("Finished Uploads"), "bold-finished-downloads");
+        addOption_gui(tabStore, _("Finished Uploads"), "bold-finished-uploads");
         addOption_gui(tabStore, _("Download Queue"), "bold-queue");
         addOption_gui(tabStore, _("Hub (also sets urgency hint)"), "bold-hub");
         addOption_gui(tabStore, _("Private Message (also sets urgency hint)"), "bold-pm");
@@ -1214,6 +1214,8 @@ void Settings::initAppearance_gui()
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Favorite Users"), "icon-favorite-users");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Finished Downloads"), "icon-finished-downloads");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Finished Uploads"), "icon-finished-uploads");
+        addOption_gui(themeIconsStore, wsm, iconTheme, _("Own file list"), "icon-own-filelist");
+        addOption_gui(themeIconsStore, wsm, iconTheme, _("Refresh"), "icon-refresh");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Hash"), "icon-hash");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Preferences"), "icon-preferences");
         addOption_gui(themeIconsStore, wsm, iconTheme, _("Public Hubs"), "icon-public-hubs");
@@ -1254,6 +1256,12 @@ void Settings::initAppearance_gui()
         g_list_free(list);
 
         GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
+        addOption_gui(toolbarStore, wsm, iconTheme, _("+/-"), "toolbar-button-add",
+            ""); //GTK_STOCK_ADD
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Separators"), "toolbar-button-separators",
+            "");
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Reconnect"), "toolbar-button-reconnect",
+            "icon-reconnect");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Connect"), "toolbar-button-connect",
             "icon-connect");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Favorite Hubs"), "toolbar-button-fav-hubs",
@@ -1264,6 +1272,10 @@ void Settings::initAppearance_gui()
             "icon-public-hubs");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Preferences"), "toolbar-button-settings",
             "icon-preferences");
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Own file list"), "toolbar-button-own-filelist",
+            "icon-own-filelist");
+        addOption_gui(toolbarStore, wsm, iconTheme, _("Refresh"), "toolbar-button-refresh",
+            "icon-refresh");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Hash"), "toolbar-button-hash",
             "icon-hash");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Search"), "toolbar-button-search",
@@ -2321,6 +2333,7 @@ void Settings::onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data)
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("waitingSPSpinButton")), double(wsm->getInt("search-spy-waiting", TRUE)));
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("topSPSpinButton")), double(wsm->getInt("search-spy-top", TRUE)));
 }
+
 //NOTE: core 0.762
 void Settings::onLimitSecondToggled_gui(GtkWidget *widget, gpointer data)
 {
@@ -2340,6 +2353,7 @@ void Settings::onLimitSecondToggled_gui(GtkWidget *widget, gpointer data)
         }
 }
 //NOTE: core 0.762
+
 void Settings::applyIconsTheme(bool useDefault)
 {
     GtkTreeIter iter;
@@ -3006,7 +3020,7 @@ void Settings::saveUserCommand(UserCommand *uc)
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogHubMenu"))))
         ctx |= UserCommand::CONTEXT_HUB;
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogUserMenu"))))
-                ctx |= UserCommand::CONTEXT_USER;//NOTE: core 0.762
+        ctx |= UserCommand::CONTEXT_USER;//NOTE: core 0.762
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogSearchMenu"))))
         ctx |= UserCommand::CONTEXT_SEARCH;
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogFilelistMenu"))))
@@ -3899,9 +3913,9 @@ void Settings::shareHidden_client(bool show)
     ShareManager::getInstance()->setDirty();
     ShareManager::getInstance()->refresh(TRUE, FALSE, TRUE);
 
-        //NOTE: updated share ui core 0.762
-        Func0<Settings> *func = new Func0<Settings>(this, &Settings::updateShares_gui);
-        WulforManager::get()->dispatchGuiFunc(func);
+    //NOTE: updated share ui core 0.762
+    Func0<Settings> *func = new Func0<Settings>(this, &Settings::updateShares_gui);
+    WulforManager::get()->dispatchGuiFunc(func);
 }
 
 void Settings::addShare_client(string path, string name)
