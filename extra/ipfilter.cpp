@@ -486,3 +486,19 @@ void IPFilter::clearRules(bool emit_signal) {
     list_ip.clear();
     rules.clear();
 }
+
+void IPFilter::load() {
+    if (IPFilter::getInstance())
+        IPFilter::loadList();
+    else {
+        IPFilter::newInstance();
+        IPFilter::loadList();
+    }
+}
+
+void IPFilter::shutdown() {
+    if (IPFilter::getInstance()) {
+        IPFilter::saveList();
+        IPFilter::deleteInstance();
+    }
+}

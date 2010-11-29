@@ -56,6 +56,8 @@ public:
     /** */
     static bool isIP(std::string &exp);
 
+    void load();
+    void shutdown();
     /** */
     void loadList();
     /** */

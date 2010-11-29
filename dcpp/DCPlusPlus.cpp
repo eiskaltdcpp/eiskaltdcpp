@@ -95,7 +95,6 @@ void startup(void (*f)(void*, const string&), void* p) {
     ADLSearchManager::newInstance();
     ConnectivityManager::newInstance();
     UPnPManager::newInstance();
-    IPFilter::newInstance();
     WindowManager::newInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
@@ -106,7 +105,10 @@ void startup(void (*f)(void*, const string&), void* p) {
 #ifdef USE_MINIUPNP
     UPnPManager::getInstance()->runMiniUPnP();
 #endif
-    IPFilter::getInstance()->loadList();
+    if (BOOLSETTING(IPFILTER)){
+        IPFilter::newInstance();
+        IPFilter::getInstance()->load();
+    }
 
 #ifdef _WIN32
     if(!SETTING(LANGUAGE).empty()) {
@@ -160,14 +162,14 @@ void shutdown() {
     WindowManager::getInstance()->prepareSave();
     QueueManager::getInstance()->saveQueue(true);
     ClientManager::getInstance()->saveUsers();
-    IPFilter::getInstance()->saveList();
+    if (IPFilter::getInstance())
+        IPFilter::getInstance()->shutdown();
     SettingsManager::getInstance()->save();
 
 #ifdef USE_DHT
     DHT::deleteInstance();
 #endif
     WindowManager::deleteInstance();
-    IPFilter::deleteInstance();
     UPnPManager::deleteInstance();
     ConnectivityManager::deleteInstance();
     ADLSearchManager::deleteInstance();

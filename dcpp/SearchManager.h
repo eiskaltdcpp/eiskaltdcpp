@@ -68,9 +68,9 @@ public:
         search(aName, Util::toInt64(aSize), aTypeMode, aSizeMode, aToken);
     }
 
-        void search(StringList& who, const string& aName, int64_t aSize, TypeModes aTypeMode, SizeModes aSizeMode, const string& aToken, const StringList& aExtList);
-        void search(StringList& who, const string& aName, const string& aSize, TypeModes aTypeMode, SizeModes aSizeMode, const string& aToken, const StringList& aExtList) {
-                search(who, aName, Util::toInt64(aSize), aTypeMode, aSizeMode, aToken, aExtList);
+    void search(StringList& who, const string& aName, int64_t aSize, TypeModes aTypeMode, SizeModes aSizeMode, const string& aToken, const StringList& aExtList);
+    void search(StringList& who, const string& aName, const string& aSize, TypeModes aTypeMode, SizeModes aSizeMode, const string& aToken, const StringList& aExtList) {
+        search(who, aName, Util::toInt64(aSize), aTypeMode, aSizeMode, aToken, aExtList);
     }
 
     void respond(const AdcCommand& cmd, const CID& cid,  bool isUdpActive);
@@ -95,8 +95,8 @@ public:
     bool okToSearch() {
         return timeToSearch() <= 0;
     }
-        void onPSR(const AdcCommand& cmd, UserPtr from, const string& remoteIp = Util::emptyString);
-        AdcCommand toPSR(bool wantResponse, const string& myNick, const string& hubIpPort, const string& tth, const vector<uint16_t>& partialInfo) const;
+    void onPSR(const AdcCommand& cmd, UserPtr from, const string& remoteIp = Util::emptyString);
+    AdcCommand toPSR(bool wantResponse, const string& myNick, const string& hubIpPort, const string& tth, const vector<uint16_t>& partialInfo) const;
 private:
 
     std::auto_ptr<Socket> socket;
@@ -109,7 +109,7 @@ private:
 
     static std::string normalizeWhitespace(const std::string& aString);
     virtual int run();
-        string getPartsString(const PartsInfo& partsInfo) const;
+    string getPartsString(const PartsInfo& partsInfo) const;
 
     virtual ~SearchManager() throw();
     void onData(const uint8_t* buf, size_t aLen, const string& address);
