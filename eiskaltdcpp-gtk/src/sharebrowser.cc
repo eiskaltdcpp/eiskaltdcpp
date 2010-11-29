@@ -773,7 +773,7 @@ gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *even
     if (!gtk_tree_selection_get_selected(sb->dirSelection, NULL, &iter))
         return FALSE;
 
-    if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
+    if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter || event->keyval == GDK_Right || event->keyval == GDK_Left)
     {
         GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(sb->dirStore), &iter);
         if (gtk_tree_view_row_expanded(sb->dirView.get(), path))
