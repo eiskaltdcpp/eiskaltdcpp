@@ -365,7 +365,7 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Transfer 
 
     QString nick = WU->getNicks(user->getCID());
 
-    if (!(nick.isEmpty() || nick.isNull()))//Do not update user nick if user is offline
+    if (!nick.isEmpty())//Do not update user nick if user is offline
         params["USER"]  = nick;
 
     params["HUB"]   = WU->getHubNames(user);
