@@ -23,7 +23,7 @@ SingleInstanceRunner::SingleInstanceRunner()
     quint32 hash = qHash(login);
     EISKALTPORT = (hash >> 16) + 4098;
 
-    printf("Internal server running on %i\n", EISKALTPORT);
+    printf(tr("Internal server running on %1\n").arg(EISKALTPORT).toUtf8().constData());
 #else
     EISKALTPORT = 33561;
 #endif

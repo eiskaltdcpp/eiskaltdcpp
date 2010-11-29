@@ -44,7 +44,7 @@ void printHelp()
     printf("Using:\n"
            "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
            "  eiskaltdcpp-gtk <Key>\n"
-           "EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.\n"
+           "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
            "\n"
            "Keys:\n"
            "  -h, --help\t Show this message\n"
@@ -54,11 +54,7 @@ void printHelp()
 
 void printVersion()
 {
-#ifndef DCPP_REVISION
     printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
-#else
-    printf("%s - %s %s \n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCPP_REVISION);
-#endif
 }
 
 BaconMessageConnection *connection = NULL;

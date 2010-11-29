@@ -580,22 +580,22 @@ Kapcsolók:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation>Befejezett feltöltések</translation>
+        <translation type="obsolete">Befejezett feltöltések</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation>Befejezett letöltések</translation>
+        <translation type="obsolete">Befejezett letöltések</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation>Fájl megnyitása</translation>
+        <translation type="obsolete">Fájl megnyitása</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation>Könyvtár megnyitása</translation>
+        <translation type="obsolete">Könyvtár megnyitása</translation>
     </message>
 </context>
 <context>
@@ -2585,6 +2585,10 @@ Kapcsolók:
         <source>Download Whole Directory to...</source>
         <translation>Egész könyvtár letöltése ide ...</translation>
     </message>
+    <message>
+        <source>CD Image</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>
@@ -3106,6 +3110,14 @@ Kapcsolók:
     <message>
         <source>Hub Manager</source>
         <translation type="obsolete">Hub kezelő</translation>
+    </message>
+</context>
+<context>
+    <name>SingleInstanceRunner</name>
+    <message>
+        <source>Internal server running on %1
+</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

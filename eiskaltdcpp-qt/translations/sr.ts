@@ -543,22 +543,22 @@ Keys:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation>Završena otpremanja</translation>
+        <translation type="obsolete">Završena otpremanja</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation>Završena preuzimanja</translation>
+        <translation type="obsolete">Završena preuzimanja</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation>Otvori fajl</translation>
+        <translation type="obsolete">Otvori fajl</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation>Otvori fasciklu</translation>
+        <translation type="obsolete">Otvori fasciklu</translation>
     </message>
 </context>
 <context>
@@ -2343,6 +2343,10 @@ Keys:
         <source>Download Whole Directory to...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>CD Image</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>
@@ -2859,6 +2863,14 @@ Keys:
     </message>
     <message>
         <source>Other Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SingleInstanceRunner</name>
+    <message>
+        <source>Internal server running on %1
+</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

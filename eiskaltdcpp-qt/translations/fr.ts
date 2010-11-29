@@ -628,22 +628,22 @@ Keys:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation>Envois terminés</translation>
+        <translation type="obsolete">Envois terminés</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation>Téléchargements terminés</translation>
+        <translation type="obsolete">Téléchargements terminés</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation>Ouvrir le fichier</translation>
+        <translation type="obsolete">Ouvrir le fichier</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation>Ouvrir le dossier</translation>
+        <translation type="obsolete">Ouvrir le dossier</translation>
     </message>
 </context>
 <context>
@@ -2551,6 +2551,10 @@ Clés:
         <source>Download Whole Directory to...</source>
         <translation>Télécharger le répertoire entier vers...</translation>
     </message>
+    <message>
+        <source>CD Image</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchFrame::Menu</name>
@@ -3158,6 +3162,14 @@ Clés:
     <message>
         <source>Hub Manager</source>
         <translation type="obsolete">Gestionnaire de serveurs</translation>
+    </message>
+</context>
+<context>
+    <name>SingleInstanceRunner</name>
+    <message>
+        <source>Internal server running on %1
+</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

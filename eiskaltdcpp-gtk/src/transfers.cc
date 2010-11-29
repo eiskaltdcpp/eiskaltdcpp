@@ -62,17 +62,17 @@ Transfers::Transfers() :
     transferView.insertColumn(_("Filename"), G_TYPE_STRING, TreeView::STRING, 200);
     transferView.insertColumn(_("Size"), G_TYPE_INT64, TreeView::SIZE, 125);
     transferView.insertColumn(_("Path"), G_TYPE_STRING, TreeView::STRING, 200);
-    transferView.insertColumn("IP", G_TYPE_STRING, TreeView::STRING, 175);
-    transferView.insertHiddenColumn("Icon", G_TYPE_STRING);
-    transferView.insertHiddenColumn("Progress", G_TYPE_INT);
-    transferView.insertHiddenColumn("Sort Order", G_TYPE_STRING);
-    transferView.insertHiddenColumn("CID", G_TYPE_STRING);
-    transferView.insertHiddenColumn("Download Position", G_TYPE_INT64); // For keeping track of and calculating parent pos
-    transferView.insertHiddenColumn("Failed", G_TYPE_BOOLEAN);
-    transferView.insertHiddenColumn("Target", G_TYPE_STRING);
-    transferView.insertHiddenColumn("tmpTarget", G_TYPE_STRING);
-    transferView.insertHiddenColumn("Download", G_TYPE_BOOLEAN);
-    transferView.insertHiddenColumn("Hub URL", G_TYPE_STRING);
+    transferView.insertColumn(_("IP"), G_TYPE_STRING, TreeView::STRING, 175);
+    transferView.insertHiddenColumn(_("Icon"), G_TYPE_STRING);
+    transferView.insertHiddenColumn(_("Progress"), G_TYPE_INT);
+    transferView.insertHiddenColumn(_("Sort Order"), G_TYPE_STRING);
+    transferView.insertHiddenColumn(_("CID"), G_TYPE_STRING);
+    transferView.insertHiddenColumn(_("Download Position"), G_TYPE_INT64); // For keeping track of and calculating parent pos
+    transferView.insertHiddenColumn(_("Failed"), G_TYPE_BOOLEAN);
+    transferView.insertHiddenColumn(_("Target"), G_TYPE_STRING);
+    transferView.insertHiddenColumn(_("tmpTarget"), G_TYPE_STRING);
+    transferView.insertHiddenColumn(_("Download"), G_TYPE_BOOLEAN);
+    transferView.insertHiddenColumn(_("Hub URL"), G_TYPE_STRING);
     transferView.finalize();
 
     transferStore = gtk_tree_store_newv(transferView.getColCount(), transferView.getGTypes());
@@ -80,8 +80,8 @@ Transfers::Transfers() :
     g_object_unref(transferStore);
     transferSelection = gtk_tree_view_get_selection(transferView.get());
     gtk_tree_selection_set_mode(transferSelection, GTK_SELECTION_MULTIPLE);
-    transferView.setSortColumn_gui(_("User"), "Sort Order");
-    gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(transferStore), transferView.col("Sort Order"), GTK_SORT_ASCENDING);
+    transferView.setSortColumn_gui(_("User"), _("Sort Order"));
+    gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(transferStore), transferView.col(_("Sort Order")), GTK_SORT_ASCENDING);
     gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(transferView.get(), transferView.col(_("User"))), TRUE);
     gtk_tree_view_set_fixed_height_mode(transferView.get(), TRUE);
 
@@ -137,10 +137,10 @@ void Transfers::popupTransferMenu_gui()
             do
             {
                 if (target.empty())
-                    target = transferView.getString(&iter, "tmpTarget");
+                    target = transferView.getString(&iter, _("tmpTarget"));
 
-                string cid = transferView.getString(&iter, "CID");
-                string hubUrl = transferView.getString(&iter, "Hub URL");//NOTE: core 0.762
+                string cid = transferView.getString(&iter, _("CID"));
+                string hubUrl = transferView.getString(&iter, _("Hub URL"));//NOTE: core 0.762
                 userCommandMenu->addUser(cid);
                 userCommandMenu->addHub(WulforUtil::getHubAddress(CID(cid), hubUrl));//NOTE: core 0.762
             }
@@ -177,8 +177,8 @@ void Transfers::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
 
             do
             {
-                string cid = tr->transferView.getString(&iter, "CID");
-                string hubUrl = tr->transferView.getString(&iter, "Hub URL");
+                string cid = tr->transferView.getString(&iter, _("CID"));
+                string hubUrl = tr->transferView.getString(&iter, _("Hub URL"));
                 if (!cid.empty())
                 {
                     F2 *func = new F2(tr, &Transfers::getFileList_client, cid, hubUrl);
@@ -209,8 +209,8 @@ void Transfers::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
 
             do
             {
-                string cid = tr->transferView.getString(&iter, "CID");
-                string hubUrl = tr->transferView.getString(&iter, "Hub URL");
+                string cid = tr->transferView.getString(&iter, _("CID"));
+                string hubUrl = tr->transferView.getString(&iter, _("Hub URL"));
                 if (!cid.empty())
                 {
                     F2 *func = new F2(tr, &Transfers::matchQueue_client, cid, hubUrl);
@@ -241,7 +241,7 @@ void Transfers::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
 
             do
             {
-                cid = tr->transferView.getString(&iter, "CID");
+                cid = tr->transferView.getString(&iter, _("CID"));
                 if (!cid.empty())
                     WulforManager::get()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN, cid);
             }
@@ -271,7 +271,7 @@ void Transfers::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 
             do
             {
-                cid = tr->transferView.getString(&iter, "CID");
+                cid = tr->transferView.getString(&iter, _("CID"));
                 if (!cid.empty())
                 {
                     func = new F1(tr, &Transfers::addFavoriteUser_client, cid);
@@ -302,8 +302,8 @@ void Transfers::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
 
             do
             {
-                string cid = tr->transferView.getString(&iter, "CID");
-                string hubUrl = tr->transferView.getString(&iter, "Hub URL");
+                string cid = tr->transferView.getString(&iter, _("CID"));
+                string hubUrl = tr->transferView.getString(&iter, _("Hub URL"));
                 if (!cid.empty())
                 {
                     F2 *func = new F2(tr, &Transfers::grantExtraSlot_client, cid, hubUrl);
@@ -336,7 +336,7 @@ void Transfers::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer dat
 
             do
             {
-                cid = tr->transferView.getString(&iter, "CID");
+                cid = tr->transferView.getString(&iter, _("CID"));
                 if (!cid.empty())
                 {
                     func = new F1(tr, &Transfers::removeUserFromQueue_client, cid);
@@ -365,7 +365,7 @@ void Transfers::onForceAttemptClicked_gui(GtkMenuItem *menuItem, gpointer data)
         path = (GtkTreePath *)i->data;
         if (gtk_tree_model_get_iter(GTK_TREE_MODEL(tr->transferStore), &iter, path))
         {
-            cid = tr->transferView.getString(&iter, "CID");
+            cid = tr->transferView.getString(&iter, _("CID"));
             gtk_tree_store_set(tr->transferStore, &iter, tr->transferView.col(_("Status")), _("Connecting (forced)..."), -1);
 
             func = new F1(tr, &Transfers::forceAttempt_client, cid);
@@ -396,11 +396,11 @@ void Transfers::onCloseConnectionClicked_gui(GtkMenuItem *menuItem, gpointer dat
 
             do
             {
-                cid = tr->transferView.getString(&iter, "CID");
+                cid = tr->transferView.getString(&iter, _("CID"));
                 if (!cid.empty())
                 {
                     gtk_tree_store_set(tr->transferStore, &iter, tr->transferView.col(_("Status")), _("Closing connection..."), -1);
-                    download = tr->transferView.getValue<gboolean>(&iter, "Download");
+                    download = tr->transferView.getValue<gboolean>(&iter, _("Download"));
 
                     func = new F2(tr, &Transfers::closeConnection_client, cid, download);
                     WulforManager::get()->dispatchClientFunc(func);
@@ -452,9 +452,9 @@ bool Transfers::findParent_gui(const string& target, GtkTreeIter* iter)
 
     while (valid)
     {
-        if (transferView.getValue<gboolean>(iter, "Download") &&
-                target == transferView.getString(iter, "Target") &&
-                transferView.getString(iter, "CID").empty())
+        if (transferView.getValue<gboolean>(iter, _("Download")) &&
+                target == transferView.getString(iter, _("Target")) &&
+                transferView.getString(iter, _("CID")).empty())
             return TRUE;
 
         valid = WulforUtil::getNextIter_gui(m, iter, FALSE, FALSE);
@@ -470,11 +470,11 @@ bool Transfers::findTransfer_gui(const string& cid, bool download, GtkTreeIter* 
 
     while (valid)
     {
-        if (cid == transferView.getString(iter, "CID") && !cid.empty())
+        if (cid == transferView.getString(iter, _("CID")) && !cid.empty())
         {
-            if (download && transferView.getValue<gboolean>(iter, "Download"))
+            if (download && transferView.getValue<gboolean>(iter, _("Download")))
                 return TRUE;
-            if (!download && !transferView.getValue<gboolean>(iter, "Download"))
+            if (!download && !transferView.getValue<gboolean>(iter, _("Download")))
                 return TRUE;
         }
         valid = WulforUtil::getNextIter_gui(m, iter, TRUE, TRUE);
@@ -486,18 +486,18 @@ bool Transfers::findTransfer_gui(const string& cid, bool download, GtkTreeIter* 
 void Transfers::addConnection_gui(StringMap params, bool download)
 {
     GtkTreeIter iter;
-    dcassert(params.find("CID") != params.end());
-    dcassert(findTransfer_gui(params["CID"], download, &iter) == FALSE);    // shouldn't fail, if it's already there we've forgot to remove it or dcpp core sends more than one Connection::Added
+    dcassert(params.find(_("CID")) != params.end());
+    dcassert(findTransfer_gui(params[_("CID")], download, &iter) == FALSE);    // shouldn't fail, if it's already there we've forgot to remove it or dcpp core sends more than one Connection::Added
 
     gtk_tree_store_append(transferStore, &iter, NULL);
     gtk_tree_store_set(transferStore, &iter,
         transferView.col(_("User")), params[_("User")].c_str(),
         transferView.col(_("Hub Name")), params[_("Hub Name")].c_str(),
         transferView.col(_("Status")), params[_("Status")].c_str(),
-        transferView.col("CID"), params["CID"].c_str(),
-        transferView.col("Icon"), download ? "icon-download" : "icon-upload",
-        transferView.col("Download"), download,
-        transferView.col("Hub URL"), params["Hub URL"].c_str(),
+        transferView.col(_("CID")), params[_("CID")].c_str(),
+        transferView.col(_("Icon")), download ? "icon-download" : "icon-upload",
+        transferView.col(_("Download")), download,
+        transferView.col(_("Hub URL")), params[_("Hub URL")].c_str(),
         -1);
 }
 
@@ -540,7 +540,7 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
     ostringstream stream;
     ostringstream tmpHubs;
 
-    position = transferView.getValue<int64_t>(iter, "Download Position");
+    position = transferView.getValue<int64_t>(iter, _("Download Position"));
     totalSize = transferView.getValue<int64_t>(iter, _("Size"));
 
     // Get Totals
@@ -550,12 +550,12 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
         valid = WulforUtil::getNextIter_gui(GTK_TREE_MODEL(transferStore), &child, TRUE, FALSE);
         while (valid)
         {
-            if (transferView.getValue<int>(&child, "Failed") == 0 &&
-                transferView.getString(&child, "Sort Order").substr(0,1) == "d")
+            if (transferView.getValue<int>(&child, _("Failed")) == 0 &&
+                transferView.getString(&child, _("Sort Order")).substr(0,1) == "d")
             {
                 active++;
                 speed += transferView.getValue<int64_t>(&child, _("Speed"));
-                position += transferView.getValue<int64_t>(&child, "Download Position");
+                position += transferView.getValue<int64_t>(&child, _("Download Position"));
             }
             users += transferView.getString(&child, _("User")) + string(", ");
             hubs.insert(transferView.getString(&child, _("Hub Name")));
@@ -570,7 +570,7 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
 
     stream << setiosflags(ios::fixed) << setprecision(1);
 
-    if (transferView.getValue<gboolean>(iter, "Failed") == 0)
+    if (transferView.getValue<gboolean>(iter, _("Failed")) == 0)
     {
         if (active)
             stream << _("Downloaded ");
@@ -593,38 +593,38 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
         transferView.col(_("Speed")), speed,
         transferView.col(_("Time Left")), timeLeft,
         transferView.col(_("Status")), stream.str().c_str(),
-        transferView.col("Progress"), static_cast<int>(progress),
-        transferView.col("Sort Order"), active ? (string("d").append(users)).c_str() : (string("w").append(users)).c_str(),
+        transferView.col(_("Progress")), static_cast<int>(progress),
+        transferView.col(_("Sort Order")), active ? (string("d").append(users)).c_str() : (string("w").append(users)).c_str(),
         -1);
 }
 
 void Transfers::updateTransfer_gui(StringMap params, bool download, Sound::TypeSound sound)
 {
-    dcassert(!params["CID"].empty());
+    dcassert(!params[_("CID")].empty());
 
     GtkTreeIter iter, parent;
-    if (!findTransfer_gui(params["CID"], download, &iter))
+    if (!findTransfer_gui(params[_("CID")], download, &iter))
     {
         int invalid_transfer_CID_not_found = 0;
-        dcdebug("Transfers::updateTransfer, CID not found %s\n", params["CID"].c_str());
+        dcdebug(_("Transfers::updateTransfer, CID not found %s\n"), params[_("CID")].c_str());
         // Transfer not found. Usually this *shouldn't* happen, but I guess it's possible since tick updates are sent by TimerManager
         // and removing is handled by dl manager.
 
         return;
     }
 
-    int failed = transferView.getValue<int>(&iter, "Failed");
-    if (failed && params.find("Failed") != params.end())
-        failed = Util::toInt(params["Failed"]);
+    int failed = transferView.getValue<int>(&iter, _("Failed"));
+    if (failed && params.find(_("Failed")) != params.end())
+        failed = Util::toInt(params[_("Failed")]);
 
     if (failed) // Transfer had failed already. We won't update the transfer before the fail status changes.
         return;
 
     for (StringMap::const_iterator it = params.begin(); it != params.end(); ++it)
     {
-        if (it->first == _("Size") || it->first == _("Speed") || it->first == "Download Position" || it->first == _("Time Left"))
+        if (it->first == _("Size") || it->first == _("Speed") || it->first == _("Download Position") || it->first == _("Time Left"))
             gtk_tree_store_set(transferStore, &iter, transferView.col(it->first), Util::toInt64(it->second), -1);
-        else if (it->first == "Progress" || it->first == "Failed")
+        else if (it->first == _("Progress") || it->first == _("Failed"))
             gtk_tree_store_set(transferStore, &iter, transferView.col(it->first), Util::toInt(it->second), -1);
         else if (!it->second.empty())
             gtk_tree_store_set(transferStore, &iter, transferView.col(it->first), it->second.c_str(), -1);
@@ -647,7 +647,7 @@ void Transfers::updateFilePosition_gui(const string cid, int64_t filePosition)
     if (gtk_tree_model_iter_parent(GTK_TREE_MODEL(transferStore), &parent, &iter))
     {
         gtk_tree_store_set(transferStore, &parent,
-            transferView.col("Download Position"), filePosition,
+            transferView.col(_("Download Position")), filePosition,
             -1);
         updateParent_gui(&parent);
     }
@@ -655,7 +655,7 @@ void Transfers::updateFilePosition_gui(const string cid, int64_t filePosition)
 
 void Transfers::initTransfer_gui(StringMap params)
 {
-    dcassert(!params["CID"].empty() && !params["Target"].empty());
+    dcassert(!params[_("CID")].empty() && !params[_("Target")].empty());
 
     bool oldParentValid = FALSE;
     bool newParentValid = FALSE;
@@ -670,7 +670,7 @@ void Transfers::initTransfer_gui(StringMap params)
     // it currently only shows the size of a transfer (and always starts from 0)
     needParent = params[_("Filename")] != string(_("File list"));
 
-    if (!findTransfer_gui(params["CID"], TRUE, &iter))
+    if (!findTransfer_gui(params[_("CID")], TRUE, &iter))
     {
         int connection_not_found = 0;
         dcassert(connection_not_found); // not really fatal only annoying as the dl can't be seen, can be ignored in release build
@@ -680,12 +680,12 @@ void Transfers::initTransfer_gui(StringMap params)
     oldParentValid = gtk_tree_model_iter_parent(GTK_TREE_MODEL(transferStore), &oldParent, &iter);
     if (needParent)
     {
-        newParentValid = findParent_gui(params["Target"], &newParent);
+        newParentValid = findParent_gui(params[_("Target")], &newParent);
 
         if (newParentValid)
         {
-            string target = oldParentValid ? transferView.getString(&oldParent, "Target") : transferView.getString(&iter, "Target");
-            if (target != transferView.getString(&newParent, "Target")) // is the file changing
+            string target = oldParentValid ? transferView.getString(&oldParent, _("Target")) : transferView.getString(&iter, _("Target"));
+            if (target != transferView.getString(&newParent, _("Target"))) // is the file changing
             {
                 newIter = WulforUtil::copyRow_gui(transferStore, &iter, &newParent);
                 gtk_tree_store_remove(transferStore, &iter);
@@ -694,10 +694,10 @@ void Transfers::initTransfer_gui(StringMap params)
             else
             {
                 //NOTE: set update parent status if removed download
-                if (transferView.getValue<int>(&newParent, "Failed"))
+                if (transferView.getValue<int>(&newParent, _("Failed")))
                 {
                     gtk_tree_store_set(transferStore, &newParent,
-                        transferView.col("Failed"), FALSE,
+                        transferView.col(_("Failed")), FALSE,
                         -1);
                 }
 
@@ -707,17 +707,17 @@ void Transfers::initTransfer_gui(StringMap params)
         else
         {
             string filename = params[_("Filename")];
-            if (filename.find("TTH: ") != string::npos)
-                filename = filename.substr((string("TTH: ")).length());
+            if (filename.find(_("TTH: ")) != string::npos)
+                filename = filename.substr((string(_("TTH: "))).length());
             gtk_tree_store_append(transferStore, &newParent, NULL);
             newParentValid = TRUE;
             gtk_tree_store_set(transferStore, &newParent,
                 transferView.col(_("Filename")), filename.c_str(),
                 transferView.col(_("Path")), params[_("Path")].c_str(),
-                transferView.col(_("Size")), Util::toInt64(params["File Size"]),
-                transferView.col("Icon"), "icon-download",
-                transferView.col("Download"), TRUE,
-                transferView.col("Target"), params["Target"].c_str(),
+                transferView.col(_("Size")), Util::toInt64(params[_("File Size")]),
+                transferView.col(_("Icon")), "icon-download",
+                transferView.col(_("Download")), TRUE,
+                transferView.col(_("Target")), params[_("Target")].c_str(),
                 -1);
 
             newIter = WulforUtil::copyRow_gui(transferStore, &iter, &newParent);
@@ -726,8 +726,8 @@ void Transfers::initTransfer_gui(StringMap params)
         }
 
         gtk_tree_store_set(transferStore, &newParent,
-                transferView.col(_("Size")), Util::toInt64(params["File Size"]),
-                transferView.col("Download Position"), Util::toInt64(params["File Position"]),
+                transferView.col(_("Size")), Util::toInt64(params[_("File Size")]),
+                transferView.col(_("Download Position")), Util::toInt64(params[_("File Position")]),
                 -1);
     }
     else if (oldParentValid) // No need for parent, but we have one anyway => move row to top-level
@@ -758,11 +758,11 @@ void Transfers::finishParent_gui(const string target, const string status, Sound
         if (!gtk_tree_model_iter_has_child(GTK_TREE_MODEL(transferStore), &iter))
             return;
 
-        if (transferView.getValue<gboolean>(&iter, "Failed") == 0)
+        if (transferView.getValue<gboolean>(&iter, _("Failed")) == 0)
         {
             gtk_tree_store_set(transferStore, &iter,
                 transferView.col(_("Status")), status.c_str(),
-                transferView.col("Failed"), (gboolean)1,
+                transferView.col(_("Failed")), (gboolean)1,
                 transferView.col(_("Speed")), (uint64_t)-1,
                 -1);
         }
@@ -857,11 +857,11 @@ void Transfers::getParams_client(StringMap& params, ConnectionQueueItem* cqi)
     // NOTE: const HintedUser& getUser() const { return user; }
     const HintedUser &user = cqi->getUser();
 
-    params["CID"] = user.user->getCID().toBase32();//NOTE: core 0.762
+    params[_("CID")] = user.user->getCID().toBase32();//NOTE: core 0.762
     params[_("User")] = WulforUtil::getNicks(user);//NOTE: core 0.762
     params[_("Hub Name")] = WulforUtil::getHubNames(user);//NOTE: core 0.762
-    params["Failed"] = "0";
-    params["Hub URL"] = user.hint;//NOTE: core 0.762
+    params[_("Failed")] = "0";
+    params[_("Hub URL")] = user.hint;//NOTE: core 0.762
 }
 
 void Transfers::getParams_client(StringMap& params, Transfer* tr)
@@ -870,26 +870,26 @@ void Transfers::getParams_client(StringMap& params, Transfer* tr)
     const HintedUser user = tr->getHintedUser();//NOTE: core 0.762
     double percent = 0.0;
 
-    params["CID"] = user.user->getCID().toBase32();
+    params[_("CID")] = user.user->getCID().toBase32();
     if (tr->getType() == Transfer::TYPE_FULL_LIST || tr->getType() == Transfer::TYPE_PARTIAL_LIST)
         params[_("Filename")] = _("File list");
     else if (tr->getType() == Transfer::TYPE_TREE)
-        params[_("Filename")] = "TTH: " + Util::getFileName(tr->getPath());
+        params[_("Filename")] = _("TTH: ") + Util::getFileName(tr->getPath());
     else
         params[_("Filename")] = Util::getFileName(tr->getPath());
     params[_("User")] = WulforUtil::getNicks(user);//NOTE: core 0.762
     params[_("Hub Name")] = WulforUtil::getHubNames(user);//NOTE: core 0.762
     params[_("Path")] = Util::getFilePath(tr->getPath());
     params[_("Size")] = Util::toString(tr->getSize());
-    params["Download Position"] = Util::toString(tr->getPos());
+    params[_("Download Position")] = Util::toString(tr->getPos());
     params[_("Speed")] = Util::toString(tr->getAverageSpeed());
     if (tr->getSize() > 0)
         percent = static_cast<double>(tr->getPos() * 100.0)/ tr->getSize();
-    params["Progress"] = Util::toString(static_cast<int>(percent));
-    params["IP"] = tr->getUserConnection().getRemoteIp();
+    params[_("Progress")] = Util::toString(static_cast<int>(percent));
+    params[_("IP")] = tr->getUserConnection().getRemoteIp();
     params[_("Time Left")] = tr->getSecondsLeft() > 0 ? Util::toString(tr->getSecondsLeft()) : "-1";
-    params["Target"] = tr->getPath();
-    params["Hub URL"] = tr->getUserConnection().getHubUrl();
+    params[_("Target")] = tr->getPath();
+    params[_("Hub URL")] = tr->getUserConnection().getHubUrl();
 }
 
 void Transfers::on(DownloadManagerListener::Requesting, Download* dl) throw()
@@ -898,11 +898,11 @@ void Transfers::on(DownloadManagerListener::Requesting, Download* dl) throw()
 
     getParams_client(params, dl);
 
-    params["File Size"] = Util::toString(QueueManager::getInstance()->getSize(dl->getPath()));
-    params["File Position"] = Util::toString(QueueManager::getInstance()->getPos(dl->getPath()));
-    params["Sort Order"] = "w" + params[_("User")];
+    params[_("File Size")] = Util::toString(QueueManager::getInstance()->getSize(dl->getPath()));
+    params[_("File Position")] = Util::toString(QueueManager::getInstance()->getPos(dl->getPath()));
+    params[_("Sort Order")] = "w" + params[_("User")];
     params[_("Status")] = _("Requesting");
-    params["Failed"] = "0";
+    params[_("Failed")] = "0";
 
     typedef Func1<Transfers, StringMap> F1;
     F1* f1 = new F1(this, &Transfers::initTransfer_gui, params);
@@ -915,9 +915,9 @@ void Transfers::on(DownloadManagerListener::Starting, Download* dl) throw()
 
     getParams_client(params, dl);
     params[_("Status")] = _("Download starting...");
-    params["Sort Order"] = "d" + params[_("User")];
-    params["Failed"] = "0";
-    params["tmpTarget"] = dl->getTempTarget();
+    params[_("Sort Order")] = "d" + params[_("User")];
+    params[_("Failed")] = "0";
+    params[_("tmpTarget")] = dl->getTempTarget();
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
     F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, TRUE, Sound::NONE);
@@ -947,7 +947,7 @@ void Transfers::on(DownloadManagerListener::Tick, const DownloadList& dls) throw
             stream << _("[Z]");
 
         stream << setiosflags(ios::fixed) << setprecision(1);
-        stream << " " << _("Downloaded ") << Util::formatBytes(dl->getPos()) << " (" << params["Progress"]
+        stream << " " << _("Downloaded ") << Util::formatBytes(dl->getPos()) << " (" << params[_("Progress")]
         << "%) in " << Util::formatSeconds((GET_TICK() - dl->getStart()) / 1000);
         params[_("Status")] = stream.str();
 
@@ -963,7 +963,7 @@ void Transfers::on(DownloadManagerListener::Complete, Download* dl) throw()
 
     getParams_client(params, dl);
     params[_("Status")] = _("Download complete...");
-    params["Sort Order"] = "w" + params[_("User")];
+    params[_("Sort Order")] = "w" + params[_("User")];
     params[_("Speed")] = "-1";
 
     int64_t pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();
@@ -982,8 +982,8 @@ void Transfers::on(DownloadManagerListener::Failed, Download* dl, const string& 
     StringMap params;
     getParams_client(params, dl);
     params[_("Status")] = reason;
-    params["Sort Order"] = "w" + params[_("User")];
-    params["Failed"] = "1";
+    params[_("Sort Order")] = "w" + params[_("User")];
+    params[_("Failed")] = "1";
     params[_("Speed")] = "-1";
     params[_("Time Left")] = "-1";
 
@@ -1033,8 +1033,8 @@ void Transfers::on(ConnectionManagerListener::Failed, ConnectionQueueItem* cqi, 
     StringMap params;
     getParams_client(params, cqi);
     params[_("Status")] = reason;
-    params["Failed"] = "1";
-    params["Sort Order"] = "w" + params[_("User")];
+    params[_("Failed")] = "1";
+    params[_("Sort Order")] = "w" + params[_("User")];
     params[_("Speed")] = "-1";
     params[_("Time Left")] = "-1";
 
@@ -1052,7 +1052,7 @@ void Transfers::on(ConnectionManagerListener::StatusChanged, ConnectionQueueItem
         params[_("Status")] = _("Connecting");
     else
         params[_("Status")] = _("Waiting to retry");
-    params["Sort Order"] = "w" + params[_("User")];
+    params[_("Sort Order")] = "w" + params[_("User")];
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
     F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, cqi->getDownload(), Sound::NONE);
@@ -1093,9 +1093,9 @@ void Transfers::on(UploadManagerListener::Starting, Upload* ul) throw()
 
     getParams_client(params, ul);
     params[_("Status")] = _("Upload starting...");
-    params["Sort Order"] = "u" + params[_("User")];
-    params["Failed"] = "0";
-    params["tmpTarget"] = "none"; //fix open 'tmp' file
+    params[_("Sort Order")] = "u" + params[_("User")];
+    params[_("Failed")] = "0";
+    params[_("tmpTarget")] = _("none"); //fix open 'tmp' file
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
     F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, FALSE, Sound::NONE);
@@ -1123,7 +1123,7 @@ void Transfers::on(UploadManagerListener::Tick, const UploadList& uls) throw()
             stream << _("[Z]");
 
         stream << setiosflags(ios::fixed) << setprecision(1);
-        stream << " " << _("Uploaded ") << Util::formatBytes(ul->getPos()) << " (" << params["Progress"]
+        stream << " " << _("Uploaded ") << Util::formatBytes(ul->getPos()) << " (" << params[_("Progress")]
         << "%) in " << Util::formatSeconds((GET_TICK() - ul->getStart()) / 1000);
         params[_("Status")] = stream.str();
 
@@ -1139,7 +1139,7 @@ void Transfers::on(UploadManagerListener::Complete, Upload* ul) throw()
 
     getParams_client(params, ul);
     params[_("Status")] = _("Upload complete...");
-    params["Sort Order"] = "w" + params[_("User")];
+    params[_("Sort Order")] = "w" + params[_("User")];
     params[_("Speed")] = "-1";
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
@@ -1152,8 +1152,8 @@ void Transfers::on(UploadManagerListener::Failed, Upload* ul, const string& reas
     StringMap params;
     getParams_client(params, ul);
     params[_("Status")] = reason;
-    params["Sort Order"] = "w" + params[_("User")];
-    params["Failed"] = "1";
+    params[_("Sort Order")] = "w" + params[_("User")];
+    params[_("Failed")] = "1";
     params[_("Speed")] = "-1";
     params[_("Time Left")] = "-1";
 
