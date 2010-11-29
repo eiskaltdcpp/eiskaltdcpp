@@ -182,7 +182,7 @@ extern void startup(void (*f)(void*, const string&), void* p);
 extern void shutdown();
 
 #ifdef BUILDING_DCPP
-#define PACKAGE "libdcpp"
+#define PACKAGE "libeiskaltdcpp"
 #define LOCALEDIR LOCALE_DIR
 #define _(String) dgettext(PACKAGE, String)
 #define gettext_noop(String) String
