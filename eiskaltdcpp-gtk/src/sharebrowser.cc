@@ -494,8 +494,8 @@ void ShareBrowser::popupFileMenu_gui()
         if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fileStore), &iter, path))
         {
             string filepath;
-            string fileOrder = fileView.getString(&iter, "File Order");
-            gpointer ptr = fileView.getValue<gpointer>(&iter, "DL File");
+            string fileOrder = fileView.getString(&iter, _("File Order"));
+            gpointer ptr = fileView.getValue<gpointer>(&iter, _("DL File"));
 
             if (fileOrder[0] == 'd')
             {
