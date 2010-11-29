@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-29 01:26+0200\n"
+"POT-Creation-Date: 2010-11-29 02:04+0200\n"
 "PO-Revision-Date: 2010-11-29 01:51+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -211,42 +211,42 @@ msgstr "Соединения не обрабатываются - пожалуй�
 msgid "Sent "
 msgstr "Отправлено "
 
-#: ../Util.cpp:485
+#: ../Util.cpp:492
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:487
+#: ../Util.cpp:494
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:489
+#: ../Util.cpp:496
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:491
+#: ../Util.cpp:498
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:493
+#: ../Util.cpp:500
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:495
+#: ../Util.cpp:502
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:525
+#: ../Util.cpp:532
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:529
+#: ../Util.cpp:536
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"

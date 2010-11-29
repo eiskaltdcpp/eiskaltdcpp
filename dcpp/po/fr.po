@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-29 01:26+0200\n"
+"POT-Creation-Date: 2010-11-29 02:04+0200\n"
 "PO-Revision-Date: 2009-02-22 14:17+0000\n"
 "Last-Translator: poy <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -212,42 +212,42 @@ msgstr "Échec dans l'écoute des connexions - veuillez relancer %1%"
 msgid "Sent "
 msgstr ""
 
-#: ../Util.cpp:485
+#: ../Util.cpp:492
 #, c-format
 msgid "%d B"
 msgstr "%d o"
 
-#: ../Util.cpp:487
+#: ../Util.cpp:494
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f Kio"
 
-#: ../Util.cpp:489
+#: ../Util.cpp:496
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f Mio"
 
-#: ../Util.cpp:491
+#: ../Util.cpp:498
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f Gio"
 
-#: ../Util.cpp:493
+#: ../Util.cpp:500
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f Tio"
 
-#: ../Util.cpp:495
+#: ../Util.cpp:502
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f Pio"
 
-#: ../Util.cpp:525
+#: ../Util.cpp:532
 #, c-format
 msgid "%s B"
 msgstr "%s o"
 
-#: ../Util.cpp:529
+#: ../Util.cpp:536
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld o"

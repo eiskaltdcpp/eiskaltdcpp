@@ -580,22 +580,22 @@ Kapcsolók:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation type="obsolete">Befejezett feltöltések</translation>
+        <translation type="unfinished">Befejezett feltöltések</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation type="obsolete">Befejezett letöltések</translation>
+        <translation type="unfinished">Befejezett letöltések</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation type="obsolete">Fájl megnyitása</translation>
+        <translation type="unfinished">Fájl megnyitása</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation type="obsolete">Könyvtár megnyitása</translation>
+        <translation type="unfinished">Könyvtár megnyitása</translation>
     </message>
 </context>
 <context>

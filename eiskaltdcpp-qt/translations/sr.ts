@@ -543,22 +543,22 @@ Keys:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation type="obsolete">Završena otpremanja</translation>
+        <translation type="unfinished">Završena otpremanja</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation type="obsolete">Završena preuzimanja</translation>
+        <translation type="unfinished">Završena preuzimanja</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation type="obsolete">Otvori fajl</translation>
+        <translation type="unfinished">Otvori fajl</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation type="obsolete">Otvori fasciklu</translation>
+        <translation type="unfinished">Otvori fasciklu</translation>
     </message>
 </context>
 <context>

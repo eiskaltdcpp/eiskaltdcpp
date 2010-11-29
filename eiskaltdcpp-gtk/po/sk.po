@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-29 01:26+0200\n"
+"POT-Creation-Date: 2010-11-29 02:04+0200\n"
 "PO-Revision-Date: 2010-10-31 18:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: Slovenčina <kde-i18n-doc@kde.org>\n"
@@ -27,8 +27,8 @@ msgstr "Fronta sťahovania"
 #: ../src/downloadqueue.cc:306 ../src/downloadqueue.cc:333
 #: ../src/downloadqueue.cc:350 ../src/downloadqueue.cc:450
 #: ../src/sharebrowser.cc:99 ../src/sharebrowser.cc:216
-#: ../src/sharebrowser.cc:235 ../src/sharebrowser.cc:548
-#: ../src/sharebrowser.cc:599
+#: ../src/sharebrowser.cc:235 ../src/sharebrowser.cc:565
+#: ../src/sharebrowser.cc:617
 msgid "Dir"
 msgstr ""
 
@@ -41,8 +41,8 @@ msgstr ""
 #: ../src/transfers.cc:718 ../src/settingsdialog.cc:333
 #: ../src/settingsdialog.cc:1130 ../src/settingsdialog.cc:2047
 #: ../src/settingsdialog.cc:2081 ../src/settingsdialog.cc:2158
-#: ../src/settingsdialog.cc:2194 ../src/search.cc:97 ../src/search.cc:612
-#: ../src/search.cc:647 ../src/search.cc:1624 ../src/search.cc:1636
+#: ../src/settingsdialog.cc:2194 ../src/search.cc:97 ../src/search.cc:613
+#: ../src/search.cc:648 ../src/search.cc:1629 ../src/search.cc:1641
 #: ../src/sharebrowser.cc:75 ../src/sharebrowser.cc:81
 #: ../src/sharebrowser.cc:99 ../src/sharebrowser.cc:101
 #: ../src/sharebrowser.cc:239 ../src/sharebrowser.cc:284
@@ -64,11 +64,12 @@ msgstr "Ikona"
 #: ../src/downloadqueue.cc:1265 ../src/transfers.cc:64 ../src/transfers.cc:716
 #: ../src/transfers.cc:882 ../src/finishedtransfers.cc:58
 #: ../src/finishedtransfers.cc:217 ../src/finishedtransfers.cc:459
-#: ../src/finishedtransfers.cc:617 ../src/search.cc:90 ../src/search.cc:605
-#: ../src/search.cc:682 ../src/search.cc:816 ../src/search.cc:870
-#: ../src/search.cc:1183 ../src/search.cc:1222 ../src/search.cc:1279
-#: ../src/search.cc:1341 ../src/search.cc:1615 ../src/search.cc:1631
-#: ../src/search.cc:1632 ../src/search.cc:1633 ../src/search.cc:1894
+#: ../src/finishedtransfers.cc:617 ../src/search.cc:90 ../src/search.cc:345
+#: ../src/search.cc:606 ../src/search.cc:683 ../src/search.cc:817
+#: ../src/search.cc:871 ../src/search.cc:1184 ../src/search.cc:1223
+#: ../src/search.cc:1280 ../src/search.cc:1342 ../src/search.cc:1620
+#: ../src/search.cc:1636 ../src/search.cc:1637 ../src/search.cc:1638
+#: ../src/search.cc:1899
 msgid "Path"
 msgstr "Cesta"
 
@@ -90,17 +91,17 @@ msgstr "Počet"
 #: ../src/transfers.cc:877 ../src/transfers.cc:879
 #: ../src/finishedtransfers.cc:57 ../src/finishedtransfers.cc:216
 #: ../src/finishedtransfers.cc:615 ../src/search.cc:86 ../src/search.cc:119
-#: ../src/search.cc:344 ../src/search.cc:602 ../src/search.cc:643
-#: ../src/search.cc:648 ../src/search.cc:813 ../src/search.cc:861
-#: ../src/search.cc:871 ../src/search.cc:1184 ../src/search.cc:1223
-#: ../src/search.cc:1280 ../src/search.cc:1580 ../src/search.cc:1610
-#: ../src/search.cc:1614 ../src/search.cc:1618 ../src/search.cc:1619
-#: ../src/search.cc:1630 ../src/search.cc:1634 ../src/search.cc:1893
+#: ../src/search.cc:344 ../src/search.cc:603 ../src/search.cc:644
+#: ../src/search.cc:649 ../src/search.cc:814 ../src/search.cc:862
+#: ../src/search.cc:872 ../src/search.cc:1185 ../src/search.cc:1224
+#: ../src/search.cc:1281 ../src/search.cc:1585 ../src/search.cc:1615
+#: ../src/search.cc:1619 ../src/search.cc:1623 ../src/search.cc:1624
+#: ../src/search.cc:1635 ../src/search.cc:1639 ../src/search.cc:1898
 #: ../src/sharebrowser.cc:75 ../src/sharebrowser.cc:91
 #: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:278
-#: ../src/sharebrowser.cc:308 ../src/sharebrowser.cc:497
-#: ../src/sharebrowser.cc:589 ../src/sharebrowser.cc:952
-#: ../src/sharebrowser.cc:986
+#: ../src/sharebrowser.cc:308 ../src/sharebrowser.cc:512
+#: ../src/sharebrowser.cc:607 ../src/sharebrowser.cc:970
+#: ../src/sharebrowser.cc:1004
 msgid "Filename"
 msgstr "Názov súboru "
 
@@ -125,9 +126,9 @@ msgstr "Stav"
 #: ../src/transfers.cc:717 ../src/transfers.cc:729 ../src/transfers.cc:883
 #: ../src/settingsdialog.cc:901 ../src/settingsdialog.cc:907
 #: ../src/settingsdialog.cc:3459 ../src/settingsdialog.cc:3528
-#: ../src/search.cc:89 ../src/search.cc:116 ../src/search.cc:604
-#: ../src/search.cc:687 ../src/search.cc:819 ../src/search.cc:1622
-#: ../src/search.cc:1640 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
+#: ../src/search.cc:89 ../src/search.cc:116 ../src/search.cc:605
+#: ../src/search.cc:688 ../src/search.cc:820 ../src/search.cc:1627
+#: ../src/search.cc:1645 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:285 ../src/sharebrowser.cc:316
 #: ../glade/search.glade:60 ../glade/mainwindow.glade:1282
 msgid "Size"
@@ -160,8 +161,8 @@ msgstr "Užívatelia"
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
 #: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386
 #: ../src/downloadqueue.cc:1296 ../src/downloadqueue.cc:1301
-#: ../src/search.cc:94 ../src/search.cc:117 ../src/search.cc:609
-#: ../src/search.cc:686 ../src/search.cc:1623 ../src/search.cc:1641
+#: ../src/search.cc:94 ../src/search.cc:117 ../src/search.cc:610
+#: ../src/search.cc:687 ../src/search.cc:1628 ../src/search.cc:1646
 #: ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
 #: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317
 msgid "Exact Size"
@@ -186,13 +187,13 @@ msgstr "Pridané"
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:287
 #: ../src/downloadqueue.cc:394 ../src/downloadqueue.cc:722
 #: ../src/downloadqueue.cc:750 ../src/downloadqueue.cc:1376
-#: ../src/search.cc:96 ../src/search.cc:346 ../src/search.cc:350
-#: ../src/search.cc:356 ../src/search.cc:611 ../src/search.cc:695
-#: ../src/search.cc:825 ../src/search.cc:876 ../src/search.cc:1145
-#: ../src/search.cc:1310 ../src/search.cc:1582 ../src/search.cc:1654
+#: ../src/search.cc:96 ../src/search.cc:347 ../src/search.cc:351
+#: ../src/search.cc:357 ../src/search.cc:612 ../src/search.cc:696
+#: ../src/search.cc:826 ../src/search.cc:877 ../src/search.cc:1146
+#: ../src/search.cc:1311 ../src/search.cc:1587 ../src/search.cc:1659
 #: ../src/sharebrowser.cc:78 ../src/sharebrowser.cc:290
-#: ../src/sharebrowser.cc:320 ../src/sharebrowser.cc:499
-#: ../src/sharebrowser.cc:954 ../src/sharebrowser.cc:988
+#: ../src/sharebrowser.cc:320 ../src/sharebrowser.cc:515
+#: ../src/sharebrowser.cc:972 ../src/sharebrowser.cc:1006
 #: ../glade/mainwindow.glade:1295
 msgid "TTH"
 msgstr ""
@@ -344,16 +345,16 @@ msgstr "Otvoriť priečinok"
 #: ../src/favoritehubs.cc:496 ../src/favoritehubs.cc:510
 #: ../src/favoritehubs.cc:530 ../src/finishedtransfers.cc:78
 #: ../src/finishedtransfers.cc:179 ../src/finishedtransfers.cc:637
-#: ../src/search.cc:87 ../src/search.cc:601 ../src/search.cc:667
-#: ../src/search.cc:698 ../src/search.cc:828 ../src/search.cc:1645
+#: ../src/search.cc:87 ../src/search.cc:602 ../src/search.cc:668
+#: ../src/search.cc:699 ../src/search.cc:829 ../src/search.cc:1650
 #: ../glade/settingsdialog.glade:131
 msgid "Nick"
 msgstr "Prezývka"
 
 #: ../src/hub.cc:72 ../src/hub.cc:363 ../src/hub.cc:380 ../src/hub.cc:400
 #: ../src/hub.cc:448 ../src/publichubs.cc:46 ../src/publichubs.cc:161
-#: ../src/search.cc:103 ../src/search.cc:618 ../src/search.cc:1625
-#: ../src/search.cc:1637 ../src/search.cc:1887
+#: ../src/search.cc:103 ../src/search.cc:619 ../src/search.cc:1630
+#: ../src/search.cc:1642 ../src/search.cc:1892
 msgid "Shared"
 msgstr "Zdieľané"
 
@@ -376,8 +377,8 @@ msgid "Tag"
 msgstr "Označiť"
 
 #: ../src/hub.cc:75 ../src/hub.cc:383 ../src/hub.cc:403 ../src/search.cc:92
-#: ../src/search.cc:607 ../src/search.cc:692 ../src/search.cc:822
-#: ../src/search.cc:1648 ../glade/settingsdialog.glade:753
+#: ../src/search.cc:608 ../src/search.cc:693 ../src/search.cc:823
+#: ../src/search.cc:1653 ../glade/settingsdialog.glade:753
 msgid "Connection"
 msgstr "Spojenie"
 
@@ -804,11 +805,11 @@ msgstr "Naposledy videný"
 #: ../src/finishedtransfers.cc:133 ../src/finishedtransfers.cc:166
 #: ../src/finishedtransfers.cc:184 ../src/finishedtransfers.cc:508
 #: ../src/finishedtransfers.cc:530 ../src/finishedtransfers.cc:646
-#: ../src/search.cc:102 ../src/search.cc:343 ../src/search.cc:617
-#: ../src/search.cc:874 ../src/search.cc:1143 ../src/search.cc:1182
-#: ../src/search.cc:1221 ../src/search.cc:1278 ../src/search.cc:1340
-#: ../src/search.cc:1374 ../src/search.cc:1406 ../src/search.cc:1441
-#: ../src/search.cc:1473 ../src/search.cc:1508 ../src/search.cc:1646
+#: ../src/search.cc:102 ../src/search.cc:343 ../src/search.cc:618
+#: ../src/search.cc:875 ../src/search.cc:1144 ../src/search.cc:1183
+#: ../src/search.cc:1222 ../src/search.cc:1279 ../src/search.cc:1341
+#: ../src/search.cc:1375 ../src/search.cc:1407 ../src/search.cc:1442
+#: ../src/search.cc:1474 ../src/search.cc:1509 ../src/search.cc:1651
 msgid "CID"
 msgstr ""
 
@@ -847,8 +848,8 @@ msgstr "Čas"
 #: ../src/settingsdialog.cc:3631 ../src/settingsdialog.cc:3722
 #: ../src/settingsdialog.cc:3745 ../src/settingsdialog.cc:3764
 #: ../src/finishedtransfers.cc:79 ../src/finishedtransfers.cc:180
-#: ../src/finishedtransfers.cc:638 ../src/search.cc:93 ../src/search.cc:608
-#: ../src/search.cc:702 ../src/search.cc:831 ../src/search.cc:1649
+#: ../src/finishedtransfers.cc:638 ../src/search.cc:93 ../src/search.cc:609
+#: ../src/search.cc:703 ../src/search.cc:832 ../src/search.cc:1654
 msgid "Hub"
 msgstr "Hub"
 
@@ -983,7 +984,7 @@ msgid "Speed"
 msgstr "Rýchlosť"
 
 #: ../src/transfers.cc:65 ../src/transfers.cc:889 ../src/search.cc:95
-#: ../src/search.cc:610 ../src/search.cc:1651
+#: ../src/search.cc:611 ../src/search.cc:1656
 msgid "IP"
 msgstr ""
 
@@ -1032,11 +1033,11 @@ msgstr "Sťahovanie"
 #: ../src/transfers.cc:75 ../src/transfers.cc:143 ../src/transfers.cc:181
 #: ../src/transfers.cc:213 ../src/transfers.cc:306 ../src/transfers.cc:500
 #: ../src/transfers.cc:864 ../src/transfers.cc:892 ../src/search.cc:101
-#: ../src/search.cc:342 ../src/search.cc:616 ../src/search.cc:703
-#: ../src/search.cc:877 ../src/search.cc:1146 ../src/search.cc:1185
-#: ../src/search.cc:1224 ../src/search.cc:1281 ../src/search.cc:1342
-#: ../src/search.cc:1375 ../src/search.cc:1407 ../src/search.cc:1474
-#: ../src/search.cc:1650 ../src/search.cc:1865
+#: ../src/search.cc:342 ../src/search.cc:617 ../src/search.cc:704
+#: ../src/search.cc:878 ../src/search.cc:1147 ../src/search.cc:1186
+#: ../src/search.cc:1225 ../src/search.cc:1282 ../src/search.cc:1343
+#: ../src/search.cc:1376 ../src/search.cc:1408 ../src/search.cc:1475
+#: ../src/search.cc:1655 ../src/search.cc:1870
 msgid "Hub URL"
 msgstr ""
 
@@ -1060,7 +1061,7 @@ msgstr "Čakanie na slot"
 msgid "%) from "
 msgstr "%) z"
 
-#: ../src/transfers.cc:581 ../src/search.cc:666
+#: ../src/transfers.cc:581 ../src/search.cc:667
 msgid " user(s)"
 msgstr "užívateľ(ia)"
 
@@ -1200,7 +1201,7 @@ msgstr "Použiť"
 
 #: ../src/settingsdialog.cc:296 ../src/settingsdialog.cc:970
 #: ../src/settingsdialog.cc:1228 ../src/settingsdialog.cc:2599
-#: ../src/settingsdialog.cc:2615 ../src/UserCommandMenu.cc:67
+#: ../src/settingsdialog.cc:2615 ../src/UserCommandMenu.cc:68
 msgid "File"
 msgstr "Súbor"
 
@@ -1221,8 +1222,8 @@ msgstr "Obľúbené meno"
 #: ../src/settingsdialog.cc:900 ../src/settingsdialog.cc:1229
 #: ../src/settingsdialog.cc:3409 ../src/settingsdialog.cc:3429
 #: ../src/settingsdialog.cc:3458 ../src/settingsdialog.cc:3472
-#: ../src/settingsdialog.cc:3527 ../src/search.cc:1635
-#: ../src/UserCommandMenu.cc:65 ../src/sharebrowser.cc:288
+#: ../src/settingsdialog.cc:3527 ../src/search.cc:1640
+#: ../src/UserCommandMenu.cc:66 ../src/sharebrowser.cc:288
 #: ../glade/settingsdialog.glade:4035
 msgid "Directory"
 msgstr "Priečinok"
@@ -1327,9 +1328,9 @@ msgstr "Virtuálne meno"
 #: ../src/settingsdialog.cc:902 ../src/settingsdialog.cc:907
 #: ../src/settingsdialog.cc:3460 ../src/settingsdialog.cc:3529
 #: ../src/search.cc:98 ../src/search.cc:116 ../src/search.cc:117
-#: ../src/search.cc:345 ../src/search.cc:614 ../src/search.cc:688
-#: ../src/search.cc:875 ../src/search.cc:1144 ../src/search.cc:1581
-#: ../src/search.cc:1652 ../src/search.cc:1925
+#: ../src/search.cc:346 ../src/search.cc:615 ../src/search.cc:689
+#: ../src/search.cc:876 ../src/search.cc:1145 ../src/search.cc:1586
+#: ../src/search.cc:1657 ../src/search.cc:1930
 #, fuzzy
 msgid "Real Size"
 msgstr "Max veľkosť"
@@ -1410,8 +1411,8 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:959 ../src/settingsdialog.cc:1223
 #: ../src/settingsdialog.cc:1281 ../src/search.cc:41 ../src/search.cc:72
-#: ../src/search.cc:79 ../src/search.cc:231 ../src/search.cc:428
-#: ../src/search.cc:1065 ../src/search.cc:1066 ../src/search.cc:1872
+#: ../src/search.cc:79 ../src/search.cc:231 ../src/search.cc:429
+#: ../src/search.cc:1066 ../src/search.cc:1067 ../src/search.cc:1877
 #: ../glade/searchspy.glade:184 ../glade/searchspy.glade:249
 #: ../glade/mainwindow.glade:231 ../glade/mainwindow.glade:1783
 #: ../glade/mainwindow.glade:1956 ../glade/settingsdialog.glade:5762
@@ -2135,7 +2136,7 @@ msgstr ""
 msgid "Files"
 msgstr "Súbory"
 
-#: ../src/finishedtransfers.cc:243 ../src/sharebrowser.cc:1038
+#: ../src/finishedtransfers.cc:243 ../src/sharebrowser.cc:1056
 msgid " files"
 msgstr "súbor"
 
@@ -2204,47 +2205,47 @@ msgid "Download finished: "
 msgstr "Sťahovanie ukončené"
 
 #: ../src/search.cc:74 ../src/search.cc:233 ../src/search.cc:245
-#: ../src/search.cc:249 ../src/search.cc:429 ../src/search.cc:1870
+#: ../src/search.cc:249 ../src/search.cc:430 ../src/search.cc:1875
 msgid "Url"
 msgstr ""
 
-#: ../src/search.cc:88 ../src/search.cc:606 ../src/search.cc:707
-#: ../src/search.cc:834 ../src/search.cc:1619 ../src/search.cc:1620
-#: ../src/search.cc:1621 ../src/search.cc:1635 ../src/sharebrowser.cc:77
+#: ../src/search.cc:88 ../src/search.cc:607 ../src/search.cc:708
+#: ../src/search.cc:835 ../src/search.cc:1624 ../src/search.cc:1625
+#: ../src/search.cc:1626 ../src/search.cc:1640 ../src/sharebrowser.cc:77
 #: ../src/sharebrowser.cc:288 ../src/sharebrowser.cc:309
 msgid "Type"
 msgstr "Typ"
 
-#: ../src/search.cc:91 ../src/search.cc:118 ../src/search.cc:603
-#: ../src/search.cc:1647
+#: ../src/search.cc:91 ../src/search.cc:118 ../src/search.cc:604
+#: ../src/search.cc:1652
 msgid "Slots"
 msgstr "Sloty"
 
-#: ../src/search.cc:99 ../src/search.cc:118 ../src/search.cc:615
-#: ../src/search.cc:1657
+#: ../src/search.cc:99 ../src/search.cc:118 ../src/search.cc:616
+#: ../src/search.cc:1662
 #, fuzzy
 msgid "Slots Order"
 msgstr "Sloty"
 
-#: ../src/search.cc:100 ../src/search.cc:119 ../src/search.cc:613
-#: ../src/search.cc:679 ../src/search.cc:1618 ../src/search.cc:1634
+#: ../src/search.cc:100 ../src/search.cc:119 ../src/search.cc:614
+#: ../src/search.cc:680 ../src/search.cc:1623 ../src/search.cc:1639
 #: ../src/sharebrowser.cc:83 ../src/sharebrowser.cc:90
 #: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:279
 #: ../src/sharebrowser.cc:310 ../src/sharebrowser.cc:374
-#: ../src/sharebrowser.cc:416 ../src/sharebrowser.cc:586
-#: ../src/sharebrowser.cc:588 ../src/sharebrowser.cc:924
+#: ../src/sharebrowser.cc:416 ../src/sharebrowser.cc:604
+#: ../src/sharebrowser.cc:606 ../src/sharebrowser.cc:942
 #, fuzzy
 msgid "File Order"
 msgstr "Typ súboru"
 
-#: ../src/search.cc:104 ../src/search.cc:619 ../src/search.cc:1658
-#: ../src/search.cc:1881
+#: ../src/search.cc:104 ../src/search.cc:620 ../src/search.cc:1663
+#: ../src/search.cc:1886
 #, fuzzy
 msgid "Free Slots"
 msgstr "Sloty"
 
-#: ../src/search.cc:329 ../src/search.cc:399 ../src/sharebrowser.cc:480
-#: ../src/sharebrowser.cc:532 ../glade/mainwindow.glade:1457
+#: ../src/search.cc:329 ../src/search.cc:400 ../src/sharebrowser.cc:480
+#: ../src/sharebrowser.cc:549 ../glade/mainwindow.glade:1457
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2739 ../glade/settingsdialog.glade:4052
 #: ../glade/settingsdialog.glade:4978 ../glade/settingsdialog.glade:4993
@@ -2253,41 +2254,41 @@ msgstr "Sloty"
 msgid "Browse..."
 msgstr "Prehľadávať..."
 
-#: ../src/search.cc:527
+#: ../src/search.cc:528
 msgid "Searching for "
 msgstr "Hľadanie"
 
-#: ../src/search.cc:528
+#: ../src/search.cc:529
 msgid "0 items"
 msgstr "0 položiek"
 
-#: ../src/search.cc:529
+#: ../src/search.cc:530
 msgid "0 filtered"
 msgstr "0 filtrovaných"
 
-#: ../src/search.cc:534
+#: ../src/search.cc:535
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr ""
 
-#: ../src/search.cc:543
+#: ../src/search.cc:544
 msgid "Searching too soon, retry in "
 msgstr "Hľadáte príliľ rýchlo, skúste neskôr"
 
-#: ../src/search.cc:543
+#: ../src/search.cc:544
 #, fuzzy
 msgid " s"
 msgstr "s"
 
-#: ../src/search.cc:626
+#: ../src/search.cc:627
 msgid " items"
 msgstr "položky"
 
-#: ../src/search.cc:1825
+#: ../src/search.cc:1830
 msgid " filtered"
 msgstr "filtrované"
 
-#: ../src/search.cc:1838
+#: ../src/search.cc:1843
 msgid " dropped"
 msgstr " dropped"
 
@@ -2322,25 +2323,25 @@ msgstr "Zoznam:"
 
 #: ../src/sharebrowser.cc:80 ../src/sharebrowser.cc:289
 #: ../src/sharebrowser.cc:319 ../src/sharebrowser.cc:373
-#: ../src/sharebrowser.cc:415 ../src/sharebrowser.cc:928
-#: ../src/sharebrowser.cc:1058
+#: ../src/sharebrowser.cc:415 ../src/sharebrowser.cc:946
+#: ../src/sharebrowser.cc:1076
 #, fuzzy
 msgid "DL File"
 msgstr "Súbor"
 
 #: ../src/sharebrowser.cc:82 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:95 ../src/sharebrowser.cc:287
-#: ../src/sharebrowser.cc:318 ../src/sharebrowser.cc:498
-#: ../src/sharebrowser.cc:953 ../src/sharebrowser.cc:987
+#: ../src/sharebrowser.cc:318 ../src/sharebrowser.cc:514
+#: ../src/sharebrowser.cc:971 ../src/sharebrowser.cc:1005
 #, fuzzy
 msgid "Size Order"
 msgstr "Veľkosť:"
 
 #: ../src/sharebrowser.cc:100 ../src/sharebrowser.cc:238
-#: ../src/sharebrowser.cc:382 ../src/sharebrowser.cc:606
-#: ../src/sharebrowser.cc:629 ../src/sharebrowser.cc:737
-#: ../src/sharebrowser.cc:742 ../src/sharebrowser.cc:771
-#: ../src/sharebrowser.cc:776
+#: ../src/sharebrowser.cc:382 ../src/sharebrowser.cc:624
+#: ../src/sharebrowser.cc:647 ../src/sharebrowser.cc:755
+#: ../src/sharebrowser.cc:760 ../src/sharebrowser.cc:789
+#: ../src/sharebrowser.cc:794
 msgid "DL Dir"
 msgstr ""
 
@@ -2364,19 +2365,19 @@ msgstr "Položky: 0"
 msgid "Size: 0 B"
 msgstr "Veľkosť: 0 B"
 
-#: ../src/sharebrowser.cc:611 ../src/sharebrowser.cc:654
+#: ../src/sharebrowser.cc:629 ../src/sharebrowser.cc:672
 msgid "Found a match"
 msgstr "Zhoda nájdená"
 
-#: ../src/sharebrowser.cc:623 ../src/sharebrowser.cc:815
+#: ../src/sharebrowser.cc:641 ../src/sharebrowser.cc:833
 msgid "No matches"
 msgstr "Bez zhody"
 
-#: ../src/sharebrowser.cc:826
+#: ../src/sharebrowser.cc:844
 msgid "No search text entered"
 msgstr "Nebol zadaný text pre vyhľadávanie"
 
-#: ../src/sharebrowser.cc:1038
+#: ../src/sharebrowser.cc:1056
 msgid "Matched "
 msgstr "Zhodný"
 

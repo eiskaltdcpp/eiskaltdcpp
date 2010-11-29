@@ -628,22 +628,22 @@ Keys:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation type="obsolete">Envois terminés</translation>
+        <translation type="unfinished">Envois terminés</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation type="obsolete">Téléchargements terminés</translation>
+        <translation type="unfinished">Téléchargements terminés</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation type="obsolete">Ouvrir le fichier</translation>
+        <translation type="unfinished">Ouvrir le fichier</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation type="obsolete">Ouvrir le dossier</translation>
+        <translation type="unfinished">Ouvrir le dossier</translation>
     </message>
 </context>
 <context>

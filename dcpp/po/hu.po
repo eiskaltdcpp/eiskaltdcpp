@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-29 01:26+0200\n"
+"POT-Creation-Date: 2010-11-29 02:04+0200\n"
 "PO-Revision-Date: 2010-10-27 12:58+0200\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -221,42 +221,42 @@ msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 msgid "Sent "
 msgstr ""
 
-#: ../Util.cpp:485
+#: ../Util.cpp:492
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:487
+#: ../Util.cpp:494
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:489
+#: ../Util.cpp:496
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:491
+#: ../Util.cpp:498
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:493
+#: ../Util.cpp:500
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:495
+#: ../Util.cpp:502
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:525
+#: ../Util.cpp:532
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:529
+#: ../Util.cpp:536
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
