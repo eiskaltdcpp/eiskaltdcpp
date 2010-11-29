@@ -42,13 +42,13 @@ FavoriteUsers::FavoriteUsers():
 	// Initialize favorite users list treeview
 	favoriteUserView.setView(GTK_TREE_VIEW(getWidget("favoriteUserView")), TRUE, "favoriteusers");
 	favoriteUserView.insertColumn(_("Auto grant slot"), G_TYPE_BOOLEAN, TreeView::BOOL, 100);
-	favoriteUserView.insertColumn(_("Nick"), G_TYPE_STRING, TreeView::ICON_STRING, 100, "Icon");
+	favoriteUserView.insertColumn(_("Nick"), G_TYPE_STRING, TreeView::ICON_STRING, 100, _("Icon"));
 	favoriteUserView.insertColumn(_("Hub (last seen in, if offline)"), G_TYPE_STRING, TreeView::STRING, 200);
 	favoriteUserView.insertColumn(_("Time last seen"), G_TYPE_STRING, TreeView::STRING, 120);
 	favoriteUserView.insertColumn(_("Description"), G_TYPE_STRING, TreeView::STRING, 100);
-	favoriteUserView.insertColumn("CID", G_TYPE_STRING, TreeView::STRING, 350);
-	favoriteUserView.insertHiddenColumn("URL", G_TYPE_STRING);
-	favoriteUserView.insertHiddenColumn("Icon", G_TYPE_STRING);
+	favoriteUserView.insertColumn(_("CID"), G_TYPE_STRING, TreeView::STRING, 350);
+	favoriteUserView.insertHiddenColumn(_("URL"), G_TYPE_STRING);
+	favoriteUserView.insertHiddenColumn(_("Icon"), G_TYPE_STRING);
 	favoriteUserView.finalize();
 
 	favoriteUserStore = gtk_list_store_newv(favoriteUserView.getColCount(), favoriteUserView.getGTypes());
@@ -110,9 +110,9 @@ void FavoriteUsers::show()
 			favoriteUserView.col(_("Hub (last seen in, if offline)")), hub.c_str(),
 			favoriteUserView.col(_("Time last seen")), seen.c_str(),
 			favoriteUserView.col(_("Description")), user.getDescription().c_str(),
-			favoriteUserView.col("CID"), cid.c_str(),
-			favoriteUserView.col("URL"), user.getUrl().c_str(),
-			favoriteUserView.col("Icon"), "eiskaltdcpp-normal",
+			favoriteUserView.col(_("CID")), cid.c_str(),
+			favoriteUserView.col(_("URL")), user.getUrl().c_str(),
+			favoriteUserView.col(_("Icon")), "eiskaltdcpp-normal",
 			-1);
 
 		userIters.insert(UserIters::value_type(cid, iter));
@@ -209,8 +209,8 @@ void FavoriteUsers::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
 			if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
 			{
 				F3 *func = new F3(fu, &FavoriteUsers::getFileList_client,
-					fu->favoriteUserView.getString(&iter, "CID"),
-					fu->favoriteUserView.getString(&iter, "URL"),
+					fu->favoriteUserView.getString(&iter, _("CID")),
+					fu->favoriteUserView.getString(&iter, _("URL")),
 					FALSE);
 				WulforManager::get()->dispatchClientFunc(func);
 			}
@@ -238,8 +238,8 @@ void FavoriteUsers::onMatchQueueItemClicked_gui(GtkMenuItem *item, gpointer data
 			if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
 			{
 				F3 *func = new F3(fu, &FavoriteUsers::getFileList_client,
-					fu->favoriteUserView.getString(&iter, "CID"),
-					fu->favoriteUserView.getString(&iter, "URL"),
+					fu->favoriteUserView.getString(&iter, _("CID")),
+					fu->favoriteUserView.getString(&iter, _("URL")),
 					TRUE);
 				WulforManager::get()->dispatchClientFunc(func);
 			}
@@ -266,8 +266,8 @@ void FavoriteUsers::onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data)
 			if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
 			{
 				WulforManager::get()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN,
-					fu->favoriteUserView.getString(&iter, "CID"),
-					fu->favoriteUserView.getString(&iter, "URL"));
+					fu->favoriteUserView.getString(&iter, _("CID")),
+					fu->favoriteUserView.getString(&iter, _("URL")));
 			}
 			gtk_tree_path_free(path);
 		}
@@ -293,8 +293,8 @@ void FavoriteUsers::onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data)
 			if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
 			{
 				F2 *func = new F2(fu, &FavoriteUsers::grantSlot_client,
-					fu->favoriteUserView.getString(&iter, "CID"),
-					fu->favoriteUserView.getString(&iter, "URL"));
+					fu->favoriteUserView.getString(&iter, _("CID")),
+					fu->favoriteUserView.getString(&iter, _("URL")));
 				WulforManager::get()->dispatchClientFunc(func);
 			}
 			gtk_tree_path_free(path);
@@ -319,7 +319,7 @@ void FavoriteUsers::onConnectItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 			if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
 			{
-				WulforManager::get()->getMainWindow()->showHub_gui(fu->favoriteUserView.getString(&iter, "URL"));
+				WulforManager::get()->getMainWindow()->showHub_gui(fu->favoriteUserView.getString(&iter, _("URL")));
 			}
 			gtk_tree_path_free(path);
 		}
@@ -344,7 +344,7 @@ void FavoriteUsers::onRemoveFromQueueItemClicked_gui(GtkMenuItem *item, gpointer
 
 			if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
 			{
-				F1 *func = new F1(fu, &FavoriteUsers::removeUserFromQueue_client, fu->favoriteUserView.getString(&iter, "CID"));
+				F1 *func = new F1(fu, &FavoriteUsers::removeUserFromQueue_client, fu->favoriteUserView.getString(&iter, _("CID")));
 				WulforManager::get()->dispatchClientFunc(func);
 			}
 			gtk_tree_path_free(path);
@@ -371,7 +371,7 @@ void FavoriteUsers::onDescriptionItemClicked_gui(GtkMenuItem *item, gpointer dat
 			{
 				description = fu->favoriteUserView.getString(&iter, _("Description"));
 				nick = fu->favoriteUserView.getString(&iter, _("Nick"));
-				cid = fu->favoriteUserView.getString(&iter, "CID");
+				cid = fu->favoriteUserView.getString(&iter, _("CID"));
 			}
 			gtk_tree_path_free(path);
 			g_list_free(list);
@@ -422,7 +422,7 @@ void FavoriteUsers::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 			if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
 			{
-				params.insert(ParamMap::value_type(fu->favoriteUserView.getString(&iter, "CID"),
+				params.insert(ParamMap::value_type(fu->favoriteUserView.getString(&iter, _("CID")),
 											fu->favoriteUserView.getString(&iter, _("Nick"))));
 			}
 			gtk_tree_path_free(path);
@@ -466,7 +466,7 @@ void FavoriteUsers::onAutoGrantSlotToggled_gui(GtkCellRendererToggle *cell, gcha
 
 	if (gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
 	{
-		string cid = fu->favoriteUserView.getString(&iter, "CID");
+		string cid = fu->favoriteUserView.getString(&iter, _("CID"));
 		gboolean grant = fu->favoriteUserView.getValue<gboolean>(&iter, _("Auto grant slot"));
 		grant = !grant;
 		gtk_list_store_set(fu->favoriteUserStore, &iter, fu->favoriteUserView.col(_("Auto grant slot")), grant, -1);
@@ -569,24 +569,24 @@ bool FavoriteUsers::findUser_gui(const string &cid, GtkTreeIter *iter)
 
 void FavoriteUsers::updateFavoriteUser_gui(ParamMap params)
 {
-	const string &cid = params["CID"];
+	const string &cid = params[_("CID")];
 	GtkTreeIter iter;
 
 	if (findUser_gui(cid, &iter))
 	{
-		gtk_list_store_set(favoriteUserStore, &iter, favoriteUserView.col(_("Time last seen")), params["Time"].c_str(), -1);
+		gtk_list_store_set(favoriteUserStore, &iter, favoriteUserView.col(_("Time last seen")), params[_("Time")].c_str(), -1);
 	}
 	else
 	{
 		gtk_list_store_append(favoriteUserStore, &iter);
 		gtk_list_store_set(favoriteUserStore, &iter,
-			favoriteUserView.col(_("Nick")), params["Nick"].c_str(),
-			favoriteUserView.col(_("Hub (last seen in, if offline)")), params["Hub"].c_str(),
-			favoriteUserView.col(_("Time last seen")), params["Time"].c_str(),
-			favoriteUserView.col(_("Description")), params["Description"].c_str(),
-			favoriteUserView.col("CID"), cid.c_str(),
-			favoriteUserView.col("URL"), params["URL"].c_str(),
-			favoriteUserView.col("Icon"), "eiskaltdcpp-normal",
+			favoriteUserView.col(_("Nick")), params[_("Nick")].c_str(),
+			favoriteUserView.col(_("Hub (last seen in, if offline)")), params[_("Hub")].c_str(),
+			favoriteUserView.col(_("Time last seen")), params[_("Time")].c_str(),
+			favoriteUserView.col(_("Description")), params[_("Description")].c_str(),
+			favoriteUserView.col(_("CID")), cid.c_str(),
+			favoriteUserView.col(_("URL")), params[_("URL")].c_str(),
+			favoriteUserView.col(_("Icon")), "eiskaltdcpp-normal",
 			-1);
 
 		userIters.insert(UserIters::value_type(cid, iter));
@@ -617,12 +617,12 @@ void FavoriteUsers::on(FavoriteManagerListener::UserAdded, const FavoriteUser &u
 {
 	ParamMap params;
 	bool online = user.getUser()->isOnline();
-	params.insert(ParamMap::value_type("Nick", user.getNick()));
-	params.insert(ParamMap::value_type("Hub", online ? WulforUtil::getHubNames(user.getUser(), user.getUrl()) : user.getUrl()));//NOTE: core 0.762
-	params.insert(ParamMap::value_type("Time", online ? _("Online") : Util::formatTime("%Y-%m-%d %H:%M", user.getLastSeen())));
-	params.insert(ParamMap::value_type("Description", user.getDescription()));
-	params.insert(ParamMap::value_type("CID", user.getUser()->getCID().toBase32()));
-	params.insert(ParamMap::value_type("URL", user.getUrl()));
+	params.insert(ParamMap::value_type(_("Nick"), user.getNick()));
+	params.insert(ParamMap::value_type(_("Hub"), online ? WulforUtil::getHubNames(user.getUser(), user.getUrl()) : user.getUrl()));//NOTE: core 0.762
+	params.insert(ParamMap::value_type(_("Time"), online ? _("Online") : Util::formatTime("%Y-%m-%d %H:%M", user.getLastSeen())));
+	params.insert(ParamMap::value_type(_("Description"), user.getDescription()));
+	params.insert(ParamMap::value_type(_("CID"), user.getUser()->getCID().toBase32()));
+	params.insert(ParamMap::value_type(_("URL"), user.getUrl()));
 
 	Func1<FavoriteUsers, ParamMap> *func = new Func1<FavoriteUsers, ParamMap>(this, &FavoriteUsers::updateFavoriteUser_gui, params);
 	WulforManager::get()->dispatchGuiFunc(func);
@@ -639,8 +639,8 @@ void FavoriteUsers::on(FavoriteManagerListener::StatusChanged, const FavoriteUse
 {
 	ParamMap params;
 	string seen = user.getUser()->isOnline() ? _("Online") : Util::formatTime("%Y-%m-%d %H:%M", user.getLastSeen());
-	params.insert(ParamMap::value_type("Time", seen));
-	params.insert(ParamMap::value_type("CID", user.getUser()->getCID().toBase32()));
+	params.insert(ParamMap::value_type(_("Time"), seen));
+	params.insert(ParamMap::value_type(_("CID"), user.getUser()->getCID().toBase32()));
 
 	Func1<FavoriteUsers, ParamMap> *func = new Func1<FavoriteUsers, ParamMap>(this, &FavoriteUsers::updateFavoriteUser_gui, params);
 	WulforManager::get()->dispatchGuiFunc(func);

@@ -72,33 +72,33 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
 
     // Initialize the file TreeView
     fileView.setView(GTK_TREE_VIEW(getWidget("fileView")), true, "sharebrowser");
-    fileView.insertColumn(_("Filename"), G_TYPE_STRING, TreeView::ICON_STRING, 400, "Icon");
+    fileView.insertColumn(_("Filename"), G_TYPE_STRING, TreeView::ICON_STRING, 400, _("Icon"));
     fileView.insertColumn(_("Size"), G_TYPE_STRING, TreeView::STRINGR, 80);
     fileView.insertColumn(_("Type"), G_TYPE_STRING, TreeView::STRING, 50);
-    fileView.insertColumn("TTH", G_TYPE_STRING, TreeView::STRING, 150);
+    fileView.insertColumn(_("TTH"), G_TYPE_STRING, TreeView::STRING, 150);
     fileView.insertColumn(_("Exact Size"), G_TYPE_STRING, TreeView::STRINGR, 105);
-    fileView.insertHiddenColumn("DL File", G_TYPE_POINTER);
-    fileView.insertHiddenColumn("Icon", G_TYPE_STRING);
-    fileView.insertHiddenColumn("Size Order", G_TYPE_INT64);
-    fileView.insertHiddenColumn("File Order", G_TYPE_STRING);
+    fileView.insertHiddenColumn(_("DL File"), G_TYPE_POINTER);
+    fileView.insertHiddenColumn(_("Icon"), G_TYPE_STRING);
+    fileView.insertHiddenColumn(_("Size Order"), G_TYPE_INT64);
+    fileView.insertHiddenColumn(_("File Order"), G_TYPE_STRING);
     fileView.finalize();
     fileStore = gtk_list_store_newv(fileView.getColCount(), fileView.getGTypes());
     gtk_tree_view_set_model(fileView.get(), GTK_TREE_MODEL(fileStore));
     g_object_unref(fileStore);
     fileSelection = gtk_tree_view_get_selection(fileView.get());
     gtk_tree_selection_set_mode(gtk_tree_view_get_selection(fileView.get()), GTK_SELECTION_MULTIPLE);
-    gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), fileView.col("File Order"), GTK_SORT_ASCENDING);
+    gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), fileView.col(_("File Order")), GTK_SORT_ASCENDING);
     gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(fileView.get(), fileView.col(_("Filename"))), TRUE);
     gtk_tree_view_set_fixed_height_mode(fileView.get(), TRUE);
-    fileView.setSortColumn_gui(_("Filename"), "File Order");
-    fileView.setSortColumn_gui(_("Size"), "Size Order");
-    fileView.setSortColumn_gui(_("Exact Size"), "Size Order");
+    fileView.setSortColumn_gui(_("Filename"), _("File Order"));
+    fileView.setSortColumn_gui(_("Size"), _("Size Order"));
+    fileView.setSortColumn_gui(_("Exact Size"), _("Size Order"));
 
     // Initialize the directory treeview
     dirView.setView(GTK_TREE_VIEW(getWidget("dirView")));
-    dirView.insertColumn("Dir", G_TYPE_STRING, TreeView::ICON_STRING, -1, "Icon");
-    dirView.insertHiddenColumn("DL Dir", G_TYPE_POINTER);
-    dirView.insertHiddenColumn("Icon", G_TYPE_STRING);
+    dirView.insertColumn(_("Dir"), G_TYPE_STRING, TreeView::ICON_STRING, -1, _("Icon"));
+    dirView.insertHiddenColumn(_("DL Dir"), G_TYPE_POINTER);
+    dirView.insertHiddenColumn(_("Icon"), G_TYPE_STRING);
     dirView.finalize();
     dirStore = gtk_tree_store_newv(dirView.getColCount(), dirView.getGTypes());
     gtk_tree_view_set_model(dirView.get(), GTK_TREE_MODEL(dirStore));
@@ -213,7 +213,7 @@ bool ShareBrowser::findDir_gui(const string &dir, GtkTreeIter *parent)
 
     while (valid)
     {
-        if (dirView.getString(&iter, "Dir") == current)
+        if (dirView.getString(&iter, _("Dir")) == current)
         {
             *parent = iter;
             return findDir_gui(dir.substr(i + 1), parent);
@@ -232,11 +232,11 @@ void ShareBrowser::buildDirs_gui(DirectoryListing::Directory *dir, GtkTreeIter *
     GtkTreeIter newIter;
 
     gtk_tree_store_append(dirStore, &newIter, iter);
-    gtk_tree_store_set(dirStore, &newIter, dirView.col("Dir"), dir->getName().c_str(), -1);
+    gtk_tree_store_set(dirStore, &newIter, dirView.col(_("Dir")), dir->getName().c_str(), -1);
 
     gtk_tree_store_set(dirStore, &newIter,
-        dirView.col("DL Dir"), (gpointer)dir,
-        dirView.col("Icon"), "icon-directory",
+        dirView.col(_("DL Dir")), (gpointer)dir,
+        dirView.col(_("Icon")), "icon-directory",
         -1);
 
     for (file = dir->files.begin(); file != dir->files.end(); ++file)
@@ -276,18 +276,18 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
         gtk_list_store_append(fileStore, &iter);
         gtk_list_store_set(fileStore, &iter,
             fileView.col(_("Filename")), Util::getFileName((*it_dir)->getName()).c_str(),
-            fileView.col("File Order"), Util::getFileName("d"+(*it_dir)->getName()).c_str(),
+            fileView.col(_("File Order")), Util::getFileName("d"+(*it_dir)->getName()).c_str(),
             -1);
 
         size = (*it_dir)->getTotalSize(false);
         gtk_list_store_set(fileStore, &iter,
-            fileView.col("Icon"), "icon-directory",
+            fileView.col(_("Icon")), "icon-directory",
             fileView.col(_("Size")), Util::formatBytes(size).c_str(),
             fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
-            fileView.col("Size Order"), size,
+            fileView.col(_("Size Order")), size,
             fileView.col(_("Type")), _("Directory"),
-            fileView.col("DL File"), (gpointer)(*it_dir),
-            fileView.col("TTH"), "",
+            fileView.col(_("DL File")), (gpointer)(*it_dir),
+            fileView.col(_("TTH")), "",
             -1);
 
         currentSize += size;
@@ -307,17 +307,17 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
         gtk_list_store_set(fileStore, &iter,
             fileView.col(_("Filename")), Util::getFileName((*it_file)->getName()).c_str(),
             fileView.col(_("Type")), ext.c_str(),
-            fileView.col("File Order"), Util::getFileName("f"+(*it_file)->getName()).c_str(),
+            fileView.col(_("File Order")), Util::getFileName("f"+(*it_file)->getName()).c_str(),
             -1);
 
         size = (*it_file)->getSize();
         gtk_list_store_set(fileStore, &iter,
-            fileView.col("Icon"), "icon-file",
+            fileView.col(_("Icon")), "icon-file",
             fileView.col(_("Size")), Util::formatBytes(size).c_str(),
             fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
-            fileView.col("Size Order"), size,
-            fileView.col("DL File"), (gpointer)(*it_file),
-            fileView.col("TTH"), (*it_file)->getTTH().toBase32().c_str(),
+            fileView.col(_("Size Order")), size,
+            fileView.col(_("DL File")), (gpointer)(*it_file),
+            fileView.col(_("TTH")), (*it_file)->getTTH().toBase32().c_str(),
             -1);
 
         currentSize += size;
@@ -370,8 +370,8 @@ void ShareBrowser::fileViewSelected_gui()
 
     if (gtk_tree_model_get_iter(m, &iter, path))
     {
-        ptr = fileView.getValue<gpointer>(&iter, "DL File");
-        fileOrder = fileView.getString(&iter, "File Order");
+        ptr = fileView.getValue<gpointer>(&iter, _("DL File"));
+        fileOrder = fileView.getString(&iter, _("File Order"));
 
         if (fileOrder[0] == 'd' && gtk_tree_selection_get_selected(dirSelection, NULL, &parentIter))
         {
@@ -379,7 +379,7 @@ void ShareBrowser::fileViewSelected_gui()
             m = GTK_TREE_MODEL(dirStore);
             gboolean valid = gtk_tree_model_iter_children(m, &iter, &parentIter);
 
-            while (valid && ptr != dirView.getValue<gpointer>(&iter, "DL Dir"))
+            while (valid && ptr != dirView.getValue<gpointer>(&iter, _("DL Dir")))
                 valid = gtk_tree_model_iter_next(m, &iter);
 
             path = gtk_tree_model_get_path(m, &iter);
@@ -412,8 +412,8 @@ void ShareBrowser::downloadSelectedFiles_gui(const string &target)
         path = (GtkTreePath *)i->data;
         if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fileStore), &iter, path))
         {
-            ptr = fileView.getValue<gpointer>(&iter, "DL File");
-            fileOrder = fileView.getString(&iter, "File Order");
+            ptr = fileView.getValue<gpointer>(&iter, _("DL File"));
+            fileOrder = fileView.getString(&iter, _("File Order"));
 
             if (fileOrder[0] == 'd')
             {
@@ -511,8 +511,9 @@ void ShareBrowser::popupFileMenu_gui()
             fileUserCommandMenu->addFile(cid,
                 fileView.getString(&iter, _("Filename")),
                 filepath,
-                fileView.getValue<int64_t>(&iter, "Size Order"),
-                fileView.getString(&iter, "TTH"));
+                fileView.getValue<int64_t>(&iter, _("Size Order")),
+                fileView.getString(&iter, _("TTH")));
+
         }
         gtk_tree_path_free(path);
     }
@@ -561,7 +562,7 @@ void ShareBrowser::popupDirMenu_gui()
 
         if (dir != listing.getRoot())
         {
-            filename = dirView.getString(&iter, "Dir");
+            filename = dirView.getString(&iter, _("Dir"));
             filepath = listing.getPath(dir->getParent());
         }
         dirUserCommandMenu->addFile(cid, filename, filepath);
@@ -600,9 +601,9 @@ void ShareBrowser::find_gui()
     gint sortColumn;
     GtkSortType sortType;
     gtk_tree_sortable_get_sort_column_id(GTK_TREE_SORTABLE(fileStore), &sortColumn, &sortType);
-    if (sortColumn != fileView.col("File Order") || sortType != GTK_SORT_ASCENDING)
+    if (sortColumn != fileView.col(_("File Order")) || sortType != GTK_SORT_ASCENDING)
     {
-        gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), fileView.col("File Order"), GTK_SORT_ASCENDING);
+        gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), fileView.col(_("File Order")), GTK_SORT_ASCENDING);
         gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(fileView.get(), fileView.col(_("Filename"))), TRUE);
     }
 
@@ -613,14 +614,14 @@ void ShareBrowser::find_gui()
         {
             do
             {
-                name = Text::toLower(dirView.getString(&iter, "Dir"));
+                name = Text::toLower(dirView.getString(&iter, _("Dir")));
                 // We found a matching directory name.
                 if (name.find(search, 0) != string::npos && hits++ == skipHits)
                 {
                     skipHits = hits;
                     gtk_tree_view_expand_to_path(dirView.get(), dirPath);
                     gtk_tree_view_set_cursor(dirView.get(), dirPath, NULL, FALSE);
-                    dir = dirView.getValue<gpointer, DirectoryListing::Directory *>(&iter, "DL Dir");
+                    dir = dirView.getValue<gpointer, DirectoryListing::Directory *>(&iter, _("DL Dir"));
                     updateFiles_gui(dir);
                     gtk_widget_grab_focus(GTK_WIDGET(dirView.get()));
                     updateFileView = FALSE;
@@ -643,7 +644,7 @@ void ShareBrowser::find_gui()
         }
 
         // Search the files that are contained in this directory.
-        dir = dirView.getValue<gpointer, DirectoryListing::Directory *>(&iter, "DL Dir");
+        dir = dirView.getValue<gpointer, DirectoryListing::Directory *>(&iter, _("DL Dir"));
         std::sort(dir->files.begin(), dir->files.end(), DirectoryListing::File::FileSort());
 
         for (file = dir->files.begin(), cursorPos = dir->directories.size(); file != dir->files.end(); file++, cursorPos++)
@@ -751,12 +752,12 @@ gboolean ShareBrowser::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton
     }
     else if (event->button == 1 && event->type == GDK_BUTTON_RELEASE)
     {
-        ptr = sb->dirView.getValue<gpointer>(&iter, "DL Dir");
+        ptr = sb->dirView.getValue<gpointer>(&iter, _("DL Dir"));
         sb->updateFiles_gui((DirectoryListing::Directory *)ptr);
     }
     else if (event->button == 3 && event->type == GDK_BUTTON_RELEASE)
     {
-        ptr = sb->dirView.getValue<gpointer>(&iter, "DL Dir");
+        ptr = sb->dirView.getValue<gpointer>(&iter, _("DL Dir"));
         sb->updateFiles_gui((DirectoryListing::Directory *)ptr);
         sb->popupDirMenu_gui();
     }
@@ -785,12 +786,12 @@ gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *even
     else if (event->keyval == GDK_Up || event->keyval == GDK_KP_Up ||
         event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
     {
-        ptr = sb->dirView.getValue<gpointer>(&iter, "DL Dir");
+        ptr = sb->dirView.getValue<gpointer>(&iter, _("DL Dir"));
         sb->updateFiles_gui((DirectoryListing::Directory *)ptr);
     }
     else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
     {
-        ptr = sb->dirView.getValue<gpointer>(&iter, "DL Dir");
+        ptr = sb->dirView.getValue<gpointer>(&iter, _("DL Dir"));
         sb->updateFiles_gui((DirectoryListing::Directory *)ptr);
         sb->popupDirMenu_gui();
     }
@@ -938,11 +939,11 @@ void ShareBrowser::onSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer dat
         path = (GtkTreePath *)i->data;
         if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
         {
-            fileOrder = sb->fileView.getString(&iter, "File Order");
+            fileOrder = sb->fileView.getString(&iter, _("File Order"));
 
             if (fileOrder[0] == 'f')
             {
-                file = sb->fileView.getValue<gpointer, DirectoryListing::File *>(&iter, "DL File");
+                file = sb->fileView.getValue<gpointer, DirectoryListing::File *>(&iter, _("DL File"));
                 s = WulforManager::get()->getMainWindow()->addSearch_gui();
                 s->putValue_gui(file->getTTH().toBase32(), 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
             }
@@ -967,8 +968,8 @@ void ShareBrowser::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
         if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
         {
             filename = sb->fileView.getString(&iter, _("Filename"));
-            size = sb->fileView.getValue<int64_t>(&iter, "Size Order");
-            tth = sb->fileView.getString(&iter, "TTH");
+            size = sb->fileView.getValue<int64_t>(&iter, _("Size Order"));
+            tth = sb->fileView.getString(&iter, _("TTH"));
             magnet = WulforUtil::makeMagnet(filename, size, tth);
 
             if (!magnet.empty())
@@ -1001,8 +1002,8 @@ void ShareBrowser::onCopyPictureClicked_gui(GtkMenuItem* item, gpointer data)
        if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
        {
            filename = sb->fileView.getString(&iter, _("Filename"));
-           size = sb->fileView.getValue<int64_t>(&iter, "Size Order");
-           tth = sb->fileView.getString(&iter, "TTH");
+           size = sb->fileView.getValue<int64_t>(&iter, _("Size Order"));
+           tth = sb->fileView.getString(&iter, _("TTH"));
            magnet = WulforUtil::makeMagnet(filename, size, tth);
 
            if (!magnet.empty())
@@ -1072,7 +1073,7 @@ void ShareBrowser::onDirGet(GtkMenuItem* item, gpointer data)
          path = (GtkTreePath *)i->data;
          if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
          {
-                filed = sb->fileView.getValue<gpointer, DirectoryListing::File *>(&iter, "DL File");
+                filed = sb->fileView.getValue<gpointer, DirectoryListing::File *>(&iter, _("DL File"));
 
                 ItemInfo* ii= new ItemInfo(filed);
                  if(ii->type == ItemInfo::FILE)

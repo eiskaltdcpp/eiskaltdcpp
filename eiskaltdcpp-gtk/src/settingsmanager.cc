@@ -43,7 +43,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("main-window-pos-x", 100));
     defaultInt.insert(IntMap::value_type("main-window-pos-y", 100));
     defaultInt.insert(IntMap::value_type("main-window-no-close", 0));
-    defaultInt.insert(IntMap::value_type("transfer-pane-position", 200));
+    defaultInt.insert(IntMap::value_type("transfer-pane-position", 204));
     defaultInt.insert(IntMap::value_type("nick-pane-position", 255));
     defaultInt.insert(IntMap::value_type("downloadqueue-pane-position", 200));
     defaultInt.insert(IntMap::value_type("sharebrowser-pane-position", 200));
@@ -83,7 +83,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("text-op-italic", 0));
     defaultInt.insert(IntMap::value_type("text-url-bold", 0));
     defaultInt.insert(IntMap::value_type("text-url-italic", 0));
-    defaultInt.insert(IntMap::value_type("toolbar-button-separators", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-separators", 0));
     defaultInt.insert(IntMap::value_type("toolbar-button-reconnect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-connect", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-fav-hubs", 1));
@@ -100,6 +100,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("toolbar-button-finished-downloads", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-search-adl", 1));
     defaultInt.insert(IntMap::value_type("toolbar-button-finished-uploads", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-button-add", 0));
     defaultInt.insert(IntMap::value_type("notify-download-finished-use", 0));
     defaultInt.insert(IntMap::value_type("notify-download-finished-ul-use", 0));
     defaultInt.insert(IntMap::value_type("notify-private-message-use", 0));
@@ -117,6 +118,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("search-spy-waiting", 40));
     defaultInt.insert(IntMap::value_type("search-spy-top", 4));
     defaultInt.insert(IntMap::value_type("magnet-action", -1));//default show magnet dialog
+    defaultInt.insert(IntMap::value_type("toolbar-position", 1));
+    defaultInt.insert(IntMap::value_type("toolbar-small", 0));
     defaultInt.insert(IntMap::value_type("open-public", 0));
     defaultInt.insert(IntMap::value_type("open-favorite-hubs", 0));
     defaultInt.insert(IntMap::value_type("open-queue", 0));
@@ -156,6 +159,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("fav-show-joins", 0));
     defaultInt.insert(IntMap::value_type("show-joins", 0));
     defaultInt.insert(IntMap::value_type("show-preferences-on-startup", 1));
+
     defaultString.insert(StringMap::value_type("magnet-choose-dir", SETTING(DOWNLOAD_DIRECTORY)));
     defaultString.insert(StringMap::value_type("downloadqueue-order", ""));
     defaultString.insert(StringMap::value_type("downloadqueue-width", ""));
@@ -282,6 +286,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("custom-aliases", ""));
 
     load();
+
     string path_image = Util::getPath(Util::PATH_USER_CONFIG) + "Images/";
     g_mkdir_with_parents(path_image.c_str(), S_IRUSR | S_IWUSR | S_IXUSR);
 }
@@ -494,6 +499,7 @@ bool WulforSettingsManager::getPreviewApp(string &name, PreviewApp::size &index)
 
     return false;
 }
+
 const std::string WulforSettingsManager::parseCmd(const std::string cmd)
 {
     StringTokenizer<string> sl(cmd, ' ');
@@ -511,6 +517,7 @@ const std::string WulforSettingsManager::parseCmd(const std::string cmd)
         }
     return _("Error: params have been not 2!");
 }
+
 const std::string WulforSettingsManager::parseCoreCmd(const std::string cmd)
 {
     StringTokenizer<string> sl(cmd, ' ');
