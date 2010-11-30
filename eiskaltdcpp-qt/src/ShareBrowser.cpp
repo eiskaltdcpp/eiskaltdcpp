@@ -540,6 +540,8 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
 
     label_RIGHT->setText(QString(tr("Total size: %1")).arg(WulforUtil::formatBytes(current_size)));
 
+    list_model->highlightDuplicates();
+
     list_model->sort();
 }
 
