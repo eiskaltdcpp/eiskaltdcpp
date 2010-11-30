@@ -60,8 +60,8 @@ FinishedTransfers::FinishedTransfers(const EntryType type, const string &title, 
 	fileView.insertColumn(_("Transferred"), G_TYPE_INT64, TreeView::SIZE, 100);
 	fileView.insertColumn(_("Speed"), G_TYPE_INT64, TreeView::SPEED, 100);
 	fileView.insertColumn(_("CRC Checked"), G_TYPE_STRING, TreeView::STRING, 100);
-	fileView.insertHiddenColumn(_("Target"), G_TYPE_STRING);
-	fileView.insertHiddenColumn(_("Elapsed Time"), G_TYPE_INT64);
+	fileView.insertHiddenColumn("Target", G_TYPE_STRING);
+	fileView.insertHiddenColumn("Elapsed Time", G_TYPE_INT64);
 	fileView.finalize();
 	fileStore = gtk_list_store_newv(fileView.getColCount(), fileView.getGTypes());
 	gtk_tree_view_set_model(fileView.get(), GTK_TREE_MODEL(fileStore));
@@ -80,8 +80,8 @@ FinishedTransfers::FinishedTransfers(const EntryType type, const string &title, 
 	userView.insertColumn(_("Files"), G_TYPE_STRING, TreeView::STRING, 100);
 	userView.insertColumn(_("Transferred"), G_TYPE_INT64, TreeView::SIZE, 100);
 	userView.insertColumn(_("Speed"), G_TYPE_INT64, TreeView::SPEED, 100);
-	userView.insertHiddenColumn(_("CID"), G_TYPE_STRING);
-	userView.insertHiddenColumn(_("Elapsed Time"), G_TYPE_INT64);
+	userView.insertHiddenColumn("CID", G_TYPE_STRING);
+	userView.insertHiddenColumn("Elapsed Time", G_TYPE_INT64);
 	userView.finalize();
 	userStore = gtk_list_store_newv(userView.getColCount(), userView.getGTypes());
 	gtk_tree_view_set_model(userView.get(), GTK_TREE_MODEL(userStore));
@@ -130,7 +130,7 @@ bool FinishedTransfers::findUser_gui(GtkTreeIter* iter, const string& cid)
 
 	while (valid)
 	{
-		if (userView.getString(iter, _("CID")) == cid)
+		if (userView.getString(iter, "CID") == cid)
 			return TRUE;
 
 		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(userStore), iter);
@@ -145,7 +145,7 @@ bool FinishedTransfers::findFile_gui(GtkTreeIter* iter, const string& item)
 
 	while (valid)
 	{
-		if (fileView.getString(iter, _("Target")) == item)
+		if (fileView.getString(iter, "Target") == item)
 			return TRUE;
 
 		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(fileStore), iter);
@@ -157,13 +157,13 @@ bool FinishedTransfers::findFile_gui(GtkTreeIter* iter, const string& item)
 void FinishedTransfers::addUser_gui(StringMap params, bool update)
 {
 	GtkTreeIter iter;
-	int64_t transferred = Util::toInt64(params[_("Transferred")]);
-	int64_t speed = Util::toInt64(params[_("Speed")]);
-	int64_t time = Util::toInt64(params[_("Elapsed Time")]);
+	int64_t transferred = Util::toInt64(params["Transferred"]);
+	int64_t speed = Util::toInt64(params["Speed"]);
+	int64_t time = Util::toInt64(params["Elapsed Time"]);
 	int64_t addTime = time;
 	int64_t addSize = transferred;
 
-	if (!findUser_gui(&iter, params[_("CID")]))
+	if (!findUser_gui(&iter, params["CID"]))
 	{
 		gtk_list_store_append(userStore, &iter);
 		totalUsers++;
@@ -171,18 +171,18 @@ void FinishedTransfers::addUser_gui(StringMap params, bool update)
 	else
 	{
 		addSize = transferred - userView.getValue<int64_t>(&iter, _("Transferred"));
-		addTime = time - userView.getValue<int64_t>(&iter, _("Elapsed Time"));
+		addTime = time - userView.getValue<int64_t>(&iter, "Elapsed Time");
 	}
 
 	gtk_list_store_set(userStore, &iter,
-		userView.col(_("Time")), params[_("Time")].c_str(),
-		userView.col(_("Nick")), params[_("Nick")].c_str(),
-		userView.col(_("Hub")), params[_("Hub")].c_str(),
-		userView.col(_("Files")), params[_("Files")].c_str(),
+		userView.col(_("Time")), params["Time"].c_str(),
+		userView.col(_("Nick")), params["Nick"].c_str(),
+		userView.col(_("Hub")), params["Hub"].c_str(),
+		userView.col(_("Files")), params["Files"].c_str(),
 		userView.col(_("Transferred")), transferred,
 		userView.col(_("Speed")), speed,
-		userView.col(_("CID")), params[_("CID")].c_str(),
-		userView.col(_("Elapsed Time")), time,
+		userView.col("CID"), params["CID"].c_str(),
+		userView.col("Elapsed Time"), time,
 		-1);
 
 	totalBytes += addSize;
@@ -202,25 +202,25 @@ void FinishedTransfers::addUser_gui(StringMap params, bool update)
 void FinishedTransfers::addFile_gui(StringMap params, bool update)
 {
 	GtkTreeIter iter;
-	int64_t transferred = Util::toInt64(params[_("Transferred")]);
-	int64_t speed = Util::toInt64(params[_("Speed")]);
-	int64_t time = Util::toInt64(params[_("Elapsed Time")]);
+	int64_t transferred = Util::toInt64(params["Transferred"]);
+	int64_t speed = Util::toInt64(params["Speed"]);
+	int64_t time = Util::toInt64(params["Elapsed Time"]);
 
-	if (!findFile_gui(&iter, params[_("Target")]))
+	if (!findFile_gui(&iter, params["Target"]))
 	{
 		gtk_list_store_append(fileStore, &iter);
 		totalFiles++;
 	}
 	gtk_list_store_set(fileStore, &iter,
-		fileView.col(_("Time")), params[_("Time")].c_str(),
-		fileView.col(_("Filename")), params[_("Filename")].c_str(),
-		fileView.col(_("Path")), params[_("Path")].c_str(),
-		fileView.col(_("Nicks")), params[_("Nicks")].c_str(),
+		fileView.col(_("Time")), params["Time"].c_str(),
+		fileView.col(_("Filename")), params["Filename"].c_str(),
+		fileView.col(_("Path")), params["Path"].c_str(),
+		fileView.col(_("Nicks")), params["Nicks"].c_str(),
 		fileView.col(_("Transferred")), transferred,
 		fileView.col(_("Speed")), speed,
-		fileView.col(_("CRC Checked")), params[_("CRC Checked")].c_str(),
-		fileView.col(_("Target")), params[_("Target")].c_str(),
-		fileView.col(_("Elapsed Time")), time,
+		fileView.col(_("CRC Checked")), params["CRC Checked"].c_str(),
+		fileView.col("Target"), params["Target"].c_str(),
+		fileView.col("Elapsed Time"), time,
 		-1);
 
 	if (update)
@@ -317,7 +317,7 @@ gboolean FinishedTransfers::onButtonReleased_gui(GtkWidget *widget, GdkEventButt
 
 			if (gtk_tree_model_get_iter(GTK_TREE_MODEL(ft->fileStore), &iter, path))
 			{
-				string target = ft->fileView.getString(&iter, _("Target"));
+				string target = ft->fileView.getString(&iter, "Target");
 
 				if (ft->appsPreviewMenu->buildMenu_gui(target))
 					gtk_widget_set_sensitive(ft->getWidget("appsPreviewItem"), TRUE);
@@ -382,7 +382,7 @@ gboolean FinishedTransfers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *ev
 
 				if (gtk_tree_model_get_iter(GTK_TREE_MODEL(ft->fileStore), &iter, path))
 				{
-					string target = ft->fileView.getString(&iter, _("Target"));
+					string target = ft->fileView.getString(&iter, "Target");
 
 					if (ft->appsPreviewMenu->buildMenu_gui(target))
 						gtk_widget_set_sensitive(ft->getWidget("appsPreviewItem"), TRUE);
@@ -424,7 +424,7 @@ void FinishedTransfers::onOpen_gui(GtkMenuItem *item, gpointer data)
 		path = (GtkTreePath *)i->data;
 		if (gtk_tree_model_get_iter(GTK_TREE_MODEL(ft->fileStore), &iter, path))
 		{
-			string target = ft->fileView.getString(&iter, _("Target"));
+			string target = ft->fileView.getString(&iter, "Target");
 			if (!target.empty())
 				WulforUtil::openURI(target);
 		}
@@ -500,12 +500,12 @@ void FinishedTransfers::onRemoveItems_gui(GtkMenuItem *item, gpointer data)
 		{
 			if (view == &ft->fileView)
 			{
-				target = view->getString(&iter, _("Target"));
+				target = view->getString(&iter, "Target");
 				func = new F1(ft, &FinishedTransfers::removeFile_client, target);
 			}
 			else
 			{
-				target = view->getString(&iter, _("CID"));
+				target = view->getString(&iter, "CID");
 				func = new F1(ft, &FinishedTransfers::removeUser_client, target);
 			}
 
@@ -527,7 +527,7 @@ void FinishedTransfers::removeUser_gui(string target)
 
 	while (valid)
 	{
-		if (target == userView.getString(&iter, _("CID")))
+		if (target == userView.getString(&iter, "CID"))
 		{
 			gtk_list_store_remove(userStore, &iter);
 			totalUsers--;
@@ -546,10 +546,10 @@ void FinishedTransfers::removeFile_gui(string target)
 
 	while (valid)
 	{
-		if (target == fileView.getString(&iter, _("Target")))
+		if (target == fileView.getString(&iter, "Target"))
 		{
 			totalBytes -= fileView.getValue<gint64>(&iter, _("Transferred"));
-			totalTime -= fileView.getValue<gint64>(&iter, _("Elapsed Time"));
+			totalTime -= fileView.getValue<gint64>(&iter, "Elapsed Time");
 			gtk_list_store_remove(fileStore, &iter);
 			totalFiles--;
 			updateStatus_gui();
@@ -612,39 +612,39 @@ void FinishedTransfers::initializeList_client()
 void FinishedTransfers::getFinishedParams_client(const FinishedFileItemPtr& item, const string& file, StringMap &params)
 {
 	string nicks;
-	params[_("Filename")] = Util::getFileName(file);
-	params[_("Time")] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
-	params[_("Path")] = Util::getFilePath(file);
+	params["Filename"] = Util::getFileName(file);
+	params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
+	params["Path"] = Util::getFilePath(file);
 	for (HintedUserList::const_iterator it = item->getUsers().begin(); it != item->getUsers().end(); ++it)//NOTE: core 0.762
 	{
 			nicks += WulforUtil::getNicks(it->user->getCID(), it->hint) + ", ";//NOTE: core 0.762
 	}
-	params[_("Nicks")] = nicks.substr(0, nicks.length() - 2);
+	params["Nicks"] = nicks.substr(0, nicks.length() - 2);
 	// item->getFileSize() seems to return crap. I guess there's no way to get
 	// the real file size with this core version? Only the transferred part (I guess
 	// the size could be asked from QueueManager (if the file isn't complete)?)
-	params[_("Transferred")] = Util::toString(item->getTransferred());
-	params[_("Speed")] = Util::toString(item->getAverageSpeed());
-	params[_("CRC Checked")] = item->getCrc32Checked() ? _("Yes") : _("No");
-	params[_("Target")] = file;
-	params[_("Elapsed Time")] = Util::toString(item->getMilliSeconds());
+	params["Transferred"] = Util::toString(item->getTransferred());
+	params["Speed"] = Util::toString(item->getAverageSpeed());
+	params["CRC Checked"] = item->getCrc32Checked() ? _("Yes") : _("No");
+	params["Target"] = file;
+	params["Elapsed Time"] = Util::toString(item->getMilliSeconds());
 }
 
 void FinishedTransfers::getFinishedParams_client(const FinishedUserItemPtr &item, const HintedUser &user, StringMap &params)//NOTE: core 0.762
 {
 	string files;
-	params[_("Time")] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
-	params[_("Nick")] = WulforUtil::getNicks(user);//NOTE: core 0.762
-	params[_("Hub")] = WulforUtil::getHubNames(user);//NOTE: core 0.762
+	params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
+	params["Nick"] = WulforUtil::getNicks(user);//NOTE: core 0.762
+	params["Hub"] = WulforUtil::getHubNames(user);//NOTE: core 0.762
 	for (StringList::const_iterator it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
 	{
 		files += *it + ", ";
 	}
-	params[_("Files")] = files.substr(0, files.length() - 2);
-	params[_("Transferred")] = Util::toString(item->getTransferred());
-	params[_("Speed")] = Util::toString(item->getAverageSpeed());
-	params[_("CID")] = user.user->getCID().toBase32();//NOTE: core 0.762
-	params[_("Elapsed Time")] = Util::toString(item->getMilliSeconds());
+	params["Files"] = files.substr(0, files.length() - 2);
+	params["Transferred"] = Util::toString(item->getTransferred());
+	params["Speed"] = Util::toString(item->getAverageSpeed());
+	params["CID"] = user.user->getCID().toBase32();//NOTE: core 0.762
+	params["Elapsed Time"] = Util::toString(item->getMilliSeconds());
 }
 
 void FinishedTransfers::removeUser_client(string cid)

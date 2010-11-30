@@ -60,7 +60,7 @@ PublicHubs::PublicHubs():
 
 	// Initialize list of public hub lists treeview
 	listsView.setView(GTK_TREE_VIEW(getWidget("listsView")));
-	listsView.insertColumn(_("List"), G_TYPE_STRING, TreeView::EDIT_STRING, -1);
+	listsView.insertColumn("List", G_TYPE_STRING, TreeView::EDIT_STRING, -1);
 	listsView.finalize();
 	listsStore = gtk_list_store_newv(listsView.getColCount(), listsView.getGTypes());
 	gtk_tree_view_set_model(listsView.get(), GTK_TREE_MODEL(listsStore));
@@ -118,7 +118,7 @@ void PublicHubs::buildHubList_gui()
 {
  	StringList list = FavoriteManager::getInstance()->getHubLists();
 	int selected = FavoriteManager::getInstance()->getSelectedHubList();
-
+ 
 	for (StringList::iterator it = list.begin(); it != list.end(); ++it)
 	{
 		GtkTreeIter iter;
@@ -332,7 +332,7 @@ void PublicHubs::onConfigure_gui(GtkWidget *widget, gpointer data)
 		gboolean valid = gtk_tree_model_get_iter_first(m, &iter);
 		while (valid)
 		{
-			url = ph->listsView.getString(&iter, _("List"));
+			url = ph->listsView.getString(&iter, "List");
 			lists += url + ";";
 			if (url == active)
 				gtk_combo_box_set_active_iter(GTK_COMBO_BOX(ph->getWidget("hubListBox")), &iter);
@@ -357,7 +357,7 @@ void PublicHubs::onAdd_gui(GtkWidget *widget, gpointer data)
 	GtkTreeViewColumn *col;
 
 	gtk_list_store_append(ph->listsStore, &iter);
-	gtk_list_store_set(ph->listsStore, &iter, ph->listsView.col(_("List")), _("New list"), -1);
+	gtk_list_store_set(ph->listsStore, &iter, ph->listsView.col("List"), _("New list"), -1);
 	path = gtk_tree_model_get_path(GTK_TREE_MODEL(ph->listsStore), &iter);
 	col = gtk_tree_view_get_column(ph->listsView.get(), 0);
 	gtk_tree_view_set_cursor(ph->listsView.get(), path, col, TRUE);
@@ -407,7 +407,7 @@ void PublicHubs::onCellEdited_gui(GtkCellRendererText *cell, char *path, char *t
 	GtkTreeIter it;
 
 	if (gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(ph->listsStore), &it, path))
-		gtk_list_store_set(ph->listsStore, &it, ph->listsView.col(_("List")), text, -1);
+		gtk_list_store_set(ph->listsStore, &it, ph->listsView.col("List"), text, -1);
 }
 
 void PublicHubs::downloadList_client()

@@ -42,11 +42,11 @@ SearchADL::SearchADL():
 	searchADLView.insertColumn(_("Destination Directory"), G_TYPE_STRING, TreeView::STRING, 90);
 	searchADLView.insertColumn(_("Min Size"), G_TYPE_STRING, TreeView::STRING, 100);
 	searchADLView.insertColumn(_("Max Size"), G_TYPE_STRING, TreeView::STRING, 100);
-	searchADLView.insertHiddenColumn(_("Download Matches"), G_TYPE_BOOLEAN);
-	searchADLView.insertHiddenColumn(_("MinSize"), G_TYPE_INT64);
-	searchADLView.insertHiddenColumn(_("MaxSize"), G_TYPE_INT64);
-	searchADLView.insertHiddenColumn(_("SourceType"), G_TYPE_INT);
-	searchADLView.insertHiddenColumn(_("SizeType"), G_TYPE_INT);
+	searchADLView.insertHiddenColumn("Download Matches", G_TYPE_BOOLEAN);
+	searchADLView.insertHiddenColumn("MinSize", G_TYPE_INT64);
+	searchADLView.insertHiddenColumn("MaxSize", G_TYPE_INT64);
+	searchADLView.insertHiddenColumn("SourceType", G_TYPE_INT);
+	searchADLView.insertHiddenColumn("SizeType", G_TYPE_INT);
 	searchADLView.finalize();
 
 	searchADLStore = gtk_list_store_newv(searchADLView.getColCount(), searchADLView.getGTypes());
@@ -113,11 +113,11 @@ void SearchADL::show()
 			searchADLView.col(_("Destination Directory")), search.destDir.c_str(),
 			searchADLView.col(_("Min Size")), minSize.c_str(),
 			searchADLView.col(_("Max Size")), maxSize.c_str(),
-			searchADLView.col(_("Download Matches")), search.isAutoQueue,
-			searchADLView.col(_("MinSize")), search.minFileSize,
-			searchADLView.col(_("MaxSize")), search.maxFileSize,
-			searchADLView.col(_("SourceType")), search.sourceType,
-			searchADLView.col(_("SizeType")), search.typeFileSize,
+			searchADLView.col("Download Matches"), search.isAutoQueue,
+			searchADLView.col("MinSize"), search.minFileSize,
+			searchADLView.col("MaxSize"), search.maxFileSize,
+			searchADLView.col("SourceType"), search.sourceType,
+			searchADLView.col("SizeType"), search.typeFileSize,
 			-1);
 	}
 }
@@ -178,7 +178,7 @@ void SearchADL::onAddClicked_gui(GtkWidget *widget, gpointer data)
 void SearchADL::onPropertiesClicked_gui(GtkWidget *widget, gpointer data)
 {
 	SearchADL *s = (SearchADL *)data;
-
+	
 	GtkTreeIter iter;
 	if (gtk_tree_selection_get_selected(s->searchADLSelection, NULL, &iter))
 	{
@@ -213,11 +213,11 @@ void SearchADL::setSearch_gui(ADLSearch &search, GtkTreeIter *iter)
 		searchADLView.col(_("Destination Directory")), search.destDir.c_str(),
 		searchADLView.col(_("Min Size")), minSize.c_str(),
 		searchADLView.col(_("Max Size")), maxSize.c_str(),
-		searchADLView.col(_("Download Matches")), search.isAutoQueue,
-		searchADLView.col(_("MinSize")), search.minFileSize,
-		searchADLView.col(_("MaxSize")), search.maxFileSize,
-		searchADLView.col(_("SourceType")), search.sourceType,
-		searchADLView.col(_("SizeType")), search.typeFileSize,
+		searchADLView.col("Download Matches"), search.isAutoQueue,
+		searchADLView.col("MinSize"), search.minFileSize,
+		searchADLView.col("MaxSize"), search.maxFileSize,
+		searchADLView.col("SourceType"), search.sourceType,
+		searchADLView.col("SizeType"), search.typeFileSize,
 		-1);
 }
 
@@ -236,12 +236,12 @@ bool SearchADL::showPropertiesDialog_gui(ADLSearch &search, bool edit, SearchADL
 	{
 		searchString = s->searchADLView.getString(&iter, _("Search String"));
 		destDir = s->searchADLView.getString(&iter, _("Destination Directory"));
-		minSize = s->searchADLView.getValue<int64_t>(&iter, _("MinSize"));
-		maxSize = s->searchADLView.getValue<int64_t>(&iter, _("MaxSize"));
-		sourceType = s->searchADLView.getValue<gint>(&iter, _("SourceType"));
-		sizeType = s->searchADLView.getValue<gint>(&iter, _("SizeType"));
+		minSize = s->searchADLView.getValue<int64_t>(&iter, "MinSize");
+		maxSize = s->searchADLView.getValue<int64_t>(&iter, "MaxSize");
+		sourceType = s->searchADLView.getValue<gint>(&iter, "SourceType");
+		sizeType = s->searchADLView.getValue<gint>(&iter, "SizeType");
 		enabledCheck = s->searchADLView.getValue<gboolean>(&iter, _("Enabled"));
-		matchesCheck = s->searchADLView.getValue<gboolean>(&iter, _("Download Matches"));
+		matchesCheck = s->searchADLView.getValue<gboolean>(&iter, "Download Matches");
 
 		// set text
 		gtk_entry_set_text(GTK_ENTRY(s->getWidget("searchStringEntry")), searchString.c_str());
