@@ -185,6 +185,8 @@ extern void shutdown();
 #define PACKAGE "libeiskaltdcpp"
 #define LOCALEDIR LOCALE_DIR
 #define _(String) dgettext(PACKAGE, String)
+#define gettext_noop(String) String
+#define N_(String) gettext_noop (String)
 #define F_(String) dcpp_fmt(dgettext(PACKAGE, String))
 #define FN_(String1,String2, N) dcpp_fmt(dngettext(PACKAGE, String1, String2, N))
 

@@ -186,7 +186,7 @@ void UploadsFrame::reload()
 	    return;
 	}
 	this->shareSize = ShareManager::getInstance()->getSharedFiles();
-	dcpp::DirectoryListing *listing = new dcpp::DirectoryListing(ClientManager::getInstance()->getMe());
+	dcpp::DirectoryListing *listing = new dcpp::DirectoryListing(HintedUser(ClientManager::getInstance()->getMe(),"")); //NOTE: core 0.77
 	listing->loadFile(ShareManager::getInstance()->getOwnListFile());
 	listing->getRoot()->setName(QString("My Uploads").toStdString());
 	ADLSearchManager::getInstance()->matchListing(*listing);
@@ -204,7 +204,7 @@ void UploadsFrame::reload()
 	for (it = directories.begin(); it != directories.end(); ++it){
 	    shares.insert(QString::fromStdString((*it).first), QString::fromStdString((*it).second));
 	}
-	
+
 	this->treeWidget->clear();
 	this->treeWidget->setHeaderLabels(QStringList() << tr("Name") << tr("Type") << tr("Size") << tr("Progress"));
 	this->treeWidget->setColumnWidth(0, 200);

@@ -113,7 +113,7 @@ SettingsManager::IntSetting ThrottleManager::getCurSetting(SettingsManager::IntS
 	SettingsManager::IntSetting downLimit = SettingsManager::MAX_DOWNLOAD_SPEED_MAIN;
 	SettingsManager::IntSetting slots     = SettingsManager::SLOTS_PRIMARY;
 
-	if(BOOLSETTING(TIME_DEPENDENT_THROTTLE) && BOOLSETTING(THROTTLE_ENABLE)) {
+	if(BOOLSETTING(TIME_DEPENDENT_THROTTLE)) {
 		time_t currentTime;
 		time(&currentTime);
 		int currentHour = localtime(&currentTime)->tm_hour;
@@ -259,6 +259,7 @@ void ThrottleManager::on(TimerManagerListener::Second, uint32_t /* aTick */) thr
 		downLimit = 0;
 		upLimit = 0;
 	}
+
 	// readd tokens
 	{
 		Lock l(downCS);

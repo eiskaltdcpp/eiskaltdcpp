@@ -100,9 +100,38 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
             break;
         }
         case Qt::BackgroundColorRole:
-            break;
+        {
+            if (item->isDuplicate){
+                QPalette pal = qApp->palette();
+
+                return pal.highlight().color();
+            }
+        }
         case Qt::ToolTipRole:
         {
+            if (item->isDuplicate && item->file){
+                const QString &tth = item->data(COLUMN_FILEBROWSER_TTH).toString();
+                QHash<QString, dcpp::DirectoryListing::File*>::const_iterator it = hash.find(tth);
+
+                if (it == hash.end())
+                    break;
+
+                dcpp::DirectoryListing::File *file = const_cast<dcpp::DirectoryListing::File*>(it.value());
+                dcpp::DirectoryListing::Directory *parentDir = file->getParent();
+
+                if (!parentDir)
+                    break;
+
+                QString path = "";
+
+                do {
+                    path = _q(parentDir->getName()) + "/" + path;
+                    parentDir = parentDir->getParent();
+                } while (parentDir->getParent());
+
+                return tr("File marked as a duplicate of another file: %1").arg(path+_q(file->getName()));
+            }
+
             break;
         }
     }
@@ -377,26 +406,28 @@ QModelIndex FileBrowserModel::createIndexForItem(FileBrowserItem *item){
         return QModelIndex();
 
     return createIndex(item->row(), 0, item);
+}
 
-    /*QStack<FileBrowserItem*> stack;
-    FileBrowserItem *root = item->parent();
+void FileBrowserModel::highlightDuplicates(){
+    if (!rootItem || rootItem->childCount() == 0)
+        return;
 
-    while (root && (root != rootItem)){
-        stack.push(root);
+    foreach (FileBrowserItem *i, rootItem->childItems){
+        const QString &tth = i->data(COLUMN_FILEBROWSER_TTH).toString();
 
-        root = root->parent();
+        if (tth.isEmpty())
+            continue;
+
+        QHash<QString, dcpp::DirectoryListing::File*>::iterator it = hash.find(tth);
+
+        if (it != hash.end()){
+            if (i->file != it.value())//Found duplicate
+                i->isDuplicate = true;
+        }
+        else {
+            hash.insert(tth, i->file);
+        }
     }
-
-    QModelIndex parent = QModelIndex();
-    QModelIndex child;
-
-    while (!stack.empty()){
-        FileBrowserItem *el = stack.pop();
-
-        parent = index(el->row(), COLUMN_FILEBROWSER_NAME, parent);
-    }
-
-    return index(item->row(), COLUMN_FILEBROWSER_NAME, parent);*/
 }
 
 void FileBrowserModel::clear(){
@@ -413,7 +444,7 @@ void FileBrowserModel::repaint(){
 }
 
 FileBrowserItem::FileBrowserItem(const QList<QVariant> &data, FileBrowserItem *parent) :
-    itemData(data), parentItem(parent), dir(NULL), file(NULL)
+    itemData(data), parentItem(parent), dir(NULL), file(NULL), isDuplicate(false)
 {
 }
 
@@ -421,11 +452,13 @@ FileBrowserItem::FileBrowserItem(const FileBrowserItem &item){
     itemData = item.itemData;
     dir = item.dir;
     file = item.file;
+    isDuplicate = item.isDuplicate;
 }
 void FileBrowserItem::operator=(const FileBrowserItem &item){
     itemData = item.itemData;
     dir = item.dir;
     file = item.file;
+    isDuplicate = item.isDuplicate;
 }
 
 FileBrowserItem::~FileBrowserItem()

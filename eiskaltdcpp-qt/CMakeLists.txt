@@ -114,6 +114,7 @@ set (MOC_HDRS
             src/Antispam.h
             src/AntiSpamFrame.h
             src/ArenaWidget.h
+            src/Backtrace.h
             src/CustomFontModel.h
             src/CustomSetting.h
             src/DownloadQueue.h
@@ -337,7 +338,20 @@ endif (USE_ASPELL)
 if (LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
   list (APPEND LIBS ${LUA_LIBRARIES})
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/MainWindow.cpp ${PROJECT_SOURCE_DIR}/src/HubFrame.cpp PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
 endif (LUA_SCRIPT)
+
+if (USE_MINIUPNP)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/SettingsConnection.cpp  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
+endif()
+
+if (HAVE_IFADDRS_H)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/WulforUtil.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H )
+endif (HAVE_IFADDRS_H)
+
+if (FORCE_XDG)
+   set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/main.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
+endif (FORCE_XDG)
 
 if (APPLE)
   set (MACOSICON "${PROJECT_SOURCE_DIR}/../icons/icon_128x128.icns")

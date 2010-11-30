@@ -29,30 +29,73 @@
 #include "Util.h"
 #include "User.h"
 
+#include "MerkleTree.h"
+#include "ClientManager.h"
+
 namespace dcpp {
 
+/*RTF*/
+class FinishedItem
+{
+public:
+        typedef vector<FinishedItem> FinishedItemList;
+//      typedef FinishedItemList::const_iterator;
+
+        FinishedItem(string const& aTarget, const UserPtr& aUser, string const& aHub,
+                int64_t aSize, int64_t aSpeed, time_t aTime,
+                const string& aTTH = Util::emptyString) :
+                target(aTarget), user(aUser), hub(aHub), size(aSize), avgSpeed(aSpeed),
+                time(aTime), tth(aTTH)
+        {
+        }
+
+        int imageIndex() const;
+
+        GETSET(string, target, Target);
+        GETSET(string, hub, Hub);
+        GETSET(string, tth, TTH);
+
+        GETSET(int64_t, size, Size);
+        GETSET(int64_t, avgSpeed, AvgSpeed);
+        GETSET(time_t, time, Time);
+        GETSET(UserPtr, user, User);
+
+private:
+        friend class FinishedManager;
+
+};
+/**/
 class FinishedManager : public Singleton<FinishedManager>,
     public Speaker<FinishedManagerListener>, private DownloadManagerListener, private UploadManagerListener
 {
 public:
     typedef unordered_map<string, FinishedFileItemPtr> MapByFile;
-    typedef unordered_map<UserPtr, FinishedUserItemPtr, User::Hash> MapByUser;
+        typedef unordered_map<HintedUser, FinishedUserItemPtr, User::Hash> MapByUser;
 
     void lockLists();
+        const FinishedItem::FinishedItemList& lockList(bool upload = false) { cs.enter(); return upload ? uploads : downloads; }
     const MapByFile& getMapByFile(bool upload) const;
     const MapByUser& getMapByUser(bool upload) const;
     void unLockLists();
+        void unlockList() { cs.leave(); }
 
     void remove(bool upload, const string& file);
-    void remove(bool upload, const UserPtr& user);
+        void remove(bool upload, const HintedUser& user);
     void removeAll(bool upload);
+        //Partial
+        /** Get file full path by tth to share */
+        string getTarget(const string& aTTH);
 
+        bool handlePartialRequest(const TTHValue& tth, vector<uint16_t>& outPartialInfo);
+        //end
 private:
     friend class Singleton<FinishedManager>;
 
     CriticalSection cs;
     MapByFile DLByFile, ULByFile;
     MapByUser DLByUser, ULByUser;
+        //Partial
+        FinishedItem::FinishedItemList downloads, uploads;
 
     FinishedManager();
     virtual ~FinishedManager() throw();

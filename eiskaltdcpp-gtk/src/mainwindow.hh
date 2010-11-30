@@ -73,6 +73,7 @@ class MainWindow:
         void showHub_gui(std::string address, std::string encoding = "");
         void showSearchSpy_gui();
         void showSearchADL_gui();
+        void showCmdDebug_gui();
         void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string hubUrl = "", std::string message = "", bool useSetting = FALSE);
         void addPrivateStatusMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string message = "");
         void showPublicHubs_gui();
@@ -176,6 +177,7 @@ class MainWindow:
         static void onHubClicked_gui(GtkWidget *widget, gpointer data);
         static void onTTHFileDialog_gui(GtkWidget *widget, gpointer data);
         static void onTTHFileButton_gui(GtkWidget *widget, gpointer data);
+        static void onDebugCMD(GtkWidget *widget, gpointer data);
 
         // Client functions
         void autoConnect_client();

@@ -8,7 +8,6 @@
 ***************************************************************************/
 
 #include "IPFilterModel.h"
-#include "IPFilter.h"
 
 #include <QList>
 #include <QStringList>

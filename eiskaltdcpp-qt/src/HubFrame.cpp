@@ -30,6 +30,7 @@
 #include "dcpp/CID.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/Util.h"
+#include "dcpp/ChatMessage.h"
 
 #if HAVE_MALLOC_TRIM
 #include <malloc.h>
@@ -209,7 +210,7 @@ HubFrame::Menu::~Menu(){
 }
 
 HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QString &cid = QString()){
-    if (!client)
+   if (!client)
         return None;
 
     menu->clear();
@@ -223,7 +224,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
 
     if (!cid.isEmpty()){
         user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_CHAT);
+                        UserCommand::CONTEXT_USER);
         menu->addMenu(user_menu);
     }
 
@@ -271,7 +272,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
             if (user)
-                ClientManager::getInstance()->userCommand(user, uc, params, true);
+                ClientManager::getInstance()->userCommand(HintedUser(user, client->getHubUrl()), uc, params, true);
 
             return UserCommands;
         }
@@ -313,8 +314,8 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 
     if (!cid.isEmpty() && !pmw){
         user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_CHAT);
-        menu->addMenu(user_menu);
+                        UserCommand::CONTEXT_USER);
+        //menu->addMenu(user_menu);
     }
 
     QMenu *antispam_menu = NULL;
@@ -359,7 +360,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
             if (user)
-                ClientManager::getInstance()->userCommand(user, uc, params, true);
+                ClientManager::getInstance()->userCommand(HintedUser(user, client->getHubUrl()), uc, params, true);
 
             return UserCommands;
         }
@@ -377,6 +378,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
     static QList<QChar> unwise_chars = QList<QChar>() << '{' << '}' << '|' << '\\' << '^' << '[' << ']' << '`';
 
     QString output = "";
+
+    EmoticonMap emoticons;
+
+    if (use_emot && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
+        emoticons = EmoticonFactory::getInstance()->getEmoticons();
 
     while (!input.isEmpty()){
         for (int j = 0; j < link_types.size(); j++){
@@ -437,6 +443,54 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
         if (input.isEmpty())
             break;
+
+        EmoticonMap::iterator it = emoticons.begin();
+        EmoticonMap::iterator end_it = emoticons.end();
+        const QString &emo_theme = WSGET(WS_APP_EMOTICON_THEME);
+        bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
+        bool emoticon_found = false;
+
+        for (; it != end_it; ++it){
+            const QString &emo_text = it.key();
+            EmoticonObject *obj = it.value();
+
+            if (input.startsWith(emo_text) && obj){
+                if (force_emot || input == emo_text){
+                    QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
+                                  .arg(emo_text)
+                                  .arg(emo_theme)
+                                  .arg(obj->id);
+
+                    output += img + " ";
+                    input.remove(0, emo_text.length());
+
+                    emoticon_found = true;
+
+                    break;
+                }
+                else if (input.length() > emo_text.length()){
+                    QChar nextChar =input.at(emo_text.length());
+
+                    if (!(nextChar.isSpace() || nextChar == '\n'))
+                        break;
+
+                    QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
+                                  .arg(emo_text)
+                                  .arg(emo_theme)
+                                  .arg(obj->id);
+
+                    output += img + " ";
+                    input.remove(0, emo_text.length());
+
+                    emoticon_found = true;
+
+                    break;
+                }
+            }
+        }
+
+        if (emoticon_found)
+            continue;
 
         if (input.startsWith("[b]") && input.indexOf("[/b]") > 0){
             input.remove(0, 3);
@@ -527,9 +581,6 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
         input.remove(0, 1);
     }
 
-    if (use_emot && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        output = EmoticonFactory::getInstance()->convertEmoticons(output);
-
     return output;
 }
 
@@ -547,7 +598,7 @@ void HubFrame::LinkParser::parseForMagnetAlias(QString &output){
         if (!rx.cap(2).isEmpty())
             name = rx.cap(2);
 
-        const TTHValue *tth = HashManager::getInstance()->getFileTTHif(fi.absoluteFilePath().toStdString());
+        const TTHValue *tth = HashManager::getInstance()->getFileTTHif(_tq(fi.absoluteFilePath()));
         if (tth != NULL) {
             QString urlStr = WulforUtil::getInstance()->makeMagnet(name, fi.size(), _q(tth->toBase32()));
             output.replace(pos, rx.cap(1).length(), urlStr);
@@ -1797,9 +1848,9 @@ void HubFrame::browseUserFiles(const QString& id, bool match){
                 if (user == ClientManager::getInstance()->getMe())
                     MainWindow::getInstance()->browseOwnFiles();
                 else if (match)
-                    QueueManager::getInstance()->addList(user, client->getHubUrl(), QueueItem::FLAG_MATCH_QUEUE);
+                    QueueManager::getInstance()->addList(HintedUser(user, client->getHubUrl()), QueueItem::FLAG_MATCH_QUEUE, "");
                 else
-                    QueueManager::getInstance()->addList(user, client->getHubUrl(), QueueItem::FLAG_CLIENT_VIEW);
+                    QueueManager::getInstance()->addList(HintedUser(user, client->getHubUrl()), QueueItem::FLAG_CLIENT_VIEW, "");
             }
             else {
                 message = QString(tr("User not found")).toStdString();
@@ -1820,7 +1871,7 @@ void HubFrame::grantSlot(const QString& id){
         UserPtr user = ClientManager::getInstance()->findUser(CID(id.toStdString()));
 
         if (user){
-            UploadManager::getInstance()->reserveSlot(user, client->getHubUrl());
+            UploadManager::getInstance()->reserveSlot(HintedUser(user, client->getHubUrl()));
             message = tr("Slot granted to ") + WulforUtil::getInstance()->getNicks(user->getCID());
         }
     }
@@ -3077,7 +3128,7 @@ void HubFrame::slotHubMenu(QAction *res){
             client->getHubIdentity().getParams(params, "hub", false);
 
             client->escapeParams(params);
-            client->sendUserCmd(Util::formatParams(uc.getCommand(), params, false));
+            client->sendUserCmd(uc, params);
         }
     }
 }
@@ -3251,58 +3302,143 @@ void HubFrame::on(ClientListener::HubUpdated, Client*) throw(){
     emit coreHubUpdated();
 }
 
-void HubFrame::on(ClientListener::Message, Client*, const OnlineUser &user, const string& msg, bool thirdPerson) throw(){
-    if (chatDisabled)
+void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) throw(){
+    if (message.text.empty())
         return;
 
     VarMap map;
+    QString msg = _q(message.text);
+    bool third = false;
 
-    if (AntiSpam::getInstance()){
-        if (AntiSpam::getInstance()->isInBlack(_q(user.getIdentity().getNick())))
+    if (msg.startsWith("/me ")){
+        msg.remove(0, 4);
+
+        third = true;
+    }
+
+    if(message.to && message.replyTo)
+    {
+        //private message
+        const OnlineUser *user = (message.replyTo->getUser() == ClientManager::getInstance()->getMe())?
+                                 message.to : message.replyTo;
+
+        bool isBot = user->getIdentity().isBot();
+        bool isHub = user->getIdentity().isHub();
+        bool isOp  = user->getIdentity().isOp();
+
+        if (isHub && BOOLSETTING(IGNORE_HUB_PMS))
             return;
+        else if (isBot && BOOLSETTING(IGNORE_BOT_PMS))
+            return;
+
+        VarMap map;
+        CID id           = user->getUser()->getCID();
+        QString nick     =  _q(message.from->getIdentity().getNick());
+        bool isInSandBox = false;
+        bool isEcho      = (message.from->getUser() == ClientManager::getInstance()->getMe());
+        bool hasPMWindow = pm.contains(_q(id.toBase32()));//PMWindow is created
+
+        if (AntiSpam::getInstance())
+            isInSandBox = AntiSpam::getInstance()->isInSandBox(_q(id.toBase32()));
+
+        if (AntiSpam::getInstance() && !isEcho){
+            do {
+                if (hasPMWindow)
+                    break;
+
+                if (isOp && !WBGET(WB_ANTISPAM_FILTER_OPS) && !isBot)
+                    break;
+
+                if (AntiSpam::getInstance()->isInBlack(nick))
+                    return;
+                else if (!(AntiSpam::getInstance()->isInWhite(nick) || AntiSpam::getInstance()->isInGray(nick))){
+                    AntiSpam::getInstance()->checkUser(_q(id.toBase32()), msg, _q(client->getHubUrl()));
+
+                    return;
+                }
+            } while (0);
+        }
+        else if (isEcho && isInSandBox && !hasPMWindow)
+            return;
+
+        map["NICK"]  = nick;
+        map["MSG"]   = msg;
+        map["TIME"]  = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
+
+        QString color = WS_CHAT_PRIV_USER_COLOR;
+
+        if (nick == _q(client->getMyNick()))
+            color = WS_CHAT_PRIV_LOCAL_COLOR;
+        else if (isOp)
+            color = WS_CHAT_OP_COLOR;
+        else if (isBot)
+            color = WS_CHAT_BOT_COLOR;
+        else if (isHub)
+            color = WS_CHAT_STAT_COLOR;
+
+        map["CLR"] = color;
+        map["3RD"] = third;
+        map["CID"] = _q(id.toBase32());
+        map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp());
+
+        if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
+            emit coreMessage(map);
+        else
+            emit corePrivateMsg(map);
+
+        if (BOOLSETTING(LOG_PRIVATE_CHAT)){
+            StringMap params;
+            params["message"] = _tq(msg);
+            params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
+            params["hubURL"] = client->getHubUrl();
+            params["userCID"] = id.toBase32();
+            params["userNI"] = ClientManager::getInstance()->getNicks(HintedUser(user->getUser(), client->getHubUrl()))[0];
+            params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
+            params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp();
+            LOG(LogManager::PM, params);
+        }
     }
+    else
+    {
+        // chat message
+        const OnlineUser *user = message.from;
 
-    if (_q(msg).startsWith("/me ")){
-        QString m = _q(msg);
-        m.remove(0, 4);
+        if (chatDisabled)
+            return;
 
-        emit coreStatusMsg(_q(user.getIdentity().getNick()) + " " + m);
+        map["NICK"] = _q(user->getIdentity().getNick());
+        map["MSG"]  = msg;
+        map["TIME"] = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
 
-        return;
-    }
+        QString color = WS_CHAT_USER_COLOR;
 
-    map["NICK"] = _q(user.getIdentity().getNick());
-    map["MSG"]  = _q(msg.c_str());
-    map["TIME"] = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
+        if (user->getIdentity().isHub())
+            color = WS_CHAT_STAT_COLOR;
+        else if (user->getUser() == client->getMyIdentity().getUser())
+            color = WS_CHAT_LOCAL_COLOR;
+        else if (user->getIdentity().isOp())
+            color = WS_CHAT_OP_COLOR;
+        else if (user->getIdentity().isBot())
+            color = WS_CHAT_BOT_COLOR;
 
-    QString color = WS_CHAT_USER_COLOR;
+        if (FavoriteManager::getInstance()->isFavoriteUser(user->getUser()))
+            color = WS_CHAT_FAVUSER_COLOR;
 
-    if (user.getIdentity().isHub())
-        color = WS_CHAT_STAT_COLOR;
-    else if (user.getUser() == client->getMyIdentity().getUser())
-        color = WS_CHAT_LOCAL_COLOR;
-    else if (user.getIdentity().isOp())
-        color = WS_CHAT_OP_COLOR;
-    else if (user.getIdentity().isBot())
-        color = WS_CHAT_BOT_COLOR;
+        map["CLR"] = color;
+        map["3RD"] = third;
+        map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp());
 
-    if (FavoriteManager::getInstance()->isFavoriteUser(user.getUser()))
-        color = WS_CHAT_FAVUSER_COLOR;
+        emit coreMessage(map);
 
-    map["CLR"] = color;
-    map["3RD"] = thirdPerson;
-    map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(user).getIp());
-
-    emit coreMessage(map);
-
-    if (BOOLSETTING(LOG_MAIN_CHAT)){
-        StringMap params;
-        params["message"] = Util::formatMessage(user.getIdentity().getNick(), msg, thirdPerson);
-        client->getHubIdentity().getParams(params, "hub", false);
-        params["hubURL"] = client->getHubUrl();
-        params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user).getIp();
-        client->getMyIdentity().getParams(params, "my", true);
-        LOG(LogManager::CHAT, params);
+        if (BOOLSETTING(LOG_MAIN_CHAT)){
+            StringMap params;
+            params["message"] = _tq(msg);
+            client->getHubIdentity().getParams(params, "hub", false);
+            params["hubURL"] = client->getHubUrl();
+            params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp();
+            client->getMyIdentity().getParams(params, "my", true);
+            LOG(LogManager::CHAT, params);
+        }
     }
 }
 
@@ -3319,91 +3455,6 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
         params["message"] = msg;
         LOG(LogManager::STATUS, params);
     }
-}
-
-void HubFrame::on(ClientListener::PrivateMessage, Client*, const OnlineUser &from, const OnlineUser &to, const OnlineUser &replyTo,
-                  const string &msg, bool thirdPerson) throw()
-{
-    const OnlineUser& user = (replyTo.getUser() == ClientManager::getInstance()->getMe()) ? to : replyTo;
-
-    bool isBot = user.getIdentity().isBot();
-    bool isHub = user.getIdentity().isHub();
-    bool isOp = user.getIdentity().isOp();
-
-    if (isHub && BOOLSETTING(IGNORE_HUB_PMS))
-        return;
-    else if (isBot && BOOLSETTING(IGNORE_BOT_PMS))
-        return;
-
-    VarMap map;
-    CID id           = user.getUser()->getCID();
-    QString nick     =  _q(from.getIdentity().getNick());
-    bool isInSandBox = false;
-    bool isEcho      = (from.getUser() == ClientManager::getInstance()->getMe());
-    bool hasPMWindow = pm.contains(_q(id.toBase32()));//PMWindow is created
-
-    if (AntiSpam::getInstance())
-        isInSandBox = AntiSpam::getInstance()->isInSandBox(_q(id.toBase32()));
-
-    if (AntiSpam::getInstance() && !isEcho){
-        do {
-            if (hasPMWindow)
-                break;
-
-            if (isOp && !WBGET(WB_ANTISPAM_FILTER_OPS) && !isBot)
-                break;
-
-            if (AntiSpam::getInstance()->isInBlack(nick))
-                return;
-            else if (!(AntiSpam::getInstance()->isInWhite(nick) || AntiSpam::getInstance()->isInGray(nick))){
-                AntiSpam::getInstance()->checkUser(_q(id.toBase32()), _q(msg), _q(client->getHubUrl()));
-
-                return;
-            }
-        } while (0);
-    }
-    else if (isEcho && isInSandBox && !hasPMWindow)
-        return;
-
-    map["NICK"]  = nick;
-    map["MSG"]   = _q(msg);
-    map["TIME"]  = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
-
-    QString color = WS_CHAT_PRIV_USER_COLOR;
-
-    if (nick == _q(client->getMyNick()))
-        color = WS_CHAT_PRIV_LOCAL_COLOR;
-    else if (isOp)
-        color = WS_CHAT_OP_COLOR;
-    else if (isBot)
-        color = WS_CHAT_BOT_COLOR;
-    else if (isHub)
-        color = WS_CHAT_STAT_COLOR;
-
-    map["CLR"] = color;
-    map["3RD"] = thirdPerson;
-    map["CID"] = _q(id.toBase32());
-    map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(from).getIp());
-
-    if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
-        emit coreMessage(map);
-    else
-        emit corePrivateMsg(map);
-
-    if (BOOLSETTING(LOG_PRIVATE_CHAT)){
-        StringMap params;
-        params["message"] = Util::formatMessage(from.getIdentity().getNick(), msg, thirdPerson);
-        params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
-        params["hubURL"] = Util::toString(ClientManager::getInstance()->getHubs(id));
-        params["userCID"] = id.toBase32();
-        params["userNI"] = ClientManager::getInstance()->getNicks(id)[0];
-        params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
-        params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(from).getIp();
-        LOG(LogManager::PM, params);
-    }
-
-    if (!(isBot || isHub) && from.getUser() != ClientManager::getInstance()->getMe() && Util::getAway())
-        ClientManager::getInstance()->privateMessage(user.getUser(), Util::getAwayMessage(), false, client->getHubUrl());
 }
 
 void HubFrame::on(ClientListener::NickTaken, Client*) throw(){

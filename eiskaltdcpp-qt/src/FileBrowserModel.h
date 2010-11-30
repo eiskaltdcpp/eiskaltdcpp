@@ -12,6 +12,7 @@
 
 #include <QAbstractItemModel>
 #include <QSize>
+#include <QHash>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -51,6 +52,7 @@ public:
 
     dcpp::DirectoryListing::Directory *dir;
     dcpp::DirectoryListing::File *file;
+    bool isDuplicate;
 private:
 
     QList<QVariant> itemData;
@@ -104,6 +106,9 @@ public:
     void setSortOrder(Qt::SortOrder);
 
     /** */
+    void highlightDuplicates();
+
+    /** */
     void clear();
     /** */
     void repaint();
@@ -122,6 +127,8 @@ private:
     bool iconsScaled;
     /** */
     QSize iconsSize;
+    /** */
+    QHash<QString, dcpp::DirectoryListing::File*> hash;
 };
 
 #endif // FBMODEL_H

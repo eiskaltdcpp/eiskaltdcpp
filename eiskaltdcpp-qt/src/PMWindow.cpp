@@ -396,7 +396,7 @@ void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
         if (msg.isEmpty() || msg == "\n")
             return;
 
-        ClientManager::getInstance()->privateMessage(user, msg.toStdString(), thirdPerson, hubUrl.toStdString());
+        ClientManager::getInstance()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq(msg), thirdPerson);
     }
     else {
         addStatusMessage(tr("User went offline"));
@@ -460,7 +460,7 @@ void PMWindow::slotShare(){
                 if (user == ClientManager::getInstance()->getMe())
                     MainWindow::getInstance()->browseOwnFiles();
                 else
-                    QueueManager::getInstance()->addList(user, _tq(hubUrl), QueueItem::FLAG_CLIENT_VIEW);
+                    QueueManager::getInstance()->addList(HintedUser(user, _tq(hubUrl)), QueueItem::FLAG_CLIENT_VIEW, "");
             }
         }
         catch (const Exception &e){}

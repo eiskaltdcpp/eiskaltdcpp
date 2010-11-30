@@ -128,15 +128,7 @@ GiB</property>
                 <child>
                   <widget class="GtkComboBox" id="comboboxFile">
                     <property name="visible">True</property>
-                    <property name="items" translatable="yes">Any
-Audio
-Compressed
-Document
-Executable
-Picture
-Video
-Directory
-TTH</property>
+                    <property name="items"></property>
                   </widget>
                   <packing>
                     <property name="position">1</property>

@@ -81,7 +81,6 @@ typedef unsigned __int64 uint64_t;
 
 #else
 #include <unistd.h>
-#include <stdint.h>
 #endif
 
 #ifdef _MSC_VER
@@ -97,6 +96,9 @@ typedef unsigned __int64 uint64_t;
 #include <sys/types.h>
 #include <time.h>
 #include <locale.h>
+#ifndef _MSC_VER
+#include <stdint.h>
+#endif
 
 #include <algorithm>
 #include <vector>

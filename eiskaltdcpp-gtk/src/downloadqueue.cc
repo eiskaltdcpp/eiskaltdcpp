@@ -1126,7 +1126,7 @@ void DownloadQueue::addList_client(string target, string nick)
 			{
 				UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
 				if (user)
-					QueueManager::getInstance()->addList(user, "", QueueItem::FLAG_CLIENT_VIEW);
+					QueueManager::getInstance()->addList(HintedUser(user, ""), QueueItem::FLAG_CLIENT_VIEW);//NOTE core 0.762
 			}
 		}
 	}
@@ -1163,7 +1163,7 @@ void DownloadQueue::reAddSource_client(string target, string nick)
 			{
 				UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
 				if (user)
-					QueueManager::getInstance()->readd(target, user, "");
+					QueueManager::getInstance()->readd(target, HintedUser(user, ""));//NOTE core 0.762
 			}
 		}
 	}
@@ -1268,14 +1268,14 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
 	params["Users"] = "";
 	for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it)
 	{
-		if (it->getUser()->isOnline())
+		if (it->getUser().user->isOnline())//NOTE core 0.762
 			++online;
 
 		if (params["Users"].size() > 0)
 			params["Users"] += ", ";
 
 		nick = WulforUtil::getNicks(it->getUser());
-		source[nick] = it->getUser()->getCID().toBase32();
+		source[nick] = it->getUser().user->getCID().toBase32();//NOTE core 0.762
 		params["Users"] += nick;
 	}
 	if (params["Users"].empty())
@@ -1341,7 +1341,7 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
 	for (QueueItem::SourceConstIter it = item->getBadSources().begin(); it != item->getBadSources().end(); ++it)
 	{
 		nick = WulforUtil::getNicks(it->getUser());
-		source[nick] = it->getUser()->getCID().toBase32();
+		source[nick] = it->getUser().user->getCID().toBase32();//NOTE core 0.762
 
 		if (!it->isSet(QueueItem::Source::FLAG_REMOVED))
 		{

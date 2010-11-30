@@ -364,9 +364,8 @@ void HashManager::HashStore::load() {
         Util::migrate(getIndexFile());
 
         HashLoader l(*this);
-        SimpleXMLReader(&l).fromXML(File(getIndexFile(), File::READ, File::OPEN).read());
-        //File f(getIndexFile(), File::READ, File::OPEN);
-        //SimpleXMLReader(&l).parse(f);
+                File f(getIndexFile(), File::READ, File::OPEN);
+                SimpleXMLReader(&l).parse(f);
     } catch (const Exception&) {
         // ...
     }
@@ -476,7 +475,7 @@ void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
         if(paused > 0)
             paused++;
         else
-            s.signal();
+        s.signal();
     }
 }
 

@@ -104,6 +104,11 @@
           <string>TTH</string>
          </property>
         </item>
+        <item>
+         <property name="text">
+          <string>CD Image</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item>

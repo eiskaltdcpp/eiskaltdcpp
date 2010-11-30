@@ -97,6 +97,7 @@ public:
     GETSET(string, externalIP, ExternalIP);
     GETSET(bool, useInternetIp, UseInternetIP);
     GETSET(bool, disableChat, DisableChat);
+    GETSET(string, group, Group);
 private:
     string nick;
 };

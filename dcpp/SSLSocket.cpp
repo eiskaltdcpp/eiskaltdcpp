@@ -179,14 +179,15 @@ bool SSLSocket::isTrusted() const throw() {
 		return false;
 	}
 
-	if(SSL_get_verify_result(ssl) != SSL_ERROR_NONE) {
+	if(SSL_get_verify_result(ssl) != X509_V_OK) {
 		return false;
 	}
 
-	if(!SSL_get_peer_certificate(ssl)) {
+	X509* cert = SSL_get_peer_certificate(ssl);
+	if(!cert) {
 		return false;
 	}
-
+	X509_free(cert);
 	return true;
 }
 

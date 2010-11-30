@@ -21,7 +21,7 @@ include_directories (
         ${PROJECT_SOURCE_DIR}/..
         ${Boost_INCLUDE_DIRS}
         )
-set (LIBS ${LIBS}
+list(APPEND LIBS
         ${X11_LIBRARIES}
         ${GTK2_LIBRARIES}
         ${LIBGNOME2_LIBRARIES}
@@ -34,6 +34,7 @@ set (LIBS ${LIBS}
 if (LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
   list (APPEND LIBS ${LUA_LIBRARIES})
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/mainwindow.cc ${PROJECT_SOURCE_DIR}/src/hub.cc PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
 endif (LUA_SCRIPT)
 
 add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
@@ -41,7 +42,7 @@ add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
                 )
 
 if (USE_LIBNOTIFY)
-add_definitions (-DUSE_LIBNOTIFY)
+    add_definitions (-DUSE_LIBNOTIFY)
 endif (USE_LIBNOTIFY)
 
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
@@ -49,6 +50,22 @@ add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
                 -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/gtk/icons"
                 )
+
+if (eiskaltdcpp_WC_REVISION)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/wulfor.cc  ${PROJECT_SOURCE_DIR}/src/mainwindow.cc PROPERTY COMPILE_DEFINITIONS DCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
+endif ()
+
+if (USE_MINIUPNP)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/settingsdialog.cc  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
+endif()
+
+if (HAVE_IFADDRS_H)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/WulforUtil.cc PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H )
+endif (HAVE_IFADDRS_H)
+
+if (FORCE_XDG)
+   set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/WulforUtil.cc PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
+endif (FORCE_XDG)
 
 if (APPLE)
   add_definitions(-DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")

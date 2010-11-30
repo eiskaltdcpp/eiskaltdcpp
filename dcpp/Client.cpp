@@ -22,7 +22,7 @@
 #include "Client.h"
 
 #include "BufferedSocket.h"
-
+#include "DebugManager.h"
 #include "FavoriteManager.h"
 #include "TimerManager.h"
 #include "ClientManager.h"
@@ -78,7 +78,6 @@ void Client::reloadSettings(bool updateNick) {
         ClientId = fullVersionString;
 
     if(hub) {
-
         if(updateNick) {
             setCurrentNick(checkNick(hub->getNick(true)));
         }
@@ -107,7 +106,6 @@ void Client::reloadSettings(bool updateNick) {
         }
         setCurrentDescription(SETTING(DESCRIPTION));
     }
-    //fprintf(stderr,"%s\n", ClientId.c_str());
     setClientId(ClientId);
 }
 
@@ -133,21 +131,21 @@ void Client::connect() {
         sock->addListener(this);
         sock->connect(address, port, secure, BOOLSETTING(ALLOW_UNTRUSTED_HUBS), true);
     } catch(const Exception& e) {
-        if(sock) {
-            BufferedSocket::putSocket(sock);
-            sock = 0;
-        }
+        shutdown();
+        /// @todo at this point, this hub instance is completely useless
         fire(ClientListener::Failed(), this, e.getError());
     }
     updateActivity();
 }
 
 void Client::send(const char* aMessage, size_t aLen) {
-    dcassert(sock);
-    if(!sock)
+    if(!isReady()) {
+        dcassert(0);
         return;
+    }
     updateActivity();
     sock->write(aMessage, aLen);
+    COMMAND_DEBUG(aMessage, DebugManager::HUB_OUT, getIpPort());
 }
 
 void Client::on(Connected) throw() {
@@ -171,15 +169,15 @@ void Client::disconnect(bool graceLess) {
 }
 
 bool Client::isSecure() const {
-    return sock && sock->isSecure();
+    return isReady() && sock->isSecure();
 }
 
 bool Client::isTrusted() const {
-    return sock && sock->isTrusted();
+    return isReady() && sock->isTrusted();
 }
 
 std::string Client::getCipherName() const {
-    return sock ? sock->getCipherName() : Util::emptyString;
+    return isReady() ? sock->getCipherName() : Util::emptyString;
 }
 
 void Client::updateCounts(bool aRemove) {
@@ -228,8 +226,9 @@ string Client::getLocalIp() const {
     return localIp;
 }
 
-void Client::on(Line, const string& /*aLine*/) throw() {
+void Client::on(Line, const string& aLine) throw() {
     updateActivity();
+    COMMAND_DEBUG(aLine, DebugManager::HUB_IN, getIpPort())
 }
 
 void Client::on(Second, uint32_t aTick) throw() {

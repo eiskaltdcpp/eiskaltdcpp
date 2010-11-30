@@ -304,7 +304,7 @@ bool initDownload(QHash<QString, QString> aShares, QString dir, Node *n)
                     }
                     //QFile::copy(aShares[n->children[i]->str2], dir+n->children[i]->str1);
 		} else {
-		    QueueManager::getInstance()->add((dir+n->children[i]->str1).toStdString(), n->children[i]->size, TTHValue(n->children[i]->str2.toStdString()), UserPtr(), "");
+		    QueueManager::getInstance()->add((dir+n->children[i]->str1).toStdString(), n->children[i]->size, TTHValue(n->children[i]->str2.toStdString())/*, UserPtr(), ""*/); //NOTE: core 0.77
 		}
 	    }
 	    catch (const std::exception& e){
@@ -372,7 +372,7 @@ void ViewDMD::on_pushButton_clicked()
     StringPairList::iterator it;
 
     QHash<QString, QString> shares;
-    dcpp::DirectoryListing *listing = new dcpp::DirectoryListing(ClientManager::getInstance()->getMe());
+    dcpp::DirectoryListing *listing = new dcpp::DirectoryListing(HintedUser(ClientManager::getInstance()->getMe(),"")); //NOTE: core 0.77
     listing->loadFile(ShareManager::getInstance()->getOwnListFile());
     listing->getRoot()->setName(QString("My Uploads").toStdString());
     ADLSearchManager::getInstance()->matchListing(*listing);

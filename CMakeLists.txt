@@ -90,6 +90,8 @@ option (WITH_SOUNDS "Install sound files" OFF)
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NATT "Use natt extension" ON)
+option (NO_UI_DAEMON "Daemon without anyone ui" OFF)
+option (XMLRPC_DAEMON "Mаке no ui daemon as xmlrpc server" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 
 if (PERL_REGEX)
@@ -98,7 +100,7 @@ endif (PERL_REGEX)
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
-    add_definitions ( -DLUA_SCRIPT )
+    #add_definitions ( -DLUA_SCRIPT )
     message (STATUS "Building with Lua scripts support")
 else (LUA_SCRIPT)
     message (STATUS "Building without Lua scripts support")
@@ -115,12 +117,18 @@ if (USE_MINIUPNP)
     find_package (Miniupnpc REQUIRED)
   endif (LOCAL_MINIUPNP)
 
-    add_definitions (-DUSE_MINIUPNP)
 elseif (NOT USE_MINIUPNP)
     unset (MINIUPNP_INCLUDE_DIR CACHE)
     unset (MINIUPNP_LIBRARY CACHE)
     message (STATUS "Building without UPNP support (miniupnpc)")
 endif(USE_MINIUPNP)
+
+if (XMLRPC_DAEMON)
+    if (NOT NO_UI_DAEMON)
+        set (NO_UI_DAEMON 1 CACHE BOOL "Daemon without anyone ui" FORCE)
+    endif (NOT NO_UI_DAEMON)
+    find_package (XMLRPC REQUIRED c++2 abyss-server client)
+endif (XMLRPC_DAEMON)
 
 if (USE_QT)
     if (USE_QT_QML)
@@ -254,21 +262,22 @@ message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
 if (DCPP_REVISION)
     set (eiskaltdcpp_WC_REVISION ${DCPP_REVISION})
     message (STATUS "DCPP_REVISION is set to: ${eiskaltdcpp_WC_REVISION}")
-    add_definitions (-DDCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
+    #add_definitions (-DDCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
 elseif (GIT_FOUND)
     execute_process (COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
                 WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
                 OUTPUT_VARIABLE eiskaltdcpp_WC_REVISION
                 OUTPUT_STRIP_TRAILING_WHITESPACE)
     message (STATUS "Build Git commit ID: ${eiskaltdcpp_WC_REVISION}")
-    if (eiskaltdcpp_WC_REVISION MATCHES [0-9a-z]+)
-        add_definitions (-DDCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
-    endif ()
+    #if (eiskaltdcpp_WC_REVISION MATCHES [0-9a-z]+)
+        #add_definitions (-DDCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
+    #endif ()
 elseif (Subversion_FOUND)
     Subversion_WC_INFO (${PROJECT_SOURCE_DIR} eiskaltdcpp)
     message (STATUS "Build SVN revision: ${eiskaltdcpp_WC_REVISION}")
     if (eiskaltdcpp_WC_REVISION MATCHES [0-9]+)
-        add_definitions (-DDCPP_REVISION="r${eiskaltdcpp_WC_REVISION}")
+        #add_definitions (-DDCPP_REVISION="r${eiskaltdcpp_WC_REVISION}")
+        set (eiskaltdcpp_WC_REVISION "r${eiskaltdcpp_WC_REVISION}")
     endif ()
 endif ()
 
@@ -284,38 +293,43 @@ set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${_DATADIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
 
-if (HAVE_IFADDRS_H)
-  add_definitions (-DHAVE_IFADDRS_H )
-endif (HAVE_IFADDRS_H)
+#if (HAVE_IFADDRS_H)
+  #add_definitions (-DHAVE_IFADDRS_H )
+#endif (HAVE_IFADDRS_H)
 
-if (ICONV_SECOND_ARGUMENT_IS_CONST)
-  add_definitions (-DICONV_CONST=const)
-endif (ICONV_SECOND_ARGUMENT_IS_CONST)
+#if (ICONV_SECOND_ARGUMENT_IS_CONST)
+  #add_definitions (-DICONV_CONST=const)
+#endif (ICONV_SECOND_ARGUMENT_IS_CONST)
 
-if (FORCE_XDG)
-  add_definitions (-DFORCE_XDG)
-endif (FORCE_XDG)
+#if (FORCE_XDG)
+  #add_definitions (-DFORCE_XDG)
+#endif (FORCE_XDG)
 
-#if (CMAKE_COMPILER_IS_GNUСXX AND CMAKE_COMPILER_IS_GNUC)
-if (NOT MSVC)
+if (CMAKE_COMPILER_IS_GNUСXX)
     if (CMAKE_CROSSCOMPILING)
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -enable-auto-import")
     endif (CMAKE_CROSSCOMPILING)
     if (NOT APPLE)
-    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--as-needed")
+        set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
+        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--as-needed")
     endif (NOT APPLE)
     set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -pipe -DNDEBUG")
     set (CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -DQT_NO_DEBUG -pipe")
     set (CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG} -UNDEBUG -g3 -pipe")
-#endif (CMAKE_COMPILER_IS_GNUСXX AND CMAKE_COMPILER_IS_GNUC)
-endif (NOT MSVC)
+endif (CMAKE_COMPILER_IS_GNUСXX)
 
 include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
    )
 
+message(STATUS "CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
+message(STATUS "CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME}")
+message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
+message(STATUS "CMAKE_SYSTEM_VERSION: ${CMAKE_SYSTEM_VERSION}")
+message(STATUS "CMAKE_COMPILER_IS_GNUСXX: ${CMAKE_COMPILER_IS_GNUCXX}")
+message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
+message(STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
 message(STATUS "CMAKE will use this libs (and headers) during build:
 
                 miniupnpc (headers):${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
@@ -328,6 +342,7 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
                 pcre(cpp) (headers): ${PCRE_LIBRARY} (${PCRE_INCLUDE_DIR})
+
                 ")
 
 if (UNIX AND NOT APPLE)
@@ -339,7 +354,7 @@ else ()
 endif ()
 
 option (LANGUAGES "Using translations")
-set (AllLanguages
+list (APPEND AllLanguages
             be
             bg
             en
@@ -367,9 +382,7 @@ else (NOT DEFINED linguas)
 endif (NOT DEFINED linguas)
 message (STATUS "Translations: ${LANGUAGES}")
 
-if (USE_MINIUPNP OR FREE_SPACE_BAR_C)
 add_subdirectory(extra)
-endif (USE_MINIUPNP OR FREE_SPACE_BAR_C)
 
 if (DHT)
 add_subdirectory (dht)
@@ -385,6 +398,10 @@ if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK)
 
+if (NO_UI_DAEMON)
+add_subdirectory (nasdc)
+endif (NO_UI_DAEMON)
+
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
@@ -394,7 +411,6 @@ ADD_CUSTOM_TARGET(uninstall
 
 if(GETTEXT_FOUND)
     include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/KWWidgetsInternationalizationMacros.cmake)
-#option (UPDATE_POT "Update pot file" OFF)
 option (UPDATE_PO "Update po files" OFF)
 option (CREATE_MO "Create mo files" ON)
 
@@ -479,14 +495,10 @@ if (USE_QT OR USE_GTK)
         install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
         PATTERN ".svn" EXCLUDE)
     endif (WITH_EMOTICONS)
-
-  install (FILES icons/icon_128x128.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/128x128/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_64x64.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/64x64/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_32x32.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/32x32/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_48x48.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/48x48/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_22x22.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/22x22/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_24x24.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/24x24/apps RENAME eiskaltdcpp.png)
-  install (FILES icons/icon_16x16.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/16x16/apps RENAME eiskaltdcpp.png)
+list(APPEND iconsize 16 22 24 32 48 64 128)
+foreach (isize ${iconsize})
+  install (FILES icons/icon_${isize}x${isize}.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/${isize}x${isize}/apps RENAME eiskaltdcpp.png)
+endforeach (isize)
 if (APPLE)
   install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/pixmaps/ RENAME eiskaltdcpp.png)
 else (APPLE)

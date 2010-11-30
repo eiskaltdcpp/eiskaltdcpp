@@ -52,6 +52,7 @@
 #include "SideBar.h"
 #include "ActionCustomizer.h"
 #include "MultiLineToolBar.h"
+#include "IPFilter.h"
 #ifdef FREE_SPACE_BAR_C
 #include "extra/freespace.h"
 #endif
@@ -181,13 +182,8 @@ MainWindow::~MainWindow(){
         AntiSpam::deleteInstance();
     }
 
-    if (IPFilter::getInstance()){
-        IPFilter::getInstance()->saveList();
-        IPFilter::deleteInstance();
-    }
-
     if (UploadsFrame::getInstance()){
-	UploadsFrame::deleteInstance();
+        UploadsFrame::deleteInstance();
     }
 
     delete arena;
@@ -2026,7 +2022,7 @@ void MainWindow::slotToolsFinishedDownloads(){
 }
 
 void MainWindow::slotToolsFinishedUploads(){
-    if (!FinishedUploads::getInstance())
+   if (!FinishedUploads::getInstance())
         FinishedUploads::newInstance();
 
     toggleSingletonWidget(FinishedUploads::getInstance());
@@ -2787,4 +2783,3 @@ void MainWindow::loadDMD(QString dmd)
         UploadsFrame::newInstance();
     UploadsFrame::getInstance()->loadDMD(dmd);
 }
-

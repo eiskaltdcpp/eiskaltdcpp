@@ -27,16 +27,14 @@ using namespace std;
 #include "Notification.h"
 #include "SingleInstanceRunner.h"
 #include "Version.h"
+#include "IPFilter.h"
 #include "EmoticonFactory.h"
 #include "uploadsframe.h"
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
-#ifdef USE_MINIUPNP
-#include "extra/upnpc.h"
-#include "dcpp/UPnPManager.h"
-#endif
+
 #ifdef USE_JS
 #include "ScriptEngine.h"
 #endif
@@ -60,6 +58,9 @@ void parseCmdLine(const QStringList &);
 #ifndef Q_WS_WIN
 #include <unistd.h>
 #include <signal.h>
+#include <execinfo.h>
+
+#include "Backtrace.h"
 
 void installHandlers();
 
@@ -95,9 +96,6 @@ int main(int argc, char *argv[])
 #endif
 
     dcpp::startup(callBack, NULL);
-#ifdef USE_MINIUPNP
-    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
-#endif
     dcpp::TimerManager::getInstance()->start();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
@@ -179,6 +177,11 @@ int main(int argc, char *argv[])
 
     dcpp::shutdown();
 
+    if (IPFilter::getInstance()){
+        IPFilter::getInstance()->saveList();
+        IPFilter::deleteInstance();
+    }
+
     std::cout << QObject::tr("Quit...").toStdString() << std::endl;
 
     runner.servStop();
@@ -202,6 +205,16 @@ void parseCmdLine(const QStringList &args){
 }
 
 #ifndef Q_WS_WIN
+void printBacktrace(int){
+    std::cerr << "\n\n*************************************************************\n";
+    std::cerr << "Oops! Please report a bug at http://code.google.com/p/eiskaltdc/issues/list provide the following backtrace:\n";
+    print_stacktrace();
+
+    raise(SIGINT);
+
+    std::abort();
+}
+
 void installHandlers(){
     struct sigaction sa;
     memset(&sa, 0, sizeof(sa));
@@ -209,6 +222,8 @@ void installHandlers(){
     if (sigaction(SIGPIPE, &sa, NULL) == -1){
         std::cout << QObject::tr("Cannot handle SIGPIPE").toStdString() << std::endl;
     }
+
+    signal(SIGSEGV, printBacktrace);
 
     std::cout << QObject::tr("Signal handlers installed.").toStdString() << std::endl;
 }

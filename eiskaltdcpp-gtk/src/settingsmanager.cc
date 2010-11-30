@@ -24,6 +24,7 @@
 #include <dcpp/File.h>
 #include <dcpp/SimpleXML.h>
 #include <dcpp/Util.h>
+#include <dcpp/StringTokenizer.h>
 #include "WulforUtil.hh"
 
 #undef _
@@ -146,6 +147,18 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("join-open-new-window", 0));
     defaultInt.insert(IntMap::value_type("always-tray", 0));
     defaultInt.insert(IntMap::value_type("minimize-tray", 0));
+    defaultInt.insert(IntMap::value_type("popunder-pm", 0));
+    defaultInt.insert(IntMap::value_type("popunder-filelist", 0));
+    defaultInt.insert(IntMap::value_type("use-oen-monofont", 0));
+    defaultInt.insert(IntMap::value_type("urlhandler", 0));
+    defaultInt.insert(IntMap::value_type("clearsearch", 1));
+    defaultInt.insert(IntMap::value_type("use-system-icons", 1));
+    defaultInt.insert(IntMap::value_type("sort-favusers-first", 0));
+    defaultInt.insert(IntMap::value_type("status-in-chat", 1));
+    defaultInt.insert(IntMap::value_type("spyframe-ignore-tth-searches", 0));
+    defaultInt.insert(IntMap::value_type("fav-show-joins", 0));
+    defaultInt.insert(IntMap::value_type("show-joins", 0));
+    defaultInt.insert(IntMap::value_type("show-preferences-on-startup", 1));
 
     defaultString.insert(StringMap::value_type("magnet-choose-dir", SETTING(DOWNLOAD_DIRECTORY)));
     defaultString.insert(StringMap::value_type("downloadqueue-order", ""));
@@ -485,4 +498,41 @@ bool WulforSettingsManager::getPreviewApp(string &name, PreviewApp::size &index)
         if((*item)->name == name) return true;
 
     return false;
+}
+
+const std::string WulforSettingsManager::parseCmd(const std::string cmd)
+{
+    StringTokenizer<string> sl(cmd, ' ');
+        if (sl.getTokens().size() == 2) {
+            if (intMap.find(sl.getTokens().at(0)) != intMap.end()) {
+                int i = atoi(sl.getTokens().at(1).c_str());
+                WSET(sl.getTokens().at(0), i);
+            }
+            else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end())
+                WSET(sl.getTokens().at(0), sl.getTokens().at(1));
+            else
+                return _("Error: setting not found!");
+            string msg = _("Change setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
+            return msg;
+        }
+    return _("Error: params have been not 2!");
+}
+
+const std::string WulforSettingsManager::parseCoreCmd(const std::string cmd)
+{
+    StringTokenizer<string> sl(cmd, ' ');
+        if (sl.getTokens().size() == 2) {
+            int n,type;SettingsManager *SM = SettingsManager::getInstance();
+            SM->getType(sl.getTokens().at(0).c_str(),n,type);
+            if (type == SettingsManager::TYPE_INT) {
+                int i = atoi(sl.getTokens().at(1).c_str());
+                SM->set((SettingsManager::IntSetting)n,i);
+            }
+            else if (type == SettingsManager::TYPE_STRING)
+                SM->set((SettingsManager::StrSetting)n, sl.getTokens().at(1));
+            else
+                return _("Error: setting not found!");
+            return _("Change core setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
+        }
+    return _("Error: params have been not 2!");
 }

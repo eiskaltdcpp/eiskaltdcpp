@@ -64,12 +64,8 @@ uint64_t TimerManager::getTick() {
 #else
     timeval tv2;
     gettimeofday(&tv2, NULL);
-
-#if ULONG_MAX >= 18446744073709551615UL
-        return ((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000);
-#else
+        /// @todo check conversions to use uint64_t fully
     return static_cast<uint64_t>(((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000));
-#endif
 #endif
 }
 

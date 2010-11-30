@@ -169,6 +169,7 @@ void UCModel::newUC(){
                                                              0,
                                                              _tq(ucd.getName()),
                                                              _tq(ucd.getCmd()),
+                                                             "",
                                                              _tq(ucd.getHub())
                                                              ));
     }
@@ -277,7 +278,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
         dlg.radioButton_SEP->toggle();
         dlg.lineEdit_CMD->clear();
     }
-    else if (/*type == 2 && */comm.startsWith("<%[myNI]> ")){
+    else if (comm.startsWith("<%[myNI]> ")){
         dlg.radioButton_CHAT->toggle();
 
         int from = QString("<%[myNI]> ").length();
@@ -287,7 +288,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
 
         dlg.lineEdit_CMD->setText(cmd);
     }
-    else if (/*type == 3 &&*/ comm.startsWith("$To: ") && comm.indexOf(" From: %[myNI] $<%[myNI]> ") > 0){
+    else if ( comm.startsWith("$To: ") && comm.indexOf(" From: %[myNI] $<%[myNI]> ") > 0){
         QRegExp reg_exp("^\\$To: ([^\t]+) From: %\\[myNI\\] \\$<%\\[myNI\\]> ([^\t^|]+)");
         (void)reg_exp.indexIn(comm);
         QStringList list = reg_exp.capturedTexts();
@@ -312,7 +313,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
 
     dlg.checkBox_FB->setChecked(ctx & UserCommand::CONTEXT_FILELIST);
     dlg.checkBox_HUB->setChecked(ctx & UserCommand::CONTEXT_HUB);
-    dlg.checkBox_USER->setChecked(ctx & UserCommand::CONTEXT_CHAT);
+    dlg.checkBox_USER->setChecked(ctx & UserCommand::CONTEXT_USER);
     dlg.checkBox_SEARCH->setChecked(ctx & UserCommand::CONTEXT_SEARCH);
 }
 
@@ -373,7 +374,7 @@ unsigned long UCDialog::getCtx() const {
     if (checkBox_SEARCH->isChecked())
         ctx |= UserCommand::CONTEXT_SEARCH;
     if (checkBox_USER->isChecked())
-        ctx |= UserCommand::CONTEXT_CHAT;
+        ctx |= UserCommand::CONTEXT_USER;
     if (checkBox_FB->isChecked())
         ctx |= UserCommand::CONTEXT_FILELIST;
 
@@ -382,18 +383,24 @@ unsigned long UCDialog::getCtx() const {
 
 unsigned long UCDialog::getType() const {
     int _type = -1;
+    bool sendOnce = checkBox_SENDONCE->isChecked();
 
     if (radioButton_SEP->isChecked())
-        _type = 0;
+        _type = UserCommand::TYPE_SEPARATOR;
     else if (radioButton_CHAT->isChecked())
-        _type = 2;
-    else if (radioButton_PM->isChecked())
-        _type = 3;
-    else
-        _type = 1;
-
-    if (_type != 0)
-        _type = checkBox_SENDONCE->isChecked()? 2 : 1;
+        _type = UserCommand::TYPE_CHAT;
+    else if (radioButton_PM->isChecked()){
+        if (sendOnce)
+            _type = UserCommand::TYPE_CHAT_ONCE;
+        else
+            _type = UserCommand::TYPE_CHAT;
+    }
+    else{
+        if (sendOnce)
+            _type = UserCommand::TYPE_RAW_ONCE;
+        else
+            _type = UserCommand::TYPE_RAW;
+    }
 
     return _type;
 }
