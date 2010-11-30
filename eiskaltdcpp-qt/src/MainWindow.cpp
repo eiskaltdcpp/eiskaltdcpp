@@ -400,11 +400,14 @@ void MainWindow::init(){
     loadSettings();
 
     connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotExit()));
+
 #ifdef LUA_SCRIPT
-    ScriptManager::getInstance()->load();//aded
-    // Start as late as possible, as we might (formatting.lua) need to examine settings
-    string defaultluascript="startup.lua";
-    ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    ScriptManager::getInstance()->load();
+    if (BOOLSETTING(USE_LUA)){
+        // Start as late as possible, as we might (formatting.lua) need to examine settings
+        string defaultluascript="startup.lua";
+        ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    }
 #endif
 
     totalDown = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
@@ -2726,6 +2729,3 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
 
     emit coreUpdateStats(map);
 }
-
-
-

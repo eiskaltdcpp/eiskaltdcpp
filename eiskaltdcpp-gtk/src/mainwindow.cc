@@ -316,10 +316,12 @@ MainWindow::MainWindow():
         gtk_window_maximize(window);
 
 #ifdef LUA_SCRIPT
-    ScriptManager::getInstance()->load();//aded
-    // Start as late as possible, as we might (formatting.lua) need to examine settings
-    string defaultluascript="startup.lua";
-    ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    ScriptManager::getInstance()->load();
+    if (BOOLSETTING(USE_LUA){
+        // Start as late as possible, as we might (formatting.lua) need to examine settings
+        string defaultluascript="startup.lua";
+        ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    }
 #endif
 }
 
