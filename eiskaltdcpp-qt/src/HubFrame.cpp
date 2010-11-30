@@ -598,7 +598,7 @@ void HubFrame::LinkParser::parseForMagnetAlias(QString &output){
         if (!rx.cap(2).isEmpty())
             name = rx.cap(2);
 
-        const TTHValue *tth = HashManager::getInstance()->getFileTTHif(fi.absoluteFilePath().toStdString());
+        const TTHValue *tth = HashManager::getInstance()->getFileTTHif(_tq(fi.absoluteFilePath()));
         if (tth != NULL) {
             QString urlStr = WulforUtil::getInstance()->makeMagnet(name, fi.size(), _q(tth->toBase32()));
             output.replace(pos, rx.cap(1).length(), urlStr);

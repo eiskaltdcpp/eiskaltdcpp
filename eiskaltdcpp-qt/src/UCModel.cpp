@@ -137,33 +137,31 @@ void UCModel::sort(int column, Qt::SortOrder order) {
 }
 
 void UCModel::loadUC(){
-#warning
-    /*UserCommand::List lst = FavoriteManager::getInstance()->getUserCommands();
+    UserCommand::List lst = FavoriteManager::getInstance()->getUserCommands();
     for(UserCommand::List::const_iterator i = lst.begin(); i != lst.end(); ++i) {
         const UserCommand& uc = *i;
         if(!uc.isSet(UserCommand::FLAG_NOSAVE))
             addUC(uc);
-    }*/
+    }
 }
 
 void UCModel::addUC(const dcpp::UserCommand &uc){
-#warning
-//    UCItem *item = new UCItem(rootItem);
+    UCItem *item = new UCItem(rootItem);
 
-//    item->name = ((uc.getType() == dcpp::UserCommand::TYPE_SEPARATOR)? tr("Separator") : _q(uc.getName()));
-//    item->comm = _q(uc.getCommand());
-//    item->hub  = _q(uc.getHub());
-//    item->id   = uc.getId();
-//    item->type = uc.getType();
-//    item->ctx  = uc.getCtx();
+    item->name = ((uc.getType() == dcpp::UserCommand::TYPE_SEPARATOR)? tr("Separator") : _q(uc.getName()));
+    item->comm = _q(uc.getCommand());
+    item->hub  = _q(uc.getHub());
+    item->id   = uc.getId();
+    item->type = uc.getType();
+    item->ctx  = uc.getCtx();
 
-//    beginInsertRows(QModelIndex(), rootItem->childCount(), rootItem->childCount());
-//    rootItem->appendChild(item);
-//    endInsertRows();
+    beginInsertRows(QModelIndex(), rootItem->childCount(), rootItem->childCount());
+    rootItem->appendChild(item);
+    endInsertRows();
 }
 
 void UCModel::newUC(){
-    /*UCDialog ucd(MainWindow::getInstance());
+    UCDialog ucd(MainWindow::getInstance());
 
     if (ucd.exec() == QDialog::Accepted){
         addUC(FavoriteManager::getInstance()->addUserCommand(ucd.getType(),
@@ -171,9 +169,10 @@ void UCModel::newUC(){
                                                              0,
                                                              _tq(ucd.getName()),
                                                              _tq(ucd.getCmd()),
+                                                             "",
                                                              _tq(ucd.getHub())
                                                              ));
-    }*/
+    }
 }
 
 void UCModel::changeUC(const QModelIndex &i){
@@ -269,7 +268,7 @@ void UCModel::moveDown(const QModelIndex &i){
 }
 
 void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
-    /*unsigned long ctx   = item.ctx;
+    unsigned long ctx   = item.ctx;
     unsigned long type  = item.type;
     QString name        = item.name;
     QString comm        = item.comm;
@@ -314,8 +313,8 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
 
     dlg.checkBox_FB->setChecked(ctx & UserCommand::CONTEXT_FILELIST);
     dlg.checkBox_HUB->setChecked(ctx & UserCommand::CONTEXT_HUB);
-    dlg.checkBox_USER->setChecked(ctx & UserCommand::CONTEXT_CHAT);
-    dlg.checkBox_SEARCH->setChecked(ctx & UserCommand::CONTEXT_SEARCH);*/
+    dlg.checkBox_USER->setChecked(ctx & UserCommand::CONTEXT_USER);
+    dlg.checkBox_SEARCH->setChecked(ctx & UserCommand::CONTEXT_SEARCH);
 }
 
 UCItem::UCItem(UCItem *parent) :
@@ -370,32 +369,38 @@ UCDialog::UCDialog(QWidget *parent): QDialog(parent){
 unsigned long UCDialog::getCtx() const {
     unsigned long ctx = 0;
 
-//    if (checkBox_HUB->isChecked())
-//        ctx |= UserCommand::CONTEXT_HUB;
-//    if (checkBox_SEARCH->isChecked())
-//        ctx |= UserCommand::CONTEXT_SEARCH;
-//    if (checkBox_USER->isChecked())
-//        ctx |= UserCommand::CONTEXT_CHAT;
-//    if (checkBox_FB->isChecked())
-//        ctx |= UserCommand::CONTEXT_FILELIST;
+    if (checkBox_HUB->isChecked())
+        ctx |= UserCommand::CONTEXT_HUB;
+    if (checkBox_SEARCH->isChecked())
+        ctx |= UserCommand::CONTEXT_SEARCH;
+    if (checkBox_USER->isChecked())
+        ctx |= UserCommand::CONTEXT_USER;
+    if (checkBox_FB->isChecked())
+        ctx |= UserCommand::CONTEXT_FILELIST;
 
     return ctx;
 }
 
 unsigned long UCDialog::getType() const {
     int _type = -1;
+    bool sendOnce = checkBox_SENDONCE->isChecked();
 
     if (radioButton_SEP->isChecked())
-        _type = 0;
+        _type = UserCommand::TYPE_SEPARATOR;
     else if (radioButton_CHAT->isChecked())
-        _type = 2;
-    else if (radioButton_PM->isChecked())
-        _type = 3;
-    else
-        _type = 1;
-
-    if (_type != 0)
-        _type = checkBox_SENDONCE->isChecked()? 2 : 1;
+        _type = UserCommand::TYPE_CHAT;
+    else if (radioButton_PM->isChecked()){
+        if (sendOnce)
+            _type = UserCommand::TYPE_CHAT_ONCE;
+        else
+            _type = UserCommand::TYPE_CHAT;
+    }
+    else{
+        if (sendOnce)
+            _type = UserCommand::TYPE_RAW_ONCE;
+        else
+            _type = UserCommand::TYPE_RAW;
+    }
 
     return _type;
 }
