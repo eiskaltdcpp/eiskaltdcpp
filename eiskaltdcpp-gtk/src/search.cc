@@ -130,12 +130,12 @@ Search::Search():
         GtkListStore *store = GTK_LIST_STORE(model);
         const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
 
-        //// Predefined
-        //for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
-        //{
-                //gtk_list_store_append(store, &iter);
-                //gtk_list_store_set(store, &iter, 0, SearchManager::getTypeStr(i), -1);
-        //}
+        // Predefined
+        for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
+        {
+                gtk_list_store_append(store, &iter);
+                gtk_list_store_set(store, &iter, 0, SearchManager::getTypeStr(i), -1);
+        }
 
         // Customs
         for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
