@@ -9,9 +9,12 @@
 
 #include "SearchBlacklistDialog.h"
 #include "SearchBlacklist.h"
+#include "WulforUtil.h"
 
 #include <QComboBox>
 #include <QLineEdit>
+#include <QMenu>
+#include <QItemSelectionModel>
 
 SearchBlackListDialog::SearchBlackListDialog(QWidget *parent): QDialog(parent){
     setupUi(this);
@@ -19,7 +22,9 @@ SearchBlackListDialog::SearchBlackListDialog(QWidget *parent): QDialog(parent){
     model = new SearchBlackListModel();
     treeView_RULES->setModel(model);
     treeView_RULES->setItemDelegate(new SearchBlackListDelegate(this));
+    treeView_RULES->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    connect(treeView_RULES, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
     connect(this, SIGNAL(accepted()), this, SLOT(ok()));
 }
 
@@ -29,6 +34,39 @@ SearchBlackListDialog::~SearchBlackListDialog(){
 
 void SearchBlackListDialog::ok(){
     model->save();
+}
+
+void SearchBlackListDialog::slotContextMenu(){
+    QItemSelectionModel *s_m = treeView_RULES->selectionModel();
+    QModelIndexList indexes = s_m->selectedRows(0);
+
+    QMenu *menu = new QMenu(this);
+    QAction *add = new QAction(WICON(WulforUtil::eiEDITADD), tr("Add new"), NULL);
+    QAction *rem = new QAction(WICON(WulforUtil::eiEDITDELETE), tr("Remove"), NULL);
+
+    menu->addActions(QList<QAction*>() << add << rem);
+
+    QAction *ret = menu->exec(QCursor::pos());
+
+    menu->deleteLater();
+
+    if (ret == add){
+        s_m->select(model->addEmptyItem(), QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+    }
+    else if (ret && !indexes.isEmpty()){
+        foreach (QModelIndex index, indexes){
+            SearchBlackListItem *i = reinterpret_cast<SearchBlackListItem*>(index.internalPointer());
+
+            if (!i)
+                continue;
+
+            i->parent()->childItems.removeAt(i->row());
+
+            delete i;
+        }
+
+        model->repaint();
+    }
 }
 
 SearchBlackListModel::SearchBlackListModel(QObject * parent) : QAbstractItemModel(parent) {
@@ -144,7 +182,18 @@ QModelIndex SearchBlackListModel::parent(const QModelIndex & ) const {
     return QModelIndex();
 }
 
-SearchBlackListItem::SearchBlackListItem(SearchBlackListItem *parent) : parentItem(parent)
+QModelIndex SearchBlackListModel::addEmptyItem(){
+    SearchBlackListItem *item = new SearchBlackListItem(rootItem);
+    item->title = tr("Set text...");
+
+    rootItem->appendChild(item);
+
+    emit layoutChanged();
+
+    return createIndex(item->row(), 0, item);
+}
+
+SearchBlackListItem::SearchBlackListItem(SearchBlackListItem *parent) : parentItem(parent), argument(0)
 {
 }
 

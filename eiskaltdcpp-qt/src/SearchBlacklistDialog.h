@@ -68,6 +68,8 @@ public:
     virtual QModelIndex parent(const QModelIndex & parent) const;
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
+    QModelIndex addEmptyItem();
+
     void repaint() { emit layoutChanged(); }
     void save();
 
@@ -86,6 +88,7 @@ public:
 
 private Q_SLOTS:
     void ok();
+    void slotContextMenu();
 
 private:
     SearchBlackListModel *model;
