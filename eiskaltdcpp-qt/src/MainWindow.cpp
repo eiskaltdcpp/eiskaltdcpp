@@ -53,6 +53,7 @@
 #include "ActionCustomizer.h"
 #include "MultiLineToolBar.h"
 #include "IPFilter.h"
+#include "SearchBlacklist.h"
 #ifdef FREE_SPACE_BAR_C
 #include "extra/freespace.h"
 #endif
@@ -174,6 +175,7 @@ MainWindow::~MainWindow(){
     delete sBar;
 
     ShortcutManager::deleteInstance();
+    SearchBlacklist::deleteInstance();
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){

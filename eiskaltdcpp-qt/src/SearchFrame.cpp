@@ -25,6 +25,8 @@
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "SearchModel.h"
+#include "SearchBlacklist.h"
+#include "SearchBlacklistDialog.h"
 #include "WulforUtil.h"
 
 #include "dcpp/CID.h"
@@ -100,11 +102,17 @@ SearchFrame::Menu::Menu(){
     QAction *sep1       = new QAction(menu);
     sep1->setSeparator(true);
 
+    QAction *sep2       = new QAction(menu);
+    sep2->setSeparator(true);
+
     QAction *rem_queue  = new QAction(tr("Remove from Queue"), NULL);
     rem_queue->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
     QAction *rem        = new QAction(tr("Remove"), NULL);
     rem->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
+
+    QAction *blacklist = new QAction(tr("Blacklist"), NULL);
+    blacklist->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
 
     actions.insert(down, Download);
     actions.insert(down_wh, DownloadWholeDir);
@@ -117,6 +125,7 @@ SearchFrame::Menu::Menu(){
     actions.insert(grant, GrantExtraSlot);
     actions.insert(rem_queue, RemoveFromQueue);
     actions.insert(rem, Remove);
+    actions.insert(blacklist, Blacklist);
 
     action_list   << down
                   << down_wh
@@ -130,7 +139,9 @@ SearchFrame::Menu::Menu(){
                   << grant
                   << sep1
                   << rem_queue
-                  << rem;
+                  << rem
+                  << sep2
+                  << blacklist;
 }
 
 SearchFrame::Menu::~Menu(){
@@ -286,6 +297,9 @@ SearchFrame::SearchFrame(QWidget *parent):
         proxy(NULL),
         completer(NULL)
 {
+    if (!SearchBlacklist::getInstance())
+        SearchBlacklist::newInstance();
+
     setupUi(this);
 
     init();
@@ -725,9 +739,13 @@ bool SearchFrame::getWholeDirParams(SearchFrame::VarMap &params, SearchItem *ite
 }
 
 void SearchFrame::addResult(const QMap<QString, QVariant> &map){
+    static SearchBlacklist *SB = SearchBlacklist::getInstance();
+
     try {
-        if (model->addResultPtr(map))
-            results++;
+        if (SB->ok(map["FILE"].toString(), SearchBlacklist::NAME) && SB->ok(map["TTH"].toString(), SearchBlacklist::TTH)){
+            if (model->addResultPtr(map))
+                results++;
+        }
     }
     catch (const SearchListException&){}
 }
@@ -1284,6 +1302,14 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
                 }
             }
+
+            break;
+        }
+        case Menu::Blacklist:
+        {
+            SearchBlackListDialog dlg(this);
+
+            dlg.exec();
 
             break;
         }

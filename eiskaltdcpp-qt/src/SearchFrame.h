@@ -86,6 +86,7 @@ class SearchFrame : public QWidget,
             RemoveFromQueue,
             Remove,
             UserCommands,
+            Blacklist,
             None
         };
 

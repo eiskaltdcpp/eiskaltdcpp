@@ -66,6 +66,8 @@ set (SRCS
             src/PublicHubsList.cpp
             src/PublicHubModel.cpp
             src/QuickConnect.cpp
+            src/SearchBlacklist.cpp
+            src/SearchBlacklistDialog.cpp
             src/SearchFrame.cpp
             src/SearchModel.cpp
             src/Settings.cpp
@@ -153,6 +155,8 @@ set (MOC_HDRS
             src/SideBar.h
             src/SingleInstanceRunner.h
             src/QuickConnect.h
+            src/SearchBlacklist.h
+            src/SearchBlacklistDialog.h
             src/SearchFrame.h
             src/SearchModel.h
             src/ShareBrowser.h
@@ -189,6 +193,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIPublicHubs.ui
             ui/UIPublicHubsList.ui
             ui/UIQuickConnect.ui
+            ui/UISearchBlacklist.ui
             ui/UISearchFrame.ui
             ui/UISettings.ui
             ui/UISettingsConnection.ui
