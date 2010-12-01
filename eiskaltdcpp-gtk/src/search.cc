@@ -340,11 +340,7 @@ void Search::popupMenu_gui()
         if (gtk_tree_model_get_iter(sortedFilterModel, &iter, path))
         {
             userCommandMenu->addHub(resultView.getString(&iter, "Hub URL"));
-            userCommandMenu->addFile(resultView.getString(&iter, "CID"),
-                resultView.getString(&iter, "Filename"),
-                resultView.getString(&iter, "Path"),
-                resultView.getValue<int64_t>(&iter, "Real Size"),
-                resultView.getString(&iter, "TTH"));
+            userCommandMenu->addFile(resultView.getString(&iter, "CID"), resultView.getString(&iter, "Filename"), resultView.getString(&iter, "Path"), resultView.getValue<int64_t>(&iter, "Real Size"), resultView.getString(&iter, "TTH"));
 
 
             if (firstTTH)
@@ -600,14 +596,14 @@ void Search::addResult_gui(const SearchResultPtr result)
     // Have to use insert with values since appending would cause searchFilterFunc to be
     // called with empty row which in turn will cause assert failure in treeview::getString
     gtk_tree_store_insert_with_values(resultStore, &iter, foundParent ? &parent : NULL, -1,
-        resultView.col(_("Nick")), resultMap[_("Nick")].c_str(),
-        resultView.col(_("Filename")), resultMap[_("Filename")].c_str(),
+        resultView.col(_("Nick")), resultMap["Nick"].c_str(),
+        resultView.col(_("Filename")), resultMap["Filename"].c_str(),
         resultView.col(_("Slots")), resultMap["Slots"].c_str(),
-        resultView.col(_("Size")), resultMap[_("Size")].c_str(),
-        resultView.col(_("Path")), resultMap[_("Path")].c_str(),
-        resultView.col(_("Type")), resultMap[_("Type")].c_str(),
-        resultView.col(_("Connection")), resultMap[_("Connection")].c_str(),
-        resultView.col(_("Hub")), resultMap[_("Hub")].c_str(),
+        resultView.col(_("Size")), resultMap["Size"].c_str(),
+        resultView.col(_("Path")), resultMap["Path"].c_str(),
+        resultView.col(_("Type")), resultMap["Type"].c_str(),
+        resultView.col(_("Connection")), resultMap["Connection"].c_str(),
+        resultView.col(_("Hub")), resultMap["Hub"].c_str(),
         resultView.col(_("Exact Size")), resultMap["Exact Size"].c_str(),
         resultView.col("IP"), resultMap["IP"].c_str(),
         resultView.col("TTH"), resultMap["TTH"].c_str(),
@@ -1613,19 +1609,19 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
         string file = WulforUtil::linuxSeparator(result->getFile());
         if (file.rfind('/') == tstring::npos)
         {
-            resultMap[_("Filename")] = file;
+            resultMap["Filename"] = file;
         }
         else
         {
-            resultMap[_("Filename")] = Util::getFileName(file);
-            resultMap[_("Path")] = Util::getFilePath(file);
+            resultMap["Filename"] = Util::getFileName(file);
+            resultMap["Path"] = Util::getFilePath(file);
         }
 
-        resultMap["File Order"] = "f" + resultMap[_("Filename")];
-        resultMap[_("Type")] = Util::getFileExt(resultMap[_("Filename")]);
-        if (!resultMap[_("Type")].empty() && resultMap[_("Type")][0] == '.')
-            resultMap[_("Type")].erase(0, 1);
-        resultMap[_("Size")] = Util::formatBytes(result->getSize());
+        resultMap["File Order"] = "f" + resultMap["Filename"];
+        resultMap["Type"] = Util::getFileExt(resultMap["Filename"]);
+        if (!resultMap["Type"].empty() && resultMap["Type"][0] == '.')
+            resultMap["Type"].erase(0, 1);
+        resultMap["Size"] = Util::formatBytes(result->getSize());
         resultMap["Exact Size"] = Util::formatExactSize(result->getSize());
         resultMap["Icon"] = "icon-file";
         resultMap["Shared"] = Util::toString(ShareManager::getInstance()->isTTHShared(result->getTTH()));
@@ -1633,26 +1629,26 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
     else
     {
         string path = WulforUtil::linuxSeparator(result->getFile());
-        resultMap[_("Filename")] = WulforUtil::linuxSeparator(result->getFileName());
-        resultMap[_("Path")] = Util::getFilePath(path.substr(0, path.length() - 1)); // getFilePath just returns path unless we chop the last / off
-        if (resultMap[_("Path")].find("/") == string::npos)
-            resultMap[_("Path")] = "";
-        resultMap["File Order"] = "d" + resultMap[_("Filename")];
-        resultMap[_("Type")] = _("Directory");
+        resultMap["Filename"] = WulforUtil::linuxSeparator(result->getFileName());
+        resultMap["Path"] = Util::getFilePath(path.substr(0, path.length() - 1)); // getFilePath just returns path unless we chop the last / off
+        if (resultMap["Path"].find("/") == string::npos)
+            resultMap["Path"] = "";
+        resultMap["File Order"] = "d" + resultMap["Filename"];
+        resultMap["Type"] = _("Directory");
         resultMap["Icon"] = "icon-directory";
         resultMap["Shared"] = "0";
         if (result->getSize() > 0)
         {
-            resultMap[_("Size")] = Util::formatBytes(result->getSize());
+            resultMap["Size"] = Util::formatBytes(result->getSize());
             resultMap["Exact Size"] = Util::formatExactSize(result->getSize());
         }
     }
 
-    resultMap[_("Nick")] = WulforUtil::getNicks(result->getUser(), result->getHubURL());//NOTE: core 0.762
+    resultMap["Nick"] = WulforUtil::getNicks(result->getUser(), result->getHubURL());//NOTE: core 0.762
     resultMap["CID"] = result->getUser()->getCID().toBase32();
     resultMap["Slots"] = result->getSlotString();
-    resultMap[_("Connection")] = ClientManager::getInstance()->getConnection(result->getUser()->getCID());
-    resultMap[_("Hub")] = result->getHubName().empty() ? result->getHubURL().c_str() : result->getHubName().c_str();
+    resultMap["Connection"] = ClientManager::getInstance()->getConnection(result->getUser()->getCID());
+    resultMap["Hub"] = result->getHubName().empty() ? result->getHubURL().c_str() : result->getHubName().c_str();
     resultMap["Hub URL"] = result->getHubURL();
     resultMap["IP"] = result->getIP();
     resultMap["Real Size"] = Util::toString(result->getSize());
