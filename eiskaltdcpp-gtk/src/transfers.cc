@@ -619,20 +619,17 @@ void Transfers::updateTransfer_gui(StringMap params, bool download, Sound::TypeS
 
     if (failed) // Transfer had failed already. We won't update the transfer before the fail status changes.
         return;
-
     for (StringMap::const_iterator it = params.begin(); it != params.end(); ++it)
     {
-        if (it->first == _("Size") || it->first == _("Speed") || it->first == "Download Position" || it->first == _("Time Left"))
-            gtk_tree_store_set(transferStore, &iter, transferView.col(it->first), Util::toInt64(it->second), -1);
+        if (it->first == "Size" || it->first ==  "Speed" || it->first == "Download Position" || it->first ==  "Time Left")
+            gtk_tree_store_set(transferStore, &iter, transferView.col(_(it->first.c_str())), Util::toInt64(it->second), -1);
         else if (it->first == "Progress" || it->first == "Failed")
             gtk_tree_store_set(transferStore, &iter, transferView.col(it->first), Util::toInt(it->second), -1);
         else if (!it->second.empty())
-            gtk_tree_store_set(transferStore, &iter, transferView.col(it->first), it->second.c_str(), -1);
+            gtk_tree_store_set(transferStore, &iter, transferView.col(_(it->first.c_str())), it->second.c_str(), -1);
     }
-
     if (gtk_tree_model_iter_parent(GTK_TREE_MODEL(transferStore), &parent, &iter))
         updateParent_gui(&parent);
-
     playSound_gui(sound);
 }
 
