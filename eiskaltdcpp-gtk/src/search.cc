@@ -340,8 +340,11 @@ void Search::popupMenu_gui()
         if (gtk_tree_model_get_iter(sortedFilterModel, &iter, path))
         {
             userCommandMenu->addHub(resultView.getString(&iter, "Hub URL"));
-            userCommandMenu->addFile(resultView.getString(&iter, "CID"), resultView.getString(&iter, "Filename"), resultView.getString(&iter, "Path"), resultView.getValue<int64_t>(&iter, "Real Size"), resultView.getString(&iter, "TTH"));
-
+            userCommandMenu->addFile(resultView.getString(&iter, "CID"),
+            resultView.getString(&iter, _("Filename")),
+            resultView.getString(&iter, _("Path")),
+            resultView.getValue<int64_t>(&iter, "Real Size"),
+            resultView.getString(&iter, "TTH"));
 
             if (firstTTH)
             {
@@ -638,12 +641,12 @@ void Search::addResult_gui(const SearchResultPtr result)
 
          // As a special case, use the first child's filename for TTH grouping
          if (groupBy == TTH)
-                 filename = resultView.getString(child, "Filename", GTK_TREE_MODEL(resultStore));
+                 filename = resultView.getString(child, _("Filename"), GTK_TREE_MODEL(resultStore));
 
          // Insert the new parent row
          gtk_tree_store_insert_with_values(resultStore, &parent, NULL, position,
                          resultView.col("Icon"), GTK_STOCK_DND_MULTIPLE,
-                         resultView.col("Filename"), filename.c_str(),
+                         resultView.col(_("Filename")), filename.c_str(),
                          -1);
 
          // Move the row to be a child of the new parent
@@ -856,7 +859,7 @@ void Search::download_gui(const string &target)
                  if (gtk_tree_model_get_iter(sortedFilterModel, &iter, path))
                  {
                          bool parent = gtk_tree_model_iter_has_child(sortedFilterModel, &iter);
-                         string filename = resultView.getString(&iter, "Filename");
+                         string filename = resultView.getString(&iter, _("Filename"));
 
                          do
                          {
@@ -865,8 +868,8 @@ void Search::download_gui(const string &target)
                                          // User parent filename when grouping by TTH to avoid downloading the same file multiple times
                                          if (groupBy != TTH)
                                          {
-                                                 filename = resultView.getString(&iter, "Path");
-                                                 filename += resultView.getString(&iter, "Filename");
+                                                 filename = resultView.getString(&iter, _("Path"));
+                                                 filename += resultView.getString(&iter, _("Filename"));
                                          }
 
                                          string cid = resultView.getString(&iter, "CID");
@@ -1274,8 +1277,8 @@ void Search::onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data)
                         if (!gtk_tree_model_iter_has_child(s->sortedFilterModel, &iter))
                         {
                             string cid = s->resultView.getString(&iter, "CID");
-                            string filename = s->resultView.getString(&iter, "Path");
-                            filename += s->resultView.getString(&iter, "Filename");
+                            string filename = s->resultView.getString(&iter, _("Path"));
+                            filename += s->resultView.getString(&iter, _("Filename"));
                             string hubUrl = s->resultView.getString(&iter, "Hub URL");
                             F4 *func = new F4(s, &Search::downloadDir_client, target, cid, filename, hubUrl);
                             WulforManager::get()->dispatchClientFunc(func);
@@ -1336,7 +1339,7 @@ void Search::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
                 do
                 {
                     string cid = s->resultView.getString(&iter, "CID");
-                    string dir = s->resultView.getString(&iter, "Path");
+                    string dir = s->resultView.getString(&iter, _("Path"));
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
                     F4 *func = new F4(s, &Search::getFileList_client, cid, dir, FALSE, hubUrl);
                     WulforManager::get()->dispatchClientFunc(func);

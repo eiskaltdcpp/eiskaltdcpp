@@ -127,7 +127,8 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     g_signal_connect(getWidget("searchForAlternatesItem"), "activate", G_CALLBACK(onSearchAlternatesClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyPictureItem"), "activate", G_CALLBACK(onCopyPictureClicked_gui), (gpointer)this);
-    g_signal_connect(getWidget("getDirectory"), "activate", G_CALLBACK(onDirGet), (gpointer)this);
+    //getDirectory нету в glade файле...интересно почему ?
+    //g_signal_connect(getWidget("getDirectory"), "activate", G_CALLBACK(onDirGet), (gpointer)this);
 }
 
 ShareBrowser::~ShareBrowser()
@@ -509,7 +510,7 @@ void ShareBrowser::popupFileMenu_gui()
             }
 
             fileUserCommandMenu->addFile(cid,
-                fileView.getString(&iter, "Filename"),
+                fileView.getString(&iter, _("Filename")),
                 filepath,
                 fileView.getValue<int64_t>(&iter, "Size Order"),
                 fileView.getString(&iter, "TTH"));
