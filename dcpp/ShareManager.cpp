@@ -1456,16 +1456,15 @@ ShareManager::Directory::Ptr ShareManager::getDirectory(const string& fname) {
     return Directory::Ptr();
 }
 
-void ShareManager::on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) throw() {
+void ShareManager::on(QueueManagerListener::FileMoved, const string& n) throw() {
     if(BOOLSETTING(ADD_FINISHED_INSTANTLY)) {
         // Check if finished download is supposed to be shared
         Lock l(cs);
-                const string& n = qi->getTarget();
         for(StringMapIter i = shares.begin(); i != shares.end(); i++) {
                         if(Util::strnicmp(i->first, n, i->first.size()) == 0 && n[i->first.size() - 1] == PATH_SEPARATOR) {
                 try {
                     // Schedule for hashing, it'll be added automatically later on...
-                                        HashManager::getInstance()->checkTTH(n, qi->getSize(), 0);
+                    HashManager::getInstance()->checkTTH(n, File::getSize(n), 0);
                 } catch(const Exception&) {
                     // Not a vital feature...
                 }

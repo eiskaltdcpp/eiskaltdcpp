@@ -416,8 +416,6 @@ public:
     static int stricmp(const wstring& a, const wstring& b) { return stricmp(a.c_str(), b.c_str()); }
     static int strnicmp(const wstring& a, const wstring& b, size_t n) { return strnicmp(a.c_str(), b.c_str(), n); }
 
-    static string getOsVersion();
-
     static string getIpCountry (string IP);
 
     static bool getAway() { return away; }
