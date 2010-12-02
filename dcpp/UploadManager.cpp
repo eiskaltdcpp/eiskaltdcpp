@@ -404,7 +404,7 @@ const UploadManager::FileSet& UploadManager::getWaitingUserFiles(const UserPtr& 
 }
 
 void UploadManager::addConnection(UserConnectionPtr conn) {
-    if (BOOLSETTING(IPFILTER) && !IPFilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_OUT)) {
+    if (BOOLSETTING(IPFILTER) && !ipfilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_OUT)) {
         conn->error("Your IP is Blocked!");// TODO translate
         LogManager::getInstance()->message(_("IPFilter: Blocked incoming connection to ") + conn->getRemoteIp()); // TODO translate
         //QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);

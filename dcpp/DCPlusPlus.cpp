@@ -106,8 +106,8 @@ void startup(void (*f)(void*, const string&), void* p) {
     UPnPManager::getInstance()->runMiniUPnP();
 #endif
     if (BOOLSETTING(IPFILTER)){
-        IPFilter::newInstance();
-        IPFilter::getInstance()->load();
+        ipfilter::newInstance();
+        ipfilter::getInstance()->load();
     }
 
 #ifdef _WIN32
@@ -162,8 +162,8 @@ void shutdown() {
     WindowManager::getInstance()->prepareSave();
     QueueManager::getInstance()->saveQueue(true);
     ClientManager::getInstance()->saveUsers();
-    if (IPFilter::getInstance())
-        IPFilter::getInstance()->shutdown();
+    if (ipfilter::getInstance())
+        ipfilter::getInstance()->shutdown();
     SettingsManager::getInstance()->save();
 
 #ifdef USE_DHT
