@@ -492,72 +492,75 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
         if (emoticon_found)
             continue;
 
-        if (input.startsWith("[b]") && input.indexOf("[/b]") > 0){
-            input.remove(0, 3);
-            int c_len = input.indexOf("[/b]");
+        if (WBGET("hubframe/use-bb-code", false)){
+            if (input.startsWith("[b]") && input.indexOf("[/b]") > 0){
+                input.remove(0, 3);
+                int c_len = input.indexOf("[/b]");
 
-            QString chunk = Qt::escape(input.left(c_len));
-
-            output += "<b>" + chunk + "</b>";
-            input.remove(0, c_len+4);
-
-            continue;
-        }
-        else if (input.startsWith("[u]") && input.indexOf("[/u]") > 0){
-            input.remove(0, 3);
-            int c_len = input.indexOf("[/u]");
-
-            QString chunk = Qt::escape(input.left(c_len));
-
-            output += "<u>" + chunk + "</u>";
-            input.remove(0, c_len+4);
-
-            continue;
-        }
-        else if (input.startsWith("[i]") && input.indexOf("[/i]") > 0){
-            input.remove(0, 3);
-            int c_len = input.indexOf("[/i]");
-
-            QString chunk = Qt::escape(input.left(c_len));
-
-            output += "<i>" + chunk + "</i>";
-            input.remove(0, c_len+4);
-
-            continue;
-        }
-        else if (input.startsWith("_") && input.length() >= 3){
-            int c_len = input.indexOf("_", 1);
-
-            if (c_len > 1){
                 QString chunk = Qt::escape(input.left(c_len));
-                chunk.remove(0, 1);
 
-                QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
+                output += "<b>" + chunk + "</b>";
+                input.remove(0, c_len+4);
 
-                if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
-                    output += "<u>" + chunk + "</u>";
+                continue;
+            }
+            else if (input.startsWith("[u]") && input.indexOf("[/u]") > 0){
+                input.remove(0, 3);
+                int c_len = input.indexOf("[/u]");
 
-                    input.remove(0, c_len + 1);
+                QString chunk = Qt::escape(input.left(c_len));
+
+                output += "<u>" + chunk + "</u>";
+                input.remove(0, c_len+4);
+
+                continue;
+            }
+            else if (input.startsWith("[i]") && input.indexOf("[/i]") > 0){
+                input.remove(0, 3);
+                int c_len = input.indexOf("[/i]");
+
+                QString chunk = Qt::escape(input.left(c_len));
+
+                output += "<i>" + chunk + "</i>";
+                input.remove(0, c_len+4);
+
+                continue;
+            }
+            else if (input.startsWith("_") && input.length() >= 3){
+                int c_len = input.indexOf("_", 1);
+
+                if (c_len > 1){
+                    QString chunk = Qt::escape(input.left(c_len));
+                    chunk.remove(0, 1);
+
+                    QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
+
+                    if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
+                        output += "<u>" + chunk + "</u>";
+
+                        input.remove(0, c_len + 1);
+                    }
+                }
+            }
+            else if (input.startsWith("*") && input.length() >= 3){
+                int c_len = input.indexOf("*", 1);
+
+                if (c_len > 1){
+                    QString chunk = Qt::escape(input.left(c_len));
+                    chunk.remove(0, 1);
+
+                    QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
+
+                    if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
+                        output += "<b>" + chunk + "</b>";
+
+                        input.remove(0, c_len + 1);
+                    }
                 }
             }
         }
-        else if (input.startsWith("*") && input.length() >= 3){
-            int c_len = input.indexOf("*", 1);
 
-            if (c_len > 1){
-                QString chunk = Qt::escape(input.left(c_len));
-                chunk.remove(0, 1);
-
-                QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
-
-                if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
-                    output += "<b>" + chunk + "</b>";
-
-                    input.remove(0, c_len + 1);
-                }
-            }
-        }
-        else if (input.startsWith("<")){
+        if (input.startsWith("<")){
             output += "&lt;";
             input.remove(0, 1);
 
