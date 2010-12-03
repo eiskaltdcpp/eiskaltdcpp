@@ -437,6 +437,10 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
     Speaker<ClientManagerListener>::fire(ClientManagerListener::IncomingSearch(), aString);
 
     bool isPassive = (aSeeker.compare(0, 4, "Hub:") == 0);
+    bool isTTHSearch = ((aFileType == SearchManager::TYPE_TTH) && (aString.compare(0, 4, "TTH:") == 0));
+
+    if ((BOOLSETTING(SEARCH_INCOMING_ONLY_TTH) && !isTTHSearch) || BOOLSETTING(SEARCH_INCOMING_DISABLE))
+        return;
 
     // We don't wan't to answer passive searches if we're in passive mode...
     if(isPassive && !ClientManager::getInstance()->isActive(aClient->getHubUrl())) {
@@ -446,7 +450,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
     SearchResultList l;
     ShareManager::getInstance()->search(l, aString, aSearchType, aSize, aFileType, aClient, isPassive ? 5 : 10);
 //      dcdebug("Found %d items (%s)\n", l.size(), aString.c_str());
-    if(l.size() > 0) {
+    if(l.size() > 0 && !isTTHSearch) {
         if(isPassive) {
             string name = aSeeker.substr(4);
             // Good, we have a passive seeker, those are easier...
@@ -480,7 +484,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
                 dcdebug("Search caught error\n");
             }
         }
-    } else if(!isPassive && (aFileType == SearchManager::TYPE_TTH) && (aString.compare(0, 4, "TTH:") == 0)) {
+    } else if(!isPassive && isTTHSearch) {
         PartsInfo partialInfo;
         TTHValue aTTH(aString.substr(4));
         if(!QueueManager::getInstance()->handlePartialSearch(aTTH, partialInfo)) {

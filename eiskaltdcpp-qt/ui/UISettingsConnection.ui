@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>520</width>
-    <height>439</height>
+    <height>448</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -768,6 +768,20 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
           </spacer>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_IGNORE_TTH_SEARCH">
+         <property name="text">
+          <string>Ignore incoming non-TTH searches</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_IGNORE_SEARCH">
+         <property name="text">
+          <string>Ignore all incoming searches</string>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_3">
