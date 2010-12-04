@@ -13,10 +13,8 @@
 const char * const EISKALTDCPP_VERSION         = "2.1.2";
 const char * const EISKALTDCPP_WND_TITLE       = "EiskaltDC++";
 
-#ifndef DCPP_REVISION
-const char * const EISKALTDCPP_VERSION_SFX     = "GIT";
-#else
+#define DCPP_REVISION "@eiskaltdcpp_WC_REVISION@"
+
 const char * const EISKALTDCPP_VERSION_SFX     = DCPP_REVISION;
-#endif
 
 #endif // VERSION_H
