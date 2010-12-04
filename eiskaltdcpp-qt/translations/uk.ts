@@ -692,7 +692,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="132"/>
         <source>File marked as a duplicate of another file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл позначено як дублікат іншому: %1</translation>
     </message>
 </context>
 <context>
@@ -2836,12 +2836,12 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="244"/>
         <source>Filename</source>
-        <translation type="unfinished">Ім&apos;я файлу</translation>
+        <translation>Ім&apos;я файлу</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="245"/>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
 </context>
 <context>
@@ -2849,12 +2849,12 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="44"/>
         <source>Add new</source>
-        <translation type="unfinished">Додати</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="45"/>
         <source>Remove</source>
-        <translation type="unfinished">Видалити</translation>
+        <translation>Видалити</translation>
     </message>
 </context>
 <context>
@@ -2862,27 +2862,27 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="147"/>
         <source>Filename</source>
-        <translation type="unfinished">Ім&apos;я файлу</translation>
+        <translation>Ім&apos;я файлу</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="147"/>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="162"/>
         <source>Key</source>
-        <translation type="unfinished">Відповідь</translation>
+        <translation>Відповідь</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="163"/>
         <source>Type</source>
-        <translation type="unfinished">Тип</translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="187"/>
         <source>Set text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Вказати текст...</translation>
     </message>
 </context>
 <context>
@@ -3169,7 +3169,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SearchFrame.cpp" line="114"/>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Чорний список</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="211"/>
@@ -5133,17 +5133,17 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="29"/>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Чорний список</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="75"/>
         <source>Cancel</source>
-        <translation type="unfinished">Скасувати</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="82"/>
         <source>OK</source>
-        <translation type="unfinished">ОК</translation>
+        <translation>ОК</translation>
     </message>
 </context>
 <context>
@@ -5391,12 +5391,12 @@ SOCKS5-проксі це не те ж саме, що й HTTP-проксі.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="775"/>
         <source>Ignore incoming non-TTH searches</source>
-        <translation type="unfinished"></translation>
+        <translation>Ігнорувати вхідні не ТТН запити</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="782"/>
         <source>Ignore all incoming searches</source>
-        <translation type="unfinished"></translation>
+        <translation>Ігнорувати усі вхідні пошукові запити</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="369"/>
