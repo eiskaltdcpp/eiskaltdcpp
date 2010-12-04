@@ -564,6 +564,10 @@ Kapcsolók:
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
+    <message>
+        <source>File marked as a duplicate of another file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -2360,6 +2364,51 @@ Kapcsolók:
     </message>
 </context>
 <context>
+    <name>SearchBlackListDelegate</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Fájlnév</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDialog</name>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Új hozzáadása</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListModel</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Fájlnév</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished">Kulcs</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Típus</translation>
+    </message>
+    <message>
+        <source>Set text...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SearchFrame</name>
     <message>
         <source>Form</source>
@@ -2587,6 +2636,10 @@ Kapcsolók:
     </message>
     <message>
         <source>CD Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacklist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4201,6 +4254,21 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
 </context>
 <context>
+    <name>UISearchBlacklistDialog</name>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Mégsem</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished">OK</translation>
+    </message>
+</context>
+<context>
     <name>UISettings</name>
     <message>
         <source>Settings</source>
@@ -4460,6 +4528,14 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     <message>
         <source>Auto detect connection</source>
         <translation>Kapcsolat-típus automatikus detektálása</translation>
+    </message>
+    <message>
+        <source>Ignore incoming non-TTH searches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore all incoming searches</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
