@@ -69,14 +69,14 @@ Search::Search():
 
     // Initialize hub list treeview
     hubView.setView(GTK_TREE_VIEW(getWidget("treeviewHubs")));
-    hubView.insertColumn("Search", G_TYPE_BOOLEAN, TreeView::BOOL, -1);
-    hubView.insertColumn("Name", G_TYPE_STRING, TreeView::STRING, -1);
+    hubView.insertColumn(_("Search"), G_TYPE_BOOLEAN, TreeView::BOOL, -1);
+    hubView.insertColumn(_("Name"), G_TYPE_STRING, TreeView::STRING, -1);
     hubView.insertHiddenColumn("Url", G_TYPE_STRING);
     hubView.finalize();
     hubStore = gtk_list_store_newv(hubView.getColCount(), hubView.getGTypes());
     gtk_tree_view_set_model(hubView.get(), GTK_TREE_MODEL(hubStore));
     g_object_unref(hubStore);
-    GtkTreeViewColumn *col = gtk_tree_view_get_column(hubView.get(), hubView.col("Search"));
+    GtkTreeViewColumn *col = gtk_tree_view_get_column(hubView.get(), hubView.col(_("Search")));
     GList *list = gtk_tree_view_column_get_cell_renderers(col);
     GtkCellRenderer *renderer = (GtkCellRenderer *)g_list_nth_data(list, 0);
     g_list_free(list);
@@ -92,8 +92,8 @@ Search::Search():
     resultView.insertColumn(_("Connection"), G_TYPE_STRING, TreeView::STRING, 90);
     resultView.insertColumn(_("Hub"), G_TYPE_STRING, TreeView::STRING, 150);
     resultView.insertColumn(_("Exact Size"), G_TYPE_STRING, TreeView::STRING, 80);
-    resultView.insertColumn("IP", G_TYPE_STRING, TreeView::STRING, 100);
-    resultView.insertColumn("TTH", G_TYPE_STRING, TreeView::STRING, 125);
+    resultView.insertColumn(_("IP"), G_TYPE_STRING, TreeView::STRING, 100);
+    resultView.insertColumn(_("TTH"), G_TYPE_STRING, TreeView::STRING, 125);
     resultView.insertHiddenColumn("Icon", G_TYPE_STRING);
     resultView.insertHiddenColumn("Real Size", G_TYPE_INT64);
     resultView.insertHiddenColumn("Slots Order", G_TYPE_INT);
@@ -228,8 +228,8 @@ void Search::addHub_gui(string name, string url)
     GtkTreeIter iter;
     gtk_list_store_append(hubStore, &iter);
     gtk_list_store_set(hubStore, &iter,
-        hubView.col("Search"), TRUE,
-        hubView.col("Name"), name.empty() ? url.c_str() : name.c_str(),
+        hubView.col(_("Search")), TRUE,
+        hubView.col(_("Name")), name.empty() ? url.c_str() : name.c_str(),
         hubView.col("Url"), url.c_str(),
         -1);
 }
@@ -245,7 +245,7 @@ void Search::modifyHub_gui(string name, string url)
         if (url == hubView.getString(&iter, "Url"))
         {
             gtk_list_store_set(hubStore, &iter,
-                hubView.col("Name"), name.empty() ? url.c_str() : name.c_str(),
+                hubView.col(_("Name")), name.empty() ? url.c_str() : name.c_str(),
                 hubView.col("Url"), url.c_str(),
                 -1);
             return;
@@ -344,17 +344,17 @@ void Search::popupMenu_gui()
             resultView.getString(&iter, _("Filename")),
             resultView.getString(&iter, _("Path")),
             resultView.getValue<int64_t>(&iter, "Real Size"),
-            resultView.getString(&iter, "TTH"));
+            resultView.getString(&iter, _("TTH")));
 
             if (firstTTH)
             {
-                tth = resultView.getString(&iter, "TTH");
+                tth = resultView.getString(&iter, _("TTH"));
                 firstTTH = FALSE;
                 hasTTH = TRUE;
             }
             else if (hasTTH)
             {
-                if (tth.empty() || tth != resultView.getString(&iter, "TTH"))
+                if (tth.empty() || tth != resultView.getString(&iter, _("TTH")))
                     hasTTH = FALSE; // Can't break here since we have to free all the paths
             }
         }
@@ -426,7 +426,7 @@ void Search::search_gui()
     gboolean valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(hubStore), &iter);
     while (valid)
     {
-        if (hubView.getValue<gboolean>(&iter, "Search"))
+        if (hubView.getValue<gboolean>(&iter, _("Search")))
             clients.push_back(hubView.getString(&iter, "Url"));
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(hubStore), &iter);
     }
@@ -532,7 +532,7 @@ void Search::search_gui()
 
     if (SearchManager::getInstance()->okToSearch())
     {
-		dcdebug("Sent ADC extensions : %s\n",Util::toString(";", exts).c_str());//NOTE: core 0.770
+		dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());//NOTE: core 0.770
 		SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);//NOTE: core 0.770
 
         if (WGETB("clearsearch")) // Only clear if the search was sent.
@@ -541,7 +541,7 @@ void Search::search_gui()
     else
     {
         int32_t waitFor = SearchManager::getInstance()->timeToSearch();
-        string line = _("Searching too soon, retry in ") + Util::toString(waitFor) + " s";
+        string line = _("Searching too soon, retry in ") + Util::toString(waitFor) + _(" s");
         setStatus_gui("statusbar1", line);
         setStatus_gui("statusbar2", "");
         setStatus_gui("statusbar3", "");
@@ -608,8 +608,8 @@ void Search::addResult_gui(const SearchResultPtr result)
         resultView.col(_("Connection")), resultMap["Connection"].c_str(),
         resultView.col(_("Hub")), resultMap["Hub"].c_str(),
         resultView.col(_("Exact Size")), resultMap["Exact Size"].c_str(),
-        resultView.col("IP"), resultMap["IP"].c_str(),
-        resultView.col("TTH"), resultMap["TTH"].c_str(),
+        resultView.col(_("IP")), resultMap["IP"].c_str(),
+        resultView.col(_("TTH")), resultMap["TTH"].c_str(),
         resultView.col("Icon"), resultMap["Icon"].c_str(),
         resultView.col("File Order"), resultMap["File Order"].c_str(),
         resultView.col("Real Size"), Util::toInt64(resultMap["Real Size"]),
@@ -693,7 +693,7 @@ void Search::updateParentRow_gui(GtkTreeIter *parent, GtkTreeIter *child)
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Connection")));
             break;
         case TTH:
-            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("TTH"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("TTH")));
             break;
         case NICK:
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Nick")));
@@ -823,7 +823,7 @@ string Search::getGroupingColumn(GroupType groupBy)
             column = _("Connection");
             break;
         case Search::TTH:
-            column = "TTH";
+            column = _("TTH");
             break;
         case Search::NICK:
             column = _("Nick");
@@ -874,7 +874,7 @@ void Search::download_gui(const string &target)
 
                                          string cid = resultView.getString(&iter, "CID");
                                          int64_t size = resultView.getValue<int64_t>(&iter, "Real Size");
-                                         string tth = resultView.getString(&iter, "TTH");
+                                         string tth = resultView.getString(&iter, _("TTH"));
                                          string hubUrl = resultView.getString(&iter, "Hub URL");
                                          F6 *func = new F6(this, &Search::download_client, target, cid, filename, size, tth, hubUrl);
                                          WulforManager::get()->dispatchClientFunc(func);
@@ -1063,8 +1063,8 @@ void Search::onToggledClicked_gui(GtkCellRendererToggle *cell, gchar *path, gpoi
 
     if (gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(s->hubStore), &iter, path))
     {
-        gboolean toggled = s->hubView.getValue<gboolean>(&iter, "Search");
-        gtk_list_store_set(s->hubStore, &iter, s->hubView.col("Search"), !toggled, -1);
+        gboolean toggled = s->hubView.getValue<gboolean>(&iter, _("Search"));
+        gtk_list_store_set(s->hubStore, &iter, s->hubView.col(_("Search")), !toggled, -1);
     }
 
     // Refilter current view only if "Search within local results" is enabled
@@ -1143,7 +1143,7 @@ void Search::onDownloadToMatchClicked_gui(GtkMenuItem *item, gpointer data)
                     {
                         string cid = s->resultView.getString(&iter, "CID");
                         int64_t size = s->resultView.getValue<int64_t>(&iter, "Real Size");
-                        string tth = s->resultView.getString(&iter, "TTH");
+                        string tth = s->resultView.getString(&iter, _("TTH"));
                         string hubUrl = s->resultView.getString(&iter, "Hub URL");
                         F5 *func = new F5(s, &Search::addSource_client, fileName, cid, size, tth, hubUrl);
                         WulforManager::get()->dispatchClientFunc(func);
@@ -1308,7 +1308,7 @@ void Search::onSearchByTTHClicked_gui(GtkMenuItem *item, gpointer data)
             path = (GtkTreePath *)i->data;
             if (gtk_tree_model_get_iter(s->sortedFilterModel, &iter, path))
             {
-                string tth = s->resultView.getString(&iter, "TTH");
+                string tth = s->resultView.getString(&iter, _("TTH"));
                 if (!tth.empty())
                                         s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
             }
@@ -1584,7 +1584,7 @@ void Search::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
                 {
                     filename = s->resultView.getString(&iter, _("Filename"));
                     size = s->resultView.getValue<int64_t>(&iter, "Real Size");
-                    tth = s->resultView.getString(&iter, "TTH");
+                    tth = s->resultView.getString(&iter, _("TTH"));
                     magnet = WulforUtil::makeMagnet(filename, size, tth);
 
                     if (!magnet.empty())
@@ -1874,7 +1874,7 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
     {
         if (hub == s->hubView.getString(&hubIter, "Url"))
         {
-            if (!s->hubView.getValue<gboolean>(&hubIter, "Search"))
+            if (!s->hubView.getValue<gboolean>(&hubIter, _("Search")))
                 return FALSE;
             else
                 break;
