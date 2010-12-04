@@ -7,7 +7,9 @@ else (UNIX AND NOT APPLE)
   set (PROJECT_NAME_GLOBAL EiskaltDC++)
 endif (UNIX AND NOT APPLE)
 
-set (VERSION "2.1.x")
+set (PROJECT_NAME "EiskaltDC++")
+set (VERSION "2.1.2")
+
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
 include (CheckFunctionExists)
@@ -283,7 +285,8 @@ else()
     set (eiskaltdcpp_WC_REVISION "GIT")
 endif ()
 
-configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_SOURCE_DIR}/Version.h)
+configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/Version.h)
+
 if (UNIX)
 add_definitions (-D_GNU_SOURCE)
 endif (UNIX)
