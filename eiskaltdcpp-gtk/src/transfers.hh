@@ -37,7 +37,7 @@
 class PreviewMenu;
 class UserCommandMenu;
 
-class Transfers: 
+class Transfers:
 	public dcpp::ConnectionManagerListener,
 	public dcpp::DownloadManagerListener,
 	public dcpp::QueueManagerListener,
@@ -55,7 +55,7 @@ class Transfers:
 		// GUI functions
 		void addConnection_gui(dcpp::StringMap params, bool download);
 		void removeConnection_gui(const std::string cid, bool download);
-		
+
 		void initTransfer_gui(dcpp::StringMap params);
 		void updateTransfer_gui(dcpp::StringMap params, bool download, Sound::TypeSound sound);
 		void updateFilePosition_gui(const std::string cid, int64_t filePosition);
@@ -90,6 +90,7 @@ class Transfers:
 		void removeUserFromQueue_client(std::string cid);
 		void forceAttempt_client(std::string cid);
 		void closeConnection_client(std::string cid, bool download);
+		void onFailed(dcpp::Download* dl, const std::string& reason);
 
 		// DownloadManager
 		virtual void on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) throw();
@@ -106,6 +107,7 @@ class Transfers:
 		// QueueManager
 		virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem* qi, const std::string&, int64_t size) throw();
 		virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem* qi) throw();
+		virtual void on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* aDownload, const std::string& reason) throw();
 		// UploadManager
 		virtual void on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) throw();
 		virtual void on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) throw();
@@ -120,4 +122,3 @@ class Transfers:
 };
 
 #endif // WULFOR_TRANSFERS_HH
-

@@ -93,7 +93,6 @@ AdcCommand Download::getCommand(bool zlib) {
 void Download::getParams(const UserConnection& aSource, StringMap& params) {
     Transfer::getParams(aSource, params);
     params["target"] = getPath();
-    params["sfv"] = Util::toString(isSet(Download::FLAG_CRC32_OK) ? 1 : 0);
 }
 
 } // namespace dcpp

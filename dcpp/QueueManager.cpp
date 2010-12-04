@@ -37,6 +37,8 @@
 #include "version.h"
 #include "SearchResult.h"
 #include "MerkleCheckOutputStream.h"
+#include "SFVReader.h"
+#include "FilteredFile.h"
 
 #include <climits>
 
@@ -1243,23 +1245,27 @@ void QueueManager::putDownload(Download* aDownload, bool finished) throw() {
                         if( (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) && directories.find(aDownload->getUser()) != directories.end()) ||
                             (q->isSet(QueueItem::FLAG_MATCH_QUEUE)) )
                         {
-                                                        fl_fname = q->getListName();
-                                                        fl_user = aDownload->getHintedUser();
-                                                        fl_flag = (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) ? QueueItem::FLAG_DIRECTORY_DOWNLOAD : 0)
+                            fl_fname = q->getListName();
+                            fl_user = aDownload->getHintedUser();
+                            fl_flag = (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) ? QueueItem::FLAG_DIRECTORY_DOWNLOAD : 0)
                                 | (q->isSet(QueueItem::FLAG_MATCH_QUEUE) ? QueueItem::FLAG_MATCH_QUEUE : 0);
                         }
 
                         string dir;
                         if(aDownload->getType() == Transfer::TYPE_FULL_LIST) {
                             dir = q->getTempTarget();
-                                                        q->addSegment(Segment(0, q->getSize()));
-                                                } else if(aDownload->getType() == Transfer::TYPE_FILE) {
+                            q->addSegment(Segment(0, q->getSize()));
+                        } else if(aDownload->getType() == Transfer::TYPE_FILE) {
                             q->addSegment(aDownload->getSegment());
+                        }
+
+                        if (q->isFinished() && BOOLSETTING(SFV_CHECK)) {
+                                checkSfv(q, aDownload);
                         }
 
                         if(aDownload->getType() != Transfer::TYPE_FILE || q->isFinished()) {
                             // Check if we need to move the file
-                                                        if( aDownload->getType() == Transfer::TYPE_FILE && !aDownload->getTempTarget().empty() && (Util::stricmp(aDownload->getPath().c_str(), aDownload->getTempTarget().c_str()) != 0) ) {
+                            if( aDownload->getType() == Transfer::TYPE_FILE && !aDownload->getTempTarget().empty() && (Util::stricmp(aDownload->getPath().c_str(), aDownload->getTempTarget().c_str()) != 0) ) {
                                 moveFile(aDownload->getTempTarget(), aDownload->getPath());
                             }
 
@@ -1267,13 +1273,13 @@ void QueueManager::putDownload(Download* aDownload, bool finished) throw() {
 
                             userQueue.remove(q);
 
-                                                        if(!BOOLSETTING(KEEP_FINISHED_FILES) || aDownload->getType() == Transfer::TYPE_FULL_LIST) {
-                                                                fire(QueueManagerListener::Removed(), q);
-                            fileQueue.remove(q);
+                            if(!BOOLSETTING(KEEP_FINISHED_FILES) || aDownload->getType() == Transfer::TYPE_FULL_LIST) {
+                                fire(QueueManagerListener::Removed(), q);
+                                fileQueue.remove(q);
+                            } else {
+                                fire(QueueManagerListener::StatusUpdated(), q);
+                            }
                         } else {
-                                                                fire(QueueManagerListener::StatusUpdated(), q);
-                                                        }
-                                                } else {
                             userQueue.removeDownload(q, aDownload->getUser());
                             fire(QueueManagerListener::StatusUpdated(), q);
                         }
@@ -1426,26 +1432,15 @@ void QueueManager::removeSource(const string& aTarget, const UserPtr& aUser, int
             return;
         }
 
-        if(reason == QueueItem::Source::FLAG_CRC_WARN) {
-            // Already flagged?
-            QueueItem::SourceIter s = q->getSource(aUser);
-            if(s->isSet(QueueItem::Source::FLAG_CRC_WARN)) {
-                reason = QueueItem::Source::FLAG_CRC_FAILED;
-            } else {
-                s->setFlag(reason);
-                return;
-            }
-        }
-
         if(q->isRunning() && userQueue.getRunning(aUser) == q) {
             isRunning = true;
             userQueue.removeDownload(q, aUser);
             fire(QueueManagerListener::StatusUpdated(), q);
-
         }
-                if(!q->isFinished()) {
-        userQueue.remove(q, aUser);
-                }
+
+        if(!q->isFinished()) {
+            userQueue.remove(q, aUser);
+        }
         q->removeSource(aUser, reason);
 
         fire(QueueManagerListener::SourcesUpdated(), q);
@@ -1936,6 +1931,56 @@ bool QueueManager::handlePartialSearch(const TTHValue& tth, PartsInfo& _outParts
         }
 
         return !_outPartsInfo.empty();
+}
+
+void QueueManager::checkSfv(QueueItem* qi, Download* d) {
+	SFVReader sfv(qi->getTarget());
+
+	if(sfv.hasCRC()) {
+		bool crcMatch = false;
+		try {
+			crcMatch = (calcCrc32(qi->getTempTarget()) == sfv.getCRC());
+		} catch(const FileException& ) {
+			// Couldn't read the file to get the CRC(!!!)
+		}
+
+		if(!crcMatch) {
+			/// @todo There is a slight chance that something happens with a file while it's being saved to disk
+			/// maybe calculate tth along with crc and if tth is ok and crc is not flag the file as bad at once
+			/// if tth mismatches (possible disk error) then repair / redownload the file
+
+			File::deleteFile(qi->getTempTarget());
+			qi->resetDownloaded();
+			dcdebug("QueueManager: CRC32 mismatch for %s\n", qi->getTarget().c_str());
+			LogManager::getInstance()->message(_("CRC32 inconsistency (SFV-Check)") + ' ' + Util::addBrackets(qi->getTarget()));
+
+			setPriority(qi->getTarget(), QueueItem::PAUSED);
+
+			QueueItem::SourceList sources = qi->getSources();
+			for(QueueItem::SourceConstIter i = sources.begin(); i != sources.end(); ++i) {
+				removeSource(qi->getTarget(), i->getUser(), QueueItem::Source::FLAG_CRC_FAILED, false);
+			}
+
+			fire(QueueManagerListener::CRCFailed(), d, _("CRC32 inconsistency (SFV-Check)"));
+			return;
+		}
+
+		dcdebug("QueueManager: CRC32 match for %s\n", qi->getTarget().c_str());
+		fire(QueueManagerListener::CRCChecked(), d);
+	}
+}
+
+uint32_t QueueManager::calcCrc32(const string& file) throw(FileException) {
+	File ff(file, File::READ, File::OPEN);
+	CalcInputStream<CRC32Filter, false> f(&ff);
+
+	const size_t BUF_SIZE = 1024*1024;
+	boost::scoped_array<uint8_t> b(new uint8_t[BUF_SIZE]);
+	size_t n = BUF_SIZE;
+	while(f.read(&b[0], n) > 0)
+		;		// Keep on looping...
+
+	return f.getFilter().getValue();
 }
 
 } // namespace dcpp

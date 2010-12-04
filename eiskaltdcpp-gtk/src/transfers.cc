@@ -976,6 +976,15 @@ void Transfers::on(DownloadManagerListener::Complete, Download* dl) throw()
 
 void Transfers::on(DownloadManagerListener::Failed, Download* dl, const string& reason) throw()
 {
+    onFailed(dl, reason);
+}
+
+void Transfers::on(QueueManagerListener::CRCFailed, Download* dl, const string& reason) throw()
+{
+    onFailed(dl, reason);
+}
+
+void Transfers::onFailed(Download* dl, const string& reason) {
     StringMap params;
     getParams_client(params, dl);
     params["Status"] = reason;

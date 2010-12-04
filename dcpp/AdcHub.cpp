@@ -964,10 +964,9 @@ void AdcHub::info(bool /*alwaysSend*/) {
     addParam(lastInfoMap, c, "ID", ClientManager::getInstance()->getMyCID().toBase32());
     addParam(lastInfoMap, c, "PD", ClientManager::getInstance()->getMyPID().toBase32());
     addParam(lastInfoMap, c, "NI", getCurrentNick());
-    bool gslotf = BOOLSETTING(SHOW_FREE_SLOTS_DESC);
-    string gslot = "["+Util::toString(UploadManager::getInstance()->getFreeSlots())+"]";
-    addParam(lastInfoMap, c, "DE", (gslotf ? gslot : "")+getCurrentDescription());
+    addParam(lastInfoMap, c, "DE", getCurrentDescription());
     addParam(lastInfoMap, c, "SL", Util::toString(SETTING(SLOTS)));
+    addParam(lastInfoMap, c, "FS", Util::toString(UploadManager::getInstance()->getFreeSlots()));
     addParam(lastInfoMap, c, "SS", ShareManager::getInstance()->getShareSizeString());
     addParam(lastInfoMap, c, "SF", Util::toString(ShareManager::getInstance()->getSharedFiles()));
     addParam(lastInfoMap, c, "EM", SETTING(EMAIL));
