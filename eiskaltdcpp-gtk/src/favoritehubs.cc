@@ -327,7 +327,7 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 
 	// Set the override default encoding checkbox. Check for "Global hub default"
 	// for backwards compatability w/ 1.0.3. Should be removed at some point.
-	gboolean overrideEncoding = !(params["Encoding"].empty() || params["Encoding"] == "Global hub default");
+	gboolean overrideEncoding = !(params["Encoding"].empty() || params["Encoding"] == _("Global hub default"));
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkbuttonEncoding")), overrideEncoding);
 
 	// Set the override default nick checkbox

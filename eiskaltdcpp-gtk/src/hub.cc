@@ -2633,7 +2633,7 @@ void Hub::connectClient_client(string address, string encoding)
 
     if (address.substr(0, 6) == "adc://" || address.substr(0, 7) == "adcs://")
         encoding = "UTF-8";
-    else if (encoding.empty() || encoding == "Global hub default") // latter for 1.0.3 backwards compatability
+    else if (encoding.empty() || encoding == _("Global hub default")) // latter for 1.0.3 backwards compatability
         encoding = WGETS("default-charset");
 
     if (encoding == WulforUtil::ENCODING_LOCALE)

@@ -62,7 +62,7 @@ Transfers::Transfers() :
     transferView.insertColumn(_("Filename"), G_TYPE_STRING, TreeView::STRING, 200);
     transferView.insertColumn(_("Size"), G_TYPE_INT64, TreeView::SIZE, 125);
     transferView.insertColumn(_("Path"), G_TYPE_STRING, TreeView::STRING, 200);
-    transferView.insertColumn("IP", G_TYPE_STRING, TreeView::STRING, 175);
+    transferView.insertColumn(_("IP"), G_TYPE_STRING, TreeView::STRING, 175);
     transferView.insertHiddenColumn("Icon", G_TYPE_STRING);
     transferView.insertHiddenColumn("Progress", G_TYPE_INT);
     transferView.insertHiddenColumn("Sort Order", G_TYPE_STRING);
@@ -606,7 +606,7 @@ void Transfers::updateTransfer_gui(StringMap params, bool download, Sound::TypeS
     if (!findTransfer_gui(params["CID"], download, &iter))
     {
         int invalid_transfer_CID_not_found = 0;
-        dcdebug("Transfers::updateTransfer, CID not found %s\n", params["CID"].c_str());
+        dcdebug(_("Transfers::updateTransfer, CID not found %s\n"), params[_("CID")].c_str());
         // Transfer not found. Usually this *shouldn't* happen, but I guess it's possible since tick updates are sent by TimerManager
         // and removing is handled by dl manager.
 
@@ -704,8 +704,8 @@ void Transfers::initTransfer_gui(StringMap params)
         else
         {
             string filename = params["Filename"];
-            if (filename.find("TTH: ") != string::npos)
-                filename = filename.substr((string("TTH: ")).length());
+            if (filename.find(_("TTH: ")) != string::npos)
+                filename = filename.substr((string(_("TTH: "))).length());
             gtk_tree_store_append(transferStore, &newParent, NULL);
             newParentValid = TRUE;
             gtk_tree_store_set(transferStore, &newParent,
@@ -871,7 +871,7 @@ void Transfers::getParams_client(StringMap& params, Transfer* tr)
     if (tr->getType() == Transfer::TYPE_FULL_LIST || tr->getType() == Transfer::TYPE_PARTIAL_LIST)
         params["Filename"] = _("File list");
     else if (tr->getType() == Transfer::TYPE_TREE)
-        params["Filename"] = "TTH: " + Util::getFileName(tr->getPath());
+        params["Filename"] = _("TTH: ") + Util::getFileName(tr->getPath());
     else
         params["Filename"] = Util::getFileName(tr->getPath());
     params["User"] = WulforUtil::getNicks(user);//NOTE: core 0.762
@@ -1101,7 +1101,7 @@ void Transfers::on(UploadManagerListener::Starting, Upload* ul) throw()
     params["Status"] = _("Upload starting...");
     params["Sort Order"] = "u" + params["User"];
     params["Failed"] = "0";
-    params["tmpTarget"] = "none"; //fix open 'tmp' file
+    params["tmpTarget"] = _("none"); //fix open 'tmp' file
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
     F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, FALSE, Sound::NONE);

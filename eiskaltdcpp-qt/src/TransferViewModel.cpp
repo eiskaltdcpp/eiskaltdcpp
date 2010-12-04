@@ -732,25 +732,13 @@ TransferViewDelegate::~TransferViewDelegate(){
 }
 
 void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
-    if (index.column() != COLUMN_TRANSFER_STATS){
-        QStyledItemDelegate::paint(painter, option, index);
-
-        return;
-    }
-
     TransferViewItem *item = reinterpret_cast<TransferViewItem*>(index.internalPointer());
 
-    if (!item){
+    if (index.column() != COLUMN_TRANSFER_STATS || !item){
         QStyledItemDelegate::paint(painter, option, index);
+
         return;
     }
-
-    QPalette pal = option.palette;
-
-    if (item->download)
-        pal.setColor(QPalette::Highlight, QColor(0x4C, 0xC3, 0x5C));
-    else
-        pal.setColor(QPalette::Highlight, QColor(0xBF, 0x40, 0x40));
 
     QStyleOptionProgressBarV2 progressBarOption;
     progressBarOption.state = QStyle::State_Enabled;
@@ -761,7 +749,6 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     progressBarOption.maximum = 100;
     progressBarOption.textAlignment = Qt::AlignCenter;
     progressBarOption.textVisible = true;
-    progressBarOption.palette = pal;
 
     double percent = item->percent;
     QString status = item->data(COLUMN_TRANSFER_STATS).toString();
