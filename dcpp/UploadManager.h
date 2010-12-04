@@ -79,6 +79,7 @@ private:
     typedef SlotSet::iterator SlotIter;
     SlotSet reservedSlots;
     CPerfolderLimit limits;
+    int lastFreeSlots; /// amount of free slots at the previous minute
 
     typedef pair<HintedUser, uint64_t> WaitingUser;
     typedef list<WaitingUser> WaitingUserList;

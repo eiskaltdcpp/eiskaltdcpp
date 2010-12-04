@@ -606,7 +606,7 @@ void Transfers::updateTransfer_gui(StringMap params, bool download, Sound::TypeS
     if (!findTransfer_gui(params["CID"], download, &iter))
     {
         int invalid_transfer_CID_not_found = 0;
-        dcdebug(_("Transfers::updateTransfer, CID not found %s\n"), params[_("CID")].c_str());
+        dcdebug(_("Transfers::updateTransfer, CID not found %s\n"), params["CID"].c_str());
         // Transfer not found. Usually this *shouldn't* happen, but I guess it's possible since tick updates are sent by TimerManager
         // and removing is handled by dl manager.
 
@@ -976,6 +976,15 @@ void Transfers::on(DownloadManagerListener::Complete, Download* dl) throw()
 
 void Transfers::on(DownloadManagerListener::Failed, Download* dl, const string& reason) throw()
 {
+    onFailed(dl, reason);
+}
+
+void Transfers::on(QueueManagerListener::CRCFailed, Download* dl, const string& reason) throw()
+{
+    onFailed(dl, reason);
+}
+
+void Transfers::onFailed(Download* dl, const string& reason) {
     StringMap params;
     getParams_client(params, dl);
     params["Status"] = reason;

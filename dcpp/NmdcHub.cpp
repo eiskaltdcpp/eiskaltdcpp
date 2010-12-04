@@ -569,7 +569,6 @@ void NmdcHub::onLine(const string& aLine) throw() {
             OnlineUser& u = getUser(param);
 
             if(u.getUser() == getMyIdentity().getUser()) {
-                u.getUser()->setFlag(User::DCPLUSPLUS);
                 if(ClientManager::getInstance()->isActive())
                     u.getUser()->unsetFlag(User::PASSIVE);
                 else

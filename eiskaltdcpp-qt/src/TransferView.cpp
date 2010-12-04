@@ -622,7 +622,15 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
     emit coreUpdateTransferPosition(params, pos);
 }
 
-void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw(){
+void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw() {
+    onFailed(dl, reason);
+}
+
+void TransferView::on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* dl, const std::string& reason) throw() {
+    onFailed(dl, reason);
+}
+
+void TransferView::onFailed(dcpp::Download* dl, const std::string& reason) {
     VarMap params;
 
     getParams(params, dl);

@@ -19,7 +19,6 @@
 #include <ifaddrs.h>
 #include <fcntl.h>
 #endif
-
 #include "dcpp/ClientManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"
@@ -226,6 +225,7 @@ void WulforUtil::clearUserIconCache(){
 }
 
 QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, const QString &sp){
+
     int x = connectionSpeeds[sp];
     int y = 0;
 
@@ -235,8 +235,12 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
     if (id->isSet(User::TLS))
         y += 2;
 
-    if (id->isSet(User::DCPLUSPLUS))
-        y += 4;
+   // if (id->isSet(User::DCPLUSPLUS)) этот флажок ушёл в небытиё =)
+   // ниже примерно то, что я предлагаю
+   // Identity id;
+    //if(id.supports(AdcHub::ADCS_FEATURE) && id.supports(AdcHub::SEGA_FEATURE) &&
+        //((id.supports(AdcHub::TCP4_FEATURE) && id.supports(AdcHub::UDP4_FEATURE)) || id.supports(AdcHub::NAT0_FEATURE)))
+        //y += 4;
 
     if (isOp)
         y += 8;

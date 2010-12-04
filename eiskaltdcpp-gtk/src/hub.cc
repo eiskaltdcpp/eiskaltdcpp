@@ -20,7 +20,7 @@
  */
 
 #include "hub.hh"
-
+#include <dcpp/AdcHub.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/HashManager.h>
 #include <dcpp/SearchManager.h>
@@ -2837,7 +2837,9 @@ void Hub::reconnect_client()
 
 void Hub::getParams_client(ParamMap &params, Identity &id)
 {
-    if (id.getUser()->isSet(User::DCPLUSPLUS))
+    //if (id.getUser()->isSet(User::DCPLUSPLUS))
+    if(id.supports(AdcHub::ADCS_FEATURE) && id.supports(AdcHub::SEGA_FEATURE) &&
+    ((id.supports(AdcHub::TCP4_FEATURE) && id.supports(AdcHub::UDP4_FEATURE)) || id.supports(AdcHub::NAT0_FEATURE)))
         params.insert(ParamMap::value_type("Icon", "dc++"));
     else
         params.insert(ParamMap::value_type("Icon", "normal"));
