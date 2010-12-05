@@ -9,6 +9,7 @@ endif (UNIX AND NOT APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
 set (VERSION "2.1.2")
+set (VERSION_SUFFIX "GIT")
 
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
@@ -282,7 +283,7 @@ elseif (Subversion_FOUND)
         set (eiskaltdcpp_WC_REVISION "r${eiskaltdcpp_WC_REVISION}")
     endif ()
 else()
-    set (eiskaltdcpp_WC_REVISION "GIT")
+    set (eiskaltdcpp_WC_REVISION "${VERSION_SUFFIX}")
 endif ()
 
 configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/Version.h)
