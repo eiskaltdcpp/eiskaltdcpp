@@ -10,6 +10,10 @@
 #ifndef VERSION_H
 #define VERSION_H
 
+#define APPNAME "@PROJECT_NAME@"
+#define VERSIONSTRING "@VERSION@"
+#define DCVERSIONSTRING "0.770"
+
 const char * const EISKALTDCPP_VERSION         = "@VERSION@";
 const char * const EISKALTDCPP_WND_TITLE       = "@PROJECT_NAME@";
 const char * const EISKALTDCPP_VERSION_SFX     = "@eiskaltdcpp_WC_REVISION@";
