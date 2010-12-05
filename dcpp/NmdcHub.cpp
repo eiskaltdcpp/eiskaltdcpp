@@ -54,7 +54,7 @@ NmdcHub::~NmdcHub() throw() {
 void NmdcHub::connect(const OnlineUser& aUser, const string&) {
     checkstate();
     dcdebug("NmdcHub::connect %s\n", aUser.getIdentity().getNick().c_str());
-    if(ClientManager::getInstance()->isActive()) {
+    if(isActive()) {
         connectToMe(aUser);
     } else {
         revConnectToMe(aUser);
@@ -251,7 +251,7 @@ void NmdcHub::onLine(const string& aLine) throw() {
         string seeker = param.substr(i, j-i);
 
         // Filter own searches
-        if(ClientManager::getInstance()->isActive()) {
+        if(isActive()) {
             if(seeker == (getLocalIp() + ":" + Util::toString(SearchManager::getInstance()->getPort()))) {
                 return;
             }
@@ -451,7 +451,7 @@ void NmdcHub::onLine(const string& aLine) throw() {
         if(u == NULL)
             return;
 
-        if(ClientManager::getInstance()->isActive()) {
+        if(isActive()) {
             connectToMe(*u);
         } else {
             if(!u->getUser()->isSet(User::PASSIVE)) {
@@ -569,7 +569,7 @@ void NmdcHub::onLine(const string& aLine) throw() {
             OnlineUser& u = getUser(param);
 
             if(u.getUser() == getMyIdentity().getUser()) {
-                if(ClientManager::getInstance()->isActive())
+                if(isActive())
                     u.getUser()->unsetFlag(User::PASSIVE);
                 else
                     u.getUser()->setFlag(User::PASSIVE);
@@ -793,7 +793,7 @@ void NmdcHub::myInfo(bool alwaysSend) {
     char modeChar = '?';
     if(SETTING(OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5)
         modeChar = '5';
-    else if(ClientManager::getInstance()->isActive())
+    else if(isActive())
         modeChar = 'A';
     else
         modeChar = 'P';
