@@ -954,6 +954,12 @@ void HubFrame::closeEvent(QCloseEvent *e){
 void HubFrame::showEvent(QShowEvent *e){
     e->accept();
 
+    if (hasMessages && drawLine && WBGET("hubframe/unreaden-draw-line", false)){
+        addOutput("<hr width=100%><br/>");
+
+        drawLine = false;
+    }
+
     HubManager::getInstance()->setActiveHub(this);
 
     hasMessages = false;
@@ -963,6 +969,8 @@ void HubFrame::showEvent(QShowEvent *e){
 
 void HubFrame::hideEvent(QHideEvent *e){
     e->accept();
+
+    drawLine = true;
 
     if (!isVisible())
         HubManager::getInstance()->setActiveHub(NULL);
@@ -2022,8 +2030,6 @@ void HubFrame::newMsg(const VarMap &map){
                .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
     output  += message;
 
-    addOutput(output);
-
     if (!isVisible()){
         if (msg_color == WS_CHAT_SAY_NICK)
             hasHighlightMessages = true;
@@ -2032,6 +2038,8 @@ void HubFrame::newMsg(const VarMap &map){
 
         MainWindow::getInstance()->redrawToolPanel();
     }
+
+    addOutput(output);
 }
 
 void HubFrame::newPm(const VarMap &map){

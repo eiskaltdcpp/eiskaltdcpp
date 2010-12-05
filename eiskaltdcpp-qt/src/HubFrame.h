@@ -302,6 +302,7 @@ private:
     bool chatDisabled;
     bool hasMessages;
     bool hasHighlightMessages;
+    bool drawLine;
 
     QStringList status_msg_history;
     QStringList out_messages;
