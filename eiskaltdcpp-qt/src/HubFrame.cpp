@@ -372,7 +372,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 }
 
 QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
-    if (input.isEmpty() || input.isNull())
+    if (input.isEmpty())
         return input;
 
     static QList<QChar> unwise_chars = QList<QChar>() << '{' << '}' << '|' << '\\' << '^' << '[' << ']' << '`';
@@ -383,6 +383,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
     if (use_emot && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         emoticons = EmoticonFactory::getInstance()->getEmoticons();
+
+    const QString &emo_theme = WSGET(WS_APP_EMOTICON_THEME);
+    bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
 
     while (!input.isEmpty()){
         for (int j = 0; j < link_types.size(); j++){
@@ -446,50 +449,59 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
         EmoticonMap::iterator it = emoticons.begin();
         EmoticonMap::iterator end_it = emoticons.end();
-        const QString &emo_theme = WSGET(WS_APP_EMOTICON_THEME);
-        bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
-        bool emoticon_found = false;
+        bool smile_found = false;
 
-        for (; it != end_it; ++it){
+        for (; it != end_it; ++it){//Let's try to parse smiles
             const QString &emo_text = it.key();
             EmoticonObject *obj = it.value();
 
             if (input.startsWith(emo_text) && obj){
                 if (force_emot || input == emo_text){
-                    QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
+                     QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
                                   .arg(emo_text)
                                   .arg(emo_theme)
                                   .arg(obj->id);
 
-                    output += img + " ";
+                    output += img;
                     input.remove(0, emo_text.length());
 
-                    emoticon_found = true;
+                    smile_found = true;
 
                     break;
                 }
-                else if (input.length() > emo_text.length()){
-                    QChar nextChar =input.at(emo_text.length());
+                else if (output.endsWith(' ') || output.endsWith('\t') || output.isEmpty()){
+                    int emo_text_len = emo_text.length();
+                    int input_length = input.length();
 
-                    if (!(nextChar.isSpace() || nextChar == '\n'))
-                        break;
+                    bool nextCharisSpace = false;
+
+                    if (emo_text_len == input_length)
+                        nextCharisSpace = true;
+                    else if (input_length > emo_text_len){
+                        char c = input.at(emo_text_len).toAscii();
+
+                        nextCharisSpace = (c == ' ' || c == '\t');
+                    }
+
+                    if (!nextCharisSpace)
+                        continue;
 
                     QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
                                   .arg(emo_text)
                                   .arg(emo_theme)
                                   .arg(obj->id);
 
-                    output += img + " ";
-                    input.remove(0, emo_text.length());
+                    output += img;
+                    input.remove(0, emo_text_len);
 
-                    emoticon_found = true;
+                    smile_found = true;
 
                     break;
                 }
             }
         }
 
-        if (emoticon_found)
+        if(smile_found)
             continue;
 
         if (WBGET("hubframe/use-bb-code", false)){
@@ -577,7 +589,10 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
             output += "&amp;";
 
             continue;
-        }      
+        }
+
+        if (input.isEmpty())
+            break;
 
         output += input.at(0);
 
