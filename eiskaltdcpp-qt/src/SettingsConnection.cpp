@@ -109,7 +109,6 @@ void SettingsConnection::ok(){
     SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
     SM->set(SettingsManager::SLOTS_ALTERNATE_LIMITING, spinBox_ALTERNATE_SLOTS->value());
     SM->set(SettingsManager::RECONNECT_DELAY, spinBox_RECONNECT_DELAY->value());
-    SM->set(SettingsManager::SEARCH_INCOMING_ONLY_TTH, checkBox_IGNORE_TTH_SEARCH->isChecked());
     WBSET( WB_APP_DYNDNS_ENABLED, static_cast<int>(checkBox_DYNDNS->isChecked()) );
     WSSET( WS_APP_DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text());
     WSSET( WS_APP_DYNDNS_INDEX, lineEdit_DYNDNS_INDEX->text());
@@ -134,7 +133,6 @@ void SettingsConnection::init(){
     checkBox_AUTO_DETECT_CONNECTION->setChecked(BOOLSETTING(AUTO_DETECT_CONNECTION));
     checkBox_THROTTLE_ENABLE->setChecked(BOOLSETTING(THROTTLE_ENABLE));
     checkBox_TIME_DEPENDENT_THROTTLE->setChecked(BOOLSETTING(TIME_DEPENDENT_THROTTLE));
-    checkBox_IGNORE_TTH_SEARCH->setChecked(BOOLSETTING(SEARCH_INCOMING_ONLY_TTH));
     spinBox_DOWN_LIMIT_NORMAL->setValue(SETTING(MAX_DOWNLOAD_SPEED_MAIN));
     spinBox_UP_LIMIT_NORMAL->setValue(SETTING(MAX_UPLOAD_SPEED_MAIN));
     spinBox_DOWN_LIMIT_TIME->setValue(SETTING(MAX_DOWNLOAD_SPEED_ALTERNATE));

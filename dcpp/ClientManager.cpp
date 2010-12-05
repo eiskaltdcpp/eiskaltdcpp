@@ -439,9 +439,6 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
     bool isPassive = (aSeeker.compare(0, 4, "Hub:") == 0);
     bool isTTHSearch = ((aFileType == SearchManager::TYPE_TTH) && (aString.compare(0, 4, "TTH:") == 0));
 
-    if ((BOOLSETTING(SEARCH_INCOMING_ONLY_TTH) && !isTTHSearch))
-        return;
-
     // We don't wan't to answer passive searches if we're in passive mode...
     if(isPassive && !ClientManager::getInstance()->isActive(aClient->getHubUrl())) {
         return;
