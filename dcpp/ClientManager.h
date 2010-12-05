@@ -44,23 +44,23 @@ public:
     size_t getUserCount() const;
     int64_t getAvailable() const;
 
-        StringList getHubs(const CID& cid, const string& hintUrl);
-        StringList getHubNames(const CID& cid, const string& hintUrl);
-        StringList getNicks(const CID& cid, const string& hintUrl);
+    StringList getHubs(const CID& cid, const string& hintUrl);
+    StringList getHubNames(const CID& cid, const string& hintUrl);
+    StringList getNicks(const CID& cid, const string& hintUrl);
 
-        StringList getHubs(const CID& cid, const string& hintUrl, bool priv);
-        StringList getHubNames(const CID& cid, const string& hintUrl, bool priv);
-        StringList getNicks(const CID& cid, const string& hintUrl, bool priv);
+    StringList getHubs(const CID& cid, const string& hintUrl, bool priv);
+    StringList getHubNames(const CID& cid, const string& hintUrl, bool priv);
+    StringList getNicks(const CID& cid, const string& hintUrl, bool priv);
 
-        StringList getNicks(const HintedUser& user) { return getNicks(user.user->getCID(), user.hint); }
-        StringList getHubNames(const HintedUser& user) { return getHubNames(user.user->getCID(), user.hint); }
+    StringList getNicks(const HintedUser& user) { return getNicks(user.user->getCID(), user.hint); }
+    StringList getHubNames(const HintedUser& user) { return getHubNames(user.user->getCID(), user.hint); }
 
     string getConnection(const CID& cid) const;
 
     bool isConnected(const string& aUrl) const;
 
     void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken);
-        void search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList);
+    void search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList);
     void infoUpdated();
 
     UserPtr getUser(const string& aNick, const string& aHubUrl) throw();
@@ -120,9 +120,9 @@ public:
     CID getMyCID();
     const CID& getMyPID();
 
-        void loadUsers();
-        void saveUsers() const;
-        void saveUser(const CID& cid);
+    void loadUsers();
+    void saveUsers() const;
+    void saveUser(const CID& cid);
     OnlineUserPtr findDHTNode(const CID& cid) const;
 private:
     typedef unordered_map<string, UserPtr> LegacyMap;
@@ -131,8 +131,8 @@ private:
     typedef unordered_map<CID, UserPtr> UserMap;
     typedef UserMap::iterator UserIter;
 
-        typedef std::pair<std::string, bool> NickMapEntry; // the boolean being true means "save this".
-        typedef unordered_map<CID, NickMapEntry> NickMap;
+    typedef std::pair<std::string, bool> NickMapEntry; // the boolean being true means "save this".
+    typedef unordered_map<CID, NickMapEntry> NickMap;
 
     typedef unordered_multimap<CID, OnlineUser*> OnlineMap;
     typedef OnlineMap::iterator OnlineIter;
@@ -165,18 +165,18 @@ private:
 
     void updateNick(const OnlineUser& user) throw();
 
-        /// @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
-        OnlineUser* findOnlineUser_hint(const CID& cid, const string& hintUrl) throw() {
-                OnlinePair p;
-                return findOnlineUser_hint(cid, hintUrl, p);
-        }
-        /**
-        * @param p OnlinePair of all the users found by CID, even those who don't match the hint.
-        * @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
-        */
-        OnlineUser* findOnlineUser_hint(const CID& cid, const string& hintUrl, OnlinePair& p) throw();
+    /// @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
+    OnlineUser* findOnlineUser_hint(const CID& cid, const string& hintUrl) throw() {
+            OnlinePair p;
+            return findOnlineUser_hint(cid, hintUrl, p);
+    }
+    /**
+    * @param p OnlinePair of all the users found by CID, even those who don't match the hint.
+    * @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
+    */
+    OnlineUser* findOnlineUser_hint(const CID& cid, const string& hintUrl, OnlinePair& p) throw();
 
-        string getUsersFile() const { return Util::getPath(Util::PATH_USER_LOCAL) + "Users.xml"; }
+    string getUsersFile() const { return Util::getPath(Util::PATH_USER_LOCAL) + "Users.xml"; }
 
     // ClientListener
     virtual void on(Connected, Client* c) throw();

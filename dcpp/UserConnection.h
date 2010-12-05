@@ -158,8 +158,7 @@ public:
     bool isSecure() const { return socket && socket->isSecure(); }
     bool isTrusted() const { return socket && socket->isTrusted(); }
     std::string getCipherName() const { return socket ? socket->getCipherName() : Util::emptyString; }
-
-    string getRemoteIp() const { return socket->getIp(); }
+    std::string getRemoteIp() const { return socket->getIp();}
     Download* getDownload() { dcassert(isSet(FLAG_DOWNLOAD)); return download; }
     void setDownload(Download* d) { dcassert(isSet(FLAG_DOWNLOAD)); download = d; }
     Upload* getUpload() { dcassert(isSet(FLAG_UPLOAD)); return upload; }
@@ -169,7 +168,7 @@ public:
     void handle(AdcCommand::INF t, const AdcCommand& c) { fire(t, this, c); }
     void handle(AdcCommand::GET t, const AdcCommand& c) { fire(t, this, c); }
     void handle(AdcCommand::SND t, const AdcCommand& c) { fire(t, this, c); }
-        void handle(AdcCommand::STA t, const AdcCommand& c);
+    void handle(AdcCommand::STA t, const AdcCommand& c);
     void handle(AdcCommand::RES t, const AdcCommand& c) { fire(t, this, c); }
     void handle(AdcCommand::GFI t, const AdcCommand& c) { fire(t, this, c); }
 
