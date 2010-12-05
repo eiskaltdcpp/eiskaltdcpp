@@ -777,13 +777,6 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_IGNORE_SEARCH">
-         <property name="text">
-          <string>Ignore all incoming searches</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
