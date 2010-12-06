@@ -724,6 +724,14 @@ void MainWindow::initActions(){
         if (!WBGET(WB_USERS_STATISTICS))
             toolsHideUsersStatisctics->setText(tr("Show users statistics"));
 
+
+        toolsSwitchSpeedLimit = new QAction("", this);
+        toolsSwitchSpeedLimit->setObjectName("toolsSwitchSpeedLimit");
+        toolsSwitchSpeedLimit->setIcon(WU->getPixmap(WulforUtil::eiSPEED_LIMIT));
+        toolsSwitchSpeedLimit->setCheckable(true);
+        toolsSwitchSpeedLimit->setChecked(BOOLSETTING(THROTTLE_ENABLE));
+        connect(toolsSwitchSpeedLimit, SIGNAL(triggered()), this, SLOT(slotToolsSwitchSpeedLimit()));
+
         chatClear = new QAction("", this);
         chatClear->setObjectName("chatClear");
         chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
@@ -788,6 +796,7 @@ void MainWindow::initActions(){
                 << toolsDownloadQueue
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
+                << toolsSwitchSpeedLimit
                 //<< toolsHubManager
                 << separator1
                 << toolsSpy
@@ -826,6 +835,7 @@ void MainWindow::initActions(){
                 << toolsDownloadQueue
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
+                << toolsSwitchSpeedLimit
                 << separator4
                 << chatClear
                 << findInWidget
@@ -1132,6 +1142,8 @@ void MainWindow::retranslateUi(){
         toolsSearch->setText(tr("Search"));
 
         toolsADLS->setText(tr("ADLSearch"));
+
+        toolsSwitchSpeedLimit->setText(tr("Speed limit On/Off"));
 
 #ifdef USE_JS
         toolsJS->setText(tr("Scripts Manager"));
@@ -1857,6 +1869,8 @@ void MainWindow::reloadSomeSettings(){
         if (fr)
             fr->reloadSomeSettings();
     }
+
+    toolsSwitchSpeedLimit->setChecked(BOOLSETTING(THROTTLE_ENABLE));
 }
 
 void MainWindow::slotFileOpenLogFile(){
@@ -2083,6 +2097,8 @@ void MainWindow::slotToolsSettings(){
 
     s.exec();
 
+    reloadSomeSettings();
+
     //reload some settings
     if (!WBGET(WB_TRAY_ENABLED))
         fileHideWindow->setText(tr("Show/hide find frame"));
@@ -2099,6 +2115,10 @@ void MainWindow::slotToolsTransfer(bool toggled){
         transfer_dock->setWidget(NULL);
         transfer_dock->setVisible(false);
     }
+}
+
+void MainWindow::slotToolsSwitchSpeedLimit(){
+    SettingsManager::getInstance()->set(SettingsManager::THROTTLE_ENABLE, toolsSwitchSpeedLimit->isChecked());
 }
 
 void MainWindow::slotPanelMenuActionClicked(){

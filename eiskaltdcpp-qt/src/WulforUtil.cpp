@@ -377,6 +377,8 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiSERVER]       = FROMTHEME("server", resourceFound);
     m_PixmapMap[eiSPAM]         = FROMTHEME("spam", resourceFound);
     m_PixmapMap[eiSPY]          = FROMTHEME("spy", resourceFound);
+    m_PixmapMap[eiSPEED_LIMIT]  = FROMTHEME("speed-limit", resourceFound);
+
     m_PixmapMap[eiSPLASH]       = QPixmap();
     m_PixmapMap[eiSTATUS]       = FROMTHEME("status", resourceFound);
     m_PixmapMap[eiTRANSFER]     = FROMTHEME("transfer", resourceFound);

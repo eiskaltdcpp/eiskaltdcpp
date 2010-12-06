@@ -66,5 +66,6 @@
         <file alias="zoom-in.png">zoom-in.png</file>
         <file alias="zoom-out.png">zoom-out.png</file>
         <file alias="adls.png">adls.png</file>
+        <file alias="speed-limit.png">speed-limit.png</file>
     </qresource>
 </RCC>

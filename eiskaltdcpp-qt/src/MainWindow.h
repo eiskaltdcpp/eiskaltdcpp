@@ -218,6 +218,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsJS();
         void slotToolsJSConsole();
         void slotToolsTransfer(bool);
+        void slotToolsSwitchSpeedLimit();
         void slotPanelMenuActionClicked();
         void slotWidgetsToggle();
         void slotQC();
@@ -371,6 +372,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsJS;
         QAction *toolsJSConsole;
 #endif
+        QAction *toolsSwitchSpeedLimit;
 
         QMenu   *menuPanels;
         // submenu
