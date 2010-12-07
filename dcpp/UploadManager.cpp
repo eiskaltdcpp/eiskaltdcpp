@@ -428,6 +428,10 @@ void UploadManager::removeConnection(UserConnection* aSource) {
     }
 }
 
+void UploadManager::reloadRestrictions(){
+    limits.RenewList(NULL);
+}
+
 void UploadManager::on(TimerManagerListener::Minute, uint32_t /* aTick */) throw() {
     UserList disconnects;
     {

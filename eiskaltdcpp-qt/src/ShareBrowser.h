@@ -72,10 +72,12 @@ class ShareBrowser : public  QWidget,
             Alternates,
             Magnet,
             AddToFav,
+            AddRestrinction,
+            RemoveRestriction,
             None
         };
 
-        Action exec();
+        Action exec(const dcpp::UserPtr& = dcpp::UserPtr(NULL));
 
         QString getTarget() { return target; }
 
@@ -86,6 +88,7 @@ class ShareBrowser : public  QWidget,
         QMap<QAction*, Action> actions;
         QMenu *menu;
         QMenu *down_to;
+        QMenu *rest_menu;
         QString target;
     };
 

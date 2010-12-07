@@ -57,6 +57,9 @@ public:
     /** @param aUser Reserve an upload slot for this user and connect. */
     void reserveSlot(const HintedUser& aUser);
 
+    /** */
+    void reloadRestrictions();
+
     typedef set<string> FileSet;
     typedef unordered_map<UserPtr, FileSet, User::Hash> FilesMap;
     void clearUserFiles(const UserPtr&);

@@ -13,6 +13,7 @@
 #include <QAbstractItemModel>
 #include <QSize>
 #include <QHash>
+#include <QMap>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -97,6 +98,11 @@ public:
     QModelIndex createIndexForItem(FileBrowserItem*);
 
     /** */
+    void loadRestrictions();
+    /** */
+    void updateRestriction(QModelIndex&, unsigned);
+
+    /** */
     int getSortColumn() const;
     /** */
     void setSortColumn(int);
@@ -129,6 +135,10 @@ private:
     QSize iconsSize;
     /** */
     QHash<QString, dcpp::DirectoryListing::File*> hash;
+    /** */
+    QMap<QString, unsigned> restrict_map;
+    /** */
+    bool restrictionsLoaded;
 };
 
 #endif // FBMODEL_H
