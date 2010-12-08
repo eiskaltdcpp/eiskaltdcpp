@@ -396,6 +396,7 @@ bool WulforUtil::profileIsLocked()
     const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
     string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (Text::toUtf8(home) +"/.config");
     xdg_config_home += "/eiskaltdc++/";
+    printf("$XDG_CONFIG_HOME: %s\n", xdg_config_home.c_str());
 #else
     string xdg_config_home = Text::toUtf8(home) + "/.eiskaltdc++/";
 #endif
