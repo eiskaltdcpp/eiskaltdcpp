@@ -1,6 +1,5 @@
 project(extra)
 cmake_minimum_required(VERSION 2.6)
-# ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR} ${GETTEXT_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${MINIUPNP_INCLUDE_DIR})
 aux_source_directory(${PROJECT_SOURCE_DIR} extra_SRCS)
 if (FREE_SPACE_BAR_C)
@@ -14,7 +13,12 @@ endif(FREE_SPACE_BAR_C)
 if (NOT USE_MINIUPNP)
     list (REMOVE_ITEM extra_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/upnpc.cpp)
 endif(NOT USE_MINIUPNP)
+list (REMOVE_ITEM extra_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/antispam.cpp)
 
 add_library(extra STATIC ${extra_SRCS})
+
+if (USE_MINIUPNP)
+  set_property(TARGET extra PROPERTY COMPILE_FLAGS -fPIC)
+endif()
+
 target_link_libraries (extra ${MINIUPNP_LIBRARY})
-#set_target_properties(extra PROPERTIES OUTPUT_NAME "eiskaltdcpp-extra")

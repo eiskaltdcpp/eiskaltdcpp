@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-11-21 18:39+0200\n"
+"POT-Creation-Date: 2010-12-04 02:13+0200\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,42 +17,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../FavoriteManager.cpp:444
+#: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
 msgstr "Kick user(s)"
 
-#: ../FavoriteManager.cpp:448
+#: ../FavoriteManager.cpp:433
 msgid "Redirect user(s)"
 msgstr "Redirect user(s)"
 
-#: ../Socket.cpp:65
+#: ../FavoriteManager.cpp:488
+msgid "Auto-connect group (converted)"
+msgstr ""
+
+#: ../Socket.cpp:58
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr ""
 
-#: ../Socket.cpp:165 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:191
+#: ../Socket.cpp:158 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:198
 msgid "Connection timeout"
 msgstr "Connection timeout"
 
-#: ../Socket.cpp:173 ../Socket.cpp:181 ../Socket.cpp:214 ../Socket.cpp:218
-#: ../Socket.cpp:242 ../Socket.cpp:257
+#: ../Socket.cpp:166 ../Socket.cpp:174 ../Socket.cpp:207 ../Socket.cpp:211
+#: ../Socket.cpp:235 ../Socket.cpp:250
 msgid "The socks server failed establish a connection"
 msgstr "The socks server failed establish a connection"
 
-#: ../Socket.cpp:246
+#: ../Socket.cpp:239
 msgid "The socks server requires authentication"
 msgstr "The socks server requires authentication"
 
-#: ../Socket.cpp:260
+#: ../Socket.cpp:253
 msgid "The socks server doesn't support login / password authentication"
 msgstr "The socks server doesn't support login / password authentication"
 
-#: ../Socket.cpp:274 ../Socket.cpp:278
+#: ../Socket.cpp:267 ../Socket.cpp:271
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr "Socks server authentication failed (bad login / password?)"
 
-#: ../Socket.cpp:413
+#: ../Socket.cpp:406
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -60,56 +64,69 @@ msgstr ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 
-#: ../DCPlusPlus.cpp:116
+#: ../DCPlusPlus.cpp:129
 msgid "Hash database"
 msgstr "Hash database"
 
-#: ../DCPlusPlus.cpp:119
+#: ../DCPlusPlus.cpp:132
 msgid "Shared Files"
 msgstr "Shared Files"
 
-#: ../DCPlusPlus.cpp:122
+#: ../DCPlusPlus.cpp:135
 msgid "Download Queue"
 msgstr "Download Queue"
+
+#: ../DCPlusPlus.cpp:138
+msgid "Users"
+msgstr ""
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "Unable to create thread"
 
-#: ../ConnectivityManager.cpp:61
+#: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
+#, fuzzy
+msgid "Invalid data"
+msgstr "Invalid size"
+
+#: ../UserConnection.cpp:61
+msgid "Non-UTF-8 data in an ADC connection"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:56
 msgid "Determining connection type..."
 msgstr ""
 
-#: ../ConnectivityManager.cpp:66
+#: ../ConnectivityManager.cpp:61
 msgid "Unable to open %1% port(s). You must set up your connection manually"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:73
+#: ../ConnectivityManager.cpp:70
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:78
+#: ../ConnectivityManager.cpp:76
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
 
-#: ../ConnectivityManager.cpp:110
+#: ../ConnectivityManager.cpp:102
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:120
+#: ../ConnectivityManager.cpp:112
 msgid "TCP/TLS"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:126
+#: ../ConnectivityManager.cpp:118
 msgid "UDP"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:137
+#: ../ConnectivityManager.cpp:129
 #, fuzzy
 msgid "Connectivity: "
 msgstr "Connectivity restored"
@@ -118,38 +135,54 @@ msgstr "Connectivity restored"
 msgid "Unable to send file %1%: %2%"
 msgstr ""
 
-#: ../UploadManager.cpp:461
+#: ../UploadManager.cpp:409
+msgid "IPFilter: Blocked incoming connection to "
+msgstr ""
+
+#: ../UploadManager.cpp:468
 msgid "Disconnected user leaving the hub: %1%"
 msgstr ""
 
-#: ../NmdcHub.cpp:283
+#: ../SettingsManager.cpp:503
+msgid "Invalid search type name"
+msgstr ""
+
+#: ../SettingsManager.cpp:507 ../SettingsManager.cpp:529
+msgid "This search type already exists"
+msgstr ""
+
+#: ../SettingsManager.cpp:561
+msgid "No such search type"
+msgstr ""
+
+#: ../NmdcHub.cpp:288
 msgid "%1% (Nick unknown)"
 msgstr ""
 
-#: ../NmdcHub.cpp:905
+#: ../NmdcHub.cpp:940
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
 msgstr ""
 
-#: ../ClientManager.cpp:122 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:247 ../SearchManager.cpp:308 ../SearchManager.cpp:310
+#: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
+#: ../SearchManager.cpp:260 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Offline"
 
-#: ../AdcHub.cpp:142
+#: ../AdcHub.cpp:147
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr ""
 
-#: ../AdcHub.cpp:178
+#: ../AdcHub.cpp:184
 msgid "%1%/s"
 msgstr ""
 
-#: ../AdcHub.cpp:213
+#: ../AdcHub.cpp:219
 msgid "Failed to negotiate base protocol"
 msgstr "Failed to negotiate base protocol"
 
-#: ../AdcHub.cpp:219
+#: ../AdcHub.cpp:225
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -157,54 +190,58 @@ msgstr ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
 
-#: ../AdcHub.cpp:288
+#: ../AdcHub.cpp:296
 msgid "%1% was kicked by %2%: %3%"
 msgstr ""
 
-#: ../AdcHub.cpp:291
+#: ../AdcHub.cpp:299
 msgid "%1% was kicked: %2%"
 msgstr ""
 
-#: ../AdcHub.cpp:624
+#: ../AdcHub.cpp:672
 msgid "Not listening for connections - please restart %1%"
 msgstr ""
 
-#: ../Util.cpp:473
+#: ../ChatMessage.cpp:34
+msgid "Sent "
+msgstr ""
+
+#: ../Util.cpp:492
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:475
+#: ../Util.cpp:494
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:477
+#: ../Util.cpp:496
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:479
+#: ../Util.cpp:498
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:481
+#: ../Util.cpp:500
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:483
+#: ../Util.cpp:502
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:513
+#: ../Util.cpp:532
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:517
+#: ../Util.cpp:536
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -244,104 +281,113 @@ msgstr ""
 msgid "Unable to read hash data file"
 msgstr "Unable to read hash data file"
 
-#: ../HashManager.cpp:469
+#: ../HashManager.cpp:468
 #, fuzzy
 msgid "Error creating hash data file: %1%"
 msgstr "Unable to read hash data file"
 
-#: ../HashManager.cpp:785
+#: ../HashManager.cpp:784
 msgid "Hash database rebuilt"
 msgstr "Hash database rebuilt"
 
-#: ../HashManager.cpp:837
+#: ../HashManager.cpp:836
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr ""
 
-#: ../HashManager.cpp:885
+#: ../HashManager.cpp:884
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 
-#: ../HashManager.cpp:890
+#: ../HashManager.cpp:889
 msgid "Error hashing %1%: %2%"
 msgstr ""
 
-#: ../UPnPManager.cpp:41
+#: ../UPnPManager.cpp:44
 #, fuzzy
 msgid "No UPnP implementation available"
 msgstr "File not available"
 
-#: ../UPnPManager.cpp:46
+#: ../UPnPManager.cpp:49
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
-#: ../UPnPManager.cpp:74
+#: ../UPnPManager.cpp:77
 #, fuzzy
 msgid "Failed to initialize the %1% interface"
 msgstr "File list refresh initiated"
 
-#: ../UPnPManager.cpp:78
+#: ../UPnPManager.cpp:81
 msgid " Transfer Port (%1% TCP)"
 msgstr ""
 
-#: ../UPnPManager.cpp:79 ../UPnPManager.cpp:84 ../UPnPManager.cpp:89
+#: ../UPnPManager.cpp:82 ../UPnPManager.cpp:87 ../UPnPManager.cpp:92
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr ""
 
-#: ../UPnPManager.cpp:83
+#: ../UPnPManager.cpp:86
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr ""
 
-#: ../UPnPManager.cpp:88
+#: ../UPnPManager.cpp:91
 msgid " Search Port (%1% UDP)"
 msgstr ""
 
-#: ../UPnPManager.cpp:94
+#: ../UPnPManager.cpp:97
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
 msgstr ""
 
-#: ../UPnPManager.cpp:106
+#: ../UPnPManager.cpp:109
 msgid "Failed to get external IP"
 msgstr ""
 
-#: ../UPnPManager.cpp:114
+#: ../UPnPManager.cpp:117
 #, fuzzy
 msgid "Failed to create port mappings"
 msgstr "Unable to create thread"
 
-#: ../UPnPManager.cpp:123
+#: ../UPnPManager.cpp:126
 msgid "Failed to remove port mappings"
 msgstr ""
 
-#: ../UPnPManager.cpp:128
+#: ../UPnPManager.cpp:131
 msgid "UPnP: %1%"
 msgstr ""
 
-#: ../ShareManager.cpp:429
+#: ../ShareManager.cpp:453
 msgid "No directory specified"
 msgstr "No directory specified"
 
-#: ../ShareManager.cpp:437
+#: ../ShareManager.cpp:457
+#, fuzzy
+msgid "Directory is hidden"
+msgstr "Directory already shared"
+
+#: ../ShareManager.cpp:461
 msgid "The temporary download directory cannot be shared"
 msgstr "The temporary download directory cannot be shared"
 
-#: ../ShareManager.cpp:634
+#: ../ShareManager.cpp:649
+msgid "Invalid file name found while hashing folder %1%"
+msgstr ""
+
+#: ../ShareManager.cpp:667
 msgid "User has chosen not to share file: %1% (Size: %2%)"
 msgstr ""
 
-#: ../ShareManager.cpp:655
+#: ../ShareManager.cpp:688
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr ""
 
-#: ../ShareManager.cpp:710
+#: ../ShareManager.cpp:776
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
 
-#: ../ShareManager.cpp:727
+#: ../ShareManager.cpp:793
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -349,20 +395,20 @@ msgstr ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
 
-#: ../ShareManager.cpp:748
+#: ../ShareManager.cpp:814
 #, fuzzy
 msgid "File list refresh failed: %1%"
 msgstr "File list refresh finished"
 
-#: ../ShareManager.cpp:770
+#: ../ShareManager.cpp:836
 msgid "File list refresh initiated"
 msgstr "File list refresh initiated"
 
-#: ../ShareManager.cpp:795
+#: ../ShareManager.cpp:861
 msgid "File list refresh finished"
 msgstr "File list refresh finished"
 
-#: ../ShareManager.cpp:866
+#: ../ShareManager.cpp:932
 #, fuzzy
 msgid "File list %1% generated"
 msgstr "File list refresh initiated"
@@ -379,15 +425,7 @@ msgstr "Maximum command length exceeded"
 msgid "Disconnected"
 msgstr "Disconnected"
 
-#: ../DirectoryListing.cpp:95
-msgid "Greater than maximum filelist size"
-msgstr "Greater than maximum filelist size"
-
-#: ../DirectoryListing.cpp:102
-msgid "File not available"
-msgstr "File not available"
-
-#: ../DirectoryListing.cpp:165
+#: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Directory missing name attribute"
 
@@ -430,95 +468,144 @@ msgstr "Failed to load private key"
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr ""
 
-#: ../DownloadManager.cpp:222
+#: ../DownloadManager.cpp:136
+msgid "IPFilter: Blocked outgoing connection to "
+msgstr ""
+
+#: ../DownloadManager.cpp:229
 msgid "Invalid size"
 msgstr "Invalid size"
 
-#: ../DownloadManager.cpp:227
+#: ../DownloadManager.cpp:234
 msgid "Response does not match request"
 msgstr "Response does not match request"
 
-#: ../DownloadManager.cpp:234
+#: ../DownloadManager.cpp:241
 msgid "Could not open target file: %1%"
 msgstr ""
 
-#: ../DownloadManager.cpp:313
+#: ../DownloadManager.cpp:320
 msgid "Full tree does not match TTH root"
 msgstr "Full tree does not match TTH root"
 
-#: ../DownloadManager.cpp:382 ../DownloadManager.cpp:384
+#: ../DownloadManager.cpp:390 ../DownloadManager.cpp:392
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 inconsistency (SFV-Check)"
 
-#: ../DownloadManager.cpp:427
+#: ../DownloadManager.cpp:435
 msgid "No slots available"
 msgstr "No slots available"
 
-#: ../DownloadManager.cpp:538
+#: ../DownloadManager.cpp:546
 #, fuzzy
 msgid "%1%: File not available"
 msgstr "File not available"
 
-#: ../ConnectionManager.cpp:185
+#: ../ConnectionManager.cpp:191
 msgid "All download slots taken"
 msgstr "All download slots taken"
 
-#: ../ConnectionManager.cpp:254
+#: ../ConnectionManager.cpp:259
 msgid "Connectivity restored"
 msgstr "Connectivity restored"
 
-#: ../ConnectionManager.cpp:261
+#: ../ConnectionManager.cpp:266
 #, fuzzy
 msgid "Connectivity error: %1%"
 msgstr "Connectivity restored"
 
-#: ../SearchManager.cpp:132
+#: ../SearchManager.cpp:36
+msgid "Any"
+msgstr ""
+
+#: ../SearchManager.cpp:37
+msgid "Audio"
+msgstr ""
+
+#: ../SearchManager.cpp:38
+msgid "Compressed"
+msgstr ""
+
+#: ../SearchManager.cpp:39
+msgid "Document"
+msgstr ""
+
+#: ../SearchManager.cpp:40
+msgid "Executable"
+msgstr ""
+
+#: ../SearchManager.cpp:41
+msgid "Picture"
+msgstr ""
+
+#: ../SearchManager.cpp:42
+msgid "Video"
+msgstr ""
+
+#: ../SearchManager.cpp:43
+msgid "Directory"
+msgstr ""
+
+#: ../SearchManager.cpp:44
+msgid "TTH"
+msgstr ""
+
+#: ../SearchManager.cpp:45
+msgid "CD Image"
+msgstr ""
+
+#: ../SearchManager.cpp:151
 msgid "Search enabled again"
 msgstr "Search enabled again"
 
-#: ../SearchManager.cpp:139
+#: ../SearchManager.cpp:158
 #, fuzzy
 msgid "Search disabled: %1%"
 msgstr "Search enabled again"
 
-#: ../QueueManager.cpp:343
-msgid "%1% renamed to %2%"
+#: ../QueueManager.cpp:236
+msgid "NO_NEEDED_PART"
 msgstr ""
 
-#: ../QueueManager.cpp:345
-#, fuzzy
-msgid "Unable to rename %1%: %2%"
-msgstr "Unable to create thread"
-
-#: ../QueueManager.cpp:561
+#: ../QueueManager.cpp:592
 msgid "Searching TTH alternates for: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:589
-msgid "You're trying to download from yourself!"
-msgstr "You're trying to download from yourself!"
-
-#: ../QueueManager.cpp:595
+#: ../QueueManager.cpp:634 ../QueueManager.cpp:697
 msgid "A file with the same hash already exists in your share"
 msgstr "A file with the same hash already exists in your share"
 
-#: ../QueueManager.cpp:622
+#: ../QueueManager.cpp:660 ../QueueManager.cpp:739
 msgid "This file is already queued"
 msgstr "This file is already queued"
 
-#: ../QueueManager.cpp:632
+#: ../QueueManager.cpp:675 ../QueueManager.cpp:751
 msgid "A file with a different size already exists in the queue"
 msgstr "A file with a different size already exists in the queue"
 
-#: ../QueueManager.cpp:635
+#: ../QueueManager.cpp:679
 msgid "A file with different tth root already exists in the queue"
 msgstr "A file with different tth root already exists in the queue"
 
-#: ../QueueManager.cpp:679 ../QueueManager.cpp:688
+#: ../QueueManager.cpp:691
+msgid "You're trying to download from yourself!"
+msgstr "You're trying to download from yourself!"
+
+#: ../QueueManager.cpp:754
+#, fuzzy
+msgid "A file with a different TTH root already exists in the queue"
+msgstr "A file with different tth root already exists in the queue"
+
+#: ../QueueManager.cpp:758
+#, fuzzy
+msgid "This file has already finished downloading"
+msgstr "This file is already queued"
+
+#: ../QueueManager.cpp:795 ../QueueManager.cpp:804
 msgid "Target filename too long"
 msgstr "Target filename too long"
 
-#: ../QueueManager.cpp:684 ../QueueManager.cpp:692
+#: ../QueueManager.cpp:800 ../QueueManager.cpp:808
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -526,27 +613,36 @@ msgstr ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
 
-#: ../QueueManager.cpp:701
-msgid "A file of equal or larger size already exists at the target location"
+#: ../QueueManager.cpp:816
+#, fuzzy
+msgid "File already exists at the target location"
 msgstr "A file of equal or larger size already exists at the target location"
 
-#: ../QueueManager.cpp:714 ../QueueManager.cpp:718
+#: ../QueueManager.cpp:829 ../QueueManager.cpp:833
 msgid "Duplicate source: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:988
+#: ../QueueManager.cpp:1102
 msgid "Target removed"
 msgstr "Target removed"
 
-#: ../QueueManager.cpp:996
+#: ../QueueManager.cpp:1110
 msgid "Target file is missing or wrong size"
 msgstr "Target file is missing or wrong size"
 
-#: ../QueueManager.cpp:1206
+#: ../QueueManager.cpp:1159
+msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
+msgstr ""
+
+#: ../QueueManager.cpp:1162
+msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
+msgstr ""
+
+#: ../QueueManager.cpp:1333
 msgid "Unable to open filelist: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:1230
+#: ../QueueManager.cpp:1356
 msgid "%1%: Matched %2% file"
 msgstr ""
 
@@ -569,9 +665,3 @@ msgstr "More bytes written than requested"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "TTH inconsistency"
-
-#~ msgid "Directory already shared"
-#~ msgstr "Directory already shared"
-
-#~ msgid "Remove all subdirectories before adding this one"
-#~ msgstr "Remove all subdirectories before adding this one"

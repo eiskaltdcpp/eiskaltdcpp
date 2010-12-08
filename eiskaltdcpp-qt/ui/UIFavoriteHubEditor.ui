@@ -82,28 +82,28 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
+      <item row="6" column="0">
        <widget class="QCheckBox" name="checkBox_CID">
         <property name="text">
          <string>Client ID</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
+      <item row="7" column="0">
        <widget class="QCheckBox" name="checkBox_IP">
         <property name="text">
          <string>External IP</string>
         </property>
        </widget>
       </item>
-      <item row="5" column="1">
+      <item row="6" column="1">
        <widget class="QComboBox" name="comboBox_CID">
         <property name="enabled">
          <bool>false</bool>
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
+      <item row="7" column="1">
        <widget class="LineEdit" name="lineEdit_IP">
         <property name="enabled">
          <bool>false</bool>
@@ -113,7 +113,7 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="1">
+      <item row="8" column="1">
        <widget class="QCheckBox" name="checkBox_USEINTERNET">
         <property name="enabled">
          <bool>false</bool>
@@ -123,10 +123,36 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="0" colspan="2">
+      <item row="9" column="0" colspan="2">
        <widget class="QCheckBox" name="checkBox_DISABLECHAT">
         <property name="text">
          <string>Disable chat</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QComboBox" name="comboBox_MODE">
+        <item>
+         <property name="text">
+          <string>Default</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Active</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Passive</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Mode</string>
         </property>
        </widget>
       </item>

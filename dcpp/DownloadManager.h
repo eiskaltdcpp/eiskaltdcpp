@@ -68,8 +68,6 @@ private:
 	void noSlots(UserConnection* aSource);
 
 	void logDownload(UserConnection* aSource, Download* d);
-	uint32_t calcCrc32(const string& file) throw(FileException);
-	bool checkSfv(UserConnection* aSource, Download* d);
 	int64_t getResumePos(const string& file, const TigerTree& tt, int64_t startPos);
 
 	void failDownload(UserConnection* aSource, const string& reason);
@@ -83,9 +81,12 @@ private:
 	void startData(UserConnection* aSource, int64_t start, int64_t newSize, bool z);
 	void endData(UserConnection* aSource);
 
+	void onFailed(UserConnection* aSource, const string& aError);
+
 	// UserConnectionListener
 	virtual void on(Data, UserConnection*, const uint8_t*, size_t) throw();
-	virtual void on(Failed, UserConnection*, const string&) throw();
+	virtual void on(Failed, UserConnection* aSource, const string& aError) throw() { onFailed(aSource, aError); }
+	virtual void on(ProtocolError, UserConnection* aSource, const string& aError) throw() { onFailed(aSource, aError); }
 	virtual void on(MaxedOut, UserConnection*) throw();
 	virtual	void on(FileNotAvailable, UserConnection*) throw();
 	virtual void on(Updated, UserConnection*) throw();

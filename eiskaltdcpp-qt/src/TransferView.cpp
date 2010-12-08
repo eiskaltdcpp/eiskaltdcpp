@@ -11,12 +11,12 @@
 #include "TransferViewModel.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
-#include "IPFilter.h"
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "Notification.h"
 #include "SearchFrame.h"
 #include "DownloadQueue.h"
+#include "IPFilter.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/User.h"
@@ -242,7 +242,7 @@ void TransferView::getFileList(const QString &cid, const QString &host){
         dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
 
         if (user)
-            QueueManager::getInstance()->addList(user, _tq(host), QueueItem::FLAG_CLIENT_VIEW);
+            QueueManager::getInstance()->addList(HintedUser(user, _tq(host)), QueueItem::FLAG_CLIENT_VIEW, "");
     }
     catch (const Exception&){}
 }
@@ -255,7 +255,7 @@ void TransferView::matchQueue(const QString &cid, const QString &host){
         dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
 
         if (user)
-            QueueManager::getInstance()->addList(user, _tq(host), QueueItem::FLAG_MATCH_QUEUE);
+            QueueManager::getInstance()->addList(HintedUser(user, _tq(host)), QueueItem::FLAG_MATCH_QUEUE, "");
     }
     catch (const Exception&){}
 }
@@ -281,7 +281,7 @@ void TransferView::grantSlot(const QString &cid, const QString &host){
         dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
 
         if (user)
-            UploadManager::getInstance()->reserveSlot(user, _tq(host));
+            UploadManager::getInstance()->reserveSlot(HintedUser(user, _tq(host)));
     }
     catch (const Exception&){}
 }
@@ -345,7 +345,7 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Connectio
     params["USER"]  = WU->getNicks(user->getCID());
     params["HUB"]   = WU->getHubNames(user);
     params["FAIL"]  = false;
-    params["HOST"]  = _q(item->getHubHint());
+    params["HOST"]  = _q(item->getUser().hint);
     params["DOWN"]  = item->getDownload();
 }
 
@@ -365,7 +365,7 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Transfer 
 
     QString nick = WU->getNicks(user->getCID());
 
-    if (!(nick.isEmpty() || nick.isNull()))//Do not update user nick if user is offline
+    if (!nick.isEmpty())//Do not update user nick if user is offline
         params["USER"]  = nick;
 
     params["HUB"]   = WU->getHubNames(user);
@@ -622,7 +622,15 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
     emit coreUpdateTransferPosition(params, pos);
 }
 
-void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw(){
+void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw() {
+    onFailed(dl, reason);
+}
+
+void TransferView::on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* dl, const std::string& reason) throw() {
+    onFailed(dl, reason);
+}
+
+void TransferView::onFailed(dcpp::Download* dl, const std::string& reason) {
     VarMap params;
 
     getParams(params, dl);

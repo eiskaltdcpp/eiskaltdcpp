@@ -51,24 +51,24 @@ void ConnectionManager::listen() throw(SocketException){
     disconnect();
    uint16_t port;
 
-   //if (BOOLSETTING(AUTO_DETECT_CONNECTION)) {
-        //server = new Server(false, 0, Util::emptyString);
-   //} else {
+   if (BOOLSETTING(AUTO_DETECT_CONNECTION)) {
+        server = new Server(false, 0, Util::emptyString);
+   } else {
         port = static_cast<uint16_t>(SETTING(TCP_PORT));
 
        server = new Server(false, port, SETTING(BIND_ADDRESS));
-   //}
+   }
     if(!CryptoManager::getInstance()->TLSOk()) {
         dcdebug("Skipping secure port: %d\n", SETTING(USE_TLS));
         return;
     }
 
-   //if (BOOLSETTING(AUTO_DETECT_CONNECTION)) {
-        //secureServer = new Server(true, 0, Util::emptyString);
-   //} else {
+   if (BOOLSETTING(AUTO_DETECT_CONNECTION)) {
+        secureServer = new Server(true, 0, Util::emptyString);
+   } else {
         port = static_cast<uint16_t>(SETTING(TLS_PORT));
         secureServer = new Server(true, port, SETTING(BIND_ADDRESS));
-   //}
+   }
 }
 
 /**
@@ -77,26 +77,26 @@ void ConnectionManager::listen() throw(SocketException){
  * for downloading.
  * @param aUser The user to connect to.
  */
-void ConnectionManager::getDownloadConnection(const UserPtr& aUser, const string& hubHint) {
-    dcassert((bool)aUser);
+void ConnectionManager::getDownloadConnection(const HintedUser& aUser) {
+        dcassert((bool)aUser.user);
     {
         Lock l(cs);
-        ConnectionQueueItem::Iter i = find(downloads.begin(), downloads.end(), aUser);
+                ConnectionQueueItem::Iter i = find(downloads.begin(), downloads.end(), aUser.user);
         if(i == downloads.end()) {
-            getCQI(aUser, true, hubHint);
+                        getCQI(aUser, true);
         } else {
-            DownloadManager::getInstance()->checkIdle(aUser);
+                        DownloadManager::getInstance()->checkIdle(aUser.user);
         }
     }
 }
 
-ConnectionQueueItem* ConnectionManager::getCQI(const UserPtr& aUser, bool download, const string& hubHint) {
-    ConnectionQueueItem* cqi = new ConnectionQueueItem(aUser, download, hubHint);
+ConnectionQueueItem* ConnectionManager::getCQI(const HintedUser& aUser, bool download) {
+        ConnectionQueueItem* cqi = new ConnectionQueueItem(aUser, download);
     if(download) {
-        dcassert(find(downloads.begin(), downloads.end(), aUser) == downloads.end());
+                dcassert(find(downloads.begin(), downloads.end(), aUser.user) == downloads.end());
         downloads.push_back(cqi);
     } else {
-        dcassert(find(uploads.begin(), uploads.end(), aUser) == uploads.end());
+                dcassert(find(uploads.begin(), uploads.end(), aUser.user) == uploads.end());
         uploads.push_back(cqi);
     }
 
@@ -149,20 +149,26 @@ void ConnectionManager::on(TimerManagerListener::Second, uint32_t aTick) throw()
             ConnectionQueueItem* cqi = *i;
 
             if(cqi->getState() != ConnectionQueueItem::ACTIVE) {
-                if(!cqi->getUser()->isOnline()) {
+                                if(!cqi->getUser().user->isOnline()) {
                     // Not online anymore...remove it from the pending...
                     removed.push_back(cqi);
                     continue;
                 }
 
-                if(cqi->getUser()->isSet(User::PASSIVE) &&
-                    !ClientManager::getInstance()->isActive(cqi->getHubHint())) {
+                                if(cqi->getUser().user->isSet(User::PASSIVE) && !ClientManager::getInstance()->isActive()) {
                     passiveUsers.push_back(cqi->getUser());
                     removed.push_back(cqi);
                     continue;
                 }
 
-                                if(cqi->getLastAttempt() == 0 || (((cqi->getLastAttempt() + 20*1000) < aTick) && !attemptDone)) {
+                                if(cqi->getErrors() == -1 && cqi->getLastAttempt() != 0) {
+                                        // protocol error, don't reconnect except after a forced attempt
+                                        continue;
+                                }
+
+                                if(cqi->getLastAttempt() == 0 || (!attemptDone &&
+                                        cqi->getLastAttempt() + 60 * 1000 * max(1, cqi->getErrors()) < aTick))
+                                {
                     cqi->setLastAttempt(aTick);
 
                     QueueItem::Priority prio = QueueManager::getInstance()->hasDownload(cqi->getUser());
@@ -177,7 +183,7 @@ void ConnectionManager::on(TimerManagerListener::Second, uint32_t aTick) throw()
                     if(cqi->getState() == ConnectionQueueItem::WAITING) {
                         if(startDown) {
                             cqi->setState(ConnectionQueueItem::CONNECTING);
-                            ClientManager::getInstance()->connect(cqi->getUser(), cqi->getToken(), cqi->getHubHint());
+                                                        ClientManager::getInstance()->connect(cqi->getUser(), cqi->getToken());
                             fire(ConnectionManagerListener::StatusChanged(), cqi);
                             attemptDone = true;
                         } else {
@@ -187,7 +193,8 @@ void ConnectionManager::on(TimerManagerListener::Second, uint32_t aTick) throw()
                     } else if(cqi->getState() == ConnectionQueueItem::NO_DOWNLOAD_SLOTS && startDown) {
                         cqi->setState(ConnectionQueueItem::WAITING);
                     }
-                                } else if(((cqi->getLastAttempt() + 40*1000) < aTick) && (cqi->getState() == ConnectionQueueItem::CONNECTING)) {
+                                } else if(cqi->getState() == ConnectionQueueItem::CONNECTING && cqi->getLastAttempt() + 50 * 1000 < aTick) {
+                                        cqi->setErrors(cqi->getErrors() + 1);
                     fire(ConnectionManagerListener::Failed(), cqi, _("Connection timeout"));
                     cqi->setState(ConnectionQueueItem::WAITING);
                 }
@@ -209,7 +216,7 @@ void ConnectionManager::on(TimerManagerListener::Minute, uint32_t aTick) throw()
     Lock l(cs);
 
     for(UserConnectionList::iterator j = userConnections.begin(); j != userConnections.end(); ++j) {
-                if(((*j)->getLastActivity() + 60*1000) < aTick) {
+                if(((*j)->getLastActivity() + 180*1000) < aTick) {
             (*j)->disconnect(true);
         }
     }
@@ -222,7 +229,6 @@ ConnectionManager::Server::Server(bool secure_, uint16_t aPort, const string& ip
     sock.create();
     ip = ip_;
     port = sock.bind(aPort, ip);
-        sock.setSocketOpt(SO_REUSEADDR, 1);
     sock.listen();
 
     start();
@@ -247,7 +253,6 @@ int ConnectionManager::Server::run() throw() {
             try {
                 sock.disconnect();
                 sock.create();
-                                sock.setSocketOpt(SO_REUSEADDR, 1);
                 sock.bind(port, ip);
                 sock.listen();
                 if(failed) {
@@ -269,10 +274,6 @@ int ConnectionManager::Server::run() throw() {
             }
         }
     }
-
-        if (die)
-           sock.disconnect();
-
     return 0;
 }
 
@@ -322,13 +323,13 @@ void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, const
     uc->setState(UserConnection::STATE_CONNECT);
     uc->setFlag(UserConnection::FLAG_NMDC);
     try {
-        //uc->connect(aServer, aPort);
-        uc->connect(aServer, aPort, 0, BufferedSocket::NAT_NONE);
+                uc->connect(aServer, aPort, 0, BufferedSocket::NAT_NONE);
     } catch(const Exception&) {
         putConnection(uc);
         delete uc;
     }
 }
+
 void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure) {
         adcConnect(aUser, aPort, 0, BufferedSocket::NAT_NONE, aToken, secure);
 }
@@ -352,25 +353,6 @@ void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, uint
         delete uc;
     }
 }
-//void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure) {
-    //if(shuttingDown)
-        //return;
-
-    //UserConnection* uc = getConnection(false, secure);
-    //uc->setToken(aToken);
-    //uc->setEncoding(Text::utf8);
-    //uc->setState(UserConnection::STATE_CONNECT);
-    //uc->setHubUrl(aUser.getClient().getHubUrl());
-    //if(aUser.getIdentity().isOp()) {
-        //uc->setFlag(UserConnection::FLAG_OP);
-    //}
-    //try {
-        //uc->connect(aUser.getIdentity().getIp(), aPort);
-    //} catch(const Exception&) {
-        //putConnection(uc);
-        //delete uc;
-    //}
-//}
 
 void ConnectionManager::disconnect() throw() {
     delete server;
@@ -493,7 +475,10 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
         Lock l(cs);
         for(ConnectionQueueItem::Iter i = downloads.begin(); i != downloads.end(); ++i) {
             ConnectionQueueItem* cqi = *i;
-            if((cqi->getState() == ConnectionQueueItem::CONNECTING || cqi->getState() == ConnectionQueueItem::WAITING) && cqi->getUser()->getCID() == cid) {
+                        cqi->setErrors(0);
+                        if((cqi->getState() == ConnectionQueueItem::CONNECTING || cqi->getState() == ConnectionQueueItem::WAITING) &&
+                                cqi->getUser().user->getCID() == cid)
+                        {
                 aSource->setUser(cqi->getUser());
                 // Indicate that we're interested in this file...
                 aSource->setFlag(UserConnection::FLAG_DOWNLOAD);
@@ -533,10 +518,6 @@ void ConnectionManager::on(UserConnectionListener::CLock, UserConnection* aSourc
     }
 
     if( CryptoManager::getInstance()->isExtended(aLock) ) {
-        // Alright, we have an extended protocol, set a user flag for this user and refresh his info...
-        if( (aPk.find("DCPLUSPLUS") != string::npos) && aSource->getUser() && !aSource->getUser()->isSet(User::DCPLUSPLUS)) {
-            aSource->getUser()->setFlag(User::DCPLUSPLUS);
-        }
         StringList defFeatures = features;
         if(BOOLSETTING(COMPRESS_TRANSFERS)) {
             defFeatures.push_back(UserConnection::FEATURE_ZLIB_GET);
@@ -621,7 +602,7 @@ void ConnectionManager::addUploadConnection(UserConnection* uc) {
 
         ConnectionQueueItem::Iter i = find(uploads.begin(), uploads.end(), uc->getUser());
         if(i == uploads.end()) {
-            ConnectionQueueItem* cqi = getCQI(uc->getUser(), false, Util::emptyString);
+                        ConnectionQueueItem* cqi = getCQI(uc->getHintedUser(), false);
 
             cqi->setState(ConnectionQueueItem::ACTIVE);
             uc->setFlag(UserConnection::FLAG_ASSOCIATED);
@@ -696,6 +677,8 @@ void ConnectionManager::on(AdcCommand::INF, UserConnection* aSource, const AdcCo
         ConnectionQueueItem::Iter i = find(downloads.begin(), downloads.end(), aSource->getUser());
 
         if(i != downloads.end()) {
+                        (*i)->setErrors(0);
+
             const string& to = (*i)->getToken();
 
             // 0.698 would send an empty token in some cases...remove this bugfix at some point
@@ -726,7 +709,7 @@ void ConnectionManager::force(const UserPtr& aUser) {
     (*i)->setLastAttempt(0);
 }
 
-void ConnectionManager::on(UserConnectionListener::Failed, UserConnection* aSource, const string& aError) throw() {
+void ConnectionManager::failed(UserConnection* aSource, const string& aError, bool protocolError) {
     Lock l(cs);
 
     if(aSource->isSet(UserConnection::FLAG_ASSOCIATED)) {
@@ -736,6 +719,7 @@ void ConnectionManager::on(UserConnectionListener::Failed, UserConnection* aSour
             ConnectionQueueItem* cqi = *i;
             cqi->setState(ConnectionQueueItem::WAITING);
             cqi->setLastAttempt(GET_TICK());
+                        cqi->setErrors(protocolError ? -1 : (cqi->getErrors() + 1));
             fire(ConnectionManagerListener::Failed(), cqi, aError);
         } else if(aSource->isSet(UserConnection::FLAG_UPLOAD)) {
             ConnectionQueueItem::Iter i = find(uploads.begin(), uploads.end(), aSource->getUser());
@@ -745,6 +729,14 @@ void ConnectionManager::on(UserConnectionListener::Failed, UserConnection* aSour
         }
     }
     putConnection(aSource);
+}
+
+void ConnectionManager::on(UserConnectionListener::Failed, UserConnection* aSource, const string& aError) throw() {
+        failed(aSource, aError, false);
+}
+
+void ConnectionManager::on(UserConnectionListener::ProtocolError, UserConnection* aSource, const string& aError) throw() {
+        failed(aSource, aError, true);
 }
 
 void ConnectionManager::disconnect(const UserPtr& aUser) {

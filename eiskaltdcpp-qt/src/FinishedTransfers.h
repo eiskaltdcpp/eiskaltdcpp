@@ -22,7 +22,7 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/FinishedManager.h"
-#include "dcpp/FinishedManagerListener.h"
+//#include "dcpp/FinishedManagerListener.h"
 #include "dcpp/Util.h"
 #include "dcpp/FinishedItem.h"
 #include "dcpp/User.h"
@@ -54,7 +54,7 @@ Q_SIGNALS:
     void coreRemovedFile(const QString&);
     void coreRemovedUser(const QString&);
 
-public slots:
+public Q_SLOTS:
     virtual void slotTypeChanged(int) = 0;
     virtual void slotClear() = 0;
     virtual void slotContextMenu() = 0;
@@ -137,7 +137,7 @@ private:
         QObject::connect(this, SIGNAL(coreUpdatedFile(VarMap)), model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
         QObject::connect(this, SIGNAL(coreUpdatedUser(VarMap)), model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
         QObject::connect(this, SIGNAL(coreRemovedFile(QString)), model, SLOT(remFile(QString)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreRemovedUser(QString)), model, SLOT(addUser(QString)), Qt::QueuedConnection);
+        QObject::connect(this, SIGNAL(coreRemovedUser(QString)), model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
 
         QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
         QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
@@ -188,8 +188,8 @@ private:
         params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
         params["PATH"]  = _q(Util::getFilePath(file));
 
-        for (UserList::const_iterator it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
-                nicks += WulforUtil::getInstance()->getNicks(it->get()->getCID()) + " ";
+        for (HintedUserList::const_iterator it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
+                nicks += WulforUtil::getInstance()->getNicks(it->user->getCID()) + " ";
 
         params["USERS"] = nicks;
         params["TR"]    = (qlonglong)item->getTransferred();
@@ -278,7 +278,7 @@ private:
                         files.push_back(i);
 #endif
                 }
-                    
+
             }
         }
 
@@ -332,7 +332,7 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::AddedUser, bool upload, const dcpp::UserPtr &user, const FinishedUserItemPtr &item) throw(){
+    void on(FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const FinishedUserItemPtr &item) throw(){
         if (isUpload == upload){
             VarMap params;
 
@@ -358,7 +358,7 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::UpdatedUser, bool upload, const UserPtr &user) throw(){
+    void on(FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) throw(){
         if (isUpload == upload){
             const FinishedManager::MapByUser &umap = FinishedManager::getInstance()->getMapByUser(isUpload);
             FinishedManager::MapByUser::const_iterator userit = umap.find(user);
@@ -375,9 +375,9 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::RemovedUser, bool upload, const UserPtr &user) throw(){
+    void on(FinishedManagerListener::RemovedUser, bool upload, const dcpp::HintedUser &user) throw(){
         if (isUpload == upload){
-            emit coreRemovedUser(_q(user->getCID().toBase32()));
+            emit coreRemovedUser(_q(user.user->getCID().toBase32()));
         }
     }
 

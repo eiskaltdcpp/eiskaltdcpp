@@ -612,6 +612,10 @@ Keys:
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
+    <message>
+        <source>File marked as a duplicate of another file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -628,22 +632,22 @@ Keys:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation>Envois terminés</translation>
+        <translation type="unfinished">Envois terminés</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation>Téléchargements terminés</translation>
+        <translation type="unfinished">Téléchargements terminés</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation>Ouvrir le fichier</translation>
+        <translation type="unfinished">Ouvrir le fichier</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation>Ouvrir le dossier</translation>
+        <translation type="unfinished">Ouvrir le dossier</translation>
     </message>
 </context>
 <context>
@@ -2330,6 +2334,51 @@ Clés:
     </message>
 </context>
 <context>
+    <name>SearchBlackListDelegate</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDialog</name>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListModel</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished">Clé</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set text...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SearchFrame</name>
     <message>
         <source>Form</source>
@@ -2550,6 +2599,14 @@ Clés:
     <message>
         <source>Download Whole Directory to...</source>
         <translation>Télécharger le répertoire entier vers...</translation>
+    </message>
+    <message>
+        <source>CD Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3158,6 +3215,14 @@ Clés:
     <message>
         <source>Hub Manager</source>
         <translation type="obsolete">Gestionnaire de serveurs</translation>
+    </message>
+</context>
+<context>
+    <name>SingleInstanceRunner</name>
+    <message>
+        <source>Internal server running on %1
+</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4267,6 +4332,21 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     </message>
 </context>
 <context>
+    <name>UISearchBlacklistDialog</name>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Annuler</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished">OK</translation>
+    </message>
+</context>
+<context>
     <name>UISettings</name>
     <message>
         <source>Settings</source>
@@ -4502,6 +4582,14 @@ Slots</translation>
     <message>
         <source>Auto detect connection</source>
         <translation>Détection automatique de la connexion</translation>
+    </message>
+    <message>
+        <source>Ignore incoming non-TTH searches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore all incoming searches</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5151,7 +5239,7 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Try to use system icons (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser les icônes du système</translation>
     </message>
 </context>
 <context>

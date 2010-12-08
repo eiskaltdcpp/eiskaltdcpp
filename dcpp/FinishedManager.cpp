@@ -34,11 +34,13 @@ namespace dcpp {
 FinishedManager::FinishedManager() {
     DownloadManager::getInstance()->addListener(this);
     UploadManager::getInstance()->addListener(this);
+    QueueManager::getInstance()->addListener(this);
 }
 
 FinishedManager::~FinishedManager() throw() {
     DownloadManager::getInstance()->removeListener(this);
     UploadManager::getInstance()->removeListener(this);
+    QueueManager::getInstance()->removeListener(this);
 
     clearDLs();
     clearULs();
@@ -73,7 +75,7 @@ void FinishedManager::remove(bool upload, const string& file) {
     fire(FinishedManagerListener::RemovedFile(), upload, file);
 }
 
-void FinishedManager::remove(bool upload, const UserPtr& user) {
+void FinishedManager::remove(bool upload, const HintedUser& user) {
     {
         Lock l(cs);
         MapByUser& map = upload ? ULByUser : DLByUser;
@@ -109,7 +111,7 @@ void FinishedManager::clearULs() {
 void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
     if(t->getType() == Transfer::TYPE_FILE || (t->getType() == Transfer::TYPE_FULL_LIST && BOOLSETTING(LOG_FILELIST_TRANSFERS))) {
         string file = t->getPath();
-        const UserPtr& user = t->getUser();
+                const HintedUser& user = t->getHintedUser();
 
         int64_t milliSeconds = GET_TICK() - t->getStart();
         time_t time = GET_TIME();
@@ -150,7 +152,7 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
                 fire(FinishedManagerListener::AddedFile(), upload, file, p);
             } else {
                 it->second->update(
-                    t->getPos(),
+                    crc32Checked ? 0 : t->getPos(), // in case of a successful crc check at the end we want to update the status only
                     milliSeconds,
                     time,
                     crc32Checked,
@@ -186,13 +188,17 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
     }
 }
 
+void FinishedManager::on(QueueManagerListener::CRCChecked, Download* d) throw() {
+    onComplete(d, false, /*crc32Checked*/true);
+}
+
 void FinishedManager::on(DownloadManagerListener::Complete, Download* d) throw() {
-    onComplete(d, false, d->isSet(Download::FLAG_CRC32_OK));
+    onComplete(d, false);
 }
 
 void FinishedManager::on(DownloadManagerListener::Failed, Download* d, const string&) throw() {
     if(d->getPos() > 0)
-        onComplete(d, false, d->isSet(Download::FLAG_CRC32_OK));
+        onComplete(d, false);
 }
 
 void FinishedManager::on(UploadManagerListener::Complete, Upload* u) throw() {
@@ -202,6 +208,42 @@ void FinishedManager::on(UploadManagerListener::Complete, Upload* u) throw() {
 void FinishedManager::on(UploadManagerListener::Failed, Upload* u, const string&) throw() {
     if(u->getPos() > 0)
         onComplete(u, true);
+}
+
+string FinishedManager::getTarget(const string& aTTH){
+        if(aTTH.empty()) return Util::emptyString;
+
+        {
+                Lock l(cs);
+
+                for(FinishedItem::FinishedItemList::const_iterator i = downloads.begin(); i != downloads.end(); i++)
+                {
+                        if((*i).getTTH() == aTTH)
+                                return (*i).getTarget();
+                }
+        }
+
+        return Util::emptyString;
+}
+
+
+bool FinishedManager::handlePartialRequest(const TTHValue& tth, vector<uint16_t>& outPartialInfo)
+{
+
+        string target = getTarget(tth.toBase32());
+
+        if(target.empty()) return false;
+
+        int64_t fileSize = File::getSize(target);
+
+        if(fileSize < PARTIAL_SHARE_MIN_SIZE)
+                return false;
+
+        uint16_t len = TigerTree::calcBlocks(fileSize,(int)100);
+        outPartialInfo.push_back(0);
+        outPartialInfo.push_back(len);
+
+        return true;
 }
 
 } // namespace dcpp

@@ -42,15 +42,24 @@ quint64 ClientManagerScript::getAvailable() const{
 }
 
 QStringList ClientManagerScript::getHubs(const QString& cid) const{
-    return toQStringList(CM->getHubs(dcpp::CID(_tq(cid))));
+    return toQStringList(CM->getHubs(dcpp::CID(_tq(cid)), ""));
 }
 
 QStringList ClientManagerScript::getHubNames(const QString& cid) const{
-    return toQStringList(CM->getHubNames(dcpp::CID(_tq(cid))));
+    StringList hubs = ClientManager::getInstance()->getHubNames(dcpp::CID(_tq(cid)), "");
+
+    if (hubs.empty())
+        return QStringList();
+    else
+        return toQStringList(hubs);
 }
 
 QStringList ClientManagerScript::getNicks(const QString& cid) const{
-    return toQStringList(CM->getNicks(dcpp::CID(_tq(cid))));
+    const dcpp::Identity &user = CM->getOnlineUserIdentity(CM->getUser(dcpp::CID(_tq(cid))));
+    QStringList lst;
+    lst.push_back(_q(user.getNick()));
+
+    return lst;
 }
 
 QStringList ClientManagerScript::getConnectedHubs() const {

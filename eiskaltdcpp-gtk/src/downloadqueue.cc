@@ -72,7 +72,7 @@ DownloadQueue::DownloadQueue():
 	fileView.insertColumn(_("Exact Size"), G_TYPE_STRING, TreeView::STRING, 100);
 	fileView.insertColumn(_("Errors"), G_TYPE_STRING, TreeView::STRING, 200);
 	fileView.insertColumn(_("Added"), G_TYPE_STRING, TreeView::STRING, 120);
-	fileView.insertColumn("TTH", G_TYPE_STRING, TreeView::STRING, 125);
+	fileView.insertColumn(_("TTH"), G_TYPE_STRING, TreeView::STRING, 125);
 	fileView.insertHiddenColumn("Size Sort", G_TYPE_INT64);
 	fileView.insertHiddenColumn("Downloaded Sort", G_TYPE_INT64);
 	fileView.insertHiddenColumn("Target", G_TYPE_STRING);
@@ -284,7 +284,7 @@ void DownloadQueue::addFile_gui(StringMap params, bool updateDirs)
 			fileView.col(_("Path")), params["Path"].c_str(),
 			fileView.col(_("Errors")), params["Errors"].c_str(),
 			fileView.col(_("Added")), params["Added"].c_str(),
-			fileView.col("TTH"), params["TTH"].c_str(),
+			fileView.col(_("TTH")), params["TTH"].c_str(),
 			fileView.col("Target"), params["Target"].c_str(),
 			fileView.col("Icon"), "icon-file",
 			-1);
@@ -391,7 +391,7 @@ void DownloadQueue::updateFile_gui(StringMap params)
 					fileView.col(_("Path")), params["Path"].c_str(),
 					fileView.col(_("Errors")), params["Errors"].c_str(),
 					fileView.col(_("Added")), params["Added"].c_str(),
-					fileView.col("TTH"), params["TTH"].c_str(),
+					fileView.col(_("TTH")), params["TTH"].c_str(),
 					fileView.col("Target"), params["Target"].c_str(),
 					fileView.col("Icon"), "icon-file",
 					-1);
@@ -719,7 +719,7 @@ void DownloadQueue::onFileSearchAlternatesClicked_gui(GtkMenuItem *item, gpointe
 		path = (GtkTreePath *)i->data;
 		if (gtk_tree_model_get_iter(GTK_TREE_MODEL(dq->fileStore), &iter, path))
 		{
-			tth = dq->fileView.getString(&iter, "TTH");
+			tth = dq->fileView.getString(&iter, _("TTH"));
 			if (!tth.empty())
 			{
 				s = WulforManager::get()->getMainWindow()->addSearch_gui();
@@ -747,7 +747,7 @@ void DownloadQueue::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
 		{
 			filename = dq->fileView.getString(&iter, _("Filename"));
 			size = dq->fileView.getValue<int64_t>(&iter, "Size Sort");
-			tth = dq->fileView.getString(&iter, "TTH");
+			tth = dq->fileView.getString(&iter, _("TTH"));
 			magnet = WulforUtil::makeMagnet(filename, size, tth);
 
 			if (!magnet.empty())
@@ -1126,7 +1126,7 @@ void DownloadQueue::addList_client(string target, string nick)
 			{
 				UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
 				if (user)
-					QueueManager::getInstance()->addList(user, "", QueueItem::FLAG_CLIENT_VIEW);
+					QueueManager::getInstance()->addList(HintedUser(user, ""), QueueItem::FLAG_CLIENT_VIEW);//NOTE core 0.762
 			}
 		}
 	}
@@ -1163,7 +1163,7 @@ void DownloadQueue::reAddSource_client(string target, string nick)
 			{
 				UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
 				if (user)
-					QueueManager::getInstance()->readd(target, user, "");
+					QueueManager::getInstance()->readd(target, HintedUser(user, ""));//NOTE core 0.762
 			}
 		}
 	}
@@ -1268,14 +1268,14 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
 	params["Users"] = "";
 	for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it)
 	{
-		if (it->getUser()->isOnline())
+		if (it->getUser().user->isOnline())//NOTE core 0.762
 			++online;
 
 		if (params["Users"].size() > 0)
 			params["Users"] += ", ";
 
 		nick = WulforUtil::getNicks(it->getUser());
-		source[nick] = it->getUser()->getCID().toBase32();
+		source[nick] = it->getUser().user->getCID().toBase32();//NOTE core 0.762
 		params["Users"] += nick;
 	}
 	if (params["Users"].empty())
@@ -1310,7 +1310,7 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
 	}
 	else
 	{
-		params["Downloaded"] = "0 B (0.00%)";
+		params["Downloaded"] = _("0 B (0.00%)");
 	}
 
 	// Priority
@@ -1341,7 +1341,7 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
 	for (QueueItem::SourceConstIter it = item->getBadSources().begin(); it != item->getBadSources().end(); ++it)
 	{
 		nick = WulforUtil::getNicks(it->getUser());
-		source[nick] = it->getUser()->getCID().toBase32();
+		source[nick] = it->getUser().user->getCID().toBase32();//NOTE core 0.762
 
 		if (!it->isSet(QueueItem::Source::FLAG_REMOVED))
 		{

@@ -55,12 +55,15 @@ public:
     int getFreeExtraSlots() { return max(3 - getExtra(), 0); }
 
     /** @param aUser Reserve an upload slot for this user and connect. */
-    void reserveSlot(const UserPtr& aUser, const string& hubHint);
+    void reserveSlot(const HintedUser& aUser);
+
+    /** */
+    void reloadRestrictions();
 
     typedef set<string> FileSet;
     typedef unordered_map<UserPtr, FileSet, User::Hash> FilesMap;
     void clearUserFiles(const UserPtr&);
-    UserList getWaitingUsers();
+    HintedUserList getWaitingUsers() const;
     const FileSet& getWaitingUserFiles(const UserPtr&);
 
     /** @internal */
@@ -73,14 +76,15 @@ public:
     void updateLimits() {limits.RenewList(NULL);}
 private:
     UploadList uploads;
-    CriticalSection cs;
+    mutable CriticalSection cs;
 
     typedef unordered_set<UserPtr, User::Hash> SlotSet;
     typedef SlotSet::iterator SlotIter;
     SlotSet reservedSlots;
     CPerfolderLimit limits;
+    int lastFreeSlots; /// amount of free slots at the previous minute
 
-    typedef pair<UserPtr, uint64_t> WaitingUser;
+    typedef pair<HintedUser, uint64_t> WaitingUser;
     typedef list<WaitingUser> WaitingUserList;
 
     struct WaitingUserFresh {

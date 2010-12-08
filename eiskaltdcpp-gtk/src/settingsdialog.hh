@@ -45,17 +45,18 @@ class Settings:
         // GUI functions
         void addOption_gui(GtkListStore *store, const std::string &name, dcpp::SettingsManager::IntSetting setting);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, const std::string &name,
-            const std::string &key1, const std::string &key2, const std::string &key3, const std::string &key4);
+        const std::string &key1, const std::string &key2, const std::string &key3, const std::string &key4);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm,
-            const std::string &name, const std::string &key1, const std::string &key2,
-            const std::string &key3, const int key4);
+        const std::string &name, const std::string &key1, const std::string &key2,
+        const std::string &key3, const int key4);
         void addOption_gui(GtkListStore *store, const std::string &name, const std::string &setting);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, const std::string &name,
-            const std::string &key1, const std::string &key2);
+        const std::string &key1, const std::string &key2);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, GtkIconTheme *iconTheme,
-            const std::string &name, const std::string &key1);
+        const std::string &name, const std::string &key1);
         void addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, GtkIconTheme *iconTheme,
-            const std::string &name, const std::string &key1, const std::string &key2);
+        const std::string &name, const std::string &key1, const std::string &key2);
+        void addOption_gui(GtkListStore *store, const std::string &type, const dcpp::StringList &exts, bool predefined, const int key);//NOTE: core 0.770
         void createOptionsView_gui(TreeView &treeView, GtkListStore *&store, const std::string &widgetName);
         void saveOptionsView_gui(TreeView &treeView, dcpp::SettingsManager *sm);
         void initPersonal_gui();
@@ -66,6 +67,7 @@ class Settings:
         void initLog_gui();
         void initAdvanced_gui();
         void initBandwidthLimiting_gui();//NOTE: core 0.762
+        void initSearchTypes_gui();//NOTE: core 0.770
         void addShare_gui(std::string path, std::string name, int64_t size);
         void selectTextColor_gui(const int select);
         void selectTextStyle_gui(const int select);
@@ -75,6 +77,10 @@ class Settings:
         bool validateUserCommandInput(const std::string &oldName = "");
         void showErrorDialog(const std::string error);
         void updateShares_gui();//NOTE: core 0.762
+        void addSearchType_gui();//NOTE: core 0.770
+        void modSearchType_gui();//NOTE: core 0.770
+        void addExtension_gui(const std::string ext);//NOTE: core 0.770
+        void showExtensionDialog_gui(bool add);//NOTE: core 0.770
 
         // GUI callbacks
         static void onOptionsViewToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);
@@ -100,7 +106,6 @@ class Settings:
         static void onRemoveShare_gui(GtkWidget *widget, gpointer data);
         static gboolean onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
         static gboolean onShareHiddenPressed_gui(GtkToggleButton *button, gpointer data);
-        static void onLimitSecondToggled_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762
         ///@todo Uncomment when implemented
         //static void onWinColorClicked_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);
         //static void onDownColorClicked_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);
@@ -151,6 +156,19 @@ class Settings:
         static void onDefaultThemeButton_gui(GtkWidget *widget, gpointer data);
         static void onDefaultColorsSPButton_gui(GtkWidget *widget, gpointer data);
         static void onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data);
+        static void onLimitSecondToggled_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762
+        static void onAddSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onModifySTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onRenameSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onRemoveSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onDefaultSTButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onAddExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onEditExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onRemoveExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onUpExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onDownExtensionButton_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.770
+        static void onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);//NOTE: core 0.770
+        static void onSTButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);//NOTE: core 0.770
 
         // Client functions
         void saveSettings_client();
@@ -165,12 +183,12 @@ class Settings:
             *shareStore, *appearanceStore, *tabStore, *windowStore1,
             *windowStore2, *windowStore3, *advancedStore, *certificatesStore, *userCommandStore,
             *previewAppToStore, *soundStore, *textStyleStore, *notifyStore, *themeIconsStore,
-            *toolbarStore;
+            *toolbarStore, *searchTypeStore, *extensionStore;
         TreeView downloadToView, publicListView, queueView, shareView,
             appearanceView, tabView, windowView1, windowView2,
             windowView3, advancedView, certificatesView, userCommandView,
             previewAppView, soundView, textStyleView, notifyView, themeIconsView,
-            toolbarView;
+            toolbarView, searchTypeView, extensionView;
         GtkTextBuffer *textStyleBuffer;
 
         typedef std::map<std::string, int> IntMap;

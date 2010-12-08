@@ -35,16 +35,19 @@
 #include "ResourceManager.h"
 #include "ThrottleManager.h"
 #include "ADLSearch.h"
-
+#include "WindowManager.h"
 #include "StringTokenizer.h"
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
 #include "UPnPManager.h"
 #include "ConnectivityManager.h"
+#include "extra/ipfilter.h"
 #ifdef DHT
-#include "../dht/DHT.h"
+#include "dht/DHT.h"
 #endif
+#include "DebugManager.h"
+
 #ifdef _STLP_DEBUG
 void __stl_debug_terminate() {
     int* x = 0;
@@ -85,17 +88,27 @@ void startup(void (*f)(void*, const string&), void* p) {
     DownloadManager::newInstance();
     UploadManager::newInstance();
     ThrottleManager::newInstance();
+    QueueManager::newInstance();
     ShareManager::newInstance();
     FavoriteManager::newInstance();
-    QueueManager::newInstance();
     FinishedManager::newInstance();
     ADLSearchManager::newInstance();
     ConnectivityManager::newInstance();
     UPnPManager::newInstance();
+    WindowManager::newInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
 #endif
+    DebugManager::newInstance();
+
     SettingsManager::getInstance()->load();
+#ifdef USE_MINIUPNP
+    UPnPManager::getInstance()->runMiniUPnP();
+#endif
+    if (BOOLSETTING(IPFILTER)){
+        ipfilter::newInstance();
+        ipfilter::getInstance()->load();
+    }
 
 #ifdef _WIN32
     if(!SETTING(LANGUAGE).empty()) {
@@ -121,6 +134,9 @@ void startup(void (*f)(void*, const string&), void* p) {
     if(f != NULL)
         (*f)(p, _("Download Queue"));
     QueueManager::getInstance()->loadQueue();
+    if(f != NULL)
+        (*f)(p, _("Users"));
+    ClientManager::getInstance()->loadUsers();
 }
 
 void shutdown() {
@@ -128,6 +144,7 @@ void shutdown() {
 #ifndef _WIN32 //*nix system
     ThrottleManager::getInstance()->shutdown();
 #endif
+    DebugManager::deleteInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::deleteInstance();
 #endif
@@ -142,13 +159,17 @@ void shutdown() {
     UPnPManager::getInstance()->close();
 
     BufferedSocket::waitShutdown();
-
+    WindowManager::getInstance()->prepareSave();
+    QueueManager::getInstance()->saveQueue(true);
+    ClientManager::getInstance()->saveUsers();
+    if (ipfilter::getInstance())
+        ipfilter::getInstance()->shutdown();
     SettingsManager::getInstance()->save();
 
 #ifdef USE_DHT
     DHT::deleteInstance();
 #endif
-
+    WindowManager::deleteInstance();
     UPnPManager::deleteInstance();
     ConnectivityManager::deleteInstance();
     ADLSearchManager::deleteInstance();

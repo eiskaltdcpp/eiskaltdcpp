@@ -19,7 +19,6 @@
 #include <ifaddrs.h>
 #include <fcntl.h>
 #endif
-
 #include "dcpp/ClientManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"
@@ -226,6 +225,7 @@ void WulforUtil::clearUserIconCache(){
 }
 
 QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, const QString &sp){
+
     int x = connectionSpeeds[sp];
     int y = 0;
 
@@ -235,8 +235,12 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
     if (id->isSet(User::TLS))
         y += 2;
 
-    if (id->isSet(User::DCPLUSPLUS))
-        y += 4;
+   // if (id->isSet(User::DCPLUSPLUS)) этот флажок ушёл в небытиё =)
+   // ниже примерно то, что я предлагаю
+   // Identity id;
+    //if(id.supports(AdcHub::ADCS_FEATURE) && id.supports(AdcHub::SEGA_FEATURE) &&
+        //((id.supports(AdcHub::TCP4_FEATURE) && id.supports(AdcHub::UDP4_FEATURE)) || id.supports(AdcHub::NAT0_FEATURE)))
+        //y += 4;
 
     if (isOp)
         y += 8;
@@ -373,6 +377,8 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiSERVER]       = FROMTHEME("server", resourceFound);
     m_PixmapMap[eiSPAM]         = FROMTHEME("spam", resourceFound);
     m_PixmapMap[eiSPY]          = FROMTHEME("spy", resourceFound);
+    m_PixmapMap[eiSPEED_LIMIT]  = FROMTHEME("speed-limit", resourceFound);
+
     m_PixmapMap[eiSPLASH]       = QPixmap();
     m_PixmapMap[eiSTATUS]       = FROMTHEME("status", resourceFound);
     m_PixmapMap[eiTRANSFER]     = FROMTHEME("transfer", resourceFound);
@@ -844,7 +850,7 @@ Qt::SortOrder WulforUtil::intToSortOrder(int i){
 }
 
 QString WulforUtil::getHubNames(const dcpp::CID &cid){
-    StringList hubs = ClientManager::getInstance()->getHubNames(cid);
+    StringList hubs = ClientManager::getInstance()->getHubNames(cid, "");
 
     if (hubs.empty())
         return tr("Offline");
@@ -1007,8 +1013,8 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
             QString raw_name = _q(uc.getName());
             QAction *action = NULL;
 
-            if (raw_name.contains("\\")){
-                QStringList submenus = raw_name.split("\\", QString::SkipEmptyParts);
+            if (raw_name.contains("/")){
+                QStringList submenus = raw_name.split("/", QString::SkipEmptyParts);
                 if (!submenus.isEmpty()){
                 QString name = submenus.takeLast();
                 QString key = "";
@@ -1016,7 +1022,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
                 QMenu *submenu;
 
                 foreach (QString s, submenus){
-                    key += s + "\\";
+                    key += s + "/";
 
                     if (registered_menus.contains(key))
                         parent = registered_menus[key];

@@ -15,6 +15,7 @@
 
 #include "dcpp/SettingsManager.h"
 #include "dcpp/FavoriteManager.h"
+#include "dcpp/ClientManager.h"
 #include <dcpp/ADLSearch.h>
 
 #if (HAVE_MALLOC_TRIM)
@@ -34,6 +35,7 @@
 #include <QKeyEvent>
 #include <QtConcurrentFilter>
 #include <QtConcurrentRun>
+#include <QInputDialog>
 
 #include <boost/bind.hpp>
 
@@ -60,6 +62,8 @@ ShareBrowser::Menu::Menu(){
 
     WulforUtil *WU = WulforUtil::getInstance();
 
+    rest_menu = new QMenu(tr("Restrictions"));
+
     QAction *down    = new QAction(tr("Download"), menu);
     down->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
     down_to = new QMenu(tr("Download to..."));
@@ -72,25 +76,34 @@ ShareBrowser::Menu::Menu(){
     QAction *sep1    = new QAction(menu);
     QAction *add_to_fav = new QAction(tr("Add to favorites"), menu);
     add_to_fav->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
+    QAction *set_rest = new QAction(tr("Add restriction"), rest_menu);
+    QAction *rem_rest = new QAction(tr("Remove restriction"), rest_menu);
+    QAction *sep2    = new QAction(menu);
 
     actions.insert(down, Download);
     actions.insert(alter, Alternates);
     actions.insert(magnet, Magnet);
     actions.insert(add_to_fav, AddToFav);
+    actions.insert(set_rest, AddRestrinction);
+    actions.insert(rem_rest, RemoveRestriction);
 
     sep->setSeparator(true);
     sep1->setSeparator(true);
+    sep2->setSeparator(true);
 
-    menu->addActions(QList<QAction*>() << down << sep << alter << magnet << sep1 << add_to_fav);
+    menu->addActions(QList<QAction*>() << down << sep << alter << magnet << sep1 << add_to_fav << sep2);
+    rest_menu->addActions(QList<QAction*>() << set_rest << rem_rest);
     menu->insertMenu(sep, down_to);
+    menu->addMenu(rest_menu);
 }
 
 ShareBrowser::Menu::~Menu(){
     delete menu;
+    delete rest_menu;
     delete down_to;
 }
 
-ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
+ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     qDeleteAll(down_to->actions());
     down_to->clear();
 
@@ -136,6 +149,8 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
 
     down_to->addAction(browse);
 
+    rest_menu->setEnabled(user == ClientManager::getInstance()->getMe());
+
     QAction *ret = menu->exec(QCursor::pos());
 
     if (actions.contains(ret))
@@ -157,7 +172,7 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         share_size(0),
         current_size(0),
         itemsCount(0),
-        listing(user),
+        listing(HintedUser(user, "")),
         tree_root(NULL),
         list_root(NULL),
         tree_model(NULL),
@@ -169,7 +184,7 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
     nick = WulforUtil::getInstance()->getNicks(user->getCID());;
 
     if (nick.indexOf(_q(user->getCID().toBase32()) >= 0)){//User offline
-        nick = _q(ClientManager::getInstance()->getNicks(user->getCID())[0]);
+        nick = _q(ClientManager::getInstance()->getNicks(HintedUser(user, ""))[0]);
 
         QFileInfo info(file);
 
@@ -540,6 +555,8 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
 
     label_RIGHT->setText(QString(tr("Total size: %1")).arg(WulforUtil::formatBytes(current_size)));
 
+    list_model->highlightDuplicates();
+
     list_model->sort();
 }
 
@@ -637,7 +654,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
     if (!Menu::getInstance())
         Menu::newInstance();
 
-    Menu::Action act = Menu::getInstance()->exec();
+    Menu::Action act = Menu::getInstance()->exec(user);
     QString target = _q(SETTING(DOWNLOAD_DIRECTORY));
 
     switch (act){
@@ -751,6 +768,27 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 
             break;
         }
+        case Menu::AddRestrinction:
+        {
+            bool ok = false;
+            unsigned share_sz = QInputDialog::getInt(this, tr("Enter restriction size (in GB)"), "Size", 0, 0, 1024, 1, &ok);
+
+            if (!ok)
+                break;
+
+            foreach (QModelIndex index, list)
+                tree_model->updateRestriction(index, share_sz);
+
+            break;
+        }
+        case Menu::RemoveRestriction:
+        {
+            foreach (QModelIndex index, list)
+                tree_model->updateRestriction(index, 0);
+
+            break;
+        }
+        default: break;
     }
 }
 
@@ -762,6 +800,9 @@ void ShareBrowser::slotLoaderFinish(){
     list_model->repaint();
 
     load();
+
+    if (user == ClientManager::getInstance()->getMe())
+        tree_model->loadRestrictions();
 
     if (!jump_to.isEmpty()){
         FileBrowserItem *root = tree_model->getRootElem();

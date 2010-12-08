@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,48 +16,60 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#pragma once
+#ifndef _BOOTSTRAPMANAGER_H
+#define _BOOTSTRAPMANAGER_H
 
 #include "Constants.h"
+#include "KBucket.h"
 
-#include "../dcpp/CID.h"
-#include "../dcpp/HttpConnection.h"
-#include "../dcpp/Singleton.h"
+#include "dcpp/CID.h"
+#include "dcpp/HttpConnection.h"
+#include "dcpp/Singleton.h"
 
 namespace dht
 {
 
-    class BootstrapManager :
-        public Singleton<BootstrapManager>, private HttpConnectionListener
-    {
-    public:
-        BootstrapManager(void);
-        ~BootstrapManager(void);
+	class BootstrapManager :
+		public Singleton<BootstrapManager>, private HttpConnectionListener
+	{
+	public:
+		BootstrapManager(void);
+		~BootstrapManager(void);
 
-        void bootstrap();
+		void bootstrap();
 
-        void process();
+		void process();
 
-        void addBootstrapNode(const string& ip, uint16_t udpPort);
+		void addBootstrapNode(const string& ip, uint16_t udpPort, const CID& targetCID, const UDPKey& udpKey);
 
-    private:
+	private:
 
-        CriticalSection cs;
+		CriticalSection cs;
 
-        /** List of bootstrap nodes */
-        deque<std::pair<string, uint16_t> > bootstrapNodes;
+		struct BootstrapNode
+		{
+			string		ip;
+			uint16_t	udpPort;
+			CID			cid;
+			UDPKey		udpKey;
+		};
 
-        /** HTTP connection for bootstrapping */
-        HttpConnection httpConnection;
+		/** List of bootstrap nodes */
+		deque<BootstrapNode> bootstrapNodes;
 
-        /** Downloaded node list */
-        string nodesXML;
+		/** HTTP connection for bootstrapping */
+		HttpConnection httpConnection;
 
-        // HttpConnectionListener
-        void on(HttpConnectionListener::Data, HttpConnection* conn, const uint8_t* buf, size_t len) throw();
-        void on(HttpConnectionListener::Complete, HttpConnection* conn, string const& aLine) throw();
-        void on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) throw();
+		/** Downloaded node list */
+		string nodesXML;
 
-    };
+		// HttpConnectionListener
+		void on(HttpConnectionListener::Data, HttpConnection* conn, const uint8_t* buf, size_t len) throw();
+		void on(HttpConnectionListener::Complete, HttpConnection* conn, string const& aLine, bool /*fromCoral*/) throw();
+		void on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) throw();
+
+	};
 
 }
+
+#endif	// _BOOTSTRAPMANAGER_H

@@ -189,60 +189,6 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_2">
-      <attribute name="title">
-       <string>Restrictions</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="0">
-        <widget class="QTreeWidget" name="treeWidget">
-         <property name="toolTip">
-          <string>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
-For example, if you have /home/username/Video folder shared as &quot;Video&quot;
-you can specify following:
-/Video	10
-It means that any user who have less then 10GiB shared
-will be unable to download any files from this folder.</string>
-         </property>
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="showDropIndicator" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="alternatingRowColors">
-          <bool>true</bool>
-         </property>
-         <property name="rootIsDecorated">
-          <bool>false</bool>
-         </property>
-         <property name="itemsExpandable">
-          <bool>false</bool>
-         </property>
-         <column>
-          <property name="text">
-           <string>Share</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Restriction</string>
-          </property>
-         </column>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>All changes take effect only after restart</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
        <string>Advanced</string>
@@ -579,22 +525,6 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</strin
  <resources/>
  <connections>
   <connection>
-   <sender>checkBox_FASTHASH</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>groupBox_FASTHASH</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>231</x>
-     <y>170</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>231</x>
-     <y>222</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>checkBox_SIMPLE_SHARE_MODE</sender>
    <signal>toggled(bool)</signal>
    <receiver>treeView</receiver>
@@ -607,6 +537,22 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</strin
     <hint type="destinationlabel">
      <x>219</x>
      <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_FASTHASH</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>groupBox_FASTHASH</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>231</x>
+     <y>222</y>
     </hint>
    </hints>
   </connection>

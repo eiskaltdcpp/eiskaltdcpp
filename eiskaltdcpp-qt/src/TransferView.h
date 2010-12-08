@@ -122,6 +122,7 @@ protected:
     void forceAttempt(const QString&);
     void closeConection(const QString &, bool);
     void searchAlternates(const QString &tth);
+    void onFailed(dcpp::Download* dl, const std::string& reason);
     // DownloadManager
     virtual void on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) throw();
     virtual void on(dcpp::DownloadManagerListener::Starting, dcpp::Download* dl) throw();
@@ -137,6 +138,7 @@ protected:
     // QueueManager
     virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem*, const std::string&, int64_t size) throw();
     virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem*) throw();
+    virtual void on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* aDownload, const std::string& reason) throw();
     // UploadManager
     virtual void on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) throw();
     virtual void on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) throw();

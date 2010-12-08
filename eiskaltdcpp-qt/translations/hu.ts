@@ -564,6 +564,10 @@ Kapcsolók:
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
+    <message>
+        <source>File marked as a duplicate of another file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -580,22 +584,22 @@ Kapcsolók:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation>Befejezett feltöltések</translation>
+        <translation type="unfinished">Befejezett feltöltések</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation>Befejezett letöltések</translation>
+        <translation type="unfinished">Befejezett letöltések</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation>Fájl megnyitása</translation>
+        <translation type="unfinished">Fájl megnyitása</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation>Könyvtár megnyitása</translation>
+        <translation type="unfinished">Könyvtár megnyitása</translation>
     </message>
 </context>
 <context>
@@ -2360,6 +2364,51 @@ Kapcsolók:
     </message>
 </context>
 <context>
+    <name>SearchBlackListDelegate</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Fájlnév</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDialog</name>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Új hozzáadása</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListModel</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Fájlnév</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished">Kulcs</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Típus</translation>
+    </message>
+    <message>
+        <source>Set text...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SearchFrame</name>
     <message>
         <source>Form</source>
@@ -2584,6 +2633,14 @@ Kapcsolók:
     <message>
         <source>Download Whole Directory to...</source>
         <translation>Egész könyvtár letöltése ide ...</translation>
+    </message>
+    <message>
+        <source>CD Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3106,6 +3163,14 @@ Kapcsolók:
     <message>
         <source>Hub Manager</source>
         <translation type="obsolete">Hub kezelő</translation>
+    </message>
+</context>
+<context>
+    <name>SingleInstanceRunner</name>
+    <message>
+        <source>Internal server running on %1
+</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4189,6 +4254,21 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
 </context>
 <context>
+    <name>UISearchBlacklistDialog</name>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Mégsem</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished">OK</translation>
+    </message>
+</context>
+<context>
     <name>UISettings</name>
     <message>
         <source>Settings</source>
@@ -4448,6 +4528,14 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     <message>
         <source>Auto detect connection</source>
         <translation>Kapcsolat-típus automatikus detektálása</translation>
+    </message>
+    <message>
+        <source>Ignore incoming non-TTH searches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore all incoming searches</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

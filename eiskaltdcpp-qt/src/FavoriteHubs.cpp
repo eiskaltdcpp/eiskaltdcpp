@@ -232,6 +232,7 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     editor.checkBox_USEINTERNET->setChecked(map["IIP"].toBool());
     editor.checkBox_DISABLECHAT->setChecked(map["DCHAT"].toBool());
     editor.checkBox_CID->setChecked(map["OVERTAG"].toBool());
+    editor.comboBox_MODE->setCurrentIndex(map["MODE"].toInt());
 
     QStringList tags;
     QString tag = map["TAG"].toString();
@@ -295,6 +296,7 @@ void FavoriteHubs::getParams(const FavoriteHubEntry *entry, StrMap &map){
     map["IP"]       = _q(entry->getExternalIP());
     map["IIP"]      = entry->getUseInternetIP();
     map["DCHAT"]    = entry->getDisableChat();
+    map["MODE"]     = entry->getMode();
 }
 
 void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
@@ -333,6 +335,7 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
         map["ENC"] = WU->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE));
 
     map["UDESC"]    = editor.lineEdit_USERDESC->text();
+    map["MODE"]     = editor.comboBox_MODE->currentIndex();
 }
 
 void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
@@ -349,6 +352,7 @@ void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
     entry.setOverrideId(map["OVERTAG"].toBool());
     entry.setUseInternetIP(map["IIP"].toBool());
     entry.setDisableChat(map["DCHAT"].toBool());
+    entry.setMode(map["MODE"].toInt());
 }
 
 void FavoriteHubs::updateItem(FavoriteHubItem *item, StrMap &map){

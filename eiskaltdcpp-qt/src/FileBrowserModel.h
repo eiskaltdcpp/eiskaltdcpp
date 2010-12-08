@@ -12,6 +12,8 @@
 
 #include <QAbstractItemModel>
 #include <QSize>
+#include <QHash>
+#include <QMap>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -51,6 +53,7 @@ public:
 
     dcpp::DirectoryListing::Directory *dir;
     dcpp::DirectoryListing::File *file;
+    bool isDuplicate;
 private:
 
     QList<QVariant> itemData;
@@ -95,6 +98,11 @@ public:
     QModelIndex createIndexForItem(FileBrowserItem*);
 
     /** */
+    void loadRestrictions();
+    /** */
+    void updateRestriction(QModelIndex&, unsigned);
+
+    /** */
     int getSortColumn() const;
     /** */
     void setSortColumn(int);
@@ -102,6 +110,9 @@ public:
     Qt::SortOrder getSortOrder() const;
     /** */
     void setSortOrder(Qt::SortOrder);
+
+    /** */
+    void highlightDuplicates();
 
     /** */
     void clear();
@@ -122,6 +133,12 @@ private:
     bool iconsScaled;
     /** */
     QSize iconsSize;
+    /** */
+    QHash<QString, dcpp::DirectoryListing::File*> hash;
+    /** */
+    QMap<QString, unsigned> restrict_map;
+    /** */
+    bool restrictionsLoaded;
 };
 
 #endif // FBMODEL_H

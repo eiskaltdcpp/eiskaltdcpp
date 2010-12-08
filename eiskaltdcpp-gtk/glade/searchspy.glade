@@ -54,7 +54,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="tooltip" translatable="yes">Apply settings</property>
-            <property name="label">ok</property>
+            <property name="label">gtk-ok</property>
             <property name="response_id">0</property>
           </widget>
           <packing>

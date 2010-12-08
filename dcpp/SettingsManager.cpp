@@ -25,10 +25,14 @@
 #include "Util.h"
 #include "File.h"
 #include "version.h"
+#include "AdcHub.h"
 #include "CID.h"
 #ifdef DHT
 #include "../dht/DHT.h"
 #endif
+#include "SearchManager.h"
+#include "StringTokenizer.h"
+
 namespace dcpp {
 
 StringList SettingsManager::connectionSpeeds;
@@ -49,14 +53,12 @@ const string SettingsManager::settingTags[] =
     "Language", "SkipListShare", "InternetIp",
     "SENTRY",
     // Ints
-    "IncomingConnections", "InPort", "Slots", "AutoFollow", "ClearSearch",
-    "TextColor", "UseOemMonoFont", "ShareHidden",
-    "FilterMessages", "AutoSearch",
+    "IncomingConnections", "InPort", "Slots", "AutoFollow",
+    "ShareHidden", "FilterMessages", "AutoSearch",
     "AutoSearchTime", "ReportFoundAlternates", "TimeStamps",
     "IgnoreHubPms", "IgnoreBotPms",
     "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed",
     "LogMainChat", "LogPrivateChat", "LogDownloads", "LogUploads",
-    "StatusInChat", "ShowJoins", "UseSystemIcons",
     "MinUploadSpeed", "AutoAway",
     "SocksPort", "SocksResolve", "KeepLists", "AutoKick",
     "CompressTransfers", "SFVCheck",
@@ -64,10 +66,9 @@ const string SettingsManager::settingTags[] =
     "HubUserCommands", "AutoSearchAutoMatch","LogSystem",
     "LogFilelistTransfers",
     "SendUnknownCommands", "MaxHashSpeed",
-    "GetUserCountry", "FavShowJoins", "LogStatusMessages",
-    "AllowUpdateFilelistsOnStartup",
-    "PopunderPm", "PopunderFilelist","SearchPassiveAlways",
-    "AddFinishedInstantly", "DontDLAlreadyShared", "UseCTRLForLineHistory",
+    "GetUserCountry", "LogStatusMessages",
+    "AllowUpdateFilelistsOnStartup", "SearchPassiveAlways",
+    "AddFinishedInstantly", "DontDLAlreadyShared",
     "UDPPort", "ShowLastLinesLog", "AdcDebug",
     "SearchHistory", "SetMinislotSize",
     "MaxFilelistSize", "HighestPrioSize", "HighPrioSize", "NormalPrioSize",
@@ -78,20 +79,20 @@ const string SettingsManager::settingTags[] =
     "ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType",
     "SocketInBuffer", "SocketOutBuffer",
     "AutoRefreshTime", "UseTLS", "AutoSearchLimit",
-    "AutoKickNoFavs", "PromptPassword", "SpyFrameIgnoreTthSearches",
+    "AutoKickNoFavs", "PromptPassword",
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs",
-    "AllowUntrustedClients", "TLSPort", "FastHash", "SortFavUsersFirst",
+    "AllowUntrustedClients", "TLSPort", "FastHash",
     "SegmentedDL", "FollowLinks", "SendBloom",
     "Coral", "SearchFilterShared", "FinishedDLOnlyFull",
     "SearchMerge", "HashBufferSize", "HashBufferPopulate",
     "HashBufferNoReserve", "HashBufferPrivate", "UseDHT", "DHTPort",
     "ReconnectDelay", "AutoDetectIncomingConnection",
-    "BandwidthLimitStart", "BandwidthLimitEnd", "ThrottleEnable",
-    "TimeDependentThrottle",
+    "BandwidthLimitStart", "BandwidthLimitEnd", "EnableThrottle","TimeDependentThrottle",
     "MaxDownloadSpeedAlternate", "MaxUploadSpeedAlternate",
     "MaxDownloadSpeedMain", "MaxUploadSpeedMain",
-    "SlotsAlternateLimiting", "SlotsPrimaryLimiting",
-    "ShowFreeSlotsDesc","UseIp", "CaseSensitiveFilelist",
+    "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "KeepFinishedFiles",
+    "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
+    "IpFilter", "TextColor", "UseLua",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -137,11 +138,7 @@ SettingsManager::SettingsManager()
     }
 
     setDefault(DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS));
-#ifndef FORCE_XDG
     setDefault(TEMP_DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS) + "Incomplete" PATH_SEPARATOR_STR);
-#else
-    setDefault(TEMP_DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_USER_CONFIG) + "Incomplete" PATH_SEPARATOR_STR);
-#endif
     setDefault(SLOTS, 5);
     setDefault(TCP_PORT, 3000);
     setDefault(UDP_PORT, 3000);
@@ -149,7 +146,6 @@ SettingsManager::SettingsManager()
     setDefault(INCOMING_CONNECTIONS, INCOMING_DIRECT);
     setDefault(OUTGOING_CONNECTIONS, OUTGOING_DIRECT);
     setDefault(AUTO_FOLLOW, true);
-    setDefault(CLEAR_SEARCH, true);
     setDefault(SHARE_HIDDEN, false);
     setDefault(FILTER_MESSAGES, true);
     setDefault(AUTO_SEARCH, true);
@@ -178,11 +174,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_DOWNLOADS, false);
     setDefault(LOG_PRIVATE_CHAT, false);
     setDefault(LOG_MAIN_CHAT, false);
-    setDefault(STATUS_IN_CHAT, true);
-    setDefault(SHOW_JOINS, false);
     setDefault(UPLOAD_SPEED, connectionSpeeds[11]);
-    setDefault(USE_SYSTEM_ICONS, true);
-    setDefault(USE_OEM_MONOFONT, false);
     setDefault(MIN_UPLOAD_SPEED, 0);
     setDefault(LOG_FORMAT_POST_DOWNLOAD, "[%Y-%m-%d %H:%M:%S] %[target] downloaded from %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
     setDefault(LOG_FORMAT_POST_UPLOAD,   "[%Y-%m-%d %H:%M:%S] %[source] uploaded to %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
@@ -218,13 +210,9 @@ SettingsManager::SettingsManager()
     setDefault(SEND_UNKNOWN_COMMANDS, true);
     setDefault(MAX_HASH_SPEED, 0);
     setDefault(GET_USER_COUNTRY, true);
-    setDefault(FAV_SHOW_JOINS, false);
     setDefault(LOG_STATUS_MESSAGES, false);
-    setDefault(POPUNDER_PM, false);
-    setDefault(POPUNDER_FILELIST, false);
     setDefault(ADD_FINISHED_INSTANTLY, false);
     setDefault(DONT_DL_ALREADY_SHARED, false);
-    setDefault(USE_CTRL_FOR_LINE_HISTORY, true);
     setDefault(SHOW_LAST_LINES_LOG, 0);
     setDefault(ADC_DEBUG, false);
     setDefault(SEARCH_HISTORY, 10);
@@ -261,13 +249,11 @@ SettingsManager::SettingsManager()
     setDefault(AUTO_SEARCH_LIMIT, 5);
     setDefault(AUTO_KICK_NO_FAVS, false);
     setDefault(PROMPT_PASSWORD, false);
-    setDefault(SPY_FRAME_IGNORE_TTH_SEARCHES, false);
     setDefault(DONT_DL_ALREADY_QUEUED, false);
     setDefault(MAX_COMMAND_LENGTH, 16*1024*1024);
     setDefault(ALLOW_UNTRUSTED_HUBS, true);
     setDefault(ALLOW_UNTRUSTED_CLIENTS, true);
     setDefault(FAST_HASH, true);
-    setDefault(SORT_FAVUSERS_FIRST, false);
     setDefault(SEGMENTED_DL, true);
     setDefault(FOLLOW_LINKS, false);
     setDefault(SEND_BLOOM, true);
@@ -275,7 +261,7 @@ SettingsManager::SettingsManager()
     setDefault(FINISHED_DL_ONLY_FULL, true);
     setDefault(SEARCH_MERGE, true);
     setDefault(HASH_BUFFER_SIZE_MB, 8);
-    setDefault(HASH_BUFFER_POPULATE, false);
+    setDefault(HASH_BUFFER_POPULATE, true);
     setDefault(HASH_BUFFER_NORESERVE, true);
     setDefault(HASH_BUFFER_PRIVATE, true);
     setDefault(TRANSFERS_PANED_POS, .7);
@@ -288,17 +274,23 @@ SettingsManager::SettingsManager()
     setDefault(AUTO_DETECT_CONNECTION, false);
     setDefault(MAX_UPLOAD_SPEED_MAIN, 0);
     setDefault(MAX_DOWNLOAD_SPEED_MAIN, 0);
-    setDefault(THROTTLE_ENABLE, false);
     setDefault(TIME_DEPENDENT_THROTTLE, false);
+    setDefault(THROTTLE_ENABLE, false);
     setDefault(MAX_DOWNLOAD_SPEED_ALTERNATE, 0);
     setDefault(MAX_UPLOAD_SPEED_ALTERNATE, 0);
     setDefault(BANDWIDTH_LIMIT_START, 1);
     setDefault(BANDWIDTH_LIMIT_END, 1);
     setDefault(SLOTS_ALTERNATE_LIMITING, 1);
     setDefault(SLOTS_PRIMARY, 3);
-    setDefault(SHOW_FREE_SLOTS_DESC, true);
+    setDefault(KEEP_FINISHED_FILES, false);
     setDefault(USE_IP, true);
+    setDefault(SHOW_FREE_SLOTS_DESC, false);
+    setDefault(OVERLAP_CHUNKS, true);
     setDefault(CASESENSITIVE_FILELIST, false);
+    setDefault(IPFILTER,false);
+    setDefault(USE_LUA,false);
+
+    setSearchTypeDefaults();
 }
 
 void SettingsManager::load(string const& aFileName)
@@ -357,6 +349,28 @@ void SettingsManager::load(string const& aFileName)
 
             xml.stepOut();
         }
+
+                xml.resetCurrentChild();
+                if(xml.findChild("SearchTypes")) {
+                        try {
+                                searchTypes.clear();
+                                xml.stepIn();
+                                while(xml.findChild("SearchType")) {
+                                        const string& extensions = xml.getChildData();
+                                        if(extensions.empty()) {
+                                                continue;
+                                        }
+                                        const string& name = xml.getChildAttrib("Id");
+                                        if(name.empty()) {
+                                                continue;
+                                        }
+                                        searchTypes[name] = StringTokenizer<string>(extensions, ';').getTokens();
+                                }
+                                xml.stepOut();
+                        } catch(const SimpleXMLException&) {
+                                setSearchTypeDefaults();
+                        }
+                }
 
         if(SETTING(PRIVATE_ID).length() != 39 || CID(SETTING(PRIVATE_ID)).isZero()) {
             set(PRIVATE_ID, CID::generate().toBase32());
@@ -458,6 +472,14 @@ void SettingsManager::save(string const& aFileName) {
     }
     xml.stepOut();
 
+        xml.addTag("SearchTypes");
+        xml.stepIn();
+        for(SearchTypesIterC i = searchTypes.begin(); i != searchTypes.end(); ++i) {
+                xml.addTag("SearchType", Util::toString(";", i->second));
+                xml.addChildAttrib("Id", i->first);
+        }
+        xml.stepOut();
+
     fire(SettingsManagerListener::Save(), xml);
 
     try {
@@ -473,6 +495,72 @@ void SettingsManager::save(string const& aFileName) {
         // ...
     }
 }
+
+void SettingsManager::validateSearchTypeName(const string& name) const {
+        if(name.empty() || (name.size() == 1 && name[0] >= '1' && name[0] <= '6')) {
+                throw SearchTypeException(_("Invalid search type name"));
+        }
+        for(int type = SearchManager::TYPE_ANY; type != SearchManager::TYPE_LAST; ++type) {
+                if(SearchManager::getTypeStr(type) == name) {
+                        throw SearchTypeException(_("This search type already exists"));
+                }
+        }
+}
+
+void SettingsManager::setSearchTypeDefaults() {
+    searchTypes.clear();
+
+    // for conveniency, the default search exts will be the same as the ones defined by SEGA.
+    const vector<StringList>& searchExts = AdcHub::getSearchExts();
+    for(size_t i = 0, n = searchExts.size(); i < n; ++i)
+        searchTypes[string(1, '1' + i)] = searchExts[i];
+
+    fire(SettingsManagerListener::SearchTypesChanged());
+}
+
+void SettingsManager::addSearchType(const string& name, const StringList& extensions, bool validated) {
+        if(!validated) {
+                validateSearchTypeName(name);
+        }
+
+        if(searchTypes.find(name) != searchTypes.end()) {
+                throw SearchTypeException(_("This search type already exists"));
+        }
+
+        searchTypes[name] = extensions;
+        fire(SettingsManagerListener::SearchTypesChanged());
+}
+
+void SettingsManager::delSearchType(const string& name) {
+        validateSearchTypeName(name);
+        searchTypes.erase(name);
+        fire(SettingsManagerListener::SearchTypesChanged());
+}
+
+void SettingsManager::renameSearchType(const string& oldName, const string& newName) {
+        validateSearchTypeName(newName);
+        StringList exts = getSearchType(oldName)->second;
+        addSearchType(newName, exts, true);
+        searchTypes.erase(oldName);
+}
+
+void SettingsManager::modSearchType(const string& name, const StringList& extensions) {
+        getSearchType(name)->second = extensions;
+        fire(SettingsManagerListener::SearchTypesChanged());
+}
+
+const StringList& SettingsManager::getExtensions(const string& name) {
+        return getSearchType(name)->second;
+}
+
+SettingsManager::SearchTypesIter SettingsManager::getSearchType(const string& name) {
+        SearchTypesIter ret = searchTypes.find(name);
+        if(ret == searchTypes.end()) {
+                throw SearchTypeException(_("No such search type"));
+        }
+        return ret;
+}
+
 bool SettingsManager::getType(const char* name, int& n, int& type) const {
         for(n = 0; n < INT64_LAST; n++) {
                 if(strcmp(settingTags[n].c_str(), name) == 0) {

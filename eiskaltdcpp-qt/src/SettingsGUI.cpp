@@ -216,6 +216,7 @@ void SettingsGUI::init(){
         comboBox_DEF_MAGNET_ACTION->setCurrentIndex(WIGET(WI_DEF_MAGNET_ACTION));
         comboBox_APP_UNIT_BASE->setCurrentIndex(comboBox_APP_UNIT_BASE->findText(QString::number(WIGET(WI_APP_UNIT_BASE))));
         checkBox_CHAT_SHOW_CC->setChecked(BOOLSETTING(GET_USER_COUNTRY));
+        checkBox_BB_CODE->setChecked(WBGET("hubframe/use-bb-code", false));
         lineEdit_TIMESTAMP->setText(WSGET(WS_CHAT_TIMESTAMP));
 
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
@@ -376,6 +377,7 @@ void SettingsGUI::ok(){
         WISET(WI_CHAT_MDLCLICK_ACT, comboBox_MDL_CLICK->currentIndex());
         WISET(WI_DEF_MAGNET_ACTION, comboBox_DEF_MAGNET_ACTION->currentIndex());
         WISET(WI_APP_UNIT_BASE, comboBox_APP_UNIT_BASE->currentText().toInt());
+        WBSET("hubframe/use-bb-code", checkBox_BB_CODE->isChecked());
 
         WSSET(WS_CHAT_TIMESTAMP, lineEdit_TIMESTAMP->text());
 

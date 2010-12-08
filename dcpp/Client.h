@@ -46,16 +46,16 @@ public:
 
     enum P2PType { DIRECT_CONNECT, DHT };
     P2PType type;
-
+    P2PType getType() const { return type; }
     virtual const string& getHubUrl() const = 0;
     virtual string getHubName() const = 0;
     virtual bool isOp() const = 0;
     virtual void connect(const OnlineUser& user, const string& token) = 0;
-    virtual void privateMessage(const OnlineUserPtr& user, const string& aMessage, bool thirdPerson = false) = 0;
+    virtual void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false) = 0;
 
 };
 /** Yes, this should probably be called a Hub */
-class Client : public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener
+class Client : public ClientBase, public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener
 #ifdef LUA_SCRIPT
 , public ClientScriptInstance
 #endif
@@ -71,8 +71,8 @@ public:
     virtual void connect(const OnlineUser& user, const string& token) = 0;
     virtual void hubMessage(const string& aMessage, bool thirdPerson = false) = 0;
     virtual void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false) = 0;
-    virtual void sendUserCmd(const string& aUserCmd) = 0;
-    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken) = 0;
+    virtual void sendUserCmd(const UserCommand& command, const StringMap& params) = 0;
+    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) = 0;
     virtual void password(const string& pwd) = 0;
     virtual void info(bool force) = 0;
 
@@ -84,6 +84,7 @@ public:
     virtual string escape(string const& str) const { return str; }
 
     bool isConnected() const { return state != STATE_DISCONNECTED; }
+    bool isReady() const { return state != STATE_CONNECTING && state != STATE_DISCONNECTED; }
     bool isSecure() const;
     bool isTrusted() const;
     std::string getCipherName() const;

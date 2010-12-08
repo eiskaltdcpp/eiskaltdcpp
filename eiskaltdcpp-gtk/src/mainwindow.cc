@@ -52,6 +52,7 @@
 #include "adlsearch.hh"
 #include "WulforUtil.hh"
 #include "Version.h"
+#include "cmddebug.hh"
 
 using namespace std;
 using namespace dcpp;
@@ -254,6 +255,7 @@ MainWindow::MainWindow():
     //TTHFileDialog
     g_signal_connect(getWidget("TTHFileMenu"), "activate", G_CALLBACK(onTTHFileDialog_gui), (gpointer)this);
     g_signal_connect(getWidget("buttonfile"), "clicked", G_CALLBACK(onTTHFileButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("cmdDebugMenuItem"), "activate", G_CALLBACK(onDebugCMD), (gpointer)this);
     //GtkWidget *buttonf = getWidget("filechooserbutton");
     //g_signal_connect(buttonf, "dialog",G_CALLBACK(onFileTTHSet), (gpointer)this);
 
@@ -314,10 +316,12 @@ MainWindow::MainWindow():
         gtk_window_maximize(window);
 
 #ifdef LUA_SCRIPT
-    ScriptManager::getInstance()->load();//aded
-    // Start as late as possible, as we might (formatting.lua) need to examine settings
-    string defaultluascript="startup.lua";
-    ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    ScriptManager::getInstance()->load();
+    if (BOOLSETTING(USE_LUA)){
+        // Start as late as possible, as we might (formatting.lua) need to examine settings
+        string defaultluascript="startup.lua";
+        ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    }
 #endif
 }
 
@@ -387,6 +391,12 @@ void MainWindow::show()
     WulforManager::get()->dispatchClientFunc(f0);
 
     autoOpen_gui();
+
+   if (WGETI("show-preferences-on-startup"))
+    {
+       onPreferencesClicked_gui(NULL, (gpointer)this);
+        WSET("show-preferences-on-startup", 0);
+    }
 }
 
 void MainWindow::setTitle(const string& text)
@@ -779,6 +789,20 @@ void MainWindow::showSearchADL_gui()
         raisePage_gui(entry->getContainer());
 }
 
+void MainWindow::showCmdDebug_gui()
+{
+   BookEntry *entry = findBookEntry(Entry::CMD);
+
+   if(entry == NULL)
+   {
+       entry = new cmddebug();
+       addBookEntry_gui(entry);
+
+   }
+   raisePage_gui(entry->getContainer());
+
+}
+
 void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string hubUrl, string message, bool useSetting)
 {
     BookEntry *entry = findBookEntry(Entry::PRIVATE_MESSAGE, cid);
@@ -786,7 +810,7 @@ void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string 
 
     // If PM is initiated by another user, use setting except if tab is already open.
     if (useSetting)
-        raise = (entry == NULL) ? !BOOLSETTING(POPUNDER_PM) : FALSE;
+        raise = (entry == NULL) ? !WGETB("popunder-pm") : FALSE;
 
     if (entry == NULL)
     {
@@ -879,7 +903,7 @@ void MainWindow::showPublicHubs_gui()
 
 void MainWindow::showShareBrowser_gui(UserPtr user, string filename, string dir, bool useSetting)
 {
-    bool raise = useSetting ? !BOOLSETTING(POPUNDER_FILELIST) : TRUE;
+    bool raise = useSetting ? !WGETB("popunder-filelist") : TRUE;
     BookEntry *entry = findBookEntry(Entry::SHARE_BROWSER, user->getCID().toBase32());
 
     if (entry == NULL)
@@ -1348,7 +1372,7 @@ void MainWindow::addFileDownloadQueue_client(string name, int64_t size, string t
     {
         if (!tth.empty())
         {
-            QueueManager::getInstance()->add(name, size, TTHValue(tth), UserPtr(), "");
+            QueueManager::getInstance()->add(name, size, TTHValue(tth));
 
             // automatically search for alternative download locations
             if (BOOLSETTING(AUTO_SEARCH))
@@ -2053,6 +2077,12 @@ void MainWindow::onLinkClicked_gui(GtkWidget *widget, gpointer data)
     WulforUtil::openURI(link);
 }
 
+void MainWindow::onDebugCMD(GtkWidget *widget, gpointer data)
+{
+   MainWindow *mw = (MainWindow *)data;
+   mw->showCmdDebug_gui();
+}
+
 void MainWindow::autoConnect_client()
 {
     FavoriteHubEntry *hub;
@@ -2150,7 +2180,7 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
 
     if (item->isSet(QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_USER_LIST))
     {
-        UserPtr user = item->getDownloads()[0]->getUser();
+        const HintedUser user = item->getDownloads()[0]->getHintedUser();//NOTE: core 0.762
         string listName = item->getListName();
 
         F3 *f3 = new F3(this, &MainWindow::showNotification_gui, _("file list from "), WulforUtil::getNicks(user),
@@ -2158,7 +2188,7 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
         WulforManager::get()->dispatchGuiFunc(f3);
 
         typedef Func4<MainWindow, UserPtr, string, string, bool> F4;
-        F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user, listName, dir, TRUE);
+        F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user.user, listName, dir, TRUE);//NOTE: core 0.762
         WulforManager::get()->dispatchGuiFunc(func);
     }
     else if (!item->isSet(QueueItem::FLAG_XML_BZLIST))

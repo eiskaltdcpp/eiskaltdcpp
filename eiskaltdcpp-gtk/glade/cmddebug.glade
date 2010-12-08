@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glade-interface>
+  <!-- interface-requires gtk+ 2.6 -->
+  <!-- interface-naming-policy toplevel-contextual -->
+  <widget class="GtkVBox" id="mainBox">
+    <property name="visible">True</property>
+    <property name="can_focus">True</property>
+    <property name="border_width">4</property>
+    <property name="spacing">4</property>
+    <child>
+      <widget class="GtkScrolledWindow" id="cmdscroll">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+        <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+        <property name="shadow_type">GTK_SHADOW_IN</property>
+        <child>
+          <widget class="GtkTextView" id="cmdtextview">
+            <property name="visible">True</property>
+            <property name="editable">False</property>
+            <property name="wrap_mode">GTK_WRAP_WORD_CHAR</property>
+            <property name="can_focus">True</property>
+            <property name="cursor_visible">False</property>
+          </widget>
+        </child>
+      </widget>
+      <packing>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <widget class="GtkHBox" id="hbox1">
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkCheckButton" id="hub_in_button">
+            <property name="label" translatable="yes">HUB IN</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="hub_out_button">
+            <property name="label" translatable="yes">HUB OUT</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="client_in_button">
+            <property name="label" translatable="yes">CLIENT IN</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="client_out_button">
+            <property name="label" translatable="yes">CLIENT OUT</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="detection_button">
+            <property name="label" translatable="yes">DETECTION</property>
+            <property name="visible">False</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="by_ip_button">
+            <property name="label" translatable="yes">Filter by IP</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">5</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="entrybyip">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">6</property>
+          </packing>
+        </child>
+      </widget>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">False</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+  </widget>
+</glade-interface>

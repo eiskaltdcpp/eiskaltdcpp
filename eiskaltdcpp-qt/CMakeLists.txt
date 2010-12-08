@@ -36,7 +36,7 @@ set (SRCS
             src/ArenaWidget.cpp
             src/ArenaWidgetContainer.cpp
             src/CustomFontModel.cpp
-	    src/CustomSetting.cpp
+            src/CustomSetting.cpp
             src/DownloadQueue.cpp
             src/DownloadQueueModel.cpp
             src/EmoticonDialog.cpp
@@ -66,6 +66,8 @@ set (SRCS
             src/PublicHubsList.cpp
             src/PublicHubModel.cpp
             src/QuickConnect.cpp
+            src/SearchBlacklist.cpp
+            src/SearchBlacklistDialog.cpp
             src/SearchFrame.cpp
             src/SearchModel.cpp
             src/Settings.cpp
@@ -76,12 +78,12 @@ set (SRCS
             src/SettingsNotification.cpp
             src/SettingsPersonal.cpp
             src/SettingsSharing.cpp
-	    src/SettingsShortcuts.cpp
+            src/SettingsShortcuts.cpp
             src/SettingsUC.cpp
             src/ShareBrowser.cpp
             src/ShellCommandRunner.cpp
             src/ShortcutManager.cpp
-	    src/ShortcutEdit.cpp
+            src/ShortcutEdit.cpp
             src/SideBar.cpp
             src/SingleInstanceRunner.cpp
             src/SpyFrame.cpp
@@ -109,7 +111,7 @@ set (MOC_HDRS
             src/ArenaWidget.h
             src/Backtrace.h
             src/CustomFontModel.h
-	    src/CustomSetting.h
+            src/CustomSetting.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
             src/EmoticonDialog.h
@@ -147,12 +149,14 @@ set (MOC_HDRS
             src/SettingsNotification.h
             src/SettingsPersonal.h
             src/SettingsSharing.h
-	    src/SettingsShortcuts.h
+            src/SettingsShortcuts.h
             src/SettingsUC.h
-	    src/ShortcutEdit.h
+            src/ShortcutEdit.h
             src/SideBar.h
             src/SingleInstanceRunner.h
             src/QuickConnect.h
+            src/SearchBlacklist.h
+            src/SearchBlacklistDialog.h
             src/SearchFrame.h
             src/SearchModel.h
             src/ShareBrowser.h
@@ -189,6 +193,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIPublicHubs.ui
             ui/UIPublicHubsList.ui
             ui/UIQuickConnect.ui
+            ui/UISearchBlacklist.ui
             ui/UISearchFrame.ui
             ui/UISettings.ui
             ui/UISettingsConnection.ui
@@ -198,7 +203,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsNotification.ui
             ui/UISettingsPersonal.ui
             ui/UISettingsSharing.ui
-	    ui/UISettingsShortcuts.ui
+            ui/UISettingsShortcuts.ui
             ui/UIShareBrowser.ui
             ui/UISpy.ui
             ui/UITransferView.ui
@@ -320,7 +325,20 @@ endif (USE_ASPELL)
 if (LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
   list (APPEND LIBS ${LUA_LIBRARIES})
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/MainWindow.cpp ${PROJECT_SOURCE_DIR}/src/HubFrame.cpp PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
 endif (LUA_SCRIPT)
+
+if (USE_MINIUPNP)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/SettingsConnection.cpp  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
+endif()
+
+if (HAVE_IFADDRS_H)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/WulforUtil.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H )
+endif (HAVE_IFADDRS_H)
+
+if (FORCE_XDG)
+   set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/main.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
+endif (FORCE_XDG)
 
 if (APPLE)
   set (MACOSICON "${PROJECT_SOURCE_DIR}/../icons/icon_128x128.icns")

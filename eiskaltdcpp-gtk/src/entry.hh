@@ -50,7 +50,8 @@ class Entry
             TRANSFERS,
             USER_COMMAND_MENU,
             SEARCH_SPY,
-            SEARCH_ADL
+            SEARCH_ADL,
+            CMD
         } EntryType;
 
         Entry() : xml(NULL) {}

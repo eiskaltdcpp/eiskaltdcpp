@@ -24,19 +24,24 @@
 #include "AdcHub.h"
 #include "FavoriteUser.h"
 #include "StringTokenizer.h"
+#include "ClientManager.h"
 
 namespace dcpp {
 
 FastCriticalSection Identity::cs;
 
-OnlineUser::OnlineUser(const UserPtr& ptr, Client& client_, uint32_t sid_) : identity(ptr, sid_), client(client_) {
+OnlineUser::OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_) : identity(ptr, sid_), client(client_) {
 
 }
 
-bool Identity::isTcpActive() const {
+bool Identity::isTcpActive(const Client* c) const {
+    if(c != NULL && user == ClientManager::getInstance()->getMe()) {
+        return c->isActive(); // userlist should display our real mode
+    } else {
         return (!user->isSet(User::NMDC)) ?
                 !getIp().empty() && supports(AdcHub::TCP4_FEATURE) :
                 !user->isSet(User::PASSIVE);
+    }
 }
 
 bool Identity::isUdpActive() const {

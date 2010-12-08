@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,255 +21,372 @@
 
 #include "Constants.h"
 #include "DHT.h"
+#include "Utils.h"
 
-#include "../dcpp/AdcCommand.h"
-#include "../dcpp/ClientManager.h"
-#include "../dcpp/LogManager.h"
-#include "../dcpp/SettingsManager.h"
+#include "dcpp/AdcCommand.h"
+#include "dcpp/ClientManager.h"
+#include "dcpp/LogManager.h"
+#include "dcpp/SettingsManager.h"
 
 #include <zlib.h>
+#define _DEBUG
 #ifdef _WIN32
 #include <mswsock.h>
 #endif
+#include <openssl/rc4.h>
+
 namespace dht
 {
 
-    const uint32_t POLL_TIMEOUT = 250;
-    #define BUFSIZE 16384
+	#define BUFSIZE					16384
+	#define	MAGICVALUE_UDP			0x5b
 
-    UDPSocket::UDPSocket(void) : stop(false), port(0)
+	UDPSocket::UDPSocket(void) : stop(false), port(0), delay(100)
 #ifdef _DEBUG
-        , sentBytes(0), receivedBytes(0)
+		, sentBytes(0), receivedBytes(0), sentPackets(0), receivedPackets(0)
 #endif
-    {
-    }
+	{
+	}
 
-    UDPSocket::~UDPSocket(void)
-    {
-        disconnect();
+	UDPSocket::~UDPSocket(void)
+	{
+		disconnect();
+
+		for_each(sendQueue.begin(), sendQueue.end(), DeleteFunction());
 
 #ifdef _DEBUG
-        dcdebug("DHT stats, received: %d bytes, sent: %d bytes\n", receivedBytes, sentBytes);
+		dcdebug("DHT stats, received: %d bytes, sent: %d bytes\n", receivedBytes, sentBytes);
 #endif
-    }
+	}
 
-    /*
-     * Disconnects UDP socket
-     */
-    void UDPSocket::disconnect() throw()
-    {
-        if(socket.get())
-        {
-            stop = true;
-            socket->disconnect();
-            port = 0;
+	/*
+	 * Disconnects UDP socket
+	 */
+	void UDPSocket::disconnect() throw()
+	{
+		if(socket.get())
+		{
+			stop = true;
+			socket->disconnect();
+			port = 0;
 
-            join();
+			join();
 
-            socket.reset();
+			socket.reset();
 
-            stop = false;
-        }
-    }
+			stop = false;
+		}
+	}
 
-    /*
-     * Starts listening to UDP socket
-     */
-    void UDPSocket::listen() throw(SocketException)
-    {
-        disconnect();
+	/*
+	 * Starts listening to UDP socket
+	 */
+	void UDPSocket::listen() throw(SocketException)
+	{
+		disconnect();
 
-        try
-        {
-            socket.reset(new Socket);
-            socket->create(Socket::TYPE_UDP);
-            socket->setSocketOpt(SO_REUSEADDR, 1);
-            socket->setSocketOpt(SO_RCVBUF, SETTING(SOCKET_IN_BUFFER));
-            port = socket->bind(static_cast<uint16_t>(SETTING(DHT_PORT)), SETTING(BIND_ADDRESS));
+		try
+		{
+			socket.reset(new Socket);
+			socket->create(Socket::TYPE_UDP);
+			socket->setSocketOpt(SO_REUSEADDR, 1);
+			socket->setSocketOpt(SO_RCVBUF, SETTING(SOCKET_IN_BUFFER));
+			port = socket->bind(static_cast<uint16_t>(SETTING(DHT_PORT)), SETTING(BIND_ADDRESS));
 
-            start();
-        }
-        catch(...)
-        {
-            socket.reset();
-            throw;
-        }
-    }
+			start();
+		}
+		catch(...)
+		{
+			socket.reset();
+			throw;
+		}
+	}
 
-    void UDPSocket::checkIncoming() throw(SocketException)
-    {
-        if(socket->wait(POLL_TIMEOUT, Socket::WAIT_READ) == Socket::WAIT_READ)
-        {
-            sockaddr_in remoteAddr = { 0 };
-            boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
-            int len = socket->read(&buf[0], BUFSIZE, remoteAddr);
-            dcdrun(receivedBytes += len);
+	void UDPSocket::checkIncoming() throw(SocketException)
+	{
+		if(socket->wait(delay, Socket::WAIT_READ) == Socket::WAIT_READ)
+		{
+			sockaddr_in remoteAddr = { 0 };
+			boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
+			int len = socket->read(&buf[0], BUFSIZE, remoteAddr);
+			dcdrun(receivedBytes += len);
+			dcdrun(receivedPackets++);
 
-            if(len > 1)
-            {
-                uLongf destLen = BUFSIZE; // what size should be reserved?
-                boost::scoped_array<uint8_t> destBuf;
+			if(len > 1)
+			{
+				bool isUdpKeyValid = false;
+				if(buf[0] != ADC_PACKED_PACKET_HEADER && buf[0] != ADC_PACKET_HEADER)
+				{
+					// it seems to be encrypted packet
+					if(!decryptPacket(&buf[0], len, inet_ntoa(remoteAddr.sin_addr), isUdpKeyValid))
+						return;
+				}
+				//else
+				//	return; // non-encrypted packets are forbidden
 
-                if(buf[0] == ADC_PACKED_PACKET_HEADER) // is this compressed packet?
-                {
-                    destBuf.reset(new uint8_t[destLen]);
+				unsigned long destLen = BUFSIZE; // what size should be reserved?
+				std::unique_ptr<uint8_t> destBuf(new uint8_t[destLen]);
+				if(buf[0] == ADC_PACKED_PACKET_HEADER) // is this compressed packet?
+				{
+					if(!decompressPacket(destBuf.get(), destLen, buf.get(), len))
+						return;
+				}
+				else
+				{
+					memcpy(destBuf.get(), buf.get(), len);
+					destLen = len;
+				}
 
-                    // decompress incoming packet
-                    int result = uncompress(destBuf.get(), &destLen, &buf[0] + 1, len - 1);
-                    if(result != Z_OK)
-                    {
-                        // decompression error!!!
-                        return;
-                    }
-                }
-                else
-                {
-                    destBuf.swap(buf);
-                    destLen = len;
-                }
+				// process decompressed packet
+				string s((char*)destBuf.get(), destLen);
+				if(s[0] == ADC_PACKET_HEADER && s[s.length() - 1] == ADC_PACKET_FOOTER)	// is it valid ADC command?
+				{
+					string ip = inet_ntoa(remoteAddr.sin_addr);
+					uint16_t port = ntohs(remoteAddr.sin_port);
+					COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::HUB_IN,  ip + ":" + Util::toString(port));
+					DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), ip, port, isUdpKeyValid);
+				}
 
-                // process decompressed packet
-                string s((char*)destBuf.get(), destLen);
-                if(s[0] == ADC_PACKET_HEADER && s[s.length() - 1] == ADC_PACKET_FOOTER) // is it valid ADC command?
-                {
-                    string ip = inet_ntoa(remoteAddr.sin_addr);
-                    uint16_t port = ntohs(remoteAddr.sin_port);
-                    COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::HUB_IN,  ip + ":" + Util::toString(port));
-                    DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), ip, port);
-                }
-            }
-        }
-    }
+				Thread::sleep(25);
+			}
+		}
+	}
 
-    void UDPSocket::checkOutgoing(uint64_t& timer) throw(SocketException)
-    {
-        std::auto_ptr<Packet> packet;
+	void UDPSocket::checkOutgoing(uint64_t& timer) throw(SocketException)
+	{
+		std::unique_ptr<Packet> packet;
+		uint64_t now = GET_TICK();
 
-        {
-            Lock l(cs);
-            uint64_t now = GET_TICK();
-            if(!sendQueue.empty() && (now - timer > 150))
-            {
-                // take the first packet in queue
-                packet.reset(sendQueue.front());
-                sendQueue.pop_front();
+		{
+			Lock l(cs);
 
-                //dcdebug("Sending DHT packet: %d bytes, %d ms\n", packet->length, (uint32_t)(now - timer));
+			size_t queueSize = sendQueue.size();
+			if(queueSize && (now - timer > delay))
+			{
+				// take the first packet in queue
+				packet.reset(sendQueue.front());
+				sendQueue.pop_front();
 
-                timer = now;
-            }
-        }
+				//dcdebug("Sending DHT %s packet: %d bytes, %d ms, queue size: %d\n", packet->cmdChar, packet->length, (uint32_t)(now - timer), queueSize);
 
-        if(packet.get())
-        {
-            try
-            {
-                dcdrun(sentBytes += packet->length);
-                socket->writeTo(packet->ip, packet->port, packet->data, packet->length);
-            }
-            catch(SocketException& e)
-            {
-                dcdebug("DHT::run Write error: %s\n", e.getError().c_str());
-            }
+				if(queueSize > 9)
+					delay = 1000 / queueSize;
+				timer = now;
+			}
+		}
 
-            delete[] packet->data;
-        }
-    }
+		if(packet.get())
+		{
+			try
+			{
+				unsigned long length = compressBound(packet->data.length()) + 2;
+				std::unique_ptr<uint8_t> data(new uint8_t[length]);
 
-    /*
-     * Thread for receiving UDP packets
-     */
-    int UDPSocket::run()
-    {
-        // fix receiving when sending fails
-        DWORD value = FALSE;
-        ioctlsocket(socket->sock, SIO_UDP_CONNRESET, &value);
+				// compress packet
+				compressPacket(packet->data, data.get(), length);
 
-        // antiflood variable
-        uint64_t timer = GET_TICK();
+				// encrypt packet
+				encryptPacket(packet->targetCID, packet->udpKey, data.get(), length);
 
-        while(!stop)
-        {
-            try
-            {
-                // check outgoing queue
-                checkOutgoing(timer);
+				dcdrun(sentBytes += packet->data.length());
+				dcdrun(sentPackets++);
+				socket->writeTo(packet->ip, packet->port, data.get(), length);
+			}
+			catch(SocketException& e)
+			{
+				dcdebug("DHT::run Write error: %s\n", e.getError().c_str());
+			}
+		}
+	}
 
-                // check for incoming data
-                checkIncoming();
-            }
-            catch(const SocketException& e)
-            {
-                dcdebug("DHT::run Error: %s\n", e.getError().c_str());
+	/*
+	 * Thread for receiving UDP packets
+	 */
+	int UDPSocket::run()
+	{
+#ifdef _WIN32
+		// Try to avoid the Win2000/XP problem where recvfrom reports
+		// WSAECONNRESET after sendto gets "ICMP port unreachable"
+		// when sent to port that wasn't listening.
+		// See MSDN - Q263823
+		DWORD value = FALSE;
+		ioctlsocket(socket->sock, SIO_UDP_CONNRESET, &value);
+#endif
 
-                bool failed = false;
-                while(!stop)
-                {
-                    try
-                    {
-                        socket->disconnect();
-                        socket->create(Socket::TYPE_UDP);
-                        socket->setSocketOpt(SO_RCVBUF, SETTING(SOCKET_IN_BUFFER));
-                        socket->bind(port, SETTING(BIND_ADDRESS));
-                        if(failed)
-                        {
-                            LogManager::getInstance()->message("DHT enabled again"); // TODO: translate
-                            failed = false;
-                        }
-                        break;
-                    }
-                    catch(const SocketException& e)
-                    {
-                        dcdebug("DHT::run Stopped listening: %s\n", e.getError().c_str());
+		// antiflood variables
+		uint64_t timer = GET_TICK();
 
-                        if(!failed)
-                        {
-                            LogManager::getInstance()->message("DHT disabled: " + e.getError()); // TODO: translate
-                            failed = true;
-                        }
+		while(!stop)
+		{
+			try
+			{
+				// check outgoing queue
+				checkOutgoing(timer);
 
-                        // Spin for 60 seconds
-                        for(int i = 0; i < 60 && !stop; ++i)
-                        {
-                            Thread::sleep(1000);
-                        }
-                    }
-                }
-            }
-        }
+				// check for incoming data
+				checkIncoming();
+			}
+			catch(const SocketException& e)
+			{
+				dcdebug("DHT::run Error: %s\n", e.getError().c_str());
 
-        return 0;
-    }
+				bool failed = false;
+				while(!stop)
+				{
+					try
+					{
+						socket->disconnect();
+						socket->create(Socket::TYPE_UDP);
+						socket->setSocketOpt(SO_RCVBUF, SETTING(SOCKET_IN_BUFFER));
+						socket->bind(port, SETTING(BIND_ADDRESS));
+						if(failed)
+						{
+							LogManager::getInstance()->message("DHT enabled again"); // TODO: translate
+							failed = false;
+						}
+						break;
+					}
+					catch(const SocketException& e)
+					{
+						dcdebug("DHT::run Stopped listening: %s\n", e.getError().c_str());
 
-    /*
-     * Sends command to ip and port
-     */
-    void UDPSocket::send(const AdcCommand& cmd, const string& ip, uint16_t port)
-    {
-        string command = cmd.toString(ClientManager::getInstance()->getMe()->getCID());
-        COMMAND_DEBUG(command, DebugManager::HUB_OUT, ip + ":" + Util::toString(port));
+						if(!failed)
+						{
+							LogManager::getInstance()->message("DHT disabled: " + e.getError()); // TODO: translate
+							failed = true;
+						}
 
-        // compress data to have at least some kind of "encryption"
-        uLongf destSize = compressBound(command.length()) + 1;
+						// Spin for 60 seconds
+						for(int i = 0; i < 60 && !stop; ++i)
+						{
+							Thread::sleep(1000);
+						}
+					}
+				}
+			}
+		}
 
-        uint8_t* srcBuf = (uint8_t*)command.data();
-        uint8_t* destBuf = new uint8_t[destSize];
+		return 0;
+	}
 
-        int result = compress2(destBuf + 1, &destSize, srcBuf, command.length(), 9);
-        if(result == Z_OK && destSize <= command.length())
-        {
-            destBuf[0] = ADC_PACKED_PACKET_HEADER;
-            destSize += 1;
-        }
-        else
-        {
-            // compression failed, send uncompressed packet
-            destSize = command.length();
-            memcpy(destBuf, srcBuf, destSize);
-        }
+	/*
+	 * Sends command to ip and port
+	 */
+	void UDPSocket::send(AdcCommand& cmd, const string& ip, uint16_t port, const CID& targetCID, const CID& udpKey)
+	{
+		// store packet for antiflooding purposes
+		Utils::trackOutgoingPacket(ip, cmd);
 
-        Lock l(cs);
-        sendQueue.push_back(new Packet(ip, port, destBuf, destSize));
-    }
+		// pack data
+		cmd.addParam("UK", Utils::getUdpKey(ip).toBase32()); // add our key for the IP address
+		string command = cmd.toString(ClientManager::getInstance()->getMe()->getCID());
+		COMMAND_DEBUG(command, DebugManager::HUB_OUT, ip + ":" + Util::toString(port));
+
+		Packet* p = new Packet(ip, port, command, targetCID, udpKey);
+
+		Lock l(cs);
+		sendQueue.push_back(p);
+	}
+
+	void UDPSocket::compressPacket(const string& data, uint8_t* destBuf, unsigned long& destSize)
+	{
+		int result = compress2(destBuf + 1, &destSize, (uint8_t*)data.data(), data.length(), Z_BEST_COMPRESSION);
+		if(result == Z_OK && destSize <= data.length())
+		{
+			destBuf[0] = ADC_PACKED_PACKET_HEADER;
+			destSize += 1;
+		}
+		else
+		{
+			// compression failed, send uncompressed packet
+			destSize = data.length();
+			memcpy(destBuf, (uint8_t*)data.data(), destSize);
+
+			dcassert(destBuf[0] == ADC_PACKET_HEADER);
+		}
+	}
+
+	void UDPSocket::encryptPacket(const CID& targetCID, const CID& udpKey, uint8_t* destBuf, unsigned long& destSize)
+	{
+#ifdef HEADER_RC4_H
+		// generate encryption key
+		TigerHash th;
+		if(!udpKey.isZero())
+		{
+			th.update(udpKey.data(), sizeof(udpKey));
+			th.update(targetCID.data(), sizeof(targetCID));
+
+			RC4_KEY sentKey;
+			RC4_set_key(&sentKey, TigerTree::BYTES, th.finalize());
+
+			// encrypt data
+			memmove(destBuf + 2, destBuf, destSize);
+
+			// some random character except of ADC_PACKET_HEADER or ADC_PACKED_PACKET_HEADER
+			uint8_t randomByte = static_cast<uint8_t>(Util::rand(0, 256));
+			destBuf[0] = (randomByte == ADC_PACKET_HEADER || randomByte == ADC_PACKED_PACKET_HEADER) ? (randomByte + 1) : randomByte;
+			destBuf[1] = MAGICVALUE_UDP;
+
+			RC4(&sentKey, destSize + 1, destBuf + 1, destBuf + 1);
+			destSize += 2;
+		}
+#endif
+	}
+
+	bool UDPSocket::decompressPacket(uint8_t* destBuf, unsigned long& destLen, const uint8_t* buf, size_t len)
+	{
+		// decompress incoming packet
+		int result = uncompress(destBuf, &destLen, buf + 1, len - 1);
+		if(result != Z_OK)
+		{
+			// decompression error!!!
+			return false;
+		}
+
+		return true;
+	}
+
+	bool UDPSocket::decryptPacket(uint8_t* buf, int& len, const string& remoteIp, bool& isUdpKeyValid)
+	{
+#ifdef HEADER_RC4_H
+		boost::scoped_array<uint8_t> destBuf(new uint8_t[len]);
+
+		// the first try decrypts with our UDP key and CID
+		// if it fails, decryption will happen with CID only
+		int tries = 0;
+		len -= 1;
+
+		do
+		{
+			if(++tries == 3)
+			{
+				// decryption error, it could be malicious packet
+				return false;
+			}
+
+			// generate key
+			TigerHash th;
+			if(tries == 1)
+				th.update(Utils::getUdpKey(remoteIp).data(), sizeof(CID));
+			th.update(ClientManager::getInstance()->getMe()->getCID().data(), sizeof(CID));
+
+			RC4_KEY recvKey;
+			RC4_set_key(&recvKey, TigerTree::BYTES, th.finalize());
+
+			// decrypt data
+			RC4(&recvKey, len, buf + 1, &destBuf[0]);
+		}
+		while(destBuf[0] != MAGICVALUE_UDP);
+
+		len -= 1;
+		memcpy(buf, &destBuf[1], len);
+
+		// if decryption was successful in first try, it happened via UDP key
+		// it happens only when we sent our UDP key to this node some time ago
+		if(tries == 1) isUdpKeyValid = true;
+#endif
+
+		return true;
+	}
 
 }

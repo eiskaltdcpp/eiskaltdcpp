@@ -85,21 +85,6 @@ void SettingsSharing::ok(){
 
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
     WBSET(WB_APP_REMOVE_NOT_EX_DIRS, checkBox_AUTOREMOVE->isChecked());
-
-    QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
-
-    if (f.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){
-
-        QList<QTreeWidgetItem*> items = treeWidget->findItems("*", Qt::MatchWildcard, 0);
-        QTextStream stream(&f);
-
-        foreach (QTreeWidgetItem *i, items)
-            stream << (i->text(1).left(i->text(1).indexOf(" ")) + " ") << i->text(0) << '\n';
-
-        stream.flush();
-
-        f.close();
-    }
 }
 
 void SettingsSharing::init(){
@@ -134,10 +119,6 @@ void SettingsSharing::init(){
     treeWidget_SIMPLE_MODE->setVisible(WBGET(WB_SIMPLE_SHARE_MODE));
     treeView->setHidden(WBGET(WB_SIMPLE_SHARE_MODE));
 
-    treeWidget_SIMPLE_MODE->setContextMenuPolicy(Qt::CustomContextMenu);
-
-    treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-
     checkBox_MAPNORESERVE->setChecked(SETTING(HASH_BUFFER_NORESERVE));
     checkBox_MAPPOPULATE->setChecked(SETTING(HASH_BUFFER_POPULATE));
     checkBox_MAPPRIVATE->setChecked(SETTING(HASH_BUFFER_PRIVATE));
@@ -146,55 +127,12 @@ void SettingsSharing::init(){
     if (ind >= 0)
         comboBox_BUFSIZE->setCurrentIndex(ind);
 
-    QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
-
-    if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
-        QTextStream stream(&f);
-        QString line = "";
-        QMap<QString, unsigned> restrict_map;
-
-        while (!(line = stream.readLine(0)).isNull()){
-            QStringList list = line.split(' ');
-
-            if (list.size() < 2)
-                continue;
-
-            bool ok = false;
-            unsigned size = 0;
-
-            size = list.at(0).toUInt(&ok);
-
-            if (!ok)
-                continue;
-
-            QString virt_path = line.remove(0, list.at(0).length() + 1);
-
-            if (!virt_path.startsWith('/'))
-                virt_path.prepend('/');
-
-            if (!virt_path.isEmpty() && size > 0 && !restrict_map.contains(virt_path))
-                restrict_map.insert(virt_path, size);
-        }
-
-        f.close();
-
-        QMap< QString, unsigned>::iterator it = restrict_map.begin();
-        for (; it != restrict_map.end(); ++it){
-            QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
-
-            item->setText(0, it.key());
-            item->setText(1, tr("%1 GiB").arg(it.value()));
-        }
-
-    }
-
     connect(toolButton_ADD, SIGNAL(clicked()), this, SLOT(slotAddExeption()));
     connect(toolButton_EDIT, SIGNAL(clicked()), this, SLOT(slotEditExeption()));
     connect(toolButton_DELETE, SIGNAL(clicked()), this, SLOT(slotDeleteExeption()));
     connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotAddDirExeption()));
     connect(listWidget_SKIPLIST, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(slotEditExeption()));
 
-    connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotRestrictMenu()));
     connect(toolButton_RECREATE, SIGNAL(clicked()), this, SLOT(slotRecreateShare()));
     connect(checkBox_SHAREHIDDEN, SIGNAL(clicked(bool)), this, SLOT(slotShareHidden(bool)));
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
@@ -260,57 +198,6 @@ void SettingsSharing::slotGetName(QModelIndex index){
 
 void SettingsSharing::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView);
-}
-
-void SettingsSharing::slotRestrictMenu(){
-    WulforUtil *WU = WulforUtil::getInstance();
-    QMenu *m = new QMenu(this);
-    QAction *add = new QAction(WU->getPixmap(WulforUtil::eiEDITADD), tr("Add"), m);
-    m->addAction(add);
-
-    QAction *rem = NULL;
-
-    QList<QTreeWidgetItem*> selected = treeWidget->selectedItems();
-
-    if (selected.size() > 0){
-        rem = new QAction(WU->getPixmap(WulforUtil::eiEDITDELETE), tr("Remove"), m);
-        m->addAction(rem);
-    }
-
-    QAction *ret = m->exec(QCursor::pos());
-
-    delete m;
-
-    if (ret == add){
-        int size = -1;
-        QString virt_path = "";
-        bool ok = false;
-
-        virt_path = QInputDialog::getText(this, tr("Enter virtual path name"), tr("Virtual path"), QLineEdit::Normal, "", &ok);
-
-        if (!ok || virt_path.isEmpty())
-            return;
-
-        ok = false;
-#if QT_VERSION >= 0x040500
-        size = QInputDialog::getInt(this, tr("Enter restriction (in GiB)"), tr("Restriction"), 1, 1, 1000, 1, &ok);
-#else
-        size = QInputDialog::getInteger(this, tr("Enter restriction (in GiB)"), tr("Restriction"), 1, 1, 1000, 1, &ok);
-#endif
-
-        if (!ok)
-            return;
-
-        QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
-
-        if (!virt_path.startsWith('/'))
-            virt_path.prepend('/');
-
-        item->setText(0, virt_path);
-        item->setText(1, tr("%1 GiB").arg(size));
-    }
-    else if (ret)
-        qDeleteAll(selected);
 }
 
 void SettingsSharing::slotAddExeption(){

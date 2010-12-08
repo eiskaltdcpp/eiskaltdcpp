@@ -320,6 +320,8 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
 
     params["USERS"] = QString("");
 
+    QStringList user_list;
+
     QueueItem::SourceConstIter it = item->getSources().begin();
 
     for (; it != item->getSources().end(); ++it){
@@ -328,17 +330,17 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
         if (usr->isOnline())
             ++online;
 
-        if (!params["USERS"].toString().isEmpty())
-            params["USERS"] = params["USERS"].toString() +", ";
-
         nick = WulforUtil::getInstance()->getNicks(usr->getCID());
 
-        source[nick] = _q(usr->getCID().toBase32());
-
-        params["USERS"] = params["USERS"].toString() + nick;
+        if (!nick.isEmpty()){
+            source[nick] = _q(usr->getCID().toBase32());
+            user_list.push_back(nick);
+        }
     }
 
-    if (params["USERS"].toString().isEmpty())
+    if (!user_list.isEmpty())
+        params["USERS"] = user_list.join(", ");
+    else
         params["USERS"] = tr("No users...");
 
     sources[_q(item->getTarget())] = source;
@@ -610,7 +612,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
                 if (user){
                     try {
-                        QM->addList(user, "", QueueItem::FLAG_CLIENT_VIEW);
+                        QM->addList(HintedUser(user, ""), QueueItem::FLAG_CLIENT_VIEW, "");
                     }
                     catch (const Exception&){}
                 }

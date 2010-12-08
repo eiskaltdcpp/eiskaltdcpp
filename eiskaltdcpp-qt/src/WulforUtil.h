@@ -41,8 +41,8 @@ using namespace dcpp;
 inline QString _q (const std::string &s) __attribute__((always_inline));
 inline std::string _tq(const QString &s) __attribute__((always_inline));
 
-inline QString _q (const std::string &s) { return QTextCodec::codecForCStrings()->fromUnicode(s.c_str()); }
-inline std::string _tq(const QString &s) { return QTextCodec::codecForCStrings()->toUnicode(s.toAscii()).toStdString(); }
+inline QString _q (const std::string &s) { return QString::fromStdString(s); }
+inline std::string _tq(const QString &s) { return s.toStdString(); }
 
 class WulforUtil :
         public QObject,
@@ -117,6 +117,7 @@ public:
         eiZOOM_IN,
         eiZOOM_OUT,
         eiQT_LOGO,
+        eiSPEED_LIMIT,
 
         eiFILETYPE_APPLICATION,
         eiFILETYPE_ARCHIVE,

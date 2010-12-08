@@ -108,14 +108,21 @@ void BookEntry::setIcon_gui(const EntryType type)
         case Entry::PRIVATE_MESSAGE : stock = WGETS("icon-pm-online"); break;
         case Entry::HUB : stock = WGETS("icon-hub-offline"); break;
         case Entry::SHARE_BROWSER : stock = WGETS("icon-directory"); break;
-        default: ;
+        default: ; // Default to empty string to indicate no icon should be shown below
     }
-    gtk_image_set_from_icon_name(GTK_IMAGE(icon), stock.c_str(), GTK_ICON_SIZE_BUTTON);
+    // If user doesn't have the icon in their theme, default to showing no icon instead
+    // of showing some generic missing icon. This may occur if the user's system
+    // doesn't implement the full freedesktop.org Icon Naming Specification.
+    GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
+    if (!stock.empty() && gtk_icon_theme_has_icon(iconTheme, stock.c_str()))
+        gtk_image_set_from_icon_name(GTK_IMAGE(icon), stock.c_str(), GTK_ICON_SIZE_BUTTON);
 }
 
 void BookEntry::setIcon_gui(const std::string stock)
 {
-    gtk_image_set_from_icon_name(GTK_IMAGE(icon), stock.c_str(), GTK_ICON_SIZE_BUTTON);
+    GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
+    if (!stock.empty() && gtk_icon_theme_has_icon(iconTheme, stock.c_str()))
+        gtk_image_set_from_icon_name(GTK_IMAGE(icon), stock.c_str(), GTK_ICON_SIZE_BUTTON);
 }
 
 void BookEntry::setLabel_gui(string text)
@@ -217,4 +224,3 @@ const string& BookEntry::getLabelText()
 {
     return labelText;
 }
-

@@ -442,12 +442,22 @@ StringList File::findFiles(const string& path, const string& pattern) {
     if (dir) {
         while (struct dirent* ent = readdir(dir)) {
             if (fnmatch(pattern.c_str(), ent->d_name, 0) == 0) {
+
+                                //NOTE: dcplusplus revision 2126 compilation fixes for OpenSolaris
+//                              struct stat s;
+//                              stat(ent->d_name, &s);
+//                              const char* extra = (s.st_mode & S_IFDIR) ? "/" : "";
+//                              ret.push_back(path + Text::toUtf8(ent->d_name) + extra);
+
+                                //NOTE: freedcpp, fix error file path
                                 struct stat s;
-                                stat(ent->d_name, &s);
-                                const char* extra = (s.st_mode & S_IFDIR) ? "/" : "";
+                                if (stat((Text::fromUtf8(path) + PATH_SEPARATOR + ent->d_name).c_str(), &s) != -1)
+                                {
+                                        const char* extra = S_ISDIR(s.st_mode) ? "/" : "";
                 ret.push_back(path + Text::toUtf8(ent->d_name) + extra);
             }
         }
+                }
         closedir(dir);
     }
 #endif
@@ -505,7 +515,7 @@ uint32_t FileFindIter::DirData::getLastWriteTime() {
         return File::convertTime(&ftLastWriteTime);
 }
 
-#else // _WIN32
+#else // !_WIN32
 
 FileFindIter::FileFindIter() {
         dir = NULL;
@@ -513,11 +523,15 @@ FileFindIter::FileFindIter() {
 }
 
 FileFindIter::FileFindIter(const string& path) {
-        string filename = Text::fromUtf8(path);
-        dir = opendir(filename.c_str());
+
+//      string filename = Text::fromUtf8(path);
+//      dir = opendir(filename.c_str());
+        string base = Text::fromUtf8(path);//NOTE: freedcpp
+        dir = opendir(base.c_str());//NOTE: freedcpp
         if (!dir)
                 return;
-        data.base = filename;
+//      data.base = filename;
+        data.base = base;//NOTE: freedcpp
         data.ent = readdir(dir);
         if (!data.ent) {
                 closedir(dir);
@@ -540,6 +554,7 @@ FileFindIter& FileFindIter::operator++() {
         return *this;
 }
 
+//NOTE: freedcpp, see dcplusplus r2140: Move the impl of FileFindIter.
 bool FileFindIter::operator !=(const FileFindIter& rhs) const {
         // good enough to to say if it's null
         return dir != rhs.dir;
@@ -561,9 +576,7 @@ bool FileFindIter::DirData::isDirectory() {
 
 bool FileFindIter::DirData::isHidden() {
         if (!ent) return false;
-        // Check if the parent directory is hidden for '.'
-        if (strcmp(ent->d_name, ".") == 0 && base[0] == '.') return true;
-        return ent->d_name[0] == '.' && strlen(ent->d_name) > 1;
+        return (ent->d_name[0] == '.');//NOTE: freedcpp, see core 0.750
 }
 
 bool FileFindIter::DirData::isLink() {
@@ -587,6 +600,6 @@ uint32_t FileFindIter::DirData::getLastWriteTime() {
         return inode.st_mtime;
 }
 
-#endif // _WIN32
+#endif // !_WIN32
 
 } // namespace dcpp

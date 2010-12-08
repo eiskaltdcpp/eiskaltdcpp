@@ -24,13 +24,6 @@
 #include "SettingsManager.h"
 #include "TimerManager.h"
 
-/// @todo remove when MinGW has this
-#ifdef __MINGW32__
-#ifndef EADDRNOTAVAIL
-#define EADDRNOTAVAIL WSAEADDRNOTAVAIL
-#endif
-#endif
-
 #ifndef MSG_NOSIGNAL
 #define MSG_NOSIGNAL 0
 #endif

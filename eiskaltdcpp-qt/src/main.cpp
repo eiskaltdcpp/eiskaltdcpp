@@ -27,15 +27,13 @@ using namespace std;
 #include "Notification.h"
 #include "SingleInstanceRunner.h"
 #include "Version.h"
+#include "IPFilter.h"
 #include "EmoticonFactory.h"
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
-#ifdef USE_MINIUPNP
-#include "extra/upnpc.h"
-#include "dcpp/UPnPManager.h"
-#endif
+
 #ifdef USE_JS
 #include "ScriptEngine.h"
 #endif
@@ -97,9 +95,6 @@ int main(int argc, char *argv[])
 #endif
 
     dcpp::startup(callBack, NULL);
-#ifdef USE_MINIUPNP
-    UPnPManager::getInstance()->addImplementation(new UPnPc());//NOTE: core 0.762
-#endif
     dcpp::TimerManager::getInstance()->start();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
@@ -178,6 +173,11 @@ int main(int argc, char *argv[])
     WulforSettings::deleteInstance();
 
     dcpp::shutdown();
+
+    if (IPFilter::getInstance()){
+        IPFilter::getInstance()->saveList();
+        IPFilter::deleteInstance();
+    }
 
     std::cout << QObject::tr("Quit...").toStdString() << std::endl;
 

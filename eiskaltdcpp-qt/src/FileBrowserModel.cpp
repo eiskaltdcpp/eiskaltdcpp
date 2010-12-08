@@ -20,15 +20,17 @@
 #include <QPixmap>
 #include <QFontMetrics>
 #include <QSize>
+#include <QFile>
 
 #include "dcpp/ShareManager.h"
+#include "dcpp/UploadManager.h"
 
 using namespace dcpp;
 
 #include <set>
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
-    : QAbstractItemModel(parent), iconsScaled(false)
+    : QAbstractItemModel(parent), iconsScaled(false), restrictionsLoaded(false)
 {
     QList<QVariant> rootData;
     rootData << tr("Name") << tr("Size") << tr("Exact size") << tr("TTH");
@@ -43,6 +45,24 @@ FileBrowserModel::~FileBrowserModel()
 {
     if (rootItem)
         delete rootItem;
+
+    if (restrictionsLoaded){
+        QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
+
+        if (f.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){
+            QTextStream stream(&f);
+            QMap<QString, unsigned>::iterator it = restrict_map.begin();
+
+            for(; it != restrict_map.end(); ++it)
+                stream << it.value() << " " << it.key() << '\n';
+
+            stream.flush();
+
+            f.close();
+
+            dcpp::UploadManager::getInstance()->reloadRestrictions();
+        }
+    }
 }
 
 int FileBrowserModel::columnCount(const QModelIndex &parent) const
@@ -59,6 +79,16 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         return QVariant();
 
     FileBrowserItem *item = static_cast<FileBrowserItem*>(index.internalPointer());
+    QString path = "";//virtual path
+    QStringList dirs = createRemotePath(item).split("\\");
+
+    if (dirs.size() >= 2){
+        dirs.removeFirst();
+
+        path = "/" + dirs.join("/");
+    }
+    else
+        path = "";
 
     switch(role) {
         case Qt::DecorationRole:
@@ -70,6 +100,12 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         }
         case Qt::DisplayRole:
         {
+            if (restrict_map.contains(path) && index.column() == COLUMN_FILEBROWSER_NAME){
+                QString ret = tr("%1 [%2 Gb]").arg(item->data(index.column()).toString()).arg(restrict_map[path]);
+
+                return ret;
+            }
+
             return item->data(index.column());
         }
         case Qt::TextAlignmentRole:
@@ -100,11 +136,53 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
             break;
         }
         case Qt::BackgroundColorRole:
-            break;
+        {
+            if (item->isDuplicate){
+                QPalette pal = qApp->palette();
+
+                return pal.highlight().color();
+            }
+        }
         case Qt::ToolTipRole:
         {
+            if (item->isDuplicate && item->file){
+                const QString &tth = item->data(COLUMN_FILEBROWSER_TTH).toString();
+                QHash<QString, dcpp::DirectoryListing::File*>::const_iterator it = hash.find(tth);
+
+                if (it == hash.end())
+                    break;
+
+                dcpp::DirectoryListing::File *file = const_cast<dcpp::DirectoryListing::File*>(it.value());
+                dcpp::DirectoryListing::Directory *parentDir = file->getParent();
+
+                if (!parentDir)
+                    break;
+
+                QString path = "";
+
+                do {
+                    path = _q(parentDir->getName()) + "/" + path;
+                    parentDir = parentDir->getParent();
+                } while (parentDir->getParent());
+
+                return tr("File marked as a duplicate of another file: %1").arg(path+_q(file->getName()));
+            }
+
             break;
         }
+        case Qt::FontRole:
+        {
+            if (restrict_map.contains(path) && index.column() == COLUMN_FILEBROWSER_NAME){
+                QFont f;
+                f.setBold(true);
+
+                return f;
+            }
+
+            break;
+        }
+        default:
+            break;
     }
 
     return QVariant();
@@ -377,26 +455,84 @@ QModelIndex FileBrowserModel::createIndexForItem(FileBrowserItem *item){
         return QModelIndex();
 
     return createIndex(item->row(), 0, item);
+}
 
-    /*QStack<FileBrowserItem*> stack;
-    FileBrowserItem *root = item->parent();
+void FileBrowserModel::highlightDuplicates(){
+    if (!rootItem || rootItem->childCount() == 0)
+        return;
 
-    while (root && (root != rootItem)){
-        stack.push(root);
+    foreach (FileBrowserItem *i, rootItem->childItems){
+        const QString &tth = i->data(COLUMN_FILEBROWSER_TTH).toString();
 
-        root = root->parent();
+        if (tth.isEmpty())
+            continue;
+
+        QHash<QString, dcpp::DirectoryListing::File*>::iterator it = hash.find(tth);
+
+        if (it != hash.end()){
+            if (i->file != it.value())//Found duplicate
+                i->isDuplicate = true;
+        }
+        else {
+            hash.insert(tth, i->file);
+        }
     }
+}
 
-    QModelIndex parent = QModelIndex();
-    QModelIndex child;
+void FileBrowserModel::loadRestrictions(){
+    QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
 
-    while (!stack.empty()){
-        FileBrowserItem *el = stack.pop();
+    if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&f);
+        QString line = "";
 
-        parent = index(el->row(), COLUMN_FILEBROWSER_NAME, parent);
+        while (!(line = stream.readLine(0)).isNull()){
+            QStringList list = line.split(' ');
+
+            if (list.size() < 2)
+                continue;
+
+            bool ok = false;
+            unsigned size = 0;
+
+            size = list.at(0).toUInt(&ok);
+
+            if (!ok)
+                continue;
+
+            QString virt_path = line.remove(0, list.at(0).length() + 1);
+
+            if (!virt_path.startsWith('/'))
+                virt_path.prepend('/');
+
+            if (!virt_path.isEmpty() && size > 0 && !restrict_map.contains(virt_path))
+                restrict_map.insert(virt_path, size);
+        }
+
+        restrictionsLoaded = true;
+
+        f.close();
     }
+}
 
-    return index(item->row(), COLUMN_FILEBROWSER_NAME, parent);*/
+void FileBrowserModel::updateRestriction(QModelIndex &i, unsigned size){
+    FileBrowserItem *item = static_cast<FileBrowserItem*>(i.internalPointer());
+    QString path = "";//virtual path
+    QStringList dirs = createRemotePath(item).split("\\");
+
+    if (dirs.size() >= 2){
+        dirs.removeFirst();
+
+        path = "/" + dirs.join("/");
+    }
+    else
+        path = "/";
+
+    if (size == 0 && restrict_map.contains(path))
+        restrict_map.remove(path);
+    else {
+        restrict_map[path] = size;
+    }
 }
 
 void FileBrowserModel::clear(){
@@ -413,7 +549,7 @@ void FileBrowserModel::repaint(){
 }
 
 FileBrowserItem::FileBrowserItem(const QList<QVariant> &data, FileBrowserItem *parent) :
-    itemData(data), parentItem(parent), dir(NULL), file(NULL)
+    itemData(data), parentItem(parent), dir(NULL), file(NULL), isDuplicate(false)
 {
 }
 
@@ -421,11 +557,13 @@ FileBrowserItem::FileBrowserItem(const FileBrowserItem &item){
     itemData = item.itemData;
     dir = item.dir;
     file = item.file;
+    isDuplicate = item.isDuplicate;
 }
 void FileBrowserItem::operator=(const FileBrowserItem &item){
     itemData = item.itemData;
     dir = item.dir;
     file = item.file;
+    isDuplicate = item.isDuplicate;
 }
 
 FileBrowserItem::~FileBrowserItem()

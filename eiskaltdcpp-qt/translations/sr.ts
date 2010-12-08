@@ -527,6 +527,10 @@ Keys:
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
+    <message>
+        <source>File marked as a duplicate of another file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -543,22 +547,22 @@ Keys:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation>Završena otpremanja</translation>
+        <translation type="unfinished">Završena otpremanja</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation>Završena preuzimanja</translation>
+        <translation type="unfinished">Završena preuzimanja</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation>Otvori fajl</translation>
+        <translation type="unfinished">Otvori fajl</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation>Otvori fasciklu</translation>
+        <translation type="unfinished">Otvori fasciklu</translation>
     </message>
 </context>
 <context>
@@ -2122,6 +2126,51 @@ Keys:
     </message>
 </context>
 <context>
+    <name>SearchBlackListDelegate</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Ime fajla</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDialog</name>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Dodaj novi</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListModel</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Ime fajla</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished">Ključ</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Tip</translation>
+    </message>
+    <message>
+        <source>Set text...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SearchFrame</name>
     <message>
         <source>Form</source>
@@ -2341,6 +2390,14 @@ Keys:
     </message>
     <message>
         <source>Download Whole Directory to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CD Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacklist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2859,6 +2916,14 @@ Keys:
     </message>
     <message>
         <source>Other Widgets</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SingleInstanceRunner</name>
+    <message>
+        <source>Internal server running on %1
+</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3929,6 +3994,21 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
 </context>
 <context>
+    <name>UISearchBlacklistDialog</name>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Otkaži</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished">OK</translation>
+    </message>
+</context>
+<context>
     <name>UISettings</name>
     <message>
         <source>Settings</source>
@@ -4160,6 +4240,14 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
     </message>
     <message>
         <source>Auto detect connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore incoming non-TTH searches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore all incoming searches</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

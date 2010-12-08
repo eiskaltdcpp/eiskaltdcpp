@@ -666,6 +666,13 @@ them is usually available only to operators</string>
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="checkBox_BB_CODE">
+         <property name="text">
+          <string>Parse BB-code</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_4">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

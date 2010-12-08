@@ -157,140 +157,6 @@ bool SimpleXML::findChild(const string& aName) throw() {
     return false;
 }
 
-string::size_type SimpleXMLReader::loadAttribs(const string& name, const string& tmp, string::size_type start) throw(SimpleXMLException) {
-    string::size_type i = start;
-    string::size_type j;
-
-    for(;;) {
-        if((j = tmp.find_first_of("= \"'/>", i)) == string::npos) {
-            throw SimpleXMLException("Missing '=' in " + name);
-        }
-        if(tmp[j] != '=') {
-            throw SimpleXMLException("Missing '=' in " + name);
-        }
-
-        if(tmp[j+1] != '"' && tmp[j+1] != '\'') {
-            throw SimpleXMLException("Invalid character after '=' in " + name);
-        }
-
-        string::size_type x = j + 2;
-        string::size_type y;
-        if((y = tmp.find(tmp[j+1], x)) == string::npos) {
-            throw SimpleXMLException("Missing '" + string(1, tmp[j+1]) + "' in " + name);
-        }
-        // Ok, we have an attribute...
-        attribs.push_back(make_pair(tmp.substr(i, j-i), tmp.substr(x, y-x)));
-        SimpleXML::escape(attribs.back().second, true, true, encoding);
-
-        i = tmp.find_first_not_of(' ', y + 1);
-        if(tmp[i] == '/' || tmp[i] == '>') {
-            return i;
-        }
-    }
-}
-
-string::size_type SimpleXMLReader::fromXML(const string& tmp, const string& n, string::size_type start, int depth) throw(SimpleXMLException) {
-    string::size_type i = start;
-    string::size_type j;
-
-    bool hasChildren = false;
-
-    for(;;) {
-        if((j = tmp.find('<', i)) == string::npos) {
-            if(depth > 0) {
-                throw SimpleXMLException("Missing end tag in " + n);
-            }
-            return tmp.size();
-        } else if(depth > maxNesting) {
-            throw SimpleXMLException("Too many nested tags (depth >" + Util::toString(maxNesting) + ")");
-        }
-
-        // Check that we have at least 3 more characters as the shortest valid xml tag is <a/>...
-        if((j + 3) > tmp.size()) {
-            throw SimpleXMLException("Missing end tag in " + n);
-        }
-
-        i = j + 1;
-
-        if(tmp[i] == '?') {
-            // <? processing instruction ?>, check encoding...
-            if((j = tmp.find("?>", i)) == string::npos) {
-                throw SimpleXMLException("Missing '?>' in " + n);
-            }
-
-            string str = tmp.substr(i, j - i);
-            if((i = str.find("encoding=\"")) != string::npos) {
-                string::size_type k = str.find('\"', i + 10);
-                if(k != string::npos && k < j) {
-                    encoding = str.substr(i + 10, k - i - 10);
-                }
-            }
-
-            i = j + 2;
-            continue;
-        }
-
-        if(tmp[i] == '!' && tmp[i+1] == '-' && tmp[i+2] == '-') {
-            // <!-- comment -->, ignore...
-            if((j = tmp.find("-->", i)) == string::npos) {
-                throw SimpleXMLException("Missing '-->' in " + n);
-            }
-            i = j + 3;
-            continue;
-        }
-
-        // Check if we reached the end tag
-        if(tmp[i] == '/') {
-            i++;
-
-            if( (tmp.compare(i, n.length(), n) == 0) &&
-                (tmp[i + n.length()] == '>') )
-            {
-                if(!hasChildren) {
-                    data = tmp.substr(start, i - start - 2);
-                    SimpleXML::escape(data, false, true, encoding);
-                } else {
-                    data.clear();
-                }
-                return i + n.length() + 1;
-            } else {
-                throw SimpleXMLException("Missing end tag in " + n);
-            }
-        }
-
-        // Alright, we have a real tag for sure...now get the name of it.
-        if((j = tmp.find_first_of(" />", i)) == string::npos) {
-            throw SimpleXMLException("Missing '>' in " + n);
-        }
-
-        string name = tmp.substr(i, j-i);
-        hasChildren = true;
-        if(tmp[j] == ' ') {
-            if((j = tmp.find_first_not_of(' ', j+1)) == string::npos) {
-                throw SimpleXMLException("Missing '>' in " + name);
-            }
-        }
-
-        attribs.clear();
-        if(tmp[j] != '/' && tmp[j] != '>') {
-            // We have attribs...
-            j = loadAttribs(name, tmp, j);
-        }
-
-        if(tmp[j] == '>') {
-            // This is a real tag with data etc...
-            cb->startTag(name, attribs, false);
-            j = fromXML(tmp, name, j+1, depth+1);
-            cb->endTag(name, data);
-        } else {
-            // A simple tag (<xxx/>
-            cb->startTag(name, attribs, true);
-            j++;
-        }
-        i = j;
-    }
-}
-
 void SimpleXML::addTag(const string& aName, const string& aData /* = "" */) throw(SimpleXMLException) {
     if(aName.empty()) {
         throw SimpleXMLException("Empty tag names not allowed");
@@ -324,7 +190,7 @@ void SimpleXML::fromXML(const string& aXML) throw(SimpleXMLException) {
     }
 
     TagReader t(&root);
-    SimpleXMLReader(&t).fromXML(aXML);
+        SimpleXMLReader(&t).parse(aXML.c_str(), aXML.size(), false);
 
     if(root.children.size() != 1) {
         throw SimpleXMLException("Invalid XML file, missing or multiple root tags");

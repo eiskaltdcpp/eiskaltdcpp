@@ -16,65 +16,23 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(SIMPLE_XML_H)
-#define SIMPLE_XML_H
+#ifndef DCPLUSPLUS_DCPP_SIMPLE_XML_H
+#define DCPLUSPLUS_DCPP_SIMPLE_XML_H
 
 #include "Exception.h"
 
-#include "File.h"
+#include "Streams.h"
+#include "SimpleXMLReader.h"
 
 namespace dcpp {
 
 STANDARD_EXCEPTION(SimpleXMLException);
 
 /**
- * This class reads an XML and calls a callback for each
- * element encountered.
- * It is in no way a full XML parser.
- */
-class SimpleXMLReader {
-public:
-    struct CallBack {
-        virtual ~CallBack() { }
-        virtual void startTag(const string& name, StringPairList& attribs, bool simple) = 0;
-        virtual void endTag(const string& name, const string& data) = 0;
-
-    protected:
-        static const string& getAttrib(StringPairList& attribs, const string& name, size_t hint) {
-            hint = min(hint, attribs.size());
-
-            StringPairIter i = find_if(attribs.begin() + hint, attribs.end(), CompareFirst<string, string>(name));
-            if(i == attribs.end()) {
-                i = find_if(attribs.begin(), attribs.begin() + hint, CompareFirst<string, string>(name));
-                return ((i == (attribs.begin() + hint)) ? Util::emptyString : i->second);
-            } else {
-                return i->second;
-            }
-        }
-    private:
-        CallBack& operator=(const CallBack&);
-    };
-
-    SimpleXMLReader(CallBack* callback) : cb(callback), encoding(Text::utf8) { }
-    virtual ~SimpleXMLReader() { }
-
-    string::size_type fromXML(const string& tmp, const string& n = Util::emptyString, string::size_type start = 0, int depth = 0) throw(SimpleXMLException);
-private:
-    StringPairList attribs;
-    string data;
-
-    CallBack* cb;
-    string encoding;
-
-    string::size_type loadAttribs(const string& name, const string& tmp, string::size_type start) throw(SimpleXMLException);
-    static const int maxNesting = 200;
-};
-
-/**
  * A simple XML class that loads an XML-ish structure into an internal tree
  * and allows easy access to each element through a "current location".
  */
-class SimpleXML
+class SimpleXML : private boost::noncopyable
 {
 public:
     SimpleXML() : root("BOGUSROOT", Util::emptyString, NULL), current(&root), found(false) {
@@ -258,9 +216,6 @@ private:
 
         Tag* cur;
     };
-
-    SimpleXML(const SimpleXML&);
-    SimpleXML& operator=(const SimpleXML&);
 
     /** Bogus root tag, should have only one child! */
     Tag root;

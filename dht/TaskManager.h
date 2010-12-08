@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,43 +16,43 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#pragma once
+#ifndef _TASKMANAGER_H
+#define _TASKMANAGER_H
 
-#include "../dcpp/Singleton.h"
-#include "../dcpp/TimerManager.h"
+#include "dcpp/Singleton.h"
+#include "dcpp/TimerManager.h"
 
 namespace dht
 {
 
-    class TaskManager :
-        public Singleton<TaskManager>, private TimerManagerListener
-    {
-    public:
-        TaskManager(void);
-        ~TaskManager(void);
+	class TaskManager :
+		public Singleton<TaskManager>, private TimerManagerListener
+	{
+	public:
+		TaskManager(void);
+		~TaskManager(void);
 
-    private:
+	private:
 
-        /** Time of publishing next file in queue */
-        uint64_t nextPublishTime;
+		/** Time of publishing next file in queue */
+		uint64_t nextPublishTime;
 
-        /** Time when our files will be republished */
-        uint64_t nextRepublishTime;
+		/** When running searches will be processed */
+		uint64_t nextSearchTime;
 
-        /** When running searches will be processed */
-        uint64_t nextSearchTime;
+		/** When initiate searching for myself */
+		uint64_t nextSelfLookup;
 
-        /** When initiate searching for myself */
-        uint64_t nextSelfLookup;
+		/** When request next firewall check */
+		uint64_t nextFirewallCheck;
 
-        /** When request next firewall check */
-        uint64_t nextFirewallCheck;
+		uint64_t lastBootstrap;
 
-        uint64_t lastBootstrap;
-
-        // TimerManagerListener
-        void on(TimerManagerListener::Second, uint64_t aTick) throw();
-        void on(TimerManagerListener::Minute, uint64_t aTick) throw();
-    };
+		// TimerManagerListener
+		void on(TimerManagerListener::Second, uint64_t aTick) throw();
+		void on(TimerManagerListener::Minute, uint64_t aTick) throw();
+	};
 
 }
+
+#endif	// _TASKMANAGER_H

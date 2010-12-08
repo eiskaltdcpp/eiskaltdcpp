@@ -44,7 +44,7 @@ void IPFilterFrame::InitDocument() {
         checkBox_ENABLE->setChecked(false);
 
     if (!model)
-            model = new IPFilterModel(this);
+        model = new IPFilterModel(this);
 
     treeView_RULES->setModel(model);
     treeView_RULES->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -85,14 +85,11 @@ void IPFilterFrame::slotCheckBoxClick() {
 
         loadItems();
 
-        connect(IPFilter::getInstance(), SIGNAL(ruleAdded(QString, eDIRECTION)),
-                this, SLOT(slotRuleAdded(QString, eDIRECTION)));
+        connect(IPFilter::getInstance(), SIGNAL(ruleAdded(QString,eDIRECTION)), this, SLOT(slotRuleAdded(QString,eDIRECTION)));
+
     } else {
         if (IPFilter::getInstance()) {
             IPFilter::getInstance()->saveList();
-
-            disconnect(IPFilter::getInstance(), SIGNAL(ruleAdded(QString, eDIRECTION)),
-                    this, SLOT(slotRuleAdded(QString, eDIRECTION)));
 
             IPFilter::deleteInstance();
 
