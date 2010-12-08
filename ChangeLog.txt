@@ -1,6 +1,7 @@
 --- 2.1.2 2010-12-19 ---
 *** common changes ***
 * Completed the transition to the 0.770 kernel.
+* Broken support for Lua-scripts. Build the program with -DLUA_SCRIPT=OFF.
 *** eiskaltdcpp-qt ***
 * Fixed parsing of emoticons in new messages. Now more fast and correct.
 * Improvements in the search widget.
@@ -9,8 +10,11 @@
 * Added separator (horizontal line) for unread messages in the chat.
 * Added an option of the connection type in the favorite hubs settings.
 * Added a speed limit button to the tools panel.
+* Added ability of redirecting new personal messages to the main chat.
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
+* Fixed path to lock file of launched program (it was ~/.dc++/). Now it launches only one instance of the DC-client and magnet-links are correctly intercepted by it.
+* Added hot keys Left/Right to expand the directory tree in the widget view a list of files.
 
 --- 2.1.1 2010-11-21 ---
 *** common changes ***

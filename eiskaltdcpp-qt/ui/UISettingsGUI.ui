@@ -366,7 +366,7 @@ them is usually available only to operators</string>
        <item>
         <widget class="QCheckBox" name="checkBox_REDIRECT_UNREAD">
          <property name="text">
-          <string>Redirect to main chat unread PM's</string>
+          <string>Redirect new personal messages to the main chat</string>
          </property>
         </widget>
        </item>
@@ -675,7 +675,7 @@ them is usually available only to operators</string>
        <item>
         <widget class="QCheckBox" name="checkBox_BB_CODE">
          <property name="text">
-          <string>Parse BB-code</string>
+          <string>Parse BBCode</string>
          </property>
         </widget>
        </item>

@@ -531,6 +531,10 @@ Keys:
         <source>File marked as a duplicate of another file: %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>%1 [%2 Gb]</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -1885,6 +1889,10 @@ Molim proverite podešavanja vaše veze</translation>
         <source>Show close buttons</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Speed limit On/Off</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2685,7 +2693,7 @@ Keys:
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -2705,19 +2713,19 @@ Keys:
     </message>
     <message>
         <source>Enter virtual path name</source>
-        <translation>Unesi ime virtelne putanje</translation>
+        <translation type="obsolete">Unesi ime virtelne putanje</translation>
     </message>
     <message>
         <source>Virtual path</source>
-        <translation>Virtuelna putanja</translation>
+        <translation type="obsolete">Virtuelna putanja</translation>
     </message>
     <message>
         <source>Enter restriction (in GiB)</source>
-        <translation>Usnesi ograničenje  (u GiB)</translation>
+        <translation type="obsolete">Usnesi ograničenje  (u GiB)</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Ograničenje</translation>
+        <translation type="obsolete">Ograničenje</translation>
     </message>
     <message>
         <source>Add item</source>
@@ -2820,6 +2828,22 @@ Keys:
     </message>
     <message>
         <source>Download to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restrictions</source>
+        <translation type="unfinished">Ograničenja</translation>
+    </message>
+    <message>
+        <source>Add restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter restriction size (in GB)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3633,6 +3657,22 @@ p, li { white-space: pre-wrap; }
         <source>EiskaltDC++ V:2.1</source>
         <translation type="obsolete">EiskaltDC++ V:2.1</translation>
     </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Passive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -4240,14 +4280,6 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
     </message>
     <message>
         <source>Auto detect connection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ignore incoming non-TTH searches</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ignore all incoming searches</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4917,6 +4949,14 @@ them is usually available only to operators</source>
         <source>Try to use system icons (need restart)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Redirect new personal messages to the main chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parse BBCode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -5153,7 +5193,7 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.(new line)
+        <translation type="obsolete">Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.(new line)
 For example, if you have /home/username/Video folder shared as &quot;Video&quot;(new line)
 you can specify following:(new line)
 /Video(tab)10(new line)
@@ -5253,19 +5293,19 @@ ako tvoj sistem počinje sporo.</translation>
     </message>
     <message>
         <source>Restrictions</source>
-        <translation>Ograničenja</translation>
+        <translation type="obsolete">Ograničenja</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation>Deljeno</translation>
+        <translation type="obsolete">Deljeno</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Ograničenje</translation>
+        <translation type="obsolete">Ograničenje</translation>
     </message>
     <message>
         <source>All changes take effect only after restart</source>
-        <translation>Sve promene stupiće tek posle ponovnog pokretanja</translation>
+        <translation type="obsolete">Sve promene stupiće tek posle ponovnog pokretanja</translation>
     </message>
     <message>
         <source>Follow symlinks</source>

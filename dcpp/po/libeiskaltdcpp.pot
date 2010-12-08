@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-04 02:13+0200\n"
+"POT-Creation-Date: 2010-12-08 23:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,19 +135,19 @@ msgstr ""
 msgid "IPFilter: Blocked incoming connection to "
 msgstr ""
 
-#: ../UploadManager.cpp:468
+#: ../UploadManager.cpp:472
 msgid "Disconnected user leaving the hub: %1%"
 msgstr ""
 
-#: ../SettingsManager.cpp:503
+#: ../SettingsManager.cpp:501
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:507 ../SettingsManager.cpp:529
+#: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:561
+#: ../SettingsManager.cpp:559
 msgid "No such search type"
 msgstr ""
 
@@ -155,7 +155,7 @@ msgstr ""
 msgid "%1% (Nick unknown)"
 msgstr ""
 
-#: ../NmdcHub.cpp:940
+#: ../NmdcHub.cpp:939
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -452,35 +452,31 @@ msgstr ""
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr ""
 
-#: ../DownloadManager.cpp:136
+#: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
 msgstr ""
 
-#: ../DownloadManager.cpp:229
+#: ../DownloadManager.cpp:228
 msgid "Invalid size"
 msgstr ""
 
-#: ../DownloadManager.cpp:234
+#: ../DownloadManager.cpp:233
 msgid "Response does not match request"
 msgstr ""
 
-#: ../DownloadManager.cpp:241
+#: ../DownloadManager.cpp:240
 msgid "Could not open target file: %1%"
 msgstr ""
 
-#: ../DownloadManager.cpp:320
+#: ../DownloadManager.cpp:319
 msgid "Full tree does not match TTH root"
 msgstr ""
 
-#: ../DownloadManager.cpp:390 ../DownloadManager.cpp:392
-msgid "CRC32 inconsistency (SFV-Check)"
-msgstr ""
-
-#: ../DownloadManager.cpp:435
+#: ../DownloadManager.cpp:383
 msgid "No slots available"
 msgstr ""
 
-#: ../DownloadManager.cpp:546
+#: ../DownloadManager.cpp:494
 msgid "%1%: File not available"
 msgstr ""
 
@@ -544,82 +540,86 @@ msgstr ""
 msgid "Search disabled: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:236
+#: ../QueueManager.cpp:238
 msgid "NO_NEEDED_PART"
 msgstr ""
 
-#: ../QueueManager.cpp:592
+#: ../QueueManager.cpp:594
 msgid "Searching TTH alternates for: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:634 ../QueueManager.cpp:697
+#: ../QueueManager.cpp:636 ../QueueManager.cpp:699
 msgid "A file with the same hash already exists in your share"
 msgstr ""
 
-#: ../QueueManager.cpp:660 ../QueueManager.cpp:739
+#: ../QueueManager.cpp:662 ../QueueManager.cpp:741
 msgid "This file is already queued"
 msgstr ""
 
-#: ../QueueManager.cpp:675 ../QueueManager.cpp:751
+#: ../QueueManager.cpp:677 ../QueueManager.cpp:753
 msgid "A file with a different size already exists in the queue"
 msgstr ""
 
-#: ../QueueManager.cpp:679
+#: ../QueueManager.cpp:681
 msgid "A file with different tth root already exists in the queue"
 msgstr ""
 
-#: ../QueueManager.cpp:691
+#: ../QueueManager.cpp:693
 msgid "You're trying to download from yourself!"
 msgstr ""
 
-#: ../QueueManager.cpp:754
+#: ../QueueManager.cpp:756
 msgid "A file with a different TTH root already exists in the queue"
 msgstr ""
 
-#: ../QueueManager.cpp:758
+#: ../QueueManager.cpp:760
 msgid "This file has already finished downloading"
 msgstr ""
 
-#: ../QueueManager.cpp:795 ../QueueManager.cpp:804
+#: ../QueueManager.cpp:797 ../QueueManager.cpp:806
 msgid "Target filename too long"
 msgstr ""
 
-#: ../QueueManager.cpp:800 ../QueueManager.cpp:808
+#: ../QueueManager.cpp:802 ../QueueManager.cpp:810
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
 msgstr ""
 
-#: ../QueueManager.cpp:816
+#: ../QueueManager.cpp:818
 msgid "File already exists at the target location"
 msgstr ""
 
-#: ../QueueManager.cpp:829 ../QueueManager.cpp:833
+#: ../QueueManager.cpp:831 ../QueueManager.cpp:835
 msgid "Duplicate source: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:1102
+#: ../QueueManager.cpp:1104
 msgid "Target removed"
 msgstr ""
 
-#: ../QueueManager.cpp:1110
+#: ../QueueManager.cpp:1112
 msgid "Target file is missing or wrong size"
 msgstr ""
 
-#: ../QueueManager.cpp:1159
+#: ../QueueManager.cpp:1161
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr ""
 
-#: ../QueueManager.cpp:1162
+#: ../QueueManager.cpp:1164
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 
-#: ../QueueManager.cpp:1333
+#: ../QueueManager.cpp:1339
 msgid "Unable to open filelist: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:1356
+#: ../QueueManager.cpp:1362
 msgid "%1%: Matched %2% file"
+msgstr ""
+
+#: ../QueueManager.cpp:1955 ../QueueManager.cpp:1964
+msgid "CRC32 inconsistency (SFV-Check)"
 msgstr ""
 
 #: ../BitInputStream.h:40

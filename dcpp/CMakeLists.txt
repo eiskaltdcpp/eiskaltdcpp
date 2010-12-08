@@ -42,7 +42,8 @@ if (NOT NATT)
 endif (NOT NATT)
 
 if (PERL_REGEX)
-  add_definitions ( -DUSE_PCRE )
+  #add_definitions ( -DUSE_PCRE )
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp PROPERTY COMPILE_DEFINITIONS USE_PCRE )
   set(PCRE ${PCRE_LIBRARY})
 endif (PERL_REGEX)
 

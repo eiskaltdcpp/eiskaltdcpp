@@ -125,13 +125,13 @@ public:
         GETSET(string, fullPath, FullPath);
     };
 
-        DirectoryListing(const HintedUser& aUser);
-        ~DirectoryListing();
+    DirectoryListing(const HintedUser& aUser);
+    ~DirectoryListing();
 
     void loadFile(const string& name) throw(Exception);
 
-        string updateXML(const std::string&);
-        string loadXML(InputStream& xml, bool updating);
+    string updateXML(const std::string&);
+    string loadXML(InputStream& xml, bool updating);
 
     void download(const string& aDir, const string& aTarget, bool highPrio);
     void download(Directory* aDir, const string& aTarget, bool highPrio);
@@ -140,10 +140,10 @@ public:
     string getPath(const Directory* d) const;
     string getPath(const File* f) const { return getPath(f->getParent()); }
 
-        /** returns the local path of the file when browsing own file list */
-        StringList getLocalPaths(const File* f) const;
-        /** returns the local paths of the directory when browsing own file list */
-        StringList getLocalPaths(const Directory* d) const;
+    /** returns the local path of the file when browsing own file list */
+    StringList getLocalPaths(const File* f) const;
+    /** returns the local paths of the directory when browsing own file list */
+    StringList getLocalPaths(const Directory* d) const;
 
     int64_t getTotalSize(bool adls = false) { return root->getTotalSize(adls); }
     size_t getTotalFileCount(bool adls = false) { return root->getTotalFileCount(adls); }
@@ -153,7 +153,7 @@ public:
 
     static UserPtr getUserFromFilename(const string& fileName);
 
-        GETSET(HintedUser, user, User);
+    GETSET(HintedUser, user, User);
 
 private:
     friend class ListLoader;
