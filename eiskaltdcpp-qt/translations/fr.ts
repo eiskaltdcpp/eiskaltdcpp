@@ -616,6 +616,10 @@ Keys:
         <source>File marked as a duplicate of another file: %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>%1 [%2 Gb]</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -2090,6 +2094,10 @@ Please check your connection settings</source>
         <source>Show close buttons</source>
         <translation>Montrer les boutons de fermeture</translation>
     </message>
+    <message>
+        <source>Speed limit On/Off</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2952,7 +2960,7 @@ Clés:
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -2972,19 +2980,19 @@ Clés:
     </message>
     <message>
         <source>Enter virtual path name</source>
-        <translation>Entrer nom de chemin virtuel</translation>
+        <translation type="obsolete">Entrer nom de chemin virtuel</translation>
     </message>
     <message>
         <source>Virtual path</source>
-        <translation>Chemin virtuel</translation>
+        <translation type="obsolete">Chemin virtuel</translation>
     </message>
     <message>
         <source>Enter restriction (in GiB)</source>
-        <translation>Entrer restriction (en GiB)</translation>
+        <translation type="obsolete">Entrer restriction (en GiB)</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Restriction</translation>
+        <translation type="obsolete">Restriction</translation>
     </message>
     <message>
         <source>Add item</source>
@@ -3088,6 +3096,22 @@ Clés:
     <message>
         <source>Download to...</source>
         <translation>Télécharger vers...</translation>
+    </message>
+    <message>
+        <source>Restrictions</source>
+        <translation type="unfinished">Restrictions</translation>
+    </message>
+    <message>
+        <source>Add restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter restriction size (in GB)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3974,6 +3998,22 @@ p, li { white-space: pre-wrap; }
         <source>EiskaltDC++ V:2.1</source>
         <translation type="obsolete">EiskaltDC++ V:2.1</translation>
     </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Passive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -4582,14 +4622,6 @@ Slots</translation>
     <message>
         <source>Auto detect connection</source>
         <translation>Détection automatique de la connexion</translation>
-    </message>
-    <message>
-        <source>Ignore incoming non-TTH searches</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ignore all incoming searches</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5241,6 +5273,14 @@ them is usually available only to operators</source>
         <source>Try to use system icons (need restart)</source>
         <translation>Utiliser les icônes du système</translation>
     </message>
+    <message>
+        <source>Redirect new personal messages to the main chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parse BBCode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -5478,19 +5518,19 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
     </message>
     <message>
         <source>Restrictions</source>
-        <translation>Restrictions</translation>
+        <translation type="obsolete">Restrictions</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation>Partage</translation>
+        <translation type="obsolete">Partage</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Restriction</translation>
+        <translation type="obsolete">Restriction</translation>
     </message>
     <message>
         <source>All changes take effect only after restart</source>
-        <translation>Tous les changements prennent effet après un redémarrage</translation>
+        <translation type="obsolete">Tous les changements prennent effet après un redémarrage</translation>
     </message>
     <message>
         <source>Follow symlinks</source>
@@ -5619,7 +5659,7 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation>Détermine la limite de téléchargement en GiB pour tout dossier &quot;virtuel&quot; de votre partage.
+        <translation type="obsolete">Détermine la limite de téléchargement en GiB pour tout dossier &quot;virtuel&quot; de votre partage.
 Si vous spécifié par exemple une limite de 10 pour un dossier nommé &quot;Vidéo&quot;, les 
 utilisateurs ayant un partage total inférieur à 10GiB ne pourront pas télécharger depuis ce dossier.</translation>
     </message>

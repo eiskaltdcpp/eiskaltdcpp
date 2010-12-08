@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-04 02:13+0200\n"
+"POT-Creation-Date: 2010-12-08 23:34+0200\n"
 "PO-Revision-Date: 2010-07-30 00:20+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -536,39 +536,39 @@ msgstr ""
 msgid "Favorite hub already exists"
 msgstr ""
 
-#: ../src/hub.cc:2934
+#: ../src/hub.cc:2936
 msgid "loading error"
 msgstr ""
 
-#: ../src/hub.cc:2947
+#: ../src/hub.cc:2949
 msgid "bad image"
 msgstr ""
 
-#: ../src/hub.cc:3222
+#: ../src/hub.cc:3224
 msgid "Connecting to "
 msgstr ""
 
-#: ../src/hub.cc:3229 ../src/transfers.cc:1013
+#: ../src/hub.cc:3231 ../src/transfers.cc:1022
 msgid "Connected"
 msgstr ""
 
-#: ../src/hub.cc:3285
+#: ../src/hub.cc:3287
 msgid "Connect failed: "
 msgstr ""
 
-#: ../src/hub.cc:3348
+#: ../src/hub.cc:3350
 msgid "Ignored private message from hub"
 msgstr ""
 
-#: ../src/hub.cc:3355
+#: ../src/hub.cc:3357
 msgid "Ignored private message from bot "
 msgstr ""
 
-#: ../src/hub.cc:3452
+#: ../src/hub.cc:3454
 msgid "Nick already taken"
 msgstr ""
 
-#: ../src/hub.cc:3459
+#: ../src/hub.cc:3461
 msgid "Search spam detected from "
 msgstr ""
 
@@ -639,7 +639,7 @@ msgstr ""
 #: ../src/favoriteusers.cc:269 ../src/favoriteusers.cc:296
 #: ../src/favoriteusers.cc:347 ../src/favoriteusers.cc:374
 #: ../src/favoriteusers.cc:425 ../src/favoriteusers.cc:469
-#: ../src/favoriteusers.cc:587 ../src/transfers.cc:609
+#: ../src/favoriteusers.cc:587
 msgid "CID"
 msgstr ""
 
@@ -793,11 +793,11 @@ msgstr ""
 msgid "Download starting..."
 msgstr ""
 
-#: ../src/transfers.cc:937 ../src/transfers.cc:1115
+#: ../src/transfers.cc:937 ../src/transfers.cc:1124
 msgid "[S]"
 msgstr ""
 
-#: ../src/transfers.cc:939 ../src/transfers.cc:1117
+#: ../src/transfers.cc:939 ../src/transfers.cc:1126
 msgid "[U]"
 msgstr ""
 
@@ -805,7 +805,7 @@ msgstr ""
 msgid "[T]"
 msgstr ""
 
-#: ../src/transfers.cc:944 ../src/transfers.cc:1120
+#: ../src/transfers.cc:944 ../src/transfers.cc:1129
 msgid "[Z]"
 msgstr ""
 
@@ -813,40 +813,40 @@ msgstr ""
 msgid "Download complete..."
 msgstr ""
 
-#: ../src/transfers.cc:1002
+#: ../src/transfers.cc:1011
 msgid "Connecting..."
 msgstr ""
 
-#: ../src/transfers.cc:1049
+#: ../src/transfers.cc:1058
 msgid "Connecting"
 msgstr ""
 
-#: ../src/transfers.cc:1051
+#: ../src/transfers.cc:1060
 msgid "Waiting to retry"
 msgstr ""
 
-#: ../src/transfers.cc:1074 ../src/settingsdialog.cc:986
+#: ../src/transfers.cc:1083 ../src/settingsdialog.cc:986
 #: ../src/settingsdialog.cc:1147 ../src/settingsmanager.cc:235
 msgid "Download finished"
 msgstr ""
 
-#: ../src/transfers.cc:1083
+#: ../src/transfers.cc:1092
 msgid "Download removed"
 msgstr ""
 
-#: ../src/transfers.cc:1092
+#: ../src/transfers.cc:1101
 msgid "Upload starting..."
 msgstr ""
 
-#: ../src/transfers.cc:1095
+#: ../src/transfers.cc:1104
 msgid "none"
 msgstr ""
 
-#: ../src/transfers.cc:1123
+#: ../src/transfers.cc:1132
 msgid "Uploaded "
 msgstr ""
 
-#: ../src/transfers.cc:1138
+#: ../src/transfers.cc:1147
 msgid "Upload complete..."
 msgstr ""
 
