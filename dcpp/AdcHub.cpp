@@ -145,7 +145,7 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) throw() {
                     nick = "[nick unknown]";
                 }
                 fire(ClientListener::StatusMessage(), this, str(F_("%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring")
-                                        % u->getIdentity().getNick() % u->getIdentity().getSIDString() % cid % nick % AdcCommand::fromSID(c.getFrom())),
+                    % u->getIdentity().getNick() % u->getIdentity().getSIDString() % cid % nick % AdcCommand::fromSID(c.getFrom())),
                                         ClientListener::FLAG_IS_SPAM);
                 return;
             }

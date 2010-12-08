@@ -1,7 +1,16 @@
 --- 2.1.2 2010-12-19 ---
 *** common changes ***
+* Completed the transition to the 0.770 kernel.
 *** eiskaltdcpp-qt ***
+* Fixed parsing of emoticons in new messages. Now more fast and correct.
+* Improvements in the search widget.
+* Highlight duplicates in share.
+* Implemented blacklist for search results.
+* Added separator (horizontal line) for unread messages in the chat.
+* Added an option of the connection type in the favorite hubs settings.
+* Added a speed limit button to the tools panel.
 *** eiskaltdcpp-gtk ***
+* Improvements in the search widget.
 
 --- 2.1.1 2010-11-21 ---
 *** common changes ***
