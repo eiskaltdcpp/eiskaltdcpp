@@ -727,7 +727,7 @@ void MainWindow::initActions(){
 
         toolsSwitchSpeedLimit = new QAction("", this);
         toolsSwitchSpeedLimit->setObjectName("toolsSwitchSpeedLimit");
-        toolsSwitchSpeedLimit->setIcon(WU->getPixmap(WulforUtil::eiSPEED_LIMIT));
+        toolsSwitchSpeedLimit->setIcon(BOOLSETTING(THROTTLE_ENABLE)? WU->getPixmap(WulforUtil::eiSPEED_LIMIT_ON) : WU->getPixmap(WulforUtil::eiSPEED_LIMIT_OFF));
         toolsSwitchSpeedLimit->setCheckable(true);
         toolsSwitchSpeedLimit->setChecked(BOOLSETTING(THROTTLE_ENABLE));
         connect(toolsSwitchSpeedLimit, SIGNAL(triggered()), this, SLOT(slotToolsSwitchSpeedLimit()));
@@ -2118,7 +2118,10 @@ void MainWindow::slotToolsTransfer(bool toggled){
 }
 
 void MainWindow::slotToolsSwitchSpeedLimit(){
+    static WulforUtil *WU = WulforUtil::getInstance();
+
     SettingsManager::getInstance()->set(SettingsManager::THROTTLE_ENABLE, toolsSwitchSpeedLimit->isChecked());
+    toolsSwitchSpeedLimit->setIcon(BOOLSETTING(THROTTLE_ENABLE)? WU->getPixmap(WulforUtil::eiSPEED_LIMIT_ON) : WU->getPixmap(WulforUtil::eiSPEED_LIMIT_OFF));
 }
 
 void MainWindow::slotPanelMenuActionClicked(){
