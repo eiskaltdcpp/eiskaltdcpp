@@ -32,61 +32,25 @@
 #include "StringTokenizer.h"
 #include "Singleton.h"
 #include "DirectoryListing.h"
-#ifdef USE_PCRE
-#include "pcrecpp.h"
-#endif
-namespace dcpp {
 
-///////////////////////////////////////////////////////////////////////////////
-//
-//  Class that represent an ADL search
-//
-///////////////////////////////////////////////////////////////////////////////
+namespace dcpp {
+class AdlSearchManager;
+
+///  Class that represent an ADL search
 class ADLSearch
 {
 public:
 
     // Constructor
-    ADLSearch() : searchString(_("<Enter string>")), isActive(true), isAutoQueue(false), sourceType(OnlyFile),
-        minFileSize(-1), maxFileSize(-1), typeFileSize(SizeBytes), destDir("ADLSearch"), ddIndex(0), bUseRegexp(false)
-        {}
-
+    ADLSearch();
     // Prepare search
-    void Prepare(StringMap& params) {
-        // Prepare quick search of substrings
-        stringSearchList.clear();
-        #ifdef USE_PCRE
-        if(searchString.find("$Re:") == 0){
-            regexpstring.clear();
-            regexpstring=searchString.substr(4);
-			bUseRegexp = true;
-		} else {
-        #endif
-            // Replace parameters such as %[nick]
-            string stringParams = Util::formatParams(searchString, params, false);
-
-            // Split into substrings
-            StringTokenizer<string> st(stringParams, ' ');
-            for(StringList::iterator i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-                if(i->size() > 0) {
-                    // Add substring search
-                    stringSearchList.push_back(StringSearch(*i));
-                }
-            }
-        #ifdef USE_PCRE
-        }
-        #endif
-    }
-
+    void Prepare(StringMap& params);
     // The search string
     string searchString;
-
     // Active search
     bool isActive;
-
     // Auto Queue Results
     bool isAutoQueue;
-
     // Search source type
     enum SourceType {
         TypeFirst = 0,
@@ -96,26 +60,8 @@ public:
         TypeLast
     } sourceType;
 
-    SourceType StringToSourceType(const string& s) {
-        if(Util::stricmp(s.c_str(), "Filename") == 0) {
-            return OnlyFile;
-        } else if(Util::stricmp(s.c_str(), "Directory") == 0) {
-            return OnlyDirectory;
-        } else if(Util::stricmp(s.c_str(), "Full Path") == 0) {
-            return FullPath;
-        } else {
-            return OnlyFile;
-        }
-    }
-
-    string SourceTypeToString(SourceType t) {
-        switch(t) {
-        default:
-        case OnlyFile:      return "Filename";
-        case OnlyDirectory: return "Directory";
-        case FullPath:      return "Full Path";
-        }
-    }
+    SourceType StringToSourceType(const string& s);
+    string SourceTypeToString(SourceType t);
 
     // Maximum & minimum file sizes (in bytes).
     // Negative values means do not check.
@@ -130,124 +76,29 @@ public:
     };
 
     SizeType typeFileSize;
-
-    SizeType StringToSizeType(const string& s) {
-        if(Util::stricmp(s.c_str(), "B") == 0) {
-            return SizeBytes;
-        } else if(Util::stricmp(s.c_str(), "KiB") == 0) {
-            return SizeKibiBytes;
-        } else if(Util::stricmp(s.c_str(), "MiB") == 0) {
-            return SizeMebiBytes;
-        } else if(Util::stricmp(s.c_str(), "GiB") == 0) {
-            return SizeGibiBytes;
-        } else {
-            return SizeBytes;
-        }
-    }
-
-    string SizeTypeToString(SizeType t) {
-        switch(t) {
-        default:
-        case SizeBytes:     return "B";
-        case SizeKibiBytes: return "KiB";
-        case SizeMebiBytes: return "MiB";
-        case SizeGibiBytes: return "GiB";
-        }
-    }
-
-    int64_t GetSizeBase() {
-        switch(typeFileSize) {
-        default:
-        case SizeBytes:     return (int64_t)1;
-        case SizeKibiBytes: return (int64_t)1024;
-        case SizeMebiBytes: return (int64_t)1024 * (int64_t)1024;
-        case SizeGibiBytes: return (int64_t)1024 * (int64_t)1024 * (int64_t)1024;
-        }
-    }
+    SizeType StringToSizeType(const string& s);
+    string SizeTypeToString(SizeType t);
+    int64_t GetSizeBase();
 
     // Name of the destination directory (empty = 'ADLSearch') and its index
     string destDir;
     unsigned long ddIndex;
-
     // Search for file match
-    bool MatchesFile(const string& f, const string& fp, int64_t size) {
-        // Check status
-        if(!isActive) {
-            return false;
-        }
-
-        // Check size for files
-        if(size >= 0 && (sourceType == OnlyFile || sourceType == FullPath)) {
-            if(minFileSize >= 0 && size < minFileSize * GetSizeBase()) {
-                // Too small
-                return false;
-            }
-            if(maxFileSize >= 0 && size > maxFileSize * GetSizeBase()) {
-                // Too large
-                return false;
-            }
-        }
-
-        // Do search
-        switch(sourceType) {
-        default:
-        case OnlyDirectory: return false;
-        case OnlyFile:      return SearchAll(f);
-        case FullPath:      return SearchAll(fp);
-        }
-    }
-
+    bool MatchesFile(const string& f, const string& fp, int64_t size);
     // Search for directory match
-    bool MatchesDirectory(const string& d) {
-        // Check status
-        if(!isActive) {
-            return false;
-        }
-        if(sourceType != OnlyDirectory) {
-            return false;
-        }
-
-        // Do search
-        return SearchAll(d);
-    }
+    bool MatchesDirectory(const string& d);
 
 private:
+    friend class ADLSearchManager;
     //decide if regexp should be used
     bool bUseRegexp;
     string regexpstring;
     // Substring searches
     StringSearch::List stringSearchList;
-    bool SearchAll(const string& s) {
-        #ifdef USE_PCRE
-        if(bUseRegexp){
-            pcrecpp::RE_Options options;
-            options.set_utf8(true);
-            options.set_caseless(true);
-			pcrecpp::RE regexp(regexpstring, options);
-            if(regexp.FullMatch(s))
-                return true;
-            else
-                return false;
-        } else {
-        #endif
-        // Match all substrings
-            for(StringSearch::List::iterator i = stringSearchList.begin(); i != stringSearchList.end(); ++i) {
-                if(!i->match(s)) {
-                    return false;
-                }
-            }
-            return (stringSearchList.size() != 0);
-        #ifdef USE_PCRE
-        }
-        #endif
-    }
+    bool SearchAll(const string& s);
 };
 
-///////////////////////////////////////////////////////////////////////////////
-//
-//  Class that holds all active searches
-//
-///////////////////////////////////////////////////////////////////////////////
+///  Class that holds all active searches
 class ADLSearchManager : public Singleton<ADLSearchManager>
 {
 public:
@@ -288,34 +139,11 @@ private:
     // Search for directory match
     void MatchesDirectory(DestDirList& destDirVector, DirectoryListing::Directory* currentDir, string& fullPath);
     // Step up directory
-    void StepUpDirectory(DestDirList& destDirVector) {
-        for(DestDirList::iterator id = destDirVector.begin(); id != destDirVector.end(); ++id) {
-            if(id->subdir != NULL) {
-                id->subdir = id->subdir->getParent();
-                if(id->subdir == id->dir) {
-                    id->subdir = NULL;
-                }
-            }
-        }
-    }
-
+    void StepUpDirectory(DestDirList& destDirVector);
     // Prepare destination directory indexing
     void PrepareDestinationDirectories(DestDirList& destDirVector, DirectoryListing::Directory* root, StringMap& params);
     // Finalize destination directories
-    void FinalizeDestinationDirectories(DestDirList& destDirVector, DirectoryListing::Directory* root) {
-        string szDiscard("<<<" + string(_("Discard")) + ">>>");
-
-        // Add non-empty destination directories to the top level
-        for(vector<DestDir>::iterator id = destDirVector.begin(); id != destDirVector.end(); ++id) {
-            if(id->dir->files.size() == 0 && id->dir->directories.size() == 0) {
-                delete (id->dir);
-            } else if(Util::stricmp(id->dir->getName(), szDiscard) == 0) {
-                delete (id->dir);
-            } else {
-                root->directories.push_back(id->dir);
-            }
-        }
-    }
+    void FinalizeDestinationDirectories(DestDirList& destDirVector, DirectoryListing::Directory* root);
 
     string getConfigFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "ADLSearch.xml"; }
 };
