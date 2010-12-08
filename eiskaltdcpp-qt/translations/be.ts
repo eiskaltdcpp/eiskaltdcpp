@@ -699,7 +699,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="132"/>
         <source>File marked as a duplicate of another file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл пазначылі як паўтор іншага файла: %1</translation>
     </message>
 </context>
 <context>
@@ -720,12 +720,12 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="12"/>
         <source>Finished uploads</source>
-        <translation type="unfinished">Зацягнутае</translation>
+        <translation>Зацягнутае</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="13"/>
         <source>Finished downloads</source>
-        <translation type="unfinished">Сьцягнутае</translation>
+        <translation>Сьцягнутае</translation>
     </message>
 </context>
 <context>
@@ -733,12 +733,12 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FinishedTransfers.h" line="286"/>
         <source>Open file</source>
-        <translation type="unfinished">Адкрыць файл</translation>
+        <translation>Адкрыць файл</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.h" line="287"/>
         <source>Open directory</source>
-        <translation type="unfinished">Адкрыць каталёг</translation>
+        <translation>Адкрыць каталёг</translation>
     </message>
 </context>
 <context>
@@ -2829,12 +2829,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="244"/>
         <source>Filename</source>
-        <translation type="unfinished">Назоў файла</translation>
+        <translation>Назоў файла</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="245"/>
         <source>TTH</source>
-        <translation type="unfinished">Скарот (TTH)</translation>
+        <translation>Скарот (TTH)</translation>
     </message>
 </context>
 <context>
@@ -2842,12 +2842,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="44"/>
         <source>Add new</source>
-        <translation type="unfinished">Дадаць</translation>
+        <translation>Дадаць</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="45"/>
         <source>Remove</source>
-        <translation type="unfinished">Выкрасьліць</translation>
+        <translation>Выкрасьліць</translation>
     </message>
 </context>
 <context>
@@ -2855,12 +2855,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="147"/>
         <source>Filename</source>
-        <translation type="unfinished">Назоў файла</translation>
+        <translation>Назоў файла</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="147"/>
         <source>TTH</source>
-        <translation type="unfinished">Скарот (TTH)</translation>
+        <translation>Скарот (TTH)</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="162"/>
@@ -2870,12 +2870,12 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="163"/>
         <source>Type</source>
-        <translation type="unfinished">Від</translation>
+        <translation>Від</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="187"/>
         <source>Set text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Вызначце тэкст…</translation>
     </message>
 </context>
 <context>
@@ -2956,7 +2956,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SearchFrame.cpp" line="114"/>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Чорны сьпіс</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="211"/>
@@ -3089,7 +3089,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../ui/UISearchFrame.ui" line="133"/>
         <source>CD Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Адбітак CD</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="184"/>
@@ -3827,7 +3827,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
         <location filename="../src/SingleInstanceRunner.cpp" line="26"/>
         <source>Internal server running on %1
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Унутраны паслужнік запусьцілі на %1 порце</translation>
     </message>
 </context>
 <context>
@@ -5134,17 +5134,17 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="29"/>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Чорны сьпіс</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="75"/>
         <source>Cancel</source>
-        <translation type="unfinished">Скасаваць</translation>
+        <translation>Скасаваць</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="82"/>
         <source>OK</source>
-        <translation type="unfinished">Добра</translation>
+        <translation>Добра</translation>
     </message>
 </context>
 <context>
@@ -5384,12 +5384,12 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="775"/>
         <source>Ignore incoming non-TTH searches</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Адказваць толькі на запыты пошуку па скаротах (TTH)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="782"/>
         <source>Ignore all incoming searches</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Не зважаць на ўсе ўваходныя запыты пошуку</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="369"/>

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-12-04 02:13+0200\n"
-"PO-Revision-Date: 2010-11-20 08:31+0100\n"
+"PO-Revision-Date: 2010-12-06 07:08+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -157,7 +157,7 @@ msgstr "Desconocido"
 
 #: ../src/downloadqueue.cc:1313
 msgid "0 B (0.00%)"
-msgstr ""
+msgstr "0 B (0.00%)"
 
 #: ../src/downloadqueue.cc:1320
 msgid "Paused"
@@ -519,7 +519,7 @@ msgstr " eliminado de la lista de favoritos"
 
 #: ../src/hub.cc:2636 ../src/favoritehubs.cc:330
 msgid "Global hub default"
-msgstr ""
+msgstr "Hub Global por defecto"
 
 #: ../src/hub.cc:2711 ../src/hub.cc:2731
 msgid "User not found"
@@ -647,7 +647,7 @@ msgstr "Visto por ultima vez"
 #: ../src/favoriteusers.cc:425 ../src/favoriteusers.cc:469
 #: ../src/favoriteusers.cc:587 ../src/transfers.cc:609
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 #: ../src/favoriteusers.cc:103 ../src/favoriteusers.cc:622
 #: ../src/favoriteusers.cc:641
@@ -752,7 +752,7 @@ msgstr "Velocidad"
 
 #: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:611
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: ../src/transfers.cc:369
 msgid "Connecting (forced)..."
@@ -781,7 +781,7 @@ msgstr " usuario(s)"
 #: ../src/transfers.cc:609
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
-msgstr ""
+msgstr "Transferencias::actualizarTransferencia, CID no encontrada %s\n"
 
 #: ../src/transfers.cc:668 ../src/transfers.cc:872
 msgid "File list"
@@ -789,7 +789,7 @@ msgstr "Lista de archivos"
 
 #: ../src/transfers.cc:707 ../src/transfers.cc:708 ../src/transfers.cc:874
 msgid "TTH: "
-msgstr ""
+msgstr "TTH:"
 
 #: ../src/transfers.cc:901
 msgid "Requesting"
@@ -846,7 +846,7 @@ msgstr "Comenzando subida..."
 
 #: ../src/transfers.cc:1095
 msgid "none"
-msgstr ""
+msgstr "nada"
 
 #: ../src/transfers.cc:1123
 msgid "Uploaded "
@@ -858,7 +858,7 @@ msgstr "Subida completa"
 
 #: ../src/cmddebug.cc:33
 msgid "CMD"
-msgstr ""
+msgstr "CMD"
 
 #: ../src/wulfor.cc:70
 msgid "Loading: "
@@ -949,13 +949,11 @@ msgstr "Nombre"
 #: ../src/settingsdialog.cc:3302 ../src/settingsdialog.cc:3319
 #: ../src/publichubs.cc:63 ../src/publichubs.cc:335 ../src/publichubs.cc:360
 #: ../src/publichubs.cc:410
-#, fuzzy
 msgid "List"
-msgstr "Lista: "
+msgstr "Lista"
 
 #: ../src/settingsdialog.cc:797 ../src/settingsdialog.cc:811
 #: ../src/settingsdialog.cc:3408
-#, fuzzy
 msgid "Favorite Name"
 msgstr "Nombre del favorito"
 
@@ -1042,7 +1040,6 @@ msgstr "No descargar archivos si ya están en cola"
 
 #: ../src/settingsdialog.cc:899 ../src/settingsdialog.cc:3457
 #: ../src/settingsdialog.cc:3526
-#, fuzzy
 msgid "Virtual Name"
 msgstr "Nombre virtual"
 
@@ -1426,15 +1423,15 @@ msgstr "Registrar con el SO para manejar enlaces magnet: (imán)"
 
 #: ../src/settingsdialog.cc:1411
 msgid "Show IP's' in chats"
-msgstr ""
+msgstr "Mostrar IPs en los chats"
 
 #: ../src/settingsdialog.cc:1412
 msgid "Show user country in chat"
-msgstr ""
+msgstr "Mostrar país del usuario en el chat"
 
 #: ../src/settingsdialog.cc:1413
 msgid "Allow overlap chunks"
-msgstr ""
+msgstr "Dejar que se superpongan trozos"
 
 #: ../src/settingsdialog.cc:1422 ../src/settingsdialog.cc:1432
 #: ../src/settingsdialog.cc:3006 ../src/settingsdialog.cc:3080
@@ -1467,23 +1464,21 @@ msgstr "Aceptar conexiones TLS a clientes sin certificados autentificados"
 #: ../src/settingsdialog.cc:1508 ../src/settingsdialog.cc:1698
 #: ../src/settingsdialog.cc:1731 ../src/settingsdialog.cc:1817
 #: ../src/settingsdialog.cc:1866 ../src/settingsdialog.cc:1914
-#, fuzzy
 msgid "Search type"
-msgstr "Búsqueda Espía"
+msgstr "Tipo de búsqueda"
 
 #: ../src/settingsdialog.cc:1509 ../src/settingsdialog.cc:1608
 #: ../src/settingsdialog.cc:1699
 msgid "Predefined"
-msgstr ""
+msgstr "Predefinida"
 
 #: ../src/settingsdialog.cc:1620
 msgid "New search type"
-msgstr ""
+msgstr "Nuevo tipo de búsqueda"
 
 #: ../src/settingsdialog.cc:1621
-#, fuzzy
 msgid "<b>Name of the new search type</b>"
-msgstr "<b>tipo de búsquedas</b>"
+msgstr "<b>Nombre del nuevo tipo de búsquedas</b>"
 
 #: ../src/settingsdialog.cc:1682 ../src/settingsdialog.cc:1726
 #: ../src/settingsdialog.cc:2668
@@ -1492,26 +1487,23 @@ msgstr "Error"
 
 #: ../src/settingsdialog.cc:1802 ../src/settingsdialog.cc:1989
 msgid "Invalid extension: "
-msgstr ""
+msgstr "Extensión invalida"
 
 #: ../src/settingsdialog.cc:1873
 msgid "Rename a search type"
-msgstr ""
+msgstr "Renombrar tipo de búsqueda"
 
 #: ../src/settingsdialog.cc:1874
-#, fuzzy
 msgid "<b>New name</b>"
-msgstr "<b>Cuadro</b> "
+msgstr "<b>Nuevo nombre</b> "
 
 #: ../src/settingsdialog.cc:1973
-#, fuzzy
 msgid "Extension edition"
-msgstr "Extensión"
+msgstr "Editar extensión"
 
 #: ../src/settingsdialog.cc:1974
-#, fuzzy
 msgid "<b>Extension</b>"
-msgstr "<b>Opciones</b>"
+msgstr "<b>Extension</b>"
 
 #: ../src/settingsdialog.cc:2049
 msgid "*** T E S T ***"
@@ -1541,7 +1533,7 @@ msgstr "Tema por defecto"
 #: ../src/settingsdialog.cc:2466
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
-msgstr ""
+msgstr "eiskaltdcpp-gtk: cargando tema %s...\n"
 
 #: ../src/settingsdialog.cc:2660 ../src/settingsdialog.cc:2746
 msgid "Must not be empty..."
@@ -1916,16 +1908,15 @@ msgstr "0 filtrados"
 #: ../src/search.cc:535
 #, c-format
 msgid "Sent ADC extensions : %s\n"
-msgstr ""
+msgstr "Enviado extensiones ADC: %s\n"
 
 #: ../src/search.cc:544
 msgid "Searching too soon, retry in "
 msgstr "Búsqueda demasiado rápida, reintentar en "
 
 #: ../src/search.cc:544
-#, fuzzy
 msgid " s"
-msgstr "s"
+msgstr " s"
 
 #: ../src/search.cc:627
 msgid " items"
@@ -1944,25 +1935,24 @@ msgid "Close tab"
 msgstr "Cerrar pestaña"
 
 #: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
-#, fuzzy
 msgid "Error: setting not found!"
-msgstr "Usuario no encontrado"
+msgstr "Error: ¡configuración no encontrada!"
 
 #: ../src/settingsmanager.cc:515
 msgid "Change setting "
-msgstr ""
+msgstr "Cambiar configuración"
 
 #: ../src/settingsmanager.cc:515 ../src/settingsmanager.cc:535
 msgid " to "
-msgstr ""
+msgstr " a "
 
 #: ../src/settingsmanager.cc:518 ../src/settingsmanager.cc:537
 msgid "Error: params have been not 2!"
-msgstr ""
+msgstr "Error: ¡los parámetros no son iguales a 2!"
 
 #: ../src/settingsmanager.cc:535
 msgid "Change core setting "
-msgstr ""
+msgstr "Cambiar configuración del core"
 
 #: ../src/sharebrowser.cc:38 ../src/sharebrowser.cc:57
 msgid "List: "
@@ -1972,7 +1962,7 @@ msgstr "Lista: "
 #: ../src/sharebrowser.cc:236 ../src/sharebrowser.cc:565
 #: ../src/sharebrowser.cc:617
 msgid "Dir"
-msgstr ""
+msgstr "Directorio"
 
 #: ../src/sharebrowser.cc:152
 msgid "File list loaded"
@@ -2421,27 +2411,27 @@ msgstr "<small>Nota: dejar sin activar para valores por defecto</small>"
 
 #: ../glade/cmddebug.glade:36
 msgid "HUB IN"
-msgstr ""
+msgstr "HUB DENTRO"
 
 #: ../glade/cmddebug.glade:50
 msgid "HUB OUT"
-msgstr ""
+msgstr "HUB FUERA"
 
 #: ../glade/cmddebug.glade:64
 msgid "CLIENT IN"
-msgstr ""
+msgstr "CLIENTE DENTRO"
 
 #: ../glade/cmddebug.glade:78
 msgid "CLIENT OUT"
-msgstr ""
+msgstr "CLIENTE FUERA"
 
 #: ../glade/cmddebug.glade:92
 msgid "DETECTION"
-msgstr ""
+msgstr "DETECCIÓN"
 
 #: ../glade/cmddebug.glade:106
 msgid "Filter by IP"
-msgstr ""
+msgstr "Filtrar por IP"
 
 #: ../glade/mainwindow.glade:18
 msgid "_File"
@@ -2493,7 +2483,7 @@ msgstr "_herramientas"
 
 #: ../glade/mainwindow.glade:260
 msgid "CMD Debug"
-msgstr ""
+msgstr "CMD debug"
 
 #: ../glade/mainwindow.glade:340
 msgid "_Preferences"
@@ -2517,11 +2507,11 @@ msgstr "_Cerrar widget"
 
 #: ../glade/mainwindow.glade:401
 msgid "Panels"
-msgstr ""
+msgstr "Paneles"
 
 #: ../glade/mainwindow.glade:408
 msgid "Tools panel"
-msgstr ""
+msgstr "Panel de herramientas"
 
 #: ../glade/mainwindow.glade:415
 msgid "Top position"
@@ -2532,14 +2522,12 @@ msgid "Left position"
 msgstr "Posición izquierda"
 
 #: ../glade/mainwindow.glade:437
-#, fuzzy
 msgid "Small icons"
-msgstr "Iconos del sistema"
+msgstr "Iconos pequeños"
 
 #: ../glade/mainwindow.glade:453
-#, fuzzy
 msgid "Hide tools panel"
-msgstr "Esconder herramientas"
+msgstr "Esconder panel de herramientas"
 
 #: ../glade/mainwindow.glade:464
 msgid "_Help"
@@ -3538,9 +3526,8 @@ msgid "Security Certificates"
 msgstr "Certificados de seguridad"
 
 #: ../glade/settingsdialog.glade:5209
-#, fuzzy
 msgid "Use bandwidth limits"
-msgstr "Utilice el segundo conjunto de límites de ancho de banda"
+msgstr "Utilice límites de ancho de banda"
 
 #: ../glade/settingsdialog.glade:5247 ../glade/settingsdialog.glade:5490
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
@@ -3904,3 +3891,5 @@ msgstr "Abrir imagen"
 #: ../glade/hub.glade:495
 msgid "Remove image"
 msgstr "Eliminar imagen"
+
+

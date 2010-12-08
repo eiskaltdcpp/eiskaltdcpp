@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-12-04 02:13+0200\n"
-"PO-Revision-Date: 2010-10-08 19:26+0200\n"
+"PO-Revision-Date: 2010-12-06 07:20+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -30,7 +30,7 @@ msgstr "Redireccionar usuario(s)"
 
 #: ../FavoriteManager.cpp:488
 msgid "Auto-connect group (converted)"
-msgstr ""
+msgstr "Auto-conectar grupo (convertido)"
 
 #: ../Socket.cpp:58
 #, c-format
@@ -83,20 +83,19 @@ msgstr "Cola de Descargas"
 
 #: ../DCPlusPlus.cpp:138
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "No se puede crear tarea"
 
 #: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
-#, fuzzy
 msgid "Invalid data"
-msgstr "Tamaño no válido"
+msgstr "Datos inválidos"
 
 #: ../UserConnection.cpp:61
 msgid "Non-UTF-8 data in an ADC connection"
-msgstr ""
+msgstr "Datos no-UTF8 en la conexión ADC"
 
 #: ../ConnectivityManager.cpp:56
 msgid "Determining connection type..."
@@ -148,7 +147,7 @@ msgstr "Imposible enviar archivo  %1%: %2%"
 
 #: ../UploadManager.cpp:409
 msgid "IPFilter: Blocked incoming connection to "
-msgstr ""
+msgstr "IPFilter: Bloqueada conexión de entrada a "
 
 #: ../UploadManager.cpp:468
 msgid "Disconnected user leaving the hub: %1%"
@@ -156,16 +155,15 @@ msgstr "Usuario desconectado ha dejado el hub: %1%"
 
 #: ../SettingsManager.cpp:503
 msgid "Invalid search type name"
-msgstr ""
+msgstr "Nombre del tipo de búsqueda invalida"
 
 #: ../SettingsManager.cpp:507 ../SettingsManager.cpp:529
-#, fuzzy
 msgid "This search type already exists"
-msgstr "El Directorio Virtual ya existe"
+msgstr "Este tipo de búsquedas ya existe"
 
 #: ../SettingsManager.cpp:561
 msgid "No such search type"
-msgstr ""
+msgstr "Tipo de búsqueda no encontrada"
 
 #: ../NmdcHub.cpp:288
 msgid "%1% (Nick unknown)"
@@ -218,7 +216,7 @@ msgstr "No escuchando conexiones - por favor reinicie %1%"
 
 #: ../ChatMessage.cpp:34
 msgid "Sent "
-msgstr ""
+msgstr "Enviado"
 
 #: ../Util.cpp:492
 #, c-format
@@ -375,9 +373,8 @@ msgid "No directory specified"
 msgstr "Directorio no especificado"
 
 #: ../ShareManager.cpp:457
-#, fuzzy
 msgid "Directory is hidden"
-msgstr "Carpeta ya Compartida"
+msgstr "El directorio está escondido"
 
 #: ../ShareManager.cpp:461
 msgid "The temporary download directory cannot be shared"
@@ -386,6 +383,7 @@ msgstr "La carpeta temporal de descargas NO puede compartirse"
 #: ../ShareManager.cpp:649
 msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
+"Encontrado nombre de archivo invalido mientras que se hasheaba la carpeta %1%"
 
 #: ../ShareManager.cpp:667
 msgid "User has chosen not to share file: %1% (Size: %2%)"
@@ -484,7 +482,7 @@ msgstr "SSL Error: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:136
 msgid "IPFilter: Blocked outgoing connection to "
-msgstr ""
+msgstr "IPFilter: Bloqueada conexión de salida a "
 
 #: ../DownloadManager.cpp:229
 msgid "Invalid size"
@@ -528,43 +526,43 @@ msgstr "Error de conectividad: %1%"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
-msgstr ""
+msgstr "Todos"
 
 #: ../SearchManager.cpp:37
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 #: ../SearchManager.cpp:38
 msgid "Compressed"
-msgstr ""
+msgstr "Comprimidos"
 
 #: ../SearchManager.cpp:39
 msgid "Document"
-msgstr ""
+msgstr "Documentos"
 
 #: ../SearchManager.cpp:40
 msgid "Executable"
-msgstr ""
+msgstr "Ejecutables"
 
 #: ../SearchManager.cpp:41
 msgid "Picture"
-msgstr ""
+msgstr "Foto"
 
 #: ../SearchManager.cpp:42
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../SearchManager.cpp:43
 msgid "Directory"
-msgstr ""
+msgstr "Directorio"
 
 #: ../SearchManager.cpp:44
 msgid "TTH"
-msgstr ""
+msgstr "TTH"
 
 #: ../SearchManager.cpp:45
 msgid "CD Image"
-msgstr ""
+msgstr "Imagen CD"
 
 #: ../SearchManager.cpp:151
 msgid "Search enabled again"
@@ -576,7 +574,7 @@ msgstr "Búsqueda desactivada: %1%"
 
 #: ../QueueManager.cpp:236
 msgid "NO_NEEDED_PART"
-msgstr ""
+msgstr "PARTE_NO_NECESITADA"
 
 #: ../QueueManager.cpp:592
 msgid "Searching TTH alternates for: %1%"
@@ -603,14 +601,12 @@ msgid "You're trying to download from yourself!"
 msgstr "¡Intentas descargar de ti mismo!"
 
 #: ../QueueManager.cpp:754
-#, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
-msgstr "Un archivo de distinto TTH ya existe en su cola de descarga"
+msgstr "Un archivo de distinta raíz TTH ya existe en su cola de descarga"
 
 #: ../QueueManager.cpp:758
-#, fuzzy
 msgid "This file has already finished downloading"
-msgstr "Este archivo ya está en la Cola de Descarga"
+msgstr "Este archivo ya ha acabado de descargarse"
 
 #: ../QueueManager.cpp:795 ../QueueManager.cpp:804
 msgid "Target filename too long"
@@ -625,10 +621,8 @@ msgstr ""
 "descargas)"
 
 #: ../QueueManager.cpp:816
-#, fuzzy
 msgid "File already exists at the target location"
-msgstr ""
-"Ya existe un archivo de tamaño igual o superior en el directorio de destino"
+msgstr "Ya existe un archivo igual en el directorio de destino"
 
 #: ../QueueManager.cpp:829 ../QueueManager.cpp:833
 msgid "Duplicate source: %1%"
@@ -644,11 +638,11 @@ msgstr "El archivo no existe o tiene un tamaño incorrecto"
 
 #: ../QueueManager.cpp:1159
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr ""
+msgstr "No se puede mover %1% a %2% (%3%); renombrando a %4%"
 
 #: ../QueueManager.cpp:1162
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
+msgstr "No se puede mover %1% a %2% (%3%) no se puede renombrar a %4% (%5%)"
 
 #: ../QueueManager.cpp:1333
 msgid "Unable to open filelist: %1%"
@@ -677,3 +671,4 @@ msgstr "Más bytes escritos de los requeridos"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Incoherencia TTH"
+

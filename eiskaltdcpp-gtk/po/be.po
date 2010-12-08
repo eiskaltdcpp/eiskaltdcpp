@@ -585,8 +585,7 @@ msgstr "Самарушна шукаць у сьпісах файлаў"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
-#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
-#: ../glade/adlsearch.glade:354
+#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393 ../glade/adlsearch.glade:354
 msgid "Enabled"
 msgstr "Задзейнічаць"
 
@@ -950,13 +949,11 @@ msgstr "Назоў"
 #: ../src/settingsdialog.cc:3302 ../src/settingsdialog.cc:3319
 #: ../src/publichubs.cc:63 ../src/publichubs.cc:335 ../src/publichubs.cc:360
 #: ../src/publichubs.cc:410
-#, fuzzy
 msgid "List"
-msgstr "Сьпіс: "
+msgstr "Сьпіс"
 
 #: ../src/settingsdialog.cc:797 ../src/settingsdialog.cc:811
 #: ../src/settingsdialog.cc:3408
-#, fuzzy
 msgid "Favorite Name"
 msgstr "Назоў"
 
@@ -1042,7 +1039,6 @@ msgstr "Ня сьцягваць файлы, што ўжо стаяць у чар
 
 #: ../src/settingsdialog.cc:899 ../src/settingsdialog.cc:3457
 #: ../src/settingsdialog.cc:3526
-#, fuzzy
 msgid "Virtual Name"
 msgstr "Уяўны назоў"
 
@@ -1468,9 +1464,8 @@ msgstr "Дазволіць злучацца праз TLS з кліентамі �
 #: ../src/settingsdialog.cc:1508 ../src/settingsdialog.cc:1698
 #: ../src/settingsdialog.cc:1731 ../src/settingsdialog.cc:1817
 #: ../src/settingsdialog.cc:1866 ../src/settingsdialog.cc:1914
-#, fuzzy
 msgid "Search type"
-msgstr "Шпегаваць у шуканым"
+msgstr "Від крыніцы"
 
 #: ../src/settingsdialog.cc:1509 ../src/settingsdialog.cc:1608
 #: ../src/settingsdialog.cc:1699
@@ -1482,9 +1477,8 @@ msgid "New search type"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1621
-#, fuzzy
 msgid "<b>Name of the new search type</b>"
-msgstr "<b>Віды пошуку</b>"
+msgstr "<b>Назоў новага віду пошуку</b>"
 
 #: ../src/settingsdialog.cc:1682 ../src/settingsdialog.cc:1726
 #: ../src/settingsdialog.cc:2668
@@ -1492,28 +1486,24 @@ msgid "Error"
 msgstr "Памылка"
 
 #: ../src/settingsdialog.cc:1802 ../src/settingsdialog.cc:1989
-#, fuzzy
 msgid "Invalid extension: "
-msgstr "Хібны памер"
+msgstr "Хібнае пашырэньне: "
 
 #: ../src/settingsdialog.cc:1873
 msgid "Rename a search type"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1874
-#, fuzzy
 msgid "<b>New name</b>"
-msgstr "<b>Кадр</b>"
+msgstr "<b>Новы назоў</b>"
 
 #: ../src/settingsdialog.cc:1973
-#, fuzzy
 msgid "Extension edition"
-msgstr "Пашырэньні"
+msgstr "Зьмяніць пашырэньне"
 
 #: ../src/settingsdialog.cc:1974
-#, fuzzy
 msgid "<b>Extension</b>"
-msgstr "<b>Можнасьці</b>"
+msgstr "<b>Пашырэньне</b>"
 
 #: ../src/settingsdialog.cc:2049
 msgid "*** T E S T ***"
@@ -1924,9 +1914,8 @@ msgid "Searching too soon, retry in "
 msgstr "Зачаста шукаем. Наступная спроба праз "
 
 #: ../src/search.cc:544
-#, fuzzy
 msgid " s"
-msgstr "с"
+msgstr " с"
 
 #: ../src/search.cc:627
 msgid " items"
@@ -1945,9 +1934,8 @@ msgid "Close tab"
 msgstr "Закрыць картку"
 
 #: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
-#, fuzzy
 msgid "Error: setting not found!"
-msgstr "Не знайшлі карыстальніка"
+msgstr "Памылка: не знайшлі можнасьці!"
 
 #: ../src/settingsmanager.cc:515
 msgid "Change setting "
@@ -1972,9 +1960,8 @@ msgstr "Сьпіс: "
 #: ../src/sharebrowser.cc:99 ../src/sharebrowser.cc:217
 #: ../src/sharebrowser.cc:236 ../src/sharebrowser.cc:565
 #: ../src/sharebrowser.cc:617
-#, fuzzy
 msgid "Dir"
-msgstr "Адкінуць"
+msgstr "Кат"
 
 #: ../src/sharebrowser.cc:152
 msgid "File list loaded"
@@ -2329,8 +2316,7 @@ msgstr "Узгадніць _чаргу"
 msgid "Send _private message"
 msgstr "Асабістае _паведамленьне"
 
-#: ../glade/search.glade:511 ../glade/transfers.glade:52
-#: ../glade/hub.glade:265
+#: ../glade/search.glade:511 ../glade/transfers.glade:52 ../glade/hub.glade:265
 msgid "_Add to favorites"
 msgstr "_Дадаць да ўлюбёнцаў"
 
@@ -3536,9 +3522,8 @@ msgid "Security Certificates"
 msgstr "Пасьведчаньні бясьпекі"
 
 #: ../glade/settingsdialog.glade:5209
-#, fuzzy
 msgid "Use bandwidth limits"
-msgstr "Ужываць іншыя абмежаваньні хуткасьці ў час"
+msgstr "Ужываць абмежаваньні хуткасьці"
 
 #: ../glade/settingsdialog.glade:5247 ../glade/settingsdialog.glade:5490
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"

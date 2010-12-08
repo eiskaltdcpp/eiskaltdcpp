@@ -648,7 +648,7 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="132"/>
         <source>File marked as a duplicate of another file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivo marcado como duplicado de otro archivo: %1</translation>
     </message>
 </context>
 <context>
@@ -669,12 +669,12 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="12"/>
         <source>Finished uploads</source>
-        <translation type="unfinished">Subidas finalizadas</translation>
+        <translation>Subidas finalizadas</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="13"/>
         <source>Finished downloads</source>
-        <translation type="unfinished">Descargas finalizadas</translation>
+        <translation>Descargas finalizadas</translation>
     </message>
 </context>
 <context>
@@ -682,12 +682,12 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfers.h" line="286"/>
         <source>Open file</source>
-        <translation type="unfinished">Abrir archivo</translation>
+        <translation>Abrir archivo</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.h" line="287"/>
         <source>Open directory</source>
-        <translation type="unfinished">Abrir directorio</translation>
+        <translation>Abrir directorio</translation>
     </message>
 </context>
 <context>
@@ -2556,12 +2556,12 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="244"/>
         <source>Filename</source>
-        <translation type="unfinished">Nombre de archivo</translation>
+        <translation>Nombre del archivo</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="245"/>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
 </context>
 <context>
@@ -2569,12 +2569,12 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="44"/>
         <source>Add new</source>
-        <translation type="unfinished">Añadir nuevo</translation>
+        <translation>Añadir nuevo</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="45"/>
         <source>Remove</source>
-        <translation type="unfinished">Eliminar</translation>
+        <translation>Eliminar</translation>
     </message>
 </context>
 <context>
@@ -2582,27 +2582,27 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="147"/>
         <source>Filename</source>
-        <translation type="unfinished">Nombre de archivo</translation>
+        <translation>Nombre del archivo</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="147"/>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="162"/>
         <source>Key</source>
-        <translation type="unfinished">Palabra</translation>
+        <translation>Palabra</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="163"/>
         <source>Type</source>
-        <translation type="unfinished">Tipo</translation>
+        <translation>Tipo</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="187"/>
         <source>Set text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Establecer texto...</translation>
     </message>
 </context>
 <context>
@@ -2680,7 +2680,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="133"/>
         <source>CD Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagen CD</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="184"/>
@@ -2825,7 +2825,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="114"/>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista negra</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="211"/>
@@ -3512,7 +3512,8 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/SingleInstanceRunner.cpp" line="26"/>
         <source>Internal server running on %1
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Servidor interno funcionando en %1
+</translation>
     </message>
 </context>
 <context>
@@ -4772,17 +4773,17 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="29"/>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista Negra</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="75"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="82"/>
         <source>OK</source>
-        <translation type="unfinished">Aceptar</translation>
+        <translation>Aceptar</translation>
     </message>
 </context>
 <context>
@@ -4938,12 +4939,12 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="775"/>
         <source>Ignore incoming non-TTH searches</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorar busquedas no-TTH entrantes</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="782"/>
         <source>Ignore all incoming searches</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorar todas las busquedas entrantes</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="369"/>
