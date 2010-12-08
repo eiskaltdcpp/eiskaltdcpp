@@ -76,7 +76,7 @@ void SettingsSharing::ok(){
     for (int k = 0; k < listWidget_SKIPLIST->count(); ++k)
         list << listWidget_SKIPLIST->item(k)->text();
 
-    SM->set(SettingsManager::SKIPLIST_SHARE, _tq(list.join("|")));
+    SM->set(SettingsManager::SKIPLIST_SHARE, (list.isEmpty()? "|" : _tq(list.join("|"))));
 
     WBSET(WB_SIMPLE_SHARE_MODE, checkBox_SIMPLE_SHARE_MODE->isChecked());
 
