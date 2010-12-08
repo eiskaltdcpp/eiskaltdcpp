@@ -17,8 +17,6 @@ list (REMOVE_ITEM extra_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/antispam.cpp)
 
 add_library(extra STATIC ${extra_SRCS})
 
-if (USE_MINIUPNP)
-  set_property(TARGET extra PROPERTY COMPILE_FLAGS -fPIC)
-endif()
+set_property(TARGET extra PROPERTY COMPILE_FLAGS -fPIC)
 
 target_link_libraries (extra ${MINIUPNP_LIBRARY})
