@@ -209,6 +209,7 @@ void SettingsGUI::init(){
         checkBox_ROTATING->setChecked(WBGET(WB_CHAT_ROTATING_MSGS));
         checkBox_SMILEPANEL->setChecked(WBGET(WB_CHAT_USE_SMILE_PANEL));
         checkBox_HIDESMILEPANEL->setChecked(WBGET(WB_CHAT_HIDE_SMILE_PANEL));
+        checkBox_REDIRECT_UNREAD->setChecked(WBGET("hubframe/redirect-pm-to-main-chat", false));
     }
     {//Chat (extended) tab
         comboBox_DBL_CLICK->setCurrentIndex(WIGET(WI_CHAT_DBLCLICK_ACT));
@@ -371,6 +372,7 @@ void SettingsGUI::ok(){
         WBSET(WB_CHAT_HIGHLIGHT_FAVS, checkBox_HIGHLIGHTFAVS->isChecked());
         WBSET(WB_CHAT_USE_SMILE_PANEL, checkBox_SMILEPANEL->isChecked());
         WBSET(WB_CHAT_HIDE_SMILE_PANEL, checkBox_HIDESMILEPANEL->isChecked());
+        WBSET("hubframe/redirect-pm-to-main-chat", checkBox_REDIRECT_UNREAD->isChecked());
     }
     {//Chat (extended) tab
         WISET(WI_CHAT_DBLCLICK_ACT, comboBox_DBL_CLICK->currentIndex());

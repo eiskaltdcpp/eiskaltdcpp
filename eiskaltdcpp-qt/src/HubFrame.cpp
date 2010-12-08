@@ -1702,6 +1702,8 @@ void HubFrame::addOutput(QString msg){
 }
 
 void HubFrame::addPM(QString cid, QString output, bool keepfocus){
+    bool redirectToMainChat = WBGET("hubframe/redirect-pm-to-main-chat", true);
+
     if (!pm.contains(cid)){
         PMWindow *p = new PMWindow(cid, _q(client->getHubUrl().c_str()));
         p->textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -1724,6 +1726,9 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         p->setAttribute(Qt::WA_DeleteOnClose);
 
         pm.insert(cid, p);
+
+        if (!p->isVisible() && redirectToMainChat)
+            addOutput("<b>PM: </b>" + output);
     }
     else{
         PMMap::iterator it = pm.find(cid);
@@ -1735,6 +1740,9 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
             MainWindow::getInstance()->mapWidgetOnArena(it.value());
 
         it.value()->addOutput(output);
+
+        if (! it.value()->isVisible() && redirectToMainChat)
+            addOutput("<b>PM: </b>" + output);
     }
 }
 
