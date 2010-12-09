@@ -566,11 +566,11 @@ Kapcsolók:
     </message>
     <message>
         <source>File marked as a duplicate of another file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>A fájl meg lett jelölve a következő fájl duplikációjaként: %1</translation>
     </message>
     <message>
         <source>%1 [%2 Gb]</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 [%2 Gb]</translation>
     </message>
 </context>
 <context>
@@ -588,22 +588,22 @@ Kapcsolók:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation type="unfinished">Befejezett feltöltések</translation>
+        <translation>Befejezett feltöltések</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation type="unfinished">Befejezett letöltések</translation>
+        <translation>Befejezett letöltések</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation type="unfinished">Fájl megnyitása</translation>
+        <translation>Fájl megnyitása</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation type="unfinished">Könyvtár megnyitása</translation>
+        <translation>Könyvtár megnyitása</translation>
     </message>
 </context>
 <context>
@@ -2122,7 +2122,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Speed limit On/Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Sebességkorlátozás ki/be</translation>
     </message>
 </context>
 <context>
@@ -2375,45 +2375,45 @@ Kapcsolók:
     <name>SearchBlackListDelegate</name>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Fájlnév</translation>
+        <translation>Fájlnév</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
     <message>
         <source>Add new</source>
-        <translation type="unfinished">Új hozzáadása</translation>
+        <translation>Új hozzáadása</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Eltávolítás</translation>
     </message>
 </context>
 <context>
     <name>SearchBlackListModel</name>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Fájlnév</translation>
+        <translation>Fájlnév</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished">Kulcs</translation>
+        <translation>Kulcs</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished">Típus</translation>
+        <translation>Típus</translation>
     </message>
     <message>
         <source>Set text...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2644,11 +2644,11 @@ Kapcsolók:
     </message>
     <message>
         <source>CD Image</source>
-        <translation type="unfinished"></translation>
+        <translation>CD képfájl</translation>
     </message>
     <message>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiltólista</translation>
     </message>
 </context>
 <context>
@@ -3074,19 +3074,19 @@ Kapcsolók:
     </message>
     <message>
         <source>Restrictions</source>
-        <translation type="unfinished">Korlátozások</translation>
+        <translation>Korlátozások</translation>
     </message>
     <message>
         <source>Add restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Új korlátozás hozzáadása</translation>
     </message>
     <message>
         <source>Remove restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Korlátozás eltávolítása</translation>
     </message>
     <message>
         <source>Enter restriction size (in GB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Korlátozás méretének megadása (GiB-ban)</translation>
     </message>
 </context>
 <context>
@@ -3194,7 +3194,8 @@ Kapcsolók:
     <message>
         <source>Internal server running on %1
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Egy belső kiszolgáló fut a következőn: %1
+</translation>
     </message>
 </context>
 <context>
@@ -3910,19 +3911,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Alapértelmezett</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished">Aktív</translation>
+        <translation>Aktív</translation>
     </message>
     <message>
         <source>Passive</source>
-        <translation type="unfinished">Passzív (csak végső esetben használd!)</translation>
+        <translation>Passzív</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mód</translation>
     </message>
 </context>
 <context>
@@ -4297,15 +4298,15 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <name>UISearchBlacklistDialog</name>
     <message>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiltólista</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Mégsem</translation>
+        <translation>Mégsem</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -5259,11 +5260,11 @@ a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
         <source>Redirect new personal messages to the main chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Új privát üzenet átirányítása a main chatre</translation>
     </message>
     <message>
         <source>Parse BBCode</source>
-        <translation type="unfinished"></translation>
+        <translation>BBCode feldolgozása</translation>
     </message>
 </context>
 <context>

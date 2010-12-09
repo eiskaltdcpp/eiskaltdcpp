@@ -4,12 +4,13 @@
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 # sumo <husumo@elitemail.hu>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-12-08 23:34+0200\n"
-"PO-Revision-Date: 2010-10-27 12:58+0200\n"
+"PO-Revision-Date: 2010-12-09 19:34+0100\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -30,7 +31,7 @@ msgstr "Felhasználó(k) átirányítása"
 
 #: ../FavoriteManager.cpp:488
 msgid "Auto-connect group (converted)"
-msgstr ""
+msgstr "Automatikusan csatlakozó hubok csoportja (konvertált)"
 
 #: ../Socket.cpp:58
 #, c-format
@@ -84,20 +85,19 @@ msgstr "Letöltési Sor"
 
 #: ../DCPlusPlus.cpp:138
 msgid "Users"
-msgstr ""
+msgstr "Felhasználó(k)"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "A szál léterhozása sikertelen"
 
 #: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
-#, fuzzy
 msgid "Invalid data"
-msgstr "Érvénytelen méret"
+msgstr "Érvénytelen adat"
 
 #: ../UserConnection.cpp:61
 msgid "Non-UTF-8 data in an ADC connection"
-msgstr ""
+msgstr "Nem-UTF-8 adat az ADC kapcsolatban"
 
 #: ../ConnectivityManager.cpp:56
 msgid "Determining connection type..."
@@ -149,7 +149,7 @@ msgstr "A fájl küldése sikertelen: %1%: %2%"
 
 #: ../UploadManager.cpp:409
 msgid "IPFilter: Blocked incoming connection to "
-msgstr ""
+msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 
 #: ../UploadManager.cpp:472
 msgid "Disconnected user leaving the hub: %1%"
@@ -157,16 +157,15 @@ msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
 #: ../SettingsManager.cpp:501
 msgid "Invalid search type name"
-msgstr ""
+msgstr "Érvénytelen keresési feltétel"
 
 #: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
-#, fuzzy
 msgid "This search type already exists"
-msgstr "A virtuális könyvtárnév már létezik"
+msgstr "A megadott keresési feltétel már létezik"
 
 #: ../SettingsManager.cpp:559
 msgid "No such search type"
-msgstr ""
+msgstr "Keresési feltétel nem található"
 
 #: ../NmdcHub.cpp:288
 msgid "%1% (Nick unknown)"
@@ -219,7 +218,7 @@ msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 
 #: ../ChatMessage.cpp:34
 msgid "Sent "
-msgstr ""
+msgstr "Elküldve"
 
 #: ../Util.cpp:492
 #, c-format
@@ -351,6 +350,8 @@ msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
 msgstr ""
+"A port-hozzárendelés sikeresen létrehozva (TCP: %1%, UDP: %2%, TLS: %3%), a "
+"használt interfész: %4%"
 
 #: ../UPnPManager.cpp:109
 msgid "Failed to get external IP"
@@ -358,11 +359,11 @@ msgstr "Külső IP lekérdezése sikertelen"
 
 #: ../UPnPManager.cpp:117
 msgid "Failed to create port mappings"
-msgstr ""
+msgstr "Nem sikerült létrehozni a port-hozzárendeléseket."
 
 #: ../UPnPManager.cpp:126
 msgid "Failed to remove port mappings"
-msgstr ""
+msgstr "Nem sikerült megszüntetni a port-hozzárendeléseket"
 
 #: ../UPnPManager.cpp:131
 msgid "UPnP: %1%"
@@ -373,9 +374,8 @@ msgid "No directory specified"
 msgstr "Nincs könyvtár megadva"
 
 #: ../ShareManager.cpp:457
-#, fuzzy
 msgid "Directory is hidden"
-msgstr "A könyvtár már meg van osztva"
+msgstr "Rejtett könyvtár"
 
 #: ../ShareManager.cpp:461
 msgid "The temporary download directory cannot be shared"
@@ -384,14 +384,19 @@ msgstr "Az ideiglenes letöltési könyvtár nem megosztható"
 #: ../ShareManager.cpp:649
 msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
+"Érvénytelen fájlnév található a következő könyvtárban indexelésekor: %1%"
 
 #: ../ShareManager.cpp:667
 msgid "User has chosen not to share file: %1% (Size: %2%)"
 msgstr ""
+"A felhasználó azt választotta, hogy a következő fájlt nem osztja meg: %1% "
+"(Méret: %2%)"
 
 #: ../ShareManager.cpp:688
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr ""
+"A felhasználó azt választotta, hogy a következő ideiglenes fájlt nem osztja "
+"meg: %1% (Méret: %2%)"
 
 #: ../ShareManager.cpp:776
 msgid ""
@@ -481,7 +486,7 @@ msgstr "SSL Hiba: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
-msgstr ""
+msgstr "IPFilter: Blokkolt kimenő kapcsolat: "
 
 #: ../DownloadManager.cpp:228
 msgid "Invalid size"
@@ -521,43 +526,43 @@ msgstr "Kapcsolódási hiba: %1%"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
-msgstr ""
+msgstr "Minden"
 
 #: ../SearchManager.cpp:37
 msgid "Audio"
-msgstr ""
+msgstr "Audió"
 
 #: ../SearchManager.cpp:38
 msgid "Compressed"
-msgstr ""
+msgstr "Tömörített"
 
 #: ../SearchManager.cpp:39
 msgid "Document"
-msgstr ""
+msgstr "Dokumentum"
 
 #: ../SearchManager.cpp:40
 msgid "Executable"
-msgstr ""
+msgstr "Futtatható"
 
 #: ../SearchManager.cpp:41
 msgid "Picture"
-msgstr ""
+msgstr "Kép"
 
 #: ../SearchManager.cpp:42
 msgid "Video"
-msgstr ""
+msgstr "Videó"
 
 #: ../SearchManager.cpp:43
 msgid "Directory"
-msgstr ""
+msgstr "Könyvtár"
 
 #: ../SearchManager.cpp:44
 msgid "TTH"
-msgstr ""
+msgstr "TTH"
 
 #: ../SearchManager.cpp:45
 msgid "CD Image"
-msgstr ""
+msgstr "CD képfájl"
 
 #: ../SearchManager.cpp:151
 msgid "Search enabled again"
@@ -569,7 +574,7 @@ msgstr "Keresés tiltva:%1%"
 
 #: ../QueueManager.cpp:238
 msgid "NO_NEEDED_PART"
-msgstr ""
+msgstr "NO_NEEDED_PART"
 
 #: ../QueueManager.cpp:594
 msgid "Searching TTH alternates for: %1%"
@@ -596,14 +601,12 @@ msgid "You're trying to download from yourself!"
 msgstr "Saját magadtól próbálsz meg letölteni!"
 
 #: ../QueueManager.cpp:756
-#, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Egy különböző TTH gyökerű fájl már van a sorban"
 
 #: ../QueueManager.cpp:760
-#, fuzzy
 msgid "This file has already finished downloading"
-msgstr "A fájl már a sorban van"
+msgstr "Ennek a fájlnak a letöltése már befejeződött"
 
 #: ../QueueManager.cpp:797 ../QueueManager.cpp:806
 msgid "Target filename too long"
@@ -618,9 +621,8 @@ msgstr ""
 "letöltési könyvtár beállításait)"
 
 #: ../QueueManager.cpp:818
-#, fuzzy
 msgid "File already exists at the target location"
-msgstr "Egy megegyező vagy nagyobb méretű fájl már létezik a megadott helyen"
+msgstr "A fájl már létezik a megadott helyen"
 
 #: ../QueueManager.cpp:831 ../QueueManager.cpp:835
 msgid "Duplicate source: %1%"
@@ -636,11 +638,12 @@ msgstr "A cél fájl hiányzik vagy nem megfelelő méretű"
 
 #: ../QueueManager.cpp:1161
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr ""
+msgstr "Sikertelen áthelyezés [%1% ide: %2% (%3%)]; átnevezve erre: %4%"
 
 #: ../QueueManager.cpp:1164
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
+"Sikertelen áthelyezés [%1% ide: %2% (%3%)], vagy átnevezés [erre: %4% (%5)]"
 
 #: ../QueueManager.cpp:1339
 msgid "Unable to open filelist: %1%"
