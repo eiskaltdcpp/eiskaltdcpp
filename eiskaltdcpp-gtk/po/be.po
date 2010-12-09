@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-04 02:13+0200\n"
+"POT-Creation-Date: 2010-12-08 23:34+0200\n"
 "PO-Revision-Date: 2010-08-17 18:49+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -542,40 +542,40 @@ msgstr "Дадалі ўлюбёны асяродак"
 msgid "Favorite hub already exists"
 msgstr "Асяродак ужо ёсьць ва ўлюбёных"
 
-#: ../src/hub.cc:2934
+#: ../src/hub.cc:2936
 msgid "loading error"
 msgstr "здарылася памылка, калі чыталі"
 
-#: ../src/hub.cc:2947
+#: ../src/hub.cc:2949
 msgid "bad image"
 msgstr "кепскі відарыс"
 
-#: ../src/hub.cc:3222
+#: ../src/hub.cc:3224
 msgid "Connecting to "
 msgstr "Злучаемся з "
 
-#: ../src/hub.cc:3229 ../src/transfers.cc:1013
+#: ../src/hub.cc:3231 ../src/transfers.cc:1022
 msgid "Connected"
 msgstr "Злучыліся"
 
-#: ../src/hub.cc:3285
+#: ../src/hub.cc:3287
 msgid "Connect failed: "
 msgstr "Не ўдалося злучыцца: "
 
-#: ../src/hub.cc:3348
+#: ../src/hub.cc:3350
 msgid "Ignored private message from hub"
 msgstr "Не зважаць на асабістыя паведамленьні ад асяродку"
 
-#: ../src/hub.cc:3355
+#: ../src/hub.cc:3357
 msgid "Ignored private message from bot "
 msgstr "Не зважаць на асабістыя паведамленьні ад ботаў "
 
-#: ../src/hub.cc:3452
+#: ../src/hub.cc:3454
 msgid "Nick already taken"
 msgstr "Мянушку ўжо занялі"
 
 # ???«Выявілі назолу ў пошуку»
-#: ../src/hub.cc:3459
+#: ../src/hub.cc:3461
 msgid "Search spam detected from "
 msgstr "Выявілі непажаданы пошук ад "
 
@@ -646,7 +646,7 @@ msgstr "Апошні раз бачылі"
 #: ../src/favoriteusers.cc:269 ../src/favoriteusers.cc:296
 #: ../src/favoriteusers.cc:347 ../src/favoriteusers.cc:374
 #: ../src/favoriteusers.cc:425 ../src/favoriteusers.cc:469
-#: ../src/favoriteusers.cc:587 ../src/transfers.cc:609
+#: ../src/favoriteusers.cc:587
 msgid "CID"
 msgstr ""
 
@@ -800,11 +800,11 @@ msgstr "Запытваемся"
 msgid "Download starting..."
 msgstr "Пачынаем сьцягваць…"
 
-#: ../src/transfers.cc:937 ../src/transfers.cc:1115
+#: ../src/transfers.cc:937 ../src/transfers.cc:1124
 msgid "[S]"
 msgstr "[S]"
 
-#: ../src/transfers.cc:939 ../src/transfers.cc:1117
+#: ../src/transfers.cc:939 ../src/transfers.cc:1126
 msgid "[U]"
 msgstr "[U]"
 
@@ -812,7 +812,7 @@ msgstr "[U]"
 msgid "[T]"
 msgstr "[T]"
 
-#: ../src/transfers.cc:944 ../src/transfers.cc:1120
+#: ../src/transfers.cc:944 ../src/transfers.cc:1129
 msgid "[Z]"
 msgstr "[Z]"
 
@@ -820,40 +820,40 @@ msgstr "[Z]"
 msgid "Download complete..."
 msgstr "Скончылі сьцягваць…"
 
-#: ../src/transfers.cc:1002
+#: ../src/transfers.cc:1011
 msgid "Connecting..."
 msgstr "Злучаемся…"
 
-#: ../src/transfers.cc:1049
+#: ../src/transfers.cc:1058
 msgid "Connecting"
 msgstr "Злучаемся"
 
-#: ../src/transfers.cc:1051
+#: ../src/transfers.cc:1060
 msgid "Waiting to retry"
 msgstr "Чакаем паспрабаваць зноўку"
 
-#: ../src/transfers.cc:1074 ../src/settingsdialog.cc:986
+#: ../src/transfers.cc:1083 ../src/settingsdialog.cc:986
 #: ../src/settingsdialog.cc:1147 ../src/settingsmanager.cc:235
 msgid "Download finished"
 msgstr "Скончылі сьцягваць"
 
-#: ../src/transfers.cc:1083
+#: ../src/transfers.cc:1092
 msgid "Download removed"
 msgstr "Скасавалі"
 
-#: ../src/transfers.cc:1092
+#: ../src/transfers.cc:1101
 msgid "Upload starting..."
 msgstr "Пачынаем зацягваць…"
 
-#: ../src/transfers.cc:1095
+#: ../src/transfers.cc:1104
 msgid "none"
 msgstr ""
 
-#: ../src/transfers.cc:1123
+#: ../src/transfers.cc:1132
 msgid "Uploaded "
 msgstr "Зацягнулі "
 
-#: ../src/transfers.cc:1138
+#: ../src/transfers.cc:1147
 msgid "Upload complete..."
 msgstr "Скончылі зацягваць…"
 
@@ -950,13 +950,11 @@ msgstr "Назоў"
 #: ../src/settingsdialog.cc:3302 ../src/settingsdialog.cc:3319
 #: ../src/publichubs.cc:63 ../src/publichubs.cc:335 ../src/publichubs.cc:360
 #: ../src/publichubs.cc:410
-#, fuzzy
 msgid "List"
-msgstr "Сьпіс: "
+msgstr "Сьпіс"
 
 #: ../src/settingsdialog.cc:797 ../src/settingsdialog.cc:811
 #: ../src/settingsdialog.cc:3408
-#, fuzzy
 msgid "Favorite Name"
 msgstr "Назоў"
 
@@ -1042,7 +1040,6 @@ msgstr "Ня сьцягваць файлы, што ўжо стаяць у чар
 
 #: ../src/settingsdialog.cc:899 ../src/settingsdialog.cc:3457
 #: ../src/settingsdialog.cc:3526
-#, fuzzy
 msgid "Virtual Name"
 msgstr "Уяўны назоў"
 
@@ -1468,9 +1465,8 @@ msgstr "Дазволіць злучацца праз TLS з кліентамі �
 #: ../src/settingsdialog.cc:1508 ../src/settingsdialog.cc:1698
 #: ../src/settingsdialog.cc:1731 ../src/settingsdialog.cc:1817
 #: ../src/settingsdialog.cc:1866 ../src/settingsdialog.cc:1914
-#, fuzzy
 msgid "Search type"
-msgstr "Шпегаваць у шуканым"
+msgstr "Від крыніцы"
 
 #: ../src/settingsdialog.cc:1509 ../src/settingsdialog.cc:1608
 #: ../src/settingsdialog.cc:1699
@@ -1482,9 +1478,8 @@ msgid "New search type"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1621
-#, fuzzy
 msgid "<b>Name of the new search type</b>"
-msgstr "<b>Віды пошуку</b>"
+msgstr "<b>Назоў новага віду пошуку</b>"
 
 #: ../src/settingsdialog.cc:1682 ../src/settingsdialog.cc:1726
 #: ../src/settingsdialog.cc:2668
@@ -1492,28 +1487,24 @@ msgid "Error"
 msgstr "Памылка"
 
 #: ../src/settingsdialog.cc:1802 ../src/settingsdialog.cc:1989
-#, fuzzy
 msgid "Invalid extension: "
-msgstr "Хібны памер"
+msgstr "Хібнае пашырэньне: "
 
 #: ../src/settingsdialog.cc:1873
 msgid "Rename a search type"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1874
-#, fuzzy
 msgid "<b>New name</b>"
-msgstr "<b>Кадр</b>"
+msgstr "<b>Новы назоў</b>"
 
 #: ../src/settingsdialog.cc:1973
-#, fuzzy
 msgid "Extension edition"
-msgstr "Пашырэньні"
+msgstr "Зьмяніць пашырэньне"
 
 #: ../src/settingsdialog.cc:1974
-#, fuzzy
 msgid "<b>Extension</b>"
-msgstr "<b>Можнасьці</b>"
+msgstr "<b>Пашырэньне</b>"
 
 #: ../src/settingsdialog.cc:2049
 msgid "*** T E S T ***"
@@ -1924,9 +1915,8 @@ msgid "Searching too soon, retry in "
 msgstr "Зачаста шукаем. Наступная спроба праз "
 
 #: ../src/search.cc:544
-#, fuzzy
 msgid " s"
-msgstr "с"
+msgstr " с"
 
 #: ../src/search.cc:627
 msgid " items"
@@ -1945,9 +1935,8 @@ msgid "Close tab"
 msgstr "Закрыць картку"
 
 #: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
-#, fuzzy
 msgid "Error: setting not found!"
-msgstr "Не знайшлі карыстальніка"
+msgstr "Памылка: не знайшлі можнасьці!"
 
 #: ../src/settingsmanager.cc:515
 msgid "Change setting "
@@ -1972,9 +1961,8 @@ msgstr "Сьпіс: "
 #: ../src/sharebrowser.cc:99 ../src/sharebrowser.cc:217
 #: ../src/sharebrowser.cc:236 ../src/sharebrowser.cc:565
 #: ../src/sharebrowser.cc:617
-#, fuzzy
 msgid "Dir"
-msgstr "Адкінуць"
+msgstr "Кат"
 
 #: ../src/sharebrowser.cc:152
 msgid "File list loaded"
@@ -3536,9 +3524,8 @@ msgid "Security Certificates"
 msgstr "Пасьведчаньні бясьпекі"
 
 #: ../glade/settingsdialog.glade:5209
-#, fuzzy
 msgid "Use bandwidth limits"
-msgstr "Ужываць іншыя абмежаваньні хуткасьці ў час"
+msgstr "Ужываць абмежаваньні хуткасьці"
 
 #: ../glade/settingsdialog.glade:5247 ../glade/settingsdialog.glade:5490
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-04 02:13+0200\n"
+"POT-Creation-Date: 2010-12-08 23:34+0200\n"
 "PO-Revision-Date: 2010-12-04 02:18+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -142,19 +142,19 @@ msgstr "Невозможно передать файл %1%: %2%"
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: заблокировано входящее соединение к "
 
-#: ../UploadManager.cpp:468
+#: ../UploadManager.cpp:472
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Пользователь %1% отключился и покинул хаб"
 
-#: ../SettingsManager.cpp:503
+#: ../SettingsManager.cpp:501
 msgid "Invalid search type name"
 msgstr "Неверное имя поискового типа"
 
-#: ../SettingsManager.cpp:507 ../SettingsManager.cpp:529
+#: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
 msgid "This search type already exists"
 msgstr "Этот поисковый тип уже существует"
 
-#: ../SettingsManager.cpp:561
+#: ../SettingsManager.cpp:559
 msgid "No such search type"
 msgstr "Нет такого поискового типа"
 
@@ -162,7 +162,7 @@ msgstr "Нет такого поискового типа"
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Ник неизвестен)"
 
-#: ../NmdcHub.cpp:940
+#: ../NmdcHub.cpp:939
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -468,35 +468,31 @@ msgstr "Не удалось загрузить личный ключ"
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "Ошибка SSL: %1% (%2%, %3%)"
 
-#: ../DownloadManager.cpp:136
+#: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
 msgstr "IPFilter: заблокировано исходящее соединение к "
 
-#: ../DownloadManager.cpp:229
+#: ../DownloadManager.cpp:228
 msgid "Invalid size"
 msgstr "Неверный размер"
 
-#: ../DownloadManager.cpp:234
+#: ../DownloadManager.cpp:233
 msgid "Response does not match request"
 msgstr "Ответ не соответствует запросо"
 
-#: ../DownloadManager.cpp:241
+#: ../DownloadManager.cpp:240
 msgid "Could not open target file: %1%"
 msgstr "Невозможно открыть файл %1%"
 
-#: ../DownloadManager.cpp:320
+#: ../DownloadManager.cpp:319
 msgid "Full tree does not match TTH root"
 msgstr "Полное дерево не соответствует TTH корня"
 
-#: ../DownloadManager.cpp:390 ../DownloadManager.cpp:392
-msgid "CRC32 inconsistency (SFV-Check)"
-msgstr "CRC32 несоответствие (SFV-проверка)"
-
-#: ../DownloadManager.cpp:435
+#: ../DownloadManager.cpp:383
 msgid "No slots available"
 msgstr "Нет доступных слотов"
 
-#: ../DownloadManager.cpp:546
+#: ../DownloadManager.cpp:494
 msgid "%1%: File not available"
 msgstr "%1%: Файл недоступен"
 
@@ -560,47 +556,47 @@ msgstr "Поиск снова включен"
 msgid "Search disabled: %1%"
 msgstr "Поиск отключен: %1%"
 
-#: ../QueueManager.cpp:236
+#: ../QueueManager.cpp:238
 msgid "NO_NEEDED_PART"
 msgstr "NO_NEEDED_PART"
 
-#: ../QueueManager.cpp:592
+#: ../QueueManager.cpp:594
 msgid "Searching TTH alternates for: %1%"
 msgstr "Поиск TTH альтернатив для: %1%"
 
-#: ../QueueManager.cpp:634 ../QueueManager.cpp:697
+#: ../QueueManager.cpp:636 ../QueueManager.cpp:699
 msgid "A file with the same hash already exists in your share"
 msgstr "Этот файл уже расшарен"
 
-#: ../QueueManager.cpp:660 ../QueueManager.cpp:739
+#: ../QueueManager.cpp:662 ../QueueManager.cpp:741
 msgid "This file is already queued"
 msgstr "Этот файл уже есть в очереди"
 
-#: ../QueueManager.cpp:675 ../QueueManager.cpp:751
+#: ../QueueManager.cpp:677 ../QueueManager.cpp:753
 msgid "A file with a different size already exists in the queue"
 msgstr "Файл другого размера уже есть в очереди"
 
-#: ../QueueManager.cpp:679
+#: ../QueueManager.cpp:681
 msgid "A file with different tth root already exists in the queue"
 msgstr "В очереди уже есть файл с другим tth"
 
-#: ../QueueManager.cpp:691
+#: ../QueueManager.cpp:693
 msgid "You're trying to download from yourself!"
 msgstr "Вы пытаетесь качать с себя!"
 
-#: ../QueueManager.cpp:754
+#: ../QueueManager.cpp:756
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Файл с другим корневым TTH уже присутствует в загрузке"
 
-#: ../QueueManager.cpp:758
+#: ../QueueManager.cpp:760
 msgid "This file has already finished downloading"
 msgstr "Загрузка этого файла уже завершилась"
 
-#: ../QueueManager.cpp:795 ../QueueManager.cpp:804
+#: ../QueueManager.cpp:797 ../QueueManager.cpp:806
 msgid "Target filename too long"
 msgstr "Указанное имя слишком длинное"
 
-#: ../QueueManager.cpp:800 ../QueueManager.cpp:808
+#: ../QueueManager.cpp:802 ../QueueManager.cpp:810
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -608,38 +604,42 @@ msgstr ""
 "Неверный целевой файл (отсутствующая папка, проверьте настройки папки "
 "закачек по умолчанию)"
 
-#: ../QueueManager.cpp:816
+#: ../QueueManager.cpp:818
 msgid "File already exists at the target location"
 msgstr "Файл уже существует в пункте назначения"
 
-#: ../QueueManager.cpp:829 ../QueueManager.cpp:833
+#: ../QueueManager.cpp:831 ../QueueManager.cpp:835
 msgid "Duplicate source: %1%"
 msgstr "Источник дубликата: %1%"
 
-#: ../QueueManager.cpp:1102
+#: ../QueueManager.cpp:1104
 msgid "Target removed"
 msgstr "Удалено"
 
-#: ../QueueManager.cpp:1110
+#: ../QueueManager.cpp:1112
 msgid "Target file is missing or wrong size"
 msgstr "Целевой файл отсутствует или имеет неправильный размер"
 
-#: ../QueueManager.cpp:1159
+#: ../QueueManager.cpp:1161
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "Не смог переместить %1% в %2% (%3%); переименовал в %4%"
 
-#: ../QueueManager.cpp:1162
+#: ../QueueManager.cpp:1164
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 "Не смог переместить %1% в %2% (%3%) и не смог переименовать в %4% (%5%)"
 
-#: ../QueueManager.cpp:1333
+#: ../QueueManager.cpp:1339
 msgid "Unable to open filelist: %1%"
 msgstr "Невозможно открыть список файлов: %1%"
 
-#: ../QueueManager.cpp:1356
+#: ../QueueManager.cpp:1362
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Согласован файл %2%"
+
+#: ../QueueManager.cpp:1955 ../QueueManager.cpp:1964
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr "CRC32 несоответствие (SFV-проверка)"
 
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"

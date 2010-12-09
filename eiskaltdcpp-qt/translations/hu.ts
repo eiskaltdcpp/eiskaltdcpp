@@ -568,6 +568,10 @@ Kapcsolók:
         <source>File marked as a duplicate of another file: %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>%1 [%2 Gb]</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -2116,6 +2120,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Show close buttons</source>
         <translation>Bezárási gombok mutatása</translation>
     </message>
+    <message>
+        <source>Speed limit On/Off</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2935,7 +2943,7 @@ Kapcsolók:
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
         <source>Add</source>
@@ -2947,19 +2955,19 @@ Kapcsolók:
     </message>
     <message>
         <source>Enter virtual path name</source>
-        <translation>Virtuális útvonalnév megadása</translation>
+        <translation type="obsolete">Virtuális útvonalnév megadása</translation>
     </message>
     <message>
         <source>Virtual path</source>
-        <translation>Virtuális útvonal</translation>
+        <translation type="obsolete">Virtuális útvonal</translation>
     </message>
     <message>
         <source>Enter restriction (in GiB)</source>
-        <translation>Korlátozás megadása (GiB)</translation>
+        <translation type="obsolete">Korlátozás megadása (GiB)</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Korlátozás</translation>
+        <translation type="obsolete">Korlátozás</translation>
     </message>
     <message>
         <source>Add item</source>
@@ -3063,6 +3071,22 @@ Kapcsolók:
     <message>
         <source>Download to...</source>
         <translation>Letöltés ide ...</translation>
+    </message>
+    <message>
+        <source>Restrictions</source>
+        <translation type="unfinished">Korlátozások</translation>
+    </message>
+    <message>
+        <source>Add restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter restriction size (in GB)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3884,6 +3908,22 @@ p, li { white-space: pre-wrap; }
         <source>EiskaltDC++ V:2.1</source>
         <translation type="obsolete">EiskaltDC++ V:2.1</translation>
     </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation type="unfinished">Aktív</translation>
+    </message>
+    <message>
+        <source>Passive</source>
+        <translation type="unfinished">Passzív (csak végső esetben használd!)</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -4528,14 +4568,6 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     <message>
         <source>Auto detect connection</source>
         <translation>Kapcsolat-típus automatikus detektálása</translation>
-    </message>
-    <message>
-        <source>Ignore incoming non-TTH searches</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ignore all incoming searches</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5225,6 +5257,14 @@ a hub operátoraitól kaphatsz</translation>
         <source>Try to use system icons (need restart)</source>
         <translation>Próbálja használni a rendszerikonokat (újraindítás szükséges) </translation>
     </message>
+    <message>
+        <source>Redirect new personal messages to the main chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parse BBCode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -5494,19 +5534,19 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
     </message>
     <message>
         <source>Restrictions</source>
-        <translation>Korlátozások</translation>
+        <translation type="obsolete">Korlátozások</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation>Megosztás</translation>
+        <translation type="obsolete">Megosztás</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Korlátozás</translation>
+        <translation type="obsolete">Korlátozás</translation>
     </message>
     <message>
         <source>All changes take effect only after restart</source>
-        <translation>A változások csak újraindítás után lesznek érvényesek</translation>
+        <translation type="obsolete">A változások csak újraindítás után lesznek érvényesek</translation>
     </message>
     <message>
         <source>Per folder limit specifies how many files in GiB
@@ -5648,7 +5688,7 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation>Speciális korlátozás megadása (GiB-ban) minden &quot;virtuális&quot; könyvtárhoz a magosztásban.
+        <translation type="obsolete">Speciális korlátozás megadása (GiB-ban) minden &quot;virtuális&quot; könyvtárhoz a magosztásban.
 Például, ha a megosztásba kerül a /home/felhasználónév/Video könyvtár &quot;Video&quot; néven,
 a következő megadásával akalmazható a speciális korlátozás:
 /Video	10
