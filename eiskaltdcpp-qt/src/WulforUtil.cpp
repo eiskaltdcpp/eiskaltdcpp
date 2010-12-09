@@ -377,7 +377,8 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiSERVER]       = FROMTHEME("server", resourceFound);
     m_PixmapMap[eiSPAM]         = FROMTHEME("spam", resourceFound);
     m_PixmapMap[eiSPY]          = FROMTHEME("spy", resourceFound);
-    m_PixmapMap[eiSPEED_LIMIT]  = FROMTHEME("speed-limit", resourceFound);
+    m_PixmapMap[eiSPEED_LIMIT_OFF]  = FROMTHEME("slow_off", resourceFound);
+    m_PixmapMap[eiSPEED_LIMIT_ON]   = FROMTHEME("slow", resourceFound);
 
     m_PixmapMap[eiSPLASH]       = QPixmap();
     m_PixmapMap[eiSTATUS]       = FROMTHEME("status", resourceFound);
@@ -460,26 +461,76 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["WAV"]  = eiFILETYPE_MP3;
     m_FileTypeMap["WMA"]  = eiFILETYPE_MP3;
     m_FileTypeMap["WV"]   = eiFILETYPE_MP3;
+    m_FileTypeMap["669"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["AIF"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["AMF"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["AMS"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["DBM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["DMF"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["DSM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["FAR"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["IT"]   = eiFILETYPE_MP3;
+    m_FileTypeMap["MDL"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MED"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MIDI"] = eiFILETYPE_MP3;
+    m_FileTypeMap["MOD"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MOL"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MPA"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MPC"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MPP"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MTM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["NST"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["OKT"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["PSM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["PTM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["RA"]   = eiFILETYPE_MP3;
+    m_FileTypeMap["RMI"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["S3M"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["STM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["ULT"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["UMX"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["WOW"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["XM"]   = eiFILETYPE_MP3;
+
 
     // ARCHIVE 3
     m_FileTypeMap["7Z"]  = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["ACE"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["ARJ"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["BZ2"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["CAB"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["EX_"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["GZ"]  = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["HQX"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["JAR"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["ISO"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["MDF"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["MDS"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["NRG"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["LZH"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["LHA"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["RAR"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["RPM"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["SEA"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["TAR"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["TGZ"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["VCD"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["BWT"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["CCD"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["CDI"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["PDI"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["CUE"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["ISZ"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["IMG"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["VC4"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["UC2"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["ZIP"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["ZOO"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["Z"]   = eiFILETYPE_ARCHIVE;
 
     // DOCUMENT 4
     m_FileTypeMap["CFG"]   = eiFILETYPE_DOCUMENT;
+    m_FileTypeMap["CHM"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["CONF"]  = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["CPP"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["CSS"]   = eiFILETYPE_DOCUMENT;
@@ -512,6 +563,7 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["TXT"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["RFT"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["RDF"]   = eiFILETYPE_DOCUMENT;
+    m_FileTypeMap["RTF"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["XML"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["XLS"]   = eiFILETYPE_DOCUMENT;
 
@@ -527,6 +579,7 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["SO"]  = eiFILETYPE_APPLICATION;
     m_FileTypeMap["SYS"] = eiFILETYPE_APPLICATION;
     m_FileTypeMap["VXD"] = eiFILETYPE_APPLICATION;
+    m_FileTypeMap["MSI"] = eiFILETYPE_APPLICATION;
 
     // PICTURE 6
     m_FileTypeMap["3DS"]  = eiFILETYPE_PICTURE;
@@ -542,11 +595,14 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["B8"]   = eiFILETYPE_PICTURE;
     m_FileTypeMap["BMP"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["CBM"]  = eiFILETYPE_PICTURE;
+    m_FileTypeMap["DCX"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["EPS"]  = eiFILETYPE_PICTURE;
+    m_FileTypeMap["EMF"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["GIF"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["ICO"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["IMG"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["JPEG"] = eiFILETYPE_PICTURE;
+    m_FileTypeMap["JPE"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["JPG"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["PCT"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["PCX"]  = eiFILETYPE_PICTURE;
@@ -554,12 +610,15 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["PICT"] = eiFILETYPE_PICTURE;
     m_FileTypeMap["PNG"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["PS"]   = eiFILETYPE_PICTURE;
+    m_FileTypeMap["PSD"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["PSP"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["RLE"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["TGA"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["TIF"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["TIFF"] = eiFILETYPE_PICTURE;
     m_FileTypeMap["XPM"]  = eiFILETYPE_PICTURE;
+    m_FileTypeMap["XIF"]  = eiFILETYPE_PICTURE;
+    m_FileTypeMap["WMF"]  = eiFILETYPE_PICTURE;
 
     // VIDEO 7
     m_FileTypeMap["AVI"]   = eiFILETYPE_VIDEO;
@@ -576,19 +635,30 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["MOV"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["MOVIE"] = eiFILETYPE_VIDEO;
     m_FileTypeMap["MP4"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPE"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPEG"]  = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPEG1"] = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPEG2"] = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPEG4"] = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MP1V"]  = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MP2V"]  = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPV1"]  = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPV2"]  = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPG"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPS"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPV"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["OGM"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["PXP"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["QT"]    = eiFILETYPE_VIDEO;
+    m_FileTypeMap["RAM"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["RM"]    = eiFILETYPE_VIDEO;
+    m_FileTypeMap["RV"]    = eiFILETYPE_VIDEO;
     m_FileTypeMap["RMVB"]  = eiFILETYPE_VIDEO;
     m_FileTypeMap["VIV"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["VIVO"]  = eiFILETYPE_VIDEO;
     m_FileTypeMap["VOB"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["WMV"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["TS"]    = eiFILETYPE_VIDEO;
 }
 
 QPixmap WulforUtil::getPixmapForFile(const QString &file){

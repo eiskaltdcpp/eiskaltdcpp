@@ -137,6 +137,13 @@ Keys for cmake
     Enable/disable sound notifications support in EiskaltDC++ Gtk
 -DUSE_LIBNOTIFY=ON/OFF (default: ON)
     Enable/disable popup notifications support in EiskaltDC++ Gtk
+-------
+:nasdc:
+-------
+-DNO_UI_DAEMON=ON/OFF (default: OFF)
+    build daemon without any UI
+-DXMLRPC_DAEMON=ON/OFF (default: OFF)
+    make this daemon as xmlrpc server
 --------
 :common:
 --------

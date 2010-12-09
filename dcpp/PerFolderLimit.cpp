@@ -59,13 +59,17 @@ bool CPerfolderLimit::IsUserAllowed(string const& request, const UserPtr user, s
   }
 
   TFolderSetting *pos = *m_limits.begin();
+  int max_path_len = 0;
   for (TFolderSetting::Iter i=m_limits.begin(); i!=m_limits.end(); ++i)
   {
     TFolderSetting *s = *i;
     if ( pos->m_minshare<=s->m_minshare && 0==request.find(s->m_folder) )
     {
-      pos=s;
-      found=true;
+        if (s->m_folder.length() > max_path_len){
+            max_path_len = s->m_folder.length();
+            pos=s;
+            found=true;
+        }
     }
   }
   if (found)
