@@ -11,6 +11,7 @@
 * Added an option of the connection type in the favorite hubs settings.
 * Added a speed limit button to the tools panel.
 * Added ability of redirecting new personal messages to the main chat.
+* Now you can set share restrictions in the share browser widget. Just open own file list and use the menu.
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
 * Fixed path to lock file of launched program (it was ~/.dc++/). Now it launches only one instance of the DC-client and magnet-links are correctly intercepted by it.
