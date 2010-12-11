@@ -321,7 +321,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     if (!cid.isEmpty() && !pmw){
         user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
                         UserCommand::CONTEXT_USER);
-        //menu->addMenu(user_menu);
+        menu->addMenu(user_menu);
     }
 
     QMenu *antispam_menu = NULL;
