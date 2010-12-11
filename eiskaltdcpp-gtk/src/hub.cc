@@ -40,7 +40,7 @@
 #include "WulforUtil.hh"
 #include <dcpp/StringTokenizer.h>
 
-#include "Version.h"
+#include "VersionGlobal.h"
 
 #ifdef LUA_SCRIPT
 #include <dcpp/ScriptManager.h>

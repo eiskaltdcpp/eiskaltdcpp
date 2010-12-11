@@ -286,7 +286,7 @@ else()
     set (eiskaltdcpp_WC_REVISION "${VERSION_SUFFIX}")
 endif ()
 
-configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/Version.h)
+configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
 
 if (UNIX)
 add_definitions (-D_GNU_SOURCE)
