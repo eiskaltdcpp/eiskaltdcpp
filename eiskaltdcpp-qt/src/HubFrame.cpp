@@ -596,6 +596,48 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
             continue;
         }
+        else if (input.startsWith("[magnet=\"") && input.indexOf("[/magnet]") > 9){//9 - length of [magnet="
+            QString chunk = input.left(input.indexOf("[/magnet]"));
+
+            do{
+                if (chunk.isEmpty())
+                    break;
+
+                chunk.remove(0, 9);
+
+                if (chunk.isEmpty() || chunk.indexOf("\"") <= 0)
+                    break;
+
+                QString magnet = chunk.left(chunk.indexOf("\""));
+
+                magnet = magnet.trimmed();
+
+                if (magnet.isEmpty())
+                    break;
+
+                QString name, tth;
+                int64_t size;
+
+                WulforUtil::splitMagnet(magnet, size, tth, name);
+
+                chunk.remove(0, magnet.length());
+
+                if (chunk.indexOf("]") < 1)
+                    break;
+
+                chunk.remove(0, chunk.indexOf("]") + 1);
+
+                if (chunk.isEmpty())
+                    break;
+
+                QString toshow = tr("%1 (%2)").arg(chunk).arg(WulforUtil::formatBytes(size));
+                QString html_link = "<a href=\"" + magnet + "\" title=\"" + toshow + "\" style=\"cursor: hand\">" + toshow + "</a>";
+
+                output += html_link;
+                input.remove(0, input.indexOf("[/magnet]")+1+9);
+            }
+            while (0);
+        }
 
         if (input.isEmpty())
             break;

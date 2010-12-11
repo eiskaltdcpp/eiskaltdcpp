@@ -30,6 +30,7 @@
 #include <QCloseEvent>
 #include <QMenu>
 #include <QAction>
+#include <QScrollBar>
 
 using namespace dcpp;
 

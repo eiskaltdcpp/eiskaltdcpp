@@ -63,6 +63,8 @@ SearchFrame::Menu::Menu(){
 
     menu = new QMenu();
 
+    magnet_menu = new QMenu(tr("Magnet"));
+
     QAction *down       = new QAction(tr("Download"), NULL);
     down->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
@@ -83,6 +85,9 @@ SearchFrame::Menu::Menu(){
 
     QAction *magnet     = new QAction(tr("Copy magnet"), NULL);
     magnet->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
+
+    QAction *magnet_web     = new QAction(tr("Copy web-magnet"), NULL);
+    magnet_web->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
 
     QAction *browse     = new QAction(tr("Browse files"), NULL);
     browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
@@ -114,10 +119,13 @@ SearchFrame::Menu::Menu(){
     QAction *blacklist = new QAction(tr("Blacklist"), NULL);
     blacklist->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
 
+    magnet_menu->addActions(QList<QAction*>() << magnet << magnet_web);
+
     actions.insert(down, Download);
     actions.insert(down_wh, DownloadWholeDir);
     actions.insert(find_tth, SearchTTH);
     actions.insert(magnet, Magnet);
+    actions.insert(magnet_web, MagnetWeb);
     actions.insert(browse, Browse);
     actions.insert(match, MatchQueue);
     actions.insert(send_pm, SendPM);
@@ -131,7 +139,6 @@ SearchFrame::Menu::Menu(){
                   << down_wh
                   << sep
                   << find_tth
-                  << magnet
                   << browse
                   << match
                   << send_pm
@@ -147,9 +154,10 @@ SearchFrame::Menu::Menu(){
 SearchFrame::Menu::~Menu(){
     qDeleteAll(action_list);
 
-    delete menu;
-    delete down_to;
-    delete down_wh_to;
+    magnet_menu->deleteLater();
+    menu->deleteLater();
+    down_to->deleteLater();
+    down_wh_to->deleteLater();
 }
 
 SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList()){
@@ -221,6 +229,7 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     menu->addActions(action_list);
     menu->insertMenu(action_list.at(1), down_to);
     menu->insertMenu(action_list.at(2), down_wh_to);
+    menu->insertMenu(action_list.at(5), magnet_menu);
 
     QMenu *userm = buildUserCmdMenu(list);
 
@@ -1154,6 +1163,33 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     QString name = item->data(COLUMN_SF_FILENAME).toString();
 
                     QString magnet = WU->makeMagnet(name, size, tth);
+
+                    if (!magnet.isEmpty())
+                        magnets += magnet + "\n";
+                }
+            }
+
+            magnets = magnets.trimmed();
+
+            if (!magnets.isEmpty())
+                qApp->clipboard()->setText(magnets, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::MagnetWeb:
+        {
+            QString magnets = "";
+            WulforUtil *WU = WulforUtil::getInstance();
+
+            foreach (QModelIndex i, list){
+                SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+
+                if (!item->isDir){//only files
+                    qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
+                    QString tth = item->data(COLUMN_SF_TTH).toString();
+                    QString name = item->data(COLUMN_SF_FILENAME).toString();
+
+                    QString magnet = "[magnet=\"" + WU->makeMagnet(name, size, tth) + "\"]"+name+"[/magnet]";
 
                     if (!magnet.isEmpty())
                         magnets += magnet + "\n";

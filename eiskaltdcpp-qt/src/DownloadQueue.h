@@ -53,6 +53,7 @@ public:
     enum Action{
         Alternates=0,
         Magnet,
+        MagnetWeb,
         RenameMove,
         SetPriority,
         Browse,
