@@ -297,8 +297,14 @@ void MainWindow::showEvent(QShowEvent *e){
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
-    if (_q(SETTING(NICK)).isEmpty())
+    if (_q(SETTING(NICK)).isEmpty()){
+
+        show();
+
+        raise();
+
         slotToolsSettings();
+    }
 
     e->accept();
 }

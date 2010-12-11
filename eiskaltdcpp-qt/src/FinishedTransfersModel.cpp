@@ -112,7 +112,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
                 if (index.column() == COLUMN_FINISHED_ELAPS)
                     return _q(Util::formatSeconds(item->data(COLUMN_FINISHED_ELAPS).toLongLong()/1000L));
                 else if (index.column() == COLUMN_FINISHED_SPEED)
-                    return WulforUtil::formatBytes(item->data(COLUMN_FINISHED_SPEED).toLongLong())+tr("/s");
+                    return tr("%1/s").arg(WulforUtil::formatBytes(item->data(COLUMN_FINISHED_SPEED).toLongLong()));
                 else if (index.column() == COLUMN_FINISHED_TR)
                     return WulforUtil::formatBytes(item->data(COLUMN_FINISHED_TR).toLongLong());
             }
@@ -120,7 +120,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
                 if (index.column() == COLUMN_FINISHED_SPEED)
                     return _q(Util::formatSeconds(item->data(COLUMN_FINISHED_SPEED).toLongLong()/1000L));
                 else if (index.column() == COLUMN_FINISHED_TR)
-                    return WulforUtil::formatBytes(item->data(COLUMN_FINISHED_TR).toLongLong())+tr("/s");
+                    return tr("%1/s").arg(WulforUtil::formatBytes(item->data(COLUMN_FINISHED_TR).toLongLong()));
                 else if (index.column() == COLUMN_FINISHED_USER)
                     return WulforUtil::formatBytes(item->data(COLUMN_FINISHED_USER).toLongLong());
             }

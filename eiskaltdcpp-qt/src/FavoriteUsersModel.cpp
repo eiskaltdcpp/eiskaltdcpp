@@ -243,9 +243,13 @@ void FavoriteUsersModel::addUser(const FavoriteUsersModel::VarMap &params){
     emit layoutChanged();
 }
 
+#include <QtDebug>
+
 void FavoriteUsersModel::updateUserStatus(const QString &cid, const QString &stat, const QString &hubUrl){
     if (cid.isEmpty() || !itemHash.contains(cid))
         return;
+
+    qDebug() << Q_FUNC_INFO << cid << stat << hubUrl;
 
     FavoriteUserItem *i = itemHash.value(cid);
 
