@@ -170,12 +170,7 @@ void FavoriteUsers::addUser(const VarMap &params){
     model->addUser(params);
 }
 
-#include <QtDebug>
-
 void FavoriteUsers::updateUser(const QString &_cid, const QString &stat){
-
-    qDebug() << Q_FUNC_INFO << _cid << stat;
-
     dcpp::CID cid(_tq(_cid));
     const dcpp::UserPtr &user = ClientManager::getInstance()->findUser(cid);
 
