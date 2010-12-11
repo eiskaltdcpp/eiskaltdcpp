@@ -218,6 +218,9 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
 
     menu->setTitle(WulforUtil::getInstance()->getNicks(cid));
 
+    if (menu->title().isEmpty())
+        menu->setTitle(tr("[User went offline]"));
+
     menu->addActions(ul_actions);
 
     QMenu *user_menu = NULL;
@@ -298,6 +301,9 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     f.setBold(true);
     title->setFont(f);
     title->setEnabled(false);
+
+    if (title->text().isEmpty())
+        title->setText(tr("[User went offline]"));
 
     menu->addAction(title);
 
@@ -2551,7 +2557,7 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     int row_counter = 0;
 
-    while (!pressedParagraph.contains(QRegExp("(<(\\w+)>)")) && row_counter < 600){//try to find nick in above rows (max 600 rows)
+    while (!pressedParagraph.contains(QRegExp("(<(.+)>)")) && row_counter < 600){//try to find nick in above rows (max 600 rows)
         cursor.movePosition(QTextCursor::PreviousBlock);
         pressedParagraph = cursor.block().text();
         row_counter++;
