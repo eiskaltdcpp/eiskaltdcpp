@@ -1666,7 +1666,11 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     HubFrame     *fr = qobject_cast<HubFrame *>(wg);
     PMWindow     *pm = qobject_cast<PMWindow *>(wg);
 
-    bool widgetWithFilter = role == ArenaWidget::Hub || role == ArenaWidget::ShareBrowser || role == ArenaWidget::PublicHubs || role == ArenaWidget::Search;
+    bool widgetWithFilter = role == ArenaWidget::Hub ||
+                            role == ArenaWidget::ShareBrowser ||
+                            role == ArenaWidget::PublicHubs ||
+                            role == ArenaWidget::Search ||
+                            role == ArenaWidget::PrivateMessage;
 
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     findInWidget->setEnabled(widgetWithFilter);

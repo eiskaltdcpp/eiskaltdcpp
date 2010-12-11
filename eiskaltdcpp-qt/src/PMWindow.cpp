@@ -84,6 +84,8 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     textEdit_CHAT->setTabStopWidth(40);
 
+    frame_2->setVisible(false);
+
     updateStyles();
 
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
@@ -92,6 +94,10 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
     toolButton_SMILE->setIcon(WICON(WulforUtil::eiEMOTICON));
     toolButton_SMILE->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    pushButton_ALL->setCheckable(true);
+
+    toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
 
     arena_menu = new QMenu(tr("Private message"));
     QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
@@ -118,6 +124,10 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SIGNAL(inputTextChanged()));
     connect(plainTextEdit_INPUT, SIGNAL(customContextMenuRequested(QPoint)), this, SIGNAL(inputTextMenu()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingChanged(QString,QString)));
+    connect(lineEdit_FIND, SIGNAL(textChanged(QString)), this, SLOT(slotFindTextEdited(QString)));
+    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
+    connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
+    connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
 
     out_messages_index = 0;
 }
@@ -340,7 +350,7 @@ void PMWindow::updateStyles(){
 void PMWindow::addStatusMessage(QString msg){
     QString status = " * ";
 
-    QString nick = "DC-CORE";
+    QString nick = "";
     QString time = "";
 
     if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
@@ -594,4 +604,101 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
             textEdit_CHAT->setPalette(p);
         }
     }
+}
+
+void PMWindow::slotHideFindFrame(){
+    frame_2->setVisible(!frame_2->isVisible());
+
+    if (frame_2->isVisible()){
+        QString stext = textEdit_CHAT->textCursor().selectedText();
+
+        if (!stext.isEmpty()){
+            lineEdit_FIND->setText(stext);
+            lineEdit_FIND->selectAll();
+        }
+
+        lineEdit_FIND->setFocus();
+    }
+    else{
+        QTextCursor c = textEdit_CHAT->textCursor();
+
+        c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
+
+        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
+        textEdit_CHAT->setTextCursor(c);
+    }
+}
+
+void PMWindow::slotFindTextEdited(const QString & text){
+    if (text.isEmpty()){
+        textEdit_CHAT->verticalScrollBar()->setValue(textEdit_CHAT->verticalScrollBar()->maximum());
+        textEdit_CHAT->textCursor().movePosition(QTextCursor::End, QTextCursor::MoveAnchor, 1);
+
+        return;
+    }
+
+    QTextCursor c = textEdit_CHAT->textCursor();
+
+    c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
+    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
+
+    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
+    textEdit_CHAT->setTextCursor(c);
+
+    slotFindAll();
+}
+
+void PMWindow::slotFindAll(){
+    if (!pushButton_ALL->isChecked()){
+        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
+        return;
+    }
+
+    QList<QTextEdit::ExtraSelection> extraSelections;
+
+    if (!lineEdit_FIND->text().isEmpty()) {
+        QTextEdit::ExtraSelection selection;
+
+        QColor color;
+        color.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
+        color.setAlpha(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
+
+        selection.format.setBackground(color);
+
+        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, 0);
+
+        while (!c.isNull()){
+            selection.cursor = c;
+            extraSelections.append(selection);
+
+            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
+        }
+    }
+
+    textEdit_CHAT->setExtraSelections(extraSelections);
+}
+
+void PMWindow::findText(QTextDocument::FindFlags flag){
+    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+
+    if (lineEdit_FIND->text().isEmpty())
+        return;
+
+    QTextCursor c = textEdit_CHAT->textCursor();
+
+    bool ok = textEdit_CHAT->find(lineEdit_FIND->text(), flag);
+
+    if (flag == QTextDocument::FindBackward && !ok)
+        c.movePosition(QTextCursor::End,QTextCursor::MoveAnchor,1);
+    else if (flag == 0 && !ok)
+        c.movePosition(QTextCursor::Start,QTextCursor::MoveAnchor,1);
+
+    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
+
+    textEdit_CHAT->setTextCursor(c);
+
+    slotFindAll();
 }
