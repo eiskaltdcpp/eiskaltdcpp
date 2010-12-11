@@ -954,11 +954,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
 void HubFrame::showEvent(QShowEvent *e){
     e->accept();
 
-    if (hasMessages && drawLine && WBGET("hubframe/unreaden-draw-line", false)){
-        addOutput("<hr width=100%><br/>");
-
-        drawLine = false;
-    }
+    drawLine = false;
 
     HubManager::getInstance()->setActiveHub(this);
 
@@ -2045,6 +2041,18 @@ void HubFrame::newMsg(const VarMap &map){
         hasMessages = true;
 
         MainWindow::getInstance()->redrawToolPanel();
+    }
+
+    if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
+        QString chatText = textEdit_CHAT->toHtml();
+
+        chatText.replace("<hr width=\"100%\"/>", "");
+
+        textEdit_CHAT->setText(chatText);
+        textEdit_CHAT->verticalScrollBar()->setValue(textEdit_CHAT->verticalScrollBar()->maximum());
+        textEdit_CHAT->append("<hr width=\"100%\"/>");
+
+        drawLine = false;
     }
 
     addOutput(output);
