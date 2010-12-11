@@ -366,7 +366,7 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
 
     size = dir->getTotalSize(true);
 
-    data << QString::fromUtf8(dir->getName().c_str())
+    data << _q(dir->getName())
          << WulforUtil::formatBytes(size)
          << size
          << "";
@@ -520,7 +520,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         size = (*it)->getTotalSize(true);
         current_size += size;
 
-        data << QString::fromUtf8((*it)->getName().c_str())
+        data << _q((*it)->getName())
              << WulforUtil::formatBytes(size)
              << size
              << "";
@@ -542,10 +542,10 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         size = (*it_file)->getSize();
         current_size += size;
 
-        data << QString::fromUtf8((*it_file)->getName().c_str())
+        data << _q((*it_file)->getName())
              << WulforUtil::formatBytes(size)
              << size
-             << QString::fromUtf8((*it_file)->getTTH().toBase32().c_str());
+             << _q((*it_file)->getTTH().toBase32());
 
         child = new FileBrowserItem(data, list_root);
         child->file = (*it_file);
