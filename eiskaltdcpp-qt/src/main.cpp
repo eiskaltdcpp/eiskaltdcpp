@@ -120,6 +120,8 @@ int main(int argc, char *argv[])
     if (WulforUtil::getInstance()->loadIcons())
         std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
 
+    app.setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+
     MainWindow::newInstance();
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
 

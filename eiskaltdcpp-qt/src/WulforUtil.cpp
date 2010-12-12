@@ -369,7 +369,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiGV]           = QPixmap(gv_xpm);
     m_PixmapMap[eiHASHING]      = FROMTHEME("hashing", resourceFound);
     m_PixmapMap[eiHUBMSG]       = FROMTHEME("hubmsg", resourceFound);
-    m_PixmapMap[eiICON_APPL]    = FROMTHEME("icon_appl_big", resourceFound);
+    m_PixmapMap[eiICON_APPL]    = FROMTHEME_SIDE("icon_appl_big", resourceFound, 128);
     m_PixmapMap[eiMESSAGE]      = FROMTHEME("message", resourceFound);
     m_PixmapMap[eiMESSAGE_TRAY_ICON] = FROMTHEME("icon_msg", resourceFound);
     m_PixmapMap[eiOWN_FILELIST] = FROMTHEME("own_filelist", resourceFound);
