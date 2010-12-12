@@ -2,6 +2,7 @@
 *** common changes ***
 * Completed the transition to the 0.770 kernel.
 * Broken support for Lua-scripts. Build the program with -DLUA_SCRIPT=OFF.
+* Thanks to Uhlik the Czech translation is now available.
 *** eiskaltdcpp-qt ***
 * Fixed parsing of emoticons in new messages. Now more fast and correct.
 * Improvements in the search widget.
