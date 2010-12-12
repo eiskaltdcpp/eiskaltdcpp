@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-08 23:34+0200\n"
+"POT-Creation-Date: 2010-12-12 20:23+0200\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -425,6 +425,14 @@ msgstr "Maximum command length exceeded"
 msgid "Disconnected"
 msgstr "Disconnected"
 
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Enter string>"
+
+#: ../ADLSearch.cpp:484
+msgid "Discard"
+msgstr "Discard"
+
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Directory missing name attribute"
@@ -649,14 +657,6 @@ msgstr "CRC32 inconsistency (SFV-Check)"
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Request to seek beyond the end of data"
-
-#: ../ADLSearch.h:50
-msgid "<Enter string>"
-msgstr "<Enter string>"
-
-#: ../ADLSearch.h:306
-msgid "Discard"
-msgstr "Discard"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"

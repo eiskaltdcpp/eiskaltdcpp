@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-08 23:34+0200\n"
+"POT-Creation-Date: 2010-12-12 20:23+0200\n"
 "PO-Revision-Date: 2010-08-07 15:38+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -435,6 +435,14 @@ msgstr "Перавысілі найвялікшую даўжыню загаду"
 msgid "Disconnected"
 msgstr "Адлучаны"
 
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Упішыце радок>"
+
+#: ../ADLSearch.cpp:484
+msgid "Discard"
+msgstr "Адкінуць"
+
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Каталёг ня мае назову"
@@ -655,14 +663,6 @@ msgstr "Неадпаведнасьць CRC32 (спраўджаньне SFV)"
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Запыталіся шукаць па-за мяжою дадзеных"
-
-#: ../ADLSearch.h:50
-msgid "<Enter string>"
-msgstr "<Упішыце радок>"
-
-#: ../ADLSearch.h:306
-msgid "Discard"
-msgstr "Адкінуць"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"

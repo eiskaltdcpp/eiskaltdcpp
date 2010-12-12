@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-08 23:34+0200\n"
+"POT-Creation-Date: 2010-12-12 20:23+0200\n"
 "PO-Revision-Date: 2010-12-09 19:37+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -553,8 +553,7 @@ msgstr ""
 msgid "Connecting to "
 msgstr "Csatlakozás: "
 
-#: ../src/hub.cc:3229 ../src/transfers.cc:1013 ../src/hub.cc:3231
-#: ../src/transfers.cc:1022
+#: ../src/hub.cc:3231 ../src/transfers.cc:1022
 msgid "Connected"
 msgstr "Csatlakozva"
 
@@ -645,7 +644,7 @@ msgstr "Utoljára online"
 #: ../src/favoriteusers.cc:269 ../src/favoriteusers.cc:296
 #: ../src/favoriteusers.cc:347 ../src/favoriteusers.cc:374
 #: ../src/favoriteusers.cc:425 ../src/favoriteusers.cc:469
-#: ../src/favoriteusers.cc:587 ../src/transfers.cc:609
+#: ../src/favoriteusers.cc:587
 msgid "CID"
 msgstr ""
 
@@ -799,11 +798,11 @@ msgstr ""
 msgid "Download starting..."
 msgstr "Letöltés kezdése..."
 
-#: ../src/transfers.cc:937 ../src/transfers.cc:1115 ../src/transfers.cc:1124
+#: ../src/transfers.cc:937 ../src/transfers.cc:1124
 msgid "[S]"
 msgstr "[S]"
 
-#: ../src/transfers.cc:939 ../src/transfers.cc:1117 ../src/transfers.cc:1126
+#: ../src/transfers.cc:939 ../src/transfers.cc:1126
 msgid "[U]"
 msgstr "[U]"
 
@@ -811,7 +810,7 @@ msgstr "[U]"
 msgid "[T]"
 msgstr "[T]"
 
-#: ../src/transfers.cc:944 ../src/transfers.cc:1120 ../src/transfers.cc:1129
+#: ../src/transfers.cc:944 ../src/transfers.cc:1129
 msgid "[Z]"
 msgstr "[Z]"
 
@@ -831,9 +830,8 @@ msgstr "Kapcsolódás"
 msgid "Waiting to retry"
 msgstr ""
 
-#: ../src/transfers.cc:1074 ../src/settingsdialog.cc:986
+#: ../src/transfers.cc:1083 ../src/settingsdialog.cc:986
 #: ../src/settingsdialog.cc:1147 ../src/settingsmanager.cc:235
-#: ../src/transfers.cc:1083
 msgid "Download finished"
 msgstr "Letöltés befejeződött"
 
@@ -2618,13 +2616,14 @@ msgstr ""
 " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 
 #: ../glade/mainwindow.glade:976
+#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
 " Russian translation\n"
 "\n"
-" Uladzimir Bely\n"
-" (wiselord1983@gmail.com)\n"
+" Boris Pek\n"
+" (tehnick-8@mail.ru)\n"
 "\n"
 " Belarusian translation\n"
 "\n"

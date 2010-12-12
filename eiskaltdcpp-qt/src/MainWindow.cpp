@@ -2461,6 +2461,10 @@ void MainWindow::slotAboutClient(){
                "&nbsp;&lt;wiselord1983@gmail.com&gt;<br/>"
                "&nbsp;(for 0.4.10 and later)<br/>")+
             tr("<br/>"
+               "&nbsp;Boris Pek  aka  Tehnick<br/>"
+               "&nbsp;&lt;tehnick-8@mail.ru&gt;<br/>"
+               "&nbsp;(for 2.1.0 and later)<br/>")+
+            tr("<br/>"
                "&nbsp;<u>Belarusian translation</u><br/>")+
             tr("<br/>"
                "&nbsp;Paval Shalamitski  aka  Klyok<br/>"

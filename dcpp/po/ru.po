@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-08 23:34+0200\n"
+"POT-Creation-Date: 2010-12-12 20:23+0200\n"
 "PO-Revision-Date: 2010-12-04 02:18+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -426,6 +426,14 @@ msgstr "Превышена максимальная длина команды"
 msgid "Disconnected"
 msgstr "Отключен"
 
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Введите строку>"
+
+#: ../ADLSearch.cpp:484
+msgid "Discard"
+msgstr "Отклонить"
+
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Отсутствует имя папки"
@@ -644,14 +652,6 @@ msgstr "CRC32 несоответствие (SFV-проверка)"
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Запрос поиска вне области данных"
-
-#: ../ADLSearch.h:50
-msgid "<Enter string>"
-msgstr "<Введите строку>"
-
-#: ../ADLSearch.h:306
-msgid "Discard"
-msgstr "Отклонить"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"

@@ -2144,6 +2144,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Speed limit On/Off</source>
         <translation>Sebességkorlátozás ki/be</translation>
     </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2925,6 +2929,10 @@ Kapcsolók:
         <source>Slovak</source>
         <translation>Szlovák</translation>
     </message>
+    <message>
+        <source>Czech</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
@@ -3123,6 +3131,10 @@ Kapcsolók:
     <message>
         <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open directory</source>
+        <translation type="unfinished">Könyvtár megnyitása</translation>
     </message>
 </context>
 <context>
