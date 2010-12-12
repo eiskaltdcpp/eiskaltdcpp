@@ -75,6 +75,7 @@ class ShareBrowser : public  QWidget,
             AddToFav,
             AddRestrinction,
             RemoveRestriction,
+            OpenUrl,
             None
         };
 
@@ -91,6 +92,7 @@ class ShareBrowser : public  QWidget,
         QMenu *down_to;
         QMenu *rest_menu;
         QString target;
+        QAction *open_url;
     };
 
 public:
