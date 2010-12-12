@@ -2231,17 +2231,27 @@ Favorite user</source>
         <translation>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.3 и более поздних)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2641"/>
+        <location filename="../src/MainWindow.cpp" line="2520"/>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Чешский перевод&lt;/u&gt;&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2522"/>
+        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.2 and later)&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.1.2 и более поздних)&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2647"/>
         <source>Show close buttons</source>
         <translation>Показывать кнопки закрытия</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2731"/>
+        <location filename="../src/MainWindow.cpp" line="2737"/>
         <source>Download Queue</source>
         <translation>Очередь загрузок</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2731"/>
+        <location filename="../src/MainWindow.cpp" line="2737"/>
         <source>All downloads complete</source>
         <translation>Все загрузки завершены</translation>
     </message>
@@ -2427,12 +2437,12 @@ Favorite user</source>
         <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.0.4 и более поздних)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2546"/>
+        <location filename="../src/MainWindow.cpp" line="2552"/>
         <source>Close all</source>
         <translation>Закрыть все</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2566"/>
+        <location filename="../src/MainWindow.cpp" line="2572"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
@@ -2898,6 +2908,16 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Список хабов загружен из кэша...</translation>
     </message>
     <message>
+        <location filename="../src/PublicHubs.cpp" line="291"/>
+        <source>Cached hub list is corrupted or unsupported</source>
+        <translation>Сораненный в кэше список хабов поврежден или не поддерживается</translation>
+    </message>
+    <message>
+        <location filename="../src/PublicHubs.cpp" line="293"/>
+        <source>Downloaded hub list is corrupted or unsupported (%1)</source>
+        <translation>Загруженный список хабов поврежден или не поддерживается (%1)</translation>
+    </message>
+    <message>
         <location filename="../src/PublicHubs.h" line="42"/>
         <source>Public Hubs</source>
         <translation>Публичные хабы</translation>
@@ -2957,22 +2977,22 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Загружены иконки программы</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="154"/>
+        <location filename="../src/main.cpp" line="156"/>
         <source>Shutting down libdcpp...</source>
         <translation>Завершение работы libdcpp...</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="182"/>
+        <location filename="../src/main.cpp" line="184"/>
         <source>Quit...</source>
         <translation>Выход...</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="220"/>
+        <location filename="../src/main.cpp" line="222"/>
         <source>Cannot handle SIGPIPE</source>
         <translation>Не удается обработать SIGPIPE</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="225"/>
+        <location filename="../src/main.cpp" line="227"/>
         <source>Signal handlers installed.</source>
         <translation>Сигналы обработки установлены.</translation>
     </message>
@@ -7472,78 +7492,92 @@ the granted slot will not be closed.</source>
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="688"/>
+        <location filename="../src/WulforUtil.cpp" line="701"/>
         <source>System default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="764"/>
         <source>Enter parameter value</source>
-        <translation>Укажите значение параметра</translation>
+        <translation type="obsolete">Укажите значение параметра</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="839"/>
-        <location filename="../src/WulforUtil.cpp" line="853"/>
+        <location filename="../src/WulforUtil.cpp" line="768"/>
+        <source>Command parameters</source>
+        <translation>Парамеры команды</translation>
+    </message>
+    <message>
+        <location filename="../src/WulforUtil.cpp" line="806"/>
+        <source>Ok</source>
+        <translation>Ok</translation>
+    </message>
+    <message>
+        <location filename="../src/WulforUtil.cpp" line="807"/>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <location filename="../src/WulforUtil.cpp" line="878"/>
+        <location filename="../src/WulforUtil.cpp" line="892"/>
         <source>%1 B</source>
         <translation>%1 Б</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="841"/>
+        <location filename="../src/WulforUtil.cpp" line="880"/>
         <source>%1 KiB</source>
         <translation>%1 КиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="843"/>
+        <location filename="../src/WulforUtil.cpp" line="882"/>
         <source>%1 MiB</source>
         <translation>%1 МиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="845"/>
+        <location filename="../src/WulforUtil.cpp" line="884"/>
         <source>%1 GiB</source>
         <translation>%1 ГиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="847"/>
+        <location filename="../src/WulforUtil.cpp" line="886"/>
         <source>%1 TiB</source>
         <translation>%1 ТиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="849"/>
+        <location filename="../src/WulforUtil.cpp" line="888"/>
         <source>%1 PiB</source>
         <translation>%1 ПиБ</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="855"/>
+        <location filename="../src/WulforUtil.cpp" line="894"/>
         <source>%1 KB</source>
         <translation>%1 Кб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="857"/>
+        <location filename="../src/WulforUtil.cpp" line="896"/>
         <source>%1 MB</source>
         <translation>%1 Мб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="859"/>
+        <location filename="../src/WulforUtil.cpp" line="898"/>
         <source>%1 GB</source>
         <translation>%1 Гб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="861"/>
+        <location filename="../src/WulforUtil.cpp" line="900"/>
         <source>%1 TB</source>
         <translation>%1 Тб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="863"/>
+        <location filename="../src/WulforUtil.cpp" line="902"/>
         <source>%1 PB</source>
         <translation>%1 Пб</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="926"/>
+        <location filename="../src/WulforUtil.cpp" line="965"/>
         <source>Offline</source>
         <translation>Не в сети</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1064"/>
+        <location filename="../src/WulforUtil.cpp" line="1103"/>
         <source>User commands</source>
         <translation>Команды пользователя</translation>
     </message>

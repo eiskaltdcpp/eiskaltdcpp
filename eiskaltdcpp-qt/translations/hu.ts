@@ -2148,6 +2148,14 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.2 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2316,6 +2324,14 @@ Letöltve: %3 Feltöltve %4</translation>
     <message>
         <source>Public Hubs</source>
         <translation>Publikus hubok</translation>
+    </message>
+    <message>
+        <source>Cached hub list is corrupted or unsupported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded hub list is corrupted or unsupported (%1)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6048,7 +6064,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>Enter parameter value</source>
-        <translation>Paraméter megadása</translation>
+        <translation type="obsolete">Paraméter megadása</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -6101,6 +6117,18 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <source>%1 PB</source>
         <translation>%1 PB</translation>
+    </message>
+    <message>
+        <source>Command parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Mégsem</translation>
     </message>
 </context>
 </TS>

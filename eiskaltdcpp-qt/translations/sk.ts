@@ -2286,27 +2286,37 @@ Favorite user</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2546"/>
+        <location filename="../src/MainWindow.cpp" line="2520"/>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2522"/>
+        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.2 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2552"/>
         <source>Close all</source>
         <translation>Zavrieť všetko</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2566"/>
+        <location filename="../src/MainWindow.cpp" line="2572"/>
         <source>Close</source>
         <translation>Zatvoriť</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2641"/>
+        <location filename="../src/MainWindow.cpp" line="2647"/>
         <source>Show close buttons</source>
         <translation type="unfinished">Zobraziť tlačidlá pre zatvorenie programu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2731"/>
+        <location filename="../src/MainWindow.cpp" line="2737"/>
         <source>Download Queue</source>
         <translation>fronta sťahovania</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2731"/>
+        <location filename="../src/MainWindow.cpp" line="2737"/>
         <source>All downloads complete</source>
         <translation>Všetky sťahovania dokončené</translation>
     </message>
@@ -2502,6 +2512,16 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Zoznam hubov načitaný z pamäti...</translation>
     </message>
     <message>
+        <location filename="../src/PublicHubs.cpp" line="291"/>
+        <source>Cached hub list is corrupted or unsupported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/PublicHubs.cpp" line="293"/>
+        <source>Downloaded hub list is corrupted or unsupported (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/PublicHubs.h" line="42"/>
         <source>Public Hubs</source>
         <translation>Verejné huby</translation>
@@ -2540,22 +2560,22 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Zoznam ik=on v aplikácií bol načítaný</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="154"/>
+        <location filename="../src/main.cpp" line="156"/>
         <source>Shutting down libdcpp...</source>
         <translation>Vypínanie libdcpp...</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="182"/>
+        <location filename="../src/main.cpp" line="184"/>
         <source>Quit...</source>
         <translation>Ukončiť...</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="220"/>
+        <location filename="../src/main.cpp" line="222"/>
         <source>Cannot handle SIGPIPE</source>
         <translation>Nemôžem manipulovať s SIGPIPE</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="225"/>
+        <location filename="../src/main.cpp" line="227"/>
         <source>Signal handlers installed.</source>
         <translation>Signál obslúžného programu nainštalovaný.</translation>
     </message>
@@ -6679,78 +6699,92 @@ Ak rýchosť uploadovania vzrastie, tak tento extra slot sa uzavrie.</translatio
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="688"/>
+        <location filename="../src/WulforUtil.cpp" line="701"/>
         <source>System default</source>
         <translation>Štandartne nastavený systém</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="764"/>
         <source>Enter parameter value</source>
-        <translation>Zadať hodnotu parametra</translation>
+        <translation type="obsolete">Zadať hodnotu parametra</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="839"/>
-        <location filename="../src/WulforUtil.cpp" line="853"/>
+        <location filename="../src/WulforUtil.cpp" line="768"/>
+        <source>Command parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/WulforUtil.cpp" line="806"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/WulforUtil.cpp" line="807"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Zrušiť</translation>
+    </message>
+    <message>
+        <location filename="../src/WulforUtil.cpp" line="878"/>
+        <location filename="../src/WulforUtil.cpp" line="892"/>
         <source>%1 B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="841"/>
+        <location filename="../src/WulforUtil.cpp" line="880"/>
         <source>%1 KiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="843"/>
+        <location filename="../src/WulforUtil.cpp" line="882"/>
         <source>%1 MiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="845"/>
+        <location filename="../src/WulforUtil.cpp" line="884"/>
         <source>%1 GiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="847"/>
+        <location filename="../src/WulforUtil.cpp" line="886"/>
         <source>%1 TiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="849"/>
+        <location filename="../src/WulforUtil.cpp" line="888"/>
         <source>%1 PiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="855"/>
+        <location filename="../src/WulforUtil.cpp" line="894"/>
         <source>%1 KB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="857"/>
+        <location filename="../src/WulforUtil.cpp" line="896"/>
         <source>%1 MB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="859"/>
+        <location filename="../src/WulforUtil.cpp" line="898"/>
         <source>%1 GB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="861"/>
+        <location filename="../src/WulforUtil.cpp" line="900"/>
         <source>%1 TB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="863"/>
+        <location filename="../src/WulforUtil.cpp" line="902"/>
         <source>%1 PB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="926"/>
+        <location filename="../src/WulforUtil.cpp" line="965"/>
         <source>Offline</source>
         <translation>Odpojený</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1064"/>
+        <location filename="../src/WulforUtil.cpp" line="1103"/>
         <source>User commands</source>
         <translation>Užívateľské príkazy</translation>
     </message>

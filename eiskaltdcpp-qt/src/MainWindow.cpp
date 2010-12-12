@@ -2518,7 +2518,7 @@ void MainWindow::slotAboutClient(){
                "&nbsp;&lt;martin.durisin@gmail.com&gt;<br/>"
                "&nbsp;(for 2.1.0 and later)<br/>")+
             tr("<br/>"
-               "&nbsp;<u>Slovak translation</u><br/>")+
+               "&nbsp;<u>Czech translation</u><br/>")+
             tr("<br/>"
                "&nbsp;Uhlik<br/>"
                "&nbsp;&lt;uhlikx@seznam.cz&gt;<br/>"
