@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-12 20:23+0200\n"
+"POT-Creation-Date: 2010-12-08 23:34+0200\n"
 "PO-Revision-Date: 2009-02-06 21:06+0000\n"
 "Last-Translator: oracle <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -431,14 +431,6 @@ msgstr "Prekoračena maksimalna dužina komande"
 msgid "Disconnected"
 msgstr "Isključen"
 
-#: ../ADLSearch.cpp:40
-msgid "<Enter string>"
-msgstr "<Unesite tekst>"
-
-#: ../ADLSearch.cpp:484
-msgid "Discard"
-msgstr "Odbaci"
-
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Direktorijumu nedostaje atribut ime"
@@ -660,6 +652,14 @@ msgstr "CRC32 neusaglašenost (SFV-Check)"
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Zahtev za pretragu nakon završetka podataka"
+
+#: ../ADLSearch.h:50
+msgid "<Enter string>"
+msgstr "<Unesite tekst>"
+
+#: ../ADLSearch.h:306
+msgid "Discard"
+msgstr "Odbaci"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"

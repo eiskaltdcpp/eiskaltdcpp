@@ -658,7 +658,7 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="104"/>
         <source>%1 [%2 Gb]</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 [ %2 Gb]</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="168"/>
@@ -2055,7 +2055,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1152"/>
         <source>Speed limit On/Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Limite de velocidad On/Off</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1183"/>
@@ -3371,12 +3371,12 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="83"/>
         <source>Add restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir restricción</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
         <source>Remove restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>eliminar restricción</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="85"/>
@@ -3406,7 +3406,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="812"/>
         <source>Enter restriction size (in GB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Introducir restricción (en Gb)</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="275"/>
@@ -3416,7 +3416,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="66"/>
         <source>Restrictions</source>
-        <translation type="unfinished">Restricciones</translation>
+        <translation>Restricciones</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="67"/>
@@ -4388,22 +4388,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="137"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Por Defecto</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="142"/>
         <source>Active</source>
-        <translation type="unfinished"></translation>
+        <translation>Activo</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="147"/>
         <source>Passive</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasivo</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="155"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modo</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="165"/>
@@ -5753,7 +5753,7 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="369"/>
         <source>Redirect new personal messages to the main chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Redireccionar los nuevos mensajes personales al chat principal</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="390"/>
@@ -5791,7 +5791,7 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="678"/>
         <source>Parse BBCode</source>
-        <translation type="unfinished"></translation>
+        <translation>Analizar BBCode</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="461"/>

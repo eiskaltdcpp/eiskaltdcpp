@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-12 20:23+0200\n"
+"POT-Creation-Date: 2010-12-08 23:34+0200\n"
 "PO-Revision-Date: 2009-03-24 12:27+0000\n"
 "Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
@@ -430,14 +430,6 @@ msgstr "Bola prekročená maximálna dĺžka príkazu"
 msgid "Disconnected"
 msgstr "Odpojený"
 
-#: ../ADLSearch.cpp:40
-msgid "<Enter string>"
-msgstr "<Zadajte reťazec>"
-
-#: ../ADLSearch.cpp:484
-msgid "Discard"
-msgstr "Zahodiť"
-
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Adresáru chýba atribút názov"
@@ -663,6 +655,14 @@ msgstr "nekonzistentný CRC32 (kontrola v SFV)"
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Požiadavka o čítanie za koncom údajov"
+
+#: ../ADLSearch.h:50
+msgid "<Enter string>"
+msgstr "<Zadajte reťazec>"
+
+#: ../ADLSearch.h:306
+msgid "Discard"
+msgstr "Zahodiť"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"

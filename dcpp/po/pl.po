@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-12 20:23+0200\n"
+"POT-Creation-Date: 2010-12-08 23:34+0200\n"
 "PO-Revision-Date: 2009-03-03 22:46+0000\n"
 "Last-Translator: LadyStardust <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -435,14 +435,6 @@ msgstr "Przekroczono długość wykonanej komendy"
 msgid "Disconnected"
 msgstr "Rozłączony"
 
-#: ../ADLSearch.cpp:40
-msgid "<Enter string>"
-msgstr "<wprowadź tekst>"
-
-#: ../ADLSearch.cpp:484
-msgid "Discard"
-msgstr "Porzuć"
-
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Bąd nazwy przypisanego katalogu"
@@ -666,6 +658,14 @@ msgstr "Niezgodne CRC32 (sprawdź SFV)"
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Poproś o wyszukanie poza końcem danych"
+
+#: ../ADLSearch.h:50
+msgid "<Enter string>"
+msgstr "<wprowadź tekst>"
+
+#: ../ADLSearch.h:306
+msgid "Discard"
+msgstr "Porzuć"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"

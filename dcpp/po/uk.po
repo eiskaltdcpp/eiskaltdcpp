@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-12 20:23+0200\n"
+"POT-Creation-Date: 2010-12-08 23:34+0200\n"
 "PO-Revision-Date: 2008-05-04 16:18+0000\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -433,14 +433,6 @@ msgstr "Перевищена максимальна довжина команд�
 msgid "Disconnected"
 msgstr "Відключено"
 
-#: ../ADLSearch.cpp:40
-msgid "<Enter string>"
-msgstr "<Введіть рядок>"
-
-#: ../ADLSearch.cpp:484
-msgid "Discard"
-msgstr "Не зважати"
-
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Відсутнє ім'я теки"
@@ -661,6 +653,14 @@ msgstr "CRC32 несумісність (SFV перевірка ціліснос�
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Запит пошуку поза областю даних"
+
+#: ../ADLSearch.h:50
+msgid "<Enter string>"
+msgstr "<Введіть рядок>"
+
+#: ../ADLSearch.h:306
+msgid "Discard"
+msgstr "Не зважати"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"

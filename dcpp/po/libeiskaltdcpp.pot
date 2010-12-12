@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-12 20:23+0200\n"
+"POT-Creation-Date: 2010-12-08 23:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -410,14 +410,6 @@ msgstr ""
 msgid "Disconnected"
 msgstr ""
 
-#: ../ADLSearch.cpp:40
-msgid "<Enter string>"
-msgstr ""
-
-#: ../ADLSearch.cpp:484
-msgid "Discard"
-msgstr ""
-
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr ""
@@ -632,6 +624,14 @@ msgstr ""
 
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
+msgstr ""
+
+#: ../ADLSearch.h:50
+msgid "<Enter string>"
+msgstr ""
+
+#: ../ADLSearch.h:306
+msgid "Discard"
 msgstr ""
 
 #: ../Streams.h:140
