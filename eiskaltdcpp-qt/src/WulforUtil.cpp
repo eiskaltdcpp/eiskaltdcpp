@@ -35,6 +35,13 @@
 #include <QHeaderView>
 #include <QResource>
 #include <QTimer>
+#include <QDialog>
+#include <QLabel>
+#include <QLineEdit>
+#include <QGridLayout>
+#include <QPushButton>
+#include <QFrame>
+#include <QHBoxLayout>
 
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
@@ -757,6 +764,14 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
     else
         command.remove(0, i+7);//also remove "%[line:" string
 
+    QDialog dlg(MainWindow::getInstance());
+    dlg.setWindowTitle(tr("Command parameters"));
+
+    QGridLayout *layout = new QGridLayout();
+    dlg.setLayout(layout);
+
+    int row = 0;
+
     while (!command.isEmpty()){
         j = command.indexOf("]");
 
@@ -765,18 +780,14 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
 
         name = command.left(j);
 
-        if (done.find(name.toStdString()) == done.end()){
-            bool bOk;
-            QString input = QInputDialog::getText(MainWindow::getInstance(), tr("Enter parameter value"), name, QLineEdit::Normal, store, &bOk);
+        QLabel *lbl = new QLabel(name);
+        QLineEdit *edit = new QLineEdit();
+        edit->setObjectName(name);
 
-            if (bOk){
-                store = input;
-                ucParams["line:" + name.toStdString()] = input.toStdString();
-                done[name.toStdString()] = input.toStdString();
-            }
-            else
-                return false;
-        }
+        layout->addWidget(lbl, row, 0);
+        layout->addWidget(edit, row, 1);
+
+        row++;
 
         command.remove(0, j);
 
@@ -787,6 +798,28 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
         else
             command.remove(0, i+7);//also remove "%[line:" string
     }
+
+    QFrame *frame = new QFrame();
+    QHBoxLayout *fl = new QHBoxLayout(frame);
+    frame->setLayout(fl);
+
+    QPushButton *btn = new QPushButton(tr("Ok"));
+    QPushButton *btn_reject = new QPushButton(tr("Cancel"));
+    connect(btn, SIGNAL(clicked()), &dlg, SLOT(accept()));
+    connect(btn_reject, SIGNAL(clicked()), &dlg, SLOT(reject()));
+
+    fl->addWidget(btn);
+    fl->addWidget(btn_reject);
+
+    layout->addWidget(frame, row, 1);
+
+    if (dlg.exec() != QDialog::Accepted)
+        return false;
+
+    QList<QLineEdit*> edits = dlg.findChildren<QLineEdit*>();
+
+    foreach(QLineEdit *e, edits)
+        ucParams["line:" + _tq(e->objectName())] = _tq(e->text());
 
     return true;
 }
