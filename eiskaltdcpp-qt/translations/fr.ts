@@ -2118,6 +2118,18 @@ Please check your connection settings</source>
         <source>Speed limit On/Off</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.2 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2282,6 +2294,14 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <source>Public Hubs</source>
         <translation>Serveurs publics</translation>
+    </message>
+    <message>
+        <source>Cached hub list is corrupted or unsupported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded hub list is corrupted or unsupported (%1)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2950,6 +2970,10 @@ Clés:
         <source>Slovak</source>
         <translation>Slovaque</translation>
     </message>
+    <message>
+        <source>Czech</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
@@ -3148,6 +3172,10 @@ Clés:
     <message>
         <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open directory</source>
+        <translation type="unfinished">Ouvrir le dossier</translation>
     </message>
 </context>
 <context>
@@ -6026,7 +6054,7 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>Enter parameter value</source>
-        <translation>Entrer valeur</translation>
+        <translation type="obsolete">Entrer valeur</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -6079,6 +6107,18 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>%1 PB</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Command parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Annuler</translation>
     </message>
 </context>
 <context>

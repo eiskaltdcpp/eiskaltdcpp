@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-08 23:34+0200\n"
+"POT-Creation-Date: 2010-12-13 01:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,7 @@ msgstr ""
 #: ../src/search.cc:605 ../src/search.cc:688 ../src/search.cc:820
 #: ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1282
+#: ../glade/search.glade:60 ../glade/mainwindow.glade:1287
 msgid "Size"
 msgstr ""
 
@@ -76,7 +76,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
 #: ../src/publichubs.cc:58 ../src/publichubs.cc:158
-#: ../glade/mainwindow.glade:1741 ../glade/mainwindow.glade:1943
+#: ../glade/mainwindow.glade:1746 ../glade/mainwindow.glade:1948
 msgid "Users"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgstr ""
 #: ../src/sharebrowser.cc:78 ../src/sharebrowser.cc:291
 #: ../src/sharebrowser.cc:321 ../src/sharebrowser.cc:516
 #: ../src/sharebrowser.cc:972 ../src/sharebrowser.cc:1006
-#: ../glade/mainwindow.glade:1295
+#: ../glade/mainwindow.glade:1300
 msgid "TTH"
 msgstr ""
 
@@ -573,7 +573,7 @@ msgstr ""
 msgid "Search spam detected from "
 msgstr ""
 
-#: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:2029
+#: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:2034
 msgid "ADL Search"
 msgstr ""
 
@@ -615,7 +615,7 @@ msgstr ""
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1214
 #: ../src/settingsdialog.cc:1269 ../src/settingsdialog.cc:1332
-#: ../glade/mainwindow.glade:205 ../glade/mainwindow.glade:1941
+#: ../glade/mainwindow.glade:205 ../glade/mainwindow.glade:1946
 msgid "Favorite Users"
 msgstr ""
 
@@ -686,7 +686,7 @@ msgstr ""
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:960
 #: ../src/settingsdialog.cc:1224 ../src/settingsdialog.cc:1285
 #: ../src/settingsdialog.cc:1333 ../glade/mainwindow.glade:320
-#: ../glade/mainwindow.glade:2042 ../glade/settingsdialog.glade:3989
+#: ../glade/mainwindow.glade:2047 ../glade/settingsdialog.glade:3989
 msgid "Search Spy"
 msgstr ""
 
@@ -1088,14 +1088,14 @@ msgstr ""
 #: ../src/settingsdialog.cc:954 ../src/settingsdialog.cc:1215
 #: ../src/settingsdialog.cc:1289 ../src/settingsdialog.cc:1330
 #: ../src/finishedtransfers.cc:35 ../glade/mainwindow.glade:287
-#: ../glade/mainwindow.glade:1811 ../glade/mainwindow.glade:2000
+#: ../glade/mainwindow.glade:1816 ../glade/mainwindow.glade:2005
 msgid "Finished Downloads"
 msgstr ""
 
 #: ../src/settingsdialog.cc:955 ../src/settingsdialog.cc:1216
 #: ../src/settingsdialog.cc:1291 ../src/settingsdialog.cc:1331
 #: ../src/finishedtransfers.cc:40 ../glade/mainwindow.glade:301
-#: ../glade/mainwindow.glade:1818 ../glade/mainwindow.glade:2013
+#: ../glade/mainwindow.glade:1823 ../glade/mainwindow.glade:2018
 msgid "Finished Uploads"
 msgstr ""
 
@@ -1112,8 +1112,8 @@ msgstr ""
 #: ../src/search.cc:79 ../src/search.cc:231 ../src/search.cc:429
 #: ../src/search.cc:1066 ../src/search.cc:1067 ../src/search.cc:1877
 #: ../glade/searchspy.glade:184 ../glade/searchspy.glade:249
-#: ../glade/mainwindow.glade:231 ../glade/mainwindow.glade:1783
-#: ../glade/mainwindow.glade:1956 ../glade/settingsdialog.glade:5762
+#: ../glade/mainwindow.glade:231 ../glade/mainwindow.glade:1788
+#: ../glade/mainwindow.glade:1961 ../glade/settingsdialog.glade:5762
 msgid "Search"
 msgstr ""
 
@@ -1237,56 +1237,56 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1213 ../src/settingsdialog.cc:1267
 #: ../src/settingsdialog.cc:1328 ../src/favoritehubs.cc:31
-#: ../glade/mainwindow.glade:170 ../glade/mainwindow.glade:1928
+#: ../glade/mainwindow.glade:170 ../glade/mainwindow.glade:1933
 msgid "Favorite Hubs"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1217 ../src/settingsdialog.cc:1275
-#: ../glade/mainwindow.glade:1762 ../glade/mainwindow.glade:1855
+#: ../glade/mainwindow.glade:1767 ../glade/mainwindow.glade:1860
 msgid "Own file list"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1218 ../src/settingsdialog.cc:1277
-#: ../glade/mainwindow.glade:1769 ../glade/mainwindow.glade:1868
+#: ../glade/mainwindow.glade:1774 ../glade/mainwindow.glade:1873
 msgid "Refresh"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1219 ../src/settingsdialog.cc:1279
-#: ../glade/mainwindow.glade:1776 ../glade/mainwindow.glade:1881
+#: ../glade/mainwindow.glade:1781 ../glade/mainwindow.glade:1886
 msgid "Hash"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1220 ../src/settingsdialog.cc:1273
-#: ../glade/mainwindow.glade:1755 ../glade/mainwindow.glade:1837
+#: ../glade/mainwindow.glade:1760 ../glade/mainwindow.glade:1842
 #: ../glade/settingsdialog.glade:6
 msgid "Preferences"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1221 ../src/settingsdialog.cc:1271
 #: ../src/settingsdialog.cc:1327 ../src/publichubs.cc:29
-#: ../glade/mainwindow.glade:185 ../glade/mainwindow.glade:1748
-#: ../glade/mainwindow.glade:1969
+#: ../glade/mainwindow.glade:185 ../glade/mainwindow.glade:1753
+#: ../glade/mainwindow.glade:1974
 msgid "Public Hubs"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1222 ../src/settingsdialog.cc:1287
-#: ../glade/mainwindow.glade:1804 ../glade/mainwindow.glade:1987
+#: ../glade/mainwindow.glade:1809 ../glade/mainwindow.glade:1992
 #: ../glade/settingsdialog.glade:1740
 msgid "Queue"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1225 ../src/settingsdialog.cc:1293
-#: ../glade/mainwindow.glade:1825 ../glade/mainwindow.glade:2062
+#: ../glade/mainwindow.glade:1830 ../glade/mainwindow.glade:2067
 msgid "Quit"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1226 ../src/settingsdialog.cc:1265
-#: ../glade/mainwindow.glade:1727 ../glade/mainwindow.glade:1912
+#: ../glade/mainwindow.glade:1732 ../glade/mainwindow.glade:1917
 msgid "Connect"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1227 ../src/settingsdialog.cc:1263
-#: ../glade/mainwindow.glade:1720 ../glade/mainwindow.glade:1899
+#: ../glade/mainwindow.glade:1725 ../glade/mainwindow.glade:1904
 msgid "Reconnect"
 msgstr ""
 
@@ -1294,12 +1294,12 @@ msgstr ""
 msgid "Search ADL"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1259 ../glade/mainwindow.glade:1392
-#: ../glade/mainwindow.glade:1706 ../glade/mainwindow.glade:2080
+#: ../src/settingsdialog.cc:1259 ../glade/mainwindow.glade:1397
+#: ../glade/mainwindow.glade:1711 ../glade/mainwindow.glade:2085
 msgid "+/-"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1261 ../glade/mainwindow.glade:1713
+#: ../src/settingsdialog.cc:1261 ../glade/mainwindow.glade:1718
 msgid "Separators"
 msgstr ""
 
@@ -1650,7 +1650,7 @@ msgstr ""
 msgid "Magnet Choice"
 msgstr ""
 
-#: ../src/mainwindow.cc:1907 ../glade/mainwindow.glade:1044
+#: ../src/mainwindow.cc:1907 ../glade/mainwindow.glade:1049
 msgid "Select filelist to browse"
 msgstr ""
 
@@ -1860,7 +1860,7 @@ msgid "Slots"
 msgstr ""
 
 #: ../src/search.cc:329 ../src/search.cc:400 ../src/sharebrowser.cc:481
-#: ../src/sharebrowser.cc:549 ../glade/mainwindow.glade:1457
+#: ../src/sharebrowser.cc:549 ../glade/mainwindow.glade:1462
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
 #: ../glade/settingsdialog.glade:2739 ../glade/settingsdialog.glade:4052
 #: ../glade/settingsdialog.glade:4978 ../glade/settingsdialog.glade:4993
@@ -2221,8 +2221,8 @@ msgstr ""
 msgid "Filter files already in share"
 msgstr ""
 
-#: ../glade/search.glade:264 ../glade/mainwindow.glade:1734
-#: ../glade/mainwindow.glade:1930
+#: ../glade/search.glade:264 ../glade/mainwindow.glade:1739
+#: ../glade/mainwindow.glade:1935
 msgid "Hubs"
 msgstr ""
 
@@ -2413,7 +2413,7 @@ msgstr ""
 msgid "Calculate file TTH"
 msgstr ""
 
-#: ../glade/mainwindow.glade:115 ../glade/mainwindow.glade:1207
+#: ../glade/mainwindow.glade:115 ../glade/mainwindow.glade:1212
 msgid "_Exit"
 msgstr ""
 
@@ -2566,8 +2566,8 @@ msgid ""
 "\n"
 " Russian translation\n"
 "\n"
-" Uladzimir Bely\n"
-" (wiselord1983@gmail.com)\n"
+" Boris Pek\n"
+" (tehnick-8@mail.ru)\n"
 "\n"
 " Belarusian translation\n"
 "\n"
@@ -2612,133 +2612,138 @@ msgid ""
 "\n"
 " Martin Durisin\n"
 " (martin.durisin@gmail.com)\n"
+"\n"
+" Czech translation\n"
+"\n"
+" Uhlik\n"
+" (uhlikx@seznam.cz)\n"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1093
+#: ../glade/mainwindow.glade:1098
 msgid "Enter line for user command"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1181
+#: ../glade/mainwindow.glade:1186
 msgid "_Show Interface"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1194
+#: ../glade/mainwindow.glade:1199
 msgid "Use Blinking Icon"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1221 ../glade/mainwindow.glade:1258
+#: ../glade/mainwindow.glade:1226 ../glade/mainwindow.glade:1263
 msgid "Magnet"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1269
+#: ../glade/mainwindow.glade:1274
 msgid "File name"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1364
+#: ../glade/mainwindow.glade:1369
 msgid "Exact size"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1403
+#: ../glade/mainwindow.glade:1408
 msgid "<b>Magnet properties</b>"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1431
+#: ../glade/mainwindow.glade:1436
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1432
+#: ../glade/mainwindow.glade:1437
 msgid "Add this file to your download queue"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1476
+#: ../glade/mainwindow.glade:1481
 msgid "Start a search for this file"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1490
+#: ../glade/mainwindow.glade:1495
 msgid "Show magnet dialog"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1516
+#: ../glade/mainwindow.glade:1521
 msgid "Remember choice"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1545
+#: ../glade/mainwindow.glade:1550
 msgid "<b>What would you like to do?</b>"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1573 ../glade/settingsdialog.glade:6098
+#: ../glade/mainwindow.glade:1578 ../glade/settingsdialog.glade:6098
 #: ../glade/settingsdialog.glade:6591 ../glade/settingsdialog.glade:6632
 msgid "gtk-cancel"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1583 ../glade/settingsdialog.glade:6603
+#: ../glade/mainwindow.glade:1588 ../glade/settingsdialog.glade:6603
 #: ../glade/settingsdialog.glade:6655
 msgid "gtk-ok"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1612
+#: ../glade/mainwindow.glade:1617
 msgid "Chose A File"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1790 ../glade/mainwindow.glade:2031
+#: ../glade/mainwindow.glade:1795 ../glade/mainwindow.glade:2036
 msgid "ADL"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1797 ../glade/mainwindow.glade:2044
+#: ../glade/mainwindow.glade:1802 ../glade/mainwindow.glade:2049
 msgid "Spy"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1835
+#: ../glade/mainwindow.glade:1840
 msgid "Edit the preferences"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1853
+#: ../glade/mainwindow.glade:1858
 msgid "Open own file list"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1866
+#: ../glade/mainwindow.glade:1871
 msgid "Refresh file list"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1879
+#: ../glade/mainwindow.glade:1884
 msgid "View the hashing progress"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1897
+#: ../glade/mainwindow.glade:1902
 msgid "Reconnect to the hub"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1910
+#: ../glade/mainwindow.glade:1915
 msgid "Quick connect to the hub"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1954
+#: ../glade/mainwindow.glade:1959
 msgid "Search for files to download"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1967
+#: ../glade/mainwindow.glade:1972
 msgid "Browse the list of public hubs"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1985
+#: ../glade/mainwindow.glade:1990
 msgid "View the files to be downloaded"
 msgstr ""
 
-#: ../glade/mainwindow.glade:1998
+#: ../glade/mainwindow.glade:2003
 msgid "View the list of finished downloads"
 msgstr ""
 
-#: ../glade/mainwindow.glade:2011
+#: ../glade/mainwindow.glade:2016
 msgid "View the list of finished uploads"
 msgstr ""
 
-#: ../glade/mainwindow.glade:2060
+#: ../glade/mainwindow.glade:2065
 msgid "Quit the program"
 msgstr ""
 
-#: ../glade/mainwindow.glade:2078
+#: ../glade/mainwindow.glade:2083
 msgid "Add / Remove"
 msgstr ""
 

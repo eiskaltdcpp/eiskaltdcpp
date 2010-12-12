@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-08 23:34+0200\n"
+"POT-Creation-Date: 2010-12-13 01:02+0200\n"
 "PO-Revision-Date: 2010-11-06 19:34+0200\n"
 "Last-Translator: PsyTrip <dimitrov.rusi@gmail.com>\n"
 "Language-Team: Bulgarian < >\n"
@@ -430,6 +430,14 @@ msgstr "Максималната дължина на командата е пр�
 msgid "Disconnected"
 msgstr "Връзката е прекъсната"
 
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Въведете низ>"
+
+#: ../ADLSearch.cpp:484
+msgid "Discard"
+msgstr "Отхвърляне"
+
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Липсва атрибут за име на директорията"
@@ -650,14 +658,6 @@ msgstr "CRC32 несъвпадение (SFV-проверка)"
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Искане за търсене след края на данните"
-
-#: ../ADLSearch.h:50
-msgid "<Enter string>"
-msgstr "<Въведете низ>"
-
-#: ../ADLSearch.h:306
-msgid "Discard"
-msgstr "Отхвърляне"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"

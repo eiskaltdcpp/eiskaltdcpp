@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-08 23:34+0200\n"
+"POT-Creation-Date: 2010-12-13 01:02+0200\n"
 "PO-Revision-Date: 2010-12-06 07:20+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -438,6 +438,14 @@ msgstr "Tamaño máximo del comando excedido"
 msgid "Disconnected"
 msgstr "Desconectado"
 
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Ingrese cadena>"
+
+#: ../ADLSearch.cpp:484
+msgid "Discard"
+msgstr "Descartar"
+
 #: ../DirectoryListing.cpp:163
 msgid "Directory missing name attribute"
 msgstr "Atributo de nombre falta del directorio."
@@ -655,14 +663,6 @@ msgstr "Error de CRC32  (SFV-Check)"
 #: ../BitInputStream.h:40
 msgid "Request to seek beyond the end of data"
 msgstr "Solicitar búsqueda más allá del final de los datos"
-
-#: ../ADLSearch.h:50
-msgid "<Enter string>"
-msgstr "<Ingrese cadena>"
-
-#: ../ADLSearch.h:306
-msgid "Discard"
-msgstr "Descartar"
 
 #: ../Streams.h:140
 msgid "More bytes written than requested"

@@ -59,6 +59,7 @@ protected:
     virtual void on(DownloadFailed, const std::string& l) throw();
     virtual void on(DownloadFinished, const std::string& l) throw();
     virtual void on(LoadedFromCache, const std::string& l) throw();
+    virtual void on(Corrupted, const std::string& l) throw();
 
 private Q_SLOTS:
     void slotContextMenu();

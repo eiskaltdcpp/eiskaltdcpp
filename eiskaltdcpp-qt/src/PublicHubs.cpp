@@ -285,3 +285,11 @@ void PublicHubs::on(DownloadFinished, const std::string& l) throw(){
 void PublicHubs::on(LoadedFromCache, const std::string& l) throw(){
     emit coreCacheLoaded(tr("Hub list loaded from cache...").arg(_q(l)));
 }
+
+void PublicHubs::on(Corrupted, const string& l) throw() {
+    if (l.empty())
+        emit coreDownloadFailed(tr("Cached hub list is corrupted or unsupported"));
+    else
+        emit coreDownloadFailed(tr("Downloaded hub list is corrupted or unsupported (%1)").arg(_q(l)));
+}
+
