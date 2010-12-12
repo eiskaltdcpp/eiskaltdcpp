@@ -828,13 +828,34 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         case Menu::OpenUrl:
         {
+            ShareManager *SM = ShareManager::getInstance();
+
             foreach (QModelIndex index, list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 if (!item)
                     continue;
 
-                dcpp::StringList lst = listing.getLocalPaths(item->dir);
+                DirectoryListing::AdlDirectory *adl_dir = dynamic_cast<DirectoryListing::AdlDirectory*>(item->dir);
+                dcpp::StringList lst;
+
+                try {
+                    if (!adl_dir)
+                        lst  = listing.getLocalPaths(item->dir);
+                    else{
+                        QStringList path_lst = _q(adl_dir->getFullPath()).split('\\');
+
+                        if (path_lst.size() < 1)
+                            break;
+
+                        path_lst.removeFirst();//remove root element
+
+                        QString path = path_lst.join("\\")+'\\';
+
+                        lst = SM->getRealPaths(Util::toAdcFile(_tq(path)));
+                    }
+                }
+                catch ( ... ){ }
 
                 dcpp::StringIter it = lst.begin();
                 for (; it != lst.end(); ++it){
