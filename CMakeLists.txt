@@ -364,6 +364,7 @@ option (LANGUAGES "Using translations")
 list (APPEND AllLanguages
             be
             bg
+            cs
             en
             es
             fr
