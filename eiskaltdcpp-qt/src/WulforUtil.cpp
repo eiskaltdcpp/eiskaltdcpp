@@ -68,12 +68,12 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
     qRegisterMetaType< QMap<QString,QString> >("QMap<QString,QString>");
 
     if (WBGET(WB_APP_DYNDNS_ENABLED)) {
-        http = new QHttp();
+        http = new QHttp(this);
         connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
         http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
         slotHttpTimer();
 
-        http_timer = new QTimer();
+        http_timer = new QTimer(this);
         http_timer->setInterval(30*1000);
         connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
 
@@ -125,8 +125,14 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
 
 WulforUtil::~WulforUtil(){
     delete userIcons;
-    if (http_timer) delete http_timer;
-    if (http)       delete http;
+
+    if (http_timer)
+        http_timer->deleteLater();
+
+    if (http){
+        http->abort();
+        http->deleteLater();
+    }
 
     clearUserIconCache();
 }
