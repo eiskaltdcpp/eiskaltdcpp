@@ -2092,13 +2092,28 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
+        QString hr = "<hr />";
+
+        QString pTagEmpty = "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p>";
+
+        int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
+
         QString chatText = textEdit_CHAT->toHtml();
 
-        chatText.replace("<hr width=\"100%\"/>", "");
+        chatText.replace(pTagEmpty + "\n" + hr + "\n", "");
 
-        textEdit_CHAT->setText(chatText);
-        textEdit_CHAT->verticalScrollBar()->setValue(textEdit_CHAT->verticalScrollBar()->maximum());
-        textEdit_CHAT->append("<hr width=\"100%\"/>");
+        textEdit_CHAT->setHtml(chatText);
+        // После этого мы наблюдаем эпический баг с добавлением "text-decoration: underline; "
+        // в css-стить каждого тега с ником пользователя.
+        // Необходимо переписать этот код таким образом, чтобы содержимое textEdit_CHAT
+        // не перезаписывалось полностью, а только удолялась горизонтальная черта.
+
+        if (scrollbarValue > textEdit_CHAT->verticalScrollBar()->maximum())
+            scrollbarValue = textEdit_CHAT->verticalScrollBar()->maximum();
+
+        textEdit_CHAT->verticalScrollBar()->setValue(scrollbarValue);
+
+        output.prepend(hr);
 
         drawLine = false;
     }
