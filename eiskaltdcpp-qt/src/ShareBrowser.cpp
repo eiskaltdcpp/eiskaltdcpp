@@ -36,6 +36,7 @@
 #include <QtConcurrentFilter>
 #include <QtConcurrentRun>
 #include <QInputDialog>
+#include <QDesktopServices>
 
 #include <boost/bind.hpp>
 
@@ -81,6 +82,7 @@ ShareBrowser::Menu::Menu(){
     add_to_fav->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
     QAction *set_rest = new QAction(tr("Add restriction"), rest_menu);
     QAction *rem_rest = new QAction(tr("Remove restriction"), rest_menu);
+    open_url = new QAction(tr("Open directory"), menu);
     QAction *sep2    = new QAction(menu);
 
     actions.insert(down, Download);
@@ -90,6 +92,7 @@ ShareBrowser::Menu::Menu(){
     actions.insert(add_to_fav, AddToFav);
     actions.insert(set_rest, AddRestrinction);
     actions.insert(rem_rest, RemoveRestriction);
+    actions.insert(open_url, OpenUrl);
 
     magnet_menu->addActions(QList<QAction*>() << magnet << magnet_web);
 
@@ -103,6 +106,7 @@ ShareBrowser::Menu::Menu(){
     rest_menu->addActions(QList<QAction*>() << set_rest << rem_rest);
     menu->insertMenu(sep, down_to);
     menu->addMenu(rest_menu);
+    menu->addAction(open_url);
 }
 
 ShareBrowser::Menu::~Menu(){
@@ -158,6 +162,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     down_to->addAction(browse);
 
     rest_menu->setEnabled(user == ClientManager::getInstance()->getMe());
+    open_url->setEnabled(user == ClientManager::getInstance()->getMe());
 
     QAction *ret = menu->exec(QCursor::pos());
 
@@ -818,6 +823,46 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         {
             foreach (QModelIndex index, list)
                 tree_model->updateRestriction(index, 0);
+
+            break;
+        }
+        case Menu::OpenUrl:
+        {
+            ShareManager *SM = ShareManager::getInstance();
+
+            foreach (QModelIndex index, list){
+                FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
+
+                if (!item)
+                    continue;
+
+                DirectoryListing::AdlDirectory *adl_dir = dynamic_cast<DirectoryListing::AdlDirectory*>(item->dir);
+                dcpp::StringList lst;
+
+                try {
+                    if (!adl_dir)
+                        lst  = listing.getLocalPaths(item->dir);
+                    else{
+                        QStringList path_lst = _q(adl_dir->getFullPath()).split('\\');
+
+                        if (path_lst.size() < 1)
+                            break;
+
+                        path_lst.removeFirst();//remove root element
+
+                        QString path = path_lst.join("\\")+'\\';
+
+                        lst = SM->getRealPaths(Util::toAdcFile(_tq(path)));
+                    }
+                }
+                catch ( ... ){ }
+
+                dcpp::StringIter it = lst.begin();
+                for (; it != lst.end(); ++it){
+                    if (QDir(_q(*it)).exists())
+                        QDesktopServices::openUrl(QUrl("file://"+_q(*it)));
+                }
+            }
 
             break;
         }
