@@ -78,6 +78,7 @@ class SearchFrame : public QWidget,
             DownloadWholeDirTo,
             SearchTTH,
             Magnet,
+            MagnetWeb,
             Browse,
             MatchQueue,
             SendPM,
@@ -106,6 +107,7 @@ class SearchFrame : public QWidget,
         QString downToPath;
 
         QMenu *menu;
+        QMenu *magnet_menu;
         QMenu *down_to;
         QMenu *down_wh_to;
     };

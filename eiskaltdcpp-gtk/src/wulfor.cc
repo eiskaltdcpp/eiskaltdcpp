@@ -37,7 +37,7 @@
 
 #define GUI_PACKAGE "eiskaltdcpp-gtk"
 
-#include "Version.h"
+#include "VersionGlobal.h"
 
 void printHelp()
 {
@@ -148,4 +148,3 @@ int main(int argc, char *argv[])
     std::cout << _("Quit...") << std::endl;
     return 0;
 }
-

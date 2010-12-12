@@ -345,6 +345,14 @@ Kapcsolók:
         <source>Checksum mismatch</source>
         <translation>Az ellenőrző-összeg eltérő</translation>
     </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished">Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueueModel</name>
@@ -650,11 +658,15 @@ Kapcsolók:
     </message>
     <message>
         <source>/s</source>
-        <translation>/s</translation>
+        <translation type="obsolete">/s</translation>
     </message>
     <message>
         <source>Check sum</source>
         <translation>Ellenőrző-összeg</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1261,6 +1273,14 @@ Kedvenc felhasználó</translation>
     <message>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Felhasználók száma: %3/%1 | Összes megosztás: %2</translation>
+    </message>
+    <message>
+        <source>[User went offline]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%2)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2650,6 +2670,14 @@ Kapcsolók:
         <source>Blacklist</source>
         <translation>Tiltólista</translation>
     </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished">Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>
@@ -3087,6 +3115,14 @@ Kapcsolók:
     <message>
         <source>Enter restriction size (in GB)</source>
         <translation>Korlátozás méretének megadása (GiB-ban)</translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished">Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4236,6 +4272,22 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <source>User share</source>
         <translation>Felhasználó megosztása</translation>
+    </message>
+    <message>
+        <source>Find:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation type="unfinished">&lt;</translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation type="unfinished">&gt;</translation>
+    </message>
+    <message>
+        <source>A</source>
+        <translation type="unfinished">A</translation>
     </message>
 </context>
 <context>

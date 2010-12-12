@@ -309,6 +309,14 @@ Keys:
         <source>Checksum mismatch</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueueModel</name>
@@ -613,10 +621,14 @@ Keys:
     </message>
     <message>
         <source>/s</source>
-        <translation>/s</translation>
+        <translation type="obsolete">/s</translation>
     </message>
     <message>
         <source>Check sum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1/s</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1118,6 +1130,14 @@ Omiljeni korisnik</translation>
     <message>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation type="unfinished">Broj korisnika: %1 | Ukupno deljeno: %2 {3/%1 ?}</translation>
+    </message>
+    <message>
+        <source>[User went offline]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%2)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2408,6 +2428,14 @@ Keys:
         <source>Blacklist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>
@@ -2844,6 +2872,14 @@ Keys:
     </message>
     <message>
         <source>Enter restriction size (in GB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3975,6 +4011,22 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <source>User share</source>
         <translation>Korisnički udeo</translation>
+    </message>
+    <message>
+        <source>Find:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation type="unfinished">&lt;</translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation type="unfinished">&gt;</translation>
+    </message>
+    <message>
+        <source>A</source>
+        <translation type="unfinished">A</translation>
     </message>
 </context>
 <context>

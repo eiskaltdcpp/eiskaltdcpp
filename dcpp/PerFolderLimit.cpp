@@ -24,6 +24,7 @@
 #include "PerFolderLimit.h"
 #include "ClientManager.h"
 #include "LogManager.h"
+#include "FavoriteManager.h"
 
 namespace dcpp {
 
@@ -44,6 +45,7 @@ CPerfolderLimit::~CPerfolderLimit()
 bool CPerfolderLimit::IsUserAllowed(string const& request, const UserPtr user, string *message)
 {
   bool found=false;
+  FavoriteManager *FM = FavoriteManager::getInstance();
   Identity id=ClientManager::getInstance()->getOnlineUserIdentity(user);
   int64_t user_share=id.getBytesShared();
 
@@ -53,7 +55,7 @@ bool CPerfolderLimit::IsUserAllowed(string const& request, const UserPtr user, s
     //*message=string("Limits check: user '")+id.getNick()+"' "+id.getIp()+" req: "+request+" : ";
   }
 
-  if ( m_limits.empty() || id.isOp() )
+  if ( m_limits.empty() || id.isOp() || FM->isFavoriteUser(user) || FM->hasSlot(user))
   {
     return true;
   }

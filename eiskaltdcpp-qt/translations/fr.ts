@@ -330,6 +330,14 @@ Keys:
         <source>Checksum mismatch</source>
         <translation>Discordances de somme de contrôle (checksum)</translation>
     </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished">Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueue::Menu</name>
@@ -698,11 +706,15 @@ Keys:
     </message>
     <message>
         <source>/s</source>
-        <translation>/s</translation>
+        <translation type="obsolete">/s</translation>
     </message>
     <message>
         <source>Check sum</source>
         <translation>Somme de contrôle</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1207,6 +1219,14 @@ Utilisateur favoris</translation>
     <message>
         <source>Disable emoticons</source>
         <translation type="obsolete">Désactiver les smileys</translation>
+    </message>
+    <message>
+        <source>[User went offline]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%2)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2616,6 +2636,14 @@ Clés:
         <source>Blacklist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished">Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchFrame::Menu</name>
@@ -3111,6 +3139,14 @@ Clés:
     </message>
     <message>
         <source>Enter restriction size (in GB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished">Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4313,6 +4349,22 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <message>
         <source>User share</source>
         <translation>Partage utilisateur</translation>
+    </message>
+    <message>
+        <source>Find:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation type="unfinished">&lt;</translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation type="unfinished">&gt;</translation>
+    </message>
+    <message>
+        <source>A</source>
+        <translation type="unfinished">A</translation>
     </message>
 </context>
 <context>

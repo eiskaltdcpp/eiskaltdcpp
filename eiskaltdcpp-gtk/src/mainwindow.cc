@@ -51,7 +51,7 @@
 #include "wulformanager.hh"
 #include "adlsearch.hh"
 #include "WulforUtil.hh"
-#include "Version.h"
+#include "VersionGlobal.h"
 #include "cmddebug.hh"
 
 using namespace std;

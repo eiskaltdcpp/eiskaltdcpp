@@ -26,7 +26,7 @@ using namespace std;
 #include "HubManager.h"
 #include "Notification.h"
 #include "SingleInstanceRunner.h"
-#include "Version.h"
+#include "VersionGlobal.h"
 #include "IPFilter.h"
 #include "EmoticonFactory.h"
 
@@ -329,4 +329,3 @@ void migrateConfig(){
     }
 }
 #endif
-

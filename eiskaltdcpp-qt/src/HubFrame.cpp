@@ -218,6 +218,9 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
 
     menu->setTitle(WulforUtil::getInstance()->getNicks(cid));
 
+    if (menu->title().isEmpty())
+        menu->setTitle(tr("[User went offline]"));
+
     menu->addActions(ul_actions);
 
     QMenu *user_menu = NULL;
@@ -299,6 +302,9 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     title->setFont(f);
     title->setEnabled(false);
 
+    if (title->text().isEmpty())
+        title->setText(tr("[User went offline]"));
+
     menu->addAction(title);
 
     if(pmw){
@@ -315,7 +321,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     if (!cid.isEmpty() && !pmw){
         user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
                         UserCommand::CONTEXT_USER);
-        //menu->addMenu(user_menu);
+        menu->addMenu(user_menu);
     }
 
     QMenu *antispam_menu = NULL;
@@ -589,6 +595,48 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
             output += "&amp;";
 
             continue;
+        }
+        else if (input.startsWith("[magnet=\"") && input.indexOf("[/magnet]") > 9){//9 - length of [magnet="
+            QString chunk = input.left(input.indexOf("[/magnet]"));
+
+            do{
+                if (chunk.isEmpty())
+                    break;
+
+                chunk.remove(0, 9);
+
+                if (chunk.isEmpty() || chunk.indexOf("\"") <= 0)
+                    break;
+
+                QString magnet = chunk.left(chunk.indexOf("\""));
+
+                magnet = magnet.trimmed();
+
+                if (magnet.isEmpty())
+                    break;
+
+                QString name, tth;
+                int64_t size;
+
+                WulforUtil::splitMagnet(magnet, size, tth, name);
+
+                chunk.remove(0, magnet.length());
+
+                if (chunk.indexOf("]") < 1)
+                    break;
+
+                chunk.remove(0, chunk.indexOf("]") + 1);
+
+                if (chunk.isEmpty())
+                    break;
+
+                QString toshow = tr("%1 (%2)").arg(chunk).arg(WulforUtil::formatBytes(size));
+                QString html_link = "<a href=\"" + magnet + "\" title=\"" + toshow + "\" style=\"cursor: hand\">" + toshow + "</a>";
+
+                output += html_link;
+                input.remove(0, input.indexOf("[/magnet]")+1+9);
+            }
+            while (0);
         }
 
         if (input.isEmpty())
@@ -954,11 +1002,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
 void HubFrame::showEvent(QShowEvent *e){
     e->accept();
 
-    if (hasMessages && drawLine && WBGET("hubframe/unreaden-draw-line", false)){
-        addOutput("<hr width=100%><br/>");
-
-        drawLine = false;
-    }
+    drawLine = false;
 
     HubManager::getInstance()->setActiveHub(this);
 
@@ -2047,6 +2091,18 @@ void HubFrame::newMsg(const VarMap &map){
         MainWindow::getInstance()->redrawToolPanel();
     }
 
+    if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
+        QString chatText = textEdit_CHAT->toHtml();
+
+        chatText.replace("<hr width=\"100%\"/>", "");
+
+        textEdit_CHAT->setText(chatText);
+        textEdit_CHAT->verticalScrollBar()->setValue(textEdit_CHAT->verticalScrollBar()->maximum());
+        textEdit_CHAT->append("<hr width=\"100%\"/>");
+
+        drawLine = false;
+    }
+
     addOutput(output);
 }
 
@@ -2543,7 +2599,7 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     int row_counter = 0;
 
-    while (!pressedParagraph.contains(QRegExp("(<(\\w+)>)")) && row_counter < 600){//try to find nick in above rows (max 600 rows)
+    while (!pressedParagraph.contains(QRegExp("(<(.+)>)")) && row_counter < 600){//try to find nick in above rows (max 600 rows)
         cursor.movePosition(QTextCursor::PreviousBlock);
         pressedParagraph = cursor.block().text();
         row_counter++;
