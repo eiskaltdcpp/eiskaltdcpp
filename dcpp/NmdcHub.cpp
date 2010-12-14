@@ -594,8 +594,8 @@ void NmdcHub::onLine(const string& aLine) throw() {
     }else if(cmd == "$HubTopic") {
         //dcdebug("Nmdc topic:%s",aLine.c_str());
         string line;
-        string str2="Tema hubu:";
-        line=aLine;
+        string str2= _("Hub topic:");
+        line=toUtf8(aLine);
         line.replace(0,9,str2);
         fire(ClientListener::StatusMessage(), this, unescape(line), ClientListener::FLAG_NORMAL);
     } else if(cmd == "$ValidateDenide") {       // Mind the spelling...
