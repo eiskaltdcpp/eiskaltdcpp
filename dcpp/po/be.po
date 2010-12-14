@@ -33,7 +33,7 @@ msgstr "Накіраваць карыстальніка(аў)"
 
 #: ../FavoriteManager.cpp:488
 msgid "Auto-connect group (converted)"
-msgstr ""
+msgstr "Самарушна злучацца суполцы (пераробленае)"
 
 #: ../Socket.cpp:58
 #, c-format
@@ -85,20 +85,19 @@ msgstr "чарга сьцягваньня"
 
 #: ../DCPlusPlus.cpp:138
 msgid "Users"
-msgstr ""
+msgstr "карыстальнікі"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "Не магу стварыць ніць"
 
 #: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
-#, fuzzy
 msgid "Invalid data"
-msgstr "Хібны памер"
+msgstr "Хібныя зьвесткі"
 
 #: ../UserConnection.cpp:61
 msgid "Non-UTF-8 data in an ADC connection"
-msgstr ""
+msgstr "Зьвесткі злучэньня ADC не ў знаказборы UTF-8"
 
 #: ../ConnectivityManager.cpp:56
 msgid "Determining connection type..."
@@ -147,7 +146,7 @@ msgstr "Не магу даслаць файл %1%: %2%"
 
 #: ../UploadManager.cpp:409
 msgid "IPFilter: Blocked incoming connection to "
-msgstr ""
+msgstr "Сіта IP: затрымалі ўваходнае злучэньне з "
 
 #: ../UploadManager.cpp:472
 msgid "Disconnected user leaving the hub: %1%"
@@ -155,15 +154,15 @@ msgstr "Адлучаны карыстальнік выходзіць з асяр
 
 #: ../SettingsManager.cpp:501
 msgid "Invalid search type name"
-msgstr ""
+msgstr "Хібны назоў віду пошуку"
 
 #: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
 msgid "This search type already exists"
-msgstr ""
+msgstr "Гэты від пошуку ўжо існуе"
 
 #: ../SettingsManager.cpp:559
 msgid "No such search type"
-msgstr ""
+msgstr "Такі від пошуку не існуе"
 
 #: ../NmdcHub.cpp:288
 msgid "%1% (Nick unknown)"
@@ -216,7 +215,7 @@ msgstr "Ня чую злучэньняў — калі ласка, запусьц
 
 #: ../ChatMessage.cpp:34
 msgid "Sent "
-msgstr ""
+msgstr "Даслалі "
 
 #: ../Util.cpp:492
 #, c-format
@@ -373,9 +372,8 @@ msgid "No directory specified"
 msgstr "Ня вызначылі каталёг"
 
 #: ../ShareManager.cpp:457
-#, fuzzy
 msgid "Directory is hidden"
-msgstr "Гэты каталёг ужо абагулілі"
+msgstr "Схаваны каталёг"
 
 #: ../ShareManager.cpp:461
 msgid "The temporary download directory cannot be shared"
@@ -383,7 +381,7 @@ msgstr "Нельга абагуляць часовы каталёг"
 
 #: ../ShareManager.cpp:649
 msgid "Invalid file name found while hashing folder %1%"
-msgstr ""
+msgstr "Выявілі хібны назоў файла, калі стваралі скароты ў тэчцы %1%"
 
 #: ../ShareManager.cpp:667
 msgid "User has chosen not to share file: %1% (Size: %2%)"
@@ -487,7 +485,7 @@ msgstr "Памылка SSL: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
-msgstr ""
+msgstr "Сіта IP: затрымалі выходнае злучэньне з "
 
 #: ../DownloadManager.cpp:228
 msgid "Invalid size"
@@ -527,43 +525,43 @@ msgstr "Памылка злучэньня: %1%"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
-msgstr ""
+msgstr "Хоць-які"
 
 #: ../SearchManager.cpp:37
 msgid "Audio"
-msgstr ""
+msgstr "Аўдыё"
 
 #: ../SearchManager.cpp:38
 msgid "Compressed"
-msgstr ""
+msgstr "Сьціснуты"
 
 #: ../SearchManager.cpp:39
 msgid "Document"
-msgstr ""
+msgstr "Дакумэнт"
 
 #: ../SearchManager.cpp:40
 msgid "Executable"
-msgstr ""
+msgstr "Выканальны"
 
 #: ../SearchManager.cpp:41
 msgid "Picture"
-msgstr ""
+msgstr "Малюнак"
 
 #: ../SearchManager.cpp:42
 msgid "Video"
-msgstr ""
+msgstr "Відэа"
 
 #: ../SearchManager.cpp:43
 msgid "Directory"
-msgstr ""
+msgstr "Каталёг"
 
 #: ../SearchManager.cpp:44
 msgid "TTH"
-msgstr ""
+msgstr "Скарот (TTH)"
 
 #: ../SearchManager.cpp:45
 msgid "CD Image"
-msgstr ""
+msgstr "Адбітак CD"
 
 #: ../SearchManager.cpp:151
 msgid "Search enabled again"
@@ -579,7 +577,7 @@ msgstr ""
 
 #: ../QueueManager.cpp:594
 msgid "Searching TTH alternates for: %1%"
-msgstr "Шукаюцца па TTH дадатковыя крыніцы для: %1%"
+msgstr "Шукаюцца па скаротах (TTH) дадатковыя крыніцы для: %1%"
 
 #: ../QueueManager.cpp:636 ../QueueManager.cpp:699
 msgid "A file with the same hash already exists in your share"
@@ -602,14 +600,12 @@ msgid "You're trying to download from yourself!"
 msgstr "Вы спрабуеце сьцягнуць у самога сябе!"
 
 #: ../QueueManager.cpp:756
-#, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
-msgstr "Файл зь іншым TTH ужо стаіць у чарзе"
+msgstr "Файл зь іншым скаротам (TTH) ужо стаіць у чарзе"
 
 #: ../QueueManager.cpp:760
-#, fuzzy
 msgid "This file has already finished downloading"
-msgstr "Гэта файл ужо стаіць у чарзе"
+msgstr "Гэта файл ужо сьцягнулі"
 
 #: ../QueueManager.cpp:797 ../QueueManager.cpp:806
 msgid "Target filename too long"
@@ -624,9 +620,8 @@ msgstr ""
 "наладжваньні каталёгу сьцягваць файлы)"
 
 #: ../QueueManager.cpp:818
-#, fuzzy
 msgid "File already exists at the target location"
-msgstr "Файл з такім ці большым памерам ужо існуе ў прызначаным месцы"
+msgstr "Файл ужо ёсьць у прызначаным месцы"
 
 #: ../QueueManager.cpp:831 ../QueueManager.cpp:835
 msgid "Duplicate source: %1%"
@@ -642,11 +637,11 @@ msgstr "Файл мэты адсутнічае ці мае неадпаведн�
 
 #: ../QueueManager.cpp:1161
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr ""
+msgstr "Не магу перасунуць %1% у %2% (%3%); далі новы назоў: %4%"
 
 #: ../QueueManager.cpp:1164
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
+msgstr "Не магу ані перасунуць %1% у %2% (%3%), ані даць новы назоў: %4% (%5%)"
 
 #: ../QueueManager.cpp:1339
 msgid "Unable to open filelist: %1%"

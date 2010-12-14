@@ -161,7 +161,7 @@ msgstr "Невядома"
 
 #: ../src/downloadqueue.cc:1313
 msgid "0 B (0.00%)"
-msgstr ""
+msgstr "0 Б (0.00%)"
 
 #: ../src/downloadqueue.cc:1320
 msgid "Paused"
@@ -520,7 +520,7 @@ msgstr " выкрасьлілі са сьпісу ўлюбёнцаў"
 
 #: ../src/hub.cc:2636 ../src/favoritehubs.cc:330
 msgid "Global hub default"
-msgstr ""
+msgstr "Звычайны знаказбор асяродкаў"
 
 #: ../src/hub.cc:2711 ../src/hub.cc:2731
 msgid "User not found"
@@ -648,7 +648,7 @@ msgstr "Апошні раз бачылі"
 #: ../src/favoriteusers.cc:425 ../src/favoriteusers.cc:469
 #: ../src/favoriteusers.cc:587
 msgid "CID"
-msgstr ""
+msgstr "Азначальнік (CID)"
 
 #: ../src/favoriteusers.cc:103 ../src/favoriteusers.cc:622
 #: ../src/favoriteusers.cc:641
@@ -753,7 +753,7 @@ msgstr "Хуткасьць"
 
 #: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:611
 msgid "IP"
-msgstr ""
+msgstr "Адрэса IP"
 
 #: ../src/transfers.cc:369
 msgid "Connecting (forced)..."
@@ -782,7 +782,7 @@ msgstr " карыстальнік(і,аў)"
 #: ../src/transfers.cc:609
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
-msgstr ""
+msgstr "Transfers::updateTransfer, не знайшлі азначальнік (CID) %s\n"
 
 #: ../src/transfers.cc:668 ../src/transfers.cc:872
 msgid "File list"
@@ -790,7 +790,7 @@ msgstr "Сьпіс файлаў"
 
 #: ../src/transfers.cc:707 ../src/transfers.cc:708 ../src/transfers.cc:874
 msgid "TTH: "
-msgstr ""
+msgstr "Скарот (TTH): "
 
 #: ../src/transfers.cc:901
 msgid "Requesting"
@@ -847,7 +847,7 @@ msgstr "Пачынаем зацягваць…"
 
 #: ../src/transfers.cc:1104
 msgid "none"
-msgstr ""
+msgstr "няма"
 
 #: ../src/transfers.cc:1132
 msgid "Uploaded "
@@ -859,7 +859,7 @@ msgstr "Скончылі зацягваць…"
 
 #: ../src/cmddebug.cc:33
 msgid "CMD"
-msgstr ""
+msgstr "Загады"
 
 #: ../src/wulfor.cc:70
 msgid "Loading: "
@@ -1424,15 +1424,15 @@ msgstr "Запісацца ў апэрацыйнае сыстэме як апр�
 
 #: ../src/settingsdialog.cc:1411
 msgid "Show IP's' in chats"
-msgstr ""
+msgstr "Паказваць адрэсы IP ў гамане"
 
 #: ../src/settingsdialog.cc:1412
 msgid "Show user country in chat"
-msgstr ""
+msgstr "Паказваць краіну карыстальніка ў гамане"
 
 #: ../src/settingsdialog.cc:1413
 msgid "Allow overlap chunks"
-msgstr ""
+msgstr "Дазволіць кавалкам накладацца"
 
 #: ../src/settingsdialog.cc:1422 ../src/settingsdialog.cc:1432
 #: ../src/settingsdialog.cc:3006 ../src/settingsdialog.cc:3080
@@ -1471,11 +1471,11 @@ msgstr "Від крыніцы"
 #: ../src/settingsdialog.cc:1509 ../src/settingsdialog.cc:1608
 #: ../src/settingsdialog.cc:1699
 msgid "Predefined"
-msgstr ""
+msgstr "Прадвызначана"
 
 #: ../src/settingsdialog.cc:1620
 msgid "New search type"
-msgstr ""
+msgstr "Новы від пошуку"
 
 #: ../src/settingsdialog.cc:1621
 msgid "<b>Name of the new search type</b>"
@@ -1492,7 +1492,7 @@ msgstr "Хібнае пашырэньне: "
 
 #: ../src/settingsdialog.cc:1873
 msgid "Rename a search type"
-msgstr ""
+msgstr "Даць новы назоў віду пошуку"
 
 #: ../src/settingsdialog.cc:1874
 msgid "<b>New name</b>"
@@ -1529,12 +1529,12 @@ msgstr " + сыстэмныя значкі"
 
 #: ../src/settingsdialog.cc:2299
 msgid "default theme"
-msgstr "звычайная тэма"
+msgstr "звычайнае аздабленьне"
 
 #: ../src/settingsdialog.cc:2466
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
-msgstr ""
+msgstr "eiskaltdcpp-gtk: прачыталі аздабленьне %s…\n"
 
 #: ../src/settingsdialog.cc:2660 ../src/settingsdialog.cc:2746
 msgid "Must not be empty..."
@@ -1908,7 +1908,7 @@ msgstr "0 прасеяных"
 #: ../src/search.cc:535
 #, c-format
 msgid "Sent ADC extensions : %s\n"
-msgstr ""
+msgstr "Даслалі прыбудовы ADC: %s\n"
 
 #: ../src/search.cc:544
 msgid "Searching too soon, retry in "
@@ -1940,19 +1940,19 @@ msgstr "Памылка: не знайшлі можнасьці!"
 
 #: ../src/settingsmanager.cc:515
 msgid "Change setting "
-msgstr ""
+msgstr "Зьмяніць можнасьць "
 
 #: ../src/settingsmanager.cc:515 ../src/settingsmanager.cc:535
 msgid " to "
-msgstr ""
+msgstr " на "
 
 #: ../src/settingsmanager.cc:518 ../src/settingsmanager.cc:537
 msgid "Error: params have been not 2!"
-msgstr ""
+msgstr "Памылка: парамэтраў ня два!"
 
 #: ../src/settingsmanager.cc:535
 msgid "Change core setting "
-msgstr ""
+msgstr "Зьмяніць можнасьць асновы"
 
 #: ../src/sharebrowser.cc:38 ../src/sharebrowser.cc:57
 msgid "List: "
@@ -2150,7 +2150,7 @@ msgstr "Не зважаць на пошук па скаротах"
 
 #: ../glade/searchspy.glade:33
 msgid "Ignore TTH"
-msgstr "Не зважаць на скароты (TTH)"
+msgstr "Не скароты (TTH)"
 
 #: ../glade/searchspy.glade:56
 msgid "Apply settings"
@@ -2410,27 +2410,27 @@ msgstr "<small>Уважце: ня стаўце птушачку, каб пакі
 
 #: ../glade/cmddebug.glade:36
 msgid "HUB IN"
-msgstr ""
+msgstr "Увах. асяродку"
 
 #: ../glade/cmddebug.glade:50
 msgid "HUB OUT"
-msgstr ""
+msgstr "Вых. асяродку"
 
 #: ../glade/cmddebug.glade:64
 msgid "CLIENT IN"
-msgstr ""
+msgstr "Увах. кліента"
 
 #: ../glade/cmddebug.glade:78
 msgid "CLIENT OUT"
-msgstr ""
+msgstr "Вых. кліента"
 
 #: ../glade/cmddebug.glade:92
 msgid "DETECTION"
-msgstr ""
+msgstr "Выяўляць"
 
 #: ../glade/cmddebug.glade:106
 msgid "Filter by IP"
-msgstr ""
+msgstr "Прасейваць па IP"
 
 #: ../glade/mainwindow.glade:18
 msgid "_File"
@@ -2482,7 +2482,7 @@ msgstr "Пры_лады"
 
 #: ../glade/mainwindow.glade:260
 msgid "CMD Debug"
-msgstr ""
+msgstr "Наладка загадаў"
 
 #: ../glade/mainwindow.glade:340
 msgid "_Preferences"
@@ -2677,8 +2677,8 @@ msgstr ""
 "\n"
 " Пераклаў у расейскую\n"
 "\n"
-" Uladzimir Bely\n"
-" (wiselord1983@gmail.com)\n"
+" Boris Pek\n"
+" (tehnick-8@mail.ru)\n"
 "\n"
 " Пераклаў у беларускую\n"
 "\n"
@@ -2723,6 +2723,11 @@ msgstr ""
 "\n"
 " Martin Durisin\n"
 " (martin.durisin@gmail.com)\n"
+"\n"
+" Пераклаў у чэскую\n"
+"\n"
+" Uhlik\n"
+" (uhlikx@seznam.cz)\n"
 
 #: ../glade/mainwindow.glade:1098
 msgid "Enter line for user command"
@@ -2783,12 +2788,12 @@ msgstr "<b>Што вы хочаце рабіць?</b>"
 #: ../glade/mainwindow.glade:1578 ../glade/settingsdialog.glade:6098
 #: ../glade/settingsdialog.glade:6591 ../glade/settingsdialog.glade:6632
 msgid "gtk-cancel"
-msgstr "gtk-cancel"
+msgstr "Скасаваць"
 
 #: ../glade/mainwindow.glade:1588 ../glade/settingsdialog.glade:6603
 #: ../glade/settingsdialog.glade:6655
 msgid "gtk-ok"
-msgstr "gtk-ok"
+msgstr "Ужыць"
 
 #: ../glade/mainwindow.glade:1617
 msgid "Chose A File"
@@ -3318,11 +3323,11 @@ msgstr "<b>Выгляд тэксту</b>"
 
 #: ../glade/settingsdialog.glade:3426
 msgid "<b>Current theme name:</b>"
-msgstr "<b>Назоў бягучае тэмы:</b>"
+msgstr "<b>Назоў бягучага аздабленьня:</b>"
 
 #: ../glade/settingsdialog.glade:3436
 msgid "theme"
-msgstr "тэма"
+msgstr "аздабленьне"
 
 #: ../glade/settingsdialog.glade:3459
 msgid "Export..."
@@ -3342,7 +3347,7 @@ msgstr "Сыстэмныя значкі"
 
 #: ../glade/settingsdialog.glade:3522
 msgid "Theme default"
-msgstr "Звычайная тэма"
+msgstr "Звычайнае аздабленьне"
 
 #: ../glade/settingsdialog.glade:3544
 msgid "Themes"
@@ -3531,7 +3536,7 @@ msgstr "Пасьведчаньні бясьпекі"
 
 #: ../glade/settingsdialog.glade:5209
 msgid "Use bandwidth limits"
-msgstr "Ужываць абмежаваньні хуткасьці"
+msgstr "Абмяжоўваць хуткасьці"
 
 #: ../glade/settingsdialog.glade:5247 ../glade/settingsdialog.glade:5490
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
@@ -3672,7 +3677,7 @@ msgstr "Зьмяніць загад карыстальніка"
 
 #: ../glade/settingsdialog.glade:6152
 msgid "Raw"
-msgstr "Сыры"
+msgstr "Наўпроставы"
 
 #: ../glade/settingsdialog.glade:6186
 msgid "Chat"
