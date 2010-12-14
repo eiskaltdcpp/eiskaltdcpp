@@ -58,6 +58,7 @@ public:
         return publicListMatrix[publicListServer];
     }
     bool isDownloading() { return (useHttp && running); }
+    const string& getCurrentHubList() const { return publicListServer; }
 
 // Favorite Users
     typedef unordered_map<CID, FavoriteUser> FavoriteMap;
@@ -75,20 +76,20 @@ public:
     std::string getUserURL(const UserPtr& aUser) const;
 
 // Favorite Hubs
-        const FavoriteHubEntryList& getFavoriteHubs() const { return favoriteHubs; }
+    const FavoriteHubEntryList& getFavoriteHubs() const { return favoriteHubs; }
     FavoriteHubEntryList& getFavoriteHubs() { return favoriteHubs; }
 
     void addFavorite(const FavoriteHubEntry& aEntry);
     void removeFavorite(FavoriteHubEntry* entry);
     bool isFavoriteHub(const std::string& aUrl);
-        FavoriteHubEntryPtr getFavoriteHubEntry(const string& aServer) const;
+    FavoriteHubEntryPtr getFavoriteHubEntry(const string& aServer) const;
 
 // Favorite hub groups
-        const FavHubGroups& getFavHubGroups() const { return favHubGroups; }
-        void setFavHubGroups(const FavHubGroups& favHubGroups_) { favHubGroups = favHubGroups_; }
+    const FavHubGroups& getFavHubGroups() const { return favHubGroups; }
+    void setFavHubGroups(const FavHubGroups& favHubGroups_) { favHubGroups = favHubGroups_; }
 
-        FavoriteHubEntryList getFavoriteHubs(const string& group) const;
-        bool isPrivate(const string& url) const;
+    FavoriteHubEntryList getFavoriteHubs(const string& group) const;
+    bool isPrivate(const string& url) const;
 
 // Favorite Directories
     bool addFavoriteDir(const string& aDirectory, const string& aName);
@@ -97,7 +98,7 @@ public:
     StringPairList getFavoriteDirs() { return favoriteDirs; }
 
 // User Commands
-        UserCommand addUserCommand(int type, int ctx, int flags, const string& name, const string& command, const string& to, const string& hub);
+    UserCommand addUserCommand(int type, int ctx, int flags, const string& name, const string& command, const string& to, const string& hub);
     bool getUserCommand(int cid, UserCommand& uc);
     int findUserCommand(const string& aName, const string& aUrl);
     bool moveUserCommand(int cid, int pos);
@@ -114,7 +115,7 @@ public:
 
 private:
     FavoriteHubEntryList favoriteHubs;
-        FavHubGroups favHubGroups;
+    FavHubGroups favHubGroups;
     StringPairList favoriteDirs;
     UserCommand::List userCommands;
     int lastId;
@@ -151,12 +152,13 @@ private:
     // HttpConnectionListener
     virtual void on(Data, HttpConnection*, const uint8_t*, size_t) throw();
     virtual void on(Failed, HttpConnection*, const string&) throw();
-        virtual void on(Complete, HttpConnection*, const string&, bool) throw();
+    virtual void on(Complete, HttpConnection*, const string&, bool) throw();
     virtual void on(Redirected, HttpConnection*, const string&) throw();
     virtual void on(TypeNormal, HttpConnection*) throw();
     virtual void on(TypeBZ2, HttpConnection*) throw();
+    virtual void on(Retried, HttpConnection*, const bool) throw();
 
-        bool onHttpFinished(bool fromHttp) throw();
+    bool onHttpFinished(bool fromHttp) throw();
 
     // SettingsManagerListener
     virtual void on(SettingsManagerListener::Load, SimpleXML& xml) throw() {

@@ -1098,5 +1098,13 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
 	}
 	return Text::toT(ret);
 }
-
+bool Util::fileExists(const string &aFile) {
+#ifdef _WIN32
+    DWORD attr = GetFileAttributes(Text::toT(aFile).c_str());
+    return (attr != 0xFFFFFFFF);
+#else
+    struct stat stFileInfo;
+    return (stat(aFile.c_str(),&stFileInfo) != 0);
+#endif
+}
 } // namespace dcpp

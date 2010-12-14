@@ -202,7 +202,7 @@ public:
 
     static void decodeUrl(const string& aUrl, string& aServer, uint16_t& aPort, string& aFile);
     static string validateFileName(string aFile);
-        static bool checkExtension(const string& tmp);
+    static bool checkExtension(const string& tmp);
     static string cleanPathChars(string aNick);
     static string addBrackets(const string& s);
 
@@ -433,7 +433,7 @@ public:
 
     static string getAwayMessage();
     static void setAwayMessage(const string& aMsg) { awayMsg = aMsg; }
-
+    static bool fileExists(const string &aFile);
     static uint32_t rand();
     static uint32_t rand(uint32_t high) { return rand() % high; }
     static uint32_t rand(uint32_t low, uint32_t high) { return rand(high-low) + low; }

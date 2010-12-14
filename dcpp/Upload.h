@@ -37,6 +37,7 @@ public:
 
 	virtual void getParams(const UserConnection& aSource, StringMap& params);
 
+	GETSET(int64_t, fileSize, FileSize);
 	GETSET(InputStream*, stream, Stream);
 };
 
