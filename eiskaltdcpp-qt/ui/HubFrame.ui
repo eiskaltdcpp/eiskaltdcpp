@@ -116,7 +116,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QToolButton" name="pushButton_ALL">
+             <widget class="QToolButton" name="toolButton_ALL">
               <property name="toolTip">
                <string>Highlight all</string>
               </property>

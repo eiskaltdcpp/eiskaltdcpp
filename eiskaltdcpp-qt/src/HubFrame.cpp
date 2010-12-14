@@ -1100,7 +1100,7 @@ void HubFrame::init(){
     connect(comboBox_COLUMNS, SIGNAL(activated(int)), this, SLOT(slotFilterTextChanged()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
     connect(toolButton_SMILE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSmileContextMenu()));
-    connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
+    connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString, QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     connect(WulforSettings::getInstance(), SIGNAL(intValueChanged(QString,int)), this, SLOT(slotBoolSettingsChanged(QString,int)));
 
@@ -2978,7 +2978,7 @@ void HubFrame::slotFindTextEdited(const QString & text){
 }
 
 void HubFrame::slotFindAll(){
-    if (!pushButton_ALL->isChecked()){
+    if (!toolButton_ALL->isChecked()){
         textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
 
         return;
@@ -3485,6 +3485,9 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         map["3RD"] = third;
         map["CID"] = _q(id.toBase32());
         map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp());
+
+        if (!(isBot || isHub) && (message.from->getUser() != ClientManager::getInstance()->getMe()) && Util::getAway())
+            ClientManager::getInstance()->privateMessage(HintedUser(user->getUser(), client->getHubUrl()), Util::getAwayMessage(), false);
 
         if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
             emit coreMessage(map);

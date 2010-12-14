@@ -56,6 +56,9 @@
         </item>
         <item row="1" column="2">
          <widget class="QToolButton" name="toolButton_BACK">
+          <property name="toolTip">
+           <string>Previous (Shift+F3)</string>
+          </property>
           <property name="text">
            <string>&lt;</string>
           </property>
@@ -63,6 +66,9 @@
         </item>
         <item row="1" column="3">
          <widget class="QToolButton" name="toolButton_FORWARD">
+          <property name="toolTip">
+           <string>Next (F3)</string>
+          </property>
           <property name="text">
            <string>&gt;</string>
           </property>
@@ -70,13 +76,19 @@
         </item>
         <item row="1" column="5">
          <widget class="QToolButton" name="toolButton_HIDE">
+          <property name="toolTip">
+           <string>Hide find frame (Ctrl+F)</string>
+          </property>
           <property name="text">
            <string/>
           </property>
          </widget>
         </item>
         <item row="1" column="4">
-         <widget class="QPushButton" name="pushButton_ALL">
+         <widget class="QToolButton" name="toolButton_ALL">
+          <property name="toolTip">
+           <string>Highlight all</string>
+          </property>
           <property name="text">
            <string>A</string>
           </property>
