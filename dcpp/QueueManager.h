@@ -117,7 +117,7 @@ public:
     /** @return The highest priority download the user has, PAUSED may also mean no downloads */
     QueueItem::Priority hasDownload(const UserPtr& aUser) throw();
 
-        bool getQueueInfo(const UserPtr& aUser, string& aTarget, int64_t& aSize, int& aFlags) throw();
+    bool getQueueInfo(const UserPtr& aUser, string& aTarget, int64_t& aSize, int& aFlags) throw();
 
     int countOnlineSources(const string& aTarget);
 
@@ -128,6 +128,21 @@ public:
 
     bool handlePartialSearch(const TTHValue& tth, PartsInfo& _outPartsInfo);
     bool handlePartialResult(const UserPtr& aUser, const string& hubHint, const TTHValue& tth, const QueueItem::PartialSource& partialSource, PartsInfo& outPartialInfo);
+
+    bool isChunkDownloaded(const TTHValue& tth, int64_t startPos, int64_t& bytes, string& tempTarget, int64_t& size) {
+        Lock l(cs);
+        QueueItem::List ql;
+        fileQueue.find(ql, tth);
+
+        if(ql.empty()) return false;
+
+        QueueItem* qi = ql.front();
+
+        tempTarget = qi->getTempTarget();
+        size = qi->getSize();
+
+        return qi->isChunkDownloaded(startPos, bytes);
+    }
 
     GETSET(uint64_t, lastSave, LastSave);
     GETSET(string, queueFile, QueueFile);
@@ -150,6 +165,8 @@ private:
         FileList files;
         CriticalSection cs;
     } mover;
+
+    typedef vector<pair<QueueItem::SourceConstIter, const QueueItem*> > PFSSourceList;
 
     class Rechecker : public Thread {
         struct DummyOutputStream : OutputStream {
@@ -188,9 +205,11 @@ private:
         QueueItem* find(const string& target);
         void find(QueueItem::List& sl, int64_t aSize, const string& ext);
         void find(QueueItem::List& ql, const TTHValue& tth);
-
+        // find some PFS sources to exchange parts info
+        void findPFSSources(PFSSourceList&);
         bool exists(const TTHValue& tth) const;
-
+        // return a PFS tth to DHT publish
+        TTHValue* findPFSPubTTH();
         QueueItem* findAutoSearch(StringList& recent);
         size_t getSize() { return queue.size(); }
         QueueItem::StringMap& getQueue() { return queue; }

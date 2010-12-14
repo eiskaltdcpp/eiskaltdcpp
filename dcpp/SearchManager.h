@@ -73,9 +73,9 @@ public:
         search(who, aName, Util::toInt64(aSize), aTypeMode, aSizeMode, aToken, aExtList);
     }
 
-    void respond(const AdcCommand& cmd, const CID& cid,  bool isUdpActive);
+    void respond(const AdcCommand& cmd, const CID& cid,  bool isUdpActive, const string& hubIpPort);
 
-    uint16_t getPort()
+    uint16_t getPort() const
     {
         return port;
     }

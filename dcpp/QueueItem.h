@@ -111,19 +111,21 @@ public:
             FLAG_SLOW_SOURCE = 0x100,
                         FLAG_PARTIAL    = 0x200,
                         FLAG_NO_NEED_PARTS      = 0x250,
-                        FLAG_UNTRUSTED = 0x300,
+                        FLAG_TTH_INCONSISTENCY  = 0x300,
+                        FLAG_UNTRUSTED = 0x400,
             FLAG_MASK = FLAG_FILE_NOT_AVAILABLE
                 | FLAG_PASSIVE | FLAG_REMOVED | FLAG_CRC_FAILED | FLAG_CRC_WARN
-                | FLAG_BAD_TREE | FLAG_NO_TREE | FLAG_SLOW_SOURCE | FLAG_UNTRUSTED
+                | FLAG_BAD_TREE | FLAG_NO_TREE | FLAG_SLOW_SOURCE | FLAG_TTH_INCONSISTENCY | FLAG_UNTRUSTED
         };
 
-                Source(const HintedUser& aUser) : user(aUser) { }
-        Source(const Source& aSource) : Flags(aSource), user(aSource.user) { }
+        Source(const HintedUser& aUser) : user(aUser), partialSource(NULL) { }
+        Source(const Source& aSource) : Flags(aSource), user(aSource.user), partialSource(aSource.partialSource) { }
 
         bool operator==(const UserPtr& aUser) const { return user == aUser; }
+        PartialSource::Ptr& getPartialSource() { return partialSource; }
 
-                GETSET(HintedUser, user, User);
-                GETSET(PartialSource::Ptr, partialSource, PartialSource);
+        GETSET(HintedUser, user, User);
+        GETSET(PartialSource::Ptr, partialSource, PartialSource);
     };
 
     typedef std::vector<Source> SourceList;
@@ -137,13 +139,14 @@ public:
     QueueItem(const string& aTarget, int64_t aSize, Priority aPriority, int aFlag,
         time_t aAdded, const TTHValue& tth) :
         Flags(aFlag), target(aTarget), size(aSize),
-        priority(aPriority), added(aAdded), tthRoot(tth)
+        priority(aPriority), added(aAdded), tthRoot(tth), nextPublishingTime(0)
     { }
 
     QueueItem(const QueueItem& rhs) :
         Flags(rhs), done(rhs.done), downloads(rhs.downloads), target(rhs.target),
         size(rhs.size), priority(rhs.priority), added(rhs.added), tthRoot(rhs.tthRoot),
-        sources(rhs.sources), badSources(rhs.badSources), tempTarget(rhs.tempTarget)
+        sources(rhs.sources), badSources(rhs.badSources), tempTarget(rhs.tempTarget),
+         nextPublishingTime(rhs.nextPublishingTime)
     { }
 
     virtual ~QueueItem() { }
@@ -178,12 +181,28 @@ public:
 
     DownloadList& getDownloads() { return downloads; }
 
+    bool isChunkDownloaded(int64_t startPos, int64_t& len) const {
+        if(len <= 0) return false;
+
+        for(SegmentSet::const_iterator i = done.begin(); i != done.end(); ++i) {
+                int64_t first  = (*i).getStart();
+                int64_t second = (*i).getEnd();
+
+                if(first <= startPos && startPos < second){
+                        len = min(len, second - startPos);
+                        return true;
+                }
+        }
+
+        return false;
+    }
+
     /** Next segment that is not done and not being downloaded, zero-sized segment returned if there is none is found */
         Segment getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t lastSpeed, const PartialSource::Ptr partialSource) const;
         /**
          * Is specified parts needed by this download?
          */
-        bool isSource(const PartsInfo& partsInfo, int64_t blockSize);
+        bool isNeededPart(const PartsInfo& partsInfo, int64_t blockSize);
         /**
          * Get shared parts info, max 255 parts range pairs
          */
@@ -220,6 +239,7 @@ public:
     GETSET(DownloadList, downloads, Downloads);
     GETSET(string, target, Target);
     GETSET(int64_t, size, Size);
+    GETSET(uint64_t, nextPublishingTime, NextPublishingTime);
     GETSET(Priority, priority, Priority);
     GETSET(time_t, added, Added);
     GETSET(TTHValue, tthRoot, TTH);

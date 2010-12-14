@@ -70,7 +70,8 @@ public:
     void addConnection(UserConnectionPtr conn);
 
     GETSET(int, running, Running);
-    GETSET(int, extra, Extra);
+    GETSET(uint8_t, extraPartial, ExtraPartial);
+    GETSET(uint8_t, extra, Extra);
     GETSET(uint64_t, lastGrant, LastGrant);
 
     void updateLimits() {limits.RenewList(NULL);}
