@@ -1100,7 +1100,7 @@ void HubFrame::init(){
     connect(comboBox_COLUMNS, SIGNAL(activated(int)), this, SLOT(slotFilterTextChanged()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
     connect(toolButton_SMILE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSmileContextMenu()));
-    connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
+    connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString, QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     connect(WulforSettings::getInstance(), SIGNAL(intValueChanged(QString,int)), this, SLOT(slotBoolSettingsChanged(QString,int)));
 
@@ -2978,7 +2978,7 @@ void HubFrame::slotFindTextEdited(const QString & text){
 }
 
 void HubFrame::slotFindAll(){
-    if (!pushButton_ALL->isChecked()){
+    if (!toolButton_ALL->isChecked()){
         textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
 
         return;

@@ -96,7 +96,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     toolButton_SMILE->setIcon(WICON(WulforUtil::eiEMOTICON));
     toolButton_SMILE->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    pushButton_ALL->setCheckable(true);
+    toolButton_ALL->setCheckable(true);
 
     toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
 
@@ -652,7 +652,7 @@ void PMWindow::slotFindTextEdited(const QString & text){
 }
 
 void PMWindow::slotFindAll(){
-    if (!pushButton_ALL->isChecked()){
+    if (!toolButton_ALL->isChecked()){
         textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
 
         return;
