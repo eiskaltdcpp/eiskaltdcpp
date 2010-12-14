@@ -3486,6 +3486,9 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         map["CID"] = _q(id.toBase32());
         map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp());
 
+        if (!(isBot || isHub) && (message.from->getUser() != ClientManager::getInstance()->getMe()) && Util::getAway())
+            ClientManager::getInstance()->privateMessage(HintedUser(user->getUser(), client->getHubUrl()), Util::getAwayMessage(), false);
+
         if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
             emit coreMessage(map);
         else
