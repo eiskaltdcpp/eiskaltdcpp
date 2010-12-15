@@ -4014,11 +4014,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Move up</source>
-        <translation>Mozgatás fel</translation>
+        <translation type="obsolete">Mozgatás fel</translation>
     </message>
     <message>
         <source>Move down</source>
-        <translation>Mozgatás le</translation>
+        <translation type="obsolete">Mozgatás le</translation>
     </message>
 </context>
 <context>
@@ -4316,6 +4316,22 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <source>A</source>
         <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <source>Previous (Shift+F3)</source>
+        <translation type="unfinished">Előző (Shift+F3)</translation>
+    </message>
+    <message>
+        <source>Next (F3)</source>
+        <translation type="unfinished">Következő (F3)</translation>
+    </message>
+    <message>
+        <source>Hide find frame (Ctrl+F)</source>
+        <translation type="unfinished">Kereső ablak elrejtése (Ctrl+F)</translation>
+    </message>
+    <message>
+        <source>Highlight all</source>
+        <translation type="unfinished">Összes kiemelése</translation>
     </message>
 </context>
 <context>
@@ -5345,6 +5361,14 @@ a hub operátoraitól kaphatsz</translation>
     <message>
         <source>Parse BBCode</source>
         <translation>BBCode feldolgozása</translation>
+    </message>
+    <message>
+        <source>Use separator for unread messages in the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change background color in the chat</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
