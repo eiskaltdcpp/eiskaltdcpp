@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>562</width>
-    <height>500</height>
+    <width>498</width>
+    <height>427</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -241,25 +241,6 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QCheckBox" name="checkBox_EMOT">
-         <property name="text">
-          <string>Enable emoticons</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="checkBox_EMOTFORCE">
-         <property name="toolTip">
-          <string>If checked, you'll see emoticons even in the middle of words.
-If unchecked, you'll see emoticons only if they are isolated
-from other words by spaces.</string>
-         </property>
-         <property name="text">
-          <string>Force emoticon parsing</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QCheckBox" name="checkBox_CHATJOINS">
          <property name="text">
           <string>Show joins</string>
@@ -284,17 +265,6 @@ from other words by spaces.</string>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_CHAT_SHOW_IP">
-         <property name="toolTip">
-          <string>Depending on hub configuration: information about
-them is usually available only to operators</string>
-         </property>
-         <property name="text">
-          <string>Show ip-addresses of users in chat</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QCheckBox" name="checkBox_IGNOREPMHUB">
          <property name="text">
           <string>Ignore private messages from Hub</string>
@@ -309,16 +279,16 @@ them is usually available only to operators</string>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_HIGHLIGHTFAVS">
+        <widget class="QCheckBox" name="checkBox_REDIRECTPMBOT">
          <property name="text">
-          <string>Highlight favorite users in user list</string>
+          <string>Redirect messages from Bot to the main chat</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_REDIRECTPMBOT">
+        <widget class="QCheckBox" name="checkBox_REDIRECT_UNREAD">
          <property name="text">
-          <string>Redirect messages from Bot to the main chat</string>
+          <string>Redirect new personal messages to the main chat</string>
          </property>
         </widget>
        </item>
@@ -329,6 +299,13 @@ them is usually available only to operators</string>
          </property>
          <property name="autoExclusive">
           <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_UNREADEN_DRAW_LINE">
+         <property name="text">
+          <string>Use separator for unread messages in the chat</string>
          </property>
         </widget>
        </item>
@@ -350,6 +327,25 @@ them is usually available only to operators</string>
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="checkBox_EMOT">
+         <property name="text">
+          <string>Enable emoticons</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_EMOTFORCE">
+         <property name="toolTip">
+          <string>If checked, you'll see emoticons even in the middle of words.
+If unchecked, you'll see emoticons only if they are isolated
+from other words by spaces.</string>
+         </property>
+         <property name="text">
+          <string>Force emoticon parsing</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QCheckBox" name="checkBox_SMILEPANEL">
          <property name="text">
           <string>Use emoticons panel</string>
@@ -360,13 +356,6 @@ them is usually available only to operators</string>
         <widget class="QCheckBox" name="checkBox_HIDESMILEPANEL">
          <property name="text">
           <string>Autohide emoticons panel</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="checkBox_REDIRECT_UNREAD">
-         <property name="text">
-          <string>Redirect new personal messages to the main chat</string>
          </property>
         </widget>
        </item>
@@ -666,6 +655,24 @@ them is usually available only to operators</string>
         </layout>
        </item>
        <item>
+        <widget class="QCheckBox" name="checkBox_HIGHLIGHTFAVS">
+         <property name="text">
+          <string>Highlight favorite users in user list</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_CHAT_SHOW_IP">
+         <property name="toolTip">
+          <string>Depending on hub configuration: information about
+them is usually available only to operators</string>
+         </property>
+         <property name="text">
+          <string>Show ip-addresses of users in chat</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QCheckBox" name="checkBox_CHAT_SHOW_CC">
          <property name="text">
           <string>Show country of users in chat</string>
@@ -829,6 +836,37 @@ them is usually available only to operators</string>
         </widget>
        </item>
        <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QCheckBox" name="checkBox_CHAT_BACKGROUND_COLOR">
+           <property name="text">
+            <string>Change background color in the chat</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="toolButton_CHAT_BACKGROUND_COLOR">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
         <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -879,6 +917,54 @@ them is usually available only to operators</string>
     <hint type="destinationlabel">
      <x>80</x>
      <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_EMOT</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox_EMOTFORCE</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>295</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>280</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_SMILEPANEL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>checkBox_HIDESMILEPANEL</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>345</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>280</x>
+     <y>370</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_CHAT_BACKGROUND_COLOR</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolButton_CHAT_BACKGROUND_COLOR</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>293</x>
+     <y>369</y>
     </hint>
    </hints>
   </connection>

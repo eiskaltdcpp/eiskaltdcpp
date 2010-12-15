@@ -199,25 +199,26 @@ void SettingsGUI::init(){
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
         checkBox_JOINSFAV->setChecked(WBGET(WB_CHAT_SHOW_JOINS_FAV));
         checkBox_CHATHIDDEN->setChecked(WBGET(WB_SHOW_HIDDEN_USERS));
-        checkBox_CHAT_SHOW_IP->setChecked(BOOLSETTING(USE_IP));
         checkBox_IGNOREPMHUB->setChecked(BOOLSETTING(IGNORE_HUB_PMS));
         checkBox_IGNOREPMBOT->setChecked(BOOLSETTING(IGNORE_BOT_PMS));
         checkBox_REDIRECTPMBOT->setChecked(WBGET(WB_CHAT_REDIRECT_BOT_PMS));
+        checkBox_REDIRECT_UNREAD->setChecked(WBGET("hubframe/redirect-pm-to-main-chat", false));
         checkBox_KEEPFOCUS->setChecked(WBGET(WB_CHAT_KEEPFOCUS));
+        checkBox_UNREADEN_DRAW_LINE->setChecked(WBGET("hubframe/unreaden-draw-line", false));
+        checkBox_USE_CTRL_ENTER->setChecked(WBGET(WB_USE_CTRL_ENTER));
+        checkBox_ROTATING->setChecked(WBGET(WB_CHAT_ROTATING_MSGS));
         checkBox_EMOT->setChecked(WBGET(WB_APP_ENABLE_EMOTICON));
         checkBox_EMOTFORCE->setChecked(WBGET(WB_APP_FORCE_EMOTICONS));
-        checkBox_USE_CTRL_ENTER->setChecked(WBGET(WB_USE_CTRL_ENTER));
-        checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
-        checkBox_ROTATING->setChecked(WBGET(WB_CHAT_ROTATING_MSGS));
         checkBox_SMILEPANEL->setChecked(WBGET(WB_CHAT_USE_SMILE_PANEL));
         checkBox_HIDESMILEPANEL->setChecked(WBGET(WB_CHAT_HIDE_SMILE_PANEL));
-        checkBox_REDIRECT_UNREAD->setChecked(WBGET("hubframe/redirect-pm-to-main-chat", false));
     }
     {//Chat (extended) tab
         comboBox_DBL_CLICK->setCurrentIndex(WIGET(WI_CHAT_DBLCLICK_ACT));
         comboBox_MDL_CLICK->setCurrentIndex(WIGET(WI_CHAT_MDLCLICK_ACT));
         comboBox_DEF_MAGNET_ACTION->setCurrentIndex(WIGET(WI_DEF_MAGNET_ACTION));
         comboBox_APP_UNIT_BASE->setCurrentIndex(comboBox_APP_UNIT_BASE->findText(QString::number(WIGET(WI_APP_UNIT_BASE))));
+        checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
+        checkBox_CHAT_SHOW_IP->setChecked(BOOLSETTING(USE_IP));
         checkBox_CHAT_SHOW_CC->setChecked(BOOLSETTING(GET_USER_COUNTRY));
         checkBox_BB_CODE->setChecked(WBGET("hubframe/use-bb-code", false));
         lineEdit_TIMESTAMP->setText(WSGET(WS_CHAT_TIMESTAMP));
@@ -288,6 +289,16 @@ void SettingsGUI::init(){
         p.fill(c);
         toolButton_SHAREDFILES->setIcon(p);
 
+        checkBox_CHAT_BACKGROUND_COLOR->setChecked(WBGET("hubframe/change-chat-background-color", false));
+        toolButton_CHAT_BACKGROUND_COLOR->setEnabled(WBGET("hubframe/change-chat-background-color", false));
+        if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
+            c.setNamedColor(WSGET("hubframe/chat-background-color"));
+            chat_background_color = c;
+            c.setAlpha(0);
+            p.fill(c);
+            toolButton_CHAT_BACKGROUND_COLOR->setIcon(p);
+        }
+
         horizontalSlider_H_COLOR->setValue(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
         horizontalSlider_SHAREDFILES->setValue(WIGET(WI_APP_SHARED_FILES_ALPHA));
     }
@@ -301,7 +312,6 @@ void SettingsGUI::init(){
         connect(this, SIGNAL(saveFonts()), model, SLOT(ok()));
     }
 
-    connect(checkBox_EMOT, SIGNAL(toggled(bool)), checkBox_EMOTFORCE, SLOT(setEnabled(bool)));
     connect(pushButton_TEST, SIGNAL(clicked()), this, SLOT(slotTestAppTheme()));
     connect(comboBox_THEMES, SIGNAL(activated(int)), this, SLOT(slotThemeChanged()));
     connect(listWidget_CHATCOLOR, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotChatColorItemClicked(QListWidgetItem*)));
@@ -312,6 +322,7 @@ void SettingsGUI::init(){
 	connect(comboBox_ICONS, SIGNAL(activated(int)), this, SLOT(slotIconsChanged()));
     connect(toolButton_H_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
     connect(toolButton_SHAREDFILES, SIGNAL(clicked()), this, SLOT(slotGetColor()));
+    connect(toolButton_CHAT_BACKGROUND_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
     connect(horizontalSlider_H_COLOR, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
     connect(horizontalSlider_SHAREDFILES, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
 }
@@ -362,25 +373,26 @@ void SettingsGUI::ok(){
     }
     {//Chat tab
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());
-        SM->set(SettingsManager::USE_IP, checkBox_CHAT_SHOW_IP->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
         WBSET(WB_CHAT_SHOW_JOINS_FAV, checkBox_JOINSFAV->isChecked());
         WBSET(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());
+        WBSET("hubframe/redirect-pm-to-main-chat", checkBox_REDIRECT_UNREAD->isChecked());
         WBSET(WB_CHAT_KEEPFOCUS, checkBox_KEEPFOCUS->isChecked());
+        WBSET("hubframe/unreaden-draw-line", checkBox_UNREADEN_DRAW_LINE->isChecked());
         WBSET(WB_CHAT_ROTATING_MSGS, checkBox_ROTATING->isChecked());
+        WBSET(WB_USE_CTRL_ENTER, checkBox_USE_CTRL_ENTER->isChecked());
         WBSET(WB_APP_ENABLE_EMOTICON, checkBox_EMOT->isChecked());
         WBSET(WB_APP_FORCE_EMOTICONS, checkBox_EMOTFORCE->isChecked());
-        WBSET(WB_USE_CTRL_ENTER, checkBox_USE_CTRL_ENTER->isChecked());
-        WBSET(WB_CHAT_HIGHLIGHT_FAVS, checkBox_HIGHLIGHTFAVS->isChecked());
         WBSET(WB_CHAT_USE_SMILE_PANEL, checkBox_SMILEPANEL->isChecked());
         WBSET(WB_CHAT_HIDE_SMILE_PANEL, checkBox_HIDESMILEPANEL->isChecked());
-        WBSET("hubframe/redirect-pm-to-main-chat", checkBox_REDIRECT_UNREAD->isChecked());
     }
     {//Chat (extended) tab
         WISET(WI_CHAT_DBLCLICK_ACT, comboBox_DBL_CLICK->currentIndex());
         WISET(WI_CHAT_MDLCLICK_ACT, comboBox_MDL_CLICK->currentIndex());
         WISET(WI_DEF_MAGNET_ACTION, comboBox_DEF_MAGNET_ACTION->currentIndex());
         WISET(WI_APP_UNIT_BASE, comboBox_APP_UNIT_BASE->currentText().toInt());
+        WBSET(WB_CHAT_HIGHLIGHT_FAVS, checkBox_HIGHLIGHTFAVS->isChecked());
+        SM->set(SettingsManager::USE_IP, checkBox_CHAT_SHOW_IP->isChecked());
         WBSET("hubframe/use-bb-code", checkBox_BB_CODE->isChecked());
 
         WSSET(WS_CHAT_TIMESTAMP, lineEdit_TIMESTAMP->text());
@@ -413,6 +425,12 @@ void SettingsGUI::ok(){
 
         WSSET(WS_APP_SHARED_FILES_COLOR, shared_files_color.name());
         WISET(WI_APP_SHARED_FILES_ALPHA, horizontalSlider_SHAREDFILES->value());
+
+        WBSET("hubframe/change-chat-background-color", checkBox_CHAT_BACKGROUND_COLOR->isChecked());
+        if (chat_background_color.isValid())
+            WSSET("hubframe/chat-background-color", chat_background_color.name());
+        if (!checkBox_CHAT_BACKGROUND_COLOR->isChecked())
+            WSSET("hubframe/chat-background-color", "");
     }
 
     WSSET(WS_SETTINGS_GUI_FONTS_STATE, tableView->horizontalHeader()->saveState().toBase64());
@@ -433,22 +451,39 @@ void SettingsGUI::slotChatColorItemClicked(QListWidgetItem *item){
 
 void SettingsGUI::slotGetColor(){
     QPixmap p(10, 10);
-    QColor color = (sender() == horizontalSlider_H_COLOR)? h_color : shared_files_color;
-    color = QColorDialog::getColor(color);
 
-    if (color.isValid() && (sender() == toolButton_H_COLOR)) {
-        h_color = color;
+    if (sender() == toolButton_H_COLOR){
+        QColor color = QColorDialog::getColor(h_color);
 
-        color.setAlpha(horizontalSlider_H_COLOR->value());
-        p.fill(color);
-        toolButton_H_COLOR->setIcon(p);
+        if (color.isValid()){
+            h_color = color;
+
+            color.setAlpha(horizontalSlider_H_COLOR->value());
+            p.fill(color);
+            toolButton_H_COLOR->setIcon(p);
+        }
     }
-    else if (color.isValid()){
-        shared_files_color = color;
+    else if (sender() == toolButton_SHAREDFILES){
+        QColor color = QColorDialog::getColor(shared_files_color);
 
-        color.setAlpha(horizontalSlider_SHAREDFILES->value());
-        p.fill(color);
-        toolButton_SHAREDFILES->setIcon(p);
+        if (color.isValid()){
+            shared_files_color = color;
+
+            color.setAlpha(horizontalSlider_SHAREDFILES->value());
+            p.fill(color);
+            toolButton_SHAREDFILES->setIcon(p);
+        }
+    }
+    else if (sender() == toolButton_CHAT_BACKGROUND_COLOR){
+        QColor color = QColorDialog::getColor(chat_background_color);
+
+        if (color.isValid()){
+            chat_background_color = color;
+
+            color.setAlpha(0);
+            p.fill(color);
+            toolButton_CHAT_BACKGROUND_COLOR->setIcon(p);
+        }
     }
 }
 
