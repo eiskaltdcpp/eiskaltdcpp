@@ -163,6 +163,8 @@ private Q_SLOTS:
     void slotStartSearch();
     void slotChangeProxyColumn(int);
 
+    void slotSettingsChanged(const QString &key, const QString &value);
+
     void onHubAdded(const QString &info);
     void onHubChanged(const QString &info);
     void onHubRemoved(const QString &info);

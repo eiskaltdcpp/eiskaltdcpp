@@ -69,6 +69,8 @@ void AntiSpamFrame::InitDocument() {
     connect(pushButton_GTOB, SIGNAL(clicked()), this, SLOT(slotGToB()));
     connect(pushButton_GTOW, SIGNAL(clicked()), this, SLOT(slotGToW()));
 
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+
     slotAntiSpamSwitch();
 }
 
@@ -455,4 +457,9 @@ void AntiSpamFrame::slotGToW() {
 
         addToList(eIN_WHITE, nick);
     }
+}
+
+void AntiSpamFrame::slotSettingsChanged(const QString &key, const QString &value){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }

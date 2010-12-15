@@ -3239,8 +3239,6 @@ void HubFrame::slotHubMenu(QAction *res){
 }
 
 void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
-    Q_UNUSED(value);
-
     if (key == WS_CHAT_FONT || key == WS_CHAT_ULIST_FONT)
         updateStyles();
     else if (key == WS_APP_EMOTICON_THEME){
@@ -3271,6 +3269,9 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
 
             textEdit_CHAT->setPalette(p);
         }
+    }
+    else if (key == WS_TRANSLATION_FILE){
+        retranslateUi(this);
     }
 }
 

@@ -118,6 +118,8 @@ private Q_SLOTS:
     void slotHeaderMenu(const QPoint&);
     void slotUpdateStats(quint64 files, quint64 size);
 
+    void slotSettingsChanged(const QString &key, const QString &value);
+
     void addFile(const VarMap&);
     void remFile(const VarMap&);
     void updateFile(const VarMap&);

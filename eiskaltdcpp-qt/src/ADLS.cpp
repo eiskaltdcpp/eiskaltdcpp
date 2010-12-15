@@ -137,6 +137,8 @@ void ADLS::init(){
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotDblClicked()));
 
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+
     connect(add_newButton, SIGNAL(clicked()), this, SLOT(slotAdd_newButtonClicked()));
     connect(changeButton,  SIGNAL(clicked()), this, SLOT(slotChangeButtonClicked()));
     connect(removeButton,  SIGNAL(clicked()), this, SLOT(slotRemoveButtonClicked()));
@@ -413,6 +415,12 @@ QString ADLS::SizeTypeToString(ADLSearch::SizeType t){
         case ADLSearch::SizeGibiBytes: return tr("GiB");
     }
 }
+
+void ADLS::slotSettingsChanged(const QString &key, const QString &value){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
+}
+
 /*ADLS::VectorSize*/int ADLS::findEntry(StrMap &map){
     ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;int j=0;
     for (ADLSearchManager::SearchCollection::iterator i = collection.begin(); i != collection.end(); ++i,++j) {

@@ -24,6 +24,7 @@
 * Fixed bug of displaying search results when searching directories. It was shown only one result before applying sorting.
 * Fixed bug of displaying file names in UTF-8 in the file list widget under MS Windows.
 * Reworked dialog of sending hub commands.
+* Fixed bug with sending away messages to the bots on NMDC hubs.
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
 * Fixed path to lock file of launched program (it was ~/.dc++/). Now it launches only one instance of the DC-client and magnet-links are correctly intercepted by it.

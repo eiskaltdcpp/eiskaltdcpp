@@ -436,6 +436,8 @@ void SearchFrame::init(){
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), lineEdit_FILTER, SLOT(selectAll()));
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), this, SLOT(slotChangeProxyColumn(int)));
 
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+
     MainWindow *mwnd = MainWindow::getInstance();
 
     load();
@@ -1434,6 +1436,11 @@ void SearchFrame::slotFilter(){
 void SearchFrame::slotChangeProxyColumn(int col){
     if (proxy)
         proxy->setFilterKeyColumn(col);
+}
+
+void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }
 
 bool SearchFrame::isFindFrameActivated(){
