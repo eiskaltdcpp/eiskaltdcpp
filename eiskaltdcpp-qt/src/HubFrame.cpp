@@ -3427,7 +3427,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         const OnlineUser *user = (message.replyTo->getUser() == ClientManager::getInstance()->getMe())?
                                  message.to : message.replyTo;
 
-        bool isBot = user->getIdentity().isBot();
+        bool isBot = user->getIdentity().isBot() || user->getUser()->isSet(User::BOT);
         bool isHub = user->getIdentity().isHub();
         bool isOp  = user->getIdentity().isOp();
 
