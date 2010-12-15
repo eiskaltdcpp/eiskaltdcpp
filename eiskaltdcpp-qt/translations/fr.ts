@@ -4103,11 +4103,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Move up</source>
-        <translation>Déplacer vers le haut</translation>
+        <translation type="obsolete">Déplacer vers le haut</translation>
     </message>
     <message>
         <source>Move down</source>
-        <translation>Déplacer vers le bas</translation>
+        <translation type="obsolete">Déplacer vers le bas</translation>
     </message>
 </context>
 <context>
@@ -4393,6 +4393,22 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <message>
         <source>A</source>
         <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <source>Previous (Shift+F3)</source>
+        <translation type="unfinished">Précédent (Shift+F3)</translation>
+    </message>
+    <message>
+        <source>Next (F3)</source>
+        <translation type="unfinished">Next (F3)</translation>
+    </message>
+    <message>
+        <source>Hide find frame (Ctrl+F)</source>
+        <translation type="unfinished">Cacher fenêtre de recherche (Ctrl+F)</translation>
+    </message>
+    <message>
+        <source>Highlight all</source>
+        <translation type="unfinished">Tout surligner</translation>
     </message>
 </context>
 <context>
@@ -5359,6 +5375,14 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Parse BBCode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use separator for unread messages in the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change background color in the chat</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

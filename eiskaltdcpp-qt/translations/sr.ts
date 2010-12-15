@@ -3762,11 +3762,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Move up</source>
-        <translation>Pomeri gore</translation>
+        <translation type="obsolete">Pomeri gore</translation>
     </message>
     <message>
         <source>Move down</source>
-        <translation>Pomeri dole</translation>
+        <translation type="obsolete">Pomeri dole</translation>
     </message>
 </context>
 <context>
@@ -4055,6 +4055,22 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <source>A</source>
         <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <source>Previous (Shift+F3)</source>
+        <translation type="unfinished">Prethodno (Shift+F3)</translation>
+    </message>
+    <message>
+        <source>Next (F3)</source>
+        <translation type="unfinished">Sledi (F3)</translation>
+    </message>
+    <message>
+        <source>Hide find frame (Ctrl+F)</source>
+        <translation type="unfinished">Sakrij nadjeni okvir (Ctrl+F)</translation>
+    </message>
+    <message>
+        <source>Highlight all</source>
+        <translation type="unfinished">Ukazati na sve</translation>
     </message>
 </context>
 <context>
@@ -5035,6 +5051,14 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Parse BBCode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use separator for unread messages in the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change background color in the chat</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

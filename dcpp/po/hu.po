@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-13 01:02+0200\n"
+"POT-Creation-Date: 2010-12-16 00:21+0200\n"
 "PO-Revision-Date: 2010-12-09 19:34+0100\n"
 "Last-Translator: sumo <husumo@elitemail.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -143,15 +143,15 @@ msgstr "UDP"
 msgid "Connectivity: "
 msgstr "Kapcsolatok: "
 
-#: ../UploadManager.cpp:157
+#: ../UploadManager.cpp:238
 msgid "Unable to send file %1%: %2%"
 msgstr "A fájl küldése sikertelen: %1%: %2%"
 
-#: ../UploadManager.cpp:409
+#: ../UploadManager.cpp:492
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 
-#: ../UploadManager.cpp:472
+#: ../UploadManager.cpp:555
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
@@ -171,6 +171,10 @@ msgstr "Keresési feltétel nem található"
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nick ismeretlen)"
 
+#: ../NmdcHub.cpp:597
+msgid "Hub topic:"
+msgstr ""
+
 #: ../NmdcHub.cpp:939
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
@@ -180,7 +184,7 @@ msgstr ""
 "értesítsd a hub üzemeltetőit, hogy javítsák a problémát."
 
 #: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:260 ../SearchManager.cpp:416 ../SearchManager.cpp:418
+#: ../SearchManager.cpp:261 ../SearchManager.cpp:415 ../SearchManager.cpp:417
 msgid "Offline"
 msgstr "Kilépett"
 
@@ -317,35 +321,41 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Hiba a következő hashelésekor: %1%: %2%"
 
-#: ../UPnPManager.cpp:44
+#: ../UPnPManager.cpp:46
 msgid "No UPnP implementation available"
 msgstr "UPnP implementáció nem elérhető"
 
-#: ../UPnPManager.cpp:49
+#: ../UPnPManager.cpp:51
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Egy másik UPnP port feltérképezés folyamatban van ..."
 
-#: ../UPnPManager.cpp:77
+#: ../UPnPManager.cpp:82
 msgid "Failed to initialize the %1% interface"
 msgstr "%1% interfész inicializálása nem sikerült"
 
-#: ../UPnPManager.cpp:81
+#: ../UPnPManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
 msgstr " Átviteli port (%1% TCP)"
 
-#: ../UPnPManager.cpp:82 ../UPnPManager.cpp:87 ../UPnPManager.cpp:92
+#: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "A(z) %1% interfésznek nem sikerült a(z) %2% %3% portok felderítése"
 
-#: ../UPnPManager.cpp:86
+#: ../UPnPManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr " Titkosított átviteli port (%1% TCP)"
 
-#: ../UPnPManager.cpp:91
+#: ../UPnPManager.cpp:96
 msgid " Search Port (%1% UDP)"
 msgstr " Keresési port (%1% UDP)"
 
-#: ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:101
+#, fuzzy
+msgid " DHT Port (%1% UDP)"
+msgstr " Keresési port (%1% UDP)"
+
+#: ../UPnPManager.cpp:108
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -353,19 +363,19 @@ msgstr ""
 "A port-hozzárendelés sikeresen létrehozva (TCP: %1%, UDP: %2%, TLS: %3%), a "
 "használt interfész: %4%"
 
-#: ../UPnPManager.cpp:109
+#: ../UPnPManager.cpp:120
 msgid "Failed to get external IP"
 msgstr "Külső IP lekérdezése sikertelen"
 
-#: ../UPnPManager.cpp:117
+#: ../UPnPManager.cpp:128
 msgid "Failed to create port mappings"
 msgstr "Nem sikerült létrehozni a port-hozzárendeléseket."
 
-#: ../UPnPManager.cpp:126
+#: ../UPnPManager.cpp:137
 msgid "Failed to remove port mappings"
 msgstr "Nem sikerült megszüntetni a port-hozzárendeléseket"
 
-#: ../UPnPManager.cpp:131
+#: ../UPnPManager.cpp:142
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -532,95 +542,95 @@ msgstr "Kapcsolódás lehetősége visszaállítva"
 msgid "Connectivity error: %1%"
 msgstr "Kapcsolódási hiba: %1%"
 
-#: ../SearchManager.cpp:36
+#: ../SearchManager.cpp:37
 msgid "Any"
 msgstr "Minden"
 
-#: ../SearchManager.cpp:37
+#: ../SearchManager.cpp:38
 msgid "Audio"
 msgstr "Audió"
 
-#: ../SearchManager.cpp:38
+#: ../SearchManager.cpp:39
 msgid "Compressed"
 msgstr "Tömörített"
 
-#: ../SearchManager.cpp:39
+#: ../SearchManager.cpp:40
 msgid "Document"
 msgstr "Dokumentum"
 
-#: ../SearchManager.cpp:40
+#: ../SearchManager.cpp:41
 msgid "Executable"
 msgstr "Futtatható"
 
-#: ../SearchManager.cpp:41
+#: ../SearchManager.cpp:42
 msgid "Picture"
 msgstr "Kép"
 
-#: ../SearchManager.cpp:42
+#: ../SearchManager.cpp:43
 msgid "Video"
 msgstr "Videó"
 
-#: ../SearchManager.cpp:43
+#: ../SearchManager.cpp:44
 msgid "Directory"
 msgstr "Könyvtár"
 
-#: ../SearchManager.cpp:44
+#: ../SearchManager.cpp:45
 msgid "TTH"
 msgstr "TTH"
 
-#: ../SearchManager.cpp:45
+#: ../SearchManager.cpp:46
 msgid "CD Image"
 msgstr "CD képfájl"
 
-#: ../SearchManager.cpp:151
+#: ../SearchManager.cpp:152
 msgid "Search enabled again"
 msgstr "Keresés ismét engedélyezve"
 
-#: ../SearchManager.cpp:158
+#: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
 msgstr "Keresés tiltva:%1%"
 
-#: ../QueueManager.cpp:238
-msgid "NO_NEEDED_PART"
-msgstr "NO_NEEDED_PART"
+#: ../QueueManager.cpp:239
+msgid "No needed part"
+msgstr ""
 
-#: ../QueueManager.cpp:594
+#: ../QueueManager.cpp:625
 msgid "Searching TTH alternates for: %1%"
 msgstr "TTH alternatíva keresése: %1%"
 
-#: ../QueueManager.cpp:636 ../QueueManager.cpp:699
+#: ../QueueManager.cpp:676 ../QueueManager.cpp:739
 msgid "A file with the same hash already exists in your share"
 msgstr "A megosztásodban már van egy fájl ugyanezzel a hash-hel"
 
-#: ../QueueManager.cpp:662 ../QueueManager.cpp:741
+#: ../QueueManager.cpp:702 ../QueueManager.cpp:781
 msgid "This file is already queued"
 msgstr "A fájl már a sorban van"
 
-#: ../QueueManager.cpp:677 ../QueueManager.cpp:753
+#: ../QueueManager.cpp:717 ../QueueManager.cpp:793
 msgid "A file with a different size already exists in the queue"
 msgstr "Egy különböző mérettel rendelkező fájl már van a sorban"
 
-#: ../QueueManager.cpp:681
+#: ../QueueManager.cpp:721
 msgid "A file with different tth root already exists in the queue"
 msgstr "Egy különböző TTH gyökerű fájl már van a sorban"
 
-#: ../QueueManager.cpp:693
+#: ../QueueManager.cpp:733
 msgid "You're trying to download from yourself!"
 msgstr "Saját magadtól próbálsz meg letölteni!"
 
-#: ../QueueManager.cpp:756
+#: ../QueueManager.cpp:796
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Egy különböző TTH gyökerű fájl már van a sorban"
 
-#: ../QueueManager.cpp:760
+#: ../QueueManager.cpp:800
 msgid "This file has already finished downloading"
 msgstr "Ennek a fájlnak a letöltése már befejeződött"
 
-#: ../QueueManager.cpp:797 ../QueueManager.cpp:806
+#: ../QueueManager.cpp:837 ../QueueManager.cpp:846
 msgid "Target filename too long"
 msgstr "A cél fájlneve túl hosszú"
 
-#: ../QueueManager.cpp:802 ../QueueManager.cpp:810
+#: ../QueueManager.cpp:842 ../QueueManager.cpp:850
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -628,40 +638,40 @@ msgstr ""
 "Érvénytelen célfájl (hiányzó könyvtár, ellenőrizd az alapértelmezett "
 "letöltési könyvtár beállításait)"
 
-#: ../QueueManager.cpp:818
+#: ../QueueManager.cpp:858
 msgid "File already exists at the target location"
 msgstr "A fájl már létezik a megadott helyen"
 
-#: ../QueueManager.cpp:831 ../QueueManager.cpp:835
+#: ../QueueManager.cpp:871 ../QueueManager.cpp:875
 msgid "Duplicate source: %1%"
 msgstr "Dupla forrás: %1%"
 
-#: ../QueueManager.cpp:1104
+#: ../QueueManager.cpp:1144
 msgid "Target removed"
 msgstr "Cél eltávolítva"
 
-#: ../QueueManager.cpp:1112
+#: ../QueueManager.cpp:1152
 msgid "Target file is missing or wrong size"
 msgstr "A cél fájl hiányzik vagy nem megfelelő méretű"
 
-#: ../QueueManager.cpp:1161
+#: ../QueueManager.cpp:1201
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "Sikertelen áthelyezés [%1% ide: %2% (%3%)]; átnevezve erre: %4%"
 
-#: ../QueueManager.cpp:1164
+#: ../QueueManager.cpp:1204
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 "Sikertelen áthelyezés [%1% ide: %2% (%3%)], vagy átnevezés [erre: %4% (%5)]"
 
-#: ../QueueManager.cpp:1339
+#: ../QueueManager.cpp:1398
 msgid "Unable to open filelist: %1%"
 msgstr "Nem sikerült megnyitni a fájl-listát: %1%"
 
-#: ../QueueManager.cpp:1362
+#: ../QueueManager.cpp:1421
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Találat: %2% fájl"
 
-#: ../QueueManager.cpp:1955 ../QueueManager.cpp:1964
+#: ../QueueManager.cpp:2019 ../QueueManager.cpp:2028
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 inkonzisztencia (SFV-Ellenőrzéskor)"
 
@@ -676,3 +686,6 @@ msgstr "A kértnél több byte írása történt"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "TTH inkonzisztencia"
+
+#~ msgid "NO_NEEDED_PART"
+#~ msgstr "NO_NEEDED_PART"
