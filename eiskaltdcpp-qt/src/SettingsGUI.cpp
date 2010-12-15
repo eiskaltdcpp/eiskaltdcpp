@@ -514,10 +514,14 @@ void SettingsGUI::slotBrowseLng(){
     if (!file.isEmpty()){
         file = QDir::toNativeSeparators(file);
 
+        WulforSettings::getInstance()->blockSignals(true);//do not emit signal that translation file has been changed
         WSSET(WS_TRANSLATION_FILE, file);
+        WulforSettings::getInstance()->blockSignals(false);
 
-        WulforSettings::getInstance()->loadTranslation();
+        WulforSettings::getInstance()->loadTranslation();//set language for application
         MainWindow::getInstance()->retranslateUi();
+
+        WSSET(WS_TRANSLATION_FILE, file);//emit signals for other widgets
 
         lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
     }
@@ -528,8 +532,14 @@ void SettingsGUI::slotLngIndexChanged(int index){
 
     WSSET(WS_TRANSLATION_FILE, file);
 
+    WulforSettings::getInstance()->blockSignals(true);//do not emit signal that translation file has been changed
+    WSSET(WS_TRANSLATION_FILE, file);
+    WulforSettings::getInstance()->blockSignals(false);
+
     WulforSettings::getInstance()->loadTranslation();
     MainWindow::getInstance()->retranslateUi();
+
+    WSSET(WS_TRANSLATION_FILE, file);
 
     lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
 }

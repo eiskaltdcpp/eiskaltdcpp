@@ -41,7 +41,7 @@ private:
 
     bool addToList(AntiSpamObjectState state, QString);
 
-private slots:
+private Q_SLOTS:
     void slotAntiSpamSwitch();
     void slotAsFilter();
     void slotFilterOps();
@@ -55,6 +55,8 @@ private slots:
     void slotClearWhite();
     void slotClearBlack();
     void slotClearGray();
+
+    void slotSettingsChanged(const QString &key, const QString &value);
 
     void slotAccept();
 

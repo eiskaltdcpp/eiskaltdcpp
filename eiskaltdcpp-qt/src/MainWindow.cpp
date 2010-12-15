@@ -543,14 +543,11 @@ void MainWindow::initActions(){
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         connect(fileRefreshShareHashProgress, SIGNAL(triggered()), this, SLOT(slotFileRefreshShareHashProgress()));
 
-        fileHideWindow = new QAction(tr("Hide window"), this);
+        fileHideWindow = new QAction("", this);
         fileHideWindow->setObjectName("fileHideWindow");
         SM->registerShortcut(fileHideWindow, tr("Esc"));
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
-
-        if (!WBGET(WB_TRAY_ENABLED))
-            fileHideWindow->setText(tr("Show/hide find frame"));
 
         fileQuit = new QAction("", this);
         fileQuit->setObjectName("fileQuit");
@@ -706,30 +703,24 @@ void MainWindow::initActions(){
         toolsSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
         connect(toolsSearch, SIGNAL(triggered()), this, SLOT(slotToolsSearch()));
 
-        toolsHideProgressSpace = new QAction(tr("Hide free space bar"), this);
+        toolsHideProgressSpace = new QAction("", this);
         toolsHideProgressSpace->setObjectName("toolsHideProgressSpace");
-        if (!WBGET(WB_SHOW_FREE_SPACE))
-            toolsHideProgressSpace->setText(tr("Show free space bar"));
+
 #if (!defined FREE_SPACE_BAR_C)
         toolsHideProgressSpace->setVisible(false);
 #endif
         toolsHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
         connect(toolsHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
 
-        toolsHideLastStatus = new QAction(tr("Hide last status message"), this);
+        toolsHideLastStatus = new QAction("", this);
         toolsHideLastStatus->setObjectName("toolsHideLastStatus");
         toolsHideLastStatus->setIcon(WU->getPixmap(WulforUtil::eiSTATUS));
         connect(toolsHideLastStatus, SIGNAL(triggered()), this, SLOT(slotHideLastStatus()));
-        if (!WBGET(WB_LAST_STATUS))
-            toolsHideLastStatus->setText(tr("Show last status message"));
 
-        toolsHideUsersStatisctics = new QAction(tr("Hide users statistics"), this);
+        toolsHideUsersStatisctics = new QAction("", this);
         toolsHideUsersStatisctics->setObjectName("toolsHideUsersStatisctics");
         toolsHideUsersStatisctics->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
         connect(toolsHideUsersStatisctics, SIGNAL(triggered()), this, SLOT(slotHideUsersStatistics()));
-        if (!WBGET(WB_USERS_STATISTICS))
-            toolsHideUsersStatisctics->setText(tr("Show users statistics"));
-
 
         toolsSwitchSpeedLimit = new QAction("", this);
         toolsSwitchSpeedLimit->setObjectName("toolsSwitchSpeedLimit");
@@ -901,7 +892,6 @@ void MainWindow::initActions(){
         // end
 
         sh_menu = new QMenu(this);
-        sh_menu->setTitle(tr("Actions"));
         sh_menu->addActions(QList<QAction*>()
                             << nextTabShortCut
                             << prevTabShortCut
@@ -1101,6 +1091,11 @@ void MainWindow::retranslateUi(){
 
         fileRefreshShareHashProgress->setText(tr("Refresh share"));
 
+        fileHideWindow->setText(tr("Hide window"));
+
+        if (!WBGET(WB_TRAY_ENABLED))
+            fileHideWindow->setText(tr("Show/hide find frame"));
+
         fileQuit->setText(tr("Quit"));
 
         menuHubs->setTitle(tr("&Hubs"));
@@ -1132,6 +1127,21 @@ void MainWindow::retranslateUi(){
         toolsAntiSpam->setText(tr("AntiSpam module"));
 
         toolsIPFilter->setText(tr("IPFilter module"));
+
+        toolsHideProgressSpace->setText(tr("Hide free space bar"));
+
+        if (!WBGET(WB_SHOW_FREE_SPACE))
+            toolsHideProgressSpace->setText(tr("Show free space bar"));
+
+        toolsHideLastStatus->setText(tr("Hide last status message"));
+
+        if (!WBGET(WB_LAST_STATUS))
+            toolsHideLastStatus->setText(tr("Show last status message"));
+
+        toolsHideUsersStatisctics->setText(tr("Hide users statistics"));
+
+        if (!WBGET(WB_USERS_STATISTICS))
+            toolsHideUsersStatisctics->setText(tr("Show users statistics"));
 
         menuAway->setTitle(tr("Away message"));
 
@@ -1191,6 +1201,9 @@ void MainWindow::retranslateUi(){
         aboutClient->setText(tr("About EiskaltDC++"));
 
         aboutQt->setText(tr("About Qt"));
+    }
+    {
+        sh_menu->setTitle(tr("Actions"));
     }
     {
         arena->setWindowTitle(tr("Main layout"));

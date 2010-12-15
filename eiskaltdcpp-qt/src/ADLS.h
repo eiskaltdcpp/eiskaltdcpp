@@ -66,11 +66,13 @@ public:
 protected:
     virtual void closeEvent(QCloseEvent *);
 
-private slots:
+private Q_SLOTS:
     void slotContexMenu(const QPoint&);
     void slotClicked(const QModelIndex&);
     void slotDblClicked();
     void slotHeaderMenu();
+
+    void slotSettingsChanged(const QString &key, const QString &value);
 
     void slotAdd_newButtonClicked();
     void slotChangeButtonClicked();

@@ -112,26 +112,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="upButton">
-       <property name="toolTip">
-        <string>Move up</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="downButton">
-       <property name="toolTip">
-        <string>Move down</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>

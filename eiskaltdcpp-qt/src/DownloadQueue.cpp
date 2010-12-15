@@ -738,6 +738,11 @@ void DownloadQueue::slotUpdateStats(quint64 files, quint64 size){
     label_STATS->setText(QString("Total files: <b>%1</b> Total size: <b>%2</b>").arg(files).arg(WulforUtil::formatBytes(size)));
 }
 
+void DownloadQueue::slotSettingsChanged(const QString &key, const QString &value){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
+}
+
 void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw(){
     VarMap params;
     getParams(params, item);
