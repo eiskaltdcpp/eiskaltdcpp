@@ -430,7 +430,7 @@ void SettingsGUI::ok(){
         if (chat_background_color.isValid())
             WSSET("hubframe/chat-background-color", chat_background_color.name());
         if (!checkBox_CHAT_BACKGROUND_COLOR->isChecked())
-            WSSET("hubframe/chat-background-color", "");
+            WSSET("hubframe/chat-background-color", QTextEdit().palette().color(QPalette::Active, QPalette::Base).name());
     }
 
     WSSET(WS_SETTINGS_GUI_FONTS_STATE, tableView->horizontalHeader()->saveState().toBase64());
