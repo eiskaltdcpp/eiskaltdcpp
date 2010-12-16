@@ -294,7 +294,7 @@ void SettingsGUI::init(){
         if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
             c.setNamedColor(WSGET("hubframe/chat-background-color"));
             chat_background_color = c;
-            c.setAlpha(0);
+            c.setAlpha(255);
             p.fill(c);
             toolButton_CHAT_BACKGROUND_COLOR->setIcon(p);
         }
@@ -480,7 +480,7 @@ void SettingsGUI::slotGetColor(){
         if (color.isValid()){
             chat_background_color = color;
 
-            color.setAlpha(0);
+            color.setAlpha(255);
             p.fill(color);
             toolButton_CHAT_BACKGROUND_COLOR->setIcon(p);
         }
