@@ -25,97 +25,40 @@
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
-#include <dcpp/DebugManager.h>
-#include <dcpp/Util.h>
 
 #include "bookentry.hh"
 #include "treeview.hh"
-
 #include "wulformanager.hh"
 
 
 class cmddebug:
     public BookEntry,
-    private dcpp::DebugManagerListener,
-    public dcpp::Thread
+    private dcpp::DebugManagerListener
 {
     public:
         cmddebug();
         virtual ~cmddebug();
         virtual void show();
         //GUI FCE
-        void add_gui(time_t t,std::string file);
+        void add_gui(std::string file);
 
     private:
         // Client functions
         void ini_client();
-        bool stop;
+        void addCmd(const std::string& cmd,const std::string& ip);
 
-        dcpp::CriticalSection cs;
-        dcpp::Semaphore s;
-        std::deque<std::string> cmdList;
+        //DebugManager
+        void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) throw();
+        void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw();
 
-        int run() {
-            setThreadPriority(dcpp::Thread::LOW);
-            std::string x ;//= dcpp::Util::emptyString;
-            stop = false;
+        static void onScroll_gui(GtkAdjustment *adjustment, gpointer data);
+        static void onResize_gui(GtkAdjustment *adjustment, gpointer data);
 
-            while(true) {
-                s.wait();
-
-                if(stop)
-                    break;
-
-                {
-                    dcpp::Lock l(cs);
-
-                    if(cmdList.empty()) continue;
-
-                    x = cmdList.front();
-                    cmdList.pop_front();
-
-                }
-            typedef Func2<cmddebug,time_t,std::string> F2;
-            time_t tt = time(NULL);
-            F2 *func = new F2(this, &cmddebug::add_gui, tt, x);
-            WulforManager::get()->dispatchGuiFunc(func);
-            }
-
-        stop = false;
-        return 0;
-    }
-
-    void addCmd(const std::string& cmd,const std::string& ip) {
-        {
-            dcpp::Lock l(cs);
-            //g_print("CMD %s\n",cmd.c_str());
-            if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE) {
-                if (strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-                    cmdList.push_back(cmd);
-            }
-            else
-                cmdList.push_back(cmd);
-        }
-
-        s.signal();
-    }
-
-    //DebugManager
-    void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) throw()
-    {
-    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("detection_button"))) == TRUE)
-        addCmd(com,"");
-    }
-    void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw();
-
-    static void onScroll_gui(GtkAdjustment *adjustment, gpointer data);
-    static void onResize_gui(GtkAdjustment *adjustment, gpointer data);
-
-    GtkTextBuffer *buffer;
-    static const int maxLines = 1000;
-    GtkTextIter iter;
-    bool scrollToBottom;
-    GtkTextMark *cmdMark;
+        GtkTextBuffer *buffer;
+        static const int maxLines = 1000;
+        GtkTextIter iter;
+        bool scrollToBottom;
+        GtkTextMark *cmdMark;
 
 };
 
