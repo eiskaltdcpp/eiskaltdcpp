@@ -19,10 +19,6 @@
 #include "stdinc.h"
 #include "DCPlusPlus.h"
 
-#ifndef WIN32
-#include <sys/stat.h>
-#endif
-
 #include "ScriptManager.h"
 #include "Util.h"
 #include "StringTokenizer.h"
@@ -34,25 +30,11 @@
 #include "NmdcHub.h"
 #include "AdcHub.h"
 #include "Thread.h"
-//#include <cstddef>
-
-extern "C" {
-#include "lua.h"
-#include "lualib.h"
-#include "lauxlib.h"
-}
-
+#include <cstddef>
 
 namespace dcpp {
 
-static void report_eror(lua_State *L, int status)
-{
-    //if(status!=0)
-    //{
-    //std::cerr << "--" << lua_tostring(L,-1) << std::endl;//write to std eror eror
-    //ScriptManager::getInstance()->SendDebugMessage(lua_tostring(L,-1));
-    //lua_pop(L,1); // remove error message
-    //}
+static void callalert (lua_State *L, int status) {
     if (status != 0) {
         lua_getglobal(L, "_ALERT");
         if (lua_isfunction(L, -1)) {
@@ -71,7 +53,7 @@ static int aux_do (lua_State *L, int status) {
   if (status == 0) {  /* parse OK? */
     status = lua_pcall(L, 0, LUA_MULTRET, 0);  /* call main */
   }
-  report_eror(L, status);
+  callalert(L, status);
   return status;
 }
 
@@ -87,6 +69,33 @@ LUALIB_API int lua_dobuffer (lua_State *L, const char *buff, size_t size,
 LUALIB_API int lua_dostring (lua_State *L, const char *str) {
   return lua_dobuffer(L, str, strlen(str), str);
 }
+
+const char LuaManager::className[] = "DC";
+Lunar<LuaManager>::RegType LuaManager::methods[] = {
+        {"SendHubMessage", &LuaManager::SendHubMessage },
+        {"SendClientMessage", &LuaManager::SendClientMessage },
+        {"SendUDP", &LuaManager::SendUDPPacket},
+        {"PrintDebug", &LuaManager::GenerateDebugMessage},
+        {"GetClientIp", &LuaManager::GetClientIp},
+        {"GetHubIpPort", &LuaManager::GetHubIpPort},
+        {"GetHubUrl", &LuaManager::GetHubUrl},
+        {"InjectHubMessage", &LuaManager::InjectHubMessageNMDC},
+        {"InjectHubMessageADC", &LuaManager::InjectHubMessageADC},
+        //{"FindWindowHandle", &LuaManager::FindWindow},
+        //{"SendWindowMessage", &LuaManager::PostMessage},
+        {"CreateClient", &LuaManager::CreateClient},
+        {"DeleteClient", &LuaManager::DeleteClient},
+        {"RunTimer", &LuaManager::RunTimer},
+        {"GetSetting", &LuaManager::GetSetting},
+        {"ToUtf8", &LuaManager::ToUtf8},
+        {"FromUtf8", &LuaManager::FromUtf8},
+        {"GetAppPath", &LuaManager::GetAppPath},
+        {"GetConfigPath", &LuaManager::GetConfigPath},
+        {"GetScriptsPath", &LuaManager::GetScriptsPath},
+        {"GetConfigScriptsPath", &LuaManager::GetConfigScriptsPath},
+        {"DropUserConnection", &LuaManager::DropUserConnection},
+        {0}
+};
 
 int LuaManager::DeleteClient(lua_State* L){
     if (lua_gettop(L) == 1 && lua_islightuserdata(L, -1)){
@@ -126,25 +135,25 @@ int LuaManager::InjectHubMessageADC(lua_State* L) {
 
     return 0;
 }
-/*
-int LuaManager::PostMessage(lua_State* L) {
-    if (lua_gettop(L) == 4 && lua_islightuserdata(L, -4) && lua_isnumber(L, -3) &&
-            lua_islightuserdata(L, -2) && lua_islightuserdata(L, -1)) {
-        ::SendMessage(reinterpret_cast<HWND>(lua_touserdata(L, -4)), static_cast<UINT>(lua_tonumber(L, -3)),
-            reinterpret_cast<WPARAM>(lua_touserdata(L, -2)), reinterpret_cast<LPARAM>(lua_touserdata(L, -1)));
-    }
 
-    return 0;
-}
-*//*
-int LuaManager::FindWindow(lua_State* L) {
-    if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
-        lua_pushlightuserdata(L, ::FindWindow(Text::toT(string(lua_tostring(L, -2))).c_str(), Text::toT(string(lua_tostring(L, -1))).c_str()));
-        return 1;
-    }
+//int LuaManager::PostMessage(lua_State* L) {
+    //if (lua_gettop(L) == 4 && lua_islightuserdata(L, -4) && lua_isnumber(L, -3) &&
+            //lua_islightuserdata(L, -2) && lua_islightuserdata(L, -1)) {
+        //::SendMessage(reinterpret_cast<HWND>(lua_touserdata(L, -4)), static_cast<UINT>(lua_tonumber(L, -3)),
+            //reinterpret_cast<WPARAM>(lua_touserdata(L, -2)), reinterpret_cast<LPARAM>(lua_touserdata(L, -1)));
+    //}
 
-    return 0;
-}*/
+    //return 0;
+//}
+
+//int LuaManager::FindWindow(lua_State* L) {
+    //if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
+        //lua_pushlightuserdata(L, ::FindWindow(Text::toT(string(lua_tostring(L, -2))).c_str(), Text::toT(string(lua_tostring(L, -1))).c_str()));
+        //return 1;
+    //}
+
+    //return 0;
+//}
 
 int LuaManager::SendClientMessage(lua_State* L) {
     if (lua_gettop(L) == 2 && lua_islightuserdata(L, -2) && lua_isstring(L, -1)) {
@@ -239,10 +248,30 @@ int LuaManager::GetAppPath(lua_State* L) {
 }
 
 int LuaManager::GetConfigPath(lua_State* L) {
-    lua_pushstring(L, Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)).c_str());
+    lua_pushstring(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + PATH_SEPARATOR).c_str());
     return 1;
 }
-
+int LuaManager::GetConfigScriptsPath(lua_State* L) {
+    lua_pushstring(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + PATH_SEPARATOR).c_str());
+    return 1;
+}
+int LuaManager::GetScriptsPath(lua_State* L) {
+    string scriptspath;
+    #ifdef WIN32
+        scriptspath = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR;
+    #else //WIN32
+        string full_fn((Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR).c_str());
+        struct stat stFileInfo;
+        if (stat(full_fn.c_str(),&stFileInfo) == 0){
+            scriptspath = full_fn;
+        }
+        else{
+            scriptspath = string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR;
+        }
+    #endif //WIN32
+    lua_pushstring(L, scriptspath.c_str());
+    return 1;
+}
 int LuaManager::GetClientIp(lua_State* L) {
     /* arguments: client */
     UserConnection* uc = (UserConnection*)lua_touserdata(L, 1);
@@ -282,7 +311,7 @@ int LuaManager::GetHubUrl(lua_State* L) {
 int LuaManager::RunTimer(lua_State* L) {
     /* arguments: bool:on/off */
     if(lua_gettop(L) == 1 && lua_isnumber(L, -1)) {
-        bool on = lua_tonumber(L, 1); //!= 0;   //shut VC++ up
+                bool on = lua_tonumber(L, 1) != 0;      //shut VC++ up
         ScriptManager* sm = ScriptManager::getInstance();
         if(on != sm->getTimerEnabled()) {
             if(on)
@@ -305,59 +334,11 @@ CriticalSection ScriptInstance::cs;
 ScriptManager::ScriptManager() : timerEnabled(false) {
 }
 
-/*
-const char LuaManager::className[] = "DC";
-Lunar<LuaManager>::RegType LuaManager::methods[] = {
-    {"SendHubMessage", &LuaManager::SendHubMessage },
-    {"SendClientMessage", &LuaManager::SendClientMessage },
-    {"SendUDP", &LuaManager::SendUDPPacket},
-    {"PrintDebug", &LuaManager::GenerateDebugMessage},
-    {"GetClientIp", &LuaManager::GetClientIp},
-    {"GetHubIpPort", &LuaManager::GetHubIpPort},
-    {"GetHubUrl", &LuaManager::GetHubUrl},
-    {"InjectHubMessage", &LuaManager::InjectHubMessageNMDC},
-    {"InjectHubMessageADC", &LuaManager::InjectHubMessageADC},
-    {"FindWindowHandle", &LuaManager::FindWindow},
-    {"SendWindowMessage", &LuaManager::PostMessage},
-    {"CreateClient", &LuaManager::CreateClient},
-    {"DeleteClient", &LuaManager::DeleteClient},
-    {"RunTimer", &LuaManager::RunTimer},
-    {"GetSetting", &LuaManager::GetSetting},
-    {"ToUtf8", &LuaManager::ToUtf8},
-    {"FromUtf8", &LuaManager::FromUtf8},
-    {"GetAppPath", &LuaManager::GetAppPath},
-    {"GetConfigPath", &LuaManager::GetConfigPath},
-    {"DropUserConnection", &LuaManager::DropUserConnection},
-    {0}
-};*/
-
-
-
 void ScriptManager::load() {
     L = lua_open();
     luaL_openlibs(L);
-    //reg The Fucnctions
-    lua_register(L, "SendHubMessage",LuaManager::SendHubMessage);
-    lua_register(L, "SendClientMessage", LuaManager::SendClientMessage);
-    lua_register(L, "SendUDP", LuaManager::SendUDPPacket);
-    lua_register(L, "PrintDebug", LuaManager::GenerateDebugMessage);//ok
-    lua_register(L, "GetClientIp", LuaManager::GetClientIp);
-    lua_register(L, "GetHubIpPort", LuaManager::GetHubIpPort);
-    lua_register(L, "GetHubUrl", LuaManager::GetHubUrl);
-    lua_register(L, "InjectHubMessage", LuaManager::InjectHubMessageNMDC);
-    lua_register(L, "InjectHubMessageADC", LuaManager::InjectHubMessageADC);
-    lua_register(L, "CreateClient", LuaManager::CreateClient);
-    lua_register(L, "DeleteClient", LuaManager::DeleteClient);
-    lua_register(L, "RunTimer", LuaManager::RunTimer);
-    lua_register(L, "GetSetting", LuaManager::GetSetting);
-    lua_register(L, "ToUtf8", LuaManager::ToUtf8);
-    lua_register(L, "FromUtf8", LuaManager::FromUtf8);
-    lua_register(L, "GetAppPath", LuaManager::GetAppPath);//ok
-    lua_register(L, "GetConfigPath", LuaManager::GetConfigPath);//ok
-    lua_register(L, "DropUserConnection", LuaManager::DropUserConnection);
-    //findWin+PostMessage todo ??
 
-//  Lunar<LuaManager>::Register(L);
+    Lunar<LuaManager>::Register(L);
 
     //create default text formatting function, in case startup.lua or formatting.lua isn't present.
     uint32_t color = SETTING(TEXT_COLOR);
@@ -401,9 +382,9 @@ void ScriptInstance::EvaluateChunk(const string& chunk) {
 
 void ScriptInstance::EvaluateFile(const string& fn) {
     Lock l(cs);
-#ifdef WIN32
+    #ifdef WIN32
         lua_dofile(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn).c_str());
-#else //WIN32
+    #else //WIN32
         string full_fn((Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn).c_str());
         struct stat stFileInfo;
         if (stat(full_fn.c_str(),&stFileInfo) == 0){
@@ -412,12 +393,11 @@ void ScriptInstance::EvaluateFile(const string& fn) {
         else{
             lua_dofile(L, (string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn).c_str());
         }
-#endif //WIN32
+    #endif //WIN32
 }
 
 void ScriptManager::SendDebugMessage(const string &mess) {
     LogManager::getInstance()->message(mess);
-    //std::cerr << "LUA::DEBUG => " << mess << std::endl;
 }
 
 bool ScriptInstance::GetLuaBool() {
@@ -475,5 +455,5 @@ bool ScriptInstance::MakeCallRaw(const string& table, const string& method, int 
 
 /**
  * @file ScriptManager.cpp
- * $Id: ScriptManager.cpp,v 1.4 2010/01/01 04:37:23 cologic Exp $ Little Edited by Mank for Freedcpp (linuxdcpp)
+ * $Id: ScriptManager.cpp,v 1.4 2010/01/01 04:37:23 cologic Exp $
  */

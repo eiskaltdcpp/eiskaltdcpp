@@ -19,4 +19,4 @@ dcpp:setListener( "adcChat", "bier",
 	end																			
 )
 
-PrintDebug( "  ** Loaded bier.lua **" )
+DC():PrintDebug( "  ** Loaded bier.lua **" )

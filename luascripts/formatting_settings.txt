@@ -1,0 +1,19 @@
+formatting_opt = {
+	flash_on_myname = 0,
+	seconds_in_timestamp = 1,
+	bold = 1,
+	also_match_nicks = {
+	},
+	background_is_dark = 0,
+	color = {
+		self = "red",
+		nick = "darkred",
+		myname = "darkgreen",
+		link = "blue",
+		partner = "darkmagenta",
+		op = "blue",
+		time = "darkgray",
+		noise = "darkgray",
+		normal = "black",
+	},
+}
