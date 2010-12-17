@@ -30,7 +30,7 @@ using namespace dcpp;
 
 
 cmddebug::cmddebug():
-BookEntry(Entry::CMD,_("CMD"),"cmddebug.glade"),stop(false)
+BookEntry(Entry::CMD,_("CMD"),"cmddebug.glade")
 {
     buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (getWidget("cmdtextview")));
     gtk_text_buffer_get_end_iter(buffer, &iter);
@@ -50,14 +50,16 @@ cmddebug::~cmddebug()
     DebugManager::getInstance()->removeListener(this);
 }
 
-void cmddebug::add_gui(time_t t,string file)
+void cmddebug::add_gui(string file)
 {
+    if (file.empty())
+        return;
     string line;
     line="";
 
     gtk_text_buffer_get_end_iter(buffer, &iter);
 
-    line +=Text::toUtf8("["+Util::getShortTimeString(t)+"]"+file+"\n\0");
+    line +=Text::toUtf8("["+Util::getShortTimeString()+"]"+file+"\n\0");
 
     gtk_text_buffer_insert(buffer, &iter, line.c_str(), line.size());
     gtk_text_buffer_get_end_iter(buffer, &iter);
@@ -77,7 +79,6 @@ void cmddebug::add_gui(time_t t,string file)
 
 void cmddebug::ini_client()
 {
-    start();
     DebugManager::getInstance()->addListener(this);
 }
 
@@ -113,7 +114,7 @@ void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& m
                     addCmd("CL_OUT: "+ip+": "+mess, ip);
                 }
                 break;
-            default: dcassert(0);
+            default: break;
         }
 }
 void cmddebug::onScroll_gui(GtkAdjustment *adjustment, gpointer data)
@@ -135,4 +136,25 @@ void cmddebug::onResize_gui(GtkAdjustment *adjustment, gpointer data)
         gtk_text_buffer_move_mark(cmd->buffer, cmd->cmdMark, &iter);
         gtk_text_view_scroll_to_mark(GTK_TEXT_VIEW(cmd->getWidget("cmdtextview")), cmd->cmdMark, 0, FALSE, 0, 0);
     }
+}
+
+void cmddebug::addCmd(const std::string& cmd,const std::string& ip) {
+    string message;
+    //g_print("CMD %s\n",cmd.c_str());
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE) {
+        if (strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
+            message = cmd;
+    }
+    else
+        message = cmd;
+
+    typedef Func1<cmddebug, string> F1;
+    F1 *func = new F1(this, &cmddebug::add_gui, message);
+    WulforManager::get()->dispatchGuiFunc(func);
+}
+
+void cmddebug::on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) throw()
+{
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("detection_button"))) == TRUE)
+        addCmd(com,"");
 }
