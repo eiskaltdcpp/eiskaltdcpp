@@ -15,7 +15,11 @@ endif (WIN32)
 # actual target:
 add_library(miniupnpc STATIC ${miniupnpc_SRCS})
 
-set_property(TARGET miniupnpc PROPERTY COMPILE_FLAGS -fPIC)
+if (WIN32)
+  set_property(TARGET miniupnpc PROPERTY COMPILE_FLAGS)
+else(WIN32)
+  set_property(TARGET miniupnpc PROPERTY COMPILE_FLAGS -fPIC)
+endif (WIN32)
 
 if (WIN32)
   target_link_libraries (miniupnpc "ws2_32" "iphlpapi")
