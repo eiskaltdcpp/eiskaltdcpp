@@ -278,8 +278,8 @@ void PublicHubs::on(DownloadFailed, const std::string& l) throw(){
     emit coreDownloadFailed(tr("Download failed: %1").arg(_q(l)));
 }
 
-void PublicHubs::on(DownloadFinished, const std::string& l) throw(){
-    emit coreDownloadFinished(tr("Hub list downloaded... (%1)").arg(_q(l)));
+void PublicHubs::on(DownloadFinished, const std::string& l, bool fromCoral) throw(){
+    emit coreDownloadFinished(tr("Hub list downloaded... (%1 %2) ").arg(_q(l)).arg(fromCoral? tr("from Coral") : ""));
 }
 
 void PublicHubs::on(LoadedFromCache, const std::string& l) throw(){
@@ -292,4 +292,3 @@ void PublicHubs::on(Corrupted, const string& l) throw() {
     else
         emit coreDownloadFailed(tr("Downloaded hub list is corrupted or unsupported (%1)").arg(_q(l)));
 }
-

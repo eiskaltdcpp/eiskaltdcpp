@@ -69,7 +69,7 @@ class PublicHubs:
 		// Client callbacks
 		virtual void on(dcpp::FavoriteManagerListener::DownloadStarting, const std::string &file) throw();
 		virtual void on(dcpp::FavoriteManagerListener::DownloadFailed, const std::string &file) throw();
-		virtual void on(dcpp::FavoriteManagerListener::DownloadFinished, const std::string &file) throw();
+		virtual void on(dcpp::FavoriteManagerListener::DownloadFinished, const std::string &file, bool fromCoral) throw();
 
 		dcpp::HubEntryList hubs;
 		dcpp::StringSearch filter;
