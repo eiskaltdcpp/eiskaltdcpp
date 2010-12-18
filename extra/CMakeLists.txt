@@ -19,4 +19,4 @@ add_library(extra STATIC ${extra_SRCS})
 
 set_property(TARGET extra PROPERTY COMPILE_FLAGS -fPIC)
 
-target_link_libraries (extra ${MINIUPNP_LIBRARY})
+target_link_libraries (extra ${MINIUPNP_LIBRARY} ${GETTEXT_LIBRARIES})
