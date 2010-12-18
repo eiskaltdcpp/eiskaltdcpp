@@ -220,7 +220,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="42"/>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="44"/>
@@ -235,7 +235,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="46"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovat web-magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="47"/>
@@ -658,12 +658,12 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="104"/>
         <source>%1 [%2 Gb]</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 [%2 Gb]</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="168"/>
         <source>File marked as a duplicate of another file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor byl označen jako duplikát jiného souboru: %1</translation>
     </message>
 </context>
 <context>
@@ -766,7 +766,7 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="115"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="123"/>
         <source>%1/s</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/s</translation>
     </message>
     <message>
         <source>/s</source>
@@ -1120,12 +1120,12 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="222"/>
         <location filename="../src/HubFrame.cpp" line="306"/>
         <source>[User went offline]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Uživatel se odpojil]</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="633"/>
         <source>%1 (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (2%)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1604"/>
@@ -2050,7 +2050,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1162"/>
         <source>Speed limit On/Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapnout/Vypnout Limiter</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1193"/>
@@ -2195,7 +2195,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2476"/>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(pro 2.1.0 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2480"/>
@@ -2290,12 +2290,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2533"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Český překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2535"/>
         <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.2 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(pro 2.1.2 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2565"/>
@@ -2516,12 +2516,12 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/PublicHubs.cpp" line="291"/>
         <source>Cached hub list is corrupted or unsupported</source>
-        <translation type="unfinished"></translation>
+        <translation>Hublist z mezipaměti je poškozen nebo není podporován</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="293"/>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Stažený hublist je poškozen nebo není podporován (%1)</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.h" line="42"/>
@@ -2603,12 +2603,12 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="244"/>
         <source>Filename</source>
-        <translation type="unfinished">Soubor</translation>
+        <translation>Soubor</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="245"/>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
 </context>
 <context>
@@ -2616,12 +2616,12 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="44"/>
         <source>Add new</source>
-        <translation type="unfinished">Vložit nový</translation>
+        <translation>Vložit nový</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="45"/>
         <source>Remove</source>
-        <translation type="unfinished">Odebrat</translation>
+        <translation>Odebrat</translation>
     </message>
 </context>
 <context>
@@ -2629,27 +2629,27 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="147"/>
         <source>Filename</source>
-        <translation type="unfinished">Soubor</translation>
+        <translation>Soubor</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="147"/>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="162"/>
         <source>Key</source>
-        <translation type="unfinished">Klíč</translation>
+        <translation>Klíč</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="163"/>
         <source>Type</source>
-        <translation type="unfinished">Typ</translation>
+        <translation>Typ</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="187"/>
         <source>Set text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Urči text...</translation>
     </message>
 </context>
 <context>
@@ -2727,7 +2727,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="133"/>
         <source>CD Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Obraz CD</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="184"/>
@@ -2822,7 +2822,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="66"/>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="77"/>
@@ -2842,7 +2842,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="89"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovat web-magnet</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="92"/>
@@ -2882,7 +2882,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="119"/>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Černá listina</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="219"/>
@@ -3168,7 +3168,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="101"/>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Čeština</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="237"/>
@@ -5782,7 +5782,7 @@ nebo &quot;Odebrat pomalé seznamy souborů&quot; (nebo obě volby).</translatio
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="291"/>
         <source>Redirect new personal messages to the main chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Přesměrovat nové soukromé zprávy do hlavního chatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="379"/>
@@ -5847,7 +5847,7 @@ jsou obvykle dostupné operátorům</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="308"/>
         <source>Use separator for unread messages in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít oddělovač pro nepřečtené zprávy v chatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="358"/>
