@@ -1662,14 +1662,14 @@ void QueueManager::saveQueue(bool force) throw() {
 
         //NOTE: freedcpp, save user cids and nicks to Users.xml see dcplusplus revision 1771
         ClientManager* cm = ClientManager::getInstance();
-#ifdef _WIN32
-        std::for_each(cids.begin(), cids.end(), std::tr1::bind(&ClientManager::saveUser, cm, std::tr1::placeholders::_1));
-#else
+//#ifdef _WIN32
+//        std::for_each(cids.begin(), cids.end(), std::tr1::bind(&ClientManager::saveUser, cm, std::tr1::placeholders::_1));
+//#else
         for (vector<CID>::const_iterator it = cids.begin(); it != cids.end(); ++it)
         {
                 cm->saveUser(*it);
         }
-#endif
+//#endif
 }
 
 class QueueLoader : public SimpleXMLReader::CallBack {
