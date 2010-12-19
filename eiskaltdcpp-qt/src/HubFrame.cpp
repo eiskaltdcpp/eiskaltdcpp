@@ -3515,6 +3515,9 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         if (chatDisabled)
             return;
 
+        if (AntiSpam::getInstance() && AntiSpam::getInstance()->isInBlack(_q(user->getIdentity().getNick())))
+            return;
+
         map["NICK"] = _q(user->getIdentity().getNick());
         map["MSG"]  = msg;
         map["TIME"] = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
