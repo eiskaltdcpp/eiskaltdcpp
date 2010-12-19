@@ -1688,9 +1688,6 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     ArenaWidget::Role role = awgt->role();
 
-    HubFrame     *fr = qobject_cast<HubFrame *>(wg);
-    PMWindow     *pm = qobject_cast<PMWindow *>(wg);
-
     bool widgetWithFilter = role == ArenaWidget::Hub ||
                             role == ArenaWidget::ShareBrowser ||
                             role == ArenaWidget::PublicHubs ||
@@ -1701,12 +1698,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
-    if (fr)
-        fr->slotActivate();
-    else if(pm)
-        pm->slotActivate();
-    else
-        wg->setFocus();
+    awgt->requestFocus();
 }
 
 void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
@@ -1719,6 +1711,8 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
     if (arena->widget() == awgt->getWidget()){
         awgt->getWidget()->hide();
         arena->setWidget(NULL);
+
+        setWindowTitle(QString("%1").arg(EISKALTDCPP_WND_TITLE));
     }
 }
 

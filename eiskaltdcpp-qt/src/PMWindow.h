@@ -41,6 +41,7 @@ public:
     const QPixmap &getPixmap();
     ArenaWidget::Role role() const { return ArenaWidget::PrivateMessage; }
     void requestFilter() { slotHideFindFrame(); }
+    void requestFocus() { plainTextEdit_INPUT->setFocus(); }
     void setCompleter(QCompleter *, UserListModel *);
 
     void addStatus(QString);

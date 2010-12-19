@@ -281,6 +281,8 @@ void PMWindow::showEvent(QShowEvent *e){
         hasHighlightMessages = false;
         MainWindow::getInstance()->redrawToolPanel();
     }
+
+    plainTextEdit_INPUT->setFocus();
 }
 
 void PMWindow::slotActivate(){

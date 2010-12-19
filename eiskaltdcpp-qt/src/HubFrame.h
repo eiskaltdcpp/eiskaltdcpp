@@ -155,6 +155,7 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap();
     void requestFilter() { slotHideFindFrame(); }
+    void requestFocus() { plainTextEdit_INPUT->setFocus(); }
     ArenaWidget::Role role() const { return ArenaWidget::Hub; }
 
     QString getCIDforNick(QString nick) { return model->CIDforNick(nick, _q(client->getHubUrl())); }
