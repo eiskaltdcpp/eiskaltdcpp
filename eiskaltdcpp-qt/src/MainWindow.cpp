@@ -28,6 +28,8 @@
 #include <QFileDialog>
 #include <QRegExp>
 #include <QDir>
+#include <QInputDialog>
+
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "HashProgress.h"
@@ -511,9 +513,15 @@ void MainWindow::initActions(){
     ShortcutManager *SM = ShortcutManager::getInstance();
 
     {
+        fileOpenMagnet = new QAction("", this);
+        fileOpenMagnet->setObjectName("fileOpenMagnet");
+        SM->registerShortcut(fileOpenMagnet, tr("Ctrl+I"));
+        fileOpenMagnet->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
+        connect(fileOpenMagnet, SIGNAL(triggered()), this, SLOT(slotOpenMagnet()));
+
         fileFileListBrowserLocal = new QAction("", this);
-        SM->registerShortcut(fileFileListBrowserLocal, tr("Ctrl+L"));
         fileFileListBrowserLocal->setObjectName("fileFileListBrowserLocal");
+        SM->registerShortcut(fileFileListBrowserLocal, tr("Ctrl+L"));
         fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
 
@@ -767,7 +775,9 @@ void MainWindow::initActions(){
         separator6->setObjectName("separator6");
         separator6->setSeparator(true);
 
-        fileMenuActions << fileFileListBrowser
+        fileMenuActions << fileOpenMagnet
+                << separator3
+                << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileRefreshShareHashProgress
                 << separator0
@@ -1078,6 +1088,8 @@ void MainWindow::retranslateUi(){
     //Retranslate menu actions
     {
         menuFile->setTitle(tr("&File"));
+
+        fileOpenMagnet->setText(tr("Open magnet link"));
 
         fileOpenLogFile->setText(tr("Open log file"));
 
@@ -1959,6 +1971,26 @@ void MainWindow::slotFileRefreshShareHashProgress(){
         break;
     default:
         break;
+    }
+}
+
+void MainWindow::slotOpenMagnet(){
+    QString text = qApp->clipboard()->text(QClipboard::Clipboard);
+    bool ok = false;
+
+    text = (text.startsWith("magnet:?")? text : "");
+
+    QString result = QInputDialog::getText(this, tr("Enter magnet link"), tr("Link"), QLineEdit::Normal, text, &ok);
+
+    if (!ok)
+        return;
+
+    if (result.startsWith("magnet:?")){
+        Magnet m(this);
+
+        m.setLink(result);
+
+        m.exec();
     }
 }
 

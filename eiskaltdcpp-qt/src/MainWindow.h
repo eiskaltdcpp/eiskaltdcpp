@@ -191,6 +191,7 @@ friend class dcpp::Singleton<MainWindow>;
         virtual bool eventFilter(QObject *, QEvent *);
 
     private Q_SLOTS:
+        void slotOpenMagnet();
         void slotFileOpenLogFile();
         void slotFileOpenDownloadDirectory();
         void slotFileBrowseFilelist();
@@ -328,6 +329,7 @@ friend class dcpp::Singleton<MainWindow>;
         HashProgress *_progress_dialog; // Hashing progress dialog
 
         QMenu   *menuFile;
+        QAction *fileOpenMagnet;
         QAction *fileFileListBrowser;
         QAction *fileFileHasher;
         QAction *fileFileListBrowserLocal;
