@@ -2229,7 +2229,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2562"/>
-        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.2 and later)&lt;br/&gt;</source>
+        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2287,9 +2287,9 @@ Favorite user</source>
         <translation>Не магу адкрыць порт %1. Каб належным чынам працаваў пошук і перадаваліся файлы, вы мусіце зьмяніць наладжваньні, ці вымкнуць праграму, якая можа выкарыстоўваць гэты порт.</translation>
     </message>
     <message>
-        <source>Cannot listen socket because: 
+        <source>Cannot listen socket because:
 </source>
-        <translation type="obsolete">Не магу праслухаць гняздо. Падставы: 
+        <translation type="obsolete">Не магу праслухаць гняздо. Падставы:
 </translation>
     </message>
     <message>
@@ -5434,7 +5434,7 @@ However, if you have a software firewall installed, you may need further configu
         <translation>Абярыце гэты спосаб, калі ваш асьветар наўпрост злучаецца са словасьветам.
 Не абірайце гэты спосаб, калі вы маеце маршрутавальнік або нейкую вонкавую
 сетказаслону.
-Калі ваш асьветар ня месьціцца за сетказаслонаю, усё, што вы мусіце зрабіць — 
+Калі ваш асьветар ня месьціцца за сетказаслонаю, усё, што вы мусіце зрабіць —
 гэта абраць гэтую можнасьць: звычайна вам не спатрэбіцца зьмяняць нешта яшчэ
 ў наладжваньнях злучэньня.
 Але калі вы маеце ўсталяванаю праграмную сетказаслону, вам можа спатрэбіцца
@@ -6241,10 +6241,11 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation>Гамана</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsGUI.ui" line="339"/>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated 
+If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="obsolete">Калі адзначыць гэты пункт, вы будзеце бачыць пачуцьцезнакі
+        <translation type="unfinished">Калі адзначыць гэты пункт, вы будзеце бачыць пачуцьцезнакі
 нат усярэдзіне словаў.
 Калі не адзначаць гэты пункт, вы пабачыце пачуцьцезнакі толькі
 тады, калі яны будуць адасабляцца ад іншых словаў прагаламі.</translation>
@@ -6256,9 +6257,10 @@ from other words by spaces.</source>
         <translation>Паказваць, толькі калі далучыўся ці адлучыўся ўлюбёнец</translation>
     </message>
     <message>
-        <source>Depending on hub configuration: information about 
+        <location filename="../ui/UISettingsGUI.ui" line="667"/>
+        <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="obsolete">Залежыць ад настаўленьняў асяродку: звычайна
+        <translation type="unfinished">Залежыць ад настаўленьняў асяродку: звычайна
 зьвесткі пра адрэсы IP могуць бачыць толькі апэратары.</translation>
     </message>
     <message>
@@ -6330,23 +6332,6 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="200"/>
         <source>Try to use system icons (need restart)</source>
         <translation>Спрабаваць ужываць сыстэмныя значкі (трэба запусьціць нанова)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="339"/>
-        <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated
-from other words by spaces.</source>
-        <translation>Калі адзначыць гэты пункт, вы будзеце бачыць пачуцьцезнакі
-нат усярэдзіне словаў.
-Калі не адзначаць гэты пункт, вы пабачыце пачуцьцезнакі толькі
-тады, калі яны будуць адасабляцца ад іншых словаў прагаламі.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="667"/>
-        <source>Depending on hub configuration: information about
-them is usually available only to operators</source>
-        <translation>Залежыць ад настаўленьняў асяродку: звычайна
-зьвесткі пра адрэсы IP могуць бачыць толькі апэратары</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="298"/>
