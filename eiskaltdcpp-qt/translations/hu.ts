@@ -2157,6 +2157,18 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Cseh fordítás&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
+    <message>
+        <source>Ctrl+I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open magnet link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter magnet link:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2316,7 +2328,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1)</source>
-        <translation>Hublista letöltve... (%1)</translation>
+        <translation type="obsolete">Hublista letöltve... (%1)</translation>
     </message>
     <message>
         <source>Hub list loaded from cache...</source>
@@ -2333,6 +2345,14 @@ Letöltve: %3 Feltöltve %4</translation>
     <message>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
         <translation>A letöltött hublista hibás, vagy nem támogatott (%1)</translation>
+    </message>
+    <message>
+        <source>Hub list downloaded... (%1 %2) </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from Coral</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

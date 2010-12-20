@@ -1925,6 +1925,18 @@ Molim proverite podešavanja vaše veze</translation>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Ctrl+I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open magnet link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter magnet link:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2077,7 +2089,7 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Hub list downloaded... (%1)</source>
-        <translation>Hab liste preuzete... (%1)</translation>
+        <translation type="obsolete">Hab liste preuzete... (%1)</translation>
     </message>
     <message>
         <source>Hub list loaded from cache...</source>
@@ -2093,6 +2105,14 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub list downloaded... (%1 %2) </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from Coral</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

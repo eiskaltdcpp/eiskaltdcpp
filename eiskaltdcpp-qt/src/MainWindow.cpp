@@ -1975,7 +1975,7 @@ void MainWindow::slotOpenMagnet(){
 
     text = (text.startsWith("magnet:?")? text : "");
 
-    QString result = QInputDialog::getText(this, tr("Enter magnet link"), tr("Link"), QLineEdit::Normal, text, &ok);
+    QString result = QInputDialog::getText(this, tr("Open magnet link"), tr("Enter magnet link:"), QLineEdit::Normal, text, &ok);
 
     if (!ok)
         return;

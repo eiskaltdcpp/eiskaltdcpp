@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-13 01:09+0200\n"
+"POT-Creation-Date: 2010-12-20 21:20+0200\n"
 "PO-Revision-Date: 2010-08-28 16:41+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1879,6 +1879,10 @@ msgstr "Завантаження не вдалося: "
 #: ../src/publichubs.cc:455
 msgid "Download finished: "
 msgstr "Завантаження завершене: "
+
+#: ../src/publichubs.cc:455
+msgid "from Coral"
+msgstr ""
 
 #: ../src/search.cc:88 ../src/search.cc:607 ../src/search.cc:708
 #: ../src/search.cc:835 ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289

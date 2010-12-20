@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-13 01:09+0200\n"
+"POT-Creation-Date: 2010-12-20 21:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1845,6 +1845,10 @@ msgstr ""
 
 #: ../src/publichubs.cc:455
 msgid "Download finished: "
+msgstr ""
+
+#: ../src/publichubs.cc:455
+msgid "from Coral"
 msgstr ""
 
 #: ../src/search.cc:88 ../src/search.cc:607 ../src/search.cc:708
