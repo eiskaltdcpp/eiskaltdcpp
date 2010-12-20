@@ -347,11 +347,12 @@ Kapcsolók:
     </message>
     <message>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Web kompatibilis magnet (BBCode)</translatorcomment>
+        <translation>Web-magnet másolása (BBCode link)</translation>
     </message>
 </context>
 <context>
@@ -666,7 +667,7 @@ Kapcsolók:
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -1276,11 +1277,11 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>[User went offline]</source>
-        <translation type="unfinished"></translation>
+        <translation>[A felhasználó nem elérhető]</translation>
     </message>
     <message>
         <source>%1 (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -1746,7 +1747,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation>Események</translation>
+        <translation>Lehetőségek</translation>
     </message>
     <message>
         <source>Download speed</source>
@@ -2146,14 +2147,26 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(2.1.0 és újabb)&lt;br/&gt;</translation>
     </message>
     <message>
-        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.2 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(2.2.0 és újabb)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Cseh fordítás&lt;/u&gt;&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>Ctrl+I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open magnet link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter magnet link:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2315,7 +2328,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1)</source>
-        <translation>Hublista letöltve... (%1)</translation>
+        <translation type="obsolete">Hublista letöltve... (%1)</translation>
     </message>
     <message>
         <source>Hub list loaded from cache...</source>
@@ -2327,10 +2340,18 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Cached hub list is corrupted or unsupported</source>
-        <translation type="unfinished"></translation>
+        <translation>A gyorsítótárban lévő hublista hibás, vagy nem támogatott</translation>
     </message>
     <message>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
+        <translation>A letöltött hublista hibás, vagy nem támogatott (%1)</translation>
+    </message>
+    <message>
+        <source>Hub list downloaded... (%1 %2) </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from Coral</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2692,11 +2713,12 @@ Kapcsolók:
     </message>
     <message>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translatorcomment>Web kompatibilis magnetlink (BBCode)</translatorcomment>
+        <translation>Web-magnet másolása (BBCode link)</translation>
     </message>
 </context>
 <context>
@@ -2947,7 +2969,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Cseh</translation>
     </message>
 </context>
 <context>
@@ -3142,15 +3164,15 @@ Kapcsolók:
     </message>
     <message>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Web-magnet másolása (BBCode link)</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation type="unfinished">Könyvtár megnyitása</translation>
+        <translation>Könyvtár megnyitása</translation>
     </message>
 </context>
 <context>
@@ -4307,31 +4329,31 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
     <message>
         <source>&lt;</source>
-        <translation type="unfinished">&lt;</translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <source>&gt;</source>
-        <translation type="unfinished">&gt;</translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <source>A</source>
-        <translation type="unfinished">A</translation>
+        <translation>A</translation>
     </message>
     <message>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Előző (Shift+F3)</translation>
+        <translation>Előző (Shift+F3)</translation>
     </message>
     <message>
         <source>Next (F3)</source>
-        <translation type="unfinished">Következő (F3)</translation>
+        <translation>Következő (F3)</translation>
     </message>
     <message>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation type="unfinished">Kereső ablak elrejtése (Ctrl+F)</translation>
+        <translation>Keresőmező elrejtése (Ctrl+F)</translation>
     </message>
     <message>
         <source>Highlight all</source>
-        <translation type="unfinished">Összes kiemelése</translation>
+        <translation>Összes kiemelése</translation>
     </message>
 </context>
 <context>
@@ -5364,11 +5386,11 @@ a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
         <source>Use separator for unread messages in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Elválasztó használata a chatan, a nem olvasott üzenetek kiemeléséhez</translation>
     </message>
     <message>
         <source>Change background color in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>A chat háttérszinének megváltoztatása</translation>
     </message>
 </context>
 <context>
@@ -6144,15 +6166,15 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>Command parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Parancs paraméterek</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Mégsem</translation>
+        <translation>Mégsem</translation>
     </message>
 </context>
 </TS>

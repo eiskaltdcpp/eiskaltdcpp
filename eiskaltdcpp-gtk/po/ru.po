@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-13 01:09+0200\n"
-"PO-Revision-Date: 2010-12-13 01:10+0200\n"
+"POT-Creation-Date: 2010-12-20 21:20+0200\n"
+"PO-Revision-Date: 2010-12-20 21:24+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: \n"
@@ -1863,6 +1863,10 @@ msgstr "Закачка не удалась: "
 #: ../src/publichubs.cc:455
 msgid "Download finished: "
 msgstr "Закачка окончена: "
+
+#: ../src/publichubs.cc:455
+msgid "from Coral"
+msgstr "из Коралла"
 
 #: ../src/search.cc:88 ../src/search.cc:607 ../src/search.cc:708
 #: ../src/search.cc:835 ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289

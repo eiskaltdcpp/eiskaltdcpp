@@ -4,22 +4,23 @@
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 # sumo <husumo@elitemail.hu>, 2010.
+# Attila Mándy <husumo@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-12-16 00:21+0200\n"
-"PO-Revision-Date: 2010-12-09 19:34+0100\n"
-"Last-Translator: sumo <husumo@elitemail.hu>\n"
-"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"PO-Revision-Date: 2010-12-18 13:18+0100\n"
+"Last-Translator: Attila Mándy <husumo@gmail.com>\n"
+"Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding:  \n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
 "X-Generator: Lokalize 1.1\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms:  \n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -173,7 +174,7 @@ msgstr "%1% (Nick ismeretlen)"
 
 #: ../NmdcHub.cpp:597
 msgid "Hub topic:"
-msgstr ""
+msgstr "Hub topic:"
 
 #: ../NmdcHub.cpp:939
 msgid ""
@@ -351,9 +352,8 @@ msgid " Search Port (%1% UDP)"
 msgstr " Keresési port (%1% UDP)"
 
 #: ../UPnPManager.cpp:101
-#, fuzzy
 msgid " DHT Port (%1% UDP)"
-msgstr " Keresési port (%1% UDP)"
+msgstr " DHT port (%1% UDP)"
 
 #: ../UPnPManager.cpp:108
 msgid ""
@@ -592,7 +592,7 @@ msgstr "Keresés tiltva:%1%"
 
 #: ../QueueManager.cpp:239
 msgid "No needed part"
-msgstr ""
+msgstr "Nem szükséges részlet"
 
 #: ../QueueManager.cpp:625
 msgid "Searching TTH alternates for: %1%"

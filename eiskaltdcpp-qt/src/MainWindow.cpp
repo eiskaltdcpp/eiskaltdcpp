@@ -28,6 +28,8 @@
 #include <QFileDialog>
 #include <QRegExp>
 #include <QDir>
+#include <QInputDialog>
+
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "HashProgress.h"
@@ -511,9 +513,15 @@ void MainWindow::initActions(){
     ShortcutManager *SM = ShortcutManager::getInstance();
 
     {
+        fileOpenMagnet = new QAction("", this);
+        fileOpenMagnet->setObjectName("fileOpenMagnet");
+        SM->registerShortcut(fileOpenMagnet, tr("Ctrl+I"));
+        fileOpenMagnet->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
+        connect(fileOpenMagnet, SIGNAL(triggered()), this, SLOT(slotOpenMagnet()));
+
         fileFileListBrowserLocal = new QAction("", this);
-        SM->registerShortcut(fileFileListBrowserLocal, tr("Ctrl+L"));
         fileFileListBrowserLocal->setObjectName("fileFileListBrowserLocal");
+        SM->registerShortcut(fileFileListBrowserLocal, tr("Ctrl+L"));
         fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
 
@@ -767,7 +775,9 @@ void MainWindow::initActions(){
         separator6->setObjectName("separator6");
         separator6->setSeparator(true);
 
-        fileMenuActions << fileFileListBrowser
+        fileMenuActions << fileOpenMagnet
+                << separator3
+                << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileRefreshShareHashProgress
                 << separator0
@@ -935,7 +945,8 @@ void MainWindow::initActions(){
 
         aboutClient = new QAction("", this);
         aboutClient->setMenuRole(QAction::AboutRole);
-        aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL));
+        aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL)
+                    .scaled(22, 22, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
         connect(aboutClient, SIGNAL(triggered()), this, SLOT(slotAboutClient()));
 
         aboutQt = new QAction("", this);
@@ -1078,6 +1089,8 @@ void MainWindow::retranslateUi(){
     //Retranslate menu actions
     {
         menuFile->setTitle(tr("&File"));
+
+        fileOpenMagnet->setText(tr("Open magnet link"));
 
         fileOpenLogFile->setText(tr("Open log file"));
 
@@ -1676,9 +1689,6 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     ArenaWidget::Role role = awgt->role();
 
-    HubFrame     *fr = qobject_cast<HubFrame *>(wg);
-    PMWindow     *pm = qobject_cast<PMWindow *>(wg);
-
     bool widgetWithFilter = role == ArenaWidget::Hub ||
                             role == ArenaWidget::ShareBrowser ||
                             role == ArenaWidget::PublicHubs ||
@@ -1689,12 +1699,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
-    if (fr)
-        fr->slotActivate();
-    else if(pm)
-        pm->slotActivate();
-    else
-        wg->setFocus();
+    awgt->requestFocus();
 }
 
 void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
@@ -1707,6 +1712,8 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
     if (arena->widget() == awgt->getWidget()){
         awgt->getWidget()->hide();
         arena->setWidget(NULL);
+
+        setWindowTitle(QString("%1").arg(EISKALTDCPP_WND_TITLE));
     }
 }
 
@@ -1959,6 +1966,26 @@ void MainWindow::slotFileRefreshShareHashProgress(){
         break;
     default:
         break;
+    }
+}
+
+void MainWindow::slotOpenMagnet(){
+    QString text = qApp->clipboard()->text(QClipboard::Clipboard);
+    bool ok = false;
+
+    text = (text.startsWith("magnet:?")? text : "");
+
+    QString result = QInputDialog::getText(this, tr("Open magnet link"), tr("Enter magnet link:"), QLineEdit::Normal, text, &ok);
+
+    if (!ok)
+        return;
+
+    if (result.startsWith("magnet:?")){
+        Magnet m(this);
+
+        m.setLink(result);
+
+        m.exec();
     }
 }
 
@@ -2535,7 +2562,7 @@ void MainWindow::slotAboutClient(){
             tr("<br/>"
                "&nbsp;Uhlik<br/>"
                "&nbsp;&lt;uhlikx@seznam.cz&gt;<br/>"
-               "&nbsp;(for 2.1.2 and later)<br/>")
+               "&nbsp;(for 2.2.0 and later)<br/>")
             );
 
     a.exec();

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-12-16 00:21+0200\n"
-"PO-Revision-Date: 2010-12-04 02:18+0200\n"
+"PO-Revision-Date: 2010-12-20 21:24+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -164,7 +164,7 @@ msgstr "%1% (Ник неизвестен)"
 
 #: ../NmdcHub.cpp:597
 msgid "Hub topic:"
-msgstr ""
+msgstr "Тема хаба:"
 
 #: ../NmdcHub.cpp:939
 msgid ""
@@ -341,9 +341,8 @@ msgid " Search Port (%1% UDP)"
 msgstr " Порт для поиска (%1% UDP)"
 
 #: ../UPnPManager.cpp:101
-#, fuzzy
 msgid " DHT Port (%1% UDP)"
-msgstr " Порт для поиска (%1% UDP)"
+msgstr " DHT порт (%1% UDP)"
 
 #: ../UPnPManager.cpp:108
 msgid ""
@@ -576,7 +575,7 @@ msgstr "Поиск отключен: %1%"
 
 #: ../QueueManager.cpp:239
 msgid "No needed part"
-msgstr ""
+msgstr "Необязательная часть"
 
 #: ../QueueManager.cpp:625
 msgid "Searching TTH alternates for: %1%"

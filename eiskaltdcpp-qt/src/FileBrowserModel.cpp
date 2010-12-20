@@ -473,7 +473,7 @@ void FileBrowserModel::highlightDuplicates(){
             if (i->file != it.value())//Found duplicate
                 i->isDuplicate = true;
         }
-        else {
+        else if (!i->file->getAdls()){
             hash.insert(tth, i->file);
         }
     }

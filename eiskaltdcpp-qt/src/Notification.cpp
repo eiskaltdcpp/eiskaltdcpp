@@ -87,7 +87,8 @@ void Notification::enableTray(bool enable){
         checkSystemTrayCounter = 0;
 
         tray = new QSystemTrayIcon(this);
-        tray->setIcon(WICON(WulforUtil::eiICON_APPL));
+        tray->setIcon(WICON(WulforUtil::eiICON_APPL)
+                    .scaled(22, 22, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
         QMenu *menu = new QMenu(MainWindow::getInstance());
         menu->setTitle("EiskaltDC++");
@@ -254,6 +255,9 @@ void Notification::slotShowHide(){
     MainWindow *MW = MainWindow::getInstance();
 
     if (MW->isVisible()){
+#ifdef WIN32
+        MW->hide();
+#else //WIN32
         if (MW->isMinimized()){
             if (MW->isMaximized())
                 MW->showMaximized();
@@ -268,13 +272,14 @@ void Notification::slotShowHide(){
         else {
             MW->hide();
         }
+#endif
     }
     else{
         MW->show();
         MW->raise();
 
         if (tray)
-            tray->setIcon(WICON(WulforUtil::eiICON_APPL));
+            MW->redrawToolPanel();
     }
 }
 

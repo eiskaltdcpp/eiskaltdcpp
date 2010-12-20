@@ -1760,19 +1760,19 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         MainWindow::getInstance()->addArenaWidget(p);
         MainWindow::getInstance()->addArenaWidgetOnToolbar(p, WBGET(WB_CHAT_KEEPFOCUS));
 
+        p->setCompleter(completer, model);
+        p->addOutput(output);
+        p->setAttribute(Qt::WA_DeleteOnClose);
+
         if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS))
             MainWindow::getInstance()->mapWidgetOnArena(p);
-
-        p->setCompleter(completer, model);
-
-        p->addOutput(output);
-
-        p->setAttribute(Qt::WA_DeleteOnClose);
 
         pm.insert(cid, p);
 
         if (!p->isVisible() && redirectToMainChat)
             addOutput("<b>PM: </b>" + output);
+
+        p->requestFocus();
     }
     else{
         PMMap::iterator it = pm.find(cid);
@@ -1787,6 +1787,8 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
 
         if (! it.value()->isVisible() && redirectToMainChat)
             addOutput("<b>PM: </b>" + output);
+
+        it.value()->requestFocus();
     }
 }
 
@@ -2414,8 +2416,10 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 if (item)
                     addPM(item->cid, "", false);
 
-                if (pm.contains(cid))
+                if (pm.contains(item->cid)){
                     MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);
+                    pm[cid]->requestFocus();
+                }
             }
 
             break;
@@ -3513,6 +3517,9 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         const OnlineUser *user = message.from;
 
         if (chatDisabled)
+            return;
+
+        if (AntiSpam::getInstance() && AntiSpam::getInstance()->isInBlack(_q(user->getIdentity().getNick())))
             return;
 
         map["NICK"] = _q(user->getIdentity().getNick());

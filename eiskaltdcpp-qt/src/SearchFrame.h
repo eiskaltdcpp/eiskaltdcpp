@@ -130,6 +130,7 @@ public:
     ArenaWidget::Role role() const { return ArenaWidget::Search; }
 
     void requestFilter() { slotFilter(); }
+    void requestFocus() { lineEdit_SEARCHSTR->setFocus(); }
 
     bool isFindFrameActivated();
 

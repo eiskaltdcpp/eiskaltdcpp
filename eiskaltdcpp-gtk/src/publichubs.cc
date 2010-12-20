@@ -450,9 +450,9 @@ void PublicHubs::on(FavoriteManagerListener::DownloadFailed, const string &file)
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void PublicHubs::on(FavoriteManagerListener::DownloadFinished, const string &file) throw()
+void PublicHubs::on(FavoriteManagerListener::DownloadFinished, const string &file, bool fromCoral) throw()
 {
-	string msg = _("Download finished: ") + file;
+	string msg = _("Download finished: ") + file + (fromCoral ? _("from Coral") : "");
 	typedef Func2<PublicHubs, string, string> Func;
 	Func *f2 = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
 	WulforManager::get()->dispatchGuiFunc(f2);

@@ -71,11 +71,15 @@ if (FORCE_XDG)
    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
 endif (FORCE_XDG)
 
-set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
+if (WIN32)
+   set_property(TARGET dcpp PROPERTY COMPILE_FLAGS)
+else(WIN32)
+   set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
+endif (WIN32)
 
 target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
 ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE})
-set_target_properties(dcpp PROPERTIES VERSION ${VERSION} OUTPUT_NAME "eiskaltdcpp")
+set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)
   set (LIBDIR1 .)

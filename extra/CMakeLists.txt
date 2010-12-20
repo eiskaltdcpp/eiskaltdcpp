@@ -17,6 +17,10 @@ list (REMOVE_ITEM extra_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/antispam.cpp)
 
 add_library(extra STATIC ${extra_SRCS})
 
-set_property(TARGET extra PROPERTY COMPILE_FLAGS -fPIC)
+if (WIN32)
+    set_property(TARGET extra PROPERTY COMPILE_FLAGS)
+else(WIN32)
+    set_property(TARGET extra PROPERTY COMPILE_FLAGS -fPIC)
+endif (WIN32)
 
-target_link_libraries (extra ${MINIUPNP_LIBRARY})
+target_link_libraries (extra ${MINIUPNP_LIBRARY} ${GETTEXT_LIBRARIES})
