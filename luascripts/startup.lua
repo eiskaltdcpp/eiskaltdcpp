@@ -1333,7 +1333,7 @@ end
 
 --dofile( DC():GetScriptsPath() .. "bier.lua" )
 --dofile( DC():GetScriptsPath() .. "slots.lua" )
-dofile( DC():GetScriptsPath() .. "formatting.lua" )
+--dofile( DC():GetScriptsPath() .. "formatting.lua" )
 dofile( DC():GetScriptsPath() .. "uptime.lua" )
 --dofile( DC():GetScriptsPath() .. "onjoin.lua" )
 --dofile( DC():GetScriptsPath() .. "monologue.lua" )
