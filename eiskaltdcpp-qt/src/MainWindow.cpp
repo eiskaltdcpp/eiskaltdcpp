@@ -945,7 +945,8 @@ void MainWindow::initActions(){
 
         aboutClient = new QAction("", this);
         aboutClient->setMenuRole(QAction::AboutRole);
-        aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL));
+        aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL)
+                    .scaled(22, 22, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
         connect(aboutClient, SIGNAL(triggered()), this, SLOT(slotAboutClient()));
 
         aboutQt = new QAction("", this);
