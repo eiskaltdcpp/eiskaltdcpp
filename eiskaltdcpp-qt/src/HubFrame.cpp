@@ -3551,6 +3551,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             params["message"] = _tq(msg);
             client->getHubIdentity().getParams(params, "hub", false);
             params["hubURL"] = client->getHubUrl();
+            params["userNI"] = user->getIdentity().getNick();
             params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp();
             client->getMyIdentity().getParams(params, "my", true);
             LOG(LogManager::CHAT, params);
