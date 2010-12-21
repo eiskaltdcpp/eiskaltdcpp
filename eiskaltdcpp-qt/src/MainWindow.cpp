@@ -264,15 +264,19 @@ void MainWindow::beginExit(){
     setUnload(true);
 }
 
+void MainWindow::show(){
+    if (showMax)
+        showMaximized();
+    else
+        showNormal();
+}
+
 void MainWindow::showEvent(QShowEvent *e){
     if (e->spontaneous())
         redrawToolPanel();
 
     if (!showMax && w > 0 && h > 0 && w != width() && h != height())
         this->resize(QSize(w, h));
-
-    if (showMax)
-        showMaximized();
 
     if (WBGET(WB_APP_AUTO_AWAY) && !Util::getManualAway()){
         Util::setAway(false);
@@ -300,14 +304,12 @@ void MainWindow::showEvent(QShowEvent *e){
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
     if (_q(SETTING(NICK)).isEmpty()){
-
-        show();
-
+        activateWindow();
         raise();
 
         slotToolsSettings();
     }
-
+    
     e->accept();
 }
 
