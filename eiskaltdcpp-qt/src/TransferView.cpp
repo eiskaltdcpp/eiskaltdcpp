@@ -384,6 +384,14 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Transfer 
     params["PERC"]  = percent;
     params["DOWN"]  = true;
     params["TTH"] = _q(trf->getTTH().toBase32());
+    if (trf->getUserConnection().isSecure())
+    {
+        params["ENCRYPTION"] = _q(trf->getUserConnection().getCipherName());
+    }
+    else
+    {
+        params["ENCRYPTION"] = _q("Plain");
+    }
 }
 
 void TransferView::slotContextMenu(const QPoint &){
