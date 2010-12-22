@@ -696,11 +696,13 @@ void SearchFrame::getParams(SearchFrame::VarMap &map, const dcpp::SearchResultPt
 
     map["SIZE"]    = qulonglong(ptr->getSize());
 
-    if (ptr->getType() == SearchResult::TYPE_FILE){
-        QString fname = _q(ptr->getFileName());
+    QString fname = _q(ptr->getFileName());
+    const QStringList &fname_parts = fname.split('\\', QString::SkipEmptyParts);
 
+    map["FILE"] = fname_parts.isEmpty()? fname : fname_parts.last();
+
+    if (ptr->getType() == SearchResult::TYPE_FILE){
         map["TTH"]  = _q(ptr->getTTH().toBase32());
-        map["FILE"] = fname.split("\\", QString::SkipEmptyParts).last();
 
         QString path = fname.left(fname.lastIndexOf("\\"));
 
@@ -711,7 +713,6 @@ void SearchFrame::getParams(SearchFrame::VarMap &map, const dcpp::SearchResultPt
         map["ISDIR"]   = false;
     }
     else{
-        map["FILE"] = _q(ptr->getFileName()).split('\\', QString::SkipEmptyParts).last();
         map["PATH"] = _q(ptr->getFile()).left(_q(ptr->getFile()).lastIndexOf(map["FILE"].toString()));
         map["TTH"]  = "";
         map["ISDIR"] = true;
