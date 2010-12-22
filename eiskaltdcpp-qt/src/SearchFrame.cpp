@@ -19,6 +19,7 @@
 #include <QKeyEvent>
 #include <QMessageBox>
 #include <QStringListModel>
+#include <QKeyEvent>
 
 #include "SearchFrame.h"
 #include "MainWindow.h"
@@ -365,6 +366,22 @@ void SearchFrame::closeEvent(QCloseEvent *e){
     e->accept();
 }
 
+bool SearchFrame::eventFilter(QObject *obj, QEvent *e){
+    if (e->type() == QEvent::KeyRelease){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if (static_cast<LineEdit*>(obj) == lineEdit_FILTER && k_e->key() == Qt::Key_Escape){
+            lineEdit_FILTER->clear();
+
+            requestFilter();
+
+            return true;
+        }
+    }
+
+    return QWidget::eventFilter(obj, e);
+}
+
 void SearchFrame::init(){
     timer1 = new QTimer(this);
     timer1->setInterval(1000);
@@ -413,6 +430,8 @@ void SearchFrame::init(){
 
     lineEdit_SEARCHSTR->setMenu(m);
     lineEdit_SEARCHSTR->setPixmap(WICON(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+
+    lineEdit_FILTER->installEventFilter(this);
 
     connect(this, SIGNAL(coreClientConnected(QString)),    this, SLOT(onHubAdded(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreClientDisconnected(QString)), this, SLOT(onHubRemoved(QString)),Qt::QueuedConnection);
@@ -1441,10 +1460,6 @@ void SearchFrame::slotChangeProxyColumn(int col){
 void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
     if (key == WS_TRANSLATION_FILE)
         retranslateUi(this);
-}
-
-bool SearchFrame::isFindFrameActivated(){
-    return (frame_FILTER->isVisible() && lineEdit_FILTER->hasFocus());
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) throw() {

@@ -776,6 +776,14 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             return true;
         }
 
+        if (qobject_cast<LineEdit*>(obj) == lineEdit_FIND && k_e->key() == Qt::Key_Escape){
+            lineEdit_FIND->clear();
+
+            requestFilter();
+
+            return true;
+        }
+
         if (k_e->modifiers() == Qt::ControlModifier){
             if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus){
                 textEdit_CHAT->zoomIn();
@@ -2172,10 +2180,6 @@ void HubFrame::createPMWindow(const dcpp::CID &cid){
 
 bool HubFrame::hasCID(const dcpp::CID &cid, const QString &nick){
     return (model->CIDforNick(nick, _q(client->getHubUrl())) == _q(cid.toBase32()));
-}
-
-bool HubFrame::isFindFrameActivated(){
-    return lineEdit_FIND->hasFocus();
 }
 
 void HubFrame::clearUsers(){

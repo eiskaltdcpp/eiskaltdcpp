@@ -559,7 +559,7 @@ void MainWindow::initActions(){
 
         fileHideWindow = new QAction("", this);
         fileHideWindow->setObjectName("fileHideWindow");
-        SM->registerShortcut(fileHideWindow, tr("Esc"));
+        SM->registerShortcut(fileHideWindow, tr("Ctrl+Alt+H"));
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
@@ -2258,54 +2258,6 @@ void MainWindow::slotShowMainMenu() {
 }
 
 void MainWindow::slotHideWindow(){
-    QWidget *wg = arena->widget();
-
-    HubFrame     *fr = qobject_cast<HubFrame *>(wg);
-    PublicHubs   *ph = qobject_cast<PublicHubs *>(wg);
-    ShareBrowser *sb = qobject_cast<ShareBrowser *>(wg);
-    SearchFrame  *sf = qobject_cast<SearchFrame *>(wg);
-
-    if (fr){
-        if (fr->isFindFrameActivated() && WBGET(WB_TRAY_ENABLED)){
-            fr->slotHideFindFrame();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            fr->slotHideFindFrame();
-            return;
-        }
-    }
-    else if (ph){
-        if (ph->isFindFrameActivated()){
-            ph->slotFilter();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            ph->slotFilter();
-            return;
-        }
-    }
-    else if (sb){
-        if (sb->isFindFrameActivated()){
-            sb->slotFilter();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            sb->slotFilter();
-            return;
-        }
-    }
-    else if (sf){
-        if (sf->isFindFrameActivated()){
-            sf->slotFilter();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            sf->slotFilter();
-            return;
-        }
-    }
-
     if (!isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
         hide();
     }

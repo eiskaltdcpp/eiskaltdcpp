@@ -107,16 +107,12 @@ public:
     void requestFilter() { slotFilter(); }
     ArenaWidget::Role role() const { return ArenaWidget::ShareBrowser; }
 
-    bool isFindFrameActivated();
-
-public Q_SLOTS:
-    void slotFilter();
-
 protected:
     virtual void closeEvent(QCloseEvent *);
     virtual bool eventFilter(QObject *, QEvent *);
 
 private Q_SLOTS:
+    void slotFilter();
     void slotRightPaneClicked(const QModelIndex&);
     void slotRightPaneSelChanged(const QItemSelection&, const QItemSelection&);
     void slotLeftPaneSelChanged(const QItemSelection&, const QItemSelection&);

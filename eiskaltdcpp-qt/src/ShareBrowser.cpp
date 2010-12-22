@@ -249,6 +249,17 @@ bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
         else if (k_e->key() == Qt::Key_Backspace)
             goUp(tree_view);
     }
+    else if (static_cast<LineEdit*>(obj) == lineEdit_FILTER && (e->type() == QEvent::KeyRelease)){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if (k_e->key() == Qt::Key_Escape){
+            lineEdit_FILTER->clear();
+
+            requestFilter();
+
+            return true;
+        }
+    }
 
     return QWidget::eventFilter(obj, e);
 }
@@ -259,6 +270,8 @@ void ShareBrowser::init(){
     initModels();
 
     buildList();
+
+    lineEdit_FILTER->installEventFilter(this);
 
     treeView_LPANE->setModel(tree_model);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
@@ -927,10 +940,6 @@ void ShareBrowser::slotLayoutUpdated(){
 
 void ShareBrowser::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView_RPANE);
-}
-
-bool ShareBrowser::isFindFrameActivated(){
-    return (frame_FILTER->isVisible() && lineEdit_FILTER->hasFocus());
 }
 
 void ShareBrowser::slotFilter(){

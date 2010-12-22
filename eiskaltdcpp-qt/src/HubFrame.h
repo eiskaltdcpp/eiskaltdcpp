@@ -141,7 +141,6 @@ public:
     void createPMWindow(const dcpp::CID&);
 
     bool hasCID(const dcpp::CID &, const QString &);
-    bool isFindFrameActivated();
 
     inline void reconnect() { slotReconnect(); }
 
