@@ -297,7 +297,11 @@ void MainWindow::showEvent(QShowEvent *e){
 
     ArenaWidget::Role role = awgt->role();
 
-    bool widgetWithFilter = role == ArenaWidget::Hub || role == ArenaWidget::ShareBrowser || role == ArenaWidget::PublicHubs || role == ArenaWidget::Search;
+    bool widgetWithFilter = role == ArenaWidget::Hub ||
+                            role == ArenaWidget::PrivateMessage ||
+                            role == ArenaWidget::ShareBrowser ||
+                            role == ArenaWidget::PublicHubs ||
+                            role == ArenaWidget::Search;
 
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     findInWidget->setEnabled(widgetWithFilter);
@@ -1683,8 +1687,6 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
 
     wcontainer->mapped(awgt);
-
-    QWidget *wg = arenaMap[awgt];
 
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
