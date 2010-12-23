@@ -1125,7 +1125,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="633"/>
         <source>%1 (%2)</source>
-        <translation>%1 (2%)</translation>
+        <translation>%1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1604"/>
@@ -1990,7 +1990,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="518"/>
         <source>Ctrl+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="879"/>
@@ -2056,7 +2056,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1093"/>
         <location filename="../src/MainWindow.cpp" line="1978"/>
         <source>Open magnet link</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít magnet</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1175"/>
@@ -2141,7 +2141,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1978"/>
         <source>Enter magnet link:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlož magnet:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2373"/>
@@ -2522,12 +2522,12 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/PublicHubs.cpp" line="282"/>
         <source>Hub list downloaded... (%1 %2) </source>
-        <translation type="unfinished"></translation>
+        <translation>Seznam hubů stažen... (%1 %2) </translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="282"/>
         <source>from Coral</source>
-        <translation type="unfinished"></translation>
+        <translation>ze síťe Coral</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1)</source>
@@ -3401,7 +3401,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="78"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished">Kopírovat web-magnet</translation>
+        <translation>Kopírovat web-magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
@@ -3411,17 +3411,17 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="83"/>
         <source>Add restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Vložit omezení</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
         <source>Remove restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Odebrat omezení</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="85"/>
         <source>Open directory</source>
-        <translation type="unfinished">Otevřít složku</translation>
+        <translation>Otevřít složku</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="158"/>
@@ -3446,7 +3446,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="812"/>
         <source>Enter restriction size (in GB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vložit limit omezení (v GB)</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="275"/>
@@ -3456,12 +3456,12 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="66"/>
         <source>Restrictions</source>
-        <translation type="unfinished">Omezení</translation>
+        <translation>Omezení</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="67"/>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="277"/>
@@ -3608,7 +3608,8 @@ Staženo: %3 Odesláno: %4</translation>
         <location filename="../src/SingleInstanceRunner.cpp" line="26"/>
         <source>Internal server running on %1
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Internal server running on %1
+</translation>
     </message>
 </context>
 <context>
@@ -4429,22 +4430,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="137"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Základní</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="142"/>
         <source>Active</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivní</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="147"/>
         <source>Passive</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasivní</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="155"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mód</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="165"/>
@@ -4829,42 +4830,42 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     <message>
         <location filename="../ui/PrivateMessage.ui" line="53"/>
         <source>Find:</source>
-        <translation type="unfinished"></translation>
+        <translation>Najít:</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="60"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Předchozí (Shift+F3)</translation>
+        <translation>Předchozí (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="63"/>
         <source>&lt;</source>
-        <translation type="unfinished">&lt;</translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="70"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Další (F3)</translation>
+        <translation>Další (F3)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="73"/>
         <source>&gt;</source>
-        <translation type="unfinished">&gt;</translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="80"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation type="unfinished">Skrýt hledání (Ctrl+F)</translation>
+        <translation>Skrýt hledání (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="90"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Zvýraznit vše</translation>
+        <translation>Zvýraznit vše</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="93"/>
         <source>A</source>
-        <translation type="unfinished">Z</translation>
+        <translation>Z</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="186"/>
@@ -4944,17 +4945,17 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="29"/>
         <source>Blacklist</source>
-        <translation type="unfinished">Černá listina</translation>
+        <translation>Černá listina</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="75"/>
         <source>Cancel</source>
-        <translation type="unfinished">Zrušit</translation>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="82"/>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -5752,7 +5753,7 @@ nebo &quot;Odebrat pomalé seznamy souborů&quot; (nebo obě volby).</translatio
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="200"/>
         <source>Try to use system icons (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokusit se použít systémové ikony (vyžaduje restart)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="208"/>
@@ -5952,7 +5953,7 @@ jsou obvykle dostupné operátorům</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="685"/>
         <source>Parse BBCode</source>
-        <translation type="unfinished"></translation>
+        <translation>Používat BBCode</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="706"/>
@@ -5989,7 +5990,7 @@ jsou obvykle dostupné operátorům</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="843"/>
         <source>Change background color in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Změnit barvu pozadí v chatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="886"/>
@@ -6854,17 +6855,17 @@ přidané sloty se již neuzavřou.</translation>
     <message>
         <location filename="../src/WulforUtil.cpp" line="768"/>
         <source>Command parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Parametry příkazu</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="806"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="807"/>
         <source>Cancel</source>
-        <translation type="unfinished">Zrušit</translation>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="878"/>
