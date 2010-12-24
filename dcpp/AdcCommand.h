@@ -203,10 +203,8 @@ public:
                 C(SID);
                 C(CMD);
                 C(PSR);
-#ifndef DISABLE_NAT_TRAVERSAL
                 C(NAT);
                 C(RNT);
-#endif
             default:
                 dcdebug("Unknown ADC command: %.50s\n", aLine.c_str());
                 break;
