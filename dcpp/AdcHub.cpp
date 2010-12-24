@@ -976,13 +976,13 @@ void AdcHub::info(bool /*alwaysSend*/) {
     addParam(lastInfoMap, c, "VE", getClientId().c_str());
     addParam(lastInfoMap, c, "AW", Util::getAway() ? "1" : Util::emptyString);
     int limit = ThrottleManager::getInstance()->getDownLimit();
-    if (limit > 0) {
+    if (limit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
         addParam(lastInfoMap, c, "DS", Util::toString(limit * 1024));
     } else {
          addParam(lastInfoMap, c, "DS", Util::emptyString);
     }
     limit = ThrottleManager::getInstance()->getUpLimit();
-    if (limit > 0) {
+    if (limit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
         addParam(lastInfoMap, c, "US", Util::toString(limit * 1024));
     } else {
         addParam(lastInfoMap, c, "US", Util::toString((long)(Util::toDouble(SETTING(UPLOAD_SPEED))*1024*1024/8)));
