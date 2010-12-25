@@ -1740,7 +1740,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="562"/>
         <source>Ctrl+Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="884"/>
@@ -4072,7 +4072,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Encryption</source>
-        <translation type="unfinished"></translation>
+        <translation>Шифриране</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="105"/>
