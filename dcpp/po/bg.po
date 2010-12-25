@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-16 00:21+0200\n"
-"PO-Revision-Date: 2010-12-16 15:57+0200\n"
+"POT-Creation-Date: 2010-12-25 15:24+0200\n"
+"PO-Revision-Date: 2010-12-20 19:57+0200\n"
 "Last-Translator: Rusi Dimitrov <dimitrov.rusi@gmail.com>\n"
 "Language-Team: Bulgarian < >\n"
 "Language: Bulgarian\n"
@@ -148,15 +148,15 @@ msgstr "IP-филтър: Блокиране на входящи връзки к�
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Потребител напуска хъба поради прекъсната връзка: %1%"
 
-#: ../SettingsManager.cpp:501
+#: ../SettingsManager.cpp:502
 msgid "Invalid search type name"
 msgstr "Неправилно име за тип търсене"
 
-#: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
+#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
 msgid "This search type already exists"
 msgstr "Този тип търсене вече съществува"
 
-#: ../SettingsManager.cpp:559
+#: ../SettingsManager.cpp:560
 msgid "No such search type"
 msgstr "Няма такъв тип търсене"
 
@@ -177,7 +177,7 @@ msgstr ""
 "хъба да го поправи"
 
 #: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:261 ../SearchManager.cpp:415 ../SearchManager.cpp:417
+#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Извън линия"
 
@@ -209,7 +209,7 @@ msgstr "%1% бе изгонен от %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% бе изгонен: %2%"
 
-#: ../AdcHub.cpp:672
+#: ../AdcHub.cpp:671
 msgid "Not listening for connections - please restart %1%"
 msgstr "Не се следи за връзки - моля, рестартирайте %1%"
 
@@ -520,11 +520,11 @@ msgstr "%1%: Файла не е достъпен"
 msgid "All download slots taken"
 msgstr "Всички слотове за сваляне са заети"
 
-#: ../ConnectionManager.cpp:259
+#: ../ConnectionManager.cpp:260
 msgid "Connectivity restored"
 msgstr "Връзката е възстановена"
 
-#: ../ConnectionManager.cpp:266
+#: ../ConnectionManager.cpp:267
 msgid "Connectivity error: %1%"
 msgstr "Грешка при свързване: %1%"
 
@@ -572,7 +572,7 @@ msgstr "CD изображение"
 msgid "Search enabled again"
 msgstr "Търсенето е включено отново"
 
-#: ../SearchManager.cpp:159
+#: ../SearchManager.cpp:160
 msgid "Search disabled: %1%"
 msgstr "Търсенето е изключено: %1%"
 

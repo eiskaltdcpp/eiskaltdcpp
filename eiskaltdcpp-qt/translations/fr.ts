@@ -1477,7 +1477,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Esc</source>
-        <translation>Échap</translation>
+        <translation type="obsolete">Échap</translation>
     </message>
     <message>
         <source>Show/hide find frame</source>
@@ -2140,6 +2140,10 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Enter magnet link:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Alt+H</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3661,6 +3665,10 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>Finished</source>
         <translation>Terminé</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

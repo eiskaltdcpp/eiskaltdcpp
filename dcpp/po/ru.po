@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-16 00:21+0200\n"
+"POT-Creation-Date: 2010-12-25 15:24+0200\n"
 "PO-Revision-Date: 2010-12-20 21:24+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -146,15 +146,15 @@ msgstr "IPFilter: заблокировано входящее соединени
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Пользователь %1% отключился и покинул хаб"
 
-#: ../SettingsManager.cpp:501
+#: ../SettingsManager.cpp:502
 msgid "Invalid search type name"
 msgstr "Неверное имя поискового типа"
 
-#: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
+#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
 msgid "This search type already exists"
 msgstr "Этот поисковый тип уже существует"
 
-#: ../SettingsManager.cpp:559
+#: ../SettingsManager.cpp:560
 msgid "No such search type"
 msgstr "Нет такого поискового типа"
 
@@ -175,7 +175,7 @@ msgstr ""
 "владельцу хаба, чтобы он исправил это"
 
 #: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:261 ../SearchManager.cpp:415 ../SearchManager.cpp:417
+#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Не в сети"
 
@@ -207,7 +207,7 @@ msgstr "%1% кикнут %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% кикнут %2%"
 
-#: ../AdcHub.cpp:672
+#: ../AdcHub.cpp:671
 msgid "Not listening for connections - please restart %1%"
 msgstr "Соединения не обрабатываются - пожалуйста перезапустите %1%"
 
@@ -517,11 +517,11 @@ msgstr "%1%: Файл недоступен"
 msgid "All download slots taken"
 msgstr "Все слоты закачек заняты"
 
-#: ../ConnectionManager.cpp:259
+#: ../ConnectionManager.cpp:260
 msgid "Connectivity restored"
 msgstr "Соединение восстановлено"
 
-#: ../ConnectionManager.cpp:266
+#: ../ConnectionManager.cpp:267
 msgid "Connectivity error: %1%"
 msgstr "Ошибка соединения: %1%"
 
@@ -569,7 +569,7 @@ msgstr "CD образ"
 msgid "Search enabled again"
 msgstr "Поиск снова включен"
 
-#: ../SearchManager.cpp:159
+#: ../SearchManager.cpp:160
 msgid "Search disabled: %1%"
 msgstr "Поиск отключен: %1%"
 
