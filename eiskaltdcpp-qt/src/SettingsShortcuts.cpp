@@ -11,6 +11,7 @@
 #include "ShortcutManager.h"
 #include "MainWindow.h"
 #include "CustomSetting.h"
+#include "ShortcutGetter.h"
 
 #include <QMap>
 #include <QKeySequence>
@@ -27,8 +28,9 @@ SettingsShortcuts::SettingsShortcuts(QWidget *parent) :
 
     model = new ShortcutsModel(this);
     treeView->setModel(model);
-    treeView->setItemDelegate(new ShortcutsDelegate(this));
     treeView->header()->restoreState(QByteArray::fromBase64(WSGET(TREEVIEW_STATE_KEY).toAscii()));
+
+    connect(treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(slotIndexClicked(QModelIndex)));
 }
 
 SettingsShortcuts::~SettingsShortcuts(){
@@ -39,6 +41,26 @@ void SettingsShortcuts::ok(){
     model->save();
 
     WSSET(TREEVIEW_STATE_KEY, treeView->header()->saveState().toBase64());
+}
+
+void SettingsShortcuts::slotIndexClicked(const QModelIndex &index){
+    if (!(index.isValid() && index.column() == 1))
+        return;
+
+    ShortcutItem *item = reinterpret_cast<ShortcutItem*>(index.internalPointer());
+
+    if (!item)
+        return;
+
+    ShortcutGetter getter(MainWindow::getInstance());
+    QString ret;
+
+    if ((ret = getter.exec(item->shortcut)).isNull())
+        return;
+
+    item->shortcut = ret;
+
+    model->repaint();
 }
 
 ShortcutsModel::ShortcutsModel(QObject * parent) : QAbstractItemModel(parent) {
@@ -207,47 +229,4 @@ int ShortcutItem::row() const {
         return parentItem->childItems.indexOf(const_cast<ShortcutItem*>(this));
 
     return 0;
-}
-
-ShortcutsDelegate::ShortcutsDelegate(QObject *parent):
-        QStyledItemDelegate(parent)
-{
-}
-
-ShortcutsDelegate::~ShortcutsDelegate(){
-}
-
-QWidget *ShortcutsDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
-    if (index.column() == 1){
-        ShortcutEdit *edit = new ShortcutEdit(parent);
-
-        connect(edit, SIGNAL(clearEdit()), edit, SLOT(clear()));
-
-        return edit;
-    }
-    else
-        return NULL;
-}
-
-void ShortcutsDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const{
-    editor->setGeometry(option.rect);
-}
-
-void ShortcutsDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const{
-    ShortcutEdit *edit = qobject_cast<ShortcutEdit* >(editor);
-
-    if (edit && index.isValid())
-        edit->setText(index.data().toString());
-}
-
-void ShortcutsDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const{
-    ShortcutEdit *edit = qobject_cast<ShortcutEdit* >(editor);
-    ShortcutsModel *m = qobject_cast<ShortcutsModel* >(model);
-
-    if (edit && index.isValid() && m){
-        ShortcutItem *item = reinterpret_cast<ShortcutItem* >(index.internalPointer());
-        item->shortcut = edit->text();
-
-        m->repaint();
-    }
 }

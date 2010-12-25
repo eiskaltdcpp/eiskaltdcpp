@@ -1679,6 +1679,9 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     if (arena->widget() == awgt->getWidget()){
         wcontainer->mapped(awgt);
+
+        awgt->requestFocus();
+
         return;
     }
 
