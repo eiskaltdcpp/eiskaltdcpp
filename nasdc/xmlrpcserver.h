@@ -1,3 +1,14 @@
+/***************************************************************************
+*                                                                         *
+*   Copyright 2010 Eugene Petrov <dhamp@ya.ru>                            *
+*                                                                         *
+*   This program is free software; you can redistribute it and/or modify  *
+*   it under the terms of the GNU General Public License as published by  *
+*   the Free Software Foundation; either version 2 of the License, or     *
+*   (at your option) any later version.                                   *
+*                                                                         *
+***************************************************************************/
+
 #ifndef XMLRPCSERVER_H_
 #define XMLRPCSERVER_H_
 
@@ -108,9 +119,9 @@ public:
 
         string const smagnet(paramList.getString(0));
         string const sddir(paramList.getString(1));
-    
+
         paramList.verifyEnd(2);
-        
+
         string name,tth;int64_t size;
         bool ok = splitMagnet(smagnet, name, size, tth);
         if (ok){
@@ -118,7 +129,7 @@ public:
                 name = sddir+name;
             else
                 name = SETTING(DOWNLOAD_DIRECTORY) + name;
-            
+
            QueueManager::getInstance()->add(name, size, TTHValue(tth));
             *retvalP = xmlrpc_c::value_string("Magnet added in queue");
         }
