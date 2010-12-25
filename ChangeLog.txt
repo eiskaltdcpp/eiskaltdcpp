@@ -1,6 +1,6 @@
 --- 2.2.0 2011-01-15 ---
 *** common changes ***
-* Completed the transition to the 0.770 kernel.
+* Completed the transition to the 0.770 kernel. Version 0.770 is conditional, since it's used the patches from more recent revisions. However, full synchronization is with the kernel DC++ is not planned because of some of its shortcomings. For example: 1) a deeper connection to libboost; 2) using of the code, which requires -std=c++0x and gcc >= 4.5.x.
 * Broken support for Lua-scripts. Build the program with -DLUA_SCRIPT=OFF.
 * Thanks to Uhlik the Czech translation is now available.
 * Now limit on share size doesn't apply to favorite users and users with granted slots.
@@ -36,6 +36,10 @@
 * Fixed small bug AntiSpam module for the main chat. (It was added in version 2.1.0)
 * Fixed a false light files as duplicates in the results of ADL-search.
 * Fixed blurred program icon on the taskbar in MS Windows 7.
+* Fixed using %[userNI] in the logs of the chat. (Bug was added in version 2.1.0)
+* Added a column with information about using of encryption in the transfers list.
+* Fixed a program crash when getting in the search results entries with a blank file name.
+* When window is activate input field will receive focus again. (The problem was added in version 2.1.0)
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
 * Fixed path to lock file of launched program (it was ~/.dc++/). Now it launches only one instance of the DC-client and magnet-links are correctly intercepted by it.
